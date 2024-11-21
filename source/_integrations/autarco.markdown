@@ -22,6 +22,17 @@ Autarco is a Dutch company that provides solar panels, inverters and batteries. 
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Email:
+  description: The email address of your Autarco account.
+  required: true
+  type: string
+Password:
+  description: The password of your Autarco account.
+  required: true
+  type: string
+{% endconfiguration_basic %}
+
 ## Sensors
 
 The Autarco platform mainly provides sensors that you can use in your [energy dashboard](/energy).
