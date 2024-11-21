@@ -59,7 +59,7 @@ The MQTT integration and its entities can be removed by following these steps:
 2. Find the MQTT integration and click on it
 3. Click the delete button to remove the MQTT config entry
 
-Note: This action does not remove the [MQTT broker]((#setting-up-a-broker)) or its data. If you want to completely remove MQTT:
+Note: This action does not remove the [MQTT broker](#setting-up-a-broker) or its data. If you want to completely remove MQTT:
 
 1. Check your `configuration.yaml` and other YAML files for MQTT-related configurations and remove them
 2. Review your automations and scripts for any MQTT dependencies
