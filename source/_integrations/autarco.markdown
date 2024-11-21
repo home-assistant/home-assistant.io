@@ -54,3 +54,9 @@ If you have a battery connected to your system, you can monitor the battery stat
 - Charged energy today (kWh)
 - Charged energy this month (kWh)
 - Charged energy total (kWh)
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
