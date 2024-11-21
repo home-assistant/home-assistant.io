@@ -33,10 +33,28 @@ related:
 
 The integration allows you to control [Reolink](https://reolink.com/) NVRs or cameras. Reolink cameras are known for their local storage, without the need for a cloud subscription or account. Reolink cameras can operate fully locally on your network, putting privacy first. When blocking internet access for the Reolink devices, the Home Assistant integration, as well as the Reolink app/client, will continue to work as usual. Reolink cameras provide excellent day- and nighttime video clarity at an affordable price. An SD card in the camera offers local recording, while an optional Reolink NVR/Hub can offer a large recording capacity indoors. As evident by the list of entities in this documentation, Reolink cameras are highly configurable and tightly integrated into Home Assistant.
 
-{% include integrations/config_flow.md %}
+## Prerequisites
+
+A brand new Reolink camera needs to be connected to the network and initialized. During initialization, the camera's credentials need to be set. Refer to the [Initial setup](#initial-setup) section for detailed instructions.
 
 - On the Reolink device, a user account with admin privileges is needed for the proper operation of this integration.
 - The password used for the Reolink device can only contain characters `a-z, A-Z, 0-9 or @$*~_-+=!?.,:;'()[]`. Other special characters will cause encoding issues in the video streams used by this integration and are, therefore, not allowed. When using an incompatible special character in the password, the integration will prompt you to change the password.
+
+{% include integrations/config_flow.md %}
+{% configuration_basic %}
+Host:
+    description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** -> **Device** (top icon) -> **Networkinformation** -> **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
+    required: false
+    type: string
+Username:
+    description: "Username to log in to the Reolink device itself. Not the Reolink cloud account."
+    required: true
+    type: string
+Password:
+    description: "Password to log in to the Reolink device itself. Not the Reolink cloud account."
+    required: true
+    type: string
+{% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
