@@ -1,5 +1,5 @@
 ---
-title: Assist - Talking to Home Assistant
+title: Talking with Home Assistant - get your system up & running
 related:
   - docs: /voice_control/android
     title: Assist on Android
@@ -21,7 +21,7 @@ related:
     title: Home Assistant Cloud
 ---
 
-<img src='/images/assist/assist-logo.png' class='no-shadow' alt='Assist logo' style='width: 150px; float: right'>
+This section will help you set up Assist, which is Home Assistant voice assistant. 
 
 Assist allows you to control Home Assistant using natural language. It is built on top of an open voice foundation and powered by knowledge provided by our community.
 
@@ -29,7 +29,9 @@ Assist is available to use on most platforms that can interface with Home Assist
 
 <lite-youtube videoid="XF53wUbeLxA" videotitle="Voice at Home Assistant"></lite-youtube>
 
-_Want to use Home Assistant with Google Assistant or Amazon Alexa? Get started with [Home Assistant Cloud](https://www.nabucasa.com/config/)._
+As for the rest of Home Assistant core functionalities, Assist can be personalized and extended to fit your needs.
+- It can work locally or leverage the greatest LLMs of the moment.
+- It can work on your phone or tablet, 
 
 ## Assist on your phone
 
