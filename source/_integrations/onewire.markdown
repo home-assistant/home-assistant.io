@@ -138,4 +138,4 @@ Remember to replace `<sensor_name>` with the actual name of the sensor, as seen 
 
 This integration follows standard integration removal, no extra steps are required.
 
-{% include common-tasks/remove_device_service.md %}
+{% include integrations/remove_device_service.md %}
