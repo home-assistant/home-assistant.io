@@ -30,4 +30,6 @@ If you no longer want to use a device or service in Home Assistant, you can remo
 
 The following steps describe the general steps needed to remove an integration instance. Depending on the integration, additional steps can be needed, such as resetting the device or to delete credentials. Refer to the integration documentation to see if additional steps are needed.
 
-{% include common-tasks/remove_device_service.md %}
+{% include integrations/remove_device_service.md %}
+
+![Screenshot showing how to remove an integration instance](/images/docs/configuration/integration_instance_delete.png)
