@@ -111,6 +111,7 @@ This integration only supports functionality that is available locally. This mea
 - Key pads
 
 ## Remove integration
+
 This integration follows standard integration removal, no extra steps are required.
 
 {% include common-tasks/remove_device_service.md %}
