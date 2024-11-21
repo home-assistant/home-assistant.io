@@ -37,4 +37,4 @@ However, `NCC` models do not appear to expose this REST API, and are therefore u
 
 This integration follows standard integration removal, no extra steps are required.
 
-{% include common-tasks/remove_device_service.md %}
+{% include integrations/remove_device_service.md %}
