@@ -26,7 +26,7 @@ On top of exposing the needed data, it is worth noting that you will most likely
 - *Turn off the office lights*
 
 So make sure your devices and entities are correctly assigned to areas, and your areas are correctly assigned to floors.
-Learn how [here](https://www.home-assistant.io/voice_control/assign_areas_floors/).
+Learn how [here](/voice_control/assign_areas_floors/).
 
 Once your devices and entities are correctly 
 - Exposed to assist
