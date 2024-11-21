@@ -229,7 +229,11 @@ The ZHA integration has the ability to perform OTA (over-the-air) firmware updat
 To see OTA updates for a device, it's required that it both supports OTA updates and that firmware images for the device are publicly provided by the manufacturer. For this reason, ZHA currently only includes OTA providers for a few manufacturers that provide these updates publicly. This includes IKEA, Inovelli, Ledvacnce/OSRAM, SALUS/Computime, Sonoff/iTead, and Third Reality.
 
 {% warning %}
-Before updating a device, you should search for any disadvantages or if you even need to install an available update. Some firmware updates can break features you might use (e.g. group binding for IKEA devices). Some updates might also require changes to ZHA. In rare cases, you can even brick devices by installing a firmware update.
+- Always check if the firmware update will bring you advantages or disadvantages, you might not need to install an available update and can maybe just ignore it. Firmware updates are often not made specifically for this ZHA integration but instead only tested to work with different Zigbee gateways (usually just from the same brand). Some firmware updates can break features you might use (e.g. group binding for IKEA devices). Some updates might also require changes to ZHA. In rare cases, you can even brick devices by installing a firmware update. The best practise is therefore to search online and read the device manufacturer changelog before deciding to upgrade the firmware on any specific device. 
+Some other more general but related tips are these:
+- Recommend you check that battery-powered devices have at least 70% battery life before upgrading.
+- OTA updates can take 10 minutes or longer and generate significant network traffic, be patient!
+  - Multiple simultaneous updates is not recommended as it generates more Zigbee network traffic.
 {% endwarning %}
 
 ## Configuration - YAML
