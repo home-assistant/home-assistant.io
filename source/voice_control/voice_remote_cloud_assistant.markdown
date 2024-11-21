@@ -9,6 +9,8 @@ related:
     title: Creating a local assistant
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing devices to Assist
+  - docs: /voice_control/best_practices/
+    title: Best practices with Assist
 ---
 
 Before being able to use Assist, you need to configure it.

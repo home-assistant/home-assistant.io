@@ -1,5 +1,5 @@
 ---
-title: Assist - sentences starter kit
+title: Talking to Assist - Sentences starter pack
 related:
   - docs: /voice_control/aliases/
     title: Create aliases
@@ -15,6 +15,8 @@ related:
     title: Template sentence syntax documentation
   - url: https://github.com/home-assistant/intents/tree/main/sentences
     title: Sentence test cases
+  - docs: /voice_control/best_practices/
+    title: Best practices with Assist
 ---
 
 Home Assistant comes with [built-in sentences](https://github.com/home-assistant/intents/tree/main/sentences) contributed by the community for [dozens of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).

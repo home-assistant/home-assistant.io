@@ -9,6 +9,8 @@ related:
     title: Whisper for speech-to-text
   - url: https://github.com/rhasspy/piper
     title: Piper for text-to-speech
+  - docs: /voice_control/best_practices/
+    title: Best practices with Assist
 ---
 
 The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and test-to-speech) included in [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) 

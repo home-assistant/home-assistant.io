@@ -6,6 +6,8 @@ related:
     title: Creating a Cloud assistant
   - docs: /voice_control/voice_remote_local_assistant/
     title: Creating a local assistant
+  - docs: /voice_control/best_practices/
+    title: Best practices with Assist
 ---
 
 To be able to control your devices over a voice command, you must expose your entities to Assist.

@@ -3,20 +3,12 @@ title: Talking with Home Assistant - get your system up & running
 related:
   - docs: /voice_control/android
     title: Assist on Android
-  - docs: /voice_control/android/#assist-on-wear-os
-    title: Assist on Wear OS 
   - docs: /voice_control/apple
-    title: Siri and Assist shortcuts
-  - docs: /voice_control/start_assist_from_dashboard/
-    title: Assist dashboard button
+    title: Assist on Apple
   - docs: /voice_control/thirteen-usd-voice-remote/
     title: Build a 13$ voice remote using an ESPHome device
-  - docs: /voice_control/install_wake_word_add_on
-    title: Enable a wake word
-  - docs: /voice_control/create_wake_word/
-    title: Create your own wake words
-  - docs: /voice_control/builtin_sentences
-    title: Sentences starter kit
+  - docs: /voice_control/best_practices/
+    title: Best practices with Assist
   - url: https://www.nabucasa.com/config/
     title: Home Assistant Cloud
 ---

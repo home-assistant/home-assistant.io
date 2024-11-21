@@ -7,6 +7,8 @@ related:
     title: Floors
   - docs: /voice_control/custom_sentences/
     title: Assist - custom sentences
+  - docs: /voice_control/best_practices/
+    title: Best practices with Assist
 ---
 
 Another best practice with Assist is to create an architecture of areas and floors in your home, since it will make it consistent and easy to understand for Assist.
