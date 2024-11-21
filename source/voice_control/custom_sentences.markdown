@@ -17,7 +17,7 @@ You may add your own sentences to the intent recognizer by either extending an [
 
 ## Prerequisites
 
-You need a working Assist configuration. If you haven't done so yet, check [Assist's starting page](https://www.home-assistant.io/voice_control/) to get you ready with your setup.
+You need a working Assist configuration. If you haven't done so yet, check [Assist's starting page](/voice_control/) to get you ready with your setup.
 
 
 ## Add a custom sentence to trigger an automation

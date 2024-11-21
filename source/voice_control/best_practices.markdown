@@ -19,7 +19,7 @@ Let's go through these two key concepts
 
 You control what data Assist has access to, and what it can control.
 Every entity in Home Assistant can be exposed or not to Assist.
-Learn how in [Exposing your entities to Assist](https://www.home-assistant.io/voice_control/voice_remote_expose_devices/) 
+Learn how in [Exposing your entities to Assist](/voice_control/voice_remote_expose_devices/) 
 
 On top of exposing the needed data, it is worth noting that you will most likely target entities through areas and floors, like:
 
@@ -34,12 +34,12 @@ Once your devices and entities are correctly
 
 It is now time to speak to your device.
 
-For setting up your device (and have a mic and speaker to execute the voice interaction) you can either have your phone or a custom device. Check here how to do it in [Android](https://www.home-assistant.io/voice_control/android/) and [Apple](https://www.home-assistant.io/voice_control/apple/) devices.
+For setting up your device (and have a mic and speaker to execute the voice interaction) you can either have your phone or a custom device. Check here how to do it in [Android](/voice_control/android/) and [Apple](/voice_control/apple/) devices.
 
 ### Some examples to get you started
 
-There are a few example commands to help you get started in [our Sentences Starter Pack](https://www.home-assistant.io/voice_control/builtin_sentences/).
+There are a few example commands to help you get started in [our Sentences Starter Pack](/voice_control/builtin_sentences/).
 
 If you don't get the right response, we recommend you check the Aliases. Sometimes, different household members may call an entity differently. You may say "TV", whereas someone else may say "Television" 
 
-You can create aliases for exposed entities so that you can target them using different names with Assist. Aliases are available at entity, area, and floor level. Learn how in the [Alias tutorial](https://www.home-assistant.io/voice_control/aliases/).
+You can create aliases for exposed entities so that you can target them using different names with Assist. Aliases are available at entity, area, and floor level. Learn how in the [Alias tutorial](/voice_control/aliases/).

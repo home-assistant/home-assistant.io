@@ -12,8 +12,8 @@ If you wish to develop your own Assist device here are some useful advices we ca
 2. Make sure your setup is going to work with enough quality when adding a voice assistant.
 
 3. Check hardware options, some options we cover in the documentation are:
-- [ATOM Echo](https://www.home-assistant.io/voice_control/thirteen-usd-voice-remote/)
-- [ESP32-S3-BOX devices](https://www.home-assistant.io/voice_control/s3_box_voice_assistant/)
-- For [landline setups](https://www.home-assistant.io/voice_control/worlds-most-private-voice-assistant/) be sure to have [VOIP](https://www.home-assistant.io/integrations/voip/)
+- [ATOM Echo](/voice_control/thirteen-usd-voice-remote/)
+- [ESP32-S3-BOX devices](/voice_control/s3_box_voice_assistant/)
+- For [landline setups](/voice_control/worlds-most-private-voice-assistant/) be sure to have [VOIP](/integrations/voip/)
 
-4. Be sure you check all the addons implied in text-to-speech and speech-to-text, like the [Wyoming protocol](https://www.home-assistant.io/integrations/wyoming/).
+1. Be sure you check all the addons implied in text-to-speech and speech-to-text, like the [Wyoming protocol](/integrations/wyoming/).

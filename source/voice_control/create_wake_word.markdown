@@ -17,7 +17,7 @@ related:
 
 Wake words are special words or phrases that tell a voice assistant that a command is about to be spoken. The device then switches from passive to active listening. Examples are: Hey Google, Hey Siri, or Alexa. Home Assistant supports its own wake words, such as Hey Nabu.
 
-If you want to know more about this topic check [the Home Assistant approach to wake words](https://www.home-assistant.io/voice_control/about_wake_word/).
+If you want to know more about this topic check [the Home Assistant approach to wake words](/voice_control/about_wake_word/).
 
 ## Enabling a wake word
 
@@ -67,8 +67,8 @@ Enabling a wake word consists of 2 steps:
 ## Try it! 
 
 Right now, there are two easy options to get started using wake words:
-- Follow the [guide to the $13 voice assistant](https://www.home-assistant.io/voice_control/thirteen-usd-voice-remote/). This tutorial is using the tiny ATOM Echo, detecting wake words with openWakeWord.
-- Follow the [guide to set up an ESP32-S3-BOX-3 voice assistant](https://www.home-assistant.io/voice_control/s3_box_voice_assistant/). This tutorial is using the bigger S3-BOX-3 device which features a display. It can detect wake words using openWakeWord. But it can also do on-device wake word detection using microWakeWord.
+- Follow the [guide to the $13 voice assistant](/voice_control/thirteen-usd-voice-remote/). This tutorial is using the tiny ATOM Echo, detecting wake words with openWakeWord.
+- Follow the [guide to set up an ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/). This tutorial is using the bigger S3-BOX-3 device which features a display. It can detect wake words using openWakeWord. But it can also do on-device wake word detection using microWakeWord.
 
 ## Create your own wake word
 
