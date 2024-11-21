@@ -192,10 +192,10 @@ Perform a local search on the Music Assistant library.
 
 Get the full queue details of a Music Assistant Queue.
 
-- **Data attribute**: `queue_id`
+- **Data attribute**: `entity_id`
   - **Optional**: No.
-  - **Description**: The id of the queue to be retrieved. This is the `active_queue` attribute of a MA media player entity.
-  - **Example**: `syncgroup_ajxbx9h2`
+  - **Description**: The entity_id of the queue to be retrieved.
+  - **Example**: `media_player.kitchen_speaker`
     
 ### Action `music_assistant.transfer_queue`
 
