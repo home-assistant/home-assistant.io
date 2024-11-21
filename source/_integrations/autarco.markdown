@@ -29,6 +29,10 @@ Password:
   description: The password of your Autarco account.
 {% endconfiguration_basic %}
 
+## Data updates
+
+The integration will poll the Autarco API every 5 minutes to update the data in Home Assistant.
+
 ## Sensors
 
 The Autarco platform mainly provides sensors that you can use in your [energy dashboard](/energy).
