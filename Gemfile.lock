@@ -8,7 +8,7 @@ GEM
     bigdecimal (3.1.8)
     chunky_png (1.4.0)
     colorator (1.1.0)
-    commonmarker (0.23.10)
+    commonmarker (0.23.11)
     compass (1.0.3)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.2)
