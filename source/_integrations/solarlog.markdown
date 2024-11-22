@@ -136,7 +136,7 @@ The integration fetches data from the device every minute.
 
 ## Actions
 
-The integration provides no actions.
+The integration provides no additional actions.
 
 ## Known limitations
 
