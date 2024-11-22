@@ -34,6 +34,15 @@ You create your API token on your Mealie installation:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+URL:
+  description: The URL of your Mealie installation.
+API token:
+  description: The API token for your Mealie installation you generated in the prerequisites.
+Verify SSL certificate:
+  description: Enable unless you are using a self signed certificate on your Mealie installation.
+{% endconfiguration_basic %}
+
 ## Available calendars
 
 The integration will create a calendar for every type of meal plan, which are updated once an hour:
