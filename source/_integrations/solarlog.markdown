@@ -43,8 +43,6 @@ To setup the integration you need the following information:
 {% configuration_basic %}
 Name:
     description: "The name for your Solar-Log device in Home Assistant. This will also be uses as prefix for the entity names."
-    required: true
-    type: string
 Host:
     description: "The URL or IP address of your Solar-Log."
     required: true
