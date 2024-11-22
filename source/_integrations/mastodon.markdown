@@ -26,6 +26,25 @@ If you want to grant only required accesses, uncheck all checkboxes then check o
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+URL:
+  description: The URL of your Mastodon instance, for example `https://mastodon.social`.
+  required: true
+  type: string
+Client key:
+  description: The client key for the application created within your Mastodon account web interface.
+  required: true
+  type: string
+Client secret:
+  description: The client secret for the application created within your Mastodon account web interface.
+  required: true
+  type: string
+Access token:
+  description: The access token for the application created within your Mastodon account web interface.
+  required: true
+  type: string
+{% endconfiguration_basic %}
+
 ## Sensors
 
 The integration will create sensors for the Mastodon account showing total followers, following, and posts. Sensors are updated once an hour.
