@@ -51,7 +51,7 @@ User password available:
     description: "Check the box, if you have the password for the Solar-Log user to securely access [all data](#additional-data)."
     required: false
     type: bool
-User Password available:
+Password:
     description: "Password for the Solar-Log user. Will only be asked for in a second step, if in the first step the checkbox has been selected."
     required: false
     type: string
