@@ -66,7 +66,9 @@ Protocol:
 
 If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#enabling-entities) first.
 
-## Camera streams
+## Supported functionality
+
+### Camera streams
 
 This integration creates a few camera entities, one for each stream type with different resolutions:
 
@@ -80,7 +82,7 @@ The Fluent stream camera entity is enabled by default; the other streams are dis
 The Snapshots stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
 Dual lens cameras provide additional streams for the second lens.
 
-## Binary sensors
+### Binary sensors
 
 Depending on the supported features of the camera, binary sensors are added for:
 
@@ -99,7 +101,7 @@ The latency for receiving the events is the best for TCP push and the worst for 
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
 
-## Number entities
+### Number entities
 
 Depending on the supported features of the camera, number entities are added for:
 
@@ -147,7 +149,7 @@ If the **Auto tracking** switch entity is enabled, and a object disappears from 
 
 **Day night switch threshold** determines at which light level the camera switches from **Color** to **Black & white**. This value only applies if the **Day night mode** select is on **Auto**.
 
-## Button entities
+### Button entities
 
 Depending on the supported features of the camera, button entities are added for:
 
@@ -167,7 +169,7 @@ Depending on the supported features of the camera, button entities are added for
 
 **Guard set current position** will set the current position as the new guard position.
 
-### Action reolink.ptz_move
+#### Action reolink.ptz_move
 
 Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` action can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` action, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
 
@@ -176,7 +178,7 @@ Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at di
 | `entity_id`            | no       | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
 | `speed`                | no       | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                          |
 
-## Select entities
+### Select entities
 
 Depending on the supported features of the camera, select entities are added for:
 
@@ -198,7 +200,7 @@ Depending on the supported features of the camera, select entities are added for
 
 **Play quick reply messages**/**Auto quick reply messages** can be recorded in the Reolink phone app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
 
-### Action reolink.play_chime
+#### Action reolink.play_chime
 
 To play a ringtone on a Reolink chime, the `reolink.play_chime` action can be used.
 
@@ -207,14 +209,14 @@ To play a ringtone on a Reolink chime, the `reolink.play_chime` action can be us
 | `device_id`            | no       | List of device ids of the Reolink Chimes to control. For example, `- 12a34b56c7d8ef9ghijklm0n1op2345q`.                             |
 | `ringtone`             | no       | The ringtone to play. For example `operetta`.                                                                                       |
 
-## Siren entities
+### Siren entities
 
 If the camera supports a siren, a siren entity will be created.
 When using the siren turn-on action, the siren will continue to sound until the siren turn-off action is called.
 
 In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on action supports setting a volume and a duration (no turn-off action call is needed in that case).
 
-## Switch entities
+### Switch entities
 
 Depending on the supported features of the camera, switch entities are added for:
 
@@ -249,7 +251,7 @@ The Push-notification in the Reolink app is independent of the Home Assistant se
 
 The **PTZ patrol** positions first need to be configured using the Reolink [app](https://support.reolink.com/hc/en-us/articles/360008746833/)/[windows](https://support.reolink.com/hc/en-us/articles/900003738126/)/web client. When no positions are configured, the PTZ patrol entity will not be added. When adding patrol positions for the first time, you need to restart the Reolink integration.
 
-## Light entities
+### Light entities
 
 Depending on the supported features of the camera, light entities are added for:
 
@@ -258,7 +260,7 @@ Depending on the supported features of the camera, light entities are added for:
 
 When the **floodlight** entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see the **Floodlight mode** select entity.
 
-## Sensor entities
+### Sensor entities
 
 Depending on the supported features of the camera, the following sensor entities are added:
 
@@ -270,14 +272,14 @@ Depending on the supported features of the camera, the following sensor entities
 - Battery temperature*
 - Battery state* (discharging, charging, charge complete)
 
-## Update entity
+### Update entity
 
 An update entity is available that checks for firmware updates every 12 hours.
 This does the same as pressing the "Check for latest version" in the Reolink applications.
 Unfortunately this does not always shows the latest available firmware (also not in the Reolink applications).
 The latest firmware can be downloaded from the [Reolink download center](https://reolink.com/download-center/) and uploaded to the camera/NVR manually.
 
-## Media browser for playback of recordings
+### Media browser for playback of recordings
 
 Depending on the support of the camera, the Reolink integration will provide a media browser through which recorded videos of the camera can be accessed.
 In the sidebar, select "Media" > "Reolink" and select the **camera** of which you want to see recordings. Optionally, select if you want a high or low **resolution** stream and select the recording **date**. Here, all available video files of that day will be shown.
