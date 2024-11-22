@@ -67,7 +67,7 @@ The hub attached Tapo buttons S200B and S200D do not currently support alerting 
 - **Hubs**: KH100[^1]
 - **Hub-Connected Devices[^3]**: KE100[^1]
 
-### Supported Tapo[^1] devices
+### Supported Tapo [^1] devices
 
 - **Plugs**: P100, P110, P115, P125M, P135, TP15
 - **Power Strips**: P300, P304M, TP25
