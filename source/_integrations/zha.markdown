@@ -229,6 +229,7 @@ The ZHA integration has the ability to perform OTA (over-the-air) firmware updat
 To see OTA updates for a device, it's required that it both supports OTA updates and that firmware images for the device are publicly provided by the manufacturer. For this reason, ZHA currently only includes OTA providers for a few manufacturers that provide these updates publicly. This includes IKEA, Inovelli, Ledvacnce/OSRAM, SALUS/Computime, Sonoff/iTead, and Third Reality.
 
 {% warning %}
+
 - Always check if the firmware update will bring you advantages or disadvantages:
   - Search online and read the device manufacturer changelog before updating.
     - You might not need to install an available update and can maybe ignore it.
@@ -240,6 +241,7 @@ To see OTA updates for a device, it's required that it both supports OTA updates
 - Ensure battery-powered devices have at least 70% battery life.
 - Be patient as OTA updates can take 10 minutes or longer.
 - Avoid multiple simultaneous updates to reduce network traffic.
+
 {% endwarning %}
 
 ## Configuration - YAML
