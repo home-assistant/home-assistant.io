@@ -53,7 +53,7 @@ Password:
 
 ## Configuration options
 
-The integration has no configuration options.
+The integration has no additional configuration options.
 
 ## Remove integration
 
