@@ -51,8 +51,6 @@ User password available:
     type: bool
 Password:
     description: "Password for the Solar-Log user. Will only be asked for in a second step, if in the first step the checkbox has been selected."
-    required: false
-    type: string
 {% endconfiguration_basic %}
 
 ## Configuration options
