@@ -1351,6 +1351,25 @@ For a summary in a more readable format:
 - Fix bugs in nest stream expiration handling ([@allenporter] - [#130150])
 - Refrase imap fetch service description string ([@jbouwh] - [#130152])
 
+[@Bre77]: https://github.com/Bre77
+[@KelvinDekker]: https://github.com/KelvinDekker
+[@Lash-L]: https://github.com/Lash-L
+[@LouisChrist]: https://github.com/LouisChrist
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@allenporter]: https://github.com/allenporter
+[@bramkragten]: https://github.com/bramkragten
+[@edenhaus]: https://github.com/edenhaus
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@ispysoftware]: https://github.com/ispysoftware
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@kbickar]: https://github.com/kbickar
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@shaiu]: https://github.com/shaiu
+[@synesthesiam]: https://github.com/synesthesiam
+[@zweckj]: https://github.com/zweckj
 [#129970]: https://github.com/home-assistant/core/pull/129970
 [#129982]: https://github.com/home-assistant/core/pull/129982
 [#129986]: https://github.com/home-assistant/core/pull/129986
