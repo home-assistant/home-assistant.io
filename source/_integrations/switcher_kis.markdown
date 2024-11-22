@@ -17,6 +17,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - light
   - sensor
   - switch
 ha_config_flow: true
@@ -33,13 +34,16 @@ Supported devices:
 - Switcher V2 (Espressif chipset - from firmware 3.21)
 - Switcher V2 (Qualcomm chipset - from firmware 72.32)
 - Switcher V4
+- Switcher Mini
 - Switcher Breeze
 - Switcher Runner
 - Switcher Runner S11
+- Switcher Runner S12
 
 Devices that require a token:
 
 - Switcher Runner S11
+- Switcher Runner S12
 
 If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
 
@@ -66,6 +70,14 @@ For Switcher Breeze the integration provides the following buttons:
 
 - For devices which do not support swing status for the vertical swing, the integration provides separate `Vertical swing on` & `Vertical swing off` buttons.
 
+## Covers
+
+For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switcher Runner S12) the integration allows you to control its covers open/close state, set specific covers position and get information about the cover direction (UP/DOWN/STOP).
+
+## Lights
+
+For Switcher light control devices (Switcher Runner S11, Switcher Runner S12) the integration allows you to control its lights on/off state.
+  
 ## Sensors
 
 For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4) the integration provides the following sensors:

@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@ooii'
+  - '@jb101010-2'
 ha_domain: suez_water
 ha_platforms:
   - sensor

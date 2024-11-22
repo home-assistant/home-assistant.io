@@ -33,6 +33,8 @@ This integration interacts with [La Marzocco](https://lamarzocco.com/it/en/) cof
 
 If your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered automatically.
 
+By default, this integration will query your machine every 30 seconds for an update, every 5 minutes for new statistics, and every hour for a firmware update. If configure the optional local connection, your machine will receive immediate push updates about its state for everything except statistics and firmware updates.
+
 ## Prerequisites
 
 - To be able to configure your machine in Home Assistant, your machine needs to be added to your account using the official La Marzocco app first.
@@ -56,6 +58,13 @@ Host:
   type: boolean
 {% endconfiguration_basic %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Use Bluetooth:
+  description: Allows you to manually disable Bluetooth communication with the machine (if available). This can be used to avoid longer timeouts, e.g., when your machine is only sometimes in range.
+{% endconfiguration_basic %}
+
 # Available platforms & entities
 
 ## Buttons
@@ -76,6 +85,7 @@ Host:
 | Prebrew on time | Time prebrew wets the puck | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 | Prebrew off time | Time prebrew waits before turning on the pump | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 | Preinfusion time | Duration of preinfusion | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| Smart standby time | Time until the machine will automatically stand by (if enabled) | all | - |
 
 
 ## Switches
@@ -84,6 +94,7 @@ Host:
 |-------------|-------------| ---------------------- |
 | Main        | Allows to turn machines on-/off | all |
 | Steam boiler | Allows to enable/disable the steam boiler | all |
+| Smart standby enabled | Whether smart standby is on (machine will automatically stand by after given time) | all |
 
 ## Binary sensors
 
@@ -116,6 +127,7 @@ Host:
 |-------------|-------------| ------------------------| ---------------------- |
 | Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV |
 | Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
+| Smart standby mode | The smart standby mode, that decides from which events the timer to standby will run. | Last brewing, Power on | all |
 
 ## Supported devices
 
@@ -174,6 +186,12 @@ mode: single
 - Only La Marzocco native app accounts are supported, social logins (Google, Apple & WeChat) are not supported
 - Currently it is only possible to view the schedules configured in the La Marzocco Home app, but not to edit the schedules from Home Assistant. You can, of course, build Home Assistant native automations to reflect the same functionality in Home Assistant.
 
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
 ## Troubleshooting
 
 {% details "Problem: Connection to machine is not possible" %}
@@ -185,4 +203,3 @@ Check the La Marzocco Home app to see if you can connect to your machine there. 
 
 Check the La Marzocco Home app to see if your machine is connected to Wi-Fi. Ensure Home Assistant can reach the machine. Ensure you configured the host option in the integration options.
 {% enddetails %}
-

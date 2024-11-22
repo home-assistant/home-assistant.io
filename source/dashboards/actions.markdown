@@ -101,6 +101,11 @@ tap_action:
       description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
       type: boolean
       default: none
+    entity:
+      required: false
+      description: "Overrides the default entity to show when the `action` is defined as `more-info`"
+      type: string
+      default: none
 {% endconfiguration %}
 
 ## Hold action
@@ -168,6 +173,11 @@ hold_action:
       description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
       type: boolean
       default: none
+    entity:
+      required: false
+      description: "Overrides the default entity to show when the `action` is defined as `more-info`"
+      type: string
+      default: none
 {% endconfiguration %}
 
 ## Double tap action
@@ -234,6 +244,11 @@ double_tap_action:
       required: false
       description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
       type: boolean
+      default: none
+    entity:
+      required: false
+      description: "Overrides the default entity to show when the `action` is defined as `more-info`"
+      type: string
       default: none
 {% endconfiguration %}
 

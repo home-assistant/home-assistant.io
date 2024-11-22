@@ -892,6 +892,10 @@ command_value_state_address:
   description: KNX address for reading current command value in percent. `0` sets the climate entity to idle if `active_state_address` is not set. *DPT 5.001*
   required: false
   type: [string, list]
+humidity_state_address:
+  description: KNX address for reading current humidity. *DPT 9.007*
+  required: false
+  type: [string, list]
 operation_mode_address:
   description: KNX address for setting operation mode (auto / building protection / economy / standby / comfort). *DPT 20.102*
   required: false

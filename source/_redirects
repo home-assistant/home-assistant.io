@@ -517,6 +517,7 @@ layout: null
 /integrations/bh1750 /more-info/removed-integration 301
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301
 /integrations/blinkt /more-info/removed-integration 301
+/integrations/bloomsky /more-info/removed-integration 301
 /integrations/bme280 /more-info/removed-integration 301
 /integrations/bme680 /more-info/removed-integration 301
 /integrations/bmp280 /more-info/removed-integration 301
@@ -551,6 +552,7 @@ layout: null
 /integrations/geizhals /more-info/removed-integration 301
 /integrations/gntp /more-info/removed-integration 301
 /integrations/goalfeed /more-info/removed-integration 301
+/integrations/google_domains /more-info/removed-integration 301
 /integrations/gpmdp /more-info/removed-integration 301
 /integrations/griddy /more-info/removed-integration 301
 /integrations/hangouts /more-info/removed-integration 301
@@ -613,6 +615,7 @@ layout: null
 /integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
 /integrations/somfy /more-info/removed-integration 301
+/integrations/spider /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /integrations/srp_energy /more-info/removed-integration 301
 /integrations/synology /more-info/removed-integration 301

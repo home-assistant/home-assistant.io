@@ -146,3 +146,9 @@ data:
 target:
   device_id: a674c90eca95eca91f6020415de07713
 ```
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

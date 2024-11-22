@@ -1390,13 +1390,13 @@ a.my {
 // Prevent headings from disappearing behind the site header when linked to
 h1, h2, h3, h4, h5, h6 {
   position: relative;
+  word-wrap: break-word;
 }
 
-:target {
-  display: block;
-  position: absolute;
-  top: -100px;
-  visibility: hidden;
+:target, .title-link {
+  display: inline-block;
+  position: relative;
+  scroll-margin-top: 140px;
 }
 
 .site-header {

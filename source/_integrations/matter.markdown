@@ -14,6 +14,7 @@ ha_category:
   - Sensor
   - Switch
   - Update
+  - Vacuum
   - Valve
 ha_release: '2022.12'
 ha_iot_class: Local Push
@@ -36,6 +37,7 @@ ha_platforms:
   - sensor
   - switch
   - update
+  - vacuum
   - valve
 ha_integration_type: integration
 related:

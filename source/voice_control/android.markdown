@@ -11,17 +11,25 @@ related:
 
 ## Assist on Android phones
 
-Assist is available on Android phones and tablets using the [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/) for Android.
+Assist can be used on Android phones and tablets using the [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/).
 
 ### Prerequisites
 
+- [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/) installed
+- Have an Assistant set up: either [cloud](/voice_control/voice_remote_cloud_assistant/) (recommended, more performant) or [local](/voice_control/voice_remote_local_assistant/).
 - The devices you want to control with Assist are [exposed to Assist](/voice_control/voice_remote_expose_devices/)
 
-### Setting up Home Assistant Assist as default assistant app on an Android phone
+### Starting Assist in Home Assistant
+
+1. On your phone, open Home Assistant.
+2. In the top-right corner, select the three-dots menu and select **Assist**.
+3. [Give a command](/voice_control/custom_sentences/).
+
+### Setting up Home Assistant Assist as default assistant app
 
 This section was written using an Android 13. Depending on your flavor of Android, the exact steps may vary.
 
-To define Home Assistant Assist as default assistant app, follow these steps:
+To define Home Assistant Assist as default assistant app on your Android phone, follow these steps:
 
 1. On the Android phone, go to **Settings** > **Apps** > **Default apps**.
 2. Under **Digital assistant app**, select **Default digital assistant app**.
@@ -76,9 +84,11 @@ Assist is available on Wear OS using the [Home Assistant Companion App](https://
 
 The way how Assist can be set up on your phone may differ depending on your version of Wear OS.
 
-1. After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) and connecting it to your Home Assistant, Assist might appear automatically on the **Apps screen**.
-2. If it does not, visit your watch companion app or the Wear OS app and select **Add tile** inside the **Tiles** area.
-3. Tap the **Assist** tile to add it to your watch:
+1. After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) on your watch and connecting it to your Home Assistant, Assist appears automatically on the **Apps screen**.
+    
+    ![Assist app](/images/assist/wearos_assist_app.png)
+
+2. To add an Assist tile, in the Wear OS app, go to the **Tiles** area, select **Add tile** > **Assist**.
     
     ![Conversation tile](/images/assist/android_tile.png)
 
@@ -94,10 +104,10 @@ The way how Assist can be set up on your phone may differ depending on your vers
    
      ![Assist complication](/images/assist/android_watch_5.png)
 
-
 ### Using Assist on Wear OS
 
-1. On your watch, swipe left until the **Assist** button is visible.
+1. On your watch, open Assist. 
+   - For example, swipe left until the **Assist** button is visible.
    
     ![Assist button](/images/assist/android_watch_1.png)
 
@@ -114,10 +124,9 @@ The way how Assist can be set up on your phone may differ depending on your vers
     
    ![List of assistants](/images/assist/android_watch_6.png)
 
-
 ### Setting up Home Assistant Assist as default assistant app on a Wear OS watch
 
-This procedure was written using Wear OS version 3.5. The exact steps may vary depending on the watch and software version.
+This procedure was written using Wear OS version 4.0. The exact steps may vary depending on the watch and software version.
 
 To define Home Assistant Assist as default assistant app, follow these steps:
 

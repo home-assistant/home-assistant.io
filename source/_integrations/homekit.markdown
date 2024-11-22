@@ -358,7 +358,7 @@ To add a single entity in accessory mode:
 
 ## Configure Filter
 
-By default, all entities except categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
+By default, all entities except hidden entities and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -375,7 +375,7 @@ homekit:
 
 {% include common-tasks/filters.md %}
 
-Categorized entities are not included (config, diagnostic, and system entities) unless they are explicitly matched by `include_entity_globs` or `include_entities` or selected in the UI in include mode.
+Hidden entities and categorized entities (config, diagnostic, and system entities) are not included unless they are explicitly matched by `include_entity_globs` or `include_entities` or selected in the UI in include mode.
 
 ## Docker Network Isolation
 

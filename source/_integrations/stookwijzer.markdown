@@ -16,6 +16,6 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Stookwijzer integration queries the [Stookwijzer](https://www.stookwijzer.nu) API for windspeed and gets the air quality index from [Luchtmeetnet](https://www.luchtmeetnet.nl). Using these parameters, Stookwijzer advises people not to burn pallets or wood, or to use the barbecue. This can prevent health problems for people in the area.
+The Stookwijzer integration queries the [Stookwijzer](https://www.atlasleefomgeving.nl/stookwijzer) API for windspeed and gets the air quality index from [Luchtmeetnet](https://www.luchtmeetnet.nl). Using these parameters, Stookwijzer advises people not to burn pallets or wood, or to use the barbecue. This can prevent health problems for people in the area.
 
 {% include integrations/config_flow.md %}

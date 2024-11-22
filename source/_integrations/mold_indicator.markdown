@@ -51,6 +51,7 @@ sensor:
     indoor_humidity_sensor: sensor.humidity
     outdoor_temp_sensor: sensor.weather_temperature
     calibration_factor: 2.0
+    unique_id: very_unique_id_123
 ```
 
 {% configuration %}
@@ -74,6 +75,10 @@ calibration_factor:
   description: Needs to be calibrated to the critical point in the room.
   required: true
   type: float
+unique_id:
+  description: Provide a unique id for the sensor.
+  required: false
+  type: string
 {% endconfiguration %}
 
 In this case, the weather forecast temperature sensor is used for the outside temperature.

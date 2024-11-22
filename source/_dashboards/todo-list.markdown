@@ -61,6 +61,11 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+hide_completed:
+  required: false
+  description: Hide the completed items section in the card.
+  type: boolean
+  default: "false"
 {% endconfiguration %}
 
 ### Examples
@@ -69,6 +74,6 @@ Title example:
 
 ```yaml
 type: todo-list
-entity: todo-list
-title: todo list
+entity: todo.todo_list
+title: Todo List
 ```

@@ -169,6 +169,7 @@ Besides the standard actions provided by the Home Assistant [Climate](/integrati
 - `ecobee.set_dst_mode`
 - `ecobee.set_mic_mode`
 - `ecobee.set_occupancy_modes`
+- `ecobee.set_sensors_in_climate`
 
 ### Action `ecobee.create_vacation`
 
@@ -241,3 +242,14 @@ Enable/disable Smart Home/Away and Follow Me modes.
 | `entity_id`            | yes      | ecobee thermostat on which to set occupancy modes. Omit to target all ecobee thermostats. |
 | `auto_away`            | yes      | true or false                                                                             |
 | `follow_me`            | yes      | true or false                                                                             |
+
+### Service `ecobee.set_sensors_in_climate`
+
+Set which sensors are active on a termostat for a specific climate program.
+
+| Service data attribute | Optional | Description                                                                                                                                         |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | ecobee thermostat on which to set the active sensors.                                                                                                |
+| `preset_mode`          | yes      | Name of the climate program to set the sensors active on (defaults to currently active program).                                                     |
+| `sensors`              | no       | Sensors to set as participating for climate. This is the device ID of the sensor/thermostat. These can be found in the available_sensors attribute. |
+

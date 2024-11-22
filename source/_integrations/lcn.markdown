@@ -31,7 +31,7 @@ The **LCN** {% term integration %} for Home Assistant allows you to connect to [
 
 ## Prerequisites
 
-- The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and an LCN hardware coupler. 
+- The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and an LCN hardware coupler.
 - Alternatively, an LCN-VISU or LCN-PKE coupler can be used which offers at least two PCHK licenses.
 With this setup, sending and receiving commands to and from LCN modules is possible.
 
@@ -66,7 +66,78 @@ The configuration of the `lcn` devices and entities is completely done using a w
 
 Once the integration is added to Home Assistant, you can access the `lcn` configuration panel by selecting the **Configure** button next to the respective integration entry on the [LCN integration page](https://my.home-assistant.io/redirect/integration/?domain=lcn).
 
-The detailed documentation for the LCN frontend panel can be found [here](https://github.com/alengwenus/lcn-frontend/blob/main/docs/lcn-frontend.md).
+![Integration configuration](/images/integrations/lcn/lcn_integration_configuration.png)
+
+## Configuration panel
+
+From the LCN Configuration Panel, you can configure your LCN modules, groups, and entities within Home Assistant.
+
+![LCN Configuration Panel](/images/integrations/lcn/lcn_device_page.png)
+
+### Configuring devices
+
+You can add and remove modules and groups directly from the configuration panel. Once added, they will appear in Home Assistant as devices, which can be used to trigger [specific actions](#actions) within scripts or automations. For examples, refer to the [Performing actions](/docs/scripts/perform-actions/) page.
+
+The **Modules / Groups** tab provides an overview of your configured LCN modules and groups, showing their name, ID, and segment ID. The LCN Configuration Panel attempts to derive names from the LCN modules; if a module has no name or is part of a group, a standard name is assigned.
+
+#### Scanning modules
+
+To initiate a scan for LCN modules on the bus, in the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Scan Modules**.
+- **Result**: This process polls each module for its name and serial number.
+- When all module responses have been received, they will be listed in the device list.
+- Scanning modules may take several seconds. The pop-up dialog will close automatically once the process is complete.
+
+#### Adding devices
+
+If module scanning fails or a module is unavailable on the bus, you can manually add it. Groups can also be created manually.
+
+1. To add a module or group manually, select the **Create Module/Group** button.
+2. Select whether you want to add a module or group and enter the desired `segment id` and module/group `id`.
+
+    ![Create module/group dialog](/images/integrations/lcn/lcn_create_device.png)
+3. To add the new device, select **Create**.
+
+#### Deleting devices
+
+To delete a single device, select the trash can icon next to it.
+- **Result**: This will remove the device from the device list and from Home Assistant, including any associated entities.
+
+To delete multiple devices at once, enable selection mode.  Select the desired entries, then, in the top-right corner, select  **Delete Selected**.
+
+### Configuring entities
+
+Entities configured for all devices are listed on the **Entities** tab. 
+
+To view entities for a specific device (module or group), in the **Modules / Groups** tab, select the device entry.
+  - **Result**: The **Entities** tab opens, showing entities of the selected device. 
+  - To apply custom filters, enable the filter option.
+
+  ![Create module/group dialog](/images/integrations/lcn/lcn_entities_page.png)
+
+#### Adding entities
+
+1. To create a new entity, select **Create Entity**.
+2. From the dropdown menu, select the module or group for which to create the entity.
+    - If a single module or group filter is applied, it will be pre-selected.
+
+      ![Create entity dialog](/images/integrations/lcn/lcn_create_entity.png)
+3. Choose the domain (platform) for the entity and enter a name.
+    - You can change this name later within the Home Assistant entity settings.
+4. Depending on the selected domain, additional options will be shown. To add the entity to the list and to Home Assistant, enter the required information and select **Create** .
+
+#### Deleting entities
+
+To delete a single entity, select the trash can icon next to it.
+- **Result**: This removes the entity from the list and from Home Assistant. 
+
+To delete multiple entities, enable selection mode, select the desired entries, and select **Delete Selected** in the upper right.
+
+#### Displaying entity properties
+
+Once an entity is created, you can view and configure its properties. 
+
+Select the entity in the entity list.
+  - This opens the Home Assistant dialog for entity properties, allowing you to configure the entity as you would from the general Home Assistant entity configuration panel.
 
 ## Platforms
 
@@ -75,8 +146,6 @@ The detailed documentation for the LCN frontend panel can be found [here](https:
 The `lcn` binary sensor platform allows the monitoring of the following [LCN](https://www.lcn.eu/) binary data sources:
 
 - Binary hardware sensors
-- Lock state of regulator setpoints
-- Lock state of keys
 
 The binary sensor can be used in automation scripts or in conjunction with `template` platforms.
 
@@ -141,6 +210,8 @@ The `lcn` switch platform allows the control of the following [LCN](https://www.
 
 - Output ports
 - Relays
+- Lock state of regulators
+- Lock state of keys
 
 ## Additional features
 

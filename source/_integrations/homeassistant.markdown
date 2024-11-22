@@ -141,6 +141,10 @@ debug:
   required: false
   type: boolean
   default: false
+webrtc:
+  description: A [custom list of STUN and TURN servers for WebRTC video streaming](#custom-stun-and-turn-servers).
+  required: false
+  type: map
 {% endconfiguration %}
 
 ## Editing entity settings in YAML
@@ -249,6 +253,54 @@ homeassistant:
       icon: mdi:description
     "scene.month_*_colors":
       icon: mdi:other
+```
+
+## Custom STUN and TURN servers
+
+It's possible to override the default list of STUN and TURN servers which are used to initiate WebRTC streaming.
+Each STUN or TURN server can be configured as described in the table below.
+
+{% configuration webrtc %}
+ice_servers:
+  description: List of STUN and TURN server configurations
+  required: true
+  type: list
+  keys:
+    url:
+      description: STUN or TURN server URLs. This can either be a single URL or a list of URLs.
+      required: true
+      type: string
+    username:
+      description: Username for TURN server authentication
+      required: false
+      type: string
+    credential:
+      description: Credential for TURN server authentication
+      required: false
+      type: string
+{% endconfiguration %}
+
+### WebRTC configuration example
+
+{% important %}
+If you implement `webrtc` in your {% term "`configuration.yaml`" %} file, you must make sure it is done inside of `homeassistant:` or it will fail.
+{% endimportant %}
+
+```yaml
+homeassistant:
+  name: Home
+  unit_system: metric
+  # etc
+
+  webrtc:
+    ice_servers:
+    # Add an entry for each STUN or TURN server
+    - url:
+      - "stun:stun.example.com:19302"
+      - "stun:stun2.example.com:12345"
+    - url: "turn:turn.domain.com"
+      username: "username"
+      credential: "abc123"
 ```
 
 ## Actions

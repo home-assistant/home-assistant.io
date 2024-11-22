@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_domain: pegel_online
 ha_platforms:
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@mib1185'

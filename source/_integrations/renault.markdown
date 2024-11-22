@@ -121,3 +121,9 @@ Notes:
     startTime: 'T12:00Z'
     duration: 15 
 ```
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

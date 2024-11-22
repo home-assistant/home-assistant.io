@@ -37,15 +37,15 @@ port:
   required: true
   type: integer
 username:
-  description: The username of Apache Kafka cluster for authentication.
+  description: The username of Apache Kafka cluster for SASL authentication. Required with `SASL_SSL` security protocol only.
   required: false
   type: string
 password:
-  description: The password of Apache Kafka cluster for authentication.
+  description: The password of Apache Kafka cluster for SASL authentication. Required with `SASL_SSL` security protocol only.
   required: false
   type: string
 security_protocol:
-  description: The protocol used to communicate with brokers. Use `SASL_SSL` for authentication.
+  description: The security protocol used to communicate with brokers. Use `SSL` for secure or `SASL_SSL` for secure with SASL authentication. (only `SASL_PLAINTEXT` SASL mechanism is supported)
   required: false
   default: PLAINTEXT
   type: string

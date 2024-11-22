@@ -15,6 +15,7 @@ ha_iot_class: Local Polling
 ha_platforms:
   - button
   - device_tracker
+  - diagnostics
   - sensor
 ha_integration_type: hub
 ha_quality_scale: silver

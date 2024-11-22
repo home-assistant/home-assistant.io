@@ -6,6 +6,7 @@ ha_category:
   - Binary sensor
   - Button
   - Lock
+  - Select
   - Sensor
   - Switch
 ha_release: 0.78
@@ -20,6 +21,7 @@ ha_platforms:
   - button
   - diagnostics
   - lock
+  - select
   - sensor
   - switch
 ha_integration_type: integration
@@ -33,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - Binary sensor
 - Button
 - Lock
+- Select
 - Sensor
 - Switch
 
@@ -46,7 +49,10 @@ No code is required to operate the alarm.
 
 ## Binary sensors
 
-Provides support for contact sensors for doors showing if door is open or closed.
+Provides support for contact sensors for doors/windows
+
+- Door/window is open or closed.
+- Battery is low on contact sensor
 
 ## Button
 
@@ -55,6 +61,10 @@ Provides support for pressing the panic button to trigger the alarm. Be careful 
 ## Lock
 
 The lock platform requires a code for unlocking but no code for locking.
+
+## Select
+
+Provides support for setting the volume on locks, available options are "High", "Low" and "Off". The entity is only available for supported door locks.
 
 ## Sensor
 

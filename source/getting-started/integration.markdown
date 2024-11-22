@@ -17,7 +17,7 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
    ![Screenshot of the integrations page, with discovered devices](/images/getting-started/integrations_page_discovered.png)
   
 2. If there are any devices discovered for you, you can add them now.
-   - Under **Discovered**, on the integration, select **Configure**.
+   - Under **Discovered**, on the integration, select **Add**.
    - Follow the steps in the UI if additional configuration is required.
    - If no devices were discovered, don't worry, we will add an integration in the next step.
 3. In the bottom-right corner, select **Add integration**.
