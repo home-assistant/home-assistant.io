@@ -116,7 +116,7 @@ In addition, information from devices connected to the Solar-Log device becomes 
 
 ### Additional template sensor
 
-In case you would like to get additional calculated sensors such as the amount of excess solar power available, you can use the [template platform](/integrations/template/).
+In case you would like to get additional calculated sensors such as the amount of excess solar power available or the energy returned to the grid, you can use the [template platform](/integrations/template/).
 
 {% raw %}
 
@@ -124,8 +124,8 @@ In case you would like to get additional calculated sensors such as the amount o
 # Example configuration.yaml entry for sensor template platform
 template:
   - sensor:
-    - name: "Solarlog yield day"
-      state: "{{ (states('sensor.solarlog_yield_day') | float(default=0) * 1000) | round(0,default=0) }}"
+    - name: "Solarlog return to grid"
+      state: "{{ states('sensor.solarlog_consumption_year') | float(0) - states('sensor.self_consumption_year') | float(0) }}"
 ```
 
 {% endraw %}
