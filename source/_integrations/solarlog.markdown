@@ -38,6 +38,8 @@ Please note that the open JSON interface only exposes a limited amount of data. 
 
 {% include integrations/config_flow.md %}
 
+To setup the integration you need the following information:
+
 {% configuration_basic %}
 Name:
     description: "The name for your Solar-Log device in Home Assistant. This will also be uses as prefix for the entity names."
@@ -97,6 +99,10 @@ The following sensors are available via the open JSON interface:
 | power_available       | W      | Available power (equals to power_ac - consumption_ac) | 
 | usage                 | %      | Usage (equals to consumption_ac / power_ac) |
 
+{% note %}
+The solarlog integration is using the solarlog_cli pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the library.
+{% endnote %}
+
 ### Additional data
 
 {% important %}
@@ -143,7 +149,3 @@ The integration provides no actions.
 ## Known limitations
 
 The integration only provides the (limited) data exposed by means of the JSON interface. This also entails that the values for the self-consumption are rounded to full kWh.
-
-{% note %}
-The solarlog integration is using the solarlog_cli pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the library.
-{% endnote %}
