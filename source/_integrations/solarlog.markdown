@@ -17,7 +17,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Solarlog** {% term integration %} uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to get details from your Solar-Log device and integrate these into your Home Assistant installation.
+The **Solarlog** {% term integration %} uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to get details from your Solar-Log device and integrate these into your Home Assistant installation. With the integration you may monitor the solar power production and power consumption as tracked with your Solar-Log device.
+
+## Supported devices
+
+The integration should work with all Solar-Log devices.
 
 ## Prerequisites
 
@@ -34,25 +38,39 @@ Please note that the open JSON interface only exposes a limited amount of data. 
 
 {% include integrations/config_flow.md %}
 
-## Additional template sensor
+{% configuration_basic %}
+Name:
+    description: "The name for your Solar-Log device in Home Assistant. This will also be uses as prefix for the entity names."
+    required: true
+    type: string
+Host:
+    description: "The URL or IP address of your Solar-Log."
+    required: true
+    type: string
+User password available:
+    description: "Check the box, if you have the password for the Solar-Log user to securely access [all data](#additional-data)."
+    required: false
+    type: bool
+User Password available:
+    description: "Password for the Solar-Log user. Will only be asked for in a second step, if in the first step the checkbox has been selected."
+    required: false
+    type: string
+{% endconfiguration_basic %}
 
-In case you would like to get additional calculated sensors such as the amount of excess solar power available, you can use the [template platform](/integrations/template/).
+## Configuration options
 
-{% raw %}
+The integration has no configuration options.
 
-```yaml
-# Example configuration.yaml entry for sensor template platform
-template:
-  - sensor:
-    - name: "Solarlog yield day"
-      state: "{{ (states('sensor.solarlog_yield_day') | float(default=0) * 1000) | round(0,default=0) }}"
-```
+## Remove integration
 
-{% endraw %}
+This integration can be removed by following these steps:
 
-## Sensors
+{% include integrations/remove_device_service.md %}
 
-The following sensors are available via the open JSON intervace:
+## Supported functionality
+### Sensors
+
+The following sensors are available via the open JSON interface:
 
 | name                  | Unit   | Description   |
 |-----------------------|--------|:-------------------------------------------|
@@ -79,7 +97,7 @@ The following sensors are available via the open JSON intervace:
 | power_available       | W      | Available power (equals to power_ac - consumption_ac) | 
 | usage                 | %      | Usage (equals to consumption_ac / power_ac) |
 
-## Additional data
+### Additional data
 
 {% important %}
 The additional data is only accessible if the user's password is available (or password protection is deactivated). Obviously, deactivating password protection is a security risk and should only be done in specific circumstances. In any event, you do this at your own risk.
@@ -97,6 +115,34 @@ In addition, information from devices connected to the Solar-Log device becomes 
 |-----------------------|--------|:-------------------------------------------|
 | current_power         | W      | Current power provided/used by the device. |
 | consumption_year      | kWh    | Total energy provided/used by the device.  |
+
+### Additional template sensor
+
+In case you would like to get additional calculated sensors such as the amount of excess solar power available, you can use the [template platform](/integrations/template/).
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry for sensor template platform
+template:
+  - sensor:
+    - name: "Solarlog yield day"
+      state: "{{ (states('sensor.solarlog_yield_day') | float(default=0) * 1000) | round(0,default=0) }}"
+```
+
+{% endraw %}
+
+## Data updates
+
+The integration fetches data from the device every minute.
+
+## Actions
+
+The integration provides no actions.
+
+## Known limitations
+
+The integration only provides the (limited) data exposed by means of the JSON interface. This also entails that the values for the self-consumption are rounded to full kWh.
 
 {% note %}
 The solarlog integration is using the solarlog_cli pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the library.
