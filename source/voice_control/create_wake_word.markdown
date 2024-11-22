@@ -1,5 +1,5 @@
 ---
-title: "Create your own wake word"
+title: "Wake words for Assist"
 related:
   - docs: /voice_control/thirteen-usd-voice-remote/
     title: $13 voice assistant for Home Assistant
