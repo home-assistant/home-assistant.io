@@ -36,6 +36,25 @@ This integration provides the following platforms:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Locale:
+    description: "The country code used to connect to the Renault servers."
+    required: true
+    type: string
+Username:
+    description: "The username used to connect to the Renault servers."
+    required: true
+    type: string
+Password:
+    description: "The password used to connect to the Renault servers."
+    required: true
+    type: string
+Kamereon account id:
+    description: "The account id the vehicles are assigned to."
+    required: true
+    type: string
+{% endconfiguration_basic %}
+
 All vehicles linked to the account should then get added as devices, with sensors added as linked entity.
 
 In some situations, some of the features may require a subscription such as the *Pack EV Remote Control* and/or the *Pack Smart Navigation* subscription.
