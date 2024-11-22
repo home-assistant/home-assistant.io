@@ -40,7 +40,7 @@ URL:
 API token:
   description: The API token for your Mealie installation you generated in the prerequisites.
 Verify SSL certificate:
-  description: Enable unless you are using a self signed certificate on your Mealie installation.
+  description: Enable this unless you are using a self-signed certificate on your Mealie installation.
 {% endconfiguration_basic %}
 
 ## Available calendars
