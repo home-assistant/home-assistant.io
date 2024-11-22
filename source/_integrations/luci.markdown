@@ -18,6 +18,7 @@ This is a presence detection scanner for OpenWrt using [luci](https://openwrt.or
 Before this scanner can be used you have to install the luci RPC package on OpenWrt:
 
 ```bash
+# opkg update
 # opkg install luci-mod-rpc
 ```
 

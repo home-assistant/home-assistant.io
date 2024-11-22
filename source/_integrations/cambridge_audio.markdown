@@ -55,6 +55,12 @@ Host:
 
 Cambridge Audio devices push data directly to Home Assistant, enabling immediate updates for device state changes, media information, and playback status.
 
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
 ## Available configuration entities
 
 The integration provides a few entities to configure the device settings. The following entities are supported:

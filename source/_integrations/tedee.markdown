@@ -32,7 +32,7 @@ This integration interacts with your [Tedee](https://tedee.com) locks by communi
 If you do not own the bridge, you can still add your locks to Home Assistant through the [HomeKit device integration](/integrations/homekit_controller/) (only for PRO model). Communication will happen over Bluetooth in that case, and features will be limited.
 
 {% note %}
-The integration will try to configure callbacks to receive near-real-time push updates from your bridge about your lock state changes. For this to work properly, the bridge must be able to reach your Home Assistant instance. It will prefer the configured `internal_url`, so ensure this address is reachable from your bridge on your network.
+The integration will try to configure webhooks to receive near-real-time push updates from your bridge about your lock state changes. For this to work properly, the bridge must be able to reach your Home Assistant instance. It will prefer the configured `internal_url`, so ensure this address is reachable from your bridge on your network. If communication through the webhooks is not possible, the integration will query for an update every 30 seconds.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -109,6 +109,12 @@ This integration only supports functionality that is available locally. This mea
 - Activity logs
 - Updates
 - Key pads
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Troubleshooting
 
