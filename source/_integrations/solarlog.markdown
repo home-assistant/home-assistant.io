@@ -45,8 +45,6 @@ Name:
     description: "The name for your Solar-Log device in Home Assistant. This will also be uses as prefix for the entity names."
 Host:
     description: "The URL or IP address of your Solar-Log."
-    required: true
-    type: string
 User password available:
     description: "Check the box, if you have the password for the Solar-Log user to securely access [all data](#additional-data)."
     required: false
