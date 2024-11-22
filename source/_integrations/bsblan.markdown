@@ -17,6 +17,7 @@ ha_platforms:
   - sensor
   - water_heater
 ha_integration_type: device
+ha_zeroconf: true
 ---
 
 The **BSB-Lan** {% term integration %} integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
@@ -34,6 +35,16 @@ For more information of which system it supports, take a look at their [document
 
 For authentication HTTP authentication using a username and password,
 or using a passkey is supported. Use either one.
+
+## Available sensors depending on your heating system
+
+- inside temperature
+- outside temperature
+
+## Available platforms depending on your system
+
+- climate
+- water heater
 
 For more documentation of the BSBLan device, check the [manual](https://docs.bsb-lan.de).
 
