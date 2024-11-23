@@ -22,7 +22,7 @@ works_with:
   - local
 ---
 
-Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It can collect data locally from the HomeWizard Energy products and create them as sensors in Home Assistant. Use this integration to monitor your energy, gas and water usage to optimize your energy consumption. The information collected by this integration can be used by the [Energy dashboard](/home-energy-management).
+Use this integration collect data locally from your [HomeWizard Energy](https://www.homewizard.com) devices to monitor your energy, gas and water usage to optimize your energy consumption. The information collected by this integration can be used by the [Energy dashboard](/home-energy-management).
 
 ## Supported devices
 
