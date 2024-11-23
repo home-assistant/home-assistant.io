@@ -22,7 +22,7 @@ works_with:
   - local
 ---
 
-Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It can collect data locally from the HomeWizard Energy products and create them as sensors in Home Assistant.
+Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It can collect data locally from the HomeWizard Energy products and create them as sensors in Home Assistant. Use this integration to monitor your energy, gas and water usage to optimize your energy consumption. The information collected by this integration can be used by the [Energy dashboard](/home-energy-management).
 
 **Supported devices**
 
@@ -81,7 +81,7 @@ Sensors for Water meter:
 
 The Energy Socket outlet state and status light can be controlled. There are two switches:
 
-- **Switch**: Controls the outlet state of the Energy Socket. This switch is locked out when _Switch Lock_ is turned on. 
+- **Switch**: Controls the outlet state of the Energy Socket. This switch is permanently on when _Switch Lock_ is turned on. Use this to control the power of simple devices, such as a heater or a charger.
 - **Switch lock**: Forces the outlet state in the _on_ position and disables the physical button. This option is useful when the socket is used for a device that must not be turned off, such as a refrigerator.
 
 You can also control the green status light brightness with **Status light brightness**. This light turns on when the switch is on.
