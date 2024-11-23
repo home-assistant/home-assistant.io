@@ -97,6 +97,14 @@ The HomeWizard Energy devices are designed to work with the HomeWizard Energy ap
 
 Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
 
+## Examples
+
+### Send a notification when your washing machine is done
+
+If you known the energy characteristics of your washing machine, you can create an automation that sends a notification when the energy usage drops below a certain threshold. This can be used to notify you when your washing machine is done. You can use the following blueprint for this:
+
+- [Appliance Power Monitor Blueprint With Elapsed Time and Energy Used Variables](https://community.home-assistant.io/t/appliance-power-monitor-blueprint-with-elapsed-time-and-energy-used-variables/549073), created by [@Jhonattan-Souza](https://community.home-assistant.io/u/jhonattan-souza)
+
 ## Data fetching interval
 
 The integration is {% term polling %} new data every 5 seconds. There is no limitation on the number or frequency of requests that can be made to the device.
