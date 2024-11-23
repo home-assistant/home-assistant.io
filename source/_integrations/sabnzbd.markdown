@@ -13,6 +13,8 @@ ha_codeowners:
 ha_domain: sabnzbd
 ha_platforms:
   - sensor
+  - button
+  - number
 ha_integration_type: integration
 ---
 
@@ -44,30 +46,13 @@ This integration will create these sensors:
 - `weekly_size`: GB downloaded this week. (disabled by default)
 - `monthly_total`: GB downloaded this month. (disabled by default)
 
+## Button
 
-## Actions
+This integration will create two buttons:
 
-Available actions:
+- Pause the download queue.
+- Resume the download queue.
 
-- `pause`: Pause the download queue.
-- `resume`: Resume the download queue.
-- `set_speed`: Set the download queue speed limit.
+## Number
 
-### Action `sabnzbd.pause`
-
-| Data attribute | Optional | Description                                                                                                                                                                                 |
-|------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `api_key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
-
-### Action `sabnzbd.resume`
-
-| Data attribute | Optional | Description                                                                                                                                                                                 |
-|------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `api_key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
-
-### Action `sabnzbd.set_speed`
-
-| Data attribute | Optional | Description                                                                                                                                                                                 |
-|------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `speed`                | yes      | Sets the download speed limit. If specified as a number with no units, will be interpreted as a percent. If units are provided (e.g., 500K) will be interpreted absolutely. Defaults to 100 |
-| `api_key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
+This integration will create a number entity to set the download queue speed limit in percentage.

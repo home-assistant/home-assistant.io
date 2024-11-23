@@ -88,6 +88,8 @@ Time sensor states are represented as ISO8601 formatted *UTC time*.
 The holiday sensor includes 3 attributes: *type*, *type_id*, and *id*.
 The *type_id* is useful for cases to condition automations based on a range of types.
 
+On Rosh Chodesh Tevet, which always falls on Chanukah, the sensor will report both values: "Rosh Chodesh, Chanukah".
+
 The following is the list of holidays the sensor knows about with their selected type:
 
 | ID                   | English                    | Hebrew                | Type                      | Type_ID |
@@ -132,3 +134,4 @@ The following is the list of holidays the sensor knows about with their selected
 | zeev_zhabotinsky_day | Zeev Zhabotinsky day       | יום זאב ז'בוטינסקי    | MEMORIAL_DAY              | 8       |
 | tisha_bav            | Tish'a B'Av                | תשעה באב              | FAST_DAY                  | 5       |
 | tu_bav               | Tu B'Av                    | ט"ו באב               | MINOR_HOLIDAY             | 7       |
+| rosh_chodesh         | Rosh Chodesh               | ראש חודש              | ROSH_CHODESH              | 10      |

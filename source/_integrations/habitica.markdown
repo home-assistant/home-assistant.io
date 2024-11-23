@@ -76,6 +76,8 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 
 - **To-Do calendar:** Lists the due dates for all active to-do tasks. Each event on this calendar represents a to-do item that has a set due date, making it easy to track upcoming deadlines and plan accordingly.
 - **Dailies calendar:** Displays all daily tasks that are scheduled for today and are still active. It also shows all tasks scheduled for future dates, helping you stay organized and track upcoming routines. The calendar sensor will be active if there are unfinished tasks for today and display the next due daily (based on sort order if there are multiple tasks due for that day).
+- **To-Do reminders calendar**: Lists events for reminders associated with your to-dos in Habitica, helping you track when notifications for specific to-dos are expected.
+- **Dailies reminders calendar**: Shows events for reminders linked to your Habitica dailies, ensuring you know when notifications for your dailies will occur.
 
 ## Button controls
 
@@ -187,6 +189,42 @@ Cancel a quest that has not yet started. All accepted and pending invitations wi
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to cancel the quest.             |
+
+### Action `habitica.score_habit`
+
+Increase the positive or negative streak of a habit.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character tracking the habit.                                                            |
+| `task`         | no       |  The name, `task ID`, or **alias** of the habit to track.                                                         |
+| `direction`    | no       |  `up` for positive progress or `down` for negative progress you want to track for your habit.                     |
+
+### Action `habitica.score_reward`
+
+Buy a custom reward with gold.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character buying the reward.                                                                 |
+| `task`         | no       |  The name, `task ID`, or **alias** of the custom reward to buy.                                                   |
+
+### Action `habitica.transformation`
+
+Use a transformation item from your Habitica character's inventory on a member of your party or yourself.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character using the transformation item.                                                    |
+| `item`         | no       |  The transformation item you want to use. Item must be in the character's inventory.                               |
+| `target`       | no       |  The character you want to use the transformation item on. Matches by display name, username, or user ID.           |
+
+#### Available transformation items
+
+- **Snowball**: `snowball` (transforms into a snowfriend)
+- **Spooky sparkles**: `spooky_sparkles` (transforms into a ghost)
+- **Seafoam**: `seafoam` (transforms into a starfish)
+- **Shiny seed** `shiny_seed` (transforms into flower)
 
 ## Automations
 
@@ -303,91 +341,6 @@ actions:
 ```
 
 {% enddetails %}
-
-## API Service
-
-At runtime, you will be able to use the API for each respective user by their Habitica's username.
-You can override this by passing `name` key, this value will be used instead of the username.
-If you are hosting your own instance of Habitica, you can specify a URL to it in `url` key.
-
-### API Service Parameters
-
-The API is exposed to Home Assistant as an action called `habitica.api_call`. To call it, you should specify these keys in the data:
-
-| Data attribute | Required | Type     | Description                                                                                                       |
-| ---------------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `name`                 | yes      | string   | Habitica's username as per `configuration.yaml` entry.                                                            |
-| `path`                 | yes      | [string] | Items from API URL in form of an array with method attached at the end. See the example below.                    |
-| `args`                 | no       | map      | Any additional JSON or URL parameter arguments. See the example below and [apidoc](https://habitica.com/apidoc/). |
-
-A successful run of this action will fire an event `habitica_api_call_success`.
-
-| Event data attribute | Type     | Description                                                                                                                                                           |
-| -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`               | string   | Copied from the data attribute.                                                                                                                                   |
-| `path`               | [string] | Copied from the data attribute.                                                                                                                                   |
-| `data`               | map      | Deserialized `data` field of JSON object Habitica's server returned in response to API call. For more info see the [API documentation](https://habitica.com/apidoc/). |
-
-#### Let's consider some examples on how to use the action
-
-For example, let's say that there is a configured `habitica` platform for user `xxxNotAValidNickxxx` with their respective `api_user` and `api_key`.
-Let's create a new task (a todo) for this user via Home Assistant. There is an [API call](https://habitica.com/apidoc/#api-Task-CreateUserTasks) for this purpose.
-To create a new task one should hit `https://habitica.com/api/v3/tasks/user` endpoint with `POST` request with a JSON object with task properties.
-So let's call the API on `habitica.api_call`.
-
-- The `name` key becomes `xxxNotAValidNickxxx`.
-- The `path` key is trickier.
-  - Remove `https://habitica.com/api/v3/` at the beginning of the endpoint URL.
-  - Split the remaining on slashes (/) and **append the lowercase method** at the end.
-  - You should get `["tasks", "user", "post"]`. To get a better idea of the API you are recommended to try all of the API calls in IPython console [using this package](https://github.com/ASMfreaK/habitipy/blob/master/README.md).
-- The `args` key is more or less described in the [API documentation](https://habitica.com/apidoc/).
-
-Combining all together:
-call `habitica.api_call` with data
-
-```json
-{
-  "name": "xxxNotAValidNickxxx",
-  "path": ["tasks", "user", "post"],
-  "args": {"text": "Use API from Home Assistant", "type": "todo"}
-}
-```
-
-This call will create a new todo on `xxxNotAValidNickxxx`'s account with text `Use API from Home Assistant` like this:
-
-![example task created](/images/screenshots/habitica_new_task.png)
-
-Also an event `habitica_api_call_success` will be fired with the following data:
-
-```json
-{
-  "name": "xxxNotAValidNickxxx",
-  "path": ["tasks", "user", "post"],
-  "data": {
-    "challenge": {},
-    "group": {"approval": {"required": false,
-     "approved": false,
-     "requested": false},
-    "assignedUsers": [],
-    "sharedCompletion": "recurringCompletion"},
-    "completed": false,
-    "collapseChecklist": false,
-    "type": "todo",
-    "notes": "",
-    "tags": [],
-    "value": 0,
-    "priority": 1,
-    "attribute": "str",
-    "text": "Use API from Home Assistant",
-    "checklist": [],
-    "reminders": [],
-    "_id": "NEW_TASK_UUID",
-    "createdAt": "2018-08-09T18:03:27.759Z",
-    "updatedAt": "2018-08-09T18:03:27.759Z",
-    "userId": "xxxNotAValidNickxxx's ID",
-    "id": "NEW_TASK_UUID"}
-}
-```
 
 ## Templating
 
