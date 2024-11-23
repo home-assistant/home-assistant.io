@@ -31,10 +31,6 @@ Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It
 - [Wi-Fi Watermeter](https://www.homewizard.com/watermeter): Sensors for active and total water usage (model: `HWE-WTR`)
 - [Wi-Fi kWh Meter](https://www.homewizard.com/kwh-meter): Sensors for power import/export and energy consumption. (Models: `HWE-KWH1`, `HWE-KWH3`, `SDM230-wifi`, and `SDM630-wifi`)
 
-{% note %}
-The Watermeter can be powered via a USB-C cable and with batteries. When using batteries they only connect to Wi-Fi every couple of hours. Because of this, the API can only be used when powered via the USB-C cable. It is not possible to use this integration when the water meter is powered by batteries.
-{% endnote %}
-
 ## Enable the API
 
 You have to enable the local API to allow Home Assistant to communicate with your device. Do this in the HomeWizard Energy app:
@@ -101,8 +97,18 @@ The HomeWizard Energy devices are designed to work with the HomeWizard Energy ap
 
 Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
 
-## Data fetching and limitations
+## Data fetching interval
 
-The integration is {% term polling %} new data every 5 seconds.
+The integration is {% term polling %} new data every 5 seconds. There is no limitation on the number or frequency of requests that can be made to the device.
 
 {% include common-tasks/define_custom_polling.md %}
+
+## Known limitations
+
+### Watermeter cannot be used with batteries
+
+The Watermeter can be powered via a USB-C cable and with batteries. When using batteries they only connect to Wi-Fi every couple of hours. Because of this, the API can only be used when powered via the USB-C cable. It is not possible to use this integration when the water meter is powered by batteries.
+
+### P1 Meter may update slowly
+
+The P1 Meter is updated by the smart meter, which usually updates every 1 or 10 seconds. This means that the P1 Meter may not update as fast as the other devices.
