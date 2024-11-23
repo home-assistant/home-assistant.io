@@ -412,6 +412,11 @@ Set up the Reolink integration in Home Assistant using the credentials you set i
 1. One way to show the camera in the dashboard is by using the picture glance card.
 2. For example, you can place arrow buttons on the card to [control the camera](/dashboards/picture-glance/#creating-a-card-to-control-the-camera).
 
+## Known limitations
+
+- 2-way audio or Text To Speach is not yet implemented.
+- The 4K camera streams are H265 encoded, support for playing H265 encoding in browsers (Chrome/Firefox/Edge/Safari etc.) is still very limited, therefore the 4K clear stream may not play in all browsers or on all phones in the Home Assistant companion app. By default only the lower resolution Fluent camera entity is enabled in Home Assistant. This Fluent stream is H264 encoded and will play on any browser or phone.
+
 ## Troubleshooting
 
 ### Can’t setup the integration
