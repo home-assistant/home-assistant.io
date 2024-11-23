@@ -287,6 +287,8 @@ Recordings up to 1 month old can be viewed in Home Assistant.
 
 ## Tested models
 
+### Tested directly connected models
+
 The following models have been tested and confirmed to work with a direct link to Home Assistant:
 
 - C1 Pro*
@@ -366,6 +368,18 @@ However, these cameras can work with this integration through an NVR or Home Hub
 - E1 Pro
 - E1
 - Reolink Lumus
+
+### Incompatible models
+
+Reolink LTE cameras do not work with this integration.
+
+- Reolink Go PT Ultra
+- Reolink Go Ranger PT
+- Reolink Go PT Plus
+- Reolink Go Ultra
+- Reolink Go Plus
+- Reolink TrackMix LTE
+- Reolink TrackMix LTE Plus
 
 ## Initial setup
 
