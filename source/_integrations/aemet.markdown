@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_domain: aemet
 ha_platforms:
   - diagnostics
+  - image
   - sensor
   - weather
 ha_integration_type: integration
@@ -19,8 +20,9 @@ ha_codeowners:
 
 The AEMET weather platform uses [AEMET OpenData](https://opendata.aemet.es/) as a source for current meteorological data for your location. AEMET stands for "Agencia Estatal de Meteorología", which is the Spanish Meteorological Agency.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following entity types within Home Assistant:
 
+- Image
 - Sensor
 - Weather
 
@@ -67,5 +69,7 @@ For each condition, the following sensors are created:
 | wind_bearing        | Wind bearing.                        |
 | wind_max_speed      | Max Wind speed.                      |
 | wind_speed          | Wind speed.                          |
+
+The integration creates an image entity for the weather radar if the radar option is enabled.
 
 Details about the API are available in the [AEMET OpenData documentation](https://opendata.aemet.es/dist).
