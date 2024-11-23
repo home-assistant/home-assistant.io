@@ -407,6 +407,36 @@ Then power up the camera while pointing it at the QR code. It takes about a minu
 
 Set up the Reolink integration in Home Assistant using the credentials you set in step 1.
 
+## Remove integration
+
+### Removing a directly connected camera/NVR/Home Hub
+
+Removing a directly connected camera/NVR/Home Hub can be done by removing the integration following these steps:
+
+{% include integrations/remove_device_service.md %}
+
+This will also remove all cameras/chimes connected to the NVR/Home Hub from Home Assistant.
+
+### Removing a camera from a NVR/Home Hub
+
+Removing a camera from a NVR/Home Hub can be done by deleting the device following these steps:
+
+1. First physically disconnect the ethernet cable of the camera from the NVR if the camera is directly connected to the NVR (PoE).
+2. Then remove the camera from the NVR/Home Hub following the [NVR instructions](https://support.reolink.com/hc/en-us/articles/900003769346-How-to-delete-offline-camera-information-on-Channel-Management-Page-via-Reolink-NVR-New-UI-/) or [Home Hub instructions](https://support.reolink.com/hc/en-us/articles/33883674141977-How-to-Change-Camera-Order-Remove-Device-from-Reolink-Home-Hub/).
+3. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
+4. From the list of integration entries, select the **x devices** underneath the integration instance of the NVR/Home Hub from which you want to remove a camera.
+5. Select the camera you want to remove from the list of devices
+6. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+
+### Removing a chime
+
+Removing a chime from a doorbell can be done by deleting the chime following these steps:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
+2. From the list of integration entries, select the **x devices** underneath the integration instance of the Doorbell/NVR/Home Hub from which you want to remove a chime.
+3. Select the chime you want to remove from the list of devices
+4. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+
 ## Showing the camera in the dashboard
 
 1. One way to show the camera in the dashboard is by using the picture glance card.
