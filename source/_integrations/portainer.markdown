@@ -48,6 +48,6 @@ The integration will create a sensor for each container running in the portainer
 
 This integration can be removed by following these steps:
 
-{% include integrations/remove_device_service.md %}
+{% include common-tasks/remove_device_service.md %}
 
 After deleting the integration, go to the portainer instance(s) and remove the access token(s) you have created.
