@@ -42,7 +42,7 @@ Versions later than R44 add support for IKEA Ansluta, Philips Living Colors Gen1
 
 A complete list of devices supported by RFLink can be found [here](https://www.rflink.nl/devlist.php).
 
-Even though many devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration please consider testing and adding support yourself.
+Even though many devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration, please consider testing and adding support yourself.
 
 ## Configuration
 
@@ -281,7 +281,7 @@ devices:
 
 Initially, the state of a binary sensor is unknown. When a sensor update is received, the state is known and will be shown in the frontend.
 
-### Device support for binary sensors {#binary-sensor-device-support}
+### Device support for binary sensors
 
 See [device support](#device-support)
 
@@ -494,7 +494,7 @@ cover:
         name: "Room blinds"
 ```
 
-### Device support for covers {#cover-device-support}
+### Device support for covers
 
 See [device support](#device-support).
 
@@ -656,7 +656,7 @@ Lights are added automatically when the RFLink gateway intercepts a wireless com
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
 - [Ignore devices on a platform level](#ignoring-devices)
 
-### Device support for lights {#light-device-support}
+### Device support for lights
 
 See [device support](#device-support)
 
@@ -785,7 +785,7 @@ Sensors are added automatically when the RFLink gateway intercepts a wireless co
 - Disable automatically adding of unconfigured new sensors (set `automatic_add` to `false`).
 - [Ignore devices on a platform level](#ignoring-devices)
 
-### Device support for sensors {#sensor-device-support}
+### Device support for sensors
 
 See [device support](#device-support)
 
@@ -928,7 +928,7 @@ switch:
 
 Any on/off command from any alias ID updates the current state of the switch. However, when sending a command through the frontend only the primary ID is used.
 
-### Device support for switches {#switch-device-support}
+### Device support for switches
 
 See [device support](#device-support)
 
