@@ -41,6 +41,7 @@ The following device classes are supported for numbers:
 - **None**: Generic number. This is the default and doesn't need to be set.
 - **apparent_power**: Apparent power in VA.
 - **aqi**: Air Quality Index (unitless).
+- **area**: Area in m², cm², km², mm², in², ft², yd², mi², ac, ha
 - **atmospheric_pressure**: Atmospheric pressure in cbar, bar, hPa, inHg, kPa, mbar, Pa, psi
 - **battery**: Percentage of battery that is left
 - **blood_glocose_concentration**: Blood glucose concentration in mg/dL, mmol/L
@@ -79,9 +80,9 @@ The following device classes are supported for numbers:
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C, °F or K
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
-- **voltage**: Voltage in V, mV
+- **voltage**: Voltage in V, mV, µV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
-- **volume_flow_rate**: Volume flow rate in m³/h, ft³/min, L/min, gal/min
+- **volume_flow_rate**: Volume flow rate in m³/h, ft³/min, L/min, gal/min, or mL/s
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st

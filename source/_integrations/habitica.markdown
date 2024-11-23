@@ -76,6 +76,8 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 
 - **To-Do calendar:** Lists the due dates for all active to-do tasks. Each event on this calendar represents a to-do item that has a set due date, making it easy to track upcoming deadlines and plan accordingly.
 - **Dailies calendar:** Displays all daily tasks that are scheduled for today and are still active. It also shows all tasks scheduled for future dates, helping you stay organized and track upcoming routines. The calendar sensor will be active if there are unfinished tasks for today and display the next due daily (based on sort order if there are multiple tasks due for that day).
+- **To-Do reminders calendar**: Lists events for reminders associated with your to-dos in Habitica, helping you track when notifications for specific to-dos are expected.
+- **Dailies reminders calendar**: Shows events for reminders linked to your Habitica dailies, ensuring you know when notifications for your dailies will occur.
 
 ## Button controls
 
@@ -206,6 +208,23 @@ Buy a custom reward with gold.
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
 | `config_entry` | no       |  Config entry of the character buying the reward.                                                                 |
 | `task`         | no       |  The name, `task ID`, or **alias** of the custom reward to buy.                                                   |
+
+### Action `habitica.transformation`
+
+Use a transformation item from your Habitica character's inventory on a member of your party or yourself.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character using the transformation item.                                                    |
+| `item`         | no       |  The transformation item you want to use. Item must be in the character's inventory.                               |
+| `target`       | no       |  The character you want to use the transformation item on. Matches by display name, username, or user ID.           |
+
+#### Available transformation items
+
+- **Snowball**: `snowball` (transforms into a snowfriend)
+- **Spooky sparkles**: `spooky_sparkles` (transforms into a ghost)
+- **Seafoam**: `seafoam` (transforms into a starfish)
+- **Shiny seed** `shiny_seed` (transforms into flower)
 
 ## Automations
 

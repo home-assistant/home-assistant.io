@@ -28,5 +28,6 @@ The integration will present each Roth Touchline SL zone as a climate entity, wh
 
 - Display the current temperature
 - Display the current humidity
+- Display when the zone is being actively heated or cooled.
 - Set a target temperature
 - Assign to a configured "Global Schedule" using Home Assistant climate entity presets.
