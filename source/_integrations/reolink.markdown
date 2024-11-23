@@ -453,7 +453,7 @@ Removing a chime from a doorbell can be done by deleting the chime following the
 3. Select the chime you want to remove from the list of devices
 4. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
 
-This will also decouple the chime from the doorbell in the reolink app/client. Therefore the chime will not ring anymore when the doorbell is pressed.
+This will also decouple the chime from the doorbell in the Reolink app/client. Therefore, the chime will no longer ring when the doorbell is pressed.
 
 ## Showing the camera in the dashboard
 
