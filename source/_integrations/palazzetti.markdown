@@ -45,7 +45,7 @@ This integration supports the following actions (see [Climate](/integrations/cli
 
 The Palazzetti integration offers the following sensors, for the products that provide them:
 
-- Status
+- Status (current operational state)
 - Outlet air temperature (°C)
 - Wood combustion temperature (°C)
 - Room temperature (°C)
@@ -63,7 +63,7 @@ The Status sensor value is one of the following:
 - `test_fire`: Ignition test
 - `heatup`: Pellet feed
 - `fueling`: Ignition
-- `igntest`: Fuel check
+- `ign_test`: Fuel check
 - `burning`: Operating
 - `burning_mod`: Operating - Modulating
 - `unknown`: Unknown
