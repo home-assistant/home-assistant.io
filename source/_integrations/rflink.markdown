@@ -32,6 +32,7 @@ This {% term integration %} is tested with the following hardware/software:
 - Nodo RFLink Gateway V1.4/RFLink R46
 
 ### Device support
+
 The 433 MHz spectrum is used by many manufacturers. Mostly using their own protocol/standard, they use this spectrum to communicate with devices such as light switches, blinds, weather stations, alarms, and various other sensors.
 
 The RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers, and transceiver modules for 433MHz, 868MHz, and 2.4 GHz.
