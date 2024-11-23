@@ -24,7 +24,7 @@ works_with:
 
 Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It can collect data locally from the HomeWizard Energy products and create them as sensors in Home Assistant. Use this integration to monitor your energy, gas and water usage to optimize your energy consumption. The information collected by this integration can be used by the [Energy dashboard](/home-energy-management).
 
-**Supported devices**
+## Supported devices
 
 - [Wi-Fi P1 Meter](https://www.homewizard.com/p1-meter): Sensors for power import/export, energy consumption (single or three phases). information about your smart meter and gas. (Model: `HWE-P1`)
 - [Wi-Fi Energy Socket](https://www.homewizard.com/energy-socket): Sensors for power import/export and energy consumption and switches for controlling the outlet (model: `HWE-SKT`)
@@ -66,6 +66,7 @@ Sensors for P1 meter, only available when smart meter exposes these values:
 - **Peak demand**: Belgium users are starting to get charged for the peak usage per month (see [capaciteitstarief](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief)). Two sensors are available: One that shows the current quarterly average and another that shows the peak measured this month. Both these sensors are provided directly from the smart meter and can be used to keep the peak as low as possible.
 
 Sensors for Energy Socket and kWh meter:
+
 - **Voltage (V)**: Active voltage that is measured on each phase.
 - **Current (A)**: Active current that is measured on each phase.
 - **Frequency (Hz)**: Net frequency.
