@@ -41,16 +41,12 @@ You will need the IP address of your device, and the Fully Remote Admin password
 {% configuration_basic %}
 Host:
   description: The IP address or hostname of your device.
-  required: true
 Password:
   description: The Fully Remote Admin password from the Fully Kiosk Browser app.
-  required: true
 Uses an SSL certificate:
   description: Whether Fully Kiosk Browser is configured to use an SSL certificate for connections.
-  default: false
 Verify SSL certificate:
   description: Whether to verify the SSL certificate when connecting to Fully Kiosk Browser. This should be off for self-signed certificates.
-  default: false
 {% endconfiguration_basic %}
 
 ## Capabilities
