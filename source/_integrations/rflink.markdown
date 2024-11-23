@@ -741,7 +741,7 @@ devices:
           type: [list, string]
 {% endconfiguration %}
 
-### Sensor types
+### Sensor types {#sensor-types}
 
 Sensor type values:
 
