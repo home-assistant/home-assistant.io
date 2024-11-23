@@ -56,7 +56,7 @@ The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [
 It is recommended to create a separate user to connect Home Assistant to your FRITZ!Box. To create a user, in the FRITZ!Box go to **System** > **FRITZ!Box Users** > **Users** > **Add User**. Make sure the user has the **Smart Home** permission.
 
 {% note %}
-If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24, the default username was `admin`.
+If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visit **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24, the default username was `admin`.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -78,7 +78,7 @@ Password:
 
 ## Data fetching and limitations
 
-Since the api of the FRITZ!Box does not provide a push mechanism, this integration polls the data every 30 seconds from the FRITZ!Box. Because of this, the integration can't support the main features of event based devices like the [FRITZ!DECT 350][fritzdect_350] door/window contact sensors or the [FRITZ!DECT 440][fritzdect_440] buttons (_see the [other devices](#other-devices) section for details_).
+Since the API of the FRITZ!Box does not provide a push mechanism, this integration polls the data every 30 seconds from the FRITZ!Box. Because of this, the integration can't support the main features of event-based devices like the [FRITZ!DECT 350][fritzdect_350] door/window contact sensors or the [FRITZ!DECT 440][fritzdect_440] buttons (_see the [other devices](#other-devices) section for details_).
 
 ## Devices
 
