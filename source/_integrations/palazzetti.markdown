@@ -81,8 +81,6 @@ State sensors:
   - `cleaning_warning`: Cleaning warning
   - `fuel_error`: Fuel error
   
-
-
 Temperature sensors:
 
 - Outlet air temperature (°C)
