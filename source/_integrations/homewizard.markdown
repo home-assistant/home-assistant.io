@@ -112,3 +112,14 @@ The Watermeter can be powered via a USB-C cable and with batteries. When using b
 ### P1 Meter may update slowly
 
 The P1 Meter is updated by the smart meter, which usually updates every 1 or 10 seconds. This means that the P1 Meter may not update as fast as the other devices.
+
+## Troubleshooting
+
+### My device is not showing up
+
+It may happen that you can't find your devices, they won't show up in the integration setup. This can be caused by the following:
+
+- The device is not connected to the network. You have to connect your new device to the network before via the HomeWizard Energy app first.
+- Make sure you have updated the device to the latest firmware. Follow this guide to learn how to update your device: [How do I check if I have the latest software on my HomeWizard product?](https://helpdesk.homewizard.com/en/articles/9167578-how-do-i-check-if-i-have-the-latest-software-on-my-homewizard-product)
+- Make sure you have enabled the local API in device settings via the HomeWizard Energy app.
+- Make sure both Home Assistant and the device are on the same network.
