@@ -2,7 +2,9 @@
 title: Reolink IP NVR/camera
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
 ha_category:
+  - Doorbell
   - Camera
+  - Media source
   - Update
 ha_iot_class: Local Push
 ha_release: 2023.1
