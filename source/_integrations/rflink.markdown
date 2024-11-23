@@ -264,7 +264,7 @@ devices:
           required: false
           type: list
         device_class:
-          description: Sets the [class of the device](../binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
+          description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
           required: false
           type: string
         off_delay:
