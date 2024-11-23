@@ -375,11 +375,11 @@ However, these cameras can work with this integration through an NVR or Home Hub
 
 Reolink LTE cameras do not work with this integration.
 
+- Reolink Go Plus
+- Reolink Go PT Plus
 - Reolink Go PT Ultra
 - Reolink Go Ranger PT
-- Reolink Go PT Plus
 - Reolink Go Ultra
-- Reolink Go Plus
 - Reolink TrackMix LTE
 - Reolink TrackMix LTE Plus
 
@@ -452,6 +452,8 @@ Removing a chime from a doorbell can be done by deleting the chime following the
 2. From the list of integration entries, select the **x devices** underneath the integration instance of the Doorbell/NVR/Home Hub from which you want to remove a chime.
 3. Select the chime you want to remove from the list of devices
 4. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+
+This will also decouple the chime from the doorbell in the reolink app/client. Therefore the chime will not ring anymore when the doorbell is pressed.
 
 ## Showing the camera in the dashboard
 
