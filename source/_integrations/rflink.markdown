@@ -31,7 +31,7 @@ This {% term integration %} is tested with the following hardware/software:
 
 - Nodo RFLink Gateway V1.4/RFLink R46
 
-### Device support {#device-support}
+### Device support
 The 433 MHz spectrum is used by many manufacturers. Mostly using their own protocol/standard, they use this spectrum to communicate with devices such as light switches, blinds, weather stations, alarms, and various other sensors.
 
 The RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers, and transceiver modules for 433MHz, 868MHz, and 2.4 GHz.
@@ -42,7 +42,7 @@ Versions later than R44 add support for IKEA Ansluta, Philips Living Colors Gen1
 
 A complete list of devices supported by RFLink can be found [here](https://www.rflink.nl/devlist.php).
 
-Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration please consider testing and adding support yourself.
+Even though many devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration please consider testing and adding support yourself.
 
 ## Configuration
 
@@ -149,7 +149,7 @@ sensor:
 
 The RFLink integration does not know the difference between a binary sensor, a switch and a light. Therefore, all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group or configure a nice name.
 
-### Ignoring devices {#ignoring-devices}
+### Ignoring devices
 
 The RFLink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433 MHz technology.
 
@@ -224,7 +224,7 @@ This will give you output looking like this:
 17-03-07 20:12:05 DEBUG (MainThread) [homeassistant.components.rflink] event of type unknown: {'version': '1.1', 'firmware': 'RFLink Gateway', 'revision': '45', 'hardware': 'Nodo RadioFrequencyLink', 'id': 'rflink'}
 ```
 
-## Binary sensor {#binary-sensor}
+## Binary sensor
 
 The RFLink integration does not know the difference between a `binary_sensor`, a `switch`, and a `light`. Therefore, all switchable devices are automatically added as `light` by default.
 
@@ -263,7 +263,7 @@ devices:
           required: false
           type: list
         device_class:
-          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+          description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
           required: false
           type: string
         off_delay:
@@ -304,7 +304,7 @@ binary_sensor:
          off_delay: 5
 ```
 
-## Cover {#cover}
+## Cover
 
 After configuring the RFLink hub, covers will be automatically discovered and added. Except the Somfy RTS devices.
 
@@ -527,7 +527,7 @@ cover:
         fire_event: true
 ```
 
-## Lights {#light}
+## Light
 
 After configuring the RFLink hub, lights will be automatically discovered and added.
 
@@ -637,7 +637,7 @@ light:
 
 Any on/off command from any alias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
 
-### Light types {#light-types}
+### Light types
 
 Light devices can come in different forms. Some only switch on and off, other support dimming. Dimmable devices might not always respond nicely to repeated `on` command as they turn into a pulsating state until `on` is pressed again (for example KlikAanKlikUit). The RFLink integration support three types of lights to make things work in every situation:
 
@@ -687,7 +687,7 @@ light:
         name: Bedroom Lamp
 ```
 
-## Sensors {#sensor}
+## Sensor
 
 After configuring the RFLink hub, sensors will be automatically discovered and added.
 
@@ -740,7 +740,7 @@ devices:
           type: [list, string]
 {% endconfiguration %}
 
-### Sensor types {#sensor-types}
+### Sensor types
 
 Sensor type values:
 
@@ -817,7 +817,7 @@ sensor:
           - xiron_4001_bat
 ```
 
-## Switch {#switch}
+## Switch
 
 The RFLink integration does not know the difference between a `switch`, a `binary_sensor`, and a `light`. Therefore, all switchable devices are automatically added as `light` by default.
 
