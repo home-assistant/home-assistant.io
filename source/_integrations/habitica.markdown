@@ -31,7 +31,7 @@ related:
     title: Habitica
 ---
 
-The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats from [Habitica](https://habitica.com/) in Home Assistant and seamlessly integrates your to-do's, daily tasks and and many things more.
+The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats from [Habitica](https://habitica.com/) in Home Assistant and seamlessly integrates your to-do's, daily tasks and many things more.
 
 ## Prerequisites for Habitica integration
 
@@ -68,7 +68,7 @@ API Token:
 URL:
     description: "URL of the Habitica installation to connect to. Defaults to `https://habitica.com` (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
 Verify SSL certificate:
-  description: Enable this unless the Habitica installation to connect to is using a self-signed certificate.
+  description: Enable SSL certificate verification for secure connections. Disable only if connecting to a Habitica instance using a self-signed certificate
 {% endconfiguration_basic %}
 
 ## Sensors
