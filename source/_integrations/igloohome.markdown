@@ -41,17 +41,19 @@ Once the correct `Client ID` & `Client Secret` has been provided:
 
 - Battery entities:
   - Devices that have a battery level should be automatically recognized, and entities created. If devices are added post-integration, kindly reload the set of `Client Credentials`.
-  - Note on how it works:
-    - The integration makes use of battery levels stored in the igloohome server as a last-known state. 
-    - If you have an igloohome bridge, the bridge will periodically update the igloohome server with the latest state.
-    - If you do not have an igloohome bridge, using Bluetooth commands (eg. Unlock, Sync) via the igloohome mobile app will update the server with the latest state.
+  - The integration makes use of battery levels stored in the igloohome server as a last-known state.
+  - If you have an igloohome bridge, the bridge will periodically update the igloohome server with the latest state.
+  - If you do not have an igloohome bridge, using Bluetooth commands (eg. Unlock, Sync) via the igloohome mobile app will update the server with the latest state.
 
 ## Troubleshooting
 
-- Battery level not updating.
+### Battery level not updating.
+
   - Try reloading the client credentials.
   - Check if your subscription is active.
   - If you have an igloohome bridge, ensure that it is linked to the battery powered devices. 
-- Authentication problems.
+
+### Authentication problems.
+
   - Verify that your [API credentials](https://access.igloocompany.co/api-access) are correctly filled in.
   - Ensure your API credentials have not expired or been revoked.
