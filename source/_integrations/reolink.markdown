@@ -2,7 +2,9 @@
 title: Reolink IP NVR/camera
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
 ha_category:
+  - Doorbell
   - Camera
+  - Media source
   - Update
 ha_iot_class: Local Push
 ha_release: 2023.1
@@ -287,6 +289,8 @@ Recordings up to 1 month old can be viewed in Home Assistant.
 
 ## Tested models
 
+### Tested directly connected models
+
 The following models have been tested and confirmed to work with a direct link to Home Assistant:
 
 - C1 Pro*
@@ -367,6 +371,18 @@ However, these cameras can work with this integration through an NVR or Home Hub
 - E1
 - Reolink Lumus
 
+### Incompatible models
+
+Reolink LTE cameras do not work with this integration.
+
+- Reolink Go Plus
+- Reolink Go PT Plus
+- Reolink Go PT Ultra
+- Reolink Go Ranger PT
+- Reolink Go Ultra
+- Reolink TrackMix LTE
+- Reolink TrackMix LTE Plus
+
 ## Initial setup
 
 ### 1. Initializing and configuring camera credentials.
@@ -406,6 +422,38 @@ Then power up the camera while pointing it at the QR code. It takes about a minu
 ### 2. Add integration in Home Assistant
 
 Set up the Reolink integration in Home Assistant using the credentials you set in step 1.
+
+## Remove integration
+
+### Removing a directly connected camera/NVR/Home Hub
+
+Removing a directly connected camera/NVR/Home Hub can be done by removing the integration following these steps:
+
+{% include integrations/remove_device_service.md %}
+
+This will also remove all cameras/chimes connected to the NVR/Home Hub from Home Assistant.
+
+### Removing a camera from a NVR/Home Hub
+
+Removing a camera from a NVR/Home Hub can be done by deleting the device following these steps:
+
+1. First physically disconnect the ethernet cable of the camera from the NVR if the camera is directly connected to the NVR (PoE).
+2. Then remove the camera from the NVR/Home Hub following the [NVR instructions](https://support.reolink.com/hc/en-us/articles/900003769346-How-to-delete-offline-camera-information-on-Channel-Management-Page-via-Reolink-NVR-New-UI-/) or [Home Hub instructions](https://support.reolink.com/hc/en-us/articles/33883674141977-How-to-Change-Camera-Order-Remove-Device-from-Reolink-Home-Hub/).
+3. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
+4. From the list of integration entries, select the **x devices** underneath the integration instance of the NVR/Home Hub from which you want to remove a camera.
+5. Select the camera you want to remove from the list of devices
+6. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+
+### Removing a chime
+
+Removing a chime from a doorbell can be done by deleting the chime following these steps:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
+2. From the list of integration entries, select the **x devices** underneath the integration instance of the Doorbell/NVR/Home Hub from which you want to remove a chime.
+3. Select the chime you want to remove from the list of devices
+4. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+
+This will also decouple the chime from the doorbell in the Reolink app/client. Therefore, the chime will no longer ring when the doorbell is pressed.
 
 ## Showing the camera in the dashboard
 

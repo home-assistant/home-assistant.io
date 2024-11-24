@@ -38,6 +38,17 @@ You will need the IP address of your device, and the Fully Remote Admin password
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: The IP address or hostname of your device.
+Password:
+  description: The Fully Remote Admin password from the Fully Kiosk Browser app.
+Uses an SSL certificate:
+  description: Whether Fully Kiosk Browser is configured to use an SSL certificate for connections.
+Verify SSL certificate:
+  description: Whether to verify the SSL certificate when connecting to Fully Kiosk Browser. This should be off for self-signed certificates.
+{% endconfiguration_basic %}
+
 ## Capabilities
 
 The following is available as sensors:

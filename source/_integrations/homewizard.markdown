@@ -46,6 +46,11 @@ You have to enable the local API to allow Home Assistant to communicate with you
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+IP address:
+    description: "The IP address of your device. You can find it in your router"
+{% endconfiguration_basic %}
+
 ## Sensors
 
 Sensors for the P1 meter, Energy socket, and kWh meter:
