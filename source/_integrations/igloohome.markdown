@@ -39,3 +39,10 @@ Once the account has been created:
 Once the correct `Client ID` & `Client Secret` has been provided:
 - Battery entities:
   - Devices that have a battery level should be automatically recognized, and entities created. If devices are added post-integration, kindly reload the set of `Client Credentials`.
+
+## Troubleshooting
+
+- Battery level update failures.
+  - Try reloading the client credentials.
+- Authentication problems.
+  - Verify that your [API credentials](https://access.igloocompany.co/api-access) are correctly filled in.
