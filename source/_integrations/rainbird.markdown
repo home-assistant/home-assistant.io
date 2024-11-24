@@ -32,6 +32,17 @@ There is currently support for the following device types within Home Assistant:
 - [Number](#number)
 - [Switch](#switch)
 
+Home Assistant allows you to control the irrigation values, log details about
+the device including optional rain sensor, and allow you to view any upcoming
+irrigations schedules on a calendar.
+
+## Prerequisites
+
+1. Follow the Rain Bird instructions for set up of your sprinkler system
+1. Follow the setup guide for installing your LNK WiFi Module
+1. Complete the necessary steps in the Rain Bird App
+1. Home Assistant should auto discover the device on your network based on the mac address. Otherwise you will need to know the devices IP address on your network to let Home Assistant know how to connect to it.
+
 {% include integrations/config_flow.md %}
 
 ## Configuration options
@@ -41,7 +52,8 @@ will run when turning on a zone switch (default is 6 minutes). This can be overr
 
 ## Binary sensor
 
-The `rainsensor` sensor will tell if you if the device has detected rain.
+The `rainsensor` sensor will tell if you if the device has detected rain. The
+rain sensor is an optional add-on for the device purchased from Rain Bird.
 
 ## Calendar
 
@@ -52,6 +64,9 @@ based on the irrigation start or end time.
 ## Number
 
 The Rain Delay Number Entity lets you set and view  the number of days, if any, the automatic irrigation schedule has been delayed.
+
+You may use the number entity with an automation such as increasing the number
+of days delay when combined with another weather forecast integration in Home Assistant.
 
 ## Switch
 
@@ -85,3 +100,19 @@ automation:
           entity_id: switch.rain_bird_sprinkler_1
           duration: 5
 ```
+
+This lets you other triggers in Home Assistant to set a more complex schedule
+than what is possible using the built in schedule in the Rain Bird app.
+
+## Known Limitations
+
+The Rain Bird LNK WiFi can only receive one incoming request at a time. It may
+not be possible for Home Assistant to send commands to the device while you
+are also using the Rain Bird App. Home Assistant tries to carefully limit
+connections to the device to avoid failures.
+
+## Remove integration
+
+This integration can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}
