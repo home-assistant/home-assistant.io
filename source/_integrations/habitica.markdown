@@ -48,12 +48,8 @@ The Habitica {% term integration %} enables you to monitor your adventurer's pro
 {% configuration_basic %}
 "Email or username":
     description: "Email or username (case-sensitive) to connect Home Assistant to your Habitica account"
-    required: true
-    type: string
 Password:
     description: "Password for the account to connect Home Assistant to Habitica"
-    required: true
-    type: string
 {% endconfiguration_basic %}
 
 ### Advanced configuration
