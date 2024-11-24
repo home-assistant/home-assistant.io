@@ -48,6 +48,12 @@ Protocol:
 
 If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#enabling-entities) first.
 
+## Data updates: plus (+) next to entities listed in this documentation
+
+If an entity listed below has a plus (+) next to its name, it means this entity supports push updates. These entities will have almost instant state changes. 
+For redundancy, the state of all entities is also polled every 60 seconds. For entities without a plus (+), this is the only update method. Therefore, a device's state change can take up to 60 seconds to be reflected in Home Assistant.
+An exception is the firmware update entity, which is polled every 12 hours.
+
 ## Camera streams
 
 This integration creates a few camera entities, one for each stream type with different resolutions:
@@ -66,17 +72,17 @@ Dual lens cameras provide additional streams for the second lens.
 
 Depending on the supported features of the camera, binary sensors are added for:
 
-- Motion detection+
-- Visitor+ (Doorbell presses)
-- AI person detection+
-- AI vehicle detection+
-- AI pet detection+
-- AI animal detection+
-- AI face detection+
-- AI package detection+
-- Sleep status
+- Motion detection++
+- Visitor++ (Doorbell presses)
+- AI person detection++
+- AI vehicle detection++
+- AI pet detection++
+- AI animal detection++
+- AI face detection++
+- AI package detection++
+- Sleep status+
 
-\+ These sensors receive events using the following 4 methods (in order): TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
+\++ These sensors receive events using the following 4 methods (in order): TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for TCP push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
@@ -236,7 +242,7 @@ The **PTZ patrol** positions first need to be configured using the Reolink [app]
 
 Depending on the supported features of the camera, light entities are added for:
 
-- Floodlight
+- Floodlight+
 - Status LED
 
 When the **floodlight** entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see the **Floodlight mode** select entity.
@@ -250,9 +256,9 @@ Depending on the supported features of the camera, the following sensor entities
 - Wi-Fi signal*
 - CPU usage*
 - HDD/SD storage*
-- Battery percentage
-- Battery temperature*
-- Battery state* (discharging, charging, charge complete)
+- Battery percentage+
+- Battery temperature*+
+- Battery state*+ (discharging, charging, charge complete)
 
 ## Update entity
 
