@@ -39,6 +39,3 @@ Once the account has been created:
 Once the correct `Client ID` & `Client Secret` has been provided:
 - Battery entities:
   - Devices that have a battery level should be automatically recognized, and entities created. If devices are added post-integration, kindly reload the set of `Client Credentials`.
- 
-
-
