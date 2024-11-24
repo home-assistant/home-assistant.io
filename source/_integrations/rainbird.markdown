@@ -64,7 +64,7 @@ The integration provides the following configuration options:
 
 {% configuration_basic %}
 Default irrigation time:
-  description: Te number of minutes that the irrigation will run when turning on a zone switch. The default is 6 minutes. This can be overridden with an action (see below).
+  description: The number of minutes that the irrigation will run when turning on a zone switch. The default is 6 minutes. This can be overridden with an action (see below).
 {% endconfiguration_basic %}
 
 ## Data updates
@@ -98,7 +98,7 @@ The Rain Bird integration provides the following entities.
 - **Rain Delay**
   - **Description**: Lets you set and view the number of days, if any, the automatic irrigation schedule has 
     been delayed due to rain. You may use the number entity with an automation such as increasing the number
-    of days delay when combined with another weather forecast integration in Home Assistant.
+    of days to delay irrigation when combined with another weather forecast integration in Home Assistant.
   - **Available for devices**: Only available for Rain Bird devices irrigation schedules.
 
 #### Switch
