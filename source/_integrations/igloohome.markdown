@@ -44,7 +44,7 @@ Once the correct `Client ID` & `Client Secret` has been provided:
   - Note on how it works:
     - The integration makes use of battery levels stored in the igloohome server as a last-known state. 
     - If you have an igloohome bridge, the bridge will periodically update the igloohome server with the latest state.
-    - If you do not have an igloohome bridge, using bluetooth commands (eg. Unlock, Sync) via the igloohome mobile app will update the server with the latest state.
+    - If you do not have an igloohome bridge, using Bluetooth commands (eg. Unlock, Sync) via the igloohome mobile app will update the server with the latest state.
 
 ## Troubleshooting
 
