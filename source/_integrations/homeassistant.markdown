@@ -42,6 +42,7 @@ To get started with the general settings in YAML, follow these steps:
       latitude: 32.87336
       longitude: 117.22743
       elevation: 430
+      radius: 100
       unit_system: metric
       currency: USD
       country: US
@@ -76,6 +77,10 @@ longitude:
   type: float
 elevation:
   description: Altitude above sea level in meters. Impacts sunrise data.
+  required: false
+  type: integer
+radius:
+  description: Radius in meters defining your locations area. Impacts location awareness.
   required: false
   type: integer
 unit_system:
