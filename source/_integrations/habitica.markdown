@@ -31,7 +31,7 @@ related:
     title: Habitica
 ---
 
-The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats in Home Assistant and seamlessly integrates your to-do's and daily tasks.
+The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats from [Habitica](https://habitica.com/) in Home Assistant and seamlessly integrates your to-do's, daily tasks and and many things more.
 
 ## Prerequisites for Habitica integration
 
@@ -42,6 +42,34 @@ The Habitica {% term integration %} enables you to monitor your adventurer's pro
   - Additionally, you will need to provide the URL for the Habitica instance you wish to connect to; the default URL is `https://habitica.com`, but you can specify a different URL if you are using an alternative Habitica instance or a self-hosted instance.
 
 {% include integrations/config_flow.md %}
+
+### Login to Habitica
+
+{% configuration_basic %}
+"Email or username":
+    description: "Email or username (case-sensitive) to connect Home Assistant to your Habitica account"
+    required: true
+    type: string
+Password:
+    description: "Password for the account to connect Home Assistant to Habitica"
+    required: true
+    type: string
+{% endconfiguration_basic %}
+
+### Advanced configuration
+
+If you choose "**Login to other instances**" you will be presented the following configuration options:
+
+{% configuration_basic %}
+"User ID":
+    description: "User ID of your Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+API Token:
+    description: "API Token of the Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+URL:
+    description: "URL of the Habitica installation to connect to. Defaults to `https://habitica.com` (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+Verify SSL certificate:
+  description: Enable this unless the Habitica installation to connect to is using a self-signed certificate.
+{% endconfiguration_basic %}
 
 ## Sensors
 
@@ -310,3 +338,9 @@ Also an event `habitica_api_call_success` will be fired with the following data:
 ```
 
 {% endraw %}
+
+## Remove integration
+
+This integration can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}
