@@ -23,6 +23,7 @@ You need a working Assist configuration. If you haven't done so yet, check [Assi
 
 
 ### To add a custom sentence to trigger an automation
+
 This is the easiest method to get started with custom sentences for automations.
 
 1. Under **{% my automations title="Settings > Automations & Scenes" %}**, in the bottom right corner, select **Create automation**.
