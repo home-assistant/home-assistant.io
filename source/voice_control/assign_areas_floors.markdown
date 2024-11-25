@@ -15,25 +15,26 @@ Another best practice with Assist is to create an architecture of areas and floo
 
 ### To create missing areas 
 
-1. Go to Settings > Areas, Labels & Zones
-2. Click on Create area
+1. Go to {% my zones title="**Settings** > **Areas, labels & zones**" %}.
+2. Select **Create area**.
 
 ### To create missing floors
 
-1. Go to Settings > Areas, Labels & Zones
-2. Click on Create floor
-3. Inside the floor creation dialog, you will be able to assign areas to it
+1. Go to  {% my zones title="**Settings** > **Areas, labels & zones**" %}.
+2. Select **Create floor**.
+3. In the floor creation dialog, assign the related areas.
 
 ### To assign areas to existing floors
 
-1. Go to Settings > Areas, Labels & Zones
-2. Click on the ... icon on a floor
-3. Click on Edit Floor
-4. Assign your areas to this floor
+1. Go to  {% my zones title="**Settings** > **Areas, labels & zones**" %}.
+2. Next to the floor name, select the three dots {% icon "mdi:dots-vertical" %} menu.
+3. Select **Edit floor**.
+4. Assign your areas to this floor.
 
 ### To assign a device to an area
-1. Go to Settings > Devices and Services > Devices
-2. Click on a device
-3. Click on the pencil icon in the top bar of the device page
-4. Assign it to an area
+
+1. Go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}.
+2. Select the device.
+3. In the top bar of the device page, select the pencil {% icon "mdi:pencil" %} icon.
+4. Assign it to an area.
 
