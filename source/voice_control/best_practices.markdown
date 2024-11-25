@@ -31,7 +31,7 @@ As such, you should not expose anything by default, and then expose the entities
 
 ### Check names and create aliases 
 
-Assist relies heavily on entity names, domains and areas. Below you will find tips for tweaking these things to ensure the best experience. On top of exposing the needed data, it is worth noting that you will most likely target entities through areas and floors, like:
+Assist relies heavily on entity names, domains, and areas. Below you will find tips for tweaking these things to ensure the best experience. On top of exposing the needed data, it is worth noting that you will most likely target entities through areas and floors, like:
 
 - *Turn off the office lights*
 
