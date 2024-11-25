@@ -20,6 +20,10 @@ The **ista EcoTrend** {% term integration %} for Home Assistant allows you to im
 
 **ista SE** is a company based in Germany that provides metering services for lessors and property owners. Its solutions are designed for rented or self-inhabited multi-party properties, enabling accurate measurement, assignment, and billing of heating and water consumption for renters or individual property owners.
 
+## How you can use this integration
+
+The **ista EcoTrend** integration allows you to to monitor your monthly heating and water usage in Home Assistants energy dashboard. View historical usage trends, track monthly consumption, and receive notifications when new data is available. This integration helps you stay informed about your household's resource usage and make informed decisions about energy efficiency.
+
 ## Prerequisites
 
 ### For new users
