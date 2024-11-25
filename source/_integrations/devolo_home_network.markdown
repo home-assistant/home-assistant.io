@@ -30,7 +30,7 @@ ha_zeroconf: true
 ha_integration_type: device
 ---
 
-The devolo Home Network integration allows you to monitor your PLC network.
+The **devolo Home Network** {% term integration %} integration allows you to monitor and control your [devolo](https://www.devolo.global) PLC network.
 
 {% include integrations/config_flow.md %}
 
