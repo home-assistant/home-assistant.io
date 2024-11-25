@@ -99,5 +99,4 @@ The options are also documented in the add-on itself. Go to the {% my supervisor
 Also be sure to check the specific tutorial for [using Piper in Automations](voice_control/using_tts_in_automation/)
 
 ## Next steps
-
 Once the pipeline is configured, you are ready to jump into the basic conversation setup in Best Practices
