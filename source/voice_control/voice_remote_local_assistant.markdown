@@ -100,5 +100,4 @@ Also be sure to check the specific tutorial for [using Piper in Automations](voi
 
 ## Next steps
 
-
 Once the pipeline is configured, you are ready to jump into the basic conversation setup in Best Practices
