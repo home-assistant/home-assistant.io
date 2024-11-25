@@ -90,7 +90,7 @@ To set up the **ista EcoTrend** long-term statistics in your Home Assistant ener
 ## Known limitations
 
 - The integration does not support two-factor authentication. To connect Home Assistant to **ista Ecotrend**, you must first disable two-factor authentication. To do this, navigate to **Menü -> Benutzerkonto -> Zwei-Stufen-Authentifizierung** and remove any registered authentication devices.
-- Sensor values reflect the meter readings from the previous month. Long-term statistics are adjusted to display these readings as of the last day of the corresponding month.
+- Sensor values reflect the meter readings from the previous month, as **ista** publishes new readings a few days after the end of the billing period. Long-term statistics are adjusted to display these readings as of the last day of the corresponding month.
 
 ## Remove integration
 
