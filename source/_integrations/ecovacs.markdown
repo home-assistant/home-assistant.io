@@ -207,5 +207,5 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 
 ### Your device is not supported?
 
-Because Ecovacs doesn't provide a public documentation about their APIs, the support of devices is based on reverse engineering of the communication between the device and Ecovacs. This reverse engineering can only be done by persons, who are in possession of such a device and the knowledge how to do the reverse engineering. Therefore the support of devices heavily depends on contributions from the community.
+Because Ecovacs doesn't provide a public documentation about their APIs, the support of devices is based on reverse engineering of the communication of the device. This reverse engineering can only be done by persons, who are in possession of such a device and the knowledge how to do the reverse engineering. Therefore the support of devices heavily depends on contributions from the community.
 If your device is not supported, please request for help or contribute on your own the support of your device directly to the [`deebot_client`](https://github.com/DeebotUniverse/client.py) library.
