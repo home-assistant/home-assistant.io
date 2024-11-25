@@ -73,7 +73,7 @@ Once your devices and entities are correctly
 
 It is now time to speak to your device.
 
-For setting up your device (and have a mic and speaker to execute the voice interaction) you can either have your phone or a custom device. Check here how to do it in [Android](/voice_control/android/) and [Apple](/voice_control/apple/) devices.
+To talk to Assist, you can either use your phone or a custom device (and use their microphone and speaker). Check here how to do it on [Android](/voice_control/android/) or [Apple](/voice_control/apple/) devices.
 
 ### Some examples to get you started
 
