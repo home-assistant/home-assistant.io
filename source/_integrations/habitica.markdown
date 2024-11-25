@@ -166,6 +166,10 @@ To use task aliases, make sure **Developer Mode** is enabled under [**Settings -
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
 
+{% note %}
+When creating automations, be mindful of the [rate limits](#known-limitations). Frequent triggers or multiple concurrent automations can quickly exceed the allowed number of requests.
+{% endnote %}
+
 ### Create "Empty the dishwasher" to-do
 
 Automatically create a Habitica to-do when the dishwasher finishes its cycle.
