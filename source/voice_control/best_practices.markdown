@@ -27,7 +27,6 @@ Learn how in [Exposing your entities to Assist](/voice_control/voice_remote_expo
 
 It might be tempting to expose all entities to Assist, but doing so will come with a performance penalty. The more entity names and aliases the parser will have to go through, the more time it will spend matching. And if you’re using a LLM-based conversation agent, it will incur a higher cost per request, due to the larger context size. So **we recommend you expose the bare minimum** you know you are going to use with voice assistants.
 
-As such, you should not expose anything by default, and then expose the entities you know you will control or query through voice. You’re probably never going to ask if there’s any update available for the MQTT add-on, so there’s no point in exposing the `update` entity to Assist.
 
 ### Check names and create aliases 
 
