@@ -44,7 +44,7 @@ For example, `light.living_room_lamp` might be the entity ID of `Living room lam
 
 Note that this convention is only a recommendation, actual naming of your devices and entities might depend on your language or personal preference.
 
-If you ever find yourself mentioning a certain device or entity in a certain way, make sure to add that as an alias, as it would probably be the most natural way to refer to the entity.
+If you ever find yourself mentioning a certain device or entity in a certain way, make sure to [add that as an alias](/voice_control/aliases/), as it would probably be the most natural way to refer to the entity.
 
 Names and aliases also apply to `area`, you need to address area names and aliases in the exact same manner as you would for entities.
 
@@ -53,7 +53,7 @@ Names and aliases also apply to `area`, you need to address area names and alias
 
 If you have set up Home Assistant entity names in English but plan to use Assist in another language, don’t worry. You can add aliases to each entity, allowing them to be named in any language.
 
-English has pretty simple grammar rules, but there are languages where definite articles are pre- or suffixes to words, where nouns have genders or numbers. Language leaders are making efforts to support most such declinations in each language, but they can’t control the stuff that you name. So try to think whether a certain entity having an unarticled name would be called out in a sentence requiring a definite article or viceversa. If so, add that version of the name as an alias as well.
+English has pretty simple grammar rules, but there are languages where definite articles are pre- or suffixes to words and where nouns have genders or numbers. Language leaders are making efforts to support most such declinations in each language, but they can’t control the stuff that you name. So try to think whether a certain entity having an unarticled name would be called out in a sentence requiring a definite article or vice versa. If so, add that version of the name as an alias as well.
 
 ### Check domains and device classes 
 
@@ -67,6 +67,7 @@ The same thing applies to some device classes. For example, if you have a `binar
 
 
 ## Ready?
+
 Once your devices and entities are correctly 
 - Exposed to assist
 - Assigned to areas.
