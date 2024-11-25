@@ -22,7 +22,7 @@ The **ista EcoTrend** {% term integration %} for Home Assistant allows you to im
 
 ## How you can use this integration
 
-The **ista EcoTrend** integration allows you to to monitor your monthly heating and water usage in Home Assistants energy dashboard. View historical usage trends, track monthly consumption, and receive notifications when new data is available. This integration helps you stay informed about your household's resource usage and make informed decisions about energy efficiency.
+The **ista EcoTrend** integration allows you to monitor your monthly heating and water usage in Home Assistant's energy dashboard. View historical usage trends, track monthly consumption, and receive notifications when new data is available. This integration helps you stay informed about your household's resource usage and make informed decisions about energy efficiency.
 
 ## Prerequisites
 
@@ -100,7 +100,7 @@ To set up the **ista EcoTrend** long-term statistics in your Home Assistant ener
 
 ## Data updates
 
-The integration will look every 24 hours if new readings were published.
+The integration checks for new readings every 24 hours.
 
 ## Known limitations
 
