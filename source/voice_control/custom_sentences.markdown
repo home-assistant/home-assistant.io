@@ -1,5 +1,5 @@
 ---
-title: "Custom sentences"
+title: "Adding a custom sentence to trigger an automation"
 related:
   - docs: /voice_control/aliases/
     title: Create aliases
