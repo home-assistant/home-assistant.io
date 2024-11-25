@@ -38,6 +38,13 @@ The integration currently supports only the German EcoTrend service.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+"Email":
+    description: "Enter the email address associated with your ista EcoTrend account to connect it to Home Assistant."
+Password:
+    description: "Enter the password for your ista EcoTrend account to enable the connection with Home Assistant."
+{% endconfiguration_basic %}
+
 ## Sensors
 
 The **ista EcoTrend** integration exposes the last monthly readings as sensors. It provides the following sensors:
@@ -86,6 +93,10 @@ To set up the **ista EcoTrend** long-term statistics in your Home Assistant ener
   - Select the corresponding **Hot water costs** entity (for example, `ista_ecotrend:luxemburger_str_1_hot_water_cost`).
 - **Add water consumption**
   - To track cold water consumption and costs (for example, `ista_ecotrend:luxemburger_str_1_water` and `ista_ecotrend:luxemburger_str_1_water_cost`), repeat the above steps for your **Water** and **Water costs** entities.
+
+## Data updates
+
+The integration will look every 24 hours if new readings were published.
 
 ## Known limitations
 
