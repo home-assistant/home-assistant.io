@@ -33,6 +33,14 @@ related:
 
 The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats from [Habitica](https://habitica.com/) in Home Assistant and seamlessly integrates your to-do's, daily tasks and many things more.
 
+## About Habitica
+
+Habitica is a gamified task manager and habit tracker that turns your daily goals and to-dos into a role-playing game, helping you stay motivated and productive while earning rewards and leveling up your avatar.
+
+## How you can use this integration
+
+The Habitica integration lets you automate task management, such as creating to-dos when appliances finish or marking dailies complete using smart sensors. You can visualize tasks and stats in Home Assistant dashboards or create notifications for due tasks, keeping you organized and on track with your goals.
+
 ## Prerequisites for Habitica integration
 
 - To set up the Habitica integration, you must first have an active Habitica account. You can register for an account at [Habitica.com](https://habitica.com/).
@@ -334,6 +342,22 @@ Also an event `habitica_api_call_success` will be fired with the following data:
 ```
 
 {% endraw %}
+
+## Data updates
+
+This integration retrieves data from Habitica every 60 seconds to ensure timely updates.
+
+## Known limitations
+
+Habitica imposes a rate limit of 30 requests per minute for third-party applications, which applies collectively to all tools and integrations you use.
+
+This integration performs the following requests:
+
+- 3 requests per data update (every 60 seconds).
+- 1 request per action, such as executing skills or interacting with to-dos and dailies.
+- 1 additional request 5 seconds after an action to sync the data with Habitica.
+
+Please keep these limits in mind to avoid exceeding Habitica's request allowance. Efforts are ongoing to optimize the integration and reduce the number of requests it makes.
 
 ## Remove integration
 
