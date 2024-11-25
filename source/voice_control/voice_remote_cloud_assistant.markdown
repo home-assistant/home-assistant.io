@@ -48,4 +48,4 @@ To have the fastest processing voice assistant experience, follow these steps:
 
 6. That's it. You can now speak to your device, and the device can answer in the language you defined.
 
-Once assist is configured, now can now start using it. Check this page to learn how:
+Once Assist is configured, now can now start using it. Check this page to learn how:

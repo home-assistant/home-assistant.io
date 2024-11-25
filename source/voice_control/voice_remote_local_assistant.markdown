@@ -32,7 +32,7 @@ In Home Assistant, the Assist pipelines are made up of various components that t
 
 Check our comparison table to be sure local setup is going to meet your expectations.
 
-## Some options for Speech to text & Text to speech
+## Some options for speech-to-text and text-to-speech
 
 There is a speech-to-text and text-to-speech option that runs entirely local. No data is sent to external servers for processing.
 
@@ -99,4 +99,5 @@ The options are also documented in the add-on itself. Go to the {% my supervisor
 Also be sure to check the specific tutorial for [using Piper in Automations](voice_control/using_tts_in_automation/)
 
 ## Next steps
+
 Once the pipeline is configured, you are ready to jump into the basic conversation setup in Best Practices

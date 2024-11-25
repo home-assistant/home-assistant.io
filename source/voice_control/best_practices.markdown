@@ -25,7 +25,7 @@ Some best practices we recommend to have an efficient setup are:
 
 Learn how in [Exposing your entities to Assist](/voice_control/voice_remote_expose_devices/).
 
-It might be tempting to expose all entities to Assist, but doing so will come with a performance penalty. The more entity names and aliases the parser will have to go through, the more time it will spend matching. And if you’re using a LLM-based conversation agent, it will incur a higher cost per request, due to the larger context size. So **we recommend you expose the bare minimum** you know you are going to use with voice assistants.
+It might be tempting to expose all entities to Assist, but doing so will come with a performance penalty. The more entity names and aliases the parser will have to go through, the more time it will spend matching. And if you’re using a LLM-based conversation agent, it will incur a higher cost per request, due to the larger context size. Only expose the bare minimum you know you are going to use with voice assistants.
 
 
 ### Check names and create aliases 
@@ -56,7 +56,7 @@ English has pretty simple grammar rules, but there are languages where definite 
 
 ### Check domains and device classes 
 
-Assist leverages domains to define the proper verbs for the action being taken (e.g. turning on/off a `light` or a `fan`, opening/closing a `cover` with a `door` `device_class`, opening/closing a `valve`, locking/unlocking a `lock` etc.).
+Assist leverages domains to define the proper verbs for the action being taken (for example, turning on/off a `light`, or a `fan`, opening/closing a `cover` with a `door` `device_class`, opening/closing a `valve` or locking/unlocking a `lock`.).
 
 It might not bother anyone to have a `switch.main`_valve in the UI instead of a valve, but you can’t ask Assist to open the main valve if the main valve is a switch. If it was a `valve.main_valve`, then the former sentence would have worked without a hitch.
 
@@ -77,7 +77,7 @@ For setting up your device (and have a mic and speaker to execute the voice inte
 
 ### Some examples to get you started
 
-There are a few example commands to help you get started in [our Sentences Starter Pack](/voice_control/builtin_sentences/).
+There are a few example commands to help you get started in [our Sentences starter pack](/voice_control/builtin_sentences/).
 
 If you don't get the right response, we recommend you check the Aliases. Sometimes, different household members may call an entity differently. You may say "TV", whereas someone else may say "Television" 
 

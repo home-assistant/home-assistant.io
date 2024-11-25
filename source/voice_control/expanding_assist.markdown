@@ -13,7 +13,7 @@ Once you have completed the steps in the [Best practices](/voice_control/best_pr
 
 ## Prerequisites 
 
-Assist [up and running](/voice_control/) in any of the available devices and configured as per the [best practices](/voice_control/best_practices/)
+Assist [up and running](/voice_control/) in any of the available devices and configured as per the [best practices](/voice_control/best_practices/).
 
 ## Some ideas to expand your Assist setup
 
