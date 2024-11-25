@@ -163,6 +163,10 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -266,6 +270,10 @@ modes:
   required: false
   type: [list]
   default: []
+platform:
+  description: Must be `humidifier`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -277,7 +285,7 @@ retain:
   type: boolean
   default: true
 state_topic:
-  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored. Valid state payloads are `OFF` and `ON`. Custom `OFF` and `ON` values can be set with the `payload_off` and `payload_on` config options.
   required: false
   type: string
 state_value_template:
@@ -285,7 +293,7 @@ state_value_template:
   required: false
   type: template
 unique_id:
-  description: An ID that uniquely identifies this humidifier. If two humidifiers have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this humidifier. If two humidifiers have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 {% endconfiguration %}

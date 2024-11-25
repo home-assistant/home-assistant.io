@@ -16,7 +16,7 @@ related:
   - docs: /voice_control/create_wake_word/
     title: Create your own wake words
   - docs: /voice_control/builtin_sentences
-    title: Built-in sentences
+    title: Sentences starter kit
   - url: https://www.nabucasa.com/config/
     title: Home Assistant Cloud
 ---

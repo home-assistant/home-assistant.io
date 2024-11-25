@@ -5,19 +5,24 @@ ha_category:
   - Binary sensor
   - Hub
   - Light
+  - Number
   - Sensor
   - Switch
+  - Time
 ha_iot_class: Cloud Push
 ha_release: '0.110'
 ha_domain: home_connect
 ha_codeowners:
   - '@DavidMStraub'
+  - '@Diegorro98'
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - light
+  - number
   - sensor
   - switch
+  - time
 ha_integration_type: integration
 ---
 
@@ -28,10 +33,24 @@ The integration will add one Home Assistant device for each connected home appli
 - A power switch
 - If the device has programs, switches for each of the individual programs will be added. Note that program options cannot be configured currently.
 - If the device has programs, a timestamp sensor for remaining time and a numeric sensor for the progress percentage.
-- For hood's functional light a light switch including brightness control will be added.
-- For hood's and dishwasher's ambient light a light switch including brightness and color control will be added.
+- Light:
+  - Hoods:
+    - Functional light: on/off and brightness
+    - Ambient light: on/off, brightness, HSV and RGB
+  - Dishwasher: on/off, brightness, HS and RGB
+  - Cooling appliances: Both, external and internal lights, on/off and brightness
+- Numbers that set the temperature of cooling appliances.
+- Time for alarm clock for cooktops and ovens.
+- Multiple sensors that report the different states and events reported by the appliance.
+- Binary sensors that show binary states of the appliance.
 
+{% note %}
 Note that it depends on the appliance and on API permissions which of the features are supported.
+{% endnote %}
+
+{% note %}
+Some devices only have the state `on` and turn off is not supported by the appliance, check [power state availability at Home Connect API documentation](https://api-docs.home-connect.com/settings/#power-state) for more information.
+{% endnote %}
 
 ## Prerequisites
 
@@ -47,12 +66,15 @@ Note that it depends on the appliance and on API permissions which of the featur
 4. On success, you will be redirected to the **Applications** page. Select **Details** for your app. Make note of the client ID and secret - you will need it for the next step. Log out of the Home Connect developer portal.
 5. In Home Assistant, find the Home Connect integration and launch it. You will be prompted to create an [Application Credential](https://www.home-assistant.io/integrations/application_credentials). You will need to provide a name (it's arbitrary) in addition to the Client ID and Secret from the previous step. Then, follow the steps in the UI to complete setup.
 
-*Important*:
- - **Power on** all your appliances during the integration configuration process; otherwise appliance programs list will be empty.
- - To update the appliance programs list, you can reload the Home Connect integration when an appliance is turned on. If the re-initialization process is not triggered by reload, restart the Home Assistant when an appliance is turned on. 
- - After performing the steps above, [log out](https://developer.home-connect.com/user/logout) of your Home Connect Developer account. If you don't do this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
- - The provided Home Connect User Account email address **must** be all lowercase otherwise it will result in authentication failures.
- - All changes in the developer portal take 15 minutes before the change is implemented.
+{% important %}
+
+- **Power on** all your appliances during the integration configuration process; otherwise, appliance programs list will be empty.
+- To update the appliance programs list, you can reload the Home Connect integration when an appliance is turned on. If the re-initialization process is not triggered by reload, restart the Home Assistant when an appliance is turned on.
+- After performing the steps above, [log out](https://developer.home-connect.com/user/logout) of your Home Connect Developer account. If you don't do this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
+- The provided Home Connect User Account email address **must** be all lowercase; otherwise, it will result in authentication failures.
+- All changes in the developer portal take 15 minutes before the change is implemented.
+
+{% endimportant %}
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -63,7 +85,7 @@ instead.
 The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
 authentication process.
 
-Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`."
 
 {% enddetails %}
 

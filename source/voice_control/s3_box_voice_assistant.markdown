@@ -41,43 +41,6 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 {% tabbed_block %}
 
-- title: Using the ESP32-S3-BOX
-  content: |
-
-    1. Make sure this page is opened in a Chromium-based browser on a **desktop**. The software installation does not work with a tablet or phone.
-
-       - If your browser does not support web serial, you will see a warning message indicating this instead of a button.
-
-           <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
-           <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box/manifest.json"></esp-web-install-button>
-
-       - **For advanced users**: The configuration files are available on GitHub:
-         - [ESP32-S3-BOX config on GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/esp32-s3-box/esp32-s3-box.yaml)
-
-    2. To connect the ESP32-S3-BOX to your computer, follow these steps:
-       - In the pop-up window, view the available ports.
-       - Plug the USB-C cable into the ESP32-S3-BOX and connect it to your computer.
-    3. Select **Install Voice Assistant**, then **Install**.
-         - Once the installation is complete, select **Next**.
-         - Add the ESP32-S3-BOX to your Wi-Fi:
-           - When prompted, select your network from the list and enter the credentials to your 2.4&nbsp;GHz Wi-Fi network.
-           - Select **Connect**.
-           - The ESP32-S3-BOX now joined your network. Select **Add to Home Assistant**.
-    4. This opens the **My** link to Home Assistant.
-       - If you have not used My Home Assistant before, you will need to configure it. If your Home Assistant URL is not accessible on `http://homeassistant.local:8123`, replace it with the URL to your Home Assistant instance.
-       - Open the link.
-       ![Open My link](/images/assist/esp32-atom-flash-06.png)
-    5. Select **OK**.
-       ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
-    6. To add the newly discovered device, select the ESP32-S3-BOX from the list.
-       - Add your ESP32-S3-BOX to a room and select **Finish**.
-    7. You should now see the **ESPHome** integration.
-       ![New ESPHome device discovered](/images/assist/m5stack-atom-echo-discovered-33.png)
-    8. Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX** listed.
-        ![ESP32-S3-BOX-3 discovered](/images/assist/s32-s3-box-3-discovered.png)
-
-        - Your ESP32-S3-BOX is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
-
 - title: Using the ESP32-S3-BOX-3(B)
   content: |
 
@@ -119,6 +82,43 @@ Before you can use this device with Home Assistant, you need to install a bit of
     7. You should now see the **ESPHome** integration.
        ![New ESPHome device discovered](/images/assist/m5stack-atom-echo-discovered-33.png)
 
+    8. Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX** listed.
+        ![ESP32-S3-BOX-3 discovered](/images/assist/s32-s3-box-3-discovered.png)
+
+        - Your ESP32-S3-BOX is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
+
+- title: Using the ESP32-S3-BOX
+  content: |
+
+    1. Make sure this page is opened in a Chromium-based browser on a **desktop**. The software installation does not work with a tablet or phone.
+
+       - If your browser does not support web serial, you will see a warning message indicating this instead of a button.
+
+           <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+           <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box/manifest.json"></esp-web-install-button>
+
+       - **For advanced users**: The configuration files are available on GitHub:
+         - [ESP32-S3-BOX config on GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/esp32-s3-box/esp32-s3-box.yaml)
+
+    2. To connect the ESP32-S3-BOX to your computer, follow these steps:
+       - In the pop-up window, view the available ports.
+       - Plug the USB-C cable into the ESP32-S3-BOX and connect it to your computer.
+    3. Select **Install Voice Assistant**, then **Install**.
+         - Once the installation is complete, select **Next**.
+         - Add the ESP32-S3-BOX to your Wi-Fi:
+           - When prompted, select your network from the list and enter the credentials to your 2.4&nbsp;GHz Wi-Fi network.
+           - Select **Connect**.
+           - The ESP32-S3-BOX now joined your network. Select **Add to Home Assistant**.
+    4. This opens the **My** link to Home Assistant.
+       - If you have not used My Home Assistant before, you will need to configure it. If your Home Assistant URL is not accessible on `http://homeassistant.local:8123`, replace it with the URL to your Home Assistant instance.
+       - Open the link.
+       ![Open My link](/images/assist/esp32-atom-flash-06.png)
+    5. Select **OK**.
+       ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
+    6. To add the newly discovered device, select the ESP32-S3-BOX from the list.
+       - Add your ESP32-S3-BOX to a room and select **Finish**.
+    7. You should now see the **ESPHome** integration.
+       ![New ESPHome device discovered](/images/assist/m5stack-atom-echo-discovered-33.png)
     8. Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX** listed.
         ![ESP32-S3-BOX-3 discovered](/images/assist/s32-s3-box-3-discovered.png)
 

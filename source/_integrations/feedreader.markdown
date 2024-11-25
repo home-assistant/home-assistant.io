@@ -78,4 +78,4 @@ hass.bus.listen(EVENT_FEEDREADER, event_listener)
 
 To get started developing custom integrations, please refer to the [developers](/developers) documentation
 
-For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/config/packages/hasspodcast.yaml).
+For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/22c19375ac5dcb49e0648aa16c431537407aa5e4/config/packages/hasspodcast.yaml).

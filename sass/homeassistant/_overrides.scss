@@ -861,7 +861,6 @@ a.material-card:hover {
   }
 }
 
-
 h1:hover a.title-link,
 h2:hover a.title-link,
 h3:hover a.title-link,
@@ -889,6 +888,35 @@ dt:hover a.title-link {
   }
 }
 
+.hero-github-badge .desktop {
+  display: none;
+  max-width: 658px;
+  width: 100%;
+}
+
+.hero-github-badge .mobile {
+  display: block;
+  max-width: 420px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+// after 768px, show desktop, hide mobile
+@media only screen and (min-width: 1025px) {
+  .hero-github-badge .mobile {
+    display: none;
+    max-width: 385px;
+  }
+
+  .hero-github-badge .desktop {
+    display: block;
+  }
+}
+
+.hero-buttons {
+  margin-bottom: 0;
+}
+
 .hero-buttons a {
   margin: 0 30px 10px 0;
 
@@ -896,7 +924,6 @@ dt:hover a.title-link {
     margin: 0;
   }
 }
-
 
 // Article formatting
 
@@ -1360,11 +1387,16 @@ a.my {
   }
 }
 
-:target {
-  display: block;
+// Prevent headings from disappearing behind the site header when linked to
+h1, h2, h3, h4, h5, h6 {
   position: relative;
-  top: -100px;
-  visibility: hidden;
+  word-wrap: break-word;
+}
+
+:target, .title-link {
+  display: inline-block;
+  position: relative;
+  scroll-margin-top: 140px;
 }
 
 .site-header {

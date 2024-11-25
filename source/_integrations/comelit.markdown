@@ -20,6 +20,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - cover
+  - diagnostics
   - humidifier
   - light
   - sensor

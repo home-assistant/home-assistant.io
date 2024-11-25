@@ -20,7 +20,6 @@ Compatible transceivers:
 
 - [DIY](https://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-rs232-ausgang)
 - [Weidmann Elektronik Schreib-/Lesekopf USB](https://shop.weidmann-elektronik.de/index.php?page=product&info=24)
-- [USB IR Lesekopf EHZ Lese-Schreib-Kopf Volkszähler Hichi Smartmeter](https://www.ebay.de/itm/313884760667)
 
 Tested smart meters:
 

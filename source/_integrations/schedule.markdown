@@ -171,10 +171,10 @@ triggers:
         - schedule.light_schedule
       to: "on"
   actions:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
-        entity_id: climate.thermostat
-      data_template:
+        entity_id: light.kitchen
+      data:
         brightness_pct: "{{ state_attr('schedule.light_schedule', 'brightness') }}"
         kelvin: "{{ state_attr('schedule.light_schedule, 'temperature') }}"
 ```

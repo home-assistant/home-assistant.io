@@ -101,7 +101,6 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 - Texas Instruments based radios (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
   - [CC2652P/CC2652R/CC2652RB USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
   - [CC1352P/CC1352R USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
-  - [XZG - Universal Firmware for Zigbee Gateway](https://xzg.xyzroe.cc/)
 - dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
   - [ConBee III (a.k.a. ConBee 3) USB adapter from dresden elektronik](https://phoscon.de/conbee3)
 
@@ -255,23 +254,9 @@ custom_quirks_path:
 
 ### Advanced OTA configuration
 
-The default configuration for OTA firmware updates is chosen by ZHA developers, so normal users should not need to change any configuration. Most of the config options listed in the zigpy section are just meant for development or advanced users.
+OTA for a few manufacturers is enabled by default, currently Ledvance, Sonoff, Inovelli, and ThirdReality. Other manufacturers are supported but disabled by default because their updates may change or remove device functionality, may require you to reconfigure devices, or are contributed by the community and may be minimally tested.
 
-Further advanced configuration options are only provided in the [zigpy project's developers documentation](https://github.com/zigpy/zigpy).
-
-However, if you want to disable OTA updates for a specific manufacturer, you can add the following lines to your `configuration.yaml` and restart Home Assistant.
-
-```yaml
-zha:
-  zigpy_config:
-    ota:
-      ikea_provider: false                       # Disable OTA update downloads for Trådfri devices
-      inovelli_provider: false                   # Disable OTA update downloads for INOVELLI devices
-      ledvance_provider: false                   # Disable OTA update downloads for LEDVANCE/OSRAM devices
-      salus_provider: false                      # Disable OTA update downloads for SALUS/Computime devices
-      sonoff_provider: false                     # Disable OTA update downloads for Sonoff (ITead) devices
-      thirdreality_provider: false               # Disable OTA update downloads for 3REALITY devices
-```
+Refer to the [zigpy documentation for OTA configuration](https://github.com/zigpy/zigpy/wiki/OTA-Configuration) for more information on additional OTA providers.
 
 ### Defining Zigbee channel to use
 

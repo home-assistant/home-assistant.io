@@ -2,22 +2,34 @@
 title: Habitica
 description: Instructions on enabling Habitica support for your Home Assistant
 ha_category:
-  - Hub
+  - To-do list
   - Sensor
+  - Calendar
 ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_domain: habitica
 ha_platforms:
+  - binary_sensor
   - button
   - sensor
   - switch
   - todo
+  - calendar
 ha_codeowners:
   - '@ASMfreaK'
   - '@leikoilja'
   - '@tr4nt0r'
 ha_config_flow: true
 ha_integration_type: integration
+related:
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
+  - url: https://habitica.com/
+    title: Habitica
 ---
 
 The Habitca {% term integration %} enables you to monitor your adventurer's progress and stats in Home Assistant and seamlessly integrates your to-do's and daily tasks.
@@ -47,13 +59,25 @@ The Habitca {% term integration %} enables you to monitor your adventurer's prog
 - **Rewards:** Displays the rewards that can be redeemed (for example, "1 task")
 - **Gems:** Shows the total number of gems currently owned by your Habitica character, used for purchasing items and customizations.
 - **Mystic hourglasses:** Displays the number of mystic hourglasses earned as a subscriber, which can be redeemed for exclusive items from past events.
+- **Strength, intelligence, constitution, perception**: Display your character's attribute points (stats). The sensors' attributes provide a breakdown of contributions from level, battle gear, class equip bonus, allocation, and buffs.
 
+## Binary sensors
+
+- **Pending quest invitation**: Indicates if you have an invitation to a quest awaiting your response.
+  
 ## To-do lists
 
 The following Habitica tasks are available as to-do lists in Home Assistant. You can add, delete, edit and check-off completed tasks
 
 - **To-Do's:** Displays a comprehensive list of active and completed to-dos. Each to-do includes its due date if applicable, allowing you to check them off, edit them, delete them, and create new to-dos seamlessly.
 - **Dailies:** Shows the daily tasks that need to be completed today or in the future. Tasks completed yesterday can still be marked off as "yesterdailies" until a new day starts.
+
+## Calendars
+
+- **To-Do calendar:** Lists the due dates for all active to-do tasks. Each event on this calendar represents a to-do item that has a set due date, making it easy to track upcoming deadlines and plan accordingly.
+- **Dailies calendar:** Displays all daily tasks that are scheduled for today and are still active. It also shows all tasks scheduled for future dates, helping you stay organized and track upcoming routines. The calendar sensor will be active if there are unfinished tasks for today and display the next due daily (based on sort order if there are multiple tasks due for that day).
+- **To-Do reminders calendar**: Lists events for reminders associated with your to-dos in Habitica, helping you track when notifications for specific to-dos are expected.
+- **Dailies reminders calendar**: Shows events for reminders linked to your Habitica dailies, ensuring you know when notifications for your dailies will occur.
 
 ## Button controls
 
@@ -62,9 +86,37 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 - **Buy a health potion:** Allows your character to purchase a health potion in Habitica. Instantly applies the potion upon purchase, healing 15 HP at a cost of 25 GP.
 - **Allocate all stat points**: Assigns all unallocated stat points based on the previously set automatic allocation method. If no method is set, all points are assigned to strength (STR).
 
+## Button controls for class skills
+
+If you've unlocked the class system, button controls for casting player and party skills will become available, depending on the class you've selected. For task skills see [action `habitica.cast_skill`](#action-habiticacast_skill)
+
+### Mage
+
+- **Ethereal surge**: You sacrifice Mana so the rest of your party, except for other mages, gains MP. (based on: INT)
+- **Earthquake**: Your mental power shakes the earth and buffs your party's intelligence. (based on: unbuffed INT)
+- **Chilling frost:** With one cast, ice freezes all your streaks so they won't reset to zero tomorrow.
+
+### Warrior
+
+- **Defensive stance**: You crouch low and gain a buff to constitution. (based on: unbuffed CON)
+- **Valorous presence**: Your boldness buffs your whole party's strength. (based on: unbuffed STR)
+- **Intimidating gaze:** Your fierce stare buffs your whole Party's constitution. (based on: unbuffed CON)
+
+### Rogue
+
+- **Tools of the trade**: Your tricky talents buff your whole party's perception. (based on: unbuffed PER)
+- **Stealth**: With each cast, a few of your undone dailies won't cause damage tonight. Their streaks and colors won't change. (based on: PER)
+
+### Healer
+
+- **Healing light**: Shining light restores your health. (based on: CON and INT)
+- **Searing brightness**: A burst of light makes your tasks more blue/less red. (based on: INT)
+- **Protective aura**: You shield your party by buffing their constitution. (based on: unbuffed CON)
+- **Blessing**: Your soothing spell restores your whole party's health. (based on: CON and INT)
+
 ## Switch controls
 
-- **Rest in the Inn:** When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
+- **Rest in the Inn**: When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
 
 ## Actions
 
@@ -86,90 +138,209 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 
 To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
-## API Service
+### Action `habitica.accept_quest`
 
-At runtime, you will be able to use the API for each respective user by their Habitica's username.
-You can override this by passing `name` key, this value will be used instead of the username.
-If you are hosting your own instance of Habitica, you can specify a URL to it in `url` key.
+Accept a pending invitation to a quest. For an example, see the [`Auto-accept quest invitation`](#auto-accept-quest-invitation) automation, which demonstrates how this action can be used to automatically accept quest invitations.
 
-### API Service Parameters
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to accept the quest.             |
 
-The API is exposed to Home Assistant as an action called `habitica.api_call`. To call it, you should specify these keys in the data:
+### Action `habitica.reject_quest`
 
-| Data attribute | Required | Type     | Description                                                                                                       |
-| ---------------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `name`                 | yes      | string   | Habitica's username as per `configuration.yaml` entry.                                                            |
-| `path`                 | yes      | [string] | Items from API URL in form of an array with method attached at the end. See the example below.                    |
-| `args`                 | no       | map      | Any additional JSON or URL parameter arguments. See the example below and [apidoc](https://habitica.com/apidoc/). |
+Reject a pending invitation to a quest.
 
-A successful run of this action will fire an event `habitica_api_call_success`.
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to reject the quest.             |
 
-| Event data attribute | Type     | Description                                                                                                                                                           |
-| -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`               | string   | Copied from the data attribute.                                                                                                                                   |
-| `path`               | [string] | Copied from the data attribute.                                                                                                                                   |
-| `data`               | map      | Deserialized `data` field of JSON object Habitica's server returned in response to API call. For more info see the [API documentation](https://habitica.com/apidoc/). |
+### Action `habitica.leave_quest`
 
-#### Let's consider some examples on how to use the action
+Leave the current quest you are participating in.
 
-For example, let's say that there is a configured `habitica` platform for user `xxxNotAValidNickxxx` with their respective `api_user` and `api_key`.
-Let's create a new task (a todo) for this user via Home Assistant. There is an [API call](https://habitica.com/apidoc/#api-Task-CreateUserTasks) for this purpose.
-To create a new task one should hit `https://habitica.com/api/v3/tasks/user` endpoint with `POST` request with a JSON object with task properties.
-So let's call the API on `habitica.api_call`.
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to leave the quest.              |
 
-- The `name` key becomes `xxxNotAValidNickxxx`.
-- The `path` key is trickier.
-  - Remove `https://habitica.com/api/v3/` at the beginning of the endpoint URL.
-  - Split the remaining on slashes (/) and **append the lowercase method** at the end.
-  - You should get `["tasks", "user", "post"]`. To get a better idea of the API you are recommended to try all of the API calls in IPython console [using this package](https://github.com/ASMfreaK/habitipy/blob/master/README.md).
-- The `args` key is more or less described in the [API documentation](https://habitica.com/apidoc/).
+### Action `habitica.abort_quest` 🔒
 
-Combining all together:
-call `habitica.api_call` with data
+Terminate your party's ongoing quest. All progress will be lost, and the quest roll returned to the owner's inventory. Only the quest leader or group leader can perform this action.
 
-```json
-{
-  "name": "xxxNotAValidNickxxx",
-  "path": ["tasks", "user", "post"],
-  "args": {"text": "Use API from Home Assistant", "type": "todo"}
-}
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to abort the quest.              |
+
+{% note %}
+Actions marked with 🔒 have usage restrictions. See action descriptions for details.
+{% endnote %}
+
+### Action `habitica.start_quest` 🔒
+
+Begin the quest immediately, bypassing any pending invitations that haven't been accepted or rejected. Only the quest leader or group leader can perform this action.
+
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to force-start the quest.        |
+
+### Action `habitica.cancel_quest` 🔒
+
+Cancel a quest that has not yet started. All accepted and pending invitations will be canceled, and the quest roll returned to the owner's inventory. Only the quest leader or group leader can perform this action.
+
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to cancel the quest.             |
+
+### Action `habitica.score_habit`
+
+Increase the positive or negative streak of a habit.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character tracking the habit.                                                            |
+| `task`         | no       |  The name, `task ID`, or **alias** of the habit to track.                                                         |
+| `direction`    | no       |  `up` for positive progress or `down` for negative progress you want to track for your habit.                     |
+
+### Action `habitica.score_reward`
+
+Buy a custom reward with gold.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character buying the reward.                                                                 |
+| `task`         | no       |  The name, `task ID`, or **alias** of the custom reward to buy.                                                   |
+
+### Action `habitica.transformation`
+
+Use a transformation item from your Habitica character's inventory on a member of your party or yourself.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character using the transformation item.                                                    |
+| `item`         | no       |  The transformation item you want to use. Item must be in the character's inventory.                               |
+| `target`       | no       |  The character you want to use the transformation item on. Matches by display name, username, or user ID.           |
+
+#### Available transformation items
+
+- **Snowball**: `snowball` (transforms into a snowfriend)
+- **Spooky sparkles**: `spooky_sparkles` (transforms into a ghost)
+- **Seafoam**: `seafoam` (transforms into a starfish)
+- **Shiny seed** `shiny_seed` (transforms into flower)
+
+## Automations
+
+Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
+
+### Auto-accept quest invitation
+
+Automatically accepts quest invitations from your Habitica party and creates a persistent notification to inform you when a quest has been successfully accepted.
+
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/habitica-auto-accept-quest-invitation/791002" %}
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.habitica_pending_quest_invitation
+    from: "off"
+    to: "on"
+actions:
+  - action: habitica.accept_quest
+    data:
+      config_entry: config_entry_id
+    response_variable: action_response
+  - action: notify.persistent_notification
+    data:
+      title: You have been invited to a quest!
+      message: >-
+        ![{{action_response["key"]}}](https://habitica-assets.s3.amazonaws.com/mobileApp/images/inventory_quest_scroll_{{action_response["key"]}}.png)
+
+        The invitation has been accepted, and the quest {% if
+        action_response["active"] %}has already started{% else %}is waiting
+        for other party members to join{% endif %}.
 ```
 
-This call will create a new todo on `xxxNotAValidNickxxx`'s account with text `Use API from Home Assistant` like this:
+{% endraw %}
 
-![example task created](/images/screenshots/habitica_new_task.png)
+{% enddetails %}
 
-Also an event `habitica_api_call_success` will be fired with the following data:
+### Create "Empty the dishwasher" to-do
 
-```json
-{
-  "name": "xxxNotAValidNickxxx",
-  "path": ["tasks", "user", "post"],
-  "data": {
-    "challenge": {},
-    "group": {"approval": {"required": false,
-     "approved": false,
-     "requested": false},
-    "assignedUsers": [],
-    "sharedCompletion": "recurringCompletion"},
-    "completed": false,
-    "collapseChecklist": false,
-    "type": "todo",
-    "notes": "",
-    "tags": [],
-    "value": 0,
-    "priority": 1,
-    "attribute": "str",
-    "text": "Use API from Home Assistant",
-    "checklist": [],
-    "reminders": [],
-    "_id": "NEW_TASK_UUID",
-    "createdAt": "2018-08-09T18:03:27.759Z",
-    "updatedAt": "2018-08-09T18:03:27.759Z",
-    "userId": "xxxNotAValidNickxxx's ID",
-    "id": "NEW_TASK_UUID"}
-}
+Automatically create a Habitica to-do when the dishwasher finishes its cycle.
+
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/habitica-create-to-do-when-dishwasher-finishes-its-cycle/786625" %}
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: sensor.dishwasher
+    from: "on"
+    to: "off"
+
+actions:
+  - action: todo.add_item
+    data:
+      item: "Empty the dishwasher 🥣🍽️"
+      due_date: "{{now().date()}}"
+      description: "Empty the clean dishes from the dishwasher and load any dirty dishes that are waiting."
+    target:
+      entity_id: todo.habitica_to_dos
 ```
+
+{% endraw %}
+
+{% enddetails %}
+
+### Complete toothbrushing tasks on your Habitica Dailies list
+
+Automatically mark your morning and evening toothbrushing dailies as complete when your toothbrush usage is detected.
+
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/habitica-complete-toothbrushing-tasks-on-your-habitica-dailies-list/786631" %}
+
+{% details "Example YAML configuration" %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: sensor.oralb_toothbrush_state
+    to: "running"
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10 # Time delay for debouncing to avoid false triggers
+actions:
+  - choose:
+      - conditions:
+          - condition: time
+            after: "05:00:00"
+            before: "12:00:00"
+        sequence:
+          - action: todo.update_item
+            data:
+              item: "Brush your teeth in the morning 🪥"
+              status: completed
+            target:
+              entity_id: todo.habitica_dailies
+      - conditions: 
+          - condition: time
+            after: "18:00:00"
+            before: "23:59:00"
+        sequence:
+          - action: todo.update_item
+            data:
+              item: "Brush your teeth before bed 🪥"
+              status: completed
+            target:
+              entity_id: todo.habitica_dailies
+```
+
+{% enddetails %}
 
 ## Templating
 

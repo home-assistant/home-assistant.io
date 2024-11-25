@@ -1,8 +1,9 @@
 ---
 title: Xiaomi
-description: Instructions on how to integrate a video feed (via FFmpeg) as a camera within Home Assistant.
+description: Instructions on how to integrate a video feed (via FFmpeg) as a camera as well as a router within Home Assistant.
 ha_category:
   - Camera
+  - Presence detection
 ha_release: 0.72
 ha_iot_class: Local Polling
 ha_domain: xiaomi
@@ -10,22 +11,31 @@ ha_platforms:
   - camera
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: configuration.yaml file
 ---
 
-The `Xiaomi` camera platform allows you to utilize Xiaomi Cameras within Home Assistant.
+This section shows you how to integrate a [Xiaomi router](http://miwifi.com) or a Xiaomi camera into Home Assistant.
 
-To successfully implement this platform, the Home Assistant host should be capable of multiple simultaneous reads. For every concurrent Home Assistant user, a connection will be made to the camera every 10 seconds. This should normally not be a problem.
+## Camera
 
-## Preparing the device
+The **Xiaomi** camera integration allows you to utilize Xiaomi cameras within Home Assistant.
 
-In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found for each models.
+### Prerequisites
 
-- [Yi 720p](https://github.com/fritz-smh/yi-hack)
-- [Yi Home 17CN / 27US / 47US / 1080p Home / Dome / 1080p Dome](https://github.com/shadow-1/yi-hack-v3)
-- [Recent Yi 1080p Home / 1080p Dome](https://github.com/roleoroleo/yi-hack-MStar)
-- [Xiaofang 1080p Camera](https://github.com/samtap/fang-hacks)
+- To successfully implement this integration, the Home Assistant host should be capable of multiple simultaneous reads.
+  - For every concurrent Home Assistant user, a connection will be made to the camera every 10 seconds. This should normally not be a problem.
 
-Once installed, please ensure that you have enabled FTP.
+#### Preparing the device
+
+1. In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device.
+   - To install the firmware, follow the steps in the model-specific documentation:
+   - [Yi 720p](https://github.com/fritz-smh/yi-hack)
+   - [Yi Home 17CN / 27US / 47US / 1080p Home / Dome / 1080p Dome](https://github.com/shadow-1/yi-hack-v3)
+   - [Recent Yi 1080p Home / 1080p Dome](https://github.com/roleoroleo/yi-hack-MStar)
+   - [Xiaofang 1080p Camera](https://github.com/samtap/fang-hacks)
+2. Once installed, make sure you have enabled FTP.
 
 {% warning %}
 Currently, version 0.1.4-beta2 of the custom firmware is the highest supported. Firmwares higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files.
@@ -43,9 +53,9 @@ The live stream writing by the camera is not a supported format when Home Assist
 If you enabled RTSP server, you can connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Mi Home app. In order to maintain both Home Assistant compatibility _and_ the native app, this platform retrieves videos via FTP.
 {% endtip %}
 
-## Configuring the platform
+### Configuration
 
-To enable the platform, add the following lines to your`configuration.yaml` file:
+To enable the camera, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 camera:
@@ -93,7 +103,7 @@ ffmpeg_arguments:
 The default for `path:` will not work with all cameras. It may be needed that you add that key with the exact path for your device.
 {% endimportant %}
 
-## Image quality
+### Image quality
 
 Any option supported by [`ffmpeg` camera](/integrations/camera.ffmpeg/) can be utilized via the `ffmpeg_arguments` configuration parameter.
 
@@ -109,7 +119,8 @@ camera:
     path: /home/camera/feed
     ffmpeg_arguments: "-vf scale=800:450"
 ```
-## Hostname template
+
+### Hostname template
 
 The hostname/IP address can be provided either a value or from the existing {% term entity %} attributes.
 
@@ -122,3 +133,44 @@ camera:
     password: 1234
     path: /tmp/sd/record
 ```
+
+## Router
+
+The **Xiaomi** router integration offers presence detection by looking at connected devices to a [Xiaomi](http://miwifi.com) router.
+
+### Configuration
+
+To use an Xiaomi router in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+
+```yaml
+# Example configuration.yaml entry
+device_tracker:
+  - platform: xiaomi
+    host: YOUR_ROUTER_IP
+    password: YOUR_ADMIN_PASSWORD
+```
+
+{% configuration %}
+host:
+  description: "The IP address of your router, e.g., `192.168.0.1`."
+  required: true
+  type: string
+username:
+  description: The admin username.
+  required: false
+  default: admin
+  type: string
+password:
+  description: The password for the admin account.
+  required: true
+  type: string
+{% endconfiguration %}
+
+See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
+
+### Compatibility test
+
+To ensure that your router is compatible, navigate to `http://YOUR_ROUTER_IP/api/misystem/devicelist`.
+You should see a listing of the device currently connected to your router.
+
+However, some users report that even when the previous URL does not work, they have been able to integrate their Mi Router 3 in Home Assistant. E.g., some users with the Mi Router 3 and firmware version 2.10.46 Stable have integrated their routers successfully and an alternative URL to test integration with is `http://YOUR_ROUTER_IP/cgi-bin/luci/api/misystem/devicelist`. Navigating to this page should show the `{"code":401,"msg":"Invalid token"}` message.

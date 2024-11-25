@@ -176,6 +176,7 @@ Within this delay the device registration should be completed in the App, otherw
   - Passage Sensor with Direction Recognition (*HmIP-SPDR*) (delta counter)
   - Alpha IP Wall Thermostat Display (*ALPHA-IP-RBG*)
   - Alpha IP Wall Thermostat Display analog (*ALPHA-IP-RBGa*)
+  - Floor Heating Actuator – 12x channels, motorized - Valve positions (*HmIP-FALMOT-C12*)
 
 - homematicip_cloud.switch
   - Pluggable Switch (*HmIP-PS*)

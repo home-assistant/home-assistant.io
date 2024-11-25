@@ -4,6 +4,7 @@ description: Instructions on how to integrate BSBLan device into Home Assistant.
 ha_category:
   - Climate
   - Sensor
+  - Water heater
 ha_release: '0.110'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_platforms:
   - climate
   - diagnostics
   - sensor
+  - water_heater
 ha_integration_type: device
 ---
 
@@ -30,7 +32,6 @@ For more information of which system it supports, take a look at their [document
 
 {% include integrations/config_flow.md %}
 
-{% include integrations/config_flow.md %},
 For authentication HTTP authentication using a username and password,
 or using a passkey is supported. Use either one.
 

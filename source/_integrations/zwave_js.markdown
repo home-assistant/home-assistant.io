@@ -841,11 +841,13 @@ Additional devices may be discoverable, however only devices that have been conf
 
 Zwavejs2Mqtt was renamed Z-Wave JS UI in September 2022. They are synonymous with no difference between their capabilities.
 
-### Can I switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on?
+### Can I switch between Z-Wave JS and Z-Wave JS UI?
 
-You can, but you cannot run them both at the same time. Only one of them can be active at the same time.
+You can switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on. However, but you cannot run them both at the same time. Only one of them can be active at the same time.
 
-### How do I switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on?
+### How to switch between Z-Wave JS and Z-Wave JS UI?
+
+To switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on, follow these steps:
 
 Switching does not require renaming your devices.
 
@@ -863,13 +865,14 @@ Switching does not require renaming your devices.
 
 7. Enable the Z-Wave integration.
 
-### What's the benefit of using Z-Wave JS UI add-on over the official add-on?
+### What's the benefit of using Z-Wave JS UI add-on?
 
+You might wonder what the benefit is of using the Z-Wave JS UI add-on instead of the official add-on.
 The official add-on provides the Z-Wave Server in its bare minimum variant, just enough to serve the Home Assistant integration.
 
 The Z-Wave JS UI project includes the Z-Wave JS Server for convenience but also provides a Z-Wave control panel and the ability to serve your Z-Wave network to MQTT. This allows you to use the control panel, and if you so choose, to also use MQTT at the same time. For example, some users may use MQTT to interact with Z-Wave from other devices, while the Home Assistant integration still works (as long as you keep the WS Server enabled in Z-Wave JS UI).
 
-### Z-Wave JS UI seems to provide discovery of Home Assistant devices on its own too, now I'm confused
+### Z-Wave JS UI provides discovery of HA devices on its own too, now I'm confused
 
 Correct, the Z-Wave JS UI project existed before Home Assistant had plans to move to the Z-Wave JS Driver. You should use the integration for device discovery and _not_ the MQTT discovery provided by Z-Wave JS UI.
 
@@ -919,7 +922,7 @@ Entities will be created only after the node is ready (the interview is complete
 
 If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), create an issue about your problem on the GitHub issue tracker.
 
-### My device does not automatically update its status in HA if I control it manually
+### My device doesn't automatically update its status in HA if I control it manually
 
 Your device might not send automatic status updates to the controller. While the best advice would be to update to recent Z-Wave Plus devices, there is a workaround with active polling (request the status).
 

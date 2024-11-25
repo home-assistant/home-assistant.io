@@ -13,6 +13,7 @@ ha_domain: tplink_omada
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - sensor
   - switch
   - update
 ha_integration_type: hub
@@ -27,6 +28,10 @@ The integration provides basic configuration and status of Omada devices control
 - Host: Enter the URL of the Omada management interface.
 - Verify SSL Certificates: Enable to check the validity of the certificate presented by the Omada controller.
 - Username/Password: A user account with permissions to view & configure the site is required.
+
+{% note %}
+A local account must be used for login. Do not turn on two-factor authentication for local accounts, or the integration will not be able to log in.
+{% endnote %}
 
 ### Multiple Sites
 
@@ -44,24 +49,24 @@ Controller versions 5.1.0 and later are supported.
 
 ## Supported Omada devices
 
-### Network Switches
+All adopted Omada devices expose:
+
+- Device status sensors
+- CPU and Memory percentage sensors
+- Firmware updates
+
+### Network switches
 
 - Support for enabling/disabling Power over Ethernet on a per-port basis
-- Firmware Update
 
-### Access Points
-
-- Firmware Update
-
-### Internet Gateways
+### Internet gateways
 
 - WAN/LAN Port connectivity sensors
 - WAN Port Online detection sensors
 - WAN Port Connect/Disconnect switches
 - LAN Port PoE activity sensor
-- Firmware Update
 
-### Device trackers
+## Device trackers
 
 The integration can track Wi-Fi devices connected to access points managed by the TP-Link Omada controller. All known Wi-Fi clients will be initially created in a disabled state. You then need to enable the entities that you want to track.
 

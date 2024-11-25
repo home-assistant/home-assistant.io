@@ -49,7 +49,10 @@ No code is required to operate the alarm.
 
 ## Binary sensors
 
-Provides support for contact sensors for doors showing if door is open or closed.
+Provides support for contact sensors for doors/windows
+
+- Door/window is open or closed.
+- Battery is low on contact sensor
 
 ## Button
 

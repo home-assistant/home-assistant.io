@@ -120,6 +120,11 @@ device_class:
   description: The [type/class](/integrations/update/#device-classes) of the update to set the icon in the frontend. The `device_class` can be `null`.
   required: false
   type: device_class
+display_precision:
+  description: Number of decimal digits for display of update progress.
+  required: false
+  type: integer
+  default: 0
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
@@ -169,6 +174,10 @@ object_id:
 payload_install:
   description: The MQTT payload to start installing process.
   required: false
+  type: string
+platform:
+  description: Must be `update`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
   type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
@@ -235,7 +244,7 @@ mqtt:
 
 {% endraw %}
 
-JSON can also be used as `state_topic` payload.
+JSON can also be used as `state_topic` payload. Note that this feature also allows to process and show live progress information.
 
 {% raw %}
 
@@ -252,7 +261,99 @@ JSON can also be used as `state_topic` payload.
 
 {% endraw %}
 
-For the above JSON payload, the `update` entity configuration should look like this:
+Simple progress state update example:
+
+{% raw %}
+
+```json
+{
+  "installed_version": "1.21.0",
+  "latest_version": "1.22.0",
+  "title": "Device Firmware",
+  "release_url": "https://example.com/release",
+  "release_summary": "A new version of our amazing firmware",
+  "entity_picture": "https://example.com/icon.png",
+  "in_progress": true
+}
+```
+
+{% endraw %}
+
+Update percentage state update example:
+
+{% raw %}
+
+```json
+{
+  "installed_version": "1.21.0",
+  "latest_version": "1.22.0",
+  "title": "Device Firmware",
+  "release_url": "https://example.com/release",
+  "release_summary": "A new version of our amazing firmware",
+  "entity_picture": "https://example.com/icon.png",
+  "update_percentage": 78
+}
+```
+
+{% endraw %}
+
+Publish `null` to reset the update percentage state update's:
+
+{% raw %}
+
+```json
+{
+  "installed_version": "1.22.0",
+  "latest_version": "1.22.0",
+  "title": "Device Firmware",
+  "release_url": "https://example.com/release",
+  "release_summary": "A new version of our amazing firmware",
+  "entity_picture": "https://example.com/icon.png",
+  "update_percentage": null
+}
+```
+
+{% endraw %}
+
+The values in the JSON are optional but must be valid within the following schema:
+
+{% configuration %}
+installed_version:
+  description: The software or firmware version installed.
+  required: false
+  type: string
+latest_version:
+  description: The latest software or firmware version available.
+  required: false
+  type: string
+title:
+  description: Title of the software or firmware update available.
+  required: false
+  type: string
+release_summary:
+  description: Summary of the software or firmware update available.
+  required: false
+  type: string
+release_url:
+  description: URL pointing to the software release notes.
+  required: false
+  type: string
+entity_picture:
+  description: URL pointing to an image of the update to be applied as entity picture.
+  required: false
+  type: string
+in_progress:
+  description: Boolean to report an update is in progress or not.
+  required: false
+  default: false
+  type: boolean
+update_percentage:
+  description: Number between 0 and 100 to report the update process. A `null` value resets the in-progress state.
+  required: false
+  type: ["integer", "float"]
+{% endconfiguration %}
+
+For the above JSON payload examples, the `update` entity configuration should look like this:
 
 {% raw %}
 

@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: airgradient
 ha_platforms:
   - button
+  - diagnostics
   - number
   - select
   - sensor

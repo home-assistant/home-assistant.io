@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_domain: squeezebox
 ha_codeowners:
   - '@rajlaud'
+  - '@pssc'
+  - '@peteS-UK'
 ha_config_flow: true
 ha_dhcp: true
 ha_platforms:

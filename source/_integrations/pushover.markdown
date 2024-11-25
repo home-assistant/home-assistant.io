@@ -38,7 +38,7 @@ Example Automation:
 
 Integration-specific values in the nested `data` section are optional.
 
-Image attachments can be added using the `attachment` parameter, which can either be a local file reference (ex: `/tmp/image.png`).
+Image attachments can be added using the `attachment` parameter, which must be a local file reference (ex: `/tmp/image.png`).
 
 To use a specific Pushover device, set it using `target`. If one of the entered devices doesn't exist or is disabled in your Pushover account it will send a message to all you devices. To send to all devices, just skip the target attribute.
 
