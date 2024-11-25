@@ -16,16 +16,25 @@ ha_integration_type: integration
 
 The **ista EcoTrend** {% term integration %} for Home Assistant allows you to import your monthly meter readings from the [ista EcoTrend](https://ecotrend.ista.de) service.
 
-## About **ista**
+## About ista SE
 
 **ista SE** is a company based in Germany that provides metering services for lessors and property owners. Its solutions are designed for rented or self-inhabited multi-party properties, enabling accurate measurement, assignment, and billing of heating and water consumption for renters or individual property owners.
 
 ## Prerequisites
 
+### For new users
+
+1. If you received an activation code by mail, register at [ecotrend.ista.com](https://ecotrend.ista.com/).
+2. If you did not receive an activation code after moving into a property with **ista** metering devices, contact your lessor or property manager.
+
+### For existing users
+
 1. Ensure you have an active **ista EcoTrend** account to set up the integration.
-2. If you received an activation code by mail, register at [ecotrend.ista.com](https://ecotrend.ista.com/).
-3. If you did not receive an activation code after moving into a property with **ista** metering devices, contact your lessor or property manager.
-4. During the setup process in Home Assistant, enter the email address and password associated with your **ista EcoTrend** account.
+2. During the setup process in Home Assistant, enter the email address and password associated with your **ista EcoTrend** account.
+
+{% note %}
+The integration currently supports only the German EcoTrend service.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -80,9 +89,8 @@ To set up the **ista EcoTrend** long-term statistics in your Home Assistant ener
 
 ## Known limitations
 
-- The integration does not support two-factor authentication. To connect Home Assistant to **ista Ecotrend**, you must first disable two-factor authentication. To do this, navigate to  **Menü -> Benutzerkonto -> Zwei-Stufen-Authentifizierung** and remove any registered authentication devices.
+- The integration does not support two-factor authentication. To connect Home Assistant to **ista Ecotrend**, you must first disable two-factor authentication. To do this, navigate to **Menü -> Benutzerkonto -> Zwei-Stufen-Authentifizierung** and remove any registered authentication devices.
 - Sensor values reflect the meter readings from the previous month. Long-term statistics are adjusted to display these readings as of the last day of the corresponding month.
-- The integration currently supports only the German EcoTrend service.
 
 ## Remove integration
 
