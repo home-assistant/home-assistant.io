@@ -48,3 +48,13 @@ This integration provides two non-sortable to-do lists:
    - Contains user-added items to purchase
    - Items can be `created`, `deleted`, and `updated`
    - Items do not have a `description` field
+
+## Known Limitations
+
+The Home Assistant to-do list unifies the capabilities of changing the name and the state of an item. The `Shopping list` does only allow changing the state and will therefore not persist any name change.
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
