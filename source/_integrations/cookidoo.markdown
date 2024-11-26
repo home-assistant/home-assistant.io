@@ -29,9 +29,9 @@ The **Cookidoo** integration allows you to interact with your shopping lists of 
 
 For authentication, the integration requires the `email` and `password` you used for your Cookidoo account.
 
-{% details "Security recommendation" %}
+{% important %}
 As Cookidoo cannot share shopping lists between accounts and everybody interacting with it uses the same credentials, make sure you protect your credentials accordingly. All users of your Home Assistant instance will have access to the same Cookidoo account.
-{% enddetails %}
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
