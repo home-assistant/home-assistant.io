@@ -239,8 +239,8 @@ data:
 
 ## Known limitations
 
-- The mower will only start if you use the `lawn_mower.start_mowing` action, during the schedules set in the Automower Conenct App. To start the mower outside the scheduled times, use `husqvarna_automower.override_schedule` action. For both the pre-requirement is that the battery is fully charged.
-- The handling of stay out zones is not possible for mowers with EPOS technology.
+- The mower can only be started using the `lawn_mower.start_mowing` action during the schedules configured in the Automower Connect App. To start the mower outside the scheduled times, use the `husqvarna_automower.override_schedule` action. In both cases, the battery must be fully charged beforehand.
+- Stay-out zone handling is not supported for mowers equipped with EPOS technology.
 
 ## Remove integration
 
