@@ -67,11 +67,17 @@ Use Bluetooth:
 
 # Available platforms & entities
 
+{% icon "material-symbols:cloud-outline" %} = La Marzocco Cloud
+
+{% icon "material-symbols:bluetooth" %} = Bluetooth
+
+{% icon "material-symbols:wifi" %} = Local network
+
 ## Buttons
 
 | Button name | Description | Available for machines | Controolable through |
 |-------------|-------------| ---------------------- | -------------------- |
-| Start backflush | Starts the backflush process on your machine. You got 15 seconds to turn the paddle after activation. | all | {% icon "material-symbols:cloud-outline" %} | 
+| Start backflush | Starts the backflush process on your machine. You got 15 seconds to turn the paddle after activation. | `all` | {% icon "material-symbols:cloud-outline" %} | 
 
 
 ## Numbers
@@ -85,53 +91,49 @@ Use Bluetooth:
 | Prebrew on time | Time prebrew wets the puck | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" %} | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 | Prebrew off time | Time prebrew waits before turning on the pump | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" %} | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 | Preinfusion time | Duration of preinfusion | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" %} | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
-| Smart standby time | Time until the machine will automatically stand by (if enabled) | all | {% icon "material-symbols:cloud-outline" %} | - |
+| Smart standby time | Time until the machine will automatically stand by (if enabled) | `all` | {% icon "material-symbols:cloud-outline" %} | - |
 
 
 ## Switches
 
 | Switch name | Description | Available for machines | Controllable through |
 |-------------|-------------| ---------------------- | -------------------- |
-| Main        | Allows to turn machines on-/off | all | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:bluetooth" %} |
-| Steam boiler | Allows to enable/disable the steam boiler | all | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:bluetooth" %} |
-| Smart standby enabled | Whether smart standby is on (machine will automatically stand by after given time) | all | {% icon "material-symbols:cloud-outline" %} |
+| Main        | Allows to turn machines on-/off | `all` | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:bluetooth" %} |
+| Steam boiler | Allows to enable/disable the steam boiler | `all` | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:bluetooth" %} |
+| Smart standby enabled | Whether smart standby is on (machine will automatically stand by after given time) | `all` | {% icon "material-symbols:cloud-outline" %} |
 
 ## Binary sensors
 
 | Binary sensor name | Description | Available for machines |  Retrievable from | Remarks |
 |------------------- |-------------| ---------------------- | ----------------- | ------- |
-| Water tank empty | Indicates whether the water tank needs a refill. | all | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:wifi" %} | - |
-| Brewing active | Is on if you are in the process of making coffee. | all | {% icon "material-symbols:wifi" %} |  Only available when the *Host* was set during component configuration. |
-| Backflush enabled | Is on if you started the backflushing process. | all | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:wifi" %} | - |
+| Water tank empty | Indicates whether the water tank needs a refill. | `all` | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:wifi" %} | - |
+| Brewing active | Is on if you are in the process of making coffee. | `all` | {% icon "material-symbols:wifi" %} |  Only available when the *Host* was set during component configuration. |
+| Backflush enabled | Is on if you started the backflushing process. | `all` | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:wifi" %} | - |
 
 ## Sensors
 
 | Sensor name | Description | Available for machines | Retrievable from | Remarks |
 |-------------|-------------| ---------------------- | ---------------- | ------- |
-| Current coffee temperature | Current temperature of the coffee boiler | all | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:wifi" %} | When the machine reaches temperature, this will be approximately 3 degrees higher than the `Coffee target temperature`, due to different measurement points. |
+| Current coffee temperature | Current temperature of the coffee boiler | `all` | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:wifi" %} | When the machine reaches temperature, this will be approximately 3 degrees higher than the `Coffee target temperature`, due to different measurement points. |
 | Current steam temperature| Current temperature of the steam boiler | `Linea Micra`, `GS3 AV`, `GS3 MP` | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:wifi" %} | - |
-| Total coffees made | Counter for total coffees made| all | {% icon "material-symbols:cloud-outline" %} | - |
-| Total flushes made | Counter for total flushes done | all | {% icon "material-symbols:cloud-outline" %}| - |
-| Shot timer | Time the current brew is running | all | {% icon "material-symbols:wifi" %} | Only available when the *Host* was set during component configuration. |
+| Total coffees made | Counter for total coffees made| `all` | {% icon "material-symbols:cloud-outline" %} | - |
+| Total flushes made | Counter for total flushes done | `all` | {% icon "material-symbols:cloud-outline" %}| - |
+| Shot timer | Time the current brew is running | `all` | {% icon "material-symbols:wifi" %} | Only available when the *Host* was set during component configuration. |
 
 ## Updates
 
 | Update name | Description | Available for machines | Retrievable from |
 |-------------|-------------| ---------------------- |---------------- | 
-| Gateway firmware | Firmware status of the gateway |  all | {% icon "material-symbols:cloud-outline" %} |
-| Machine firmware | Firmware status of the machine |  all | {% icon "material-symbols:cloud-outline" %} |
+| Gateway firmware | Firmware status of the gateway |  `all` | {% icon "material-symbols:cloud-outline" %} |
+| Machine firmware | Firmware status of the machine |  `all` | {% icon "material-symbols:cloud-outline" %} |
 
 ## Selects
 
 | Select name | Description | Options | Available for machines | Controllable through |
-|-------------|-------------| ------------------------| ---------------------- |
+|-------------|-------------| --------| ---------------------- | -------------------- |
 | Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" %} |
 | Steam level | The level your steam boiler should run at | 1,2,3 | `Linea Micra` | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:bluetooth" %} |
-| Smart standby mode | The smart standby mode, that decides from which events the timer to standby will run. | Last brewing, Power on | all | {% icon "material-symbols:cloud-outline" %} |
-
-{% icon "material-symbols:cloud-outline" %} = La Marzocco Cloud
-{% icon "material-symbols:bluetooth" %} = Bluetooth
-{% icon "material-symbols:wifi" %} = Local network
+| Smart standby mode | The smart standby mode, that decides from which events the timer to standby will run. | Last brewing, Power on | `all` | {% icon "material-symbols:cloud-outline" %} |
 
 ## Supported devices
 
