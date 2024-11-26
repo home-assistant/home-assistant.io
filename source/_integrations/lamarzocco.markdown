@@ -129,9 +129,9 @@ Use Bluetooth:
 
 | Select name | Description | Options | Available for machines | Controllable through |
 |-------------|-------------| --------| ---------------------- | -------------------- |
-| Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" %} |
-| Steam level | The level your steam boiler should run at | 1,2,3 | `Linea Micra` | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:bluetooth" %} |
-| Smart standby mode | The smart standby mode, that decides from which events the timer to standby will run. | Last brewing, Power on | `all` | {% icon "material-symbols:cloud-outline" %} |
+| Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | `Disabled`, `Prebrew`, `Preinfusion` | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" %} |
+| Steam level | The level your steam boiler should run at | `1`,`2`,`3` | `Linea Micra` | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:bluetooth" %} |
+| Smart standby mode | The smart standby mode, that decides from which events the timer to standby will run. | `Last brewing`, `Power on` | `all` | {% icon "material-symbols:cloud-outline" %} |
 
 ## Supported devices
 
