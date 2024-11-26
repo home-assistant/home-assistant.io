@@ -68,9 +68,7 @@ Use Bluetooth:
 # Available platforms & entities
 
 {% icon "material-symbols:cloud-outline" %} = La Marzocco Cloud
-
 {% icon "material-symbols:bluetooth" %} = Bluetooth
-
 {% icon "material-symbols:wifi" %} = Local network
 
 ## Buttons
