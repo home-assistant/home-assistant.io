@@ -31,13 +31,10 @@ Select the area, where you want to search for available water measuring stations
 {% configuration_basic %}
 Latitude:
     description: "The latitude of the center of the search area (_automatically filled by the location picker_)."
-    required: true
 Longitude:
     description: "The longitude of the center of the search area (_automatically filled by the location picker_)."
-    required: true
 Radius:
     description: "Search radius (_in km_)"
-    required: true
 {% endconfiguration_basic %}
 
 ### Step 2 - Station selection
@@ -45,7 +42,6 @@ Radius:
 {% configuration_basic %}
 Station:
     description: "Select the measurement station you want to add."
-    required: true
 {% endconfiguration_basic %}
 
 ## Sensors
@@ -85,7 +81,7 @@ actions:
 
 ## Troubleshooting
 
-In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
 ## Remove the integration
 
