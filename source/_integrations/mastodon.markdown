@@ -111,6 +111,10 @@ This will post a message to Mastodon that includes an image and a target of `unl
 
 For more on how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
 
+## Known limitations
+
+The integration only allows posting and reading the status of the authenticated account, it also only allows posting to that account. It does not provide functionality to get the stream, favourite, bookmark or boost posts of that account.
+
 ## Remove integration
 
 This integration follows standard integration removal, once the integration is removed you can remove the application registration (assuming it was only used by this integration) from your Mastodon account by going to **Preferences** in the Mastodon web interface, then to **Development** and deleting the application you created for Home Assistant.
