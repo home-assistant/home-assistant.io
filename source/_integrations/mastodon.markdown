@@ -113,7 +113,7 @@ For more on how to use notifications in your automations, please see the [gettin
 
 ## Known limitations
 
-The integration only allows posting and reading the status of the authenticated account and posting to that account. It does not provide functionality to get the stream, favorite, bookmark, or boost posts of that account.
+The integration only allows reading the status of the authenticated account and posting to that account. It does not provide functionality to get the stream, favorite, bookmark, or boost posts of that account.
 
 ## Remove integration
 
