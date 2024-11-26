@@ -90,11 +90,11 @@ Use Bluetooth:
 
 ## Switches
 
-| Switch name | Description | Available for machines |
-|-------------|-------------| ---------------------- |
-| Main        | Allows to turn machines on-/off | all |
-| Steam boiler | Allows to enable/disable the steam boiler | all |
-| Smart standby enabled | Whether smart standby is on (machine will automatically stand by after given time) | all |
+| Switch name | Description | Available for machines | where |
+|-------------|-------------| ---------------------- | ------|
+| Main        | Allows to turn machines on-/off | all | <iconify-icon inline icon="material-symbols:bluetooth"></iconify-icon> |
+| Steam boiler | Allows to enable/disable the steam boiler | all | <iconify-icon inline title="test" icon="material-symbols:bluetooth"></iconify-icon> |
+| Smart standby enabled | Whether smart standby is on (machine will automatically stand by after given time) | all | <iconify-icon inline icon="material-symbols:cloud"></iconify-icon> |
 
 ## Binary sensors
 
