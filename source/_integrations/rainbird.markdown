@@ -50,12 +50,8 @@ irrigations schedules on a calendar.
 Host:
     description: "The IP address of your Rain Bird device. You can find the IP address under the
     device in the Rain Bird app under **Controller Settings** -> **Network Info**."
-    required: true
-    type: string
 Password:
     description: "The password used to authenticate the Rain Bird device."
-    required: true
-    type: string
 {% endconfiguration_basic %}
 
 ## Configuration options
