@@ -69,65 +69,65 @@ Use Bluetooth:
 
 ## Buttons
 
-| Button name | Description | Available for machines |
-|-------------|-------------| ---------------------- |
-| Start backflush | Starts the backflush process on your machine. You got 15 seconds to turn the paddle after activation. | all |
+| Button name | Description | Available for machines | Controolable through |
+|-------------|-------------| ---------------------- | -------------------- |
+| Start backflush | Starts the backflush process on your machine. You got 15 seconds to turn the paddle after activation. | all | {% icon "material-symbols:cloud-outline" %} | 
 
 
 ## Numbers
 
-| Number name | Description | Available for machines | Remarks |
-|-------------|-------------| ---------------------- | ------- |
-| Coffee target temperature | Temperature the coffee boiler is set to | GS3 AV, GS3 MP | - |
-| Steam target temperature | Temperature the steam boiler is set to | GS3 AV, GS3 MP | - |
-| Tea water duration | Dose hot water (in seconds) | GS3 AV, GS3 MP | - |
-| Dose | Doseage (in ticks) for each key | GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
-| Prebrew on time | Time prebrew wets the puck | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
-| Prebrew off time | Time prebrew waits before turning on the pump | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
-| Preinfusion time | Duration of preinfusion | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
-| Smart standby time | Time until the machine will automatically stand by (if enabled) | all | - |
+| Number name | Description | Available for machines | Controllable through | Remarks |
+|-------------|-------------| ---------------------- |--------------------- | ------- |
+| Coffee target temperature | Temperature the coffee boiler is set to | GS3 AV, GS3 MP | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:bluetooth" %} | - |
+| Steam target temperature | Temperature the steam boiler is set to | GS3 AV, GS3 MP | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:bluetooth" %} | - |
+| Tea water duration | Dose hot water (in seconds) | GS3 AV, GS3 MP | {% icon "material-symbols:cloud-outline" %} | - |
+| Dose | Doseage (in ticks) for each key | GS3 AV | {% icon "material-symbols:cloud-outline" %} | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| Prebrew on time | Time prebrew wets the puck | Linea Micra, Linea Mini, GS3 AV | {% icon "material-symbols:cloud-outline" %} | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| Prebrew off time | Time prebrew waits before turning on the pump | Linea Micra, Linea Mini, GS3 AV | {% icon "material-symbols:cloud-outline" %} | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| Preinfusion time | Duration of preinfusion | Linea Micra, Linea Mini, GS3 AV | {% icon "material-symbols:cloud-outline" %} | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| Smart standby time | Time until the machine will automatically stand by (if enabled) | all | {% icon "material-symbols:cloud-outline" %} | - |
 
 
 ## Switches
 
 | Switch name | Description | Available for machines | Controllable through |
-|-------------|-------------| ---------------------- | ------|
-| Main        | Allows to turn machines on-/off | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud"></iconify-icon> <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
-| Steam boiler | Allows to enable/disable the steam boiler | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud"></iconify-icon> <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
-| Smart standby enabled | Whether smart standby is on (machine will automatically stand by after given time) | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud"></iconify-icon> |
+|-------------|-------------| ---------------------- | -------------------- |
+| Main        | Allows to turn machines on-/off | all | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:bluetooth" %} |
+| Steam boiler | Allows to enable/disable the steam boiler | all | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:bluetooth" %} |
+| Smart standby enabled | Whether smart standby is on (machine will automatically stand by after given time) | all | {% icon "material-symbols:cloud-outline" %} |
 
 ## Binary sensors
 
 | Binary sensor name | Description | Available for machines |  Retrievable from | Remarks |
-|-------------|-------------| ---------------------- | ------------------------- | ------- |
-| Water tank empty | Indicates whether the water tank needs a refill. | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud"></iconify-icon>  <iconify-icon inline title="Local WiFi" icon="material-symbols:wifi"></iconify-icon> | - |
+|------------------- |-------------| ---------------------- | ----------------- | ------- |
+| Water tank empty | Indicates whether the water tank needs a refill. | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"></iconify-icon>  <iconify-icon inline title="Local WiFi" icon="material-symbols:wifi"></iconify-icon> | - |
 | Brewing active | Is on if you are in the process of making coffee. | all | <iconify-icon inline title="Local WiFi" icon="material-symbols:wifi"></iconify-icon> |  Only available when the *Host* was set during component configuration. |
-| Backflush enabled | Is on if you started the backflushing process. | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud"></iconify-icon> <iconify-icon inline title="Local WiFi" icon="material-symbols:wifi"></iconify-icon> | - |
+| Backflush enabled | Is on if you started the backflushing process. | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"></iconify-icon> <iconify-icon inline title="Local WiFi" icon="material-symbols:wifi"></iconify-icon> | - |
 
 ## Sensors
 
-| Sensor name | Description | Available for machines | Remarks |
-|-------------|-------------| ---------------------- | ------- |
-| Current coffee temperature | Current temperature of the coffee boiler | all | When the machine reaches temperature, this will be approximately 3 degrees higher than the `Coffee target temperature`, due to different measurement points. |
-| Current steam temperature| Current temperature of the steam boiler | Linea Micra, GS3 AV, GS3 MP | - |
-| Total coffees made | Counter for total coffees made| all | - |
-| Total flushes made | Counter for total flushes done | all | - |
-| Shot timer | Time the current brew is running | all | Only available when the *Host* was set during component configuration. |
+| Sensor name | Description | Available for machines | Retrievable from | Remarks |
+|-------------|-------------| ---------------------- | ---------------- | ------- |
+| Current coffee temperature | Current temperature of the coffee boiler | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"></iconify-icon>  <iconify-icon inline title="Local WiFi" icon="material-symbols:wifi"></iconify-icon> | When the machine reaches temperature, this will be approximately 3 degrees higher than the `Coffee target temperature`, due to different measurement points. |
+| Current steam temperature| Current temperature of the steam boiler | Linea Micra, GS3 AV, GS3 MP | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"></iconify-icon>  <iconify-icon inline title="Local WiFi" icon="material-symbols:wifi"></iconify-icon> | - |
+| Total coffees made | Counter for total coffees made| all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"></iconify-icon> | - |
+| Total flushes made | Counter for total flushes done | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"></iconify-icon> | - |
+| Shot timer | Time the current brew is running | all | <iconify-icon inline title="Local WiFi" icon="material-symbols:wifi"></iconify-icon> | Only available when the *Host* was set during component configuration. |
 
 ## Updates
 
-| Update name | Description | Available for machines |
-|-------------|-------------| ---------------------- |
-| Gateway firmware | Firmware status of the gateway | all |
-| Machine firmware | Firmware status of the machine | all |
+| Update name | Description | Available for machines | Retrievable from |
+|-------------|-------------| ---------------------- |---------------- | 
+| Gateway firmware | Firmware status of the gateway |  all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"></iconify-icon> |
+| Machine firmware | Firmware status of the machine |  all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"></iconify-icon> |
 
 ## Selects
 
-| Select name | Description | Options | Available for machines | 
+| Select name | Description | Options | Available for machines | Controllable through |
 |-------------|-------------| ------------------------| ---------------------- |
-| Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV |
-| Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
-| Smart standby mode | The smart standby mode, that decides from which events the timer to standby will run. | Last brewing, Power on | all |
+| Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"></iconify-icon> |
+| Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"> </iconify-icon> <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | |
+| Smart standby mode | The smart standby mode, that decides from which events the timer to standby will run. | Last brewing, Power on | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"></iconify-icon> |
 
 ## Supported devices
 
