@@ -78,8 +78,8 @@ Use Bluetooth:
 
 | Number name | Description | Available for machines | Controllable through | Remarks |
 |-------------|-------------| ---------------------- |--------------------- | ------- |
-| Coffee target temperature | Temperature the coffee boiler is set to | GS3 AV, GS3 MP | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:bluetooth" %} | - |
-| Steam target temperature | Temperature the steam boiler is set to | GS3 AV, GS3 MP | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:bluetooth" %} | - |
+| Coffee target temperature | Temperature the coffee boiler is set to | GS3 AV, GS3 MP | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:Bluetooth" %} | - |
+| Steam target temperature | Temperature the steam boiler is set to | GS3 AV, GS3 MP | {% icon "material-symbols:cloud-outline" %} {% icon "material-symbols:Bluetooth" %} | - |
 | Tea water duration | Dose hot water (in seconds) | GS3 AV, GS3 MP | {% icon "material-symbols:cloud-outline" %} | - |
 | Dose | Doseage (in ticks) for each key | GS3 AV | {% icon "material-symbols:cloud-outline" %} | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 | Prebrew on time | Time prebrew wets the puck | Linea Micra, Linea Mini, GS3 AV | {% icon "material-symbols:cloud-outline" %} | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
@@ -126,7 +126,7 @@ Use Bluetooth:
 | Select name | Description | Options | Available for machines | Controllable through |
 |-------------|-------------| ------------------------| ---------------------- |
 | Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"></iconify-icon> |
-| Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"> </iconify-icon> <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | |
+| Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"> </iconify-icon> <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
 | Smart standby mode | The smart standby mode, that decides from which events the timer to standby will run. | Last brewing, Power on | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud-outline"></iconify-icon> |
 
 ## Supported devices
