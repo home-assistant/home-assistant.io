@@ -49,12 +49,25 @@ This integration provides two non-sortable to-do lists:
    - Items can be `created`, `deleted`, and `updated`
    - Items do not have a `description` field
 
+For example, if you add a pasta recipe, ingredients like "500g pasta" and "2 tomatoes" will appear in your `Shopping list`. You can check these items off as you shop, but you cannot modify the label.
+
 ## Known Limitations
 
-The Home Assistant to-do list unifies the capabilities of changing the name and the state of an item. The `Shopping list` does only allow changing the state and will therefore not persist any name change.
+The Home Assistant to-do list interface allows both renaming items and changing their state. However, for the `Shopping list`, only state changes (checking/unchecking items) are supported. Any attempts to rename items will not be saved.
 
 ## Remove integration
 
 This integration follows standard integration removal, no extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
+## Debugging
+
+To enable debug logs for this integration, add the following to your `configuration.yaml`:
+
+```yaml
+logger:
+  default: info
+  logs:
+    custom_components.cookidoo: debug
+```
