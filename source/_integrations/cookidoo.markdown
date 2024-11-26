@@ -55,7 +55,9 @@ In contrast, in your `Additional purchases` list, you can freely add items like 
 
 ## Known Limitations
 
+{% note %}
 The Home Assistant to-do list interface allows both renaming items and changing their state. However, for the `Shopping list`, only state changes (checking/unchecking items) are supported. Any attempts to rename items will not be saved.
+{% endnote %}
 
 ## Remove integration
 
