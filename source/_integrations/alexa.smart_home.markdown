@@ -60,6 +60,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Open/Close/Raise/Lower](#opencloseraiselower)
     - [Set Cover Position](#set-cover-position)
     - [Set Cover Tilt](#set-cover-tilt)
+    - [Stop the Covers operation](#stop-the-covers-operation)
     - [Garage doors](#garage-doors)
   - [Event entities](#event-entities)
     - [Doorbell events](#doorbell-events)
@@ -710,6 +711,16 @@ Covers that support tilt position can be controlled using percentages.
 | `en-US` | _"tilt"_, _"angle"_, _"direction"_ |
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
+
+#### Stop the Covers operation
+
+To stop the covers operation, say:
+
+- _"Alexa, stop [entity name]."_
+
+If your cover supports the `STOP` feature, this will stop the cover operation.
+If your cover supports the `STOP_TILT` feature, this will stop the cover tilt operation.
+If both features are enabled, both the cover and the cover tilt will be stopped.
 
 #### Garage doors
 

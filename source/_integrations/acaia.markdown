@@ -19,7 +19,7 @@ ha_codeowners:
 ha_integration_type: device
 ---
 
-The **Acaia** {% term integrations %} allows you to control [Acaia](https://acaia.co/) scales through Home Assistant.
+The **Acaia** {% term integration %} allows you to control [Acaia](https://acaia.co/) scales through Home Assistant.
 
 If your machine is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the scale should be discovered automatically. If you are configuring the device manually, your scale needs to be turned on during setup.
 
@@ -45,6 +45,7 @@ MAC:
 ## Sensors
 
 - **Battery**: Current battery level of the scale.
+- **Volume flow rate**: Calculates the current flow rate (in mL/s) while brewing.
 - **Weight**: The weight currently shown on the scale.
 
 ## Supported devices

@@ -34,7 +34,7 @@ This integration provides the following platforms:
 - Lock: Control the lock of your car.
 - Sensors: Battery level, SIM card balance, GSM signal level, GPS satellites count, fuel volume, mileage, OBD errors, interior temperature and engine temperature.
 - Switches: Start/stop engine, heater (webasto), additional channel, and service mode.
-- Buttons: Sound the horn.
+- Buttons: Sound the horn, flex logic, and panic mode.
 - Actions: Update the state, set update frequency. More details can be found [here](#actions).
 
 ## Prerequisites
