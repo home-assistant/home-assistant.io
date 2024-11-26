@@ -62,14 +62,3 @@ The Home Assistant to-do list interface allows both renaming items and changing 
 This integration follows standard integration removal, no extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-
-## Debugging
-
-To enable debug logs for this integration, add the following to your `configuration.yaml`:
-
-```yaml
-logger:
-  default: info
-  logs:
-    custom_components.cookidoo: debug
-```
