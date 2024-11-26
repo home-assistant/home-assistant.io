@@ -25,9 +25,10 @@ related:
     title: Vorwerk GmbH
 ---
 
-The **Cookidoo** integration allows you to interact with your shopping lists of [Cookidoo the official Thermomix recipe platform](https://cookidoo.international/) within Home Assistant.
+The **Cookidoo** {% term integration %} allows you to interact with your shopping lists of [Cookidoo the official Thermomix recipe platform](https://cookidoo.international/) within Home Assistant.
 
 For authentication, the integration requires the `email` and `password` you used for your Cookidoo account.
+{% configuration_basic %}
 
 {% important %}
 As Cookidoo cannot share shopping lists between accounts and everybody interacting with it uses the same credentials, make sure you protect your credentials accordingly. All users of your Home Assistant instance will have access to the same Cookidoo account.
@@ -55,9 +56,7 @@ In contrast, in your `Additional purchases` list, you can freely add items like 
 
 ## Known Limitations
 
-{% note %}
 The Home Assistant to-do list interface allows both renaming items and changing their state. However, for the `Shopping list`, only state changes (checking/unchecking items) are supported. Any attempts to rename items will not be saved.
-{% endnote %}
 
 ## Remove integration
 
