@@ -116,6 +116,6 @@ Since firmware 7.10 also the following device without Wi-Fi can be used as long 
 - Magic 2 LAN 1-1
 - Magic 1 LAN 1-1
 
-## Remove a devolo device
-
 This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
