@@ -49,7 +49,7 @@ This integration will create these sensors:
 
 ## Binary sensor
 
-This integration will create a binary sensor to indicate if SABnzbd has recorded any warnings.
+This integration will create a binary sensor to indicate if SABnzbd has recorded any warnings or errors.
 
 ## Button
 
