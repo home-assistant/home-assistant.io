@@ -90,19 +90,19 @@ Use Bluetooth:
 
 ## Switches
 
-| Switch name | Description | Available for machines | where |
+| Switch name | Description | Available for machines | Controllable through |
 |-------------|-------------| ---------------------- | ------|
-| Main        | Allows to turn machines on-/off | all | <iconify-icon inline icon="material-symbols:bluetooth"></iconify-icon> |
-| Steam boiler | Allows to enable/disable the steam boiler | all | <iconify-icon inline title="test" icon="material-symbols:bluetooth"></iconify-icon> |
-| Smart standby enabled | Whether smart standby is on (machine will automatically stand by after given time) | all | <iconify-icon inline icon="material-symbols:cloud"></iconify-icon> |
+| Main        | Allows to turn machines on-/off | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud"></iconify-icon> <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
+| Steam boiler | Allows to enable/disable the steam boiler | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud"></iconify-icon> <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
+| Smart standby enabled | Whether smart standby is on (machine will automatically stand by after given time) | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud"></iconify-icon> |
 
 ## Binary sensors
 
-| Binary sensor name | Description | Available for machines | Remarks |
-|-------------|-------------| ---------------------- | ------- |
-| Water tank empty | Indicates whether the water tank needs a refill. | all | - |
-| Brewing active | Is on if you are in the process of making coffee. | all | Only available when the *Host* was set during component configuration. |
-| Backflush enabled | Is on if you started the backflushing process. | all | - |
+| Binary sensor name | Description | Available for machines |  Retrievable from | Remarks |
+|-------------|-------------| ---------------------- | ------------------------- | ------- |
+| Water tank empty | Indicates whether the water tank needs a refill. | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud"></iconify-icon>  <iconify-icon inline title="Local WiFi" icon="material-symbols:wifi"></iconify-icon> | - |
+| Brewing active | Is on if you are in the process of making coffee. | all | <iconify-icon inline title="Local WiFi" icon="material-symbols:wifi"></iconify-icon> |  Only available when the *Host* was set during component configuration. |
+| Backflush enabled | Is on if you started the backflushing process. | all | <iconify-icon inline title="Cloud" icon="material-symbols:cloud"></iconify-icon> <iconify-icon inline title="Local WiFi" icon="material-symbols:wifi"></iconify-icon> | - |
 
 ## Sensors
 
