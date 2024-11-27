@@ -123,7 +123,7 @@ Since firmware 7.10 also the following device without Wi-Fi can be used as long 
 
 ## Known limitations
 
-This integration only supports using the API the devolo Home Network App uses. The device website usually offers additional features, however they are not available via API and thus cannot be supported until devolo adds them to the API.
+This integration only supports using the API the devolo Home Network App uses. The device website usually offers additional features. However, these features are not available via API and thus cannot be supported until devolo adds them to the API.
 
 ## Removal
 
