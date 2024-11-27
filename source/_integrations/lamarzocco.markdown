@@ -67,6 +67,8 @@ Use Bluetooth:
 
 # Available platforms & entities
 
+{% icon "mdi:home" title="Home Icon" %}
+
 ## Buttons
 
 | Button name | Description | Available for machines |
