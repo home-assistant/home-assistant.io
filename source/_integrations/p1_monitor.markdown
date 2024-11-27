@@ -48,7 +48,7 @@ Read out what your meter readings are for energy consumption/yield, see what you
 - Energy Tariff Period (low / high)
 
 {% note %}
-By default, the gas consumption entity is disabled so if you want to use it, you need to enable it.
+By default the gas consumption entity is disabled. If you want to use it, you need to enable it.
 {% endnote %}
 
 ### Phases
