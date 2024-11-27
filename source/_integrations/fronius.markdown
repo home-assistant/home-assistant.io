@@ -127,6 +127,49 @@ Recommended energy dashboard configuration for meter location in consumption pat
 - Use [Riemann sum](/integrations/integration/) to integrate `SolarNet Power grid import` and `SolarNet Power grid export` entities into energy values (kWh).
 - Use these energy entities for `Grid consumption` and `Return to grid` in the energy dashboard configuration.
 
+## Example automation
+
+The following automation toggles a switch when the solar production crosses certain thresholds:
+
+```yaml
+description: "Turn on switch when PV power is above 300 W and turn it off below 20 W."
+mode: single
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - sensor.solarnet_power_photovoltaics
+    above: 300
+    id: "on"
+  - trigger: numeric_state
+    entity_id:
+      - sensor.solarnet_power_photovoltaics
+    id: "off"
+    below: 20
+conditions: []
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id:
+              - "on"
+        sequence:
+          - action: switch.turn_on
+            metadata: {}
+            data: {}
+            target:
+              entity_id: switch.test
+      - conditions:
+          - condition: trigger
+            id:
+              - "off"
+        sequence:
+          - action: switch.turn_off
+            metadata: {}
+            data: {}
+            target:
+              entity_id: switch.test
+```
+
 ## Note
 
 Fronius often provides firmware updates for the datamanager interfaces and the devices in their system, it's recommended to check and apply them regularly. This integration relies on functionality present in rather recent firmware.
