@@ -122,34 +122,6 @@ Play announcement on a Music Assistant player with more fine-grained control opt
   - **Description**: Use a forced volume level for the announcement. Omit to use the player default.
   - **Example**: `75`
 
-### Action `music_assistant.search`
-
-Perform a global search on the Music Assistant library and all providers.
-
-- **Data attribute**: `name`
-  - **Optional**: No.
-  - **Description**: The name/title to search for.
-  - **Example**: `We Are The Champions`
-- **Data attribute**: `media_type`
-  - **Optional**: Yes.
-  - **Description**: The type(s) of content to search for. Select from artist, album, track, radio, or playlist. All types if omitted.
-  - **Example**: `playlist`
-- **Data attribute**: `artist`
-  - **Optional**: Yes.
-  - **Description**: When specifying a track or album in the name field, you can optionally restrict results by this artist name.
-  - **Example**: `Queen`
-- **Data attribute**: `album`
-  - **Optional**: Yes.
-  - **Description**: When specifying a track in the name field, you can optionally restrict results by this album name.
-  - **Example**: `News of the world`
-- **Data attribute**: `limit`
-  - **Optional**: Yes.
-  - **Description**: Maximum number of items to return (per media type).
-  - **Example**: `10`
-- **Data attribute**: `library_only`
-  - **Optional**: Yes.
-  - **Description**: Only include results that are in the library.
-  - **Example**: `true`
 
 ### Action `music_assistant.get_library`
 
