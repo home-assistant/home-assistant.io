@@ -87,7 +87,7 @@ script:
     sequence:
       - action: homeassistant.update_entity
         target:
-          entity_id: climate.anna
+          entity_id: climate.living_room
 ```
 
 #### Reboot the Plugwise gateway
