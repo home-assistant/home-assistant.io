@@ -1,5 +1,5 @@
 ---
-title: "Installing a local Assist pipeline"
+title: "Getting started - Local"
 related:
   - docs: /voice_control/voice_remote_expose_devices/#exposing-your-devices
     title: Expose your devices to Assist
@@ -9,19 +9,37 @@ related:
     title: Whisper for speech-to-text
   - url: https://github.com/rhasspy/piper
     title: Piper for text-to-speech
+  - docs: /voice_control/best_practices/
+    title: Best practices with Assist
 ---
 
-In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant.
+The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and test-to-speech) included in [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) 
 
-For each component, you can choose from different options. There is a speech-to-text and text-to-speech option that runs entirely local. No data is sent to external servers for processing.
+If you are interested in setting up a fully local voice assistant, follow this setup:
 
-The speech-to-text option is [Whisper](https://github.com/openai/whisper). It's an open source AI model that supports [various languages](https://github.com/openai/whisper#available-models-and-languages). We use a forked version called [faster-whisper](https://github.com/guillaumekln/faster-whisper). On a Raspberry Pi 4, it takes around 8 seconds to process incoming voice commands. On an Intel NUC, it is done in under a second.
 
-For text-to-speech, we have developed [Piper](https://github.com/rhasspy/piper). Piper is a fast, local neural text-to-speech system that sounds great and is optimized for the Raspberry Pi 4. It supports [many languages](https://rhasspy.github.io/piper-samples/). On a Raspberry Pi, using medium quality models, it can generate 1.6s of voice in a second.
+## Prerrequisites
 
-## Prerequisites
+For Assist to be able to talk to your Home Assistant setup your setup needs to be able to listen, understand and then talk back. 
 
-- Home Assistant Operating System
+In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant. For each component, you can choose from different options.
+
+- For listening and talking back, it needs your phone with the Home Assistant app, or a voice activated device.
+- For understanding, it needs to have a text-to-speech and speech-to-text software integrated. 
+- For running all together, it needs to have the Home Assistant Operating System running.
+
+### First, make sure Assist can run in your local setup
+
+Check our comparison table to be sure local setup is going to meet your expectations.
+
+## Some options for speech-to-text and text-to-speech
+
+There is a speech-to-text and text-to-speech option that runs entirely local. No data is sent to external servers for processing.
+
+The speech-to-text option is [Whisper](https://github.com/openai/whisper). It’s an open source AI model that supports [various languages](https://github.com/openai/whisper#available-models-and-languages). We use a forked version called [faster-whisper](https://github.com/SYSTRAN/faster-whisper). On a Raspberry Pi 4, it takes around 8 seconds to process incoming voice commands. On an Intel NUC, it is done in under a second.
+For text-to-speech, we have developed [Piper](https://github.com/rhasspy/piper). Piper is a fast, local neural text-to-speech system that sounds great and is optimized for the Raspberry Pi 4. It supports [many languages](https://rhasspy.github.io/piper-samples/). On a Raspberry Pi, using medium quality models, it can generate 1.6s of voice in a second.
+
+Please be sure to check how either option will work in your language, since quality can change quite a bit.
 
 ## Installing a local Assist pipeline
 
@@ -77,3 +95,8 @@ View some of the options in the video below. Explained by Mike Hansen, creator o
 <lite-youtube videoid="Tk-pnm7FY7c" videoStartAt="1589" videotitle="Configure your local Assist pipeline for your setup"></lite-youtube>
 
 The options are also documented in the add-on itself. Go to the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} or the {% my supervisor_addon addon="core_piper" title="**Piper**" %} add-on and open the **Documentation** page.
+
+Also be sure to check the specific tutorial for [using Piper in Automations](voice_control/using_tts_in_automation/)
+
+## Next steps
+Once the pipeline is configured, you are ready to jump into the basic conversation setup in Best Practices

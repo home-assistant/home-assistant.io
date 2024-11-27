@@ -30,7 +30,7 @@ ha_zeroconf: true
 ha_integration_type: device
 ---
 
-The devolo Home Network integration allows you to monitor your PLC network.
+The **devolo Home Network** {% term integration %} integration allows you to monitor and control your [devolo](https://www.devolo.global) PLC network.
 
 {% include integrations/config_flow.md %}
 
@@ -115,3 +115,7 @@ Since firmware 7.10 also the following device without Wi-Fi can be used as long 
 - Magic 2 DinRail
 - Magic 2 LAN 1-1
 - Magic 1 LAN 1-1
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

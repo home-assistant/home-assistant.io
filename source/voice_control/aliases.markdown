@@ -1,5 +1,5 @@
 ---
-title: "Assist - entity, area, and floor aliases"
+title: "Aliases - entity, area, and floor"
 related:
   - docs: /docs/organizing/areas/
     title: Areas
@@ -36,3 +36,10 @@ There are multliple ways to add an alias of an entity:
 2. Next to the floor of interest, select the three-dot menu, then select **Edit floor**.
 3. Select **Add alias** and enter the alias you want to use for that floor.
 4. **Save** your changes.
+
+
+### Area-less aliases for entities with an assigned area 
+
+It’s good practice to add areas to entity canonical names, such as Living room lamp. However, since Assist can both infer the area and explicitly extract it from sentences, it’s a very good idea to add simplified aliases to all your exposed entities. In this case, having the Lamp alias set for the Living room lamp would allow you to turn on the lamp in the living room or simply turn on the lamp, when asking a satellite in the living room.
+
+Don’t worry if you also have a Bedroom lamp. You can alias that one Lamp as well, as it would get matched only when in conjunction with the area name (Living room or Bedroom).

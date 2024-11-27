@@ -174,3 +174,20 @@ actions:
     data:
       message: "Message received!"
 ```
+
+**NOTE** If the parameter `mode` is set to `json-rpc`, then you can use [signal-api-receiver](https://github.com/kalbasit/signal-api-receiver) to receive from Signal as follows:
+
+```yaml
+- resource: "http://127.0.0.1:8105/receive/pop"
+  sensor:
+    - name: "Signal message received"
+      value_template: >
+        {{ value_json['envelope']['dataMessage']['message'] }}
+      json_attributes_path: envelope
+      json_attributes:
+        - source
+        - sourceNumber
+        - sourceUuid
+        - sourceDevice
+        - timestamp
+```

@@ -328,3 +328,9 @@ template:
 ```
 
 {% endraw %}
+
+## Remove an IMAP service
+
+This integration follows standard config entry removal.
+
+{% include integrations/remove_device_service.md %}
