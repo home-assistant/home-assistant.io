@@ -18,10 +18,20 @@ module Jekyll
           MSG
         end
       end
+      
+      def default_title(icon)
+        # split away "mdi:" part
+        icon_name = icon.split(':').last
+
+        # remove dashes and capitalize e.g. "water-polo" to "Water polo"
+        parts = icon_name.split('-')
+        parts[0] = parts[0].capitalize
+        parts.join(' ')
+      end
 
       def render(_context)
-        title_attribute = @title ? " title='#{@title}'" : ""
-        "<iconify-icon inline icon='#{@icon}'#{title_attribute}></iconify-icon>"
+        title = @title || default_title(@icon)
+        "<iconify-icon inline icon='#{@icon}' title='#{title}'></iconify-icon>"
       end
 
       private
