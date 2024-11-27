@@ -42,6 +42,7 @@ The login credentials used to authenticate the integration are the same as the o
 | Yale Conexis L2 | yes |
 | Yale Doorman L3 | yes |
 | Yale Linus | yes |
+| Yale Linus L2 | no |
 | Yale Smart Safe | yes |
 
 Other devices not listed above have not been tested and may not function as expected.

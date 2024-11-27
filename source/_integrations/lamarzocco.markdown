@@ -34,6 +34,8 @@ This integration interacts with [La Marzocco](https://lamarzocco.com/it/en/) cof
 
 If your Home Assistant host can perform [DHCP discovery](https://www.home-assistant.io/integrations/dhcp/), your machine will be discovered automatically. Otherwise, if your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered as well.
 
+By default, this integration will query your machine every 30 seconds for an update, every 5 minutes for new statistics, and every hour for a firmware update. If configure the optional local connection, your machine will receive immediate push updates about its state for everything except statistics and firmware updates.
+
 ## Prerequisites
 
 - To be able to configure your machine in Home Assistant, your machine needs to be added to your account using the official La Marzocco app first.
@@ -55,6 +57,13 @@ Host:
   description: "IP address of your machine in your local network. If not set, no local connections will be used."
   required: false
   type: boolean
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Use Bluetooth:
+  description: Allows you to manually disable Bluetooth communication with the machine (if available). This can be used to avoid longer timeouts, e.g., when your machine is only sometimes in range.
 {% endconfiguration_basic %}
 
 # Available platforms & entities
@@ -178,6 +187,12 @@ mode: single
 - Only La Marzocco native app accounts are supported, social logins (Google, Apple & WeChat) are not supported
 - Currently it is only possible to view the schedules configured in the La Marzocco Home app, but not to edit the schedules from Home Assistant. You can, of course, build Home Assistant native automations to reflect the same functionality in Home Assistant.
 
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
 ## Troubleshooting
 
 {% details "Problem: Connection to machine is not possible" %}
@@ -189,4 +204,3 @@ Check the La Marzocco Home app to see if you can connect to your machine there. 
 
 Check the La Marzocco Home app to see if your machine is connected to Wi-Fi. Ensure Home Assistant can reach the machine. Ensure you configured the host option in the integration options.
 {% enddetails %}
-

@@ -102,6 +102,8 @@ verify_ssl:
 Make sure that the URL matches exactly your endpoint or resource.
 {% endimportant %}
 
+{% include integrations/using_templates.md %}
+
 ## Example
 
 ### Switch with templated value

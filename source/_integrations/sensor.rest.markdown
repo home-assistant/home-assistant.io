@@ -164,6 +164,8 @@ $ curl -X GET http://192.168.1.31/temperature/
 
 The response is expected to be a dictionary or a list with a dictionary as its 0th element.
 
+{% include integrations/using_templates.md %}
+
 ## Examples
 
 In this section you find some real-life examples of how to use this sensor.
