@@ -75,6 +75,8 @@ The integration will poll the API for data every 5 minutes. This polling interva
 Make sure that you have entered the application credentials correctly. A common problem is that leading or trailing spaces are included in the entered credential strings. You may have to delete the application credentials from Home Assistant and install the integration again to get everything right.
 {% enddetails %}
 
-{% include integrations/remove_device_service.md %}
+## Remove integration
 
-After deleting the integration, go to the myUplink developer [site](https://dev.myuplink.com/apps) and remove the credentials unless you will use them again.
+After removing the integration, go to the myUplink [developer site](https://dev.myuplink.com/apps) and remove the credentials unless you will use them again.
+
+{% include integrations/remove_device_service.md %}
