@@ -98,7 +98,7 @@ The HomeWizard Energy devices are designed to work with the HomeWizard Energy ap
 
 Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
 
-{% include common-tasks/remove_device_service.md %}
+{% include integrations/remove_device_service.md %}
 
 After deleting the integration, go to the HomeWizard Energy app and disable the local API if no other integrations are using it.
 
@@ -114,7 +114,7 @@ If you know the energy characteristics of your washing machine, you can create a
 
 The integration is {% term polling %} new data every 5 seconds. There is no limitation on the number or frequency of requests that can be made to the device.
 
-{% include common-tasks/define_custom_polling.md %}
+{% include integrations/remove_device_service.md %}
 
 ## Known limitations
 
