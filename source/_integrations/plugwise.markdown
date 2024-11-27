@@ -72,7 +72,9 @@ Auto means the schedule is active, Heat means it's not active. The active thermo
 
 ## Note
 
-From Home Assistant 2024.12.0 onwards climate-entities connected to your Adam will no longer be shown as device-based. They will be shown as zone-based. This "mistake" was recently discovered and corrected.
+{% note %}
+From Home Assistant 2024.12.0 onwards, climate entities connected to your Adam will no longer be shown as device-based. They will be shown as zone-based. This "mistake" was recently discovered and corrected.
+{% endnote %}
 
 ### Actions
 
