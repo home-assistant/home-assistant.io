@@ -42,6 +42,7 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
   - [Saving the videos captured by your Ring Door Bell](#saving-the-videos-captured-by-your-ring-door-bell)
 - [Event](#event)
+  - [Realtime event stability](#realtime-event-stability)
 - [Sensor](#sensor)
 - [Siren](#siren)
 - [Switch](#switch)
