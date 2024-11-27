@@ -188,28 +188,6 @@ Perform a local search on the Music Assistant library.
   - **Description**: When `album` is the `media_type` then this option will restrict the result according to the selection of either album, single, compilation, EP or unknown.
   - **Example**: `album`
 
-### Action `music_assistant.get_queue`
-
-Get the full queue details of a Music Assistant Queue.
-
-- **Data attribute**: `entity_id`
-  - **Optional**: No.
-  - **Description**: The entity_id of the queue to be retrieved.
-  - **Example**: `media_player.kitchen_speaker`
-
-### Action `music_assistant.transfer_queue`
-
-Transfer the player's queue to another player.
-
-- **Data attribute**: `source_player`
-  - **Optional**: Yes.
-  - **Description**: The source media player which has the queue to be transferred. When omitted, the first playing player will be used.
-  - **Example**: `media_player.kitchen_speaker`
-- **Data attribute**: `auto_play`
-  - **Optional**: Yes.
-  - **Description**: Start playing the queue on the target player. Omit to use the default behavior.
-  - **Example**: `true`
-
 ## Notes
 
 - Any Home Assistant players added to Music Assistant will appear duplicated as the MA version of the player is created. The original HA player can be hidden if desired.
