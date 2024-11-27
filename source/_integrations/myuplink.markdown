@@ -66,7 +66,7 @@ After deleting the integration, go to the myUplink developer [site](https://dev.
 
 ## Data updates
 
-The integration will poll the API for data every 5 minutes. This polling interval is designed to work within the myUplink API's rate limits while providing timely updates.
+The integration will poll the API for data every 5 minutes. This polling interval is designed to work within the rate limits of myUplink APIs while providing timely updates.
 
 ## Troubleshooting
 
