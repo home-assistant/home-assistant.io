@@ -274,6 +274,34 @@ Two URLs for proxy API endpoints:
 
 The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Developer Tools** > **States**" %} and find the event when the sensor started detecting motion.
 
+### Example Notification Automation with Video
+
+```yaml
+title: "Security: Camera Motion Notification"
+description: "Sends a notification with video upon motion detection."
+triggers:
+  - entity_id:
+      - binary_sensor.g5_bullet_motion (replace with your camera)
+    trigger: state
+    from: "on"
+    to: "off"
+actions:
+  - data:
+      message: "Motion detected at Camera XXX"
+      data:
+        image: >-
+          /api/unifiprotect/thumbnail/{{ config_entry_id(trigger.entity_id)
+          }}/{{ trigger.from_state.attributes.event_id }}
+        video: >-
+          /api/unifiprotect/video/{{ config_entry_id(trigger.entity_id) }}/{{
+          trigger.from_state.attributes.event_id }}        
+    action: notify.mobile_app_your_device (replace with your notification target)
+mode: single
+max_exceeded: silent
+```
+
+It's important to wait for the motion sensor to change from `on` to `off` before sending the notification. This ensures that the event has ended and the video is accessible; otherwise, you may get an error instead of the video link.
+
 ## Event Entities Support
 
 The UniFi Protect integration provides support for various event types triggered by connected devices. Below are the descriptions for each supported event type:
@@ -286,6 +314,29 @@ The UniFi Protect integration provides support for various event types triggered
   - **event_id**: A unique ID that identifies the doorbell event.
 - **Description**: This event is triggered when someone rings the doorbell. It provides an `event_id`, which can be used to fetch related media, such as a thumbnail of the event. For instance, you can use `event.g4_doorbell_pro_doorbell` to get the thumbnail image when a ring occurs.
 
+#### Example G4 Doorbell Ring Triggered Automation
+
+```yaml
+alias: G4 Doorbell Ring Triggered Automation
+description: Automation that triggers when the G4 Doorbell Pro rings
+triggers:
+  - event_type: state_changed
+    event_data:
+      entity_id: event.g4_doorbell_pro_poe_doorbell (replace with your camera)
+    trigger: event
+conditions:
+  - condition: template
+    value_template: |
+      {{ 'ring' in trigger.event.data.new_state.attributes.event_types }}
+actions:
+  - data:
+      message: Someone is at the door!
+      title: Doorbell Notification
+    action: notify.mobile_app_your_device (replace with your notification target)
+```
+
+The condition is required to prevent the notification from being triggered by events of type 'unknown', for example, during a restart.
+
 ### NFC Card Scanned Event
 
 - **Event Name**: NFC
@@ -295,6 +346,36 @@ The UniFi Protect integration provides support for various event types triggered
   - **nfc_id**: The ID of the scanned NFC card.
 - **Description**: This event is triggered when an NFC card is scanned at a compatible device (e.g., a smart doorbell). It contains information such as the `nfc_id` of the scanned card.
 
+#### Example G4 Doorbell NFC Scanned Automation
+
+```yaml
+alias: G4 Doorbell NFC Scanned Automation
+description: >-
+  Automation that triggers when a specific NFC card is scanned on the G4
+  Doorbell Pro
+triggers:
+  - event_type: state_changed
+    event_data:
+      entity_id: event.g4_doorbell_pro_poe_nfc  (replace with your camera)
+    trigger: event
+conditions:
+  - condition: template
+    value_template: >
+      {{ trigger.event.data.new_state.attributes.event_type == 'scanned' and
+      trigger.event.data.new_state.attributes.nfc_id == 'ABCDEF1234' }} (replace with your nfc_id)
+actions:
+  - data:
+      message: >-
+        The NFC card with ID {{ trigger.event.data.new_state.attributes.nfc_id
+        }} has been scanned at the doorbell.
+      title: NFC Scan Notification
+    action: notify.mobile_app_your_device (replace with your notification target)
+```
+
+**Warning:**
+
+When processing NFC scans, always validate the scanned ID. The scan event is also triggered by unknown NFC cards. Additionally, this event was developed using third-party cards, as the developer did not have access to official UniFi cards at the time. With third-party cards, the scan relies on the card's serial number. While this approach is not uncommon, it is important to note that the card's serial number is generally not considered a secure identifier and can be duplicated relatively easily.
+
 ### Fingerprint Identified Event
 
 - **Event Name**: Fingerprint
@@ -303,6 +384,35 @@ The UniFi Protect integration provides support for various event types triggered
   - **event_id**: A unique ID that identifies the fingerprint event.
   - **ulp_id**: The fingerprint ID used to identify the person. If no fingerprint match is found, the `ulp_id` will be empty and the `event_type` will be `not_identified`.
 - **Description**: This event is triggered when a fingerprint is scanned by a compatible device. If the fingerprint is recognized, it provides a `ulp_id`, which represents the fingerprint ID. If the fingerprint is not recognized, the `event_type` will be set to `not_identified`, and no `ulp_id` will be provided.
+
+#### Example G4 Doorbell Fingerprint Identified Automation
+
+```yaml
+alias: G4 Doorbell Fingerprint Identified Automation
+description: Automation that triggers when a fingerprint is successfully identified on the G4 Doorbell Pro
+trigger:
+  - platform: event
+    event_type: state_changed
+    event_data:
+      entity_id: event.g4_doorbell_pro_poe_fingerprint (replace with your camera)
+condition:
+  - condition: template
+    value_template: >
+      {{ trigger.event.data.new_state.attributes.event_type == 'identified' and trigger.event.data.new_state.attributes.ulp_id != '' }}
+action:
+  - service: notify.mobile_app_your_device (replace with your notification target)
+    data:
+      message: "Fingerprint identified: Access granted for user with ID {{ trigger.event.data.new_state.attributes.ulp_id }}."
+      title: "Fingerprint Access Notification"
+```
+
+**Warning:**
+
+Certainly! Here is the warning translated into English:
+
+**Warning:**
+
+Similar to NFC, an event is triggered both when a fingerprint is recognized and when it is not recognized. However, unlike NFC, at the time of implementation, no fingerprint ID is included in the event if the fingerprint is unknown.
 
 ## Troubleshooting
 
