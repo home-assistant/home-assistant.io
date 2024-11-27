@@ -290,11 +290,11 @@ actions:
       message: "Motion detected at Camera XXX"
       data:
         image: >-
-          /api/unifiprotect/thumbnail/{{ config_entry_id(trigger.entity_id)
-          }}/{{ trigger.from_state.attributes.event_id }}
+          {% raw %}/api/unifiprotect/thumbnail/{{ config_entry_id(trigger.entity_id)
+          }}/{{ trigger.from_state.attributes.event_id }}{% endraw %}
         video: >-
-          /api/unifiprotect/video/{{ config_entry_id(trigger.entity_id) }}/{{
-          trigger.from_state.attributes.event_id }}        
+          {% raw %}/api/unifiprotect/video/{{ config_entry_id(trigger.entity_id) }}/{{
+          trigger.from_state.attributes.event_id }}{% endraw %}
     action: notify.mobile_app_your_device (replace with your notification target)
 mode: single
 max_exceeded: silent
