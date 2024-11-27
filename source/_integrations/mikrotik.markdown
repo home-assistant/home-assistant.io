@@ -69,3 +69,9 @@ To use this device tracker, you only need limited privileges. To enhance the sec
 group add name=homeassistant policy=read,api,test
 add group=homeassistant name=homeassistant
 ```
+
+You will be prompted to set a password for the newly created user. Depending on your RouterOS version and configuration, you might need to set a password yourself:
+
+```bash
+/user set [find username=homeassistant] password=PASSWORD
+```
