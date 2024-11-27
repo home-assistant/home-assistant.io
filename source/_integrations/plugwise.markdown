@@ -52,11 +52,11 @@ The password can be found on the bottom of your Smile or Stretch, the ID, it sho
 
 ## Entities
 
-This integration will show all Plugwise entities (devices, climate-zones, and switchgroups) present in your Plugwise configuration. In addition, you will see a 'Smile' entity representing your central Plugwise gateway (i.e., the Smile Anna, Smile P1, Adam or Stretch).
+This integration will show all Plugwise devices (like hardware devices, multi-thermostat climate-zones, and virtual switchgroups) present in your Plugwise configuration. In addition, you will see a Gateway device representing your central Plugwise gateway (i.e., the Smile Anna, Smile P1, Adam or Stretch).
 
-For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual entities. The heating/cooling device connected to your Smile will be shown as 'OpenTherm' or 'OnOff', depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as switches. Various other measurements of your setup will be available as sensors or as binary sensors.
+For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual devices. The heating/cooling device connected to your Smile will be shown as 'OpenTherm' or 'OnOff', depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be shown as devices as well.
 
-Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Adam will be assigned to your gateway entity. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff entity.
+Under each device there will be entities shown like binary_sensors, sensors, etc. depending on the capabilities of the device: centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff device.
 
 ## Configuration
 
@@ -69,12 +69,6 @@ Please note: when you have an Anna and an Adam, make sure to only configure the 
 For a thermostat, the active schedule can be deactivated or reactivated via the climate card. Please note, that when no schedule is active, one must first be activated in the Plugwise App. Once that has been done the Plugwise Integration can manage future operations.
 
 Auto means the schedule is active, Heat means it's not active. The active thermostat schedule can be changed via the connected thermostat select-entity. Please note: that only schedules that have two or more schedule points will be shown as select options.
-
-## Note
-
-{% note %}
-From Home Assistant 2024.12.0 onwards, climate entities connected to your Adam will no longer be shown as device-based. They will be shown as zone-based. This "mistake" was recently discovered and corrected.
-{% endnote %}
 
 ### Actions
 
