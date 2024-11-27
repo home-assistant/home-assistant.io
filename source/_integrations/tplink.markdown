@@ -4,6 +4,7 @@ description: Instructions on integrating TP-Link Smart Home Devices to Home Assi
 ha_category:
   - Binary sensor
   - Button
+  - Camera
   - Climate
   - Fan
   - Hub
@@ -24,6 +25,7 @@ ha_domain: tplink
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - climate
   - diagnostics
   - fan
@@ -80,6 +82,13 @@ Devices not listed below may work but if you encounter issues submit a bug repor
 ## Unavailable entities
 
 Some entities might be showing as Unavailable if they have been removed from the integration.
+
+## Cameras
+
+The camera entity is new to the integration and currently only supports live view and switching privacy mode on/off.
+Only Tapo cameras are currently supported.
+In order for live view to work you will need to have the same username and password for your "Camera account" as your tplink cloud account.
+If you do not want to do this please disable the camera entity; the privacy switch will still function.
 
 ### Total consumption
 
