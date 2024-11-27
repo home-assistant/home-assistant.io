@@ -60,21 +60,21 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 The integration configuration will require the **Client ID** and **Client Secret** created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
-{% include integrations/remove_device_service.md %}
-
-After deleting the integration, go to the myUplink developer [site](https://dev.myuplink.com/apps) and remove the credentials unless you will use them again.
-
 ## Data updates
 
 The integration will poll the API for data every 5 minutes. This polling interval is designed to work within the rate limits of myUplink APIs while providing timely updates.
-
-## Troubleshooting
-
-### Can't log in to myUplink API
-
-- Make sure that you have entered the application credentials correctly. A common problem is that leading or trailing spaces are included in the entered credential strings. You may have to delete the application credentials from Home Assistant and install the integration again to get everything right.
 
 ## Known limitations
 
 - The integration makes the best effort to map data-points from the API to relevant entities in Home Assistant. However, some sensors may not appear for certain heat-pump models, or in other cases, numerous irrelevant entities might be created. Please create an issue on GitHub and include a diagnostic download file from your installation if you believe that the mapping can be improved.
 - Entity names are available in English and cannot be automatically translated by Home Assistant. The reason is that the names are defined by the API and can be changed by updates of the API or the firmware in the appliance. However, most entity names are self-explanatory, e.g., "Room temperature (BT50)".
+
+## Troubleshooting
+
+{% details "Can't log in to myUplink API" %}
+Make sure that you have entered the application credentials correctly. A common problem is that leading or trailing spaces are included in the entered credential strings. You may have to delete the application credentials from Home Assistant and install the integration again to get everything right.
+{% enddetails %}
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, go to the myUplink developer [site](https://dev.myuplink.com/apps) and remove the credentials unless you will use them again.
