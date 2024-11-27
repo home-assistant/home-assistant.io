@@ -352,6 +352,7 @@ The following hubs/NVRs have been tested and confirmed to work with battery-powe
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/) (only the latest hardware version N7MB01, older versions might receive the required firmware update later)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/) (only the latest hardware version N6MB01, older versions might receive the required firmware update later)
+- [RLN36 NVR](https://reolink.com/product/rln36/)
 
 The following battery-powered models have been tested and confirmed to work through the Reolink Home Hub/NVR:
 
