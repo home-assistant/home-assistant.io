@@ -26,7 +26,7 @@ P1 Monitor is a piece of software that can be installed on a Raspberry Pi or oth
 Host:
   description: The IP address or hostname of your P1 Monitor instance.
 Port:
-  description: The port number of your P1 Monitor instance. The default port is 80.
+  description: The port number of your P1 Monitor instance. The default port is `80`.
 {% endconfiguration_basic %}
 
 ## Data updates
