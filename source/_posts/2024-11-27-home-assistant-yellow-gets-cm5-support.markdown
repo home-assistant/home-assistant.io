@@ -18,13 +18,13 @@ We launched our [Home Assistant Yellow](/yellow/) over two years ago, with the d
 
 Thanks to Raspberry Pi providing us with an early sample, we have been able to add **Compute Module 5 (CM5) compatibility to the Home Assistant Yellow**, which will be included in Home Assistant OS 14 (along with some [other hardware support](#other-additions-to-haos-14)). This gives current and future users a great option to get more performance if they need it, but we must say that CM4 is still more than enough for most Home Assistant users' needs.
 
-As part of the Open Home Foundation, we fight for privacy, choice, and sustainability in the smart home. The Yellow achieves on all three, and this announcement only improves the choices available and long-term sustainability.
+As part of the Open Home Foundation, we fight for privacy, choice, and sustainability in the smart home. The Yellow achieves all three, and this announcement only improves the choices available and long-term sustainability.
 
 <!--more-->
 
 ## Using Compute Modules
 
-When designing Yellow to give our users the ability to expand the capabilities of the device we chose Raspberry Pi's Compute Module platform. It allows users to increase the RAM, add eMMC, built-in Bluetooth, or even get more speed 😉 - without having to replace the Yellow - all you need to do is get a new module. This is also great for repairability over the life of the product.
+When designing Yellow to give our users the ability to expand the capabilities of the device we chose Raspberry Pi's Compute Module platform. It allows users to increase the RAM, add eMMC, built-in Bluetooth, or even get more speed 😉 - without having to replace the Yellow - all you need to do is get a new module. This is also great for the repairability of the product over its lifetime.
 
 Though it was designed for the Compute Module 4 (CM4), we always hoped it would be compatible with its future successors. Over the past couple of months, we've been updating firmware and testing early hardware, and it is indeed compatible. Due to changes on CM5, the installation method is slightly more complex than it was on CM4, which is detailed below.
 
@@ -54,13 +54,13 @@ If you have, or were looking at getting, a Home Assistant [Green](/green/) or [Y
 
 <img src='/images/blog/2024-11-cm5/analytics.png' style='border: 0;box-shadow: none;' alt="In our analytics Pi 4 class hardware is the most used SBC">
 
-In fact, according to our [opt-in analytics](https://analytics.home-assistant.io/), more people are using Pi 3 hardware than Pi 5 hardware (granted the Pi 5 has only had official support since [February this year](/blog/2024/02/26/home-assistant-os-12-support-for-raspberry-pi-5/)).  Home Assistant continues to get updates that improve its speed on all hardware, most recently [faster backups](/blog/2024/02/26/home-assistant-os-12-support-for-raspberry-pi-5/#faster-backups) and [reboots](/blog/2024/03/06/release-20243/#home-assistant-boots-twice-as-fast). This allows people to keep hardware running longer, and in the end that is our goal 🌎.
+In fact, according to our [opt-in analytics](https://analytics.home-assistant.io/), more people are using Pi 3 hardware than Pi 5 hardware (granted the Pi 5 has only had official support since [February this year](/blog/2024/02/26/home-assistant-os-12-support-for-raspberry-pi-5/)). Home Assistant continues to get updates that improve its speed on all hardware, most recently [faster backups](/blog/2024/02/26/home-assistant-os-12-support-for-raspberry-pi-5/#faster-backups) and [reboots](/blog/2024/03/06/release-20243/#home-assistant-boots-twice-as-fast). This allows people to keep hardware running longer, and in the end that is our goal 🌎.
 
-CM4 is not only powerful enough for most users, it also has a long life ahead of it.  Raspberry Pi has even confirmed that they will **fully support CM4 [until 2034](https://www.raspberrypi.com/products/compute-module-4/?variant=raspberry-pi-cm4001000#:~:text=Obsolescence%20Statement)💪,** and will continue to manufacture them.
+CM4 is not only powerful enough for most users, it also has a long life ahead of it. Raspberry Pi has even confirmed that they will **fully support CM4 [until 2034](https://www.raspberrypi.com/products/compute-module-4/?variant=raspberry-pi-cm4001000#:~:text=Obsolescence%20Statement)💪,** and will continue to manufacture them.
 
 ## Other additions to HAOS 14
 
-While on the topic of newly supported hardware, our release of Home Assistant OS 14 will bring support for not only CM5, but also the Hailo-8 AI accelerator. This is the AI accelerator found in the [Raspberry Pi AI Kit](https://www.raspberrypi.com/documentation/accessories/ai-kit.html) or the even more powerful Raspberry Pi AI HAT+ [released](https://www.raspberrypi.com/news/raspberry-pi-ai-hat/) last month, which is exclusively for the Raspberry Pi 5. For those using a Pi 5 they can now offload AI processing, like object or person detection, to this efficient add-on.
+On the topic of newly supported hardware, our release of Home Assistant OS 14 will bring support not only for CM5 but also for the Hailo-8 AI accelerator. This is the AI accelerator found in the [Raspberry Pi AI Kit](https://www.raspberrypi.com/documentation/accessories/ai-kit.html) or the even more powerful Raspberry Pi AI HAT+ [released](https://www.raspberrypi.com/news/raspberry-pi-ai-hat/) last month, which is exclusively for the Raspberry Pi 5. For those using a Pi 5 they can now offload AI processing, like object or person detection, to this efficient add-on.
 
 ## Conclusion
 
