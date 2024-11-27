@@ -85,10 +85,10 @@ Use Bluetooth:
 | **Coffee target temperature** | Temperature the coffee boiler is set to | `GS3 AV`, `GS3 MP` | {% icon "material-symbols:cloud-outline" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | - |
 | **Steam target temperature** | Temperature the steam boiler is set to | `GS3 AV`, `GS3 MP` | {% icon "material-symbols:cloud-outline" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | - |
 | **Tea water duration** | Dose hot water (in seconds) | `GS3 AV`, `GS3 MP` | {% icon "material-symbols:cloud-outline" %} | - |
-| **Dose** | Doseage (in ticks) for each key | `GS3 AV` | {% icon "material-symbols:cloud-outline" %} | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
-| **Prebrew on time** | Time prebrew wets the puck | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" %} | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
-| **Prebrew off time** | Time prebrew waits before turning on the pump | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" %} | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
-| **Preinfusion time** | Duration of preinfusion | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" %} | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| **Dose** | Doseage (in ticks) for each key | `GS3 AV` | {% icon "material-symbols:cloud-outline" %} | `GS3` has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| **Prebrew on time** | Time prebrew wets the puck | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" %} | `GS3` has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| **Prebrew off time** | Time prebrew waits before turning on the pump | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" %} | `GS3` has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| **Preinfusion time** | Duration of preinfusion | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" %} | `GS3` has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 | **Smart standby time** | Time until the machine will automatically stand by (if enabled) | `all` | {% icon "material-symbols:cloud-outline" %} | - |
 
 
