@@ -37,8 +37,6 @@ The **devolo Home Network** {% term integration %} integration allows you to mon
 {% configuration_basic %}
 IP address:
   description: "IP address of your devolo Home Network device. This can be found in the devolo Home Network App on the device dashboard."
-  required: true
-  type: string
 {% endconfiguration_basic %}
 
 ## Device types
