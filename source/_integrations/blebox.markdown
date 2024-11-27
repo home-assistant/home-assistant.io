@@ -397,6 +397,43 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 - Periodic read of current wind speed
 
+### actionBox, actionBoxS, and proxiBox
+
+This integration does not add direct support for actionBox, actionBoxS, and proxiBox
+devices. It is however possible to integrate these devices with Home Assistant using
+automations via webhooks and wBox mobile app.
+
+The configuration consists of two steps:
+
+- [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
+- [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
+
+
+#### Generating the compatible webhook in Home Assistant
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and in the lower right corner, select the **Create Automation** button.
+2. Choose the **Webhook** as the trigger type
+3. Next to the webhook ID, select on the cog icon to allow the GET method.
+4. Copy the webhook URL to the clipboard by clicking the "copy" icon next to the webhook ID.
+5. Save the URL for later reference.
+6. If applicable, add any desired conditions (the *And if* section) and actions.
+   (the *Then do* section)
+
+Note: The webhook ID will be later needed in phase two and will have to be entered
+into the wBox mobile app. You may decide to use a more convenient text value. However, remember
+that this is the only thing that authenticates webhooks within your network. Treat
+this ID like a password.
+
+#### Configuring the device in the wBox app
+
+1. Configure the device by adding the action of
+   type "send URL".
+2. Enter the webhook URL that you copied when generating the webhook. It is the URL address for the action.
+
+Note: in order for this integration flow to work, the webhook URL host must be
+resolvable and accessible within the device network. If in doubt, please refer to the
+general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
+
 ### luxSensor
 
 This integration adds the Blebox device as a sensor entity to Home Assistant.
@@ -535,6 +572,17 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 - Effects
 - Brightness
 - Color
+
+### Simon 54 GO Control and Simon 55 GO Control
+
+This integration does not add direct support for Simon 54 GO Control and Simon 55 GO
+Control devices. It is however possible to integrate these devices with Home Assistant
+using automations via webhooks and wBox mobile app.
+
+The configuration consists of two steps:
+
+- [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
+- [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
 
 ### FAKRO FTP-V/FTU-V WiFi
 

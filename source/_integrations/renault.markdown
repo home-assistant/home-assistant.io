@@ -36,6 +36,17 @@ This integration provides the following platforms:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Locale:
+    description: "The country code (e.g., 'fr_FR', 'en_GB') used to connect to the Renault servers. This should match your MyRenault account's locale setting."
+Username:
+    description: "The username used to connect to the Renault servers."
+Password:
+    description: "The password used to connect to the Renault servers."
+Kamereon account id:
+    description: "The Kamereon account ID that your vehicles are assigned to. If there is only one account available it will be automatically selected."
+{% endconfiguration_basic %}
+
 All vehicles linked to the account should then get added as devices, with sensors added as linked entity.
 
 In some situations, some of the features may require a subscription such as the *Pack EV Remote Control* and/or the *Pack Smart Navigation* subscription.
@@ -121,3 +132,9 @@ Notes:
     startTime: 'T12:00Z'
     duration: 15 
 ```
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

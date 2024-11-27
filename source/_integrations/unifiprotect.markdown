@@ -274,7 +274,35 @@ Two URLs for proxy API endpoints:
 
 The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Developer Tools** > **States**" %} and find the event when the sensor started detecting motion.
 
-When a Doorbell rings, there is a specific event {% term entity %} that provides the `event_id`. You can use this to get the thumbnail, for example, `event.g4_doorbell_pro_doorbell`.
+## Event Entities Support
+
+The UniFi Protect integration provides support for various event types triggered by connected devices. Below are the descriptions for each supported event type:
+
+### Doorbell Ring Event
+
+- **Event Name**: Doorbell
+- **Event Attributes**:
+  - **event_type**: `doorbell`
+  - **event_id**: A unique ID that identifies the doorbell event.
+- **Description**: This event is triggered when someone rings the doorbell. It provides an `event_id`, which can be used to fetch related media, such as a thumbnail of the event. For instance, you can use `event.g4_doorbell_pro_doorbell` to get the thumbnail image when a ring occurs.
+
+### NFC Card Scanned Event
+
+- **Event Name**: NFC
+- **Event Attributes**:
+  - **event_type**: `scanned`
+  - **event_id**: A unique ID that identifies the NFC card scan event.
+  - **nfc_id**: The ID of the scanned NFC card.
+- **Description**: This event is triggered when an NFC card is scanned at a compatible device (e.g., a smart doorbell). It contains information such as the `nfc_id` of the scanned card.
+
+### Fingerprint Identified Event
+
+- **Event Name**: Fingerprint
+- **Event Attributes**:
+  - **event_type**: Either `identified` or `not_identified`
+  - **event_id**: A unique ID that identifies the fingerprint event.
+  - **ulp_id**: The fingerprint ID used to identify the person. If no fingerprint match is found, the `ulp_id` will be empty and the `event_type` will be `not_identified`.
+- **Description**: This event is triggered when a fingerprint is scanned by a compatible device. If the fingerprint is recognized, it provides a `ulp_id`, which represents the fingerprint ID. If the fingerprint is not recognized, the `event_type` will be set to `not_identified`, and no `ulp_id` will be provided.
 
 ## Troubleshooting
 

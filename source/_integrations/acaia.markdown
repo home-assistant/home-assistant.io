@@ -47,6 +47,7 @@ Device:
 ## Sensors
 
 - **Battery**: Current battery level of the scale.
+- **Volume flow rate**: Calculates the current flow rate (in mL/s) while brewing.
 - **Weight**: The weight currently shown on the scale.
 
 ## Supported devices

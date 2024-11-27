@@ -1,5 +1,5 @@
 ---
-title: "Assist - custom sentences"
+title: "Adding a custom sentence to trigger an automation"
 related:
   - docs: /voice_control/aliases/
     title: Create aliases
@@ -15,21 +15,16 @@ related:
 
 You may add your own sentences to the intent recognizer by either extending an [existing intent](https://developers.home-assistant.io/docs/intent_builtin/) or creating a new one. You may also [customize responses](#customizing-responses) for existing intents.
 
-## Adding a custom sentence to trigger an automation
-
-This is the easiest method to get started with custom sentences for automations.
+## Prerequisites
 
 ### Prerequisites
 
-If you have not set up voice control yet, set up the hardware first. For instructions, refer to one of the following tutorials:
+You need a working Assist configuration. If you haven't done so yet, check [Assist's starting page](/voice_control/) to get you ready with your setup.
 
-- [World's most private voice assistant](/voice_control/worlds-most-private-voice-assistant/): Using a classic landline phone
-- [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/): Using a button with speaker and mic
-- [S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/): Using a small device with speaker, mic, and display
-- [Assist for Apple](/voice_control/apple/): Using your iPhone, Mac, or Apple watch
-- [Assist for Android](/voice_control/android/): Using your Android phone, tablet, or a Wear OS watch
 
 ### To add a custom sentence to trigger an automation
+
+This is the easiest method to get started with custom sentences for automations.
 
 1. Under **{% my automations title="Settings > Automations & Scenes" %}**, in the bottom right corner, select **Create automation**.
 2. In the **Trigger** drop-down menu, select **Sentence**.

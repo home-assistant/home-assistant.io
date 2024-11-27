@@ -60,6 +60,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Open/Close/Raise/Lower](#opencloseraiselower)
     - [Set Cover Position](#set-cover-position)
     - [Set Cover Tilt](#set-cover-tilt)
+    - [Stop the Covers operation](#stop-the-covers-operation)
     - [Garage doors](#garage-doors)
   - [Event entities](#event-entities)
     - [Doorbell events](#doorbell-events)
@@ -149,7 +150,7 @@ The first thing you need to do after signing into the [AWS console](https://cons
 Next you need create a Lambda function.
 
 - Click `Services` in top navigation bar, expand the menu to display all AWS services, then under `Compute` section click `Lambda` to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
-- **IMPORTANT - Alexa Skills are only supported in certain AWS regions.** Your current server location will be displayed in the top-right corner (for example, Ohio). Select an available server below that is closest to your location and in your region, based on your Amazon account’s country. Alexa Lambda functions created on other servers will not work properly and may prevent account linking!
+**IMPORTANT - Alexa Skills are only supported in specific AWS regions.** Your current server location will be displayed in the top-right corner (for example, Ohio). Select an available server from the list below ([reference](https://developer.amazon.com/en-US/docs/alexa/smarthome/develop-smart-home-skills-in-multiple-languages.html#deploy)) based on your Amazon account's locale, not your physical location. **Alexa Lambda functions created in other regions will not work properly and may prevent account linking! For example, if your locale is set to English (US) and you live in California, you must use US East (N.Virginia), not US West (Oregon). While the setup process will complete with an incorrect region, the skill will not function, and there will be no clear error messages indicating the cause.**
   - **US East (N.Virginia)** region for English (US) or English (CA) skills
   - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
   - **US West (Oregon)** region for Japanese and English (AU) skills.
@@ -710,6 +711,16 @@ Covers that support tilt position can be controlled using percentages.
 | `en-US` | _"tilt"_, _"angle"_, _"direction"_ |
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
+
+#### Stop the Covers operation
+
+To stop the covers operation, say:
+
+- _"Alexa, stop [entity name]."_
+
+If your cover supports the `STOP` feature, this will stop the cover operation.
+If your cover supports the `STOP_TILT` feature, this will stop the cover tilt operation.
+If both features are enabled, both the cover and the cover tilt will be stopped.
 
 #### Garage doors
 

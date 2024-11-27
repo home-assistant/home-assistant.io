@@ -32,33 +32,65 @@ related:
     title: Habitica
 ---
 
-The Habitca {% term integration %} enables you to monitor your adventurer's progress and stats in Home Assistant and seamlessly integrates your to-do's and daily tasks.
+The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats from [Habitica](https://habitica.com/) in Home Assistant and seamlessly integrates your to-do's, daily tasks, and many more things.
+
+## About Habitica
+
+Habitica is a gamified task manager and habit tracker that turns your daily goals and to-dos into a role-playing game, helping you stay motivated and productive while earning rewards and leveling up your avatar.
+
+## How you can use this integration
+
+The Habitica integration lets you automate task management, such as creating to-dos when appliances finish or marking dailies complete using smart sensors. You can visualize tasks and stats in Home Assistant dashboards or create notifications for due tasks, keeping you organized and on track with your goals.
 
 ## Prerequisites for Habitica integration
 
-- To set up the Habitica integration, you must first have an active Habitica account. You can register for an account at [Habitica.com](https://habitica.com/). 
-- During the setup process in Home Assistant, you can choose between two login options: 
+- To set up the Habitica integration, you must first have an active Habitica account. You can register for an account at [Habitica.com](https://habitica.com/).
+- During the setup process in Home Assistant, you can choose between two login options:
   - "Login to Habitica", which allows you to log in with your *username* or *email* and *password*.
-  - "Login to other instances", which requires your `User ID` and `API Token`. The `User ID` and `API Token` can be retrieved by logging into your Habitica account, navigating to the **Settings** menu, and selecting **Site Data**. 
+  - "Login to other instances", which requires your `User ID` and `API Token`. The `User ID` and `API Token` can be retrieved by logging into your Habitica account, navigating to the **Settings** menu, and selecting **Site Data**.
   - Additionally, you will need to provide the URL for the Habitica instance you wish to connect to; the default URL is `https://habitica.com`, but you can specify a different URL if you are using an alternative Habitica instance or a self-hosted instance.
 
 {% include integrations/config_flow.md %}
 
+### Login to Habitica
+
+{% configuration_basic %}
+"Email or username":
+    description: "Email or username (case-sensitive) to connect Home Assistant to your Habitica account"
+Password:
+    description: "Password for the account to connect Home Assistant to Habitica"
+{% endconfiguration_basic %}
+
+### Advanced configuration
+
+If you choose "**Login to other instances**" you will be presented the following configuration options:
+
+{% configuration_basic %}
+"User ID":
+    description: "User ID of your Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+API Token:
+    description: "API Token of the Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+URL:
+    description: "URL of the Habitica installation to connect to. Defaults to `https://habitica.com` (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+Verify SSL certificate:
+  description: Enable SSL certificate verification for secure connections. Disable only if connecting to a Habitica instance using a self-signed certificate
+{% endconfiguration_basic %}
+
 ## Sensors
 
-- **Class:** Indicates the class of your character (Warrior, Rogue, Healer, or Mage).
-- **Display name:**  Shows the character's display name.
-- **Experience:** Displays the current experience points of the character (for example, "144 XP").
-- **Gold:** Shows the amount of gold owned by your character (for example, "22.29 GP").
-- **Health:** Shows the current health points of the character (for example, "42 HP").
-- **Level:** Displays the current level of the character.
-- **Mana:** Displays the current mana points of your character (for example, "61 MP").
-- **Max. mana:** Indicates the maximum mana points your character can have at the current level (for example, "70 MP").
-- **Next level:** Indicates the remaining experience points needed to reach the next level (for example, "440 XP").
-- **Habits:** Shows the number of habits being tracked (for example, "4 tasks").
-- **Rewards:** Displays the rewards that can be redeemed (for example, "1 task")
-- **Gems:** Shows the total number of gems currently owned by your Habitica character, used for purchasing items and customizations.
-- **Mystic hourglasses:** Displays the number of mystic hourglasses earned as a subscriber, which can be redeemed for exclusive items from past events.
+- **Class**: Indicates the class of your character (Warrior, Rogue, Healer, or Mage).
+- **Display name**:  Shows the character's display name.
+- **Experience**: Displays the current experience points of the character (for example, "144 XP").
+- **Gold**: Shows the amount of gold owned by your character (for example, "22.29 GP").
+- **Health**: Shows the current health points of the character (for example, "42 HP").
+- **Level**: Displays the current level of the character.
+- **Mana**: Displays the current mana points of your character (for example, "61 MP").
+- **Max. mana**: Indicates the maximum mana points your character can have at the current level (for example, "70 MP").
+- **Next level**: Indicates the remaining experience points needed to reach the next level (for example, "440 XP").
+- **Ha Dispbits**: Shows the number of habits being tracked (for example, "4 tasks").
+- **Rewards**:lays the rewards that can be redeemed (for example, "1 task")
+- **Gems**: Shows the total number of gems currently owned by your Habitica character, used for purchasing items and customizations.
+- **Mystic hourglasses**: Displays the number of mystic hourglasses earned as a subscriber, which can be redeemed for exclusive items from past events.
 - **Strength, intelligence, constitution, perception**: Display your character's attribute points (stats). The sensors' attributes provide a breakdown of contributions from level, battle gear, class equip bonus, allocation, and buffs.
 
 ## Binary sensors
@@ -69,8 +101,8 @@ The Habitca {% term integration %} enables you to monitor your adventurer's prog
 
 The following Habitica tasks are available as to-do lists in Home Assistant. You can add, delete, edit and check-off completed tasks
 
-- **To-Do's:** Displays a comprehensive list of active and completed to-dos. Each to-do includes its due date if applicable, allowing you to check them off, edit them, delete them, and create new to-dos seamlessly.
-- **Dailies:** Shows the daily tasks that need to be completed today or in the future. Tasks completed yesterday can still be marked off as "yesterdailies" until a new day starts.
+- **To-Do's**: Displays a comprehensive list of active and completed to-dos. Each to-do includes its due date if applicable, allowing you to check them off, edit them, delete them, and create new to-dos seamlessly.
+- **Dailies**: Shows the daily tasks that need to be completed today or in the future. Tasks completed yesterday can still be marked off as "yesterdailies" until a new day starts.
 
 ## Calendars
 
@@ -81,9 +113,9 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 
 ## Button controls
 
-- **Start my day:** Initiates daily routine actions in Habitica, including resetting your dailies, deal damage from unfinished dailies and quest bosses, habits adjustment, buff expiration, and mana regeneration based on completed dailies.
-- **Revive from death:** Allows your character to revive from death in Habitica. Upon revival, HP is fully restored, but your character will lose all gold, 1 level, all experience points, one stat point, and one piece of equipment.
-- **Buy a health potion:** Allows your character to purchase a health potion in Habitica. Instantly applies the potion upon purchase, healing 15 HP at a cost of 25 GP.
+- **Start my day**: Initiates daily routine actions in Habitica, including resetting your dailies, deal damage from unfinished dailies and quest bosses, habits adjustment, buff expiration, and mana regeneration based on completed dailies.
+- **Revive from death**: Allows your character to revive from death in Habitica. Upon revival, HP is fully restored, but your character will lose all gold, 1 level, all experience points, one stat point, and one piece of equipment.
+- **Buy a health potion**: Allows your character to purchase a health potion in Habitica. Instantly applies the potion upon purchase, healing 15 HP at a cost of 25 GP.
 - **Allocate all stat points**: Assigns all unallocated stat points based on the previously set automatic allocation method. If no method is set, all points are assigned to strength (STR).
 
 ## Button controls for class skills
@@ -266,6 +298,10 @@ actions:
 
 {% enddetails %}
 
+{% note %}
+When creating automations, be mindful of the [rate limits](#known-limitations). Frequent triggers or multiple concurrent automations can quickly exceed the allowed number of requests.
+{% endnote %}
+
 ### Create "Empty the dishwasher" to-do
 
 Automatically create a Habitica to-do when the dishwasher finishes its cycle.
@@ -357,3 +393,25 @@ actions:
 ```
 
 {% endraw %}
+
+## Data updates
+
+This integration retrieves data from Habitica every 60 seconds to ensure timely updates.
+
+## Known limitations
+
+Habitica imposes a rate limit of 30 requests per minute for third-party applications, which applies collectively to all tools and integrations you use.
+
+This integration performs the following requests:
+
+- 3 requests per data update (every 60 seconds).
+- 1 request per action, such as executing skills or interacting with to-dos and dailies.
+- 1 additional request 5 seconds after an action to sync the data with Habitica.
+
+Please keep these limits in mind to avoid exceeding Habitica's request allowance. Efforts are ongoing to optimize the integration and reduce the number of requests it makes.
+
+## Remove integration
+
+This integration can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}
