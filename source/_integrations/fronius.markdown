@@ -129,7 +129,7 @@ Recommended energy dashboard configuration for meter location in consumption pat
 
 ## Example automation
 
-The following automation toggles a switch when the solar production crosses certain thresholds:
+The following {% term automation %} toggles a switch when the solar production crosses certain thresholds:
 
 ```yaml
 description: "Turn on switch when PV power is above 1000 W and turn it off below 50 W."
@@ -183,10 +183,6 @@ The API used by the integration is read-only. It does not provide any means to c
 ### Some devices are missing after setup or restart of Home Assistant
 
 - Make sure inverters are not in a power-saving mode when currently not producing energy - or wait until they start producing energy.
-
-### The device goes unavailable after a day
-
-Make sure you turned off the device's power-saving mode.
 
 ## Remove integration
 
