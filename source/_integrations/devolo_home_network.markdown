@@ -121,6 +121,12 @@ Since firmware 7.10 also the following device without Wi-Fi can be used as long 
 - Magic 2 LAN 1-1
 - Magic 1 LAN 1-1
 
+## Known limitations
+
+This integration only supports using the API the devolo Home Network App uses. The device website usually offers additional features, however they are not available via API and thus cannot be supported until devolo adds them to the API.
+
+## Removal
+
 This integration follows standard integration removal, no extra steps are required.
 
 {% include integrations/remove_device_service.md %}
