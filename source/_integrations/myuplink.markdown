@@ -28,7 +28,7 @@ ha_integration_type: integration
 
 The **myUplink** {% term integration %} lets you get information about and control heat-pump devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).
 
-The integration will connect to your account and download all available data from the API. The downloaded information will be used to create devices and entities in Home Assistant. There can be from a few entities up to many hundreds depending on the type of equipment. The integration will use best effort to map the data-points in the API to sensors, switches, number, and select entities.
+The integration will connect to your account and download all available data from the API. The downloaded information will be used to create devices and entities in Home Assistant. There can be from a few entities up to many hundreds depending on the type of equipment. The integration will make the best effort to map the data-points in the API to sensors, switches, number, and select entities.
 
 {% note %}
 You may need a valid subscription with myUplink to control your equipment with switch, select, and number entities.
@@ -40,7 +40,7 @@ You may need a valid subscription with myUplink to control your equipment with s
 2. Go to [**Applications**](https://dev.myuplink.com/apps), and register a new App:
 
 - **Application Name**: Home Assistant (or whatever name makes sense to you)
-- **Description**: Description of the purpose of this application
+- **Description**: A brief description of how you'll use this application (e.g., "Home Assistant integration for controlling my heat pump")
 - **Callback URL**: `https://my.home-assistant.io/redirect/oauth`
 
 {% details "I have manually disabled My Home Assistant" %}
@@ -66,15 +66,15 @@ After deleting the integration, go to the myUplink developer [site](https://dev.
 
 ## Data updates
 
-The integration will poll the API for data every 5 minutes.
+The integration will poll the API for data every 5 minutes. This polling interval is designed to work within the myUplink API's rate limits while providing timely updates.
 
 ## Troubleshooting
 
-### Can't login to myUplink API
+### Can't log in to myUplink API
 
 - Make sure that you have entered the application credentials correctly. A common problem is that leading or trailing spaces are included in the entered credential strings. You may have to delete the application credentials from Home Assistant and install the integration again to get everything right.
 
 ## Known limitations
 
-- The integration uses best effort to map data-points from the API to relevant entities in Home Assistant. However, some sensors may not appear for certain heat-pump models or in other cases lots of irrelevant entities will be created. Please create an issue on GitHub and include a diagnostic download file from your installation if you believe that the mapping can be improved.
-- Entity names are available in English and cannot be automatically translated by Home Assistant. The reason is that the names are defined by the API and can be changed by updates of the API or the firmware in the appliance. However, most entity names are self explanatory e.g. "Room temperature (BT50)".
+- The integration makes the best effort to map data-points from the API to relevant entities in Home Assistant. However, some sensors may not appear for certain heat-pump models, or in other cases, numerous irrelevant entities might be created. Please create an issue on GitHub and include a diagnostic download file from your installation if you believe that the mapping can be improved.
+- Entity names are available in English and cannot be automatically translated by Home Assistant. The reason is that the names are defined by the API and can be changed by updates of the API or the firmware in the appliance. However, most entity names are self-explanatory, e.g., "Room temperature (BT50)".
