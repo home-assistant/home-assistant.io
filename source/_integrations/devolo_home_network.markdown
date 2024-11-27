@@ -120,10 +120,17 @@ Since firmware 7.10 also the following device without Wi-Fi can be used as long 
 - Magic 2 DinRail
 - Magic 2 LAN 1-1
 - Magic 1 LAN 1-1
+- Gigabridge
 
 ## Known limitations
 
 This integration only supports using the API the devolo Home Network App uses. The device website usually offers additional features. However, these features are not available via API and thus cannot be supported until devolo adds them to the API.
+
+## Troubleshooting
+
+### Gigabridge
+
+The devolo Gigabridge is the only device that comes with a default password. However, it seems that in factory default the password works for the device website but not for the API. If you give the device a new password via the website, it is applied to both and the integration starts working. Even using the same password again works.
 
 ## Removal
 
