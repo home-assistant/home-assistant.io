@@ -132,42 +132,36 @@ Recommended energy dashboard configuration for meter location in consumption pat
 The following automation toggles a switch when the solar production crosses certain thresholds:
 
 ```yaml
-description: "Turn on switch when PV power is above 300 W and turn it off below 20 W."
+description: "Turn on switch when PV power is above 1000 W and turn it off below 50 W."
 mode: single
 triggers:
-  - trigger: numeric_state
+  - trigger: state
     entity_id:
       - sensor.solarnet_power_photovoltaics
-    above: 300
-    id: "on"
-  - trigger: numeric_state
-    entity_id:
-      - sensor.solarnet_power_photovoltaics
-    id: "off"
-    below: 20
 conditions: []
 actions:
   - choose:
       - conditions:
-          - condition: trigger
-            id:
-              - "on"
+          - condition: numeric_state
+            entity_id: sensor.solarnet_power_photovoltaics
+            above: 1000
         sequence:
           - action: switch.turn_on
             metadata: {}
             data: {}
             target:
-              entity_id: switch.test
+              entity_id: switch.swtest
       - conditions:
-          - condition: trigger
-            id:
-              - "off"
+          - condition: numeric_state
+            entity_id: sensor.solarnet_power_photovoltaics
+            below: 50
         sequence:
           - action: switch.turn_off
             metadata: {}
             data: {}
             target:
-              entity_id: switch.test
+              entity_id: switch.swtest
+
 ```
 
 ## Note
