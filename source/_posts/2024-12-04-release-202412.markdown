@@ -163,7 +163,7 @@ We won't list them all here, but just be aware that it is very likely that someo
 ### A faster voice experience
 
 [HASSIL], our intent parser, was built from the ground up to match a sentence to its underlying intention extremely fast and on cheap hardware.
-Releases after releases, we added more use-cases and more sentences into Home Assistant, and our sentence matching logic became slower and slower.
+Release after release, we added more use-cases and more sentences into Home Assistant, and our sentence matching logic became slower and slower.
 
 In some of the languages, a non-matching sentence could take more than 15 seconds to be processed!
 
