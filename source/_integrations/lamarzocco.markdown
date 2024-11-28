@@ -105,7 +105,7 @@ Use Bluetooth:
 | Binary sensor name | Description | Available for machines |  Retrievable from | Remarks |
 |------------------- |-------------| ---------------------- | ----------------- | ------- |
 | **Water tank empty** | Indicates whether the water tank needs a refill. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} {% icon "material-symbols:wifi" title="Local connection" %} | - |
-| **Brewing active** | Is on if you are in the process of making coffee. | `all` | {% icon "material-symbols:wifi" title="Local connection" %} |  Only available when the *Host* was set during component configuration. |
+| **Brewing active** | Is on if you are in the process of making coffee. | `all` | {% icon "material-symbols:wifi" title="Local connection" %} |  Only available when the `Host` was set during component configuration. |
 | **Backflush enabled** | Is on if you started the backflushing process. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} {% icon "material-symbols:wifi" title="Local connection" %} | - |
 
 ## Sensors
@@ -116,7 +116,7 @@ Use Bluetooth:
 | **Current steam temperature**| Current temperature of the steam boiler | `Linea Micra`, `GS3 AV`, `GS3 MP` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} {% icon "material-symbols:wifi" title="Local connection" %} | - |
 | **Total coffees made** | Counter for total coffees made| `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Total flushes made** | Counter for total flushes done | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| - |
-| **Shot timer** | Time the current brew is running | `all` | {% icon "material-symbols:wifi" title="Local connection" %} | Only available when the *Host* was set during component configuration. |
+| **Shot timer** | Time the current brew is running | `all` | {% icon "material-symbols:wifi" title="Local connection" %} | Only available when the `Host` was set during component configuration. |
 
 ## Updates
 
