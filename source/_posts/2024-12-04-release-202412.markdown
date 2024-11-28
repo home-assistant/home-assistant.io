@@ -125,7 +125,7 @@ their progress._
 ### Let your voice assistant fall back to a LLM-based agent
 
 [Exactly 6 month ago] we bridged the gap between our intent world and the
-wonderful (and scary) world of LLMs. We allowed you to let a LLM agent control
+wonderful (and scary) world of LLMs. We allowed you to let an LLM agent control
 your home instead of relying on our built-in intent.
 
 This choice was an interesting first step.
