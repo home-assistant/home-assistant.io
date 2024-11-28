@@ -6,7 +6,7 @@ date: 2024-11-18 00:00:00
 date_formatted: "November 18, 2024"
 author: Missy Quarry
 comments: true
-categories: community
+categories: Community
 og_image: /images/blog/2024-11-universe/art.jpg
 ---
 

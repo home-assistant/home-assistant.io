@@ -19,7 +19,16 @@ The Swiss public transport integration will give you the next three departure ti
 
 The [Swiss public transport API](https://transport.opendata.ch/) only allows 1000 requests per 24 hours. The default polling rate is set to `90s`, which is just enough for one connection polling continuously. If more entries are needed, consider [defining a custom polling interval](#defining-a-custom-polling-interval) to reduce the amount of requests.
 
-The [Stationboard](https://transport.opendata.ch/examples/stationboard.html) website can help to determine the exact name of the start and the end station.
+{% configuration_basic %}
+Start station:
+    description: "The departure station for the start of the connection (e.g., 'Zürich HB')"
+End station:
+    description: "The arrival station for the end of the connection (e.g., 'Geneva')"
+Via stations:
+    description: "List of up to 5 via stations (e.g., 'Bern, Lausanne')"
+{% endconfiguration_basic %}
+
+Use the [Stationboard](https://transport.opendata.ch/examples/stationboard.html) to find exact station names.
 
 {% include integrations/config_flow.md %}
 
@@ -43,3 +52,9 @@ Fetch the connections for a specific instance.
 ## Defining a custom polling interval
 
 {% include common-tasks/define_custom_polling.md %}
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

@@ -16,19 +16,26 @@ ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 
-The P1 Monitor integration integrates the [P1 Monitor](https://www.ztatz.nl/p1-monitor/)
-API platform with Home Assistant.
+The **P1 Monitor** {% term integration %} allows you to gather data from your [P1 Monitor](https://www.ztatz.nl/p1-monitor/) device and use it in Home Assistant.
 
-P1 Monitor is a platform that allows you to read the data from your smart meter via the serial port (P1), such as your energy consumption, but also that of gas or a water meter.
+P1 Monitor is a piece of software that can be installed on a Raspberry Pi or other Linux-based system. It reads the data from your smart meter via the serial port (P1), such as your energy consumption, but also that of gas or a water meter.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: The IP address or hostname of your P1 Monitor instance.
+Port:
+  description: The port number of your P1 Monitor instance. The default port is `80`.
+{% endconfiguration_basic %}
+
+## Data updates
+
+The integration will poll your P1 Monitor instance every 5 seconds to update the data in Home Assistant.
+
 ## Sensors
 
-The P1 Monitor platform mainly provides sensors that you can use in your
-[energy dashboard](/energy).
-
-**Note** that by default, the gas consumption entities are disabled, so if you want to use them, you need to enable them manually.
+The P1 Monitor platform mainly provides sensors that you can use in your [energy dashboard](/energy).
 
 ### SmartMeter
 
@@ -39,6 +46,10 @@ Read out what your meter readings are for energy consumption/yield, see what you
 - Energy Consumption Low/High (kWh)
 - Energy Production Low/High (kWh)
 - Energy Tariff Period (low / high)
+
+{% note %}
+By default, the gas consumption entity is disabled. To use it, you need to enable it.
+{% endnote %}
 
 ### Phases
 
@@ -68,3 +79,9 @@ You can use the rates set in P1 Monitor for your calculations in Home Assistant.
 - Gas Consumption Price
 - Energy Consumption Price Low/High
 - Energy Production Price Low/High
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

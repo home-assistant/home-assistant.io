@@ -23,7 +23,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This `rainbird` integration allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
+This Rain Bird integration allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -45,32 +45,64 @@ irrigations schedules on a calendar.
 
 {% include integrations/config_flow.md %}
 
+
+{% configuration_basic %}
+Host:
+    description: "The IP address of your Rain Bird device. You can find the IP address under the
+    device in the Rain Bird app under **Controller Settings** -> **Network Info**."
+Password:
+    description: "The password used to authenticate the Rain Bird device."
+{% endconfiguration_basic %}
+
 ## Configuration options
 
-The integration has a configuration option to change the default amount of time that the irrigation
-will run when turning on a zone switch (default is 6 minutes). This can be overridden with an action (see below).
+The integration provides the following configuration options:
 
-## Binary sensor
+{% configuration_basic %}
+Default irrigation time:
+  description: The number of minutes that the irrigation will run when turning on a zone switch. The default is 6 minutes. This can be overridden with an action (see below).
+{% endconfiguration_basic %}
 
-The `rainsensor` sensor will tell if you if the device has detected rain. The
-rain sensor is an optional add-on for the device purchased from Rain Bird.
+## Data updates
 
-## Calendar
+The Rain Bird integration fetches available irrigation zones once, then polls
+every minute to check the current state of each valve. The irrigation schedule
+calendar is only fetched every 15 minutes.
 
-Some Rain Bird devices support automatic irrigation schedules configured with the Rain Bird app.
-and are available in Home Assistant as a [Calendar](https://www.home-assistant.io/integrations/calendar/) entity. You can view the program schedule in the UI, or trigger other automations
-based on the irrigation start or end time.
+## Supported functionality
 
-## Number
+### Entities
 
-The Rain Delay Number Entity lets you set and view  the number of days, if any, the automatic irrigation schedule has been delayed.
+The Rain Bird integration provides the following entities.
 
-You may use the number entity with an automation such as increasing the number
-of days delay when combined with another weather forecast integration in Home Assistant.
+#### Binary sensor
 
-## Switch
+- **Rain sensor**
+  - **Description**: The rain sensor will tell if you if the device has detected rain. 
+  - **Available for devices**: The rain sensor is an optional add-on for the device purchased from Rain Bird.
 
-Switches are automatically added for all available zones of configured controllers.
+#### Calendar
+
+- **Controller irrigation schedule**
+  - **Description**: The irrigation schedule [Calendar](https://www.home-assistant.io/integrations/calendar/) 
+    entity is created for each schedule configured in the Rain Bird app. You can view the program schedule
+    in the Home Assistant calendar UI, or trigger other automations based on the irrigation start or end time.
+  - **Available for devices**: Only available for Rain Bird devices irrigation schedules.
+
+#### Number
+
+- **Rain Delay**
+  - **Description**: Lets you set and view the number of days, if any, the automatic irrigation schedule has 
+    been delayed due to rain. You may use the number entity with an automation such as increasing the number
+    of days to delay irrigation when combined with another weather forecast integration in Home Assistant.
+  - **Available for devices**: Only available for Rain Bird devices irrigation schedules.
+
+#### Switch
+
+- **Irrigation Zone**
+  - **Description**: Switches are automatically added for all available zones of
+    configured controllers. Turning on the switch will open the irrigation valve for that zone.
+  - **Available for devices**: All
 
 ## Actions
 

@@ -29,8 +29,8 @@ Although adding voice to your smart home configuration is exciting, it will requ
 
 Ready? Now let's get started 
 
-- [I plan to use a local speech-to-text/text-to-speech setup](/voice_source/voice_remote_local_assistant/)
-- [I plan to use Home Assistant Cloud](/voice_sources/voice_remote_cloud_assistant/) (recommended as it is the simplest)
+- [I plan to use a local speech-to-text/text-to-speech setup](/voice_control/voice_remote_local_assistant/)
+- [I plan to use Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) (recommended as it is the simplest)
 
 ## Expand and Experiment
 

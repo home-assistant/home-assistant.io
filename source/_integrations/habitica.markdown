@@ -31,7 +31,15 @@ related:
     title: Habitica
 ---
 
-The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats in Home Assistant and seamlessly integrates your to-do's and daily tasks.
+The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats from [Habitica](https://habitica.com/) in Home Assistant and seamlessly integrates your to-do's, daily tasks, and many more things.
+
+## About Habitica
+
+Habitica is a gamified task manager and habit tracker that turns your daily goals and to-dos into a role-playing game, helping you stay motivated and productive while earning rewards and leveling up your avatar.
+
+## How you can use this integration
+
+The Habitica integration lets you automate task management, such as creating to-dos when appliances finish or marking dailies complete using smart sensors. You can visualize tasks and stats in Home Assistant dashboards or create notifications for due tasks, keeping you organized and on track with your goals.
 
 ## Prerequisites for Habitica integration
 
@@ -42,6 +50,30 @@ The Habitica {% term integration %} enables you to monitor your adventurer's pro
   - Additionally, you will need to provide the URL for the Habitica instance you wish to connect to; the default URL is `https://habitica.com`, but you can specify a different URL if you are using an alternative Habitica instance or a self-hosted instance.
 
 {% include integrations/config_flow.md %}
+
+### Login to Habitica
+
+{% configuration_basic %}
+"Email or username":
+    description: "Email or username (case-sensitive) to connect Home Assistant to your Habitica account"
+Password:
+    description: "Password for the account to connect Home Assistant to Habitica"
+{% endconfiguration_basic %}
+
+### Advanced configuration
+
+If you choose "**Login to other instances**" you will be presented the following configuration options:
+
+{% configuration_basic %}
+"User ID":
+    description: "User ID of your Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+API Token:
+    description: "API Token of the Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+URL:
+    description: "URL of the Habitica installation to connect to. Defaults to `https://habitica.com` (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+Verify SSL certificate:
+  description: Enable SSL certificate verification for secure connections. Disable only if connecting to a Habitica instance using a self-signed certificate
+{% endconfiguration_basic %}
 
 ## Sensors
 
@@ -133,6 +165,10 @@ To use task aliases, make sure **Developer Mode** is enabled under [**Settings -
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
+
+{% note %}
+When creating automations, be mindful of the [rate limits](#known-limitations). Frequent triggers or multiple concurrent automations can quickly exceed the allowed number of requests.
+{% endnote %}
 
 ### Create "Empty the dishwasher" to-do
 
@@ -310,3 +346,25 @@ Also an event `habitica_api_call_success` will be fired with the following data:
 ```
 
 {% endraw %}
+
+## Data updates
+
+This integration retrieves data from Habitica every 60 seconds to ensure timely updates.
+
+## Known limitations
+
+Habitica imposes a rate limit of 30 requests per minute for third-party applications, which applies collectively to all tools and integrations you use.
+
+This integration performs the following requests:
+
+- 3 requests per data update (every 60 seconds).
+- 1 request per action, such as executing skills or interacting with to-dos and dailies.
+- 1 additional request 5 seconds after an action to sync the data with Habitica.
+
+Please keep these limits in mind to avoid exceeding Habitica's request allowance. Efforts are ongoing to optimize the integration and reduce the number of requests it makes.
+
+## Remove integration
+
+This integration can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}
