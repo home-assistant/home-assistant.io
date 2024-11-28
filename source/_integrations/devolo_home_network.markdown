@@ -30,7 +30,7 @@ ha_zeroconf: true
 ha_integration_type: device
 ---
 
-The **devolo Home Network** {% term integration %} integration allows you to monitor and control your [devolo](https://www.devolo.global) PLC network.
+The **devolo Home Network** {% term integration %} integration allows you to monitor and control your [devolo](https://www.devolo.global) PLC network. Depending on the device you add to Home Assistant, different use cases are possible. Roughly you can divide the devices into Wi-Fi and non-Wi-Fi devices. The non-Wi-Fi devices are more or less limited to monitor you PLC network. The Wi-Fi devices however can help with presence detection and controlling your guest Wi-Fi remotely. For details please continue reading about the [entities](#entities) and look at the [supported devices](#supported-devolo-devices).
 
 {% include integrations/config_flow.md %}
 
@@ -39,9 +39,9 @@ IP address:
   description: "IP address of your devolo Home Network device. This can be found in the devolo Home Network App on the device dashboard."
 {% endconfiguration_basic %}
 
-## Device types
+## Entities
 
-Currently the following device types within Home Assistant are supported.
+Currently the following entities within Home Assistant are supported.
 
 ### Binary sensors
 
