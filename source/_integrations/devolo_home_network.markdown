@@ -41,7 +41,7 @@ IP address:
 
 ## Entities
 
-Currently the following entities within Home Assistant are supported.
+Currently, the following entities within Home Assistant are supported.
 
 ### Binary sensors
 
