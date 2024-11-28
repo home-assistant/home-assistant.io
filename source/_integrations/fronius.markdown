@@ -110,7 +110,7 @@ When an endpoint is not responding correctly the update interval will increase t
 
 ## Energy dashboard
 
-Recommended [energy dashboard](/energy/) configuration:
+Recommended [energy dashboard](/docs/energy/) configuration:
 
 - For _"Solar production"_:
   - If no battery is connected to an inverter: Add each inverters `Energy total` entity.
@@ -131,8 +131,8 @@ Recommended energy dashboard configuration for meter location in feed in path:
 
 Recommended energy dashboard configuration for meter location in consumption path:
 
-- Use [Riemann sum](/integrations/integration/) to integrate `SolarNet Power grid import` and `SolarNet Power grid export` entities into energy values (kWh).
-- Use these energy entities for `Grid consumption` and `Return to grid` in the energy dashboard configuration.
+1. Use [Riemann sum](/integrations/integration/) to integrate `SolarNet Power grid import` and `SolarNet Power grid export` entities into energy values (Wh or kWh).
+2. Use these energy entities for `Grid consumption` and `Return to grid` in the energy dashboard configuration.
 
 ## Example automation
 
