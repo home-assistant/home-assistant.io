@@ -139,7 +139,7 @@ Starting from this release, you can set-up a voice assistant in a way that will 
 
 ![Allow local processing](/images/blog/2024-12/llm-fallback.png)
 
-This allow you to mix the pros of both worlds with almost non of the cons.
+This allow you to mix the pros of both worlds with almost none of the cons.
 
 Specific known commands will be processed locally and extremely fast, and the power of a LLM will only be used for more complex queries that Home Assistant does not natively understand.
 
