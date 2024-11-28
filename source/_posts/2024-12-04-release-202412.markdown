@@ -149,7 +149,7 @@ _**TODO**: video demonstrating this._
 
 ### Langage leaders are accelerating the pace
 
-This is not a secret, a voice hardware is coming very soon.
+This is not a secret, our voice hardware is coming very soon.
 Language leaders got their hands on the device, and are working extremely hard to polish their language.
 The amount of contributions on our [intents repository] (where we store the supported sentences) skyrocketed during the last month.
 It is something we all truly appreciate.
