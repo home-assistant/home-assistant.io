@@ -15,7 +15,7 @@ og_image: /images/blog/2024-10-zbt1-issue/art.jpg
 The replacement program is now operational, please contact the retailer where you purchased your device to request a replacement. The replacement program only covers ZBT-1 branded devices purchased prior to October 2024, and not SkyConnect-branded devices (identify which device you have [with this graphic](#do-i-have-a-zbt-1)).
 {% endnote %}
 
-We've found an issue in Home Assistant Connect ZBT-1 that has affected a small number of customers, which appears to be the result of a faulty part incorporated in the first production run of ZBT-1 devices. We want to make sure everyone can get a replacement ZBT-1 and ensure they are covered far into the future.
+We've found an issue in Home Assistant Connect ZBT-1 that has affected a small number of customers, which appears to be the result of a faulty part incorporated in the first production run of ZBT-1 devices, causing the device to fail and become completely unresponsive. We want to make sure everyone can get a replacement ZBT-1 and ensure they are covered far into the future.
 
 Though Home Assistant SkyConnect is identical to the ZBT-1 under the hood, **it is not affected**. The design is not what's at fault, but instead, a defective voltage regulator that was used in this specific production run that is causing the issue. When a ZBT-1 is inserted into certain USB-A ports, the voltage regulator can fail, fully bricking the device. We used high-quality manufacturing and quality control in this and previous production runs. We are undertaking an investigation to find out how this could happen and most importantly, to avoid a repeat of anything remotely similar in the future.
 
@@ -44,12 +44,6 @@ It took us a couple of weeks to replicate the problem with our own units. We wen
 
 <img src='/images/blog/2024-10-zbt1-issue/skyconnect-zbt1.png' style='border: 0;box-shadow: none;' alt="SkyConnect (left) and ZBT-1 (right)">
 <p style="text-align: center; font-size: 0.9rem;">SkyConnect (left) and ZBT-1 (right) branded devices, SkyConnect are unaffected by this issue.</p>
-
-### Signs my device is affected <!-- omit in toc -->
-- It is a Home Assistant Connect ZBT-1 (not SkyConnect) device purchased before October 2024
-- It no longer works at all (i.e. it is not recognized by any device it is connected to)
-- It has a divot-shaped deformation on the outer casing (a small discoloration after long-term use is normal and does not indicate failure)
-
 
 ## Pausing sales
 
