@@ -98,10 +98,6 @@ The HomeWizard Energy devices are designed to work with the HomeWizard Energy ap
 
 Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
 
-{% include integrations/remove_device_service.md %}
-
-After deleting the integration, go to the HomeWizard Energy app and disable the local API if no other integrations are using it.
-
 ## Examples
 
 ### Send a notification when your washing machine is done
@@ -136,3 +132,11 @@ It may happen that you can't find your devices or they won't show up in the inte
 - Make sure you have updated the device to the latest firmware. Follow this guide to learn how to update your device: [How do I check if I have the latest software on my HomeWizard product?](https://helpdesk.homewizard.com/en/articles/9167578-how-do-i-check-if-i-have-the-latest-software-on-my-homewizard-product)
 - Make sure you have enabled the local API in device settings via the HomeWizard Energy app.
 - Make sure both Home Assistant and the device are on the same network.
+
+## Remove integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, go to the HomeWizard Energy app and disable the local API if no other integrations are using it.
