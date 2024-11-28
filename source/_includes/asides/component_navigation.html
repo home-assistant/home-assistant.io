@@ -58,11 +58,11 @@
   
   {%- if page.ha_quality_scale %}
   <div class='section'>  
-    {% if page.ha_quality_scale == "silver" %}🥈 This is a great integration!<br />{%- endif -%}
-    {% if page.ha_quality_scale == "gold" %}🥇 This is a solid integration!<br />{%- endif -%}
-    {% if page.ha_quality_scale == "platinum" %}🏆 Best of the best!<br />{%- endif -%}
-    {% if page.ha_quality_scale == "internal" %}🏠 Under core!<br />{%- endif -%}
-    It scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale</a>
+    {% if page.ha_quality_scale == "bronze" %}<a href='/docs/quality_scale/#-bronze'>🥉 Bronze quality</a><br />{%- endif -%}
+    {% if page.ha_quality_scale == "silver" %}<a href='/docs/quality_scale/#-silver'>🥈 Silver quality</a><br />{%- endif -%}
+    {% if page.ha_quality_scale == "gold" %}<a href='/docs/quality_scale/#-gold'>🥇 Gold quality</a><br />{%- endif -%}
+    {% if page.ha_quality_scale == "platinum" %}<a href='/docs/quality_scale/#-platinum'>🏆 Platinum quality</a><br />{%- endif -%}
+    {% if page.ha_quality_scale == "internal" %}<a href='/docs/quality_scale/#-internal'>🏠 Internal quality</a><br />{%- endif -%}
   </div>
   {%- endif -%}
   
