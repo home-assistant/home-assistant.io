@@ -110,7 +110,7 @@ If you know the energy characteristics of your washing machine, you can create a
 
 The integration is {% term polling %} new data every 5 seconds. There is no limitation on the number or frequency of requests that can be made to the device.
 
-{% include integrations/remove_device_service.md %}
+{% include common-tasks/define_custom_polling.md %}
 
 ## Known limitations
 
