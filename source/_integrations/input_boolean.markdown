@@ -46,6 +46,7 @@ Input booleans can also be configured via {% term "`configuration.yaml`" %} file
         description: Initial value when Home Assistant starts.
         required: false
         type: boolean
+        default: a previous value is restored id available
       icon:
         description: Icon to display in front of the input element in the frontend.
         required: false
