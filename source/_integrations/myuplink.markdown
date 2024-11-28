@@ -62,7 +62,7 @@ The integration configuration will require the **Client ID** and **Client Secret
 
 ## Data updates
 
-The integration will poll the API for data every 5 minutes. This polling interval is designed to work within the rate limits of myUplink APIs while providing timely updates.
+The integration will poll the API for data every 60 seconds. This polling interval is designed to work within the rate limits of myUplink APIs while providing timely updates.
 
 ## Known limitations
 
