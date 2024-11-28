@@ -78,8 +78,9 @@ Enjoy the (beta) release!
 - [Improved scene editor experience](#improved-scene-editor-experience)
 - [Voice](#voice)
   - [Let your voice assistant fall back to a LLM-based agent](#let-your-voice-assistant-fall-back-to-a-llm-based-agent)
+  - [Langage leaders are accelerating the pace](#langage-leaders-are-accelerating-the-pace)
   - [A faster voice experience](#a-faster-voice-experience)
-  - [Revised Integration Quality Scale](#revised-integration-quality-scale)
+- [Revised Integration Quality Scale](#revised-integration-quality-scale)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -127,49 +128,55 @@ their progress._
 wonderful (and scary) world of LLMs. We allowed you to let a LLM agent control
 your home instead of relying on our built-in intent.
 
-This choice was an interesting first step, as LLM are generally much smarter
-and knowledgeable about the world than our built-in intents.
-
-However, they are often slow and/or expensive. And let's face it, even if the
-demos are cool, 90% of the commands we say in our homes are simple
+This choice was an interesting first step.
+LLMs are generally much smarter and knowledgeable about the world than our built-in intents.
+However, they are often slow and/or expensive.
+And let's face it, even if the demos are cool, 90% of the commands we say in our homes are simple
 _"Turn this on"_, _"Turn that off"_.
 
-Today, we're finally allowing users to **mix** these worlds. Starting from this
-release, you can set-up a voice assistant in a way that will target our fast,
-community driven, built-in intents first, and only fallback to a LLM-based
-agent if no matches were found.
+Today, we're finally allowing users to **mix** these worlds.
+Starting from this release, you can set-up a voice assistant in a way that will target our fast, community driven, built-in intents first, and only fallback to a LLM-based agent if no matches were found.
 
 ![Allow local processing](/images/blog/2024-12/llm-fallback.png)
 
 This allow you to mix the pros of both worlds with almost non of the cons.
 
-Specific known command will be processed locally and extremely fast,
-and the power of a LLM will only be used for more complex queries
-that we do not understand.
+Specific known commands will be processed locally and extremely fast, and the power of a LLM will only be used for more complex queries that Home Assistant does not natively understand.
 
 _**TODO**: video demonstrating this._
 
 [Exactly 6 month ago]: https://www.home-assistant.io/blog/2024/06/05/release-20246/
 
+### Langage leaders are accelerating the pace
+
+This is not a secret, a voice hardware is coming very soon.
+Language leaders got their hands on the device, and are working extremely hard to polish their language.
+The amount of contributions on our [intents repository] (where we store the supported sentences) skyrocketed during the last month.
+It is something we all truly appreciate.
+More and more language are becoming usable, or even complete!
+You can follow the progress [here](https://home-assistant.github.io/intents/).
+
+We won't list them all here, but just be aware that it is very likely that someone is hard at work making sure your native language gets some love so that you can speak with your home.
+
+[intents repository]: https://github.com/home-assistant/intents?tab=readme-ov-file
+
 ### A faster voice experience
 
-HASSIL, our intent parser, was built from the ground up to match a sentence to
-its underlying intention extremely fast and on cheap hardware. Releases after
-releases, we added more use-cases and more sentences into Home Assistant,
-and our sentence matching logic became slower and slower.
+[HASSIL], our intent parser, was built from the ground up to match a sentence to its underlying intention extremely fast and on cheap hardware.
+Releases after releases, we added more use-cases and more sentences into Home Assistant, and our sentence matching logic became slower and slower.
 
-In some of the languages, a wrong sentence could take more than 15 seconds to
-be processed!
+In some of the languages, a non-matching sentence could take more than 15 seconds to be processed!
 
-This release adds a lot of love to HASSIL, we completely reengineered the way
-we are matching sentences, and the results speak for themselves.
+This release adds a lot of love to HASSIL, we completely reengineered the way we are matching sentences.
+On top of that, language leaders spent some time reducing the complexity of their sentences, some languages saw a reduction of the number of possible combinations of 99%!.
+
+The results speak for themselves:
 
 _**TODO**: video demonstrating this._
 
-_Note: Mike was talking about going from 15s to like 0.1 seconds in some cases.
-We will try to showcase that in this vid in some way._
- 
-### Revised Integration Quality Scale
+[HASSIL]: https://github.com/home-assistant/hassil
+
+## Revised Integration Quality Scale
 
 The Integration Quality Scale is a way we try to classify the "quality" of an
 integration. It is a way to give users an idea of what to expect from an
