@@ -132,7 +132,7 @@ Transfer the player's queue to another player.
   - **Example**: `media_player.kitchen_speaker`
 - **Data attribute**: `auto_play`
   - **Optional**: Yes.
-  - **Description**: Start playing the queue on the target player. Omit to use the default behaviour.
+  - **Description**: Start playing the queue on the target player. Omit to use the default behavior.
   - **Example**: `true`
 
 ## Notes
