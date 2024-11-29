@@ -31,7 +31,7 @@ Under normal circumstances, Home Assistant automatically discovers your running 
 
 ## Media player
 
-The Music Assistant media player creates media player entities for all players available in MA including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. These entities will display media information, playback progress, and playback controls.
+The Music Assistant integration creates media player entities for all players available in MA including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. These entities will display media information, playback progress, and playback controls.
 
 ### Action `media_player.play_media`
 
