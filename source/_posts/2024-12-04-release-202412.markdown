@@ -141,7 +141,7 @@ Starting from this release, you can set-up a voice assistant in a way that will 
 
 This allow you to mix the pros of both worlds with almost none of the cons.
 
-Specific known commands will be processed locally and extremely fast, and the power of a LLM will only be used for more complex queries that Home Assistant does not natively understand.
+Specific known commands will be processed locally and extremely fast, and the power of an LLM will only be used for more complex queries that Home Assistant does not natively understand.
 
 _**TODO**: video demonstrating this._
 
@@ -153,7 +153,7 @@ This is not a secret, our voice hardware is coming very soon.
 Language leaders got their hands on the device, and are working extremely hard to polish their language.
 The amount of contributions on our [intents repository] (where we store the supported sentences) skyrocketed during the last month.
 It is something we all truly appreciate.
-More and more language are becoming usable, or even complete!
+More and more languages are becoming usable, or even complete!
 You can follow the progress [here](https://home-assistant.github.io/intents/).
 
 We won't list them all here, but just be aware that it is very likely that someone is hard at work making sure your native language gets some love so that you can speak with your home.
@@ -163,7 +163,7 @@ We won't list them all here, but just be aware that it is very likely that someo
 ### A faster voice experience
 
 [HASSIL], our intent parser, was built from the ground up to match a sentence to its underlying intention extremely fast and on cheap hardware.
-Release after release, we added more use-cases and more sentences into Home Assistant, and our sentence matching logic became slower and slower.
+Release after release, we added more use-cases and more sentences to Home Assistant, and our sentence-matching logic became slower and slower.
 
 In some of the languages, a non-matching sentence could take more than 15 seconds to be processed!
 
