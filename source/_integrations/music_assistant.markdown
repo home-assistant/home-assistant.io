@@ -15,7 +15,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The **Music Assistant**(MA) {% term integrations %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.
+The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.
 
 There is currently support for the following Home Assistant Platforms:
 
@@ -27,7 +27,7 @@ All of the Home Assistant [Media Player Control Actions](https://www.home-assist
 
 ### Manual configuration
 
-Under normal circumstances, Home Assistant automatically discovers your running Music Assistant Server. If something special about the HA or MA setup (for example, the MA server is running as a remote Docker container) or discovery is not working, you can manually specify the URL to your Music Assistant server. 
+Under normal circumstances, Home Assistant automatically discovers your running Music Assistant Server. If there is something special about the HA or MA setup (for example, the MA server is running as a remote Docker container) or discovery is not working, you can manually specify the URL to your Music Assistant server. If the Music Assistant Server is not installed then follow these [installation instructions](https://music-assistant.io/installation/).
 
 ## Media player
 
@@ -85,11 +85,11 @@ Play media on a Music Assistant player with more fine-grained control options.
   - **Example**: `playlist`
 - **Data attribute**: `artist`
   - **Optional**: Yes.
-  - **Description**: When specifying a track or album in the Media ID field, you can optionally restrict results by this artist name.
+  - **Description**: When specifying a track or album by name in the Media ID field, you can optionally restrict results by this artist name.
   - **Example**: `Queen`
 - **Data attribute**: `album`
   - **Optional**: Yes.
-  - **Description**: When specifying a track in the Media ID field, you can optionally restrict results by this album name.
+  - **Description**: When specifying a track by name in the Media ID field, you can optionally restrict results by this album name.
   - **Example**: `News of the world`
 - **Data attribute**: `enqueue`
   - **Optional**: Yes.
@@ -122,6 +122,19 @@ Play announcement on a Music Assistant player with more fine-grained control opt
   - **Description**: Use a forced volume level for the announcement. Omit to use the player default.
   - **Example**: `75`
 
+### Action `music_assistant.transfer_queue`
+
+Transfer the player's queue to another player.
+
+- **Data attribute**: `source_player`
+  - **Optional**: Yes.
+  - **Description**: The source media player which has the queue to be transferred. When omitted, the first playing player will be used.
+  - **Example**: `media_player.kitchen_speaker`
+- **Data attribute**: `auto_play`
+  - **Optional**: Yes.
+  - **Description**: Start playing the queue on the target player. Omit to use the default behaviour.
+  - **Example**: `true`
+  - 
 ## Notes
 
 - Any Home Assistant players added to Music Assistant will appear duplicated as the MA version of the player is created. The original HA player can be hidden if desired.
