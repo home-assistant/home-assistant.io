@@ -134,7 +134,7 @@ Transfer the player's queue to another player.
   - **Optional**: Yes.
   - **Description**: Start playing the queue on the target player. Omit to use the default behaviour.
   - **Example**: `true`
-  - 
+
 ## Notes
 
 - Any Home Assistant players added to Music Assistant will appear duplicated as the MA version of the player is created. The original HA player can be hidden if desired.
