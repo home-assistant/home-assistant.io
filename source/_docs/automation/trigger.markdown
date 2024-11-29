@@ -241,6 +241,11 @@ automation:
 
 {% endraw %}
 
+{% note %}
+Listing above and below together means the numeric_state has to be between the two values.
+In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (above 17 and below 25). It will only fire again, once it has left the defined range and enters it again.
+{% endnote %}
+
 When the `attribute` option is specified the trigger is compared to the given `attribute` instead of the state of the entity.
 
 {% raw %}
@@ -287,11 +292,6 @@ automation:
 ```
 
 {% endraw %}
-
-{% note %}
-Listing above and below together means the numeric_state has to be between the two values.
-In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (above 17 and below 25). It will only fire again, once it has left the defined range and enters it again.
-{% endnote %}
 
 Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities
 that contain a numeric value, can be used in the `above` and `below` thresholds.
