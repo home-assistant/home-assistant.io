@@ -16,16 +16,18 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `metoffice` weather platform uses the Met Office's [DataHub API](https://www.metoffice.gov.uk/services/data/met-office-weather-datahub) for weather data. 
+The `metoffice` weather platform uses the Met Office's [DataHub API](https://www.metoffice.gov.uk/services/data/met-office-weather-datahub) for weather data.
+
 ## Getting started
-1. Register for a [Met Office DataHub](https://datahub.metoffice.gov.uk/) account. 
+
+1. Register for a [Met Office DataHub](https://datahub.metoffice.gov.uk/) account.
 2. After registration, [subscribe](https://datahub.metoffice.gov.uk/profile/subscriptions) to [Site Specific Global Spot](https://datahub.metoffice.gov.uk/pricing/site-specific) dataset to obtain your API key. Free tier subscription gives 360 calls per day which is enough for using this integration
 
 {% include integrations/config_flow.md %}
 
 ## Entities
 
-This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast (twice-daily and hourly), and twelve sensor entities for individual reporting on each of the individual measurements. Note that only some of the sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration.
+This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast (daily, twice-daily and hourly), and twelve sensor entities for individual reporting on each of the individual measurements. Note that only some of the sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration.
 
 The available sensor entities:
 
