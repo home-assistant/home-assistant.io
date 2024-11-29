@@ -61,8 +61,8 @@ Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna
 
 The interval which the integration fetches data from the Smile depends on the device:
 
-- Power entities, such as the P1 will be refreshed every 10 seconds.
-- Climate entities  will be refreshed every 60 seconds.
+- Power entities, such as the P1, will be refreshed every 10 seconds.
+- Climate entities will be refreshed every 60 seconds.
 - Stretch entities will be refreshed every 60 seconds.
 
 ## Removing the integration
