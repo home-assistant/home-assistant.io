@@ -57,6 +57,18 @@ For example, if you have an Adam setup with a Lisa named 'Living' and a Tom name
 
 Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Adam will be assigned to your gateway entity. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff entity.
 
+## Data updates
+
+The interval which the integration fetches data from the Smile depends on the device:
+
+- Power entities, such as the P1 will be refreshed every 10 seconds.
+- Climate entities  will be refreshed every 60 seconds.
+- Stretch entities will be refreshed every 60 seconds.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required within Home Assistant or on your Plugwise devices.
+
 ## Configuration
 
 The Plugwise Smile(s) present in your network will be automatically detected via Zeroconf discovery and will be shown on the Integrations-page. To set up an integration, click the "CONFIGURATION" button on the discovered integration and you will be presented with a dialog requesting your Smile password. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located. The username `smile` is shown as a default, when configuring your Stretch change this to `stretch` accordingly.
