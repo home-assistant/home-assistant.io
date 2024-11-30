@@ -53,6 +53,11 @@ Note that it depends on the appliance and on API permissions which of the featur
 {% endnote %}
 
 {% note %}
+Some programs are not documented by the API, so they are not contemplated in the integration.
+If you need to use that program for an automation or a script, you can use the `program_key` attribute of the selected/active program entities.
+{% endnote %}
+
+{% note %}
 Some devices only have the state `on` and turn off is not supported by the appliance, check [power state availability at Home Connect API documentation](https://api-docs.home-connect.com/settings/#power-state) for more information.
 {% endnote %}
 
