@@ -65,12 +65,12 @@ The following controls allow you to customize the settings and options for your 
 - **Short-press temperature step:** The temperature adjustment increment when briefly pressing a button. Defaults to 1°.
 - **Motion sensitivity:** Controls how sensitive the device is to movement. Higher values increase sensitivity (e.g., 0 = motion detection off).
 - **Hall effect sensitivity:** Configures the sensitivity of the hall effect sensor (if present) for detecting a magnet to activate sleep mode.
-- **Display brightness** Adjusts the brightness of the soldering iron's display.
+- **Display brightness:** Adjusts the brightness of the soldering iron's display.
 
 ### Power management
 
 - **Keep-awake pulse duration:** Specifies the duration of the power pulse to keep connected power banks awake. Shorter durations minimize power waste and unnecessary heating.
-- **Keep-awake pulse delay:** Adjusts the interval between power pulses. Longer delays reduce unwanted heating but must be short enough to prevent the power bank from shutting off.
+- **Keep-awake pulse delay:** Adjusts the interval between power pulses. Longer delays reduce unwanted heating, but must be short enough to prevent the power bank from shutting off.
 - **Keep-awake pulse intensity:** Enables and sets the wattage of the power pulse. The power pulse briefly activates the heater to draw sufficient power, preventing connected power banks from entering sleep mode.
 - **Min. voltage per cell:** Sets the minimum voltage per battery cell before shutdown. This value is multiplied by the cell count (for example, 3S: 3–3.7V, 4–6S: 2.4–3.7V).
 - **Power Delivery timeout:** Defines how long the firmware will attempt to negotiate USB-PD before switching to Quick Charge. Lower values are recommended for faster PD negotiation.
