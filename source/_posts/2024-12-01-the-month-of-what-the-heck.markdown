@@ -146,7 +146,7 @@ project, or simply enjoying engaging our active and vibrant community.
 
 👆That title says it all really. Start sharing **your** “What the heck?!”
 moment, browse through all the WTH moments others brought up, and vote for the
-once you feel the same bout.
+ones you feel the same about.
 
 We are excited about this month and looking forward to everything brought up!
 
@@ -169,20 +169,26 @@ So, when does Home Assistant trigger this moment for you?
   picked up, and maybe even resolved. Also, having multiple things stacked in
   a single forum topic makes resolving, discussing, and voting on them hard.
 
+<br />
+
 - **_“Is everything reported going to be fixed/addressed?”_**
 
-  *Sorry, but the answer here is **no**; there is no guarantee that it will
+  Sorry, but the answer here is **no**; there is no guarantee that it will
   happen. The goal is to lower the barrier reporting things for one month.
   Code contributors will definitely join the effort and address a few of the
   listed things. Still, in the end, the number of submissions in WTH is,
   in general, simply too much to address. However, we have picked up a lot of
   items over the years (including bigger topics); it helps us shape our roadmap.
 
-- **_I really want this new integration or add-on to be implemented, so I can
+<br />
+
+- **_"I really want this new integration or add-on to be implemented, so I can
   use my devices. Is this the right place for it?”_**
 
   **No**, this event is **not** for requesting new add-ons or device/services
   integrations. Please use the "[Feature Requests]" forum category instead.
+
+<br />
 
 - **_“My WTH topic is one of the top-voted ones, so it is going to be
   fixed/addressed, right?”_**
@@ -193,6 +199,8 @@ So, when does Home Assistant trigger this moment for you?
   contributor, but it is not guaranteed to be picked up.
   
   Topics with a lot of engagement, of course, help us shape our future roadmap.
+
+<br />
 
 - **_“I’ve found a bug and am comfortable with GitHub. Where should I report my
   issue now?”_**
