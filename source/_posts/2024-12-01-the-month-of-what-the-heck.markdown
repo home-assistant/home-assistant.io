@@ -53,11 +53,10 @@ hear from 👉 **YOU** 👈!
 ### Lowering the barrier for sharing WTH?! moments
 
 We realize reporting bugs on our [GitHub] might be a steep hill and, for some,
-maybe even a bit scary (although you shouldn’t be). You need a GitHub account to
-report an issue following issue templates and forms, and the report itself needs
-to be written in a way that a developer can work with. Above all, we use our
-issue tracker to track actual issues and bugs, not small feature requests
-or annoyances.
+maybe even a bit scary. You need a GitHub account to report an issue following
+issue templates and forms, and the report itself needs to be written in a way
+that a developer can work with. Above all, we use our issue tracker to track
+actual issues and bugs, not small feature requests or annoyances.
 
 While this is a common and reasonable process to collect, track, and process
 bugs, our issue tracking-process might not be the ideal way to learn about your
@@ -88,7 +87,7 @@ awesome for everyone.
 
 I’ve received many responses on these social media posts on [X], [Mastodon],
 and [Bluesky]. Most of the responses there are **exactly** what we are looking
-for this month. I’ve picked a few from both platforms to show you what I mean:
+for this month. I’ve picked a few from these platforms to show you what I mean:
 
 - “*Makes exposing entities to HomeKit the same as to Alexa & Google*” ([Peter Hardy-vanDoorn])
 - *"Polygon zones would be so very helpful instead of just the base circle"* ([KrispKiwi])
