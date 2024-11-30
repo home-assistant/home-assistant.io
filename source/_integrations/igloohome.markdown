@@ -45,6 +45,12 @@ Once the correct `Client ID` & `Client Secret` has been provided:
   - If you have an igloohome bridge, the bridge will periodically update the server with the latest state.
   - If you do not have an igloohome bridge, using Bluetooth commands (e.g., Unlock, Sync) via the igloohome mobile app will update the server with the latest state.
 
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
 ## Troubleshooting
 
 ### Battery level not updating.
