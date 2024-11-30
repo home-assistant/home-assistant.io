@@ -124,8 +124,8 @@ prioritize our roadmap for the near future.
 
 As a matter of fact, many items on this year’s roadmap that we’ve worked on
 have their origins or have been shaped by topics from the previous WTH from
-2022. For example, the [ability to organize automations] and the ability to
-2023. [drag-and-drop cards on your dashboards].
+2022. For example, the [ability to organize automations] and the ability to 
+[drag-and-drop cards on your dashboards].
 
 [2024 Year-end update of our roadmap]: https://www.home-assistant.io/blog/2024/11/15/roadmap-2024h2/
 [ability to organize automations]: https://community.home-assistant.io/t/why-are-all-automations-in-one-big-list/467153?u=frenck
