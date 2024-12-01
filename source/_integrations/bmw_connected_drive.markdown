@@ -58,7 +58,7 @@ Username:
   required: true
   type: string
 Password:
-  description: "Username of your MyBMW/MINI Connected account."
+  description: "Password of your MyBMW/MINI Connected account."
   required: true
   type: string
 Region:
@@ -122,7 +122,7 @@ This {% term integration %} provides the following {% term platforms %}:
 - [Numbers](/integrations/bmw_connected_drive/#numbers): Display and control numeric charging related settings for (PH)EVs.
 
 {% warning %}
-Every platform except **binary sensors** and **sensors** can change the state of your vehicle. Once you change the state in Home Asistant, a command is sent to your car. 
+Every platform except **binary sensors** and **sensors** can change the state of your vehicle. Once you change the state in Home Assistant, a command is sent to your car. 
 
 &nbsp;
 
@@ -201,7 +201,7 @@ If you have a (PH)EV, you can control the charging process through Home Assistan
 
 If supported by your vehicle, you can display and toggle remote actions with start/stop functionality.
 
-- **Climate**: Toggle vehicle climatization. It is not possible to force it to heating/cooling, the vehicle will decide on its own. If turned on, it will run for 30 minutes (as if toggled via the MyBMW app).
+- **Climate**: Toggle vehicle climatization. It is not possible to force it to heat or cool; the vehicle will decide on its own. If turned on, it will run for 30 minutes (as if toggled via the MyBMW app).
 - **Charging**: Toggle vehicle charging if plugged in. Only available on some electric vehicles.
 
 ### Numbers
@@ -230,7 +230,7 @@ Home Assistant will show a repair issue to **reconfigure** the integration. Foll
 {% enddetails %}
 
 ## Known limitations
-- The entities available to Home Assistant depend on your vehicle. Even inside the same model code (e.g. U11 for BMW X1) you will see different entities, depending of your specific car's features.
+- The entities available to Home Assistant depend on your vehicle. Even inside the same model code (e.g. U11 for BMW X1) you will see different entities, depending on your specific car's features.
 - Not all features, mostly related to charging control for (PH)EVs, are implemented. If you have a functionality in your MyBMW/MINI app that is not yet available, search for an existing feature request in the [`bimmer_connected` discussions](https://github.com/bimmerconnected/bimmer_connected/discussions) or create a new one.
 
 ## Remove integration
