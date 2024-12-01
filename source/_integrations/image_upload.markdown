@@ -2,6 +2,7 @@
 title: Image upload
 description: The image upload integration handle image assets in Home Assistant.
 ha_category:
+  - Media source
   - Other
 ha_release: 0.115
 ha_codeowners:
@@ -13,6 +14,8 @@ ha_integration_type: system
 
 The **Image upload** {% term integration %} allows Home Assistant to handle image assets in
 Home Assistant, for example, the profile photos of your systems account.
+
+Uploaded images are also viewable in the media browser.
 
 ## Configuration
 
