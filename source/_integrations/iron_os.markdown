@@ -26,7 +26,7 @@ The **IronOS** {% term integration %} seamlessly connects Home Assistant with PI
 
 ## How you can use this integration
 
-The IronOS integration lets you monitor and control your smart soldering iron from Home Assistant and automate related tasks. For example, you can turn on a fume extractor automatically when the soldering iron enters soldering mode, and turn it off when the iron is laid down. You can also monitor the temperature of the tip and handle, as well as power draw and input voltage, directly in dashboards.
+The IronOS integration lets you monitor and control your smart soldering iron from Home Assistant and automate related tasks. For example, you can turn on a fume extractor automatically when the soldering iron enters soldering mode, and turn it off when the iron is laid down. You can also monitor the temperature of the tip and handle, as well as power draw and input voltage, directly on dashboards.
 
 ## Minimum requirements
 
@@ -84,13 +84,12 @@ triggers:
     entity_id: sensor.pinecil_operating_mode
     to: soldering
     id: start soldering
-    from: null
+    from:
   - trigger: state
     entity_id: sensor.pinecil_operating_mode
     from: soldering
     to: idle
     id: stop soldering
-conditions: []
 actions:
   - if:
       - condition: trigger
@@ -98,8 +97,6 @@ actions:
           - start soldering
     then:
       - action: switch.turn_on
-        metadata: {}
-        data: {}
         target:
           entity_id: switch.fume_extractor
   - if:
@@ -108,11 +105,8 @@ actions:
           - stop soldering
     then:
       - action: switch.turn_off
-        metadata: {}
-        data: {}
         target:
           entity_id: switch.fume_extractor
-mode: single
 ```
 
 {% endraw %}
@@ -141,7 +135,6 @@ This integration maintains an active Bluetooth connection while the device is po
       type: esp-idf
       sdkconfig_options:
         CONFIG_BT_GATTC_MAX_CACHE_CHAR: "100"
-
   ```
 
 ## Remove integration
