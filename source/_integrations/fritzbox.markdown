@@ -63,17 +63,11 @@ If you still want to use the predefined user, please note that as of FRITZ!OS 7.
 
 {% configuration_basic %}
 Host:
-    description: "The hostname or IP address of your FRITZ!Box router."
-    required: true
-    type: string
+  description: "The hostname or IP address of your FRITZ!Box router."
 Username:
-    description: "Name of the user to connect Home Assistant to your FRITZ!Box (_see [prerequisites](#prerequisites)_)"
-    required: true
-    type: string
+  description: "Name of the user to connect Home Assistant to your FRITZ!Box (_see [prerequisites](#prerequisites)_)"
 Password:
-    description: "Password for the user to connect Home Assistant to your FRITZ!Box (_see [prerequisites](#prerequisites)_)"
-    required: true
-    type: string
+  description: "Password for the user to connect Home Assistant to your FRITZ!Box (_see [prerequisites](#prerequisites)_)"
 {% endconfiguration_basic %}
 
 ## Data fetching and limitations

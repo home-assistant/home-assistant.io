@@ -46,16 +46,10 @@ By default, this integration will query your machine every 30 seconds for an upd
 {% configuration_basic %}
 Username:
   description: "Your username you use to log into the La Marzocco app."
-  required: true
-  type: string
 Password:
   description: "Password you use to log into the La Marzocco app."
-  required: true
-  type: string
 Host:
   description: "IP address of your machine in your local network. If not set, no local connections will be used."
-  required: false
-  type: boolean
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}

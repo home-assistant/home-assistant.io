@@ -40,12 +40,8 @@ The integration will try to configure webhooks to receive near-real-time push up
 {% configuration_basic %}
 Host:
   description: "The IP address of your bridge. You can find it in your router or in the Tedee app under **Bridge Settings** -> **Local API**."
-  required: false
-  type: string
 Local Access Token:
   description: "The local access token for your bridge. You can find it in the Tedee app under **Bridge Settings** -> **Local API**."
-  required: false
-  type: string
 {% endconfiguration_basic %}
 
 ## Supported devices
