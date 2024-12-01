@@ -34,7 +34,7 @@ The IronOS integration lets you monitor and control your smart soldering iron fr
 
 ## Prerequisites
 
-The IronOS integration requires your device to be within Bluetooth range of Home Assistant, which must be equipped with a [Bluetooth adapter](https://www.home-assistant.io/integrations/bluetooth/). If the device is out of range, an [ESPHome Bluetooth proxy](https://esphome.io/projects/?type=bluetooth) can be placed within range. In this case, a Bluetooth adapter on Home Assistant is not required.
+The IronOS integration requires your device to be within Bluetooth range of Home Assistant, which must be equipped with a [Bluetooth adapter](/integrations/bluetooth/). If the device is out of range, an [ESPHome Bluetooth proxy](https://esphome.io/projects/?type=bluetooth) can be placed within range. In this case, a Bluetooth adapter on Home Assistant is not required.
 
 Home Assistant will detect nearby IronOS devices. Discovered devices will show up on {% my integrations title="Settings > Devices & services" %} in the discovered section.
 
