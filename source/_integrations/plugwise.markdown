@@ -53,6 +53,7 @@ When you have an Anna and an Adam, make sure to **only** configure the Adam inte
 The Plugwise Smile(s) present in your network will be automatically detected via Zeroconf discovery and will be shown on the Integrations-page. All you need is the Smile ID as it's password, which is an 8 character string printed on the sticker on the bottom of you smile. To set up Plugwise when a Smile is not auto-discovered you can use this My Button:
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 Host:
     description: "The hostname or IP address of your Smile. For example: '192.168.1.25'. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) -> **System** -> **Network **. If you are looking for a different device in the Plugwise App, on the main screen first select **Gateways** -> the Smile of your choice, and then follow the previous instruction. Normally the Smile(s) are automatically discovered and you don't have to provide the hostname or IP address."
