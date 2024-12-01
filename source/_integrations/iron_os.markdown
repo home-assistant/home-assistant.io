@@ -34,7 +34,7 @@ The **IronOS** {% term integration %} seamlessly connects Home Assistant with PI
 
 ## Binary sensors
 
-- **Soldering tip:** Indicates wether a soldering tip is currently connected to the device.
+- **Soldering tip:** Indicates whether a soldering tip is currently connected to the device.
 
 ## Sensors
 
