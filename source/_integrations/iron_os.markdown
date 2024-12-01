@@ -137,7 +137,7 @@ This integration maintains an active Bluetooth connection while the device is po
         CONFIG_BT_GATTC_MAX_CACHE_CHAR: "100"
   ```
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 
