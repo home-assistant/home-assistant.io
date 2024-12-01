@@ -44,22 +44,18 @@ Platforms available - depending on your Smile and setup include:
  - `switch` (for Plugs connected to Adam, or Circles and Stealths connected to a Stretch)
 
 
-The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
-
- - Open the Plugwise App and choose the 'Settings'-icon (&#9776;) and choose 'HTML-interface'. 
- - Go to the (lower) 'Settings'-icon (&#9776;) and choose 'Preferences'. 
- - Choose 'System' then 'Networking' and your IP address will be shown.
-
 ## Configuration
 
-Please note: when you have an Anna and an Adam, make sure to **only** configure the Adam integration. You can press the "IGNORE" button on the auto-discovered Anna integration to hide this integration. In case you need to rediscover the Anna integration, make sure to click the "STOP IGNORING" button on the Plugwise integration first, available via "show ignored integrations".
+{% important %}
+When you have an Anna and an Adam, make sure to **only** configure the Adam integration. You can press the "IGNORE" button on the auto-discovered Anna integration to hide this integration. In case you need to rediscover the Anna integration, make sure to click the "STOP IGNORING" button on the Plugwise integration first, available via "show ignored integrations".
+{% endimportant %}
 
-The Plugwise Smile(s) present in your network will be automatically detected via Zeroconf discovery and will be shown on the Integrations-page. To set up Plugwise when a Smile is not auto-discovered you can use this My Button:
+The Plugwise Smile(s) present in your network will be automatically detected via Zeroconf discovery and will be shown on the Integrations-page. All you need is the Smile ID as it's password, which is an 8 character string printed on the sticker on the bottom of you smile. To set up Plugwise when a Smile is not auto-discovered you can use this My Button:
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
 Host:
-    description: "The hostname or IP address of your Smile. For example: '192.168.1.25'. You can find it in your router or in the Plugwise app under **Settings** -> **System** -> **Network **. If you are looking for a different device in the Plugwise App, on the main screen first select **Gateways** -> the Smile of your choice, and then follow the previous instruction. Normally the Smile(s) are automatically discovered and you don't have to provide the hostname or IP address."
+    description: "The hostname or IP address of your Smile. For example: '192.168.1.25'. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) -> **System** -> **Network **. If you are looking for a different device in the Plugwise App, on the main screen first select **Gateways** -> the Smile of your choice, and then follow the previous instruction. Normally the Smile(s) are automatically discovered and you don't have to provide the hostname or IP address."
     required: true
     type: string
 Username:
@@ -67,7 +63,7 @@ Username:
     required: true
     type: string
 Password:
-    description: "This is the password printed on the sticker on you Smile and should be 8 characters long".
+    description: "This is the password (i.e. Smile ID) printed on the sticker on the bottom of your Smile and should be 8 characters long".
     required: true
     type: string
 {% endconfiguration_basic %}
