@@ -70,13 +70,13 @@ It is recommended you use the Administrator or a user with full read/write acces
 but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
 use has.
 
-1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_. **Note**: This **must** be done from
-   the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the
-   UniFi Protect app.
-2. Go to **Admins** from the left hand side menu or [IP address]/admins/users e.g. 192.168.1.1/admins/users.
-3. Click on **Add New Admin**.
-4. Select **Full Management** for the role. Uncheck **Allow Remote Access** and fill out the fields for your user.
-5. Click **Add** in the bottom right.
+1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_. </br>
+**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (e.g. _192.168.1.1_), not via `unifi.ui.com` or within the UniFi Protect app.
+2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (e.g. _192.168.1.1/admins/_).
+3. Click on **+** in the top right corner and select **Add Admin**.
+4. Select **Restrict to local access only** and enter a new _username_ and _password_.
+5. Select **Full Management** for the _Protect_ role. 
+6. Click **Add** in the bottom right.
 
 ![UniFi OS User Creation](/images/integrations/unifiprotect/user.png)
 
