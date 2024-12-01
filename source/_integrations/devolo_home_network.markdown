@@ -30,7 +30,7 @@ ha_zeroconf: true
 ha_integration_type: device
 ---
 
-The **devolo Home Network** {% term integration %} allows you to monitor and control your [devolo](https://www.devolo.global) PLC network. Depending on the device you add to Home Assistant, different use cases are possible. Roughly you can categorize the devices into Wi-Fi and non-Wi-Fi devices. The non-Wi-Fi devices are more or less limited to monitor your PLC network. The Wi-Fi devices, however, can help with presence detection and controlling your guest Wi-Fi remotely. For details, please continue reading about the [entities](#entities) and look at the [supported devices](#supported-devolo-devices).
+The **devolo Home Network** {% term integration %} allows you to monitor and control your [devolo](https://www.devolo.global) PLC network. Depending on the device you add to Home Assistant, different use cases are possible. Roughly you can categorize the devices into Wi-Fi and non-Wi-Fi devices. Non-Wi-Fi devices are more or less limited in monitoring your PLC network. The Wi-Fi devices, however, can help with presence detection and remote control of your guest Wi-Fi. For details, please continue reading about the [entities](#entities) and look at the [supported devices](#supported-devolo-devices).
 
 {% include integrations/config_flow.md %}
 
