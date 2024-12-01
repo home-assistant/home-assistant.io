@@ -69,6 +69,10 @@ The interval which the integration fetches data from the Smile depends on the de
 
 This integration follows standard integration removal. No extra steps are required within Home Assistant or on your Plugwise devices.
 
+{% include integrations/remove_device_service.md %}
+
+This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.
+
 ## Configuration
 
 The Plugwise Smile(s) present in your network will be automatically detected via Zeroconf discovery and will be shown on the Integrations-page. To set up an integration, click the "CONFIGURATION" button on the discovered integration and you will be presented with a dialog requesting your Smile password. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located. The username `smile` is shown as a default, when configuring your Stretch change this to `stretch` accordingly.
