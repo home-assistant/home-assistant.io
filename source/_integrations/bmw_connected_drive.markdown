@@ -41,7 +41,7 @@ The {% term entities %} available in Home Assistant heavily depend on your vehic
 
 ## Prerequisites
 
-You need to have an active MyBMW account with a connected car. For MINI vehicles, you register your with MINI Connected.
+You need to have an active MyBMW account with a connected car. For MINI vehicles, you register with MINI Connected.
 
 For compatibility with your BMW vehicle check the [bimmer_connected page](https://github.com/bimmerconnected/bimmer_connected) on GitHub.
 
@@ -131,7 +131,7 @@ Every platform except **binary sensors** and **sensors** can change the state of
 
 ### Notifications
 
-The **BMW Connected Drive** integration offers a notification action. Using this action you can send Points of Interest (POI) to your vehicle. In your vehicle you can select this POI and the navigation will automatically start using the POI as a destination.
+The **BMW Connected Drive** integration offers a notification action. Using this action you can send Points of Interest (POI) to your vehicle. In your vehicle, you can select this POI, and the navigation will automatically start using the POI as a destination.
 The name of the action is `notify.bmw_connected_drive_<your_vehicle>`.
 
 ### Send a Point of Interest to your vehicle
