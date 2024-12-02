@@ -136,7 +136,7 @@ The devolo Gigabridge is the only device that comes with a default password. How
 
 ### Restart PLC device on loss of pairing
 
-PLC networks are sometime flaky. In order to restore a network's state it's sometimes a good idea to reboot the PLC device attached to the router, if the number of PLC devices is lower as expected. If you apply this automation, keep in mind, that devices might be expectedly on standby. In this example, the expected number of devices is 3 and the device connected to the router is called Alexandra.
+PLC networks are sometimes flaky. To restore a network's state it's sometimes a good idea to reboot the PLC device attached to the router, if the number of PLC devices is lower as expected. If you apply this automation, keep in mind, that devices might be expectedly on standby. In this example, the expected number of devices is 3.
 
 {% raw %}
 
@@ -146,7 +146,7 @@ description: "Restart device connected to the router if number of PLC devices is
 triggers:
   - trigger: numeric_state
     entity_id:
-      - sensor.alexandra_connected_plc_devices
+      - sensor.YOUR_DEVICE_connected_plc_devices  # Replace with your device's sensor
     for:
       hours: 0
       minutes: 10
@@ -154,9 +154,9 @@ triggers:
     below: 3
 conditions: []
 actions:
-  - device_id: c38fe153e4a5b560995fd0a0850a5443
+  - device_id: DEVICE_ID  # Replace with your device's ID
     domain: button
-    entity_id: 5ccbb089c6208425aec3cb331dd0b716
+    entity_id: ENTITY_ID  # Replace with your restart button's entity ID
     type: press
 mode: single
 ```
@@ -174,12 +174,13 @@ alias: PLC Data rate
 description: PLC Data rate dropped more than 25%
 triggers:
   - entity_id:
-      - sensor.nell_plc_downlink_phy_rate_alexandra
-      - sensor.nell_plc_uplink_phy_rate_alexandra
+      - sensor.YOUR_DEVICE_plc_downlink_phy_rate_TARGET  # Replace with your device's sensors
+      - sensor.YOUR_DEVICE_plc_uplink_phy_rate_TARGET
     trigger: state
 conditions:
   - condition: template
     value_template: >-
+      # Checks if new value is less than 75% of previous value
       {{ not(0.75 < (trigger.to_state.state|float /
       trigger.from_state.state|float)) }}
 actions:
@@ -198,7 +199,7 @@ mode: single
 
 ### Enable guest wifi on time basis
 
-You might want to expose your guest wifi only during the day but turn it of at night.
+You might want to expose your guest wifi only during the day but turn it off at night.
 
 {% raw %}
 
@@ -213,8 +214,8 @@ triggers:
 conditions: []
 actions:
   - type: toggle
-    device_id: ec24234d5d2daf35ff57d6162d2801ab
-    entity_id: 4c5ef9690593dc3c77079e4045558ac8
+    device_id: DEVICE_ID  # Replace with your device's ID
+    entity_id: ENTITY_ID  # Replace with your guest WiFi switch's entity ID
     domain: switch
 mode: single
 ```
