@@ -63,8 +63,6 @@ Password:
   description: "This is the password (i.e. Smile ID) printed on the sticker on the bottom of your Smile and should be 8 characters long."
 {% endconfiguration_basic %}
 
-Repeat the above procedure for each Smile gateway (i.e., if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
-
 ### Further configuration
 
 For a thermostat, the active schedule can be deactivated or reactivated via the climate card. Please note, that when no schedule is active, one must first be activated in the Plugwise App. Once that has been done the Plugwise Integration can manage future operations.
