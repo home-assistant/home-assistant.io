@@ -42,6 +42,17 @@ Once launched, start typing your entity id (or ["bits and pieces" of your entity
 
 This is helpful when, say, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to Developer Tools.
 
+## Device filter
+
+*Hotkey: `d`*
+
+Similar to {% my entities title="Settings -> Devices & Services -> Devices" %}, but accessible from anywhere in the frontend.
+
+Once launched, start typing your device name to get back a filtered list of your devices. Clicking on a device (or hitting `enter` when the desired device is highlighted) will open the selected device detail page.
+
+This is helpful when you need to quickly access a device's detail page without navigating your way through the menu.
+
+
 ## Command palette
 
 *Hotkey: `c`*
