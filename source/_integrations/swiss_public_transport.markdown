@@ -21,11 +21,11 @@ The [Swiss public transport API](https://transport.opendata.ch/) only allows 100
 
 {% configuration_basic %}
 Start station:
-    description: "The departure station for the start of the connection (e.g., 'Zürich HB')"
+  description: "The departure station for the start of the connection (e.g., `Zürich HB`)"
 End station:
-    description: "The arrival station for the end of the connection (e.g., 'Geneva')"
+  description: "The arrival station for the end of the connection (e.g., `Geneva`)"
 Via stations:
-    description: "List of up to 5 via stations (e.g., 'Bern, Lausanne')"
+  description: "List of up to 5 via stations (e.g., `Bern`, `Lausanne`)"
 {% endconfiguration_basic %}
 
 Use the [Stationboard](https://transport.opendata.ch/examples/stationboard.html) to find exact station names.

@@ -49,29 +49,23 @@ The Anthropic API key is used to authenticate requests to the Anthropic API. To 
 {% include integrations/config_flow.md %}
 
 {% include integrations/option_flow.md %}
+
 {% configuration_basic %}
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
-
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
-
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
-
 {% endconfiguration_basic %}
 
 If you choose not to use the recommended settings, you can configure the following options:
 
 {% configuration_basic %}
-
 Model:
   description: The model that will complete your prompt. See [models](https://docs.anthropic.com/en/docs/about-claude/models#model-names) for additional details and options.
-
 Maximum Tokens to Return in Response:
   description: The maximum number of tokens to generate before stopping. Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate. Different models have different maximum values for this parameter. See [models](https://docs.anthropic.com/en/docs/models-overview) for details.
-
 Temperature:
   description: Amount of randomness injected into the response. Use `temperature` closer to `0.0` for analytical / multiple choice, and closer to `1.0` for creative and generative tasks. Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
-
 {% endconfiguration_basic %}

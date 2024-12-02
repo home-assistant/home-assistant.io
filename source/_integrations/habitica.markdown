@@ -55,9 +55,9 @@ The Habitica integration lets you automate task management, such as creating to-
 
 {% configuration_basic %}
 "Email or username":
-    description: "Email or username (case-sensitive) to connect Home Assistant to your Habitica account"
+  description: "Email or username (case-sensitive) to connect Home Assistant to your Habitica account"
 Password:
-    description: "Password for the account to connect Home Assistant to Habitica"
+  description: "Password for the account to connect Home Assistant to Habitica"
 {% endconfiguration_basic %}
 
 ### Advanced configuration
@@ -66,11 +66,11 @@ If you choose "**Login to other instances**" you will be presented the following
 
 {% configuration_basic %}
 "User ID":
-    description: "User ID of your Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+  description: "User ID of your Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
 API Token:
-    description: "API Token of the Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+  description: "API Token of the Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
 URL:
-    description: "URL of the Habitica installation to connect to. Defaults to `https://habitica.com` (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+  description: "URL of the Habitica installation to connect to. Defaults to `https://habitica.com` (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
 Verify SSL certificate:
   description: Enable SSL certificate verification for secure connections. Disable only if connecting to a Habitica instance using a self-signed certificate
 {% endconfiguration_basic %}

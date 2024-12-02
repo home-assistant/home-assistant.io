@@ -30,18 +30,18 @@ Select the area, where you want to search for available water measuring stations
 
 {% configuration_basic %}
 Latitude:
-    description: "The latitude of the center of the search area (_automatically filled by the location picker_)."
+  description: "The latitude of the center of the search area (_automatically filled by the location picker_)."
 Longitude:
-    description: "The longitude of the center of the search area (_automatically filled by the location picker_)."
+  description: "The longitude of the center of the search area (_automatically filled by the location picker_)."
 Radius:
-    description: "Search radius (_in km_)"
+  description: "Search radius (_in km_)"
 {% endconfiguration_basic %}
 
 ### Step 2 - Station selection
 
 {% configuration_basic %}
 Station:
-    description: "Select the measurement station you want to add."
+  description: "Select the measurement station you want to add."
 {% endconfiguration_basic %}
 
 ## Sensors
