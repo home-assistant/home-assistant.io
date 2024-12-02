@@ -66,6 +66,10 @@ If you have a battery connected to your system, you can monitor the battery stat
 - Charged energy this month (kWh)
 - Charged energy total (kWh)
 
+## Known limitations
+
+The integration does not show data about your self-sufficiency or CO2 savings.
+
 ## Remove integration
 
 This integration follows standard integration removal, no extra steps are required.
