@@ -68,7 +68,7 @@ Region:
   options: china, north_america, rest_of_world
 Captcha token (second step, only for North America and Rest of World):
   description: |
-    The **North America** and **Rest of World** regions require a captcha challenge to be solved, i.e. you need to verify that you are not a robot.
+    The **North America** and **Rest of World** regions require a captcha challenge to be solved, that means you need to verify that you are not a robot.
 
     - After entering your login data, a second step will ask for a `Captcha token` and provide you with a **link** to a website. 
     - Open this link, solve the **"Are you a human?"** challenge and press **Submit**.
@@ -97,10 +97,12 @@ The integration will pull data from MyBMW/MINI servers at the following interval
 | Rest of world | 5 minutes  |
 
 {% note %}
-This will only refresh data from the BMW/MINI servers and **not** from your car.
+This will only refresh data from the BMW/MINI servers and **not** from your car. Updates from the car to the servers typically happen:
 
-- Combustion engine cars typically only update data from car to server when the car is parked and the engine is shut off.
-- Electric vehicles typically only update while the vehicle is parked and turned off or while charging
+- for **combustion engine** vehicles when the car is parked and the engine is shut off.
+- for **electric** vehicles when the car is parked and turned off or while the car is charging.
+
+While driving, the servers are not updated.
 {% endnote %}
 
 ### Defining a custom polling interval
