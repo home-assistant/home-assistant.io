@@ -50,7 +50,7 @@ Platforms available - depending on your Smile and setup include:
 When you have an Anna and an Adam, only the Adam will be shown as discovered. Make sure to **only** configure the Adam integration, i.e. do **not** manually configure the Anna.
 {% endimportant %}
 
-The Plugwise Smile(s) present in your network will be automatically discovered via Zeroconf discovery and will be shown on the Integrations-page. All you need is the Smile ID as it's password, which is an 8 character string printed on the sticker on the bottom of you Smile. Repeat this for each individual Smile.
+The Plugwise Smile(s) present in your network will be automatically discovered via Zeroconf discovery and will be shown on the Integrations-page. All you need is the Smile ID as its password, which is an 8 character string printed on the sticker on the bottom of you Smile. Repeat this for each individual Smile.
 
 To set up Plugwise when a Smile is not auto-discovered you can use this My Button:
 
@@ -58,7 +58,7 @@ To set up Plugwise when a Smile is not auto-discovered you can use this My Butto
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your Smile. For example: `192.168.1.25`. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) -> **System** -> **Network **. If you are looking for a different device in the Plugwise App, on the main screen first select **Gateways** -> the Smile of your choice, and then follow the previous instruction. Normally the Smile(s) are automatically discovered and you don't have to provide the hostname or IP address."
+  description: "The hostname or IP address of your Smile. For example: `192.168.1.25`. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) -> **System** -> **Network**. If you are looking for a different device in the Plugwise App, on the main screen first select **Gateways** -> the Smile of your choice, and then follow the previous instruction. Normally the Smile(s) are automatically discovered and you don't have to provide the hostname or IP address."
 Username:
   description: "Username to log in to the Smile. This should be just 'smile' - or 'stretch' for a Stretch'."
 Password:
