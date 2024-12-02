@@ -76,7 +76,7 @@ Use Bluetooth:
 
 | Number name | Description | Available for machines | Controllable through | Remarks |
 |-------------|-------------| ---------------------- |--------------------- | ------- |
-| **Coffee target temperature** | Temperature the coffee boiler is set to | `GS3 AV`, `GS3 MP` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | - |
+| **Coffee target temperature** | Temperature the coffee boiler is set to | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | - |
 | **Steam target temperature** | Temperature the steam boiler is set to | `GS3 AV`, `GS3 MP` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | - |
 | **Tea water duration** | Dose hot water (in seconds) | `GS3 AV`, `GS3 MP` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Dose** | Doseage (in ticks) for each key | `GS3 AV` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | `GS3` has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
