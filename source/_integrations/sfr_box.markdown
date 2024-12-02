@@ -33,8 +33,8 @@ The integration uses the REST API, which is known to be available on models `NB4
 
 However, `NCC` models do not appear to expose this REST API, and are therefore unsupported by the integration.
 
-## Remove integration
+## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}

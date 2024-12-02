@@ -134,8 +134,8 @@ UPDATE states SET entity_id='sensor.<sensor_name>_humidity' WHERE entity_id LIKE
 
 Remember to replace `<sensor_name>` with the actual name of the sensor, as seen in the `SELECT` query.
 
-## Remove integration
+## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}

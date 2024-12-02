@@ -110,9 +110,9 @@ This integration only supports functionality that is available locally. This mea
 - Updates
 - Key pads
 
-## Remove integration
+## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
 

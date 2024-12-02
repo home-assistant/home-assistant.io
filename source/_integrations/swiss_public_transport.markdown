@@ -53,8 +53,8 @@ Fetch the connections for a specific instance.
 
 {% include common-tasks/define_custom_polling.md %}
 
-## Remove integration
+## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}

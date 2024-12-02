@@ -115,7 +115,7 @@ For more on how to use notifications in your automations, please see the [gettin
 
 The integration only allows reading the status of the authenticated account and posting to that account. It does not provide functionality to get the stream, favorite, bookmark, or boost posts of that account.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, once the integration is removed you can remove the application registration (assuming it was only used by this integration) from your Mastodon account by going to **Preferences** in the Mastodon web interface, then to **Development** and deleting the application you created for Home Assistant.
 
