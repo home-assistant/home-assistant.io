@@ -1695,7 +1695,6 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 ### Sensors
 
 {% configuration_basic %}
-
 DnD Start*:
   description: The timestamp when the next DnD (Do not disturb) period will start
 DnD End*:
@@ -1732,7 +1731,6 @@ Water Box Attached**:
   description: If the watter box is attached
 Water Shortage\*\*:
   description: If the water box is low on water
-
 {% endconfiguration_basic %}
 
 {% note %}

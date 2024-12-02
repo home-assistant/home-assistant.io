@@ -27,24 +27,14 @@ and visualization of multiple types of cameras.
 {% configuration_basic %}
 url:
   description: The URL of the motionEye server itself -- **not** the URL for the camera stream(s) that it makes available.
-  required: true
-  type: string
 admin_username:
   description: The username of the motionEye administrative account, used for changing camera settings.
-  required: true
-  type: string
 admin_password:
   description: The password of the motionEye administrative account.
-  required: true
-  type: string
 surveillance_username:
   description: The username of the motionEye surveillance user, used to authenticate video streams.
-  required: true
-  type: string
 surveillance_password:
   description: The password of the motionEye surveillance account.
-  required: true
-  type: string
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}

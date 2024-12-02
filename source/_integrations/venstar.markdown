@@ -79,24 +79,13 @@ If the local API is successfully enabled on the thermostat, you should see some 
 
 {% configuration_basic %}
 host:
-  description: Address of your thermostat, e.g., 192.168.1.32.
-  required: true
-  type: string
+  description: Address of your thermostat, e.g., `192.168.1.32`.
 username:
   description: Username for the thermostat.
-  required: false
-  type: string
 password:
   description:  Password for the thermostat.
-  required: false
-  type: string
 pin:
   description: Pin for Lockscreen (required if lock screen enabled)
-  required: false
-  type: string
 ssl:
   description: Whether to use SSL or not when communicating.
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration_basic %}

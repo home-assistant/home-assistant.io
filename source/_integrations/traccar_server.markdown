@@ -40,7 +40,6 @@ Examples:
 All events will also have the following data:
 
 {% configuration_basic %}
-
 Device ID:
   description: (`device_traccar_id`) This will be the device ID that the event is related to.
 Device name:
@@ -51,7 +50,6 @@ Server time:
   description: (`serverTime`) This will be the time the event was received by the Traccar Server.
 Attributes:
   description: (`attributes`) This will be a dictionary of attributes related to the event.
-
 {% endconfiguration_basic %}
 
 {% details "Example" %}

@@ -32,9 +32,9 @@ To setup the integration you need the following information:
 
 {% configuration_basic %}
 Email:
-    description: "The email address used to access the FYTA account."
+  description: "The email address used to access the FYTA account."
 Password:
-    description: "The password used to access the FYTA account."
+  description: "The password used to access the FYTA account."
 {% endconfiguration_basic %}
 
 ## Configuration options

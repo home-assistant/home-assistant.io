@@ -49,11 +49,7 @@ In some cases the access token may not be available right away, then you will se
 
 {% configuration_basic %}
 host:
-  description: "Hostname or IP address of the device."
-  required: true
-  type: string
+  description: Hostname or IP address of the device.
 access_token:
-  description: "Access Token that can be obtained in the Rabbit Air app."
-  required: true
-  type: string
+  description: Access Token that can be obtained in the Rabbit Air app.
 {% endconfiguration_basic %}

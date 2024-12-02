@@ -29,14 +29,14 @@ For faster updates, the callback function of the Nuki bridge can be used. This r
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-  Host:
-    description: Hostname or IP address of your Nuki bridge, e.g., `192.168.1.25`.
-  Port:
-    description: Port of the Nuki bridge HTTP API, default is `8080`.
-  Token:
-    description: Token to authenticate against the Nuki bridge HTTP API.
-  Use an encrypted token for authentication:
-    description: Use an encrypted token for API calls to the bridge. This should only be deactivated if you experience issues with the API (authentication, etc). The default is `True`.
+Host:
+  description: Hostname or IP address of your Nuki bridge, e.g., `192.168.1.25`.
+Port:
+  description: Port of the Nuki bridge HTTP API, default is `8080`.
+Token:
+  description: Token to authenticate against the Nuki bridge HTTP API.
+Use an encrypted token for authentication:
+  description: Use an encrypted token for API calls to the bridge. This should only be deactivated if you experience issues with the API (authentication, etc). The default is `True`.
 {% endconfiguration_basic %}
 
 ## Actions

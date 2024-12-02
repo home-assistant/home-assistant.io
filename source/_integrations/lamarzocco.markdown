@@ -46,16 +46,10 @@ By default, this integration will query your machine every 30 seconds for an upd
 {% configuration_basic %}
 Username:
   description: "Your username you use to log into the La Marzocco app."
-  required: true
-  type: string
 Password:
   description: "Password you use to log into the La Marzocco app."
-  required: true
-  type: string
 Host:
   description: "IP address of your machine in your local network. If not set, no local connections will be used."
-  required: false
-  type: boolean
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
@@ -190,9 +184,9 @@ mode: single
 - Only La Marzocco native app accounts are supported, social logins (Google, Apple & WeChat) are not supported
 - Currently it is only possible to view the schedules configured in the La Marzocco Home app, but not to edit the schedules from Home Assistant. You can, of course, build Home Assistant native automations to reflect the same functionality in Home Assistant.
 
-## Remove integration
+## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
 

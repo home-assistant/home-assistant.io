@@ -164,7 +164,7 @@ template:
 
 {% enddetails %}
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, once the integration is removed you can remove the API token (assuming it was only used by this integration) by going to your Account in the Mealie web interface, then to **Manage Your API Tokens** and deleting the token you created for Home Assistant.
 

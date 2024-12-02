@@ -43,22 +43,18 @@ A brand new Reolink camera needs to be connected to the network and initialized.
 - The password used for the Reolink device can only contain characters `a-z, A-Z, 0-9 or @$*~_-+=!?.,:;'()[]`. Other special characters will cause encoding issues in the video streams used by this integration and are, therefore, not allowed. When using an incompatible special character in the password, the integration will prompt you to change the password.
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 Host:
-    description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** -> **Device** (top icon) -> **Networkinformation** -> **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
-    required: false
-    type: string
+  description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** -> **Device** (top icon) -> **Networkinformation** -> **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
 Username:
-    description: "Username to log in to the Reolink device itself. Not the Reolink cloud account."
-    required: true
-    type: string
+  description: "Username to log in to the Reolink device itself. Not the Reolink cloud account."
 Password:
-    description: "Password to log in to the Reolink device itself. Not the Reolink cloud account."
-    required: true
-    type: string
+  description: "Password to log in to the Reolink device itself. Not the Reolink cloud account."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
+
 {% configuration_basic %}
 Protocol:
   description: Switch between <abbr title="real-time streaming protocol">RTSP</abbr>, <abbr title="real-time messaging protocol">RTMP</abbr>, or <abbr title="flash video">FLV</abbr> streaming protocol. <abbr title="real-time streaming protocol">RTSP</abbr> supports 4K streams (h265 encoding) while <abbr title="real-time messaging protocol">RTMP</abbr> and <abbr title="flash video">FLV</abbr> do not. <abbr title="flash video">FLV</abbr> is the least demanding on the camera.

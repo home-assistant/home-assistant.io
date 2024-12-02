@@ -132,8 +132,8 @@ This integration only supports using the API the devolo Home Network App uses. T
 
 The devolo Gigabridge is the only device that comes with a default password. However, it seems that in factory default the password works for the device website but not for the API. If you give the device a new password via the website, it is applied to both and the integration starts working. Even using the same password again works.
 
-## Removal
+## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}

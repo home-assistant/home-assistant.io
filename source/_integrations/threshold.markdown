@@ -20,6 +20,7 @@ The threshold integration observes the state of another sensor. If the value is 
 If the sensor is configured with no hysteresis and the sensor value is equal to the threshold, the sensor is turned off since it is not upper or lower with respect to the threshold.
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 Name:
   description: The name the sensor should have. You can change it again later.

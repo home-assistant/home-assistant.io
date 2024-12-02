@@ -80,8 +80,8 @@ You can use the rates set in P1 Monitor for your calculations in Home Assistant.
 - Energy Consumption Price Low/High
 - Energy Production Price Low/High
 
-## Remove integration
+## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
