@@ -26,12 +26,16 @@ The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW sys
 
 It uses the [geniushub](https://pypi.org/project/geniushub-client/) client library, which provides data compatible with the v1 API that _may not_ exactly match that of the official Web App.
 
-{% include integrations/config_flow.md %}
+## Prerequisites
 
 You can configure the integration either via the cloud API or the local API.
+
+- **Cloud API**: requires a **hub token** obtained from [my.geniushub.co.uk](https://my.geniushub.co.uk/).
+- **Local API**: requires your **username** and **password** as used with [geniushub.co.uk/app](https://www.geniushub.co.uk/).
+
 The local API is unofficial, but is faster and has more features, while the cloud API is slower.
-To configure the local API, you require your **username** and **password** as used with [geniushub.co.uk/app](https://www.geniushub.co.uk/app).
-To configure the cloud API, you require a **hub token** obtained from [my.geniushub.co.uk](https://my.geniushub.co.uk/).
+
+{% include integrations/config_flow.md %}
 
 ### Zones
 
