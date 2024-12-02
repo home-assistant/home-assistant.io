@@ -161,7 +161,7 @@ GEM
     tzinfo-data (1.2024.2)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.6.0)
-    webrick (1.9.0)
+    webrick (1.9.1)
 
 PLATFORMS
   arm64-darwin-23
