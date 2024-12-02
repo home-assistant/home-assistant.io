@@ -132,6 +132,95 @@ This integration only supports using the API the devolo Home Network App uses. T
 
 The devolo Gigabridge is the only device that comes with a default password. However, it seems that in factory default the password works for the device website but not for the API. If you give the device a new password via the website, it is applied to both and the integration starts working. Even using the same password again works.
 
+## Example automations
+
+### Restart PLC device on loss of pairing
+
+PLC networks are sometime flaky. In order to restore a network's state it's sometimes a good idea to reboot the PLC device attached to the router, if the number of PLC devices is lower as expected. If you apply this automation, keep in mind, that devices might be expectedly on standby. In this example, the expected number of devices is 3 and the device connected to the router is called Alexandra.
+
+{% raw %}
+
+```yaml
+alias: PLC Feeder Restart
+description: "Restart device connected to the router if number of PLC devices is unexpected low"
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - sensor.alexandra_connected_plc_devices
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    below: 3
+conditions: []
+actions:
+  - device_id: c38fe153e4a5b560995fd0a0850a5443
+    domain: button
+    entity_id: 5ccbb089c6208425aec3cb331dd0b716
+    type: press
+mode: single
+```
+
+{% endraw %}
+
+### Notify on data rate drop
+
+Noise on the electric wire can significant disturb PLC data rates. A notification close to a drop can help identify the action that lead to the drop. The following example takes 25% as threshold.
+
+{% raw %}
+
+```yaml
+alias: PLC Data rate
+description: PLC Data rate dropped more than 25%
+triggers:
+  - entity_id:
+      - sensor.nell_plc_downlink_phy_rate_alexandra
+      - sensor.nell_plc_uplink_phy_rate_alexandra
+    trigger: state
+conditions:
+  - condition: template
+    value_template: >-
+      {{ not(0.75 < (trigger.to_state.state|float /
+      trigger.from_state.state|float)) }}
+actions:
+  - action: notify.mobile_app_pixel_4a
+    metadata: {}
+    data:
+      message: >-
+        PLC data rate of {{ trigger.to_state.name }} dropped to {{
+        trigger.to_state.state }}
+        {{trigger.to_state.attributes.unit_of_measurement}}
+      title: PLC data rate dropped
+mode: single
+```
+
+{% endraw %}
+
+### Enable guest wifi on time basis
+
+You might want to expose your guest wifi only during the day but turn it of at night.
+
+{% raw %}
+
+```yaml
+alias: Toggle Guest Wifi
+description: Turn Guest Wifi on and off
+triggers:
+  - trigger: time
+    at: "08:00:00"
+  - trigger: time
+    at: "17:00:00"
+conditions: []
+actions:
+  - type: toggle
+    device_id: ec24234d5d2daf35ff57d6162d2801ab
+    entity_id: 4c5ef9690593dc3c77079e4045558ac8
+    domain: switch
+mode: single
+```
+
+{% endraw %}
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
