@@ -67,6 +67,15 @@ Type | Available |
 
 Create [`my`](/integrations/my) links from any supported page in the user interface, when invoked on a supported page it will open a new tab that will allow you to share the link in different formats.
 
+## Assist
+
+*Hotkey: `a`*
+
+Opens the Assist dialog to interact with Home Assistant using your voice or by text.
+This feature is only available if you have set up a Voice assistant.
+
+Learn more about [Voice assistants](/voice_control).
+
 ## Disabling shortcuts
 
 You can enable or disable all of Home Assistant's keyboard shortcuts by going to your User Profile and clicking the "Keyboard Shortcuts" toggle button.
