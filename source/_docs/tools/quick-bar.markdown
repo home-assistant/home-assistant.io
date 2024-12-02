@@ -17,9 +17,10 @@ It can be launched from anywhere in the frontend using [hotkeys](#hotkeys).
 Type these from anywhere in the application to launch the dialog.
 
 | Mode  | Hotkey | Switch Modes
-| ------------- | ------------- | ------------- |
-| Entity Filter | `e` | Type `>` at start of input to switch to command palette.
+| ------------- |-----| ------------- |
+| Entity Filter | `e` | Type `>` at start of input to switch to command palette. Type `#` at start of input to switch to device filter.
 | Command Palette | `c` | Remove `>` from start of input to switch to entity filter.
+| Device Filter | `d` | Remove `#` from start of input to switch to entity filter.
 | Create [`my`](/integrations/my) link | `m` | Open a new tab to create a my link to the page you are on.
 
 {% important %}
