@@ -64,6 +64,12 @@ As Cookidoo cannot share shopping lists between accounts and everybody interacti
 
 The Home Assistant to-do list interface allows both renaming items and changing their state. However, for the `Shopping list`, only state changes (checking/unchecking items) are supported. Any attempts to rename items will not be saved.
 
+## Defining a custom polling interval
+
+The default polling interval is set to `90s`.
+
+{% include common-tasks/define_custom_polling.md %}
+
 ## Remove integration
 
 This integration follows standard integration removal, no extra steps are required.
