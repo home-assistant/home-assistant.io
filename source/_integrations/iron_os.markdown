@@ -63,7 +63,7 @@ The following controls allow you to customize the settings and options for your 
 
 - **Long-press temperature step:** The temperature adjustment increment when holding down a button. Defaults to 10°.
 - **Short-press temperature step:** The temperature adjustment increment when briefly pressing a button. Defaults to 1°.
-- **Motion sensitivity:** Controls how sensitive the device is to movement. Higher values increase sensitivity (e.g., 0 = motion detection off).
+- **Motion sensitivity:** Controls how sensitive the device is to movement. Higher values increase sensitivity (for example, 0 = motion detection is off).
 - **Hall effect sensitivity:** Configures the sensitivity of the hall effect sensor (if present) for detecting a magnet to activate sleep mode.
 - **Display brightness:** Adjusts the brightness of the soldering iron's display.
 
