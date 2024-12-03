@@ -72,9 +72,9 @@ Create [`my`](/integrations/my) links from any supported page in the user interf
 *Hotkey: `a`*
 
 Opens the Assist dialog to interact with Home Assistant using your voice or by text.
-This feature is only available if you have set up a Voice assistant.
+This feature is only available if you have set up a voice assistant.
 
-Learn more about [Voice assistants](/voice_control).
+Learn more about [voice assistants](/voice_control).
 
 ## Disabling shortcuts
 
