@@ -23,19 +23,19 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Enphase Envoy** {% term integration %} is used to integrate with the [Enphase IQ Gateway](https://enphase.com/en-us/products-and-services/envoy-and-combiner), a communication device for [Enphase](https://enphase.com/homeowners) solar inverters and batteries. In this documentation, as well as in integration entity names, the Enphase IQ Gateway is commonly referred to as `Envoy`, a name from the conception times of this integration and retained for it's compact format.
+The **Enphase Envoy** {% term integration %} is used to integrate with the [Enphase IQ Gateway](https://enphase.com/en-us/products-and-services/envoy-and-combiner), a communication device for [Enphase](https://enphase.com/homeowners) solar inverters and batteries. In this documentation, as well as in integration entity names, the Enphase IQ Gateway is commonly referred to as `Envoy`, a name from the conception times of this integration and retained for its compact format.
 
 ## Supported devices
 
 This integration works with:
 
-- Older and newer <abbr title="IQ Gateway">Envoy</abbr> models that only have production metrics (ie. Envoy-R (LCD), Envoy-S (not metered))
-- Newer <abbr title="IQ Gateway">Envoy</abbr> models that offer both production and consumption metrics (ie. Envoy-S Metered equipped with <abbr title="current transformers">CT</abbr>).
+- Older and newer <abbr title="IQ Gateway">Envoy</abbr> models that only have production metrics (i.e. Envoy-R (LCD), Envoy-S (not metered))
+- Newer <abbr title="IQ Gateway">Envoy</abbr> models that offer both production and consumption metrics (i.e. Envoy-S Metered equipped with <abbr title="current transformers">CT</abbr>).
 - Various Enphase IQ Combiner products that have an embedded <abbr title="IQ Gateway">Envoy</abbr>, it will show-up in the same way as the stand-alone one.
 
 ## Unsupported devices
 
-This integration does not works with:
+This integration does not work with:
 
 - Older Envoy models running firmware before 3.9 which lack a REST API.
 
@@ -66,13 +66,13 @@ Password:
 
 {% include integrations/option_flow.md %}
 
-Options to enable/disable are listed below. Neither of these are set by default nor need to be set for proper functioning of the integration. Setting these is only required in described circumstances.
+Options to enable/disable are listed below. Neither of these are set by default nor need to be set for proper functioning of the integration. Setting these options is only required in described circumstances.
 
 {% configuration_basic %}
 Collect test fixture data in diagnostics report:
   description: "No/Yes <br> When new features are requested or firmware is upgraded, it can happen that existing test fixtures no longer cover all test cases and new ones are needed. You may be requested to provide data for such test fixtures. If so, and you are willing to provide the data, setting this option enables the collection of test data as part of the [diagnostics report](#fixtures)."
 Always use a new connection when requesting data from the Envoy:
-  description: "No/Yes <br> Some older Envoy firmware may exhibit connection issues when using the, by default enabled, keep-alive connection and report failures. When set, this option disables the use of keep-alive and builds a new connection at each data request. This makes the communication more reliable for these firmware versions. Reported for the Envoy-R, but may apply to other older firmware versions as well."
+  description: "No/Yes <br> Some older Envoy firmware may exhibit connection issues when using the default keep-alive connection and report failures. When set, this option disables the use of keep-alive and builds a new connection at each data request. This makes the communication more reliable for these firmware versions. Reported for the Envoy-R, but may apply to other older firmware versions as well."
 {% endconfiguration_basic %}
 
 ## Removing the integration
@@ -158,11 +158,11 @@ When the relay mode is set to battery level, the relays will turn on and off bas
 
 ## Data updates
 
-The integration collects data by default every 60 seconds. To customize the collection interval interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the action using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
+The integration collects data by default every 60 seconds. To customize the collection interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the action using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
 
-Envoy installations without installed <abbr title="current transformers">CT</abbr>, collect individual solar inverter data every 5 minutes. This collection does not occur for each inverter at the same time in the 5 min period. Shortening the collection interval will at best show updates for individual inverters quicker, but not yield more granular data.
+Envoy installations without installed <abbr title="current transformers">CT</abbr>, collect individual solar inverter data every 5 minutes. This collection does not occur for each inverter at the same time in the 5-minute period. Shortening the collection interval will at best show updates for individual inverters quicker, but not yield more granular data.
 
-With installed <abbr title="current transformers">CT</abbr>, data granularity increases and shortening the collection interval can provide more details. The Envoy however, has no unlimited resources and shortening the collection interval may result in dropped connections, Envoy freeze or restarts. It will require some step-wise tuning for each individual situation.
+With installed <abbr title="current transformers">CT</abbr>, data granularity increases and shortening the collection interval can provide more details. The Envoy, however, has no unlimited resources and shortening the collection interval may result in dropped connections, Envoy freeze or restarts. It will require some step-wise tuning for each individual situation.
 
 ## Credentials or device IP address update
 
@@ -190,7 +190,7 @@ Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`n
 
 ### Action `switch.turn_on`/`switch.turn_off`/`switch.toggle`
 
-These actions turn on, off or toggle 
+These actions turn on, off or toggle
 
 - the Enpower device switches `grid_enabled`, `charge_from_grid`
 - the [Enpower load shedding relays](#enpower-load-shedding-relays) switch.
@@ -237,7 +237,7 @@ data:
 
 ### Action `select.select`
 
-This action changes the: 
+This action changes the:
 
 - Relays relay_mode, grid_action, micro_grid_action or generator_action
 - Battery storage mode
@@ -271,7 +271,7 @@ Technically `select.first`, `select.last`, `select.previous`, `select.next` are 
 
 ## Know issues and limitations
 
-- [Envoy firmware](https://enphase.com/installers/resources/documentation/communication?&f[0]=document%3A217) versions come with changing behavior, features and issues. Firmware is pushed to the Envoy by Enphase, while 'not always communicated in detail upfront'. This may result in sudden changes in the Envoy behavior and is always accompanied with an outage while Envoy is being updated.
+- [Envoy firmware](https://enphase.com/installers/resources/documentation/communication?&f[0]=document%3A217) versions come with changing behavior, features and issues. Firmware is pushed to the Envoy by Enphase, while 'not always communicated in detail upfront'. This may result in sudden changes in the Envoy behavior and is always accompanied by an outage while Envoy is being updated.
 - As of Envoy firmware  8.2.4225 the Envoy does no longer support setting battery modes, Enable/Disable charge from grid or changing reserve battery level through the local REST API used by HA. Until a resolution is found, you will need to use the Enphase APP to control these.
 
 ## Troubleshooting
@@ -316,7 +316,6 @@ The end of a collection cycle is marked by:
 The {% term diagnostics %} data file is a JSON file and includes a `data` section with the details for this integration. The file can be viewed with any text editor. The data section has up to 6 major subsections which reflect how the integration is set up and data is used. Include the file when reporting issues.
 
 Below the 6 subsections, each collapsed.
-
 
 ```JSON
   "data": {
