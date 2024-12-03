@@ -33,7 +33,7 @@ Email:
 Password:
     description: "Enter the password for your Cookidoo account to enable the connection with Home Assistant."
 Localization:
-    description: "Select the language and country of Cookidoo account."
+    description: "Select the language and country for your Cookidoo account (e.g., English - United States)."
 {% endconfiguration_basic %}
 
 {% include integrations/config_flow.md %}
@@ -52,9 +52,9 @@ This integration provides two non-sortable to-do lists:
    - Items can be `created`, `deleted`, and `updated`
    - Items do not have a `description` field
 
-For example, if you add a pasta recipe, ingredients like "500g pasta" and "2 tomatoes" will appear in your `Shopping list`. You can check these items off as you shop, but you cannot modify the label.
+For example, if you add a pasta recipe, ingredients like `500g pasta` and `2 tomatoes` will appear in your `Shopping list`. You can check these items off as you shop, but you cannot modify the label.
 
-In contrast, in your `Additional purchases` list, you can freely add items like "Kitchen towels" or "Dish soap", and modify or remove them as needed.
+In contrast, in your `Additional purchases` list, you can freely add items like `Kitchen towels` or `Dish soap`, and modify or remove them as needed.
 
 ## Known Limitations
 
@@ -66,7 +66,7 @@ The Home Assistant to-do list interface allows both renaming items and changing 
 
 ## Defining a custom polling interval
 
-The default polling interval is set to `90s`.
+The default polling interval is set to `90s`. This interval balances timely updates with server load. You might want to adjust this based on how frequently your shopping lists are updated.
 
 {% include common-tasks/define_custom_polling.md %}
 
