@@ -956,7 +956,7 @@ support_url:
 
 {% enddetails %}
 
-### Discovery messages en availability
+### Discovery messages and availability
 
 When MQTT discovery is set up, and a device or service sends a discovery message,
 an MQTT entity, tag, or device automation will be set up directly after receiving the message.
