@@ -104,10 +104,8 @@ This integration will add a switch for the following:
 
 If the discovered device supports humidity control, the integration will add a humidifier and/or dehumidifier for each device.
 
-### Supported Models
-- List models that support humidity control
-
 ### Available Actions
+
 | Action | Description |
 |--------|-------------|
 | `humidifier.set_humidity` | Set target humidity level |
@@ -118,6 +116,7 @@ If the discovered device supports humidity control, the integration will add a h
 For more details, see the [humidifier](/integrations/humidifier) integration documentation.
 
 ### Configuration Example
+
 ```yaml
 # Example configuration.yaml entry
 automation:
@@ -125,7 +124,7 @@ automation:
     trigger:
       - platform: numeric_state
         entity_id: sensor.indoor_humidity
-        below: 30
+        below: 30 # Trigger when humidity drops below 30%
     action:
       - service: humidifier.turn_on
         target:
@@ -134,4 +133,4 @@ automation:
         target:
           entity_id: humidifier.living_room
         data:
-          humidity: 35
+          humidity: 35 # Set target humidity to 35% (recommended for comfort)
