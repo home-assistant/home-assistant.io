@@ -84,7 +84,7 @@ The following controls allow you to customize the settings and options for your 
 - **Scrolling speed:** Adjusts the speed of the description text scrolling in the menu, with options for slow or fast.
 - **Temperature display unit:** Sets the unit for displaying temperature as Celsius (C°) or Fahrenheit (F°).
 - **Animation speed:** Adjusts the pace of icon animations in the menu, with options for off, slow, medium, or fast.
-- **Boot logo duration:** Sets the duration for the boot logo, with options for off, 1-5 seconds, or loop.
+- **Boot logo duration:** Sets the duration for the boot logo, with options for off, 1–5 seconds, or loop.
 
 ### Power management
 
