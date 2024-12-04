@@ -7,7 +7,7 @@ ha_release: 2024.12
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@music_assistant'
+  - '@music-assistant'
 ha_domain: music_assistant
 ha_platforms:
   - media_player
