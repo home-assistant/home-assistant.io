@@ -50,7 +50,7 @@ Happy holidays! And for the last time in 2024: Enjoy the release!
 [the #1 open source project on GitHub]: /blog/2024/11/18/event-wrapup-github-universe-24/#we-are-number-1
 [the live stream on 19 December]: https://youtube.com/live/ZgoaoTpIhm8
 [the Open Home Foundation]: https://www.openhomefoundation.org/
-[the WTH announcement blog]: /blog/2024/12/01/announcing-month-of-what-the-heck/
+[the WTH announcement blog]: /blog/2024/11/30/the-month-of-what-the-heck/
 
 <!--more-->
 
