@@ -60,7 +60,7 @@ Host:
 Username:
   description: "Username to log in to the Smile. This should be just 'smile' - or 'stretch' for a Stretch'."
 Password:
-  description: "This is the password (i.e. Smile ID) printed on the sticker on the bottom of your Smile and should be 8 characters long."
+  description: "This is the password (i.e. Smile ID) printed on the sticker on the back of your Smile (i.e. Adam, Smile-T, or P1) and should be 8 characters long."
 {% endconfiguration_basic %}
 
 ### Further configuration
