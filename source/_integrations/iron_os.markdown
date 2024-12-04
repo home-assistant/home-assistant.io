@@ -6,6 +6,7 @@ ha_category:
   - Sensor
   - Update
   - Binary sensor
+  - Select
 ha_iot_class: Local Polling
 ha_release: 2024.8
 ha_config_flow: true
@@ -18,6 +19,7 @@ ha_platforms:
   - sensor
   - update
   - binary_sensor
+  - select
 ---
 
 The **IronOS** {% term integration %} seamlessly connects Home Assistant with PINE64's Pinecil V2 soldering irons, allowing for remote monitoring and control. This integration provides real-time updates on temperature, power, and various other settings and diagnostic information.
@@ -72,12 +74,24 @@ The following controls allow you to customize the settings and options for your 
 - **Motion sensitivity:** Controls how sensitive the device is to movement. Higher values increase sensitivity (for example, 0 = motion detection is off).
 - **Hall effect sensitivity:** Configures the sensitivity of the hall effect sensor (if present) for detecting a magnet to activate sleep mode.
 - **Display brightness:** Adjusts the brightness of the soldering iron's display.
+- **Button locking mode:** Configures whether buttons can be locked to prevent accidental presses, with options for disabled, full locking, or boost only.
+- **Display orientation mode:** Sets the display orientation with options for left-handed, right-handed, or automatic adjustment.
+- **Startup behavior:** Defines the mode the device enters on power-up: disabled, sleeping mode, idle mode (heat-off until moved), or soldering mode.
+
+### User interface settings
+
+- **Interface language:** Selects the device's display language.
+- **Scrolling speed:** Adjusts the speed of the description text scrolling in the menu, with options for slow or fast.
+- **Temperature display unit:** Sets the unit for displaying temperature as Celsius (C°) or Fahrenheit (F°).
+- **Animation speed:** Adjusts the pace of icon animations in the menu, with options for off, slow, medium, or fast.
+- **Boot logo duration:** Sets the duration for the boot logo, with options for off, 1-5 seconds, or loop.
 
 ### Power management
 
 - **Keep-awake pulse duration:** Specifies the duration of the power pulse to keep connected power banks awake. Shorter durations minimize power waste and unnecessary heating.
 - **Keep-awake pulse delay:** Adjusts the interval between power pulses. Longer delays reduce unwanted heating, but must be short enough to prevent the power bank from shutting off.
 - **Keep-awake pulse intensity:** Enables and sets the wattage of the power pulse. The power pulse briefly activates the heater to draw sufficient power, preventing connected power banks from entering sleep mode.
+- **Power source:** Sets the power source type, with options for an external power supply or 3S to 6S battery configurations.
 - **Min. voltage per cell:** Sets the minimum voltage per battery cell before shutdown. This value is multiplied by the cell count (for example, 3S: 3–3.7V, 4–6S: 2.4–3.7V).
 - **Power Delivery timeout:** Defines how long the firmware will attempt to negotiate USB-PD before switching to Quick Charge. Lower values are recommended for faster PD negotiation.
 - **Power limit:** Sets a custom wattage cap for the device to maintain the **average** power below this value. Note: Peak power cannot be controlled. When using USB-PD, the limit will be the lower of this setting and the power supply's advertised wattage.
