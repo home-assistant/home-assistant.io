@@ -15,41 +15,63 @@ og_image: /images/blog/2024-12/social.png
 
 <lite-youtube videoid="9Y9YY_YHNBY" videotitle="Home Assistant 2024.12 Release Party"></lite-youtube>
 
+{% note %}
+
+**Welcome to the beta release notes for Home Assistant 2024.12** 🎉
+
+<br />
+
+Please note that these release notes are a work in progress. 👷‍♀️ We will be
+completing them over the next couple of days. Not all features might be final
+yet, and some features _**may not** make it into the final release_.
+
+<br />
+
+**Want to help test the beta?** Awesome! ❤️ We have documented how you
+[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
+
+<br />
+
+While running the beta, we highly recommend joining our _#beta_ channel on
+the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
+testers are in this channel during the beta period to share experiences, ideas,
+and iterate over new features, fine-tuning them before the final release.
+It's a really fun place to hang out. 😎
+
+<br />
+
+**Reporting issues**: As this is a beta test, you might encounter unexpected
+behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
+You can find our issue trackers and the reported issues during beta here:
+
+<br />
+
+- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/126)
+- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/706)
+- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/133)
+
+🙏 When reporting issues, **make sure to mention the exact beta version you are
+running** in the issue description. This will help us identify and track the
+issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
+
+<br />
+
+Issues introduced in the beta are processed with priority. 🔝
+
+{% endnote %}
+
+{% tip %}
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=9Y9YY_YHNBY)
+4 December 2024, at 20:00 GMT / 12:00 PT / 21:00 CET!
+
+{% endtip %}
+
 Home Assistant 2024.12! 🎄
 
-Holidays are coming, and it is time for the last release of the year! 🎉
-
-**2024** has been a crazy year for Home Assistant. Not just in terms of features
-like [drag-and-drop dashboards], [organization capabilities] like labels, and
-the countless improvements to our voice efforts. But evenmore in the growth of
-our lovely community as we rised up to become
-[the #1 open source project on GitHub]! ❤️
-
-However, the year ain't over yet! This month, we want to learn about all your
-_"What the heck?!"_ moments with Home Assistant. Tell us about any little
-annoyances, bugs, ideas, or suggestions. You can read all about it in
-[the WTH announcement blog], or join the conversation [on our WTH forums]!
-
-Honestly, **the biggest announcement of the year has yet to come though**... 🤫
-I'm pretty sure it is voice hardware related 😉 So make sure you aren't
-missing [the live stream on 19 December]! 📺 You will not be disappointed! 🎁
-
-Before you check out everything in this release, I just want to close this
-year with a big thank you to every single person in our community, which
-includes you!
-
-**Thank you for using Home Assistant!** ❤️
-
-Happy holidays! And for the last time in 2024: Enjoy the release!
+Enjoy the (beta) release!
 
 ../Frenck
-
-[drag-and-drop dashboards]: /blog/2024/11/06/release-202411/#sections-dashboard-no-longer-experimental
-[on our WTH forums]: https://community.home-assistant.io/c/month-of-what-the-heck/61
-[organization capabilities]: /blog/2024/04/03/release-20244/#three-new-ways-to-organize
-[the #1 open source project on GitHub]: /blog/2024/11/18/event-wrapup-github-universe-24/#we-are-number-1
-[the live stream on 19 December]: https://youtube.com/live/ZgoaoTpIhm8
-[the WTH announcement blog]: /blog/2024/12/01/announcing-month-of-what-the-heck/
 
 <!--more-->
 
@@ -86,9 +108,9 @@ editor has two modes. A **review mode** and an **edit mode**.
 
 <img class="no-shadow" alt="Dialog showing the Assist pipeline configuration, showing the new option to prefer handling commands locally." src="/images/blog/2024-12/scene-review-mode.png"/>
 
-The review mode is the default mode, and it will show you the scene as it is
-currently set up, but it will not apply it. You can then switch to the edit
-mode the scene is activated allow you to adjust the actual scenery and snapshot
+The “review mode” is how your scene will open, and it will show you the scene as it is
+currently set up, but it will not apply it. You can then switch to the "edit
+mode"; only then will the scene activate, allowing you to adjust the actual scenery and snapshot
 it again once you are happy with the changes.
 
 Additionally, if you prefer {% term YAML %}, you can edit scenes directly from
@@ -102,7 +124,7 @@ the scene editor by selecting **“Edit in YAML”** from the three-dotted
 
 It has almost been two years since [we started our journey] into building our
 very own open source voice assistants, with the goal of letting users control
-their Home Assistant in their own language.
+ Home Assistant in their own language.
 
 Today, we are getting even closer to the finish line. Not just with the features
 that ship in this release, but you might have heard about our voice hardware
@@ -124,12 +146,12 @@ But before we get there, let's dive into the features that ship in this release!
 
 ### Let your voice assistant fall back to a LLM-based agent
 
-[Exactly 6 months ago] we bridged the gap between our default conversation agent
-and the wonderful (and scary) world of [LLMs]. We allowed you to let an
+[Exactly 6 months ago], we bridged the gap between our default conversation agent
+and the wonderful (and scary) world of [LLMs]. We allowed you to experiment and let an
 LLM-based conversation agent control your home instead of relying on our
 built-in sentences.
 
-This choice was an interesting first step. LLMs are generally much smarter and
+This choice was an interesting first step. LLMs are generally much better at interpreting natural language and
 more knowledgeable about the world than our default agent. However, they are
 often slow and/or expensive. And let’s face it: Even if the demos are cool,
 90% of the commands we say in our homes are simple:
@@ -142,7 +164,7 @@ agent if no matches are found.
 
 <img class="no-shadow" alt="Dialog showing the Assist pipeline configuration, showing the new option to prefer handling commands locally." src="/images/blog/2024-12/llm-fallback-configuration.png"/>
 
-This allows you to mix both worlds' pros with almost none of the cons.
+This allows you to mix the pros of both worlds with almost none of the cons.
 
 Specific known commands will be processed locally and extremely fast, and the
 power of an LLM will only be used for more complex queries that Home Assistant
@@ -155,8 +177,8 @@ does not natively understand.
 
 ### Language leaders are accelerating the pace
 
-It is not a secret: our voice hardware will be revealed on 19 December 2024.
-Language leaders have already gottten their hands on the device, and are working
+It is no secret: our voice hardware will be revealed on 19 December 2024.
+Language leaders have already got their hands on the device, and are working
 extremely hard to polish support for their language.
 
 The number of contributions to our [intents repository] (where we store the
@@ -164,9 +186,7 @@ supported sentences) skyrocketed during the last month, which we all truly
 appreciate. More and more languages are becoming usable or even complete!
 You can follow the progress [here](https://home-assistant.github.io/intents/).
 
-We won't list them all here, but just be aware that it is very likely that
-someone is hard at work making sure your native language gets some love so
-you can speak with your home.
+We won’t list them all here, but rest assured, someone is likely working hard to ensure your native language works seamlessly, so you can use it comfortably at home.
 
 [intents repository]: https://github.com/home-assistant/intents?tab=readme-ov-file
 
@@ -201,7 +221,7 @@ really evolve with the rest of Home Assistant and the general expectations of
 our community. It was time for a change!
 
 Over the last few months, we have worked with the community to revise and
-improve the scale. Involving not just our community developers, but also
+improve the scale. Involving not just our community developers but also
 documentation writers, user experience designers, and anyone interested
 in the community.
 
@@ -240,7 +260,7 @@ summary of their characteristics on our dedicated
 
 We sincerely hope this new scale, will not just help our users, but also our
 community developers to understand what is expected by providing a clear path
-oto improving their integrations. To help with that, we have now
+to improving their integrations. To help with that, we have now
 [extensively documented every rule and requirement for each tier in our
 developer documentation].
 
@@ -554,7 +574,7 @@ starting on 27 November.
 
 {% details "Statistics" %}
 
-Previously the attributes was only provided when they had a non `None` value.
+Previously the attributes were only provided when they had a non `None` value.
 This has now changed so the attributes are always provided even with `None`
 values. You might need to modify your automations or scripts depending on
 whether these attributes are present or not.
@@ -592,7 +612,7 @@ need to adjust those for this change.
 The `this` template variable which is available in some templatable helpers was
 previously based on the new state instead of the current state.
 
-The change affects the following integrations, if templates the use the `this`
+The change affects the following integrations, if templates use the `this`
 variable. The user might have to update their templates to reflect the above
 change using the `value` variable instead, which holds the new value.
 
