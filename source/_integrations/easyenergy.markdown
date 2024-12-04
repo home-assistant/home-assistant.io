@@ -13,7 +13,6 @@ ha_domain: easyenergy
 ha_platforms:
   - diagnostics
   - sensor
-ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 

@@ -21,11 +21,11 @@ The [Swiss public transport API](https://transport.opendata.ch/) only allows 100
 
 {% configuration_basic %}
 Start station:
-    description: "The departure station for the start of the connection (e.g., 'Zürich HB')"
+  description: "The departure station for the start of the connection (e.g., `Zürich HB`)"
 End station:
-    description: "The arrival station for the end of the connection (e.g., 'Geneva')"
+  description: "The arrival station for the end of the connection (e.g., `Geneva`)"
 Via stations:
-    description: "List of up to 5 via stations (e.g., 'Bern, Lausanne')"
+  description: "List of up to 5 via stations (e.g., `Bern`, `Lausanne`)"
 {% endconfiguration_basic %}
 
 Use the [Stationboard](https://transport.opendata.ch/examples/stationboard.html) to find exact station names.
@@ -33,6 +33,48 @@ Use the [Stationboard](https://transport.opendata.ch/examples/stationboard.html)
 {% include integrations/config_flow.md %}
 
 The public timetables are coming from [Swiss public transport](https://transport.opendata.ch/).
+
+## Set up a connection
+
+The minimum configuration for a connection requires a _start_ and _end_ station (for example, "Zürich HB").
+
+Optionally, you can provide up to 5 additional _via_ stations.
+
+![Config flow](/images/integrations/swiss_public_transport/config_flow.png)
+
+### Time mode
+
+The _Time mode_ allows you to specify the time of the connections.
+
+- Now (default): Provide the next connections.
+- At a fixed time of day: Provide the connections that depart at a fixed time of day (for example, 18:15 in the evening)
+- At an offset from now: Provide the next possible connections which depart after a specified offset (for example, 15 minutes from now, which helps account for a 15-minute walk to the station)
+
+![Time mode option](/images/integrations/swiss_public_transport/config_flow_time_mode.png)
+
+#### Use case: Next connection at my local bus stop
+
+Usually, it takes some time to walk to the closest bus station from home, which can be modeled using the `offset` option in the _Time mode_ dropdown, filtering out connections which are not reachable anymore. This information can then be displayed at the door or on your mobile device.
+
+![Offset time mode option](/images/integrations/swiss_public_transport/config_flow_time_offset.png)
+
+#### Use case: Daily train home
+
+For people working business hours, a set-up using the `fixed` option in the _Time mode_ allows you to identify the same train each day for commuting home. Set up an automation to send a push notification to get informed early.
+
+![Fixed time mode option](/images/integrations/swiss_public_transport/config_flow_time_fixed.png)
+
+### Departure versus Arrival
+
+Usually, one wants to know when a connection **departs** (default), but in case where the opposite is needed and one wants to know when a connection **arrives**, select "Show arrival time at end station" in the time reference dropdown.
+
+When configured for arrival time, the sensor will display the arrival time at the destination instead of the departure time from the start station. This is particularly useful for automations that need to trigger based on arrival times.
+
+![Departure versus arrival option](/images/integrations/swiss_public_transport/config_flow_departure_arrival.png)
+
+#### Use case: Inform family of train arriving late
+
+A popular use case would be to know if your family member is running late and sending out a push notification or displaying their arrival time at home.
 
 ## Actions
 
@@ -53,8 +95,8 @@ Fetch the connections for a specific instance.
 
 {% include common-tasks/define_custom_polling.md %}
 
-## Remove integration
+## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}

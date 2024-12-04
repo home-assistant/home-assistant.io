@@ -40,8 +40,6 @@ Your code will expire within 60 minutes after activation. Make sure to configure
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-code:
+Code:
   description: "Auth Code that can be obtained in the laundrify App (see above), e.g., `123-456`."
-  required: true
-  type: string
 {% endconfiguration_basic %}

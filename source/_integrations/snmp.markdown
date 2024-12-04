@@ -16,6 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@nmaggioni'
+ha_quality_scale: legacy
 ---
 
 A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/managing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and Wi-Fi registrations.

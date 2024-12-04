@@ -16,7 +16,6 @@ ha_codeowners:
   - '@2Fake'
   - '@Shutgun'
 ha_domain: devolo_home_network
-ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button
@@ -30,7 +29,7 @@ ha_zeroconf: true
 ha_integration_type: device
 ---
 
-The **devolo Home Network** {% term integration %} integration allows you to monitor and control your [devolo](https://www.devolo.global) PLC network.
+The **devolo Home Network** {% term integration %} allows you to monitor and control your [devolo](https://www.devolo.global) PLC network. Depending on the device you add to Home Assistant, different use cases are possible. Roughly you can categorize the devices into Wi-Fi and non-Wi-Fi devices. Non-Wi-Fi devices are more or less limited in monitoring your PLC network. The Wi-Fi devices, however, can help with presence detection and remote control of your guest Wi-Fi. For details, please continue reading about the [entities](#entities) and look at the [supported devices](#supported-devolo-devices).
 
 {% include integrations/config_flow.md %}
 
@@ -39,9 +38,9 @@ IP address:
   description: "IP address of your devolo Home Network device. This can be found in the devolo Home Network App on the device dashboard."
 {% endconfiguration_basic %}
 
-## Device types
+## Entities
 
-Currently the following device types within Home Assistant are supported.
+Currently, the following entities within Home Assistant are supported.
 
 ### Binary sensors
 
@@ -132,8 +131,8 @@ This integration only supports using the API the devolo Home Network App uses. T
 
 The devolo Gigabridge is the only device that comes with a default password. However, it seems that in factory default the password works for the device website but not for the API. If you give the device a new password via the website, it is applied to both and the integration starts working. Even using the same password again works.
 
-## Removal
+## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}

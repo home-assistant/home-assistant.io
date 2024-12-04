@@ -25,7 +25,7 @@ As for the rest of Home Assistant core functionalities, Assist can be personaliz
 
 <lite-youtube videoid="XF53wUbeLxA" videotitle="Voice at Home Assistant"></lite-youtube>
 
-Although adding voice to your smart home configuration is exciting, it will require you to check your existing setup of Home Assistant, especially if you made a lot of customization. But we have prepared a guide of steps and best practices to help you out, as well as our [Troubleshooting](/voice_source/troubleshooting/) guides.
+Although adding voice to your smart home configuration is exciting, it will require you to check your existing setup of Home Assistant, especially if you made a lot of customization. But we have prepared a guide of steps and best practices to help you out, as well as our [Troubleshooting](/voice_control/troubleshooting/) guides.
 
 Ready? Now let's get started 
 

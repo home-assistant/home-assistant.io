@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `mqtt_room` sensor {% term integration %} allows you to detect the indoor location of devices using MQTT clients.

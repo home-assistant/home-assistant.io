@@ -2,8 +2,8 @@
 title: Reolink IP NVR/camera
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
 ha_category:
-  - Doorbell
   - Camera
+  - Doorbell
   - Media source
   - Update
 ha_iot_class: Local Push
@@ -43,22 +43,18 @@ A brand new Reolink camera needs to be connected to the network and initialized.
 - The password used for the Reolink device can only contain characters `a-z, A-Z, 0-9 or @$*~_-+=!?.,:;'()[]`. Other special characters will cause encoding issues in the video streams used by this integration and are, therefore, not allowed. When using an incompatible special character in the password, the integration will prompt you to change the password.
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 Host:
-    description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** -> **Device** (top icon) -> **Networkinformation** -> **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
-    required: false
-    type: string
+  description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** -> **Device** (top icon) -> **Networkinformation** -> **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
 Username:
-    description: "Username to log in to the Reolink device itself. Not the Reolink cloud account."
-    required: true
-    type: string
+  description: "Username to log in to the Reolink device itself. Not the Reolink cloud account."
 Password:
-    description: "Password to log in to the Reolink device itself. Not the Reolink cloud account."
-    required: true
-    type: string
+  description: "Password to log in to the Reolink device itself. Not the Reolink cloud account."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
+
 {% configuration_basic %}
 Protocol:
   description: Switch between <abbr title="real-time streaming protocol">RTSP</abbr>, <abbr title="real-time messaging protocol">RTMP</abbr>, or <abbr title="flash video">FLV</abbr> streaming protocol. <abbr title="real-time streaming protocol">RTSP</abbr> supports 4K streams (h265 encoding) while <abbr title="real-time messaging protocol">RTMP</abbr> and <abbr title="flash video">FLV</abbr> do not. <abbr title="flash video">FLV</abbr> is the least demanding on the camera.
@@ -67,6 +63,12 @@ Protocol:
 ## Asterisk (*) next to entities listed in this documentation
 
 If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#enabling-entities) first.
+
+## Data updates: plus (+) next to entities listed in this documentation
+
+If an entity listed below has a plus (+) next to its name, it means this entity supports push updates. These entities will have almost instant state changes. 
+For redundancy, the state of all entities is also polled every 60 seconds. For entities without a plus (+), this is the only update method. Therefore, a device's state change can take up to 60 seconds to be reflected in Home Assistant.
+An exception is the firmware update entity, which is polled every 12 hours.
 
 ## Supported functionality
 
@@ -88,17 +90,17 @@ Dual lens cameras provide additional streams for the second lens.
 
 Depending on the supported features of the camera, binary sensors are added for:
 
-- Motion detection+
-- Visitor+ (Doorbell presses)
-- AI person detection+
-- AI vehicle detection+
-- AI pet detection+
-- AI animal detection+
-- AI face detection+
-- AI package detection+
-- Sleep status
+- Motion detection++
+- Visitor++ (Doorbell presses)
+- AI person detection++
+- AI vehicle detection++
+- AI pet detection++
+- AI animal detection++
+- AI face detection++
+- AI package detection++
+- Sleep status+
 
-\+ These sensors receive events using the following 4 methods (in order): TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
+\++ These sensors receive events using the following 4 methods (in order): TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for TCP push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
@@ -192,8 +194,14 @@ Depending on the supported features of the camera, select entities are added for
 - Auto track method (Digital, Digital first, Pan/Tilt first)
 - Doorbell LED (Stay off, Auto, Auto & always on at night)
 - HDR* (Off, On, Auto)
+- Binning mode* (Off, On, Auto)
+- Clear frame rate*
+- Fluent frame rate*
+- Clear bit rate*
+- Fluent bit rate*
 - Chime motion ringtone
 - Chime person ringtone
+- Chime vehicle ringtone
 - Chime visitor ringtone
 - Hub alarm ringtone
 - Hub visitor ringtone
@@ -257,7 +265,7 @@ The **PTZ patrol** positions first need to be configured using the Reolink [app]
 
 Depending on the supported features of the camera, light entities are added for:
 
-- Floodlight
+- Floodlight+
 - Status LED
 
 When the **floodlight** entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see the **Floodlight mode** select entity.
@@ -267,19 +275,19 @@ When the **floodlight** entity is ON always ON, when OFF controlled based on the
 Depending on the supported features of the camera, the following sensor entities are added:
 
 - PTZ pan position
+- PTZ tilt position
 - Wi-Fi signal*
 - CPU usage*
 - HDD/SD storage*
-- Battery percentage
-- Battery temperature*
-- Battery state* (discharging, charging, charge complete)
+- Battery percentage+
+- Battery temperature*+
+- Battery state*+ (discharging, charging, charge complete)
 
 ### Update entity
 
 An update entity is available that checks for firmware updates every 12 hours.
-This does the same as pressing the "Check for latest version" in the Reolink applications.
-Unfortunately this does not always shows the latest available firmware (also not in the Reolink applications).
-The latest firmware can be downloaded from the [Reolink download center](https://reolink.com/download-center/) and uploaded to the camera/NVR manually.
+Updates are checked both through the camera API and directly from the [Reolink download center](https://reolink.com/download-center/).
+Therefore the update entity in Home Assistant can find and install a firmware update from the [Reolink download center](https://reolink.com/download-center/) while the Reolink app/windows/web client does not always find this update.
 
 ### Media browser for playback of recordings
 
