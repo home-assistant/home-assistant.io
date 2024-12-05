@@ -61,13 +61,9 @@ Previously, Tesla restricted this integration to a very modest rate limit. Howev
 - Tesla provides a $10 credit per developer account per calandar month
 - Every coordinator refresh, vehicle command, and wake up has a cost
 - This credit only allows for a maximum of 5000 coordinator refreshes
-- To go beyond the free tier:
-  - You must provide payment details
-  - You will be responsible for all charges
+- To go beyond the free credit, you must provide payment details to Tesla
 
-For detailed pricing and eligible countries, please see [developer.tesla.com](https://developer.tesla.com).
-
-> **Warning:** Be mindful of your update interval settings as frequent updates will consume more API calls.
+For more details please see [developer.tesla.com](https://developer.tesla.com).
 
 ## Command signing
 
