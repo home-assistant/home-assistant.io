@@ -11,6 +11,7 @@ ha_domain: tmb
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 This sensor will provide you the remaining time, in minutes, for the next bus in a specific stop by using the [iBus service](https://www.tmb.cat/en/barcelona/tmb-ibus).

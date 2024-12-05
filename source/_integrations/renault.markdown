@@ -13,7 +13,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@epenet'
 ha_domain: renault
-ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button

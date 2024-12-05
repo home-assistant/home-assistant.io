@@ -9,7 +9,6 @@ ha_category:
 ha_release: 0.102
 ha_iot_class: Local Push
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@frenck'
 ha_domain: wled

@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `uk_transport` {% term integration %} will display the time in minutes until the next departure in a specified direction from of a configured train station or bus stop. The sensor uses [transportAPI](https://www.transportapi.com/) to query live departure data and requires a developer application ID and key which can be obtained [here](https://developer.transportapi.com/). The [free tier](https://www.transportapi.com/blog/2022/08/introducing-the-home-use-plan-for-transportapi/) allows 30 requests a day, which is sufficient for a single sensor refreshing every 48 minutes.

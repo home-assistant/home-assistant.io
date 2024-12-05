@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `cisco_webex_teams` notification platform allows you to deliver rich notifications from Home Assistant to [Cisco Webex](https://www.webex.com/suite/messaging.html) (formerly known as Cisco Spark or Cisco Webex Teams).

@@ -44,7 +44,6 @@ ha_platforms:
   - valve
   - water_heater
 ha_integration_type: integration
-ha_quality_scale: platinum
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
@@ -956,7 +955,7 @@ support_url:
 
 {% enddetails %}
 
-### Discovery messages en availability
+### Discovery messages and availability
 
 When MQTT discovery is set up, and a device or service sends a discovery message,
 an MQTT entity, tag, or device automation will be set up directly after receiving the message.

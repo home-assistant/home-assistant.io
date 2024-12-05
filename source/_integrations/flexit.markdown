@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Integrates [Flexit](https://www.flexit.no/en/) Air Conditioning unit into Home Assistant.

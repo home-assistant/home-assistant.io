@@ -10,7 +10,6 @@ ha_codeowners:
   - '@garbled1'
   - '@epenet'
 ha_domain: onewire
-ha_quality_scale: gold
 ha_platforms:
   - binary_sensor
   - diagnostics

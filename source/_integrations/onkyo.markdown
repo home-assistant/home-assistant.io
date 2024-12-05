@@ -12,9 +12,6 @@ ha_iot_class: Local Push
 ha_platforms:
   - media_player
 ha_release: 0.17
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ---
 
 The `onkyo` {% term integration %} allows you to control [Onkyo](https://www.onkyo.com) and [Integra](http://www.integrahometheater.com) (from 2011 onward) and also [Pioneer](https://www.pioneerelectronics.com) (from 2016 onward) receivers using Home Assistant.
@@ -42,9 +39,11 @@ Input sources:
   description: Mappings of input sources to their names.
 {% endconfiguration_basic %}
 
-### Zones
+## Zones
 
 If your receiver has a second or third zone available, they are displayed as additional media players with functionality similar to the main zone.
+
+## Actions
 
 ### Action `onkyo_select_hdmi_output`
 
@@ -97,3 +96,7 @@ script:
           media_content_type: "radio"
           media_content_id: "1"
 ```
+
+## Supported devices
+
+Network receivers from Onkyo and Integra are supported starting with models from the year 2011. Pioneer network receivers are supported starting with models from 2016.

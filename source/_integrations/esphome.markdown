@@ -41,7 +41,6 @@ ha_platforms:
   - valve
 ha_integration_type: device
 ha_dhcp: true
-ha_quality_scale: platinum
 works_with:
   - local
 ---

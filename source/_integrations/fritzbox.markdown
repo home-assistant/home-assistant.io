@@ -26,7 +26,6 @@ ha_codeowners:
   - '@mib1185'
   - '@flabbamann'
 ha_integration_type: hub
-ha_quality_scale: gold
 ---
 
 The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [AVM Smart Home](https://en.avm.de/products/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).

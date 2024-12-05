@@ -13,7 +13,6 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta.de) to obtain the data from your plant sensors and integrate these into Home Assistant.

@@ -15,6 +15,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `slide` {% term integration %} allows you to integrate your [slide.store](https://slide.store/) devices in Home Assistant using the [official API](https://documenter.getpostman.com/view/6223391/S1Lu2pSf?version=latest).

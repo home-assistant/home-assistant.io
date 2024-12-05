@@ -20,6 +20,7 @@ ha_integration_type: integration
 ha_quality_scale: platinum
 works_with:
   - local
+ha_dhcp: true
 ---
 
 Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It can collect data locally from the HomeWizard Energy products and create them as sensors in Home Assistant. Use this integration to monitor your energy, gas and water usage to optimize your energy consumption. The information collected by this integration can be used by the [Energy dashboard](/home-energy-management).
@@ -96,7 +97,7 @@ _This feature is not available for the kWh Meter._
 
 The HomeWizard Energy devices are designed to work with the HomeWizard Energy app and require communication with the HomeWizard cloud to function with the app. The "Cloud connection" configuration toggle can be used to turn off all communication with the HomeWizard cloud, making the device fully local. The device cannot communicate with the app, and the device won't receive any future firmware updates.
 
-Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset or when the device is put in pairing mode.
+Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
 
 ## Examples
 
@@ -132,3 +133,11 @@ It may happen that you can't find your devices or they won't show up in the inte
 - Make sure you have updated the device to the latest firmware. Follow this guide to learn how to update your device: [How do I check if I have the latest software on my HomeWizard product?](https://helpdesk.homewizard.com/en/articles/9167578-how-do-i-check-if-i-have-the-latest-software-on-my-homewizard-product)
 - Make sure you have enabled the local API in device settings via the HomeWizard Energy app.
 - Make sure both Home Assistant and the device are on the same network.
+
+## Remove integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, go to the HomeWizard Energy app and disable the local API if no other integrations are using it.

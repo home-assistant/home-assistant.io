@@ -14,7 +14,6 @@ ha_integration_type: service
 ha_platforms:
   - diagnostics
   - notify
-ha_quality_scale: platinum
 google_dev_console_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
 api: Google Assistant API
 api_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview

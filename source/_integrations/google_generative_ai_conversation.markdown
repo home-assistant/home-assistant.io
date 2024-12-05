@@ -10,7 +10,6 @@ ha_codeowners:
   - '@tronikos'
 ha_domain: google_generative_ai_conversation
 ha_integration_type: service
-ha_quality_scale: platinum
 ha_platforms:
   - conversation
   - diagnostics

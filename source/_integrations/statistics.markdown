@@ -15,7 +15,6 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: helper
-ha_config_flow: true
 ---
 
 The `statistics` integration observes the state of a source sensor and provides aggregated statistical characteristics about its recent past. This integration can be useful in automation, for example, to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffees over a day gets too high.

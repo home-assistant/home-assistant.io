@@ -16,7 +16,6 @@ ha_codeowners:
   - '@2Fake'
   - '@Shutgun'
 ha_domain: devolo_home_network
-ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button

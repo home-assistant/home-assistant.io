@@ -2,21 +2,21 @@
 title: Habitica
 description: Instructions on enabling Habitica support for your Home Assistant
 ha_category:
-  - To-do list
-  - Sensor
   - Calendar
+  - Sensor
+  - To-do list
 ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_domain: habitica
 ha_platforms:
+  - binary_sensor
   - button
+  - calendar
+  - diagnostics
   - sensor
   - switch
   - todo
-  - calendar
 ha_codeowners:
-  - '@ASMfreaK'
-  - '@leikoilja'
   - '@tr4nt0r'
 ha_config_flow: true
 ha_integration_type: integration
@@ -86,11 +86,16 @@ Verify SSL certificate:
 - **Mana**: Displays the current mana points of your character (for example, "61 MP").
 - **Max. mana**: Indicates the maximum mana points your character can have at the current level (for example, "70 MP").
 - **Next level**: Indicates the remaining experience points needed to reach the next level (for example, "440 XP").
-- **Habits**: Shows the number of habits being tracked (for example, "4 tasks").
-- **Rewards**: Displays the rewards that can be redeemed (for example, "1 task")
+- **Ha Dispbits**: Shows the number of habits being tracked (for example, "4 tasks").
+- **Rewards**:lays the rewards that can be redeemed (for example, "1 task")
 - **Gems**: Shows the total number of gems currently owned by your Habitica character, used for purchasing items and customizations.
 - **Mystic hourglasses**: Displays the number of mystic hourglasses earned as a subscriber, which can be redeemed for exclusive items from past events.
+- **Strength, intelligence, constitution, perception**: Display your character's attribute points (stats). The sensors' attributes provide a breakdown of contributions from level, battle gear, class equip bonus, allocation, and buffs.
 
+## Binary sensors
+
+- **Pending quest invitation**: Indicates if you have an invitation to a quest awaiting your response.
+  
 ## To-do lists
 
 The following Habitica tasks are available as to-do lists in Home Assistant. You can add, delete, edit and check-off completed tasks
@@ -102,6 +107,8 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 
 - **To-Do calendar:** Lists the due dates for all active to-do tasks. Each event on this calendar represents a to-do item that has a set due date, making it easy to track upcoming deadlines and plan accordingly.
 - **Dailies calendar:** Displays all daily tasks that are scheduled for today and are still active. It also shows all tasks scheduled for future dates, helping you stay organized and track upcoming routines. The calendar sensor will be active if there are unfinished tasks for today and display the next due daily (based on sort order if there are multiple tasks due for that day).
+- **To-Do reminders calendar**: Lists events for reminders associated with your to-dos in Habitica, helping you track when notifications for specific to-dos are expected.
+- **Dailies reminders calendar**: Shows events for reminders linked to your Habitica dailies, ensuring you know when notifications for your dailies will occur.
 
 ## Button controls
 
@@ -162,9 +169,133 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 
 To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
+### Action `habitica.accept_quest`
+
+Accept a pending invitation to a quest. For an example, see the [`Auto-accept quest invitation`](#auto-accept-quest-invitation) automation, which demonstrates how this action can be used to automatically accept quest invitations.
+
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to accept the quest.             |
+
+### Action `habitica.reject_quest`
+
+Reject a pending invitation to a quest.
+
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to reject the quest.             |
+
+### Action `habitica.leave_quest`
+
+Leave the current quest you are participating in.
+
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to leave the quest.              |
+
+### Action `habitica.abort_quest` 🔒
+
+Terminate your party's ongoing quest. All progress will be lost, and the quest roll returned to the owner's inventory. Only the quest leader or group leader can perform this action.
+
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to abort the quest.              |
+
+{% note %}
+Actions marked with 🔒 have usage restrictions. See action descriptions for details.
+{% endnote %}
+
+### Action `habitica.start_quest` 🔒
+
+Begin the quest immediately, bypassing any pending invitations that haven't been accepted or rejected. Only the quest leader or group leader can perform this action.
+
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to force-start the quest.        |
+
+### Action `habitica.cancel_quest` 🔒
+
+Cancel a quest that has not yet started. All accepted and pending invitations will be canceled, and the quest roll returned to the owner's inventory. Only the quest leader or group leader can perform this action.
+
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to cancel the quest.             |
+
+### Action `habitica.score_habit`
+
+Increase the positive or negative streak of a habit.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character tracking the habit.                                                            |
+| `task`         | no       |  The name, `task ID`, or **alias** of the habit to track.                                                         |
+| `direction`    | no       |  `up` for positive progress or `down` for negative progress you want to track for your habit.                     |
+
+### Action `habitica.score_reward`
+
+Buy a custom reward with gold.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character buying the reward.                                                                 |
+| `task`         | no       |  The name, `task ID`, or **alias** of the custom reward to buy.                                                   |
+
+### Action `habitica.transformation`
+
+Use a transformation item from your Habitica character's inventory on a member of your party or yourself.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character using the transformation item.                                                    |
+| `item`         | no       |  The transformation item you want to use. Item must be in the character's inventory.                               |
+| `target`       | no       |  The character you want to use the transformation item on. Matches by display name, username, or user ID.           |
+
+#### Available transformation items
+
+- **Snowball**: `snowball` (transforms into a snowfriend)
+- **Spooky sparkles**: `spooky_sparkles` (transforms into a ghost)
+- **Seafoam**: `seafoam` (transforms into a starfish)
+- **Shiny seed** `shiny_seed` (transforms into flower)
+
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
+
+### Auto-accept quest invitation
+
+Automatically accepts quest invitations from your Habitica party and creates a persistent notification to inform you when a quest has been successfully accepted.
+
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/habitica-auto-accept-quest-invitation/791002" %}
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.habitica_pending_quest_invitation
+    from: "off"
+    to: "on"
+actions:
+  - action: habitica.accept_quest
+    data:
+      config_entry: config_entry_id
+    response_variable: action_response
+  - action: notify.persistent_notification
+    data:
+      title: You have been invited to a quest!
+      message: >-
+        ![{{action_response["key"]}}](https://habitica-assets.s3.amazonaws.com/mobileApp/images/inventory_quest_scroll_{{action_response["key"]}}.png)
+
+        The invitation has been accepted, and the quest {% if
+        action_response["active"] %}has already started{% else %}is waiting
+        for other party members to join{% endif %}.
+```
+
+{% endraw %}
+
+{% enddetails %}
 
 {% note %}
 When creating automations, be mindful of the [rate limits](#known-limitations). Frequent triggers or multiple concurrent automations can quickly exceed the allowed number of requests.
@@ -245,91 +376,6 @@ actions:
 ```
 
 {% enddetails %}
-
-## API Service
-
-At runtime, you will be able to use the API for each respective user by their Habitica's username.
-You can override this by passing `name` key, this value will be used instead of the username.
-If you are hosting your own instance of Habitica, you can specify a URL to it in `url` key.
-
-### API Service Parameters
-
-The API is exposed to Home Assistant as an action called `habitica.api_call`. To call it, you should specify these keys in the data:
-
-| Data attribute | Required | Type     | Description                                                                                                       |
-| ---------------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `name`                 | yes      | string   | Habitica's username as per `configuration.yaml` entry.                                                            |
-| `path`                 | yes      | [string] | Items from API URL in form of an array with method attached at the end. See the example below.                    |
-| `args`                 | no       | map      | Any additional JSON or URL parameter arguments. See the example below and [apidoc](https://habitica.com/apidoc/). |
-
-A successful run of this action will fire an event `habitica_api_call_success`.
-
-| Event data attribute | Type     | Description                                                                                                                                                           |
-| -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`               | string   | Copied from the data attribute.                                                                                                                                   |
-| `path`               | [string] | Copied from the data attribute.                                                                                                                                   |
-| `data`               | map      | Deserialized `data` field of JSON object Habitica's server returned in response to API call. For more info see the [API documentation](https://habitica.com/apidoc/). |
-
-#### Let's consider some examples on how to use the action
-
-For example, let's say that there is a configured `habitica` platform for user `xxxNotAValidNickxxx` with their respective `api_user` and `api_key`.
-Let's create a new task (a todo) for this user via Home Assistant. There is an [API call](https://habitica.com/apidoc/#api-Task-CreateUserTasks) for this purpose.
-To create a new task one should hit `https://habitica.com/api/v3/tasks/user` endpoint with `POST` request with a JSON object with task properties.
-So let's call the API on `habitica.api_call`.
-
-- The `name` key becomes `xxxNotAValidNickxxx`.
-- The `path` key is trickier.
-  - Remove `https://habitica.com/api/v3/` at the beginning of the endpoint URL.
-  - Split the remaining on slashes (/) and **append the lowercase method** at the end.
-  - You should get `["tasks", "user", "post"]`. To get a better idea of the API you are recommended to try all of the API calls in IPython console [using this package](https://github.com/ASMfreaK/habitipy/blob/master/README.md).
-- The `args` key is more or less described in the [API documentation](https://habitica.com/apidoc/).
-
-Combining all together:
-call `habitica.api_call` with data
-
-```json
-{
-  "name": "xxxNotAValidNickxxx",
-  "path": ["tasks", "user", "post"],
-  "args": {"text": "Use API from Home Assistant", "type": "todo"}
-}
-```
-
-This call will create a new todo on `xxxNotAValidNickxxx`'s account with text `Use API from Home Assistant` like this:
-
-![example task created](/images/screenshots/habitica_new_task.png)
-
-Also an event `habitica_api_call_success` will be fired with the following data:
-
-```json
-{
-  "name": "xxxNotAValidNickxxx",
-  "path": ["tasks", "user", "post"],
-  "data": {
-    "challenge": {},
-    "group": {"approval": {"required": false,
-     "approved": false,
-     "requested": false},
-    "assignedUsers": [],
-    "sharedCompletion": "recurringCompletion"},
-    "completed": false,
-    "collapseChecklist": false,
-    "type": "todo",
-    "notes": "",
-    "tags": [],
-    "value": 0,
-    "priority": 1,
-    "attribute": "str",
-    "text": "Use API from Home Assistant",
-    "checklist": [],
-    "reminders": [],
-    "_id": "NEW_TASK_UUID",
-    "createdAt": "2018-08-09T18:03:27.759Z",
-    "updatedAt": "2018-08-09T18:03:27.759Z",
-    "userId": "xxxNotAValidNickxxx's ID",
-    "id": "NEW_TASK_UUID"}
-}
-```
 
 ## Templating
 
