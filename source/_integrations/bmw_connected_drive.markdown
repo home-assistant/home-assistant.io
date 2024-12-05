@@ -205,6 +205,7 @@ If you have a (PH)EV, you can control the charging process through Home Assistan
 - **Target SoC**: Vehicle will charge until this battery level is reached. Not available on all EVs.
 
 ## Troubleshooting
+
 {% details "Problem: Invalid authentication" %}
 
 This can happen during initial login or after some time. Please do the following steps:
