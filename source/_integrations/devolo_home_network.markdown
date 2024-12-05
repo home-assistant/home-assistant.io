@@ -141,7 +141,7 @@ PLC networks are sometimes flaky. To restore a network's state, it's sometimes a
 {% raw %}
 
 ```yaml
-alias: PLC Feeder Restart
+alias: "PLC Feeder Restart"
 description: "Restart device connected to the router if number of PLC devices is unexpected low"
 triggers:
   - trigger: numeric_state
