@@ -28,10 +28,6 @@ In Home Assistant, the Assist pipelines are made up of various components that t
 - For understanding, it needs to have a text-to-speech and speech-to-text software integrated. 
 - For running all together, it needs to have the Home Assistant Operating System running.
 
-### First, make sure Assist can run in your local setup
-
-Check our comparison table to be sure local setup is going to meet your expectations.
-
 ## Some options for speech-to-text and text-to-speech
 
 There is a speech-to-text and text-to-speech option that runs entirely local. No data is sent to external servers for processing.
