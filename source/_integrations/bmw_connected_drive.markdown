@@ -55,16 +55,10 @@ Username:
     &nbsp;
     
     **China**: Your username/phone number must be prefixed with `86`, i.e. `8612345678`.
-  required: true
-  type: string
 Password:
   description: "Password of your MyBMW/MINI Connected account."
-  required: true
-  type: string
 Region:
   description: "Region of your MyBMW/MINI Connected account."
-  required: true
-  type: select
   options: china, north_america, rest_of_world
 Captcha token (second step, only for North America and Rest of World):
   description: |
@@ -75,8 +69,6 @@ Captcha token (second step, only for North America and Rest of World):
     - Copy the resulting token into Home Assistant and continue.
 
     No data of your Home Assistant instance is shared with any third party during this step.
-  required: true
-  type: string
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
@@ -216,7 +208,7 @@ If you have a (PH)EV, you can control the charging process through Home Assistan
 {% details "Problem: Invalid authentication" %}
 
 This can happen during initial login or after some time. Please do the following steps:
-- Log in to your MyBMW **website** and verify your credentials (i.e. ensure that username and password are correct).
+- Log in to your MyBMW **website** and verify your credentials (for example, ensure that username and password are correct).
 - If you cannot login on the website, please **deactivate** polling (see [Defining a custom polling interval](#defining-a-custom-polling-interval)) and wait for **at least 24 hours**.
 - Once you can login to the website, reconfigure/reauthenticate the integration via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
 - Activate polling again
@@ -232,10 +224,11 @@ Home Assistant will show a repair issue to **reconfigure** the integration. Foll
 {% enddetails %}
 
 ## Known limitations
-- The entities available to Home Assistant depend on your vehicle. Even inside the same model code (e.g. U11 for BMW X1) you will see different entities, depending on your specific car's features.
+
+- The entities available to Home Assistant depend on your vehicle. Even inside the same model code (for example, U11 for BMW X1) you will see different entities, depending on your specific car's features.
 - Not all features, mostly related to charging control for (PH)EVs, are implemented. If you have a functionality in your MyBMW/MINI app that is not yet available, search for an existing feature request in the [`bimmer_connected` discussions](https://github.com/bimmerconnected/bimmer_connected/discussions) or create a new one.
 
-## Remove integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 
