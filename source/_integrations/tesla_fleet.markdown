@@ -55,8 +55,19 @@ When creating the application, you must set the redirect URL to `https://my.home
 When connecting your Tesla account to Home Assistant, you **must** select the `Vehicle Information` or `Energy Product Information` scope. It is recommended you select all scopes for full functionality. The `Vehicle Location` scope was added in Home Assistant 2024.1, so any authorizations performed on previous releases that want this scope will need to be [modified](https://accounts.tesla.com/en_au/account-settings/security?tab=tpty-apps).
 
 ## Pay per use
+	
+Previously, Tesla restricted this integration to a very modest rate limit. However, from January 2025, accounts in eligible countries will be charged for every API call. Here's what you need to know:
 
-Previous Tesla restricted this integration to a very modest rate lite, however from January 2025 accounts in eligible countries will be charged for every API call. Tesla provides a $10 credit per developer account which is only enough to make 5000 `vehicle_data` calls per month. To make more API calls you will be required to provide payment details, and will be responsible for charges incurred from using this integration. For more details, please see [developer.tesla.com](https://developer.tesla.com).
+- Tesla provides a $10 credit per developer account per calandar month
+- Every coordinator refresh, vehicle command, and wake up has a cost
+- This credit only allows for a maximum of 5000 coordinator refreshes
+- To go beyond the free tier:
+  - You must provide payment details
+  - You will be responsible for all charges
+
+For detailed pricing and eligible countries, please see [developer.tesla.com](https://developer.tesla.com).
+
+> **Warning:** Be mindful of your update interval settings as frequent updates will consume more API calls.
 
 ## Command signing
 
