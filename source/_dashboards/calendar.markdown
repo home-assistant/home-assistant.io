@@ -39,6 +39,14 @@ initial_view:
   required: false
   description: "The view that will show first when the card is loaded onto the page. Options are `dayGridMonth`, `dayGridDay`, and `listWeek`. Note that `listWeek` does show the next 7 days, not a calendar week."
   type: string
+multi_day:
+  required: false
+  description: "Whether to display multi-day events in blocks spanning the calendar, the way they are shown in the Calendar panel on the sidebar"
+  type: boolean
+height:
+  required: false
+  description: "The height in pixels at which to render the card (defaults to 400px). This is recommended if using the `multi_day` option
+  type: number
 entities:
   required: true
   description: A list of calendar entities that will be displayed in the card.
