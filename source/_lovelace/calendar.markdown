@@ -63,6 +63,8 @@ Example:
 
 ```yaml
 type: calendar
+multi_day: true
+height: 900
 entities:
   - calendar.calendar_1
   - calendar.calendar_2
