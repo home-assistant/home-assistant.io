@@ -47,7 +47,7 @@ multi_day:
   type: boolean
 height:
   required: false
-  description: "The height in pixels at which to render the card (defaults to 400px). This is recommended if using the `multi_day` option"
+  description: "The height at which to render the card, specified as a number in pixels (e.g., 400 for 400px). This is recommended when using the `multi_day` option. Defaults to 400."
   type: number
 entities:
   required: true
