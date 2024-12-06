@@ -411,7 +411,7 @@ Easy, right? 😎
 
 ## Patch releases
 
-We will also release patch releases for Home Assistant 2024.11 in November.
+We will also release patch releases for Home Assistant 2024.12 in December.
 These patch releases only contain bug fixes. Our goal is to release a patch
 release every Friday.
 
