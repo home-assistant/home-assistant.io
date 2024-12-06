@@ -43,7 +43,7 @@ initial_view:
   type: string
 multi_day:
   required: false
-  description: "Whether to display multi-day events in blocks spanning the calendar, the way they are shown in the Calendar panel on the sidebar"
+  description: "Whether to display multi-day events in blocks spanning the calendar, the way they are shown in the Calendar panel on the sidebar. Defaults to false."
   type: boolean
 height:
   required: false
