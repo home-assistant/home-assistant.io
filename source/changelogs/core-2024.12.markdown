@@ -828,6 +828,64 @@ For a summary in a more readable format:
 - Pin rpds-py to 0.21.0 to fix CI ([@epenet] - [#132170])
 - Update frontend to 20241127.3 ([@bramkragten] - [#132176])
 
+## Release 2024.12.1 - December 6
+
+- Bump elmax-api to 0.0.6.3 ([@albertogeniola] - [#131876])
+- Fix deprecated call to mimetypes.guess_type in CachingStaticResource ([@bdraco] - [#132299])
+- Bump tesla-fleet-api to 0.8.5 ([@Bre77] - [#132339])
+- Add missing UnitOfPower to sensor ([@robinostlund] - [#132352])
+- Removes references to croniter from utility_meter ([@dgomes] - [#132364])
+- Bump upb-lib to 0.5.9 ([@gwww] - [#132411])
+- Bump pydeako to 0.6.0 ([@Balake] - [#132432])
+- Bump aiohttp to 3.11.10 ([@bdraco] - [#132441])
+- Bump aioesphomeapi to 28.0.0 ([@bdraco] - [#132447])
+- Update exception handling for python3.13 for getpass.getuser() ([@allenporter] - [#132449])
+- Bump hass-nabucasa from 0.85.0 to 0.86.0 ([@ludeeus] - [#132456])
+- Fix nordpool dont have previous or next price ([@gjohansson-ST] - [#132457])
+- Bump deebot-client to 9.2.0 ([@edenhaus] - [#132467])
+- Point to the Ecovacs issue in the library for unspoorted devices ([@edenhaus] - [#132470])
+- Bump tplink python-kasa dependency to 0.8.1 ([@sdb9696] - [#132472])
+- Bump samsungtvws to 2.7.2 ([@epenet] - [#132474])
+- Update frontend to 20241127.5 ([@bramkragten] - [#132475])
+- Update frontend to 20241127.6 ([@bramkragten] - [#132494])
+- Fix google tasks due date timezone handling ([@allenporter] - [#132498])
+
+[#131876]: https://github.com/home-assistant/core/pull/131876
+[#132195]: https://github.com/home-assistant/core/pull/132195
+[#132299]: https://github.com/home-assistant/core/pull/132299
+[#132339]: https://github.com/home-assistant/core/pull/132339
+[#132352]: https://github.com/home-assistant/core/pull/132352
+[#132364]: https://github.com/home-assistant/core/pull/132364
+[#132411]: https://github.com/home-assistant/core/pull/132411
+[#132432]: https://github.com/home-assistant/core/pull/132432
+[#132441]: https://github.com/home-assistant/core/pull/132441
+[#132447]: https://github.com/home-assistant/core/pull/132447
+[#132449]: https://github.com/home-assistant/core/pull/132449
+[#132456]: https://github.com/home-assistant/core/pull/132456
+[#132457]: https://github.com/home-assistant/core/pull/132457
+[#132467]: https://github.com/home-assistant/core/pull/132467
+[#132470]: https://github.com/home-assistant/core/pull/132470
+[#132472]: https://github.com/home-assistant/core/pull/132472
+[#132474]: https://github.com/home-assistant/core/pull/132474
+[#132475]: https://github.com/home-assistant/core/pull/132475
+[#132494]: https://github.com/home-assistant/core/pull/132494
+[#132498]: https://github.com/home-assistant/core/pull/132498
+[@Balake]: https://github.com/Balake
+[@Bre77]: https://github.com/Bre77
+[@albertogeniola]: https://github.com/albertogeniola
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@dgomes]: https://github.com/dgomes
+[@edenhaus]: https://github.com/edenhaus
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@gwww]: https://github.com/gwww
+[@ludeeus]: https://github.com/ludeeus
+[@robinostlund]: https://github.com/robinostlund
+[@sdb9696]: https://github.com/sdb9696
+
 [#113438]: https://github.com/home-assistant/core/pull/113438
 [#120357]: https://github.com/home-assistant/core/pull/120357
 [#123563]: https://github.com/home-assistant/core/pull/123563
