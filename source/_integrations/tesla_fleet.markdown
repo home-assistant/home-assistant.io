@@ -59,8 +59,9 @@ When connecting your Tesla account to Home Assistant, you **must** select the `V
 Previously, Tesla restricted this integration to a very modest rate limit. However, from January 2025, accounts in eligible countries will be charged for every API call. Here's what you need to know:
 
 - Tesla provides a $10 credit per developer account per calandar month
-- Every coordinator refresh, vehicle command, and wake up has a cost
+- Every vehicle coordinator refresh, vehicle command, and wake up has a cost
 - This credit only allows for a maximum of 5000 coordinator refreshes
+- Energy product APIs are free to use at this time
 - To go beyond the free credit, you must provide payment details to Tesla
 
 For more details please see [developer.tesla.com](https://developer.tesla.com).
