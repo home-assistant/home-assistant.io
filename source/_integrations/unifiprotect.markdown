@@ -366,6 +366,8 @@ conditions:
   - condition: template
     value_template: >
       {% raw %}{{ 
+         not trigger.event.data.old_state.attributes.get('restored', false) and
+         not trigger.event.data.old_state.state == 'unavailable' and
          trigger.event.data.new_state is not none and
          trigger.event.data.new_state.attributes.event_type == 'scanned' and
          trigger.event.data.new_state.attributes.nfc_id in ['ABCDEF1234', 'OTHER_ALLOWED_ID']
@@ -388,8 +390,8 @@ When processing NFC scans, always validate the scanned ID. Unknown NFC cards als
 - **Event Attributes**:
   - **event_type**: Either `identified` or `not_identified`
   - **event_id**: A unique ID that identifies the fingerprint event.
-  - **ulp_id**: The fingerprint ID used to identify the person. If no fingerprint match is found, the `ulp_id` will be empty and the `event_type` will be `not_identified`.
-- **Description**: This event is triggered when a fingerprint is scanned by a compatible device. If the fingerprint is recognized, it provides a `ulp_id`, which represents the fingerprint ID. If the fingerprint is not recognized, the `event_type` will be set to `not_identified`, and no `ulp_id` will be provided.
+  - **ulp_id**: The ID used to identify the person. If no fingerprint match is found, the `ulp_id` will be empty and the `event_type` will be `not_identified`.
+- **Description**: This event is triggered when a fingerprint is scanned by a compatible device. If the fingerprint is recognized, it provides a `ulp_id`, which represents the a internal user ID. If the fingerprint is not recognized, the `event_type` will be set to `not_identified`, and no `ulp_id` will be provided.
 
 #### Example G4 Doorbell Fingerprint Identified Automation
 
@@ -405,6 +407,8 @@ condition:
   - condition: template
     value_template: >
       {% raw %}{{ 
+         not trigger.event.data.old_state.attributes.get('restored', false) and
+         not trigger.event.data.old_state.state == 'unavailable' and
          trigger.event.data.new_state is not none and
          trigger.event.data.new_state.attributes.event_type == 'identified' and
          (trigger.event.data.new_state.attributes.ulp_id|default('')) != '' and
