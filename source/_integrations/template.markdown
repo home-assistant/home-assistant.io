@@ -125,6 +125,8 @@ template:
 
 {% endraw %}
 
+### Configuration reference
+
 {% configuration %}
 trigger:
   description: Define an automation trigger to update the entities. Optional. If omitted will update based on referenced entities. [See trigger documentation](/docs/automation/trigger).
