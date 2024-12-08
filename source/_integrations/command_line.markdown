@@ -296,6 +296,8 @@ While `command` is accepting a template for `sensor` and `binary_sensor`, it's o
 
 {% endnote %}
 
+{% include integrations/using_templates.md %}
+
 ## Binary sensor
 
 To use your Command binary sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file:

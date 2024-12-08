@@ -40,7 +40,7 @@ ha_integration_type: integration
 
 The `tplink` integration allows you to control your [TP-Link Kasa Smart Home Devices](https://www.tp-link.com/kasa-smart/) and [TP-Link Tapo Devices](https://www.tapo.com/) such as plugs, power strips, wall switches and bulbs.
 
-You need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done either by using [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning) or by adding it to the official Kasa or Tapo app before trying to add them to Home Assistant.
+You need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done either by using [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning) or by adding it to the official Kasa or Tapo app before trying to add them to Home Assistant. Some apps for TP-Link's other products, such as the Deco app, also allow you to add Kasa and Tapo devices. Since these devices use the same TP-Link Cloud Account for authorization, they work with this integration as well.
 
 If your device is a newer Kasa or Tapo device it will require your TP-Link cloud username and password to authenticate for local access.
 If you have an older device that does not currently require authentication, you may consider disabling automatic firmware updates to keep it that way.
@@ -53,11 +53,15 @@ See [Supported Devices in python-kasa](https://python-kasa.readthedocs.io/en/sta
 
 Devices not listed below may work but if you encounter issues submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
 
+{% note %}
+The hub attached Tapo buttons S200B and S200D do not currently support alerting when the button is pressed.
+{% endnote %}
+
 ### Supported Kasa devices
 
 - **Plugs**: EP10, EP25[^1], HS100[^2], HS103, HS105, HS110, KP100, KP105, KP115, KP125, KP125M[^1], KP401
-- **Power Strips**: EP40, HS107, HS300, KP200, KP303, KP400
-- **Wall Switches**: ES20M, HS200, HS210, HS220, KP405, KS200M, KS205[^1], KS220M, KS225[^1], KS230, KS240[^1]
+- **Power Strips**: EP40, EP40M[^1], HS107, HS300, KP200, KP303, KP400
+- **Wall Switches**: ES20M, HS200[^2], HS210, HS220[^2], KP405, KS200M, KS205[^1], KS220, KS220M, KS225[^1], KS230, KS240[^1]
 - **Bulbs**: KL110, KL120, KL125, KL130, KL135, KL50, KL60, LB110
 - **Light Strips**: KL400L5, KL420L5, KL430
 - **Hubs**: KH100[^1]
@@ -65,13 +69,15 @@ Devices not listed below may work but if you encounter issues submit a bug repor
 
 ### Supported Tapo[^1] devices
 
-- **Plugs**: P100, P110, P115, P125M, P135, TP15
-- **Power Strips**: P300, TP25
+- **Plugs**: P100, P110, P110M, P115, P125M, P135, TP15
+- **Power Strips**: P300, P304M, TP25
 - **Wall Switches**: S500D, S505, S505D
-- **Bulbs**: L510B, L510E, L530E
+- **Bulbs**: L510B, L510E, L530E, L630
 - **Light Strips**: L900-10, L900-5, L920-5, L930-5
-- **Hubs**: H100
-- **Hub-Connected Devices[^3]**: T110, T300, T310, T315
+- **Cameras**: C210, TC65
+- **Hubs**: H100, H200
+- **Hub-Connected Devices[^3]**: S200B, S200D, T100, T110, T300, T310, T315
+
 
 [^1]: Requires authentication  
 [^2]: Newer versions require authentication  

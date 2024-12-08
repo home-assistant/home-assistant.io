@@ -106,6 +106,10 @@ Extensions allow templates to access all of the Home Assistant specific states a
 
 Templates for some [triggers](/docs/automation/trigger/) as well as `trigger_variables` only support a subset of the Home Assistant template extensions. This subset is referred to as "Limited Templates".
 
+### This
+
+State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. See more details and examples in the [Template integration documentation](/integrations/template).
+
 ### States
 
 Not supported in [limited templates](#limited-templates).
@@ -318,7 +322,7 @@ List of lights that are on with a brightness of 255:
 {% raw %}
 
 ```text
-{{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
+{{ ['light.kitchen', 'light.dining_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
 ```
 
 {% endraw %}
@@ -1459,12 +1463,14 @@ To evaluate a response, go to **{% my developer_template title="Developer Tools 
 
 ### Using templates with the MQTT integration
 
-The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to status updates or incoming actions (command templates) to payloads that configure the MQTT device.
+The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to state updates or incoming actions (command templates) to payloads that configure the MQTT device.
 
 #### Using value templates with MQTT
 
-For incoming data a value template translates incoming JSON or raw data to a valid payload.
-Incoming payloads are rendered with possible JSON values, so when rendering the `value_json` can be used access the attributes in a JSON based payload.
+Value templates translate received MQTT payload to a valid state or attribute.
+The received MQTT is available in the `value` template variable, and in the `value_json` template variable if the received MQTT payload is valid JSON.
+
+In addition, the template variables `entity_id`, `name` and `this` are available for MQTT entity value templates. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 {% note %}
 
@@ -1478,13 +1484,13 @@ With given payload:
 
 Template {% raw %}`{{ value_json.temperature | round(1) }}`{% endraw %} renders to `21.9`.
 
-Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
-
 {% endnote %}
 
 #### Using command templates with MQTT
 
-For actions, command templates are defined to format the outgoing MQTT payload to the device. When an action is executed, `value` can be used to generate the correct payload to the device.
+For actions, command templates are defined to format the outgoing MQTT payload to a format supported by the remote device. When an action is executed, the template variable `value` has the action data in most cases unless otherwise specified in the documentation.
+
+In addition, the template variables `entity_id`, `name` and `this` are available for MQTT entity command templates. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 {% note %}
 
@@ -1497,8 +1503,6 @@ With given value `21.9` template {% raw %}`{"temperature": {{ value }} }`{% endr
   "temperature": 21.9
 }
 ```
-
-Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 {% endnote %}
 

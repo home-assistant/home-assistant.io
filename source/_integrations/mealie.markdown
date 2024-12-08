@@ -34,6 +34,15 @@ You create your API token on your Mealie installation:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+URL:
+  description: The URL of your Mealie installation.
+API token:
+  description: The API token for your Mealie installation you generated in the prerequisites.
+Verify SSL certificate:
+  description: Enable this unless you are using a self-signed certificate on your Mealie installation.
+{% endconfiguration_basic %}
+
 ## Available calendars
 
 The integration will create a calendar for every type of meal plan, which are updated once an hour:
@@ -154,3 +163,9 @@ template:
 {% endraw %}
 
 {% enddetails %}
+
+## Remove integration
+
+This integration follows standard integration removal, once the integration is removed you can remove the API token (assuming it was only used by this integration) by going to your Account in the Mealie web interface, then to **Manage Your API Tokens** and deleting the token you created for Home Assistant.
+
+{% include integrations/remove_device_service.md %}

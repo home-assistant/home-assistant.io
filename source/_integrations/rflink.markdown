@@ -3,6 +3,11 @@ title: RFLink
 description: Instructions on how to integrate RFLink gateway into Home Assistant.
 ha_category:
   - Hub
+  - Cover
+  - Binary sensor
+  - Light
+  - Sensor
+  - Switch
 ha_iot_class: Assumed State
 ha_release: 0.38
 ha_domain: rflink
@@ -22,6 +27,12 @@ related:
 
 The `rflink` {% term integration %} supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
+This {% term integration %} is tested with the following hardware/software:
+
+- Nodo RFLink Gateway V1.4/RFLink R46
+
+### Device support
+
 The 433 MHz spectrum is used by many manufacturers. Mostly using their own protocol/standard, they use this spectrum to communicate with devices such as light switches, blinds, weather stations, alarms, and various other sensors.
 
 The RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers, and transceiver modules for 433MHz, 868MHz, and 2.4 GHz.
@@ -32,9 +43,7 @@ Versions later than R44 add support for IKEA Ansluta, Philips Living Colors Gen1
 
 A complete list of devices supported by RFLink can be found [here](https://www.rflink.nl/devlist.php).
 
-This {% term integration %} is tested with the following hardware/software:
-
-- Nodo RFLink Gateway V1.4/RFLink R46
+Even though many devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration, please consider testing and adding support yourself.
 
 ## Configuration
 
@@ -137,7 +146,7 @@ sensor:
     automatic_add: true
 ```
 
-[RFLink Switches](/integrations/switch.rflink/) and [RFLink Binary Sensors](/integrations/binary_sensor.rflink/) cannot be added automatically.
+[RFLink Switches](#switch) and [RFLink Binary Sensors](#binary-sensor) cannot be added automatically.
 
 The RFLink integration does not know the difference between a binary sensor, a switch and a light. Therefore, all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group or configure a nice name.
 
@@ -178,10 +187,6 @@ cover:
  ```
 
 This configuration uses `0a0a0a` to control the inverted shutter (send UP to close and Down to open) and listen commands sent by `0f1f2f` remote control.
-
-### Device support
-
-Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration please consider testing and adding support yourself.
 
 ### Device Incorrectly Identified
 
@@ -259,7 +264,7 @@ devices:
           required: false
           type: list
         device_class:
-          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+          description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
           required: false
           type: string
         off_delay:
@@ -277,9 +282,9 @@ devices:
 
 Initially, the state of a binary sensor is unknown. When a sensor update is received, the state is known and will be shown in the frontend.
 
-### Device support
+### Device support for binary sensors
 
-See [device support](/integrations/rflink/#device-support)
+See [device support](#device-support)
 
 ### Additional configuration examples
 
@@ -490,9 +495,9 @@ cover:
         name: "Room blinds"
 ```
 
-### Device support
+### Device support for covers
 
-See [device support](/integrations/rflink/#device-support).
+See [device support](#device-support).
 
 ## Additional configuration examples
 
@@ -523,7 +528,7 @@ cover:
         fire_event: true
 ```
 
-## Lights
+## Light
 
 After configuring the RFLink hub, lights will be automatically discovered and added.
 
@@ -581,7 +586,7 @@ devices:
           default: RFLink ID
           type: string
         type:
-          description: "Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See [Light Types](/integrations/light.rflink/#light-types) below."
+          description: "Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See [Light Types](#light-types) below."
           required: false
           default: switchable
           type: string
@@ -650,11 +655,11 @@ Lights are added automatically when the RFLink gateway intercepts a wireless com
 
 - Disable automatically adding of unconfigured new sensors (set `automatic_add` to `false`).
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
-- [Ignore devices on a platform level](/integrations/rflink/#ignoring-devices)
+- [Ignore devices on a platform level](#ignoring-devices)
 
-### Device support
+### Device support for lights
 
-See [device support](/integrations/rflink/#device-support)
+See [device support](#device-support)
 
 ### Additional configuration examples
 
@@ -683,7 +688,7 @@ light:
         name: Bedroom Lamp
 ```
 
-## Sensors
+## Sensor
 
 After configuring the RFLink hub, sensors will be automatically discovered and added.
 
@@ -723,7 +728,7 @@ devices:
           default: RFLink ID
           type: string
         sensor_type:
-          description: Override automatically detected type of sensor. For list of [values](/integrations/sensor.rflink/#sensors-types) see below.
+          description: Override automatically detected type of sensor. For list of [values](#sensor-types) see below.
           required: true
           type: string
         unit_of_measurement:
@@ -779,11 +784,11 @@ Sensor type values:
 Sensors are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
 
 - Disable automatically adding of unconfigured new sensors (set `automatic_add` to `false`).
-- [Ignore devices on a platform level](/integrations/rflink/#ignoring-devices)
+- [Ignore devices on a platform level](#ignoring-devices)
 
-### Device support
+### Device support for sensors
 
-See [device support](/integrations/rflink/#device-support)
+See [device support](#device-support)
 
 ### Additional configuration examples
 
@@ -924,9 +929,9 @@ switch:
 
 Any on/off command from any alias ID updates the current state of the switch. However, when sending a command through the frontend only the primary ID is used.
 
-### Device support
+### Device support for switches
 
-See [device support](/integrations/rflink/#device-support)
+See [device support](#device-support)
 
 #### Additional configuration examples
 

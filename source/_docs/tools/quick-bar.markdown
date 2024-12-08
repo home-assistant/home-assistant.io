@@ -21,6 +21,7 @@ Type these from anywhere in the application to launch the dialog.
 | Entity Filter | `e` | Type `>` at start of input to switch to command palette.
 | Command Palette | `c` | Remove `>` from start of input to switch to entity filter.
 | Create [`my`](/integrations/my) link | `m` | Open a new tab to create a my link to the page you are on.
+| Assist | `a` | Open the Home Assistant Assist dialog.
 
 {% important %}
 The application must have focus for the hotkey to register. If the dialog doesn't launch, try clicking into an empty part of the main content area of Home Assistant and type it again.
@@ -65,6 +66,15 @@ Type | Available |
 *Hotkey: `m`*
 
 Create [`my`](/integrations/my) links from any supported page in the user interface, when invoked on a supported page it will open a new tab that will allow you to share the link in different formats.
+
+## Assist
+
+*Hotkey: `a`*
+
+Opens the Assist dialog to interact with Home Assistant using your voice or by text.
+This feature is only available if you have set up a voice assistant.
+
+Learn more about [voice assistants](/voice_control).
 
 ## Disabling shortcuts
 

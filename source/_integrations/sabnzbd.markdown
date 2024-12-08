@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: sabnzbd
 ha_platforms:
   - sensor
+  - binary_sensor
   - button
   - number
 ha_integration_type: integration
@@ -45,6 +46,10 @@ This integration will create these sensors:
 - `daily_total`: GB downloaded today. (disabled by default)
 - `weekly_size`: GB downloaded this week. (disabled by default)
 - `monthly_total`: GB downloaded this month. (disabled by default)
+
+## Binary sensor
+
+This integration will create a binary sensor to indicate if SABnzbd has recorded any warnings or errors.
 
 ## Button
 

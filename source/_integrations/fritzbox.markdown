@@ -51,11 +51,36 @@ The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [
 - Magenta SmartHome LED E27 warmwhite
 - [Rademacher RolloTron DECT 1213][rademacher_rollotron_dect_1213]
 
-{% include integrations/config_flow.md %}
+## Prerequisites
+
+It is recommended to create a separate user to connect Home Assistant to your FRITZ!Box. To create a user, in the FRITZ!Box go to **System** > **FRITZ!Box Users** > **Users** > **Add User**. Make sure the user has the **Smart Home** permission.
 
 {% note %}
-The configuration asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under **Properties** on the right, it says **created automatically**. Prior to FRITZ!OS 7.24, the default username was `admin`.
+If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visit **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24, the default username was `admin`.
 {% endnote %}
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+    description: "The hostname or IP address of your FRITZ!Box router."
+    required: true
+    type: string
+Username:
+    description: "Name of the user to connect Home Assistant to your FRITZ!Box (_see [prerequisites](#prerequisites)_)"
+    required: true
+    type: string
+Password:
+    description: "Password for the user to connect Home Assistant to your FRITZ!Box (_see [prerequisites](#prerequisites)_)"
+    required: true
+    type: string
+{% endconfiguration_basic %}
+
+## Data fetching and limitations
+
+Since the API of the FRITZ!Box does not provide a push mechanism, this integration polls the data every 30 seconds from the FRITZ!Box. Because of this, the integration can't support the main features of event-based devices like the [FRITZ!DECT 350][fritzdect_350] door/window contact sensors or the [FRITZ!DECT 440][fritzdect_440] buttons (_see the [other devices](#other-devices) section for details_).
+
+## Devices
 
 ### Light bulbs
 
@@ -85,7 +110,7 @@ Shutter drivers like the [Rademacher RolloTron DECT 1213][rademacher_rollotron_d
 
 ### Templates
 
-Self defined templates within the FRITZ!Box smart home configuration menu, will be integrated as {% term button %} entities and those can be triggered from within Home Assistant.
+Self defined [templates](https://en.avm.de/guide/three-smart-home-templates-that-will-make-your-life-easier) within the FRITZ!Box smart home configuration menu, will be integrated as {% term button %} entities and those can be triggered from within Home Assistant.
 
 ### Thermostats
 
@@ -115,7 +140,7 @@ Further there are additional {% term sensor %} and {% term binary_sensor "binary
 
 ### Other devices
 
-Some devices like the [FRITZ!DECT 440][fritzdect_440] can't be controlled via this integration, but its sensors can still be integrated.
+Some devices like the [FRITZ!DECT 350][fritzdect_350] or the [FRITZ!DECT 440][fritzdect_440] can't be controlled via this integration, but its sensors can still be integrated.
 
 The availability of these {% term sensor %} and {% term binary_sensor "binary sensor" %} entities depends on the features and capabilities of the connected device and can be one or multiple of:
 
@@ -134,6 +159,7 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 [fritzdect_210]: https://en.avm.de/products/smart-home/fritzdect-210
 [fritzdect_301]: https://en.avm.de/products/smart-home/fritzdect-301
 [fritzdect_302]: https://en.avm.de/products/smart-home/fritzdect-302
+[fritzdect_350]: https://en.avm.de/products/smart-home/fritzdect-350
 [fritzdect_440]: https://en.avm.de/products/smart-home/fritzdect-440
 [fritzdect_500]: https://en.avm.de/products/smart-home/fritzdect-500
 [eurotronic_comet_dect]: https://eurotronic.org/produkte/dect-ule-heizkoerperthermostat/comet-dect
@@ -143,3 +169,9 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 ## Troubleshooting
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+
+## Remove the integration
+
+{% include integrations/remove_device_service.md %}
+
+If you don't use the separate created FRITZ!Box user anymore, than remove it from the FRITZ!Box under to **System** > **FRITZ!Box Users** > **Users**.

@@ -7,7 +7,7 @@ ha_codeowners:
   - '@arturpragacz'
 ha_config_flow: true
 ha_domain: onkyo
-ha_integration_type: integration
+ha_integration_type: device
 ha_iot_class: Local Push
 ha_platforms:
   - media_player
@@ -17,13 +17,10 @@ related:
     title: Configuration file
 ---
 
-The `onkyo` {% term integration %} allows you to control a [Onkyo](https://www.onkyo.com), [Integra](http://www.integrahometheater.com)
-and some recent [Pioneer](https://www.pioneerelectronics.com) receivers from Home Assistant.
-Please be aware that you need to enable "Network Standby" for this integration to work in your Hardware.
+The `onkyo` {% term integration %} allows you to control [Onkyo](https://www.onkyo.com) and [Integra](http://www.integrahometheater.com) (from 2011 onward) and also [Pioneer](https://www.pioneerelectronics.com) (from 2016 onward) receivers using Home Assistant.
+Please be aware that you need to enable "Network Standby" for this integration to work with your hardware.
 
 {% include integrations/config_flow.md %}
-
-If your receiver has second or third zone available, they are displayed as additional media players with the same functionality as the main zone.
 
 {% configuration_basic %}
 Host:
@@ -37,6 +34,8 @@ Input sources:
   type: list
 {% endconfiguration_basic %}
 
+The above settings can also be adjusted later. To do this, click the three-dot menu on the integration entry and select **Reconfigure**.
+
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
@@ -48,6 +47,10 @@ Input sources:
   description: Mappings of input sources to their names.
   type: list
 {% endconfiguration_basic %}
+
+### Zones
+
+If your receiver has a second or third zone available, they are displayed as additional media players with functionality similar to the main zone.
 
 ### Action `onkyo_select_hdmi_output`
 

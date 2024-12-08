@@ -6,6 +6,7 @@ ha_category:
   - Hub
   - Light
   - Number
+  - Select
   - Sensor
   - Switch
   - Time
@@ -20,6 +21,7 @@ ha_platforms:
   - binary_sensor
   - light
   - number
+  - select
   - sensor
   - switch
   - time
@@ -31,8 +33,10 @@ The Home Connect integration allows users to integrate their home appliances sup
 The integration will add one Home Assistant device for each connected home appliance which will have the following entities:
 
 - A power switch
-- If the device has programs, switches for each of the individual programs will be added. Note that program options cannot be configured currently.
-- If the device has programs, a timestamp sensor for remaining time and a numeric sensor for the progress percentage.
+- If the device has programs:
+  - Switches for each of the individual programs will be added. Note that program options cannot be configured currently.
+  - Two select entities that will allow you to select and start a program between the available ones.
+  - A timestamp sensor for remaining time and a numeric sensor for the progress percentage.
 - Light:
   - Hoods:
     - Functional light: on/off and brightness

@@ -26,13 +26,13 @@ This integration interacts with your [Tedee](https://tedee.com) locks by communi
 ## Prerequisites
 
 - You will need the bridge to add your locks using this integration.
-- You need to have the local API enabled.
+- You need to have the **local API** and **encrypted token** enabled.
 - The bridge firmware needs to be at least version `2.2.18086` for push updates to work without errors.
 
 If you do not own the bridge, you can still add your locks to Home Assistant through the [HomeKit device integration](/integrations/homekit_controller/) (only for PRO model). Communication will happen over Bluetooth in that case, and features will be limited.
 
 {% note %}
-The integration will try to configure callbacks to receive near-real-time push updates from your bridge about your lock state changes. For this to work properly, the bridge must be able to reach your Home Assistant instance. It will prefer the configured `internal_url`, so ensure this address is reachable from your bridge on your network.
+The integration will try to configure webhooks to receive near-real-time push updates from your bridge about your lock state changes. For this to work properly, the bridge must be able to reach your Home Assistant instance. It will prefer the configured `internal_url`, so ensure this address is reachable from your bridge on your network. If communication through the webhooks is not possible, the integration will query for an update every 30 seconds.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -110,12 +110,24 @@ This integration only supports functionality that is available locally. This mea
 - Updates
 - Key pads
 
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
 ## Troubleshooting
 
 {% details "Lock state is not updated in real-time" %}
+
 Make sure your bridge can reach your Home Assistant instance. This means that if you use separate VLANs, you need to configure your Firewall appropriately. Additionally, if you have configured an SSL-enabled endpoint for your Internal URL ({% my network title="Settings > System > Network" %}> Home Assistant URL), try setting it back to the IP address of your instance (or a non-HTTPS URL), as HTTPS sometimes leads to problems with the push updates.
+
 {% enddetails %}
 
 {% details "Authentication failures when trying to use the integration" %}
-The token that is used to talk to your lock is time limited. Sometimes there were issues when the clock of the Home Assistant host was slightly out of sync, so try to sync your host's clock.
+
+- This integration works with *local* tokens only, tokens from the cloud won't work
+- In the [bridge settings](https://docs.tedee.com/bridge-api#tag/Authenticate) **encrypted token** must be enabled
+- The token that is used to talk to your lock is time-limited. Sometimes there were issues when the clock of the Home Assistant host was slightly out of sync, so try to sync your host's clock.
+
 {% enddetails %}

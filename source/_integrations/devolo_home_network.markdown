@@ -30,9 +30,14 @@ ha_zeroconf: true
 ha_integration_type: device
 ---
 
-The devolo Home Network integration allows you to monitor your PLC network.
+The **devolo Home Network** {% term integration %} integration allows you to monitor and control your [devolo](https://www.devolo.global) PLC network.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+IP address:
+  description: "IP address of your devolo Home Network device. This can be found in the devolo Home Network App on the device dashboard."
+{% endconfiguration_basic %}
 
 ## Device types
 
@@ -115,3 +120,20 @@ Since firmware 7.10 also the following device without Wi-Fi can be used as long 
 - Magic 2 DinRail
 - Magic 2 LAN 1-1
 - Magic 1 LAN 1-1
+- Gigabridge
+
+## Known limitations
+
+This integration only supports using the API the devolo Home Network App uses. The device website usually offers additional features. However, these features are not available via API and thus cannot be supported until devolo adds them to the API.
+
+## Troubleshooting
+
+### Gigabridge
+
+The devolo Gigabridge is the only device that comes with a default password. However, it seems that in factory default the password works for the device website but not for the API. If you give the device a new password via the website, it is applied to both and the integration starts working. Even using the same password again works.
+
+## Removal
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

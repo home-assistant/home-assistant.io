@@ -147,13 +147,39 @@ The event entity captures events like doorbell rings, motion alerts, and interco
 
 ### Realtime event stability
 
-If you are experiencing issues with receiving ring alerts, the reason could be that you have too many authenticated devices on your ring account.
-Prior to version 2023.12.0, the Home Assistant ring integration would register a new entry in `Authorized Client Devices` in the `Control Centre` at [ring.com](https://account.ring.com/account/control-center/authorized-devices) every time it restarted.
-If you have been using the ring integration before this, you may have many `Authorized Client Devices` in the `Control Centre` on [ring.com](https://account.ring.com/account/control-center/authorized-devices).
-This can cause issues receiving ring alerts.
-You should delete all authorised devices from [ring.com](https://account.ring.com/account/control-center/authorized-devices) `Control Centre` which are from Home Assistant
-(i.e. do not delete those named `iPhone` or `Android`; Home Assistant authorized devices are named `ring-doorbell:HomeAssistant/something` or `Python`).
-If you have too many `Authorised Client Devices` to delete them individually, it might be easier to `Remove all devices` and then re-authorize your required devices.
+Home Assistant requires outbound TCP access to port 5228 to connect to Ring's real-time event service.
+Ensure your firewall and network configuration allow this connection.
+
+Below are steps to follow if realtime events are not working.
+
+#### Step 1
+
+Issues with Ring alerts may be caused by having too many authenticated devices on your Ring account. Before version 2023.12.0, the Home Assistant Ring integration would register a new entry in `Authorized Client Devices` in the `Control Center` at [ring.com](https://account.ring.com/account/control-center/authorized-devices) on every restart.
+{% warning %}
+When cleaning up devices:
+1. Only delete entries that start with `ring-doorbell:HomeAssistant` or `Python`
+2. Do NOT delete entries for your phones or other Ring apps
+3. If there are too many devices to delete individually, you can use the `Remove all devices` option, but you'll need to re-authorize all your devices afterward
+{% endwarning %}
+
+#### Step 2
+
+If you're still experiencing issues after Step 1, try generating a new unique ID for the Home Assistant Ring integration instance.
+To do this, click the three-dot menu on the integration entry and select the `Reconfigure` option.
+Do not try this step before clearing down all the excess `Authorized Client Devices` as per Step 1, or it will simply invalidate the reconfigured entry.
+
+#### Step 3
+
+If alerts are still not working after Steps 1 and 2, try toggling the Motion Warning setting:
+
+1. Go to [ring.com](https://ring.com) and sign in
+2. Select your device
+3. Navigate to Device Settings
+4. Find the Motion Warning toggle
+5. Turn it off, wait 30 seconds
+6. Turn it back on
+
+This has successfully restored alerts for many users.
 
 ## Sensor
 

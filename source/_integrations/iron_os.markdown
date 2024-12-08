@@ -50,3 +50,36 @@ The **IronOS** {% term integration %} seamlessly connects Home Assistant with PI
 ## Update
 
 - **Firmware:** The update entity indicates if the firmware is up-to-date or if there is a newer IronOS version available for your device. For more information on how to update your device, please refer to the [IronOS documentation](https://ralim.github.io/IronOS/).
+
+## Device settings and configuration
+
+The following controls allow you to customize the settings and options for your soldering device. Some controls are deactivated by default, as they are either advanced settings, less critical, or usually do not require adjustment.
+
+### Basic settings
+
+- **Boost temperature:** Sets the temperature for boost mode, which temporarily overrides the soldering temperature when the front button is held down.
+- **Sleep temperature:** The temperature the device drops to after a specified period of inactivity (no movement or button presses).
+- **Sleep timeout:** The duration of inactivity required before the device enters sleep mode and drops to the sleep temperature.
+
+- **Long-press temperature step:** The temperature adjustment increment when holding down a button. Defaults to 10°.
+- **Short-press temperature step:** The temperature adjustment increment when briefly pressing a button. Defaults to 1°.
+- **Motion sensitivity:** Controls how sensitive the device is to movement. Higher values increase sensitivity (for example, 0 = motion detection is off).
+- **Hall effect sensitivity:** Configures the sensitivity of the hall effect sensor (if present) for detecting a magnet to activate sleep mode.
+- **Display brightness:** Adjusts the brightness of the soldering iron's display.
+
+### Power management
+
+- **Keep-awake pulse duration:** Specifies the duration of the power pulse to keep connected power banks awake. Shorter durations minimize power waste and unnecessary heating.
+- **Keep-awake pulse delay:** Adjusts the interval between power pulses. Longer delays reduce unwanted heating, but must be short enough to prevent the power bank from shutting off.
+- **Keep-awake pulse intensity:** Enables and sets the wattage of the power pulse. The power pulse briefly activates the heater to draw sufficient power, preventing connected power banks from entering sleep mode.
+- **Min. voltage per cell:** Sets the minimum voltage per battery cell before shutdown. This value is multiplied by the cell count (for example, 3S: 3–3.7V, 4–6S: 2.4–3.7V).
+- **Power Delivery timeout:** Defines how long the firmware will attempt to negotiate USB-PD before switching to Quick Charge. Lower values are recommended for faster PD negotiation.
+- **Power limit:** Sets a custom wattage cap for the device to maintain the **average** power below this value. Note: Peak power cannot be controlled. When using USB-PD, the limit will be the lower of this setting and the power supply's advertised wattage.
+- **Quick Charge voltage:** Adjusts the maximum voltage for Quick Charge negotiation. Does not affect USB-PD. Ensure the setting aligns with the current rating of your power supply for safety.
+
+### Advanced settings
+
+These settings are intended for technically experienced users and require careful consideration before changes.
+
+- **Voltage divider:** Fine-tunes the measured voltage to account for variations in the voltage sense resistors between units.
+- **Calibration offset:** Adjusts the calibration of the thermocouple measurements, which determine the temperature displayed for the tip.

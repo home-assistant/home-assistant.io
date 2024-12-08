@@ -35,13 +35,14 @@ The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Ada
 
 Platforms available - depending on your Smile and setup include:
 
- - `climate` (for the Anna, Jip and Lisa products, or a single Tom)
- - `button` (for the Adam and the non-legacy Anna and P1 gateways)
- - `sensor` (for all relevant products including the Smile P1)
+ - `climate` (for the stand-alone Anna, for Adam, a climate entity is shown for each zone containing devices like an Anna or another type of wired-thermostat, Jip or Lisa combined with one or more Tom/Floor devices)
  - `binary_sensor` (for showing the status of e.g. domestic hot water heating or secondary heater)
- - `switch` (for Plugs connected to Adam, or Circles and Stealths connected to a Stretch)
+ - `button` (for the Adam and the non-legacy Anna and P1 gateways)
+ - `number` (for changing a boiler setpoint, a temperature offset)
+ - `sensor` (for all relevant products including the Smile P1)
  - `select` (for changing a thermostat schedule, a regulation mode (Adam only))
- - `number` (for changing a boiler setpoint, Circlesa temperature offset)
+ - `switch` (for Plugs connected to Adam, or Circles and Stealths connected to a Stretch)
+
 
 The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
 
@@ -51,11 +52,11 @@ The password can be found on the bottom of your Smile or Stretch, the ID, it sho
 
 ## Entities
 
-This integration will show all Plugwise entities present in your Plugwise configuration. In addition, you will see a 'Smile' entity representing your central Plugwise gateway (i.e., the Smile Anna, Smile P1, Adam or Stretch).
+This integration will show all Plugwise devices (like hardware devices, multi-thermostat climate-zones, and virtual switchgroups) present in your Plugwise configuration. In addition, you will see a Gateway device representing your central Plugwise gateway (i.e., the Smile Anna, Smile P1, Adam or Stretch).
 
-For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual entities. The heating/cooling device connected to your Smile will be shown as 'OpenTherm' or 'OnOff', depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as switches. Various other measurements of your setup will be available as sensors or as binary sensors.
+For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual devices. The heating/cooling device connected to your Smile will be shown as 'OpenTherm' or 'OnOff', depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be shown as devices as well.
 
-Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Adam will be assigned to your gateway entity. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff entity.
+Under each device there will be entities shown like binary_sensors, sensors, etc. depending on the capabilities of the device: for instance centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff device.
 
 ## Configuration
 
@@ -82,7 +83,7 @@ script:
     sequence:
       - action: homeassistant.update_entity
         target:
-          entity_id: climate.anna
+          entity_id: climate.living_room
 ```
 
 #### Reboot the Plugwise gateway
@@ -124,7 +125,7 @@ script:
     sequence:
       - action: climate.set_hvac_mode
         target:
-          entity_id: climate.lisa_bios
+          entity_id: climate.living_room
         data:
           hvac_mode: auto
 ```
@@ -145,7 +146,7 @@ script:
     sequence:
       - action: climate.turn_off
         target:
-          entity_id: climate.lisa_bios
+          entity_id: climate.bios
 ```
 
 #### Change climate schedule
@@ -159,7 +160,7 @@ script:
     sequence:
       - action: select.select_option
         target:
-          entity_id: select.lisa_bios_thermostat_schedule
+          entity_id: select.bios_thermostat_schedule
         data:
           option: "Regulier"
 ```

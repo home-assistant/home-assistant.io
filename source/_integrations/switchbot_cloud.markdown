@@ -44,6 +44,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
   - ON/OFF for all appliance types excepted "Others"
   - Air Conditioner
 - Lock
+- Lock Pro
 - Meter
 - MeterPlus
 - MeterPro

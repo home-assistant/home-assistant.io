@@ -541,6 +541,7 @@ source/_integrations/motioneye.markdown @dermotduffy
 source/_integrations/mqtt.markdown @emontnemery @jbouwh @bdraco
 source/_integrations/msteams.markdown @peroyvind
 source/_integrations/mullvad.markdown @meichthys
+source/_integrations/music_assistant.markdown @music-assistant
 source/_integrations/mutesync.markdown @currentoor
 source/_integrations/my.markdown @home-assistant/core
 source/_integrations/mysensors.markdown @MartinHjelmare @functionpointer
