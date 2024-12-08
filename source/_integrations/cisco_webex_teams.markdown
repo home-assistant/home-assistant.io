@@ -23,7 +23,7 @@ To use this notification platform you will need an app (bot) token. To obtain a 
 
 - Detailed instructions can be found in the section titled **Creating a Webex Bot** on the [Webex Teams bot documentation](https://developer.webex.com/docs/bots).
 
-You also need to specify the `room_id` that you wish to post messages into. The `room_id` can be found in one of two ways:
+You also need to specify the `room_id` that you wish to post messages into. The `room_id` can be found in one of three ways:
 
 1. Logging in at [Cisco Webex for Developers](https://developer.webex.com/) and navigate to `Documentation`>`API Reference`>`Messages` and select List Messages, or
 2. Log into the web client at [web.webex.com](https://web.webex.com/),

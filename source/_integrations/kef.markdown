@@ -79,7 +79,7 @@ supports_on:
   description: LS50 Wireless with a serial number below LS50W13074K24L/R2G do not support turning on the speakers over the network. Set this to false if you have an older model.
   default: true
   required: false
-  type: integer
+  type: boolean
 {% endconfiguration %}
 
 ## Advanced - configuration example

@@ -49,6 +49,26 @@ Device model:
 
 The **Bang & Olufsen** integration uses the [Mozart API](https://bang-olufsen.github.io/mozart-open-api), which is a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume etc. The only exception to this is the repeat and shuffle controls which are polled every 30 seconds.
 
+## Supported features
+
+Currently, a single device with a `media_player` entity is created for each added physical device. For advanced automations, [events](#automations) are fired in Home Assistant.
+
+### Media player
+
+A number of features are available through the media player entity:
+
+- See current metadata, progress, volume, etc.
+- Control next/previous, play/pause, shuffle/repeat settings, volume, sound mode, audio and video sources, and more.
+- Play various media through [play_media actions](#play_media-actions).
+- Control multiroom audio through [Beolink](https://support.bang-olufsen.com/hc/en-us/articles/4411572883089-What-is-Beolink-Multiroom):
+  - Control with Home Assistant media_player grouping.
+  - Monitor current [Beolink state](#beolink) through media player properties.
+  - For more advanced usage, [custom Beolink services](#custom-actions) have been defined:
+     - Connect or expand to [ASE](https://support.bang-olufsen.com/hc/en-us/articles/24766979863441-Which-platform-is-my-Connected-Audio-product-based-on) products not available in Home Assistant.
+     - Expand sessions to all discovered devices.
+     - Connect to, expand to or unexpand devices.
+     - Set all connected Beolink devices to standby.
+
 ## Actions
 
 ### play_media actions
