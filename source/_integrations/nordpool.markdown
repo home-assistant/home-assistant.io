@@ -58,7 +58,9 @@ Additional sensors are provided for peak and off-peak blocks.
 - Off-peak 1 refers to the price of the time period from midnight to 8am.
 - Off-peak 2 refers to the average price of the time period from 8pm to midnight.
 
-![nordpool-blocks](https://github.com/user-attachments/assets/598beb3e-de0e-4e9f-bd16-fa65b00849ae)
+<p class='img'>
+  <img src='/images/integrations/nordpool/nordpool-blocks.png' alt='Time blocks'>
+</p>
 
 | Sensor                          | Type              | Description                                                                       |
 | ------------------------------- | ----------------- | --------------------------------------------------------------------------------- |
@@ -92,11 +94,9 @@ Create a helper using the UI.
 
 The template below takes the current price attributes, adds 0.1293 EUR as fixed costs and adds 21% VAT.
 
-![image](https://github.com/user-attachments/assets/1284dca6-0d20-45cd-a528-ded1aeb2a582)
-
-By selecting Nord pool as the device, the template sensor will show up as part of the device. 
-
-![image](https://github.com/user-attachments/assets/bf339c77-fb8a-423c-bf12-1eb9e81bdb73)
+<p class='img'>
+  <img src='/images/integrations/nordpool/nordpool_create_template.png' alt='Screenshot: Create template sensor'>
+</p>
 
 ### YAML Template
 
@@ -123,7 +123,8 @@ template:
 
 ### Energy Dashboard
 
-To use the Nordpool integration, use the `Use an entity with current price` option when configuring grid consumption and production.
+To use the Nordpool integration in the Energy dashboard, use the `Use an entity with current price` option when configuring grid consumption and production.
 
-![image](https://github.com/user-attachments/assets/17847eb5-5bee-4f0b-b652-d1c2d2f76cf9)
-
+<p class='img'>
+  <img src='/images/integrations/nordpool/nordpool_energy_dashboard.png' alt='Screenshot: Create template sensor'>
+</p>
