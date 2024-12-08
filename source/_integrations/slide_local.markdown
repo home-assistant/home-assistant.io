@@ -63,12 +63,6 @@ api_version:
   type: selector
 {% endconfiguration %}
 
-## Remove integration
-
-This integration can be removed by following these steps:
-
-{% include integrations/remove_device_service.md %}
-
 ## Supported functionality
 
 ### Covers
@@ -92,3 +86,10 @@ Toggle the TouchGo functionality of the slide cover.
 ## Known limitations
 
 The integration only provides connection with Slide devices via the local API. For connecting via the cloud API, please use the `slide` integration.
+
+
+## Remove integration
+
+This integration can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}
