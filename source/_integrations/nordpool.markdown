@@ -52,7 +52,8 @@ The integration will create entities showing today's energy prices for the confi
 
 ### Peak & off-peak sensors
 
-Additional sensors are provided for peak and off-peak blocks. 
+Additional sensors are provided for peak and off-peak blocks.
+
 - Peak refers to the price of the period from 8am to 8pm.
 - Off-peak 1 refers to the price of the time period from midnight to 8am.
 - Off-peak 2 refers to the average price of the time period from 8pm to midnight.
