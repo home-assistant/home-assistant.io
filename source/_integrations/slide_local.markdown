@@ -57,7 +57,7 @@ invert_position:
   default: false
   type: boolean
 api_version:
-  description: "Minimum time interval between updates."
+  description: "The API version of your Slide device (API 1 or API 2)."
   required: true
   default: API 2
   type: selector
