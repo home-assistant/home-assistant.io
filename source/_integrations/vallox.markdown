@@ -57,7 +57,7 @@ The date platform allows you to set the filter change date.
 
 ## Profile switching
 
-For convenient switching of ventilation profiles in the GUI, just click on the `Vallox` fan {% term entity %} to get a drop-down menu to select from. Alternatively, the service `fan/set_preset_mode` can be used.
+For convenient switching of ventilation profiles in the GUI, just click on the `Vallox` fan {% term entity %} to get a drop-down menu to select from. Alternatively, the action `fan/set_preset_mode` can be used.
 
 The four standard Vallox profiles are supported:
 
@@ -66,28 +66,37 @@ The four standard Vallox profiles are supported:
 - `Boost`
 - `Fireplace`
 
-## Fan services
+## Fan actions
 
-### Service `vallox.set_profile_fan_speed_home`
+### Action `vallox.set_profile_fan_speed_home`
 
 Set the fan speed of the `Home` profile.
 
-| Service data attribute | Optional | Description                                     |
+| Data attribute | Optional | Description                                     |
 |------------------------|----------|-------------------------------------------------|
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
-### Service `vallox.set_profile_fan_speed_away`
+### Action `vallox.set_profile_fan_speed_away`
 
 Set the fan speed of the `Away` profile.
 
-| Service data attribute | Optional | Description                                     |
+| Data attribute | Optional | Description                                     |
 |------------------------|----------|-------------------------------------------------|
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
-### Service `vallox.set_profile_fan_speed_boost`
+### Action `vallox.set_profile_fan_speed_boost`
 
 Set the fan speed of the `Boost` profile.
 
-| Service data attribute | Optional | Description                                     |
+| Data attribute | Optional | Description                                     |
 |------------------------|----------|-------------------------------------------------|
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
+
+### Action `vallox.set_profile` 
+
+Set the profile, and optionally a duration for the profile to be active.
+
+| Data attribute | Optional | Description                                                                                                                                                                           |
+|----------------|---------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `profile`      |       no | Profile to set, one of `home`, `away`, `boost`, `fireplace`, or `extra`.                                                                                                              |
+| `duration`     |      yes | Duration to activate the profile for; in minutes. `Integer` between 1 and 65535. Only applies to  `boost`, `fireplace` or `extra` profiles. 65535 sets the profile without a timeout. | 

@@ -51,4 +51,4 @@ Remember that Clementine must be configured to accept connections through its ne
 
 You can configure this through Clementine  `Tools > Preferences > Network remote control` configuration menu. Enable `Use network remote control` and configure the other options for your use case.
 
-This integration does not implement the `play_media` service so you cannot add tracks to the playlist.
+This integration does not implement the `play_media` action so you cannot add tracks to the playlist.

@@ -35,10 +35,10 @@ This entity will display the active app and playback controls.
 
 ### Launching apps
 
-You can launch apps using the `media_player.select_source` service, or using the
+You can launch apps using the `media_player.select_source` action, or using the
 “Apps” folder in the media browser.
 
-Using the `media_player.play_media` service, you can also use `Deep Links` to
+Using the `media_player.play_media` action, you can also use `Deep Links` to
 launch specific content in applications.
 
 Examples of some `Deep Links` for popular applications:
@@ -62,7 +62,7 @@ Examples:
 
 ```yaml
 # Open the Netflix app at a specific title
-service: media_player.play_media
+action: media_player.play_media
 data:
   media_content_type: url
   media_content_id: https://www.netflix.com/title/80234304
@@ -72,7 +72,7 @@ target:
 
 ```yaml
 # Open a specific YouTube video:
-service: media_player.play_media
+action: media_player.play_media
 data:
   media_content_type: url
   media_content_id: youtube://www.youtube.com/watch?v=dQw4w9WgXcQ
@@ -109,7 +109,7 @@ The following commands are currently available:
 
 **NOTE:** Not all commands are supported by all Apple TV versions.
 
-### Service `send_command`
+### Action `send_command`
 
 | Service data<br>attribute | Optional | Description                                                                                                                   |
 | ------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -128,7 +128,7 @@ being in a fixed place on the home screen:
 lounge_appletv_netflix:
   alias: "Select Netflix"
   sequence:
-    - service: remote.send_command
+    - action: remote.send_command
       target:
         entity_id: remote.lounge_appletv
       data:
@@ -147,7 +147,7 @@ the Media Player:
 apple_tv_sleep:
   alias: "Make the Apple TV sleep"
   sequence:
-    - service: remote.send_command
+    - action: remote.send_command
       target:
         entity_id: remote.lounge_appletv
       data:
@@ -155,14 +155,14 @@ apple_tv_sleep:
         delay_secs: 1
         command:
           - home
-    - service: remote.send_command
+    - action: remote.send_command
       target:
         entity_id: remote.lounge_appletv
       data:
         delay_secs: 1
         command:
           - select
-    - service: media_player.turn_off
+    - action: media_player.turn_off
       target:
         entity_id: media_player.lounge_appletv
 ```
@@ -170,7 +170,7 @@ apple_tv_sleep:
 Send 3 `left` commands with delay between each:
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.apple_tv
 data:

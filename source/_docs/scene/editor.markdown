@@ -16,10 +16,10 @@ On the moment you save the scene, all the states of your devices are stored in t
 When you leave the editor the states of the devices are restored to the state from before you started editing.
 The menu on the top-right has options to **Duplicate scene** and **Delete scene**.
 
-A scene can be called in {% term automation %} action and {% term scripts %} using a turn on scene {% term service %}:
+A scene can be called in {% term automation %} action and {% term scripts %} using a turn on scene {% term action %}:
 
 ```yaml
-service: scene.turn_on
+action: scene.turn_on
 target:
   entity_id: scene.my_unique_id
 ```
@@ -77,6 +77,6 @@ For example:
       brightness: 200
 ```
 
-<div class='note'>
-Any comments in the YAML file will be lost and templates will be reformatted when you update a scene via the editor.
-</div>
+{% note %}
+Any comments in the {% term YAML %} file will be lost and templates will be reformatted when you update a scene via the editor.
+{% endnote %}

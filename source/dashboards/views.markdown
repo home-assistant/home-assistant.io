@@ -14,6 +14,8 @@ related:
     title: About dashboards
   - docs: /dashboards/cards/#adding-cards-to-your-dashboard
     title: Adding cards to a view
+  - docs: /common-tasks/os/#configuring-access-to-files
+    title: Configure access to files
 ---
 
 A view is a tab inside a dashboard. For example, the screenshot below shows a separate view for lights on the Overview dashboard.
@@ -32,34 +34,65 @@ Views control the layout.
 
 There are four different view types:
 
+- **Sections (default)**: Arranges cards in a grid system and lets you group them in sections.
+- **Masonry**: Arranges cards in columns based on their card size.
 - **Panel**: Displays one card in full width. For example a map or an image.
 - **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
-- **Masonry (default)**: Arranges cards in columns based on their card size.
-- **Sections (experimental)**: Arranges cards in a grid system and lets you group them in sections.
-
-It is currently not possible to migrate your dashboard from one view type into another. For example, if you have a dashboard in masonry view, and want it in sections view, you need to create a new view.
 
 ## Adding a view to a dashboard
 
-1. To add a view to your user interface, in the top right corner, select the pencil icon.
+1. To add a view to your dashboard, in the top right corner, select the pencil icon.
 2. Select the `+` button in the top menu bar.
 
     ![Views toolbar](/images/dashboards/views.png)
 
 3. Define the view settings:
    - If you want a view title, enter the **Title**.
-   - If you want to see an icon, select the icon.
-     - Note: If an icon is defined, the title text only shows as a tooltip.
+   - If you want to see an icon, select the [view icon](#view-icon).
+     - If an icon is defined, only the icon is shown. The text only shows as a tooltip.
      - We use [Material icons](https://pictogrammers.com/library/mdi/).
-   - Select the view type.
+   - If you want to link to another view, define the [URL](#url-of-a-view).
+   - If you want to use a previously defined theme, select the [theme](/integrations/frontend/#themes).
+   - Select the [view type](#view-type).
+   - If this view is meant to be used as a [subview](#subview) only, enable the **Subview** toggle.
+   - If you are using **Sections view**, choose the number of columns you want to use, and, if you want to let the system fill gaps between cards, enable **Dense section placement.**.
 
-   ![The create new view configuration dialog](/images/dashboards/dashboard_view_configuration_01.png)
+   ![The create new view configuration dialog](/images/dashboards/dashboard_view_configuration_03.png)
 
-4. On the **Badges** tab, add badges, if any.
-    - Note that the sidebar and panel views do not support badges.
-5. If this view should not be visible for some users, on the **Visibility** tab, disable the view for those users.
+4. To use a background image, on the **Background** tab, select an image.
+   - **Upload picture** lets you pick an image from the system used to show your Home Assistant UI.
+   - **Local path** lets you pick an image stored on Home Assistant. For example: `/homeassistant/images/lights_view_background_image.jpg`.
+     - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-add-on) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on) add-on.
+   - **web URL** let you pick an image from the web. For example `https://www.home-assistant.io/images/frontpage/assist_wake_word.png`.
+5. On the **Badges** tab, select the entities you want to be represented by a badge.
+    - Sidebar and panel views do not support badges.
+6. By default, the new section is visible to all users. On the **Visibility** tab, you can disable the view for users.
 
-## Path
+## Migrating a view into a sections view
+
+If you have already defined a view but you would now like to have it in a section view type, you can migrate that content. For example, you can migrate from a masonry to a sections view. Currently, you cannot migrate a sections view type into another view type.
+
+Migrating does not affect the current view. It will stay as is, and a new, additional view is created.
+
+To migrate a view into a sections view type, follow these steps:
+
+1. Open the view you want to migrate, and go into edit mode.
+2. In the configuration dialog, select the new view type.
+3. If the new view type offers additional settings, define those settings.
+   - For more information on those settings, refer to the documentation of that view type.
+4. In the top-right corner, select **Convert**.
+   - **Result**: A new, additional view is created.
+   - Your current view will stay untouched.
+   - A new tab opens, and all your cards are imported to the new view.
+5. In the **Imported cards** section, pick each of the cards, and drag them into the sections.
+   - To edit and customize the view, follow the steps in the [sections view](/dashboards/sections/) documentation.
+
+    ![Move cards from imported cards section onto your dashboard](/images/dashboards/imported-cards.png)
+6. To save your changes, select **Done**.
+    - **Result**: Your new dashboard is shown.
+    - If you have cards that were not yet integrated, you can still add them later. They are still available in the Edit mode, in the **Imported cards** section.
+
+## URL of a view
 
 You can link to one view from a card in another view when using cards that support navigation (`navigation_path`). The string supplied here will be appended to the string `/lovelace/` to create the path to the view. Do not use special characters in paths. Do not begin a path with a number. This will cause the parser to read your path as a view index.
 
@@ -129,9 +162,9 @@ user:
   type: string
 {% endconfiguration %}
 
-## Type
+## Changing the view type in YAML
 
-You can change the layout of a view by using a different view type. The default is [`masonry`](/dashboards/masonry).
+You can change the layout of a view in YAML by using a different view type. The default is [`section`](/dashboards/section).
 
 ### Example
 

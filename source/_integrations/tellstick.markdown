@@ -72,7 +72,7 @@ port:
 
 This `tellstick` cover platform allows you to control your [TellStick][tellstick-gateway] covers.
 
-To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your `configuration.yaml` file:
+To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -84,7 +84,7 @@ cover:
 
 This `tellstick` light platform allows you to control your [TellStick][tellstick-gateway] dimmers.
 
-To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your `configuration.yaml` file:
+To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -96,7 +96,7 @@ light:
 
 The `tellstick` sensor platform allows you to get current meteorological data from a [TellStick][tellstick-gateway] device.
 
-To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your `configuration.yaml` file:
+To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -171,7 +171,7 @@ sensor:
 
 This `tellstick` switch platform allows you to control [TellStick][tellstick-gateway] devices.
 
-To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your `configuration.yaml` file:
+To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

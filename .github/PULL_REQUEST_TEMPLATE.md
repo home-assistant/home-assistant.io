@@ -1,3 +1,10 @@
+<!--
+  You are amazing! Thanks for contributing to our project!
+  Please, DO NOT DELETE ANY TEXT from this template! (unless instructed).
+
+  Before submitting your pull request, please verify that you have chosen the correct target branch,
+  and that the PR preview looks fine and does not include unrelated changes.
+-->
 ## Proposed change
 <!-- 
     Describe the big picture of your changes here to communicate to the

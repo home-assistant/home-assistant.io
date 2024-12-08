@@ -13,7 +13,9 @@ ha_config_flow: true
 ha_platforms:
   - button
   - cover
+  - diagnostics
   - select
+  - sensor
 ha_integration_type: device
 ---
 
@@ -46,21 +48,25 @@ The following entities are available for a Motionblinds Bluetooth device:
   -  Favorite button: allows you to move the blind to the favorite position.
 - [Select](https://www.home-assistant.io/integrations/select/) entities:
   -  Speed select: allows you to change the speed of the motor to low, medium, or high. Available for all blinds except curtain blinds and vertical blinds.
+- [Sensor](https://www.home-assistant.io/integrations/sensor/) entities:
+  -  Battery sensor: shows the battery percentage. The icon also reflects whether the motor is currently charging and/or whether the motor is wired and, therefore, does not have a battery.
+  Calibration sensor: shows whether the blind is still calibrated. The motor can move to an uncalibrated state when it has been moved to a different position while not powered. This sensor is available for curtain blinds and vertical blinds, as these can be moved while not powered.
+  -  Connection sensor: shows whether the blind is connected, disconnected, connecting, or disconnecting.
+  -  Signal strength sensor: shows the signal strength in dBm.
 
-## Services
+## Actions
 
-Since Motionblinds Bluetooth motors require a Bluetooth connection to control them, Home Assistant does not get automatic updates of the motor's state by default. Therefore, you can use the [homeassistant.update_entity](https://www.home-assistant.io/docs/scripts/service-calls/#homeassistant-services) service on any entity belonging to a Motionblinds Bluetooth device, which will connect to your Motionblinds Bluetooth motor and update the state of all entities belong to that device. However, be aware that doing so may impact battery life.
+Since Motionblinds Bluetooth motors require a Bluetooth connection to control them, Home Assistant does not get automatic updates of the motor's state by default. Therefore, you can use the [homeassistant.update_entity](https://www.home-assistant.io/docs/scripts/perform-actions/#homeassistant-actions) action on any entity belonging to a Motionblinds Bluetooth device, which will connect to your Motionblinds Bluetooth motor and update the state of all entities belong to that device. However, be aware that doing so may impact battery life.
 
 This can also be automated using a YAML automation. For instance, the following automation connects to your Motionblind every 24 hours to update its state in Home Assistant:
 
 ```yaml
-alias: Motionblinds Bluetooth polling automation
-mode: single
-trigger:
-  - platform: time_pattern
+alias: "Motionblinds Bluetooth polling automation"
+triggers:
+  - trigger: time_pattern
     hours: "/24"
-action:
-  - service: homeassistant.update_entity
+actions:
+  - action: homeassistant.update_entity
     target:
       entity_id: cover.motion_shade
 ```

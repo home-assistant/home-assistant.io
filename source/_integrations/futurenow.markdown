@@ -73,7 +73,7 @@ devices:
 
 ### Extended Configuration Sample
 
-The following example `configuration.yaml` has two different FutureNow units with multiple channels:
+The following example {% term "`configuration.yaml`" %} has two different FutureNow units with multiple channels:
 
 ```yaml
 # Example configuration.yaml entry

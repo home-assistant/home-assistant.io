@@ -69,7 +69,7 @@ Stream URL template:
 | `sensor` | An "action sensor" that shows the number of configured [actions](https://github.com/ccrisan/motioneye/wiki/Action-Buttons) for this device. The names of the available actions are viewable in the `actions`  attribute of the sensor entity. |
 
 **Note**:
-  - If the video streaming switch is turned off, the camera entity, and services that operate on that camera, will become unavailable. The rest of the integration will continue to function.
+  - If the video streaming switch is turned off, the camera entity, and actions that operate on that camera, will become unavailable. The rest of the integration will continue to function.
   - As cameras are added or removed to motionEye, devices/entities are automatically added or removed from Home Assistant.
 
 
@@ -221,9 +221,9 @@ in automations (etc).
 }
 ```
 
-## Services
+## Actions
 
-All services accept either an `entity_id` or `device_id`.
+All actions accept either an `entity_id` or `device_id`.
 
 ### motioneye.snapshot
 
@@ -266,14 +266,14 @@ Parameters:
 
 **Note**:
 
-- Calling this service triggers a reset of the motionEye cameras which will pause the
+- Calling this action triggers a reset of the motionEye cameras which will pause the
   stream / recordings / motion detection (etc).
 - Ensure the `Text Overlay` switch is turned on to actually display the configured text overlays.
 
 #### Example:
 
 ```yaml
-service: motioneye.set_text_overlay
+action: motioneye.set_text_overlay
 data:
   left_text: timestamp
   right_text: custom-text
@@ -299,7 +299,7 @@ correctly associate media with the camera from which that media was captured.
 
 ## Example Dashboard Card
 
-A dashboard card with icons that will call the `action` service to send action commands to motionEye.
+A dashboard card with icons that will call the `action` action to send action commands to motionEye.
 
 ```yaml
 - type: picture-glance
@@ -312,7 +312,7 @@ A dashboard card with icons that will call the `action` service to send action c
         icon: "mdi:arrow-left"
         tap_action:
           action: call-service
-          service: motioneye.action
+          action: motioneye.action
           data:
             action: left
             entity_id: camera.living_room
@@ -320,7 +320,7 @@ A dashboard card with icons that will call the `action` service to send action c
         icon: "mdi:arrow-right"
         tap_action:
           action: call-service
-          service: motioneye.action
+          action: motioneye.action
           data:
             action: right
             entity_id: camera.living_room
@@ -328,7 +328,7 @@ A dashboard card with icons that will call the `action` service to send action c
         icon: "mdi:arrow-up"
         tap_action:
           action: call-service
-          service: motioneye.action
+          action: motioneye.action
           data:
             action: up
             entity_id: camera.living_room
@@ -336,7 +336,7 @@ A dashboard card with icons that will call the `action` service to send action c
         icon: "mdi:arrow-down"
         tap_action:
           action: call-service
-          service: motioneye.action
+          action: motioneye.action
           data:
             action: down
             entity_id: camera.living_room
@@ -351,12 +351,12 @@ must be switched on for this automation to work (controllable via `switch.<name>
 
 ```yaml
 - alias: "Set camera text overlay to armed"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: alarm_control_panel.home_alarm
       to: "armed_away"
-  action:
-    - service: motioneye.set_text_overlay
+  actions:
+    - action: motioneye.set_text_overlay
       target:
         entity_id: camera.living_room
       data:
@@ -364,12 +364,12 @@ must be switched on for this automation to work (controllable via `switch.<name>
         custom_left_text: "Alarm is ARMED"
 
 - alias: "Set camera text overlay to disarmed"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: alarm_control_panel.home_alarm
       to: "disarmed"
-  action:
-    - service: motioneye.set_text_overlay
+  actions:
+    - action: motioneye.set_text_overlay
       target:
         entity_id: camera.living_room
       data:
@@ -385,14 +385,14 @@ An automation to cast stored movie clips to a TV as they arrive.
 
 ```yaml
 - alias: "Cast motionEye movie clips"
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: motioneye.file_stored
       event_data:
         # Only cast video.
         file_type: "8"
-  action:
-    - service: media_player.play_media
+  actions:
+    - action: media_player.play_media
       target:
         entity_id: media_player.kitchen_tv
       data:
@@ -405,7 +405,7 @@ An automation to cast stored movie clips to a TV as they arrive.
 ### Debug Logging
 
 To enable debug logging for both the integration and the underlying client library,
-enable the following in your `configuration.yaml` and then restart:
+enable the following in your {% term "`configuration.yaml`" %} and then restart:
 
 ```yaml
 logger:

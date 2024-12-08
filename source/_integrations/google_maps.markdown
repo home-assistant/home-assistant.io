@@ -38,12 +38,9 @@ device_tracker:
     username: "ACCOUNT_B_EMAIL"
 ```
 
-<div class='note'>
+{% note %}
 If using more than one account, your own device may show twice, however, the parameters returned from Account A will not include a value for battery_level or entity_picture. These parameters will be present in your device tracker entity from Account B. Therefore, disregard the device tracker entity with is missing those parameters. 
-</div>
-
-
-
+{% endnote %}
 
 ## Configuration
 
@@ -77,6 +74,6 @@ scan_interval:
   type: integer
 {% endconfiguration %}
 
-<div class='note'>
+{% note %}
 As of release 0.97 Google passwords are no longer required in your configuration. Users coming from earlier releases should only remove the password entry from their configuration file (username is still required) and restart Home Assistant. The cookie file previously generated should still be valid and will allow the tracker to continue functioning normally until the cookie is invalidated.
-</div>
+{% endnote %}

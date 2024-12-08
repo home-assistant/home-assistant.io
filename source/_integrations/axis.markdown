@@ -30,9 +30,9 @@ ha_integration_type: device
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-  It is recommended that you create a user on your Axis device specifically for Home Assistant. For sensor functionality, it is enough to create a user with viewer privileges. If you want additional functional control you will need admin privileges.
-</div>
+{% tip %}
+It is recommended that you create a user on your Axis device specifically for Home Assistant. For sensor functionality, it is enough to create a user with viewer privileges. If you want additional functional control you will need admin privileges.
+{% endtip %}
 
 ## Debugging integration
 

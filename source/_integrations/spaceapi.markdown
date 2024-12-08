@@ -289,7 +289,7 @@ spaceapi:
   issue_report_channels:
     - email
   state:
-    entity_id: binary_sensor.front_door"
+    entity_id: "binary_sensor.front_door"
     icon_open: https://eastermundigen.ch/open.png
     icon_closed: https://eastermundigen.ch/close.png
   sensors:

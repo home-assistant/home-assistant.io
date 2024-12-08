@@ -27,7 +27,7 @@ For more complete Home Assistant support based on MQTT autodiscovery, consider s
 
 ## Configuration
 
-To use SUPLA devices in your installation, add the following to your `configuration.yaml`:
+To use SUPLA devices in your installation, add the following to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 supla:

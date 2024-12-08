@@ -70,7 +70,7 @@ zone_names:
 - Media players created by Yamaha support powering on/off, mute,
   volume control and source selection. Playback controls, for instance
   play and stop are available for sources that supports it.
-- The `play_media` service is implemented for `NET RADIO` source
+- The `play_media` action is implemented for `NET RADIO` source
   only. The `media_id` is a `>` separated string of the menu path on
   the vtuner service. For instance `Bookmarks>Internet>WAMC 90.3 FM`.
   MusicCast devices use the path `Radio>Favorites>WAMC 90.3 FM`.
@@ -110,15 +110,15 @@ script:
  rp_porch:
     alias: "Radio Paradise Porch"
     sequence:
-      - service: media_player.turn_on
+      - action: media_player.turn_on
         target:
           entity_id: media_player.living_room_stereo_zone_2
-      - service: media_player.volume_set
+      - action: media_player.volume_set
         target:
           entity_id: media_player.living_room_stereo_zone_2
         data:
           volume_level: 0.48
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.living_room_stereo_zone_2
         data:
@@ -127,30 +127,30 @@ script:
 
 ```
 
-### Service `enable_output`
+### Action `enable_output`
 
 Enable or disable an output port (HDMI) on the receiver.
 
-| Service data attribute | Optional | Description                                                               |
+| Data attribute | Optional | Description                                                               |
 | ---------------------- | -------- | ------------------------------------------------------------------------- |
 | `entity_id`            | yes      | String or list of strings that point at `entity_id`s of Yamaha receivers. |
 | `port`                 | no       | Port to enable or disable, e.g., `hdmi1`.                                 |
 | `enabled`              | no       | To enable set true, otherwise set to false.                               |
 
-### Service `menu_cursor`
+### Action `menu_cursor`
 
 Control the menu cursor.
 
-| Service data attribute | Optional | Description                                                                        |
+| Data attribute | Optional | Description                                                                        |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | String or list of strings that point at `entity_id`s of Yamaha receivers.          |
 | `cursor`               | no       | Name of the cursor key to press: `up`, `down`, `left`, `right`, `select`, `return` |
 
-### Service `select_scene`
+### Action `select_scene`
 
 Select a scene on the receiver.
 
-| Service data attribute | Optional | Description                                                                                              |
+| Data attribute | Optional | Description                                                                                              |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | String or list of strings that point at `entity_id`s of Yamaha receivers.                                |
 | `scene`                | no       | Scene to select, e.g., `BD/DVD Movie Viewing`, `TV Viewing`, `NET Audio Listening` or `Radio Listening`. |

@@ -9,7 +9,7 @@ ha_codeowners:
   - '@dmulcahey'
 ha_domain: tag
 ha_quality_scale: internal
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 <p class='img'>
@@ -27,9 +27,9 @@ The easiest way to get started with tags is to use NFC tags ([stickers](https://
 
 <lite-youtube videoid="Xc120lClUgA" videotitle="Writing a tag (iOS)" posterquality="maxresdefault"></lite-youtube>
 
-<div class='note' data-title='for iPhone users'>
+{% important %}
 Only iPhone XS, XR and iPhone 11 or later support background NFC tag reading.
-</div>
+{% endimportant %}
 
 <lite-youtube videoid="xE7wm1bxRLs" videotitle="Writing a tag (Android)" posterquality="maxresdefault"></lite-youtube>
 
@@ -39,6 +39,17 @@ Home Assistant has a dedicated panel that allows you to manage your tags. You ca
 
 ![Tag user interface in Home Assistant](/images/blog/2020-09-15-home-assistant-tags/tag-ui.gif)
 
+## Entities
+
+Every card automatically creates an `tag` entity. This is useful for automations or for displaying on dashboards to see when the card was last scanned.
+
+State shows the time when the card was last scanned in datetime string format. For example, `2013-09-17T07:32:51.095+00:00`
+
+### Attributes
+
+- **Tag ID**: identification as set during creation of the tag.
+- **Last scanned by device ID**: Which device did scan the tag last time, useful in automations for doing different things depending on which device scanned the tag.
+
 ## Building an RFID jukebox
 
 One of the most fun applications of tags is to pick music in your living room. To make this super easy, you can use the below automation:
@@ -47,9 +58,7 @@ One of the most fun applications of tags is to pick music in your living room. T
 
 ```yaml
 automation:
-- id: handle_tag_scan
-  alias: "Handle Tag Scan"
-  mode: single
+- alias: "Handle Tag Scan"
   # Hide warnings when triggered while in delay.
   max_exceeded: silent
   variables:
@@ -64,19 +73,19 @@ automation:
       04-B1-C6-62-2F-64-80:
         media_content_id: spotify:playlist:0OtWh3u6fZrBJTQtVBQWge
         media_content_type: playlist
-  trigger:
-    platform: event
-    event_type: tag_scanned
-  condition:
+  triggers:
+    - trigger: event
+      event_type: tag_scanned
+  conditions:
     # Test that we support this device and tag
     - "{{ trigger.event.data.tag_id in tags }}"
     - "{{ trigger.event.data.device_id in media_players }}"
-  action:
+  actions:
     - variables:
         media_player_entity_id: "{{ media_players[trigger.event.data.device_id] }}"
         media_content_id: "{{ tags[trigger.event.data.tag_id].media_content_id }}"
         media_content_type: "{{ tags[trigger.event.data.tag_id].media_content_type }}"
-    - service: media_player.play_media
+    - action: media_player.play_media
       target:
         entity_id: "{{ media_player_entity_id }}"
       data:

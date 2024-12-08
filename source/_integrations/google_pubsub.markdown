@@ -84,9 +84,9 @@ filter:
       type: list
 {% endconfiguration %}
 
-<div class='note warning'>
-  Not filtering domains or entities will send every event to Google PubSub, thus hitting the free tier limit very fast. Be sure to fill in this configuration parameter or have a paid subscription for Google Cloud.
-</div>
+{% important %}
+Not filtering domains or entities will send every event to Google PubSub, thus hitting the free tier limit very fast. Be sure to fill in this configuration parameter or have a paid subscription for Google Cloud.
+{% endimportant %}
 
 ### Configure filter
 

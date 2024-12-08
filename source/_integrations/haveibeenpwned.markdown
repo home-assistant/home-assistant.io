@@ -56,8 +56,8 @@ account has been breached as well as the added date of the breach data. This dat
   <img src='/images/integrations/haveibeenpwned/sensor.png' />
 </p>
 
-<div class='note warning'>
-  The sensor will scan all email addresses specified with a 5 second delay between all breach data requests on Home Assistant startup.
-  After this initial startup scanning, the sensor will only scan one email account per 15 minutes to prevent abuse, and not hammer "the
-  Have I been Pwned" service, as this breach data almost never changes.
-</div>
+{% note %}
+The sensor will scan all email addresses specified with a 5 second delay between all breach data requests on Home Assistant startup.
+After this initial startup scanning, the sensor will only scan one email account per 15 minutes to prevent abuse, and not hammer "the
+Have I been Pwned" service, as this breach data almost never changes.
+{% endnote %}

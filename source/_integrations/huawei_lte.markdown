@@ -78,38 +78,31 @@ entities varies by device model and firmware version.
 Unauthenticated mode and default list of notification recipient phone
 numbers can be set using the integration's configuration options.
 
-## Services
+## Actions
 
-The following router action services are available. When invoked by a user, administrator access is required.
+The following router action actions are available. When invoked by a user, administrator access is required.
 
-### Service `huawei_lte.suspend_integration`
+### Action `huawei_lte.suspend_integration`
 
 Suspend integration. Suspending logs the integration out from the router, and stops accessing it.
 Useful e.g.,  if accessing the router web interface from another source such as a web browser is temporarily required.
-Invoke the `huawei_lte.resume_integration` service to resume.
+Invoke the `huawei_lte.resume_integration` action to resume.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `url`                  | yes, if only one router configured | Router URL. |
 
-### Service `huawei_lte.resume_integration`
+### Action `huawei_lte.resume_integration`
 
 Resume suspended integration.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `url`                  | yes, if only one router configured | Router URL. |
 
 ## Tested devices
 
-Devices we know to be working with this integration based on the [documentation of used libraries](https://github.com/Salamek/huawei-lte-api/#huawei-lte-api) and reports by users:
+It is the intention and highly likely that this integration works with all devices
+[reported working with the underlying huawei-lte-api library](https://github.com/Salamek/huawei-lte-api#tested-on).
 
-- Huawei B310s-22
-- Huawei B315s-936
-- Huawei B525s-23a
-- Huawei E5186s-22a
-- Huawei B618
-- Huawei B529s-23a
-- Huawei B535s
-
-This is not a complete list. The integration can probably connect to other Huawei LTE devices running similar firmware.
+It will not work on ones noted as not working in that list.

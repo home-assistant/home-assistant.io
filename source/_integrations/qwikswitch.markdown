@@ -108,9 +108,9 @@ QwikSwitch devices (i.e., transmitter buttons) will fire events on the Home Assi
 ```yaml
 automation:
   - alias: "Action - Respond to A button press"
-    trigger:
-      platform: event
-      event_type: qwikswitch.button.@12df34
+    triggers:
+      - trigger: event
+        event_type: qwikswitch.button.@12df34
 ```
 
 `event_type` names should be in the format **qwikswitch.button.@_QS_id_**. where **@_QS_id_** will be captured in the Home Assistant log when pressing the button. Alternatively, you can also get the device ID from the QS Mobile application or by using the listen API call by browsing to `http://127.0.0.1:2020/&listen` and then pressing the button.

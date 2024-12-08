@@ -20,16 +20,14 @@ ha_quality_scale: gold
 
 The `fastdotcom` integration uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.
 
-<div class='note'>
-
+{% note %}
 Currently, the Fast.com integration only supports measuring download bandwidth.
 If you want to measure bandwidth metrics other than download such as ping and upload, utilize the [Speedtest.net](/integrations/speedtestdotnet) integration.
-
-</div>
+{% endnote %}
 
 Enabling this integration will automatically create the Fast.com Sensor.
 
-By default, a speed test will be run every hour. The user can manually run a speed test via the `homeassistant.update_entity` service.
+By default, a speed test will be run every hour. The user can manually run a speed test via the `homeassistant.update_entity` action.
 
 {% include integrations/config_flow.md %}
 

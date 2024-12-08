@@ -75,7 +75,7 @@ The output of this selector is a list of actions. For example:
 
 ```yaml
 # Example action selector output result
-- service: scene.turn_on
+- action: scene.turn_on
   target:
     entity_id: scene.watching_movies
   metadata: {}
@@ -282,6 +282,10 @@ on what you have configured in [storage](https://my.home-assistant.io/redirect/s
 The output of this selector is the name of the selected network storage. It may
 also be the value `/backup`, if the user chooses to use the local data disk option
 instead of one of the configured network storage locations.
+
+```yaml
+backup_location:
+```
 
 ## Boolean selector
 
@@ -616,6 +620,11 @@ enable_day:
   type: boolean
   default: false
   required: false
+enable_millisecond:
+  description: When `true`, the duration selector will allow selecting milliseconds.
+  type: boolean
+  default: false
+  required: false  
 {% endconfiguration %}
 
 The output of this selector is a mapping of the time values the user selected.
@@ -626,6 +635,7 @@ days: 1 # Only when enable_day was set to true
 hours: 12
 minutes: 30
 seconds: 15
+milliseconds: 500 # Only when enable_millisecond was set to true
 ```
 
 ## Entity selector
@@ -1107,7 +1117,7 @@ number:
 
 ## Object selector
 
-The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries like service data. The value of the input will contain the provided data.
+The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries containing data for actions. The value of the input will contain the provided data.
 
 ![Screenshot of an object selector](/images/blueprints/selector-object.png)
 
@@ -1290,9 +1300,9 @@ For example: `heat_cool`.
 ## Target selector
 
 The target selector is a rather special selector, allowing the user to select
-targeted entities, devices or areas for service calls. The value of
+targeted entities, devices, or areas for actions. The value of
 the input will contain a special target format, that is accepted by
-service calls.
+actions.
 
 The selectable targets can be filtered, based on entity or device properties.
 Areas are only selectable as a target, if some entities or devices match
@@ -1365,18 +1375,18 @@ entity:
       required: false
 {% endconfiguration %}
 
-<div class='note'>
+{% important %}
 
-Targets are meant to be used with the `target` property of a service call in
+Targets are meant to be used with the `target` property of an action in
 a script sequence. For example:
 
 ```yaml
-action:
-  - service: light.turn_on
+actions:
+  - action: light.turn_on
     target: !input lights
 ```
 
-</div>
+{% endimportant %}
 
 ### Example target selectors <!-- omit from toc -->
 
@@ -1525,7 +1535,7 @@ The output of this selector is a list of triggers. For example:
 
 ```yaml
 # Example trigger selector output result
-- platform: numeric_state
+- trigger: numeric_state
   entity_id: "sensor.outside_temperature"
   below: 20
 ```

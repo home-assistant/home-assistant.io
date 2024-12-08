@@ -16,9 +16,9 @@ The `dlib_face_detect` image processing {% term integration %} allows you to use
 
 This can be used to trigger an automation rule. Further info is on the [integration](/integrations/image_processing/) page.
 
-<div class='note'>
+{% note %}
 This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
-</div>
+{% endnote %}
 
 ## Configuration
 

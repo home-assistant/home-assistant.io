@@ -27,3 +27,12 @@ The platforms cover the following levels (if they are available):
 - The NO2 (nitrogen dioxide) level.
 
 {% include integrations/building_block_integration.md %}
+
+## The state of an air quality entity
+
+The state of an air quality entity represents the concentration of particles in the air that are 2.5 microns or fewer in diameter. The state is a number. The number is followed by the unit of measurement (micrograms per cubic meter: "µg/m³"). For example, *PM2.5: 4 µg/m³*. In this example, the state is 4.
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.

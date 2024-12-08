@@ -30,9 +30,9 @@ To use the integration you must be a premium tractive client.
 
 {% include integrations/config_flow.md %}
 
-<div class="note">
+{% important %}
 Due to Tractive API limitations, trackers (pets) that are shared from another account to your account are not visible in Home Assistant. You need to configure all Tractive accounts from which trackers (pets) come from with Home Assistant.
-</div>
+{% endimportant %}
 
 ## Integration entities
 

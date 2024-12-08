@@ -18,7 +18,7 @@ related:
     title: Configuration file
 ---
 
-The `scrape` sensor {% term integration %} is scraping information from websites. The sensor loads an HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
+The `scrape` sensor {% term integration %} scrapes information from websites. The sensor loads an HTML page, and allows you to search and extract specific values. As this is not a fully featured web scraper like [scrapy](https://scrapy.org/), it will work with simple web pages and it can be time-consuming to get the right section.
 
 If you are not using Home Assistant Container or Home Assistant Operating System, this integration requires `libxml2` to be installed. On Debian based installs, run:
 
@@ -160,6 +160,8 @@ sensor:
       default: None
 {% endconfiguration %}
 
+{% include integrations/using_templates.md %}
+
 ## Examples
 
 In this section you find some real-life examples of how to use this sensor. There is also a [Jupyter notebook](https://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/other/web-scraping.ipynb) available for this example to give you a bit more insight.
@@ -184,7 +186,7 @@ scrape:
 
 ### Available implementations
 
-Get the counter for all our implementations from the integrations page under {% my integrations title="**Settings** > **Devices & Services**" %}.
+Get the counter for all our implementations from the integrations page under {% my integrations title="**Settings** > **Devices & services**" %}.
 
 {% raw %}
 

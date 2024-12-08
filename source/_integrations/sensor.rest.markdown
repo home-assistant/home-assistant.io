@@ -12,7 +12,7 @@ The `rest` sensor platform is consuming a given endpoint which is exposed by a [
 
 _Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
 
-To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file for a GET request:
 
 ```yaml
 # Example configuration.yaml entry
@@ -151,11 +151,9 @@ verify_ssl:
   default: True
 {% endconfiguration %}
 
-<div class='note'>
-
+{% important %}
 Use either `resource` or `resource_template`.
-
-</div>
+{% endimportant %}
 
 `curl` can help you identify the variable you want to display in your Home Assistant frontend. The example below shows the JSON response of a device that is running with [aREST](https://arest.io/).
 
@@ -165,6 +163,8 @@ $ curl -X GET http://192.168.1.31/temperature/
 ```
 
 The response is expected to be a dictionary or a list with a dictionary as its 0th element.
+
+{% include integrations/using_templates.md %}
 
 ## Examples
 

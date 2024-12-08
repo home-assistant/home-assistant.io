@@ -9,45 +9,64 @@ ha_domain: media_player
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 Interacts with media players on your network.
 
 {% include integrations/building_block_integration.md %}
 
-## Services
+## The state of a media player
 
-### Media control services
-Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `volume_set`, `volume_mute`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`, `shuffle_set`, `repeat_set`, `play_media`, `select_source`, `select_sound_mode`, `join`, `unjoin`
+A media player can have the following states:
 
-| Service data attribute | Optional | Description                                      |
+- **Off**: The media player is turned off and is not accepting commands until turned on.
+- **On**: The media player is turned on, but no details on its state are currently known.
+- **Idle**: The media player is turned on and accepting commands, but currently not playing any media. Possibly at some idle home screen.
+- **Playing**: The media player is currently playing media.
+- **Paused**: The media player has an active media and is currently paused
+- **Standby**: The media player is in a low power state, accepting commands.
+- **Buffering**: The media player is preparing to start playback of media.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
+## Actions
+
+### Media control actions
+Available actions: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `volume_set`, `volume_mute`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`, `shuffle_set`, `repeat_set`, `play_media`, `select_source`, `select_sound_mode`, `join`, `unjoin`
+
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`. |
 
-#### Service `media_player.volume_mute`
+#### Action `media_player.volume_mute`
 
-| Service data attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`. |
 | `is_volume_muted`      |       no | True/false for mute/unmute                       |
 
-#### Service `media_player.volume_set`
+#### Action `media_player.volume_set`
 
-| Service data attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`. |
 | `volume_level`         |       no | Float for volume level. Range 0..1               |
 
-#### Service `media_player.media_seek`
+#### Action `media_player.media_seek`
 
-| Service data attribute | Optional | Description                                            |
+| Data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`.       |
 | `seek_position`        |       no | Position to seek to. The format is platform dependent. |
 
-#### Service `media_player.play_media`
+#### Action `media_player.play_media`
 
-| Service data attribute | Optional | Description                                                                                                                                                            |
+| Data attribute | Optional | Description                                                                                                                                                            |
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`.                                                                                                                       |
 | `media_content_id`     |       no | A media identifier. The format of this is integration dependent. For example, you can provide URLs to Sonos and Cast but only a playlist ID to iTunes.                   |
@@ -117,10 +136,10 @@ Documentation:
 - [Google Dev Documentation MediaInformation](https://developers.google.com/cast/docs/reference/web_receiver/cast.framework.messages.MediaInformation)
 
 
-Example of calling media_player service with title and image set:
+Example of calling media player action with title and image set:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:
@@ -131,56 +150,65 @@ data:
     title: HomeAssistantRadio
 ```
 
-#### Service `media_player.select_source`
+#### Action `media_player.select_source`
 
-| Service data attribute | Optional | Description                                          |
+| Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`.     |
 | `source`               |       no | Name of the source to switch to. Platform dependent. |
 
-#### Service `media_player.select_sound_mode`
+#### Action `media_player.select_sound_mode`
 
 Currently only supported on [Denon AVR](/integrations/denonavr/) and  [Songpal](/integrations/songpal).
 
-| Service data attribute | Optional | Description                                          |
+| Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. For example `media_player.marantz`|
 | `sound_mode`           |       no | Name of the sound mode to switch to. Platform dependent.|
 
-#### Service `media_player.shuffle_set`
+#### Action `media_player.shuffle_set`
 
 Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Roon](/integrations/roon), [OwnTone](/integrations/forked_daapd), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
 
-| Service data attribute | Optional | Description                                          |
+| Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. For example `media_player.spotify`|
 | `shuffle`              |       no | `true`/`false` for enabling/disabling shuffle        |
 
-#### Service `media_player.repeat_set`
+#### Action `media_player.repeat_set`
 
-| Service data attribute | Optional | Description                                          |
+| Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. For example `media_player.kitchen`|
 | `repeat`               |       no | `off`/`all`/`one` for setting repeat mode            |
 
-#### Service `media_player.join`
+#### Action `media_player.join`
 
 Allows to group media players together for synchronous playback. Only works on supported multiroom audio systems.
 
-| Service data attribute | Optional | Description                                          |
+| Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | The media player entity whose playback will be expanded to the players specified in `group_members`.  |
 | `group_members`        |       no | The player entities which will be synced with the playback from `entity_id`.  |
 
-#### Service `media_player.unjoin`
+#### Action `media_player.unjoin`
 
-| Service data attribute | Optional | Description                                          |
+| Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Unjoin this media player from any player groups.     |
 
-### Device class
+## Device class
 
-The way media players are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for media players:
+{% include integrations/device_class_intro.md %}
+
+The screenshot shows different icons representing device classes of the media player entity:
+
+<p class='img'>
+<img src='/images/screenshots/device_class_media_player_icons.png' alt='Screenshot showing different icons representing device classes of the media player entity' />
+Example of different icons representing device classes of the media player entity.
+</p>
+
+The following device classes are supported for media players:
 
 - `tv`: Device is a television type device.
 - `speaker`: Device is a speaker or stereo type device.

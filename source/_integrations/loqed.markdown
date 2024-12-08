@@ -45,9 +45,9 @@ Home Assistant should automatically detect your lock when your Home Assistant ru
 
 You can also set up a lock manually when for some reason, it is not automatically detected. In that case, you need to provide both the API Key from the previous step and the name of the Lock, as it is known in the LOQED companion app.
 
-## Services
+## Actions
 
-Please see the default [lock integration page](/integrations/lock/) for the services available for the lock.
+Please see the default [lock integration page](/integrations/lock/) for the actions available for the lock.
 
 ## De-installation in Loqed
 

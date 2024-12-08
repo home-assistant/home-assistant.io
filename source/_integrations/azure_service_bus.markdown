@@ -28,11 +28,9 @@ You must then create a Shared Access Policy for the Service Bus with `Send` clai
 
 Once you have the connection string with `Send` policy, you can set up the integration itself.
 
-<div class='note warning'>
-
+{% important %}
 The queue or topic that you are sending to needs to exists with the service bus namespace before you use it within Home Assistant. See [here](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal) for how to set up a queue and [here](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) for setting up a topic and subscriptions.
-
-</div>
+{% endimportant %}
 
 ## Configuration
 
@@ -52,7 +50,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   type: string
   default: notify
@@ -70,11 +68,9 @@ topic:
   type: string
 {% endconfiguration %}
 
-<div class="note">
-
+{% tip %}
 If you plan to send all state changes from one or more entities within Home Assistant, you should consider using the [Azure Event Hub](/integrations/azure_event_hub/) integration instead.
-
-</div>
+{% endtip %}
 
 ## Usage
 
@@ -85,20 +81,20 @@ See the example below for how an automation trigger translates to a message on t
 ```yaml
 automation:
   - alias: "Sunset Service Bus message"
-    trigger:
-      platform: sun
-      event: sunset
-    action:
-      service: notify.test_queue
-      data:
-        message: "Sun is going down"
-        title: "Good evening"
+    triggers:
+      - trigger: sun
+        event: sunset
+    actions:
+      - action: notify.test_queue
         data:
-          sun_direction: "Down"
-          custom_field: 123
-          custom_object:
-            trigger_more: true
-            explain: "It's starting to get dark"
+          message: "Sun is going down"
+          title: "Good evening"
+          data:
+            sun_direction: "Down"
+            custom_field: 123
+            custom_object:
+              trigger_more: true
+              explain: "It's starting to get dark"
 ```
 
 The message that can be retrieved from a queue or topic subscription:

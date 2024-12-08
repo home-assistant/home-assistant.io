@@ -56,7 +56,7 @@ linode:
 
 The `linode` binary sensor platform allows you to monitor your Linode nodes.
 
-Add the following to your `configuration.yaml` file:
+Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -77,7 +77,7 @@ nodes:
 
 The `linode` switch platform allows you to turn your Linode nodes on and off.
 
-Add the following to your `configuration.yaml` file:
+Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -25,7 +25,7 @@ As a default the sensor picks up the next mode of transport leaving from a stop 
 
 ## Configuration
 
-To enable the sensor, add the following lines to your `configuration.yaml` file:
+To enable the sensor, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

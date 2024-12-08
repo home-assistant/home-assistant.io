@@ -34,8 +34,6 @@ First, navigate to the [AirNow Current Observations By Lat/Lon](https://docs.air
 
 If the query returns a result other than `[]`, open a bug report and include the query result (you may sanitize the data to remove your latitude and longitude, but please do not remove any fields). This information will help a lot to figure out the source of the issue.
 
-<div class="note">
-
+{% note %}
 The AirNow API allows 500 data updates per hour, but since observations are only updated hourly, the default update rate is set to 2 per hour and should not trigger rate limiting. If you use this API key for other purposes, ensure the total request rate does not exceed 500 per hour.
-
-</div>
+{% endnote %}

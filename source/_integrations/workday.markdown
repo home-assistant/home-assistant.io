@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: workday
 ha_platforms:
   - binary_sensor
+  - diagnostics
 ha_integration_type: integration
 ---
 
@@ -29,14 +30,11 @@ Check the [country list](https://github.com/dr-prodigy/python-holidays#available
 
 {% include integrations/config_flow.md %}
 
-Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
-The keyword `holiday` is used for public holidays identified by the holidays module and holidays added by the `add_holidays` configuration option.
+The keyword "Holidays" is used for public holidays identified by the holidays module and holidays added by the "Add holidays" configuration option.
 
-<div class='note warning'>
-
-Take note of the `holiday` keyword. Your first instinct might be to add it to the `exclude` configuration, thinking it means skipping the holidays. But it is meant to exclude the days in the holiday list from the workdays. So, when you exclude `holiday` and a workday falls on that day, that workday is excluded, and the sensor will be **off**. If you want every workday flagged with no regard to holidays, ensure that there is something in your `Excludes` configuration _other_ than `holiday`.
-
-</div>
+{% important %}
+Take note of the "Holidays" keyword. Your first instinct might be to add it to the "Excludes" configuration, thinking it means skipping the holidays. But it is meant to exclude the days in the holiday list from the workdays. So, when you exclude "Holidays" and a workday falls on that day, that workday is excluded, and the sensor will be **off**. If you want every workday flagged with no regard to holidays, ensure that there is something in your "Excludes" configuration _other_ than "Holidays".
+{% endimportant %}
 
 ## Specific field information
 
@@ -50,18 +48,21 @@ Remove holidays will take dates formatted with `YYYY-MM-DD`, a date range format
 
 The offset can be used to see if future days are workdays. For example, put `1` to see if tomorrow is a workday.
 
-## Service `workday.check_date`
+Additional categories can be added through the configuration to include optional holidays according to the lists provided in the [python-holidays library](https://github.com/vacanza/python-holidays?tab=readme-ov-file#available-countries)
 
-This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+## Action `workday.check_date`
+
+
+This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 providing feedback if the date is a workday or not.
 
-| Service data attribute | Required | Description | Example |
+| Data attribute | Required | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `check_date` | yes | Date to test if workday or not. | 2022-03-10
 
 {% raw %}
 ```yaml
-service: workday.check_date
+action: workday.check_date
 target:
   entity_id: binary_sensor.workday
 data:
@@ -83,15 +84,15 @@ Example usage for automation:
 ```yaml
 automation:
   alias: "Turn on heater on workdays"
-  trigger:
-    platform: time
-    at: "08:00:00"
-  condition:
-    condition: state
-    entity_id: binary_sensor.workday_sensor
-    state: "on"
-  action:
-    service: switch.turn_on
-    target:
-      entity_id: switch.heater
+  triggers:
+    - trigger: time
+      at: "08:00:00"
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: "on"
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.heater
 ```

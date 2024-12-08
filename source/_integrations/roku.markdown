@@ -76,10 +76,10 @@ At the moment, the following buttons are supported:
 - volume_mute
 - volume_up
 
-A typical service call for pressing several buttons looks like this.
+A typical action for pressing several buttons looks like this.
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.roku
 data:
@@ -93,11 +93,18 @@ data:
 
 When the Home Assistant Roku integration is enabled and a Roku device has been configured, in the Home Assistant UI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device.
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Play Media Application ID:
+  description: The application ID to use when launching media playback. This application must support the PlayOnRoku API.
+{% endconfiguration_basic %}
+
 ## Source Automation
 
-The `media_player.select_source` service may be used to launch specific applications/streaming channels on your Roku device.
+The `media_player.select_source` action may be used to launch specific applications/streaming channels on your Roku device.
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | no | Target a specific media player. | 
 | `source` | no | An application name or application ID. | Prime Video
@@ -105,8 +112,8 @@ The `media_player.select_source` service may be used to launch specific applicat
 ### Examples
 
 ```yaml
-action:
-- service: media_player.select_source
+actions:
+- action: media_player.select_source
   target:
     entity_id: media_player.roku
   data:
@@ -116,8 +123,8 @@ action:
 Alternatively, the application id can be used for `source`. See [Obtaining Application IDs](#obtaining-application-ids).
 
 ```yaml
-action:
-  - service: media_player.select_source
+actions:
+  - action: media_player.select_source
     target:
       entity_id: media_player.roku
     data:
@@ -132,9 +139,9 @@ Alternatively, you can make a manual HTTP request (GET) to `http://ROKU_IP:8060/
 
 ## TV Channel Tuning
 
-The `media_player.play_media` service may be used to tune to specific channels on your Roku TV device with OTA antenna.
+The `media_player.play_media` action may be used to tune to specific channels on your Roku TV device with OTA antenna.
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | no | Target a specific media player. | 
 | `media_content_id` | no | A channel number. | 5.1
@@ -143,8 +150,8 @@ The `media_player.play_media` service may be used to tune to specific channels o
 ### Example
 
 ```yaml
-action:
-  - service: media_player.play_media
+actions:
+  - action: media_player.play_media
     target:
       entity_id: media_player.roku
     data:
@@ -152,11 +159,59 @@ action:
       media_content_type: channel
 ```
 
-## Content Deeplinking
+## Play on Roku
 
-The `media_player.play_media` service may be used to deep link to content within an application.
+The `media_player.play_media` action may be used to send media URLs (primarily videos) for direct playback on your device.
+
+This feature makes use of the PlayOnRoku API. If you are using an older Roku OS (pre-11.5), the defaults of this integration should just work. Alternatively, you can configure a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
+
+The following third-party applications have been tested with this integration:
+
+- [Media Assistant](https://channelstore.roku.com/details/625f8ef7740dff93df7d85fc510303b4/media-assistant) (ID: 782875)
 
 | Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | no | Target a specific media player. | 
+| `media_content_id` | no | A media URL. | `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`
+| `media_content_type` | no | A media type. | `url`
+| `extra.format` | no | A media format. It should be one of `mp4` (supports mov and m4v), `mp3`, `hls`, `ism` (smooth streaming), `dash` (MPEG-DASH), `mkv`, `mka`, `mks` | `mp4`
+| `extra.name` | yes | A name for the media. | Big Buck Bunny
+| `extra.thumbnail` | yes | A thumbnail URL for the media. | 
+| `extra.artist_name` | yes | The name of the media artist. | Blender
+
+### Example
+```yaml
+actions:
+  - action: media_player.play_media
+    target:
+      entity_id: media_player.roku
+    data:
+      media_content_id: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      media_content_type: url
+      extra:
+        format: "mp4"
+        name: "Big Buck Bunny"
+```
+
+## Camera Stream Integration
+
+The `camera.play_stream` action may be used to send camera streams (HLS) directly to your device. This feature requires the [`stream` integration](/integrations/stream) and makes use of the PlayOnRoku API.
+
+### Example
+```yaml
+actions:
+  - action: camera.play_stream
+    target:
+      entity_id: camera.camera
+    data:
+      media_player: media_player.roku
+```
+
+## Content Deeplinking
+
+The `media_player.play_media` action may be used to deep-link to content within an application.
+
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | no | Target a specific media player. | 
 | `media_content_id` | no | A media identifier. | 291097
@@ -167,8 +222,8 @@ The `media_player.play_media` service may be used to deep link to content within
 ### Example
 
 ```yaml
-action:
-  - service: media_player.play_media
+actions:
+  - action: media_player.play_media
     target:
       entity_id: media_player.roku
     data:
@@ -190,13 +245,13 @@ Content IDs are unique to each streaming service and vary in format but are ofte
 | Spotify | 22297 | open.spotify.com/playlist/5xddIVAtLrZKtt4YGLM1SQ | spotify:playlist:5xddIVAtLrZKtt4YGLM1SQ | playlist
 | YouTube | 837 | youtu.be/6ZMXE5PXPqU | 6ZMXE5PXPqU | live
 
-## Services
+## Actions
 
-### Service `roku.search`
+### Action `roku.search`
 
-This service allows you to emulate opening the search screen and entering the search keyword.
+This action allows you to emulate opening the search screen and entering the search keyword.
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | yes | The entities to search on. | media_player.roku
 | `keyword` | no | The keyword to search for. | Space Jam

@@ -47,8 +47,7 @@ Then, enable the API Token option for this integration.
 You can set up the integration 2 times; one for each geographic zone. To do this, add them again through the integrations panel under {% my integrations title="**Settings** > **Devices & services**" %}.
 You can change the configuration anytime in the integration options.
 
-<div class='note'>
-
+{% note %}
 The sensor provides an hourly price for energy consumed, but the variable cost of energy is only one of the factors that add up to the electricity bill:
 
 - Fixed cost of contracted power
@@ -56,5 +55,4 @@ The sensor provides an hourly price for energy consumed, but the variable cost o
 - Variable cost of energy consumed (the sensor's value)
 - Other fixed expenses, such as the rental of the electric meter
 - Multiple taxes applied
-
-</div>
+{% endnote %}

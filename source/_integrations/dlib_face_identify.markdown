@@ -16,9 +16,9 @@ The `dlib_face_identify` image processing {% term integration %} allows you to u
 
 For using the result inside an automation rule, take a look at the [integration](/integrations/image_processing/) page.
 
-<div class='note'>
+{% note %}
 This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
-</div>
+{% endnote %}
 
 ## Configuration
 
@@ -61,8 +61,6 @@ confidence:
   default: 0.6
 {% endconfiguration %}
 
-<div class='note'>
-
+{% note %}
 If the platform fails to load because it could not install its requirement, install cmake: `sudo apt-get install cmake`.
-
-</div>
+{% endnote %}

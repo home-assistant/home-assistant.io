@@ -26,6 +26,7 @@ The integration currently has support for the following sensors:
 - BMP180
 - BMP280
 - DHT22
+- DS18B20
 - HECA
 - MH-Z14A
 - PMSx003

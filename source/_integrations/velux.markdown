@@ -37,9 +37,9 @@ During configuration, you will be asked for a hostname and password:
 
 You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway while the access point is still available.
 
-## Services
+## Actions
 
-### Service `velux.reboot_gateway`
+### Action `velux.reboot_gateway`
 
 Reboots the configured KLF 200 Gateway.
 
@@ -48,13 +48,13 @@ As a workaround, you can use an automation to force a restart of the KLF 200 bef
 
 ```yaml
 automation:
-  alias: KLF reboot on hass stop event
-  description: Reboots the KLF200 in order to avoid SSL Handshake issue
-  trigger:
-    - platform: homeassistant
-      event: shutdown
-  action:
-    - service: velux.reboot_gateway
+  - alias: "KLF reboot on hass stop event"
+    description: "Reboots the KLF200 in order to avoid SSL Handshake issue"
+    triggers:
+      - trigger: homeassistant
+        event: shutdown
+    actions:
+      - action: velux.reboot_gateway
 ```
 
 ## Velux Active (KIX 300)

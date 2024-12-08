@@ -20,6 +20,16 @@ This has initially been tested against a Russound CAV6.6 unit with six zones and
 
 Connecting to the Russound device is only possible by TCP, you can make use of a TCP to Serial gateway such as [tcp_serial_redirect](https://github.com/pyserial/pyserial/blob/master/examples/tcp_serial_redirect.py)
 
+## Supported devices
+
+This integration allows you to connect the following controllers:
+
+- Russound ACA-E5
+- Russound CAS44
+- Russound CAA66
+- Russound CAM6.6
+- Russound CAV6.6
+
 To add an {% term integration %} to your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 

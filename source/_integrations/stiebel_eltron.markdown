@@ -73,11 +73,9 @@ hub:
   type: string
 {% endconfiguration %}
 
-<div class='note'>
-
+{% important %}
 This integration requires the [Modbus](/integrations/modbus/) integration to be set up to work
-
-</div>
+{% endimportant %}
 
 Full configuration example including modbus setup shown below:
 

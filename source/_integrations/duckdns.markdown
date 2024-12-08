@@ -14,11 +14,11 @@ related:
 
 The DuckDNS {% term integration %} allows you to keep your DuckDNS subdomain always in sync with your public IP address. [DuckDNS](https://www.duckdns.org) is a free service that allows you to bind your own favorite subdomain under `duckdns.org` to the public IP address in use from your router, even though such address is dynamically allocated by your internet service provider and therefore changes over time.
 
-<div class='note'>
+{% warning %}
 
 If you are running the Home Assistant DuckDNS add-on this integration is not required. The add-on will keep your IP updated with DuckDNS.
 
-</div>
+{% endwarning %}
 
 ## Configuration
 
@@ -43,10 +43,10 @@ duckdns:
     type: string
 {% endconfiguration %}
 
-## Service `set_txt`
+## Action `set_txt`
 
 Set the TXT record of your DuckDNS subdomain.
 
-| Service data attribute | Optional | Description                 |
+| Data attribute | Optional | Description                 |
 | ---------------------- | -------- | --------------------------- |
 | `txt`                  | no       | Payload for the TXT record. |

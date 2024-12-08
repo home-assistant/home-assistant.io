@@ -94,7 +94,7 @@ Icon/Username:
 
 One of the easiest ways to send a message, is to create a script. You can paste in YAML and make changes in the GUI.
 
-You can call this script as a service. 
+You can call this script as an action. 
 
 1. Go to Home Assistant Settings > Automations and Scenes > Scripts > Add Script
 2. Click the three dots in the top right, and pick 'Edit in YAML'. Paste in the contents below.
@@ -103,11 +103,11 @@ You can call this script as a service.
 ```yaml
 alias: "Notify: Slack Notification Template"
 sequence:
-  - service: notify.YOUR_SLACK_TEAM
+  - action: notify.YOUR_SLACK_TEAM
     data:
-      message: Fallback Text
+      message: "Fallback Text"
       target: "#test-channel"
-      title: Reminder
+      title: "Reminder"
       data:
         blocks:
           - type: section
@@ -116,7 +116,6 @@ sequence:
               text: >-
                 This is a mrkdwn section block *this is bold*, and ~this is
                 crossed out~, and <https://google.com|this is a link>
-mode: single
 ```
 
 Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder).  Up to 50 blocks may be included per message.
@@ -133,9 +132,9 @@ One sensor entity will be created:
 
 - **Do Not Disturb Timer**: The amount of time left for Do Not Disturb status.
 
-### Slack Service Data
+### Slack action data
 
-The following attributes can be placed inside the `data` key of the service call for extended functionality:
+The following attributes can be placed inside the `data` key of the action for extended functionality:
 
 | Attribute         | Optional | Description                                                                                                                                                                                                                                                                                                                                     |
 | ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

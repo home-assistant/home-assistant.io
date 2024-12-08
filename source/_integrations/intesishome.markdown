@@ -19,7 +19,7 @@ Note: IntesisHome products are a separate product line to IntesisBox. This platf
 
 ## Configuration
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 climate:
@@ -48,9 +48,9 @@ This integration opens a TCP connection with the IntesisHome API to receive temp
 By default, the integration will be named using the friendly device name from the IntesisHome website or application.
 If internet connectivity is lost, the device will be marked as unavailable after 5 minutes.
 
-### Supported services
+### Supported actions
 
-Available services:
+Available actions:
 
 - `climate.set_temperature`
 - `climate.set_fan_mode`

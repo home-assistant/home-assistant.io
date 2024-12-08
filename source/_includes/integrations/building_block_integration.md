@@ -1,7 +1,7 @@
 {% capture name %}{{ include.name | default: page.title }}{% endcapture %}
 {% capture domain %}{{ include.domain | default: page.ha_domain }}{% endcapture %}
 
-<div class='note info'>
+{% note %}
 
 **Building block integration**
 
@@ -11,5 +11,5 @@ A building block integration differs from the typical integration that connects 
 
 If one of your integrations features this building block, this page documents the functionality the {{ name | downcase }} building block offers.
 
-</div>
+{% endnote %}
 

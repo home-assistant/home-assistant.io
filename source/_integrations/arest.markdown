@@ -73,9 +73,9 @@ binary_sensor:
     name: Office
 ```
 
-<div class='note'>
+{% note %}
 This sensor is not suitable for fast state changes because there is a high possibility that the change took place between two update cycle.
-</div>
+{% endnote %}
 
 ## Sensor
 

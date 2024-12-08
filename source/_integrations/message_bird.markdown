@@ -39,7 +39,7 @@ api_key:
   required: true
   type: string
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
@@ -52,9 +52,9 @@ sender:
 
 ### Usage
 
-MessageBird is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to the specified mobile phone number(s).
+MessageBird is a notify platform and thus can be controlled by calling the notify action [as described here](/integrations/notify/). It will send a notification to the specified mobile phone number(s).
 
-#### Example service payload
+#### Example action payload
 
 ```json
 {

@@ -33,39 +33,44 @@ Give the user access to your Location, along with a user code, usually a 4 digit
 
 **Auto Bypass Low Battery:** if enabled, TotalConnect zones will immediately be bypassed when they report low battery. This option helps because zones tend to report low battery in the middle of the night. The downside of this option is that when the alarm system is armed, the bypassed zone will not be monitored.
 
+**Require Code:** if enabled, you must enter the user code to disarm the alarm.
+
 ## Automation example
+
 ```yaml
 automation:
   - alias: "Alarm: Disarmed Daytime"
-    trigger:
-      platform: state
-      entity_id: alarm_control_panel.total_connect
-      to: "disarmed"
-    condition:
-      condition: sun
-      before: sunset
-    action:
-      service: scene.turn_on
-      target:
-        entity_id: scene.OnDisarmedDaytime
-  - alias: "Alarm: Armed Away"
-    trigger:
-      platform: state
-      entity_id: alarm_control_panel.total_connect
-      to: "armed_away"
-    action:
-      service: scene.turn_on
-      target:
-        entity_id: scene.OnArmedAway
-  - alias: "Alarm: Arm Home Instant at Sunset"
-    trigger:
-      platform: sun
-      event: sunset
-      offset: '0'
-    action:
-      service: totalconnect.arm_home_instant
-      target:
+    triggers:
+      - trigger: state
         entity_id: alarm_control_panel.total_connect
+        to: "disarmed"
+    conditions:
+      - condition: sun
+        before: sunset
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.on_disarmed_day_time
+
+  - alias: "Alarm: Armed Away"
+    triggers:
+      - trigger: state
+        entity_id: alarm_control_panel.total_connect
+        to: "armed_away"
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.on_armed_away
+
+  - alias: "Alarm: Arm Home Instant at Sunset"
+    triggers:
+      - trigger: sun
+        event: sunset
+        offset: 0
+    actions:
+      - action: totalconnect.arm_home_instant
+        target:
+          entity_id: alarm_control_panel.total_connect
 ```
 
 {% details "Notes for Home Assistant Core Installations" %}
@@ -82,7 +87,7 @@ sudo apt install libxml2-dev libxmlsec1-dev
 
 The integration provides an alarm control panel for each Total Connect location. It uses the name of your location from Total Connect.  For example, if your location name in Total Connect is "Home", Home Assistant will use `alarm_control_panel.home`.
 
-The alarm control panel supports the following services: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night`, and `alarm_disarm`. The integration also provides unique services for `totalconnect.arm_home_instant` and `totalconnect.arm_away_instant` which arms the system with zero entry delay, triggering the alarm instantly if an entry/exit zone is faulted.
+The alarm control panel supports the following actions: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night`, and `alarm_disarm`. The integration also provides unique actions for `totalconnect.arm_home_instant` and `totalconnect.arm_away_instant` which arms the system with zero entry delay, triggering the alarm instantly if an entry/exit zone is faulted.
 
 The `triggered` state also provides a state attribute called `triggered_source` giving more detail on what triggered the alarm:
 

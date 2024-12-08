@@ -77,7 +77,7 @@ Once the `data_group` "system.load" and the `element` "load15" have been identif
 
 ## Configuration
 
-Add the following to your `configuration.yaml`.
+Add the following to your {% term "`configuration.yaml`" %}.
 
 ```yaml
 # Example configuration.yaml entry

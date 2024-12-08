@@ -20,7 +20,6 @@ Compatible transceivers:
 
 - [DIY](https://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-rs232-ausgang)
 - [Weidmann Elektronik Schreib-/Lesekopf USB](https://shop.weidmann-elektronik.de/index.php?page=product&info=24)
-- [USB IR Lesekopf EHZ Lese-Schreib-Kopf Volkszähler Hichi Smartmeter](https://www.ebay.de/itm/313884760667)
 
 Tested smart meters:
 
@@ -44,7 +43,7 @@ For the efr SGM-C4 it is:
 - entering pin using quicker flashes, wait for 3 seconds for next digit
 - pin accepted
 - flashing 7 times to get to InF=OFF
-- 5-second flash to switch to InF=OFF
+- 5-second flash to switch to InF=ON
 
 You will now get more readings like current Power, Voltage, and phase angle. Some meters don´t have this, in that case only an overall reading is provided.
 

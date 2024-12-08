@@ -30,15 +30,15 @@ This is done via series of settings found via **Menu** > **Settings & Help** > *
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
-### Media control services
+### Media control actions
 
-Available {% term services %}: turn_on, turn_off, media_play, media_pause, media_stop, media_next_track, media_previous_track, play_media
+Available {% term actions %}: turn_on, turn_off, media_play, media_pause, media_stop, media_next_track, media_previous_track, play_media
 
-#### Service `media_player.play_media`
+#### Action `media_player.play_media`
 
-| Service data attribute | Optional | Description                                                                                                                                                            |
+| Data attribute | Optional | Description                                                                                                                                                            |
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. Defaults to all.                                                                                                                       |
 | `media_content_id`     |       no | The channel number to change to.                   |
@@ -94,10 +94,10 @@ At the moment, the following buttons are supported:
 - `dash`
 - `enter`
 
-A typical service call for press several buttons looks like this.
+A typical action for pressing several buttons looks like this.
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.directv_entity
 data:

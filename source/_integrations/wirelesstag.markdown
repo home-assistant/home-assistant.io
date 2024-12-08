@@ -54,7 +54,7 @@ password:
 
 ## Binary sensor
 
-To enable the binary sensor platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your `configuration.yaml` file:
+To enable the binary sensor platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -96,7 +96,7 @@ monitored_conditions:
 
 ## Sensor
 
-To enable the sensor platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your `configuration.yaml` file:
+To enable the sensor platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -127,7 +127,7 @@ monitored_conditions:
 
 ## Switch
 
-To enable the switch platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your `configuration.yaml` file:
+To enable the switch platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

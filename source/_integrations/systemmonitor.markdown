@@ -23,7 +23,13 @@ memory usage, CPU usage, and running processes.
 
 ## Sensors
 
-**All entities are disabled by default, you need to enable the entities that you wish to use.**
+{% note %}
+
+All entities are disabled by default, you need to enable the entities that you wish to use.
+
+All sensors are also marked as diagnostic and won't be automatically added to automatic dashboards.
+
+{% endnote %}
 
 ### Disks
 
@@ -59,11 +65,15 @@ memory usage, CPU usage, and running processes.
 
 ## Add `process` binary sensor
 
-The `process` binary sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & Services" %}**, select the **System Monitor** integration and click **Configure** to select which `process` binary sensors should be created.
+The `process` binary sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & services" %}**, select the **System Monitor** integration and click **Configure** to select which `process` binary sensors should be created.
 
 ## Disk usage
 
-**Note:** The disk usage sensors do not support monitoring folder/directory sizes. Instead, it is only concerned with "disks" (more specifically mount points on Linux).
+{% note %}
+
+The disk usage sensors do not support monitoring folder/directory sizes. Instead, it is only concerned with "disks" (more specifically mount points on Linux).
+
+{% endnote %}
 
 ```bash
 $ df -H

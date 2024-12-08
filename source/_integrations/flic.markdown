@@ -18,7 +18,7 @@ The `flic` {% term integration %} allows you to receive click events from [flic]
 
 The {% term integration %} does not directly interact with the buttons, *but communicates with a flic service* that manages the buttons. The service can run on the same instance as Home Assistant or any other reachable machine.
 
-## Service setup
+## Action setup
 
 If you are using the Home Assistant Operating System, you can run the service locally by [installing](/common-tasks/os#installing-third-party-add-ons) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/home-assistant-addons).
 
@@ -78,16 +78,16 @@ The flic integration fires `flic_click` events on the bus. You can capture the e
 # Example configuration.yaml automation entry
 automation:
   - alias: "Turn on lights in the living room when flic is pressed once"
-    trigger:
-      platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_81e4ac74b6d2
-        click_type: single
-    action:
-      service: homeassistant.turn_on
-      target:
-        entity_id: group.lights_livingroom
+    triggers:
+      - trigger: event
+        event_type: flic_click
+        event_data:
+          button_name: flic_81e4ac74b6d2
+          click_type: single
+    actions:
+      - action: homeassistant.turn_on
+        target:
+          entity_id: group.lights_livingroom
 ```
 
 Event data:
@@ -104,11 +104,11 @@ To help detect and debug flic button clicks, you can use this automation that se
 ```yaml
 automation:
   - alias: "FLIC Html5 notify on every click"
-    trigger:
-      platform: event
-      event_type: flic_click
-    action:
-      - service: notify.html5
+    triggers:
+      - trigger: event
+        event_type: flic_click
+    actions:
+      - action: notify.html5
         data:
           title: "flic click"
           message: "flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"

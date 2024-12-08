@@ -25,22 +25,22 @@ The **Backup** {% term integration %} is used for {% term "Home Assistant Core" 
 
 Note: If you use {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %} installation, this page is not for you. Instead, refer to the documentation on using the [built-in back up](/common-tasks/os/#backups).
 
-## Services
+## Actions
 
-The **Backup** integration exposes a service that can be used to automate the backup
+The **Backup** integration exposes an action that can be used to automate the backup
 process.
 
-### Service {% my developer_call_service service="backup.create" %}
+### Action {% my developer_call_service service="backup.create" %}
 
-The {% my developer_call_service service="backup.create" %} service can be used
+The {% my developer_call_service service="backup.create" %} action can be used
 to create a backup for your Home Assistant instance.
 
-The service has no additional options or parameters.
+The action has no additional options or parameters.
 
-Example service call:
+Example action:
 
 ```yaml
-service: backup.create
+action: backup.create
 ```
 
 ### Example: Backing up every night at 3:00 AM
@@ -51,12 +51,12 @@ at 3 AM:
 ```yaml
 automation:
   - alias: "Backup Home Assistant every night at 3 AM"
-    trigger:
-      platform: time
-      at: "03:00:00"
-    action:
-      alias: "Create backup now"
-      service: backup.create
+    triggers:
+      - trigger: time
+        at: "03:00:00"
+    actions:
+      - alias: "Create backup now"
+        action: backup.create
 ```
 
 ## Restoring a backup

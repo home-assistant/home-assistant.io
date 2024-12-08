@@ -57,14 +57,14 @@ sun:
 
 ## Automation trigger
 
-The sun's event listener will call the service when the sun rises or sets with
+The sun's event listener will perform the action when the sun rises or sets with
 an offset.
 
 The sun trigger need to have the type 'sun', which event (sunset or sunrise) and an optional offset.
 
 ```yaml
-trigger:
-  - platform: sun
+triggers:
+  - trigger: sun
     event: sunrise
     offset: "-01:00:01"
 ```

@@ -17,7 +17,7 @@ This integration has been tested on firmware revisions:
 
 - 2.0.105
 
-To configure the connection to the gateway, add the following to your `configuration.yaml` file:
+To configure the connection to the gateway, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 light:

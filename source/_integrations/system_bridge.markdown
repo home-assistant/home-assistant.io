@@ -101,14 +101,14 @@ This integration is available as a media source to use with the media browser in
 
 The integration provides an update component, which will notify you when a new version of the app is available.
 
-## Services
+## Actions
 
 ### Notifications `notify.system_bridge_hostname`
 
 You can send notifications to the device using the `notify` platform.
 
 ```yaml
-service: notify.system_bridge_hostname
+action: notify.system_bridge_hostname
 data:
   data:
     image: "https://brands.home-assistant.io/system_bridge/logo@2x.png"
@@ -163,20 +163,20 @@ Here is an example action that will open a URL in the device's browser:
 
 This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file (an MP3 for example).
 
-### Service `system_bridge.get_process_by_id`
+### Action `system_bridge.get_process_by_id`
 
 Returns a process by its pid.
 
-{% my developer_call_service service="system_bridge.get_process_by_id" title="Show service in your Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.get_process_by_id" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.get_process_by_id
+action: system_bridge.get_process_by_id
 data:
   bridge: "deviceid"
   id: 17752
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: 17752
@@ -190,20 +190,20 @@ username: hostname\user
 working_directory: null
 ```
 
-### Service `system_bridge.get_processes_by_name`
+### Action `system_bridge.get_processes_by_name`
 
 Returns a count and a list of processes matching the name provided.
 
-{% my developer_call_service service="system_bridge.get_processes_by_name" title="Show service in your Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.get_processes_by_name" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.get_processes_by_name
+action: system_bridge.get_processes_by_name
 data:
   bridge: "deviceid"
   name: discord
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 count: 1
@@ -219,20 +219,20 @@ processes:
     working_directory: null
 ```
 
-### Service `system_bridge.open_path`
+### Action `system_bridge.open_path`
 
 Open a URL or file on the server using the default application.
 
-{% my developer_call_service service="system_bridge.open_path" title="Show service in your Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.open_path" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.open_path
+action: system_bridge.open_path
 data:
   bridge: "deviceid"
   path: "C:\\image.jpg"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123
@@ -242,20 +242,20 @@ data:
 message: Path opened
 ```
 
-### Service `system_bridge.open_url`
+### Action `system_bridge.open_url`
 
 Open a URL or file on the server using the default application.
 
-{% my developer_call_service service="system_bridge.open_url" title="Show service in your Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.open_url" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.open_url
+action: system_bridge.open_url
 data:
   bridge: "deviceid"
   url: "https://home-assistant.io"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123
@@ -265,20 +265,20 @@ data:
 message: URL opened
 ```
 
-### Service`system_bridge.send_keypress`
+### Action`system_bridge.send_keypress`
 
 Send a keypress to the server.
 
-{% my developer_call_service service="system_bridge.send_keypress" title="Show service in your Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.send_keypress" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.send_keypress
+action: system_bridge.send_keypress
 data:
   bridge: "deviceid"
   key: "a"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123
@@ -288,20 +288,20 @@ data:
 message: Key pressed
 ```
 
-### Service `system_bridge.send_text`
+### Action `system_bridge.send_text`
 
 Sends text for the server to type.
 
-{% my developer_call_service service="system_bridge.send_text" title="Show service in your Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.send_text" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.send_text
+action: system_bridge.send_text
 data:
   bridge: "deviceid"
   text: "Hello"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123
@@ -311,7 +311,7 @@ data:
 message: Text entered
 ```
 
-### Service `system_bridge.power_command`
+### Action `system_bridge.power_command`
 
 Sends power command to the system.
 
@@ -324,16 +324,16 @@ Supported commands are:
 - `shutdown`
 - `sleep`
 
-{% my developer_call_service service="system_bridge.power_command" title="Show service in your Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.power_command" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.power_command
+action: system_bridge.power_command
 data:
   bridge: "device"
   command: "sleep"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123

@@ -18,13 +18,13 @@ ha_platforms:
 
 The **Devialet** integration lets you control your [Devialet](https://www.devialet.com) wireless speakers from Home Assistant.
 
-<div class='note'>
+{% important %}
 
 - For a stereo setup, only one of the speakers need to be configured.
 - Make sure your Devialet firmware version is 2.16.1 or later. Otherwise, expect functions not to work.
 - Assigning a fixed IP address to your speakers is highly recommended.
 
-</div>
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
@@ -37,4 +37,4 @@ Known supported devices:
 
 ## Turning off the device
 
-The media player `turn off`  button and the service `media_player.turn_off` will turn off all the devices of the designated system. Exiting OFF mode is only possible by pressing a physical button on each device.
+The media player `turn off`  button and the `media_player.turn_off` action will turn off all the devices of the designated system. Exiting OFF mode is only possible by pressing a physical button on each device.

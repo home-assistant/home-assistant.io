@@ -23,7 +23,7 @@ the default library used by Visual Studio Code.
 
 This is useful in testing changes on a local development install, or connecting
 to a production server to debug issues. It is possible to load the integration
-without activating the debugger, but injecting it with a service call. This
+without activating the debugger, but injecting it with an action. This
 is particularly useful on a developer's production system as it does not impact
 performance when not injected.
 
@@ -53,7 +53,7 @@ port:
   default: 5678
   type: integer
 start:
-  description: "If `true`, the debugger will be injected on start of Home Assistant. Set it to false to inject it on demand using the `debugpy.start` service call."
+  description: "If `true`, the debugger will be injected on start of Home Assistant. Set it to false to inject it on demand using the `debugpy.start` action."
   required: false
   default: true
   type: boolean
@@ -81,7 +81,7 @@ persistent (production) server, unless absolutely required.
 
 Alternatively, the integration can be loaded by setting the `start` option
 to `false`. This will prevent the debugger from being injected, instead,
-it will be injected on-demand by calling the `debugpy.start` service.
+it will be injected on-demand by calling the `debugpy.start` action.
 
 ## Waiting at startup
 
@@ -112,10 +112,10 @@ debugpy:
 
 This is useful for multi-homed servers, or for localhost only access
 
-## Service `debugpy.start`
+## Action `debugpy.start`
 
 When the `start` option of the integration has been set to `false`, one can
-use the `debugpy.start` service call to inject and start the remote Python
+use the `debugpy.start` action to inject and start the remote Python
 debugger at runtime.
 
 Please note: There is no way to stop it once started, this would require
@@ -134,10 +134,12 @@ your Visual Studio Code project to connect to the debugger.
         {
             // Example of attaching to local debug server
             "name": "Python: Attach Local",
-            "type": "python",
+            "type": "debugpy",
             "request": "attach",
-            "port": 5678,
-            "host": "localhost",
+            "connect": {
+                "port": 5678,
+                "host": "localhost",
+            },
             "pathMappings": [
                 {
                     "localRoot": "${workspaceFolder}",
@@ -148,10 +150,12 @@ your Visual Studio Code project to connect to the debugger.
         {
             // Example of attaching to my production server
             "name": "Python: Attach Remote",
-            "type": "python",
+            "type": "debugpy",
             "request": "attach",
-            "port": 5678,
-            "host": "homeassistant.local",
+            "connect": {
+                "port": 5678,
+                "host": "homeassistant.local",
+            },
             "pathMappings": [
                 {
                     "localRoot": "${workspaceFolder}",

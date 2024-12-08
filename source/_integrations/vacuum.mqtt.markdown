@@ -84,6 +84,10 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
       required: false
@@ -170,6 +174,10 @@ payload_stop:
   required: false
   type: string
   default: stop
+platform:
+  description: Must be `vacuum`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -198,7 +206,7 @@ supported_features:
   type: [string, list]
   default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
 unique_id:
-   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception.
+   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
    required: false
    type: string
 {% endconfiguration %}
@@ -210,7 +218,6 @@ unique_id:
 mqtt:
   - vacuum:
       name: "MQTT Vacuum"
-      schema: state
       supported_features:
         - start
         - pause
@@ -223,7 +230,6 @@ mqtt:
         - fan_speed
         - send_command
       command_topic: "vacuum/command"
-      state_topic: "vacuum/state"
       set_fan_speed_topic: "vacuum/set_fan_speed"
       fan_speed_list:
         - min
@@ -268,21 +274,21 @@ If params are provided service sends JSON as payload with such structure:
 }
 ```
 
-Service trigger example:
+Action trigger example:
 
 ```yaml
 - alias: "Push command based on sensor"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: sensor.sensor
-    action:
-      service: vacuum.send_command
-      target:
-        entity_id: vacuum.vacuum_entity
-      data:
-        command: "custom_command"
-        params:
-          - key: value
+    actions:
+      - action: vacuum.send_command
+        target:
+          entity_id: vacuum.vacuum_entity
+        data:
+          command: "custom_command"
+          params:
+            - key: value
 ```
 
 MQTT topic: `vacuum/send_command`

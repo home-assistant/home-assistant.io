@@ -3,7 +3,7 @@
 
 ## Configuration
 
-To add the **{{ name }}** integration to your Home Assistant instance, use this My button:
+To add the **{{ name }}** {% unless page.ha_integration_type == 'hardware' or page.ha_integration_type == 'virtual' %}{{ page.ha_integration_type | default: "integration" }}{% else %}integration{% endunless %} to your Home Assistant instance, use this My button:
 
 {% my config_flow_start badge domain=domain %}
 
@@ -12,7 +12,7 @@ To add the **{{ name }}** integration to your Home Assistant instance, use this 
 it will be shown as **Discovered**. You can then set it up right away.
 {% endif %}
 
-{% details "Manual configuration steps" %}
+{% details "Manual configuration steps" icon="mdi:cursor-hand" %}
 {% if include.discovery or page.ha_dhcp or page.ha_homekit or page.ha_ssdp or page.ha_zeroconf or page.ha_mqtt %}
 If it wasn't discovered automatically, don't worry! You can set up a
 manual integration entry:
@@ -22,7 +22,7 @@ manually:
 {% endif %}
 
 - Browse to your Home Assistant instance.
-- Go to **{% my integrations title="Settings > Devices & Services" %}**.
+- Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
 {% if page.ha_integration_type == 'helper' %}
 - At the top of the screen, select the tab: **{% my helpers %}**.
 - In the bottom right corner, select the

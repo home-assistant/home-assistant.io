@@ -47,7 +47,7 @@ You need to determine your update URL or your access token.
 
 ## Configuration (API V2)
 
-To use the integration in your installation, add the following to your `configuration.yaml` file:
+To use the integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

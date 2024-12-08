@@ -16,9 +16,9 @@ related:
 
 If you have a Pandora account, you can control it from Home Assistant with this media player.
 
-<div class='note'>
+{% important %}
 This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
-</div>
+{% endimportant %}
 
 ### Installation of Pianobar
 

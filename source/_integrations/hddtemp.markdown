@@ -24,12 +24,9 @@ It required that `hddtemp` is started or running in daemon mode on a local or re
 hddtemp -dF
 ```
 
-<div class='note warning'>
-
-  You can't use this sensor in a container (only Home Assistant Core is supported) as it requires access to `hddtemp` which is not available in a container-based setup.
-
-</div>
-
+{% important %}
+You can't use this sensor in a container (only Home Assistant Core is supported) as it requires access to `hddtemp` which is not available in a container-based setup.
+{% endimportant %}
 
 ## Configuration
 

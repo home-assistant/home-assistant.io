@@ -24,11 +24,14 @@ There is currently support for the following device types within Home Assistant:
 
 - [Presence detection](#presence-detection)
 - [Sensor](#sensor)
+  - [Finding OIDs](#finding-oids)
+  - [Examples](#examples)
+    - [Printer uptime minutes](#printer-uptime-minutes)
 - [Switch](#switch)
 
-<div class='note warning'>
+{% important %}
 This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
-</div>
+{% endimportant %}
 
 ## Presence detection
 
@@ -101,6 +104,8 @@ priv_key:
 {% endconfiguration %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
+
+{% include integrations/using_templates.md %}
 
 ## Sensor
 

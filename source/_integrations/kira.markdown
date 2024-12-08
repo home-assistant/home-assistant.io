@@ -208,32 +208,29 @@ Example automation using these IR codes to toggle a Sonoff plug.
 
 ```yaml
 # Example kira_sensor
-- id: "1583339338363"
-  alias: "Panasonic On"
-  description: Turn on sonoff s20 relay
-  trigger:
-  - entity_id: sensor.kira_wireless
-    platform: state
-    to: PanaOne
-  condition: []
-  action:
-  - device_id: 3628b4f34df943b3b721ead954cf3ca7
-    domain: switch
-    entity_id: switch.plug2_relay
-    type: turn_on
-- id: "1584035716024"
-  alias: "Panaxonic Off "
-  description: Turn off sonoff s20 relay
-  trigger:
-  - entity_id: sensor.kira_wireless
-    platform: state
-    to: PanaTwo
-  condition: []
-  action:
-  - device_id: 3628b4f34df943b3b721ead954cf3ca7
-    domain: switch
-    entity_id: switch.plug2_relay
-    type: turn_off
+- alias: "Panasonic on"
+  description: "Turn on sonoff s20 relay"
+  triggers:
+    - trigger: state
+      entity_id: sensor.kira_wireless
+      to: "PanaOne"
+  actions:
+    - device_id: 3628b4f34df943b3b721ead954cf3ca7
+      domain: switch
+      entity_id: switch.plug2_relay
+      type: turn_on
+
+- alias: "Panaxonic off"
+  description: "Turn off sonoff s20 relay"
+  triggers:
+    - trigger: state
+      entity_id: sensor.kira_wireless
+      to: "PanaTwo"
+  actions:
+    - device_id: 3628b4f34df943b3b721ead954cf3ca7
+      domain: switch
+      entity_id: switch.plug2_relay
+      type: turn_off
 ```
 
 ### Code types
