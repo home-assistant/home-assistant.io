@@ -37,7 +37,7 @@ Once the account has been created:
 
 ## Verify successful integration
 
-Once the correct `Client ID` & `Client Secret` has been provided:
+Once the correct `Client ID` & `Client Secret` have been provided:
 
 - Battery entities:
   - Devices that have a battery level should be automatically recognized, and entities created. If devices are added post-integration, kindly reload the set of `Client Credentials`.
@@ -53,13 +53,13 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Troubleshooting
 
-### Battery level not updating.
+### Battery level not updating
 
-  - Try reloading the client credentials.
-  - Check if your subscription is active.
-  - If you are using an igloohome bridge, ensure that it is linked to the battery-powered devices. 
+- Try reloading the client credentials.
+- Check if your subscription is active.
+- If you are using an igloohome bridge, ensure that it is linked to the battery-powered devices. 
 
-### Authentication problems.
+### Authentication problems
 
-  - Verify that your [API credentials](https://access.igloocompany.co/api-access) are correctly filled in.
-  - Ensure your API credentials have not expired or been revoked.
+- Verify that your [API credentials](https://access.igloocompany.co/api-access) are correctly filled in.
+- Ensure your API credentials have not expired or been revoked.
