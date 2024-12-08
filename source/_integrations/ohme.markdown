@@ -41,6 +41,12 @@ Don't collapse charge slots:
   description: "By default, adjacent slots are merged into one. This option shows every slot, as shown in the Ohme app."
 {% endconfiguration_basic %}
 
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
 ## Binary Sensor
 The {% term integration %} provides the following binary sensors:
 
