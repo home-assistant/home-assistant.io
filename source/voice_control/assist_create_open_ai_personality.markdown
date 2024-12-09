@@ -33,7 +33,7 @@ Check this 1-minute clip showing how Assist is using AI to control a smart home.
 
 LLM-based agents are evolving constantly, and Home Assistant supports most of them. If you'd like to get a deeper knowledge on how to pick the best choice for your setup, check this [comparison study](https://github.com/allenporter/home-assistant-datasets/tree/main/reports) by Allen Porter.
 
-Open AI and Antropic provide cloud agents, while Ollama provides local ones. Home Assistant supports both cases, local and cloud.
+OpenAI and Antropic provide cloud agents, while Ollama provides local ones. Home Assistant supports both cases, local and cloud.
 
 ## Prerequisites
 
