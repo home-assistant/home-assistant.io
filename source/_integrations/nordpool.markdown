@@ -87,9 +87,9 @@ A template sensor to add VAT and fixed cost is useful to get the actual energy c
 ### UI Template
 
 Create a helper using the UI.
-1. Go to `Settings`, `Devices & Services` and choose the `Helpers` tab at the top.
-2. Select `Create helper` at the bottom right.
-3. Choose `Template` and `Template a sensor`.
+1. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and at the top, choose the **Helpers** tab.
+2. In the bottom right corner, select **Create helper**.
+3. Select **Template** and **Template a sensor**.
 4. Enter the fields as shown below.
 
 The template below takes the current price attributes, adds 0.1293 EUR as fixed costs and adds 21% VAT.
@@ -123,7 +123,7 @@ template:
 
 ### Energy Dashboard
 
-To use the Nordpool integration in the Energy dashboard, use the `Use an entity with current price` option when configuring grid consumption and production.
+To use the Nordpool integration in the **Energy** dashboard, when configuring grid consumption and production, use the **Use an entity with current price** option.
 
 <p class='img'>
   <img src='/images/integrations/nordpool/nordpool_energy_dashboard.png' alt='Screenshot: Create template sensor'>
