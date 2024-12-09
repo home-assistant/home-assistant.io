@@ -572,8 +572,15 @@ it.
 
 {% details "Plugwise" %}
 
-For the Plugwise Adam, all device-based climate-entities will be replaced by new zone-based climate entities, most likely with a different name.
-This change is needed because recently (via Issue #130597) it became clear that in the Plugwise App, the climate-entities are representing a climate zone.
+For the Plugwise Adam, all device-based climate entities will be replaced by new zone-based climate entities, which will most likely have different entity names.
+This change aligns with the Plugwise App's representation of climate entities as zones (as discovered in Issue #130597).
+
+ ([@bouwew] - [#131659]) ([documentation](/integrations/plugwise))
+
+ [@bouwew]: https://github.com/bouwew
+ [#131659]: https://github.com/home-assistant/core/pull/131659
+
+ {% enddetails %}
 
 ([@bouwew] - [#131659]) ([documentation](/integrations/plugwise))
 
