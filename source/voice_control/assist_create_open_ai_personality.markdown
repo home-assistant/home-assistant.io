@@ -48,7 +48,7 @@ There are cloud agents provided by Open AI or Antropic and local ones provided b
  
 2. Go to **Settings > Voice Assistants > Add Assistant**. Give it a name and pick a conversation agent from your AI's option. In this example we are using Antropic and the agent picked is Claude.
 
-    ![Add Claude agent to Assist](/images/assist/add-claude-to-assist.png)
+      ![Add Claude agent to Assist](/images/assist/add-claude-to-assist.png)
 
 3. Be mindful of your Text-to-speech and Speech-to-text configurations. These are not handled by the IA and should stay as you want them configured for Assist.
    
