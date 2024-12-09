@@ -384,6 +384,18 @@ However, these cameras can work with this integration through an NVR or Home Hub
 - E1 Pro
 - E1
 - Reolink Lumus
+- B400*
+- B500*
+- B500W*
+- B800*
+- B800W*
+- B1200*
+- D400*
+- D500*
+- D800*
+- D1200*
+
+*These models are only sold as a kit which includes a NVR.
 
 ### Incompatible models
 
