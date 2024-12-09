@@ -582,13 +582,6 @@ This change aligns with the Plugwise App's representation of climate entities as
 
  {% enddetails %}
 
-([@bouwew] - [#131659]) ([documentation](/integrations/plugwise))
-
-[@bouwew]: https://github.com/bouwew
-[#131659]: https://github.com/home-assistant/core/pull/131659
-
-{% enddetails %}
-
 {% details "QNAP" %}
 
 The QNAP sensors will no longer have the following extra state attributes:
