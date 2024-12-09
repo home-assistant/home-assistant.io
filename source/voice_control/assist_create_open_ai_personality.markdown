@@ -43,14 +43,14 @@ OpenAI and Antropic provide cloud agents, while Ollama provides local ones. Home
 
 ### Creating a voice assistant personality with an LLM-based conversation agent
 
-1. Go to {% my integrations title="**Settings** > **Devices & Services**" %} **Add Integration**, find your LLM provider and set it up with your API key. 
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} > **Add integration**, find your LLM provider, and set it up with your API key. 
    - In case of a provider of local agents like Ollama, you need to configure the local URL where the agent is installed. Follow the specific [integration recommendations](/integrations/ollama) in this case.
  
 2. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**. Give it a name and pick a conversation agent from your AI's option. In this example, we are using Antropic, and the agent picked is Claude.
 
       ![Add Claude agent to Assist](/images/assist/add-claude-to-assist.png)
 
-3. Be mindful of your Text-to-speech and Speech-to-text configurations. These are not handled by the AI and should stay as you want them configured for Assist.
+3. Be mindful of your text-to-speech and speech-to-text configurations. These are not handled by the AI and should stay as you want them configured for Assist.
    
 4. Configure the agent (gear icon next to the agent's name).
   
@@ -66,7 +66,7 @@ OpenAI and Antropic provide cloud agents, while Ollama provides local ones. Home
 
       ![Agent with recommended model settings](/images/assist/agent-recommended-model-settings.png)
 
-5. You can uncheck **Recommended model** settings, hit **Submit** and it will unblock extra customization. In the specific example of OpenAI, refer to the [brief summary of the other settings](/integrations/openai_conversation/#model).
+5. You can uncheck **Recommended model** settings, select **Submit** and it will unblock extra customization. In the specific example of OpenAI, refer to the [brief summary of the other settings](/integrations/openai_conversation/#model).
 6. To test the agent directly from the Voice assistants panel, from the agent's menu, select **Start a conversation**. It will control your Home Assistant and reply exactly as it will do with any voice hardware.
 7. You can give your personality a name.:
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the LLM integration. Select **Rename** and change the name to anything you would like.
