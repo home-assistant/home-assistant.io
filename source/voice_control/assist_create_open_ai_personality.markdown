@@ -67,7 +67,7 @@ OpenAI and Antropic provide cloud agents, while Ollama provides local ones. Home
       ![Agent with recommended model settings](/images/assist/agent-recommended-model-settings.png)
 
 5. You can uncheck **Recommended model** settings, hit **Submit** and it will unblock extra customization. In the specific example of OpenAI, refer to the [brief summary of the other settings](/integrations/openai_conversation/#model).
-6. You can test the agent directly from the Voice assistants panel, selecting **Start a conversation** from the agent's menu. It will control your Home Assistant and reply exactly as it will do with any voice hardware.
+6. To test the agent directly from the Voice assistants panel, from the agent's menu, select **Start a conversation**. It will control your Home Assistant and reply exactly as it will do with any voice hardware.
 7. You can give your personality a name.:
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the LLM integration. Select **Rename** and change the name to anything you would like.
       ![Give your AI personality a name](/images/assist/mario_rename.png)
