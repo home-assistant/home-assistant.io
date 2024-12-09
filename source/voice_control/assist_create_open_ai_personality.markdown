@@ -74,7 +74,7 @@ There are cloud agents provided by Open AI or Antropic and local ones provided b
 
 8. You can repeat this with other AI personalities. You can add as many Conversation integrations as you would like.
    - To add a new personality, you may need to create a new API key. Then, add a new Conversation integration with that API key.
-9. In case you need troubleshooting with your LLM provider, check any specifics from your IA in our [integrations documentation](/integrations)
+9. In case you need troubleshooting with your LLM provider, check any specifics from your AI in our [integrations documentation](/integrations)
 
 ## Tutorial: Setting up Assist with OpenAI
 
