@@ -38,7 +38,7 @@ Open AI and Antropic provide cloud agents, while Ollama provides local ones. Hom
 ## Prerequisites
 
 - Home Assistant and Assist is configured following our [best practices](/voice_control/best_practices).
-- An account in the conversational agent of the LLM provider of your choice. If you want to test the process, you can create a free account on Open AI.
+- An account in the conversational agent of the LLM provider of your choice. If you want to test the process, you can create a free account on OpenAI.
 - In case of a local LLM solution, you need to have the model installed.
 
 ### Creating a voice assistant personality with an LLM-based conversation agent
