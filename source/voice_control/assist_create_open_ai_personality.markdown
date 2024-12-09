@@ -69,7 +69,7 @@ There are cloud agents provided by Open AI or Antropic and local ones provided b
 5. You can uncheck Recommended model settings, hit Submit and it will unblock extra customization. In the specific example of OpenAI, [here](/integrations/openai_conversation/#model) a brief summary of the other settings.
 6. You can test the agent directly from the Voice assistants panel, selecting Start a conversation from the agent's menu. It will control your Home Assistant and reply exactly as it will do with any voice hardware.
 7. You can give your personality a name.:
-   - in **Devices & Services** > **Select the LLM integration** > **Rename** and change the name to anything you would like.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the LLM integration. Select **Rename** and change the name to anything you would like.
       ![Give your AI personality a name](/images/assist/mario_rename.png)
 
 8. You can repeat this with other AI personalities. You can add as many Conversation integrations as you would like.
