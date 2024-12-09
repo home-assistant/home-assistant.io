@@ -29,7 +29,7 @@ ha_zeroconf: true
 ha_integration_type: hub
 ---
 
-devolo Home Control is a Z-Wave ecosystem with a Z-Wave to IP gateway in the center. The integration allows you to control devices connected to the gateway.
+[devolo](https://www.devolo.global) Home Control is a Z-Wave ecosystem with a [Z-Wave to IP gateway](https://www.devolo.de/devolo-home-control-zentrale) in the center. The {% term integration %} allows you to control devices connected to the gateway.
 
 {% include integrations/config_flow.md %}
 
