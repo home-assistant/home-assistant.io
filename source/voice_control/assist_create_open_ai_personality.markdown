@@ -46,7 +46,7 @@ There are cloud agents provided by Open AI or Antropic and local ones provided b
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %} **Add Integration**, find your LLM provider and set it up with your API key. 
    - In case of a provider of local agents like Ollama, you need to configure the local URL where the agent is installed. Follow the specific [integration recommendations](/integrations/ollama) in this case.
  
-2. Go to **Settings > Voice Assistants > Add Assistant**. Give it a name and pick a conversation agent from your AI's option. In this example we are using Antropic and the agent picked is Claude.
+2. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**. Give it a name and pick a conversation agent from your AI's option. In this example, we are using Antropic, and the agent picked is Claude.
 
       ![Add Claude agent to Assist](/images/assist/add-claude-to-assist.png)
 
