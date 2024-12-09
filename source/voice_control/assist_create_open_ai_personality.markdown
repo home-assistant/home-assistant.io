@@ -60,7 +60,7 @@ OpenAI and Antropic provide cloud agents, while Ollama provides local ones. Home
      - **No control**: you can talk to the agent, but it cannot control devices.
      - **Assist**: you can talk to the agent and it can control devices. For example, it could turn on the lights.
        - Assist can only control {% term entities %} that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
-   - Define if you want **Home Assistant's model to be the priority response**:
+   - Define if you want the **default Home Assistant's agent** to be the priority response:
       - If you keep this option selected, if the intent can be answered by Home Assistant, it will. It will not have the personality, but the response will be fast and efficient (since it doesn't require going through the LLM-based agent). This is recommended in cases where you can accept not having the AI character reply sometimes and would rather your lights be turned on faster.
       - If you deselect the option, all the intents will go through the LLM-based agent. This is recommended when efficiency is not an issue and you need the agent never to break character (for example, if your Assist personality is Santa Claus).
 
