@@ -42,6 +42,8 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 - Uplink throughput - The amount of data being uploaded through Starlink
 - Downlink throughput - The amount of data being downloaded through Starlink
 - Last boot time - The time Starlink was last turned on
+- Power - Last measured power [W]
+- Energy - Measured energy consumption since reboot [kWh]
 
 ### Binary sensor
 
