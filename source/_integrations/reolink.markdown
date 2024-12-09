@@ -338,6 +338,8 @@ The following models have been tested and confirmed to work with a direct link t
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
 - [RLN12W NVR](https://reolink.com/product/rln12w/)
+- [NVS8 NVR](https://reolink.com/product/nvs8/) (Retail version of RLN8)
+- [NVS16 NVR](https://reolink.com/product/nvs16/) (Retail version of RLN16)
 - [Reolink Chime](https://reolink.com/product/reolink-chime/) (when connected to a doorbell)
 - [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
@@ -361,6 +363,8 @@ The following hubs/NVRs have been tested and confirmed to work with battery-powe
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/) (only the latest hardware version N7MB01, older versions might receive the required firmware update later)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/) (only the latest hardware version N6MB01, older versions might receive the required firmware update later)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
+- [NVS8 NVR](https://reolink.com/product/nvs8/) (Retail version of RLN8)
+- [NVS16 NVR](https://reolink.com/product/nvs16/) (Retail version of RLN16)
 
 The following battery-powered models have been tested and confirmed to work through the Reolink Home Hub/NVR:
 
