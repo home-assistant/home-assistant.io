@@ -50,7 +50,7 @@ Open AI and Antropic provide cloud agents, while Ollama provides local ones. Hom
 
       ![Add Claude agent to Assist](/images/assist/add-claude-to-assist.png)
 
-3. Be mindful of your Text-to-speech and Speech-to-text configurations. These are not handled by the IA and should stay as you want them configured for Assist.
+3. Be mindful of your Text-to-speech and Speech-to-text configurations. These are not handled by the AI and should stay as you want them configured for Assist.
    
 4. Configure the agent (gear icon next to the agent's name).
   
