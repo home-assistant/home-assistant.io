@@ -125,11 +125,11 @@ data:
 #### Select
 
 - **Application control**
-  - **Description**: The application select control will allow changing the active application.
+  - **Description**: The application select control allows changing the active application.
   - **Available for devices**: All 
 
 - **Channel control**
-  - **Description**: The channel select control will allow changing the active television channel.
+  - **Description**: The channel select control allows changing the active television channel.
   - **Available for devices**: Only available for Roku TV devices.
 
 #### Sensor
