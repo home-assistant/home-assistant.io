@@ -26,7 +26,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Roku integration allows you to control a [Roku](https://www.roku.com/) media playback device. This integration only supports Roku media playback devices (ie sticks, streaming boxes, and televisions). All other smarthome products (ie light bulbs and cameras) are part of a different ecosystem.
+The Roku integration allows you to control a [Roku](https://www.roku.com/) media playback device. This integration only supports Roku media playback devices (such as sticks, streaming boxes, and televisions). All other smart home products (such as light bulbs and cameras) are part of a different ecosystem.
 
 {% include integrations/config_flow.md %}
 
@@ -58,26 +58,26 @@ The Roku integration provides the following entities.
   - **Available for devices**: All
 
 - **Supports AirPlay sensor**
-  - **Description**: The supports AirPlay sensor will tell if you if the device is capable of accepting AirPlay connections.
+  - **Description**: The supports AirPlay sensor will tell if the device is capable of accepting AirPlay connections.
   - **Available for devices**: All
 
-- **Supports ethernet sensor**
-  - **Description**: The supports ethernet sensor will tell if you if the device is capable of being connected via an ethernet cable.
+- **Supports Ethernet sensor**
+  - **Description**: The supports Ethernet sensor will tell if the device is capable of being connected via an Ethernet cable.
   - **Available for devices**: All
 
 - **Supports find remote sensor**
-  - **Description**: The supports find remote sensor will tell if you if the device is capable of the find remote feature.
+  - **Description**: The supports find remote sensor will tell if the device is capable of the find remote feature.
   - **Available for devices**: All
 
 #### Media player
 
-The integration allows for media playback control including power and source control. It also supports the ability to select sources such as Text to Speech and Camera via "Browse Media".
+The integration allows for media playback control including power and source control. It also supports the ability to select sources such as text-to-speech and Camera via "Browse Media".
 
 #### Remote
 
 The integration allows you to send remote control commands. It is automatically set up for all devices.
 
-The following commands are currently supported dependent on device type and manufacturer support:
+The following commands are currently supported depending on device type and manufacturer support:
 
 - back
 - backspace
@@ -309,7 +309,7 @@ Roku has been known to remove or restrict local control functionality as part of
 
 Roku channels, such as YouTube, are maintained by third-parties and as such the availability of features like Content Deeplinking are subject to change without notice.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 
