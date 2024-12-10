@@ -88,12 +88,12 @@ Each device adds a set of sensors to Home Assistant.
 
 - Inverter
 
-  Energy produced on the current day, year (not for Gen24 devices) and total produced energy, power, current, voltage, frequency and status for an individual inverter.
+  The energy produced on the current day, year (not for Gen24 devices), and total produced energy, power, current, voltage, frequency, and status for an individual inverter.
   Updated every minute.
 
 - Meter
 
-  Detailed information about power, current and voltage, if supported split among the phases.
+  Detailed information about power, current, and voltage, if supported, split among the phases.
   Updated every minute.
 
 - Ohmpilot
@@ -185,7 +185,7 @@ The Solar API used by this integration is read-only. It does not provide any mea
 
 - Make sure the device is not in a power-saving mode when currently not producing energy.
 - Make sure the device is connected to the network and is reachable from the Home Assistant instance.
-- Check the device's settings to ensure that the "Solar API" is enabled.
+- Check the device's settings to ensure that the **Solar API** is enabled.
 
 ### Some devices are missing after setup or restart of Home Assistant
 
