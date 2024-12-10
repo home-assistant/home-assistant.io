@@ -21,11 +21,9 @@ The **Nord Pool** {% term integration %} integrates [Nord Pool Group](https://ww
 
 The {% term integration %} provides the public market prices displayed on the [Nord Pool Auction page](https://data.nordpoolgroup.com/auction/day-ahead/prices).
 
-Most European energy is traded via the Nord Pool Group marketplace. If your energy provider doesn't have a dedicated Home Assistant integration and you have a spot-price-based contract, you can use the **Nord Pool** {% term integration %}. This integration provides spot prices for your selected market, which you can, as example, use in a {% term template %} to calculate prices for your [energy dashboard](#energy-dashboard).
+Most European energy is traded via the Nord Pool Group marketplace. If your energy provider doesn't have a dedicated Home Assistant integration and you have a spot-price-based contract, you can use the **Nord Pool** {% term integration %}. This integration provides spot prices for your selected market, which you can, as an example, use in a {% term template %} to calculate prices for your [energy dashboard](#energy-dashboard).
 
 {% include integrations/config_flow.md %}
-
-## Configuration fields
 
 {% configuration_basic %}
 Areas:
@@ -35,7 +33,7 @@ Currency:
 {% endconfiguration_basic %}
 
 {% tip %}
-Only a single configuration entry is supported. Use the reconfigure option from the configuration entry if needed to modify the settings.
+Only a single integration entry is supported. To modify the settings, you can use the reconfigure option from the integration entry.
 
 EUR is the base currency for market prices. If you choose another currency, you can find the conversion rate in the `Exchange rate` sensor.
 All prices are displayed as `[Currency]/kWh`.
@@ -43,8 +41,9 @@ All prices are displayed as `[Currency]/kWh`.
 
 ## Data fetching and limitations
 
-Data is polled from the Nord Pool API on an hourly basis, exactly on the hour to always ensure the price sensors are displaying the correct price.
-In the case a polling can not happen, because there is no connectivity or a malfunctioning API, there is no retry and the next periodic update will try again.
+Data is polled from the **Nord Pool** API on an hourly basis, exactly on the hour, to ensure the price sensors are displaying the correct price.
+
+If polling can not happen because of no connectivity or a malfunctioning API, there is no retry; the next periodic update will try again.
 
 ## Sensors
 
