@@ -46,10 +46,6 @@ Platforms available - depending on your Smile and setup include:
 
 ## Before configuring
 
-{% important %}
-When you have an Anna and an Adam, only the Adam will be shown as discovered. Make sure to **only** configure the Adam integration, i.e. do **not** manually configure the Anna.
-{% endimportant %}
-
 The Plugwise Smile(s) present in your network will be automatically discovered via Zeroconf discovery and will be shown on the Integrations-page. All you need is the Smile ID as its password, which is an 8 character string printed on the sticker on the bottom of your Smile. Repeat this for each individual Smile.
 
 {% include integrations/config_flow.md %}
