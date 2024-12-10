@@ -29,8 +29,8 @@ The **Enphase Envoy** {% term integration %} is used to integrate with the [Enph
 
 This integration works with:
 
-- Older and newer <abbr title="IQ Gateway">Envoy</abbr> models that only have production metrics (i.e. Envoy-R (LCD), Envoy-S (not metered))
-- Newer <abbr title="IQ Gateway">Envoy</abbr> models that offer both production and consumption metrics (i.e. Envoy-S Metered equipped with <abbr title="current transformers">CT</abbr>).
+- Older and newer <abbr title="IQ Gateway">Envoy</abbr> models that only have production metrics (such as Envoy-R (LCD), Envoy-S (not metered))
+- Newer <abbr title="IQ Gateway">Envoy</abbr> models that offer both production and consumption metrics (such as Envoy-S Metered equipped with <abbr title="current transformers">CT</abbr>).
 - Various Enphase IQ Combiner products that have an embedded <abbr title="IQ Gateway">Envoy</abbr>, it will show-up in the same way as the stand-alone one.
 
 ## Unsupported devices
@@ -197,7 +197,7 @@ These actions turn on, off or toggle
 
 | Data attribute | Optional | Description |
 | - | - | - |
-| `entity_id` | no | Name(s) of entities, e.g., `switch.enpower_12345678901001_grid_enabled`. |
+| `entity_id` | no | Name(s) of entities. For example, `switch.enpower_12345678901001_grid_enabled`. |
 
 Example:
 
@@ -223,7 +223,7 @@ This action changes the setting for the Enpower `Reserve battery level`.
 | Data attribute | Optional | Description |
 | - | - | - |
 | `entity_id` | no | Name(s) of entities, e.g., `number.enpower_12345678901001_reserve_battery_level`. |
-| `value` | no | The target Value between 0 and 100 to set Enpower reserve battery level to. |
+| `value` | no | The target value between 0 and 100 to set Enpower reserve battery level to. |
 
 Example:
 
@@ -244,7 +244,7 @@ This action changes the:
 
 | Data attribute | Optional | Description |
 | - | - | - |
-| `entity_id` | no | Name(s) of entities, e.g., `select.nc2_generator_action`. |
+| `entity_id` | no | Name(s) of entities. For example, `select.nc2_generator_action`. |
 | `option` | no | For relay modes: `powered`, `not_powered`, `schedule`, `none`. <br> For storage modes: `backup`, `self_consumption`, `savings` |
 
 Example:
@@ -272,11 +272,11 @@ Technically `select.first`, `select.last`, `select.previous`, `select.next` are 
 ## Know issues and limitations
 
 - [Envoy firmware](https://enphase.com/installers/resources/documentation/communication?&f[0]=document%3A217) versions come with changing behavior, features and issues. Firmware is pushed to the Envoy by Enphase, while 'not always communicated in detail upfront'. This may result in sudden changes in the Envoy behavior and is always accompanied by an outage while Envoy is being updated.
-- As of Envoy firmware  8.2.4225 the Envoy does no longer support setting battery modes, Enable/Disable charge from grid or changing reserve battery level through the local REST API used by HA. Until a resolution is found, you will need to use the Enphase APP to control these.
+- As of Envoy firmware  8.2.4225, the Envoy no longer supports setting battery modes, enabling/disabling charging from the grid, or changing reserve battery level through the local REST API used by HA. Until a resolution is found, you will need to use the Enphase APP to control these.
 
 ## Troubleshooting
 
-- The Envoy should not be both on your local LAN and local Wifi at the same time. This may cause auto discovery to switch back and forth between the interfaces resulting in brief outages every 30 minutes. If you experience these frequent brief outages, make sure only 1 interface is used.
+- The Envoy should not be both on your local LAN and local Wi-Fi at the same time. This may cause auto-discovery to switch back and forth between the interfaces resulting in brief outages every 30 minutes. If you experience these frequent brief outages, make sure only 1 interface is used.
 
 ### Debug logs and diagnostics
 
@@ -289,7 +289,7 @@ When experiencing issues during the use of the integration, enable the debug log
 If you're expecting features to show but they are not shown, make sure to reload the integration while debug logging is enabled.
 When this integration is loaded, it will scan the <abbr title="IQ Gateway">Envoy</abbr> for available features and configure these as needed. Following this initial scan, only data for the found features is collected.  Performing a reload with debug enabled results in the debug log containing the initial full scan to assist with analyzing any missing features. Some features are disabled by default, and you need to enable them if you want them to show. Verify this before starting a debug session.
 
-Once the issue occurred, stop the debug logging again (_download of debug log file will start automatically_). When reporting the issue include the debug log file as well as a [{% term diagnostics %}](#diagnostics) file.
+Once the issue occurred, stop the debug logging again (_download of debug log file will start automatically_). When reporting the issue, include the debug log file as well as a [{% term diagnostics %}](#diagnostics) file.
 
 The debug log will show all communication with the Envoy / IQ Gateway. Lines starting with below examples are log entries for the integration:
 
