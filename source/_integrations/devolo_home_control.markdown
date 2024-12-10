@@ -43,7 +43,7 @@ mydevolo URL:
 {% endconfiguration_basic %}
 
 {% note %}
-Your mydevolo account is only used to acquire local credentials. Afterwards, communication is completely local as long as the gateway is within the same network.
+Your mydevolo account is only used to acquire local credentials. Afterward, communication is completely local as long as the gateway is within the same network.
 {% endnote %}
 
 ## Switches
