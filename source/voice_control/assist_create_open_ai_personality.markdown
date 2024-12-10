@@ -2,9 +2,9 @@
 title: "Create a personality with AI"
 related:
   - docs: /voice_control/voice_remote_cloud_assistant/
-    title: Cloud assistant pipeline
+    title: Cloud Assistant pipeline
   - docs: /voice_control/voice_remote_local_assistant/
-    title: Local assistant pipeline
+    title: Local Assistant pipeline
   - url: https://www.nabucasa.com
     title: Home Assistant Cloud
   - docs: /integrations/google_generative_ai_conversation/
