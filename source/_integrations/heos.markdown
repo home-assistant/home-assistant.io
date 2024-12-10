@@ -94,7 +94,7 @@ data:
 You can play a URL through a HEOS media player using the `media_player.play_media` action. The HEOS player must be able to reach the URL.
 
 {% note %}
-The URL (`media_content_type`) must be 255 characters or less due to a limitation on the HEOS firmware API.
+The URL (`media_content_type`) must be 255 characters or fewer due to a limitation on the HEOS firmware API.
 {% endnote %}
 
 Example action data payload:
@@ -120,7 +120,7 @@ data:
 To group HEOS media players together for synchronous playback, use the `media_player.join` action.
 
 {% note %}
-All of the `group_members` need to be HEOS media players.
+All `group_members` need to be HEOS media players.
 {% endnote %}
 
 The example action data payload below will expand playback of `media_player.office` to the `media_player.kitchen` and `media_player.bathroom` players:
@@ -162,7 +162,7 @@ The HEOS integration makes various custom {% term actions %} available in additi
 Use the sign-in action to sign the connected device into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful.
 
 {% note %}
-The device the integration connects to authenticates independently from other devices and the HEOS mobile app. When you first setup the integration, or after a device firmware update, the device will most likely not be logged in.
+The device the integration connects to authenticates independently of other devices and the HEOS mobile app. When you first set up the integration, or after a device firmware update, the device will most likely not be logged in.
 {% endnote %}
 
 To run, go to **Developer Tools** > **Actions** and then type in `heos.sign_in`. Then enter your HEOS account username and password, and click the Perform Action button. An error message is only logged if sign-in is unsuccessful.
@@ -187,12 +187,12 @@ Use the sign-out action to sign the connected device out of a HEOS account. An e
 
 ```yaml
 action: heos.sign_out
-data: {{}}
+data: {% raw %}{}{% endraw %}
 ```
 
 ## Known limitations
 
-- AVR receiver features, such as zone selection/control, power on/off cannot be controlled through this integration. Use the [Universal Media Player](/integrations/universal/#denon-avr--heos) to combine AVR receiver functionality with this integration.
+- AVR receiver features, such as zone selection/control and power on/off, cannot be controlled through this integration. Use the [Universal Media Player](/integrations/universal/#denon-avr--heos) to combine AVR receiver functionality with this integration.
 - {% term TTS %} is not supported.
 - The maximum URL that can be used in the `play_media` action is 255 characters. This is a limitation on the HEOS firmware API.
 
