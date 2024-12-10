@@ -24,7 +24,6 @@ ha_platforms:
   - switch
   - time
 ha_integration_type: integration
-ha_quality_scale: silver
 ---
 
 The Starlink integration allows you to integrate your [Starlink](https://www.starlink.com/) into Home Assistant.

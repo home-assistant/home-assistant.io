@@ -6,13 +6,13 @@ ha_category:
 ha_release: 0.43
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_quality_scale: silver
 ha_codeowners:
   - '@frenck'
   - '@joostlek'
 ha_domain: spotify
 ha_zeroconf: true
 ha_platforms:
+  - diagnostics
   - media_player
 ha_integration_type: service
 ---

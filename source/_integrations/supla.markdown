@@ -13,6 +13,7 @@ ha_platforms:
   - cover
   - switch
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The SUPLA integration allows you to use [SUPLA](https://supla.org/) devices in Home Assistant.

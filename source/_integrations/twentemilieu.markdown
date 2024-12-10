@@ -15,7 +15,6 @@ ha_platforms:
   - calendar
   - diagnostics
   - sensor
-ha_quality_scale: platinum
 ha_integration_type: service
 ---
 

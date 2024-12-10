@@ -12,6 +12,7 @@ ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 With the FinTS {% term integration %}, you can fetch your account information from your bank. This only works with banks that support the FinTS (aka. HBCI) standard. The FinTS standard used by many German banks. So if you do not have a German bank account, this will most likely not work for you. To find out if your bank supports FinTS, check the bank's website or call their hotline.

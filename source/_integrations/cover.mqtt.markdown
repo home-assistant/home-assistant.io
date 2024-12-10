@@ -148,6 +148,10 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -199,6 +203,10 @@ payload_stop:
   required: false
   type: string
   default: STOP
+platform:
+  description: Must be `cover`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 position_closed:
   description: Number which represents closed position.
   required: false
@@ -261,7 +269,7 @@ state_stopped:
   type: string
   default: stopped
 state_topic:
-  description: The MQTT topic subscribed to receive cover state messages. State topic can only read (`open`, `opening`, `closed`, `closing` or `stopped`) state.  A "None" payload resets to an `unknown` state. An empty payload is ignored.
+  description: The MQTT topic subscribed to receive cover state messages. State topic can only read a (`open`, `opening`, `closed`, `closing` or `stopped`) state.  A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 tilt_closed_value:
@@ -306,7 +314,7 @@ tilt_status_topic:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 value_template:
@@ -537,6 +545,8 @@ mqtt:
 
 ### Full configuration using advanced templating
 
+The `position_template` can accept JSON, where `position` and `tilt_position` is provided at the same time.
+
 The example below shows a full example of how to set up a venetian blind which has a combined position and tilt topic. The blind in the example has moveable slats which tilt with a position change. In the example, it takes the blind 6% of the movement for a full rotation of the slats.
 
 Following variable might be used in `position_template`, `set_position_template`, `tilt_command_template` and `tilt_status_template`, `json_attributes_template` (only `entity_id`).
@@ -577,24 +587,20 @@ mqtt:
       position_template: |-
         {% if not state_attr(entity_id, "current_position") %}
           {
-            "position" : value,
-            "tilt_value" : 0
+            "position" : {{ value }},
+            "tilt_position" : 0
           }
         {% else %}
-          {% set position = state_attr(entity_id, "current_position") %}
-          {% set tilt_percent = (state_attr(entity_id, "current_tilt_position")) %}
+          {% set old_position = state_attr(entity_id, "current_position") %}
+          {% set old_tilt_percent = (state_attr(entity_id, "current_tilt_position")) %}
 
-          {% set movement = value | int - position %}
-          {% set tilt = (tilt_percent / 100 * (tilt_max - tilt_min)) %}
-          {% set tilt_value = min(max((tilt + movement), tilt_min), max) %}
+          {% set movement = value | int - old_position %}
+          {% set old_tilt_position = (old_tilt_percent / 100 * (tilt_max - tilt_min)) %}
+          {% set new_tilt_position = min(max((old_tilt_position + movement), tilt_min), tilt_max) %}
   
           {
-            "position": value,
-            "pos": position,
-            "tilt": tilt,
-            "tilt_value": tilt_value,
-            "tilt_percent" : tilt_percent,
-            "mov" : movement
+            "position": {{ value }},
+            "tilt_position": {{ new_tilt_position }}
           }
         {% endif %}
     tilt_command_template: >-

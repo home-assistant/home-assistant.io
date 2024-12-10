@@ -1,5 +1,5 @@
 ---
-title: Google Cloud Platform
+title: Google Cloud
 description: Google Cloud Platform integration.
 ha_category:
   - Speech-to-text
@@ -110,7 +110,11 @@ text_type:
   default: "text"
 {% endconfiguration %}
 
-### Full example
+### Action speak
+
+The `tts.speak` action is the modern way to use Google Cloud TTS action. Add the `speak` action, select the entity for your Google Cloud TTS, select the media player entity or group to send the TTS audio to, and enter the message to speak.
+
+For more options about `speak`, see the Speak section on the main [TTS](/integrations/tts/#action-speak) building block page.
 
 A `tts.speak` service call can look like:
 
@@ -136,6 +140,10 @@ data:
       - wearable-class-device
 ```
 
+## Action say (legacy)
+
+The `tts.google_cloud_say` action can be used when configuring the legacy `google_cloud` text-to-speech platform in `configuration.yaml`. We recommend new users to instead set up the integration in the UI and use the `tts.speak` action with the corresponding Google Cloud text-to-speech entity as target. If you are an existing user of `tts.google_cloud_say`, you can still use it but don't remove the legacy `google_cloud` text-to-speech platform in `configuration.yaml`. If you remove it, you will have to manually migrate to `tts.speak`.
+
 ## Google Cloud speech-to-text
 
 [Google Cloud speech-to-text](https://cloud.google.com/speech-to-text) converts audio into text transcriptions for [125 languages and variants](https://cloud.google.com/speech-to-text/docs/speech-to-text-supported-languages).
@@ -148,7 +156,7 @@ Speech-to-text is priced based on the amount of audio successfully processed by 
 
 {% configuration %}
 stt_model:
-  description: "One of the transcription models [here](https://cloud.google.com/speech-to-text/docs/transcription-model). Defaults to `latest_short`."
+  description: "One of the transcription models [here](https://cloud.google.com/speech-to-text/docs/transcription-model). Defaults to `latest_short` because this is the recommended one. If you get: `400 Invalid recognition 'config': The requested model is currently not supported for language : <language code>` try changing this to the legacy `command_and_search`."
   required: false
   type: string
 {% endconfiguration %}

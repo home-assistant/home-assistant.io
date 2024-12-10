@@ -33,7 +33,6 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_quality_scale: gold
 ha_integration_type: integration
 ---
 
@@ -64,7 +63,16 @@ Tesla restricts open-source integrations to the ["Discovery" plan](https://devel
 
 ## Command signing
 
-Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be encrypted end-to-end and signed with a private key. The Tesla Fleet integration is unable to perform this encryption at this time, so certain features may be disabled or throw an exception when used.
+Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. All actions on vehicle entities will fail with an error if this is required and the key has not been added to the vehicle.
+
+You will need to use Tesla's [command line tools](https://github.com/teslamotors/vehicle-command/blob/main/README.md#installation-and-configuration) to generate a key pair and install the public key on your vehicle using Bluetooth.
+
+```shell
+tesla-keygen -key-file tesla_fleet.key create > tesla_fleet.pem
+tesla-control -ble -key-file tesla_fleet.key -vin VINVINVINVIN add-key-request tesla_fleet.pem owner cloud_key
+```
+
+Finally, copy `tesla_fleet.key` to your Home Assistant config directory and then reload the Tesla Fleet {% term integration %}.
 
 ## Entities
 
@@ -137,7 +145,6 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Sensor|Distance to arrival|Yes|
 |Sensor|Driver temperature setting|No|
 |Sensor|Estimate battery range|No|
-|Sensor|Exterior color|No|
 |Sensor|Fast charger type|No|
 |Sensor|Ideal battery range|No|
 |Sensor|Inside temperature|Yes|
@@ -145,23 +152,13 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Sensor|Outside temperature|Yes|
 |Sensor|Passenger temperature setting|No|
 |Sensor|Power|No|
-|Sensor|Roof color|No|
-|Sensor|Scheduled charging mode|No|
-|Sensor|Scheduled charging start time|No|
-|Sensor|Scheduled departure time|No|
 |Sensor|Shift state|No|
 |Sensor|Speed|No|
 |Sensor|State of charge at arrival|No|
-|Sensor|Time at arrival|Yes|
-|Sensor|Time at full charge|Yes|
 |Sensor|Time to arrival|Yes|
 |Sensor|Time to full charge|Yes|
 |Sensor|Tire pressure front left|No|
 |Sensor|Tire pressure front right|No|
-|Sensor|Tire pressure last measured front left|No|
-|Sensor|Tire pressure last measured front right|No|
-|Sensor|Tire pressure last measured rear left|No|
-|Sensor|Tire pressure last measured rear right|No|
 |Sensor|Tire pressure rear left|No|
 |Sensor|Tire pressure rear right|No|
 |Sensor|Traffic delay|No|
@@ -190,6 +187,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Sensor|Generator power|No|
 |Sensor|Grid power|Yes|
 |Sensor|Grid services power|Yes|
+|Sensor|Grid status|Yes|
 |Sensor|Island status|Yes|
 |Sensor|Load power|Yes|
 |Sensor|Percentage charged|Yes|

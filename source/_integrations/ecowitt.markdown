@@ -24,15 +24,19 @@ ha_integration_type: integration
 
 The **Ecowitt** {% term integration %} works by first creating a callback endpoint on your Home Assistant instance and then adding this configuration to the Ecowitt console so that it starts sending data.
 
-To set up this integration:
+The integration will display a Server IP / Host Name, Path, and Port. You can input it into the Ecowitt configuration in one of two ways:
 
-1. Add the Ecowitt integration to your Home Assistant instance. When doing so, the config flow will display a Server IP, Path, and Port.
-2. Use the Ecowitt App (on your phone) or access the Ecowitt WebUI in a browser at the station IP address.
-3. Select your station > Menu **Others** > **DIY Upload Servers**.
-4. Select **Next**, then select **Customized**.
-5. Select the protocol **Ecowitt**.
-6. Enter the Server IP, Path, and Port that were displayed in step 1.
-    - The path has to match! If using the Ecowitt app, remove the first forward slash from the path, as the app will prepend one.
-7. Save the configuration.
+1. Use the Ecowitt App (on your phone):
+    - Select the Menu Icon ({% icon "mdi:menu" %}) on the upper left, then **My Devices** → **Pick your station**
+    - Select the Ellipsis Icon ({% icon "mdi:dots-horizontal" %}) → **Others**
+    - Select **DIY Upload Servers** → **Customized**
+    - Make sure to choose 'Protocol Type Same As: Ecowitt'
+    - Enter the Server IP / Host Name, Path, and Port from the integration. _Note: The path has to match! Remove the first forward slash from the path, as the app will prepend one._
+    - Save
+1. Navigate to the Ecowitt web UI in a browser at the station IP address:
+    - Select **Weather Services** then scroll down to 'Customized'
+    - Make sure to select 'Customized: 🔘 Enable' and 'Protocol Type Same As: 🔘 Ecowitt'
+    - Enter the Server IP / Host Name, Path, and Port from the integration.
+    - Save
 
 Ecowitt doesn't support TLS/SSL, you can use the NGINX TLS Proxy Add-on to support HTTPS and HTTP at the same time.

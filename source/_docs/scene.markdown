@@ -24,12 +24,11 @@ scene:
       media_player.sony_bravia_tv:
         state: "on"
         source: HDMI 1
-        state: "on"
 ```
 
 ## How to configure your scene
 
-In the scene you define in your YAML files, please ensure you use
+In the scene you define in your {% term YAML %} files, please ensure you use
 all required parameters as listed below.
 
 {% configuration %}
@@ -39,7 +38,7 @@ name:
   type: string
 description:
   description: Description of the scene.
-  required: true
+  required: false
   type: string
 entities:
   description: Entities to control and their desired state.

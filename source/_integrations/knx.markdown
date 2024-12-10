@@ -27,7 +27,6 @@ ha_codeowners:
   - '@farmio'
   - '@marvin-w'
 ha_domain: knx
-ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button
@@ -890,6 +889,10 @@ active_state_address:
   type: [string, list]
 command_value_state_address:
   description: KNX address for reading current command value in percent. `0` sets the climate entity to idle if `active_state_address` is not set. *DPT 5.001*
+  required: false
+  type: [string, list]
+humidity_state_address:
+  description: KNX address for reading current humidity. *DPT 9.007*
   required: false
   type: [string, list]
 operation_mode_address:

@@ -2,15 +2,14 @@
 title: Weheat
 description: Instructions on setting up Weheat within Home Assistant.
 ha_category:
-  - Energy
   - Climate
+  - Energy
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: "2024.10"
+ha_release: '2024.10'
 ha_config_flow: true
 ha_codeowners:
   - '@jesperraemaekers'
-  - '@kjell-van-straaten'
 ha_domain: weheat
 ha_platforms:
   - sensor
@@ -40,8 +39,11 @@ The Weheat integration provides the following sensors:
 - **COP**: The Coefficient of performance between the above two power measurements
 - **Water inlet temperature**: The heat pump water inlet temperature in °C
 - **Water outlet temperature**: The heat pump water outlet temperature in °C
+- **Water target temperature**: Target for the water temperature in °C
 - **Central heating inlet temperature**: The central heating inlet temperature in °C
 - **Outside temperature**: Outside temperature in °C
+- **Current room temperature**: Current room temperature in °C
+- **Room temperature setpoint**: Setpoint for the room temperature in °C
 - **Electricity used**: Total electricity used in kWh
 - **State**: The current heat pump state
 - **DHW top temperature**: The domestic hot water temperature in the top of the vessel in °C (optional)

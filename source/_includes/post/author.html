@@ -8,7 +8,7 @@
 {% if author %}
   {% assign person = site.data.people[author] %}
   {% if person %}
-    <span class="byline author vcard"
+    <span class="byline author vcard">
       <a href="https://github.com/{{ person.github }}" target="_blank"><img class="author-avatar" src="https://avatars.githubusercontent.com/{{ person.github }}?size=64" alt="{{ person.name }}"/> {{ person.name }}</a>
     </span>
   {% else %}

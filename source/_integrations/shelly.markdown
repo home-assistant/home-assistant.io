@@ -43,7 +43,6 @@ ha_platforms:
   - update
   - valve
 ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 Integrate [Shelly devices](https://shelly.com) into Home Assistant.
@@ -329,6 +328,10 @@ The integration supports the following virtual components:
 - `number` in `label` mode, for which a `sensor` platform entity is created
 - `text` in `field` mode, for which a `text` platform entity is created
 - `text` in `label` mode, for which a `sensor` platform entity is created
+
+## Scripts (generation 2 and 3)
+
+For each device script, the integration creates a `switch` entity that allows you to control the script. These entities are disabled by default.
 
 ## Additional info
 

@@ -4,6 +4,7 @@ description: Instructions on how to setup AirGradient devices in Home Assistant.
 ha_category:
   - Health
   - Sensor
+  - Update
 ha_config_flow: true
 ha_release: 2024.6
 ha_iot_class: Local Polling
@@ -13,6 +14,7 @@ ha_codeowners:
 ha_domain: airgradient
 ha_platforms:
   - button
+  - diagnostics
   - number
   - select
   - sensor

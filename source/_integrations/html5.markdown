@@ -13,6 +13,8 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_codeowners:
+  - '@alexyao2015'
 ---
 
 The `html5` notification {% term integration %} enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.

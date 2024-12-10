@@ -3,16 +3,17 @@ title: iotty
 description: Instructions on how to connect iotty Smart Devices to Home Assistant.
 ha_release: '2024.8'
 ha_category:
-  - Switch
   - Cover
+  - Switch
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@pburgio'
+  - '@shapournemati-iotty'
 ha_domain: iotty
 ha_platforms:
-  - switch
   - cover
+  - switch
 ha_integration_type: device
 ---
 

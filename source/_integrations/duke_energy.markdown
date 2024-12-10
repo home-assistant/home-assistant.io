@@ -3,7 +3,7 @@ title: Duke Energy
 description: Instructions on how to integrate Duke Energy within Home Assistant.
 ha_category:
   - Energy
-ha_release: "2024.10"
+ha_release: '2024.10'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@hunterjm'

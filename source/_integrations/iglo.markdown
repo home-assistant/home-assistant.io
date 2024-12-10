@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `iglo` {% term integration %} allows you to integrate your [iGlo Lights](https://www.youtube.com/watch?v=oHTS9ji_v-s) into Home Assistant.
