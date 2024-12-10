@@ -20,10 +20,10 @@ You can give your voice assistant personality by using an AI conversation agent.
 
 ## What can I do in Assist with AI exactly?
 
-- Pick the LLM provider of your choice, either local or cloud, as long as it has a conversational agent.
+- Pick the LLM provider of your choice, either local or cloud, as long as it las a conversational agent.
 - Select a personality based on a prompt.
 - Get replies with the character's personality you defined.
-- Perform Home Assistant intents (such as turning on-off lights), as long as Assist is correctly configured as per our [best practices](/voice_control/best_practices).
+- Perform Home Assistant intents (turn on-off lights, etc), as long as Assist is correctly configured as per our [best practices](/voice_control/best_practices).
 
 Check this 1-minute clip showing how Assist is using AI to control a smart home.
 
@@ -31,26 +31,26 @@ Check this 1-minute clip showing how Assist is using AI to control a smart home.
 
 ## What LLM providers are available?
 
-LLM-based agents are evolving constantly, and Home Assistant supports most of them. If you'd like to get a deeper knowledge on how to pick the best choice for your setup, check this [comparison study](https://github.com/allenporter/home-assistant-datasets/tree/main/reports) by Allen Porter.
+LLM-based agents are evolving constantly, and Home Assistant supports most of them. If you'd like to get a deeper knowledge on how to pick the best choice for your setup, [here](https://github.com/allenporter/home-assistant-datasets/tree/main/reports) is a comparison study you can check.
 
-OpenAI and Antropic provide cloud agents, while Ollama provides local ones. Home Assistant supports both cases, local and cloud.
+There are cloud agents provided by Open AI or Antropic and local ones provided by Ollama, and both cases are supported by Home Assistant.
 
 ## Prerequisites
 
 - Home Assistant and Assist is configured following our [best practices](/voice_control/best_practices).
-- For Cloud-based LLM providers, an account on the provider of your choice.  If you want to test the process, you can create a free account on OpenAI.
+- An account in the conversational agent of the LLM provider of your choice. If you want to test the process, you can create a free account on Open AI.
 - In case of a local LLM solution, you need to have the model installed.
 
 ### Creating a voice assistant personality with an LLM-based conversation agent
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} > **Add integration**, find your LLM provider, and set it up with your API key. 
+1. Go to {% my integrations title="**Settings** > **Devices & Services**" %} **Add Integration**, find your LLM provider and set it up with your API key. 
    - In case of a provider of local agents like Ollama, you need to configure the local URL where the agent is installed. Follow the specific [integration recommendations](/integrations/ollama) in this case.
  
-2. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**. Give it a name and pick a conversation agent from your AI's option. In this example, we are using Antropic, and the agent picked is Claude.
+2. Go to **Settings > Voice Assistants > Add Assistant**. Give it a name and pick a conversation agent from your AI's option. In this example we are using Antropic and the agent picked is Claude.
 
-      ![Add Claude agent to Assist](/images/assist/add-claude-to-assist.png)
+    ![Add Claude agent to Assist](/images/assist/add-claude-to-assist.png)
 
-3. Be mindful of your text-to-speech and speech-to-text configurations. These are not handled by the AI and should stay as you want them configured for Assist.
+3. Be mindful of your Text-to-speech and Speech-to-text configurations. These are not handled by the IA and should stay as you want them configured for Assist.
    
 4. Configure the agent (gear icon next to the agent's name).
   
@@ -60,21 +60,21 @@ OpenAI and Antropic provide cloud agents, while Ollama provides local ones. Home
      - **No control**: you can talk to the agent, but it cannot control devices.
      - **Assist**: you can talk to the agent and it can control devices. For example, it could turn on the lights.
        - Assist can only control {% term entities %} that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
-   - Define if you want the **default Home Assistant's agent** to be the priority response:
-      - If you keep this option selected, if the intent can be answered by Home Assistant, it will. It will not have the personality, but the response will be fast and efficient (since it doesn't require going through the LLM-based agent). This is recommended in cases where you can accept not having the AI character reply sometimes and would rather your lights be turned on faster.
-      - If you deselect the option, all the intents will go through the LLM-based agent. This is recommended when efficiency is not an issue and you need the agent never to break character (for example, if your Assist personality is Santa Claus).
+   - Define if you want **Home Assistant's model to be the priority response.**:
+      - If you keep this option selected, if the intent can be answered by Home Assistant it will. It will not have the personality, but the response will be fast and efficient (since it doesn't require to go through the LLM). This is recommended in cases where you can accept not having the IA character reply sometimes and would rather your lights are turned on faster.
+      - If you deselect the option, all the intents will go through the agent. This is recommended when efficiency is not an issue and you need the agent never to break character (for example if your Assist personality is Santa Claus).
 
       ![Agent with recommended model settings](/images/assist/agent-recommended-model-settings.png)
 
-5. You can uncheck **Recommended model** settings, select **Submit** and it will unblock extra customization. In the specific example of OpenAI, refer to the [brief summary of the other settings](/integrations/openai_conversation/#model).
-6. To test the agent directly from the Voice assistants panel, from the agent's menu, select **Start a conversation**. It will control your Home Assistant and reply exactly as it will do with any voice hardware.
+5. You can uncheck Recommended model settings, hit Submit and it will unblock extra customization. In the specific example of OpenAI, [here](/integrations/openai_conversation/#model) a brief summary of the other settings.
+6. You can test the agent directly from the Voice assistants panel, selecting Start a conversation from the agent's menu. It will control your Home assistant and reply exactly as it will do with any voice hardware.
 7. You can give your personality a name.:
-   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the LLM integration. Select **Rename** and change the name to anything you would like.
+   - in **Devices & Services** > **Select the LLM integration** > **Rename** and change the name to anything you would like.
       ![Give your AI personality a name](/images/assist/mario_rename.png)
 
 8. You can repeat this with other AI personalities. You can add as many Conversation integrations as you would like.
    - To add a new personality, you may need to create a new API key. Then, add a new Conversation integration with that API key.
-9. In case you need troubleshooting with your LLM provider, check any specifics from your AI in our [integrations documentation](/integrations).
+9. In case you need troubleshooting with your LLM provider, check any specifics from your IA in our [integrations documentation](/integrations)
 
 ## Tutorial: Setting up Assist with OpenAI
 
