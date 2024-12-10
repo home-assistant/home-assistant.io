@@ -68,6 +68,7 @@ Happy holidays! And for the last time in 2024: Enjoy the release!
 - [We've upgraded to Python 3.13](#weve-upgraded-to-python-313)
 - [Patch releases](#patch-releases)
   - [2024.12.1 - December 6](#2024121---december-6)
+  - [2024.12.2 - December 10](#2024122---december-10)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -472,6 +473,81 @@ release every Friday.
 [@ludeeus]: https://github.com/ludeeus
 [@robinostlund]: https://github.com/robinostlund
 [@sdb9696]: https://github.com/sdb9696
+
+### 2024.12.2 - December 10
+
+- Enable additional entities on myUplink model SMO20 ([@astrandb] - [#131688])
+- Bump pydrawise to 2024.12.0 ([@dknowles2] - [#132015])
+- Fix API change for AC not supporting floats in SwitchBot Cloud ([@SeraphicRav] - [#132231])
+- Update pyrisco to 0.6.5 ([@agmckaybro] - [#132493])
+- Fix PyTado dependency ([@erwindouna] - [#132510])
+- Bump pycups to 2.0.4 ([@bdraco] - [#132514])
+- Update debugpy to 1.8.8 ([@frenck] - [#132519])
+- bump total_connect_client to 2023.12 ([@austinmroczek] - [#132531])
+- Bump aiounifi to v81 to fix partitioned cookies on python 3.13 ([@Kane610] - [#132540])
+- Update twentemilieu to 2.2.0 ([@frenck] - [#132554])
+- Bump yalexs-ble to 2.5.2 ([@bdraco] - [#132560])
+- Bump plugwise to v1.6.1 ([@bouwew] - [#131950])
+- Bump plugwise to v1.6.2 and adapt ([@bouwew] - [#132608])
+- Fix config flow in Husqvarna Automower ([@Thomas55555] - [#132615])
+- Bump ZHA dependencies ([@puddly] - [#132630])
+- Bump plugwise to v1.6.3 ([@bouwew] - [#132673])
+- Bump yt-dlp to 2024.12.06 ([@joostlek] - [#132684])
+- Revert "Bump pyezviz to 0.2.2.3" ([@srescio] - [#132715])
+- Bump intents to 2024.12.9 ([@synesthesiam] - [#132726])
+- Update frontend to 20241127.7 ([@bramkragten] - [#132729])
+- Bump reolink-aio to 0.11.5 ([@starkillerOG] - [#132757])
+- Catch Hydrawise authorization errors in the correct place ([@dknowles2] - [#132727])
+- Pass an application identifier to the Hydrawise API ([@dknowles2] - [#132779])
+- Bump deebot-client to 9.3.0 ([@edenhaus] - [#132834])
+- Bump aioacaia to 0.1.11 ([@zweckj] - [#132838])
+
+[#131688]: https://github.com/home-assistant/core/pull/131688
+[#131950]: https://github.com/home-assistant/core/pull/131950
+[#132015]: https://github.com/home-assistant/core/pull/132015
+[#132195]: https://github.com/home-assistant/core/pull/132195
+[#132231]: https://github.com/home-assistant/core/pull/132231
+[#132493]: https://github.com/home-assistant/core/pull/132493
+[#132509]: https://github.com/home-assistant/core/pull/132509
+[#132510]: https://github.com/home-assistant/core/pull/132510
+[#132514]: https://github.com/home-assistant/core/pull/132514
+[#132519]: https://github.com/home-assistant/core/pull/132519
+[#132531]: https://github.com/home-assistant/core/pull/132531
+[#132540]: https://github.com/home-assistant/core/pull/132540
+[#132554]: https://github.com/home-assistant/core/pull/132554
+[#132560]: https://github.com/home-assistant/core/pull/132560
+[#132608]: https://github.com/home-assistant/core/pull/132608
+[#132615]: https://github.com/home-assistant/core/pull/132615
+[#132630]: https://github.com/home-assistant/core/pull/132630
+[#132673]: https://github.com/home-assistant/core/pull/132673
+[#132684]: https://github.com/home-assistant/core/pull/132684
+[#132715]: https://github.com/home-assistant/core/pull/132715
+[#132726]: https://github.com/home-assistant/core/pull/132726
+[#132727]: https://github.com/home-assistant/core/pull/132727
+[#132729]: https://github.com/home-assistant/core/pull/132729
+[#132757]: https://github.com/home-assistant/core/pull/132757
+[#132779]: https://github.com/home-assistant/core/pull/132779
+[#132834]: https://github.com/home-assistant/core/pull/132834
+[#132838]: https://github.com/home-assistant/core/pull/132838
+[@Kane610]: https://github.com/Kane610
+[@SeraphicRav]: https://github.com/SeraphicRav
+[@Thomas55555]: https://github.com/Thomas55555
+[@agmckaybro]: https://github.com/agmckaybro
+[@astrandb]: https://github.com/astrandb
+[@austinmroczek]: https://github.com/austinmroczek
+[@bdraco]: https://github.com/bdraco
+[@bouwew]: https://github.com/bouwew
+[@bramkragten]: https://github.com/bramkragten
+[@dknowles2]: https://github.com/dknowles2
+[@edenhaus]: https://github.com/edenhaus
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@puddly]: https://github.com/puddly
+[@srescio]: https://github.com/srescio
+[@starkillerOG]: https://github.com/starkillerOG
+[@synesthesiam]: https://github.com/synesthesiam
+[@zweckj]: https://github.com/zweckj
 
 ## Need help? Join the community!
 
