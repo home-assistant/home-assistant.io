@@ -55,6 +55,7 @@ The Roku integration provides the following entities.
 
 - **Headphones connected sensor**
   - **Description**: The headphones connected sensor will tell if you if the device has headphones connected for private listening.
+  - **Available for devices**: All
 
 - **Supports AirPlay sensor**
   - **Description**: The supports AirPlay sensor will tell if you if the device is capable of accepting AirPlay connections.
@@ -74,9 +75,9 @@ The integration allows for media playback control including power and source con
 
 #### Remote
 
-The integration allows you to send remote control commands to a Roku device. It is automatically set up when a Roku is configured.
+The integration allows you to send remote control commands. It is automatically set up for all devices.
 
-The following commands are currently supported:
+The following commands are currently supported dependent on device type and manufacturer support:
 
 - back
 - backspace
@@ -97,7 +98,7 @@ The following commands are currently supported:
 - left
 - literal
 - play
-- power
+- power 
 - replay
 - reverse
 - right
