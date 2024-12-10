@@ -70,7 +70,7 @@ There are cloud agents provided by [Open AI](/integrations/openai_conversation/)
 
 
 5. You can uncheck Recommended model settings, hit Submit and it will unblock extra customization. In the specific example of OpenAI, [here](/integrations/openai_conversation/#model) a brief summary of the other settings.
-6. You can test the agent directly from the Voice assistants panel, selecting Start a conversation from the agent's menu. It will control your Home assistant and reply exactly as it will do with any voice hardware.
+6. You can test the agent directly from the Voice assistants panel, selecting Start a conversation from the agent's menu. It will control your Home Assistant and reply exactly as it will do with any voice hardware.
 
 7. In case you need troubleshooting with your LLM provider, check any specifics from your IA in our [integrations documentation](/integrations)
 
