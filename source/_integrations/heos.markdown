@@ -15,17 +15,17 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The HEOS integration adds support for a [HEOS](https://www.denon.com/en-gb/category/heos/) System into Home Assistant.
+The HEOS integration adds support for a [HEOS](https://www.denon.com/en-gb/category/heos/) System in Home Assistant.
 
 ## Supported functionality
 
 - [Media Player](/integrations/media_player) {% term entities %} for each HEOS-capable product, including speakers, amps, and receivers (Denon and Marantz)
 - Viewing the currently playing media
-- Controlling play mode (i.e. play), volume, mute, and shuffle
-- Clearing playlists
+- Controlling play mode (i.e. play/pause), volume, mute, and shuffle
 - Playing HEOS favorites, playlists, quick selects, URLs
 - Setting the source to physical inputs (i.e. `AUX1`)
-- Creating HEOS groups
+- Grouping and ungrouping HEOS devices
+- Clearing playlists
 
 {% include integrations/config_flow.md %}
 
@@ -94,7 +94,7 @@ data:
 You can play a URL through a HEOS media player using the `media_player.play_media` action. The HEOS player must be able to reach the URL.
 
 {% note %}
-The URL (`media_content_type`) must be 255 characters or fewer due to a limitation on the HEOS firmware API.
+The URL (`media_content_type`) must be 255 characters or fewer due to a limitation in the HEOS firmware.
 {% endnote %}
 
 Example action data payload:
@@ -194,7 +194,7 @@ data: {% raw %}{}{% endraw %}
 
 - AVR receiver features, such as zone selection/control and power on/off, cannot be controlled through this integration. Use the [Universal Media Player](/integrations/universal/#denon-avr--heos) to combine AVR receiver functionality with this integration.
 - {% term TTS %} is not supported.
-- The maximum URL that can be used in the `play_media` action is 255 characters. This is a limitation on the HEOS firmware API.
+- The maximum length of a URL that can be used in the `play_media` action is 255 characters due to a limitation in the HEOS firmware.
 
 ## Troubleshooting
 
