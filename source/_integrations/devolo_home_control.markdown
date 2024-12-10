@@ -34,6 +34,17 @@ devolo Home Control is a Z-Wave ecosystem with a Z-Wave to IP gateway in the cen
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Email / mydevolo ID:
+  description: "Email address you used to register the central unit at mydevolo."
+Password:
+  description: "Password of your mydevolo account."
+{% endconfiguration_basic %}
+
+{% note %}
+Your mydevolo account is only used to acquire local credentials. Afterward, communication is completely local as long as the gateway is within the same network.
+{% endnote %}
+
 ## Switches
 
 The integration provides support for the following Z-Wave devices:
