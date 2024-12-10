@@ -69,3 +69,11 @@ Each sensor will request a status update from the SwitchBot Cloud API once every
 {% warning %}
 For IR Appliances, the state is inferred from previous commands in Home Assistant and might not reflect reality if you use other ways to control the device.
 {% endwarning %}
+
+## Webhook support
+
+For vacuums, theirs states are updated from SwitchBot's cloud.
+
+{% warning %}
+Only ONE webhook URL seems to be accepted by the SwitchBot's cloud. So, if you want several applications to be notified, it's not possible, or you'll have to go through a “proxy” which will re-dispatch the message to the other applications.
+{% endwarning %}
