@@ -44,7 +44,7 @@ Platforms available - depending on your Smile and setup include:
  - `switch` (for Plugs connected to Adam, or Circles and Stealths connected to a Stretch)
 
 
-## Before configuring
+## Pre-requisites
 
 The Plugwise Smile(s) present in your network will be automatically discovered via Zeroconf discovery and will be shown on the Integrations-page. All you need is the Smile ID as its password, which is an 8 character string printed on the sticker on the bottom of your Smile. Repeat this for each individual Smile.
 
