@@ -16,7 +16,6 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: integration
-ha_quality_scale: silver
 ---
 
 [apcupsd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) on the APC device.

@@ -74,7 +74,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
         2. Select **Create and Continue**.
         3. Under **Select a role**, select **Service Accounts** > **Service Account Token Creator**.
         4. Select **Continue** and then **Done**.
-    6. Under **Service Accounts**, there should now be an account called [name from 4.1]@[projectname].iam.gserviceaccount.com.
+    6. Under **Service Accounts**, there should now be an account called [name from 5.1]@[projectname].iam.gserviceaccount.com.
     7. Select the pencil button of that service account.
     8. Go to **Keys** and **Add key**.
     9. Create a private key in JSON format.

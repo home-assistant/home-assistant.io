@@ -1428,6 +1428,81 @@ For a summary in a more readable format:
 [@puddly]: https://github.com/puddly
 [@silamon]: https://github.com/silamon
 
+## Release 2024.10.4 - October 25
+
+- Fix evohome regression preventing helpful messages when setup fails ([@zxdavb] - [#126441])
+- Handle temprorary hold in Honeywell ([@mkmer] - [#128460])
+- Bump ring-doorbell to 0.9.7 ([@sdb9696] - [#127554])
+- Bump ring-doorbell library to 0.9.8 ([@sdb9696] - [#128662])
+- Add diagnostics to Comelit SimpleHome ([@chemelli74] - [#128794])
+- Bump pyTibber to 0.30.3 ([@Danielhiversen] - [#128860])
+- Add diagnostics to Vodafone Station ([@chemelli74] - [#128923])
+- Bump pyduotecno to 2024.10.1 ([@cereal2nd] - [#128968])
+- Fix uptime floating values for Vodafone Station ([@chemelli74] - [#128974])
+- Fix cancellation leaking upward from the timeout util ([@bdraco] - [#129003])
+- Fix devolo_home_network devices not reporting a MAC address ([@Shutgun] - [#129021])
+- Bump yt-dlp to 2024.10.22 ([@joostlek] - [#129034])
+- Remove DHCP match from awair ([@AlD] - [#129047])
+- Update frontend to 20241002.4 ([@bramkragten] - [#129049])
+- Partially revert "LLM Tool parameters check (#123621)" ([@tronikos] - [#129064])
+- Fix adding multiple devices simultaneously to devolo Home Network's device tracker ([@Shutgun] - [#129082])
+- Fix NYT Games connection max streak ([@joostlek] - [#129149])
+- Bump nyt_games to 0.4.4 ([@joostlek] - [#129152])
+
+[#126441]: https://github.com/home-assistant/core/pull/126441
+[#126782]: https://github.com/home-assistant/core/pull/126782
+[#127554]: https://github.com/home-assistant/core/pull/127554
+[#127566]: https://github.com/home-assistant/core/pull/127566
+[#128176]: https://github.com/home-assistant/core/pull/128176
+[#128460]: https://github.com/home-assistant/core/pull/128460
+[#128654]: https://github.com/home-assistant/core/pull/128654
+[#128662]: https://github.com/home-assistant/core/pull/128662
+[#128794]: https://github.com/home-assistant/core/pull/128794
+[#128860]: https://github.com/home-assistant/core/pull/128860
+[#128923]: https://github.com/home-assistant/core/pull/128923
+[#128968]: https://github.com/home-assistant/core/pull/128968
+[#128974]: https://github.com/home-assistant/core/pull/128974
+[#129003]: https://github.com/home-assistant/core/pull/129003
+[#129021]: https://github.com/home-assistant/core/pull/129021
+[#129034]: https://github.com/home-assistant/core/pull/129034
+[#129047]: https://github.com/home-assistant/core/pull/129047
+[#129049]: https://github.com/home-assistant/core/pull/129049
+[#129064]: https://github.com/home-assistant/core/pull/129064
+[#129082]: https://github.com/home-assistant/core/pull/129082
+[#129149]: https://github.com/home-assistant/core/pull/129149
+[#129152]: https://github.com/home-assistant/core/pull/129152
+[@AlD]: https://github.com/AlD
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Shutgun]: https://github.com/Shutgun
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cereal2nd]: https://github.com/cereal2nd
+[@chemelli74]: https://github.com/chemelli74
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@mkmer]: https://github.com/mkmer
+[@sdb9696]: https://github.com/sdb9696
+[@tronikos]: https://github.com/tronikos
+[@zxdavb]: https://github.com/zxdavb
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[actiontec docs]: /integrations/actiontec/
+[adax docs]: /integrations/adax/
+[ads docs]: /integrations/ads/
+[awair docs]: /integrations/awair/
+[comelit docs]: /integrations/comelit/
+[devolo_home_network docs]: /integrations/devolo_home_network/
+[duotecno docs]: /integrations/duotecno/
+[evohome docs]: /integrations/evohome/
+[frontend docs]: /integrations/frontend/
+[honeywell docs]: /integrations/honeywell/
+[media_extractor docs]: /integrations/media_extractor/
+[nyt_games docs]: /integrations/nyt_games/
+[ring docs]: /integrations/ring/
+[tibber docs]: /integrations/tibber/
+[vodafone_station docs]: /integrations/vodafone_station/
+
 [#102371]: https://github.com/home-assistant/core/pull/102371
 [#106570]: https://github.com/home-assistant/core/pull/106570
 [#112806]: https://github.com/home-assistant/core/pull/112806

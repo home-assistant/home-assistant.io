@@ -12,6 +12,7 @@ ha_domain: wyoming
 ha_integration_type: service
 ha_platforms:
   - binary_sensor
+  - conversation
   - number
   - select
   - stt

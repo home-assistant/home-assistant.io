@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `nmbs` {% term integration %} will create sensors for monitoring travel time and information between 2 stations.

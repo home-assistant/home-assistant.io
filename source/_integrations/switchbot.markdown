@@ -58,7 +58,7 @@ Some SwitchBot devices need to be configured within the app before being control
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
 - Humidifier (WoHumi)
 - Light Strip (WoStrip)
-- [Meter](https://switch-bot.com/pages/switchbot-meter) / [Meter Plus](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH)
+- [Meter](https://switch-bot.com/pages/switchbot-meter) / [Meter Plus](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH) / [Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
 - [Indoor/Outdoor Meter](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) (WoIOSensorTH)
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
@@ -166,12 +166,13 @@ cover:
 
 The SwitchBot integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-{% configuration_basic %}
-"Config flow could not be loaded":
-  description: Possible custom integration conflict, using a different version of PySwitchbot; Try uninstalling the custom integration.
-"No unconfigured devices found":
-  description: Make sure your devices are powered on and are in range.
-{% endconfiguration_basic %}
+{% details "Config flow could not be loaded" %}
+Possible custom integration conflict, using a different version of PySwitchbot; Try uninstalling the custom integration.
+{% enddetails %}
+
+{% details "No unconfigured devices found" %}
+Make sure your devices are powered on and are in range.
+{% enddetails %}
 
 ### Slow connection times
 

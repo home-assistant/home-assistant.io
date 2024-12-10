@@ -62,7 +62,6 @@ There are multiple ways to store the backup on another device:
 - **Option 4**: Or even better, create an automation to handle that, using one of the [backup actions](/integrations/hassio/#action-hassiobackup_full).
 - **Option 5**: Make use of a third-party add-on:
   - [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
-  - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
   - [OneDrive Backup](https://github.com/lavinir/hassio-onedrive-backup)
   - [Nextcloud Backup](https://github.com/Sebclem/hassio-nextcloud-backup)
   - [Remote Backup (scp/rsync/rclone)](https://github.com/ikifar2012/remote-backup-addon)

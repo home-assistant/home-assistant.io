@@ -26,18 +26,22 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The myUplink integration lets you get information about the devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).
+The **myUplink** {% term integration %} lets you get information about and control heat-pump devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).
 
-Depending on the type of devices in your system, one or more entities are added to Home Assistant. Currently, there is support for reading sensor states. There is also support for switch, select and number entities if suitable data points are discovered in the system. Note that you may need a valid subscription with MyUplink to control your equipment with switch, select, and number entities.
+The integration will connect to your account and download all available data from the API. The downloaded information will be used to create devices and entities in Home Assistant. There can be from a few entities up to many hundreds depending on the type of equipment. The integration will make the best effort to map the data-points in the API to sensors, switches, number, and select entities.
+
+{% note %}
+You may need a valid subscription with myUplink to control your equipment with switch, select, and number entities.
+{% endnote %}
 
 ## Prerequisites
 
 1. Visit [https://myuplink.com/register](https://myuplink.com/register) and sign up for a user account.
 2. Go to [**Applications**](https://dev.myuplink.com/apps), and register a new App:
 
-- **Application ID**: Home Assistant (or whatever name makes sense to you)
-- **OAuth Flow**: Authorization Code Grant Flow
-- **Redirect URI**: `https://my.home-assistant.io/redirect/oauth`
+- **Application Name**: Home Assistant (or whatever name makes sense to you)
+- **Description**: A brief description of how you'll use this application (e.g., "Home Assistant integration for controlling my heat pump")
+- **Callback URL**: `https://my.home-assistant.io/redirect/oauth`
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -55,3 +59,24 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 {% include integrations/config_flow.md %}
 
 The integration configuration will require the **Client ID** and **Client Secret** created above. See [Application Credentials](/integrations/application_credentials) for more details.
+
+## Data updates
+
+The integration will poll the API for data every 60 seconds. This polling interval is designed to work within the rate limits of myUplink APIs while providing timely updates.
+
+## Known limitations
+
+- The integration makes the best effort to map data-points from the API to relevant entities in Home Assistant. However, some sensors may not appear for certain heat-pump models, or in other cases, numerous irrelevant entities might be created. Please create an issue on GitHub and include a diagnostic download file from your installation if you believe that the mapping can be improved.
+- Entity names are available in English and cannot be automatically translated by Home Assistant. The reason is that the names are defined by the API and can be changed by updates of the API or the firmware in the appliance. However, most entity names are self-explanatory, e.g., "Room temperature (BT50)".
+
+## Troubleshooting
+
+{% details "Can't log in to myUplink API" %}
+Make sure that you have entered the application credentials correctly. A common problem is that leading or trailing spaces are included in the entered credential strings. You may have to delete the application credentials from Home Assistant and install the integration again to get everything right.
+{% enddetails %}
+
+## Removing the integration
+
+After removing the integration, go to the myUplink [developer site](https://dev.myuplink.com/apps) and remove the credentials unless you will use them again.
+
+{% include integrations/remove_device_service.md %}

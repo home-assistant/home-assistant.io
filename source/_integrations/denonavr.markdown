@@ -65,6 +65,7 @@ Known supported devices:
 - Denon AVR-3313CI
 - Denon AVR-4810
 - Denon AVR-S650H
+- Denon AVC-S660H
 - Denon AVR-S710W
 - Denon AVR-S720W
 - Denon AVR-S740H
@@ -133,14 +134,8 @@ zone3:
   description: Specifies if zone 3 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports. Some receivers do not support a second zone.
 update_audyssey:
   description: Specifies if Audyssey settings should be updated. This can take up to 10 seconds for some receivers.
-  required: false
-  default: false
-  type: boolean
 use_telnet:
   description: Specifies if a telnet connection should be used to receive device status updates. Using telnet provides realtime updates (local push) for many values but each receiver is limited to a single connection. If you enable this setting, no other connection to your device can be made via telnet. This will be set to true for new installations of the integration but false for existing installs to prevent compatibility issues.
-  required: false
-  default: true
-  type: boolean
 {% endconfiguration_basic %}
 
 A few notes:

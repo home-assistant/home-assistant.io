@@ -13,7 +13,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@epenet'
 ha_domain: renault
-ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button
@@ -35,6 +34,17 @@ This integration provides the following platforms:
 - Sensors - such as battery level, outside temperature, odometer, estimated range, and charging rate.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Locale:
+  description: "The country code (e.g., `fr_FR`, `en_GB`) used to connect to the Renault servers. This should match your MyRenault account's locale setting."
+Username:
+  description: "The username used to connect to the Renault servers."
+Password:
+  description: "The password used to connect to the Renault servers."
+Kamereon account id:
+  description: "The Kamereon account ID that your vehicles are assigned to. If there is only one account available it will be automatically selected."
+{% endconfiguration_basic %}
 
 All vehicles linked to the account should then get added as devices, with sensors added as linked entity.
 
@@ -121,3 +131,9 @@ Notes:
     startTime: 'T12:00Z'
     duration: 15 
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

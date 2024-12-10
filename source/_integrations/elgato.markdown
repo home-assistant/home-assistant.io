@@ -8,7 +8,6 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@frenck'
-ha_quality_scale: platinum
 ha_domain: elgato
 ha_zeroconf: true
 ha_platforms:

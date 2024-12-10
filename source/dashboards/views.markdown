@@ -34,12 +34,10 @@ Views control the layout.
 
 There are four different view types:
 
+- **Sections (default)**: Arranges cards in a grid system and lets you group them in sections.
+- **Masonry**: Arranges cards in columns based on their card size.
 - **Panel**: Displays one card in full width. For example a map or an image.
 - **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
-- **Masonry (default)**: Arranges cards in columns based on their card size.
-- **Sections (experimental)**: Arranges cards in a grid system and lets you group them in sections.
-
-It is currently not possible to migrate your dashboard from one view type into another. For example, if you have a dashboard in masonry view, and want it in sections view, you need to create a new view.
 
 ## Adding a view to a dashboard
 
@@ -57,8 +55,9 @@ It is currently not possible to migrate your dashboard from one view type into a
    - If you want to use a previously defined theme, select the [theme](/integrations/frontend/#themes).
    - Select the [view type](#view-type).
    - If this view is meant to be used as a [subview](#subview) only, enable the **Subview** toggle.
+   - If you are using **Sections view**, choose the number of columns you want to use, and, if you want to let the system fill gaps between cards, enable **Dense section placement.**.
 
-   ![The create new view configuration dialog](/images/dashboards/dashboard_view_configuration_01.png)
+   ![The create new view configuration dialog](/images/dashboards/dashboard_view_configuration_03.png)
 
 4. To use a background image, on the **Background** tab, select an image.
    - **Upload picture** lets you pick an image from the system used to show your Home Assistant UI.
@@ -68,6 +67,30 @@ It is currently not possible to migrate your dashboard from one view type into a
 5. On the **Badges** tab, select the entities you want to be represented by a badge.
     - Sidebar and panel views do not support badges.
 6. By default, the new section is visible to all users. On the **Visibility** tab, you can disable the view for users.
+
+## Migrating a view into a sections view
+
+If you have already defined a view but you would now like to have it in a section view type, you can migrate that content. For example, you can migrate from a masonry to a sections view. Currently, you cannot migrate a sections view type into another view type.
+
+Migrating does not affect the current view. It will stay as is, and a new, additional view is created.
+
+To migrate a view into a sections view type, follow these steps:
+
+1. Open the view you want to migrate, and go into edit mode.
+2. In the configuration dialog, select the new view type.
+3. If the new view type offers additional settings, define those settings.
+   - For more information on those settings, refer to the documentation of that view type.
+4. In the top-right corner, select **Convert**.
+   - **Result**: A new, additional view is created.
+   - Your current view will stay untouched.
+   - A new tab opens, and all your cards are imported to the new view.
+5. In the **Imported cards** section, pick each of the cards, and drag them into the sections.
+   - To edit and customize the view, follow the steps in the [sections view](/dashboards/sections/) documentation.
+
+    ![Move cards from imported cards section onto your dashboard](/images/dashboards/imported-cards.png)
+6. To save your changes, select **Done**.
+    - **Result**: Your new dashboard is shown.
+    - If you have cards that were not yet integrated, you can still add them later. They are still available in the Edit mode, in the **Imported cards** section.
 
 ## URL of a view
 
@@ -139,9 +162,9 @@ user:
   type: string
 {% endconfiguration %}
 
-## View type
+## Changing the view type in YAML
 
-You can change the layout of a view by using a different view type. The default is [`masonry`](/dashboards/masonry).
+You can change the layout of a view in YAML by using a different view type. The default is [`section`](/dashboards/section).
 
 ### Example
 

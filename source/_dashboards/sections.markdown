@@ -1,7 +1,7 @@
 ---
 type: view
-title: Sections (experimental)
-sidebar_label: Sections (experimental)
+title: Sections
+sidebar_label: Sections (default)
 description: "Lets you organize your cards in sections on a grid."
 description: "The panel view shows a single card in the full width of the screen."
 related:
@@ -27,16 +27,11 @@ You can group cards without using horizontal or vertical stack cards.
     A fully populated dashboard in Sections view layout
 </p>
 
-{% note %}
-The sections view was released beginning of March 2024 and is experimental! Do not build your daily dashboard on top of it yet! We are still collecting feedback.<br>
-It is not possible to migrate dashboards into sections view.
-{% endnote %}
-
 ## Creating a sections view
 
 1. If you have multiple dashboards, in the left sidebar, select the dashboard to which you want to add the sections view.
 2. Follow the steps on [adding a new view](/dashboards/views/#adding-a-view-to-a-dashboard).
-   - Under **View type**, select **Sections (experimental)**.
+   - Under **View type**, select **Sections**.
 3. Under **Max number of sections wide**, select the maximum number of columns you want to see in the new sections view.
 4. Under **Dense section placement**, select if you want to allow the cards to be arranged automatically in order to fill gaps between cards.
    - This will remove some gaps, but it also means you have less control over the order of the cards.
@@ -77,17 +72,17 @@ In the sections view, you can rearrange sections and cards by dragging them to a
 1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
 2. To rearrange sections, hold the move {% icon "mdi:cursor-move" %} button and move the card.
 
-<p class='img'>
-  <img src="/images/dashboards/section_view_rearrange_sections.gif" alt="Rearranging sections by dragging"/>
-  Rearranging sections by dragging
-</p>
+    <p class='img'>
+      <img src="/images/dashboards/section_view_rearrange_sections.gif" alt="Rearranging sections by dragging"/>
+      Rearranging sections by dragging
+    </p>
 
 3. To rearrange cards, tap and hold the card and move it to your desired location.
 
-<p class='img'>
-  <img src="/images/dashboards/section_view_rearrange_cards.gif" alt="Rearranging cards by dragging"/>
-  Rearranging cards by dragging
-</p>
+    <p class='img'>
+      <img src="/images/dashboards/section_view_rearrange_cards.gif" alt="Rearranging cards by dragging"/>
+      Rearranging cards by dragging
+    </p>
 
 ## Show or hide section conditionally
 

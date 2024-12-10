@@ -1,6 +1,6 @@
 ---
 title: AVM FRITZ!Box Tools
-description: Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant.
+description: Instructions on how to integrate AVM FRITZ!Box routers into Home Assistant.
 ha_category:
   - Binary sensor
   - Image
@@ -11,7 +11,6 @@ ha_release: '0.10'
 ha_domain: fritz
 ha_config_flow: true
 ha_codeowners:
-  - '@mammuth'
   - '@AaronDavidSchneider'
   - '@chemelli74'
   - '@mib1185'
@@ -29,26 +28,31 @@ ha_ssdp: true
 ha_integration_type: integration
 ---
 
-The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://en.avm.de/products/fritzbox/) based router.
+The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://en.avm.de/products/fritzbox/) router and have presence detection for connected network devices.
 
 There is support for the following platform types within Home Assistant:
 
-- **Device tracker** - presence detection by looking at connected devices.
-- **Binary sensor** - connectivity status.
-- **Image** - QR code for Guest Wi-Fi.
-- **Button** - reboot, reconnect, firmware_update.
-- **Sensor** - external IP address, uptime and network monitors.
-- **Switch** - call deflection, port forward, parental control and Wi-Fi networks.
-- **Update** - firmware status of the device.
+- **{% term "Device tracker" %}** - presence detection by looking at connected devices.
+- **{% term "Binary sensor" %}** - connectivity status.
+- **{% term Image %}** - QR code for Guest Wi-Fi.
+- **{% term Button %}** - reboot, reconnect, firmware update.
+- **{% term Sensor %}** - external IP address, uptime and network monitors.
+- **{% term Switch %}** - call deflection, port forward, parental control and Wi-Fi networks.
+- **{% term Update %}** - firmware status of the device.
+
 {% include integrations/config_flow.md %}
 
 {% important %}
-Both TR-064 and UPnP need to be enabled in the FRITZ!Box ( Home Network -> Network -> Network settings -> Access Settings in the Home Network ) for Home Assistant to login and read device info.
+Both the TR-064 (_Permit access for apps_) and UPnP (_Transmit status information over UPnP_) protocol needs to be enabled in the FRITZ!Box under **Home Network** > **Network** > **Network settings** > **Access Settings in the Home Network** for Home Assistant to login and read device info.
 {% endimportant %}
 
 ## Username
 
-The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24 the default username was `admin`.
+It is recommended to create a separate user to connect Home Assistant to your FRITZ!Box. To create a user, in the FRITZ!Box go to **System** > **FRITZ!Box Users** > **Users** > **Add User**. Make sure the user has the **FRITZ!Box Settings** permission.
+
+{% note %}
+If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24, the default username was `admin`.
+{% endnote %}
 
 ## Actions
 
@@ -56,50 +60,50 @@ Available {% term actions %}: `set_guest_wifi_password`
 
 ### Action `set_guest_wifi_password`
 
-Set a new password for the guest wifi.
-The password must be between 8 and 63 characters long.
-If no password is given, it will be auto-generated.
+Set a new password for the guest wifi. The password Length must be between 8 and 63 characters long.
 
-| Data attribute | Optional | Description                                                                                                    |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `device_id`            | no       | Only act on a specific  router                                                                                 |
-| `password`             | yes      | New password for the guest wifi                                                                                |
-| `length`               | yes      | Length of the auto-generated password. (_default 12_)                        |
+| Data attribute | Required | Description |
+| --- | --- | --- |
+| `device_id` | yes | Only act on a specific router |
+| `password` | no | New password for the guest wifi (_will be auto-generated if not defined_) |
+| `length` | no | Length of the auto-generated password. (_default 12_) |
 
 ## Integration options
 
 It is possible to change some behaviors through the integration options.
 To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. Select the **AVM FRITZ!Box Tools** integration, then select **Configure**.
 
-- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
-- **Enable old discovery method**: Needed on some scenarios like no mesh support (fw <= 6.x), mixed brands network devices or LAN switches.
+### Consider home
 
-## Additional info
+Number of seconds that must elapse before considering a disconnected device "not at home".
 
-### Parental control
+### Enable old discovery method
 
-Parental control switches can be used to enable and disable internet access of individual devices. If a device has internet access it will be enabled, otherwise it will be disabled. You can also find the current blocking state of the individual devices in the UI of the FRITZ!Box under `Internet` -> `Filters` -> `Parental Controls` -> `Device Block`
+Needed on some scenarios like no mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
 
-Parental control switches are designed for advanced users, thus they are disabled by default. You need to enable the wanted entities manually.
+## Additional information
+
+### Parental control switches
+
+Parental control {% term switches %} can be used to enable and disable internet access of individual devices. You can also find the current blocking state of the individual devices in the UI of the FRITZ!Box under **Internet** > **Filters** > **Parental Controls** > **Device Block**.
 
 ### Device tracker
 
-**Note**: If you don't want to automatically track newly detected devices, disable the integration system option `Enable new added entities`.
+**Note**: If you don't want to automatically track newly detected devices, disable the {% term integration %} system option `Enable new added entities`.
 
-### Port forward
+### Port forward switches
 
-Due to security reasons, AVM implemented the ability to enable/disable a port forward rule only from the host involved in the rule.
-As a result, this integration will create entities only for rules that have your Home Assistant host as a destination.
+Due to security reasons, AVM implemented the ability to enable/disable a port forward rule only from the host involved in the rule. As a result, this integration will create entities only for rules that have your Home Assistant host as a destination.
 
-**Note 1**: On your FRITZ!Box, enable the setting `Permit independent port sharing for this device` for the device which runs HA (`Internet` -> `Permit Access` -> `<Name of HA device>`)
+**Note 1**: On your FRITZ!Box under **Internet** > **Permit Access**, enable the setting `Permit independent port sharing for this device` for the device which runs HA.
 
-**Note 2**: Only works if you have a dedicated IPv4 address (it won't work with DS-Lite)
+**Note 2**: Only works if you have a dedicated IPv4 address (_it won't work with DS-Lite_)
 
 ## Example Automations and Scripts
 
 ### Script: Reconnect / get new IP
 
-The following script can be used to easily add a reconnect button to your UI. If you want to reboot your FRITZ!Box, you can use `fritz.reboot` instead.
+The following {% term script %} can be used to easily add a reconnect button to your UI. If you want to reboot your FRITZ!Box, you can use `fritz.reboot` instead.
 
 ```yaml
 fritz_box_reconnect:
@@ -142,3 +146,16 @@ automation:
           message: "Password: ..."
 
 ```
+
+## Troubleshooting
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the {% term diagnostics %} data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+
+### Device presence detection is not working as expected
+
+Check if one of the following cases applies:
+
+- You see a device as still present, even if it is offline or disconnected for more than the configured [consider home](#consider-home) seconds.
+- You're using additional network equipment like a network switch or Wi-Fi access point other than an AVM Fritz!Repeater or other AVM components, but not configured as a [mesh](https://en.avm.de/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) in your home network.
+
+If one of the above cases applies to your setup, try [enabling the old discovery method](#enable-old-discovery-method) in the [integration options](#integration-options). This might resolve the issue.
