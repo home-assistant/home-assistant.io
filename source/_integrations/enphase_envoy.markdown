@@ -42,7 +42,7 @@ This integration does not work with:
 ## Prerequisites
 
 - The <abbr title="IQ Gateway">Envoy</abbr> must be configured and commissioned.
-- The <abbr title="IQ Gateway">Envoy</abbr> must be on your local network with IPV4 connectivity from Home Assistant.
+- The <abbr title="IQ Gateway">Envoy</abbr> must be on your local network with IPV4 connectivity from Home Assistant. (Also See troubleshooting, [single network](#single-network))
 - <abbr title="IQ Gateway">Envoy</abbr> firmware version 3.9 or newer.
 - With <abbr title="IQ Gateway">Envoy</abbr> firmware 7 and greater
   - an Enlighten cloud username and password.
@@ -59,7 +59,8 @@ The configuration of an individual Envoy requires you to enter the following inf
 Host:
   description: "The name or IP address of the Envoy to configure. <br> Will be pre-filled if the Envoy was auto-discovered"
 Username:
-  description: "For firmware version 7.0 and later, enter your Enlighten cloud username <br> For firmware before 7.0, enter username *installer* without a password."
+  description: "For firmware version 7.0 and later, enter your Enlighten cloud username. The Enlighten cloud username (and password) will be used to obtain a 1 year valid token from the enphase web-site when first configured or upon expiry.
+  <br> For firmware before 7.0, enter username *installer* without a password."
 Password:
   description: "For firmware version 7.0 and later, enter your Enlighten cloud password <br> For firmware before 7.0, with username *installer*, leave blank."
 {% endconfiguration_basic %}
@@ -75,6 +76,12 @@ Always use a new connection when requesting data from the Envoy:
   description: "No/Yes <br> Some older Envoy firmware may exhibit connection issues when using the default keep-alive connection and report failures. When set, this option disables the use of keep-alive and builds a new connection at each data request. This makes the communication more reliable for these firmware versions. Reported for the Envoy-R, but may apply to other older firmware versions as well."
 {% endconfiguration_basic %}
 
+## Reconfigure
+
+This integration supports updating the Envoy configuration through a `reconfigure` menu option. The reconfiguration allows for changing the Envoy IP address, username, and/or password. Use this menu option if your Enlighten credentials or the device's IP address has changed and needs to be manually updated. The latter is typically automatically detected and updated.
+
+Use this menu option also when an Envoy firmware upgrade requires a switch from local Envoy username/password to token-based authentication with Enlighten username/password (refer to [required manual input](#required-manual-input)).
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
@@ -83,106 +90,435 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Capabilities
 
-This integration will offer various sensors depending on the configuration of your Enphase system. Sensors are available for the following:
+This integration offers various sensors depending on the configuration of your Enphase system. The Envoy can communicate with Enphase IQ micro-inverters, Enphase IQ batteries, Enphase Ensemble Enpower switch and load shedding relays and Enphase compatible generators.
 
-- Current energy production & consumption
-- Historical energy production & consumption
-- Power production per-inverter
+{% note %}
 
-_Consumption sensors require your Envoy to be properly configured with consumption <abbr title="current transformers">CT</abbr> sensors installed._
+- You may known referred product names under other names from the past or future.
+- In this documentation the term SN is used for a device serial-number placeholder. Entities will contain the actual serial-number of the device.
+{% endnote %}
 
-### With current transformers
+### Solar production data
 
-For Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (CT), additional features are available:
+All Envoy models with solar inverters, with or without installed production <abbr title="current transformers">CT</abbr>, for all firmware versions, report solar current and historical production data.
 
-- Sensors for net production (grid export) and net consumption (grid import) if the consumption <abbr title="current transformers">CT</abbr> is a net-consumption <abbr title="current transformers">CT</abbr>.
-- Disabled sensors for:
-  
-  - `Balanced net power consumption` and `lifetime balanced net energy consumption` (grid import - grid export) if either a net-consumption or total-consumption CT is installed. The `balanced net power consumption` value is calculated by the Envoy if a total-consumption CT is used. When a net-consumption CT is installed, it is the same value as the `current net power consumption`, which is enabled by default if the CT is present.
-  - Production and consumption sensors for each phase, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
-  - Phase net production and net consumption, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
-  - Frequency for production and net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).
-  - Voltage for production and net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).[^1]
-  - Current for production and net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).[^1]
-  - Powerfactor for production and net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).[^1]
-  - Metering status for net consumption and production <abbr title="current transformers">CT</abbr> (`normal` | `not-metering` | `check-wiring`) (aggregate and phase).
-  - Count of meter status flags active for net consumption and production <abbr title="current transformers">CT</abbr> (aggregate and phase).[^2]
+#### Aggregated production data
 
-[^1]: For multiphase systems, the Envoy sums the voltages of the phases. This may be valid for split-phase, but for 3-phase systems, use the individual phases rather than the summed value.
-[^2]: If this value is non-zero, consult the diagnostic report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`).
+The Envoy device reports aggregated data for all connected micro-inverters.
 
-### With batteries
+##### Production Sensor Entities
 
-For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/IQ Batteries installed, additional features are available:
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Current power production**: Current aggregated inverter power production in W.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy production last seven days**: Energy produced in previous 7 days, not including today's, in Wh, display scaled to kWh. (See known limitations [Energy Incorrect](#energy-incorrect))
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy production today**: Energy produced since midnight in Wh, default display scaled to kWh. (See known limitations [Late reset](#late-reset), [Energy Incorrect](#energy-incorrect))
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime energy production**: Lifetime energy production in Wh, default display scaled to MWh. (See known limitations [Lifetime reset](#lifetime-reset))
 
-- Sensors for battery status and usage
-- Sensors for grid status *
-- Sensors for the state of the Enpower's four load-shedding relays *
-- A switch allowing you to take your system on-grid and off-grid. Note that the Enpower has a slight delay built-in between receiving these commands and actually switching the system on or off grid. *
-- A switch allowing you to enable or disable charging the Encharge/IQ batteries from the power grid. **
-- Support for changing the battery storage mode between full backup, self-consumption, and savings mode, and setting the reserve battery level for outages. **
-- If a storage <abbr title="current transformers">CT</abbr> is installed:
-  - Sensors for battery storage energy charged and discharged and current active power discharge/charge
-  - Disabled sensors for:
-    - Phase battery storage energy charged and discharged and current power discharge/charge
-    - Voltage for storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
-    - Current for storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
-    - Frequency for storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
-    - Powerfactor for storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
-    - Metering status for storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
-    - Count of meter status flags active storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_solar_production.png" alt="Envoy device">
+  <figcaption>Envoy device with solar production entities.</figcaption>
+</figure>
 
-*: The load shedding and on/off-grid functions are only available with the Enpower/IQ System Controller installed. In battery installations without load-shedding and off-grid functionality, used in many EU countries, these sensors and switches are not available.
+When used with [multi-phase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
 
-**: When used with Enpower/IQ System Controller, the entities to charge from the grid, battery storage mode, and reserve battery level are connected to the Enpower device with the Enpower serial number in their entity and unique IDs. When no Enpower is installed, these are connected to the Envoy itself and the Envoy serial number is used in the IDs.
+#### Individual micro-inverter production data
 
-In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase which pulls the amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multiphase consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
+The Envoy reports individual micro-inverter device production data. SN is the micro-inverter serial-number.
 
-## Envoy authentication requirements
+##### Sensor Entities
 
-For newer models running firmware 7 and greater, you will need your Enlighten cloud username and password. The integration will use these credentials to obtain an Envoy access token from the Enlighten cloud.
+- **Inverter <abbr title="micro-inverter serial number">SN</abbr>**: Current power generated by the inverter in W.
+- **Inverter <abbr title="micro-inverter serial number">SN</abbr> last reported**: Time when Envoy last received a data update from the inverter. Typical update rate for an inverter to the Envoy is every 5 minutes. This entity is disabled by default for all inverters.
 
-For models running firmware 5 and older, use `installer` for the username. No password is required. The integration will automatically detect the `installer` password.
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_inverter_device.png" alt="micro-inverter device">
+  <figcaption>Micro-inverter device with solar production entities.</figcaption>
+</figure>
 
-## Enpower load shedding relays
+### House consumption data
 
-The Enphase Enpower has 4 load shedding relays that can be used to control non-essential loads in your home. These have two main modes of operation:
+House consumption data requires an Envoy Metered equipped and configured with at least 1 consumption <abbr title="current transformers">[CT](#current-transformers)</abbr>.
 
-### Standard
+#### Consumption Sensor Entities
 
-When the mode entity is set to standard, you can simply set the state of the relay to be powered or not powered for each mode of operation: on grid, off grid, and on generator.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Current power consumption**: Current power consumption in W.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime energy consumption**: Lifetime energy consumption in Wh, default display scaled to MWh.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy production last seven days**: Energy consumption in previous 7 days, not including today's, in Wh, display scaled to kWh.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy consumption today**: Energy consumption since midnight in Wh, default display scaled to kWh.
 
-### Battery level
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_consumption.png" alt="consumption entities">
+  <figcaption>Envoy metered with CT reporting production and consumption entities.</figcaption>
+</figure>
 
-When the relay mode is set to battery level, the relays will turn on and off based on the remaining battery level of your Encharge batteries. Two number entities are available to control the cutoff and restore levels for the relays. When the battery level drops below the cutoff level, the relays will turn off. When the battery level rises above the restore level, the relays will turn back on.
+When used with [multi-phase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available but not shown. Enable as needed.
 
-## Data updates
+### Current Transformers
 
-The integration collects data by default every 60 seconds. To customize the collection interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the action using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
+The Envoy Metered can be equipped with up-to 6 <abbr title="current transformers">CT</abbr>. These can be assigned to production, consumption and/or storage measurements in single of multiple phase setups.
+
+Below diagram shows CT installation positions and how they are referred to.
+
+- The production CT measures the energy exchange between Solar production and the switchboard.
+- If the consumption CT is installed as **Load only** a.k.a.  **total-consumption** it measures energy exchange from the switchboard to the loads/house.
+- If the consumption CT is installed as **Load with Solar** a.k.a. **net-consumption**, it measures energy exchange between the switchboard and the grid.
+- The storage CT measures the energy exchange between the battery storage and the switchboard.
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_ct_model.png" alt="ct model">
+  <figcaption>Envoy current transformers.</figcaption>
+</figure>
+
+{% note %}
+This in no way represents a configuration direction, as actual configuration is driven by local rules, installer designs and Enphase installation guidelines. Variations may exist, based on specific needs or rules. This merely describes a simplified view and naming conventions used in this documentation to clarify integration operation. Refer to [Enphase documentation](https://enphase.com/installers/resources/documentation/communication) for more information.
+{% endnote %}
+
+When an Envoy Metered is equipped with a production ct, the ct data will be used to provide the [aggregated solar production data](#aggregated-production-data). Likewise the installed consumption CT will be the source for the [house consumption data](#house-consumption-data).
+
+Either a net-consumption or a total-consumption is installed. The Envoy will calculate the data for the other one.
+
+#### CT Aggregate and phase data
+
+When using <abbr title="current transformers">[CT](#current-transformers)</abbr> in multi-phase enabled configurations, both aggregated and individual phase data is available. If only 1 phase is configured, phase data is the same as the aggregated data and no phase entities are created. If more then 1 phase are configured and measured, individual, disabled, phase entities are available, enable them as needed.
+
+Phase entity names are the names used for the aggregated entities, post fixed with the phase name. Phase names are **L1**, **L2**, **L3**. For example, once enabled, [**lifetime energy production**](#solar-production-data) on phase 3 is available as **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime energy production L3**.
+
+#### Current transformer entities
+
+CT measure multiple properties of the energy exchange which are available as Envoy device entities. These are all disabled by default, enable them as desired.
+
+##### Production CT sensor entities
+
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Frequency production CT**: Frequency in Hz.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Voltage production CT**: Voltage in V. (see limitations [Summed voltage](#summed-voltage))
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Production CT current**: Current in A.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor production CT**: Powerfactor, ratio of active to apparent power.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status production CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active production CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non zero.
+
+##### Net-consumption CT sensor entities
+
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Frequency net consumption CT**: Frequency in Hz .
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Voltage net consumption CT**: Voltage in V. (see limitations [Summed voltage](#summed-voltage)
+- **Envoy <abbr title="Envoy serial number">SN</abbr> net consumption CT current**: Current in A.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor net consumption CT**: Powerfactor, ratio of active to apparent power .
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status net consumption CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active net consumption CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non zero.
+
+##### Storage CT sensor entities
+
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Frequency storage CT**: Frequency in Hz .
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Voltage storage CT**: Voltage in V. (see limitations [Summed voltage](#summed-voltage)
+- **Envoy <abbr title="Envoy serial number">SN</abbr> storage CT current**: Current in A.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor storage CT**: Powerfactor, ratio of active to apparent power .
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status storage CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active storage CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non zero.
+
+For storage CT energy entities refer to [battery sensor](#aggregated-iq-battery-sensor-entities) description.
+
+### Grid sensor entities
+
+When the Envoy Metered is equipped with a [net-consumption CT](#current-transformers), entities for Grid import and export are available.
+
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Current net power consumption**: Current power exchange from (positive) / to (negative) the grid in W, default display in kW.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy consumption**: Lifetime energy consumed / imported from the grid in Wh, default display in MWh.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy production**: Lifetime energy produced / exported to the grid in Wh, default display in MWh.
+
+When used with [multi-phase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
+
+#### Grid Balanced import/export sensor entities
+
+When the Envoy Metered is equipped with a [total-consumption CT](#current-transformers) instead of a [net-consumption CT](#current-transformers), no individual entities for Grid import and export are available, as these are not measured. Instead, the balance (difference) of grid import and export is available in a single entity, disabled by default, enable as desired.
+
+- **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption**: Current power exchange from (positive) / to (negative) the grid in W, default display in kW.
+  (This is the same value as [Envoy <abbr title="Envoy serial number">SN</abbr> Current net power consumption](#grid-sensor-entities) when using a net-consumption CT.)
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption**: Lifetime energy balance (difference) of imported and exported grid energy in Wh, default display in kWh.
+
+When used with [multi-phase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
+
+### Battery Storage data
+
+Enphase battery systems of multiple generations and configurations can provide integration entity data.
+
+- **IQ Batteries**: current Enphase battery models.
+
+The batteries can be implemented in stand-alone configuration or as part of Enphase Ensemble systems with the Enpower/IQ System Controller.  
+
+#### IQ battery data
+
+##### Aggregated IQ battery Sensor entities
+
+Aggregated IQ battery data includes all installed IQ Batteries.
+
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Battery**: Current aggregated state of charge in %
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Available battery energy**: Current aggregated IQ battery energy content in Wh
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Battery capacity**: Aggregated maximum IQ battery energy content in Wh
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Reserve battery level**: Configured aggregated IQ Battery backup state of charge in %
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Reserve battery energy**: Configured aggregated IQ battery backup energy content in Wh
+
+If a [storage <abbr title="current transformers">CT</abbr>](#storage-ct-sensor-entities) is installed:
+
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Current battery discharge**: Current power in/out of the battery in W.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime battery energy discharged**: Lifetime energy discharged from the battery in Wh, default display format MWh.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime battery energy charged**: Lifetime energy charged in the battery in Wh, default display format MWh.
+
+<figure id="aggregated-iq-battery-data">
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_aggr_iq_battery.png" alt="aggregated iq battery">
+  <figcaption>Envoy Aggregated IQ battery Sensor entities with no <a href="#current-transformers">storage CT</a> nor <a href="#enpower-data">Enpower</a> installed.</figcaption>
+</figure>
+
+{% note %}
+If an Enpower device is installed, then **Charge from grid**, **Reserve battery level** and **Storage mode** are available as [Enpower device entities](#enpower-binary-sensor-entities) instead of Envoy device entities.
+{% endnote %}
+
+#### Individual IQ battery data
+
+For each IQ Battery an Encharge device is created, linked to the Envoy parent device. Each encharge devices offers individual battery sensors.
+
+##### Individual IQ battery Sensor entities
+
+- **Encharge <abbr title="Encharge serial number">SN</abbr> Battery**: Current state of charge of the battery in %
+- **Encharge <abbr title="Encharge serial number">SN</abbr> Power**: Current power in W
+- **Encharge <abbr title="Encharge serial number">SN</abbr> Apparent Power**: Current apparent power in VA
+- **Encharge <abbr title="Encharge serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
+- **Encharge <abbr title="Encharge serial number">SN</abbr> Last reported**: Time when Envoy received last update from the battery.
+
+##### Individual IQ battery Binary sensor entities
+
+- **Encharge <abbr title="Encharge serial number">SN</abbr> Communicating**: Communication status of encharge battery, Connected / Disconnected. This is a diagnostics entity.
+- **Encharge <abbr title="Encharge serial number">SN</abbr> DC Switch**: DC Switched off status of encharge battery, On / Off. This is a diagnostics entity.
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_encharge.png" alt="iq battery">
+  <figcaption>Envoy Encharge IQ battery Sensor entities.</figcaption>
+</figure>
+
+### Enpower data
+
+Data for an installed Enphase Enpower off-grid enabling switch is available in various entities for an Enpower device.
+
+#### Enpower Binary sensor entities
+
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Grid status**: status of the grid.
+
+#### Enpower Number entities
+
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Reserve battery level**: reserve battery level to maintain for outages in %. Changing the value, on the UI or in an [action](#action-numberset_value), will update the setting in the Envoy. Also see limitations, [No battery controls](#no-battery-controls).
+
+#### Enpower Select entities
+
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Storage mode**: Current configured storage mode, `Full backup`, `Self consumption`, `Savings mode`. Changing the selection, in the UI or in an [action](#action-selectselect), will update the setting in the Envoy. Also see limitations, [No battery controls](#no-battery-controls).
+
+#### Enpower Sensor entities
+
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Last reported**: Time when Envoy received last update from the enpower device.
+- **Enpower <abbr title="Encharge serial number">SN</abbr> Communicating**: Communication status of enpower switch, Connected / Disconnected. This is a diagnostics entity.
+
+#### Enpower Switch entities
+
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Charge from grid**: Allow or disallow charging Encharge/IQ batteries from grid when a charge schedule is active. Changing the switch, in the UI or in an [action](#action-switchturn_onswitchturn_offswitchtoggle), will update the setting in the Envoy. If no charge schedule is active, changing the setting will not have an immediate effect. Also see limitations, [No battery controls](#no-battery-controls).
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Grid enabled**: Enable or disable grid connection. Note that the Enpower has a slight delay built-in between receiving these commands and actually switching the system on or off grid.
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_enpower.png" alt="envoy enpower">
+  <figcaption>Envoy Enpower entities.</figcaption>
+</figure>
+
+{% note %}
+If no Enpower is installed, then **Charge from grid**, **Reserve battery level** and **Storage mode** are available as [Envoy device entities](#aggregated-iq-battery-data) instead of Enpower device entities.
+{% endnote %}
+
+### Enpower load shedding relays
+
+With the Enpower/IQ System Controller installed, entities for the state and control of the Enpower's four load-shedding relays are available. In battery installations without load-shedding and off-grid functionality, used in many EU countries, these sensors and switches are not available.
+
+The Enphase Enpower has 4 load shedding relays, dry-contacts, that can be used to control non-essential loads in your home. These have two main modes of operation:
+
+- **Standard**: When the mode entity is set to standard, you can simply set the state of the relay to be powered or not powered for each mode of operation: on grid, off grid, and on generator.
+
+- **Battery level**: When the relay mode is set to battery level, the relays will turn on and off based on the remaining battery level of your Encharge IQ batteries. Two number entities are available to control the cutoff and restore levels for the relays. When the battery level drops below the cutoff level, the relays will turn off. When the battery level rises above the restore level, the relays will turn back on.
+
+The names of entities and devices are derived from the load_name configured in the Enpower device.
+
+#### Dry-contact number entities
+
+- **<abbr title="dry_contacts.load_name">LOAD_NAME</abbr> cutoff battery level**: battery level below which relay will turn off when in `Battery level` mode.
+- **<abbr title="dry_contacts.load_name">LOAD_NAME</abbr> restore battery level**: battery level above which the relay will turn back on when in `Battery level` mode.
+
+#### Dry-contact select entities
+
+- **<abbr title="dry_contacts.load_name">LOAD_NAME</abbr> mode**: dry-contact operational mode: `standard` or `battery`
+- **<abbr title="dry_contacts.load_name">LOAD_NAME</abbr> Grid action**: dry-contact on grid action: `Powered`, `Not powered`, `Follow schedule`, `None`
+- **<abbr title="dry_contacts.load_name">LOAD_NAME</abbr> Micro-grid action**: dry-contact on micro-grid action: `Powered`, `Not powered`, `Follow schedule`, `None`
+- **<abbr title="dry_contacts.load_name">LOAD_NAME</abbr> Generator action**: dry-contact on generator action:  `Powered`, `Not powered`, `Follow schedule`, `None`
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_dry_contact.png" alt="envoy dry-contact">
+  <figcaption>Envoy Enpower dry-contact entities.</figcaption>
+</figure>
+
+## Data polling Interval
+
+All data is collection in one coordinated collection cycle, minimizing the number of requests to the Envoy. The local REST API of the Envoy is used. Only when the 1 year valid token is to expire, 1 month before due data, a new token is requested from the Enphase Enlighten web-site.
+
+The integration collects data for all entities by default every 60 seconds. To customize the collection interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the action using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
 
 Envoy installations without installed <abbr title="current transformers">CT</abbr>, collect individual solar inverter data every 5 minutes. This collection does not occur for each inverter at the same time in the 5-minute period. Shortening the collection interval will at best show updates for individual inverters quicker, but not yield more granular data.
 
 With installed <abbr title="current transformers">CT</abbr>, data granularity increases and shortening the collection interval can provide more details. The Envoy, however, has no unlimited resources and shortening the collection interval may result in dropped connections, Envoy freeze or restarts. It will require some step-wise tuning for each individual situation.
 
-## Credentials or device IP address update
-
-This integration supports updating the Envoy configuration through a `reconfigure` menu option. The reconfiguration allows for changing the Envoy IP address, username, and/or password. Use this menu option if your Enlighten credentials or the device's IP address has changed and needs to be manually updated. The latter is typically automatically detected and updated.
-
-Use this menu option also when an Envoy firmware upgrade requires a switch from local Envoy username/password to token-based authentication with Enlighten username/password (refer to [authentication requirements](#envoy-authentication-requirements)).
-
 ## Energy dashboard
 
-This integration provides several values suitable for the energy dashboard:
+This integration provides several entities suitable for the energy dashboard.
 
-- For `Solar production`, use the `Envoy Lifetime energy production` entity.
-- For `Grid consumption`, use the `Envoy Lifetime net energy consumption` entity.[^3]
-- For `Return to grid`, use the `Envoy Lifetime net energy production` entity.[^3]
-- For `Energy going into the battery`, use the the `Envoy Lifetime battery energy charged` entity.[^5]
-- For `Energy coming out off the battery`, use the the `Envoy Lifetime battery energy discharged` entity.[^5]
+### Solar panels
 
-[^3]: Only applies when using  Envoy S Metered / IQ Gateway Metered with installed and configured <abbr title="current transformers">CT</abbr>.
+For **Solar production**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime energy production** entity. Overall this has proven to be more stable as the daily value reported by the Envoy. (See known limitations [Late reset](#late-reset), [Energy Incorrect](#energy-incorrect)).
 
-[^5]: Only applies when using  Envoy S Metered / IQ Gateway Metered / IQ Combiner with installed and configured storage / battery <abbr title="current transformers">CT</abbr>.
+### Electricity Grid
+
+Wether data to use with the electricity grid is available, depends on installed <abbr title="current transformers">CT</abbr>, if any. Also see Limitations, [Balancing grid meter](#balancing-grid-meter).
+
+#### Electricity Grid with net-consumption CT
+
+With a [net-consumption CT](#grid-sensor-entities) installed, both grid consumption and return to grid data is available.
+
+- For **Grid consumption**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy consumption** entity.
+- For **Return to grid**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy production** entity.
+
+#### Electricity Grid with total-consumption CT
+
+With a [total-consumption CT](#grid-balanced-importexport-sensor-entities) installed, only the balanced grid import-export value is available. This value is not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export value.
+
+{% details "Concept to split balanced Grid value into individual import-export values" %}
+
+The concept is to track value changes of the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption** entity, add positive changes to a grid_import entity and add negative changes to a grid_export entity.
+
+{% raw %}
+
+```yaml
+
+- trigger:
+    - platform: state
+      entity_id: sensor.envoy_sn_lifetime_balanced_net_energy_consumption
+  
+  sensor:
+    - name: "Grid import"
+      unique_id: calculated_envoy_grid_import
+      unit_of_measurement: "Wh" 
+      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max }}" 
+      device_class: energy 
+      state_class: total_increasing 
+    - name: "Grid export"
+      unique_id: calculated_envoy_grid_export
+      unit_of_measurement: "Wh" 
+      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min }}" 
+      device_class: energy 
+      state_class: total_increasing
+```
+
+{% endraw %}
+
+Above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor changing UOM to a preferred one. Examples for these exist in various community topics.
+
+{% tip %}
+Alternatively this can be done splitting  **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption** into power import and export and two Riemann sum integral helpers to calculate energy from the power values.
+{% endtip %}
+
+{% enddetails %}
+
+### Home battery storage
+
+Wether data to use with the Home battery storage is available, depends on installed storage <abbr title="current transformers">CT</abbr>, if any.
+
+#### Home battery storage with storage CT
+
+With a [storage CT](#aggregated-iq-battery-sensor-entities) installed, data for both Energy coming out and going into the battery is available.
+
+- For **Energy going into the battery**, use the the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime battery energy charged** entity.
+- For **Energy coming out off the battery**, use the the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime battery energy discharged** entity.
+
+#### Home battery storage without storage CT
+
+Without a [storage CT](#aggregated-iq-battery-sensor-entities) installed, only the current Power in and out individual batteries, or the current aggregated battery energy content is available. These value are not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export values.
+
+##### Home battery storage data using battery power
+
+Battery power is the current power flow in or out of an individual battery. Using the summed Power values of all batteries, the result needs to be split in 2 entities, representing total power in and power out. Next each entity needs to be integrated into energy, using two Riemann sum integral helpers. The resulting data can be used for Energy going into the battery and Energy coming out off the battery.
+
+{% details "Concept to split Battery power value into individual import-export power values" %}
+
+The concept is to first sum all battery Power values using a combine state helper. Then track value changes of the summed value entity, add positive changes to a battery_charge power entity and add negative changes to a battery_discharge discharge entity.
+
+{% raw %}
+
+```yaml
+
+- trigger:
+    - platform: state
+      entity_id: sensor.envoy_sn_summed_battery_power_entity
+  
+  sensor:
+    - name: "Battery charge power"
+      unique_id: calculated_envoy_battery_charge_power
+      unit_of_measurement: "W" 
+      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max }}" 
+      device_class: power 
+      state_class: measurement
+    - name: "Battery discharge power"
+      unique_id: calculated_envoy_battery_discharge_power
+      unit_of_measurement: "W" 
+      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min }}" 
+      device_class: power 
+      state_class: measurement
+```
+
+{% endraw %}
+
+Above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor conversion losses.
+
+{% enddetails %}
+
+##### Home battery storage data using Available battery energy
+
+Changes in the Available battery energy are a result from Energy going in or out of the battery. Splitting these energy changes into 2 entities, one tracking positive changes, one the negative changes, results in data that can be used for Energy going into the battery and Energy coming out off the battery. This method does not account for conversion losses as Energy content changes do not exactly match actual energy flow in and out of the battery.
+
+{% details "Concept to split Available battery energy value into individual import-export values" %}
+
+The concept is to track value changes of the **Envoy <abbr title="Envoy serial number">SN</abbr> Available battery energy** entity, add positive changes to a battery_charge entity and add negative changes to a battery_discharge entity.
+
+{% raw %}
+
+```yaml
+
+- trigger:
+    - platform: state
+      entity_id: sensor.envoy_sn_available_battery_energy
+  
+  sensor:
+    - name: "Battery charge"
+      unique_id: calculated_envoy_battery_charge
+      unit_of_measurement: "Wh" 
+      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max }}" 
+      device_class: energy 
+      state_class: total_increasing
+    - name: "Battery discharge"
+      unique_id: calculated_envoy_battery_discharge
+      unit_of_measurement: "Wh" 
+      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min }}" 
+      device_class: energy 
+      state_class: total_increasing
+```
+
+{% endraw %}
+
+Above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor conversion losses.
+
+{% enddetails %}
+
+### Individual devices
+
+Although not a replacement for individual energy or power measurement devices, with multiphase CT installed, [energy consumption for phases](#ct-aggregate-and-phase-data) is available. These can be used for high level individual devices if of interest.
 
 ## Actions
 
@@ -222,7 +558,7 @@ This action changes the setting for the Enpower `Reserve battery level`.
 
 | Data attribute | Optional | Description |
 | - | - | - |
-| `entity_id` | no | Name(s) of entities, e.g., `number.enpower_12345678901001_reserve_battery_level`. |
+| `entity_id` | no | Name(s) of entities. For example, `number.enpower_12345678901001_reserve_battery_level`. |
 | `value` | no | The target value between 0 and 100 to set Enpower reserve battery level to. |
 
 Example:
@@ -271,12 +607,55 @@ Technically `select.first`, `select.last`, `select.previous`, `select.next` are 
 
 ## Know issues and limitations
 
-- [Envoy firmware](https://enphase.com/installers/resources/documentation/communication?&f[0]=document%3A217) versions come with changing behavior, features and issues. Firmware is pushed to the Envoy by Enphase, while 'not always communicated in detail upfront'. This may result in sudden changes in the Envoy behavior and is always accompanied by an outage while Envoy is being updated.
-- As of Envoy firmware  8.2.4225, the Envoy no longer supports setting battery modes, enabling/disabling charging from the grid, or changing reserve battery level through the local REST API used by HA. Until a resolution is found, you will need to use the Enphase APP to control these.
+### Firmware changes
+
+[Envoy firmware](https://enphase.com/installers/resources/documentation/communication?&f[0]=document%3A217) versions come with changing behavior, features and issues. Firmware is pushed to the Envoy by Enphase, while 'not always communicated in detail upfront'. This may result in sudden changes in the Envoy behavior and is always accompanied by an outage while Envoy is being updated.
+
+### No battery controls
+
+As of Envoy firmware  8.2.4225, the Envoy no longer supports setting battery modes, enabling/disabling charging from the grid, or changing reserve battery level through the local REST API used by HA. Until a resolution is found, you will need to use the Enphase APP to control these.
+
+### Late reset
+
+When using Envoy Metered with <abbr title="current transformers">CT</abbr>, not all firmware versions reset 'Energy production today' at midnight. Delays of up to 15 minutes have been reported. In this case best use a utility meter with the `Lifetime energy production` entity for daily reporting.
+
+### Energy incorrect
+
+When using Envoy Metered with <abbr title="current transformers">CT</abbr>
+
+- not all firmware versions report `Energy production today` correctly. Zero data and unexpected spikes have been reported. In this case best use a utility meter with the `Lifetime energy production` entity for daily reporting.
+- not all firmware versions report `Energy production last seven days` correctly. Zero and unexpected values have been reported.
+
+### Lifetime reset
+
+Envoy Metered without installed CT, running older firmware versions reportedly resets **Lifetime energy production** to 0 when reaching 1.2 MWh. For use with the energy dashboard the reset is not an issue. In a recent firmware version 8.x.x the reset is solved, but results in a one-time step change to the full lifetime value. This has impact on the energy dashboard, it can be solved by setting the statistics value for that moment to 0 in  [Developer Tools: Statistics](/docs/tools/dev-tools/#statistics-tab)
+
+{% details "History example for Envoy Lifetime energy production value reset" %}
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_production_reset.png" alt="envoy dry-contact">
+  <figcaption>Envoy Lifetime energy production value reset.</figcaption>
+</figure>
+
+{% enddetails %}
+
+### Summed Voltage
+
+The Envoy Metered in multiphase setup, sums the voltages of the phases measured on the CT for the aggregated data. This may be valid for split-phase, but for 3-phase systems, use the individual phases rather than the summed value.
+
+### Balancing grid meter
+
+In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. This other phase pulls the missing amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multiphase net-consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
 
 ## Troubleshooting
 
-- The Envoy should not be both on your local LAN and local Wi-Fi at the same time. This may cause auto-discovery to switch back and forth between the interfaces resulting in brief outages every 30 minutes. If you experience these frequent brief outages, make sure only 1 interface is used.
+### Single network
+
+The Envoy should not be both on your local LAN and local Wi-Fi at the same time. This may cause auto-discovery to switch back and forth between the interfaces resulting in brief outages every 30 minutes. If you experience these frequent brief outages, make sure only 1 interface is used.
+
+### CT Active flag count
+
+If this value is non-zero, consult the [diagnostic](#diagnostics) report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`). These may be an indication of installation issues.
 
 ### Debug logs and diagnostics
 
