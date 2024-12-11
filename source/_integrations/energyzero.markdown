@@ -159,7 +159,7 @@ template:
         response_variable: prices
         data:
           config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
-          incl_vat: false
+          incl_vat: true
     sensor:
       - name: Energy prices
         device_class: timestamp
