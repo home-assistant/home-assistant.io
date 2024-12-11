@@ -102,6 +102,7 @@ Use Bluetooth:
 | **Water tank empty** | Indicates whether the water tank needs a refill. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} {% icon "material-symbols:wifi" title="Local connection" %} | - |
 | **Brewing active** | Is on if you are in the process of making coffee. | `all` | {% icon "material-symbols:wifi" title="Local connection" %} |  Only available when the `Host` was set during component configuration. |
 | **Backflush enabled** | Is on if you started the backflushing process. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} {% icon "material-symbols:wifi" title="Local connection" %} | - |
+| **Connectivity** | Whether the LM Acaia scale is currently connected to the machine. | `Linea Mini` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | Only available if you have the Acaia LM scale and configured it with your machine. |
 
 ## Sensors
 
