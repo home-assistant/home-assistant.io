@@ -100,3 +100,9 @@ The integration provides support for the following features:
 The integration provides support for the following Z-Wave devices:
 
 - devolo Siren
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
