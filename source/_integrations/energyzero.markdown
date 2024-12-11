@@ -32,6 +32,18 @@ Partners who are a reseller from EnergyZero:
 
 {% include integrations/config_flow.md %}
 
+## Use cases
+
+In the energy dashboard you can use the `current hour` price entity to calculate how much the electricity or gas has cost each hour with the prices from EnergyZero. Or use the actions in combination with a [template sensor](#prices-sensor-with-response-data) to show the prices for the next 24 hours in a chart on your dashboard.
+
+## Data updates
+
+The integration will poll the EnergyZero API every 10 minutes to update the data in Home Assistant.
+
+## Known limitations
+
+The prices retrieved via the API are bare prices including VAT, however an energy company also charges other rates such as **energy tax** and **purchase costs**. The integration has no configuration option to add these values, but you could create a [template sensor](#all-in-price-sensor) for this.
+
 ## Sensors
 
 The EnergyZero integration creates a number of sensor entities for both gas and electricity prices.
