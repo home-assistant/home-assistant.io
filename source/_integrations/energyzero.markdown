@@ -180,3 +180,9 @@ template:
 ```
 
 {% endraw %}
+
+## Removing the integration
+
+This integration follows standard integration removal steps. If you also use the template sensors, you need to remove them manually.
+
+{% include integrations/remove_device_service.md %}
