@@ -34,7 +34,7 @@ Partners who are a reseller from EnergyZero:
 
 ## Use cases
 
-In the energy dashboard you can use the `current hour` price entity to calculate how much the electricity or gas has cost each hour with the prices from EnergyZero. Or use the actions in combination with a [template sensor](#prices-sensor-with-response-data) to show the prices for the next 24 hours in a chart on your dashboard.
+With the [energy dashboard](/energy) you can use the `current hour` price entity to calculate how much the electricity or gas has cost each hour based on the prices from EnergyZero. Or use one of the actions in combination with a [template sensor](#prices-sensor-with-response-data) to show the prices for the next 24 hours in a chart on your dashboard.
 
 ## Data updates
 
@@ -139,11 +139,11 @@ The response data is a dictionary with the energy timestamps and prices as strin
 
 {% endraw %}
 
-### Templates
+## Templates
 
 Create template sensors to display the prices in a chart or to calculate the all-in hour price.
 
-#### Prices sensor with response data
+### Prices sensor with response data
 
 To use the response data from the actions, you can create a template sensor that updates every hour.
 
