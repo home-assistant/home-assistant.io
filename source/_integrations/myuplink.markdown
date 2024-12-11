@@ -70,10 +70,12 @@ However, the representation in Home Assistant depends on how and to what extent 
 
 ## Use cases / Examples
 
-- Add an entity to the dashboard that display the current operations state of the pump. E.g. heating the house, heating the pool, or producing hot tap-water.
-- Create a notification when running short of hot water i.e. low temperature in the water heater tank.
-- Adjust temperature curve offset when setting the home in holiday mode.
-- Display long term statistics with graphs on all relevant sensors.
+Common use cases include:
+
+- **System Monitoring**: Display the current operation state of the pump (heating house, pool, or hot water)
+- **Smart Notifications**: Get alerts when water temperature is low in the heater tank
+- **Automation**: Adjust temperature curve offset during holiday mode
+- **Analytics**: View long-term statistics and graphs for relevant sensors
 
 ## Data updates
 
