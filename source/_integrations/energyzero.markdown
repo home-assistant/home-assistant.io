@@ -127,9 +127,13 @@ The response data is a dictionary with the energy timestamps and prices as strin
 
 {% endraw %}
 
-### Add response to sensor
+### Templates
 
-The response data can be added to a template sensor:
+Create template sensors to display the prices in a chart or to calculate the all-in hour price.
+
+#### Prices sensor with response data
+
+To use the response data from the actions, you can create a template sensor that updates every hour.
 
 {% raw %}
 
@@ -150,6 +154,29 @@ template:
         state: "{{ now() }}"
         attributes:
           prices: '{{ prices }}'
+```
+
+{% endraw %}
+
+### All-in price sensor
+
+To calculate the all-in hour price, you can create a template sensor that calculates the price based on the current price, energy tax, and purchase costs.
+
+{% raw %}
+
+```yaml
+template:
+  - sensor:
+      - name: EnergyZero all-in current price
+        unique_id: allin_current_price
+        icon: mdi:cash
+        unit_of_measurement: "€/kWh"
+        state_class: measurement
+        state: >
+          {% set energy_tax = PUT_HERE_THE_PRICE %}
+          {% set purch_costs = PUT_HERE_THE_PRICE %}
+          {% set current_price = states('sensor.energyzero_today_energy_current_hour_price') | float(0) %}
+          {{ (current_price + energy_tax + purch_costs) | round(2) }}
 ```
 
 {% endraw %}
