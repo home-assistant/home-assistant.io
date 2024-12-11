@@ -65,7 +65,7 @@ The integration configuration will require the **Client ID** and **Client Secret
 
 ## Supported heat-pump systems
 
-The integration supports all heat-pump devices that can be connected to the myUplink cloud service. See [Works with myUplink ](https://myuplink.com/legal/works-with/en).
+The integration supports all heat-pump devices that can be connected to the myUplink cloud service. See [Works with myUplink](https://myuplink.com/legal/works-with/en).
 However, the representation in Home Assistant depends on how and to what extent the manufacturer has implemented the service.
 
 ## Use cases / Examples
