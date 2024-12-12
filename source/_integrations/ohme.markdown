@@ -45,10 +45,11 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
-## Binary Sensor
-The {% term integration %} provides the following binary sensors:
+## Sensor
+The {% term integration %} provides the following sensors:
 
-- Car Connected - On when a car is plugged in
-- Car Charging - On when a car is connected and drawing power
-- Pending Approval - On when a car is connected and waiting for approval
-- Charger Online - On if charger is online and connected to the internet
+- Status - Current status of the charger. Possible states: Unplugged, Pending approval, Plugged in, Charging
+- Power
+- Current
+- Energy
+- CT current - This will only be available if a CT sensor is attached to your charger.
