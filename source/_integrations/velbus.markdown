@@ -117,7 +117,7 @@ Use this action when you make changes to your configuration via velbuslink.
 
 ## VMB7IN and the Energy dashboard
 
-The VMB7IN sensor can be integrated with Home Assistant's [Energy dashboard](/energy_dashboard) to track your utility consumption.
+The VMB7IN sensor can be integrated with Home Assistant's Energy dashboard to track your utility consumption.
 
 In some cases, the VMB7IN sensor does not report what the counter is counting. If the counter is related to an energy device, everything will work out of the box.
 But if the VMB7IN sensor is a water or gas counter, you will need to specify this in your configuration.yaml file.
