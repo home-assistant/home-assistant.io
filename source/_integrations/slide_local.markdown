@@ -56,11 +56,6 @@ invert_position:
   required: true
   default: false
   type: boolean
-api_version:
-  description: "The API version of your Slide device (API 1 or API 2)."
-  required: true
-  default: API 2
-  type: selector
 {% endconfiguration %}
 
 ## Supported functionality
