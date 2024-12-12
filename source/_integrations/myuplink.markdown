@@ -73,9 +73,9 @@ However, the representation in Home Assistant depends on how and to what extent 
 Common use cases include:
 
 - **System Monitoring**: Display the current operation state of the pump (heating house, pool, or hot water)
-- **Smart Notifications**: Get alerts when water temperature is low in the heater tank
-- **Automation**: Adjust temperature curve offset during holiday mode
-- **Analytics**: View long-term statistics and graphs for relevant sensors
+- **Smart Notifications**: Get alerts when the water temperature is low in the heater tank
+- **Automation**: Adjust the temperature curve offset during holiday mode
+- **Analytics**: View long-term statistics and graphs for the relevant sensors
 
 ## Data updates
 
