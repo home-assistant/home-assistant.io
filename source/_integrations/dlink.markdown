@@ -15,7 +15,7 @@ ha_codeowners:
 ha_integration_type: device
 ---
 
-The D-Link Wi-Fi Smart Plugs integration allows you to control the state of your [D-Link Wi-Fi Smart Plugs](https://us.dlink.com/en/consumer/smart-home).
+The **D-Link Wi-Fi Smart Plugs** {% term integration %} allows you to control the state of your [D-Link Wi-Fi Smart Plugs](https://us.dlink.com/en/consumer/smart-home).
 
 {% include integrations/config_flow.md %}
 
@@ -26,4 +26,4 @@ Supported devices (tested):
 
 Password: The default password is the PIN included on the configuration card or on the back of the unit.
 
-Use the legacy protocol in case the integration does not work. This enables limited support for legacy firmware protocols (Tested with v1.24, v1.26). Data such as power consumption will not be available. The temperature will also show a freezing level.
+Use the legacy protocol in case the D-Link Wi-Fi Smart Plugs does not work. This enables limited support for legacy firmware protocols (Tested with v1.24, v1.26). Data such as power consumption will not be available. The temperature will also show a freezing level.

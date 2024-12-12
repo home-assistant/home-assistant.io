@@ -12,11 +12,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT integration, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
+[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT integration, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel). This requires the [Pro plan](https://ifttt.com/plans) or higher.
 
 ## Prerequisites
 
-To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic), or use your Nabu Casa account's webhook URL from the IFTTT integration.
+To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/integrations/homeassistant/#allowlist_external_urls), or use your Nabu Casa account's webhook URL from the IFTTT integration.
 
 {% include integrations/config_flow.md %}
 
@@ -36,18 +36,16 @@ You then need to consume that incoming information with the following automation
 
 ```yaml
 automation:
-- id: this_is_the_automation_id
-  alias: "The optional automation alias"
-  trigger:
-  - platform: event
-    event_type: ifttt_webhook_received
-    event_data:
-      action: call_service  # the same action 'name' you used in the Body section of the IFTTT recipe
-  condition: []
-  action:
-  - service: '{{ trigger.event.data.service }}'
-    target:
-      entity_id: '{{ trigger.event.data.entity_id }}'
+- alias: "The optional automation alias"
+  triggers:
+    - trigger: event
+      event_type: ifttt_webhook_received
+      event_data:
+        action: call_service  # the same action 'name' you used in the Body section of the IFTTT recipe
+  actions:
+    - action: '{{ trigger.event.data.service }}'
+      target:
+        entity_id: '{{ trigger.event.data.entity_id }}'
     
 ```
 
@@ -64,11 +62,11 @@ ifttt:
 `key` is your API key which can be obtained by viewing the **Settings** of the [Webhooks applet](https://ifttt.com/maker_webhooks/settings). It's the last part of the URL (e.g., https://maker.ifttt.com/use/MYAPIKEY) you will find under **My Applets** > **Webhooks** > **Settings**.
 ![Property screen of the Maker Channel.](/images/integrations/ifttt/finding_key.png)
 
-Once you have added your key to your `configuration.yaml` file, restart your Home Assistant instance. This will load up the IFTTT integration and make a service available to trigger events in IFTTT.
+Once you have added your key to your {% term "`configuration.yaml`" %} file, restart your Home Assistant instance. This will load up the IFTTT integration and make an action available to trigger events in IFTTT.
 
-<div class='note'>
+{% important %}
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
-</div>
+{% endimportant %}
 
 ### Multiple IFTTT keys
 
@@ -84,38 +82,31 @@ ifttt:
 
 ### Testing your trigger
 
-You can use **Developer Tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, open the Home Assistant sidebar, click on **Developer Tools** -> **Services** tab. Select `IFTTT: Trigger` as the service and fill in the following values:
+You can use **Developer Tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, open the Home Assistant sidebar, click on **Developer Tools** > **Actions** tab. Select `IFTTT: Trigger` as the action and fill in the following values:
 
 {% configuration_basic %}
 event:
   description: The name of the event to send.
-  required: true
-  type: string
 value1:
   description: Generic field to send data via the event.
-  required: false
-  type: string
 value2:
   description: Generic field to send data via the event.
-  required: false
-  type: string
 value3:
   description: Generic field to send data via the event.
-  required: false
-  type: string
 {% endconfiguration_basic %}
 
-When your screen looks like this, click the 'call service' button.
-![Testing service.](/images/integrations/ifttt/testing_service.png)
+When your screen looks like this, select the **Perform action** button.
 
-By default, the trigger is sent to all the API keys from `configuration.yaml`. If you
+![Testing action.](/images/integrations/ifttt/testing_service.png)
+
+By default, the trigger is sent to all the API keys from {% term "`configuration.yaml`" %}. If you
 want to send the trigger to a specific key use the `target` field:
 
-Field | Value
------ | -----
-domain | `ifttt`
-service | `trigger`
-Service Data | `{"event": "EventName", "value1": "Hello World", "target": "YOUR_KEY_NAME1"}`
+| Field   | Value                                                                         |
+| --------| ----------------------------------------------------------------------------- |
+| domain  | `ifttt`                                                                       |
+| service | `trigger`                                                                     |
+| data    | `{"event": "EventName", "value1": "Hello World", "target": "YOUR_KEY_NAME1"}` |
 
 The `target` field can contain a single key name or a list of key names.
 
@@ -142,12 +133,12 @@ Add the *Then That* action. The below example sends a notification to the IFTTT 
 # Example configuration.yaml Automation entry
 automation:
   alias: "Startup Notification"
-  trigger:
-    platform: homeassistant
-    event: start
-  action:
-    service: ifttt.trigger
-    data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
+  triggers:
+    - trigger: homeassistant
+      event: start
+  actions:
+    - action: ifttt.trigger
+      data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
 ```
 
 {% endraw %}
@@ -160,15 +151,15 @@ IFTTT can also be used in scripts and with templates. Here is the above automati
 # Example configuration.yaml Automation entry
 automation:
   alias: "Startup Notification"
-  trigger:
-    platform: homeassistant
-    event: start
-  action:
-    service: script.ifttt_notify
-    data:
-      value1: "HA Status:"
-      value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
-      value3: "{{ trigger.event.data.to_state.state }}"
+  triggers:
+    - trigger: homeassistant
+      event: start
+  actions:
+    - action: script.ifttt_notify
+      data:
+        value1: "HA Status:"
+        value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
+        value3: "{{ trigger.event.data.to_state.state }}"
 ```
 
 {% endraw %}
@@ -179,7 +170,7 @@ automation:
 #Example Script to send TestHA_Trigger to IFTTT but with some other data (homeassistant UP).
 ifttt_notify:
   sequence:
-    - service: ifttt.trigger
+    - action: ifttt.trigger
       data: {"event":"TestHA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
 ```
 

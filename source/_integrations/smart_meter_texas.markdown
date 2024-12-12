@@ -30,8 +30,8 @@ Any Texas electricity consumer can register an account.
     - Your meter number
     - Your ESIID (Electric Service Identifier)
 
-<div class='note'>
+{% note %}
 Due to API limits, this sensor refreshes once per hour. The limit is 24 meter readings per calendar day.
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}

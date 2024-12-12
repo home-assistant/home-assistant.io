@@ -2,7 +2,8 @@
 title: Plugwise
 description: Plugwise Smile platform integration.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
+  - Button
   - Climate
   - Number
   - Select
@@ -19,6 +20,7 @@ ha_domain: plugwise
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - diagnostics
   - number
@@ -33,12 +35,14 @@ The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Ada
 
 Platforms available - depending on your Smile and setup include:
 
- - `climate` (for the Anna and Lisa products, or a single Tom)
- - `sensor` (for all relevant products including the Smile P1)
+ - `climate` (for the stand-alone Anna, for Adam, a climate entity is shown for each zone containing devices like an Anna or another type of wired-thermostat, Jip or Lisa combined with one or more Tom/Floor devices)
  - `binary_sensor` (for showing the status of e.g. domestic hot water heating or secondary heater)
- - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
- - `select` (for changing a thermostat schedule)
- - `number` (for changing a boiler setpoint)
+ - `button` (for the Adam and the non-legacy Anna and P1 gateways)
+ - `number` (for changing a boiler setpoint, a temperature offset)
+ - `sensor` (for all relevant products including the Smile P1)
+ - `select` (for changing a thermostat schedule, a regulation mode (Adam only))
+ - `switch` (for Plugs connected to Adam, or Circles and Stealths connected to a Stretch)
+
 
 The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
 
@@ -48,11 +52,27 @@ The password can be found on the bottom of your Smile or Stretch, the ID, it sho
 
 ## Entities
 
-This integration will show all Plugwise entities present in your Plugwise configuration. In addition, you will see a 'Smile' entity representing your central Plugwise gateway (i.e., the Smile Anna, Smile P1, Adam or Stretch).
+This integration will show all Plugwise devices (like hardware devices, multi-thermostat climate-zones, and virtual switchgroups) present in your Plugwise configuration. In addition, you will see a Gateway device representing your central Plugwise gateway (i.e., the Smile Anna, Smile P1, Adam or Stretch).
 
-For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual entities. The heating/cooling device connected to your Smile will be shown as 'OpenTherm' or 'OnOff', depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as switches. Various other measurements of your setup will be available as sensors or as binary sensors.
+For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual devices. The heating/cooling device connected to your Smile will be shown as 'OpenTherm' or 'OnOff', depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be shown as devices as well.
 
-Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Adam will be assigned to your gateway entity. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff entity.
+Under each device there will be entities shown like binary_sensors, sensors, etc. depending on the capabilities of the device: for instance centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff device.
+
+## Data updates
+
+The interval which the integration fetches data from the Smile depends on the device:
+
+- Power entities, such as the P1, will be refreshed every 10 seconds.
+- Climate entities will be refreshed every 60 seconds.
+- Stretch entities will be refreshed every 60 seconds.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required within Home Assistant or on your Plugwise devices.
+
+{% include integrations/remove_device_service.md %}
+
+This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.
 
 ## Configuration
 
@@ -66,69 +86,111 @@ For a thermostat, the active schedule can be deactivated or reactivated via the 
 
 Auto means the schedule is active, Heat means it's not active. The active thermostat schedule can be changed via the connected thermostat select-entity. Please note: that only schedules that have two or more schedule points will be shown as select options.
 
-### Services
+### Actions
 
 #### Update Smile data
 
-Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` service with your Smile entity as the target.
+Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` action with your Smile entity as the target.
 
 ```yaml
 # Example script change the temperature
 script:
   force_adam_update:
     sequence:
-      - service: homeassistant.update_entity
+      - action: homeassistant.update_entity
         target:
-          entity_id: climate.anna
+          entity_id: climate.living_room
 ```
 
-#### Set HVAC mode (limited to schedule active / not active)
+#### Reboot the Plugwise gateway
 
-Service: `climate.set_hvac_mode`
+action: `button.press`
 
-Available options include `auto`, `heat`, and `cool` (only when there is a cooling option available). The meaning of `auto` is that a schedule is active and the thermostat will change presets accordingly. The meaning of `heat/cool` is that there is no schedule active, i.e., the active preset or manually set temperature is used to control the climate in your house or rooms.
+```yaml
+# Example script change the thermostat schedule
+script:
+  reboot_gateway:
+    sequence:
+      - action: button.press
+        target:
+          entity_id: button.adam_reboot
+```
+
+#### Set HVAC mode
+
+action: `climate.set_hvac_mode`
+
+Available options include `off` (Adam only) `auto`, `cool`, `heat`, and `heat_cool` (Anna with Elga only).
+
+The meaning of `off` is that the Adam regulation is set to off. This means that the connected HVAC-system does not heat or cool, only the domestic hot water heating function, when available, is active.
+
+The meaning of `cool` or `heat` is that there is no schedule active. For example, if the system is manually set to cooling- or heating-mode, the system will be active if the room temperature is above/below the thermostat setpoint.
+
+The meaning of `heat/cool` is that there is no schedule active. For example, if the system is in automatic cooling- or heating-mode, the active preset or manually set temperature is used to control the HVAC system.
+
+The meaning of `auto` is that a schedule is active and the thermostat will change presets/setpoints accordingly.
+
 The last schedule that was active is determined the same way long-tapping the top of Anna works.
 
 Example:
 
 ```yaml
-# Example script set hvac_mode to auto = schedule active
+# Example script climate.set_hvac_mode to auto = schedule active
 script:
   lisa_reactivate_last_schedule:
     sequence:
-      - service: climate.set_hvac_mode
+      - action: climate.set_hvac_mode
         target:
-          entity_id: climate.lisa_bios
+          entity_id: climate.living_room
         data:
           hvac_mode: auto
 ```
 
+#### Turn on / turn off
+
+action: `climate.turn_off`, `climate.turn_on` (Adam only)
+
+These actions will switch the Adam regulation mode (= HVAC system mode) to off or on, affecting the operation of all connected thermostats.
+`climate.turn_on` will activate the previously selected heating or cooling mode.
+
+Example:
+
+```yaml
+# Example script climate.turn_off
+script:
+  turn_heating_on:
+    sequence:
+      - action: climate.turn_off
+        target:
+          entity_id: climate.bios
+```
+
 #### Change climate schedule
 
-Service: `select.select_option`
+action: `select.select_option`
 
 ```yaml
 # Example script change the thermostat schedule
 script:
   lisa_change_schedule:
     sequence:
-      - service: select.select_option
+      - action: select.select_option
         target:
-          entity_id: select.lisa_bios_thermostat_schedule
+          entity_id: select.bios_thermostat_schedule
         data:
           option: "Regulier"
 ```
 
 #### Change boiler setpoint
 
-Service: `number.set_value`
+action: `number.set_value`
 
 ```yaml
 # Example script change the boiler setpoint
 script:
   change_max_boiler_tempeture_setpoint:
     sequence:
-      - service: number.set_value
+      - action: number.set_value
         target:
           entity_id: number.opentherm_max_boiler_temperature_setpoint
         data:
@@ -137,7 +199,7 @@ script:
 
 #### Set temperature
 
-Service: `climate.set_temperature`
+action: `climate.set_temperature`
 
 Example:
 
@@ -146,7 +208,7 @@ Example:
 script:
   anna_set_predefined_temperature:
     sequence:
-      - service: climate.set_temperature
+      - action: climate.set_temperature
         target:
           entity_id: climate.anna
         data:
@@ -155,7 +217,7 @@ script:
 
 #### Set preset mode
 
-Service: `climate.set_preset_mode`
+action: `climate.set_preset_mode`
 
 Available options include: `home`, `vacation` (Anna only), `no_frost`, `asleep` & `away`.
 
@@ -166,7 +228,7 @@ Example:
 script:
   anna_activate_preset_asleep:
     sequence:
-      - service: climate.set_preset_mode
+      - action: climate.set_preset_mode
         data:
           preset_mode: asleep
 ```

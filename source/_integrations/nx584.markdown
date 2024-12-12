@@ -3,7 +3,7 @@ title: NX584
 description: Instructions on how to integrate NX584 into Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.13
 ha_iot_class: Local Push
 ha_domain: nx584
@@ -11,18 +11,23 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `nx584` platform provides integration with GE, Caddx, Interlogix (and other brands) alarm panels that support the NX584 interface module (or have it built in). Supported panels include NX4/6/8/8E. Actual integration is done through [pynx584](https://github.com/kk7ds/pynx584) which is required for this to work.
+The `nx584` {% term integration %} provides integration with GE, Caddx, Interlogix (and other brands) alarm panels that support the NX584 interface module (or have it built in). Supported panels include NX4/6/8/8E. Actual integration is done through [pynx584](https://github.com/kk7ds/pynx584) which is required for this to work.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Alarm](#alarm-control-panel)
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 
-## Alarm Control Panel
+## Alarm control panel
 
-To enable this, add the following lines to your `configuration.yaml`:
+To enable this, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -42,17 +47,17 @@ name:
   type: string
   default: NX584
 port:
-  description: The port where the Alarm panel is listening.
+  description: The port where the alarm panel is listening.
   required: false
   type: integer
   default: 5007
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 Enabling this binary sensor platform exposes all of your zones as binary sensors, which provides visibility through the UI as well as the ability to trigger automation actions instantly when something happens like a door opening, or a motion sensor trigger.
 
-To enable this feature, add the following lines to your `configuration.yaml`:
+To enable this feature, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -114,22 +119,22 @@ binary_sensor:
     6: moisture
 ```
 
-## Services
+## Actions
 
-### Service `bypass_zone`
+### Action `bypass_zone`
 
-This service will bypass a given zone.
+This action will bypass a given zone.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | entity_id of the NX584 Alarm.
-| `zone` | no | Zone number you want to bypass.
+| Data attribute | Optional | Description                     |
+| ---------------------- | -------- | ------------------------------- |
+| `entity_id`            | yes      | entity_id of the NX584 Alarm.   |
+| `zone`                 | no       | Zone number you want to bypass. |
 
-### Service `unbypass_zone`
+### Action `unbypass_zone`
 
-This service will unbypass a given zone.
+This action will unbypass a given zone.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | entity_id of the NX584 Alarm.
-| `zone` | no | Zone number you want to unbypass.
+| Data attribute | Optional | Description                       |
+| ---------------------- | -------- | --------------------------------- |
+| `entity_id`            | yes      | entity_id of the NX584 Alarm.     |
+| `zone`                 | no       | Zone number you want to unbypass. |

@@ -18,10 +18,10 @@ ha_integration_type: service
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
+{% note %}
 
 The configuration uses the client ID and secret used by the app at the time of release. If this stops working, you can find the new ones by using a MITM proxy with the mobile app. The app will call `https://api.flick.energy/identity/oauth/token` with the `client_id` and `client_secret`.
 
 You can then use these values during the configuration.
 
-</div>
+{% endnote %}

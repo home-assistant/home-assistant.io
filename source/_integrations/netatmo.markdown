@@ -2,13 +2,15 @@
 title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
 ha_category:
+  - Binary sensor
   - Camera
   - Climate
   - Cover
   - Environment
+  - Fan
   - Hub
   - Light
-  - Media Source
+  - Media source
   - Sensor
   - Switch
   - Weather
@@ -20,10 +22,12 @@ ha_config_flow: true
 ha_domain: netatmo
 ha_homekit: true
 ha_platforms:
+  - binary_sensor
   - camera
   - climate
   - cover
   - diagnostics
+  - fan
   - light
   - select
   - sensor
@@ -35,9 +39,11 @@ The Netatmo integration platform is the main integration to integrate all Netatm
 
 There is currently support for the following device types within Home Assistant:
 
+- [Binary sensor](#binary-sensor)
 - [Camera](#camera)
 - [Climate](#climate)
 - [Cover](#cover)
+- [Fan](#fan)
 - [Light](#light)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -49,9 +55,13 @@ There is currently support for the following device types within Home Assistant:
 
 Configuration of Netatmo public weather stations is offered from the front end. Enter the Netatmo integration and press the "CONFIGURE", then set "Area name" for new area.
 
-In the dialog, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
+In the dialog, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average, maximum or minimum values.
 
 To edit an existing area, enter its name and follow the dialog.
+
+## Binary sensor
+
+The `netatmo` binary sensor platform is showing the connectivity for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
 
 ## Camera
 
@@ -67,6 +77,10 @@ The `netatmo` thermostat platform is consuming the information provided by a [Ne
 
 The `netatmo` cover platform provides support for Bubendorff shutters. 
 
+## Fan
+
+The `netatmo` fan plaform provides support for Legrand centralized ventilation control.
+
 ## Light
 
 The `netatmo` light platform is consuming information provided by a [Netatmo Smart Outdoor](https://www.netatmo.com/smart-outdoor-camera) camera and requires an active webhook. This integration allows you to turn on/off the flood lights.
@@ -81,25 +95,66 @@ The `netatmo` sensor platform is consuming the information provided by a [Netatm
 
 The `netatmo` switch platform provides support for Legrand/BTicino switches and power plugs.
 
-## Services
+## Actions
 
 ### Set Outdoor Camera Light Mode
 
 `set_camera_light_mode`
 
-Set the outdoor camera light mode. This requires an entity id and a valid state.
+Set the outdoor camera light mode.
+
+| Data attribute | Required | Description                |
+| ---------------------- | -------- | -------------------------- |
+| `camera_light_mode`    | Yes      | Outdoor camera light mode. |
 
 ### Set Schedule
 
 `set_schedule`
 
-Set the heating schedule. This requires an entity id and a schedule name.
+Set the heating schedule.
 
-### Set preset mode with end datetime
+| Data attribute | Required | Description                           |
+| ---------------------- | -------- | ------------------------------------- |
+| `schedule_name`        | Yes      | The name of the schedule to activate. |
+
+### Set preset mode with end date & time
 
 `set_preset_mode_with_end_datetime`
 
 Set the preset mode for a Netatmo climate device. The preset mode must match a preset mode configured at Netatmo.
+
+| Data attribute | Required | Description                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------- |
+| `preset_mode`          | Yes      | Climate preset mode such as Schedule, Away, or Frost Guard. |
+| `end_datetime`         | Yes      | Date & time until which the preset will be active.          |
+
+### Set temperature with end date & time
+
+`set_temperature_with_end_datetime`
+
+Sets the target temperature for a Netatmo climate device with an end date & time.
+
+| Data attribute | Required | Description                                              |
+| ---------------------- | -------- | -------------------------------------------------------- |
+| `target_temperature`   | Yes      | The target temperature for the device.                   |
+| `end_datetime`         | Yes      | Date & time the target temperature will be active until. |
+
+### Set temperature with time period
+
+`set_temperature_with_time_period`
+
+Sets the target temperature for a Netatmo climate device as well as the time period during which this target temperature applies.
+
+| Data attribute | Required | Description                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------- |
+| `target_temperature`   | Yes      | The target temperature for the device.                      |
+| `time_period`          | Yes      | Time period during which the target temperature is applied. |
+
+### Clear temperature setting
+
+`clear_temperature_setting`
+
+Clears any temperature setting for a Netatmo climate device reverting it to the current preset or schedule.
 
 ### Set Person Home
 
@@ -107,31 +162,37 @@ Set the preset mode for a Netatmo climate device. The preset mode must match a p
 
 Set a list of persons as at home. Person's name must match a name known by the Netatmo Smart Indoor Camera.
 
+| Data attribute | Required | Description    |
+| ---------------------- | -------- | -------------- |
+| `persons`              | Yes      | List of names. |
+
 ### Set Person Away
 
 `set_person_away`
 
 Set a person away. If no person is set the home will be marked as empty. Person's name must match a name known by the Netatmo Smart Indoor Camera.
 
+| Data attribute | Required | Description    |
+| ---------------------- | -------- | -------------- |
+| `person`               | Yes      | Person's name. |
+
 ### (Un-)Register Webhooks
 
 `register_webhook` and `unregister_webhook`
 
-Service to manually register and unregister the webhook.
+Actions to manually register and unregister the webhook.
 
 ## Webhook Events
 
 The Netatmo backend sends instant events to Home Assistant by using webhooks which unlocks improved responsiveness of most devices with the exception of [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station),
 [Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/smart-indoor-air-quality-monitor) or [Netatmo Public Weather Stations](https://weathermap.netatmo.com/).
 
-<div class='note warning'>
-
+{% warning %}
 Netatmo webhook events have known issues with Home Assistant Cloud Link.
 It is therefore recommended to use [an individual development account](#development--testing-with-your-own-client-id).
+{% endwarning %}
 
-</div>
-
-To be able to receive events from [Netatmo](https://www.netatmo.com/), your Home Assistant instance needs to be accessible from the web over port `443`. To achieve this you can either use your Nabu Casa account or for example Duck DNS ([Home Assistant instructions](/addons/duckdns/)). You also need to have the external URL configured in the Home Assistant [configuration](/docs/configuration/basic).
+To be able to receive events from [Netatmo](https://www.netatmo.com/), your Home Assistant instance needs to be accessible from the web over port `443`. To achieve this you can either use your Nabu Casa account or for example Duck DNS ([Home Assistant instructions](/addons/duckdns/)). You also need to have the external URL configured in the Home Assistant [configuration](/integrations/homeassistant/#allowlist_external_urls).
 
 Events coming in from Netatmo will be available as an event in Home Assistant and are fired as `netatmo_event`, along with their data. You can use these events to trigger automations.
 
@@ -143,14 +204,12 @@ Example:
 # Example automation for webhooks based Netatmo events
 - alias: "Netatmo event example"
   description: "Count all events pushed by the Netatmo API"
-  trigger:
-    - event_data: {}
+  triggers:
+    - trigger: event
       event_type: netatmo_event
-      platform: event
-  action:
-    - data: {}
+  actions:
+    - action: counter.increment
       entity_id: counter.event_counter
-      service: counter.increment
 ```
 
 Example:
@@ -161,18 +220,18 @@ Example:
 # Example automation for Netatmo Welcome
 - alias: "Motion at home"
   description: "Motion detected at home"
-  trigger:
-    - event_type: netatmo_event
-      platform: event
+  triggers:
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: movement
-  action:
-    - data:
+  actions:
+    - action: persistent_notification.create
+      data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
-        title: Netatmo event
-      service: persistent_notification.create
+        title: "Netatmo event"
 ```
 
 {% endraw %}
@@ -185,18 +244,18 @@ Example:
 # Example automation for Netatmo Presence
 - alias: "Motion at home"
   description: "Motion detected at home"
-  trigger:
-    - event_type: netatmo_event
-      platform: event
+  triggers:
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: human # other possible types: animal, vehicle
-  action:
-    - data:
+  actions:
+    - action: persistent_notification.create
+      data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
         title: Netatmo event
-      service: persistent_notification.create
 ```
 
 {% endraw %}
@@ -209,25 +268,25 @@ Example:
 # Example automation
 - alias: "Door or window open or movement"
   description: "Notifies which door or window is open or was moved"
-  trigger:
-    - event_type: netatmo_event
-      platform: event
+  triggers:
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: tag_open
-    - event_type: netatmo_event
-      platform: event
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: tag_big_move
-    - event_type: netatmo_event
-      platform: event
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: tag_small_move
-  action:
-    - data:
+  actions:
+    - action: persistent_notification.create
+      data:
         message: >
           {{ trigger.event.data["data"]["message"] }}
-        title: Netatmo event
-      service: persistent_notification.create
+        title: "Netatmo event"
 ```
 
 {% endraw %}
@@ -239,15 +298,13 @@ to declare a new application in the [Netatmo Developer Page](https://dev.netatmo
 
 Sign in using your username and password from your regular Netatmo account.
 
-<div class='note warning'>
- 
-In your Netatmo Application configuration, do not enter a 'redirect URI' or a 'webhook URI'.  The 'webhook URI' is automatically registered by this integration based on the external URL configured in the Home Assistant [configuration](/docs/configuration/basic).
-  
-</div>
+{% important %}
+In your Netatmo Application configuration, do not enter a 'redirect URI' or a 'webhook URI'.  The 'webhook URI' is automatically registered by this integration based on the external URL configured in the Home Assistant [configuration](/integrations/homeassistant/#editing-the-general-settings-in-yaml).
+{% endimportant %}
 
 See [Application Credentials](/integrations/application_credentials) for instructions on how to configure your *Client ID* and *Client Secret*, then enable Netatmo through the integrations page.
 
-Menu: **Settings** -> **Devices & Services**.
+Menu: **Settings** > **Devices & services**.
 
 Click on the `+` sign to add an integration and click on **Netatmo**.
 After completing the configuration flow, the Netatmo integration will be available.

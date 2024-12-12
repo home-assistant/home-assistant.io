@@ -10,9 +10,12 @@ ha_codeowners:
 ha_domain: emulated_kasa
 ha_quality_scale: internal
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The Emulated Kasa integration emulates a TP-Link Kasa smart plug and announces the power usage of configured devices to any that might request it on the local network. 
+The Emulated Kasa {% term integration %} emulates a TP-Link Kasa smart plug and announces the power usage of configured devices to any that might request it on the local network.
 
 For example, the [Sense Energy Monitor](/integrations/sense) can use this to identify power usage.
 
@@ -20,15 +23,14 @@ The configuration includes a list of entities to expose with attributes for the 
 If the entity is a sensor, that value will be reported as the current power usage unless the power field is defined.
 The power field can contain a hardcoded value, a sensor, or a template (see configuration example).
 
-<div class='note'>
-
-The provided power unit must be the current power usage in Watts.  Values of `kW` can be converted, but the values of `kWh` cannot be used.
-
-</div>
+{% note %}
+The provided power unit must be the current power usage in Watts. Values of `kW` can be converted, but the values of `kWh` cannot be used.
+{% endnote %}
 
 ## Configuration
 
-This integration requires the entities exposed to be listed in your `configuration.yaml` file:
+This {% term integration %} requires the entities exposed to be listed in your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

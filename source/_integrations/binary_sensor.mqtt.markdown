@@ -1,8 +1,8 @@
 ---
-title: "MQTT Binary Sensor"
+title: "MQTT binary sensor"
 description: "Instructions on how to integrate MQTT binary sensors within Home Assistant."
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.9
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -20,9 +20,8 @@ Stateless devices such as buttons, remote controls etc are better represented by
 
 The `mqtt` binary sensor platform optionally supports a list of  `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT sensor device goes offline (i.e., publishes `payload_not_available` to an `availability` topic), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability` topic is defined, Home Assistant will consider the MQTT device to be `available` and will display its state.
 
-<a id='new_format'></a>
 To use an MQTT binary sensor in your installation,
-add the following to your `configuration.yaml` file:
+add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -78,9 +77,9 @@ device:
       required: false
       type: string
     connections:
-      description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
-      type: [list, map]
+      type: list
     hw_version:
       description: The hardware version of the device.
       required: false
@@ -97,8 +96,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -115,7 +122,6 @@ device:
       type: string
 device_class:
   description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend. The `device_class` can be `null`.
-  default: None
   required: false
   type: string
 enabled_by_default:
@@ -132,7 +138,10 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity/#generic-properties) of the entity. When set, the entity category must be `diagnostic` for sensors.
   required: false
   type: string
-  default: None
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 expire_after:
   description: If set, it defines the number of seconds after the sensor's state expires, if it's not updated. After expiry, the sensor's state becomes `unavailable`. Default the sensors state never expires.
   required: false
@@ -158,7 +167,7 @@ name:
   description: The name of the binary sensor. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
-  default: MQTT Binary Sensor
+  default: MQTT binary sensor
 object_id:
   description: Used instead of `name` for automatic generation of `entity_id`
   required: false
@@ -187,21 +196,25 @@ payload_on:
   required: false
   type: string
   default: "ON"
+platform:
+  description: Must be `binary_sensor`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
 state_topic:
-  description: The MQTT topic subscribed to receive sensor's state.
+  description: The MQTT topic subscribed to receive sensor's state. Valid states are `OFF` and `ON`. Custom `OFF` and `ON` values can be set with the `payload_off` and `payload_on` config options.
   required: true
   type: string
 unique_id:
-  description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that returns a string to be compared to `payload_on`/`payload_off` or an empty string, in which case the MQTT message will be removed. Remove this option when `payload_on` and `payload_off` are sufficient to match your payloads (i.e no pre-processing of original message is required)."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that returns a string to be compared to `payload_on`/`payload_off` or an empty string, in which case the MQTT message will be removed. Remove this option when `payload_on` and `payload_off` are sufficient to match your payloads (i.e no preprocessing of original message is required)."
   required: false
   type: template
 {% endconfiguration %}

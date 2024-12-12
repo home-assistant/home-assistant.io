@@ -66,7 +66,7 @@ script: !include scripts.yaml
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - Remove spaces from Xiami switch attributes ([@syssi] - [#8952]) ([switch.xiaomi docs]) (breaking change)
 - MQTT Switch: command and availability payload are now no longer linked. Command and availability payload default to ON/OFF and must be configured individually if custom values are required. ([@timstanley1985] - [#8934]) ([switch.mqtt docs]) (breaking change)

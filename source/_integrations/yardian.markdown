@@ -15,11 +15,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Yardian integration allows you to control your [Yardian Smart Sprinkler Controller](https://yardian.com/products/yardian-pro-smart-sprinkler-controller/).
+The **Yardian** {% term integration %} allows you to control your [Yardian Smart Sprinkler Controller](https://yardian.com/products/yardian-pro-smart-sprinkler-controller/).
 
 There is currently support for the following platform within Home Assistant:
 
-- [Switch](#switch) - Allows you to view the status of zones and control them.
+- Switch - Allows you to view the status of zones and control them.
 
 {% include integrations/config_flow.md %}
 
@@ -27,13 +27,13 @@ During the configuration, you will have to manually set the **Host** and the **A
 
 ![Yardian Host/Token Location](/images/integrations/yardian/yardian_config_flow.jpg)
 
-## Services
+## Actions
 
 ### yardian.start_irrigation
 
-Start a zone for a given number of minutes. This service accepts an Yardian Zone switch entity and allows a given duration.
+Start a zone for a given number of minutes. This action accepts an Yardian Zone switch {% term entity %} and allows a given duration.
 
-| Service Data Attribute | Optional | Description                                           |
+| Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | `entity_id`            | yes      | The Yardian Zone switch to turn on.                   |
 | `duration`             | no       | Number of minutes for this zone to be turned on.      |

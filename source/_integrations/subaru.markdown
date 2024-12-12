@@ -4,7 +4,7 @@ description: Instructions on how to setup your Subaru account with Home Assistan
 ha_category:
   - Car
   - Lock
-  - Presence Detection
+  - Presence detection
   - Sensor
 ha_release: 2021.3
 ha_iot_class: Cloud Polling
@@ -41,9 +41,9 @@ In addition to the telematics generational differences, there are two levels of 
 
 {% include integrations/config_flow.md %}
 
-<p class='note'>
+{% important %}
 If your account includes multiple vehicles, the same PIN will be used for all vehicles. Ensure that you have configured all vehicles in your account to have the same PIN.
-</p>
+{% endimportant %}
 
 ## Sensors
 
@@ -64,15 +64,15 @@ Available sensors will vary by model, year, and subscription type. The integrati
 ## Lock
 
 This integration supports remote locking and unlocking of vehicle doors. If doors are remotely unlocked, they will automatically relock if a door is not opened within a minute. There is no remote notification of this automatic relock.  
-<p class='note'>
+{% note %}
 The current lock status is always unknown due to the fact that the Subaru API does not report this data.
-</p>
+{% endnote %}
 
 ### Unlock specific door
 
-In addition to the standard services built into the lock entity, this integration also provides a  `subaru.unlock_specific_door` service to specify a door to unlock.
+In addition to the standard actions built into the lock entity, this integration also provides a `subaru.unlock_specific_door` action to specify a door to unlock.
 
-The service requires the `door` parameter which may be set to one of the following:
+The action requires the `door` parameter which may be set to one of the following:
 
 - `all`: unlocks all doors
 - `driver`: unlocks only the driver's door
@@ -86,13 +86,13 @@ Tracks the most recently reported location of the vehicle. The vehicle reports i
 
 Subaru integration options are set via:
 
-**Settings** -> **Devices & Services** -> **Subaru** -> **Options**.
+**Settings** -> **Devices & services** -> **Subaru** -> **Options**.
 
 - **Enable vehicle polling *[Default: off]*:** When enabled, vehicle polling will send a remote command to your vehicle every 2 hours to obtain new sensor data. This involves "waking" your vehicle and requesting that it send new data to Subaru servers. Without vehicle polling, new sensor data is only received when the vehicle automatically pushes data (normally after engine shutdown). This option only applies to vehicles with Security Plus subscriptions because it uses a "locate" command to request the data.
 
-<p class='note warning'>
+{% warning %}
 Vehicle polling draws power from the 12V battery. Long term use without driving may drain the battery resulting in the inability to start.
-</p>
+{% endwarning %}
 
 ## FAQ - Troubleshooting
 
@@ -127,4 +127,4 @@ Vehicle polling draws power from the 12V battery. Long term use without driving 
 
 **Q:** Should I enable the vehicle polling option?
 
-**A:** Probably not. One use case is if you have a PHEV and want to monitor your charging progress.  Otherwise, the data isn't going to change much after you've shutdown your vehicle (tire pressures are only updated when the vehicle is in motion). A future revision will expose vehicle polling as a service to enable incorporation into automations.
+**A:** Probably not. One use case is if you have a PHEV and want to monitor your charging progress.  Otherwise, the data isn't going to change much after you've shutdown your vehicle (tire pressures are only updated when the vehicle is in motion). A future revision will expose vehicle polling as an action to enable incorporation into automations.

@@ -79,7 +79,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Added cycles config option to LaMetric notifications ([@frittes] - [#10656]) ([notify.lametric docs]) (breaking change)
 - Fix name collision when using multiple Hue bridges ([@zBart] - [#10486]) ([light.hue docs]) (breaking change)

@@ -12,13 +12,14 @@ ha_domain: switchmate
 ha_platforms:
   - switch
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 This `Switchmate` switch platform allows you to control Switchmate [devices]( https://www.mysimplysmarthome.com/products/switchmate-switches/).
 
 ## Configuration
 
-To enable it, add the following lines to your `configuration.yaml`:
+To enable it, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 switch:

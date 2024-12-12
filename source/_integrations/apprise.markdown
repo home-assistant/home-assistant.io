@@ -11,13 +11,18 @@ ha_domain: apprise
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The [Apprise service](https://github.com/caronc/apprise/) is an all-in-one solution to open up Home Assistant to _just about_ every Notification platform (such as Amazon SNS, Discord, Telegram, Slack, MSTeams, Twilio, etc.)
 
 ## Configuration
 
-To use Apprise supported notifications, add the following to your `configuration.yaml` file:
+To use Apprise supported notifications, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry using URLs
@@ -27,7 +32,7 @@ notify:
     url: YOUR_APPRISE_URLS
 ```
 
-You can also pre-define your own configuration files while storing them either remotely or locally. Simply just use the `config` option.
+You can also predefine your own configuration files while storing them either remotely or locally. Simply just use the `config` option.
 
 ```yaml
 # Example configuration.yaml entry using externally located Apprise
@@ -51,7 +56,7 @@ notify:
 
 {% configuration %}
 name:
-  description: The notifier will bind to the service `notify.NAME`.
+  description: The notifier will bind to the action `notify.NAME`.
   required: false
   type: string
   default: notify
@@ -65,10 +70,10 @@ config:
   type: string
 {% endconfiguration %}
 
-## Example service call
+## Example action
 
 ```yaml
-- service: notify.NOTIFIER_NAME
+- action: notify.NOTIFIER_NAME
   data:
     message: "A message from Home Assistant"
 ```
@@ -76,7 +81,7 @@ config:
 If you're using configuration files to store your Apprise URLs in, then you have the added bonus of associating tags with them. By default, Apprise in Home Assistant will only notify the elements that have no tags associated with them. You can optionally focus on only notifying a specific service based on the tag(s) you assigned them like so:
 
 ```yaml
-- service: notify.NOTIFIER_NAME
+- action: notify.NOTIFIER_NAME
   data:
     message: "A message from Home Assistant"
     target: [

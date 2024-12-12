@@ -9,13 +9,14 @@ ha_domain: clicksend_tts
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `clicksend_tts` platform uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
 
 After creating your account, you should now be able to obtain your `username` and `api_key` [here](https://dashboard.clicksend.com/account/subaccounts).
 
-To add ClickSend to your installation, add the following to your Home Assistant `configuration.yaml` file:
+To add ClickSend to your installation, add the following to your Home Assistant {% term "`configuration.yaml`" %} file:
 
 ```yaml
 notify:
@@ -27,7 +28,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME.
+  description: "Setting the optional parameter name allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action."
   required: false
   default: clicksend_tts
   type: string
@@ -57,15 +58,15 @@ voice:
 
 ### Usage
 
-ClickSend is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to the E.164 phone number you configured as **recipient**.
+ClickSend is a notify platform and thus can be controlled by calling the notify action [as described here](/integrations/notify/). It will send a notification to the E.164 phone number you configured as **recipient**.
 
 ```yaml
 alias: "The sun has set"
-trigger:
-  - platform: sun
+triggers:
+  - trigger: sun
     event: sunset
-action:
-  - service: notify.clicksend_tts
+actions:
+  - action: notify.clicksend_tts
     data:
       message: "The sun has set"
 ```

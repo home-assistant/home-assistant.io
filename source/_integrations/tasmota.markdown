@@ -2,7 +2,7 @@
 title: Tasmota
 description: Instructions on how to integrate Tasmota with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Fan
   - Light
@@ -34,7 +34,7 @@ This integration allows you to control [Tasmota](https://tasmota.github.io/docs/
 - Tasmota devices configured for native discovery (`SetOption19 0`).
 - Although the Tasmota integration supports custom fulltopic it is strongly suggested to leave fulltopic at its default, Tasmota does not prevent setting an invalid or non-unique fulltopic, for example a fulltopic without the `%prefix%` or `%topic%` tokens.
 
-## Supported Features
+## Supported features
 
 Tasmota Buttons, Fans, Lights, Relays, Sensors, Shutters and Switches are supported.
 

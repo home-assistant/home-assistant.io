@@ -9,11 +9,16 @@ ha_domain: arwn
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `arwn` sensor platform is a client for the [Ambient Radio Weather Network](https://github.com/sdague/arwn) project. This collects weather station data and makes it available in an MQTT subtree.
 
-To use your ARWN setup, you must already have configured the [MQTT](/integrations/mqtt/) platform. Then add the following to your `configuration.yaml` file:
+To use your ARWN setup, you must already have configured the [MQTT](/integrations/mqtt/) platform. Then add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

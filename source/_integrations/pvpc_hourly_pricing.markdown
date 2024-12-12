@@ -5,7 +5,6 @@ ha_category:
   - Energy
 ha_release: '0.108'
 ha_iot_class: Cloud Polling
-ha_quality_scale: platinum
 ha_config_flow: true
 ha_codeowners:
   - '@azogue'
@@ -40,11 +39,14 @@ Set also your contracted power (in kW) for the two power periods that apply with
 
 In case you did nothing after the tariff change on 2021-06-01, both powers are equal, and the same you had for your existing contract.
 
-You can add up to 2 sensors (one for each geographic zone) by adding them again through the integrations panel,
-and you can change the sensor configuration anytime by going to the integration's options.
+To access extra price sensors from ESIOS API, like the price for the **excess energy from self-consumption**, or the electricity price in the open market (useful if your provider indexes its price with it), 
+you must **request a personal token** by mailing to [consultasios@ree.es](mailto:consultasios@ree.es?subject=Personal%20token%20request).
+Then, enable the API Token option for this integration.
 
-<div class='note'>
+You can set up the integration 2 times; one for each geographic zone. To do this, add them again through the integrations panel under {% my integrations title="**Settings** > **Devices & services**" %}.
+You can change the configuration anytime in the integration options.
 
+{% note %}
 The sensor provides an hourly price for energy consumed, but the variable cost of energy is only one of the factors that add up to the electricity bill:
 
 - Fixed cost of contracted power
@@ -52,5 +54,4 @@ The sensor provides an hourly price for energy consumed, but the variable cost o
 - Variable cost of energy consumed (the sensor's value)
 - Other fixed expenses, such as the rental of the electric meter
 - Multiple taxes applied
-
-</div>
+{% endnote %}

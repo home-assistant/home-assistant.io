@@ -2,7 +2,7 @@
 title: Flume
 description: Documentation about the flume sensor.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.103
@@ -17,9 +17,12 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The Flume integration will show you the current [Flume](https://flumewater.com/) status for the given Device ID.
+The Flume {% term integration %} will show you the current [Flume](https://flumewater.com/) status for the given Device ID.
 
 Flume monitors the real-time status of your home water meter. Allowing the end-user to detect small leaks, gain real-time information on household water consumption, set water goals and budgets, and receive push notifications when suspicious water activities occur. 
 
@@ -27,11 +30,11 @@ Flume monitors the real-time status of your home water meter. Allowing the end-u
 
 You can find your Client ID and Client Secret under "API Access" on the [settings page](https://portal.flumewater.com/#settings).
 
-To add `Flume` to your installation, go to **Settings** -> **Devices & Services** in the UI, click the button with `+` sign and from the list of integrations select **Flume**.
+To add `Flume` to your installation, go to **Settings** -> **Devices & services** in the UI, click the button with `+` sign and from the list of integrations select **Flume**.
 
 ## Notifications
 
-Flume notifications are fetched every 5 minutes and are available via the service `flume.list_notifications`. Some notifications are available via the following binary sensors:
+Flume notifications are fetched every 5 minutes and are available via the `flume.list_notifications` action. Some notifications are available via the following binary sensors:
 
 - Bridge disconnected
 - High flow
@@ -46,11 +49,11 @@ Example of an automation that sends a Home Assistant notification of the most re
 
 ```yaml
 alias: "Notify: flume"
-trigger:
-  - platform: time_pattern
+triggers:
+  - trigger: time_pattern
     minutes: /5
-action:
-  - service: flume.list_notifications
+actions:
+  - action: flume.list_notifications
     data:
       config_entry: 1234 # replace this with your config entry id
     response_variable: notifications
@@ -60,7 +63,7 @@ action:
           {{ notifications.notifications | selectattr('type', 'equalto', 1) | 
           sort(attribute == ('created_datetime', reverse == true) | length > 0 }}
     then:
-      - service: notify.all
+      - action: notify.all
         data:
           message: >-
             {%- set usage_alert == notifications.notifications |
@@ -76,7 +79,7 @@ action:
 
 {% endraw %}
 
-## Configuration for Binary Sensor
+## Configuration for binary sensor
 
 The following YAML creates a binary sensor. This requires the default sensor to be configured successfully.
 

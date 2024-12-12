@@ -4,14 +4,13 @@ description: Instructions on how to configure UniFi Network integration with Uni
 ha_category:
   - Hub
   - Image
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Switch
   - Update
 ha_release: 0.81
 ha_iot_class: Local Push
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@Kane610'
 ha_domain: unifi
@@ -29,40 +28,74 @@ ha_integration_type: hub
 
 [UniFi Network](https://www.ui.com/download-software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
 
+## Prerequisites
+
+### Hardware support
+
+This integration supports all UniFi OS Consoles that run UniFi Network. It also supports self hosted versions of UniFi Network.
+
+### Software support
+
+It is recommended to run latest stable versions of UniFi Network and UniFi OS.
+
+{% important %}
+**Early Access and Release Candidate versions are not supported by Home Assistant.**
+
+Using Early Access Release Candidate versions of UniFi Network or UniFi OS can bring unexpected changes. If you choose to opt into either the Early Access or the Release Candidate release channel and anything breaks in Home Assistant, you will need to wait until that version goes to the official Stable Release channel before it is expected to work.
+{% endimportant %}
+
+### Local user
+
+You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
+It is recommended you use the Administrator or a user with full read/write access to get the most out of the integration,
+but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
+use has.
+
+1. Login to your _Local Portal_ on your UniFi OS device, and select  **Users**. 
+    - **Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the UniFi Network app.
+2. Go to **Admins & Users** from the left hand side menu or [IP address]/admins/users e.g. 192.168.1.1/admins/users.
+3. Select **Add New Admin**.
+4. Check **Restrict to local access only** and fill out the fields for your user. Select **Full Management** for **Network**. **OS Settings** are not used, so they can be set to **None**.
+5. In the bottom right, select **Add**.
+
+![UniFi OS User Creation](/images/integrations/unifi/user.png)
+
 There is currently support for the following device types within Home Assistant:
 
 - [Button](#button)
 - [Image](#image)
-- [Presence Detection](#presence-detection)
+- [Presence detection](#presence-detection)
+- [Actions](#actions)
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)
 
 {% include integrations/config_flow.md %}
 
-The user needs administrator privileges in order to control switches.
+{% note %}
+**Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
+write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
+and in many cases, get a read-only sensor instead of an editable switch {% term entity %}.
+{% endnote %}
 
 ### Extra configuration of the integration
 
-All configuration options are offered from the front end. Enter what UniFi Network integration you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
-
-### Configuring Users
-
-The UniFi Network application allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi Network device tracker. If you want blocking of network access, POE control, or firmware upgrades as well you would need to have 'admin' permissions.
-
-### UniFi OS
-
-For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. Note the Dream Machine Pro and Cloud Key Gen2 plus updated to UniFi OS needs the port to be 443.
-
-### Conflicts with MQTT
-
-The UniFi Network application can either be a UniFi OS console device (like the Cloud Key), or as software on any Linux system. If you run the UniFi Network application on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
-
-It is recommended that you run the UniFi Network application in a dedicated virtual machine to avoid that situation.
+All configuration options are offered from the front end. Enter what UniFi Network {% term integration %} you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
 
 ## Button
 
-Provides the ability to restart a UniFi device. This feature requires admin privileges.
+The Button entities will only be available and usable if the integration has a UniFi Network account with administrator privileges.
+
+### Power cycle PoE
+
+Use the **Power cycle PoE** button entity to power cycle one specific PoE port to cause the connected device to restart.
+
+### Restart UniFi device
+
+Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch, the PoE supply is not affected.
+
+### WLAN regenerate password
+Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). **It will be randomly generated with 20 characters, consisting of lowercase letters, uppercase letters, and digits.**
 
 ## Image
 
@@ -70,7 +103,7 @@ Provides QR Code images that can be scanned to easily join a specific WLAN. Enti
 
 ## Presence detection
 
-This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://ui.com/consoles) application. By default devices are marked as away 300 seconds after they were last seen.
+This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://ui.com/cloud-gateways) application. By default devices are marked as away 300 seconds after they were last seen.
 
 ### Troubleshooting and Time Synchronization
 
@@ -82,17 +115,17 @@ If Home Assistant and the UniFi Network application are running on separate mach
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
 
-## Services
+## Actions
 
-### Service unifi.reconnect_client
+### Action unifi.reconnect_client
 
 Try to get a wireless client to reconnect to the network.
 
-| Service data attribute | Optional | Description                                                                 |
+| Data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `device_id`            | No       | String representing a device ID related to a UniFi Network integration.     |
+| `device_id`            | No       | String representing a device ID related to a UniFi Network {% term integration %} .     |
 
-### Service unifi.remove_clients
+### Action unifi.remove_clients
 
 Clean up clients on the UniFi Network application that has only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
 
@@ -100,7 +133,7 @@ Clean up clients on the UniFi Network application that has only been associated 
 
 ### Block network access for clients
 
-Allow control of network access to clients configured in the integration options by adding MAC addresses. Items in this list will have a Home Assistant switch created, using the UniFi Device name, allowing for blocking and unblocking.
+Allow control of network access to clients configured in the {% term integration %} options by adding MAC addresses. Items in this list will have a Home Assistant switch created, using the UniFi Device name, allowing for blocking and unblocking.
 
 ### PoE port control
 
@@ -108,7 +141,7 @@ Provides per-port PoE control. Entities are disabled by default. This feature re
 
 ### Control DPI Traffic Restrictions
 
-Entities appear automatically for each restriction group. If there are no restrictions in a group, no entity will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
+Entities appear automatically for each restriction group. If there are no restrictions in a group, no {% term entity %} will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
 
 ### Control Port forward functonality
 
@@ -117,6 +150,10 @@ Entities appear for each port forwarding rule.
 ### Control WLAN availability
 
 Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfiguration of affected access points, limiting access to all WLANs exposed by the access point.
+
+### Traffic Rules
+
+Entities appear for each Traffic Rule. This allows toggling rules on and off.
 
 ## Sensor
 
@@ -140,13 +177,41 @@ Get entities reporting the power utilization for outlets that support metrics (s
 
 Get entities reporting the general temperature of a UniFi Network device.
 
+### Device state
+
+Get entities reporting the current state of a UniFi Network device.
+
+### Device CPU
+
+Get entities reporting the current CPU utilization of a UniFi Network device.
+
+### Device memory
+
+Get entities reporting the current memory utilization of a UniFi Network device.
+
+### Port Bandwidth sensor
+
+Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+
 ## Firmware updates
 
 This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
 
+
+## Removing a device in Home Assistant
+
+Integration populates both UniFi devices as well as network clients into Home Assistant. In certain edge cases entities are left lingering even if they are not present in UniFi network anymore. This can lead to an accumulation of entries in the device registry.
+
+To manually remove a device entry, go to the Device Info page and select "Delete" from the Device Info menu.
+
+Only clients/devices which are no longer known by UniFi since the startup or reload of the UniFi integration can be removed.
+
+![4d4ca937-17bb-4902-9949-2ea83e3c2c0c](https://github.com/home-assistant/home-assistant.io/assets/21991867/c926f5c7-18af-47b5-b888-30cc8511d76a)
+
+
 ## Debugging integration
 
-If you have problems with the UniFi Network application or integration you can add debug prints to the log.
+If you have problems with the UniFi Network application or {% term integration %} you can add debug prints to the log.
 
 ```yaml
 logger:
@@ -154,12 +219,4 @@ logger:
   logs:
     aiounifi: debug
     homeassistant.components.unifi: debug
-    homeassistant.components.device_tracker.unifi: debug
-    homeassistant.components.switch.unifi: debug
 ```
-
-## FAQ
-
-### Understanding UniFi Naming (UniFi Network application is the UniFi Controller)
-
-Network management has always been Ubiquiti's main product and so UniFi for a while was always synonymous with their "UniFi Controller" application. However, UniFi has started branching and releasing other apps, like Protect, Talk and Access. As a result, Ubiquiti has started rebranding "UniFi Controller" as the "UniFi Network" application. [This post on the UniFi community](https://community.ui.com/questions/Clarifying-UniFi-Hardware-and-Software-Terminology/2557963a-e79d-4157-a78c-36d3f7b383fb) explains it pretty well. **This main UniFi Integration is _only_ for the UniFi Network application.**

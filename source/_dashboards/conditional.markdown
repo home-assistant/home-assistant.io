@@ -1,21 +1,29 @@
 ---
 type: card
-title: Conditional Card
+title: Conditional card
 sidebar_label: Conditional
 description: The Conditional card displays another card based on conditions.
+related:
+  - docs: /dashboards/cards/
+    title: Dashboard cards
+  - docs: /dashboards/cards/#showing-or-hiding-a-card-conditionally
+    title: Conditional settings on the card's visibility tab
 ---
 
-The Conditional card displays another card based on conditions.
+The conditional card displays another card based on conditions.
 
-Note: if there are multiple conditions there will be treated as an 'and' condition. This means that for the card to show, _all_ conditions must be met.
+![Screenshot of the conditional card](/images/dashboards/conditional_card.gif)
 
-To add the Conditional card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker. Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
+{% include dashboard/edit_dashboard.md %}
+Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
+
+The conditional card can still be used. However, it is now possible to define a setting to show or hide a card conditionally directly on each card type, on its [Visibility](/dashboards/cards/#showing-or-hiding-a-card-conditionally) tab.
 
 Most options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -24,7 +32,7 @@ type:
   type: string
 conditions:
   required: true
-  description: List of conditions to check. See [available conditions](/dashboards/conditional/#card-conditions).
+  description: List of conditions to check. See [available conditions](#conditions-options).
   type: list
 card:
   required: true
@@ -33,6 +41,8 @@ card:
 {% endconfiguration %}
 
 ## Examples
+
+Only show when all the conditions are met:
 
 ```yaml
 type: conditional
@@ -56,23 +66,43 @@ card:
     - light.bed_light
 ```
 
-## Card conditions
+Example condition where only one of the conditions needs to be met:
+
+```yaml
+type: conditional
+conditions:
+  - condition: or
+    conditions:
+      - condition: state
+        entity: binary_sensor.co_alert
+        state: 'on'
+      - condition: state
+        entity: binary_sensor.rookmelder
+        state: 'on'
+card:
+  type: entities
+  entities:
+    - binary_sensor.co_alert
+    - binary_sensor.rookmelder
+```
+
+## Conditions options
 
 ### State
 
+Tests if an entity has a specified state.
+
 ```yaml
-condition: "state"
+condition: state
 entity: climate.thermostat
 state: heat
 ```
 
 ```yaml
-condition: "state"
+condition: state
 entity: climate.thermostat
 state_not: "off"
 ```
-
-Tests if an entity has a specified state.
 
 {% configuration %}
 condition:
@@ -85,22 +115,22 @@ entity:
   type: string
 state:
   required: false
-  description: Entity state is equal to this value. Can contain an array of states.*
+  description: Entity state or ID to be equal to this value. Can contain an array of states.*
   type: [list, string]
 state_not:
   required: false
-  description: Entity state is unequal to this value. Can contain an array of states.*
+  description: Entity state or ID to not be equal to this value. Can contain an array of states.*
   type: [list, string]
 {% endconfiguration %}
 
 *one is required (`state` or `state_not`)
 
-### Numeric State
+### Numeric state
 
 Tests if an entity state matches the thresholds.
 
 ```yaml
-condition: "numeric_state"
+condition: numeric_state
 entity: sensor.outside_temperature
 above: 10
 below: 20
@@ -117,15 +147,15 @@ entity:
   type: string
 above:
   required: false
-  description: Entity state is above this value.*
+  description: Entity state or ID to be above this value.*
   type: string
 below:
   required: false
-  description: Entity state is below to this value.*
+  description: Entity state or ID to be below this value.*
   type: string
 {% endconfiguration %}
 
-*at least one is required (`above` or `below`)
+*at least one is required (`above` or `below`), both are also possible for values between.
 
 ### Screen
 
@@ -152,7 +182,7 @@ media_query:
 Specify the visibility of the card per user.
 
 ```yaml
-condition: "user"
+condition: user
 users:
   - 581fca7fdc014b8b894519cc531f9a04
 ```
@@ -167,3 +197,55 @@ users:
   description: User ID that can see the card (unique hex value found on the Users configuration page).
   type: list
 {% endconfiguration %}
+
+### And
+
+Specify that both conditions must be met.
+
+```yaml
+condition: and
+conditions:
+  - condition: numeric_state
+    above: 0
+  - condition: user
+    users:
+      - 581fca7fdc014b8b894519cc531f9a04
+```
+
+{% configuration %}
+condition:
+  required: true
+  description: "`and`"
+  type: string
+conditions:
+  required: false
+  description: List of conditions to check. See [available conditions](#conditions-options).
+  type: list
+{% endconfiguration %}
+
+### Or
+
+Specify that at least one of the conditions must be met.
+
+```yaml
+condition: or
+conditions:
+  - condition: numeric_state
+    above: 0
+  - condition: user
+    users:
+      - 581fca7fdc014b8b894519cc531f9a04
+```
+
+{% configuration %}
+condition:
+  required: true
+  description: "`or`"
+  type: string
+conditions:
+  required: false
+  description: List of conditions to check. See [available conditions](#conditions-options).
+  type: list
+{% endconfiguration %}
+
+

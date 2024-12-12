@@ -159,7 +159,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - OwnTracks is now using config entries. To set it up, go to the configuration panel and configure it there. When configured and MQTT is available, will automatically listen there too. **You must remove the old device tracker before upgrading** ([@kirichkov] - [#17034]) ([@balloob] - [#18759]) ([owntracks docs]) (breaking change)
 - Removes melissa sensors (they should be state attributes as implemented in #18201) ([@kennedyshead] - [#18214]) ([melissa docs]) (breaking change)

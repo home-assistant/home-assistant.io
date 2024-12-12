@@ -23,6 +23,7 @@ Sensor entities (temperature, humidity, barometric pressure) will not be availab
 
 ## Supported devices
 
+- [HT1 Temperature and Humidity Smart Sensor](https://www.sensorpush.com/products/p/ht1)
 - [HT.w Water-Resistant Temperature / Humidity Smart Sensor](https://www.sensorpush.com/products/p/ht-w)
 - [HTP.xw Extreme Accuracy Water-Resistant Temperature / Humidity / Barometric Pressure Smart Sensor](https://www.sensorpush.com/products/p/htp-xw)
 

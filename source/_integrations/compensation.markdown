@@ -12,13 +12,15 @@ ha_domain: compensation
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-The Compensation {% term integration %} consumes the {% term state %} from other {% term sensors %}. It exports the compensated value as state in a separate {% term entity %} and the following values as attributes: `entity_id` and `coefficients`.  A single polynomial, linear by default, is fit to all data points provided.
+The **Compensation** {% term integration %} consumes the {% term state %} from other {% term sensors %}. It exports the compensated value as state in a separate {% term entity %} and the following values as attributes: `entity_id` and `coefficients`. A single polynomial, linear by default, is fit to all data points provided.
 
 ## Configuration
 
-To enable the compensation sensor, add the following lines to your `configuration.yaml`:
+To enable the compensation sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -31,7 +33,7 @@ compensation:
       - [0.2, -80.0]
       - [1.0, 0.0]
 
-  media_player_db_volume:
+  media_player_zone_2_db_volume:
     source: media_player.yamaha_receiver_zone_2
     attribute: volume_level
     unit_of_measurement: dB

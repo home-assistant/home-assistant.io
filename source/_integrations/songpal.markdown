@@ -2,11 +2,10 @@
 title: Sony Songpal
 description: Instructions on how to integrate Sony Songpal devices into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Push
 ha_release: 0.65
 ha_config_flow: true
-ha_quality_scale: gold
 ha_codeowners:
   - '@rytilahti'
   - '@shenxn'
@@ -28,21 +27,21 @@ A few notes:
 - The quick start-up mode has to be enabled in order to turn the device on.
 - Supports currently only one output terminal, i.e., the volume control works only on the first volume controller as reported by the backend library.
 - Some devices, e.g., HT-XT3, do not support decreasing the volume step-by-step correctly.
-- Feel free to improve the available services!
+- Feel free to improve the available actions!
 
 {% include integrations/config_flow.md %}
 
 See [python-songpal's documentation](https://github.com/rytilahti/python-songpal#locating-the-endpoint) how to get your API endpoint.
 
-## Services
+## Actions
 
-In addition to the general [media player services](/integrations/media_player/#services), the following services are provided:
+In addition to the general [media player actions](/integrations/media_player/#actions), the following actions are provided:
 
-### Service `songpal/set_sound_setting`
+### Action `songpal/set_sound_setting`
 
 For a list of available settings and their values use [`songpal sound`](https://github.com/rytilahti/python-songpal#sound-settings) command.
 
-| Service data attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
 | `entity_id`            |      yes | Target entity. To target all songpal devices, use `all` |
 | `name`                 |       no | Configuration variable, e.g., `nightmode`         |

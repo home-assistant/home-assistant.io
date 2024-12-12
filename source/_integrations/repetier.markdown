@@ -7,12 +7,12 @@ ha_category:
 ha_release: 0.94
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@MTrab'
   - '@ShadowBr0ther'
 ha_domain: repetier
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 [Repetier-Server](https://www.repetier-server.com/) is a 3D printer/CNC server, able to control multiple devices on the same server.

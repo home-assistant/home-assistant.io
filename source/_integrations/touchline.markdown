@@ -9,11 +9,12 @@ ha_domain: touchline
 ha_platforms:
   - climate
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `touchline` climate platform let you control [ROTH Touchline](https://www.roth-uk.com/en/roth-touchline.htm) floor heating thermostats from Roth.
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 climate:

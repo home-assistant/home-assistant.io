@@ -94,7 +94,7 @@ Icon/Username:
 
 One of the easiest ways to send a message, is to create a script. You can paste in YAML and make changes in the GUI.
 
-You can call this script as a service. 
+You can call this script as an action. 
 
 1. Go to Home Assistant Settings > Automations and Scenes > Scripts > Add Script
 2. Click the three dots in the top right, and pick 'Edit in YAML'. Paste in the contents below.
@@ -103,11 +103,11 @@ You can call this script as a service.
 ```yaml
 alias: "Notify: Slack Notification Template"
 sequence:
-  - service: notify.YOUR_SLACK_TEAM
+  - action: notify.YOUR_SLACK_TEAM
     data:
-      message: Fallback Text
+      message: "Fallback Text"
       target: "#test-channel"
-      title: Reminder
+      title: "Reminder"
       data:
         blocks:
           - type: section
@@ -116,10 +116,9 @@ sequence:
               text: >-
                 This is a mrkdwn section block *this is bold*, and ~this is
                 crossed out~, and <https://google.com|this is a link>
-mode: single
 ```
 
-Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder)
+Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder).  Up to 50 blocks may be included per message.
 
 Create a duplicate of this script to use for different messages, and different channels (the door was opened in #security, the light was left on on #lights, etc).
 
@@ -133,34 +132,44 @@ One sensor entity will be created:
 
 - **Do Not Disturb Timer**: The amount of time left for Do Not Disturb status.
 
-### Slack Service Data
+### Slack action data
 
-The following attributes can be placed inside the `data` key of the service call for extended functionality:
+The following attributes can be placed inside the `data` key of the action for extended functionality:
 
-| Attribute              | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `username`               |      yes | The username of the Slack bot.
-| `icon`                   |      yes | The icon of the Slack bot.
-| `file`                   |      yes | A file to include with the message; see below.
-| `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` (note that the `message` is required nonetheless).
-| `blocks_template`        |      yes | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).
-| `thread_ts`              |      yes | Sends the message as a reply to a specified parent message.
+| Attribute         | Optional | Description                                                                                                                                                                                                                                                                                                                                     |
+| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `username`        | yes      | The username of the Slack bot.                                                                                                                                                                                                                                                                                                                  |
+| `icon`            | yes      | The icon of the Slack bot.                                                                                                                                                                                                                                                                                                                      |
+| `file`            | yes      | A file to include with the message; see below.                                                                                                                                                                                                                                                                                                  |
+| `blocks`          | yes      | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` within Slack apps. The message field will be used as notification text and anywhere else Slack is unable to display blocks. `message` is required regardless of whether this field is used. |
+| `blocks_template` | yes      | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).                                                                                                                                                                                                                             |
+| `thread_ts`       | yes      | Sends the message as a reply to a specified parent message.                                                                                                                                                                                                                                                                                     |
 
 Note that using `file` will ignore all usage of `blocks` and `blocks_template` (as Slack does not support those frameworks in messages that accompany uploaded files).
 
 To include a local file with the Slack message, use these attributes underneath the `file` key:
 
-| Attribute              | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `path`                   |      no  | A local filepath that has been [whitelisted](/docs/configuration/basic/#allowlist_external_dirs).
+| Attribute | Optional | Description                                                                                         |
+| --------- | -------- | --------------------------------------------------------------------------------------------------- |
+| `path`    | no       | A local filepath that has been [whitelisted](/integrations/homeassistant/#allowlist_external_dirs). |
 
 To include a remote file with the Slack message, use these attributes underneath the `file` key:
 
-| Attribute              | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `url`                    |      no  | A URL that has been [whitelisted](/docs/configuration/basic/#allowlist_external_urls).
-| `username`               |      yes | An optional username if the URL is protected by HTTP Basic Auth.
-| `password`               |      yes | An optional password if the URL is protected by HTTP Basic Auth.
+| Attribute  | Optional | Description                                                                              |
+| ---------- | -------- | ---------------------------------------------------------------------------------------- |
+| `url`      | no       | A URL that has been [whitelisted](/integrations/homeassistant/#allowlist_external_urls). |
+| `username` | yes      | An optional username if the URL is protected by HTTP Basic Auth.                         |
+| `password` | yes      | An optional password if the URL is protected by HTTP Basic Auth.                         |
+
+### Obtaining a member ID
+
+Some of the examples below use a member ID. This is a unique string assigned by Slack to all users (members and guests) and not a username set by the user. To get a member ID:
+
+1. Select a Slack user (both name and profile image work) to bring up their profile side panel.
+2. Open the context menu by selecting the three dots.
+3. Select **Copy member ID**.
+
+![](/images/integrations/slack/slack-member-id.png)
 
 ### Examples
 
@@ -199,7 +208,7 @@ data:
 To use the block framework:
 
 ```yaml
-message: Fallback message in case the blocks don't display anything.
+message: Fallback message for notifications or in case the blocks don't display anything.
 title: Title of the file.
 data:
   blocks:
@@ -227,7 +236,9 @@ data:
           1.0
 ```
 
-Send a message directly to a user by setting the target to their member ID. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
+
+Send a message directly to a user by setting the target to their member ID.
+
 
 ```yaml
 message: "Hello there!"
@@ -237,10 +248,10 @@ data:
   blocks: []
 ```
 
-Send a message to a channel that mentions (@username, highlights a users name in yellow) a user. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
+Send a message to a channel that mentions (@username, highlights a users name in yellow) a user.
 
 ```yaml
-message: "<@U12345> your appointment starts soon"
+message: "<@MEMBER_ID> your appointment starts soon"
 target: "#general"
 title: "Reminder"
 data:

@@ -19,8 +19,19 @@ The Opower integration allows you to get energy information from utilities that 
 
 More than 175 utilities use Opower. Currently only the following utilities are supported by this integration:
 
+- American Electric Power (AEP) subsidiaries
+  - AEP Ohio
+  - AEP Texas
+  - Appalachian Power
+  - Indiana Michigan Power
+  - Kentucky Power
+  - Public Service Company of Oklahoma (PSO)
+  - Southwestern Electric Power Company (SWEPCO)
+- Arizona Public Service (APS)
+- City of Austin Utilities
 - Consolidated Edison (ConEd) and subsidiaries
   - Orange & Rockland Utilities (ORU)
+- Duquesne Light Company (DQE)
 - Enmax Energy
 - Evergy
 - Exelon subsidiaries
@@ -30,9 +41,13 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - Delmarva Power
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
+- Mercury NZ Limited
+- National Grid NY Upstate
 - Pacific Gas & Electric (PG&E)
 - Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
+- Sacramento Municipal Utility District (SMUD)
+- Seattle City Light (SCL)
 
 When you add the Opower integration to Home Assistant, you will need to provide your utility account's authentication details to enable retrieving your energy data.
 This is typically the same information needed to access your utility's website.
@@ -62,7 +77,9 @@ Alternatively, you can create a new TOTP secret for your account and use the "no
 
 ### Exelon subsidiaries
 
-When using Opower with any of the Exelon subsidiaries, such as BGE, ComEd, PECO, Pepco, etc., you need to actively disable two-factor authentication. Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, disable it.
+When using Opower with any of the Exelon subsidiaries, such as BGE, ComEd, PECO, Pepco, etc., you need to actively disable two-factor authentication.
+Before proceeding, make sure you understand the security implications of disabling 2FA.
+Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, disable it.
 
 {% include integrations/config_flow.md %}
 
@@ -76,8 +93,8 @@ For electricity:
 - Current bill electric cost to date
 - Current bill electric forecasted usage (for the first few days of the bill this is 0)
 - Current bill electric forecasted cost (for the first few days of the bill this is 0)
-- Typical monthly electric usage
-- Typical monthly electric cost
+- Typical monthly electric usage (based on the same month for previous years, not populated for accounts younger than a year)
+- Typical monthly electric cost (based on the same month for previous years, not populated for accounts younger than a year)
 
 For gas:
 
@@ -85,8 +102,8 @@ For gas:
 - Current bill gas cost to date
 - Current bill gas forecasted usage (for the first few days of the bill this is 0)
 - Current bill gas forecasted cost (for the first few days of the bill this is 0)
-- Typical monthly gas usage
-- Typical monthly gas cost
+- Typical monthly gas usage (based on the same month for previous years, not populated for accounts younger than a year)
+- Typical monthly gas cost (based on the same month for previous years, not populated for accounts younger than a year)
 
 Note the unit for gas is CCF (centum cubic feet). 1 CCF is one hundred cubic feet which is equivalent to 1 therm.
 

@@ -49,6 +49,6 @@ This section explains how to generate a client ID and client secret on
     - Once you have noted these strings, select **OK**.
     - If you need to find these credentials again at any point, then navigate to **APIs & Services** > **Credentials**, and you will see **Home Assistant Credentials** (or whatever you named them in the previous step) under **OAuth 2.0 Client IDs**.
     - To view both the **Client ID** and **Client secret**, select the pencil icon. This will take you to the settings page for these credentials, and the information will be on the right-hand side of the page.
-16. Congratulations! You are now the keeper of a client secret. Guard it in your treasure box.
+16. Congratulations! You are now the keeper of a client secret. Guard it in your treasure box. In most cases your new credentials will be active within a few moments. However, Google states that activation may take up to five hours in some circumstances.
 
 {% enddetails %}

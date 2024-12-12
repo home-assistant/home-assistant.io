@@ -15,9 +15,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The YouLess integration for Home Assistant allows you to read the meter values from sensors created by [YouLess](https://www.youless.nl/home.html).
+The **YouLess** {% term integration %} for Home Assistant allows you to read the meter values from sensors created by [YouLess](https://www.youless.nl/home.html).
 
-The integration is tested and verified for the following devices from YouLess:
+The {% term integration %} is tested and verified for the following devices from YouLess:
 
 - LS110
 - LS120 running PVOutput firmware
@@ -25,9 +25,10 @@ The integration is tested and verified for the following devices from YouLess:
 
 {% include integrations/config_flow.md %}
 
-The integration will create sensors for you to display:
+The {% term integration %} will create sensors for you to display:
 
 - The current power usage
 - The gas meter
+- The water meter
 - The current meter value (including high and low)
 - The delivery meter value, for Solar power

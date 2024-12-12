@@ -13,6 +13,10 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
+{% warning %}
+The `simulated` integration has been deprecated and will be removed in 2025.1
+{% endwarning %}
+
 The `simulated` sensor platform provides a simulated sensor that generates a time-varying signal `V(t)` given by the [function](https://en.wikipedia.org/wiki/Sine_wave):
 
 ```text
@@ -33,7 +37,7 @@ The output will be limited to 3 decimals.
 
 ## Configuration
 
-To add a simulated sensor to your installation, add the following to your `configuration.yaml` file:
+To add a simulated sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 sensor:

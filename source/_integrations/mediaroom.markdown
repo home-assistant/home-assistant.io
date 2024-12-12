@@ -2,7 +2,7 @@
 title: Mediaroom
 description: Instructions on how to integrate Mediaroom Set-Top Boxes into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Polling
 ha_release: 0.63
 ha_codeowners:
@@ -11,11 +11,16 @@ ha_domain: mediaroom
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `mediaroom` integration allows you to control a [Mediaroom](https://en.wikipedia.org/wiki/Ericsson_Mediaroom) Set-Top Box (STB) from Home Assistant.
+The `mediaroom` {% term integration %} allows you to control a [Mediaroom](https://en.wikipedia.org/wiki/Ericsson_Mediaroom) Set-Top Box (STB) from Home Assistant.
 
-To add a Mediaroom STB to your installation, add the following to your `configuration.yaml` file:
+To add a Mediaroom STB to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -65,12 +70,12 @@ The `play_media` function can be used in scripts to change channels:
 #
 change_channel:
   sequence:
-    service: media_player.play_media
-    target:
-      entity_id: media_player.mediaroom_stb
-    data:
-      media_content_id: "{{ channel_number }}"
-      media_content_type: "channel"
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.mediaroom_stb
+      data:
+        media_content_id: "{{ channel_number }}"
+        media_content_type: "channel"
 ```
 
 {% endraw %}
@@ -84,12 +89,12 @@ The `play_media` function can also be used to trigger actions on the set-up-box 
 #
 press_button:
   sequence:
-    service: media_player.play_media
-    target:
-      entity_id: media_player.mediaroom_stb
-    data:
-      media_content_id: "{{ action }}"
-      media_content_type: "mediaroom"
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.mediaroom_stb
+      data:
+        media_content_id: "{{ action }}"
+        media_content_type: "mediaroom"
 ```
 
 {% endraw %}

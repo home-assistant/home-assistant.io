@@ -1,6 +1,17 @@
 ---
 title: "About the blueprint schema"
 description: "Introduction to the blueprint schema."
+related:
+  - docs: /docs/blueprint/
+    title: About blueprints
+  - docs: /docs/blueprint/selectors/
+    title: Blueprint selectors
+  - docs: /docs/automation/using_blueprints/
+    title: Using blueprints in automations
+  - docs: /docs/blueprint/tutorial/
+    title: "Tutorial: Create an automation blueprint"
+  - title: "Blueprint community forum"
+    url: /get-blueprints
 ---
 
 ## The blueprint schema
@@ -46,7 +57,7 @@ description:
 domain:
   description: >
     The domain in which this blueprint is used. Currently, only
-    [`automation`](/docs/automation/yaml/) and `script` are supported.
+    [`automation`](/docs/automation/yaml/), `script` and [`template`](/integrations/template/#using-blueprints) are supported.
   type: string
   required: true
 author:
@@ -61,41 +72,20 @@ homeassistant:
   keys:
     min_version:
       description: >
-        Minimum required version of Home Assistant to use the blueprint. For example,
-        `2022.4.0`. It is important to set this if the blueprint uses any features
-        introduced in recent releases to head off issues.
+        Minimum required version of Home Assistant to use the blueprint in the format of
+        *major*.*minor*.*patch* (all parts are required). For example, `2022.4.0`. It is
+        important to set this if the blueprint uses any features introduced in recent
+        releases to head off issues.
       type: string
       required: false
 input:
   description: >
-    A dictionary of defined user inputs. These are the input fields that the
+    A dictionary of defined user inputs or sections. These are the input fields that the
     consumer of your blueprint can provide using YAML definition, or via
-    a configuration form in the UI.
+    a configuration form in the UI. Sections provide a way to visually group a set of 
+    related inputs (see below).
   type: map
   required: false
-  keys:
-    name:
-      description: The name of the input field.
-      type: string
-      required: false
-    description:
-      description: >
-        A short description of the input field. Keep this short and descriptive.
-        The description can include [Markdown](https://commonmark.org/help/).
-      type: string
-      required: false
-    selector:
-      description: >
-        The [selector](/docs/blueprint/selectors/) to use for this input. A
-        selector defines how the input is displayed in the frontend UI.
-      type: selector
-      required: false
-    default:
-      description: >
-        The default value of this input, in case the input is not provided
-        by the user of this blueprint.
-      type: any
-      required: false
 {% endconfiguration %}
 
 ### Blueprint inputs
@@ -106,6 +96,34 @@ inputs from the blueprint user.
 These inputs can be of any type (string, boolean, list, dictionary). They can have
 a default value and also provide a [selector](/docs/blueprint/selectors/) that
 ensures a matching input field in the user interface.
+
+A blueprint input has the following configuration:
+
+{% configuration %}
+  name:
+    description: The name of the input field.
+    type: string
+    required: false
+  description:
+    description: >
+      A short description of the input field. Keep this short and descriptive.
+      The description can include [Markdown](https://commonmark.org/help/).
+    type: string
+    required: false
+  selector:
+    description: >
+      The [selector](/docs/blueprint/selectors/) to use for this input. A
+      selector defines how the input is displayed in the frontend UI.
+    type: selector
+    required: false
+  default:
+    description: >
+      The default value of this input, in case the input is not provided
+      by the user of this blueprint.
+    type: any
+    required: false
+
+{% endconfiguration %}
 
 Each input field can be referred to, outside of the blueprint metadata, using
 the `!input` custom YAML tag.
@@ -128,6 +146,72 @@ In this example, no [`selector`](/docs/blueprint/selectors/) was provided. In th
 It is then up to the user to find out what to enter there. Blueprints that come with [selectors](/docs/blueprint/selectors/) are easier to use.
 
 A blueprint can have as many inputs as you like.
+
+### Blueprint input sections
+
+One or more input sections can be added under the main `input` key. Each section visually groups the inputs in that section, 
+allows an optional description, and optionally allows for collapsing those inputs. Note that the section only impacts how 
+inputs are displayed to the user when they fill in the blueprint. Inputs must have unique names and be referenced directly
+by their name; not by section and name.
+
+A section is differentiated from an input by the presence of an additional `input` key within that section. 
+
+{% caution %}
+Input sections are a new feature in version 2024.6.0. Set the `min_version` for the blueprint to at least this version if using input sections. Otherwise, the blueprint will generate errors on older versions. See [this section](/docs/blueprint/schema/#min_version) for more details.
+{% endcaution %}
+
+The full configuration for a section is below:
+
+{% configuration %}
+
+name:
+  description: A name for the section. If omitted the key of the section is used.
+  type: string
+  required: false
+icon:
+  description: An icon to display next to the name of the section.
+  type: string
+  required: false
+description:
+  description: >
+    An optional description of this section, which will be displayed at the top of the section.
+    The description can include [Markdown](https://commonmark.org/help/).
+  type: string
+  required: false
+collapsed:
+  description: If `true`, the section will be collapsed by default. Useful for optional or less important inputs. All collapsed inputs must also have a defined `default` before they can be hidden.
+  type: boolean
+  default: false
+  required: false
+input:
+  description: >
+    A dictionary of defined user inputs within this section.
+  type: map
+  required: true
+
+{% endconfiguration %}
+
+
+
+The following example shows a blueprint with some inputs in a section:
+
+```yaml
+blueprint:
+  name: Example sections blueprint
+  description: Example showing a section
+  input:
+    base_input:
+      name: An input not in the section
+    my_section:
+      name: My Section
+      icon: mdi:cog
+      description: These options control a specific feature of this blueprint
+      input:
+        my_input:
+          name: Example input
+        my_input_2:
+          name: 2nd example input
+```
 
 ### Blueprint inputs in templates
 
@@ -183,31 +267,23 @@ blueprint:
 mode: restart
 max_exceeded: silent
 
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: !input motion_entity
     from: "off"
     to: "on"
 
-action:
-  - service: light.turn_on
+actions:
+  - action: light.turn_on
     target: !input light_target
   - wait_for_trigger:
-      platform: state
-      entity_id: !input motion_entity
-      from: "on"
-      to: "off"
+      - trigger: state
+        entity_id: !input motion_entity
+        from: "on"
+        to: "off"
   - delay: !input no_motion_wait
-  - service: light.turn_off
+  - action: light.turn_off
     target: !input light_target
 ```
 
-### Related information
-- [About blueprints](/docs/blueprint/)
-- [Blueprint selectors](/docs/blueprint/selectors/)
-- [Using blueprints in automations](/docs/automation/using_blueprints/)
-- [Tutorial: Create an automation blueprint &raquo;](/docs/blueprint/tutorial/)
-- [Blueprint community forum][blueprint-forums]
-
 [blueprint-built-in]: https://github.com/home-assistant/core/tree/dev/homeassistant/components/automation/blueprints
-[blueprint-forums]: /get-blueprints

@@ -1,65 +1,74 @@
 ---
 title: eQ-3 Bluetooth Smart Thermostats
-description: Instructions on how to integrate EQ3 Bluetooth Smart Thermostats into Home Assistant.
+description: Instructions on how to integrate eQ-3 Bluetooth Smart Thermostats into Home Assistant.
 ha_category:
   - Climate
 ha_iot_class: Local Polling
-ha_release: 0.18
+ha_release: 2024.5
+ha_config_flow: true
 ha_codeowners:
-  - '@rytilahti'
+  - '@eulemitkeule'
+  - '@dbuezas'
 ha_domain: eq3btsmart
+ha_integration_type: device
 ha_platforms:
+  - binary_sensor
   - climate
-ha_integration_type: integration
+  - number
+  - sensor
+  - switch
 ---
 
-The `eq3btsmart` climate platform allows you to integrate EQ3 Bluetooth Smart Thermostats.
+The `eq3btsmart` climate platform allows you to integrate eQ-3 Bluetooth Smart Thermostats.
 
-The current functionality allows setting the temperature as well as controlling the supported modes with help of [python-eq3bt](https://github.com/rytilahti/python-eq3bt) library.
-As the device doesn't contain a temperature sensor ([read more](https://forum.fhem.de/index.php/topic,39308.15.html)),
-we report target temperature also as current one.
+The current functionality allows setting the temperature as well as controlling the supported modes with help of the [eq3btsmart](https://github.com/eulemitkeule/eq3btsmart) library.
+As the device doesn't contain a temperature sensor ([read more](https://forum.fhem.de/index.php/topic,39308.15.html)), we report target temperature also as current one.
 
-### Testing the connectivity
+### Pairing
 
-Before configuring Home Assistant you should check that connectivity with the thermostat is working, which can be done with the eq3cli tool:
+Pairing your eQ-3 Bluetooth Smart Thermostat device works differently based on your method of connection and the device's firmware version.
 
-```bash
-eq3cli --mac 00:11:22:33:44:55
+#### [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy.html)
 
-[00:1A:22:XX:XX:XX] Target 17.0 (mode: auto dst, away: no)
-Locked: False
-Batter low: False
-Window open: False
-Boost: False
-Current target temp: 21.0
-Current mode: auto dst
-Valve: 0
-```
+For firmware versions below 148, no additional configuration is required when using ESPHome Bluetooth Proxies.
+Since version 148, a security flaw in the devices has been fixed that now requires entering a passkey.
 
-### Configuration
+To configure the passkey, add the following to your ESPHome Bluetooth Proxy's configuration:
 
 ```yaml
-# Example configuration.yaml entry
-climate:
-  - platform: eq3btsmart
-    devices:
-      room1:
-        mac: "00:11:22:33:44:55"
+esp32_ble:
+  io_capability: keyboard_only
+
+ble_client:
+  - mac_address: <MAC>
+    id: my_eq3_thermostat
+    auto_connect: true
+    on_passkey_request:
+      then:
+        - ble_client.passkey_reply:
+            id: my_eq3_thermostat
+            passkey: <PIN code displayed on the thermostat. To display the PIN hold down the main button.>
 ```
 
-{% configuration %}
-devices:
-  description: List of thermostats.
-  required: true
-  type: list
-  keys:
-    name:
-      description: The name to use for the thermostat.
-      required: true
-      type: string
-      keys:
-        mac:
-          description: MAC address of the thermostat.
-          required: true
-          type: string
-{% endconfiguration %}
+For further information see the [ESPHome documentation](https://esphome.io/components/ble_client.html#on-passkey-request).
+
+#### Other
+
+Pairing is only required with firmware versions above 120.<br>
+Before configuring Home Assistant you need to pair the thermostat to your Bluetooth adapter using `bluetoothctl`.
+
+```bash
+bluetoothctl
+scan on
+# Wait for the thermostat to show up and copy its MAC address
+# Expected output: [NEW] Device 00:1A:23:27:F8:4E CC-RT-BLE
+scan off
+pair <MAC>
+# Hold down the main button on the thermostat to display the PIN
+# Enter the displayed PIN when prompted
+trust <MAC>
+disconnect <MAC>
+exit
+```
+
+{% include integrations/config_flow.md %}

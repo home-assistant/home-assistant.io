@@ -8,11 +8,9 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` event platform allows you to process event info from an MQTT message. Events are signals that are emitted when something happens, for example, when a user presses a physical button like a doorbell or when a button on a remote control is pressed. With the event some event attributes can be sent te become available as an attribute on the entity. MQTT events are stateless. For example, a doorbell does not have a state like being "on" or "off" but instead is momentarily pressed.
+The `mqtt` event platform allows you to process event info from an MQTT message. Events are signals that are emitted when something happens, for example, when a user presses a physical button like a doorbell or when a button on a remote control is pressed. With the event some event attributes can be sent to become available as an attribute on the entity. MQTT events are stateless. For example, a doorbell does not have a state like being "on" or "off" but instead is momentarily pressed.
 
 ## Configuration
-
-<a id='new_format'></a>
 
 ```yaml
 # Example configuration.yaml entry
@@ -89,8 +87,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -108,9 +114,7 @@ device:
 device_class:
   description: The [type/class](/integrations/event/#device-class) of the event to set the icon in the frontend. The `device_class` can be `null`.
   required: false
-  default: None
   type: device_class
-  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
@@ -125,7 +129,10 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 event_types:
   description: A list of valid `event_type` strings.
   required: true
@@ -161,18 +168,21 @@ payload_not_available:
   required: false
   type: string
   default: offline
+platform:
+  description: Must be `event`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
 state_topic:
-  description: The MQTT topic subscribed to receive JSON event payloads. The JSON payload should contain the `event_type` element. The event type should be one of the configured `event_types`.
-  default: None
+  description: The MQTT topic subscribed to receive JSON event payloads. The JSON payload should contain the `event_type` element. The event type should be one of the configured `event_types`. Note that replayed retained messages will be discarded.
   required: true
   type: string
 unique_id:
-  description: An ID that uniquely identifies this event entity. If two events have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this event entity. If two events have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 value_template:
@@ -181,11 +191,9 @@ value_template:
   type: template
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ### Full configuration with JSON data
 

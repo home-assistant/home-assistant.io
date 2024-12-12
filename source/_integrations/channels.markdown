@@ -2,13 +2,17 @@
 title: Channels
 description: Instructions on how to integrate Channels into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.65
 ha_iot_class: Local Polling
 ha_domain: channels
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The Channels platform allows you to control [Channels](https://getchannels.com/) from Home Assistant. Play, pause, seek, or skip commercials on an instance of Channels that is running on your network.
@@ -17,7 +21,8 @@ Your favorite channels will appear as sources in the Source List in Home Assista
 
 ## Configuration
 
-To add Channels to your installation, add the following to your `configuration.yaml` file:
+To add Channels to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -44,27 +49,27 @@ name:
   type: string
 {% endconfiguration %}
 
-### Service `seek_forward`
+### Action `seek_forward`
 
 Seek forward by the number of seconds currently set in settings on the instance of Channels.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String that points at `entity_id` of Channels app.
+| Data attribute | Optional | Description                                        |
+| ---------------------- | -------- | -------------------------------------------------- |
+| `entity_id`            | no       | String that points at `entity_id` of Channels app. |
 
-### Service `seek_backward`
+### Action `seek_backward`
 
 Seek backward by the number of seconds currently set in settings on the instance of Channels.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String that points at `entity_id` of Channels app.
+| Data attribute | Optional | Description                                        |
+| ---------------------- | -------- | -------------------------------------------------- |
+| `entity_id`            | no       | String that points at `entity_id` of Channels app. |
 
-### Service `seek_by`
+### Action `seek_by`
 
 Seek forward or backward by a provided number of seconds.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String that points at `entity_id` of Channels app.
-| `seconds` | no | Number of seconds to seek in the timeline by. Negative seconds seeks backwards.
+| Data attribute | Optional | Description                                                                     |
+| ---------------------- | -------- | ------------------------------------------------------------------------------- |
+| `entity_id`            | no       | String that points at `entity_id` of Channels app.                              |
+| `seconds`              | no       | Number of seconds to seek in the timeline by. Negative seconds seeks backwards. |

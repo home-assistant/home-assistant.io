@@ -55,7 +55,7 @@ Enjoy the release!
 - [Release 2023.3.5 - March 16](#release-202335---march-16)
 - [Release 2023.3.6 - March 22](#release-202336---march-22)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
 Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=3UaLAhG9Brc) 1 March 2023, at 12:00 PST / 21:00 CET!
@@ -699,7 +699,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 {% details "Assist / Conversation" %}
 

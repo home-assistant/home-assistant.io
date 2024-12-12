@@ -59,8 +59,9 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2023.11.1 - November 4](#release-2023111---november-4)
 - [Release 2023.11.2 - November 10](#release-2023112---november-10)
+- [Release 2023.11.3 - November 22](#release-2023113---november-22)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -549,6 +550,138 @@ The following integrations are now available via the Home Assistant UI:
 [@epenet]: https://github.com/epenet
 [@suaveolent]: https://github.com/suaveolent
 
+## Release 2023.11.3 - November 22
+
+- Bump accuweather to version 2.0.1 ([@bieniu] - [#103532])
+- Remove rainbird yaml config test fixtures ([@allenporter] - [#103607])
+- Lock Withings token refresh ([@joostlek] - [#103688])
+- Bump accuweather to version 2.1.0 ([@bieniu] - [#103744])
+- Bump python-matter-server to 4.0.2 ([@bdraco] - [#103760])
+- Bump subarulink to 0.7.9 ([@G-Two] - [#103761])
+- Fix discovery schema for Matter switches ([@marcelveldt] - [#103762])
+- Fix raising vol.Invalid during mqtt config validation instead of ValueError ([@jbouwh] - [#103764])
+- Fix race condition in Matter unsubscribe method ([@marcelveldt] - [#103770])
+- Fix typo in calendar translation ([@jrieger] - [#103789])
+- Fix Rainbird unique to use a more reliable source (mac address) ([@allenporter] - [#101603])
+- Bump pyOverkiz to 1.13.0 ([@iMicknl] - [#103582])
+- Bump pyOverkiz to 1.13.2 ([@iMicknl] - [#103790])
+- Bump aiocomelit to 0.5.2 ([@chemelli74] - [#103791])
+- Bump velbusaio to 2023.11.0 ([@Cereal2nd] - [#103798])
+- Bump pyunifiprotect to 4.21.0 ([@bdraco] - [#103832])
+- Bump lupupy to 0.3.1 ([@suaveolent] - [#103835])
+- Bump gcal_sync to 6.0.1 ([@allenporter] - [#103861])
+- Fix bug in Fitbit config flow, and switch to prefer display name ([@allenporter] - [#103869])
+- Fix for Google Calendar API returning invalid RRULE:DATE rules ([@allenporter] - [#103870])
+- Update Fitbit to avoid a KeyError when `restingHeartRate` is not present ([@allenporter] - [#103872])
+- fix Comelit cover stop ([@chemelli74] - [#103911])
+- Fix Coinbase for new API Structure ([@TomBrien] - [#103930])
+- Bump zwave-js-server-python to 0.54.0 ([@raman325] - [#103943])
+- Update smarttub to 0.0.36 ([@mdz] - [#103948])
+- Fix duplicate Ban file entries ([@fosterchuck] - [#103953])
+- Fix openexchangerates form data description ([@MartinHjelmare] - [#103974])
+- Fix emulated_hue with None values ([@bdraco] - [#104020])
+- Fix netatmo authentication when using cloud authentication credentials ([@deosrc] - [#104021])
+- Fix device tracker see gps accuracy selector ([@MartinHjelmare] - [#104022])
+- Bump pyenphase to 1.14.3 ([@catsmanac] - [#104101])
+- Fix ESPHome BLE client raising confusing error when not connected ([@bdraco] - [#104146])
+- Fix memory leak in ESPHome disconnect callbacks ([@bdraco] - [#104149])
+- Add debug logging for which adapter is used to connect bluetooth devices ([@bdraco] - [#103264])
+- Prevent Bluetooth reconnects from blocking shutdown ([@bdraco] - [#104150])
+- Bump boschshcpy to 0.2.75 ([@tschamm] - [#104159])
+- Fix Local To-do list bug renaming items ([@allenporter] - [#104182])
+- Bump aiosomecomfort to 0.0.22 ([@mkmer] - [#104202])
+- Increase Tomato request timeout ([@ertechdesign] - [#104203])
+- Fix imap does not decode text body correctly ([@jbouwh] - [#104217])
+- Fix mqtt json light allows to set brightness value >255 ([@jbouwh] - [#104220])
+- Handle attributes set to None in prometheus ([@knyar] - [#104247])
+- Catch ClientOSError in renault integration ([@epenet] - [#104248])
+- Restore removed guard for non-string inputs in Alexa ([@jbouwh] - [#104263])
+- Bump bimmer_connected to 0.14.3 ([@rikroe] - [#104282])
+- Bump pyrainbird to 4.0.1 ([@allenporter] - [#104293])
+- Bump pychromecast to 13.0.8 ([@emontnemery] - [#104320])
+- Bump ical to 6.0.0 ([@allenporter] - [#103482])
+- Bump ical to 6.1.0 ([@allenporter] - [#103759])
+
+[#101603]: https://github.com/home-assistant/core/pull/101603
+[#103164]: https://github.com/home-assistant/core/pull/103164
+[#103264]: https://github.com/home-assistant/core/pull/103264
+[#103301]: https://github.com/home-assistant/core/pull/103301
+[#103482]: https://github.com/home-assistant/core/pull/103482
+[#103532]: https://github.com/home-assistant/core/pull/103532
+[#103582]: https://github.com/home-assistant/core/pull/103582
+[#103607]: https://github.com/home-assistant/core/pull/103607
+[#103688]: https://github.com/home-assistant/core/pull/103688
+[#103737]: https://github.com/home-assistant/core/pull/103737
+[#103744]: https://github.com/home-assistant/core/pull/103744
+[#103759]: https://github.com/home-assistant/core/pull/103759
+[#103760]: https://github.com/home-assistant/core/pull/103760
+[#103761]: https://github.com/home-assistant/core/pull/103761
+[#103762]: https://github.com/home-assistant/core/pull/103762
+[#103764]: https://github.com/home-assistant/core/pull/103764
+[#103770]: https://github.com/home-assistant/core/pull/103770
+[#103789]: https://github.com/home-assistant/core/pull/103789
+[#103790]: https://github.com/home-assistant/core/pull/103790
+[#103791]: https://github.com/home-assistant/core/pull/103791
+[#103798]: https://github.com/home-assistant/core/pull/103798
+[#103832]: https://github.com/home-assistant/core/pull/103832
+[#103835]: https://github.com/home-assistant/core/pull/103835
+[#103861]: https://github.com/home-assistant/core/pull/103861
+[#103869]: https://github.com/home-assistant/core/pull/103869
+[#103870]: https://github.com/home-assistant/core/pull/103870
+[#103872]: https://github.com/home-assistant/core/pull/103872
+[#103911]: https://github.com/home-assistant/core/pull/103911
+[#103930]: https://github.com/home-assistant/core/pull/103930
+[#103943]: https://github.com/home-assistant/core/pull/103943
+[#103948]: https://github.com/home-assistant/core/pull/103948
+[#103953]: https://github.com/home-assistant/core/pull/103953
+[#103974]: https://github.com/home-assistant/core/pull/103974
+[#104020]: https://github.com/home-assistant/core/pull/104020
+[#104021]: https://github.com/home-assistant/core/pull/104021
+[#104022]: https://github.com/home-assistant/core/pull/104022
+[#104101]: https://github.com/home-assistant/core/pull/104101
+[#104146]: https://github.com/home-assistant/core/pull/104146
+[#104149]: https://github.com/home-assistant/core/pull/104149
+[#104150]: https://github.com/home-assistant/core/pull/104150
+[#104159]: https://github.com/home-assistant/core/pull/104159
+[#104182]: https://github.com/home-assistant/core/pull/104182
+[#104202]: https://github.com/home-assistant/core/pull/104202
+[#104203]: https://github.com/home-assistant/core/pull/104203
+[#104217]: https://github.com/home-assistant/core/pull/104217
+[#104220]: https://github.com/home-assistant/core/pull/104220
+[#104247]: https://github.com/home-assistant/core/pull/104247
+[#104248]: https://github.com/home-assistant/core/pull/104248
+[#104263]: https://github.com/home-assistant/core/pull/104263
+[#104282]: https://github.com/home-assistant/core/pull/104282
+[#104293]: https://github.com/home-assistant/core/pull/104293
+[#104320]: https://github.com/home-assistant/core/pull/104320
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@G-Two]: https://github.com/G-Two
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@TomBrien]: https://github.com/TomBrien
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@catsmanac]: https://github.com/catsmanac
+[@chemelli74]: https://github.com/chemelli74
+[@deosrc]: https://github.com/deosrc
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@ertechdesign]: https://github.com/ertechdesign
+[@fosterchuck]: https://github.com/fosterchuck
+[@frenck]: https://github.com/frenck
+[@iMicknl]: https://github.com/iMicknl
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@jrieger]: https://github.com/jrieger
+[@knyar]: https://github.com/knyar
+[@marcelveldt]: https://github.com/marcelveldt
+[@mdz]: https://github.com/mdz
+[@mkmer]: https://github.com/mkmer
+[@raman325]: https://github.com/raman325
+[@rikroe]: https://github.com/rikroe
+[@suaveolent]: https://github.com/suaveolent
+[@tschamm]: https://github.com/tschamm
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
@@ -565,7 +698,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking changes
+## Backward-incompatible changes
 
 {% details "Demo" %}
 

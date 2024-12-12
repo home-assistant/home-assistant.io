@@ -30,7 +30,7 @@ Notes:
 
 {% include integrations/option_flow.md %}
 
-## Dynamic Configuration
+## Dynamic configuration
 
 Tracking can be set up to track entities of type `device_tracker`, `zone`, `sensor`, `input_select`, `input_text` and `person`. If an entity is placed in the origin or destination then each time the platform updates, it will use the latest location of that entity. This means it will directly use its location if possible or try to resolve entity values until it finds a valid set of coordinates. You can put several destinations as options of an `input_select` and define that as the destination.
 
@@ -64,17 +64,16 @@ input_select:
 
 ## Updating sensors on-demand using Automation
 
-You can also use the `homeassistant.update_entity` service to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
+You can also use the `homeassistant.update_entity` action to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
 
 ```yaml
 automation:
-- id: update_morning_commute_sensor
-  alias: "Commute - Update morning commute sensor"
+- alias: "Commute - Update morning commute sensor"
   initial_state: "on"
-  trigger:
-    - platform: time_pattern
+  triggers:
+    - trigger: time_pattern
       minutes: "/2"
-  condition:
+  conditions:
     - condition: time
       after: "08:00:00"
       before: "11:00:00"
@@ -85,8 +84,8 @@ automation:
         - wed
         - thu
         - fri
-  action:
-    - service: homeassistant.update_entity
+  actions:
+    - action: homeassistant.update_entity
       target:
         entity_id: sensor.morning_commute
 ```

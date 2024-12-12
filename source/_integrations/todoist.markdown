@@ -3,7 +3,7 @@ title: Todoist
 description: Instructions on how to integrate Todoist into Home Assistant.
 ha_category:
   - Calendar
-  - To-do List
+  - To-do list
 ha_iot_class: Cloud Polling
 ha_release: 0.54
 ha_codeowners:
@@ -14,12 +14,25 @@ ha_platforms:
   - todo
 ha_integration_type: integration
 ha_config_flow: true
+related:
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
+  - docs: /dashboards/dashboards/
+    title: Dashboards
+  - docs: /integrations/calendar/
+    title: Calendar
+  - url: https://todoist.com
+    title: Todoist projects
 ---
 
 This platform allows you to connect to your [Todoist projects](https://todoist.com) as [todo](/integrations/todo/) or [calendar](/integrations/calendar/) entities. All tasks get updated roughly every 15 minutes.
 
 
-A calendar entity will be `on` if you have a task due in that project. It will be `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. 
+A calendar entity will be `on` if you have a task due in that project. It will be `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all.
 
 ## Prerequisites
 
@@ -29,7 +42,7 @@ You need to determine your Todoist API token. Go to the [**Integrations** > **De
 
 ## Custom projects
 
-You can manually configure the Todoist calendar (only) integration using `configuration.yaml` which can specify "custom" projects which match against criteria you set. You should
+You can manually configure the Todoist calendar (only) integration using {% term "`configuration.yaml`" %} which can specify "custom" projects which match against criteria you set. You should
 prefer the above instructions for configuring Todoist from the UI.
 
 {% details "Manual custom projects configuration" %}
@@ -62,7 +75,7 @@ custom_projects:
       type: list
 {% endconfiguration %}
 
-Here's an example of a more advanced `configuration.yaml`:
+Here's an example of a more advanced {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -102,7 +115,7 @@ Home Assistant does its best to [determine what task in each project is "most" i
 ## To-do list entity
 
 See the [todo](/integrations/todo/) integration for details on how to manage
-items on the Todoist to-do list, including services for creating and
+items on the Todoist to-do list, including actions for creating and
 deleting to-do items.
 
 Todoist completed to-do items are not visible in Home Assistant because they
@@ -138,12 +151,12 @@ the Todoist UI.
 
 - **due_today**: Whether the reported task is due today.
 
-## Services
+## Actions
 
-You may use the services from the [todo](/integrations/todo/) integration for
+You may use the actions from the [todo](/integrations/todo/) integration for
 creating, updating, or deleting to-do items on the to-do list.
 
-Todoist also comes with an additional service, `todoist.new_task` that offers
+Todoist also comes with an additional action, `todoist.new_task` that offers
 more advanced attributes when creating a Todoist task. You can specify labels
 and a project, or you can leave them blank, and the task will go to your
 **Inbox** project.
@@ -173,7 +186,11 @@ Here are two example JSON payloads resulting in the same task:
 
 - **content** (*Required*): The name of the task you want to create.
 
+- **description** (*Optional*): A description of the task.
+
 - **project** (*Optional*): The project to put the task in.
+
+- **section** (*Optional*): The section within the project to add the task to.
 
 - **labels** (*Optional*): Any labels you want to add to the task, separated by commas.
 

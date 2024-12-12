@@ -22,13 +22,13 @@ Integrates Mill heater into Home Assistant.
 You can configure it for cloud access or local access.
 Local access requires Generation 3 heaters (Sold from Autumn 2021)
 
-## Integration services
+## Actions
 
-This cloud integration supports a service to set the temperature for the room connected to heater in the Mill app:
+This cloud integration supports an action to set the temperature for the room connected to heater in the Mill app:
 
 `mill.set_room_temperature`
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `room_name` | no | String with room name.
 | `away_temp` | yes | Integer with temperature

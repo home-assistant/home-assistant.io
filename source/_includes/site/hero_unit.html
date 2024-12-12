@@ -1,13 +1,32 @@
 <div class="hero">
   <div class="grid-wrapper">
     <div class="grid flex">
-      <div class="grid__item flex__item two-fifths palm-one-whole">
-        <a href='https://demo.home-assistant.io/' target='_blank'>
-          <img src="/images/hero_screenshot.png" alt="Home Assistant screenshot">
-        </a>
+      <div class="hero-welcome grid__item flex__item three-fifths lap-one-whole palm-one-whole">
+        {% include custom/welcome.html %}
       </div>
-      <div class="grid__item flex__item three-fifths palm-one-whole">
-      {% include custom/welcome.html %}
+      <div class="hero-demo grid__item flex__item two-fifths lap-one-whole palm-one-whole" style="text-align: center;">
+        <iframe id="HAdemo" title="Home Assistant Demo"
+          src="https://demo.home-assistant.io/?frontpage">
+        </iframe>
+
+        <a id="HAdemoScreenshot" href='https://demo.home-assistant.io/' target='_blank'>
+          <img src="/images/frontpage/hero_screenshot.png" alt="Home Assistant screenshot">
+        </a>
+
+        <!-- <script>
+          document.addEventListener('mousemove', (event) => {
+            const phone = document.querySelector('#HAdemo');
+            const { innerWidth } = window;
+            const mouseX = event.clientX;
+
+            // Calculate rotation angle (-30 to 30 degrees based on cursor position)
+            const rotation = ((mouseX / innerWidth) - 0.8) * 30;
+            const skew = -((mouseX / innerWidth) - 0.8) * 4;
+
+            // Apply rotation
+            phone.style.transform = `rotateY(${rotation}deg) skewY(${skew}deg)`;
+          });
+        </script> -->
       </div>
     </div>
   </div>

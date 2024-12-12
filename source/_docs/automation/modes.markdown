@@ -1,11 +1,11 @@
 ---
-title: "Automation Modes"
+title: "Automation modes"
 description: "How to use and configure automation modes."
 ---
 
-An automation can be triggered while it is already running.
+An {% term automation %} can be triggered while it is already running.
 
-The automation's `mode` configuration option controls what happens when the automation is triggered while the actions are still running from a previous trigger.
+The automation's `mode` configuration option controls what happens when the automation is triggered while the {% term actions %} are still running from a previous {% term trigger %}.
 
 Mode | Description
 -|-
@@ -31,14 +31,14 @@ Some automations you only want to run every 5 minutes. This can be achieved usin
 automation:
   - mode: single
     max_exceeded: silent
-    trigger:
+    triggers:
       - ...
-    action:
+    actions:
       - ...
       - delay: 300  # seconds (=5 minutes)
 ```
 
-## Example Queued
+## Example queued
 
 Sometimes an automation is doing an action on a device that does not support multiple simultaneous actions. In such cases, a queue can be used. In that case, the automation will be executed once it's current invocation and queue are done.
 
@@ -46,8 +46,8 @@ Sometimes an automation is doing an action on a device that does not support mul
 automation:
   - mode: queued
     max: 25
-    trigger:
+    triggers:
       - ...
-    action:
+    actions:
       - ...
 ```

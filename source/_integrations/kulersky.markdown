@@ -30,7 +30,7 @@ Before you get started with this integration, please note that:
 
 - Requires access to the Bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
 
-## Rootless Setup
+## Rootless setup
 
 Normally accessing the Bluetooth stack is reserved for `root`, but running programs that are networked as `root` is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 and `hcitool` the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](https://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
 

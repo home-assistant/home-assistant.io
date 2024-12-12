@@ -117,7 +117,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Add additional Netatmo public data sensors ([@GP8x] - [#16671]) ([netatmo docs]) ([sensor.netatmo_public docs]) (breaking change)
 - Developers only: we have removed all service helpers (like turn_on method in light coponent), as they werent used. ([@cdce8p] - [#16832], [#16879], [#16863], [#16892], [#16920], [#17038], [#17055], [#16917])

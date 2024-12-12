@@ -20,6 +20,7 @@ ha_platforms:
   - climate
   - cover
   - date
+  - datetime
   - device_tracker
   - event
   - fan
@@ -44,13 +45,16 @@ ha_platforms:
   - water_heater
   - weather
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `demo` platform allows you to use integrations which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/) but combined with your own real/functional platforms.
+The `demo` {% term integration %} allows you to use integrations which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/) but combined with your own real/functional platforms.
 
 Available demo platforms:
 
-- [Air Quality](/integrations/air_quality/) (`air_quality`)
+- [Air quality](/integrations/air_quality/) (`air_quality`)
 - [Alarm control panel](/integrations/alarm_control_panel/) (`alarm_control_panel`)
 - [Binary sensor](/integrations/binary_sensor/) (`binary_sensor`)
 - [Button](/integrations/button/) (`button`)
@@ -58,15 +62,14 @@ Available demo platforms:
 - [Camera](/integrations/camera/) (`camera`)
 - [Climate](/integrations/climate/) (`climate`)
 - [Cover](/integrations/cover/) (`cover`)
-- [Device Tracker](/integrations/device_tracker/) (`device_tracker`)
+- [Device tracker](/integrations/device_tracker/) (`device_tracker`)
 - [Fan](/integrations/fan/) (`fan`)
 - [Geolocation](/integrations/geo_location/) (`geo_location`)
 - [Humidifier](/integrations/humidifier/) (`humidifier`)
-- [Image Processing](/integrations/image_processing/) (`image_processing`)
+- [Image processing](/integrations/image_processing/) (`image_processing`)
 - [Light](/integrations/light/) (`light`)
 - [Lock](/integrations/lock/) (`lock`)
-- [Mailbox](/integrations/mailbox/) (`mailbox`)
-- [Media Player](/integrations/media_player/) (`media_player`)
+- [Media player](/integrations/media_player/) (`media_player`)
 - [Notification](/integrations/notify/) (`notify`)
 - [Number](/integrations/number/) (`number`)
 - [Remote](/integrations/remote/) (`remote`)
@@ -78,10 +81,11 @@ Available demo platforms:
 - [Text-to-speech](/integrations/tts/) (`tts`)
 - [Update](/integrations/update/) (`update`)
 - [Vacuum](/integrations/vacuum/) (`vacuum`)
-- [Water Heater](/integrations/water_heater/) (`water_heater`)
+- [Water heater](/integrations/water_heater/) (`water_heater`)
 - [Weather](/integrations/weather/) (`weather`)
 
-To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate a demo platform in Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -8,12 +8,12 @@ ha_iot_class: Local Push
 ha_domain: hyperion
 ha_codeowners:
   - '@dermotduffy'
-ha_quality_scale: platinum
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
   - camera
   - light
+  - sensor
   - switch
 ha_integration_type: integration
 ---
@@ -41,13 +41,13 @@ Options supported:
 - **Effects to hide**: An optional selection of effects to hide from the light effects
   list. New effects added to the Hyperion server will be shown by default.
 
-## Hyperion Instances
+## Hyperion instances
 
 This integration supports multiple Hyperion instances running on a single Hyperion
 server. As instances are added/removed on the Hyperion UI, they will automatically be
 added/removed from Home Assistant.
 
-## Light Entity
+## Light entity
 
 The default light entity will send data to Hyperion on the priority you have configured 
 during integration setup. When turned off, it will clear the configured priority again. 
@@ -61,7 +61,7 @@ a global switch (see Advanced Entities).
 The effect list is dynamically pulled from the Hyperion server. Additionally, there
 will be a 'Solid' effect to switch (back) to showing a solid color only.
 
-## Hyperion Camera
+## Hyperion camera
 
 A Hyperion camera entity is created that shows a stream of the input to Hyperion (e.g., a
 USB Capture device). This could be used to show a small "preview window" next to TV
@@ -71,7 +71,11 @@ Please note that only the currently live Hyperion priority can be streamed, and 
 streamable sources will actually stream content (e.g., USB Capture Devices will work, but
 static colors will not).
 
-## Advanced Entities
+## Sensors
+
+A sensor (Visible Priority) provides the effect currently displayed by the Hyperion server for the selected instance. Attributes of this sensor provide more details on the nature of the effect. For a detailed description, refer to the [Hyperion API](https://docs.hyperion-project.org/en/json/ServerInfo.html#priorities).
+
+## Advanced entities
 
 The Hyperion integration comes with a series of disabled-by-default entities for
 advanced usecases. These entities expose 'raw' underlying Hyperion API components for
@@ -106,14 +110,13 @@ To start Hyperion with an effect, use the following automation:
 
 ```yaml
 automation:
-- id: one
-  alias: "Turn Hyperion effect on when light goes on"
-  trigger:
-    - platform: state
+- alias: "Turn Hyperion effect on when light goes on"
+  triggers:
+    - trigger: state
       entity_id: light.hyperion
       to: "on"
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       target:
         entity_id: light.hyperion
       data:
@@ -124,18 +127,18 @@ To have the lights playing an effect when pausing, idle or turn off a media play
 
 ```yaml
 - alias: "Set hyperion effect after playback"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: media_player.plex
       to: "off"
-    - platform: state
+    - trigger: state
       entity_id: media_player.plex.plex
       to: "paused"
-    - platform: state
+    - trigger: state
       entity_id: media_player.plex.plex
       to: "idle"
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       target:
         entity_id: light.hyperion
       data:
@@ -146,12 +149,12 @@ To capture the screen on a USB capture device, when playing something on a media
 
 ```yaml
 - alias: "Set hyperion when playback starts"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: media_player.plex
       to: "playing"
-  action:
-    - service: switch.turn_on
+  actions:
+    - action: switch.turn_on
       target:
         entity_id: switch.[instance]_component_usb_capture
 ```
@@ -160,18 +163,18 @@ To toggle the LED device together with the light entity in order to turn light o
 
 ```yaml
 - alias: "Turn LED device on when Hyperion light is activated"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id:
         - light.hyperion
       from: "off"
       to: "on"
-  condition:
+  conditions:
     - condition: state
       entity_id: switch.[instance]_component_led_device
       state: "off"
-  action:
-    - service: switch.turn_on
+  actions:
+    - action: switch.turn_on
       target:
         entity_id: switch.[instance]_component_led_device
 ```

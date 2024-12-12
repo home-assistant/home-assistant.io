@@ -52,7 +52,7 @@ A quick note if you are using Philips Hue and a Hue custom component: it will no
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - Refactor Hue: If you specify a bridge in your config, the `host` key is now required and needs to be a valid IP address. Option `allow_in_emulated_hue` has been removed. Exclude the lights via the emulated hue config. Due to the internal changes of how the Hue integration works, any Hue custom component will no longer work. ([@balloob] - [#13043]) ([hue docs]) ([light.hue docs]) (breaking change)
 - Z-Wave: In version 0.47, the opt-in `new_entity_ids` configuration was added to Z-Wave to smooth the transition through the change. Support for old entity IDs is now removed, and the configuration is no longer necessary. If you are migrating from 0.63 or higher, your entity IDs will already be stored in the Entity Registry and no changes are required. If not, entity IDs can now be manually configured using the Entity Registry if necessary. ([@armills] - [#12652]) ([zwave docs]) (breaking change)

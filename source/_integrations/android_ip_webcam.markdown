@@ -2,7 +2,7 @@
 title: Android IP Webcam
 description: Connect Android devices as an IP webcam to Home Assistant
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Hub
   - Sensor
@@ -21,13 +21,13 @@ ha_codeowners:
   - '@engrbm87'
 ---
 
-The Android IP Webcam integration connects with Android IP Webcam to turn any Android phone or tablet into a network camera with multiple viewing options.
+The **Android IP Webcam** {% term integration %} connects with Android IP Webcam to turn any Android phone or tablet into a network camera with multiple viewing options.
 
-The integration is setup as an MJPEG camera with all settings as switches inside Home Assistant. You can also integrate the sensors exposed by the app. If you have multiple phones, you can use all options inside a list.
+The {% term integration %} is setup as an MJPEG camera with all settings as switches inside Home Assistant. You can also integrate the sensors exposed by the app. If you have multiple phones, you can use all options inside a list.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following {% term device %} types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Camera
 - Sensor
 - Switch
@@ -38,8 +38,6 @@ Download [Android IP Webcam app](https://play.google.com/store/apps/details?id=c
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-
-You need to enable logging in the Android app (`Data logging` > `Enable data logging`) if you wish to see the sensor states in Home Assistant. The sensor states stay as `unknown`, until this is enabled.
-
-</div>
+{% note %}
+You need to enable logging in the Android app (`Data logging` > `Enable data logging`) if you wish to see the sensor states in Home Assistant. The {% term sensor %} {% term states %} stay as `unknown`, until this is enabled.
+{% endnote %}

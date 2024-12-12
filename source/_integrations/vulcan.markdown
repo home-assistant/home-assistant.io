@@ -9,13 +9,12 @@ ha_domain: vulcan
 ha_codeowners:
   - '@Antoni-Czaplicki'
 ha_config_flow: true
-ha_quality_scale: silver
 ha_platforms:
   - calendar
 ha_integration_type: integration
 ---
 
-The Uonet+ Vulcan integration allows you to view timetable from your e-register.
+The **Uonet+ Vulcan** {% term integration %} allows you to view timetable from your e-register.
 
 Supported informations:
 
@@ -23,6 +22,6 @@ Supported informations:
 
 ## Prerequisites
 
-To use Uonet+ Vulcan integration in Home Assistant you must obtain `token`, `symbol` and `pin` from your Vulcan account. You can find them in the student/parent panel in `Mobile access`/`Dostęp mobilny` tab.
+To use **Uonet+ Vulcan** {% term integration %} in Home Assistant you must obtain `token`, `symbol` and `pin` from your Vulcan account. You can find them in the student/parent panel in `Mobile access`/`Dostęp mobilny` tab.
 
 {% include integrations/config_flow.md %}

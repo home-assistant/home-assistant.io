@@ -1,21 +1,22 @@
 ---
-title: "MQTT Device Tracker"
+title: "MQTT device tracker"
 description: "Instructions on how to use MQTT to track devices in Home Assistant."
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Configurable
 ha_release: 0.7.3
 ha_domain: mqtt
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 
-The `mqtt` device tracker platform allows you to define new device_trackers through [manual YAML configuration](#yaml-configuration) in `configuration.yaml` and also to automatically discover device_trackers [using the MQTT Discovery protocol](#using-the-discovery-protocol).
+The `mqtt` device tracker {% term integration %} allows you to define new device_trackers through [manual YAML configuration](#yaml-configuration) in {% term "`configuration.yaml`" %} and also to automatically discover device_trackers [using the MQTT Discovery protocol](#using-the-discovery-protocol).
 
 ## Configuration
 
-<a id='new_format'></a>
-
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,9 +76,9 @@ device:
       required: false
       type: string
     connections:
-      description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
-      type: [list, map]
+      type: list
     hw_version:
       description: The hardware version of the device.
       required: false
@@ -92,6 +93,10 @@ device:
       type: string
     model:
       description: The model of the device.
+      required: false
+      type: string
+    model_id:
+      description: The model identifier of the device.
       required: false
       type: string
     name:
@@ -161,7 +166,11 @@ payload_reset:
   description: The payload value that will have the device's location automatically derived from Home Assistant's zones.
   required: false
   type: string
-  default: "None"
+  default: '"None"'
+platform:
+  description: Must be `device_tracker`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -172,11 +181,11 @@ source_type:
   required: false
   type: string
 state_topic:
-  description: The MQTT topic subscribed to receive device tracker state changes. The states defined in `state_topic` override the location states defined by the `json_attributes_topic`. This state override is turned inactive if the `state_topic` receives a message containing `payload_reset`. The `state_topic` can only be omitted if `json_attributes_topic` is used.
+  description: The MQTT topic subscribed to receive device tracker state changes. The states defined in `state_topic` override the location states defined by the `json_attributes_topic`. This state override is turned inactive if the `state_topic` receives a message containing `payload_reset`. The `state_topic` can only be omitted if `json_attributes_topic` is used. An empty payload is ignored. Valid payloads are `not_home`, `home` or any other custom location or zone name. Payloads for `not_home`, `home` can be overridden with the `payload_not_home`and `payload_home` config options.
   required: false
   type: string
 unique_id:
-  description: "An ID that uniquely identifies this device_tracker. If two device_trackers have the same unique ID, Home Assistant will raise an exception."
+  description: "An ID that uniquely identifies this device_tracker. If two device_trackers have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery."
   required: false
   type: string
 value_template:
@@ -196,27 +205,27 @@ You can use the command line tool `mosquitto_pub` shipped with `mosquitto` or th
 To create the device_tracker:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"state_topic": "a4567d663eaf/state", "name": "My Tracker", "payload_home": "home", "payload_not_home": "not_home"}'
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"state_topic": "homeassistant/device_tracker/a4567d663eaf/state", "name": "My Tracker", "payload_home": "home", "payload_not_home": "not_home"}'
 ```
 
 To set the state of the device tracker to "home":
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m 'home'
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/state -m 'home'
 ```
 
 To set the state of the device tracker to a named location:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m 'location_name'
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/state -m 'location_name'
 ```
 
 If the device supports GPS coordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
 
-- Attributes topic: `a4567d663eaf/attributes`
+- Attributes topic: `homeassistant/device_tracker/a4567d663eaf/attributes`
 - Example attributes payload:
 
-Example message to be received at topic `a4567d663eaf/attributes`:
+Example message to be received at topic `homeassistant/device_tracker/a4567d663eaf/attributes`:
 
 ```json
 {
@@ -229,19 +238,19 @@ Example message to be received at topic `a4567d663eaf/attributes`:
 To create the device_tracker with GPS coordinates support:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"json_attributes_topic": "a4567d663eaf/attributes", "name": "My Tracker"}'
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"json_attributes_topic": "homeassistant/device_tracker/a4567d663eaf/attributes", "name": "My Tracker"}'
 ```
 
-<div class='note info'>
+{% note %}
 
 Using `state_topic` is optional when using `json_attributes_topic` to determine the state of the device tracker.
 
-</div>
+{% endnote %}
 
 To set the state of the device tracker to specific coordinates:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/attributes -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/attributes -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
 ```
 
 

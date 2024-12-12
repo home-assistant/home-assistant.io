@@ -1,12 +1,17 @@
+{% assign recent_release_post = site.categories['Core'].first %}
+{% assign url_parts = page.url | split: '/' %}
+{% assign root = url_parts[1] %}
+
 <div class="grid-wrapper">
   <div class="grid">
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
       <a href="/" class="site-title">
-        <img
-          src="/images/home-assistant-logo.svg"
-          height="36"
-          alt="Home Assistant"
-        />
+        <div class="logo"></div>
+      </a>
+      <a class="release-date" href="{{ recent_release_post.url }}" title="Latest version {{ site.current_major_version }}.{{
+        site.current_minor_version }}.{{ site.current_patch_version }} released {{ site.date_released | date: "%B %e, %Y" }}">
+        {{ site.current_major_version }}.{{
+          site.current_minor_version }}.{{ site.current_patch_version }}
       </a>
     </div>
 
@@ -17,50 +22,30 @@
           for="toggle"
           class="toggle"
           data-open="Main Menu"
-          data-close="Close Menu"
+          data-close="⨉"
         ></label>
         <ul class="menu pull-right">
-          <li><a href="/getting-started/">Getting started</a></li>
+          <li><a {% if root == 'getting-started' or root == 'installation' %}class="active"{% endif %} href="/installation/">Getting started</a></li>
           <li>
-            <a href="/docs/"
-              >Documentation <i class="icon icon-caret-down"></i
-            ></a>
+            <a {% if root == 'docs' or root == 'dashboards' or root == 'voice_control' or root == 'common-tasks' %}class="active"{% endif %} href="/docs/">Documentation {% icon "mdi:chevron-down" %}</a>
             <ul>
-              <li><a href="/installation/">Installation</a></li>
-              <li>
-                <a href="/docs/configuration/">Configuration</a>
-              </li>
-              <li>
-                <a href="/docs/automation/">Automation</a>
-              </li>
-              <li>
-                <a href="/docs/scripts/">Scripting</a>
-              </li>
-              <li>
-                <a href="/dashboards/">Dashboards</a>
-              </li>
-              <li>
-                <a href="/voice_control/">Voice assistant</a>
-              </li>
+              <li><a href="/installation/">{% icon "simple-icons:homeassistant" %} Installation</a></li>
+              <li><a href="/docs/automation/">{% icon "mdi:robot-happy" %} Automations</a></li>
+              <li><a href="/dashboards/">{% icon "mdi:gauge" %} Dashboards</a></li>
+              <li><a href="/voice_control/">{% icon "mdi:comment-processing-outline" %} Voice assistants</a></li>
+              <li><a href="/docs/organizing/">{% icon "mdi:view-grid" %} Device organization</a></li>
+              <li><a href="/docs/energy/">{% icon "mdi:solar-power-variant" %} Energy management</a></li>
+              <li><a href="/docs/configuration/">{% icon "mdi:cog" %} Advanced configuration</a></li>
             </ul>
           </li>
-          <li><a href="/integrations/">Integrations</a></li>
-          <li><a href="/examples/">Examples</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/help/">Need help?</a></li>
+          <li><a {% if root == 'integrations' %}class="active"{% endif %} href="/integrations/">Integrations</a></li>
+          <li><a {% if root == 'blog' %}class="active"{% endif %} href="/blog/">Blog</a></li>
+          <li><a {% if root == 'help' %}class="active"{% endif %} href="/help/">Need help?</a></li>
           <li>
-            <a href="#" class="show-search" aria-label="Show search" ><i class="icon-search"></i></a>
+            <div class="docsearch" id="docsearch"></div>
           </li>
         </ul>
       </nav>
-
-      <div class="search-container" style="display: none">
-        <div class="search">
-          <i class="icon-search"></i>
-          <input id="search" placeholder="Search the documentation…" />
-          <a href="#" class="close"><i class="icon-remove-sign"></i></a>
-        </div>
-      </div>
     </div>
   </div>
 </div>

@@ -2,26 +2,29 @@
 title: VLC media player
 description: Instructions on how to integrate VLC media player into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_domain: vlc
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `vlc` platform allows you to control [VLC media player](https://www.videolan.org/vlc/index.html).
 
-<div class='note'>
-
-The VLC media player integration, is currently only available for installations that are based on the Home Assistant Core in a Python virtual environment.
-
-</div>
+{% important %}
+The **VLC media player** {% term integration %}, is currently only available for installations that are based on the Home Assistant Core in a Python virtual environment.
+{% endimportant %}
 
 ## Configuration
 
-To add a VLC media player to your installation, add the following to your `configuration.yaml` file:
+To add a VLC media player to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -42,7 +45,7 @@ arguments:
 
 Only the "music" media type is supported for now.
 
-This service will control a background VLC instance, therefore you cannot use this to control a VLC instance launched on your desktop, unlike the Kodi media player for example.
+This action will control a background VLC instance, therefore you cannot use this to control a VLC instance launched on your desktop, unlike the Kodi media player for example.
 
 ## Full configuration
 

@@ -2,7 +2,7 @@
 title: Sure Petcare
 description: Instructions on how to integrate the Sure Petcare cat and pet flaps into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Lock
   - Sensor
 ha_release: 0.104
@@ -24,13 +24,13 @@ The Sure Petcare integration allows you to get information on your Sure Petcare 
 {% include integrations/config_flow.md %}
 
 
-## Services
+## Actions
 
-### Service `surepetcare.set_lock_state`
+### Action `surepetcare.set_lock_state`
 
-This service lets you change the locking state of a flap.
+This action lets you change the locking state of a flap.
 
-| Service data attribute | Required | Type | Description |
+| Data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
 | `flap_id` | `True` | integer | Flap ID to change - see below for instructions on finding device ID
 | `lock_state` | `True` | string | New state to change the flap to
@@ -48,11 +48,11 @@ The `flap_id` can be found following these instructions:
 - `locked_out` - flap is 'out only' - pets can go out, but not back in.
 - `locked_all` - flap is locked both ways.
 
-### Service `surepetcare.set_pet_location`
+### Action `surepetcare.set_pet_location`
 
-This service lets you set the pet location.
+This action lets you set the pet location.
 
-| Service data attribute | Required | Type | Description |
+| Data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
 | `name` | yes | string | Pet name
 | `location` | yes | string | Pet location

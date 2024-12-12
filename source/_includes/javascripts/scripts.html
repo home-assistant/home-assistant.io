@@ -1,29 +1,36 @@
 <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.3.1/lite-youtube.js"></script>
 
-<script src="{{ '/javascripts/prism.js' | cache_buster }}" type="text/javascript" defer></script>
+<script src="{{ '/javascripts/terminology_tooltip.js' | cache_buster }}" type="text/javascript" defer></script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script src="{{ '/javascripts/prism.js' | cache_buster }}" type="text/javascript" defer></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/umd/index.min.js"></script>
 <script type="text/javascript">
 docsearch({
-  apiKey: "{{ site.algolia.api_key }}",
+  container: '#docsearch',
+  appId: 'FBHBYS3J0U',
   indexName: 'home-assistant',
-  inputSelector: '#search',
-  debug: false // Set debug to true if you want to inspect the dropdown
+  apiKey: "{{ site.algolia.api_key }}",
 });
-
 document.querySelector('.site-title').addEventListener('contextmenu', function(ev) {
   ev.preventDefault();
   document.location.assign("https://design.home-assistant.io/#brand/logo")
 });
-document.querySelector('.search .close').addEventListener('click', function(ev) {
-  ev.preventDefault();
-  document.querySelector('.search-container').style.display = 'none';
-});
-document.querySelector('.show-search').addEventListener('click', function(ev) {
-  ev.preventDefault();
-  document.querySelector('.search-container').style.display = 'block';
-  document.getElementById('toggle').checked = false;
-  document.querySelector('.search-container input').focus();
-});
 </script>
+
+
+{% if page.hero_unit %}
+<script type="text/javascript">
+  const changeNavColor = () => {
+    const scrollPosition = document.documentElement.scrollTop;
+    const nav = document.querySelector("header");
+    if (scrollPosition <= 1) {
+      nav.classList.add("dark");
+    } else {
+      nav.classList.remove("dark");
+    }
+  }
+  
+  window.addEventListener("load", () => changeNavColor());
+  window.addEventListener("scroll", () => changeNavColor());
+</script>
+{% endif %}

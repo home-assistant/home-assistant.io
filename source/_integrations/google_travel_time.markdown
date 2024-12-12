@@ -64,16 +64,15 @@ Destination: Eddies House
 
 Using automatic polling can lead to calls that exceed your API limit, especially when you are tracking multiple travel times using the same API key. To use more granular polling, disable automated polling.
 
-You can use the `homeassistant.update_entity` service to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
+You can use the `homeassistant.update_entity` action to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
 
 ```yaml
-- id: update_morning_commute_sensor
-  alias: "Commute - Update morning commute sensor"
+- alias: "Commute - Update morning commute sensor"
   initial_state: "on"
-  trigger:
-    - platform: time_pattern
+  triggers:
+    - trigger: time_pattern
       minutes: "/2"
-  condition:
+  conditions:
     - condition: time
       after: "08:00:00"
       before: "11:00:00"
@@ -84,8 +83,8 @@ You can use the `homeassistant.update_entity` service to update the sensor on-de
         - wed
         - thu
         - fri
-  action:
-    - service: homeassistant.update_entity
+  actions:
+    - action: homeassistant.update_entity
       target:
         entity_id: sensor.morning_commute
 ```

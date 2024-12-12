@@ -7,13 +7,12 @@ ha_release: 0.48
 ha_domain: snips
 ha_iot_class: Local Push
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-<div class='note warning'>
-  
+{% warning %}
 The Snips Console no longer available due to acquisition by Sonos. For more details, read the [announcement on the Snips forum](http://web.archive.org/web/20200109164247/https://forum.snips.ai/t/important-message-regarding-the-snips-console/4145).
-
-</div>
+{% endwarning %}
 
 The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on privacy. It runs 100% on-device, and does not require an internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.
 
@@ -81,7 +80,7 @@ Note that if you already have an assistant installed and wish to replace it then
 
 Make sure that a microphone is plugged to the Raspberry Pi. If you are having trouble setting up audio, we have written a guide on [Raspberry Pi Microphones](https://docs.snips.ai/articles/raspberrypi/hardware/microphones).
 
-Start the Snips Voice Platform by starting the `snips-*` services:
+Start the Snips Voice Platform by starting the `snips-*` actions:
 
 ```bash
 sudo systemctl start "snips-*"
@@ -95,7 +94,7 @@ followed by a command, e.g.
 
 _Set the lights to green in the living room_
 
-As the Snips Platform parses this query into an intent, it will be published on MQTT, on the `hermes/intent/<intentName>` topic. The Snips Home Assistant integration subscribes to this topic, and handles the intent according to the rules defined in `configuration.yaml` file, as explained below.
+As the Snips Platform parses this query into an intent, it will be published on MQTT, on the `hermes/intent/<intentName>` topic. The Snips Home Assistant integration subscribes to this topic, and handles the intent according to the rules defined in {% term "`configuration.yaml`" %} file, as explained below.
 
 #### Optional: specifying an external MQTT broker
 
@@ -121,7 +120,7 @@ probability_threshold:
 
 ### Specifying the MQTT broker
 
-Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/integrations/mqtt) to use by adding the following entry to the `configuration.yaml` file:
+Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/integrations/mqtt) to use by adding the following entry to the {% term "`configuration.yaml`" %} file:
 
 ```yaml
 mqtt:
@@ -153,7 +152,7 @@ snips:
 intent_script:
   ActivateLightColor:
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: 'light.{{ objectLocation | replace(" ","_") }}'
         data:
@@ -180,7 +179,7 @@ SetTimer:
     type: plain
     text: "Set a timer"
   action:
-    service: script.set_timer
+    action: script.set_timer
     data:
       name: "{{ timer_name }}"
       duration: "{{ timer_duration }}"
@@ -194,19 +193,19 @@ SetTimer:
 
 ### Sending TTS Notifications
 
-You can send TTS notifications to Snips using the `snips.say` and `snips.say_action` services. `say_action` starts a session and waits for user response, "Would you like me to close the garage door?", "Yes, close the garage door".
+You can send TTS notifications to Snips using the `snips.say` and `snips.say_action` actions. `say_action` starts a session and waits for user response, "Would you like me to close the garage door?", "Yes, close the garage door".
 
-#### Service `snips.say`
+#### Action `snips.say`
 
-| Service data attribute | Optional | Description                                            |
+| Data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `text`                 |       no | Text to say.                                           |
 | `site_id`              |      yes | Site to use to start session.                          |
 | `custom_data`          |      yes | custom data that will be included with all messages in this session. |
 
-#### Service `snips.say_action`
+#### Action `snips.say_action`
 
-| Service data attribute | Optional | Description                                            |
+| Data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `text`                 |       no | Text to say.                                           |
 | `site_id`              |      yes | Site to use to start session.                          |
@@ -225,7 +224,7 @@ intent_script:
       type: plain
       text: "OK, turning on the light"
     action:
-      service: light.turn_on
+      action: light.turn_on
 ```
 
 ##### Open a Garage Door
@@ -237,7 +236,7 @@ intent_script:
       type: plain
       text: "OK, opening the garage door"
     action:
-      - service: cover.open_cover
+      - action: cover.open_cover
         target:
           entity_id: garage_door
 ```
@@ -249,15 +248,15 @@ Here is a more complex example. The automation is triggered if the garage door i
 ```yaml
 automation:
   garage_door_has_been_open:
-    trigger:
-     - platform: state
+    triggers:
+     - trigger: state
         entity_id: binary_sensor.my_garage_door_sensor
         from: "off"
         to: "on"
         for:
           minutes: 10
     sequence:
-      service: snips.say_action
+      action: snips.say_action
         data:
           text: "Garage door has been open 10 minutes, would you like me to close it?"
           intent_filter:
@@ -269,8 +268,8 @@ intent_script:
     speech:
       type: plain
       text: "OK, closing the garage door"
-    action:
-      - service: script.garage_door_close
+    actions:
+      - action: script.garage_door_close
 ```
 
 ##### Weather

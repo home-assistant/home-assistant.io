@@ -1,22 +1,31 @@
 ---
-title: "Template Cover"
-description: "Instructions on how to integrate Template Covers into Home Assistant."
+title: "Template cover"
+description: "Instructions on how to integrate template covers into Home Assistant."
 ha_category:
   - Cover
+  - Helper
 ha_release: 0.48
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - cover
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` platform can create covers that combine integrations and provides
-the ability to run scripts or invoke services for each of the open,
+the ability to run scripts or invoke actions for each of the open,
 close, stop, position and tilt commands of a cover.
 
 ## Configuration
 
 To enable Template Covers in your installation,
-add the following to your `configuration.yaml` file:
+add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -30,11 +39,11 @@ cover:
         friendly_name: "Garage Door"
         value_template: "{{ states('sensor.garage_door')|float > 0 }}"
         open_cover:
-          service: script.open_garage_door
+          action: script.open_garage_door
         close_cover:
-          service: script.close_garage_door
+          action: script.close_garage_door
         stop_cover:
-          service: script.stop_garage_door
+          action: script.stop_garage_door
 ```
 
 {% endraw %}
@@ -54,7 +63,7 @@ cover:
         required: false
         type: string
       value_template:
-        description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `value_template` and a `position_template`](#combining_value_template_and_position_template) are specified, only `opening` and `closing` are set from the `value_template`. If the template produces a `None` value the state will be set to `unknown`.
+        description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `value_template` and a `position_template`](#combining-value_template-and-position_template) are specified, only `opening` and `closing` are set from the `value_template`. If the template produces a `None` value the state will be set to `unknown`.
         required: false
         type: template
       position_template:
@@ -70,7 +79,7 @@ cover:
         required: false
         type: template
       availability_template:
-        description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+        description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison is not case sensitive; `"TrUe"` and `"yEs"` are allowed.
         required: false
         type: template
         default: true
@@ -130,7 +139,7 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('cover.source', 'open') }}`{% endraw %}
 
-## Optimistic Mode
+## Optimistic mode
 
 In optimistic mode, the cover position state is maintained internally. This mode
 is automatically enabled if neither [`value_template`](#value_template) or
@@ -146,21 +155,21 @@ There is an equivalent mode for `tilt_position` that is enabled when
 
 If both a [`value_template`](#value_template) and a [`position_template`](#position_template) are specified only `opening` and `closing` states are set directly from the `value_template`, the `open` and `closed` states will instead be derived from the cover position.
 
-| value_template output | result |
-| ------------- |-------------|
-| open | state defined by `position_template` |
-| closed | state defined by `position_template` |
-| true | state defined by `position_template` |
-| false | state defined by `position_template` |
-| opening | state set to `opening` |
-| closing | state set to `closing` |
-| <any other output> | No change of state or position |
+| value_template output | result                               |
+| --------------------- | ------------------------------------ |
+| open                  | state defined by `position_template` |
+| closed                | state defined by `position_template` |
+| true                  | state defined by `position_template` |
+| false                 | state defined by `position_template` |
+| opening               | state set to `opening`               |
+| closing               | state set to `closing`               |
+| <any other output>    | No change of state or position       |
 
 ## Examples
 
 In this section you will find some real-life examples of how to use this cover.
 
-### Garage Door
+### Garage door
 
 This example converts a garage door with a controllable switch and position
 sensor into a cover. The condition check is optional, but suggested if you
@@ -180,18 +189,18 @@ cover:
           - condition: state
             entity_id: sensor.garage_door
             state: "off"
-          - service: switch.turn_on
+          - action: switch.turn_on
             target:
               entity_id: switch.garage_door
         close_cover:
           - condition: state
             entity_id: sensor.garage_door
             state: "on"
-          - service: switch.turn_off
+          - action: switch.turn_off
             target:
               entity_id: switch.garage_door
         stop_cover:
-          service: switch.turn_on
+          action: switch.turn_on
           target:
             entity_id: switch.garage_door
         icon_template: >-
@@ -204,7 +213,7 @@ cover:
 
 {% endraw %}
 
-### Multiple Covers
+### Multiple covers
 
 This example allows you to control two or more covers at once.
 
@@ -222,23 +231,23 @@ cover:
       cover_group:
         friendly_name: "Cover Group"
         open_cover:
-          service: script.cover_group
+          action: script.cover_group
           data:
             modus: "open"
         close_cover:
-          service: script.cover_group
+          action: script.cover_group
           data:
             modus: "close"
         stop_cover:
-          service: script.cover_group
+          action: script.cover_group
           data:
             modus: "stop"
         set_cover_position:
-          service: script.cover_group_position
+          action: script.cover_group_position
           data:
             position: "{{position}}"
         set_cover_tilt_position:
-          service: script.cover_group_tilt_position
+          action: script.cover_group_tilt_position
           data:
             tilt: "{{tilt}}"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
@@ -265,14 +274,14 @@ sensor:
 script:
   cover_group:
     sequence:
-      - service: "cover.{{modus}}_cover"
+      - action: "cover.{{modus}}_cover"
         target:
           entity_id:
             - cover.bedroom
             - cover.livingroom
   cover_group_position:
     sequence:
-      - service: cover.set_cover_position
+      - action: cover.set_cover_position
         target:
           entity_id:
             - cover.bedroom
@@ -282,12 +291,12 @@ script:
 
 automation:
   - alias: "Close covers at night"
-    trigger:
-      - platform: sun
+    triggers:
+      - trigger: sun
         event: sunset
         offset: "+00:30:00"
-    action:
-      - service: cover.set_cover_position
+    actions:
+      - action: cover.set_cover_position
         target:
           entity_id: cover.cover_group
         data:
@@ -296,7 +305,7 @@ automation:
 
 {% endraw %}
 
-### Change The Icon
+### Change the icon
 
 This example shows how to change the icon based on the cover state.
 
@@ -309,15 +318,15 @@ cover:
       cover_group:
         friendly_name: "Cover Group"
         open_cover:
-          service: script.cover_group
+          action: script.cover_group
           data:
             modus: "open"
         close_cover:
-          service: script.cover_group
+          action: script.cover_group
           data:
             modus: "close"
         stop_cover:
-          service: script.cover_group
+          action: script.cover_group
           data:
             modus: "stop"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
@@ -331,7 +340,7 @@ cover:
 
 {% endraw %}
 
-### Change The Entity Picture
+### Change the entity picture
 
 This example shows how to change the entity picture based on the cover state.
 
@@ -344,15 +353,15 @@ cover:
       cover_group:
         friendly_name: "Cover Group"
         open_cover:
-          service: script.cover_group
+          action: script.cover_group
           data:
             modus: "open"
         close_cover:
-          service: script.cover_group
+          action: script.cover_group
           data:
             modus: "close"
         stop_cover:
-          service: script.cover_group
+          action: script.cover_group
           data:
             modus: "stop"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"

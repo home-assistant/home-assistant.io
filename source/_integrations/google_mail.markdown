@@ -18,13 +18,13 @@ api: Gmail API
 api_link: https://console.cloud.google.com/apis/library/gmail.googleapis.com
 ---
 
-The Google Mail integration allows you to connect your [Google Mail](https://mail.google.com) to Home Assistant. The integration adds a service to allow you to set an email auto-response for when you go on vacation. A `notify` service is also added, allowing you to draft or send emails in plain text.
+The Google Mail integration allows you to connect your [Google Mail](https://mail.google.com) to Home Assistant. The integration adds an action to allow you to set an email auto-response for when you go on vacation. A `notify` action is also added, allowing you to draft or send emails in plain text.
 
 ## Prerequisites
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
 These credentials are the same as the ones for [Nest](/integrations/nest) and [Google Sheets](/integrations/google_sheets) and [YouTube](/integrations/youtube).
-These are not the same as the one for [Google Calendar](/integrations/google).
+These are not the same as *Device Auth* credentials previously recommended for [Google Calendar](/integrations/google).
 
 {% include integrations/google_client_secret.md %}
 
@@ -36,13 +36,13 @@ These are not the same as the one for [Google Calendar](/integrations/google).
 
 If you have an error with your credentials you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
-### Service `google_mail.set_vacation`
+### Action `google_mail.set_vacation`
 
-You can use the service `google_mail.set_vacation` to set vacation options.
+You can use the `google_mail.set_vacation` action to set vacation options.
 
-{% details "Create Event Service details" %}
+{% details "Create event action  details" %}
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `enabled` | yes | Turn this off to end vacation responses. | True
 | `title` | no | The subject for the email. | Vacation
@@ -57,9 +57,9 @@ You can use the service `google_mail.set_vacation` to set vacation options.
 
 The added `notify` service will be named after the email address you chose on the consent screen. For example, an email address named "example@gmail.com" wil display as `notify.example_gmail_com`.
 
-### Google Mail Notify Service Data
+### Google Mail notify action data
 
-The following attributes can be placed inside the `data` key of the service call for extended functionality:
+The following attributes can be placed inside the `data` key of the action for extended functionality:
 
 | Attribute              | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -73,7 +73,7 @@ The following attributes can be placed inside the `data` key of the service call
 This is the full service call to send an email:
 
 ```yaml
-service: notify.example_gmail_com
+action: notify.example_gmail_com
 data:
   message: "test"
   title: "test email"
@@ -87,7 +87,8 @@ data:
     from: "example@gmail.com"
 ```
 
-### Video Tutorial
-This video tutorial explains how to set up Gmail in Home Assistant and how you can create a dashboard and automations to send e-mail and toggle your out-of-office notice.
+### Video tutorial
+
+This video tutorial explains how to set up Gmail in Home Assistant and how you can create a dashboard and automations to send email and toggle your out-of-office notice.
 
 <lite-youtube videoid="IHKliqSFZvM" videotitle="How To send e-mail PERFECTLY using Gmail in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>

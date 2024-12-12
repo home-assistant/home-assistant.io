@@ -10,15 +10,16 @@ ha_domain: tplink_lte
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-The TP-Link LTE integration for Home Assistant makes it possible to send SMS's from the TP-Link LTE router. Phone numbers have to be pre-defined as part of the YAML configuration, and each phone number will turn up as additional notify service in Home Assistant. The integration adds a new notify service for each adds a notification service to Home Assistant that can be used to send SMSs provides a notification service that will send an SMS. Tested only with TL-MR6400 v4.
+The TP-Link LTE integration for Home Assistant makes it possible to send SMS's from the TP-Link LTE router. Phone numbers have to be pre-defined as part of the YAML configuration, and each phone number will turn up as additional notify action in Home Assistant. The integration adds a new notify action for each adds a notification action to Home Assistant that can be used to send SMSs provides a notification action that will send an SMS. Tested only with TL-MR6400 v4.
 
-The integration provides a notification service that will send an SMS.
+The integration provides a notification action that will send an SMS.
 
 ## Configuration
 
-To enable the integration, add the following lines to your `configuration.yaml` file:
+To enable the integration, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -42,7 +43,7 @@ password:
   required: true
   type: string
 notify:
-  description: A list of notification services connected to this specific host.
+  description: A list of notification targets connected to this specific host.
   required: false
   type: list
   keys:
@@ -51,7 +52,7 @@ notify:
       required: true
       type: [string, list]
     name:
-      description: The name of the notification service.
+      description: The name of the notification action.
       required: false
       default: notify
       type: string

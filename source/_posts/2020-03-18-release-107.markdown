@@ -162,7 +162,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Xfinity Gateway** *(Deprecated)* - The Xfinity Gateway integration relies on web scraping and is deprecated, to be removed in Home Assistant Core 0.109. (ADR-0004) - ([@frenck] - [#32017])
 

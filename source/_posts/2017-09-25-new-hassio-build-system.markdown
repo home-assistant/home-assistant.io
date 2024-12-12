@@ -7,9 +7,9 @@ author: Pascal Vizeli
 categories: Technology
 ---
 
-<div class='note'>
+{% note %}
 This is going to be a technical post for Hass.io add-on developers and people that run locally build add-ons (not the default).
-</div>
+{% endnote %}
 
 Two months ago we [introduced Hass.io][intro], allowing our users to easily install, update and manage their Home Assistant installation. In this short time we've seen great adoption from the community. Around 20% of our users are choosing Hass.io as their method of running Home Assistant today. We've also seen many add-ons being made available on [the forums][addon-repos]. There are currently 14 reposities full of add-ons being shared!
 
@@ -17,11 +17,11 @@ Hass.io is built on top of Docker, a container runtime. One thing that Docker di
 
 This change only impacts people that build add-ons or use add-ons that are built locally. You can check if your add-on is building locally on the detail page of add-ons.
 
-<div class='note'>
+{% tip %}
 
 If you are an add-on developer, read [the documentation][publishing-addons] on how to publish your add-ons to Docker Hub. This will greatly improve the user experience.
 
-</div>
+{% endtip %}
 
 ### Template changes
 

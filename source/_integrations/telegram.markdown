@@ -9,9 +9,13 @@ ha_domain: telegram
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `telegram` integration uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
+The `telegram` {% term integration %} uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
 
 ## Setup example
 
@@ -26,7 +30,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
      - Store the token somewhere safe.
 2. To get a chat ID, send any message to the [GetIDs bot](https://t.me/getidsbot).
    - Then, enter `/start`. 
-   - The bot will return your chat ID and the user name.
+   - The bot will return your chat ID and the username.
 3. Create a [Telegram bot in Home Assistant](/integrations/telegram_bot):
    - Paste this into your [configuration file](/docs/configuration/):
    - Replace the `api_key` and the `allowed_chat_ids` with your data.
@@ -55,17 +59,17 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
 
 5. From the conversation with BotFather, select the link to open a chat with your new bot.
 6. In the chat with the new bot, enter `/start`.
-7. Test the service:
-   - Go to [**Developer tools** > **Services** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
+7. Test the action:
+   - Go to [**Developer tools** > **Actions** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
    - Paste this into the YAML file:
    - Replace the `service` and the `message` with your data.
   
       ```yaml
-      service: notify.sarah
+      action: notify.sarah
       data:
         message: "Yay! A message from Home Assistant."
       ```
-   - Select **Call service**. You should now get a message.
+   - Select **Perform action**. You should now get a message.
 
 8. You can do more with this. Check out the configuration descriptions and examples below.
 
@@ -115,13 +119,18 @@ $ python3
 123456789
 ```
 
-<div class='note'>
+{% tip %}
 If you want to add new chat IDs then you will need to disable the active configuration to actually see the result with the IDs, otherwise you may only get empty results array.
-</div>
+{% endtip %}
+
+
+**Method 4:** You can also get the chat ID from the Home Assistant logs. If you have set up the bot already, you can send a message to your bot from an unauthorized ID and you will see an error entry in the log containing the ID.  
+[![Open your Home Assistant instance and show your Home Assistant logs.](https://my.home-assistant.io/badges/logs.svg)](https://my.home-assistant.io/redirect/logs/?)
 
 ## Configuration
 
-To enable Telegram notifications in your installation, add the following to your `configuration.yaml` file:
+To enable Telegram notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry for the Telegram Bot
@@ -152,7 +161,7 @@ Refer to the platforms mentioned in the
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
@@ -168,15 +177,15 @@ To use notifications, please see the [getting started with automation page](/get
 
 ```yaml
 ...
-action:
-  service: notify.NOTIFIER_NAME
-  data:
-    title: "*Send a message*"
-    message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      inline_keyboard:
-        - 'Task 1:/command1, Task 2:/command2'
-        - 'Task 3:/command3, Task 4:/command4'
+      title: "*Send a message*"
+      message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
+      data:
+        inline_keyboard:
+          - 'Task 1:/command1, Task 2:/command2'
+          - 'Task 3:/command3, Task 4:/command4'
 ```
 
 {% configuration %}
@@ -202,20 +211,20 @@ inline_keyboard:
 
 ```yaml
 ...
-action:
-  service: notify.NOTIFIER_NAME
-  data:
-    title: Send an images
-    message: "That's an example that sends an image."
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      photo:
-        - url: http://192.168.1.28/camera.jpg
-          username: admin
-          password: secret
-        - file: /tmp/picture.jpg
-          caption: Picture Title xy
-        - url: http://somebla.ie/video.png
-          caption: i.e., for a Title
+      title: "Send an images"
+      message: "That's an example that sends an image."
+      data:
+        photo:
+          - url: http://192.168.1.28/camera.jpg
+            username: "admin"
+            password: "secret"
+          - file: /tmp/picture.jpg
+            caption: "Picture Title xy"
+          - url: http://somebla.ie/video.png
+            caption: "i.e., for a Title"
 ```
 
 {% configuration %}
@@ -259,9 +268,9 @@ inline_keyboard:
   type: list
 {% endconfiguration %}
 
-<div class='note'>
+{% important %}
 
-Since Home Assistant version 0.48 you have to [whitelist the source folder](/docs/configuration/basic/) of the file you want to include in the notification.
+Since Home Assistant version 0.48 you have to [whitelist the source folder](/integrations/homeassistant/#allowlist_external_dirs) of the file you want to include in the notification.
 
 ```yaml
 configuration.yaml
@@ -272,26 +281,26 @@ homeassistant:
     - /home/kenji/data
 ```
 
-</div>
+{% endimportant %}
 
 ### Video support
 
 ```yaml
 ...
-action:
-  service: notify.NOTIFIER_NAME
-  data:
-    title: Send a video
-    message: "That's an example that sends a video."
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      video:
-        - url: http://192.168.1.28/camera.mp4
-          username: admin
-          password: secret
-        - file: /tmp/video.mp4
-          caption: Video Title xy
-        - url: http://somebla.ie/video.mp4
-          caption: i.e., for a Title
+      title: "Send a video"
+      message: "That's an example that sends a video."
+      data:
+        video:
+          - url: http://192.168.1.28/camera.mp4
+            username: "admin"
+            password: "secret"
+          - file: /tmp/video.mp4
+            caption: "Video Title xy"
+          - url: http://somebla.ie/video.mp4
+            caption: "i.e., for a Title"
 ```
 
 {% configuration %}
@@ -339,18 +348,18 @@ inline_keyboard:
 
 ```yaml
 ...
-action:
-  service: notify.NOTIFIER_NAME
-  data:
-    title: Send a document
-    message: "That's an example that sends a document and a custom keyboard."
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      document:
-        file: /tmp/whatever.odf
-        caption: Document Title xy
-      keyboard:
-        - '/command1, /command2'
-        - '/command3, /command4'
+      title: "Send a document"
+      message: "That's an example that sends a document and a custom keyboard."
+      data:
+        document:
+          file: /tmp/whatever.odf
+          caption: "Document Title xy"
+        keyboard:
+          - '/command1, /command2'
+          - '/command3, /command4'
 ```
 
 {% configuration %}
@@ -399,15 +408,15 @@ inline_keyboard:
 ```yaml
 ...
 
-action:
-  service: notify.NOTIFIER_NAME
-  data:
-    title: Send location
-    message: Location updated.
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      location:
-        latitude: 32.87336
-        longitude: 117.22743
+      title: "Send location"
+      message: "Location updated."
+      data:
+        location:
+          latitude: 32.87336
+          longitude: 117.22743
 ```
 
 {% configuration %}
@@ -433,18 +442,18 @@ inline_keyboard:
 
 ```yaml
 ...
-action:
-  service: notify.NOTIFIER_NAME
-  data:
-    title: "*Send a message*"
-    message: |-
-      That's an example that sends a message with message_tag, disable_notification and disable_web_page_preview.
-      <a href="https://www.home-assistant.io/">HA site</a>
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      parse_mode: html
-      message_tag: "example_tag"
-      disable_notification: True
-      disable_web_page_preview: True
+      title: "*Send a message*"
+      message: |-
+        That's an example that sends a message with message_tag, disable_notification and disable_web_page_preview.
+        <a href="https://www.home-assistant.io/">HA site</a>
+      data:
+        parse_mode: html
+        message_tag: "example_tag"
+        disable_notification: True
+        disable_web_page_preview: True
 ```
 
 {% configuration %}

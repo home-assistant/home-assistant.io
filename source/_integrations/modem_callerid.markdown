@@ -23,6 +23,14 @@ This integration also offers a button to pick up and then hang up the call to pr
 
 {% include integrations/config_flow.md %}
 
+## Compatibility
+
+Reported models with this integration include that work:
+- [StarTech.com USB56KEMH2](https://www.startech.com/en-us/networking-io/usb56kemh2)
+
+Devices that did not work:
+- [StarTech.com USB56KEM3](https://www.startech.com/en-us/networking-io/usb56kem3)
+
 ## Examples
 
 An example automation:
@@ -31,34 +39,36 @@ An example automation:
 
 ```yaml
 automation:
-  - alias: Notify CallerID
-    trigger:
-      platform: state
-      entity_id: sensor.phone_modem
-      to: "callerid"
-    action:
-      service: notify.notify
-      data:
-        message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }} at {{ state_attr('sensor.phone_modem', 'cid_number') }} "
-  - alias: Notify CallerID webui
-    trigger:
-      platform: state
-      entity_id: sensor.phone_modem
-      to: "callerid"
-    action:
-      service: persistent_notification.create
-      data:
-        title: "Call from"
-        message: "{{ state_attr('sensor.phone_modem', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.phone_modem', 'cid_name') }}  {{ state_attr('sensor.phone_modem', 'cid_number') }} "
-  - alias: Say CallerID
-    trigger:
-      platform: state
-      entity_id: sensor.phone_modem
-      to: "callerid"
-    action:
-      service: tts.google_say
-      data:
-        message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }}"
+  - alias: "Notify CallerID"
+    triggers:
+      - trigger: state
+        entity_id: sensor.phone_modem
+        to: "callerid"
+    actions:
+      - action: notify.notify
+        data:
+          message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }} at {{ state_attr('sensor.phone_modem', 'cid_number') }} "
+
+  - alias: "Notify CallerID webui"
+    triggers:
+      - trigger: state
+        entity_id: sensor.phone_modem
+        to: "callerid"
+    actions:
+      - action: persistent_notification.create
+        data:
+          title: "Call from"
+          message: "{{ state_attr('sensor.phone_modem', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.phone_modem', 'cid_name') }}  {{ state_attr('sensor.phone_modem', 'cid_number') }} "
+
+  - alias: "Say CallerID"
+    triggers:
+      - trigger: state
+        entity_id: sensor.phone_modem
+        to: "callerid"
+    actions:
+      - action: tts.google_say
+        data:
+          message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }}"
 ```
 
 {% endraw %}

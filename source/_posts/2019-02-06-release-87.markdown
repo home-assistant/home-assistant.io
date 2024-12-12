@@ -92,7 +92,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - SolarEdge sensors: This PR changes the **entity names** of this sensor and the **monitoring condition keys** in the configuration: `sensor.solaredge_current_power` -> `sensor.solaredge_current_power`, `sensor.solaredge_last_day_data` -> `sensor.solaredge_energy_today`, `sensor.solaredge_last_month_data` -> `sensor.solaredge_energy_this_month`, `sensor.solaredge_last_year_data` -> `sensor.solaredge_energy_this_year`, `sensor.solaredge_life_time_data` -> `sensor.solaredge_lifetime_energy`, ([@LouisMT] - [#20109]) ([sensor.solaredge docs]) (breaking change)
 - Geolocation is no longer creating a default group. ([@exxamalte] - [#20338]) ([geo_location docs]) (breaking change)

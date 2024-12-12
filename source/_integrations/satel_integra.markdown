@@ -3,7 +3,7 @@ title: Satel Integra
 description: Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Hub
   - Switch
 ha_release: 0.54
@@ -14,15 +14,19 @@ ha_platforms:
   - binary_sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `satel_integra` integration will allow Home Assistant users who own a Satel Integra alarm panel to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a ETHM extension module that must be installed in the alarm. Compatible with ETHM-1 Plus module with firmware version > 2.00 (version 2.04 confirmed).
+The `satel_integra` {% term integration %} will allow Home Assistant users who own a Satel Integra alarm panel to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a ETHM extension module that must be installed in the alarm. Compatible with ETHM-1 Plus module with firmware version > 2.00 (version 2.04 confirmed).
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor: Reports on zone or output statuses
+- Binary sensor: Reports on zone or output statuses
 - Switch: allows for setting states of selected outputs 
-- Alarm Control Panel: represents the zones (in Polish: "strefa"). Reports its status, and can be used to arm/disarm the partition
+- Alarm control panel: represents the zones (in Polish: "strefa"). Reports its status, and can be used to arm/disarm the partition
 
 The module communicates via Satel's open TCP protocol published on their website. It subscribes for new events coming from alarm system and reacts to them immediately.
 
@@ -34,11 +38,12 @@ The library currently doesn't support encrypted connection to your alarm, so you
 
 A list of all partition, zone and output IDs can be acquired by running DloadX program and connecting to your alarm.
 
-For the Binary Sensor, check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zones. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor integrations."
+For the binary sensor, check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zones. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor integrations."
 
 ## Configuration
 
-A `satel_integra` section must be present in the `configuration.yaml` file:
+A `satel_integra` section must be present in the {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -168,12 +173,12 @@ For example:
 
 ```yaml
   alias: "Flick the input switch when movement in bedroom detected"
-  trigger:
-      platform: state
+  triggers:
+    - trigger: state
       entity_id: "binary_sensor.bedroom"
       to: "on"
-  action:
-      service: input_boolean.turn_on
+  actions:
+    - action: input_boolean.turn_on
       target:
         entity_id: input_boolean.movement_detected
 ```

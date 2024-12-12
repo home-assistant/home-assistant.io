@@ -2,7 +2,7 @@
 title: Google Tasks
 description: Instructions on how to use Google Tasks in Home Assistant.
 ha_category:
-  - To-do List
+  - To-do list
 ha_iot_class: Cloud Polling
 ha_release: 2023.11
 ha_config_flow: true
@@ -12,16 +12,32 @@ ha_codeowners:
 ha_integration_type: integration
 ha_platforms:
   - todo
+related:
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
+  - url: https://support.google.com/tasks/answer/7675772
+    title: Google Tasks
+  - url: https://console.cloud.google.com/apis/library/tasks.googleapis.com
+    title: Google Developers Console
 ---
 
 The **Google Tasks** integration allows you to connect your [Google Tasks](https://support.google.com/tasks/answer/7675772) to Home Assistant. The integration adds a [to-do list entity](/integrations/todo) for
 each task list, allowing you to create, update, or delete items on the list from the **To-do list** dashboard.
 
+{% note %}
+The Google Tasks public API does not support viewing or setting the due time of tasks, only the due date.
+{% endnote %}
+
 ## Prerequisites
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
 These credentials are the same as the ones for [Nest](/integrations/nest) and [Google Mail](/integrations/google_mail).
-These are not the same as the one for [Google Calendar](/integrations/google).
+These are not the same as *Device Auth* credentials previously recommended for [Google Calendar](/integrations/google).
+
 If you have already set up the correct credentials, you can do step 1 and then skip to step 13 on the below instructions.
 
 {% details "Generate Client ID and Client Secret" %}

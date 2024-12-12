@@ -2,7 +2,7 @@
 title: DLNA Digital Media Server
 description: Instructions on how to access media stored on a DLNA DMS device with Home Assistant.
 ha_category:
-  - Media Source
+  - Media source
 ha_release: 2022.3
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -10,7 +10,6 @@ ha_codeowners:
   - '@chishm'
 ha_domain: dlna_dms
 ha_ssdp: true
-ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 
@@ -34,14 +33,14 @@ The `<media_identifier>` can have one of three forms:
 - `:ObjectID`: Colon followed by a server-assigned ID for an object.
 - `?query`: Question mark followed by a query string to search for, see [DLNA ContentDirectory SearchCriteria](https://openconnectivity.org/wp-content/uploads/2015/11/UPnP-av-ContentDirectory-v4-Service.pdf) (part 5.3.16 "A_ARG_TYPE_SearchCriteria" on page 65 and part D.5 "Searching" on page 269) for the syntax. The first result found will be used.
 
-URIs generated while browsing will look like the Object ID form above. However, all three forms will work with the [media_player.play_media](/integrations/media_player/#service-media_playerplay_media) service.
+URIs generated while browsing will look like the Object ID form above. However, all three forms will work with the [media_player.play_media](/integrations/media_player/#action-media_playerplay_media) action.
 
 ### Examples
 
 Using a path URI:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.living_room_tv
 data:
@@ -51,7 +50,7 @@ data:
 Using a query URI:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.living_room_tv
 data:

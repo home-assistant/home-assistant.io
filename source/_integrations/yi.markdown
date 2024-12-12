@@ -11,6 +11,7 @@ ha_domain: yi
 ha_platforms:
   - camera
 ha_integration_type: device
+ha_quality_scale: legacy
 ---
 
 The `yi` camera platform allows you to utilize [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:
@@ -22,38 +23,32 @@ The `yi` camera platform allows you to utilize [Yi Home Cameras](https://www.yit
 
 To successfully implement this platform, the Home Assistant host should be capable of multiple simultaneous reads. For every concurrent Home Assistant user, a connection will be made to the camera every 10 seconds. This should normally not be a problem.
 
-## Preparing the Device
+## Preparing the device
 
-### Installing Alternative Firmware
+### Installing alternative firmware
 
 In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3).
 If you have a 2019/2020 version camera use [yi-hack-MStar GitHub project](https://github.com/roleoroleo/yi-hack-MStar) or [yi-hack-Allwinner GitHub project](https://github.com/roleoroleo/yi-hack-Allwinner). In this case configure the cam as ONVIF and read the wiki for further details.
 
 Once installed, please ensure that you have enabled FTP and Telnet on your device.
 
-<div class='note warning'>
-
+{% important %}
 Currently, version 0.1.4-beta2 of the custom firmware is the highest supported without having to make additional modifications. Firmwares higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files. To use higher firmware versions you must also follow [this workaround](https://github.com/shadow-1/yi-hack-v3/issues/129#issuecomment-361723075) to revert back to ftpd.
+{% endimportant %}
 
-</div>
-
-<div class='note warning'>
-
+{% tip %}
 If you use a version higher than 0.1.4-beta2, you can simply solve the FTP issue by creating a symlink to `/tmp` in the `/home/yi-hack-v4` directory (the directory name can be different depending on the version which you use). For example, access the Yi camera via SSH and type command: `ln -s /tmp tmp`.
+{% endtip %}
 
-</div>
+{% important %}
+Raspbian users: don't forget to install FFmpeg support on your platform, otherwise, you'll not see video.
+{% endimportant %}
 
-<div class='note warning'>
-Raspbian users: don't forget to install ffmpeg support on your platform, otherwise, you'll not see video.
-</div>
-
-<div class='note warning'>
-
+{% tip %}
 Some alternative Yi firmwares enable an experimental RTSP server, which will allow you to connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Yi Home app. In order to maintain both Home Assistant compatibility _and_ the native app, this platform retrieves videos via FTP.
+{% endtip %}
 
-</div>
-
-### Changing the FTP Password
+### Changing the FTP password
 
 Once the custom firmware is installed, a password must be added to the FTP
 server. To do so:
@@ -64,7 +59,7 @@ server. To do so:
 4. Enter your new password twice.
 5. Log out of Telnet.
 
-## Configuring the Platform
+## Configuring the platform
 
 To enable the platform, add the following lines to your`configuration.yaml` file:
 

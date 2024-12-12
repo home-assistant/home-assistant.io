@@ -54,7 +54,7 @@ This release includes a security fix. The error log was accessible via the API w
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - Updates default Pilight port number ([@frenck] - [#13419]) ([pilight docs]) (breaking change)
 - Update to new "b2vapi" of BMW ConnectedDrive ([@ChristianKuehnel] - [#13305]) ([bmw_connected_drive docs]) ([binary_sensor.bmw_connected_drive docs]) ([lock.bmw_connected_drive docs]) ([sensor.bmw_connected_drive docs]) (breaking change)

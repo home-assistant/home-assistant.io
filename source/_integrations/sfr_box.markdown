@@ -21,8 +21,20 @@ The SFR Box integration offers integration with the **SFR** broadband router.
 
 This integration provides the following platforms:
 
-- Binary Sensors - such as ADSL status.
+- Binary sensors - such as ADSL status.
 - Buttons - such as reboot.
 - Sensors - such as ADSL line status, attenuation, noise and data rate.
 
 {% include integrations/config_flow.md %}
+
+## Compatibility
+
+The integration uses the REST API, which is known to be available on models `NB4`, `NB5`, `NB6`, `NB6V`, and `NB6VAC`.
+
+However, `NCC` models do not appear to expose this REST API, and are therefore unsupported by the integration.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

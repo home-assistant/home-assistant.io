@@ -19,10 +19,9 @@ ha_platforms:
   - light
   - switch
 ha_integration_type: integration
-ha_quality_scale: silver
 ---
 
-The Duotecno integration can be used to control [Duotecno](https://www.duotecno.be/) nodes in Home Assistant.
+The **Duotecno** {% term integration %} can be used to control [Duotecno](https://www.duotecno.be/) nodes in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

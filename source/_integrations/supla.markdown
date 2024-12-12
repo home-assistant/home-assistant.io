@@ -13,6 +13,7 @@ ha_platforms:
   - cover
   - switch
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The SUPLA integration allows you to use [SUPLA](https://supla.org/) devices in Home Assistant.
@@ -23,11 +24,11 @@ Currently, only covers (shutters in SUPLA's terminology), gates, garage doors, a
 
 Right now, it's impossible to add a device -- all of them are discovered from SUPLA-CLOUD's servers or yours.
 
-Devices disabled on SUPLA-CLOUD will not be loaded into Home Assistant.
+For more complete Home Assistant support based on MQTT autodiscovery, consider switching your Supla devices to MQTT (through the setup interface). Or use the MQTT broker provided by [Supla Cloud](https://cloud.supla.org/integrations/mqtt-broker).
 
 ## Configuration
 
-To use SUPLA devices in your installation, add the following to your `configuration.yaml`:
+To use SUPLA devices in your installation, add the following to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 supla:
@@ -43,7 +44,7 @@ servers:
   type: list
   keys:
     server:
-      description: Address of the SUPLA-CLOUD server (either IP address or DNS name); can either be the (cloud hosted)[https://cloud.supla.org] instance, or a (self hosted)[https://github.com/SUPLA/supla-cloud] instance.
+      description: Address of the SUPLA-CLOUD server (either IP address or DNS name); can either be the [cloud hosted](https://cloud.supla.org) instance, or a [self hosted](https://github.com/SUPLA/supla-cloud) instance.
       required: true
       type: string
     access_token:

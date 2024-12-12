@@ -2,7 +2,7 @@
 title: RESTful
 description: Instructions on how to integrate REST sensors and binary sensors into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_release: 0.7.4
 ha_iot_class: Local Polling
@@ -127,18 +127,22 @@ payload:
   description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
   required: false
   type: string
+payload_template:
+  description: The payload to send with a POST request, with template support. Depends on the service, but usually formed as JSON.
+  required: false
+  type: template
 verify_ssl:
-  description: Verify the SSL certificate of the endpoint.
+  description: Whether to verify the SSL certificate of the endpoint.
   required: false
   type: boolean
   default: True
 ssl_cipher_list:
-  description: Define the list of SSL ciphers to be accepted from this endpoint. `python_default` (_default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
+  description: The list of SSL ciphers to be accepted from this endpoint. `python_default` (_default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
   required: false
   type: string
   default: default
 timeout:
-  description: Defines max time to wait data from the endpoint.
+  description: The maximum time in seconds to wait for data from the endpoint. If the timeout is reached, the sensor will become `unavailable`.
   required: false
   type: integer
   default: 10
@@ -163,7 +167,7 @@ params:
   required: false
   type: [list, template]
 scan_interval:
-  description: Define the refrequency to call the REST endpoint in seconds.
+  description: The frequency in seconds to call the REST endpoint.
   required: false
   type: integer
   default: 30
@@ -182,8 +186,9 @@ binary_sensor:
   type: list
 {% endconfiguration %}
 
-<div class='note'>
-
+{% important %}
 Use either `resource` or `resource_template`.
+{% endimportant %}
 
-</div>
+
+{% include integrations/using_templates.md %}

@@ -3,7 +3,7 @@ title: OPNSense
 description: Instructions on how to configure OPNsense integration
 ha_category:
   - Hub
-  - Presence Detection
+  - Presence detection
 ha_release: 0.105
 ha_codeowners:
   - '@mtreinish'
@@ -12,13 +12,14 @@ ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-[OPNsense](https://opnsense.org/) is an open source HardenedBSD based firewall
+[OPNsense](https://opnsense.org/) is an open source FreeBSD based firewall
 and routing platform. There is currently support for the following device types
 within Home Assistant:
 
-- [Presence Detection](#presence-detection)
+- [Presence detection](#presence-detection)
 
 ## Configuration
 

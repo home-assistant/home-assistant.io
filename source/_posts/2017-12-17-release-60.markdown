@@ -71,7 +71,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Update snips to listen on new mqtt topic and utilize rawValue ([@tschmidty69] - [#11020]) ([snips docs]) (breaking change)
 - Refactor hue to split bridge support from light platform ([@andreacampi] - [#10691]) ([hue docs]) ([light.hue docs]) (breaking change) (new-platform)

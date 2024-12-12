@@ -35,7 +35,7 @@ This integration will create these sensors:
 - `nzbget_size`: Amount of data downloaded since server start in MB.
 - `nzbget_speed_limit`: Download queue speed limit in MB/s.
 
-## Event Automation
+## Event automation
 
 The NZBGet integration continuously monitors nzbget's download history. When a download completes, an event usable for automation is triggered on the Home Assistant Bus.
 
@@ -51,30 +51,30 @@ Example automation to send a Telegram message on a completed download:
 
 ```yaml
 - alias: "Completed Torrent"
-  trigger:
-    platform: event
-    event_type: nzbget_download_complete
-  - event_data:
-    category: tv
-  action:
-    service: notify.telegram_notifier
-    data:
-      title: "Download completed!"
-      message: "{{trigger.event.data.name}}"
+  triggers:
+    - trigger: event
+      event_type: nzbget_download_complete
+      event_data:
+        category: tv
+  actions:
+    - action: notify.telegram_notifier
+      data:
+        title: "Download completed!"
+        message: "{{trigger.event.data.name}}"
 ```
 
 {% endraw %}
 
-## Services
+## Actions
 
-Available services:
+Available actions:
 
 - `pause`: Pause the download queue.
 - `resume`: Resume the download queue.
 - `set_speed`: Set the download queue speed limit.
 
-### Service `nzbget/set_speed`
+### Action `nzbget/set_speed`
 
-| Service data attribute | Optional | Description                                                                                     |
+| Data attribute | Optional | Description                                                                                     |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
 | `speed`                | yes      | Sets the download speed limit, specified in Kb/s. 0 disables the speed limit. Defaults to 1000. |

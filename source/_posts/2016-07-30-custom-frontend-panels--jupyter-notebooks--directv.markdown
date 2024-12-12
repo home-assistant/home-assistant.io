@@ -68,7 +68,7 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 
 - Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.
 
-### Breaking changes
+### Backward-incompatible changes
 
 - Google Voice SMS notification support was removed.
 

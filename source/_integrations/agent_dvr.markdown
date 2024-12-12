@@ -16,54 +16,54 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[Agent DVR](https://www.ispyconnect.com/download.aspx/) is a free* software DVR solution for windows 10, Mac and Linux. Agent DVR runs as a service or console application and can access and control a huge range of third party cameras with advanced motion detection, including DeepStack integration for object recognition. The iSpyConnect website provides secured (SSL) remote access without port forwarding needed.
+[Agent DVR](https://www.ispyconnect.com/download.aspx/) is a free* software DVR solution for Windows 10, Mac and Linux. Agent DVR runs as a service or console application and can access and control a huge range of third party cameras with advanced motion detection, including DeepStack integration for object recognition. The iSpyConnect website provides secured (SSL) remote access without port forwarding needed.
 
-You can add Agent DVR via integrations using the IP address and port of the server, e.g.,: `http://192.168.1.3:8090/`.
+You can add Agent DVR via integrations using the IP address and port of the server, like: `http://192.168.1.3:8090/`. If you have "Protect API" turned on in your Agent DVR server configuration, you can supply the username and password as part of the URL, for example, `http://username:password@192.168.1.3:8090`.
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-  Please ensure you are using Agent DVR v2.6.1.0 +
-</div>
+{% important %}
+Please ensure you are using Agent DVR v2.6.1.0 +
+{% endimportant %}
 
-## Alarm Control Panel
+## Alarm control panel
 
 Reports on the current alarm status and can be used to arm and disarm the system.
 
-## Services
+## Actions
 
-Once loaded, the `agent_dvr` integration will expose services that can be called to perform various actions. The `entity_id` service attribute can specify one or more specific cameras.
+Once loaded, the `agent_dvr` integration will expose actions that can be used. The `entity_id` action attribute can specify one or more specific cameras.
 
-Available services:
+Available actions:
 `enable_alerts`, `disable_alerts`,
 `start_recording`, `stop_recording`,
 `turn_on`, `turn_off`, `toggle`, `enable_motion_detection`,`disable_motion_detection`
 
-### Service `enable_alerts`/`disable_alerts`
+### Action `enable_alerts`/`disable_alerts`
 
-These services enable or disable the device's alert events within Agent DVR.
+These actions enable or disable the device's alert events within Agent DVR.
 
-Service data attribute | Optional | Description
+Data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-### Service `start_recording`/`stop_recording`
+### Action `start_recording`/`stop_recording`
 
-These services start or stop the device recording.
+These actions start or stop the device recording.
 
-Service data attribute | Optional | Description
+Data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-### Service `turn_on`/`turn_off`/`toggle`
+### Action `turn_on`/`turn_off`/`toggle`
 
-These services turn on, off or toggle the device enabled state within Agent DVR
+These actions turn on, off or toggle the device enabled state within Agent DVR
 
-Service data attribute | Optional | Description
+Data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-## IFrame
+## Iframe
 
 - Using the Webpage Card you can embed the Agent DVR viewer directly in Home Assistant. Just point it to <https://www.ispyconnect.com/app/>
 

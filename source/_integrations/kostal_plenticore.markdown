@@ -28,9 +28,9 @@ The integration uses the REST-API interface which is also used by the integrated
 
 The integration disables most of the sensors per default. You can enable it in the *Entity* page. The sensors are split into two sets, one for the process data and one for the setting values.
 
-<div class='note'>
+{% note %}
 The Plenticore inverter provides much more data endpoints, some of them are also dependent of the version of the firmware. If you are missing process data values, open an issue with the necessary information or make an pull request.
-</div>
+{% endnote %}
 
 ### Process Data Sensors
 
@@ -39,7 +39,7 @@ The following sensors are available in the library:
 | Name                    | Unit | Description   |
 |-------------------------|------|:-------------------------------------------|
 | Inverter State          |      | State of the inverter. |
-| Solar Power             | W    | Sum of all DC strings. |
+| Solar Power             | W    | Sum of all DC strings (including battery). |
 | Grid Power              | W    | Power from (+)/to (-) the grid. |
 | Home Power from Battery | W    | Power from the battery for home consumption. |
 | Home Power from Grid    | W    | Power from the grid for home consumption. |
@@ -108,42 +108,37 @@ The following sensors are available in the library:
 | Battery Charge from Grid Month  | kWh  | Energy charged to the battery from the Grid of the current month. |
 | Battery Charge from Grid Year   | kWh  | Energy charged to the battery from the Grid of the current year. |
 | Battery Charge from Grid Total  | kWh  | Energy charged to the battery from the Grid total. |
-| Battery Charge from PV Day    | kWh  | Energy charged to the battery from the PV of the current day. |
-| Battery Charge from PV Month  | kWh  | Energy charged to the battery from the PV of the current month. |
-| Battery Charge from PV Year   | kWh  | Energy charged to the battery from the PV of the current year. |
-| Battery Charge from PV Total  | kWh  | Energy charged to the battery from the PV total. |
+| Battery Charge from PV Day    | kWh  | Energy to the battery on the DC side charged by PV during the current day. |
+| Battery Charge from PV Month  | kWh  | Energy to the battery on the DC side charged by PV during the current month. |
+| Battery Charge from PV Year   | kWh  | Energy to the battery on the DC side charged by PV during the current year. |
+| Battery Charge from PV Total  | kWh  | Energy to the battery on the DC side charged by PV  total. |
+| Battery Discharge Day | kWh | Energy from the battery on the DC side discharged during the current day. |
+| Battery Discharge Month | kWh | Energy from PV on DC-side used to charge the battery of the current month. |
+| Battery Discharge Year | kWh | Energy from PV on DC-side used to charge the battery of the current year. |
+| Battery Discharge Total | kWh | Energy from PV on DC-side used to charge the battery total. |
+| Energy to Grid Day | kWh | Energy fed into the grid for the current day. |
+| Energy to Grid Month | kWh | Energy fed into the grid for the current month. |
+| Energy to Grid Year | kWh | Energy fed into the grid for the current year. |
+| Energy to Grid Total | kWh | Energy fed into the grid in total, since the system was installed. |
+| Sum power of all PV DC inputs | W | Total sum of power provided by all PV inputs together. |
 
-<div class='note'>
-The inverter does not provide any data on the energy that is going to the grid directly.
-</div>
+{% note %}
+The inverter does not provide any data about the energy that is fed into the grid directly, but the `pykoplenti` library provides it via virtual process data.
+{% endnote %}
 
-#### Common template sensors
+#### Configuration of the energy dashboard
 
-##### Energy to grid total
+The following sensors can be used in the [energy dashboard](/docs/energy/):
 
-{% raw %}
+| Energy dashboard | Sensor |
+|------------------|:-------|
+| Grid consumption | Home Consumption from Grid Total |
+| Solar production | Energy PV1 Total, Energy PV2 Total, Energy PV3 Total |
+| Battery systems  | Battery Discharge Total, Battery Charge from PV Total |
 
-```yaml
-template:
-  - sensor:
-    - name: "Plenticore Energy PV to Grid Total (Template)"
-      unit_of_measurement: "kWh"
-      device_class: energy
-      state_class: total
-      state: >
-        {% set yield = states('sensor.scb_energy_yield_total') | float %}
-        {% set batteryToHome = states('sensor.scb_home_consumption_from_battery_total') | float %}
-        {% set pvToHome = states('sensor.scb_home_consumption_from_pv_total') | float %}
-        {{ yield - pvToHome - batteryToHome }}
-```
-
-The `sensor.scb_energy_yield_total` entity contains the total energy. This includes
-both the energy delivered to the home as well as the energy from the battery to the
-home. Think of it like all energy that leaves the inverter on the AC side.
-Hence, to calculate the amount of energy flowing into the grid, you have to subtract the energy from the battery and PV to the
-home.
-
-{% endraw %}
+{% note %}
+Some of the energy is measured on the DC side and some on the AC side, so the values may differ slightly due to losses between DC and AC.
+{% endnote %}
 
 ### Settings Sensors
 
@@ -156,9 +151,9 @@ The following sensors are available in the library:
 | Battery Strategy        |      | RW | Battery strategy. |
 | Shadow Management       |      | RW | PV string shadow management. |
 
-<div class='note'>
+{% note %}
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
-</div>
+{% endnote %}
 
 #### Battery Strategy
 
@@ -182,3 +177,11 @@ The following Number entities are available. The values could also be change fro
 |-------------------------|------|----|:--------------|
 | Battery min Home Consumption | W    | RW | Min. home consumption power for battery. |
 | Battery min SoC         | %    | RW | Min. SoC of battery. |
+
+## Diagnostics
+
+The following diagnostic sensors are available.
+
+| Name                    | Data Type | Description   |
+|-------------------------|-----------|:-------------------------------------------|
+| Active Errors           | Integer   | Count of currently active errors. |
