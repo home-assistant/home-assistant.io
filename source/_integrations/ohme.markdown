@@ -28,6 +28,16 @@ The **Ohme** {% term integration %} allows you to connect your Ohme EV charger t
 - An Ohme account. If you used Google to sign up for Ohme, [reset your password](https://api.ohme.io/fleet/index.html#/authentication/forgotten-password) before configuring this integration. 
 
 {% include integrations/config_flow.md %}
+{% configuration_basic %}
+Email:
+    description: "Email to log in to your Ohme account."
+    required: true
+    type: string
+Password:
+    description: "Password to log in to your Ohme account."
+    required: true
+    type: string
+{% endconfiguration_basic %}
 
 ## Removing the integration
 
