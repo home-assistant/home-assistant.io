@@ -80,7 +80,6 @@ The following controls allow you to customize the settings and options for your 
 
 ### User interface settings
 
-- **Interface language:** Selects the device's display language.
 - **Scrolling speed:** Adjusts the speed of the description text scrolling in the menu, with options for slow or fast.
 - **Temperature display unit:** Sets the unit for displaying temperature as Celsius (C°) or Fahrenheit (F°).
 - **Animation speed:** Adjusts the pace of icon animations in the menu, with options for off, slow, medium, or fast.
