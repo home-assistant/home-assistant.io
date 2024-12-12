@@ -69,6 +69,10 @@ Twente Milieu:
 The integration will update its information by polling Twente Milieu every
 hour. This ensures the data in Home Assistant is up to date.
 
+## Actions
+
+This integration does not provide additional actions.
+
 ## Examples
 
 The following examples show how to use the Twente Milieu integration in Home
