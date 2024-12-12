@@ -55,8 +55,9 @@ The Velbus integration and its entities can be removed by following these steps:
 2. Find the Velbus integration and click on it
 3. Click the delete button to remove the Velbus config entry
 
-## Actions
+Note: Removing the integration will delete all Velbus devices and their history from Home Assistant.
 
+## Actions
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
 - `velbus.scan`: Scan the bus for new devices.
 - `velbus.set_memo_text`: Show memo text on Velbus display modules.
@@ -115,6 +116,8 @@ Use this action when you make changes to your configuration via velbuslink.
 
 
 ## VMB7IN and the Energy dashboard
+
+The VMB7IN sensor can be integrated with Home Assistant's [Energy dashboard](/energy_dashboard) to track your utility consumption.
 
 In some cases, the VMB7IN sensor does not report what the counter is counting. If the counter is related to an energy device, everything will work out of the box.
 But if the VMB7IN sensor is a water or gas counter, you will need to specify this in your configuration.yaml file.
