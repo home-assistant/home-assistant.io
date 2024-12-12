@@ -403,7 +403,7 @@ function registerLanguageSelectChange() {
 function updateLanguageSupports(locale = null) {
 	let data = {
 		"en-US": [3, 3],
-		"es-ES": [2, 2],
+		"es-ES": [3, 3],
 		"pt-BR": [3, 3],
 		"de-DE": [3, 3],
 		"it-IT": [2, 2],
