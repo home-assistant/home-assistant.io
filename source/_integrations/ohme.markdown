@@ -52,4 +52,4 @@ The {% term integration %} provides the following sensors:
 - Power
 - Current
 - Energy
-- CT current - This will only be available if a CT sensor is attached to your charger.
+- CT current - If a current transformer (CT) was installed with your charger, this will show the current used by your whole home
