@@ -70,13 +70,6 @@ The integration fetches data from the device every 15 seconds.
 
 ## Actions
 
-### Calibration
-
-Calibrate the covers.
-
-### TouchGo
-
-Toggle the TouchGo functionality of the slide cover.
 
 ## Known limitations
 
