@@ -26,6 +26,8 @@ different types of waste, ensuring you never miss a collection day.
 
 {% include integrations/config_flow.md %}
 
+### Configuration parameters
+
 {% configuration_basic %}
 Postal code:
   description: The postal code of the address, for example "7500AA".
