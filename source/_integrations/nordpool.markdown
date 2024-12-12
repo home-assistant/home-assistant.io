@@ -47,10 +47,10 @@ If polling cannot happen because of no connectivity or a malfunctioning API, the
 
 ## Troubleshooting
 
-This service is reliant on an internet connection and that **Nord Pool** API is available. Here are the things you can try before raising an issue.
+This service is reliant on an internet connection and that the **Nord Pool** API is available. Here are the things you can try before raising an issue:
 
 - Check that internet is available from your Home Assistant instance.
-- Check that **Nord Pool** API is available by clicking [here](https://dataportal-api.nordpoolgroup.com/api/DayAheadPrices). You should get a JSON back with the title `Unauthorized`.
+- Check that the **Nord Pool** API is available by clicking [here](https://dataportal-api.nordpoolgroup.com/api/DayAheadPrices). You should get a JSON back with the title `Unauthorized`.
 - Use `curl` in a terminal on your Home Assistant instance using the same URL as previously opened in the browser. `curl https://dataportal-api.nordpoolgroup.com/api/DayAheadPrices`
 
 ## Sensors
