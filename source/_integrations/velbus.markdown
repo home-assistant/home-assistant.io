@@ -31,24 +31,37 @@ ha_integration_type: hub
 
 The `velbus` integration is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.
 
+<div class='note'>
 The pushbutton LEDs of input modules are disabled by default. These can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
+</div>
 
 {% include integrations/config_flow.md %}
 
-The port string used in the user interface or the configuration file can have 2 formats:
+### Configuration parameters
 
-- For a serial device: `/dev/ttyUSB00`
-- For a TCP/IP device: `127.0.0.1:3678`
-- For the VMBSIG module: `tls://192.168.1.9:27015`
+The port string used in the user interface or the configuration file can have different formats depending on the type of connection:
 
-## Services
+- For a serial or USB devices: `/dev/ttyUSB00`
+- For a TCP/IP devices: `127.0.0.1:3678`
+- For Signum devices without authentication: `tls://192.168.1.9:27015`
+- For Signum devices with authentication: `tls://password@192.168.1.9:27015`
+
+### Removing the integration
+
+The Velbus integration and its entities can be removed by following these steps:
+
+1. Navigate to Settings > Devices & Services
+2. Find the Velbus integration and click on it
+3. Click the delete button to remove the Velbus config entry
+
+## Actions
 
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
 - `velbus.scan`: Scan the bus for new devices.
 - `velbus.set_memo_text`: Show memo text on Velbus display modules.
 - `velbus.clear_cache`: Clear the full velbuscache or the cache for one module only.
 
-### Service `velbus.sync_clock`
+### Action `velbus.sync_clock`
 
 You can use the service `velbus.sync_clock` to synchronize the clock of the Velbus modules to the clock of the machine running Home Assistant. This is the same as the 'sync clock' button at the VelbusLink software.
 
@@ -56,7 +69,7 @@ You can use the service `velbus.sync_clock` to synchronize the clock of the Velb
 | ---------------------- | -------- | ---------------------------------------- |
 | `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 
-### Service `velbus.scan`
+### Action `velbus.scan`
 
 You can use the service `velbus.scan` to synchronize the modules between the bus and Home Assistant. This is the same as the 'scan' button at the VelbusLink software.
 
@@ -65,7 +78,7 @@ You can use the service `velbus.scan` to synchronize the modules between the bus
 | `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 
 
-### Service `velbus.set_memo_text`
+### Action `velbus.set_memo_text`
 
 You can use the service `velbus.set_memo_text` to provide the memo text to be displayed at Velbus modules like VMBGPO(D) and VMBELO.
 
@@ -89,7 +102,7 @@ script:
       service: velbus.set_memo_text
 ```
 
-### Service `velbus.clear_cache`
+### Action `velbus.clear_cache`
 
 You can use the service `velbus.clear_cache` to clear the cache of one module or the full cache. Once the clear happens, the integration will start a new scan.
 Use this service when you make changes to your configuration via velbuslink.
