@@ -30,19 +30,30 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-This enables [Plugwise](https://www.plugwise.com) integrations with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
-The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and the Stretch products (not in sale). See below list for more details.
+[Plugwise](https://www.plugwise.com) provides smart home climate and power monitoring devices. This integation allows you to monitor and control your climate and energy (including gas) consumption and energy production. The energy information can be used for the [energy dashboard](/home-energy-management).
 
-Platforms available - depending on your Smile and setup include:
+## Supported devices
 
- - `climate` (for the stand-alone Anna, for Adam, a climate entity is shown for each zone containing devices like an Anna or another type of wired-thermostat, Jip or Lisa combined with one or more Tom/Floor devices)
- - `binary_sensor` (for showing the status of e.g. domestic hot water heating or secondary heater)
- - `button` (for the Adam and the non-legacy Anna and P1 gateways)
- - `number` (for changing a boiler setpoint, a temperature offset)
- - `sensor` (for all relevant products including the Smile P1)
- - `select` (for changing a thermostat schedule, a regulation mode (Adam only))
- - `switch` (for Plugs connected to Adam, or Circles and Stealths connected to a Stretch)
+This integration supports Plugwise devices connected to a network connected hub called a **Smile**. You can connect to the Smile using your browser, their Plugwise App or this Home Assistant integration. There are 4 types of Smiles:
 
+- Full zonecontrol using the [Adam](https://www.plugwise.com/en_US/zonecontrol) using [additional devices](#devices-overview) such as smart valves and smart-plugs.
+- A stand-alone smart thermostat called [Anna](https://www.plugwise.com/en_US/products/anna).
+- For power monitoring there is one simply called the [P1](https://www.plugwise.com/en_US/products/smile-p1).
+- Although no longer sold, there also is support for Stretch, a gateway to create network connectivity for their older power products.
+
+Plugwise formerly sold power based products using a USB stick as the controller. This integration does not support the `Stick` directly, see [legacy power devices](#legacy-power-devices) for more information.
+
+## Platforms
+
+Depending on your specific Smile and connected devices, the following platforms will be available:
+
+- [Climate](#climate) for Adam and (a stand-alone) Anna.
+- [Binary Sensor](#binary_sensor) for status of your domestic hot water or secondary heater.
+- [Button](#button) to reboot your Smile.
+- [Number](#number) to change a boiler setpoint or temperature offset.
+- [Sensor](#sensor) a variety of sensors is available for all Smiles.
+- [Select](#select) to change your thermostat schedule or regulation mode.
+- [Switch](#switch) allowing plugs to be commanded.
 
 ## Pre-requisites
 
@@ -65,80 +76,49 @@ For a thermostat, the active schedule can be deactivated or reactivated via the 
 
 Auto means the schedule is active, and Heat means it's not active. The active thermostat schedule can be changed via the connected thermostat select entity. Please note that only schedules with two or more schedule points will be shown as select options.
 
-## Entities
-
-This integration will show all Plugwise devices (like hardware devices, multi-thermostat climate-zones, and virtual switchgroups) present in your Plugwise configuration. In addition, you will see a Gateway device representing your central Plugwise gateway (i.e., the Smile Anna, Smile P1, Adam or Stretch).
-
-For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual devices. The heating/cooling device connected to your Smile will be shown as 'OpenTherm' or 'OnOff', depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be shown as devices as well.
-
-Under each device there will be entities shown like binary_sensors, sensors, etc. depending on the capabilities of the device: for instance centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff device.
-
 ## Data updates
 
-The interval which the integration fetches data from the Smile depends on the device:
+The interval which the integration fetches data from the Smile depends on the device-type.
 
-- Power entities, such as the P1, will be refreshed every 10 seconds.
-- Climate entities will be refreshed every 60 seconds.
-- Stretch entities will be refreshed every 60 seconds.
+|Device-type|Interval|
+--- | ---
+| Climate entities |60 seconds|
+| Energy and gas entities |10 seconds|
+| Stretch entities |60 seconds|
 
-## Removing the integration
+## Entities
 
-This integration follows standard integration removal. No extra steps are required within Home Assistant or on your Plugwise devices.
+This integration will show all Plugwise devices (like hardware devices, multi-thermostat climate-zones, and virtual switchgroups) present in your Plugwise configuration. In addition, you will see a Gateway device representing your central Plugwise gateway (i.e., the Adam, Smile Anna, Smile P1 or Stretch).
 
-{% include integrations/remove_device_service.md %}
+For example, if you have an Adam setup with a Lisa named `Living` and a Tom named `Bathroom`, these will show up as individual devices. The heating/cooling device connected to your Smile will be shown as `OpenTherm` or `OnOff`, depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) or Aqara Smart Plugs those will be shown as devices as well.
 
-This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.
+Under each device there will be entities shown like `binary_sensors`, `sensors`, etc. depending on the capabilities of the device: for instance centralized measurements such as `power` for a P1, `outdoor_temperature` on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as `boiler_temperature` will be assigned to the OpenTherm/OnOff device.
 
-### Actions
+## Platform information
 
-#### Update Smile data
+### Climate
 
-Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` action with your Smile entity as the target.
+The [climate entity](/integrations/climate) is shown for each zone containing a thermostat. This can be any supported themostat such as the Anna or another type of wired-thermostat, Jip or Lisa combined with one or more Tom/Floor devices.
 
-```yaml
-# Example script change the temperature
-script:
-  force_adam_update:
-    sequence:
-      - action: homeassistant.update_entity
-        target:
-          entity_id: climate.living_room
-```
-
-#### Reboot the Plugwise gateway
-
-action: `button.press`
-
-```yaml
-# Example script change the thermostat schedule
-script:
-  reboot_gateway:
-    sequence:
-      - action: button.press
-        target:
-          entity_id: button.adam_reboot
-```
-
-#### Set HVAC mode
+#### Setting the HVAC mode
 
 action: `climate.set_hvac_mode`
 
 Available options include `off` (Adam only) `auto`, `cool`, `heat`, and `heat_cool` (Anna with Elga only).
 
-The meaning of `off` is that the Adam regulation is set to off. This means that the connected HVAC-system does not heat or cool, only the domestic hot water heating function, when available, is active.
-
-The meaning of `cool` or `heat` is that there is no schedule active. For example, if the system is manually set to cooling- or heating-mode, the system will be active if the room temperature is above/below the thermostat setpoint.
-
-The meaning of `heat/cool` is that there is no schedule active. For example, if the system is in automatic cooling- or heating-mode, the active preset or manually set temperature is used to control the HVAC system.
-
-The meaning of `auto` is that a schedule is active and the thermostat will change presets/setpoints accordingly.
+|HVAC mode|Indication|Description|
+--- | --- | ---
+|`off`| Adam regulation is set to off | The connected HVAC-system does not heat or cool, only the domestic hot water heating function, if available, is active. |
+|`cool` or `heat`| No active schedule | If the system is **manually** set to cooling- or heating-mode, the system will be active if the room temperature is above/below the thermostat setpoint. |
+|`heat/cool`| No active schedule | If the system is in **automatic** cooling- or heating-mode, the active preset or manually set temperature is used to control the HVAC system. |
+|`auto` | Active schedule |  The thermostat will change presets/setpoints accordingly. |
 
 The last schedule that was active is determined the same way long-tapping the top of Anna works.
 
 Example:
 
 ```yaml
-# Example script climate.set_hvac_mode to auto = schedule active
+# Example script climate.set_hvac_mode in the living room to auto = schedule active
 script:
   lisa_reactivate_last_schedule:
     sequence:
@@ -159,45 +139,27 @@ These actions will switch the Adam regulation mode (= HVAC system mode) to off o
 Example:
 
 ```yaml
-# Example script climate.turn_off
+# Example script climate.turn_off in the cinema
 script:
   turn_heating_on:
     sequence:
       - action: climate.turn_off
         target:
-          entity_id: climate.bios
+          entity_id: climate.cinema
 ```
 
-#### Change climate schedule
+#### Update Smile data
 
-action: `select.select_option`
-
-```yaml
-# Example script change the thermostat schedule
-script:
-  lisa_change_schedule:
-    sequence:
-      - action: select.select_option
-        target:
-          entity_id: select.bios_thermostat_schedule
-        data:
-          option: "Regulier"
-```
-
-#### Change boiler setpoint
-
-action: `number.set_value`
+Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` action with your Smile entity as the target.
 
 ```yaml
-# Example script change the boiler setpoint
+# Example script change the living room temperature
 script:
-  change_max_boiler_tempeture_setpoint:
+  force_adam_update:
     sequence:
-      - action: number.set_value
+      - action: homeassistant.update_entity
         target:
-          entity_id: number.opentherm_max_boiler_temperature_setpoint
-        data:
-          value: 60
+          entity_id: climate.living_room
 ```
 
 #### Set temperature
@@ -236,33 +198,177 @@ script:
           preset_mode: asleep
 ```
 
-### Supported devices
+### Binary Sensor
 
-The current implementation of the Python module (Plugwise-Smile) includes:
+Depending on your setup, a [binary sensor](/integrations/binary_sensor) will provide the status of your domestic hot water heating or secondary heater.
 
-Adam (zone_control) with On/Off, OpenTherm, and Loria/Thermastage heating and cooling support:
+### Button
 
- - v3.x
- - v2.3
+For each Smile a [button](/integrations/button) is added to enable a restart (reboot) of the Smile.
 
- - Devices supported are Anna, Lisa, Jip, Floor, Tom, Plug, Aqara Smart Plug, and Koen (a Koen always comes with a Plug, the active part)
+### Number
 
-Anna (thermostat) with OnOff, OpenTherm heating, and Elga and Loria/Thermastage with heating and cooling support:
+Modifying specific [number](/integrations/button)-based settings allows you to fine-tune your setup.
 
- - v4.x
- - v3.x
- - v1.x
+Examples include the boiler setpoint as shown below and adjusting your temperature offset.
 
-On the Elga, the cooling-mode can only be turned on, or off, via a switch present on the device, not via a toggle in the Plugwise App.
-Please make sure to reload the Plugwise integration after the cooling-mode-switch is turned off after being on, or the other way around. This will ensure that the Plugwise integration is being adapted to the change in function of the Elga.
+#### Change boiler setpoint
 
-Smile P1 (DSMR):
+action: `number.set_value`
 
- - v4.x
- - v3.x
- - v2.x
+```yaml
+# Example script change the boiler setpoint
+script:
+  change_max_boiler_tempeture_setpoint:
+    sequence:
+      - action: number.set_value
+        target:
+          entity_id: number.opentherm_max_boiler_temperature_setpoint
+        data:
+          value: 60
+```
 
-Stretch (power switches):
+### Sensor
 
- - v3.x
- - v2.x
+A number of [sensors](/integrations/sensor) will be available, included but not limited to the examples shown below. By default not all sensors will be shown, for example; we disable the Anna's `outdoor_temperature` sensor in favor of the one provided by an auxiliary device if it has one.
+
+Example sensors (not extensive):
+
+|Sensor|Description|
+--- | ---
+|Outdoor temperature | For Anna, this will show the temperature it retrieves from the internet, unless you have an auxiliary device with a temperature sensor |
+|Indoor temperature | For Anna, Lisa or Jip this will show the temperature measured at the specific thermostat |
+|P1 Net Electricity Point | Your netto electricity use at this time, can be negative when producing energy, i.e. though solar panels |
+|P1 Electricity Produced off peak cumulative | The total produced electricity during off peak |
+|Gas Consumed Interval | The gas consumed since the last interval |
+
+### Select
+
+[Select](/integrations/select) allows for changing a thermostat schedule. If you have an Adam you can also select the regulation mode.
+
+Schedules can be created using the Plugwise App or the web-interface.
+
+#### Change climate schedule
+
+action: `select.select_option`
+
+```yaml
+# Example script change the thermostat schedule in the cinema
+script:
+  lisa_change_schedule:
+    sequence:
+      - action: select.select_option
+        target:
+          entity_id: select.cinema_thermostat_schedule
+        data:
+          option: "Cosy"
+```
+
+### Switch
+
+Allows commanding [switches](/integrations/switch), e.g. `on`/`off` for Plugs or Aqara Smart Plugs connected to Adam, or Circles and Stealths connected to a Stretch.
+
+### Troubleshooting
+
+#### Accessing the local device
+accessing-the-local-device
+
+If you need to configure the Smile directly, without using the Plugwise App, you can find the link to your device by:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
+2. If you have more than one Plugwise Smile, select the one to configure.
+3. Select the device with 'Smile' in it's name.
+4. On the integration entry, choose to open the configuration URL left of the {% icon "mdi:dots-vertical" %} icon.
+5. A new window/tab will open, enter `smile` (or `stretch`) as the username and your Smile ID as the password.
+6. Consult the manual or click the `search` button on the [Plugwise Support](https://plugwise.com/support/) page for interactive help.
+
+#### Modify the Smile update interval
+
+{% include common-tasks/define_custom_polling.md %}
+
+#### Diagnostic data
+
+If you need to create an issue to report a bug or want to inspect diagnostic data, use the below method to retrieve diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
+2. If you have more than one Plugwise Smile, select the gateway that is experiencing issues.
+3. Select the device with 'Smile' in it's name.
+4. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
+   - Then, select **Download diagnostics** and a JSON file will be downloaded.
+5. You can inspect the downloaded file or, when requested, upload it to your issue report.
+
+#### Adding a Smile reboot button
+
+action: `button.press`
+
+```yaml
+# Example script change the thermostat schedule
+script:
+  reboot_gateway:
+    sequence:
+      - action: button.press
+        target:
+          entity_id: button.adam_reboot
+```
+
+## Devices overview
+
+The Plugwise integration relies on the [plugwise](https://pypi.org/project/plugwise/) module for Python. It currently provides support for:
+
+### Adam
+
+A complete zone control system also known as Adam HA, supporting:
+
+- On/Off, OpenTherm or Loria/Thermastage heating and cooling support.
+- Running firmwares v3.x or v2.3
+- Additional devices:
+  - Zone thermostats such as Lisa or Anna (see warning below on Anna),
+  - A temperature sensor, Jip,
+  - Valve controllers called Floor or Tom,
+  - An under-floor heating controller Koen (always comes with a Plug as the active part),
+  - Smart switches, either Plug or Aqara Smart Plug.
+
+### Anna
+
+A smart thermostat, supporting:
+
+- OnOff, OpenTherm heating and Elga or Loria/Thermastage with heating and cooling support. (see [known limitations](#known-limitations) below for the Elga).
+- Running firmware v4.x, v3.x or v1.x.
+
+### P1 (DSMR)
+
+A smart meter monitor for single or multi-phase P1 monitoring with the P1 running firmware v4.x, v3.x or v2.x.
+
+### Stretch (end-of-sale)
+
+For legacy power switches, such as the Circles or Stealths, with v3.x or v2.x Stretch firmware.
+
+## Known limitations
+
+### Schedule configuration and pre-requisites
+
+Creation, modification or deleting of climate schedules is not supported through this integration. We recommend using the Plugwise App or visit the local device to configure schedules. See [accessing the local device](#accessing-the-local-device) above on how to access the local device from Home Assistant.
+
+To display your schedule as a valid `select` option for this integration ensure that the schedule has a minimal of two schedule points.
+
+### Anna as a zone thermostat
+
+If you are using your Anna as part of your adam zone control system, it can not be configured as a smart thermostat. The integration will not discover your Anna or allow manual configuration.
+
+### Anna with Elga
+
+The cooling mode can only be toggled via a physical switch on the device (not through the Plugwise App).
+After changing the cooling mode switch position, you must reload the Plugwise integration for the changes to take effect.
+
+### Legacy power devices
+
+Plugwise formerly sold Power based products comprised of a USB stick and smart plugs (amongst a few other items). This integration does **not** support the USB-stick. Reuse of the these products, such as Circles and Stealths using a Stretch or an Adam is supported. Work for USB support is in development by the community but not ready to become a formal Home Assistant integration just yet.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required within Home Assistant or on your Plugwise devices.
+
+{% include integrations/remove_device_service.md %}
+
+This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.
+
