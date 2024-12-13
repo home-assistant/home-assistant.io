@@ -12,9 +12,7 @@ ha_domain: slide_local
 ha_platforms:
   - cover
 ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+ha_zeroconf: true
 ---
 
 The Slide Local {% term integration %} allows you to integrate your [Slide](https://slide.store/) devices in Home Assistant using the local API.
