@@ -152,7 +152,7 @@ Assist aims to support more languages than other voice assistants, but this is s
 			<div class="info state-0">Not supported</div>
 			<div class="info state-1">Needs more work</div>
 			<div class="info state-2">Usable</div>
-			<div class="info state-3">Complete</div>
+			<div class="info state-3">Fully supported</div>
 		</div>
 		<div class="supported-card cloud check" data-state="-1">
 			<div class="heading">
@@ -164,7 +164,7 @@ Assist aims to support more languages than other voice assistants, but this is s
 			<div class="info state-0">Not supported</div>
 			<div class="info state-1">Needs more work</div>
 			<div class="info state-2">Usable</div>
-			<div class="info state-3">Complete</div>
+			<div class="info state-3">Fully supported</div>
 		</div>
 	</div>
 </div>
