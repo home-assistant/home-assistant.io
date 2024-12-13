@@ -18,8 +18,9 @@ Type these from anywhere in the application to launch the dialog.
 
 | Mode  | Hotkey | Switch Modes
 | ------------- | ------------- | ------------- |
-| Entity Filter | `e` | Type `>` at start of input to switch to command palette.
+| Entity Filter | `e` | Type `>` at start of input to switch to command palette. Type `#` at start of input to switch to device filter.
 | Command Palette | `c` | Remove `>` from start of input to switch to entity filter.
+| Device Filter | `d` | Remove `#` from start of input to switch to entity filter.
 | Create [`my`](/integrations/my) link | `m` | Open a new tab to create a my link to the page you are on.
 | Assist | `a` | Open the Home Assistant Assist dialog.
 
@@ -41,6 +42,17 @@ Similar to {% my entities title="Settings -> Devices & Services -> Entities" %},
 Once launched, start typing your entity id (or ["bits and pieces" of your entity id](#search-by-bits-and-pieces-rather-than-an-exact-substring)) to get back a filtered list of entities. Clicking on an entity (or hitting `enter` when the desired entity is highlighted) will open the "More Info" dialog for that entity.
 
 This is helpful when, say, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to Developer Tools.
+
+## Device filter
+
+*Hotkey: `d`*
+
+Similar to {% my entities title="Settings -> Devices & Services -> Devices" %}, but accessible from anywhere in the frontend.
+
+Once launched, start typing your device name to get back a filtered list of your devices. Clicking on a device (or hitting `enter` when the desired device is highlighted) will open the selected device detail page.
+
+This is helpful when you need to quickly access a device's detail page without navigating your way through the menu.
+
 
 ## Command palette
 

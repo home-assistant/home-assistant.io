@@ -5,6 +5,7 @@ ha_category:
   - Number
   - Sensor
   - Update
+  - Binary sensor
 ha_iot_class: Local Polling
 ha_release: 2024.8
 ha_config_flow: true
@@ -16,6 +17,7 @@ ha_platforms:
   - number
   - sensor
   - update
+  - binary_sensor
 ---
 
 The **IronOS** {% term integration %} seamlessly connects Home Assistant with PINE64's Pinecil V2 soldering irons, allowing for remote monitoring and control. This integration provides real-time updates on temperature, power, and various other settings and diagnostic information.
@@ -29,6 +31,10 @@ The **IronOS** {% term integration %} seamlessly connects Home Assistant with PI
 ## Number controls
 
 - **Setpoint temperature:** Allows to set the desired target temperature for the soldering iron tip.
+
+## Binary sensors
+
+- **Soldering tip:** Indicates whether a soldering tip is currently connected to the device.
 
 ## Sensors
 
