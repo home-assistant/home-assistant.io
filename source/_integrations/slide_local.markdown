@@ -1,5 +1,5 @@
 ---
-title: Slide (local API)
+title: Slide Local
 description: Instructions on how to integrate the Innovation in Motion Slide covers with Home Assistant.
 ha_category:
   - Cover
