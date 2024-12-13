@@ -31,9 +31,6 @@ ha_integration_type: hub
 
 The **Velbus** {% term integration %} is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.
 
-<div class='note'>
-The pushbutton LEDs of input modules are disabled by default. These can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
-</div>
 
 {% include integrations/config_flow.md %}
 
@@ -51,11 +48,13 @@ The port string used in the user interface or the configuration file can have di
 
 The Velbus integration and its entities can be removed by following these steps:
 
-1. Navigate to Settings > Devices & Services
-2. Find the Velbus integration and click on it
-3. Click the delete button to remove the Velbus config entry
+{% include integrations/remove_device_service.md %}
 
 Note: Removing the integration will delete all Velbus devices and their history from Home Assistant.
+
+{% note %}
+The pushbutton LEDs of input modules are disabled by default. These can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
+{% endnote %}
 
 ## Actions
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
