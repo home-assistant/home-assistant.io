@@ -23,7 +23,7 @@ The integration should work with all Slide covers (API version 1 and 2).
 
 ## Prerequisites
 
-Before you can use the integration, you have to make sure the slide is configured for the local API. By default the Slide connects to the cloud API, but it is possible to use the local API too (only one of them can be active). To switch between the cloud and local API, do the following:
+Before you can use the integration, you have to make sure the slide is configured for the local API. By default, the Slide connects to the cloud API, but it is possible to use the local API, too (only one of them can be active). To switch between the cloud and local API, do the following:
 
     Press the reset button 2x
 
