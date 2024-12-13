@@ -23,7 +23,7 @@ The integration should work with all Slide covers (API version 1 and 2).
 
 ## Prerequisites
 
-Before you can use the integration, you have to make sure the slide is configured for the local API. By default the Slide connects to the cloud API, but it is possible to use the local API too (only 1 of them can be active). To switch between the cloud and local API, do the following step:
+Before you can use the integration, you have to make sure the slide is configured for the local API. By default the Slide connects to the cloud API, but it is possible to use the local API too (only one of them can be active). To switch between the cloud and local API, do the following:
 
     Press the reset button 2x
 
@@ -45,18 +45,13 @@ password:
   description: The device code of your Slide (inside of your Slide or in the box, 8 characters). Only required for API 1, with API 2 you can fill in anything here.
   required: true
   type: string
-invert_position:
-  description: Invert position percentage.
-  required: true
-  default: false
-  type: boolean
 {% endconfiguration %}
 
 ## Supported functionality
 
-### Covers
+### Cover
 
-Your slide devices will appear as covers.
+Your slide device will appear as cover.
 
 ## Data updates
 
