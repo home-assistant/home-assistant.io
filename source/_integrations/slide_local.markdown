@@ -64,9 +64,6 @@ Your slide devices will appear as covers.
 
 The integration fetches data from the device every 15 seconds.
 
-## Actions
-
-
 ## Known limitations
 
 The integration only provides connection with Slide devices via the local API. For connecting via the cloud API, please use the `slide` integration.
