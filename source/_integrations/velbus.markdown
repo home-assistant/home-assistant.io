@@ -44,16 +44,8 @@ The port string used in the user interface or the configuration file can have di
 - For Signum devices without authentication: `tls://192.168.1.9:27015`
 - For Signum devices with authentication: `tls://password@192.168.1.9:27015`
 
-### Removing the integration
-
-The Velbus integration and its entities can be removed by following these steps:
-
-{% include integrations/remove_device_service.md %}
-
-Note: Removing the integration will delete all Velbus devices and their history from Home Assistant.
-
 {% note %}
-The pushbutton LEDs of input modules are disabled by default. These can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
+The pushbutton LEDs of input modules are disabled by default. These can be enabled from the **Devices** panel in the **Configuration** page of the web interface.
 {% endnote %}
 
 ## Actions
@@ -183,3 +175,12 @@ The actual linking can be realized by two automation rules. One rule to control 
       entity_id: light.led_push_button_10
       
 ```
+
+## Removing the integration
+
+The Velbus integration and its entities can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}
+
+Note: Removing the integration will delete all Velbus devices and their history from Home Assistant.
+
