@@ -25,7 +25,7 @@ The **Ohme** {% term integration %} allows you to connect your [Ohme](https://oh
   - Ohme Go
   - Ohme ePod
 
-- An Ohme account. If you used Google to sign up for Ohme, [reset your password](https://api.ohme.io/fleet/index.html#/authentication/forgotten-password) before configuring this integration. 
+- An Ohme account. If you used Google to sign up for Ohme, [reset your password](https://api.ohme.io/fleet/index.html#/authentication/forgotten-password) before configuring this integration.
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -46,6 +46,7 @@ This integration follows standard integration removal. No extra steps are requir
 {% include integrations/remove_device_service.md %}
 
 ## Sensor
+
 The {% term integration %} provides the following sensors:
 
 - **Status** - Current status of the charger. Possible states: `Unplugged`, `Pending approval`, `Plugged in`, `Charging`
