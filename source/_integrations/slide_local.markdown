@@ -34,10 +34,6 @@ LED flashes 2x slow: local API disabled, cloud API enabled
 
 ![screenshot slide bottom](grafik.png)
 
-{% note %}
-If a new Slide is installed, it could be the firmware is too old. Configure it via the cloud API and wait a few days (or contact Slide support to push a newer firmware).
-{% endnote %}
-
 {% include integrations/config_flow.md %}
 
 To setup the integration you need the following information:
