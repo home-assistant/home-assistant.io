@@ -48,7 +48,7 @@ Plugwise formerly sold power based products using a USB stick as the controller.
 Depending on your specific Smile and connected devices, the following platforms will be available:
 
 - [Climate](#climate) for Adam and (a stand-alone) Anna.
-- [Binary Sensor](#binary_sensor) for status of your domestic hot water or secondary heater.
+- [Binary Sensor](#binary-sensor) for status of your domestic hot water or secondary heater.
 - [Button](#button) to reboot your Smile.
 - [Number](#number) to change a boiler setpoint or temperature offset.
 - [Sensor](#sensor) a variety of sensors is available for all Smiles.
