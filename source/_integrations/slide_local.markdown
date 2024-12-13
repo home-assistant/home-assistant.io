@@ -17,7 +17,7 @@ related:
     title: Configuration file
 ---
 
-The `slide_local` {% term integration %} allows you to integrate your [slide.store](https://slide.store/) devices in Home Assistant using the local API. Both the integration and this documentation is inspired by the custom component by @ualex73, who also wrote the library to access the API.
+The Slide Local {% term integration %} allows you to integrate your [Slide](https://slide.store/) devices in Home Assistant using the local API.
 
 ## Supported devices
 
