@@ -24,6 +24,9 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: integration
+related:
+  - url: https://myuplink.com/
+    title: myUplink web portal
 ---
 
 The **myUplink** {% term integration %} lets you get information about and control heat-pump devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).
@@ -59,6 +62,20 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 {% include integrations/config_flow.md %}
 
 The integration configuration will require the **Client ID** and **Client Secret** created above. See [Application Credentials](/integrations/application_credentials) for more details.
+
+## Supported heat-pump systems
+
+The integration supports all heat-pump devices that can be connected to the myUplink cloud service. See [Works with myUplink](https://myuplink.com/legal/works-with/en).
+However, the representation in Home Assistant depends on how and to what extent the manufacturer has implemented the service.
+
+## Use cases / Examples
+
+Common use cases include:
+
+- **System Monitoring**: Display the current operation state of the pump (heating house, pool, or hot water)
+- **Smart Notifications**: Get alerts when the water temperature is low in the heater tank
+- **Automation**: Adjust the temperature curve offset during holiday mode
+- **Analytics**: View long-term statistics and graphs for the relevant sensors
 
 ## Data updates
 
