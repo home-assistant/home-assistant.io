@@ -54,7 +54,7 @@ The Plugwise Smile(s) present in your network will be automatically discovered v
 Host:
   description: "The hostname or IP address of your Smile. For example: `192.168.1.25`. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) -> **System** -> **Network**. If you are looking for a different device in the Plugwise App, on the main screen first select **Gateways** -> the Smile of your choice, and then follow the previous instruction. Normally, the Smile(s) are automatically discovered, and you don't have to provide the hostname or IP address."
 Username:
-  description: "Username to log in to the Smile. This should be just 'smile' - or 'stretch' for a Stretch'."
+  description: "Username to log in to the Smile. This should be just `smile` - or `stretch` for a Stretch."
 Password:
   description: "This is the password (i.e. Smile ID) printed on the sticker on the back of your Smile (i.e. Adam, Smile-T, or P1) and should be 8 characters long."
 {% endconfiguration_basic %}
