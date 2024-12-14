@@ -4,7 +4,7 @@ description: Instructions on how to integrate the Innovation in Motion Slide cov
 ha_category:
   - Cover
 ha_iot_class: Local Polling
-ha_release: 2025.1.0
+ha_release: 2025.1
 ha_config_flow: true
 ha_codeowners:
   - '@dontinelli'
