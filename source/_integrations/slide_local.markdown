@@ -47,6 +47,10 @@ password:
   type: string
 {% endconfiguration_basic %}
 
+## Configuration
+
+If your cover uses inverted positions for open and closed, respectively, you can check the box "Inverted position" in the configuration dialog.
+
 ## Supported functionality
 
 ### Cover
