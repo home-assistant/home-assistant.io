@@ -25,8 +25,6 @@ The **Ohme** {% term integration %} allows you to connect your [Ohme](https://oh
   - Ohme Go
   - Ohme ePod
 
-- An Ohme account. If you used Google to sign up for Ohme, [reset your password](https://api.ohme.io/fleet/index.html#/authentication/forgotten-password) before configuring this integration.
-
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
 Email:
@@ -38,6 +36,10 @@ Password:
     required: true
     type: string
 {% endconfiguration_basic %}
+
+## Third party accounts
+If you signed up to Ohme with a third party account like Google, you will need to [reset your password](https://api.ohme.io/fleet/index.html#/authentication/forgotten-password) before configuring this integration.
+
 
 ## Removing the integration
 
