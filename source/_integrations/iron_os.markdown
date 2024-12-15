@@ -40,6 +40,13 @@ Home Assistant will detect nearby IronOS devices. Discovered devices will show u
 
 {% include integrations/config_flow.md %}
 
+## Configuration parameters
+
+{% configuration_basic %}
+"Address":
+  description: "The Bluetooth address of the device. This is automatically detected by Home Assistant, so manual entry is not necessary."
+{% endconfiguration_basic %}
+
 ## Number controls
 
 - **Setpoint temperature:** Allows to set the desired target temperature for the soldering iron tip.
