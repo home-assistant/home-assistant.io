@@ -52,6 +52,17 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
+{% configuration_basic %}
+Client ID:
+  description: "Client ID provided by your iglooaccess account."
+  required: true
+  type: string
+Client Secret:
+  description: "Client Secret provided by your iglooaccess account."
+  required: true
+  type: string
+{% endconfiguration_basic %}
+
 ## Troubleshooting
 
 ### Battery level not updating
