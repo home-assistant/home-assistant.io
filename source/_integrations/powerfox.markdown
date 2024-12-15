@@ -21,6 +21,8 @@ The **Powerfox** {% term integration %} allows you to gather data from your [Pow
 
 {% include integrations/config_flow.md %}
 
+### Configuration parameters
+
 {% configuration_basic %}
 Email:
   description: The email address of your Powerfox account.
@@ -42,13 +44,18 @@ Not all Poweropti devices are supported currently. Check the list below to see i
 
 ## Data updates
 
-The integration will poll the Powerfox API every 5 minutes to update the data in Home Assistant.
+The integration will update its information by polling Powerfox every
+minute. This ensures the data in Home Assistant is up to date.
 
-## Sensors
+## Actions
+
+This integration does not provide additional actions.
+
+## Supported functionality
 
 The Powerfox platform mainly provides sensors that you can use in your [energy dashboard](/energy).
 
-## Power meter
+### Power meter
 
 It will create the following sensors:
 
@@ -62,15 +69,19 @@ It will create the following sensors:
 The energy tariff sensors are only available if your Poweropti device supports it.
 {% endnote %}
 
-## Water meter
+### Water meter
 
 It will create the following sensors:
 
 - **Cold water (m³)**: How much cold water is used.
 - **Warm water (m³)**: How much warm water is used.
 
+## Troubleshooting
+
+There are no commonly known issues with this integration.
+
 ## Remove integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
