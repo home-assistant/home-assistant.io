@@ -18,9 +18,8 @@ The **igloohome** {% term integration %} regularly updates the battery level of 
 
 ## Prerequisites
 
-- You own battery-powered igloohome device(s).
-- An [iglooaccess](https://access.igloocompany.co/register) account with an active subscription is required.
-- Your igloohome devices are paired to the same account.
+- You own an igloohome device(s) and have paired them to an account.
+- Have an active subscription on [iglooaccess](https://access.igloocompany.co/register) with the same account.
 
 ## Setup
 
