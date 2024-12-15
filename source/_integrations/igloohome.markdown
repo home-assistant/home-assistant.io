@@ -34,6 +34,8 @@ Once the account has been created:
 - Copy the `Client ID` & `Client Secret` to the respective text fields when prompted by the integration.
 - The integration will retrieve the devices under your account and update their last known battery level regularly.
 
+{% include integrations/config_flow.md %}
+
 ## Verify successful integration
 
 Once the correct `Client ID` & `Client Secret` have been provided:
