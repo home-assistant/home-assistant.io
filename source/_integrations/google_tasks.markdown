@@ -28,12 +28,14 @@ api: Google Tasks API
 api_link: https://console.cloud.google.com/apis/enableflow?apiid=tasks.googleapis.com
 ---
 
-The **Google Tasks** integration allows you to connect your [Google Tasks](https://support.google.com/tasks/answer/7675772) to Home Assistant. The integration adds a [to-do list entity](/integrations/todo) for
-each task list, allowing you to create, update, or delete items on the list from the **To-do list** dashboard. 
+The **Google Tasks** integration allows you to connect your [Google Tasks](https://support.google.com/tasks/answer/7675772)
+to Home Assistant. The integration adds a [to-do list entity](/integrations/todo) for
+each task list, allowing you to create, update, or delete items on the list
+from the **To-do list** dashboard.
 
 You can use to-do lists in automations, such as adding a new task when Home Assistant detects
-a device has low batteries. When you combine with a Home Assistant voice assistant, you can manage your
-Google Tasks by saying something like *Add clean out garage to personal task list*.
+a device has low batteries. When you combine with a Home Assistant voice assistant, you can
+manage your Google Tasks by saying something like *Add clean out garage to personal task list*.
 
 ## Prerequisites
 
@@ -56,15 +58,20 @@ The Google Tasks integration provides the following entities.
 #### To-do lists
 
 The integration will create a [to-do list entity](/integrations/todo) for every task list.
-For example, if you have a Google Tasks list named *My Tasks* then you will have Home Assistant
-to-do list entity named *My Tasks*. The to-do list entities support creating, updating,
-and deleting items on the to-do list
+For example, a Google Tasks list named *My Tasks* then will have a Home Assistant
+to-do list entity named *My Tasks*.
 
-A to-do list item supports the following fields:
+The Google Task integration can create, update, or delete items on a to-do list.
+The to-do list entities support creating, updating, and deleting items on the to-do
+list. A to-do list item supports the following fields:
 
 - **Item**: The item is the Google Task *Title* field.
-- **Due date**: The Google Tasks Date/time. Only the due date is used and this does not support date time.
+- **Due date**: The Google Tasks Date. The time field in Google Tasks is not supported
+  by the Google Tasks API.
 - **Description**: The Google Tasks *Details* field.
+- **Status**: The Google Tasks *Completed* check box corresponds to the to-do list
+  status `needs_action` when not checked and `completed` when checked.
+
 
 ## Actions
 
