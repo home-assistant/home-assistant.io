@@ -23,7 +23,7 @@ The **igloohome** {% term integration %} regularly updates the battery level of 
 
 ## Setup
 
-Once the account has been created:
+Once you have registered and activated your [iglooaccess](https://access.igloocompany.co/register) account:
 
 - [Sign in](https://access.igloocompany.co/login).
 - Jump to [API access](https://access.igloocompany.co/api-access).
