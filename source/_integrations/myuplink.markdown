@@ -68,7 +68,7 @@ The integration configuration will require the **Client ID** and **Client Secret
 The integration supports all heat-pump devices that can be connected to the myUplink cloud service. See [Works with myUplink](https://myuplink.com/legal/works-with/en).
 However, the representation in Home Assistant depends on how and to what extent the manufacturer has implemented the service.
 
-## Use cases / Examples
+## Use cases
 
 Common use cases include:
 
@@ -76,6 +76,27 @@ Common use cases include:
 - **Smart Notifications**: Get alerts when the water temperature is low in the heater tank
 - **Automation**: Adjust the temperature curve offset during holiday mode
 - **Analytics**: View long-term statistics and graphs for the relevant sensors
+
+## Example
+
+Automation that will send a notification to a smartphone when the hot water reserve is getting low. Note that actual entity name varies between models of heat pumps. You will have to adapt the yaml code to your own installation.
+
+```yaml
+automation:
+  alias: Notify on low hot water reserve
+  triggers:
+    - trigger: numeric_state
+      entity_id:
+        - sensor.your_pump_hot_water_charging_bt6
+      below: 42
+  actions:
+    - action: notify.mobile_app_your_device
+      metadata: {}
+      data:
+        message: Hot water reserve is getting low.
+        title: Water heater
+  mode: single
+```
 
 ## Data updates
 
