@@ -109,7 +109,7 @@ The Envoy device reports aggregated data for all connected micro-inverters.
 ##### Production Sensor Entities
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Current power production**: Current aggregated inverter power production in W.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy production last seven days**: Energy produced in previous 7 days, not including today's, in Wh, display scaled to kWh. (See known limitations [Energy Incorrect](#energy-incorrect))
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy production last seven days**: Energy produced in previous 7 days, not including today's, in Wh, display scaled to kWh. (See known limitations [Energy Incorrect](#energy-incorrect)). This entity is not logged in statistics.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Energy production today**: Energy produced since midnight in Wh, default display scaled to kWh. (See known limitations [Late reset](#late-reset), [Energy Incorrect](#energy-incorrect))
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime energy production**: Lifetime energy production in Wh, default display scaled to MWh. (See known limitations [Lifetime reset](#lifetime-reset))
 
@@ -142,7 +142,7 @@ House consumption data requires an Envoy Metered equipped and configured with at
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Current power consumption**: Current power consumption in W.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime energy consumption**: Lifetime energy consumption in Wh, default display scaled to MWh.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy production last seven days**: Energy consumption in previous 7 days, not including today's, in Wh, display scaled to kWh.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy production last seven days**: Energy consumption in previous 7 days, not including today's, in Wh, display scaled to kWh. This entity is not logged in statistics.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Energy consumption today**: Energy consumption since midnight in Wh, default display scaled to kWh.
 
 <figure>
