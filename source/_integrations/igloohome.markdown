@@ -36,6 +36,17 @@ Once you have registered and activated your [iglooaccess](https://access.iglooco
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Client ID:
+  description: "Client ID provided by your iglooaccess account."
+  required: true
+  type: string
+Client Secret:
+  description: "Client Secret provided by your iglooaccess account."
+  required: true
+  type: string
+{% endconfiguration_basic %}
+
 ## Verify successful integration
 
 Once the correct `Client ID` & `Client Secret` have been provided:
@@ -51,17 +62,6 @@ Once the correct `Client ID` & `Client Secret` have been provided:
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-
-{% configuration_basic %}
-Client ID:
-  description: "Client ID provided by your iglooaccess account."
-  required: true
-  type: string
-Client Secret:
-  description: "Client Secret provided by your iglooaccess account."
-  required: true
-  type: string
-{% endconfiguration_basic %}
 
 ## Troubleshooting
 
