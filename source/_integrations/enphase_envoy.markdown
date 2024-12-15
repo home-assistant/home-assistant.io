@@ -59,7 +59,7 @@ The configuration of an individual Envoy requires you to enter the following inf
 Host:
   description: "The name or IP address of the Envoy to configure. <br> Will be pre-filled if the Envoy was auto-discovered"
 Username:
-  description: "For firmware version 7.0 and later, enter your Enlighten cloud username. The Enlighten cloud username (and password) will be used to obtain a 1 year valid token from the enphase web-site when first configured or upon expiry.
+  description: "For firmware version 7.0 and later, enter your Enlighten cloud username. The Enlighten cloud username (and password) will be used to obtain a 1-year-valid token from the enphase web-site when first configured or upon expiry.
   <br> For firmware before 7.0, enter username *installer* without a password."
 Password:
   description: "For firmware version 7.0 and later, enter your Enlighten cloud password <br> For firmware before 7.0, with username *installer*, leave blank."
@@ -94,7 +94,7 @@ This integration offers various sensors depending on the configuration of your E
 
 {% note %}
 
-- You may known referred product names under other names from the past or future.
+- You may know referred product names under other names from the past or future.
 - In this documentation the term SN is used for a device serial-number placeholder. Entities will contain the actual serial-number of the device.
 {% endnote %}
 
@@ -178,7 +178,7 @@ Either a net-consumption or a total-consumption is installed. The Envoy will cal
 
 #### CT Aggregate and phase data
 
-When using <abbr title="current transformers">[CT](#current-transformers)</abbr> in multi-phase enabled configurations, both aggregated and individual phase data is available. If only 1 phase is configured, phase data is the same as the aggregated data and no phase entities are created. If more then 1 phase are configured and measured, individual, disabled, phase entities are available, enable them as needed.
+When using <abbr title="current transformers">[CT](#current-transformers)</abbr> in multi-phase enabled configurations, both aggregated and individual phase data is available. If only 1 phase is configured, phase data is the same as the aggregated data and no phase entities are created. If more than 1 phase are configured and measured, individual, disabled, phase entities are available, enable them as needed.
 
 Phase entity names are the names used for the aggregated entities, post fixed with the phase name. Phase names are **L1**, **L2**, **L3**. For example, once enabled, [**lifetime energy production**](#solar-production-data) on phase 3 is available as **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime energy production L3**.
 
@@ -435,8 +435,8 @@ Wether data to use with the Home battery storage is available, depends on instal
 
 With a [storage CT](#aggregated-iq-battery-sensor-entities) installed, data for both Energy coming out and going into the battery is available.
 
-- For **Energy going into the battery**, use the the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime battery energy charged** entity.
-- For **Energy coming out off the battery**, use the the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime battery energy discharged** entity.
+- For **Energy going into the battery**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime battery energy charged** entity.
+- For **Energy coming out off the battery**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime battery energy discharged** entity.
 
 #### Home battery storage without storage CT
 
@@ -448,7 +448,7 @@ Battery power is the current power flow in or out of an individual battery. Usin
 
 {% details "Concept to split Battery power value into individual import-export power values" %}
 
-The concept is to first sum all battery Power values using a combine state helper. Then track value changes of the summed value entity, add positive changes to a battery_charge power entity and add negative changes to a battery_discharge discharge entity.
+The concept is to first sum all battery Power values using a combine state helper. Then track value changes of the summed value entity, add positive changes to a battery_charge power entity and add negative changes to a battery_discharge power entity.
 
 {% raw %}
 
