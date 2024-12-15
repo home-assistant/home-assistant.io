@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_domain: ohme
 ha_platforms:
   - sensor
+  - button
 ---
 
 The **Ohme** {% term integration %} allows you to connect your [Ohme](https://ohme-ev.com/) EV charger to Home Assistant.
@@ -56,3 +57,9 @@ The {% term integration %} provides the following sensors:
 - **Current**
 - **Energy**
 - **CT current** - If a current transformer (CT) was installed with your charger, this will show the current used by your whole home
+
+## Button
+
+The {% term integration %} provides the following button:
+
+- **Approve charge** - If sensor **Status** is `Pending approval`, this will approve the charge
