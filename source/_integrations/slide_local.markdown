@@ -47,7 +47,7 @@ password:
   type: string
 {% endconfiguration_basic %}
 
-## Options
+{% include integrations/option_flow.md %}
 
 {% configuration_basic %}
 Invert position:
