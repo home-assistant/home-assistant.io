@@ -52,8 +52,6 @@ password:
 {% configuration_basic %}
 Invert position:
   description: Check the box, if your cover uses inverted positions for open and closed.
-  required: false
-  type: bool
 {% endconfiguration_basic %}
 
 ## Supported functionality
