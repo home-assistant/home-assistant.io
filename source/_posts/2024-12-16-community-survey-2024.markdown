@@ -2,7 +2,7 @@
 layout: post
 title: "Understanding Our Community: The 2024 Home Assistant Survey"
 description: "Today we launch our annual survey of our community, the insights gained will help us make Home Assistant better reflect all our users."
-date: 2024-12-04 00:00:00
+date: 2024-12-16 00:00:00
 date_formatted: "December 16, 2024"
 author: Annika Schulz
 comments: true
