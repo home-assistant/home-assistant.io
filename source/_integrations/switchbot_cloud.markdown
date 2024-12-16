@@ -49,6 +49,8 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - MeterPlus
 - Outdoor Meter
 - Vacuum K10+, K10+ pro, S1, S1 Plus
+- Relay Switch 1
+- Relay Switch 1PM
 
 ## Important considerations
 
