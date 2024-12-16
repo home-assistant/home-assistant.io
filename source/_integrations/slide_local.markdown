@@ -47,9 +47,14 @@ password:
   type: string
 {% endconfiguration_basic %}
 
-## Configuration
+## Options
 
-If your cover uses inverted positions for open and closed, respectively, you can check the box "Inverted position" in the configuration dialog.
+{% configuration_basic %}
+Invert position:
+  description: Check the box, if your cover uses inverted positions for open and closed.
+  required: false
+  type: bool
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
