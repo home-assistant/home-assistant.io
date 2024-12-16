@@ -79,23 +79,21 @@ Common use cases include:
 
 ## Example
 
-Automation that will send a notification to a smartphone when the hot water reserve is getting low. Note that actual entity name varies between models of heat pumps. You will have to adapt the yaml code to your own installation.
+Automation that will send a notification to a smartphone when the hot water reserve is getting low. In this example a temperature below 42°C in the middle of the water tank will trigger the notification. Note that actual entity name varies between models of heat pumps. You will have to adapt the yaml code to your own installation.
 
 ```yaml
 automation:
-  alias: Notify on low hot water reserve
-  triggers:
-    - trigger: numeric_state
-      entity_id:
-        - sensor.your_pump_hot_water_charging_bt6
-      below: 42
-  actions:
-    - action: notify.mobile_app_your_device
-      metadata: {}
-      data:
-        message: Hot water reserve is getting low.
-        title: Water heater
-  mode: single
+  - alias: "Notify on low hot water reserve"
+    triggers:
+      - trigger: numeric_state
+        entity_id:
+          - sensor.your_pump_hot_water_charging_bt6
+        below: 42
+    actions:
+      - action: notify.mobile_app_your_device
+        data:
+          message: "Hot water reserve is getting low."
+          title: "Water heater"
 ```
 
 ## Data updates
