@@ -12,7 +12,7 @@ og_image: /images/blog/2024-12-survey/art.jpg
 
 <img src='/images/blog/2024-12-survey/art.jpg' alt="2024 community survey">
 
-As Home Assistant continues to grow and evolve, so does our commitment to making it more inclusive, accessible, and aligned with the diverse needs of our community. To that end, we're launching an annual survey---and we hope you'll take part!
+As Home Assistant continues to grow and evolve, so does our commitment to making it more inclusive, accessible, and aligned with the diverse needs of our community. To that end, we're launching an annual survey&mdash;and we hope you'll participate!
 
 A big part of building our [roadmap](/blog/2024/06/12/roadmap-introduction/) going forward was focusing more on research, which led the team to bring me (Annika) in as a Senior User Experience Researcher. We could keep assuming our community's wants and needs, but we'd rather base our decisions on data-driven insights 😉. With this survey, we aim to better understand not just how you use Home Assistant, but also who you are as a person, a smart home user, and a member of our community. This knowledge will help us:
 
@@ -20,7 +20,7 @@ A big part of building our [roadmap](/blog/2024/06/12/roadmap-introduction/) goi
 - Identify trends and shifts in the smart home landscape over time.
 - Ensure Home Assistant and its ecosystem reflect the values and priorities of those who use it.
 
-We understand that some of the questions we're asking touch on sensitive topics. Rest assured, your responses are completely anonymous, and all questions are optional. If you're ever uncomfortable, you can skip a question---but for the results to be recorded, you must hit the submit button at the end of the survey. This survey isn't short; we recommend setting aside around 20 minutes to complete it. [**Fill out the survey here**](https://home-assistant.typeform.com/communitysurvey#source=blog) or read more about what we're trying to learn below.
+We understand that some of the questions we're asking touch on sensitive topics. Rest assured, your responses are completely anonymous, and all questions are optional. If you're ever uncomfortable, you can skip a question&mdash;but for the results to be recorded, you must hit the submit button at the end of the survey. This survey isn't short; we recommend setting aside around 20 minutes to complete it. [**Fill out the survey here**](https://home-assistant.typeform.com/communitysurvey#source=blog) or read more about what we're trying to learn below.
 
 ~Annika
 
@@ -30,7 +30,7 @@ We understand that some of the questions we're asking touch on sensitive topics.
 
 We're curious about how you began your smart home journey and what drives your decisions today in your home. From the types of devices you use to how your household interacts with your smart home. We want to learn who is using Home Assistant, not just the primary user, but also those living in your smart home. These insights allow us to understand the varied experiences and expertise within the community. For example, knowing your professional background helps us identify areas where your day-to-day knowledge intersects with smart home technologies. We are also asking about neurodiversity, which can help us understand how our community processes and interacts with information. By learning about these differences, we can make our communication and platform design more inclusive. Again, we can understand if you prefer not to share this information.
 
-One area we're trying to understand better is how you personally resonate with the values of the Open Home. We believe in privacy, sustainability, and choice---but how important are these values to you?
+One area we're trying to understand better is how you personally resonate with the values of the Open Home. We believe in privacy, sustainability, and choice&mdash;but how important are these values to you?
 
 ## Your data
 
