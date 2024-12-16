@@ -52,7 +52,7 @@ This integration provides two non-sortable to-do lists:
    - Items can be `created`, `deleted`, and `updated`
    - Items do not have a `description` field
 
-For example, if you add a pasta recipe, ingredients like `500g pasta` and `2 tomatoes` will appear in your `Shopping list`. You can check these items off as you shop, but you cannot modify the label.
+For example, if you add a pasta recipe, ingredients like "500g pasta" and "2 tomatoes" will appear in your "Shopping list". You can check these items off as you shop, but you cannot modify the label.
 
 In contrast, in your `Additional purchases` list, you can freely add items like `Kitchen towels` or `Dish soap`, and modify or remove them as needed.
 
