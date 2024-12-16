@@ -11,6 +11,8 @@ ha_codeowners:
 ha_domain: palazzetti
 ha_platforms:
   - climate
+  - diagnostics
+  - sensor
 ha_integration_type: device
 ha_dhcp: true
 ---

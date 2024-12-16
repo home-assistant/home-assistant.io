@@ -268,4 +268,3 @@ Set which sensors are active on a termostat for a specific climate program.
 | `entity_id`            | no       | ecobee thermostat on which to set the active sensors.                                                                                                |
 | `preset_mode`          | yes      | Name of the climate program to set the sensors active on (defaults to currently active program).                                                     |
 | `sensors`              | no       | Sensors to set as participating for climate. This is the device ID of the sensor/thermostat. These can be found in the available_sensors attribute. |
-

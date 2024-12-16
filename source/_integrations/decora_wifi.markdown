@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Support for [Leviton Decora Wi-Fi](https://www.leviton.com/products/residential/automation-smart-home/decora-smart-all/decora-smart-with-wifi-technology) dimmers/switches via the MyLeviton API.

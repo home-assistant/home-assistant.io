@@ -37,6 +37,8 @@ ha_platforms:
   - switch
   - text
 ha_integration_type: hub
+ha_codeowners:
+  - '@RaHehl'
 ---
 
 The **UniFi Protect** {% term integration %} adds support for retrieving camera feeds and sensor data from a [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on a UniFi OS Console.
@@ -70,13 +72,13 @@ It is recommended you use the Administrator or a user with full read/write acces
 but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
 use has.
 
-1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_. **Note**: This **must** be done from
-   the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the
-   UniFi Protect app.
-2. Go to **Admins** from the left hand side menu or [IP address]/admins/users e.g. 192.168.1.1/admins/users.
-3. Click on **Add New Admin**.
-4. Select **Full Management** for the role. Uncheck **Allow Remote Access** and fill out the fields for your user.
-5. Click **Add** in the bottom right.
+1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_.  
+**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (e.g. _192.168.1.1_), not via `unifi.ui.com` or within the UniFi Protect app.
+2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (e.g. _192.168.1.1/admins/_).
+3. Click on **+** in the top right corner and select **Add Admin**.
+4. Select **Restrict to local access only** and enter a new _username_ and _password_.
+5. Select **Full Management** for the _Protect_ role. 
+6. Click **Add** in the bottom right.
 
 ![UniFi OS User Creation](/images/integrations/unifiprotect/user.png)
 
@@ -364,6 +366,8 @@ conditions:
   - condition: template
     value_template: >
       {% raw %}{{ 
+         not trigger.event.data.old_state.attributes.get('restored', false) and
+         not trigger.event.data.old_state.state == 'unavailable' and
          trigger.event.data.new_state is not none and
          trigger.event.data.new_state.attributes.event_type == 'scanned' and
          trigger.event.data.new_state.attributes.nfc_id in ['ABCDEF1234', 'OTHER_ALLOWED_ID']
@@ -386,8 +390,40 @@ When processing NFC scans, always validate the scanned ID. Unknown NFC cards als
 - **Event Attributes**:
   - **event_type**: Either `identified` or `not_identified`
   - **event_id**: A unique ID that identifies the fingerprint event.
-  - **ulp_id**: The fingerprint ID used to identify the person. If no fingerprint match is found, the `ulp_id` will be empty and the `event_type` will be `not_identified`.
-- **Description**: This event is triggered when a fingerprint is scanned by a compatible device. If the fingerprint is recognized, it provides a `ulp_id`, which represents the fingerprint ID. If the fingerprint is not recognized, the `event_type` will be set to `not_identified`, and no `ulp_id` will be provided.
+  - **ulp_id**: The ID used to identify the person. If no fingerprint match is found, the `ulp_id` will be empty and the `event_type` will be `not_identified`.
+- **Description**: This event is triggered when a fingerprint is scanned by a compatible device. If the fingerprint is recognized, it provides a `ulp_id`, which represents the a internal user ID. If the fingerprint is not recognized, the `event_type` will be set to `not_identified`, and no `ulp_id` will be provided.
+
+#### Example G4 Doorbell Fingerprint Identified Automation
+
+```yaml
+alias: G4 Doorbell Fingerprint Identified Automation
+description: Automation that triggers when a fingerprint is successfully identified on the G4 Doorbell Pro
+trigger:
+  - platform: event
+    event_type: state_changed
+    event_data:
+      entity_id: event.g4_doorbell_pro_poe_fingerprint # Replace with your doorbell entity
+condition:
+  - condition: template
+    value_template: >
+      {% raw %}{{ 
+         not trigger.event.data.old_state.attributes.get('restored', false) and
+         not trigger.event.data.old_state.state == 'unavailable' and
+         trigger.event.data.new_state is not none and
+         trigger.event.data.new_state.attributes.event_type == 'identified' and
+         (trigger.event.data.new_state.attributes.ulp_id|default('')) != '' and
+         trigger.event.data.new_state.attributes.ulp_id in ['ALLOWED_ID1', 'ALLOWED_ID2']
+       }}{% endraw %}
+action:
+  - service: notify.mobile_app_your_device # Replace with your notification target
+    data:
+      {% raw %}message: "Fingerprint identified with ID: {{ trigger.event.data.new_state.attributes.ulp_id }}"{% endraw %}
+      title: "Fingerprint Scan Notification"
+```
+
+**Warning:**
+
+Similar to NFC, an event is triggered when a fingerprint is recognized and not recognized. However, unlike NFC, at the time of implementation, no fingerprint ID is included in the event if the fingerprint is unknown.
 
 #### Example G4 Doorbell Fingerprint Identified Automation
 

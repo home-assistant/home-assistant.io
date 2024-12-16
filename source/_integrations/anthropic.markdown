@@ -29,7 +29,7 @@ The **Anthropic** {% term integrations %} adds a conversation agent powered by [
 
 Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-Legal note: Anthropic currently limits the API usage to organizations only, more info here: [Can I use the Claude API for individual use?](https://support.anthropic.com/en/articles/8987200-can-i-use-the-claude-api-for-individual-use)
+Legal note: Individuals and hobbyists are welcome to use the Anthropic API [for personal use](https://support.anthropic.com/en/articles/8987200-can-i-use-the-claude-api-for-individual-use), however, please note that the use of the API is subject to their [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms), regardless of whether you are an individual or representing a company.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
@@ -49,29 +49,23 @@ The Anthropic API key is used to authenticate requests to the Anthropic API. To 
 {% include integrations/config_flow.md %}
 
 {% include integrations/option_flow.md %}
+
 {% configuration_basic %}
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
-
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
-
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
-
 {% endconfiguration_basic %}
 
 If you choose not to use the recommended settings, you can configure the following options:
 
 {% configuration_basic %}
-
 Model:
   description: The model that will complete your prompt. See [models](https://docs.anthropic.com/en/docs/about-claude/models#model-names) for additional details and options.
-
 Maximum Tokens to Return in Response:
   description: The maximum number of tokens to generate before stopping. Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate. Different models have different maximum values for this parameter. See [models](https://docs.anthropic.com/en/docs/models-overview) for details.
-
 Temperature:
   description: Amount of randomness injected into the response. Use `temperature` closer to `0.0` for analytical / multiple choice, and closer to `1.0` for creative and generative tasks. Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
-
 {% endconfiguration_basic %}

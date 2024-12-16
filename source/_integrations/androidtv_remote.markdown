@@ -10,7 +10,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@tronikos'
   - '@Drafteed'
-ha_quality_scale: platinum
 ha_domain: androidtv_remote
 ha_zeroconf: true
 ha_platforms:

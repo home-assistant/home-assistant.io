@@ -34,7 +34,6 @@ ha_platforms:
   - siren
   - switch
 ha_dhcp: true
-ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 
@@ -189,3 +188,9 @@ data:
   spread: 1
   direction: 1
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

@@ -12,10 +12,10 @@ ha_codeowners:
   - '@jpbede'
 ha_domain: sabnzbd
 ha_platforms:
-  - sensor
   - binary_sensor
   - button
   - number
+  - sensor
 ha_integration_type: integration
 ---
 

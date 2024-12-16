@@ -21,7 +21,6 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_quality_scale: silver
 ha_integration_type: integration
 ---
 

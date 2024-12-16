@@ -3,10 +3,10 @@ title: SwitchBot Cloud
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Hub
+  - Lock
   - Plug
   - Remote
   - Sensor
-  - Lock
   - Switch
   - Vacuum
 ha_release: '2023.10'

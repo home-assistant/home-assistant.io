@@ -33,7 +33,6 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_quality_scale: gold
 ha_integration_type: integration
 ---
 
