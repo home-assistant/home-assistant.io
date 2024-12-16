@@ -1,7 +1,7 @@
 ---
 title: Contribute to the Voice initiative
 related:
-  - docs: /voice_control/best-practices/
+  - docs: /voice_control/best-practices
     title: Best Practices with Assist
   - docs: /voice_control/builtin_sentences
     title: Sentences starter kit
