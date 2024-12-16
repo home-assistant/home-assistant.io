@@ -29,9 +29,9 @@ The **Cookidoo** {% term integration %} allows you to interact with your shoppin
 
 {% configuration_basic %}
 Email:
-    description: "Enter the email address associated with your Cookidoo account to connect it to Home Assistant."
+    description: "Enter the email address associated with your Cookidoo."
 Password:
-    description: "Enter the password for your Cookidoo account to enable the connection with Home Assistant."
+    description: "Enter the password for your Cookidoo account."
 Localization:
     description: "Select the language and country for your Cookidoo account (e.g., English - United States)."
 {% endconfiguration_basic %}
