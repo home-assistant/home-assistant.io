@@ -42,6 +42,6 @@ Once collected, the data will be anonymized and aggregated to ensure your privac
 
 This isn't a short survey and should take around 20 minutes - don't hesitate to return later to complete it. For the results to be recorded, you must progress past the partial submission point or hit the submit button at the end of the survey. While responding to the survey, be aware that there is no right or wrong answer. It is about you as a person, your experience, opinions, and feelings. Don't overthink your responses, but stay with the answers that come to your mind intuitively. The more detail, the better - your insights will help shape our future directions. Also, share it with friends, family, or anyone who uses Home Assistant.
 
-### Fill out the Survey here: <https://home-assistant.typeform.com/communitysurvey#source=blog>
+### Fill out the Survey ([here](https://home-assistant.typeform.com/communitysurvey#source=blog))
 
 The survey opens on Monday, December 16, and **closes on Monday, January 20**. Once we've analyzed the data, we'll share the results and insights with the community. By participating, you're helping us build a better Home Assistant - one that grows with its users and stays true to its values. Thanks for your support!
