@@ -62,7 +62,7 @@ In contrast, in your "Additional purchases" list, you can freely add items like 
 As Cookidoo cannot share shopping lists between accounts and everybody interacting with it uses the same credentials, make sure you protect your credentials accordingly. All users of your Home Assistant instance will have access to the same Cookidoo account.
 {% endimportant %}
 
-The Home Assistant to-do list interface allows both renaming items and changing their state. However, for the `Shopping list`, only state changes (checking/unchecking items) are supported. Any attempts to rename items will not be saved.
+The Home Assistant to-do list interface allows both renaming items and changing their state. However, for the "Shopping list", only state changes (checking/unchecking items) are supported. Any attempts to rename items will not be saved.
 
 ## Defining a custom polling interval
 
