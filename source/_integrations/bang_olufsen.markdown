@@ -259,9 +259,34 @@ The Bang & Olufsen integration additionally supports different custom actions
 
 Join a Beolink experience.
 
-| Action data attribute | Optional | Description                           |
-| --------------------- | -------- | ------------------------------------- |
-| `beolink_jid`         | yes      | Manually specify Beolink JID to join. |
+| Action data attribute | Optional | Description                                                                                                                                                                                                                                                                                                                                          |
+| --------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `beolink_jid`         | yes      | Manually specify Beolink JID to join.                                                                                                                                                                                                                                                                                                                |
+| `source_id`           | yes      | Specify which source to join, behavior varies between hardware platforms. Source names prefaced by a platform name can only be used when connecting to that platform. For example "ASE Beoradio" can only be used when joining an ASE device, while ”ASE / Mozart Deezer” can be used with ASE or Mozart devices. A defined Beolink JID is required. |
+
+A limited selection of `source_id`'s are available. The below table shows which `source_id` can be joined on which hardware platform:
+
+| Hardware platform       | Compatible source_ids                      |
+| ----------------------- | ------------------------------------------ |
+| ASE                     | `beoradio`                                 |
+| ASE and Mozart          | `deezer`, `spotify`                        |
+| Mozart                  | `tidal`                                    |
+| Beolink Converter NL/ML | `radio`, `tp1`, `tp2`, `cd`, `aux_a`, `ph` |
+
+Trying to join an invalid source will result in either a Home Assistant error or an audible error indication from your device.
+
+##### Action usage example
+
+Join the `radio` source on a Beolink Converter NL/ML:
+
+```yaml
+action: bang_olufsen.beolink_join
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  beolink_jid: 1111.2222222.33333333@products.bang-olufsen.com
+  source_id: radio
+```
 
 #### `bang_olufsen.beolink_expand`
 
