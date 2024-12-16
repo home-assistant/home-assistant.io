@@ -20,26 +20,56 @@ The **Ohme** {% term integration %} allows you to connect your [Ohme](https://oh
 
 ## Prerequisites
 
-- A compatible charger. This integration has been tested with:
-  - Ohme Home Pro
-  - Ohme Home
-  - Ohme Go
-  - Ohme ePod
+- Ah Ohme account. If you signed up to Ohme with a third party account like Google, you will need to [reset your password](https://api.ohme.io/fleet/index.html#/authentication/forgotten-password) before configuring this integration.
+
+
+## Supported devices
+
+The following devices are known to be supported by the integration:
+- Ohme Home Pro
+- Ohme Home
+- Ohme Go
+- Ohme ePod
+
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
 Email:
     description: "Email to log in to your Ohme account."
-    required: true
-    type: string
 Password:
     description: "Password to log in to your Ohme account."
-    required: true
-    type: string
 {% endconfiguration_basic %}
 
-## Third party accounts
-If you signed up to Ohme with a third party account like Google, you will need to [reset your password](https://api.ohme.io/fleet/index.html#/authentication/forgotten-password) before configuring this integration.
+
+## Supported functionality
+
+### Entities
+
+The Ohme integration provides the following entities.
+
+#### Buttons
+
+- **Approve charge**
+  - **Description**: If sensor **Status** is `Pending approval`, this will approve the charge.
+  - **Available for devices**: all
+
+#### Sensors
+
+- **Status**
+  - **Description**: Current status of the charger. Possible states: `Unplugged`, `Pending approval`, `Plugged in`, `Charging`.
+  - **Available for devices**: all
+- **Power**
+  - **Description**: Power draw from the charger in kW.
+  - **Available for devices**: all
+- **Current**
+  - **Description**: Current draw from the charger in amperes.
+  - **Available for devices**: all
+- **Energy**
+  - **Description**: Energy consumption of the charger in kWh.
+  - **Available for devices**: all
+- **CT current**
+  - **Description**: If a current transformer (CT) was installed with your charger, this will show the current used by your whole home.
+  - **Available for devices**: Home Pro, ePod
 
 
 ## Removing the integration
@@ -47,19 +77,3 @@ If you signed up to Ohme with a third party account like Google, you will need t
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-
-## Sensor
-
-The {% term integration %} provides the following sensors:
-
-- **Status** - Current status of the charger. Possible states: `Unplugged`, `Pending approval`, `Plugged in`, `Charging`
-- **Power**
-- **Current**
-- **Energy**
-- **CT current** - If a current transformer (CT) was installed with your charger, this will show the current used by your whole home
-
-## Button
-
-The {% term integration %} provides the following button:
-
-- **Approve charge** - If sensor **Status** is `Pending approval`, this will approve the charge
