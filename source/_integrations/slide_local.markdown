@@ -39,12 +39,8 @@ To setup the integration you need the following information:
 {% configuration_basic %}
 hostname:
   description: Hostname or IP of the slide device.
-  required: true
-  type: string
 password:
   description: The device code of your Slide (inside of your Slide or in the box, 8 characters). Only required for API 1, with API 2 you can fill in anything here.
-  required: true
-  type: string
 {% endconfiguration_basic %}
 
 ## Supported functionality
