@@ -44,7 +44,7 @@ Home Assistant will detect nearby IronOS devices. Discovered devices will show u
 
 {% configuration_basic %}
 "Address":
-  description: "The Bluetooth address of the device. This is automatically detected by Home Assistant, so manual entry is not necessary."
+  description: "The Bluetooth address of the detected IronOS device."
 {% endconfiguration_basic %}
 
 ## Number controls
