@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `quantum_gateway` device tracker platform offers presence detection by looking at devices connected to a Verizon Fios gateway.

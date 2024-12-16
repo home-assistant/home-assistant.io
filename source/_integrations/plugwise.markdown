@@ -35,39 +35,59 @@ The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Ada
 
 Platforms available - depending on your Smile and setup include:
 
- - `climate` (for the Anna, Jip and Lisa products, or a single Tom)
- - `button` (for the Adam and the non-legacy Anna and P1 gateways)
- - `sensor` (for all relevant products including the Smile P1)
+ - `climate` (for the stand-alone Anna, for Adam, a climate entity is shown for each zone containing devices like an Anna or another type of wired-thermostat, Jip or Lisa combined with one or more Tom/Floor devices)
  - `binary_sensor` (for showing the status of e.g. domestic hot water heating or secondary heater)
- - `switch` (for Plugs connected to Adam, or Circles and Stealths connected to a Stretch)
+ - `button` (for the Adam and the non-legacy Anna and P1 gateways)
+ - `number` (for changing a boiler setpoint, a temperature offset)
+ - `sensor` (for all relevant products including the Smile P1)
  - `select` (for changing a thermostat schedule, a regulation mode (Adam only))
- - `number` (for changing a boiler setpoint, Circlesa temperature offset)
+ - `switch` (for Plugs connected to Adam, or Circles and Stealths connected to a Stretch)
 
-The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
 
- - Open the Plugwise App and choose the 'Settings'-icon (&#9776;) and choose 'HTML-interface'. 
- - Go to the (lower) 'Settings'-icon (&#9776;) and choose 'Preferences'. 
- - Choose 'System' then 'Networking' and your IP address will be shown.
+## Pre-requisites
+
+The Plugwise Smile(s) in your network will be automatically discovered and shown on the integrations dashboard. All you need is the Smile ID as its password, which is an 8-character string printed on the sticker on the bottom of your Smile. Repeat this for each individual Smile.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Smile. For example: `192.168.1.25`. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) -> **System** -> **Network**. If you are looking for a different device in the Plugwise App, on the main screen first select **Gateways** -> the Smile of your choice, and then follow the previous instruction. Normally, the Smile(s) are automatically discovered, and you don't have to provide the hostname or IP address."
+Username:
+  description: "Username to log in to the Smile. This should be just `smile` - or `stretch` for a Stretch."
+Password:
+  description: "This is the password (i.e. Smile ID) printed on the sticker on the back of your Smile (i.e. Adam, Smile-T, or P1) and should be 8 characters long."
+{% endconfiguration_basic %}
+
+### Further configuration
+
+For a thermostat, the active schedule can be deactivated or reactivated via the climate card. Please note, that when no schedule is active, one must first be activated in the Plugwise App. Once that has been done, the Plugwise Integration can manage future operations.
+
+Auto means the schedule is active, and Heat means it's not active. The active thermostat schedule can be changed via the connected thermostat select entity. Please note that only schedules with two or more schedule points will be shown as select options.
 
 ## Entities
 
-This integration will show all Plugwise entities present in your Plugwise configuration. In addition, you will see a 'Smile' entity representing your central Plugwise gateway (i.e., the Smile Anna, Smile P1, Adam or Stretch).
+This integration will show all Plugwise devices (like hardware devices, multi-thermostat climate-zones, and virtual switchgroups) present in your Plugwise configuration. In addition, you will see a Gateway device representing your central Plugwise gateway (i.e., the Smile Anna, Smile P1, Adam or Stretch).
 
-For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual entities. The heating/cooling device connected to your Smile will be shown as 'OpenTherm' or 'OnOff', depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as switches. Various other measurements of your setup will be available as sensors or as binary sensors.
+For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual devices. The heating/cooling device connected to your Smile will be shown as 'OpenTherm' or 'OnOff', depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be shown as devices as well.
 
-Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Adam will be assigned to your gateway entity. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff entity.
+Under each device there will be entities shown like binary_sensors, sensors, etc. depending on the capabilities of the device: for instance centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff device.
 
-## Configuration
+## Data updates
 
-The Plugwise Smile(s) present in your network will be automatically detected via Zeroconf discovery and will be shown on the Integrations-page. To set up an integration, click the "CONFIGURATION" button on the discovered integration and you will be presented with a dialog requesting your Smile password. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located. The username `smile` is shown as a default, when configuring your Stretch change this to `stretch` accordingly.
+The interval which the integration fetches data from the Smile depends on the device:
 
-Repeat the above procedure for each Smile gateway (i.e., if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
+- Power entities, such as the P1, will be refreshed every 10 seconds.
+- Climate entities will be refreshed every 60 seconds.
+- Stretch entities will be refreshed every 60 seconds.
 
-Please note: when you have an Anna and an Adam, make sure to only configure the Adam integration. You can press the "IGNORE" button on the Anna integration to remove this integration. In case you need to rediscover the Anna integration, make sure to click the "STOP IGNORING" button on the Plugwise integration first, available via "show ignored integrations".
+## Removing the integration
 
-For a thermostat, the active schedule can be deactivated or reactivated via the climate card. Please note, that when no schedule is active, one must first be activated in the Plugwise App. Once that has been done the Plugwise Integration can manage future operations.
+This integration follows standard integration removal. No extra steps are required within Home Assistant or on your Plugwise devices.
 
-Auto means the schedule is active, Heat means it's not active. The active thermostat schedule can be changed via the connected thermostat select-entity. Please note: that only schedules that have two or more schedule points will be shown as select options.
+{% include integrations/remove_device_service.md %}
+
+This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.
 
 ### Actions
 
@@ -82,7 +102,7 @@ script:
     sequence:
       - action: homeassistant.update_entity
         target:
-          entity_id: climate.anna
+          entity_id: climate.living_room
 ```
 
 #### Reboot the Plugwise gateway
@@ -124,7 +144,7 @@ script:
     sequence:
       - action: climate.set_hvac_mode
         target:
-          entity_id: climate.lisa_bios
+          entity_id: climate.living_room
         data:
           hvac_mode: auto
 ```
@@ -145,7 +165,7 @@ script:
     sequence:
       - action: climate.turn_off
         target:
-          entity_id: climate.lisa_bios
+          entity_id: climate.bios
 ```
 
 #### Change climate schedule
@@ -159,7 +179,7 @@ script:
     sequence:
       - action: select.select_option
         target:
-          entity_id: select.lisa_bios_thermostat_schedule
+          entity_id: select.bios_thermostat_schedule
         data:
           option: "Regulier"
 ```

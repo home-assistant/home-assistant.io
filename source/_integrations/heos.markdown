@@ -15,46 +15,27 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/category/heos/) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:
+The HEOS integration adds support for a [HEOS](https://www.denon.com/en-gb/category/heos/) System in Home Assistant.
 
-- Each device is represented as a media player entity
-- View the currently playing media
-- Control play mode (play, pause, stop, next and previous), volume, mute and shuffle
-- Clear playlist
-- Select source from device physical inputs and HEOS favorites
-- Create HEOS groups
+## Supported functionality
+
+- [Media Player](/integrations/media_player) {% term entities %} for each HEOS-capable product, including speakers, amps, and receivers (Denon and Marantz)
+- Viewing the currently playing media
+- Controlling play mode (i.e. play/pause), volume, mute, and shuffle
+- Playing HEOS favorites, playlists, quick selects, URLs
+- Setting the source to physical inputs (i.e. `AUX1`)
+- Grouping and ungrouping HEOS devices
+- Clearing playlists
 
 {% include integrations/config_flow.md %}
 
 {% note %}
-A connection to a single device enables control for all devices on the network. If you have multiple HEOS devices, enter the host of one that is connected to the LAN via wire or has the strongest wireless signal.
+This integration only connects to a single {% term host %} to access the entire HEOS System on the network. Select, or enter a host, that is connected to the LAN via wire or has the strongest wireless signal.
 {% endnote %}
 
-## Actions
+## Playing media
 
-### Action `heos.sign_in`
-
-Use the sign-in action (go to **Developer Tools** > **Actions** and then run the `heos.sign_in` with your username and password. Use the "Fill example data" first, then change it with your data. Check the logs right after, there you should see if the sign-in was successful or not) to sign the connected controller into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful. Example action data payload:
-
-```yaml
-action: heos.sign_in
-data:
-  username: "example@example.com"
-  password: "password"
-```
-
-| Data attribute | Optional | Description                                |
-| ---------------------- | -------- | ------------------------------------------ |
-| `username`             | no       | The username or email of the HEOS account. |
-| `password`             | no       | The password of the HEOS account.          |
-
-### Action `heos.sign_out`
-
-Use the sign-out action to sign the connected controller out of a HEOS account. An error message is logged if sign-out is unsuccessful. There are no parameters to this action.
-
-### Action `media_player.play_media`
-
-#### Play favorite
+### Play a favorite
 
 You can play a HEOS favorite by number or name with the `media_player.play_media` action. Example action data payload:
 
@@ -72,7 +53,7 @@ data:
 | `media_content_type`   | no       | Set to the value `favorite`                                         |
 | `media_content_id`     | no       | (i.e., `1`) or name (i.e., `Thumbprint Radio`) of the HEOS favorite |
 
-#### Play playlist
+### Play a playlist
 
 You can play a HEOS playlist with the `media_player.play_media` action. Example action data payload:
 
@@ -90,7 +71,7 @@ data:
 | `media_content_type`   | no       | Set to the value `playlist`   |
 | `media_content_id`     | no       | The name of the HEOS playlist |
 
-#### Play Quick Select
+### Play a Quick Select
 
 You can play a HEOS Quick Select by number or name with the `media_player.play_media` action. Example action data payload:
 
@@ -108,9 +89,15 @@ data:
 | `media_content_type`   | no       | Set to the value `quick_select`                                      |
 | `media_content_id`     | no       | The quick select number (i.e., `1`) or name (i.e., `Quick Select 1`) |
 
-#### Play URL
+### Play a URL
 
-You can play a URL through a HEOS media player using the `media_player.play_media` action. The HEOS player must be able to reach the URL. Example action data payload:
+You can play a URL through a HEOS media player using the `media_player.play_media` action. The HEOS player must be able to reach the URL.
+
+{% note %}
+The URL (`media_content_type`) must be 255 characters or fewer due to a limitation in the HEOS firmware.
+{% endnote %}
+
+Example action data payload:
 
 ```yaml
 action: media_player.play_media
@@ -120,15 +107,23 @@ data:
   media_content_id: "http://path.to/stream.mp3"
 ```
 
-| Data attribute | Optional | Description                                  |
-| ---------------------- | -------- | -------------------------------------------- |
-| `entity_id`            | yes      | `entity_id` of the player(s) to play the URL |
-| `media_content_type`   | no       | Set to the value `url`                       |
-| `media_content_id`     | no       | The full URL to the stream                   |
+| Data attribute | Optional | Description                                              |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `entity_id`            | yes      | `entity_id` of the player(s) to play the URL     |
+| `media_content_type`   | no       | Set to the value `url`                           |
+| `media_content_id`     | no       | The full URL to the stream (max 255 characters)  |
 
-### Action `media_player.join`
+## Grouping players
 
-For grouping HEOS media players together for synchronous playback you can use the `media_player.join` action. With the example action data payload down below you'll expand playback of `media_player.office` to the `media_player.kitchen` and `media_player.bathroom` players. Please note that all of the media players need to be HEOS players.
+### Join
+
+To group HEOS media players together for synchronous playback, use the `media_player.join` action.
+
+{% note %}
+All `group_members` need to be HEOS media players.
+{% endnote %}
+
+The example action data payload below will expand playback of `media_player.office` to the `media_player.kitchen` and `media_player.bathroom` players:
 
 ```yaml
 action: media_player.join
@@ -144,10 +139,9 @@ data:
 | `entity_id`            | yes      | The media player entity whose playback will be expanded to the players specified in `group_members`. |
 | `group_members`        | no       | The player entities which will be synced with the playback from `entity_id`.                         |
 
+### Unjoin
 
-### Action `media_player.unjoin`
-
-For removing a HEOS player from a group you can use the `media_player.unjoin` action.
+For removing a HEOS player from a group, use the `media_player.unjoin` action.
 
 ```yaml
 action: media_player.unjoin
@@ -157,12 +151,50 @@ data:
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | yes      | Unjoin this media player from any player groups. |
+| `entity_id`            | yes      | Remove this media player from any player groups. |
 
-## Notes
+## Actions
 
-- Receivers with multiple zones are represented as a single media player. They will be turned on when playback is started, but cannot be turned off by the integration at this time.
-- [Denon AVR](/integrations/denonar/) and HEOS media players can be combined into a [Universal Media Player](/integrations/universal/#denon-avr--heos)
+The HEOS integration makes various custom {% term actions %} available in addition to the standard [Media Player actions](/integrations/media_player#actions).
+
+### Action `heos.sign_in`
+
+Use the sign-in action to sign the connected device into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful.
+
+{% note %}
+The device the integration connects to authenticates independently of other devices and the HEOS mobile app. When you first set up the integration, or after a device firmware update, the device will most likely not be logged in.
+{% endnote %}
+
+To run, go to **Developer Tools** > **Actions** and then type in `heos.sign_in`. Then enter your HEOS account username and password, and click the Perform Action button. An error message is only logged if sign-in is unsuccessful.
+
+Example action data payload:
+
+```yaml
+action: heos.sign_in
+data:
+  username: "example@example.com"
+  password: "password"
+```
+
+| Data attribute | Optional | Description                                |
+| ---------------------- | -------- | ------------------------------------------ |
+| `username`             | no       | The username or email of the HEOS account. |
+| `password`             | no       | The password of the HEOS account.          |
+
+### Action `heos.sign_out`
+
+Use the sign-out action to sign the connected device out of a HEOS account. An error message is logged if sign-out is unsuccessful. There are no parameters to this action Example action data payload:
+
+```yaml
+action: heos.sign_out
+data: {% raw %}{}{% endraw %}
+```
+
+## Known limitations
+
+- AVR receiver features, such as zone selection/control and power on/off, cannot be controlled through this integration. Use the [Universal Media Player](/integrations/universal/#denon-avr--heos) to combine AVR receiver functionality with this integration.
+- {% term TTS %} is not supported.
+- The maximum length of a URL that can be used in the `play_media` action is 255 characters due to a limitation in the HEOS firmware.
 
 ## Troubleshooting
 

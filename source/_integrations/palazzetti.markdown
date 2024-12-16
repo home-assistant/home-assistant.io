@@ -11,7 +11,10 @@ ha_codeowners:
 ha_domain: palazzetti
 ha_platforms:
   - climate
+  - diagnostics
+  - sensor
 ha_integration_type: device
+ha_dhcp: true
 ---
 
 The **Palazzetti** {% term integration %} integrates the [Palazzetti](https://palazzettigroup.com/)
@@ -22,7 +25,7 @@ It is accessing the device's local API.
 
 ## Climate
 
-The Palazetti integration offers a climate entity that allows you to read the
+The Palazzetti integration offers a climate entity that allows you to read the
 room temperature, start and stop the stove, set the target temperature, and set
 the fan speed.
 
@@ -39,3 +42,17 @@ This integration supports the following actions (see [Climate](/integrations/cli
   - `1`, `2`, `3`, `4`, `5` increasing fan speeds
   - `High` the highest available fan speed
   - `Auto` let the stove set the optimal fan speed
+
+## Sensors
+
+The Palazzetti integration offers the following sensors, for the products that provide them:
+
+- Outlet air temperature (°C)
+- Wood combustion temperature (°C)
+- Room temperature (°C)
+- Return water temperature (°C)
+- Tank water temperature (°C)
+- Hydro temperature 1 (°C)
+- Hydro temperature 2 (°C)
+- Pellet quantity (kg)
+- Pellet level (cm)
