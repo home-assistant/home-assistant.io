@@ -64,11 +64,9 @@ As Cookidoo cannot share shopping lists between accounts and everybody interacti
 
 The Home Assistant to-do list interface allows both renaming items and changing their state. However, for the "Shopping list", only state changes (checking/unchecking items) are supported. Any attempts to rename items will not be saved.
 
-## Defining a custom polling interval
+## Data updates
 
-The default polling interval is set to `90s`. This interval balances timely updates with server load. You might want to adjust this based on how frequently your shopping lists are updated.
-
-{% include common-tasks/define_custom_polling.md %}
+The Cookidoo integration fetches data from the device every 90 seconds by default.
 
 ## Remove integration
 
