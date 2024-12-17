@@ -40,8 +40,20 @@ Extra attributes of `Water usage yesterday` sensor:
 - Last year total consumption
 - Current year total consumption
 
+## Data updates
+
+By default the integration try fetching new data every 12 hours (this can be updated using [reconfigure](#configure-refresh-interval)).
+
+Water consumption data is typically updated in the morning of the following day by Suez, but it can sometimes be longer.
+Other data are updated at need by Suez and fetched by the integration.
+
 ## Remove integration
 
 This integration can be removed by following these steps:
 
 {% include integrations/remove_device_service.md %}
+
+## Configure refresh interval
+
+This integration supports updating its configuration through a `reconfigure` menu option. The reconfiguration allows for changing the refresh interval.
+The interval can be set between 1 and 23 hours, remember that the data is made available at most once a day by Suez (see [data updates](#data-updates)).
