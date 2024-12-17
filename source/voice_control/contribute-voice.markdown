@@ -19,7 +19,7 @@ Give us a minute of your time to improve the sample database with your own sampl
 
 ### Donate your voice to Piper
 
-To create a Piper voice, you don't need an army of volunteers. You need a native speaker of a language to create a dataset, which is then trained into a Piper model and verified again by the native speaker. 
+To create a Piper voice, you don't need an army of volunteers. You need a native speaker of a language to create a dataset, which is then trained into a Piper model and verified again by the native speaker.
 
 Check the Training guide [here](https://github.com/rhasspy/piper/blob/master/TRAINING.md).
 
