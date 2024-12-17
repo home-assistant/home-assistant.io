@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://wiki.openwrt.org/doc/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.

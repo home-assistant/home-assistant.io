@@ -17,7 +17,6 @@ ha_platforms:
   - sensor
 ha_config_flow: true
 ha_integration_type: integration
-ha_quality_scale: platinum
 ---
 
 The `tankerkoenig` platform allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.

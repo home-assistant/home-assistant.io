@@ -11,6 +11,8 @@ ha_codeowners:
 ha_domain: palazzetti
 ha_platforms:
   - climate
+  - diagnostics
+  - sensor
 ha_integration_type: device
 ha_dhcp: true
 ---
@@ -121,3 +123,4 @@ During certain operations, it is not possible to turn the stove on or off. This 
 only when the status of the stove is one of `off`, `off_timer`, `burning`, `burning_mod`, `cool_fluid`,
 `clean_fire`, `cooling`, `ecomode`, `firewood_finished`.
 {% enddetails %}
+

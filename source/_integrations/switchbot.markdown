@@ -166,12 +166,13 @@ cover:
 
 The SwitchBot integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-{% configuration_basic %}
-"Config flow could not be loaded":
-  description: Possible custom integration conflict, using a different version of PySwitchbot; Try uninstalling the custom integration.
-"No unconfigured devices found":
-  description: Make sure your devices are powered on and are in range.
-{% endconfiguration_basic %}
+{% details "Config flow could not be loaded" %}
+Possible custom integration conflict, using a different version of PySwitchbot; Try uninstalling the custom integration.
+{% enddetails %}
+
+{% details "No unconfigured devices found" %}
+Make sure your devices are powered on and are in range.
+{% enddetails %}
 
 ### Slow connection times
 

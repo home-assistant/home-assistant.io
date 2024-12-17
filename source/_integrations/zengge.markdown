@@ -14,6 +14,7 @@ ha_codeowners:
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `zengge` {% term integration %} allows you to integrate your [Zengge Bluetooth bulbs](http://www.zengge.com/) into Home Assistant.

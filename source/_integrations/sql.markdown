@@ -130,6 +130,8 @@ There is no explicit configuration required for attributes. The integration will
 
 Note that in all cases only the first row returned will be used.
 
+{% include integrations/using_templates.md %}
+
 ## Examples
 
 In this section, you find some real-life examples of how to use this sensor.

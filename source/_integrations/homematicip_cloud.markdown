@@ -15,7 +15,6 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.66
 ha_config_flow: true
-ha_quality_scale: silver
 ha_domain: homematicip_cloud
 ha_platforms:
   - alarm_control_panel

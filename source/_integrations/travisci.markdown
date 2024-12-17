@@ -9,6 +9,7 @@ ha_domain: travisci
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 With this sensor platform, you will be able to integrate the test build results reported by [Travis-CI](https://travis-ci.org/) working within Home Assistant.

@@ -9,6 +9,7 @@ ha_domain: thermoworks_smoke
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `thermoworks_smoke` sensor platform pulls data for your [ThermoWorks Smoke Thermometer](https://www.thermoworks.com/Smoke).

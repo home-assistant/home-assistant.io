@@ -9,7 +9,6 @@ ha_domain: vulcan
 ha_codeowners:
   - '@Antoni-Czaplicki'
 ha_config_flow: true
-ha_quality_scale: silver
 ha_platforms:
   - calendar
 ha_integration_type: integration
