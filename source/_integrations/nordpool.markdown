@@ -191,7 +191,7 @@ Using a trigger template, you can create a template sensor to calculate tomorrow
 {% note %}
 You need to replace the `config_entry` with your own Nord Pool config entry id.
 
-Unless manually converted in the template, all prices are displayed as `[Currency]/MWh`.
+Below example will convert the action calls MWh price to kWh price in the selected currency and add all prices for tomorrow as a list in an attribute.
 {% endnote %}
 
 {% raw %}
@@ -202,11 +202,11 @@ template:
       - trigger: time_pattern
         minutes: /10
       - trigger: homeassistant
-        event: startup
+        event: start
     action:
       - action: nordpool.get_prices_for_date
         data:
-          config_entry: 1234567890A
+          config_entry: 01JEDAR1YEHJ6DZ376MP24MRDG
           date: "{{ now().date() + timedelta(days=1) }}"
           areas: SE3
           currency: SEK
@@ -220,12 +220,21 @@ template:
           {% else %}
             {% set data = namespace(prices=[]) %}
             {% for state in tomorrow_price['SE3'] %}
-              {% set data.prices = data.prices + [state.price] %}
+              {% set data.prices = data.prices + [(state.price / 1000)] %}
             {% endfor %}
             {{min(data.prices)}}
           {% endif %}
         attributes:
-          data: "{{ tomorrow_price['SE3'] }}"
+          data: >
+            {% if not tomorrow_price %}
+              []
+            {% else %}
+              {% set data = namespace(prices=[]) %}
+              {% for state in tomorrow_price['SE3'] %}
+                {% set data.prices = data.prices + [{'start':state.start, 'end':state.end, 'price': state.price/1000}] %}
+              {% endfor %}
+              {{data.prices}}
+            {% endif %}
 ```
 
 {% endraw %}
