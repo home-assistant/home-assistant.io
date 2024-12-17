@@ -188,6 +188,12 @@ template:
 
 Using a trigger template, you can create a template sensor to calculate tomorrow's lowest price which also puts the list of all prices in the attributes of the sensor.
 
+{% note %}
+You need to replace the `config_entry` with your own Nord Pool config entry id.
+
+Unless manually converted in the template, all prices are displayed as `[Currency]/MWh`.
+{% endnote %}
+
 {% raw %}
 
 ```yaml
