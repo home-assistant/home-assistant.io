@@ -195,6 +195,8 @@ template:
   - trigger:
       - trigger: time_pattern
         minutes: /10
+      - trigger: homeassistant
+        event: startup
     action:
       - action: nordpool.get_prices_for_date
         data:
