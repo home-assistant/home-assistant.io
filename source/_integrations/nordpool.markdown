@@ -184,6 +184,44 @@ template:
 
 {% endraw %}
 
+### Tomorrow's lowest price
+
+Using a trigger template, you can create a template sensor to calculate tomorrow's lowest price which also puts the list of all prices in the attributes of the sensor.
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - trigger: time_pattern
+        minutes: /10
+    action:
+      - action: nordpool.get_prices_for_date
+        data:
+          config_entry: 1234567890A
+          date: "{{ now().date() + timedelta(days=1) }}"
+          areas: SE3
+          currency: SEK
+        response_variable: tomorrow_price
+    sensor:
+      - name: Tomorrow lowest price
+        unique_id: se3_tomorrow_low_price
+        state: >
+          {% if not tomorrow_price %}
+            unavailable
+          {% else %}
+            {% set data = namespace(prices=[]) %}
+            {% for state in tomorrow_price['SE3'] %}
+              {% set data.prices = data.prices + [state.price] %}
+            {% endfor %}
+            {{min(data.prices)}}
+          {% endif %}
+        attributes:
+          data: "{{ tomorrow_price['SE3'] }}"
+```
+
+{% endraw %}
+
 ### Energy Dashboard
 
 To use the Nordpool integration in the **Energy** dashboard, when configuring grid consumption and production, use the **Use an entity with current price** option.
