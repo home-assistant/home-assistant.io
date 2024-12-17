@@ -8,6 +8,10 @@ related:
   - url: https://www.nabucasa.com/config/
     title: Home Assistant Cloud
 ---
+Home Assistant Voice relies on different technologies, models and data sources to be able to process wake words and commands in all languages. These projects, by our and other communities, rely on volunteers to donate their time, voice or language knowledge for improvement.
+
+Note that models are trained on lots of data and that it can take time before you are able to see the impact of them.
+
 ### Contribute samples to Wake Word Collective
 
 Give us a minute of your time to improve the sample database with your own samples. Find the form [here](https://ohf-voice.github.io/wake-word-collective/).  
