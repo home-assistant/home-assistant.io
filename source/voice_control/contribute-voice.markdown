@@ -10,7 +10,7 @@ related:
 ---
 Home Assistant Voice relies on different technologies, models and data sources to be able to process wake words and commands in all languages. These projects, by ours and other communities, rely on volunteers to donate their time, voice or language knowledge for improvement.
 
-Note that models are trained on lots of data and that it can take time before you are able to see the impact of them.
+Note that models are trained on lots of data and that it can take time before you are able to see the impact of your contributions.
 
 ### Contribute samples to Wake Word Collective
 
