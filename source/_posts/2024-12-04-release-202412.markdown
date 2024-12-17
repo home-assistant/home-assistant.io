@@ -70,6 +70,7 @@ Happy holidays! And for the last time in 2024: Enjoy the release!
   - [2024.12.1 - December 6](#2024121---december-6)
   - [2024.12.2 - December 10](#2024122---december-10)
   - [2024.12.3 - December 13](#2024123---december-13)
+  - [2024.12.4 - December 17](#2024124---december-17)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -596,6 +597,58 @@ release every Friday.
 [@synesthesiam]: https://github.com/synesthesiam
 [@weltall]: https://github.com/weltall
 [@zxdavb]: https://github.com/zxdavb
+
+### 2024.12.4 - December 17
+
+- Simplify recorder RecorderRunsManager ([@emontnemery] - [#131785])
+- Fix fibaro climate hvac mode ([@rappenze] - [#132508])
+- Bump yt-dlp to 2024.12.13 ([@joostlek] - [#133129])
+- Fix strptime in python_script ([@gjohansson-ST] - [#133159])
+- Bump yalexs-ble to 2.5.4 ([@bdraco] - [#133172])
+- Bump starlink-grpc-core to 1.2.1 to fix missing ping ([@MrConorAE] - [#133183])
+- Bump aiolifx to 1.1.2 and add new HomeKit product prefixes ([@Djelibeybi] - [#133191])
+- Revert "Simplify recorder RecorderRunsManager" ([@emontnemery] - [#133201])
+- Revert "Improve recorder history queries (#131702)" ([@emontnemery] - [#133203])
+- Bump incomfort-client to v0.6.4 ([@jbouwh] - [#133205])
+- Bump yalexs-ble to 2.5.5 ([@bdraco] - [#133229])
+- Set code_arm_required to False for homekit_controller ([@bdraco] - [#133284])
+- Allow load_verify_locations with only cadata passed ([@mib1185] - [#133299])
+- Bump `imgw-pib` to version 1.0.7 ([@bieniu] - [#133364])
+- Fix fan setpoints for flexit_bacnet ([@lellky] - [#133388])
+- Bump holidays to 0.63 ([@gjohansson-ST] - [#133391])
+
+[#131785]: https://github.com/home-assistant/core/pull/131785
+[#132195]: https://github.com/home-assistant/core/pull/132195
+[#132508]: https://github.com/home-assistant/core/pull/132508
+[#132509]: https://github.com/home-assistant/core/pull/132509
+[#132846]: https://github.com/home-assistant/core/pull/132846
+[#133123]: https://github.com/home-assistant/core/pull/133123
+[#133129]: https://github.com/home-assistant/core/pull/133129
+[#133159]: https://github.com/home-assistant/core/pull/133159
+[#133172]: https://github.com/home-assistant/core/pull/133172
+[#133183]: https://github.com/home-assistant/core/pull/133183
+[#133191]: https://github.com/home-assistant/core/pull/133191
+[#133201]: https://github.com/home-assistant/core/pull/133201
+[#133203]: https://github.com/home-assistant/core/pull/133203
+[#133205]: https://github.com/home-assistant/core/pull/133205
+[#133229]: https://github.com/home-assistant/core/pull/133229
+[#133284]: https://github.com/home-assistant/core/pull/133284
+[#133299]: https://github.com/home-assistant/core/pull/133299
+[#133364]: https://github.com/home-assistant/core/pull/133364
+[#133388]: https://github.com/home-assistant/core/pull/133388
+[#133391]: https://github.com/home-assistant/core/pull/133391
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@MrConorAE]: https://github.com/MrConorAE
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@lellky]: https://github.com/lellky
+[@mib1185]: https://github.com/mib1185
+[@rappenze]: https://github.com/rappenze
 
 ## Need help? Join the community!
 
