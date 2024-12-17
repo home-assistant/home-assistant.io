@@ -39,12 +39,15 @@ To setup the integration you need the following information:
 {% configuration_basic %}
 hostname:
   description: Hostname or IP of the slide device.
-  required: true
-  type: string
 password:
   description: The device code of your Slide (inside of your Slide or in the box, 8 characters). Only required for API 1, with API 2 you can fill in anything here.
-  required: true
-  type: string
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Invert position:
+  description: Check the box, if your cover uses inverted positions for open and closed.
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -56,6 +59,10 @@ Your slide device will appear as cover.
 ### Button
 
 You can start the calibration sequence for your slide by pushing on the Calibration button.
+
+### Switch
+
+You can enable/disable the Touch&Go functionality (open/close cover by a short pull on the cover) by using the TouchGo switch.
 
 ## Data updates
 

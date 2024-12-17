@@ -117,6 +117,7 @@ This {% term integration %} provides the following {% term platforms %}:
 
 {% warning %}
 Every platform except **binary sensors** and **sensors** can change the state of your vehicle. Once you change the state in Home Assistant, a command is sent to your car. 
+{% endwarning %}
 
 &nbsp;
 
