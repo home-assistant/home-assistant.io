@@ -239,6 +239,10 @@ template:
 
 {% endraw %}
 
+<p class='img'>
+  <img src='/images/integrations/nordpool/nordpool_tomorrow_lowest_price.png' alt='Screenshot: Trigger template: Tomorrow lowest price'>
+</p>
+
 ### Energy Dashboard
 
 To use the Nordpool integration in the **Energy** dashboard, when configuring grid consumption and production, use the **Use an entity with current price** option.
