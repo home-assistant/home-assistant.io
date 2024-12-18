@@ -38,11 +38,11 @@ This integration supports Plugwise devices connected to a network connected hub 
 
 - Full zonecontrol using the [Adam](https://www.plugwise.com/en_US/zonecontrol) using [additional devices](#devices-overview) such as smart valves and smart-plugs.
 - A stand-alone smart thermostat called [Anna](https://www.plugwise.com/en_US/products/anna).
-- For power monitoring there is one simply called the [P1](https://www.plugwise.com/en_US/products/smile-p1).
+- For power monitoring there is a device simply called the [P1](https://www.plugwise.com/en_US/products/smile-p1).
 - Although no longer sold, there also is support for Stretch, a gateway to create network connectivity for their older power products.
 - __Not supported yet__: The newest in the family, [Anna P1](https://www.plugwise.com/product/anna-p1/) cleverly uses energy (solar) information to transfer abundant energy in heatpump usage.
 
-Plugwise formerly sold power based products using a USB stick as the controller. This integration does not support the `Stick` directly, see [legacy power devices](#legacy-power-devices) for more information.
+Plugwise formerly sold power-based products using a USB stick as the controller. This integration does not support the `Stick` directly, see [legacy power devices](#legacy-power-devices) for more information.
 
 ## Platforms
 
@@ -231,7 +231,7 @@ script:
 
 ### Sensor
 
-A number of [sensors](/integrations/sensor) will be available, included but not limited to the examples shown below. By default not all sensors will be shown, for example; we disable the Anna's `outdoor_temperature` sensor in favor of the one provided by an auxiliary device if it has one.
+A number of [sensors](/integrations/sensor) will be available, included but not limited to the examples shown below. By default, not all sensors will be shown, for example; we disable the Anna's `outdoor_temperature` sensor in favor of the one provided by an auxiliary device if it has one.
 
 Example sensors (not extensive):
 
@@ -240,7 +240,7 @@ Example sensors (not extensive):
 |Outdoor temperature | For Anna, this will show the temperature it retrieves from the internet, unless you have an auxiliary device with a temperature sensor |
 |Indoor temperature | For Anna, Lisa or Jip this will show the temperature measured at the specific thermostat |
 |P1 Net Electricity Point | Your netto electricity use at this time, can be negative when producing energy, i.e. though solar panels |
-|P1 Electricity Produced off peak cumulative | The total produced electricity during off peak |
+|P1 Electricity Produced off-peak cumulative | The total produced electricity during off-peak |
 |Gas Consumed Interval | The gas consumed since the last interval |
 
 ### Select
@@ -272,13 +272,12 @@ Allows commanding [switches](/integrations/switch), e.g. `on`/`off` for Plugs or
 ### Troubleshooting
 
 #### Accessing the local device
-accessing-the-local-device
 
 If you need to configure the Smile directly, without using the Plugwise App, you can find the link to your device by:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
 2. If you have more than one Plugwise Smile, select the one to configure.
-3. Select the device with 'Smile' in it's name.
+3. Select the device with 'Smile' in its name.
 4. On the integration entry, choose to open the configuration URL left of the {% icon "mdi:dots-vertical" %} icon.
 5. A new window/tab will open, enter `smile` (or `stretch`) as the username and your Smile ID as the password.
 6. Consult the manual or click the `search` button on the [Plugwise Support](https://plugwise.com/support/) page for interactive help.
