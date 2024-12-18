@@ -14,7 +14,7 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The `russound_rio` {% term integration %} allows you to control Russound devices that make use of the RIO protocol.
+The Russound RIO {% term integration %} allows you to control Russound devices that make use of the RIO protocol.
 
 The platform automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information is supported if the selected source reports it. The integration allows you to navigate presets, control volume of all zones, and play radio stations all from your Home Assistant dashboard.
 
