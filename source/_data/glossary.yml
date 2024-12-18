@@ -92,18 +92,18 @@
     - binary_sensors
 - term: Blueprint
   definition: >-
-    A blueprint is a script or automation configuration with certain parts
-    marked as configurable. This allows users to create multiple scripts or
-    automations based on the same blueprint, with each having its own
+    A blueprint is a script, automation or template entity configuration with certain parts
+    marked as configurable. This allows users to create multiple scripts,
+    automations or template entities based on the same blueprint, with each having its own
     configuration-specific settings. Blueprints are shared by the community on
     the [blueprints
     exchange](https://community.home-assistant.io/c/blueprints-exchange/53) in
     the forum.
   link: /docs/blueprint/
   excerpt: >-
-    A blueprint is a script or automation configuration with certain parts
-    marked as configurable. This allows users to create multiple scripts or
-    automations based on the same blueprint, with each having its own
+    A blueprint is a script, automation or template entity configuration with certain parts
+    marked as configurable. This allows users to create multiple scripts,
+    automations or template entities based on the same blueprint, with each having its own
     configuration-specific settings.
   aliases:
     - blueprints
@@ -205,6 +205,11 @@
   definition: >-
     Device trackers are used to track the presence, or location, of a device.
   link: /integrations/device_tracker
+- term: Diagnostics
+  definition: >-
+    The diagnostics integration provides a way to download diagnostic data from a device or integration for sharing in issue reports. Sharing diagnostics data when reporting an issue allows developers to diagnose and
+    fix your reported problem quicker.
+  link: /integrations/diagnostics
 - term: Discovery
   definition: >
     Discovery is the automatic setup of zeroconf/mDNS and uPnP devices after
@@ -361,6 +366,12 @@
   link: https://en.wikipedia.org/wiki/Host_(network)
   aliases:
     - hosts
+- term: Image
+  definition: >-
+    The Image integration allows other integrations to display a static image.
+  link: /integrations/image
+  aliases:
+    - images
 - term: Integration
   definition: >-
     Integrations connect and integrate Home Assistant with devices, services,
@@ -548,6 +559,8 @@
     Switches are things that have two states you can select between, such as
     turning on or off a socket.
   link: /integrations/switch/
+  aliases:
+    - switches
 - term: Template
   definition: >-
     A template is an automation definition that can include variables for the
@@ -598,6 +611,18 @@
   definition: >-
     TTS (text-to-speech) allows Home Assistant to talk to you.
   link: /integrations/tts/
+
+- term: Update
+  definition: >-
+    An update entity is an entity that indicates if an update is available for a
+    device or service. This can be any update, be it a firmware update
+    for a device like a light bulb or router, or a software update for an add-on or a container.
+  excerpt: >
+    An update entity is an entity that indicates if an update is available for a
+    device or service.
+  link: /integrations/update
+  aliases:
+    - updates
 
 - term: Valve
   definition: >-

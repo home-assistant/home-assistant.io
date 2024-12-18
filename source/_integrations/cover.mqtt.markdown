@@ -148,6 +148,10 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -199,6 +203,10 @@ payload_stop:
   required: false
   type: string
   default: STOP
+platform:
+  description: Must be `cover`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 position_closed:
   description: Number which represents closed position.
   required: false
@@ -306,7 +314,7 @@ tilt_status_topic:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 value_template:

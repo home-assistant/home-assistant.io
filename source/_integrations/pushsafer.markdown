@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The [Pushsafer service](https://www.pushsafer.com/) is a platform for the notify integration. This allows you to send messages to the user using Pushsafer.

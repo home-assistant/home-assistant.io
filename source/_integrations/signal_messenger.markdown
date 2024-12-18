@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `signal_messenger` {% term integration %} uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
@@ -173,4 +174,21 @@ actions:
   - action: notify.signal
     data:
       message: "Message received!"
+```
+
+**NOTE** If the parameter `mode` is set to `json-rpc`, then you can use [signal-api-receiver](https://github.com/kalbasit/signal-api-receiver) to receive from Signal as follows:
+
+```yaml
+- resource: "http://127.0.0.1:8105/receive/pop"
+  sensor:
+    - name: "Signal message received"
+      value_template: >
+        {{ value_json['envelope']['dataMessage']['message'] }}
+      json_attributes_path: envelope
+      json_attributes:
+        - source
+        - sourceNumber
+        - sourceUuid
+        - sourceDevice
+        - timestamp
 ```

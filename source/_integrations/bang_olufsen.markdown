@@ -8,6 +8,7 @@ ha_release: 2024.2
 ha_iot_class: Local Push
 ha_domain: bang_olufsen
 ha_platforms:
+  - diagnostics
   - media_player
 ha_codeowners:
   - '@mj23000'
@@ -33,21 +34,58 @@ Devices that have been tested and _should_ work without any trouble are:
 - [Beosound Level](https://www.bang-olufsen.com/en/dk/speakers/beosound-level)
 - [Beosound Theatre](https://www.bang-olufsen.com/en/dk/soundbars/beosound-theatre)
 
-and any other Mozart based products.
+and any other [Mozart](https://support.bang-olufsen.com/hc/en-us/articles/24766979863441-Which-platform-is-my-Connected-Audio-product-based-on) based products. This means all [Connected Speakers](https://www.bang-olufsen.com/en/dk/story/connected-speakers) that have been launched after 2020.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 IP Address:
   description: The IP address of your device. Can be found by navigating to the device on the [Bang & Olufsen app](https://www.bang-olufsen.com/en/dk/story/apps) and selecting `Settings` → `About` → `IP address`.
-  required: true
-  type: string
 Device model:
   description: The model name of your Bang & Olufsen device. This is used to determine some capabilities of the device. If the device is not in the list yet, choose a product similar to yours.
-  required: true
-  type: string
 {% endconfiguration_basic %}
 
+## Data updates
+
+The **Bang & Olufsen** integration uses the [Mozart API](https://bang-olufsen.github.io/mozart-open-api), which is a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume etc. The only exception to this is the repeat and shuffle controls which are polled every 30 seconds.
+
+## Supported features
+
+Currently, a single device with a `media_player` entity is created for each added physical device. For advanced automations, [events](#automations) are fired in Home Assistant.
+
+### Media player
+
+A number of features are available through the media player entity:
+
+- See current metadata, progress, volume, etc.
+- Control next/previous, play/pause, shuffle/repeat settings, volume, sound mode, audio and video sources, and more.
+- Play various media through [play_media actions](#play_media-actions).
+- Control multiroom audio through [Beolink](https://support.bang-olufsen.com/hc/en-us/articles/4411572883089-What-is-Beolink-Multiroom):
+  - Control with Home Assistant media_player grouping.
+  - Monitor current [Beolink state](#beolink) through media player properties.
+  - For more advanced usage, [custom Beolink services](#custom-actions) have been defined:
+     - Connect or expand to [ASE](https://support.bang-olufsen.com/hc/en-us/articles/24766979863441-Which-platform-is-my-Connected-Audio-product-based-on) products not available in Home Assistant.
+     - Expand sessions to all discovered devices.
+     - Connect to, expand to or unexpand devices.
+     - Set all connected Beolink devices to standby.
+
+## Limitations
+
+Currently, some features of the Mozart platform such as:
+
+- Creating timers and alarms
+- Retrieving detailed alarm and timer information
+
+And more advanced app-centric features such as:
+
+- Creating presets
+- Creating listening positions
+- Creating sound modes
+- Creating stereo pairs
+- Adjusting specific sound settings
+- Pairing remotes
+
+These features are not available through the API. Some may become available at a later point, but until then the [Bang & Olufsen App](https://www.bang-olufsen.com/en/dk/story/apps) can be used to configure these settings and features.
 
 ## Actions
 
@@ -197,7 +235,7 @@ Bang & Olufsen Cloud TTS messages are limited to 100 unique messages a day and a
 
 Extra keys available:
 
-| Data attribute    | Optional | Description                                                                                       |
+| Data attribute            | Optional | Description                                                                                       |
 | ------------------------- | -------- | ------------------------------------------------------------------------------------------------- |
 | `overlay_absolute_volume` | yes      | Specify an absolute volume for the overlay.                                                       |
 | `overlay_offset_volume`   | yes      | Specify a volume offset to be added to the current volume level.                                  |
@@ -234,6 +272,7 @@ data:
 ```
 
 Playing a Bang & Olufsen Cloud TTS message with a local language:
+
 ```yaml
 action: media_player.play_media
 target:
@@ -246,6 +285,43 @@ data:
     overlay_tts_language: da-dk
 ```
 
+### Custom actions
+
+The Bang & Olufsen integration additionally supports different custom actions
+
+#### `bang_olufsen.beolink_join`
+
+Join a Beolink experience.
+
+| Action data attribute | Optional | Description                           |
+| --------------------- | -------- | ------------------------------------- |
+| `beolink_jid`         | yes      | Manually specify Beolink JID to join. |
+
+#### `bang_olufsen.beolink_expand`
+
+Expand current Beolink experience.
+
+| Action data attribute | Optional | Description                                                      |
+| --------------------- | -------- | ---------------------------------------------------------------- |
+| `all_discovered`      | yes      | Expand Beolink experience to all discovered devices.             |
+| `beolink_jids`        | yes      | Specify which Beolink JIDs will join current Beolink experience. |
+
+#### `bang_olufsen.beolink_unexpand`
+
+Unexpand from current Beolink experience.
+
+| Action data attribute | Optional | Description                                                            |
+| --------------------- | -------- | ---------------------------------------------------------------------- |
+| `beolink_jids`        | no       | Specify which Beolink JIDs will leave from current Beolink experience. |
+
+#### `bang_olufsen.beolink_leave`
+
+Leave a Beolink experience.
+
+#### `bang_olufsen.beolink_allstandby`
+
+Set all connected Beolink devices to standby.
+
 ## Automations
 
 WebSocket notifications received from the device are fired as events in Home Assistant. These can be received by listening to `bang_olufsen_websocket_event` event types, where `device_id` or `serial_number` can be used to differentiate devices.
@@ -257,4 +333,28 @@ To find Deezer playlist, album URIs, and user IDs for Deezer flows, the Deezer w
 Additionally a Deezer user ID can be found at <https://www.deezer.com/en/profile/USER_ID> by selecting the active user in a web browser.
 
 ### Getting Tidal URIs
+
 Tidal playlists, album URIs and track IDs are available via the Tidal website. When navigating to an album, the URL will look something like <https://listen.tidal.com/album/ALBUM_ID/>, and this needs to be converted to `album:ALBUM_ID`. The same applies to playlists, which have the format `playlist:PLAYLIST_ID`. Individual tracks can be found by sharing the track and selecting the `Copy track link` method, which should yield a link of the format <https://tidal.com/browse/track/TRACK_ID?u>, this can be played by extracting the track id `TRACK_ID`.
+
+### Beolink
+
+Discovered devices and devices in an active Beolink experience are available in the properties of the media_player entity. A device is represented by its friendly name and JID, used for connecting devices.
+
+```yaml
+beolink:
+  self: The current device
+  leader: Beolink leader (if available)
+  listeners: Beolink listeners (if available)
+  peers: Beolink peers (if available)
+```
+
+## Diagnostics and troubleshooting
+
+The **Bang & Olufsen** integration supports [Home Assistant debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+Where all received WebSocket events are provided through debug logs and the WebSocket connection state, config entry and media player state is provided through diagnostics.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

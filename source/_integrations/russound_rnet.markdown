@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `russound_rnet` {% term integration %} allows you to control Russound devices that make use of the RNET protocol.

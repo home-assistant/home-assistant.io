@@ -16,7 +16,6 @@ ha_codeowners:
   - '@2Fake'
   - '@Shutgun'
 ha_domain: devolo_home_control
-ha_quality_scale: gold
 ha_platforms:
   - binary_sensor
   - climate
@@ -30,13 +29,15 @@ ha_zeroconf: true
 ha_integration_type: hub
 ---
 
-devolo Home Control is a Z-Wave ecosystem with a Z-Wave to IP gateway in the center. The integration allows you to control devices connected to the gateway.
+[devolo](https://www.devolo.global) Home Control is a Z-Wave ecosystem with a [Z-Wave to IP gateway](https://www.devolo.de/devolo-home-control-zentrale) in the center. The {% term integration %} allows you to control devices connected to the gateway.
 
 {% include integrations/config_flow.md %}
 
 Please do not change the URL provided in the advanced mode unless you know what you are doing.
 
-## Switches
+## Supported devices and functions
+
+### Switches
 
 The integration provides support for the following Z-Wave devices:
 
@@ -48,7 +49,7 @@ The integration provides support for the following Z-Wave devices:
 - Fibaro Wall Plug
 - Fibaro Double Relay Switch
 
-## Binary sensors
+### Binary sensors
 
 The integration provides support for the following Z-Wave devices:
 
@@ -67,28 +68,28 @@ The integration provides support for the following features:
 - Overload alarm sensor of various switches
 - Sensors I2 and I3 of devolo and Qubino flush mounted relays
 
-## Cover
+### Cover
 
 The integration provides support for the following Z-Wave devices:
 
 - devolo Shutter FM
 - Qubino Flush Shutter
 
-## Climate
+### Climate
 
 The integration provides support for the following Z-Wave devices:
 
 - devolo Radiator Thermostat
 - Danfoss Living Connect Z Radiator Thermostat
 
-## Lights
+### Lights
 
 The integration provides support for the following Z-Wave devices:
 
 - devolo Dimmer FM
 - Qubino Flush Dimmer
 
-## Sensor
+### Sensor
 
 The integration provides support for the following features:
 
@@ -96,8 +97,14 @@ The integration provides support for the following features:
 - Consumptions of devolo and Qubino devices, that support it
 - Voltage of devolo Metering Plug v2
 
-## Siren
+### Siren
 
 The integration provides support for the following Z-Wave devices:
 
 - devolo Siren
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

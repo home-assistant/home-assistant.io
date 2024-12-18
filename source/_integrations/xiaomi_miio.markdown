@@ -318,6 +318,7 @@ The list includes device name, model number (if available), and model.
 - **Tower Fan**: `dmaker.fan.p9`
 - **Standing Fan 2**: `dmaker.fan.p10`
 - **Standing Fan Pro**: `dmaker.fan.p11`
+- **Standing Fan 2**: `dmaker.fan.p18`
 - **Standing Fan 3**: `zhimi.fan.za5`
 
 - Power (on, off)
@@ -1143,7 +1144,7 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | Child Lock | Turn on/off the Child Lock |
 | LED        | Turn on/off the LED        |
 
-### Tower Fan/Standing Fan 2/Standing Fan Pro (dmaker.fan.p9, dmaker.fan.p10, dmaker.fan.p11)
+### Tower Fan/Standing Fan 2/Standing Fan Pro (dmaker.fan.p9, dmaker.fan.p10, dmaker.fan.p11, dmaker.fan.p18)
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
@@ -1694,7 +1695,6 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 ### Sensors
 
 {% configuration_basic %}
-
 DnD Start*:
   description: The timestamp when the next DnD (Do not disturb) period will start
 DnD End*:
@@ -1731,7 +1731,6 @@ Water Box Attached**:
   description: If the watter box is attached
 Water Shortage\*\*:
   description: If the water box is low on water
-
 {% endconfiguration_basic %}
 
 {% note %}

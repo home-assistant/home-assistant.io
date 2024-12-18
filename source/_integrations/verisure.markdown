@@ -96,6 +96,7 @@ Some users have reported that this integration currently doesn't work in the fol
 - France
 - Ireland
 - Italy
+- Spain
 - Sweden
 
 ## Troubleshooting
