@@ -122,7 +122,7 @@ function registerETargets() {
     });
 
     setTimeout(() => {
-        if(eDone || eDepsloaded) return;
+        if (eDone || eDepsloaded) return;
         console.log(decodeURIComponent(escape(atob('Tm8gZWFzdGVyIGVnZ3MgdG8gZmluZCBoZXJlIPCfmYo='))));
     }, 10000);
 }
@@ -132,14 +132,14 @@ function checkETargets() {
     const targets = document.querySelectorAll('.etarget');
     const total = targets.length;
     let active = [...targets].filter(target => target.classList.contains('active')).length;
-    
+
     if (active > 3 && !eDepsloaded) {
         eDepsloaded = true;
         console.log(decodeURIComponent(escape(atob('SGV5ISBTdG9wIGNsaWNraW5nIHRob3NlIGJ1dHRvbnMg8J+kqg=='))));
         let script = document.createElement('script');
         script.src = 'https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js';
         document.body.appendChild(script);
-        
+
         // audio
         eAudio = document.createElement('audio');
         eAudio.src = '/images/voice-pe/vpe-sound.mp3';
@@ -717,7 +717,7 @@ function randomInRange(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-function registerLazySections(){
+function registerLazySections() {
     // for each section, register an intersection observer at 0.0. If it is intersecting, disconnect. Then, make any data-src images load
     const sections = document.querySelectorAll('.vpe-main section');
     if (!sections) return;
@@ -738,7 +738,7 @@ function registerLazySections(){
     });
 }
 
-function loadLazyImages(section){
+function loadLazyImages(section) {
     const lazyImages = section.querySelectorAll('img[data-src]');
     if (!lazyImages) return;
 

@@ -3013,6 +3013,10 @@ section#hero .bg-gradient {
   --draw: var(--draw-cable, 0);
   position: absolute;
 }
+.vpe-main #controls .controls-heading .cable svg.mobile {
+  top: -50%;
+  right: 0;
+}
 
 .vpe-main #controls .controls-wrapper {
   z-index: 1;
