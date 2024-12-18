@@ -28,6 +28,7 @@ ha_dhcp: true
 ha_codeowners:
   - '@zweckj'
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 This integration interacts with [La Marzocco](https://lamarzocco.com/it/en/) coffee machines through calls to the La Marzocco cloud API. Optionally, local API calls, which include a WebSocket connection for (near) real-time updates and a Bluetooth connection, can be utilized for local connections.
