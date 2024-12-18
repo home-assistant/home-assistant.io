@@ -23,7 +23,7 @@ The logbook card displays entries from the logbook for specific entities, device
 
 {% configuration_basic %}
 Target:
-  description: The entities, devices, areas and labels whose logbook entries will show in the card.
+  description: The entities, devices, areas and labels whose logbook entries will show in the card. See [target selector](/docs/blueprint/selectors/#target-selector) for more information.
 Title:
   description: The title that shows on the top of the card.
 Hours to show:
