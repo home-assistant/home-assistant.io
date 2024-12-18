@@ -255,7 +255,7 @@ switch:
 
 ### Change The Entity Picture
 
-This example shows how to change the entity picture based on the day/night cycle.
+This example shows how to change the entity picture based on the state of the garage door.
 
 {% raw %}
 

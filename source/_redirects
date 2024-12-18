@@ -605,12 +605,14 @@ layout: null
 /integrations/rpi_gpio_pwm /more-info/removed-integration 301
 /integrations/rpi_pfio /more-info/removed-integration 301
 /integrations/rpi_rf /more-info/removed-integration 301
+/integrations/rtsp_to_webrtc /more-info/removed-integration 301
 /integrations/ruter /more-info/removed-integration 301
 /integrations/salt /more-info/removed-integration 301
 /integrations/sensehat /more-info/removed-integration 301
 /integrations/shiftr /more-info/removed-integration 301
 /integrations/sht31 /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
+/integrations/simulated /more-info/removed-integration 301
 /integrations/smarthab /more-info/removed-integration 301
 /integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
@@ -618,6 +620,7 @@ layout: null
 /integrations/spider /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /integrations/srp_energy /more-info/removed-integration 301
+/integrations/stookalert /more-info/removed-integration 301
 /integrations/synology /more-info/removed-integration 301
 /integrations/sytadin /more-info/removed-integration 301
 /integrations/tahoma /more-info/removed-integration 301

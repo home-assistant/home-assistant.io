@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `ohmconnect` {% term integration %} will show you the current [OhmConnect](https://www.ohmconnect.com/) status for the given OhmConnect ID.

@@ -27,7 +27,6 @@ ha_codeowners:
   - '@farmio'
   - '@marvin-w'
 ha_domain: knx
-ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button
@@ -2016,6 +2015,10 @@ device_class:
 |  16.000 | string                        |           14 |           ASCII            |                |
 |  16.001 | latin_1                       |           14 |    ISO 8859-1 / Latin-1    |                |
 |  17.001 | scene_number                  |            1 |          1 ... 64          |                |
+|      29 | 8byte_signed                  |            8 |    ±9223372036854775807    |                |
+|  29.010 | active_energy_8byte           |            8 |    ±9223372036854775807    | Wh             |
+|  29.011 | apparant_energy_8byte         |            8 |    ±9223372036854775807    | VAh            |
+|  29.012 | reactive_energy_8byte         |            8 |    ±9223372036854775807    | VARh           |
 
 ### More examples
 
@@ -2295,7 +2298,7 @@ address_day_night:
   required: false
   type: [string, list]
 address_air_pressure:
-  description: KNX address reading current air pressure. *DPT 9.006*
+  description: KNX address reading current air pressure. *DPT 9.006 or 14.058*
   required: false
   type: [string, list]
 address_humidity:

@@ -1,5 +1,5 @@
 ---
-title: Fujitsu FGLair
+title: FGLair
 description: Control your Fujitsu heat pump or air conditioner that uses the FGLair app
 ha_category:
   - Climate
@@ -11,7 +11,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - climate
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The {{ page.title }} {% term integration %} provides support for Fujitsu heat pumps and air conditioners that use the FGLair app.
@@ -33,4 +33,3 @@ This integration supports the following functionalities (if the devices support 
 - [`turn on/off`](/integrations/climate#action-climateturn_on)
 - [`fan mode`](/integrations/climate#action-climateset_fan_mode)
 - [`swing mode`](/integrations/climate#action-climateset_swing_mode)
-

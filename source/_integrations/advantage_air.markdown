@@ -16,7 +16,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@Bre77'
 ha_domain: advantage_air
-ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - climate

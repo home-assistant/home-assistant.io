@@ -160,7 +160,7 @@ homekit:
               required: false
               type: string
             linked_doorbell_sensor:
-              description: The `entity_id` of a `binary_sensor` or `event` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications.
+              description: The `entity_id` of a `binary_sensor` or `event` entity to use as the doorbell sensor of a `lock` or `camera` accessory to enable doorbell notifications.
               required: false
               type: string
             linked_humidity_sensor:
@@ -358,7 +358,7 @@ To add a single entity in accessory mode:
 
 ## Configure Filter
 
-By default, all entities except categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
+By default, all entities except hidden entities and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -375,7 +375,7 @@ homekit:
 
 {% include common-tasks/filters.md %}
 
-Categorized entities are not included (config, diagnostic, and system entities) unless they are explicitly matched by `include_entity_globs` or `include_entities` or selected in the UI in include mode.
+Hidden entities and categorized entities (config, diagnostic, and system entities) are not included unless they are explicitly matched by `include_entity_globs` or `include_entities` or selected in the UI in include mode.
 
 ## Docker Network Isolation
 
@@ -421,7 +421,7 @@ The following integrations are currently supported:
 | fan                                                           | Fan                    | All fans that support `speed` and `speed_list` through value mapping: `speed_list` is assumed to contain values in ascending order. The numeric ranges of HomeKit map to a corresponding entry of `speed_list`. The first entry of `speed_list` should be equivalent to `off` to match HomeKit's concept of fan speeds. (Example: `speed_list` = [`off`, `low`, `high`]; `off` -> `<= 33`; `low` -> between `33` and `66`; `high` -> `> 66`) |
 | humidifier                                                    | HumidifierDehumidifier | Humidifier and Dehumidifier devices.                                                                                                                                                                                                                                                                                                                                                                                                         |
 | light                                                         | Light                  | Support for `on / off`, `brightness` and `rgb_color`.                                                                                                                                                                                                                                                                                                                                                                                        |
-| lock                                                          | DoorLock               | Support for `lock / unlock`.                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| lock                                                          | DoorLock               | Support for `lock / unlock`. A doorbell event / sensor can be linked with `linked_doorbell_sensor`.                                                                                                                                                                                                                                                                                                                                                                                                             |
 | media_player                                                  | MediaPlayer            | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`.                                                                                                                                                                                                                                         |
 | media_player                                                  | TelevisionMediaPlayer  | All media players that have `tv` as their `device_class`.  Represented as Television and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later.                                                                                                                                       |
 | media_player                                                  | ReceiverMediaPlayer    | All media players that have `receiver` as their `device_class`.  Represented as Receiver and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later.                                                                                                                                   |

@@ -3,10 +3,10 @@ title: SwitchBot Cloud
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Hub
+  - Lock
   - Plug
   - Remote
   - Sensor
-  - Lock
   - Switch
   - Vacuum
 ha_release: '2023.10'
@@ -44,6 +44,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
   - ON/OFF for all appliance types excepted "Others"
   - Air Conditioner
 - Lock
+- Lock Pro
 - Meter
 - MeterPlus
 - MeterPro

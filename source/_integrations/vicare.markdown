@@ -48,12 +48,18 @@ It may take up to an hour for your new client to become active and usable. Other
 
 ### API limits
 
-The Viessmann API is rate-limited. If you exceed one of the limits below, you will be blocked for 24 hours:
+The Viessmann API is rate-limited. In the "Basic" (free) tier of their API plans, if you exceed one of the limits below, you will be blocked for 24 hours:
 
 - 120 calls for a time window of 10 minutes
 - 1450 calls for a time window of 24 hours
 
-The {% term integration %} polls the API every 60 seconds and will work within these limits. However, any additional requests to the API, for example, by setting the temperature via the integration but also by interacting with the ViCare app, count into those limits.
+For the paid API plans this limit increases to 3000 calls in 24 hours. The {% term integration %} polls the API every 60 seconds and will work within these limits. However, any additional requests to the API, for example, by setting the temperature via the integration and interacting with the ViCare app, count into those limits.
+
+{% important %}
+For any Viessmann API plan except the most expensive "Advanced" tier, Viessmann imposes certain limits on which APIs are accessible for end-user consumption. Unfortunately, this also affects APIs useful for smart home integrations, like controlling thermostats (TRVs) and climate sensors, which are only available in the "Advanced" plan API tier. In case you set up the integration with a lower-tier plan, TRVs and other smart home entities will not become accessible in your Home Assistant installation.
+
+Please consider providing feedback to Viessmann as described in [their FAQ](https://developer.viessmann.com/start/faq.html) "Where can I give feedback on the API?" in case you consider this as a limitation for your use-case.
+{% endimportant %}
 
 {% note %}
 If you have multiple Viessmann devices in Home Assistant, the limit is shared between them, meaning the poll interval is increased, and the values are less frequently updated!
