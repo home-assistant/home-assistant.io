@@ -34,12 +34,13 @@ ha_integration_type: hub
 
 ## Supported devices
 
-This integration supports Plugwise devices connected to a network connected hub called a **Smile**. You can connect to the Smile using your browser, their Plugwise App or this Home Assistant integration. There are 4 types of Smiles:
+This integration supports Plugwise devices connected to a network connected hub called a **Smile**. You can connect to the Smile using your browser, their Plugwise App or this Home Assistant integration. There are 5 types of Smiles:
 
 - Full zonecontrol using the [Adam](https://www.plugwise.com/en_US/zonecontrol) using [additional devices](#devices-overview) such as smart valves and smart-plugs.
 - A stand-alone smart thermostat called [Anna](https://www.plugwise.com/en_US/products/anna).
 - For power monitoring there is one simply called the [P1](https://www.plugwise.com/en_US/products/smile-p1).
 - Although no longer sold, there also is support for Stretch, a gateway to create network connectivity for their older power products.
+- __Not supported yet__: The newest in the family, [Anna P1](https://www.plugwise.com/product/anna-p1/) cleverly uses energy (solar) information to transfer abundant energy in heatpump usage.
 
 Plugwise formerly sold power based products using a USB stick as the controller. This integration does not support the `Stick` directly, see [legacy power devices](#legacy-power-devices) for more information.
 
@@ -334,6 +335,10 @@ A smart thermostat, supporting:
 
 - OnOff, OpenTherm heating and Elga or Loria/Thermastage with heating and cooling support. (see [known limitations](#known-limitations) below for the Elga).
 - Running firmware v4.x, v3.x or v1.x.
+
+### Anna P1
+
+A smart thermostat, providing abundant solar energy billing. Currently not supported. If you have one, let us know by opening a [feature request](https://github.com/plugwise/python-plugwise/issues/new/choose).
 
 ### P1 (DSMR)
 
