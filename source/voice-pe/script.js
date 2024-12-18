@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     registerFeatureCycle();
     registerFaqItems();
     registerBuyDialog();
+    registerLazySections();
 });
 
 function addBodyLoaded() {
@@ -68,8 +69,6 @@ function userInteract() {
             video.removeAttribute('data-src');
         });
     }
-
-    loadLazyBackgrounds();
 }
 
 let isPinned = false;
@@ -82,16 +81,6 @@ function checkIsScrolling() {
         header.classList.remove('pinned');
         isPinned = false;
     }
-}
-
-function loadLazyBackgrounds() {
-    let lazyBackgrounds = document.querySelectorAll('[data-bg-image-lazy]');
-    if (!lazyBackgrounds) return;
-
-    lazyBackgrounds.forEach(lazyBackground => {
-        // remove the attribute
-        lazyBackground.removeAttribute('data-bg-image-lazy');
-    });
 }
 
 function registerProductFeatureToggles() {
@@ -121,6 +110,9 @@ function registerProductFeatureToggles() {
     });
 }
 
+let eDepsloaded = false;
+let eAudio;
+let eDone = false;
 function registerETargets() {
     document.querySelectorAll('.etarget').forEach(elem => {
         elem.addEventListener('click', function () {
@@ -128,23 +120,26 @@ function registerETargets() {
             checkETargets();
         });
     });
+
+    setTimeout(() => {
+        if(eDone || eDepsloaded) return;
+        console.log(decodeURIComponent(escape(atob('Tm8gZWFzdGVyIGVnZ3MgdG8gZmluZCBoZXJlIPCfmYo='))));
+    }, 10000);
 }
 
-let eDepsloaded = false;
-let eAudio;
-let eDone = false;
 function checkETargets() {
     if (eDone) return;
     const targets = document.querySelectorAll('.etarget');
     const total = targets.length;
     let active = [...targets].filter(target => target.classList.contains('active')).length;
-
-    if (active > 5 && !eDepsloaded) {
+    
+    if (active > 3 && !eDepsloaded) {
         eDepsloaded = true;
+        console.log(decodeURIComponent(escape(atob('SGV5ISBTdG9wIGNsaWNraW5nIHRob3NlIGJ1dHRvbnMg8J+kqg=='))));
         let script = document.createElement('script');
         script.src = 'https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js';
         document.body.appendChild(script);
-
+        
         // audio
         eAudio = document.createElement('audio');
         eAudio.src = '/images/voice-pe/vpe-sound.mp3';
@@ -156,14 +151,18 @@ function checkETargets() {
 
     if (active === total) {
         eDone = true;
+        console.log(decodeURIComponent(escape(atob('QWxyaWdodCwgSSBsaWVkLCB0aGVyZSB3YXMgYW4gZWFzdGVyIGVnZy4uLiDwn5iF'))));
         confetti({ particleCount: 100, spread: 100, scalar: 1.5, startVelocity: 80, ticks: 100, angle: 50, origin: { y: 1, x: 0 }, colors: ["#00AEF8"] });
         setTimeout(() => {
+            console.log(decodeURIComponent(escape(atob('QnV0IGNhbiB5b3UgZmluZCBhbm90aGVyIG9uZSBpbiBvdXIgVm9pY2UgUHJldmlldyBFZGl0aW9uPyDwn5iP'))));
             confetti({ particleCount: 100, spread: 100, scalar: 1.5, startVelocity: 80, ticks: 100, angle: 125, origin: { y: 1, x: 1 }, colors: ["#DB582E"] });
         }, 500);
         setTimeout(() => {
+            console.log(decodeURIComponent(escape(atob('R29vZCBsdWNrIQ=='))));
             eAudio.play();
         }, 920);
         setTimeout(() => {
+            console.log(decodeURIComponent(escape(atob('LURhcnJlbg=='))));
             confetti({ particleCount: 1000, spread: 360, scalar: 1.5, startVelocity: 150, ticks: 100, angle: 90, origin: { y: 1, x: .5 }, colors: ["#00AEF8", "#DB582E", "#16F3BE"] });
         }, 1000);
     }
@@ -716,4 +715,43 @@ function closeDialog() {
 
 function randomInRange(min, max) {
     return Math.random() * (max - min) + min;
+}
+
+function registerLazySections(){
+    // for each section, register an intersection observer at 0.0. If it is intersecting, disconnect. Then, make any data-src images load
+    const sections = document.querySelectorAll('.vpe-main section');
+    if (!sections) return;
+
+    sections.forEach(section => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    observer.disconnect();
+                    loadLazyImages(section);
+                }
+            });
+        }, {
+            threshold: 0
+        });
+
+        observer.observe(section);
+    });
+}
+
+function loadLazyImages(section){
+    const lazyImages = section.querySelectorAll('img[data-src]');
+    if (!lazyImages) return;
+
+    lazyImages.forEach(img => {
+        img.setAttribute('src', img.getAttribute('data-src'));
+        img.removeAttribute('data-src');
+    });
+
+    let lazyBackgrounds = section.querySelectorAll('[data-bg-image-lazy]');
+    if (!lazyBackgrounds) return;
+
+    lazyBackgrounds.forEach(lazyBackground => {
+        // remove the attribute
+        lazyBackground.removeAttribute('data-bg-image-lazy');
+    });
 }
