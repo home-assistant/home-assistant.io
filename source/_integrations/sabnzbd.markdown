@@ -61,3 +61,9 @@ This integration will create two buttons:
 ## Number
 
 This integration will create a number entity to set the download queue speed limit in percentage.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

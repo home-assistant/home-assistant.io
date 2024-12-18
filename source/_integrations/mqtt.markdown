@@ -1351,6 +1351,12 @@ The following software has built-in support for MQTT discovery:
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
 - [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
 
+The following software also supports consuming MQTT discovery information that is intended for Home Assistant.
+Compatibility and features will vary, and not all devices may work.
+
+- [Domoticz](https://wiki.domoticz.com/MQTT#Add_hardware_.22MQTT_Auto_Discovery_Client_Gateway.22)
+- [openHAB](https://www.openhab.org/addons/bindings/mqtt.homeassistant/)
+
 ## Manual configured MQTT items
 
 For most integrations, it is also possible to manually set up MQTT items in {% term "`configuration.yaml`" %}. Read more [about configuration in YAML](/docs/configuration/yaml).
