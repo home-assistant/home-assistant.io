@@ -113,7 +113,7 @@ Can be configured on the WLED itself under
 
 Toggles the synchronization between multiple WLED devices.
 Can be configured on the WLED itself under 
-**Ssettings** > **Sync Interfaces** > **WLED Broadcast**.
+**Settings** > **Sync Interfaces** > **WLED Broadcast**.
 
 [WLED Sync documentation](https://kno.wled.ge/interfaces/udp-realtime/)
 

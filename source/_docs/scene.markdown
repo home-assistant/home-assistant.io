@@ -24,7 +24,6 @@ scene:
       media_player.sony_bravia_tv:
         state: "on"
         source: HDMI 1
-        state: "on"
 ```
 
 ## How to configure your scene
