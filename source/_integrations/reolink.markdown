@@ -26,6 +26,7 @@ ha_platforms:
   - update
 ha_integration_type: integration
 ha_dhcp: true
+ha_quality_scale: platinum
 related:
   - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
     title: Controlling the camera from the dashboard
