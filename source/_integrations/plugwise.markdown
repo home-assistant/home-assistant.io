@@ -40,7 +40,7 @@ This integration supports Plugwise devices connected to a network connected hub 
 - A stand-alone smart thermostat called [Anna](https://www.plugwise.com/en_US/products/anna).
 - For power monitoring there is a device simply called the [P1](https://www.plugwise.com/en_US/products/smile-p1).
 - Although no longer sold, there also is support for Stretch, a gateway to create network connectivity for their older power products.
-- __Not supported yet__: The newest in the family, [Anna P1](https://www.plugwise.com/product/anna-p1/) cleverly uses energy (solar) information to transfer abundant energy in heatpump usage.
+- **Not supported yet!** The newest in the family, [Anna P1](https://www.plugwise.com/product/anna-p1/) cleverly uses energy (solar) information to transfer abundant energy in heatpump usage.
 
 Plugwise formerly sold power-based products using a USB stick as the controller. This integration does not support the `Stick` directly, see [legacy power devices](#legacy-power-devices) for more information.
 
@@ -292,7 +292,7 @@ If you need to create an issue to report a bug or want to inspect diagnostic dat
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
 2. If you have more than one Plugwise Smile, select the gateway that is experiencing issues.
-3. Select the device with 'Smile' in it's name.
+3. Select the device with 'Smile' in its name.
 4. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
    - Then, select **Download diagnostics** and a JSON file will be downloaded.
 5. You can inspect the downloaded file or, when requested, upload it to your issue report.
@@ -302,7 +302,7 @@ If you need to create an issue to report a bug or want to inspect diagnostic dat
 action: `button.press`
 
 ```yaml
-# Example script change the thermostat schedule
+# Example script to reboot the gateway
 script:
   reboot_gateway:
     sequence:
@@ -357,7 +357,7 @@ To display your schedule as a valid `select` option for this integration ensure 
 
 ### Anna as a zone thermostat
 
-If you are using your Anna as part of your adam zone control system, it can not be configured as a smart thermostat. The integration will not discover your Anna or allow manual configuration.
+If you are using your Anna as part of your adam zone control system, it cannot be configured as a smart thermostat. The integration will not discover your Anna or allow manual configuration.
 
 ### Anna with Elga
 
