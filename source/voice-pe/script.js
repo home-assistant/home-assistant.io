@@ -55,6 +55,17 @@ function registerUserInteractionEvents() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }, { passive: true });
     });
+
+    // load any video[data-src] elements that are in view
+    const lazyVideos = document.querySelectorAll('video[data-src]');
+    if (lazyVideos) {
+        lazyVideos.forEach(video => {
+            if (video.getBoundingClientRect().top < window.innerHeight) {
+                video.setAttribute('src', video.getAttribute('data-src'));
+                video.removeAttribute('data-src');
+            }
+        });
+    }
 }
 
 let interacted = false;
