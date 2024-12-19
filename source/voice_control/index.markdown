@@ -3,7 +3,7 @@ title: Talking with Home Assistant - get your system up & running
 related:
   - docs: /voice_control/android
     title: Assist on Android
-  - docs: /voice_control/apple
+  - docs: /voice_control/apple/
     title: Assist on Apple
   - docs: /voice_control/thirteen-usd-voice-remote/
     title: Build a $13 voice remote using an ESPHome device
