@@ -46,13 +46,13 @@ We're launching [Home Assistant Voice Preview Edition](/voice-pe/) to help accel
 
 Our main goal with Voice Preview Edition was to make the best hardware to get started with [Assist](/voice_control/), Home Assistant's built-in voice assistant. If you're already using other third-party hardware to run Assist, this will be a big upgrade. We prioritized its ability to hear commands, giving it an industry-leading dedicated audio processor and dual microphones - I'm always blown away by how well it picks up my voice around the room.
 
-Next, we ensured it would blend into the home, giving it a sleek but unobtrusive design. That's not to say it doesn't have flair. When you get your hands on Voice Preview Edition the first thing you'll notice is its premium feeling injection-molded shell, which is semi-transparent, just like your favorite '90s tech. The LED ring is also really eye-catching, and you can customize it to your heart's content from full gamer RGB to subtle glow.
+Next, we ensured it would blend into the home, giving it a sleek but unobtrusive design. That's not to say it doesn't have flair. When you get your hands on Voice Preview Edition the first thing you'll notice is its premium-feeling injection-molded shell, which is semi-transparent, just like your favorite '90s tech. The LED ring is also really eye-catching, and you can customize it to your heart's content from full gamer RGB to subtle glow.
 
 <div style="text-align: center; margin-top: 20px;">
 <img src='/images/blog/2024-12-vpe/vpe-finish.png' style='border: 0;box-shadow: none;' alt="3 different views of Voice Preview Edition">
 </div>
 
-It's hard to convey how nice the rotary dial is to use; its subtle clicks paired with LED animations are hard not to play with. Most importantly, the dial lets anyone in your home intuitively adjust the volume. The same can be said for the multipurpose button and mute switch (which physically cuts power to the microphone for ultimate privacy). We knew for it to work bes, it needed to be out in the open, and let's just say that [Home Approval Factor](https://newsletter.openhomefoundation.org/open-home-approval-factor/#:~:text=2023.1%20release%20notes.-,Home%20Approval%20Factor,-We%20have%20a) was very front of mind when designing it.
+It's hard to convey how nice the rotary dial is to use; its subtle clicks paired with LED animations are hard not to play with. Most importantly, the dial lets anyone in your home intuitively adjust the volume. The same can be said for the multipurpose button and mute switch (which physically cuts power to the microphone for ultimate privacy). We knew for it to work best, it needed to be out in the open, and let's just say that [Home Approval Factor](https://newsletter.openhomefoundation.org/open-home-approval-factor/#:~:text=2023.1%20release%20notes.-,Home%20Approval%20Factor,-We%20have%20a) was very front of mind when designing it.
 
 We also worked hard to keep the price affordable and comparable to other voice assistant hardware at just $59 (that's the recommended MSRP, and pricing will vary by retailer). This isn't a preorder, it's available now!
 
@@ -86,7 +86,7 @@ If you have been following our work on voice, you know we've tried a lot of diff
 
 <p class='img'><lite-youtube videoid="DS_8cDZKBPc" videotitle="Music Assistant - VPE"></lite-youtube>Voice Preview Editions mics and audio processors effortlessly hear commands through loud music it is playing</p>
 
-Our Assist software could only do so much with substandard audio, and its functionality is massively improved with clear audio. The dual microphones combined with the XMOS audio processing chip are what makes it so capable. Together, they allow Voice Preview Edition to have echo cancellation, stationary noise removal, and auto gain control, which all adds up to clearer audio. This combined with an ESP32-S3 with 8 MB octal PSRAM - one of the fastest ESP and RAM combinations available - makes for an incredibly responsive device. This is the best Assist hardware you can buy today, and it will continue to give a great experience as Assist's feature set expands in the years to come.
+Our Assist software could only do so much with substandard audio, and its functionality is massively improved with clear audio. The dual microphones combined with the XMOS audio processing chip are what makes it so capable. Together, they allow Voice Preview Edition to have echo cancellation, stationary noise removal, and auto gain control, which all adds up to clearer audio. This combined with an ESP32-S3 with 8 MB of octal PSRAM - one of the fastest ESP and RAM combinations available - makes for an incredibly responsive device. This is the best Assist hardware you can buy today, and it will continue to give a great experience as Assist's feature set expands in the years to come.
 
 ### Bringing choice to voice
 
@@ -110,7 +110,7 @@ We tried to make every aspect of Voice Preview Edition customizable, which is ac
 
 We also made the hardware easy to modify, inside and out. For instance, the included speaker is for alerts and voice prompts, but if you want to use it as a media player, connect a speaker to the included 3.5mm headphone jack and control it with software like [Music Assistant](https://music-assistant.io/). The included DAC is very clean and capable of streaming lossless audio. It can also be used as a very capable ESP32 device. On the bottom of the device is a [Grove port](https://wiki.seeedstudio.com/Grove_System/) (concealed under a cover that can be permanently removed), which allows you to connect a large ecosystem of sensors and accessories.
 
-We've also made it quite painless to open, with easy-to-access screws and no clips. We even include exposed pads on the circuit board to make modifying it more straightforward. We're providing all the [3D files](https://voice-pe.home-assistant.io/resources/) so you can print your own components... even cartoon character-inspired ones. We're not here to dictate what you can and can't do with your device, and we tried our best to stay out of your way.
+We've also made it quite painless to open, with easy-to-access screws and no clips. We even included exposed pads on the circuit board to make modifying it more straightforward. We're providing all the [3D files](https://voice-pe.home-assistant.io/resources/) so you can print your own components... even cartoon character-inspired ones. We're not here to dictate what you can and can't do with your device, and we tried our best to stay out of your way.
 
 ### Community-driven
 
@@ -118,8 +118,8 @@ The beauty of Home Assistant and ESPHome is that you are never alone when fixing
 
 ## Conclusion
 
-Home Assistant ~~values~~ champions choice. Today, we're providing one of the best choices for voice hardware. One that is truly private and totally open. I'm so proud of the team for building such a great working and feeling piece of hardware - this is a really big leap for voice hardware. I expect it to be the hardware benchmark for open-voice projects for years to come. I would also like to thank our language leaders who are expanding the reach of this project, our testers of this Preview Edition, and anyone who has joined in our voice work over the past years
+Home Assistant ~~values~~ champions choice. Today, we're providing one of the best choices for voice hardware. One that is truly private and totally open. I'm so proud of the team for building such a great working and feeling piece of hardware - this is a really big leap for voice hardware. I expect it to be the hardware benchmark for open-voice projects for years to come. I would also like to thank our language leaders who are expanding the reach of this project, our testers of this Preview Edition, and anyone who has joined in our voice work over the past years.
 
-The hardware really is only half the picture, and it's the software that really brings this all together. Mike Hansen has just written the [Voice Chapter 8 blog](/blog/2024/12/19/voice-chapter-8-assist-in-the-home/) to accompany this launch, and this explains all the things we've built over the past two years to make Assist work in the home today. He also highlights everything that Voice Preview Edition was built to help accelerate development on.
+The hardware really is only half the picture, and it's the software that really brings this all together. Mike Hansen has just written the [Voice Chapter 8 blog](/blog/2024/12/19/voice-chapter-8-assist-in-the-home/) to accompany this launch, and this explains all the things we've built over the past two years to make Assist work in the home today. He also highlights everything that Voice Preview Edition was built to help accelerate development.
 
 ### [See what voice can do today](/blog/2024/12/19/voice-chapter-8-assist-in-the-home/)
