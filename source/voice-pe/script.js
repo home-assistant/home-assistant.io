@@ -742,7 +742,8 @@ function registerLazySections() {
                 }
             });
         }, {
-            threshold: 0
+            threshold: 0,
+            rootMargin: '80px'
         });
 
         observer.observe(section);
