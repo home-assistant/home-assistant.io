@@ -6,10 +6,10 @@ related:
   - docs: /voice_control/apple
     title: Assist on Apple
   - docs: /voice_control/thirteen-usd-voice-remote/
-    title: Build a 13$ voice remote using an ESPHome device
+    title: Build a $13 voice remote using an ESPHome device
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
-  - url: https://www.nabucasa.com/config/
+  - url: https://www.nabucasa.com/config/assist/
     title: Home Assistant Cloud
 ---
 
@@ -519,6 +519,6 @@ Assist already supports a wide range of [languages](https://developers.home-assi
 
 
 
-Did Assist not understand your sentence? [Contribute them](https://developers.home-assistant.io/docs/voice/intent-recognition/).
+Did Assist not understand your sentence? [Contribute them](/voice_control/contribute-voice).
 
 _Assist was introduced in Home Assistant 2023.2._

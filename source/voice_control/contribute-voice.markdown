@@ -1,9 +1,9 @@
 ---
 title: Contribute to the Voice initiative
 related:
-  - docs: /voice_control/best_practices
+  - docs: /voice_control/best_practices/
     title: Best Practices with Assist
-  - docs: /voice_control/builtin_sentences
+  - docs: /voice_control/builtin_sentences/
     title: Sentences starter kit
   - url: https://www.nabucasa.com/config/
     title: Home Assistant Cloud
@@ -23,7 +23,7 @@ To create a Piper voice, you don't need an army of volunteers. You need a native
 
 Are you missing a language? Email us if you want to help out! To help interested people contribute languages, we opened up the email address [voice@nabucasa.com](mailto:voice@nabucasa.com).
 
-### Other ways to contribute with intents and samples
+### Other ways to contribute with samples
 
 You can also participate in public datasets. Commonvoice and Librivox are used by many speech-to-text projects to train their models.
 
