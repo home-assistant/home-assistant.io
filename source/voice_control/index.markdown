@@ -1,7 +1,7 @@
 ---
 title: Talking with Home Assistant - get your system up & running
 related:
-  - docs: /voice_control/android
+  - docs: /voice_control/android/
     title: Assist on Android
   - docs: /voice_control/apple/
     title: Assist on Apple
