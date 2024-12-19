@@ -62,5 +62,3 @@ Custom dashboard templates for the custom [Imeon Integration](https://github.com
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
