@@ -85,7 +85,6 @@ Use Bluetooth:
 | **Prebrew off time** | Time prebrew waits before turning on the pump | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | `GS3` has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 | **Preinfusion time** | Duration of preinfusion | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | `GS3` has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 | **Smart standby time** | Time until the machine will automatically stand by (if enabled) | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
-| **Brew by weight target** | Brew by weight target per recipe | `Linea Mini` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | Only available if you have the Acaia LM scale and configured it with your machine. |
 
 ## Switches
 
