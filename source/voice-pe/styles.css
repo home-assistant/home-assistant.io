@@ -117,7 +117,7 @@ article.page h3 {
   position: initial;
   top: initial;
   visibility: initial;
-  display: initial;
+  display: block;
 }
 
 .vpe-main .nice-select .list {
