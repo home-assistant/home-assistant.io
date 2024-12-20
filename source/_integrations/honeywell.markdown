@@ -134,3 +134,4 @@ automation:
           entity_id: humidifier.living_room
         data:
           humidity: 35 # Set target humidity to 35% (recommended for comfort)
+```
