@@ -81,7 +81,7 @@ The following device classes are supported for sensors:
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **power_factor**: Power factor (unitless), unit may be `None` or %
-- **power**: Power in W, kW, MW, GW or TW
+- **power**: Power in mW, W, kW, MW, GW or TW
 - **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d or mm/h
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg or psi

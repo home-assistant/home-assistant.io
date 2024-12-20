@@ -65,6 +65,8 @@ The integration will create entities showing today's energy prices for the confi
 | Previous price            | [Currency]/kWh    | The price of the previous hour.                                                   |
 | Next price                | [Currency]/kWh    | The price of the next hour.                                                       |
 | Daily average             | [Currency]/kWh    | The average of today's energy prices.                                             |
+| Lowest price              | [Currency]/kWh    | Today's lowest price (start and end time are provided in state attributes)        |
+| Highest price             | [Currency]/kWh    | Today's highest price (start and end time are provided in state attributes)       |
 
 ### Peak & off-peak sensors
 
