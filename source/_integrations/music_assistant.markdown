@@ -141,7 +141,7 @@ Perform a global search on the Music Assistant library and all providers.
 
 - **Data attribute**: `config_entry_id`
   - **Optional**: No.
-  - **Description**: The Music Assistant instance that the searched will be performed upon. Allows for multiple servers to be running.
+  - **Description**: The Music Assistant instance that the search will be performed upon. Allows for multiple servers to be running.
   - **Example**: `Music Assistant`
 - **Data attribute**: `name`
   - **Optional**: No.
@@ -174,7 +174,7 @@ Perform a local search on the Music Assistant library.
 
 - **Data attribute**: `config_entry_id`
   - **Optional**: No.
-  - **Description**: The Music Assistant instance that the searched will be performed upon. Allows for multiple servers to be running.
+  - **Description**: The Music Assistant instance that the search will be performed upon. Allows for multiple servers to be running.
   - **Example**: `Music Assistant`
 - **Data attribute**: `media_type`
   - **Optional**: No.
@@ -182,7 +182,7 @@ Perform a local search on the Music Assistant library.
   - **Example**: `artist`
 - **Data attribute**: `favorite`
   - **Optional**: Yes.
-  - **Description**: When selected only items marked as favorites will be returned.
+  - **Description**: When selected, only items marked as favorites will be returned.
   - **Example**: `false`
 - **Data attribute**: `limit`
   - **Optional**: Yes.
@@ -198,7 +198,7 @@ Perform a local search on the Music Assistant library.
   - **Example**: `Home`
 - **Data attribute**: `order_by`
   - **Optional**: Yes.
-  - **Description**: Sort the list by this field. The options are numerous so inspect them in the Developer Tools, Actions tab.
+  - **Description**: Sort the list by this field. View available sorting options in the Developer Tools > Actions > music_assistant.get_library action.
   - **Example**: `year`
 - **Data attribute**: `album_artists_only`
   - **Optional**: Yes.
