@@ -11,6 +11,7 @@ ha_codeowners:
   - '@frenck'
 ha_domain: peblar
 ha_platforms:
+  - select
   - sensor
   - update
 ha_integration_type: device
