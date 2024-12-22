@@ -66,6 +66,7 @@ Some SwitchBot devices need to be configured within the app before being control
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
+- [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 
 ## SwitchBot Entity
 
