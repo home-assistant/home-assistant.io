@@ -105,7 +105,7 @@ documentation for information on how to do this.
 
 ### Numbers
 
-This integration provide a singles number entity: **Charge limit**.
+This integration provides a singles number entity: **Charge limit**.
 
 Using this entity, you can set the maximum current the charger can provide to
 your electric vehicle. The value of this entity is in amperes (A).
