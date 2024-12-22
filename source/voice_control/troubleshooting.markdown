@@ -7,7 +7,7 @@ This section lists a few steps that may help you troubleshoot issues with Assist
 ## View debug information
 
 1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
-2. From the list of assistants, select your assistant.
+2. From the list of assistants, go to your assistant and open the dialog.
    ![Select your assistant](/images/assist/assistant-select.png)
 3. In the dialog, select **Debug**.
 ![Open the debug dialog](/images/assist/assistant-debug-03.png)
