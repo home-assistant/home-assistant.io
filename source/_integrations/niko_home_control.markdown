@@ -1,6 +1,8 @@
 ---
 title: Niko Home Control
 description: Instructions on how to integrate Niko Home Control lights into Home Assistant.
+ha_codeowners:
+  - '@VandeurenGlenn'
 ha_config_flow: true
 ha_category:
   - Light
