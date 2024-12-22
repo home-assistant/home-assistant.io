@@ -289,8 +289,9 @@ There are three different polling frequencies used by this integration:
 - **every 2 hours**: It will check for updates to the charger itself, ensuring
   you are aware of any updates available for your Peblar charger.
 
-While this integration uses local polling, changing made to the Peblar charger
-from Home Assistant will be reflected in the charger almost instantly.
+While this integration uses local polling, configuration changes made to the
+Peblar charger from Home Assistant will be reflected in the charger almost
+instantly.
 
 ## Actions
 
