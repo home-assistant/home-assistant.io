@@ -54,12 +54,14 @@ See [Supported Devices in python-kasa](https://python-kasa.readthedocs.io/en/sta
 
 Devices not listed below may work but if you encounter issues submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
 
-> [!NOTE]
-> The hub attached Tapo buttons S200B and S200D do not currently support alerting when the button is pressed.
+{% note %}
+The hub attached Tapo buttons S200B and S200D, which do not currently support alerting when the button is pressed.
+{% endnote %}
 
-> [!NOTE]
-> Some firmware versions of Tapo Cameras will not authenticate unless you enable "Tapo Lab" > "Third-Party Compatibility" in the native Tapo app.
-> Alternatively, you can factory reset and then prevent the device from accessing the internet.
+{% note %}
+Some firmware versions of Tapo Cameras will not authenticate unless you enable **Tapo Lab** > **Third-Party Compatibility** in the native Tapo app.
+Alternatively, you can factory reset and then prevent the device from accessing the internet.
+{% endnote %}
 
 ### Supported Kasa devices
 
@@ -93,8 +95,8 @@ Some entities might be showing as Unavailable if they have been removed from the
 ## Cameras
 
 Only Tapo cameras are currently supported.
-In order for live view to work, you will need to enable your camera account in the Tapo App > "Advanced Settings" > "Camera Account".
-If you do not want to do this, keep "Live view" unchecked when adding the device.
+In order for live view to work, you will need to enable your camera account in the Tapo App > **Advanced Settings** > **Camera Account**.
+If you do not want to do this, keep **Live view** unchecked when adding the device.
 
 ### Total consumption
 
