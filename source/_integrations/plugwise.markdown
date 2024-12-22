@@ -250,17 +250,18 @@ script:
 
 ### Sensor
 
-A number of [sensors](/integrations/sensor) will be available, included but not limited to the examples shown below. By default, not all sensors will be shown, for example; we disable the Anna's `outdoor_temperature` sensor in favor of the one provided by an auxiliary device if it has one.
+A number of [sensors](/integrations/sensor) will be available, included but not limited to the examples shown below.
 
 Example sensors (not extensive):
 
 |Sensor|Description|
 --- | ---
-|Outdoor temperature | For Anna, this will show the temperature it retrieves from the internet, unless you have an auxiliary device with a temperature sensor |
+|Gas Consumed Interval | The gas consumed since the last interval |
 |Indoor temperature | For Anna, Lisa or Jip this will show the temperature measured at the specific thermostat |
+|Outdoor temperature | The temperature your climate gateway retrieves online |
+|Outdoor air temperature |  If you have an auxiliary device with a temperature sensor |
 |P1 Net Electricity Point | Your netto electricity use at this time, can be negative when producing energy, i.e. though solar panels |
 |P1 Electricity Produced off-peak cumulative | The total produced electricity during off-peak |
-|Gas Consumed Interval | The gas consumed since the last interval |
 
 ### Select
 
