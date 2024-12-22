@@ -40,7 +40,7 @@ Home Assistant will detect nearby IronOS devices. Discovered devices will show u
 
 {% include integrations/config_flow.md %}
 
-## Configuration parameters
+### Configuration parameters
 
 {% configuration_basic %}
 "Address":
