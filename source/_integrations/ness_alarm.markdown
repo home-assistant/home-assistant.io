@@ -103,6 +103,19 @@ scan_interval:
   milliseconds: 0
 ```
 
+### Alarm System Configuration
+
+As part of the installation process of the IP232 module, the device will need to be configured with the correct settings. From the [iComms Manual](https://ness.zendesk.com/hc/en-us/articles/360021989074-iComms-Manual), there are 3 essential steps:
+1. Setting up the IP232 module with the correct baud rate (9600).
+2. Ensuring connectivity of the device on either a DHCP assigned or Static IP address.
+3. Setting the alarm panel up to allow for serial control. On D8x/D16x panels this is enabled by setting `P 199 E` `1E` to `6E` to be `ON` (6E available on v6 panels and later only).
+
+If the settings in steps 1 and 2 are not set correctly, the integration will not be able to communicate properly with the device. If the `P 199 E` from step 3 is not configured properly, data will not be sent to the integration when events occur.
+
+{% important %}
+Incorrect configuration of these settings will prevent the integration from functioning properly.
+{% endimportant %}
+
 ## Actions
 
 ### Action `aux`
