@@ -82,7 +82,6 @@ Devices not listed below may work but if you encounter issues submit a bug repor
 - **Hubs**: H100, H200
 - **Hub-Connected Devices[^3]**: S200B, S200D, T100, T110, T300, T310, T315
 
-<!--SUPPORTED_END-->
 [^1]: Model requires authentication
 [^2]: Newer versions require authentication
 [^3]: Devices may work across TAPO/KASA branded hubs
