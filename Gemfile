@@ -10,8 +10,8 @@ group :development do
   gem 'stringex', '2.8.6'
   # > 2.1.0 causes slowdowns https://github.com/sass/sassc-ruby/issues/189
   gem 'sassc', '2.1.0'
-  gem 'sass-embedded', '1.81.0'
-  gem 'rubocop', '1.69.0'
+  gem 'sass-embedded', '1.83.0'
+  gem 'rubocop', '1.69.2'
   gem 'ruby-lsp', '0.22.1'
   gem 'rackup', '2.2.1'
 end
@@ -24,7 +24,7 @@ group :jekyll_plugins do
 end
 
 gem 'sinatra', '4.1.1'
-gem 'nokogiri', '1.16.7'
+gem 'nokogiri', '1.17.2'
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library

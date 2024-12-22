@@ -14,7 +14,6 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_quality_scale: silver
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/

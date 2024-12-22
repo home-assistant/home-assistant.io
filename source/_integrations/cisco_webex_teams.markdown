@@ -14,18 +14,19 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `cisco_webex_teams` notification platform allows you to deliver rich notifications from Home Assistant to [Cisco Webex Teams](https://www.webex.com/team-collaboration.html) (formerly known as Cisco Spark or Cisco Webex Teams).
+The `cisco_webex_teams` notification platform allows you to deliver rich notifications from Home Assistant to [Cisco Webex](https://www.webex.com/suite/messaging.html) (formerly known as Cisco Spark or Cisco Webex Teams).
 
 To use this notification platform you will need an app (bot) token. To obtain a token visit [Cisco Webex for Developers](https://developer.webex.com/).
 
 - Detailed instructions can be found in the section titled **Creating a Webex Bot** on the [Webex Teams bot documentation](https://developer.webex.com/docs/bots).
 
-You also need to specify the `room_id` that you wish to post messages into. The `room_id` can be found in one of two ways:
+You also need to specify the `room_id` that you wish to post messages into. The `room_id` can be found in one of three ways:
 
 1. Logging in at [Cisco Webex for Developers](https://developer.webex.com/) and navigate to `Documentation`>`API Reference`>`Messages` and select List Messages, or
-2. Log into the web client at [teams.webex.com](https://teams.webex.com/),
+2. Log into the web client at [web.webex.com](https://web.webex.com/),
     - select the room (or create a new room),
     - then copying the room ID from the URL.
 3. Within the Webex Client, press Control+Shift+K (Windows) or Command+Shift+K (macOS), which will automatically copy the space information to your clipboard, which you

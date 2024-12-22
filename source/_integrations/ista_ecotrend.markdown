@@ -43,10 +43,10 @@ The integration currently supports only the German EcoTrend service.
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-"Email":
-    description: "Enter the email address associated with your ista EcoTrend account to connect it to Home Assistant."
+Email:
+  description: "Enter the email address associated with your ista EcoTrend account to connect it to Home Assistant."
 Password:
-    description: "Enter the password for your ista EcoTrend account to enable the connection with Home Assistant."
+  description: "Enter the password for your ista EcoTrend account to enable the connection with Home Assistant."
 {% endconfiguration_basic %}
 
 ## Sensors
