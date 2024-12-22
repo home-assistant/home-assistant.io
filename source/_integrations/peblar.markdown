@@ -139,6 +139,15 @@ The following options are available:
 
 The Peblar integration provides a lot of sensors to Home Assistant.
 
+{% tip %}
+The ability to add your charger to the Home Assistant energy dashboard is
+arguably the most useful feature of this integration. It is therefore
+recommended to add your Peblar charger to the Home Assistant energy dashboard.
+
+You can do so, by adding the **Lifetime energy** sensor to the energy dashboard
+configuration as a device.
+{% endtip %}
+
 - **Current**: The current current (in amperes) the charger is consuming to
   charge your electric vehicle. This is a combined value for all your phases.
   Additionally, three additionally sensors are available, if your charging is
