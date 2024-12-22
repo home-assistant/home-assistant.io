@@ -77,7 +77,7 @@ Password:
 2. **Control via Home Assistant**:
    - Use the [climate](#climate) card to activate/deactivate schedules.
    - `Auto` mode indicates the schedule is active.
-   - `Heat` mode signifies the schedule is ininactive.
+   - `Heat` mode signifies the schedule is inactive.
 3. **Changing Schedules**: Use the thermostat [select](#select) entity.
 
 {% note %}
@@ -98,7 +98,7 @@ The interval at which the integration fetches data from the gateway depends on t
 
 This integration displays all Plugwise devices in your configuration, including hardware devices, multi-thermostat climate zones, and virtual switch groups. Additionally, a device representing your Plugwise gateway (e.g., Adam, Smile-T, or P1) will be visible.
 
-For example, if you have an Adam setup with a Lisa named `Living` and a Tom named `Bathroom`, these will show up as individual devices. The heating/cooling device connected to your gateway will be shown as `OpenTherm` or `OnOff`, depending on how the gateway communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) or Aqara Smart Plugs those will be shown as devices as well.
+For example, if you have an Adam setup with a Lisa named `Living` and a Tom named `Bathroom`, these will show up as individual devices. The heating/cooling device connected to your gateway will be shown as `OpenTherm` or `OnOff`, depending on how the gateway communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) or Aqara Smart Plugs, those will be shown as devices as well.
 
 Each device will list entities such as `binary sensors`, `sensors`, etc., depending on its capabilities: for instance centralized measurements such as `power` for a P1, `outdoor_temperature` on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as `boiler_temperature` will be assigned to the OpenTherm/OnOff device.
 
@@ -174,7 +174,7 @@ mode: single
 Forced update of data from your gateway can be triggered by calling the generic `homeassistant.update_entity` action.
 
 ```yaml
-# Example script to retreive the latest living room temperature measurement
+# Example script to retrieve the latest living room temperature measurement
 script:
   force_adam_update:
     sequence:
@@ -237,7 +237,7 @@ Depending on your setup, a [binary sensor](/integrations/binary_sensor) will pro
 
 ### Button
 
-For each gateway a [button](/integrations/button) is added to trigger a restart (reboot) of physical device.
+For each gateway a [button](/integrations/button) is added to trigger a restart (reboot) of the physical device.
 
 ### Number
 
@@ -286,7 +286,7 @@ Schedules can be created using the Plugwise App or the web-interface.
 
 action: `select.select_option`
 
-Assuming you have something to indicate your current day of night shift based on a calendar you can automatically change the active schedule. The automation example below assumes an [`input_select`](/integrations/input_select/) helper is present, e.g., containing something like `Day shift`, `Night shift` and `Weekend shift`). Assuming you have created the appropriate schedules using your Plugwise App, your automation for night shifts could look like:
+Assuming you have something to indicate your current day or night shift based on a calendar you can automatically change the active schedule. The automation example below assumes an [`input_select`](/integrations/input_select/) helper is present, e.g., containing something like `Day shift`, `Night shift` and `Weekend shift`). Assuming you have created the appropriate schedules using your Plugwise App, your automation for night shifts could look like:
 
 ```yaml
 # Example automation change the thermostate schedule based on your shift
@@ -401,11 +401,11 @@ If you are using your Anna as part of your adam zone control system, it cannot b
 
 The cooling mode can only be toggled via a **physical switch** on the device (not through a toggle in the Plugwise App or using Home Assistant).
 
-The change in cooling mode should be detected by Home Assistant. If not, please try to **reload** the Plugwsie integration as indicated below and report your findings.
+The change in cooling mode should be detected by Home Assistant. If not, please try to **reload** the Plugwise integration as indicated below and report your findings.
 
 1. Create an issue including your [diagnostic data](#diagnostic-data).
 2. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
-3. On the "**Hubs**" page, use the {% icon "mdi:dots-vertical" %} icon next to your Anna and choose "**Reload**"".
+3. On the "**Hubs**" page, use the {% icon "mdi:dots-vertical" %} icon next to your Anna and choose "**Reload**".
 
 ### Vacation preset
 
@@ -417,7 +417,7 @@ You can only stop climate actions on an Adam, see [Turn on / Turn off](#turn-on-
 
 ### Legacy power devices
 
-Plugwise formerly sold power-based products comprised of a USB stick and smart plugs (amongst a few other items). This integration does **not** support the USB-stick. Reuse of the these products, such as Circles and Stealths using a Stretch or an Adam is supported. Work for USB support is in development by the community, but not ready to become a formal Home Assistant integration just yet.
+Plugwise formerly sold power-based products comprised of a USB stick and smart plugs (amongs a few other items). This integration does **not** support the USB-stick. Reuse of the these products, such as Circles and Stealths using a Stretch or an Adam is supported. Work for USB support is in development by the community, but not ready to become a formal Home Assistant integration just yet.
 
 ## Removing the integration
 
