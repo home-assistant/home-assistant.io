@@ -27,6 +27,14 @@ energy dashboard.
 
 [Peblar Rocksolid EV Charger]: https://peblar.com/
 
+## Supported devices
+
+The following rocksolid Pebler EV chargers are supported by this integration:
+
+- Peblar Home
+- Peblar Home Plus
+- Peblar Business
+
 {% include integrations/config_flow.md %}
 
 ### Configuration parameters
@@ -372,6 +380,9 @@ integration. The following limitations are known:
   the use of this integration will enable the REST API on the charger
   automatically. It is possible to use the REST API directly in parallel
   with this integration.
+- Peblar is also sold as white-label products, like the [CoolBlue BlueBuilt](https://www.coolblue.nl/en/charging-stations/our-charging-stations).
+  This integration is tested with the Peblar branded products, and it is unknown
+  if it works with white-label products.
 
 ## Troubleshooting
 
