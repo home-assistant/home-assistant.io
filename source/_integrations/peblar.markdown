@@ -71,11 +71,11 @@ The binary sensors provided are used to indicate the health status of the
 charger. The following binary sensors are available:
 
 - **Active error**: Indicates if the charger has detected an error. If this
-  sensor is on (state: `on`) an error has been detected, otherwise, it is off
-  (state: `off`).
+  sensor is on ({% term state %}: `on`) an error has been detected, otherwise, it is off
+  ({% term state %}: `off`).
 - **Active warning**: Indicates if the charger has raised a warning. If this
-- sensor is on (state: `on`) a warning has been raised, otherwise, it is off
-  (state: `off`).
+- sensor is on ({% term state %}: `on`) a warning has been raised, otherwise, it is off
+  ({% term state %}: `off`).
 
 If any of these binary sensors are on, you should check the charger's local
 web interface for more information about the error or warning.
@@ -122,17 +122,17 @@ web interface, and allows you to control the charging behavior of the charger.
 
 The following options are available:
 
-- **Default** (state: `default`): The charger will charge the electric vehicle
+- **Default** ({% term state %}: `default`): The charger will charge the electric vehicle
   as soon as it is connected.
-- **Fast solar** (state: `fast_solar`): The charger will fast charge the
+- **Fast solar** ({% term state %}: `fast_solar`): The charger will fast charge the
   electric vehicle with the overproduction of solar energy, but will also use
   grid power if the solar production is not sufficient.
-- **Smart solar** (state: `smart_solar`): The charger will charge the electric
+- **Smart solar** ({% term state %}: `smart_solar`): The charger will charge the electric
   vehicle with the overproduction of solar energy, but will also use grid power
   if the solar production is not sufficient.
-- **Pure solar** (state: `solar_only`): The charger will only charge the
+- **Pure solar** ({% term state %}: `solar_only`): The charger will only charge the
   electric vehicle with the overproduction of solar energy.
-- **Scheduled** (state: `scheduled`): The charger will charge the electric
+- **Scheduled** ({% term state %}: `scheduled`): The charger will charge the electric
   vehicle according to the schedule configured on the charger.
 
 ### Sensors
@@ -140,8 +140,9 @@ The following options are available:
 The Peblar integration provides a lot of sensors to Home Assistant.
 
 - **Current**: The current current (in amperes) the charger is consuming to
-  charge your electric vehicle. Additionally, three additionally sensors are
-  available, if your charging is using multiple phases:
+  charge your electric vehicle. This is a combined value for all your phases.
+  Additionally, three additionally sensors are available, if your charging is
+  using multiple phases:
   - **Current Phase 1**\*\*: The current current (in amperes) the charger is
     consuming on phase 1.
   - **Current Phase 2**\*\*: The current current (in amperes) the charger is
@@ -153,48 +154,49 @@ The Peblar integration provides a lot of sensors to Home Assistant.
   Home Assistant energy dashboard.**
 - **Limit source**: The source/origin of the current charging limit that is
   in effect. The source can be one of the following:
-  - _**Charging cable**_ (state: `charging_cable`): The current limit is
+  - _Charging cable_ ({% term state %}: `charging_cable`): The current limit is
     the maximum current the charging cable handle.
-  - _**Current limiter**_ (state: `current_limiter`): The current limit is
+  - _Current limiter_ ({% term state %}: `current_limiter`): The current limit is
     set by the current limiter.
-  - _**Dynamic load balancing**_ (state: `dynamic_load_balancing`): The current
+  - _Dynamic load balancing_ ({% term state %}: `dynamic_load_balancing`): The current
     limit is set by the dynamic load balancing feature.
-  - _**External power limit**_ (state: `external_power_limit`): The current
+  - _External power limit_ ({% term state %}: `external_power_limit`): The current
     limit is set by an external power limiter.
-  - _**Group load balancing**_ (state: `group_load_balancing`): The current
+  - _Group load balancing_ ({% term state %}: `group_load_balancing`): The current
     limit is set by the group load balancing feature, which is a feature that
     allows multiple chargers to share the available power.
-  - _**Hardware limitation**_ (state: `hardware_limitation`): The current limit
+  - _Hardware limitation_ ({% term state %}: `hardware_limitation`): The current limit
     is limited by the hardware of the charger that can't provide more current.
-  - _**High temperature**_ (state: `high_temperature`): The current limit is
+  - _High temperature_ ({% term state %}: `high_temperature`): The current limit is
     limited due to high temperatures.
-  - **_Household power limit_** (state: `household_power_limit`): The current
+  - _Household power limit_ ({% term state %}: `household_power_limit`): The current
     limit is set by the household power limit feature, which is a feature that
     allows the charger to limit the current to prevent overloading the household
     power.
-  - _**Installer limitation**_ (state: `installer_limitation`): The current
+  - _Installer limitation_ ({% term state %}: `installer_limitation`): The current
     limit is set by the installer, for example, to prevent overloading the fuse
     of the house.
-  - _**Local Modbus API**_ (state: `local_modbus_api`): The current limit is
+  - _Local Modbus API_ ({% term state %}: `local_modbus_api`): The current limit is
     set by software using the local Modbus API.
-  - _**Local REST API**_ (state: `local_rest_api`): The current limit is set
+  - _Local REST API_ ({% term state %}: `local_rest_api`): The current limit is set
     by software using the local REST API. Home Assistant uses this API to set
     the current limit, so if you see this state, it means the current limit is
     likely set through Home Assistant.
-  - _**OCPP smart charging**_ (state: `ocpp_smart_charging`): The current limit
+  - _OCPP smart charging_ ({% term state %}: `ocpp_smart_charging`): The current limit
     is set by the OCPP smart charging feature.
-  - _**Overcurrent protection**_ (state: `overcurrent_protection`): The current
+  - _Overcurrent protection_ ({% term state %}: `overcurrent_protection`): The current
     limit is limited due to overcurrent protection.
-  - _**Phase imbalance**_ (state: `phase_imbalance`): The current limit is
+  - _Phase imbalance_ ({% term state %}: `phase_imbalance`): The current limit is
     limited due to phase imbalance in the electrical installation.
-  - _**Power factor**_ (state: `power_factor`): The current limit is limited
+  - _Power factor_ ({% term state %}: `power_factor`): The current limit is limited
     due to a low power factor in the electrical installation.
-  - _**Solar charging**_ (state: `solar_charging`): The current limit is set
+  - _Solar charging_ ({% term state %}: `solar_charging`): The current limit is set
     by the solar charging feature of the charger. This means the charger is
     awaiting an overproduction of solar energy to start charging.
 - **Power**: The current power (in Watts) the charger is consuming to charge
-  your electric vehicle. Additionally, three additionally sensors are available,
-  if your charging is using multiple phases:
+  your electric vehicle. This is a combined value for all your phases.
+  Additionally, three additionally sensors are available, if your charging is
+  using multiple phases:
   - **Power Phase 1**\*\*: The current power (in Watts) the charger is consuming
     on phase 1.
   - **Power Phase 2**\*\*: The current power (in Watts) the charger is consuming
@@ -208,17 +210,17 @@ The Peblar integration provides a lot of sensors to Home Assistant.
   energy** sensor instead.
 - **State**: The current state of the charger. The state can be one of the
   following:
-  - _**Charging**_ (state: `charging`): The charger is currently charging the
+  - _Charging_ ({% term state %}: `charging`): The charger is currently charging the
     electric vehicle.
-  - _**Error**_ (state: `error`): The charger has detected an error and is
+  - _Error_ ({% term state %}: `error`): The charger has detected an error and is
     currently not charging the electric vehicle.
-  - _**Fault**_ (state: `fault`): The charger has detected a fault and is
+  - _Fault_ ({% term state %}: `fault`): The charger has detected a fault and is
     currently not charging the electric vehicle.
-  - _**No EV**_ (state: `no_ev_connected`): The charger is currently not
+  - _No EV connected_ ({% term state %}: `no_ev_connected`): The charger is currently not
     connected to an electric vehicle.
-  - _**Suspended**_ (state: `suspended`): The charger is currently not charging
+  - _Suspended_ ({% term state %}: `suspended`): The charger is currently not charging
     the electric vehicle, but is ready to start charging when needed.
-  - _**Invalid**_ (state: `invalid`): The charger is in an invalid state.
+  - _Invalid_ ({% term state %}: `invalid`): The charger is in an invalid state.
 - **Uptime**\*\*: The total time the charger has been running since the last
   restart. This sensor is reset when the charger is restarted.
 - **Voltage**: The current voltage (in volts) the charger is using to charge.
