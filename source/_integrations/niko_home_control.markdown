@@ -4,11 +4,13 @@ description: Instructions on how to integrate Niko Home Control lights into Home
 ha_config_flow: true
 ha_category:
   - Light
-ha_iot_class: Local Polling
+  - Cover
+ha_iot_class: Local Push
 ha_release: 0.82
 ha_domain: niko_home_control
 ha_platforms:
   - light
+  - cover
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/
