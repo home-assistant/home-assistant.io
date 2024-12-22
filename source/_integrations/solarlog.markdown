@@ -15,6 +15,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
 The **Solarlog** {% term integration %} uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to get details from your Solar-Log device and integrate these into your Home Assistant installation. With the integration you may monitor the solar power production and power consumption as tracked with your Solar-Log device.
@@ -42,13 +43,13 @@ To setup the integration you need the following information:
 
 {% configuration_basic %}
 Name:
-    description: "The name for your Solar-Log device in Home Assistant. This will also be uses as prefix for the entity names."
+  description: "The name for your Solar-Log device in Home Assistant. This will also be uses as prefix for the entity names."
 Host:
-    description: "The URL or IP address of your Solar-Log."
+  description: "The URL or IP address of your Solar-Log."
 User password available:
-    description: "Check the box, if you have the password for the Solar-Log user to securely access [all data](#additional-data)."
+  description: "Check the box, if you have the password for the Solar-Log user to securely access [all data](#additional-data)."
 Password:
-    description: "Password for the Solar-Log user. Will only be asked for in a second step, if in the first step the checkbox has been selected."
+  description: "Password for the Solar-Log user. Will only be asked for in a second step, if in the first step the checkbox has been selected."
 {% endconfiguration_basic %}
 
 ## Configuration options

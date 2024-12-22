@@ -11,6 +11,7 @@ ha_domain: hikvision
 ha_platforms:
   - binary_sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The Hikvision Binary Sensor is a platform that parses the event stream of a

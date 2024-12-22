@@ -213,20 +213,23 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
 - BASEUS BR8651A01 BA04 - Advertisement drops out
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
-- Bluegiga BLED112 - No driver available yet for USB id 2458:0001
+- Bluegiga BLED112 - No driver available yet for USB ID `2458:0001`
 - EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
 - EDUP EP-AC1661 (RTL8821CU) - Frequent connection failures and drop outs
-- eppfun AK3040G (ATS2851) - No driver available yet for USB id 10d7:b012
-- eppfun AK3040A (ATS2851) - No driver available yet for USB id 10d7:b012
+- eppfun AK3040G (ATS2851) - No driver available yet for USB ID `10d7:b012`
+- eppfun AK3040A (ATS2851) - No driver available yet for USB ID `10d7:b012`
 - KOAMTAC KBD 401G (CSR8510A10) - Adapter is unstable and drops out
 - TRIPP-LITE CU885A/U261-001-BT4 (CSR8510A10) - Adapter is unstable and drops out
 - QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
-- UGREEEN CM591 (ATS2851) - No driver available yet for USB id 10d7:b012
+- UGREEEN CM591 (ATS2851) - No driver available yet for USB ID `10d7:b012`
+- UGREEEN CM749 (Barrot chipset) 📶 - No driver available yet for USB ID `33fa:0010`
 - tp-link UB400 (CSR4) - Frequent connection failures with active connections
 - tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
-- CSR 4.0 clones with USB id 0a12:0001 - Unrecoverable driver failure: These clones will usually show a message like `CSR: Unbranded CSR clone detected; adding workarounds and force-suspending once...` in the system log when they are plugged in.
+- CSR 4.0 clones with USB ID `0a12:0001` - Unrecoverable driver failure: These clones will usually show a message like `CSR: Unbranded CSR clone detected; adding workarounds and force-suspending once...` in the system log when they are plugged in.
   - Multiple unbranded adapters labeled with CSR 4.0
   - 5 CORE CSR 4.0
+
+📶 Denotes external antenna
 
 ## Multiple adapters
 

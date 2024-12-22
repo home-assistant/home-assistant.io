@@ -15,7 +15,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@allenporter'
 ha_domain: nest
-ha_quality_scale: platinum
 ha_dhcp: true
 ha_platforms:
   - camera

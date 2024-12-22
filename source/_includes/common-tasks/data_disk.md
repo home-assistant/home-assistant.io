@@ -11,7 +11,7 @@ All data on the target disk will be overwritten!
 {% endcaution %}
 
 {% important %}
-The storage ca  pacity of the external data disk must be larger than the storage capacity of the existing (boot) disk.
+The storage capacity of the external data disk must be larger than the storage capacity of the existing (boot) disk.
 {% endimportant %}
 
 {% important %}

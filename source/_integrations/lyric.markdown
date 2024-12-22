@@ -10,7 +10,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@timmo001'
 ha_domain: lyric
-ha_quality_scale: silver
 ha_platforms:
   - climate
   - sensor

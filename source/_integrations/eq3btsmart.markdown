@@ -11,7 +11,6 @@ ha_codeowners:
   - '@dbuezas'
 ha_domain: eq3btsmart
 ha_integration_type: device
-ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
   - climate

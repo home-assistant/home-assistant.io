@@ -17,7 +17,6 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The TechnoVE integration provides connectivity with TechnoVE Smart Charging Station through the station local API.

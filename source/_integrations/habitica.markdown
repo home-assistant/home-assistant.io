@@ -2,22 +2,21 @@
 title: Habitica
 description: Instructions on enabling Habitica support for your Home Assistant
 ha_category:
-  - To-do list
-  - Sensor
   - Calendar
+  - Sensor
+  - To-do list
 ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_domain: habitica
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
+  - diagnostics
   - sensor
   - switch
   - todo
-  - calendar
 ha_codeowners:
-  - '@ASMfreaK'
-  - '@leikoilja'
   - '@tr4nt0r'
 ha_config_flow: true
 ha_integration_type: integration
@@ -56,9 +55,9 @@ The Habitica integration lets you automate task management, such as creating to-
 
 {% configuration_basic %}
 "Email or username":
-    description: "Email or username (case-sensitive) to connect Home Assistant to your Habitica account"
+  description: "Email or username (case-sensitive) to connect Home Assistant to your Habitica account"
 Password:
-    description: "Password for the account to connect Home Assistant to Habitica"
+  description: "Password for the account to connect Home Assistant to Habitica"
 {% endconfiguration_basic %}
 
 ### Advanced configuration
@@ -67,11 +66,11 @@ If you choose "**Login to other instances**" you will be presented the following
 
 {% configuration_basic %}
 "User ID":
-    description: "User ID of your Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+  description: "User ID of your Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
 API Token:
-    description: "API Token of the Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+  description: "API Token of the Habitica account (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
 URL:
-    description: "URL of the Habitica installation to connect to. Defaults to `https://habitica.com` (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
+  description: "URL of the Habitica installation to connect to. Defaults to `https://habitica.com` (*see [prerequisites](#prerequisites-for-habitica-integration)*)"
 Verify SSL certificate:
   description: Enable SSL certificate verification for secure connections. Disable only if connecting to a Habitica instance using a self-signed certificate
 {% endconfiguration_basic %}
@@ -87,8 +86,8 @@ Verify SSL certificate:
 - **Mana**: Displays the current mana points of your character (for example, "61 MP").
 - **Max. mana**: Indicates the maximum mana points your character can have at the current level (for example, "70 MP").
 - **Next level**: Indicates the remaining experience points needed to reach the next level (for example, "440 XP").
-- **Ha Dispbits**: Shows the number of habits being tracked (for example, "4 tasks").
-- **Rewards**:lays the rewards that can be redeemed (for example, "1 task")
+- **Habits**: Shows the number of habits being tracked (for example, "4 tasks").
+- **Rewards**: Displays the rewards that can be redeemed (for example, "1 task")
 - **Gems**: Shows the total number of gems currently owned by your Habitica character, used for purchasing items and customizations.
 - **Mystic hourglasses**: Displays the number of mystic hourglasses earned as a subscriber, which can be redeemed for exclusive items from past events.
 - **Strength, intelligence, constitution, perception**: Display your character's attribute points (stats). The sensors' attributes provide a breakdown of contributions from level, battle gear, class equip bonus, allocation, and buffs.

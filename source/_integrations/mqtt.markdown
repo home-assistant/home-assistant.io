@@ -44,7 +44,6 @@ ha_platforms:
   - valve
   - water_heater
 ha_integration_type: integration
-ha_quality_scale: platinum
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
@@ -956,7 +955,7 @@ support_url:
 
 {% enddetails %}
 
-### Discovery messages en availability
+### Discovery messages and availability
 
 When MQTT discovery is set up, and a device or service sends a discovery message,
 an MQTT entity, tag, or device automation will be set up directly after receiving the message.
@@ -1351,6 +1350,12 @@ The following software has built-in support for MQTT discovery:
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
 - [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
+
+The following software also supports consuming MQTT discovery information that is intended for Home Assistant.
+Compatibility and features will vary, and not all devices may work.
+
+- [Domoticz](https://wiki.domoticz.com/MQTT#Add_hardware_.22MQTT_Auto_Discovery_Client_Gateway.22)
+- [openHAB](https://www.openhab.org/addons/bindings/mqtt.homeassistant/)
 
 ## Manual configured MQTT items
 

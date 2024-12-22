@@ -20,6 +20,7 @@ The threshold integration observes the state of another sensor. If the value is 
 If the sensor is configured with no hysteresis and the sensor value is equal to the threshold, the sensor is turned off since it is not upper or lower with respect to the threshold.
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 Name:
   description: The name the sensor should have. You can change it again later.
@@ -108,7 +109,9 @@ sensor:
     name: temperature derivative
     time_window: 00:05:00
 binary_sensor:
-  - platform: threshold # will switch state not at 0°C/min but 0.1°C/min or -0.1°C/min depending on the current state of the sensor, respectively
+  - platform: threshold # will switch state not at 0°C/min but
+                        # will switch on when value rises above 0.1°C/min
+                        # will switch off when value sinks below -0.1°C/min
     entity_id: sensor.temperature_derivative
     upper: 0
     hysteresis: 0.1 # sensor 

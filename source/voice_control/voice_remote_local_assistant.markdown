@@ -13,7 +13,7 @@ related:
     title: Best practices with Assist
 ---
 
-The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and test-to-speech) included in [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) 
+The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and text-to-speech) included in [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) 
 
 If you are interested in setting up a fully local voice assistant, follow this setup:
 
@@ -27,10 +27,6 @@ In Home Assistant, the Assist pipelines are made up of various components that t
 - For listening and talking back, it needs your phone with the Home Assistant app, or a voice activated device.
 - For understanding, it needs to have a text-to-speech and speech-to-text software integrated. 
 - For running all together, it needs to have the Home Assistant Operating System running.
-
-### First, make sure Assist can run in your local setup
-
-Check our comparison table to be sure local setup is going to meet your expectations.
 
 ## Some options for speech-to-text and text-to-speech
 
