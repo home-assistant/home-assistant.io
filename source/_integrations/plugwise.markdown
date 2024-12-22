@@ -1,6 +1,6 @@
 ---
 title: Plugwise
-description: Plugwise Smile platform integration.
+description: Plugwise Gateway platform integration.
 ha_category:
   - Binary sensor
   - Button
@@ -34,7 +34,7 @@ ha_integration_type: hub
 
 ## Supported devices
 
-This integration supports Plugwise devices connected to a network connected hub called a **Smile**. You can connect to the Smile using your browser, their Plugwise App or this Home Assistant integration. There are 5 types of Smiles:
+This integration supports one or more of the Plugwise Gateways available on your network. You can connect to these gateways  using your browser, the Plugwise App, or this Home Assistant integration. There are 5 types of gateways:
 
 - Full zonecontrol using the [Adam](https://www.plugwise.com/en_US/zonecontrol) using [additional devices](#devices-overview) such as smart valves and smart-plugs.
 - A stand-alone smart thermostat called [Anna](https://www.plugwise.com/en_US/products/anna).
@@ -46,29 +46,29 @@ Plugwise formerly sold power-based products using a USB stick as the controller.
 
 ## Platforms
 
-Depending on your specific Smile and connected devices, the following platforms will be available:
+Depending on your specific gateway and connected devices, the following platforms will be available:
 
 - [Climate](#climate) for Adam and (a stand-alone) Anna.
 - [Binary Sensor](#binary-sensor) for status of your domestic hot water or secondary heater.
-- [Button](#button) to reboot your Smile.
+- [Button](#button) to reboot your Plugwise Gateway.
 - [Number](#number) to change a boiler setpoint or temperature offset.
-- [Sensor](#sensor) a variety of sensors is available for all Smiles.
+- [Sensor](#sensor) a variety of sensors is available for all gateways and connected devices..
 - [Select](#select) to change your thermostat schedule or regulation mode.
 - [Switch](#switch) allowing plugs to be commanded.
 
 ## Pre-requisites
 
-The Plugwise Smile(s) in your network will be automatically discovered and shown on the integrations dashboard. You will need the Smile ID, which serves as its password. You can find this 8-character string printed on the sticker on the bottom of your Smile. Repeat this for each individual Smile.
+The Plugwise Gateway(s) in your network will be automatically discovered and shown on the integrations dashboard. You will need the ID, which serves as its password. You can find this 8-character string printed on the sticker on the bottom of your gateway. Repeat this for each individual gateway..
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your Smile. For example: `192.168.1.25`. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) -> **System** -> **Network**. If you are looking for a different device in the Plugwise App, first select **Gateways** on the main screen, choose the Smile of your choice, and then follow the previous instructions. Normally, the Smile(s) are automatically discovered, and you don't have to provide the hostname or IP address."
+  description: "The hostname or IP address of your Gateway. For example: `192.168.1.25`. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) -> **System** -> **Network**. If you are looking for a different device in the Plugwise App, first select **Gateways** on the main screen, choose the Gateway of your choice, and then follow the previous instructions. Normally, the Gateway(s) are automatically discovered, and you don't have to provide the hostname or IP address."
 Username:
-  description: "Username to log in to the Smile. This should be `smile` for most devices, or `stretch` for a Stretch."
+  description: "Username to log in to the Gateway. This should be `smile` for most devices, or `stretch` for a Stretch."
 Password:
-  description: "This is the password (i.e., Smile ID) printed on the sticker on the back of your Smile (e.g., Adam, Smile-T, or P1) and should be 8 characters long."
+  description: "This is the password (i.e., ID) printed on the sticker on the back of your Gateway (e.g., Adam, Smile-T, or P1) and should be 8 characters long."
 {% endconfiguration_basic %}
 
 ### Further configuration
@@ -79,7 +79,7 @@ Auto means the schedule is active, and Heat means it's not active. The active th
 
 ## Data updates
 
-The interval at which the integration fetches data from the Smile depends on the device-type.
+The interval at which the integration fetches data from the gateway depends on the device-type.
 
 |Device-type|Interval|
 --- | ---
@@ -89,9 +89,9 @@ The interval at which the integration fetches data from the Smile depends on the
 
 ## Entities
 
-This integration will show all Plugwise devices (such as hardware devices, multi-thermostat climate-zones, and virtual switchgroups) present in your Plugwise configuration. In addition, you will see a Gateway device representing your central Plugwise gateway (i.e., the Adam, Smile Anna, Smile P1 or Stretch).
+This integration will show all Plugwise devices (such as hardware devices, multi-thermostat climate-zones, and virtual switchgroups) present in your Plugwise configuration. In addition, you will see a device representing your Plugwise Gateway (i.e., the Adam, Smile Anna, Smile P1 or Stretch).
 
-For example, if you have an Adam setup with a Lisa named `Living` and a Tom named `Bathroom`, these will show up as individual devices. The heating/cooling device connected to your Smile will be shown as `OpenTherm` or `OnOff`, depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) or Aqara Smart Plugs those will be shown as devices as well.
+For example, if you have an Adam setup with a Lisa named `Living` and a Tom named `Bathroom`, these will show up as individual devices. The heating/cooling device connected to your gateway will be shown as `OpenTherm` or `OnOff`, depending on how the gateway communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) or Aqara Smart Plugs those will be shown as devices as well.
 
 Under each device there will be entities shown such as `binary_sensors`, `sensors`, etc. depending on the capabilities of the device: for instance centralized measurements such as `power` for a P1, `outdoor_temperature` on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as `boiler_temperature` will be assigned to the OpenTherm/OnOff device.
 
@@ -99,7 +99,7 @@ Under each device there will be entities shown such as `binary_sensors`, `sensor
 
 ### Climate
 
-The [climate entity](/integrations/climate) is displayed for each zone that includes a thermostat. This can be any supported thermostat, such as the standalone Anna. For Adam, it represents each user-defined climate zone that contains the necessary devices, such as an Anna, a wired thermostat, or a combination of Jip or Lisa with one or more Tom/Floor devices.
+The [climate entity](/integrations/climate) is displayed for each zone that includes a thermostat. This can be any supported single thermostat such as the Anna or another type of wired-thermostat, Jip or Lisa combined with one or more Tom/Floor devices. Or a combination of for instance a Lisa, two Jips and several Toms in one large zone.
 
 #### Setting the HVAC mode
 
@@ -156,9 +156,9 @@ actions:
 mode: single
 ```
 
-#### Update Smile data
+#### Update gateway data
 
-Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` action with your Smile entity as the target.
+Forced update of data from your gateway  can be triggered by calling the generic `homeassistant.update_entity` action.
 
 ```yaml
 # Example script to retreive the latest living room temperature measurement
@@ -224,7 +224,7 @@ Depending on your setup, a [binary sensor](/integrations/binary_sensor) will pro
 
 ### Button
 
-For each Smile a [button](/integrations/button) is added to enable a restart (reboot) of the Smile.
+For each gateway a [button](/integrations/button) is added to trigger a restart (reboot) of physical device.
 
 ### Number
 
@@ -300,18 +300,18 @@ Allows commanding [switches](/integrations/switch), e.g. `on`/`off` for Plugs or
 
 #### Accessing the local device
 
-If you need to configure the Smile directly, without using the Plugwise App, you can find the link to your device by:
+If you need to configure the gateway directly, without using the Plugwise App, you can find the link to your device by:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
-2. If you have more than one Plugwise Smile, select the one to configure.
-3. Select the device with 'Smile' in its name.
+2. If you have more than one Plugwise Gateway, select the one to configure.
+3. Select the gateway device, this should be called `Adam` or contain `Smile` in its name.
 4. On the integration entry, choose to open the configuration URL left of the {% icon "mdi:dots-vertical" %} icon.
-5. A new window/tab will open, enter `smile` (or `stretch`) as the username and your Smile ID as the password.
+5. A new window/tab will open, enter `smile` (or `stretch`) as the username and the ID, from the sticker on the back, as the password.
 6. Consult the manual or click the `search` button on the [Plugwise Support](https://plugwise.com/support/) page for interactive help.
 
-#### Modify the Smile update interval
+#### Adjusting the update interval
 
-Please note that the [default intervals](#data-updates) are considered best practice and according to how Plugwise normally updates their data. Updating too frequently may induce considerable load on your Smile resulting in unexpected results.
+Please note that the [default intervals](#data-updates) are considered best practice and according to how Plugwise normally updates their data. Updating too frequently may induce considerable load on your gateway(s) resulting in unexpected results or .
 
 {% include common-tasks/define_custom_polling.md %}
 
@@ -320,19 +320,19 @@ Please note that the [default intervals](#data-updates) are considered best prac
 If you need to create an issue to report a bug or want to inspect diagnostic data, use the below method to retrieve diagnostics:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
-2. If you have more than one Plugwise Smile, select the gateway that is experiencing issues.
-3. Select the device with 'Smile' in its name.
+2. If you have more than one Plugwise Gateway, select the gateway that is experiencing issues.
+3. Select the gateway device, this should be called `Adam` or contain `Smile` in its name.
 4. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
    - Then, select **Download diagnostics** and a JSON file will be downloaded.
 5. You can inspect the downloaded file or, when requested, upload it to your issue report.
 
-#### Rebooting your Smile
+#### Rebooting your gateway
 
-For each Smile there will be a reboot [button](#button) available in your integration.
+For each gateway there will be a reboot [button](#button) available in your integration.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
 2. If you have more than one Plugwise Smile, select the gateway that is experiencing issues.
-3. Select the device with 'Smile' in its name.
+3. Select the gateway device, this should be called `Adam` or contain `Smile` in its name.
 4. On the integration entry, look for the `Reboot` button to press in the **Configuration** section.
 
 ## Devices overview
