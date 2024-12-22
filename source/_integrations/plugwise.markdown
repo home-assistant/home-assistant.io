@@ -30,7 +30,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-[Plugwise](https://www.plugwise.com) provides smart home climate and power monitoring devices. This integration allows you to monitor and control your climate and energy (including gas) consumption and energy production. The energy information can be used for the [energy dashboard](/home-energy-management).
+[Plugwise](https://www.plugwise.com) provides smart home climate and power monitoring devices. This integration allows you to monitor and control your climate, energy consumption (including gas) consumption, and energy production. The energy information can be used for the [energy dashboard](/home-energy-management).
 
 ## Supported devices
 
@@ -71,11 +71,18 @@ Password:
   description: "Each gateway requires its unique 8-character ID, found on a sticker at the bottom, as its password."
 {% endconfiguration_basic %}
 
-### Further configuration
+### Schedule Management
 
-For a thermostat, the active schedule can be deactivated or reactivated via the climate card. Note: If no schedule is active, activate one first in the Plugwise App. Once that has been done, the Plugwise Integration can manage future operations.
+1. **Initial Setup**: First, activate a schedule using the Plugwise App or browser.
+2. **Control via Home Assistant**:
+   - Use the [climate](#climate) card to activate/deactivate schedules.
+   - `Auto` mode indicates the schedule is active.
+   - `Heat` mode signifies the schedule is ininactive.
+3. **Changing Schedules**: Use the thermostat [select](#select) entity.
 
-In this context, `Auto` indicates the schedule is active, while `Heat` signifies it is inactive. The active thermostat schedule can be changed via the connected thermostat select entity. Please note that only schedules with two or more schedule points will be shown as select options.
+{% note %}
+Only schedules with two or more schedule points will appear as options.
+{% endnote %}
 
 ## Data updates
 
@@ -149,10 +156,16 @@ triggers:
       - media_player.cinema
     attribute: sound_mode
     from: Movie
+condition:
+  - condition: state
+    entity_id: climate.cinema
+    state: 'on'
 actions:
   - action: homeassistant.turn_off
     target:
       entity_id: climate.cinema
+  - delay:
+      seconds: 30
 mode: single
 ```
 
@@ -388,10 +401,11 @@ If you are using your Anna as part of your adam zone control system, it cannot b
 
 The cooling mode can only be toggled via a **physical switch** on the device (not through a toggle in the Plugwise App or using Home Assistant).
 
-Please **reload** the Plugwise integration after changing the cooling mode switch to ensure the integration adapts to the change:
+The change in cooling mode should be detected by Home Assistant. If not, please try to **reload** the Plugwsie integration as indicated below and report your findings.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
-2. On the "**Hubs**" page, use the {% icon "mdi:dots-vertical" %} icon next to your Anna and choose "**Reload**"".
+1. Create an issue including your [diagnostic data](#diagnostic-data).
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
+3. On the "**Hubs**" page, use the {% icon "mdi:dots-vertical" %} icon next to your Anna and choose "**Reload**"".
 
 ### Vacation preset
 
