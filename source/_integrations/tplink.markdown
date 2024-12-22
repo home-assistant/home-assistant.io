@@ -93,7 +93,7 @@ Some entities might be showing as Unavailable if they have been removed from the
 ## Cameras
 
 Only Tapo cameras are currently supported.
-In order for live view to work you will need to enable your camera account in the Tapo App > "Advanced Settings" > "Camera Account".
+In order for live view to work, you will need to enable your camera account in the Tapo App > "Advanced Settings" > "Camera Account".
 If you do not want to do this, keep "Live view" unchecked when adding the device.
 
 ### Total consumption
