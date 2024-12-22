@@ -58,7 +58,7 @@ Depending on your specific Smile and connected devices, the following platforms 
 
 ## Pre-requisites
 
-The Plugwise Smile(s) in your network will be automatically discovered and shown on the integrations dashboard. You will need the Smile ID, which serves as its password. You can find thi 8-character string printed on the sticker on the bottom of your Smile. Repeat this for each individual Smile.
+The Plugwise Smile(s) in your network will be automatically discovered and shown on the integrations dashboard. You will need the Smile ID, which serves as its password. You can find this 8-character string printed on the sticker on the bottom of your Smile. Repeat this for each individual Smile.
 
 {% include integrations/config_flow.md %}
 
@@ -99,7 +99,7 @@ Under each device there will be entities shown such as `binary_sensors`, `sensor
 
 ### Climate
 
-The [climate entity](/integrations/climate) is shown for each zone containing a thermostat. This can be any supported themostat such as the Anna or another type of wired-thermostat, Jip or Lisa combined with one or more Tom/Floor devices.
+The [climate entity](/integrations/climate) is displayed for each zone that includes a thermostat. This can be any supported thermostat, such as the standalone Anna. For Adam, it represents each user-defined climate zone that contains the necessary devices, such as an Anna, a wired thermostat, or a combination of Jip or Lisa with one or more Tom/Floor devices.
 
 #### Setting the HVAC mode
 
@@ -272,7 +272,7 @@ Schedules can be created using the Plugwise App or the web-interface.
 
 action: `select.select_option`
 
-Assuming you have something to indicate your current day of night shift based on a calendar you can automatically change the active schedule. The automation example below assumes an (`input_select`)[/integrations/input_select/] helper is present, e.g., containing something like `Day shift`, `Night shift` and `Weekend shift`). Assuming you have created the appropriate schedules using your Plugwise App, your automation for night shifts could look like:
+Assuming you have something to indicate your current day of night shift based on a calendar you can automatically change the active schedule. The automation example below assumes an [`input_select`](/integrations/input_select/) helper is present, e.g., containing something like `Day shift`, `Night shift` and `Weekend shift`). Assuming you have created the appropriate schedules using your Plugwise App, your automation for night shifts could look like:
 
 ```yaml
 # Example automation change the thermostate schedule based on your shift
@@ -311,6 +311,8 @@ If you need to configure the Smile directly, without using the Plugwise App, you
 
 #### Modify the Smile update interval
 
+Please note that the [default intervals](#data-updates) are considered best practice and according to how Plugwise normally updates their data. Updating too frequently may induce considerable load on your Smile resulting in unexpected results.
+
 {% include common-tasks/define_custom_polling.md %}
 
 #### Diagnostic data
@@ -326,12 +328,12 @@ If you need to create an issue to report a bug or want to inspect diagnostic dat
 
 #### Rebooting your Smile
 
-For each Smile there will be a reboot (button)[#button] available in your integration.
+For each Smile there will be a reboot [button](#button) available in your integration.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
 2. If you have more than one Plugwise Smile, select the gateway that is experiencing issues.
 3. Select the device with 'Smile' in its name.
-4. On the integration entry, look for the `Reboot` button to press in the **Configuration** section 
+4. On the integration entry, look for the `Reboot` button to press in the **Configuration** section.
 
 ## Devices overview
 
@@ -388,7 +390,7 @@ The cooling mode can only be toggled via a **physical switch** on the device (no
 Please **reload** the Plugwise integration after changing the cooling mode switch to ensure the integration adapts to the change:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
-2. On the "**Hubs**" page, use the {% icon "mdi:dots-vertical" %} icon next to your Anna and choose "**Reload**""
+2. On the "**Hubs**" page, use the {% icon "mdi:dots-vertical" %} icon next to your Anna and choose "**Reload**"".
 
 ### Vacation preset
 
@@ -396,7 +398,7 @@ The `vacation` preset is only available on an Anna.
 
 ### Idling climate actions
 
-You can only stop climate actions on an Adam, see (Turn on / Turn off)[#turn-on--turn-off]. An alternative could be to adjust your (preset mode)[#set-preset-mode] to `no_frost` to stop any heating actions.
+You can only stop climate actions on an Adam, see [Turn on / Turn off](#turn-on--turn-off). An alternative could be to adjust your [preset mode](#set-preset-mode) to `no_frost` to stop any heating actions.
 
 ### Legacy power devices
 
