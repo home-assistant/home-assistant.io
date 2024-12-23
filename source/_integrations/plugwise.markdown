@@ -71,7 +71,7 @@ This integration displays all Plugwise devices in your configuration, including 
 
 For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual devices. The heating/cooling device connected to your gateway will be shown as 'OpenTherm' or 'OnOff', depending on how the gateway communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) or Aqara Smart Plugs, those will be shown as devices as well.
 
-Each device will list entities such as `binary sensors`, `sensors`, etc., depending on its capabilities: for instance centralized measurements such as `power` for a P1, `outdoor_temperature` on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as `boiler_temperature` will be assigned to the OpenTherm/OnOff device.
+Each device will list entities such as `binary sensors`, `sensors`, etc., depending on its capabilities: for instance, centralized measurements such as `power` for a P1, `outdoor_temperature` on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as `boiler_temperature` will be assigned to the OpenTherm/OnOff device.
 
 ### Climate entities
 
@@ -113,7 +113,7 @@ A generous number of sensors is provided for your climate setup. Examples includ
 #### Selects
 
 - **Thermostat schedule**
-  - **Description**: Select between available schedules, generic (Anna) or for the cerrent zone (Adam).
+  - **Description**: Select between available schedules, generic (Anna) or for the current zone (Adam).
   - **Remark**: Please check the [further configuration](#further-configuration) for requirements on configuring schedules.
 
 #### Switches
