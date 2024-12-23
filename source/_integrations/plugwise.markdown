@@ -168,9 +168,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.
 
-## Usage and examples
-
-### Actions
+## Available actions
 
 The following actions, along with their examples, can be with the climate gateways:
 
@@ -193,7 +191,7 @@ These actions will change Adam's **regulation mode** (i.e., the HVAC system mode
   - **Remark**: Activates the previously selected heating or cooling mode.
 - `climate.turn_off`
 
-#### HVAC modes
+### HVAC modes
 
 The following HVAC modes are available:
 
@@ -212,7 +210,32 @@ If you have an Anna with Elga:
 The last schedule that was active is determined the same way long-tapping the top of an Anna works.
 {% endnote %}
 
-## Supported devices
+## Examples
+
+### Presense based preset mode
+
+Automation to change the active preset. The preset will be changed by your active schedule or it could be a likewise automation setting another preset for when someone is present.
+
+```yaml
+alias: Set climate to away when nobody is home
+description: "Set climate to away when everyone is gone for considerable time"
+triggers:
+  - trigger: state
+    entity_id:
+      - person.mom
+      - person.dad
+    to: not_home
+    for:
+      minutes: 15
+actions:
+  - action: climate.set_preset_mode
+    data:
+      preset_mode: away
+    target:
+      entity_id: climate.anna
+```
+
+### Supported devices
 
 ### Adam
 
