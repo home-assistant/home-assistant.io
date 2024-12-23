@@ -168,152 +168,47 @@ This integration follows standard integration removal. No extra steps are requir
 
 This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.
 
+## Usage and examples
+
 ### Actions
 
-#### Update Smile data
+The following actions, and their examples, can be used as shown in the actions for the 
 
-Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` action with your Smile entity as the target.
+For all climate gateways:
 
-```yaml
-# Example script change the temperature
-script:
-  force_adam_update:
-    sequence:
-      - action: homeassistant.update_entity
-        target:
-          entity_id: climate.living_room
-```
+- `climate.set_preset_mode`
+  - **Available options**: `home`, `no_frost`, `asleep` & `away`. For Anna, `vacation` is added to the options
+- `climate.set_temperature`
+  - **Available setpoints**: Any within the appropriate range indicated
+- `climate.set_hvac_mode`
+  - **Available modes**: See our [HVAC modes](#hvac_modes) section below.
+- `select.select_option`
+  - **Available schedules**: Depends on what [schedules](#schedule_management) you configured.
 
-#### Reboot the Plugwise gateway
+Additionally for Adam, these actions will switch the Adam **regulation mode** (= HVAC system mode) to off or on, affecting the operation of **all** connected thermostats.
 
-action: `button.press`
+- `climate.turn_on`
+  - **Remark**: this will activate the previously selected heating or cooling mode.
+- `climate.turn_off`
 
-```yaml
-# Example script change the thermostat schedule
-script:
-  reboot_gateway:
-    sequence:
-      - action: button.press
-        target:
-          entity_id: button.adam_reboot
-```
+#### HVAC modes
 
-#### Set HVAC mode
+The following HVAC modes are available:
 
-action: `climate.set_hvac_mode`
+- `auto`: Active schedule – The thermostat changes presets/setpoints according the schedule.
+- `cool or heat`: No active schedule – The system is manually set to cooling or heating mode, activating based on room temperature relative to the thermostat setpoint.
 
-Available options include `off` (Adam only) `auto`, `cool`, `heat`, and `heat_cool` (Anna with Elga only).
+For Adam:
 
-The meaning of `off` is that the Adam regulation is set to off. This means that the connected HVAC-system does not heat or cool, only the domestic hot water heating function, when available, is active.
+- `off`: Regulation is set to off – The HVAC system does not heat or cool, but the domestic hot water heating function (if available) remains active.
 
-The meaning of `cool` or `heat` is that there is no schedule active. For example, if the system is manually set to cooling- or heating-mode, the system will be active if the room temperature is above/below the thermostat setpoint.
+If you have an Anna with Elga:
 
-The meaning of `heat/cool` is that there is no schedule active. For example, if the system is in automatic cooling- or heating-mode, the active preset or manually set temperature is used to control the HVAC system.
+- `heat_cool`: No active schedule – The system is in automatic cooling or heating mode, using the active preset or manually set temperature to control the HVAC system.
 
-The meaning of `auto` is that a schedule is active and the thermostat will change presets/setpoints accordingly.
-
-The last schedule that was active is determined the same way long-tapping the top of Anna works.
-
-Example:
-
-```yaml
-# Example script climate.set_hvac_mode to auto = schedule active
-script:
-  lisa_reactivate_last_schedule:
-    sequence:
-      - action: climate.set_hvac_mode
-        target:
-          entity_id: climate.living_room
-        data:
-          hvac_mode: auto
-```
-
-#### Turn on / turn off
-
-action: `climate.turn_off`, `climate.turn_on` (Adam only)
-
-These actions will switch the Adam regulation mode (= HVAC system mode) to off or on, affecting the operation of all connected thermostats.
-`climate.turn_on` will activate the previously selected heating or cooling mode.
-
-Example:
-
-```yaml
-# Example script climate.turn_off
-script:
-  turn_heating_on:
-    sequence:
-      - action: climate.turn_off
-        target:
-          entity_id: climate.bios
-```
-
-#### Change climate schedule
-
-action: `select.select_option`
-
-```yaml
-# Example script change the thermostat schedule
-script:
-  lisa_change_schedule:
-    sequence:
-      - action: select.select_option
-        target:
-          entity_id: select.bios_thermostat_schedule
-        data:
-          option: "Regulier"
-```
-
-#### Change boiler setpoint
-
-action: `number.set_value`
-
-```yaml
-# Example script change the boiler setpoint
-script:
-  change_max_boiler_tempeture_setpoint:
-    sequence:
-      - action: number.set_value
-        target:
-          entity_id: number.opentherm_max_boiler_temperature_setpoint
-        data:
-          value: 60
-```
-
-#### Set temperature
-
-action: `climate.set_temperature`
-
-Example:
-
-```yaml
-# Example script change the temperature
-script:
-  anna_set_predefined_temperature:
-    sequence:
-      - action: climate.set_temperature
-        target:
-          entity_id: climate.anna
-        data:
-          temperature: 19.5
-```
-
-#### Set preset mode
-
-action: `climate.set_preset_mode`
-
-Available options include: `home`, `vacation` (Anna only), `no_frost`, `asleep` & `away`.
-
-Example:
-
-```yaml
-# Example script changing the active (or currently set by schedule) preset
-script:
-  anna_activate_preset_asleep:
-    sequence:
-      - action: climate.set_preset_mode
-        data:
-          preset_mode: asleep
-```
+{% note %}
+The last schedule that was active is determined the same way long-tapping the top of an Anna works.
+{% endnote %}
 
 ## Supported devices
 
