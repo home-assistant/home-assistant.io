@@ -217,8 +217,9 @@ The last schedule that was active is determined the same way long-tapping the to
 Automation to change the active preset. The preset will be changed by your active schedule or it could be a likewise automation setting another preset for when someone is present.
 
 ```yaml
-alias: Set climate to away when nobody is home
+alias: "Set climate to away when nobody is home"
 triggers:
+  # When either occupant leaves for more than 15 minutes
   - trigger: state
     entity_id:
       - person.mom
@@ -227,14 +228,56 @@ triggers:
     for:
       minutes: 15
 conditions:
+  # If Anna is using the normal "home" preset
   - condition: state
     entity_id: climate.anna
     attribute: preset_mode
     state: home
+  # And nobody is home
+  - condition: state
+    entity_id: person.mom
+    entity_id: person.dad
+    state: not_home
 actions:
+  # Change Anna to Away
   - action: climate.set_preset_mode
     data:
       preset_mode: away
+    target:
+      entity_id: climate.anna
+```
+
+### Seasonal change of HVAC mode
+
+```yaml
+alias: "Force Anna to cooling mode only"
+triggers:
+  # When the season changes to summer
+  - trigger: state
+    entity_id:
+      - sensor.season
+    to: summer
+conditions:
+  # If Anna is in either auto or heat mode
+  - condition: or
+    conditions:
+      - condition: device
+        device_id: abcdefghijklmnopqrstuvwxyz123456
+        domain: climate
+        entity_id: climate.anna
+        type: is_hvac_mode
+        hvac_mode: auto
+      - condition: device
+        device_id:abcdefghijklmnopqrstuvwxyz1234569
+        domain: climate
+        entity_id: climate.anna
+        type: is_hvac_mode
+        hvac_mode: heat
+actions:
+  # Set Anna to cool down the summer!
+  - action: climate.set_hvac_mode
+    data:
+      hvac_mode: cool
     target:
       entity_id: climate.anna
 ```
