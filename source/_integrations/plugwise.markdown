@@ -292,14 +292,14 @@ If you need to create an issue to report a bug or want to inspect diagnostic dat
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
 2. If you have more than one Plugwise gateway, select the gateway that is experiencing issues.
-3. Select the gateway device, this should be called .Adam. or contain .Smile. in its name.
+3. Select the gateway device, this should be called 'Adam' or contain 'Smile' in its name.
 4. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
    - Then, select **Download diagnostics** and a JSON file will be downloaded.
 5. You can inspect the downloaded file or, when requested, upload it to your issue report.
 
 ### Rebooting your gateway
 
-For each gateway there will be a reboot button available in your integration.
+For each gateway, there will be a reboot button available in your integration.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
 2. If you have more than one Plugwise Smile, select the gateway that is experiencing issues.
@@ -312,7 +312,7 @@ For each gateway there will be a reboot button available in your integration.
 
 Creation, modification or deleting of climate schedules is not supported through this integration. We recommend using the Plugwise App or visit the local device to configure schedules. See [accessing the local device](#accessing-the-local-device) above on how to access the local device from Home Assistant.
 
-To display your schedule as a valid `select` option for this integration ensure that the schedule has a minimal of two schedule points.
+To display your schedule as a valid `select` option for this integration, ensure that the schedule has a minimal of two schedule points.
 
 ### Anna as a zone thermostat
 
