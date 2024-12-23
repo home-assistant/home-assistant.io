@@ -152,11 +152,13 @@ A generous number of sensors is provided. Examples include:
 
 ## Data updates
 
-The interval which the integration fetches data from the Smile depends on the device:
+The interval at which the integration fetches data from the gateway depends on the device-type.
 
-- Power entities, such as the P1, will be refreshed every 10 seconds.
-- Climate entities will be refreshed every 60 seconds.
-- Stretch entities will be refreshed every 60 seconds.
+|Device-type|Interval|
+--- | ---
+| Climate entities |60 seconds|
+| Energy and gas entities |10 seconds|
+| Stretch entities |60 seconds|
 
 ## Removing the integration
 
