@@ -1,6 +1,6 @@
 ---
 title: Overkiz
-description: Instructions on how to integrate hubs whom use the Overkiz platform with Home Assistant.
+description: Instructions on how to integrate hubs that use the Overkiz IoT platform with Home Assistant.
 ha_category:
   - Alarm
   - Binary sensor
@@ -49,27 +49,59 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The Overkiz (by Somfy) integration platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
+The Overkiz (by Somfy) IoT platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
 
-## Supported hubs
+## Supported hubs & devices
 
 - Atlantic Cozytouch
+- Bouygues Flexom
 - Hitachi Hi Kumo
 - Nexity Eugénie
-- Rexel Energeasy
+- Sauter Cozytouch
+- Simu (LiveIn2)
 - Somfy Connectivity Kit
 - Somfy Connexoon IO _(local API available)_
 - Somfy Connexoon RTS _(local API available)_
-- Somfy TaHoma _(local API available)_
+- Somfy TaHoma v2 _(local API available)_
 - Somfy TaHoma Beecon _(local API available)_
 - Somfy TaHoma Switch _(local API available)_
 - Thermor Cozytouch
-
-## Supported devices
+- Ubiwizz
 
 Over 6000 devices from 60 brands are compatible with the Overkiz platform. This integration will retrieve your devices and map them to the relevant Home Assistant platforms.
 
+## Configuration
+
+The Overkiz integration supports both the Overkiz cloud API and the local API (only supported by some Somfy hubs). For compatible Somfy hubs, you can connect locally, allowing device control without an internet connection. Start by selecting the server or app you use to control your devices.
+
 {% include integrations/config_flow.md %}
+
+### Login to Overkiz (Cloud API)
+
+{% configuration_cloud_api %}
+"Username":
+  description: "Username for your Overkiz cloud account (account you use in your IoT app)."
+Password:
+  description: "Password for your Overkiz cloud account (account you use in your IoT app)."
+{% endconfiguration_cloud_api %}
+
+### Login to Overkiz (Local API)
+
+To use the local API, you will need to activate the [Somfy TaHoma Developer Mode](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode?tab=readme-ov-file#getting-started) via the Somfy website. Activating this mode will enable a local API on your TaHoma box. Your cloud credentials are required to negotiate a token with the cloud API to authenticate your calls to the local API. This is a one-time setup and the token will be stored in your Home Assistant configuration.
+
+Scenarios and climate entities are **not** supported via the Somfy TaHoma Developer Mode.
+
+{% configuration_local_api %}
+"Host":
+  description: "The hostname or IP address of your Overkiz hub. The hostname is your Gateway PIN + .local:8443 (e.g. 1234-4567-8912.local)."
+"Username":
+  description: "Username for your Overkiz cloud account (account you use in your IoT app)."
+Password:
+  description: "Password for your Overkiz cloud account (account you use in your IoT app)."
+Verify SSL:
+  description: "Verify the SSL certificate of your hub. This option is available only when connecting via the hostname."
+{% endconfiguration_local_api %}
+
 
 ## Known limitations
 
@@ -129,3 +161,9 @@ If your hub (e.g. Somfy Connectivity Kit) supports HomeKit natively, your setup 
 #### Local API via Velux KLF200 hub
 
 If you are only using Somfy IO-compatible devices, you could purchase a Velux KLF200 hub and use [the Velux integration](/integrations/velux/) which has a local API.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
