@@ -70,11 +70,9 @@ The Overkiz (by Somfy) IoT platform is used by many different vendors, like Somf
 
 Over 6000 devices from 60 brands are compatible with the Overkiz platform. This integration will retrieve your devices and map them to the relevant Home Assistant platforms.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
 The Overkiz integration supports both the Overkiz cloud API and the local API (only supported by some Somfy hubs). For compatible Somfy hubs, you can connect locally, allowing device control without an internet connection. Start by selecting the server or app you use to control your devices.
-
-{% include integrations/config_flow.md %}
 
 ### Login to Overkiz (Cloud API)
 
