@@ -180,6 +180,19 @@ script:
           entity_id: climate.living_room
 ```
 
+#### Reboot the Plugwise gateway
+action: `button.press`
+
+```yaml
+# Example script change the thermostat schedule
+script:
+  reboot_gateway:
+    sequence:
+      - action: button.press
+        target:
+          entity_id: button.adam_reboot
+```
+
 #### Set HVAC mode
 
 action: `climate.set_hvac_mode`
