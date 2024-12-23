@@ -39,6 +39,8 @@ The PlayStation Network integration lets you integrate information about your cu
 {% configuration_basic %}
 "NPSSO Token":
   description: "Supply your NPSSO token after successfully logging into the PlayStationNetwork in your browser."
+  required: true
+  type: string
 {% endconfiguration_basic %}
 
 ## Media Players
