@@ -58,7 +58,7 @@ The Overkiz (by Somfy) IoT platform is used by many different vendors, like Somf
 - Hitachi Hi Kumo
 - Nexity Eugénie
 - Sauter Cozytouch
-- Simu (LiveIn2)
+- Simu LiveIn2
 - Somfy Connectivity Kit
 - Somfy Connexoon IO _(local API available)_
 - Somfy Connexoon RTS _(local API available)_
