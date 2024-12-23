@@ -266,3 +266,72 @@ Stretch (power switches):
 
  - v3.x
  - v2.x
+
+## Troubleshooting
+
+### Accessing the local device
+
+If you need to configure the gateway directly, without using the Plugwise App, you can find the link to your device by:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
+2. If you have more than one Plugwise gateway, select the one to configure.
+3. Select the gateway device, this should be called `Adam` or contain `Smile` in its name.
+4. On the integration entry, choose to open the configuration URL left of the {% icon "mdi:dots-vertical" %} icon.
+5. A new window/tab will open, enter `smile` (or `stretch`) as the username and the ID, from the sticker on the back, as the password.
+6. Consult the manual or click the `search` button on the [Plugwise Support](https://plugwise.com/support/) page for interactive help.
+
+### Adjusting the update interval
+
+Please note that the [default intervals](#data-updates) are considered best practice and according to how Plugwise normally updates their data. Updating too frequently may induce considerable load on your gateway(s) resulting in unexpected results or missing data.
+
+{% include common-tasks/define_custom_polling.md %}
+
+### Diagnostic data
+
+If you need to create an issue to report a bug or want to inspect diagnostic data, use the below method to retrieve diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
+2. If you have more than one Plugwise gateway, select the gateway that is experiencing issues.
+3. Select the gateway device, this should be called `Adam` or contain `Smile` in its name.
+4. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
+   - Then, select **Download diagnostics** and a JSON file will be downloaded.
+5. You can inspect the downloaded file or, when requested, upload it to your issue report.
+
+### Rebooting your gateway
+
+For each gateway there will be a reboot button available in your integration.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
+2. If you have more than one Plugwise Smile, select the gateway that is experiencing issues.
+3. Select the gateway device, this should be called `Adam` or contain `Smile` in its name.
+4. On the integration entry, look for the `Reboot` button to press in the **Configuration** section.
+
+## Known limitations
+
+### Schedule configuration and pre-requisites
+
+Creation, modification or deleting of climate schedules is not supported through this integration. We recommend using the Plugwise App or visit the local device to configure schedules. See [accessing the local device](#accessing-the-local-device) above on how to access the local device from Home Assistant.
+
+To display your schedule as a valid `select` option for this integration ensure that the schedule has a minimal of two schedule points.
+
+### Anna as a zone thermostat
+
+If you are using your Anna as part of your adam zone control system, it cannot be configured as a smart thermostat. The integration will not discover your Anna or allow manual configuration.
+
+### Anna with Elga
+
+The cooling mode can only be toggled via a **physical switch** on the device (not through a toggle in the Plugwise App or using Home Assistant).
+
+The change in cooling mode should be detected by Home Assistant. If not, please try to **reload** the Plugwise integration as indicated below and report your findings.
+
+1. Create an issue including your [diagnostic data](#diagnostic-data).
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
+3. On the "**Hubs**" page, use the {% icon "mdi:dots-vertical" %} icon next to your Anna and choose "**Reload**".
+
+### Vacation preset
+
+The `vacation` preset is only available on an Anna.
+
+### Idling climate actions
+
+You can only stop climate actions on an Adam, see [Turn on / Turn off](#turn-on--turn-off). An alternative could be to adjust your [preset mode](#set-preset-mode) to `no_frost` to stop any heating actions.
