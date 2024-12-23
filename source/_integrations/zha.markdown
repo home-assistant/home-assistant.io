@@ -256,7 +256,7 @@ For more advanced configuration, you can modify {% term "`configuration.yaml`" %
 {% configuration %}
 database_path:
   description: _Full_ path to the database which will keep persistent network data.
-  required: true
+  required: false
   type: string
 enable_quirks:
   description: Enable quirks mode for devices where manufacturers didn't follow specs.
