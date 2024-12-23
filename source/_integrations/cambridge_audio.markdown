@@ -104,6 +104,12 @@ data:
   media_content_type: "internet_radio"
   media_content_id: "https://example.com/internet-radio/station_abcd.mp3"
 ```
+
+## Browsing media
+
+The Cambridge Audio integration allows you to browse saved presets from your dashboard. 
+All stored presets will be categorized into playlists, artists, and tracks.
+
 ## Troubleshooting
 
 ### The buttons to skip, shuffle, and repeat the track are missing

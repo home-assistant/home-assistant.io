@@ -125,7 +125,7 @@ name:
 label_mode:
   required: false
   default: name
-  description: When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
   type: string
 focus:
   required: false
@@ -143,6 +143,11 @@ source:
   required: true
   description: Name of a geolocation source, or `all`.
   type: string
+label_mode:
+  required: false
+  default: name
+  description: When set to `icon`, renders the geolocation entity's icon in the marker instead of text. When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. 
+  type: string    
 focus:
   required: false
   default: true
