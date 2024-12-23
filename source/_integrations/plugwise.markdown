@@ -172,23 +172,25 @@ This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or 
 
 ### Actions
 
-The following actions, and their examples, can be used as shown in the actions for the 
+The following actions, along with their examples, can be with the climate gateways:
 
 For all climate gateways:
 
 - `climate.set_preset_mode`
-  - **Available options**: `home`, `no_frost`, `asleep` & `away`. For Anna, `vacation` is added to the options
+  - **Available options**: `home`, `no_frost`, `asleep` & `away`. For Anna, `vacation` is also available.
 - `climate.set_temperature`
-  - **Available setpoints**: Any within the appropriate range indicated
+  - **Available setpoints**: Any within the appropriate range for the device.
 - `climate.set_hvac_mode`
-  - **Available modes**: See our [HVAC modes](#hvac_modes) section below.
+  - **Available modes**: Refer to the [HVAC modes](#hvac_modes) section below.
 - `select.select_option`
-  - **Available schedules**: Depends on what [schedules](#schedule_management) you configured.
+  - **Available schedules**: Dependent on the [schedules](#schedule_management) you have configured.
 
-Additionally for Adam, these actions will switch the Adam **regulation mode** (= HVAC system mode) to off or on, affecting the operation of **all** connected thermostats.
+Additionally for Adam:
+
+These actions will change Adam's **regulation mode** (i.e., the HVAC system mode) to either on or off, affecting the operation of **all** connected thermostats.
 
 - `climate.turn_on`
-  - **Remark**: this will activate the previously selected heating or cooling mode.
+  - **Remark**: Activates the previously selected heating or cooling mode.
 - `climate.turn_off`
 
 #### HVAC modes
