@@ -72,7 +72,7 @@ Over 6000 devices from 60 brands are compatible with the Overkiz platform. This 
 
 {% include integrations/config_flow.md %}
 
-The Overkiz integration supports both the Overkiz cloud API and the local API (only supported by some Somfy hubs). For compatible Somfy hubs, you can connect locally, allowing device control without an internet connection. Start by selecting the server or app you use to control your devices.
+The Overkiz integration supports both the Overkiz cloud API and the local API (only supported by some Somfy hubs). For compatible Somfy hubs, you can connect locally, allowing device control without an internet connection. Start by selecting the server or app that you use to control your devices.
 
 ### Login to Overkiz (Cloud API)
 
@@ -108,7 +108,7 @@ This integration retrieves data from Overkiz every 30 seconds to ensure timely u
 
 ### Zigbee, Z-Wave, Hue, and Sonos devices not supported
 
-Even though most Overkiz hubs support adding Zigbee, Z-Wave, Hue, and Sonos devices, this isn't supported in the Overkiz integration. All these platforms have native integrations in Home Assistant which provide more frequent state updates and are more feature-rich.
+Even though most Overkiz hubs support adding Zigbee, Z-Wave, Hue, and Sonos devices, this isn't supported in the Overkiz integration. All these platforms have native integrations in Home Assistant, which provide more frequent state updates and are more feature-rich.
 
 ### Stateless RTS covers 
 
