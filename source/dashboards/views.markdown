@@ -198,25 +198,42 @@ The background settings of a view can be customized to display a background. Alt
      - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-add-on) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on) add-on.
    - **web URL** let you pick an image from the web. For example `https://www.home-assistant.io/images/frontpage/assist_wake_word.png`.
 
-**Transparency** - Adjust the background's opacity, from fully opaque to transparent.
-
-**Size** - Choose how the background fits the space:
-- **Original**: Original size. 
-- **Fill view**: Fills the view, cropping if necessary.
-- **Fit view**: Fits within the view, maintaining aspect ratio.
-
-**Alignment** - Precisely position the background:
-- **Top Alignment**: Top left, top center, or top right
-- **Center Alignment**: Center left, center, or center right
-- **Bottom Alignment**: Bottom left, bottom center, or bottom right
-
-**Repeat** - Controls whether the background repeats across the view:
-- **Repeat**: Tiles the background.
-- **No-repeat**: Prevents tiling, showing the image only once.
-
-**Attachment** - Controls whether a background image's position is fixed within the view, or scrolls:
-- **Scroll**: Scroll the background.
-- **Fixed**: Fixed background within the view.
+{% configuration views %}
+background:
+  required: false
+  description: A list of view configurations.
+  type: list
+  keys:
+    image:
+      required: false
+      description: Sets the background image to use behind the view.
+      type: string
+    transparency:
+      required: false
+      description: Adjust the background's opacity, from fully opaque to transparent.
+      type: number
+      default: 100
+    size: 
+      required: false
+      description: Choose how the background fits the space. Defaults to the original picture, fill view (`cover` in yaml) fills the view with cropping if necessary and fits view (`contain` in yaml) fits the image within the view, maintaining aspect ratio.
+      type: string
+      default: auto
+    alignment: 
+      required: false
+      description: Precisely position the background. Valid options can be anything between top left and bottom right, with center being the default. 
+      type: string
+      default: center
+    repeat: 
+      required: false
+      description: Controls whether the background repeats across the view. Repeating is useful when a tiled background is being used.
+      type: string
+      default: no-repeat
+    attachment: 
+      required: false
+      description:  Controls whether a background image's position is fixed within the view, or scrolls.
+      type: string
+      default: scroll
+{% endconfiguration %}
 
 #### Example
 
