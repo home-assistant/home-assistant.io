@@ -218,7 +218,6 @@ Automation to change the active preset. The preset will be changed by your activ
 
 ```yaml
 alias: Set climate to away when nobody is home
-description: "Set climate to away when everyone is gone for considerable time"
 triggers:
   - trigger: state
     entity_id:
@@ -227,6 +226,11 @@ triggers:
     to: not_home
     for:
       minutes: 15
+conditions:
+  - condition: state
+    entity_id: climate.anna
+    attribute: preset_mode
+    state: home
 actions:
   - action: climate.set_preset_mode
     data:
