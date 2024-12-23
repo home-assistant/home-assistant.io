@@ -23,6 +23,7 @@ related:
     title: Cookidoo the official Thermomix recipe platform
   - url: https://www.vorwerk.com/
     title: Vorwerk GmbH
+ha_quality_scale: silver
 ---
 
 The **Cookidoo** {% term integration %} allows you to interact with your shopping lists of [Cookidoo the official Thermomix recipe platform](https://cookidoo.international/) within Home Assistant.

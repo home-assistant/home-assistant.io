@@ -12,6 +12,7 @@ ha_codeowners:
   - '@jesperraemaekers'
 ha_domain: weheat
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: integration
 ---

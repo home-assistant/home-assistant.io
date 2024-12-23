@@ -18,7 +18,7 @@ ha_release: 2024.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@Bre77"
+  - '@Bre77'
 ha_domain: tesla_fleet
 ha_platforms:
   - binary_sensor

@@ -4,6 +4,7 @@ description: Instructions on how to integrate Peblar Rocksolid EV Charger with H
 ha_category:
   - Car
   - Energy
+  - Update
 ha_release: 2025.1
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -11,12 +12,17 @@ ha_codeowners:
   - '@frenck'
 ha_domain: peblar
 ha_platforms:
+  - binary_sensor
+  - button
+  - diagnostics
+  - number
   - select
   - sensor
+  - switch
   - update
 ha_integration_type: device
 ha_zeroconf: true
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The Peblar {% term integration %} integrates your [Peblar Rocksolid EV Charger]

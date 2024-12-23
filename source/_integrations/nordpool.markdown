@@ -15,6 +15,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: hub
+ha_quality_scale: platinum
 ---
 
 The **Nord Pool** {% term integration %} integrates [Nord Pool Group](https://www.nordpoolgroup.com/) energy prices into Home Assistant.

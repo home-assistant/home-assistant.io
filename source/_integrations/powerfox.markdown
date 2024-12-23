@@ -11,8 +11,11 @@ ha_codeowners:
   - '@klaasnicolaas'
 ha_domain: powerfox
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
+ha_quality_scale: silver
+ha_zeroconf: true
 ---
 
 The **Powerfox** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) devices, by using their cloud API and fetch the data in Home Assistant.
