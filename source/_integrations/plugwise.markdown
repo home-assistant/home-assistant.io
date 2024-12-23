@@ -65,13 +65,88 @@ For a thermostat, the active schedule can be deactivated or reactivated via the 
 
 Auto means the schedule is active, and Heat means it's not active. The active thermostat schedule can be changed via the connected thermostat select entity. Please note that only schedules with two or more schedule points will be shown as select options.
 
-## Entities
+## Supported functionality
 
-This integration will show all Plugwise devices (like hardware devices, multi-thermostat climate-zones, and virtual switchgroups) present in your Plugwise configuration. In addition, you will see a Gateway device representing your central Plugwise gateway (i.e., the Smile Anna, Smile P1, Adam or Stretch).
+This integration displays all Plugwise devices in your configuration, including hardware devices, multi-thermostat climate zones, and virtual switch groups. Additionally, a device representing your Plugwise gateway (e.g., Adam, Smile-T, or P1) will be visible.
 
-For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual devices. The heating/cooling device connected to your Smile will be shown as 'OpenTherm' or 'OnOff', depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be shown as devices as well.
+For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual devices. The heating/cooling device connected to your gateway will be shown as 'OpenTherm' or 'OnOff', depending on how the gateway communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) or Aqara Smart Plugs, those will be shown as devices as well.
 
-Under each device there will be entities shown like binary_sensors, sensors, etc. depending on the capabilities of the device: for instance centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff device.
+Each device will list entities such as `binary sensors`, `sensors`, etc., depending on its capabilities: for instance centralized measurements such as `power` for a P1, `outdoor_temperature` on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as `boiler_temperature` will be assigned to the OpenTherm/OnOff device.
+
+### Climate entities
+
+#### Binary sensors
+
+Depending on your setup, one or more binary sensors will provide the state of your connected elements. Examples include:
+
+- **DHW State**
+  - **Description**: Indicates the active heating state for domestic hot water.
+- **Compressor state**
+  - **Description**: Indicates the compressor state
+- **Cooling enabled**
+  - **Description**: Indicates if the cooling switch for an Anna with Elga is active.
+
+#### Numbers
+
+Modifying specific number-based settings allows you to fine-tune your setup.
+
+- **Maximum boiler temperature setpoint**
+  - **Description**: Adjust the maximum temperature for secondary heater.
+- **Domestic hot water setpoint**
+  - **Description**: Adjust the temperature for your domestic hot water.
+- **Temperature offset**
+  - **Description**: Fine-tune the perceived temperature.
+
+#### Sensors
+
+A generous amount of sensors is provided for your climate setup. Examples include:
+
+- **Setpoint**
+  - **Description**: The setpoint for the current zone (Adam) or generic (Anna).
+- **Indoor temperature**
+  - **Description**: For Anna, Lisa or Jip this will show the temperature measured at the specific thermostat.
+- **Outdoor temperature**
+  - **Description**: The temperature your climate gateway retrieves online.
+- **Outdoor air temperature**
+  - **Description**: If you have an auxiliary device with a temperature sensor.
+
+#### Selects
+
+- **Thermostat schedule**
+  - **Description**: Select between available schedules, generic (Anna) or for the current zone (Adam).
+  - **Remark**: Please check the [further configuration](#further-configuration) for requirements on configuring schedules.
+
+#### Switches
+
+- **Cooling **
+  - **Description**: Toggle if cooling should be enabled.
+- **DHW Comfort Mode **
+  - **Description**: Toggle comfort mode for domestic hot water.
+
+### Power and gas entities
+
+#### Sensors
+
+A generous amount of sensors is provided. Examples include:
+
+- **Electricity consumed point**
+  - **Description**: Electricity (in Watt) consumed curerntly by a phase (P1) or a plug.
+  - **Gateways**: Adam, P1 or Stretch.
+- **Gas Consumed Interval**
+  - **Description**: The gas consumed since the last interval.
+  - **Gateways**: P1.
+- **P1 Net Electricity Point**
+  - **Description**: Your netto electricity use at this time, can be negative when producing energy, i.e. though solar panels.
+  - **Gateways**: P1.
+- **P1 Electricity Produced off-peak cumulative**
+  - **Description**: The total produced electricity during off-peak.
+  - **Gateways**: P1.
+
+#### Switches
+
+- **Relay**
+  - **Description**: Turn a plug on or off
+  - **Gateways**: Adam, P1 or Stretch.
 
 ## Data updates
 
@@ -103,20 +178,6 @@ script:
       - action: homeassistant.update_entity
         target:
           entity_id: climate.living_room
-```
-
-#### Reboot the Plugwise gateway
-
-action: `button.press`
-
-```yaml
-# Example script change the thermostat schedule
-script:
-  reboot_gateway:
-    sequence:
-      - action: button.press
-        target:
-          entity_id: button.adam_reboot
 ```
 
 #### Set HVAC mode
