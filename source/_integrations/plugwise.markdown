@@ -275,10 +275,10 @@ If you need to configure the gateway directly, without using the Plugwise App, y
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
 2. If you have more than one Plugwise gateway, select the one to configure.
-3. Select the gateway device, this should be called `Adam` or contain `Smile` in its name.
+3. Select the gateway device, this should be called 'Adam' or contain 'Smile' in its name.
 4. On the integration entry, choose to open the configuration URL left of the {% icon "mdi:dots-vertical" %} icon.
-5. A new window/tab will open, enter `smile` (or `stretch`) as the username and the ID, from the sticker on the back, as the password.
-6. Consult the manual or click the `search` button on the [Plugwise Support](https://plugwise.com/support/) page for interactive help.
+5. A new window/tab will open, enter 'smile' (or 'stretch') as the username and the ID, from the sticker on the back, as the password.
+6. Consult the manual or click the 'search' button on the [Plugwise Support](https://plugwise.com/support/) page for interactive help.
 
 ### Adjusting the update interval
 
@@ -292,7 +292,7 @@ If you need to create an issue to report a bug or want to inspect diagnostic dat
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
 2. If you have more than one Plugwise gateway, select the gateway that is experiencing issues.
-3. Select the gateway device, this should be called `Adam` or contain `Smile` in its name.
+3. Select the gateway device, this should be called .Adam. or contain .Smile. in its name.
 4. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
    - Then, select **Download diagnostics** and a JSON file will be downloaded.
 5. You can inspect the downloaded file or, when requested, upload it to your issue report.
@@ -303,8 +303,8 @@ For each gateway there will be a reboot button available in your integration.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
 2. If you have more than one Plugwise Smile, select the gateway that is experiencing issues.
-3. Select the gateway device, this should be called `Adam` or contain `Smile` in its name.
-4. On the integration entry, look for the `Reboot` button to press in the **Configuration** section.
+3. Select the gateway device, this should be called 'Adam' or contain 'Smile' in its name.
+4. On the integration entry, look for the 'Reboot' button to press in the **Configuration** section.
 
 ## Known limitations
 
@@ -334,4 +334,4 @@ The `vacation` preset is only available on an Anna.
 
 ### Idling climate actions
 
-You can only stop climate actions on an Adam, see [Turn on / Turn off](#turn-on--turn-off). An alternative could be to adjust your [preset mode](#set-preset-mode) to `no_frost` to stop any heating actions.
+You can only stop climate actions on an Adam, see [turn on / turn off](#turn-on--turn-off). An alternative could be to adjust your [preset mode](#set-preset-mode) to `no_frost` to stop any heating actions.
