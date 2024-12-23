@@ -110,13 +110,11 @@ This integration retrieves data from Overkiz every 30 seconds to ensure timely u
 
 ### Zigbee, Z-Wave, Hue, and Sonos devices not supported
 
-Even though most Overkiz hubs support adding Zigbee, Z-Wave, Hue, and Sonos devices, this isn't supported in the Overkiz integration. All these platforms have native integrations in Home Assistant which are more stable and feature-rich.
+Even though most Overkiz hubs support adding Zigbee, Z-Wave, Hue, and Sonos devices, this isn't supported in the Overkiz integration. All these platforms have native integrations in Home Assistant which provide more frequent state updates and are more feature-rich.
 
 ### Stateless RTS covers 
 
-Covers that use the RTS protocol are stateless and do not report their state back to the hub. This means that Home Assistant will not know the state of the device after it has been controlled.
-
-If you only control your RTS cover from Home Assistant, you can use the [template cover](/integrations/cover.template/) to create a stateful cover entity. This will allow you to keep track of the current state (open or closed) and use the cover in automations and scenes.
+RTS covers do not report their state back to the hub, so Home Assistant cannot track their state after they are controlled. If you only control your RTS cover from Home Assistant, you can use the [template cover](/integrations/cover.template/) to create a stateful cover entity. This will help you track the current state (open or closed) and use the cover in automations and scenes.
 
 ```yaml
 cover:
