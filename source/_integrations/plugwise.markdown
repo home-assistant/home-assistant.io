@@ -339,7 +339,7 @@ A smart thermostat, supporting:
 
 ### P1 (DSMR)
 
-A smart meter monitor for single or multi-phase P1 monitoring with the P1 running firmware v4.x, v3.x or v2.x.
+A smart meter monitor for single or multiphase P1 and gas usage monitoring with the P1 running firmware v4.x, v3.x or v2.x.
 
 ### Stretch (end-of-sale)
 
@@ -349,7 +349,7 @@ For legacy power switches, such as the Circles or Stealths, with v3.x or v2.x St
 
 #### Anna P1
 
-A smart thermostat, providing abundant solar energy billing by transferring abundant engergy in heatpump usage. If you have one, let us know by opening a [feature request](https://github.com/plugwise/python-plugwise/issues/new/choose).
+A smart thermostat, providing abundant solar energy billing by transferring abundant engergy in heatpump usage. If you have one, please let us know by opening a [feature request](https://github.com/plugwise/python-plugwise/issues/new/choose).
 
 #### Stick
 
