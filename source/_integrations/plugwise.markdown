@@ -181,6 +181,7 @@ script:
 ```
 
 #### Reboot the Plugwise gateway
+
 action: `button.press`
 
 ```yaml
