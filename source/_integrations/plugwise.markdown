@@ -84,7 +84,7 @@ Depending on your setup, one or more binary sensors will provide the state of yo
 - **Compressor state**
   - **Description**: Indicates the compressor state
 - **Cooling enabled**
-  - **Description**: Indicates if the cooling switch for an Anna with Elga is active.
+  - **Description**: Indicates if the cooling functionality of the auxiliary device is active.
 
 #### Numbers
 
