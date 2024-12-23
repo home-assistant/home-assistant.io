@@ -179,11 +179,11 @@ For all climate gateways:
 - `climate.set_temperature`
   - **Available setpoints**: Any within the appropriate range for the device.
 - `climate.set_hvac_mode`
-  - **Available modes**: Refer to the [HVAC modes](#hvac_modes) section below.
+  - **Available modes**: Refer to the [HVAC modes](#hvac-modes) section below.
 - `select.select_option`
   - **Available schedules**: Dependent on the [schedules](#schedule_management) you have configured.
 
-Additionally for Adam:
+Additionally, for Adam:
 
 These actions will change Adam's **regulation mode** (i.e., the HVAC system mode) to either on or off, affecting the operation of **all** connected thermostats.
 
