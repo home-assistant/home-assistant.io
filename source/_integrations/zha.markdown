@@ -243,8 +243,6 @@ Enable enhanced light color/temperature transition from an off-state:
   description: "For older non Zigbee 3.0 lights, this still allows a proper transition from an off-state to a new color (without seeing the old color). _(default: off)_"
 Enable enhanced brightness slider during light transition:
   description: "This avoids seeing intermediary brightness state when turning on lights with a transition. _(default: on)_"
-Always prefer XY color mode:
-  description: "This forces ZHA to always send colors in XY, never HS. _(default: on)_"
 Group members assume state of group:
   description: "When using ZHA groups, turning on a ZHA group light makes the ZHA group members optimistically change their state to \"on\", instead of waiting and polling the lights when off. _(default: on)_"
 {% endconfiguration_basic %}
