@@ -334,7 +334,7 @@ A complete zone control system also known as Adam HA, supporting:
 
 A smart thermostat, supporting:
 
-- OnOff, OpenTherm heating and Elga or Loria/Thermastage with heating and cooling support. (see [known limitations](#known-limitations) below for the Elga).
+- OnOff, OpenTherm heating and Elga or Loria/Thermastage with heating and cooling support.
 - Running firmware v4.x, v3.x or v1.x.
 
 ### P1 (DSMR)
