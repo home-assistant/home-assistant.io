@@ -147,21 +147,15 @@ During peak hours, it could happen that the Overkiz platform is unable to execut
 
 The Overkiz API only supports 10 requests in its execution queue. If you try to command more devices at the same time, for example with a group, this will fail with `EXEC_QUEUE_FULL`. To work around this, you can create a scenario in the corresponding application and call that scenario instead after syncing it in the integration.
 
-### Internet connectivity required
+#### Control Overkiz devices via HomeKit
 
-This integration communicates via the cloud-based Overkiz API in most cases. Depending on your hub and devices, there are options which communicate over your local network.
+If your hub (e.g. Somfy Connectivity Kit) supports HomeKit, a sensor named **HomeKit Setup Code** will be added to Home Assistant. To configure the [HomeKit Controller](/integrations/homekit_controller/) integration for local control, follow these steps:
 
-#### Local API via Somfy TaHoma Developer Mode
+1. Locate the **HomeKit Setup Code** sensor in Home Assistant.
+2. Retrieve the setup code value from the sensor.
+3. Use this setup code to configure the HomeKit Controller integration in Home Assistant.
 
-The Somfy TaHoma v2, Somfy Connexoon and Somfy TaHoma Switch support the [Somfy TaHoma Developer Mode (local API)](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode). During setup, you can choose **Local API**. This allows you to use the local API in Home Assistant. Climate devices are not supported via the Somfy TaHoma Developer Mode.
-
-#### Local API via HomeKit Controller
-
-If your hub (e.g. Somfy Connectivity Kit) supports HomeKit natively, your setup code will be added as a sensor in Home Assistant. Find your hub in Home Assistant and retrieve the value from the **HomeKit Setup Code** sensor. You can now configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant and benefit from local support. Only a [limited set of devices is supported](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).
-
-#### Local API via Velux KLF200 hub
-
-If you are only using Somfy IO-compatible devices, you could purchase a Velux KLF200 hub and use [the Velux integration](/integrations/velux/) which has a local API.
+Please note that only a [limited set of devices is supported via HomeKit](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).
 
 ## Removing the integration
 
