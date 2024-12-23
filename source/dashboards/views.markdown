@@ -188,7 +188,7 @@ Set a separate [theme](/integrations/frontend/#themes) for the view and its card
 
 ## Background
 
-The background can be customied per view using individual background settings. Alternatively, a theme variable can be used to customize the background of all views. 
+The background settings of a view can be customized to display a background. Alternatively, a theme variable can be used to customize the background of all views. 
 
 ### View-specific background settings
 
@@ -201,18 +201,22 @@ The background can be customied per view using individual background settings. A
 **Transparency** - Adjust the background's opacity, from fully opaque to transparent.
 
 **Size** - Choose how the background fits the space:
-* **Original**: Original size. 
-* **Fill view**: Fills the view, cropping if necessary.
-* **Fit view**: Fits within the view, maintaining aspect ratio.
+- **Original**: Original size. 
+- **Fill view**: Fills the view, cropping if necessary.
+- **Fit view**: Fits within the view, maintaining aspect ratio.
 
 **Alignment** - Precisely position the background:
-* **Top Alignment**: Top left, top center, or top right
-* **Center Alignment**: Center left, center, or center right
-* **Bottom Alignment**: Bottom left, bottom center, or bottom right
+- **Top Alignment**: Top left, top center, or top right
+- **Center Alignment**: Center left, center, or center right
+- **Bottom Alignment**: Bottom left, bottom center, or bottom right
 
 **Repeat** - Controls whether the background repeats across the view:
-* **Repeat**: Tiles the background.
-* **No-repeat**: Prevents tiling, showing the image only once.
+- **Repeat**: Tiles the background.
+- **No-repeat**: Prevents tiling, showing the image only once.
+
+**Attachment** - Controls whether a background image's position is fixed within the view, or scrolls:
+- **Scroll**: Scroll the background.
+- **Fixed**: Fixed background within the view.
 
 #### Example
 
@@ -220,11 +224,11 @@ The background can be customied per view using individual background settings. A
 # Example background section in view yaml
 background:
   image: /local/background.png
-  settings: 
-    transparency: 50 # any percentage between 0 and 100
-    size: auto # auto, cover, contain
-    alignment: center # top left, top center, top right, center left, center, center right, bottom left, bottom center, bottom right
-    repeat: no-repeat # repeat, no-repeat
+  transparency: 50 # any percentage between 0 and 100
+  size: auto # auto, cover, contain
+  alignment: center # top left, top center, top right, center left, center, center right, bottom left, bottom center, bottom right
+  repeat: no-repeat # repeat, no-repeat
+  attachment: scroll # scroll, fixed
 ```
 
 ### Background theme variable
