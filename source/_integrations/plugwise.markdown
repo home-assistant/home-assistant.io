@@ -34,7 +34,7 @@ ha_integration_type: hub
 
 This integration supports one or multiple Plugwise Gateways available on your network. You can connect to these gateways using your browser, the Plugwise App, or Home Assistant. There are 4 [supported](#supported-devices) types of gateways:
 
-- Full zonecontrol using the [Adam](https://www.plugwise.com/en_US/zonecontrol) using [additional devices](#devices-overview) such as smart valves and smart-plugs.
+- Full zonecontrol using the [Adam](https://www.plugwise.com/en_US/zonecontrol) using [additional devices](#adam) such as smart valves and smart-plugs.
 - A stand-alone smart thermostat called [Anna](https://www.plugwise.com/en_US/products/anna).
 - For power and gas-usage monitoring there is a device simply called the [P1](https://www.plugwise.com/en_US/products/smile-p1).
 - Although no longer sold, there also is support for Stretch, a gateway to create network connectivity for their older power products.
@@ -58,10 +58,10 @@ Password:
 
 1. **Initial Setup**: First, activate a schedule using the Plugwise App or browser.
 2. **Control via Home Assistant**:
-   - Use the [climate](#climate) card to activate/deactivate schedules.
+   - Use the climate card to activate/deactivate schedules.
    - 'Auto' mode indicates the schedule is active.
    - 'Heat' mode signifies the schedule is inactive.
-3. **Changing Schedules**: Use the thermostat [select](#select) entity.
+3. **Changing Schedules**: Use the thermostat [select](#change-climate-schedule) entity.
 
 {% note %}
 Only schedules with two or more schedule points will appear as options.
@@ -353,7 +353,7 @@ A smart thermostat, providing abundant solar energy billing by transferring abun
 
 #### Stick
 
-Plugwise formerly sold power-based products using a USB stick as the controller. This integration does not support the 'Stick' directly, see [legacy power devices](#legacy-power-devices) for more information.
+Plugwise formerly sold power-based products comprised of a USB stick, as the controller, and smart plugs (amongst a few other items). This integration does not support the USB-stick. Reuse of the these products, such as Circles and Stealths using a Stretch or an Adam is supported. Work for USB support is in development by the community, but not ready to become a formal Home Assistant integration just yet.
 
  - v3.x
  - v2.x
