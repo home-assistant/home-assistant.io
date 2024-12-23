@@ -99,7 +99,7 @@ Modifying specific number-based settings allows you to fine-tune your setup.
 
 #### Sensors
 
-A generous amount of sensors is provided for your climate setup. Examples include:
+A generous number of sensors is provided for your climate setup. Examples include:
 
 - **Setpoint**
   - **Description**: The setpoint for the current zone (Adam) or generic (Anna).
@@ -113,24 +113,24 @@ A generous amount of sensors is provided for your climate setup. Examples includ
 #### Selects
 
 - **Thermostat schedule**
-  - **Description**: Select between available schedules, generic (Anna) or for the current zone (Adam).
+  - **Description**: Select between available schedules, generic (Anna) or for the cerrent zone (Adam).
   - **Remark**: Please check the [further configuration](#further-configuration) for requirements on configuring schedules.
 
 #### Switches
 
-- **Cooling **
+- **Cooling**
   - **Description**: Toggle if cooling should be enabled.
-- **DHW Comfort Mode **
+- **DHW Comfort Mode**
   - **Description**: Toggle comfort mode for domestic hot water.
 
 ### Power and gas entities
 
 #### Sensors
 
-A generous amount of sensors is provided. Examples include:
+A generous number of sensors is provided. Examples include:
 
 - **Electricity consumed point**
-  - **Description**: Electricity (in Watt) consumed curerntly by a phase (P1) or a plug.
+  - **Description**: Electricity (in Watt) consumed currently by a phase (P1) or a plug.
   - **Gateways**: Adam, P1 or Stretch.
 - **Gas Consumed Interval**
   - **Description**: The gas consumed since the last interval.
