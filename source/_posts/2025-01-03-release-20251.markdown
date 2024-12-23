@@ -226,7 +226,7 @@ For the first WTH item that has been resolved, we have [@jpbede] to thank!
 And this one, is one of the higher voted ones as well, so it is a good one!
 Andrew Jackson wrote:
 
-[_"WTH can you not add categories, labels etc when creating an automation"_](https://community.home-assistant.io/t/wth-can-you-not-add-categories-labels-etc-when-creating-an-automation/802562)
+[_**"WTH can you not add categories, labels etc when creating an automation"**_](https://community.home-assistant.io/t/wth-can-you-not-add-categories-labels-etc-when-creating-an-automation/802562)
 
 Yeah, that is a good WTH! Every time you create a new automation or script,
 you probably want to organize it right away, and not having to go back to
@@ -243,7 +243,7 @@ You might be aware, that you can bring up our quick navigation bar anywhere in
 Home Assistant, by pressing the `c` key on your keyboard to navigate to various
 places and the `e` key to search and navigate to any entity. However...
 
-[_"WTH is there no quick bar for devices?"_](https://community.home-assistant.io/t/wth-is-there-no-quick-bar-for-devices/802310)
+[_**"WTH is there no quick bar for devices?"**_](https://community.home-assistant.io/t/wth-is-there-no-quick-bar-for-devices/802310)
 
 Well, that is a good question that Andreas Brett raised! There is indeed no
 such thing for devices. [@jpbede] to the rescue! As of this release, you
@@ -256,7 +256,7 @@ keyboard.
 
 KNXBroker raised the the following WTH topic:
 
-[_"WTH lets upgrade History Graphs"_](https://community.home-assistant.io/t/wth-lets-upgrade-history-graphs/802568)
+[_**"WTH lets upgrade History Graphs"**_](https://community.home-assistant.io/t/wth-lets-upgrade-history-graphs/802568)
 
 You are right! The history graphs in Home Assistant are a bit basic but
 functional! Nevertheless, we can do better! 🚀
@@ -289,7 +289,7 @@ Voice Assistant settings.
 
 ### Reordering individual devices on the energy dashboard
 
-[_"WTH Is in Energy Dashboard the individual devices not able to reorder"_](https://community.home-assistant.io/t/wth-is-in-energy-dashboard-the-individual-devices-not-able-to-reorder/805051)
+[_**"WTH Is in Energy Dashboard the individual devices not able to reorder"**_](https://community.home-assistant.io/t/wth-is-in-energy-dashboard-the-individual-devices-not-able-to-reorder/805051)
 
 Thanks for that one yormedia! Honestly, this one has been raised in previous
 editions of the Month of "What the Heck?!" a few times as well. Reason enough
@@ -303,24 +303,24 @@ individual devices on the energy dashboard! 🔡
 There are many more smaller improvements originating from the Month of "What the
 Heck?!" in this release. Here are some of the other noteworthy ones:
 
-**[_"WTH there is no hotkey for Assist"_](https://community.home-assistant.io/t/wth-there-is-no-hotkey-for-assist/802403)**
+[_**"WTH there is no hotkey for Assist"**_](https://community.home-assistant.io/t/wth-there-is-no-hotkey-for-assist/802403)**
 
 Well, thanks to [@jpbede] you can now press the `a` on your keyboard anywhere
 in Home Assistant to summon Assist! 🎙️ Nice!
 
-**[_"WTH doesn't HA ask if I want to save automations?"_](https://community.home-assistant.io/t/wth-doesnt-ha-ask-if-i-want-to-save-automations/804030)
+[_**"WTH doesn't HA ask if I want to save automations?"**_](https://community.home-assistant.io/t/wth-doesnt-ha-ask-if-i-want-to-save-automations/804030)
 
 Whoa! That is a good one! Thanks to [@jpbede], Home Assistant will now ask you
 if you want to save your automation before leaving the editor if there are
 unsaved changes. 🤖
 
-**[_"WTH Can't I filter labels within a table filter?"_](https://community.home-assistant.io/t/wth-cant-i-filter-labels-within-a-table-filter/802529)
+[_**"WTH Can't I filter labels within a table filter?"**_](https://community.home-assistant.io/t/wth-cant-i-filter-labels-within-a-table-filter/802529)
 
 Good question. If you have a lot of labels, scrolling through the list of labels
 in the filter option, can be a bit cumbersome. Thanks to [@silamon], you can
 now search and filter through the labels in the filter option! 🔎
 
-**[_WTH sentence trigger doesn't contain any context_**](https://community.home-assistant.io/t/wth-sentence-trigger-doesnt-contain-any-context/802386)
+[_**WTH sentence trigger doesn't contain any context**_](https://community.home-assistant.io/t/wth-sentence-trigger-doesnt-contain-any-context/802386)
 
 Great idea! Thanks to [@balloob], the full conversation input is now available
 to sentence triggers! 🗣️ This was actually the first WTH item to be resolved
