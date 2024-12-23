@@ -1,0 +1,675 @@
+---
+layout: post
+title: "2025.1: Beta release notes"
+description: "Beta release notes for Home Assistant 2025.1"
+date: 2024-12-23 00:00:00
+date_formatted: "January 3, 2025"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2025-01/social.jpg
+---
+
+<lite-youtube videoid="qCd7RHprmc0" videotitle="Home Assistant 2025.1 Release Party"></lite-youtube>
+
+{% note %}
+
+**Welcome to the beta release notes for Home Assistant 2025.1** 🎉
+
+<br />
+
+Please note that these release notes are a work in progress. 👷‍♀️ We will be
+completing them over the next couple of days. Not all features might be final
+yet, and some features _**may not** make it into the final release_.
+
+<br />
+
+**Want to help test the beta?** Awesome! ❤️ We have documented how you
+[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
+
+<br />
+
+While running the beta, we highly recommend joining our _#beta_ channel on
+the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
+testers are in this channel during the beta period to share experiences, ideas,
+and iterate over new features, fine-tuning them before the final release.
+It's a really fun place to hang out. 😎
+
+<br />
+
+**Reporting issues**: As this is a beta test, you might encounter unexpected
+behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
+You can find our issue trackers and the reported issues during beta here:
+
+<br />
+
+- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/127)
+- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/711)
+- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/134)
+
+🙏 When reporting issues, **make sure to mention the exact beta version you are
+running** in the issue description. This will help us identify and track the
+issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
+
+<br />
+
+Issues introduced in the beta are processed with priority. 🔝
+
+{% endnote %}
+
+{% tip %}
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=qCd7RHprmc0)
+3 January 2025, at 20:00 GMT / 12:00 PT / 21:00 CET!
+
+{% endtip %}
+
+Home Assistant 2025.1! 🥂
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Better backups!](#better-backups)
+  - [Automated backups 🤖](#automated-backups-)
+  - [Encrypted backups by default 🔒](#encrypted-backups-by-default-)
+  - [Home Assistant Cloud backups 😎](#home-assistant-cloud-backups-)
+  - [Backup locations are extendable by design 🧩](#backup-locations-are-extendable-by-design-)
+  - [Backup retention 🗑](#backup-retention-)
+  - [Setting up backups for the first time 🚀](#setting-up-backups-for-the-first-time-)
+- [Month of "What the Heck?!"](#month-of-what-the-heck)
+  - [Setting category and labels when creating automations and scripts](#setting-category-and-labels-when-creating-automations-and-scripts)
+  - [Quickly navigate to a device](#quickly-navigate-to-a-device)
+- [Zooom \& Pan for charts](#zooom--pan-for-charts)
+  - [Controlling the default exposure of new entities to Assist](#controlling-the-default-exposure-of-new-entities-to-assist)
+  - [Reordering individual devices on the energy dashboard](#reordering-individual-devices-on-the-energy-dashboard)
+  - [More "What the Heck?!" improvements](#more-what-the-heck-improvements)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+  - [Farewell to the following](#farewell-to-the-following)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [Dashboard background settings](#dashboard-background-settings)
+- [Media player volume feature for Tile card](#media-player-volume-feature-for-tile-card)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+## Better backups!
+
+This release brings big updates to the backup system in Home Assistant. We have
+fully revamped the whole backup experience and added a lot of new features to
+make it easier to use, but more importantly, it will provide you with a lot
+more ease of mind when it comes to your backups.
+
+So, without further ado, let's dive into the new backup system!
+
+### Automated backups 🤖
+
+Yes! You've read that title correctly! Home Assistant now has the ability to
+automatically create backups for you on a configurable frequency!
+
+This is a major improvement for the backup system, as it will now ensure you
+always have a recent backup available, without you having to worry about it.
+
+<img class="no-shadow" alt="The new backup overview page shows you exactly when your last backup took place" src="/images/blog/2025-01/temp-backup-window.png" />
+
+When you now navigate to your backups in the setting screen, you will be
+greeted with a new overview page that shows you exactly when your last backup
+took place, and when the next one is scheduled. Instant peace of mind!
+
+That said, if anything does go wrong while creating a backup, Home Assistant
+will raise an issue in the repair center to ensure you are aware of it.
+
+### Encrypted backups by default 🔒
+
+All backups are now encrypted by default. Previously, it was possible to
+optionally set a password for your backups. However, this was not enforced and
+could be skipped.
+
+As of this release, we've prioritized the security of your backups and have
+replaced the optional password with a mandatory encryption key. This key is
+required to restore your backups, and it is essential to keep it safe and
+ensure your privacy is protected.
+
+<img class="no-shadow" alt="The new backup overview page shows you exactly when your last backup took place" src="/images/blog/2025-01/temp-backup-encryption-key.png" />
+
+The first time when you set up your backups, and encryption key will be
+generated for you. Make sure to store this key in a safe place, as you will
+need it to restore your backups. To make this easier, you can download the
+encryption key as an emergency kit directly when you set up your backups,
+but you can also download it at any time from the backup settings page.
+
+### Home Assistant Cloud backups 😎
+
+Are you a Home Assistant Cloud by Nabu Casa subscriber? Then you're in for a
+treat! You can now store your latest encrypted backup in your Home Assistant
+Cloud account storage.
+
+**This feature is added to all existing and new Home Assistant Cloud
+subscribers without any additional costs! 🎁**
+
+<img class="no-shadow" alt="Home Assistant Cloud is now a backup target location, that is included with the Home Assistant Cloud subscription" src="/images/blog/2025-01/temp-backup-home-assistant-cloud.png" />
+
+So not only, are your backups automatically created and encrypted, but also
+automatically uploaded to an off-site location for you, ensuring you always
+have a safe backup available.
+
+The backup can be downloaded from Home Assistant itself, but also from the
+Home Assistant Cloud account page @ Nabu Casa in case you need it.
+
+### Backup locations are extendable by design 🧩
+
+So, automated backup can be backed up to your local disk to Home Assistant
+Cloud, but what if you want to store your backups somewhere else?
+
+As one expects from Home Assistant, we want to make everything as flexible as
+possible without any vendor lock-in. Therefore, the backup system is designed
+to be extendable, meaning integrations can now provide additional backup
+locations.
+
+Right now, everything is brand new ✨ no integrations provide this yet, but
+we are sure we see more integrations providing backup locations in the future.
+For example, an integration could provide a backup location to store backups on
+a NAS, Google Drive, Backblaze S2, or any other storage provider.
+
+Choice is an important aspect of Home Assistant, and this is how we have made
+that aspect count for the backup system as well.
+
+### Backup retention 🗑
+
+Our previous backup system would just make backups, which was good, but...
+eventually you'd annoyingly run out of disk space. 😬
+
+So! Backup retention is now a thing! You can now configure how many backups you
+want to keep, and the system will automatically clean up old backups for you.
+
+<img class="no-shadow" alt="You can now configure a retention policy for your backups, allowing Home Assistant to clean it up automatically" src="/images/blog/2025-01/temp-backup-retention.png" />
+
+### Setting up backups for the first time 🚀
+
+When you navigate to the backup settings for the first time after upgrading
+to this release, you will be greeted with a new setup wizard that will guide
+you through the process of setting up your backups in the new system.
+
+The wizard will help you set up your encryption key, configure your backup
+frequency, and set up your backup retention policy. And when it is ready, it
+will immediately kick off your first backup!
+
+All set! One less thing to worry about 🎉
+
+## Month of "What the Heck?!"
+
+We had the Month of "What the Heck?!" in December, and it was a blast! 🎉
+Thanks to all the contributors who participated in this event, raising all
+your "What the Heck?!" moments with Home Assistant.
+
+All input from it is very valuable to us, and we are working on using it to
+shape the future of Home Assistant, for example, by determining what areas
+impact our roadmaps and priorities.
+
+Besides that, quite a bunch of shared "What the Heck?!" moments have been
+addressed in this release already 🚀
+
+While the month is over, the work is not! We expect to see many more results
+from this month over the upcoming releases.
+
+### Setting category and labels when creating automations and scripts
+
+For the first WTH item that has been resolved, we have [@jpbede] to thank!
+And this one, is one of the higher voted ones as well, so it is a good one!
+Andrew Jackson wrote:
+
+[_"WTH can you not add categories, labels etc when creating an automation"_](https://community.home-assistant.io/t/wth-can-you-not-add-categories-labels-etc-when-creating-an-automation/802562)
+
+Yeah, that is a good WTH! Every time you create a new automation or script,
+you probably want to organize it right away, and not having to go back to
+the settings to do so. **FIXED**! 🎉
+
+<img class="no-shadow" alt="If you press the d on your keyboard, it will pop up the Quickbar for devices." src="/images/blog/2025-01/temp-new-automation-labels.png" />
+
+When you create a new automation or script, and also when renaming it,
+you can now set the category and labels right away! 🏷️ Nice!
+
+### Quickly navigate to a device
+
+You might be aware, that you can bring up our quick navigation bar anywhere in
+Home Assistant, by pressing the `c` key on your keyboard to navigate to various
+places and the `e` key to search and navigate to any entity. However...
+
+[_"WTH is there no quick bar for devices?"_](https://community.home-assistant.io/t/wth-is-there-no-quick-bar-for-devices/802310)
+
+Well, that is a good question that Andreas Brett raised! There is indeed no
+such thing for devices. [@jpbede] to the rescue! As of this release, you
+can navigate to any device using the quickbar by pressing the `d` key on your
+keyboard.
+
+<img class="no-shadow" alt="If you press the d on your keyboard, it will pop up the Quickbar for devices." src="/images/blog/2025-01/391675502-36f624b7-786f-486b-89a6-e86bc0a5f9fc.png"/>
+
+## Zooom & Pan for charts
+
+KNXBroker raised the the following WTH topic:
+
+[_"WTH lets upgrade History Graphs"_](https://community.home-assistant.io/t/wth-lets-upgrade-history-graphs/802568)
+
+You are right! The history graphs in Home Assistant are a bit basic but
+functional! Nevertheless, we can do better! 🚀
+
+One of the bigger items in that WTH topic, was the ability to zoom and pan...
+Well, thanks to [@MindFreeze], you can now zoom and pan in any graph in Home
+Assistant! 📈
+
+<img class="no-shadow" alt="Zoom any graph in Home Assistant, by holding ctrl or command and scroll your mouse wheel!" src="/images/blog/2025-01/temp-zoom-graphs.gif"/>
+
+Hold control (or command on macOS) and scroll to zoom in and out using your
+mouse. You can also click and drag to pan around the zoomed graph.
+
+Besides this change, [@MindFreeze] enabled small micro-animation for the
+history graphs, making them look a bit more alive and less static.
+
+[@MindFreeze]: https://github.com/MindFreeze
+
+### Controlling the default exposure of new entities to Assist
+
+mathd made the following point in a Month of "What the Heck?!" topic:
+
+[_"WTH Are all new entities exposed to Assist by default?"_](https://community.home-assistant.io/t/wth-are-all-new-entities-exposed-to-assist-by-default/803889)
+
+We hear you! Thanks to [@jpbede], you can now control the default exposure of
+new entities to Assist. You can now toggle this on or off in the Home Assistant
+Voice Assistant settings.
+
+<img class="no-shadow" alt="Zoom any graph in Home Assistant, by holding ctrl or command and scroll your mouse wheel!" src="/images/blog/2025-01/temp-assist-expose-default.png" />
+
+### Reordering individual devices on the energy dashboard
+
+[_"WTH Is in Energy Dashboard the individual devices not able to reorder"_](https://community.home-assistant.io/t/wth-is-in-energy-dashboard-the-individual-devices-not-able-to-reorder/805051)
+
+Thanks for that one yormedia! Honestly, this one has been raised in previous
+editions of the Month of "What the Heck?!" a few times as well. Reason enough
+for [@karwosts] to pick this up and make it happen! You can now reorder the
+individual devices on the energy dashboard! 🔡
+
+<img class="no-shadow" alt="If you press the d on your keyboard, it will pop up the Quickbar for devices." src="/images/blog/2025-01/temp-sortable-devices.gif"/>
+
+### More "What the Heck?!" improvements
+
+There are many more smaller improvements originating from the Month of "What the
+Heck?!" in this release. Here are some of the other noteworthy ones:
+
+**[_"WTH there is no hotkey for Assist"_](https://community.home-assistant.io/t/wth-there-is-no-hotkey-for-assist/802403)**
+
+Well, thanks to [@jpbede] you can now press the `a` on your keyboard anywhere
+in Home Assistant to summon Assist! 🎙️ Nice!
+
+**[_"WTH doesn't HA ask if I want to save automations?"_](https://community.home-assistant.io/t/wth-doesnt-ha-ask-if-i-want-to-save-automations/804030)
+
+Whoa! That is a good one! Thanks to [@jpbede], Home Assistant will now ask you
+if you want to save your automation before leaving the editor if there are
+unsaved changes. 🤖
+
+**[_"WTH Can't I filter labels within a table filter?"_](https://community.home-assistant.io/t/wth-cant-i-filter-labels-within-a-table-filter/802529)
+
+Good question. If you have a lot of labels, scrolling through the list of labels
+in the filter option, can be a bit cumbersome. Thanks to [@silamon], you can
+now search and filter through the labels in the filter option! 🔎
+
+**[_WTH sentence trigger doesn't contain any context_**](https://community.home-assistant.io/t/wth-sentence-trigger-doesnt-contain-any-context/802386)
+
+Great idea! Thanks to [@balloob], the full conversation input is now available
+to sentence triggers! 🗣️ This was actually the first WTH item to be resolved
+this edition! 😎
+
+[@balloob]: https://github.com/balloob
+[@silamon]: https://github.com/silamon
+[@jpbede]: https://github.com/jpbede
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Cookidoo]**, added by [@miaucl]  
+  Interact with your shopping lists of [Cookidoo the official Thermomix recipe platform].
+- **[EHEIM Digital]**, added by [@autinerd]  
+  Control with your [EHEIM Digital aquarium devices] from Home Assistant.
+- **[Ituran]**, added by [@shmuelzon]  
+  Retrieve and use information from your Ituran-equipped vehicle.
+- **[Ohme]**, added by [@dan-r]  
+  Get sensor information from your Ohme smart EV charger.
+- **[Peblar]**, added by [@frenck]  
+  Control and monitor charging sessions of your [Peblar EV Charger].
+- **[Powerfox]**, added by [@klaasnicolaas]  
+  Gather data from your [Poweropti] devices reading electricity, water, gas, and heat.
+- **[Slide Local]**, added by [@dontinelli]  
+  Integrate your [Slide] cover device directly with Home Assistant using a local API.
+- **[Watergate]**, added by [@adam-the-hero]  
+  Integrate your Watergate Sonic Local with Home Assistant.
+
+[@adam-the-hero]: https://github.com/adam-the-hero
+[@autinerd]: https://github.com/autinerd
+[@dan-r]: https://github.com
+[@dontinelli]: https://github.com/dontinelli
+[@frenck]: https://github.com/frenck
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@miaucl]: https://github.com/miaucl
+[@shmuelzon]: https://github.com/shmuelzon
+[Cookidoo the official Thermomix recipe platform]: https://cookidoo.international/
+[Cookidoo]: /integrations/cookidoo
+[EHEIM Digital aquarium devices]: https://eheim.com/en_GB/aquatics/eheim-digital/
+[EHEIM Digital]: /integrations/eheimdigital
+[Ituran]: /integrations/ituran
+[Ohme]: /integrations/ohme
+[Peblar EV Charger]: https://www.peblar.com
+[Peblar]: /integrations/peblar
+[Powerfox]: /integrations/powerfox
+[Poweropti]: https://shop.powerfox.energy/collections/frontpage
+[Slide Local]: /integrations/slide_local
+[Slide]: https://slide.store/
+[Watergate]: /integrations/watergate
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing
+integrations are also being constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+- Palazzetti power control ([@dotvav] - [#131833]) ([palazzetti docs]) (new-platform)
+- Add Starlink consumption sensors ([@davidrapan] - [#132262]) ([starlink docs])
+- Add Starlink usage sensors ([@davidrapan] - [#132738]) ([starlink docs])
+- Add basic UniFi Protect AiPort support ([@RaHehl] - [#133523]) ([unifiprotect docs])
+- Add initial support for SwitchBot relay switch ([@greyeee] - [#130863]) ([switchbot docs])
+- Add additional Hitachi sensors to Overkiz ([@iMicknl] - [#133772]) ([overkiz docs])
+- Add binary states for Weheat indoor unit ([@barryvdh] - [#133811]) ([weheat docs]) (new-platform)
+- Add get_user_keyring_info service to UniFi Protect integration ([@RaHehl] - [#133138]) ([unifiprotect docs])
+- Add media browsing to Cambridge Audio ([@noahhusby] - [#129106]) ([cambridge_audio docs])
+- Add pan/tilt features to tplink integration ([@sdb9696] - [#133829]) ([tplink docs])
+- Add Switchbot Water Leak Detector (BLE) ([@luc-ass] - [#133799]) ([switchbot docs])
+- Add actions with response values to Music Assistant ([@marcelveldt] - [#133521]) ([music_assistant docs])
+
+{% details "Potential changes to process" icon="mdi:scale-balance" %}
+
+Processed up to _#132149.
+
+- The [Lorem ipsum] integration now supports slipsum! Thanks [@frenck]!
+
+[@frenck]: https://github.com/frenck
+[Lorem ipsum]: /integrations/lorem_ipsum
+
+{% enddetails %}
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
+more integrations to the UI, making them more accessible for everyone
+to set up and use.
+
+The following integration is now available via the Home Assistant UI:
+
+- **[Niko Home Control]**, done by [@VandeurenGlenn]
+
+[@VandeurenGlenn]: https://github.com/VandeurenGlenn
+[Niko Home Control]: /integrations/niko_home_control
+
+### Farewell to the following
+
+The following {% term integrations %} are also no longer available as
+of this release:
+
+- **DTE Energy Bridge** has been removed after deprecated. The integration
+  was no longer functional.
+- **Simulated** has been previously deprecated and now removed.
+- **Stookalert** has been removed. The upstream data is no longer updated.
+  The [Stookwijzer] integration is a good alternative to get the same information.
+
+[Stookwijzer]: /integrations/stookwijzer
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- When viewing data tables and using `ctrl+f` in your browser to search, the
+  search input will now be focused automatically. As native browser search
+  will not work on data tables. Thanks [@jpbede]!
+- [@marcinbauer85] adjust the "Add card" dialog, to automatically focus on the
+  search field when you add a card and can start typing to search right
+  away! Nice touch!
+- Images uploaded through Home Assistant (for exmaple, as background or as
+  an user profile picture), as now browsable in the media browser. Thanks
+  [@karwosts]!
+- The unit of measurment is now shown next to the numeric slider in the
+  more-info dialog of number entities. Thanks [@abmantis]!
+- Home Assistant now support `mWh` as a unit of measurement for energy sensors
+  and `mW` for electrical potential power sensors. Thanks [@agners]!
+- [@wendevlin] added settings and category overflow actions to the automation
+  and script editor (the three dotted menu in the top right corner), making
+  it easier to access those straight from the editor. Nice!
+- The [logbook card] can supports picking a target for things it should show
+  events for. This means, you can now pick based on entities, devices, areas,
+  floors, and labels! Thanks, [@silamon]!
+
+[@abmantis]: https://github.com/abmantis
+[@agners]: https://github.com/agners
+[@jpbede]: https://github.com/jpbede
+[@karwosts]: https://github.com/karwosts
+[@marcinbauer85]: https://github.com/marcinbauer85
+[@silamon]: https://github.com/silamon
+[@wendevlin]: https://github.com/wendevlin
+[logbook card]: /dashboards/logbook/
+
+## Dashboard background settings
+
+A few releases ago, we made it easier to add a background image to your
+dashboard. This release, [@silamon] takes it a step further by adding
+a lot of settings to customize how the background image is displayed.
+
+This includes support for tiled backgrounds, transparency, size settings,
+alignment, and allowing the background to scroll with the page or stay fixed.
+
+_**TODO**: Add screenshot_
+
+Nice! Thanks, [@silamon]!
+
+[@silamon]: https://github.com/silamon
+
+## Media player volume feature for Tile card
+
+A super nice addition from [@simon-zumbrunnen]! The Tile card now supports a
+media player volume slider feature. This feature allows you to control the
+volume of a media player directly from the Tile card. Nice work Simon!
+
+<img class="no-shadow" alt="The tile card with a media player entity, having the volume feature slider enabled" src="/images/dashboards/features/media_player_volume_slider.png
+"/>
+
+[@simon-zumbrunnen]: https://github.com/simon-zumbrunnen
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might
+unexpectedly impact your Home Assistant installation. Unfortunately, sometimes,
+it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "1-Wire" %}
+
+The unit of measurement has been removed from 1-Wire counters because
+`count` is not a unit 😁
+
+([@jrieger] - [#132076]) ([documentation](/integrations/onewire))
+
+[@jrieger]: https://github.com/jrieger
+[#132076]: https://github.com/home-assistant/core/pull/132076
+
+{% enddetails %}
+
+{% details "Denon HEOS" %}
+
+Grouping a HEOS media player will now raise an exception if one of the members
+is not a valid HEOS player. Previously unknown or invalid members would be
+silently dropped.
+
+([@andrewsayre] - [#132213]) ([documentation](/integrations/heos))
+
+[@andrewsayre]: https://github.com/andrewsayre
+[#132213]: https://github.com/home-assistant/core/pull/132213
+
+{% enddetails %}
+
+{% details "devolo Home Control" %}
+
+The integration with devolo Home Control has been updated to remove the option
+to set the mydevolo URL. This option was used to set up the integration with
+the devolo Home Control Cloud for development purposes only. This option is no
+longer available.
+
+([@Shutgun] - [#132821]) ([documentation](/integrations/devolo_home_control))
+
+[@Shutgun]: https://github.com/Shutgun
+[#132821]: https://github.com/home-assistant/core/pull/132821
+
+{% enddetails %}
+
+{% details "FXCOM RFXtrx" %}
+
+The unit of measurement has been removed from FXCOM RFXtrx counters because
+`count` is not a unit 😁
+
+([@jrieger] - [#133108]) ([documentation](/integrations/rfxtrx))
+
+[@jrieger]: https://github.com/jrieger
+[#133108]: https://github.com/home-assistant/core/pull/133108
+
+{% enddetails %}
+
+{% details "HomeWizard Energy" %}
+
+The unit of measurement for the "Water usage" sensor has been updated from
+`l/min` to `L/min`. This change standardizes the unit to improve consistency
+across Home Assistant.
+
+Any automations, scripts, or templates that rely on the old unit may need to be
+adjusted. Long-term statistics will remain intact, but repair issues will be
+created to ensure the data is updated with the new unit.
+
+([@DCSBL] - [#132261]) ([documentation](/integrations/homewizard))
+
+[@DCSBL]: https://github.com/DCSBL
+[#132261]: https://github.com/home-assistant/core/pull/132261
+
+{% enddetails %}
+
+{% details "LIFX" %}
+
+The options `color_temp` and `kelvin` are no longer valid arguments for LIFX
+actions. Please use `color_temp_kelvin` instead.
+
+([@epenet] - [#132730]) ([documentation](/integrations/lifx))
+
+[@epenet]: https://github.com/epenet
+[#132730]: https://github.com/home-assistant/core/pull/132730
+
+{% enddetails %}
+
+{% details "Tesla Fleet" %}
+
+The included OAuth application credentials have been removed, as Tesla no longer
+supports Open Source application registrations, and is moving to a pay-per-use
+model.
+
+Read more about this announcement in this [blog post](developer.tesla.com/docs/fleet-api/support/announcements#2024-11-27-pay-per-use-pricing).
+
+([@Bre77] - [#132431]) ([documentation](/integrations/tesla_fleet))
+
+[@Bre77]: https://github.com/Bre77
+[#132431]: https://github.com/home-assistant/core/pull/132431
+
+{% enddetails %}
+
+{% details "UniFi Network" %}
+
+The states of "Device State" sensors have been standardized to match
+Home Assistant core rules and be translatable. This affects the following
+UniFi sensor states:
+
+- `Connected`, which now became `connected`
+- `Pending`, which now became `pending`
+- `Firmware Mismatch`, which now became `firmware_mismatch`
+- `Upgrading`, which now became `upgrading`
+- `Provisioning`, which now became `provisioning`
+- `Heartbeat Missed`, which now became `heartbeat_missed`
+- `Adopting`, which now became `adopting`
+- `Deleting`, which now became `deleting`
+- `Inform Error`, which now became `inform_error`
+- `Adoption Failed`, which now became `adoption_failed`
+- `Isolated`, which now became `isolated`
+- `Unknown`, which now became `unknown`
+
+If you used those states directly in your automations, scripts, or templates;
+you will need to adjust those to match these changes.
+
+([@bieniu] - [#131921]) ([documentation](/integrations/unifi))
+
+[@bieniu]: https://github.com/bieniu
+[#131921]: https://github.com/home-assistant/core/pull/131921
+
+{% enddetails %}
+
+{% details "Zabbix" %}
+
+The integration now uses the official Zabbix Python API. Because of this, the
+minimum supported Zabbix version is now 5.0. This change drops support for
+Zabbix 4 and before.
+
+([@kruton] - [#131674]) ([documentation](/integrations/zabbix))
+
+[@kruton]: https://github.com/kruton
+[#131674]: https://github.com/home-assistant/core/pull/131674
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Changed name of WaterHeaterEntityDescription](https://developers.home-assistant.io/blog/2024/12/13/water-heater-entity-description)
+- [Climate entity now supports independent horizontal swing](https://developers.home-assistant.io/blog/2024/12/03/climate-horizontal-swing)
+- [Moving to Pydantic v2](https://developers.home-assistant.io/blog/2024/12/21/moving-to-pydantic-v2)
+- [New vacuum state property](https://developers.home-assistant.io/blog/2024/12/08/new-vacuum-state-property)
+- [Use Kelvin as the preferred color temperature unit](https://developers.home-assistant.io/blog/2024/12/14/kelvin-preferred-color-temperature-unit)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2025.1](/changelogs/core-2025.1)
