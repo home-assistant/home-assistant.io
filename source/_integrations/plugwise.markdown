@@ -214,7 +214,7 @@ The last schedule that was active is determined the same way long-tapping the to
 
 ### Presence-based preset mode
 
-Automation to change the active preset. The preset will be changed by your active schedule or it could be a likewise automation setting another preset for when someone is present.
+Automation to change the active preset. The preset will be changed by your active schedule, or it could be a likewise automation setting another preset for when someone is present.
 
 ```yaml
 alias: "Set climate to away when nobody is home"
