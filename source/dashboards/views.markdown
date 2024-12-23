@@ -215,7 +215,7 @@ background:
       default: 100
     size: 
       required: false
-      description: Choose how the background fits the space. Defaults to the original picture, fill view (`cover` in yaml) fills the view with cropping if necessary and fits view (`contain` in yaml) fits the image within the view, maintaining aspect ratio.
+      description: Choose how the background fits the space. Defaults to the original picture size, fill view (`cover` in YAML) fills the view with cropping if necessary and fits view (`contain` in YAML) fits the image within the view, maintaining aspect ratio.
       type: string
       default: auto
     alignment: 
