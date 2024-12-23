@@ -211,7 +211,7 @@ background:
     transparency:
       required: false
       description: Adjust the background's opacity, from fully opaque to transparent.
-      type: number
+      type: integer
       default: 100
     size: 
       required: false
