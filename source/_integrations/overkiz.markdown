@@ -147,11 +147,11 @@ During peak hours, it could happen that the Overkiz platform is unable to execut
 
 The Overkiz API only supports 10 requests in its execution queue. If you try to command more devices at the same time, for example with a group, this will fail with `EXEC_QUEUE_FULL`. To work around this, you can create a scenario in the corresponding application and call that scenario instead after syncing it in the integration.
 
-#### Device support via the local API
+### Device support via the local API
 
 Various sensors, scenarios, and climate entities are **not** supported via the Somfy TaHoma Developer Mode due to limitations of the local API. If your device functions with the Cloud API but not with the Local API, this is an inherent limitation of the Local API and cannot be resolved.
 
-#### Device support via HomeKit
+### Device support via HomeKit
 
 If your hub (e.g. Somfy Connectivity Kit) supports HomeKit, a sensor named **HomeKit Setup Code** will be added to Home Assistant. To configure the [HomeKit Controller](/integrations/homekit_controller/) integration for local control, follow these steps:
 
