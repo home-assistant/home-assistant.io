@@ -1060,6 +1060,55 @@ For a summary in a more readable format:
 [@mib1185]: https://github.com/mib1185
 [@rappenze]: https://github.com/rappenze
 
+## Release 2024.12.5 - December 20
+
+- Bump `nice-go` to 1.0.0 ([@IceBotYT] - [#133185])
+- Add support for Nice G.O. HAE00080 wall station ([@IceBotYT] - [#133186])
+- Bugfix: also schedule time based integration when source is 0 ([@ronweikamp] - [#133438])
+- Ensure screenlogic retries if the protocol adapter is still booting ([@bdraco] - [#133444])
+- Bump Freebox to 1.2.1 ([@Quentame] - [#133455])
+- Bump pyOverkiz to 1.15.3 ([@iMicknl] - [#133458])
+- Don't raise Overkiz user flow unique_id check ([@iMicknl] - [#133471])
+- Update Roborock to 2.8.1 ([@Lash-L] - [#133492])
+- Update fjäråskupan to 2.3.1 ([@elupus] - [#133493])
+- Update fjäråskupan to 2.3.2 ([@elupus] - [#133499])
+- Bump gardena_bluetooth to 1.5.0 ([@elupus] - [#133502])
+- Bump aiohttp to 3.11.11 ([@bdraco] - [#133530])
+- Handle null value for elapsed time in Music Assistant ([@marcelveldt] - [#133597])
+- Fix Twinkly raise on progress ([@joostlek] - [#133601])
+- Handle mqtt.WebsocketConnectionError when connecting to the MQTT broker ([@bdraco] - [#133610])
+
+[#132195]: https://github.com/home-assistant/core/pull/132195
+[#132509]: https://github.com/home-assistant/core/pull/132509
+[#132846]: https://github.com/home-assistant/core/pull/132846
+[#133123]: https://github.com/home-assistant/core/pull/133123
+[#133185]: https://github.com/home-assistant/core/pull/133185
+[#133186]: https://github.com/home-assistant/core/pull/133186
+[#133422]: https://github.com/home-assistant/core/pull/133422
+[#133438]: https://github.com/home-assistant/core/pull/133438
+[#133444]: https://github.com/home-assistant/core/pull/133444
+[#133455]: https://github.com/home-assistant/core/pull/133455
+[#133458]: https://github.com/home-assistant/core/pull/133458
+[#133471]: https://github.com/home-assistant/core/pull/133471
+[#133492]: https://github.com/home-assistant/core/pull/133492
+[#133493]: https://github.com/home-assistant/core/pull/133493
+[#133499]: https://github.com/home-assistant/core/pull/133499
+[#133502]: https://github.com/home-assistant/core/pull/133502
+[#133530]: https://github.com/home-assistant/core/pull/133530
+[#133597]: https://github.com/home-assistant/core/pull/133597
+[#133601]: https://github.com/home-assistant/core/pull/133601
+[#133610]: https://github.com/home-assistant/core/pull/133610
+[@IceBotYT]: https://github.com/IceBotYT
+[@Lash-L]: https://github.com/Lash-L
+[@Quentame]: https://github.com/Quentame
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@iMicknl]: https://github.com/iMicknl
+[@joostlek]: https://github.com/joostlek
+[@marcelveldt]: https://github.com/marcelveldt
+[@ronweikamp]: https://github.com/ronweikamp
+
 [#113438]: https://github.com/home-assistant/core/pull/113438
 [#120357]: https://github.com/home-assistant/core/pull/120357
 [#123563]: https://github.com/home-assistant/core/pull/123563

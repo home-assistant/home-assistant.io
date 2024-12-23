@@ -18,7 +18,7 @@ The simplest and most effective way to use Assist is to leverage the voice provi
 If you are interested in setting up a fully local voice assistant, follow this setup:
 
 
-## Prerrequisites
+## Prerequisites
 
 For Assist to be able to talk to your Home Assistant setup your setup needs to be able to listen, understand and then talk back. 
 

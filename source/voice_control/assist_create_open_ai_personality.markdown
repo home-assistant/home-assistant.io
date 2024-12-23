@@ -20,7 +20,7 @@ You can give your voice assistant personality by using an AI conversation agent.
 
 ## What can I do in Assist with AI exactly?
 
-- Pick the LLM provider of your choice, either local or cloud, as long as it las a conversational agent.
+- Pick the LLM provider of your choice, either local or cloud, as long as it has a conversational agent.
 - Select a personality based on a prompt.
 - Get replies with the character's personality you defined.
 - Perform Home Assistant intents (turn on-off lights, etc), as long as Assist is correctly configured as per our [best practices](/voice_control/best_practices).
