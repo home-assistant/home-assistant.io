@@ -78,12 +78,12 @@ The Overkiz integration supports both the Overkiz cloud API and the local API (o
 
 ### Login to Overkiz (Cloud API)
 
-{% configuration_cloud_api %}
+{% configuration_basic %}
 "Username":
   description: "Username for your Overkiz cloud account (account you use in your IoT app)."
 Password:
   description: "Password for your Overkiz cloud account (account you use in your IoT app)."
-{% endconfiguration_cloud_api %}
+{% endconfiguration_basic %}
 
 ### Login to Overkiz (Local API)
 
@@ -91,7 +91,7 @@ To use the local API, you will need to activate the [Somfy TaHoma Developer Mode
 
 Scenarios and climate entities are **not** supported via the Somfy TaHoma Developer Mode.
 
-{% configuration_local_api %}
+{% configuration %}
 "Host":
   description: "The hostname or IP address of your Overkiz hub. The hostname is your Gateway PIN + .local:8443 (e.g. 1234-4567-8912.local)."
 "Username":
@@ -100,7 +100,7 @@ Password:
   description: "Password for your Overkiz cloud account (account you use in your IoT app)."
 Verify SSL:
   description: "Verify the SSL certificate of your hub. This option is available only when connecting via the hostname."
-{% endconfiguration_local_api %}
+{% endconfiguration %}
 
 
 ## Known limitations
