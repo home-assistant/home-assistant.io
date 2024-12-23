@@ -201,8 +201,8 @@ The background settings of a view can be customized to display a background. Alt
 {% configuration views %}
 background:
   required: false
-  description: A list of view configurations.
-  type: list
+  description: Customize the view's background with options for image, transparency, size, alignment, repeat, and attachment. 
+  type: map
   keys:
     image:
       required: false
