@@ -195,7 +195,7 @@ These actions will change Adam's **regulation mode** (i.e., the HVAC system mode
 
 The following HVAC modes are available:
 
-- `auto`: Active schedule – The thermostat changes presets/setpoints according the schedule.
+- `auto`: Active schedule – The thermostat changes presets/setpoints according to the schedule.
 - `cool or heat`: No active schedule – The system is manually set to cooling or heating mode, activating based on room temperature relative to the thermostat setpoint.
 
 For Adam:
@@ -212,7 +212,7 @@ The last schedule that was active is determined the same way long-tapping the to
 
 ## Examples
 
-### Presence based preset mode
+### Presence-based preset mode
 
 Automation to change the active preset. The preset will be changed by your active schedule or it could be a likewise automation setting another preset for when someone is present.
 
@@ -262,13 +262,13 @@ conditions:
   - condition: or
     conditions:
       - condition: device
-        device_id: abcdefghijklmnopqrstuvwxyz123456
+        device_id: DEVICE_ID_REPLACE_ME
         domain: climate
         entity_id: climate.anna
         type: is_hvac_mode
         hvac_mode: auto
       - condition: device
-        device_id:abcdefghijklmnopqrstuvwxyz1234569
+        device_id: DEVICE_ID_REPLACE_ME
         domain: climate
         entity_id: climate.anna
         type: is_hvac_mode
