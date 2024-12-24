@@ -60,7 +60,7 @@ Password:
 2. **Control via Home Assistant**:
    - Use the climate card to activate/deactivate schedules.
    - 'Auto' mode indicates the schedule is active.
-   - 'Heat' mode signifies the schedule is inactive.
+   - 'Heat', 'Cool' or 'Heat_cool' modes signify the schedule is inactive.
 3. **Changing Schedules**: Use the thermostat [select](#change-climate-schedule) entity.
 
 {% note %}
