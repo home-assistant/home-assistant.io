@@ -323,8 +323,8 @@ The Plugwise integration relies on the [plugwise](https://pypi.org/project/plugw
 
 A complete zone control system also known as Adam HA, supporting:
 
-- On/Off, OpenTherm or Loria/Thermastage heating and cooling support.
-- Running firmwares v3.x or v2.3
+- On/Off, OpenTherm or Loria/Thermastage heating, and cooling support.
+- Running firmwares v3.x or v2.3.
 - Additional devices:
   - Zone thermostats such as Lisa or Anna (see warning below on Anna),
   - A temperature sensor, Jip,
@@ -336,7 +336,7 @@ A complete zone control system also known as Adam HA, supporting:
 
 A smart thermostat, supporting:
 
-- OnOff, OpenTherm heating and Elga or Loria/Thermastage with heating and cooling support.
+- On/Off, OpenTherm heating, and Elga or Loria/Thermastage with heating and cooling support.
 - Running firmware v4.x, v3.x or v1.x.
 
 ### P1 (DSMR)
@@ -351,7 +351,7 @@ For legacy power switches, such as the Circles or Stealths, with v3.x or v2.x St
 
 #### Anna P1
 
-A smart thermostat, providing abundant solar energy billing by transferring abundant engergy in heatpump usage. If you have one, please let us know by opening a [feature request](https://github.com/plugwise/python-plugwise/issues/new/choose).
+A smart thermostat provides abundant solar energy billing by transferring abundant energy in heat pump usage. If you have one, please let us know by opening a [feature request](https://github.com/plugwise/python-plugwise/issues/new/choose).
 
 #### Stick
 
