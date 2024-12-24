@@ -496,7 +496,7 @@ You can receive rich notifications on your phone when someone rings a Reolink do
 
 - Turn on (outdoor) lights near the camera to improve image clarity at night once the camera detects a person, vehicle, or animal.
 - Turn off notifications and recording when you get home (based on, e.g., geofencing) and turn it back on when you leave home.
-When someone presses the doorbell, Play ringtones on speakers (Echo Dot/Google Home/smart hubs) throughout the house.
+- When someone presses the doorbell, play ringtones on speakers (Echo Dot/Google Home/smart hubs) throughout the house.
 - Pause a TV and show a notification badge on the TV when the doorbell is pressed (only when the TV is already on).
 - Play the quick replay messages of a Reolink doorbell only when not home (geofencing)
 - Wake up and start recording on other battery cameras nearby if one camera/motion sensor detects an event.
