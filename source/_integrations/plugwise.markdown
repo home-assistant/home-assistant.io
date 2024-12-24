@@ -330,6 +330,13 @@ A complete zone control system also known as Adam HA, supporting:
   - An under-floor heating controller Koen (note: a Koen always comes with a Plug, which is the active part),
   - Smart switches, either Plug or Aqara Smart Plug.
 
+{% note %}
+You can also use the Adam SA (Stand-alone, no ZigBee stick present) to make a single zone thermostat. 
+{% endnote %}
+
+
+{% endtip %}
+
 ### Anna
 
 A smart thermostat, supporting:
@@ -339,11 +346,11 @@ A smart thermostat, supporting:
 
 ### P1 (DSMR)
 
-A smart meter monitor for single or multiphase P1 and gas usage monitoring with the P1 running firmware v4.x, v3.x or v2.x.
+A P1 smart meter monitor for the single- or multi-phase grid power connection to your home including gas usage monitoring. Running firmware v4.x, v3.x or v2.x.
 
 ### Stretch (end-of-sale)
 
-For legacy power switches, such as the Circles or Stealths, with v3.x or v2.x Stretch firmware.
+For controlling and monitoring legacy power switches, such as the Circles or Stealths, with v3.x or v2.x Stretch firmware.
 
 ### Unsupported devices
 
