@@ -30,11 +30,11 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-[Plugwise](https://www.plugwise.com) provides smart home climate and power monitoring devices. This integration allows you to monitor and control your climate, energy consumption (including gas) consumption, and energy production. The energy information can be used for the [energy dashboard](/home-energy-management).
+[Plugwise](https://www.plugwise.com) provides smart home devices that allow you to monitor and control your climate, energy (including gas) consumption, and energy production. The energy information can be used for the [energy dashboard](/home-energy-management).
 
-This integration supports one or multiple Plugwise Gateways available on your network. You can connect to these gateways using your browser, the Plugwise App, or Home Assistant. There are 4 [supported](#supported-devices) types of gateways:
+This integration supports one or multiple Plugwise Gateways connected to your network. You can connect to these gateways using your browser, the Plugwise App, or Home Assistant. There are 4 [supported](#supported-devices) types of gateways:
 
-- Full zonecontrol using the [Adam](https://www.plugwise.com/en_US/zonecontrol) using [additional devices](#adam) such as smart valves and smart-plugs.
+- Full zonecontrol using the [Adam](https://www.plugwise.com/en_US/zonecontrol) using [additional devices](#adam) such as zone thermostats, smart valves and smart-plugs.
 - A stand-alone smart thermostat called [Anna](https://www.plugwise.com/en_US/products/anna).
 - For power and gas-usage monitoring there is a device simply called the [P1](https://www.plugwise.com/en_US/products/smile-p1).
 - Although no longer sold, there also is support for Stretch, a gateway to create network connectivity for their older power products.
