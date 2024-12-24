@@ -331,7 +331,7 @@ A complete zone control system also known as Adam HA, supporting:
   - Smart switches, either Plug or Aqara Smart Plug.
 
 {% note %}
-You can also use the Adam SA (Stand-alone, no ZigBee stick present) to make a single zone thermostat. 
+You can also use the Adam SA (Stand-alone, no Zigbee stick present) to make a single zone thermostat. 
 {% endnote %}
 
 
