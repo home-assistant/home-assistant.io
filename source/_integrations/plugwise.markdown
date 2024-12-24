@@ -275,7 +275,7 @@ If you need to configure the gateway directly, without using the Plugwise App, y
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
 2. If you have more than one Plugwise gateway, select the one to configure.
-3. Select the gateway device, this should be called 'Adam' or contain 'Smile' in its name.
+3. Select the gateway device, this should be called 'Adam', 'Stretch' or contain 'Smile' in its name.
 4. On the integration entry, choose to open the configuration URL left of the {% icon "mdi:dots-vertical" %} icon.
 5. A new window/tab will open, enter 'smile' (or 'stretch') as the username and the ID, from the sticker on the back, as the password.
 6. Consult the manual or click the 'search' button on the [Plugwise Support](https://plugwise.com/support/) page for interactive help.
@@ -292,7 +292,7 @@ If you need to create an issue to report a bug or want to inspect diagnostic dat
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
 2. If you have more than one Plugwise gateway, select the gateway that is experiencing issues.
-3. Select the gateway device, this should be called 'Adam' or contain 'Smile' in its name.
+3. Select the gateway device, this should be called 'Adam', 'Stretch' or contain 'Smile' in its name.
 4. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
    - Then, select **Download diagnostics** and a JSON file will be downloaded.
 5. You can inspect the downloaded file or, when requested, upload it to your issue report.
@@ -303,7 +303,7 @@ For each gateway, there will be a reboot button available in your integration.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
 2. If you have more than one Plugwise Smile, select the gateway that is experiencing issues.
-3. Select the gateway device, this should be called 'Adam' or contain 'Smile' in its name.
+3. Select the gateway device, this should be called 'Adam', 'Stretch' or contain 'Smile' in its name.
 4. On the integration entry, look for the 'Reboot' button to press in the **Configuration** section.
 
 ## Known limitations
@@ -314,9 +314,9 @@ Creation, modification or deleting of climate schedules is not supported through
 
 To display your schedule as a valid `select` option for this integration, ensure that the schedule has a minimal of two schedule points.
 
-### Anna as a zone thermostat
+### Anna connected to Adam
 
-If you are using your Anna as part of your adam zone control system, it cannot be configured as a smart thermostat. The integration will not discover your Anna or allow manual configuration.
+If you are using your Anna as part of your Adam zone control system, it becomes a zone thermostat, and cannot be configured as a smart thermostat. The integration will not discover your Anna or allow manual configuration.
 
 ### Anna with Elga
 
@@ -330,7 +330,9 @@ The change in cooling mode should be detected by Home Assistant. If not, please 
 
 ### Vacation preset
 
-The `vacation` preset is only available on an Anna.
+The `vacation` preset is only available on an Anna. Adam has a vacation-mode (called Action in the Plugwise App) that disables the active schedule and sets the vacation-preset for all zones.
+
+Also, there's a pause-mode that disables the active schedule and sets the away-preset for all zones.
 
 ### Idling climate actions
 
