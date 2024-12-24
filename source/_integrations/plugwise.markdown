@@ -168,7 +168,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.
 
-## Available actions
+## Actions
 
 The following actions, along with their examples, can be with the climate gateways:
 
