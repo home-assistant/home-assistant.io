@@ -167,7 +167,7 @@ The properties for controlling the wind strength of the appliance are represente
 
 ### Number
 
-A read-write property which has numeric value is represented as a number platform.
+A read-write property which has a numeric value is represented as a number platform.
 
 | Device | Property |
 | ------ | -------- |
@@ -206,7 +206,6 @@ A writable property which has a list of selectable values is represented as a se
 | [Water Heater](https://smartsolution.developer.lge.com/en/apiManage/device_profile?s=1734332716502#tag/water_heater) | Operating mode |
 | [Wine Cellar](https://smartsolution.developer.lge.com/en/apiManage/device_profile?s=1734332716502#tag/wine_cellar) | Light<br>Operating mode |
 
-
 ### Switch
 
 A read-write property which has only two states that can be toggled is represented as a switch platform.
@@ -222,7 +221,6 @@ A read-write property which has only two states that can be toggled is represent
 | [System Boiler](https://smartsolution.developer.lge.com/en/apiManage/device_profile?s=1734332716502#tag/system_boiler) | Hot water |
 | [Wine Cellar](https://smartsolution.developer.lge.com/en/apiManage/device_profile?s=1734332716502#tag/wine_cellar) | Ventilation |
 
-
 ### Vacuum
 
 The properties for controlling the clean operations of the appliance are represented as a vacuum platform.
@@ -230,7 +228,6 @@ The properties for controlling the clean operations of the appliance are represe
 | Device | Property |
 | ------ | -------- |
 | [Robot Cleaner](https://smartsolution.developer.lge.com/en/apiManage/device_profile?s=1734332716502#tag/robot_cleaner) | Battery<br>Current status<br>Operation |
-
 
 ### Sensor
 
@@ -259,10 +256,13 @@ A read-only property which has states is represented as a sensor platform.
 | [Washer](https://smartsolution.developer.lge.com/en/apiManage/device_profile?s=1734332716502#tag/washer)<br>[Dryer](https://smartsolution.developer.lge.com/en/apiManage/device_profile?s=1734332716502#tag/dryer)<br>[Washcombo Main](https://smartsolution.developer.lge.com/en/apiManage/device_profile?s=1734332716502#tag/main_washcombo)<br>[Washcombo Mini](https://smartsolution.developer.lge.com/en/apiManage/device_profile?s=1734332716502#tag/mini_washcombo)<br>[Washtower](https://smartsolution.developer.lge.com/en/apiManage/device_profile?s=1734332716502#tag/washtower)<br>[Washtower Dryer](https://smartsolution.developer.lge.com/en/apiManage/device_profile?s=1734332716502#tag/washtower_dryer)<br>[Washtower Washer](https://smartsolution.developer.lge.com/en/apiManage/device_profile?s=1734332716502#tag/washtower_washer) | Current status<br>Delay in<br>Remaining time<br>Total time |
 
 ### Custom card configuration
+
 #### Timer Bar Card
+
 - Supported devices: Washer, Dryer, Styler, Dish washer
 - Entities: sensor.washer_current_status, sensor.washer_remaining_time, sensor.washer_total_time
-```
+
+```yaml
 type: custom:timer-bar-card
 entities:
   - entity: sensor.washer_current_status
@@ -287,8 +287,6 @@ entities:
     invert: true
 ```
 
-
-
 ## Troubleshooting
 
 ### Setup
@@ -306,9 +304,7 @@ Check your PAT's valid country in the **Choose the region / Country** section.
 This error occurs when there's an abnormal number of API calls made using the PAT.
 The LG ThinQ integration will work properly after some time.
 
-
 ## Debugging / Issue report
 The LG ThinQ integration will show additional information by enabling log configuration.
-1. Enable debug logging in /config/integrations/integration/lg_thinq
+1. Enable debug logging in /config/integrations/integration/lg_thinq,
 2. Please report your device info (screenshot including name, device type, entities) and logs.
-   
