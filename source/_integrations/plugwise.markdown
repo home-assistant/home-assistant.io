@@ -317,8 +317,6 @@ script:
 
 ## Supported devices
 
-The Plugwise integration relies on the [plugwise](https://pypi.org/project/plugwise/) module for Python. It currently provides support for:
-
 ### Adam
 
 A complete zone control system also known as Adam HA, supporting:
@@ -351,7 +349,7 @@ For legacy power switches, such as the Circles or Stealths, with v3.x or v2.x St
 
 #### Anna P1
 
-A smart thermostat provides abundant solar energy billing by transferring abundant energy in heat pump usage. If you have one, please let us know by opening a [feature request](https://github.com/plugwise/python-plugwise/issues/new/choose).
+A thermostat paired with an energy monitor can transform the way you manage energy. If your solar setup generates surplus energy and you're charged for it, this combination ensures that excess solar power is redirected efficiently. Powering your heat pump for instance to make the most of renewable energy. Do you have a setup like this? We’d love to hear your experience!
 
 #### Stick
 
