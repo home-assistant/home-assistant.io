@@ -59,7 +59,7 @@ The `triggered` state also provides a state attribute called `triggered_source` 
 
 The integration provides a binary sensor for each Total Connect zone. To see faulted zones in Home Assistant, your Total Connect account must have "Sensor Activities" enabled. Your alarm monitoring company may charge an extra fee to enable this. If available, these can be found in the Total Connect 2 web portal at **Notifications** -> **Sensor Activities**. Alternately, they can be found in the Total Connect mobile app at **More** -> **Settings** -> **Notifications** -> **Sensor Activities**. Enable each zone you want to monitor. Unmonitored zones will display as `Closed` in Home Assistant.
 
-The Total Connect API has limited zone type information. Home Assistant device class `door` is assigned to Total Connect entry/exit, perimeter, and motion zones; along with most alarm panel buttons. The sensor will appear as `True` if the zone is opened (either fault or triggered in Total Connect) and `False` if closed. Device class `smoke` is assigned to Total Connect smoke detectors and alarm panel buttons set to a "Fire No Verification" response type. The sensor will appear as `True` if smoke is detected or the respective button is pressed.  Device class `gas` is assigned to Total Connect carbon monoxide detectors. The sensor will appear as `True` if carbon monoxide is detected.
+Home Assistant device class `door` is assigned to Total Connect entry/exit, perimeter, and motion zones; along with most alarm panel buttons. The sensor will appear as `True` if the zone is opened (either fault or triggered in Total Connect) and `False` if closed. Device class `smoke` is assigned to Total Connect smoke detectors and alarm panel buttons set to a "Fire No Verification" response type. The sensor will appear as `True` if smoke is detected or the respective button is pressed.  Device class `gas` is assigned to Total Connect carbon monoxide detectors. The sensor will appear as `True` if carbon monoxide is detected.
 
 ## Buttons
 
@@ -142,6 +142,8 @@ After deleting the integration, go to Total Connect and remove the user account 
 ## Limitations
 
 This is a "polling integration" that contacts the Total Connect server every 30 seconds to retrieve the status of your alarm panel and sensors. If your door opens and then closes again within 30 seconds, it may not be visible in Home Assistant.
+
+The Total Connect API has limited zone type information. Many sensors are simply described as "perimeter" so they may appear incorrectly in Home Assistant. You can manually adjust each entity as needed.
 
 ## Troubleshooting
 

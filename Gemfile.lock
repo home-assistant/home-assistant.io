@@ -26,9 +26,13 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
+    ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
     forwardable-extended (2.6.0)
+    google-protobuf (4.29.2-aarch64-linux)
+      bigdecimal
+      rake (>= 13)
     google-protobuf (4.29.2-arm64-darwin)
       bigdecimal
       rake (>= 13)
@@ -81,6 +85,8 @@ GEM
     multi_json (1.15.0)
     mustermann (3.0.3)
       ruby2_keywords (~> 0.0.1)
+    nokogiri (1.17.2-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.17.2-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.17.2-x86_64-linux)
@@ -163,6 +169,7 @@ GEM
     webrick (1.9.1)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin-23
   x86_64-linux
 
