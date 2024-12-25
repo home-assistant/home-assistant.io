@@ -21,6 +21,10 @@ ha_integration_type: integration
 
 The `totalconnect` integration provides connectivity with Resideo Total Connect 2.0-enabled alarm systems.
 
+The integration allows automations based on the state of the alarm system. For example: when the alarm is armed, turn on the outside light.
+
+The integration can also arm or disarm the alarm panel.  For example: when I arrive home, disarm the alarm panel
+
 ## Supported devices
 
 This integration supports alarm panels with "communicator modules" that are compatible with the Total Connect 2.0 service.  An active account is required via a third party alarm monitoring company. Panels may be branded as Resideo, Honeywell, Ademco or other third party alarm companies.
