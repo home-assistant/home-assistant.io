@@ -154,3 +154,7 @@ The Total Connect API has limited zone type information. Many zones are simply d
 ### Error Connecting or Service Unavailable
 
 The integration depends on the Total Connect 2.0 servers and your internet connection. Verify your internet is working and check https://status.resideo.com/ for server outages.
+
+### Unknown ResultCode, ArmingState, ZoneType or ZoneStatus
+
+The Total Connect API does not fully document all modes of every alarm panel so the integration was developed based on testing with the developers' own hardware. New or different hardware may result in unknown ResultCode, ArmingState, ZoneType, ZoneStatus or similar messages in the Home Assistant logs. If encountered, please [submit an issue](https://github.com/craigjmidwinter/total-connect-client/issues) for `total-connect-client` which enables this integration.
