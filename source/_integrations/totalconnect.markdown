@@ -87,8 +87,6 @@ sudo apt install libxml2-dev libxmlsec1-dev
 
 The integration provides an alarm control panel for each Total Connect location. It uses the name of your location from Total Connect.  For example, if your location name in Total Connect is "Home", Home Assistant will use `alarm_control_panel.home`.
 
-The alarm control panel supports the following actions: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night`, and `alarm_disarm`. The integration also provides unique actions for `totalconnect.arm_home_instant` and `totalconnect.arm_away_instant` which arms the system with zero entry delay, triggering the alarm instantly if an entry/exit zone is faulted.
-
 The `triggered` state also provides a state attribute called `triggered_source` giving more detail on what triggered the alarm:
 
 - `Police/Medical` is when sensors detected a burglar and/or the Police or Medical button was pressed
@@ -104,6 +102,26 @@ The Total Connect API has limited zone type information. Home Assistant device c
 ## Buttons
 
 The integration provides a bypass button for each zone that can be bypassed. The **Bypass All** button for the alarm panel will bypass all faulted or troubled zones. The **Clear Bypass** button for the alarm panel will clear all bypassed zones.
+
+## Actions
+
+The alarm control panel supports the following actions: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night`, and `alarm_disarm`. Follow the instructions for these from the [alarm control panel](./alarm_control_panel/#actions).
+
+### Action: Arm home instant
+
+The `totalconnect.arm_home_instant` action puts the alarm panel in "arm home" with zero entry delay, triggering the alarm instantly if an entry/exit zone is faulted. This is equivalent to "arm stay instant" in most alarm panels.
+
+| Data attribute         | Optional | Description                                          |
+|------------------------|----------|------------------------------------------------------|
+| `entity_id`            | No       | The ID of the alarm panel to arm.                    |
+
+### Action: Arm away instant
+
+The `totalconnect.arm_away_instant` action puts the alarm panel in "arm away" with zero entry delay, triggering the alarm instantly if an entry/exit zone is faulted. This is equivalent to "arm away instant" in most alarm panels.
+
+| Data attribute         | Optional | Description                                          |
+|------------------------|----------|------------------------------------------------------|
+| `entity_id`            | No       | The ID of the alarm panel to arm.                    |
 
 ## Diagnostic Sensors
 
