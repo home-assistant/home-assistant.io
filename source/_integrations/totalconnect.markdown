@@ -139,9 +139,13 @@ This integration follows standard integration removal. No extra steps are requir
 
 After deleting the integration, go to Total Connect and remove the user account you created for Home Assistant.
 
+## Data Updates
+
+Your alarm panel contacts the Total Connect 2.0 server to provide status updates. This is a "polling integration" that contacts the Total Connect 2.0 server every 30 seconds to retrieve the status of your alarm panel and sensors. Home Assistant cannot communicate locally with the alarm panel.
+
 ## Limitations
 
-This is a "polling integration" that contacts the Total Connect server every 30 seconds to retrieve the status of your alarm panel and sensors. If your door opens and then closes again within 30 seconds, it may not be visible in Home Assistant.
+The polling window is 30 seconds.  If your door opens and then closes again within 30 seconds, it may not be visible in Home Assistant.
 
 The Total Connect API has limited zone type information. Many zones are simply described as "perimeter" and thus appear as a `door` in Home Assistant.  You may have to manually adjust some entities.
 
