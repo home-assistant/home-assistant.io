@@ -147,6 +147,6 @@ The Total Connect API has limited zone type information. Many zones are simply d
 
 ## Troubleshooting
 
-### Check Total Connect 2.0 Server Status
+### Error Connecting or Service Unavailable
 
-The integration depends on Resideo's servers. Check https://status.resideo.com/ for outages.
+The integration depends on the Total Connect 2.0 servers and your internet connection. Verify your internet is working and check https://status.resideo.com/ for server outages.
