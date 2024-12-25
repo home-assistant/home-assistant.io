@@ -105,7 +105,7 @@ The integration provides a bypass button for each zone that can be bypassed. The
 
 ## Actions
 
-The alarm control panel supports the following actions: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night`, and `alarm_disarm`. Follow the instructions for these from the [alarm control panel](./alarm_control_panel/#actions).
+The alarm control panel supports the following basic actions: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night`, and `alarm_disarm`.
 
 ### Action: Arm home instant
 
@@ -138,3 +138,13 @@ This integration follows standard integration removal. No extra steps are requir
 {% include integrations/remove_device_service.md %}
 
 After deleting the integration, go to Total Connect and remove the user account you created for Home Assistant.
+
+## Limitations
+
+This is a "polling integration" that contacts the Total Connect server every 30 seconds to retrieve the status of your alarm panel and sensors. If your door opens and then closes again within 30 seconds, it may not be visible in Home Assistant.
+
+## Troubleshooting
+
+### Check Total Connect 2.0 Server Status
+
+The integration depends on Resideo's servers. Check https://status.resideo.com/ for outages.
