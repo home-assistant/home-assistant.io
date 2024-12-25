@@ -21,6 +21,25 @@ ha_integration_type: integration
 
 The `totalconnect` integration provides connectivity with Resideo Total Connect 2.0-enabled alarm systems.
 
+## Supported devices
+
+This integration supports alarm panels with "communicator modules" that are compatible with the Total Connect 2.0 service.  An active account is required via a third party alarm monitoring company. Panels may be branded as Resideo, Honeywell, Ademco or other third party alarm companies.
+
+Device models known to work include:
+
+- ProSeries (ProA7, ProA7Plus)
+- Lyric (AIO, Gateway)
+- Lynx Touch (L5100, L5200, L5210, L7000)
+- Lynx Plus (L3000)
+- VISTA (15P, 20P, 21iP)
+
+## Unsupported devices
+
+The following devices are not supported:
+
+- Older Lynx models (not Touch or Plus)
+- Other panels without a Total Connect compatible communicator module
+
 ## Prerequisites
 
 Log in to the [Total Connect website](https://totalconnect2.com) and create a "standard" Total Connect user account specifically for use with Home Assistant. It should not have full administrative privileges.
