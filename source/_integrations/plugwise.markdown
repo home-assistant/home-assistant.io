@@ -177,7 +177,7 @@ Available actions to all climate gateways: `climate.set_preset_mode`, `climate.s
 Additional actions available to Adam: `climate.turn_on`, `climate.turn_off`, `climate.toggle`
 
 {% note %}
-The additonal actions will change Adam's **regulation mode** (i.e., the HVAC system mode) to either on or off, affecting the operation of **all** connected thermostats. Turning on activates the previously selected heating or cooling mode.
+The additional actions will change Adam's **regulation mode** (i.e., the HVAC system mode) to either on or off, affecting the operation of **all** connected thermostats. Turning on activates the previously selected heating or cooling mode.
 {% note %}
 
 ### Schedule select action
