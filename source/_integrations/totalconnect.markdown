@@ -45,44 +45,6 @@ sudo apt install libxml2-dev libxmlsec1-dev
 
 **Require Code:** if enabled, you must enter the user code to arm or disarm the alarm.
 
-## Automation example
-
-```yaml
-automation:
-  - alias: "Alarm: Disarmed Daytime"
-    triggers:
-      - trigger: state
-        entity_id: alarm_control_panel.total_connect
-        to: "disarmed"
-    conditions:
-      - condition: sun
-        before: sunset
-    actions:
-      - action: scene.turn_on
-        target:
-          entity_id: scene.on_disarmed_day_time
-
-  - alias: "Alarm: Armed Away"
-    triggers:
-      - trigger: state
-        entity_id: alarm_control_panel.total_connect
-        to: "armed_away"
-    actions:
-      - action: scene.turn_on
-        target:
-          entity_id: scene.on_armed_away
-
-  - alias: "Alarm: Arm Home Instant at Sunset"
-    triggers:
-      - trigger: sun
-        event: sunset
-        offset: 0
-    actions:
-      - action: totalconnect.arm_home_instant
-        target:
-          entity_id: alarm_control_panel.total_connect
-```
-
 ## Alarm control panel
 
 The integration provides an alarm control panel for each Total Connect location. It uses the name of your location from Total Connect.  For example, if your location name in Total Connect is "Home", Home Assistant will use `alarm_control_panel.home`.
@@ -130,6 +92,44 @@ The following diagnostic sensors are available:
 - Low Battery for Zones and Alarm Panels will be `On` if the battery is low.
 - Tamper for Zones and Alarm Panels will be `On` if in a tampered state.
 - Power for Alarm Panels will be `On` if main power is connected or `Off` if running on the backup battery.
+
+## Automation example
+
+```yaml
+automation:
+  - alias: "Alarm: Disarmed Daytime"
+    triggers:
+      - trigger: state
+        entity_id: alarm_control_panel.total_connect
+        to: "disarmed"
+    conditions:
+      - condition: sun
+        before: sunset
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.on_disarmed_day_time
+
+  - alias: "Alarm: Armed Away"
+    triggers:
+      - trigger: state
+        entity_id: alarm_control_panel.total_connect
+        to: "armed_away"
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.on_armed_away
+
+  - alias: "Alarm: Arm Home Instant at Sunset"
+    triggers:
+      - trigger: sun
+        event: sunset
+        offset: 0
+    actions:
+      - action: totalconnect.arm_home_instant
+        target:
+          entity_id: alarm_control_panel.total_connect
+```
 
 ## Removing the integration
 
