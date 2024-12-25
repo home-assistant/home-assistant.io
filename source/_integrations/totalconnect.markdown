@@ -168,9 +168,13 @@ Your alarm panel contacts the Total Connect 2.0 server to provide status updates
 
 ## Limitations
 
-The polling window is 30 seconds.  If your door opens and then closes again within 30 seconds, it may not be visible in Home Assistant.
+The polling window is 30 seconds.  If your door opens and then closes again within 30 seconds, it may not be visible in Home Assistant. Automations based on the short term status of doors and windows are not recommended.
 
 The Total Connect API has limited zone type information. Many zones are simply described as "perimeter" and thus appear as a `door` in Home Assistant.  You may have to manually adjust some entities.
+
+Some alarm panels integrate Z-Wave, cameras, smart locks or garage door openers, and those add-on devices can be controlled by the Total Connect app. This integration does not yet support awareness of or control of these add-on devices.
+
+This integration cannot "trigger" the alarm panel or cause the alarm to sound.
 
 ## Troubleshooting
 
