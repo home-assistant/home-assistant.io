@@ -112,3 +112,11 @@ The following diagnostic sensors are available:
 - Low Battery for Zones and Alarm Panels will be `On` if the battery is low.
 - Tamper for Zones and Alarm Panels will be `On` if in a tampered state.
 - Power for Alarm Panels will be `On` if main power is connected or `Off` if running on the backup battery.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, go to Total Connect and remove the user account you created for Home Assistant.
