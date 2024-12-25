@@ -319,7 +319,7 @@ script:
 
 ### Adam
 
-A complete zone control system also known as Adam HA, supporting:
+A complete zone control system also known as [Adam HA](https://www.plugwise.com/en_US/zonecontrol), supporting:
 
 - On/Off, OpenTherm or Loria/Thermastage heating, and cooling support.
 - Running firmwares v3.x or v2.3.
@@ -331,7 +331,7 @@ A complete zone control system also known as Adam HA, supporting:
   - Smart switches, either Plug or Aqara Smart Plug.
 
 {% note %}
-You can also use the Adam SA (Stand-alone, no Zigbee stick present) to make a single zone thermostat. 
+You can also use the Adam SA (Stand-alone, no Zigbee stick present) to make your regular OpenTherm thermostat smart.
 {% endnote %}
 
 
@@ -339,14 +339,14 @@ You can also use the Adam SA (Stand-alone, no Zigbee stick present) to make a si
 
 ### Anna
 
-A smart thermostat, supporting:
+A [smart thermostat](https://www.plugwise.com/en_US/products/anna), supporting:
 
 - On/Off, OpenTherm heating, and Elga or Loria/Thermastage with heating and cooling support.
 - Running firmware v4.x, v3.x or v1.x.
 
 ### P1 (DSMR)
 
-A P1 smart meter monitor for the single- or multi-phase grid power connection to your home including gas usage monitoring. Running firmware v4.x, v3.x or v2.x.
+A [P1](https://www.plugwise.com/en_US/products/smile-p1) smart meter monitor for the single- or multi-phase grid power connection to your home including gas usage monitoring. Running firmware v4.x, v3.x or v2.x.
 
 ### Stretch (end-of-sale)
 
@@ -356,7 +356,7 @@ For controlling and monitoring legacy power switches, such as the Circles or Ste
 
 #### Anna P1
 
-A thermostat paired with an energy monitor can transform the way you manage energy. If your solar setup generates surplus energy and you're charged for it, this combination ensures that excess solar power is redirected efficiently. Powering your heat pump for instance to make the most of renewable energy. Do you have a setup like this? We’d love to hear your experience!
+A smart thermostat [combined](https://www.plugwise.com/en_US/products/anna-p1) with an energy monitor can transform the way you manage energy. If your solar setup generates surplus energy and you're charged for it, this combination ensures that excess solar power is redirected efficiently. Powering your heat pump for instance to make the most of renewable energy. Do you have a setup like this? We’d love to hear your experience!
 
 #### Stick
 
