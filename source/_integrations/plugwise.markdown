@@ -321,7 +321,7 @@ script:
 
 A complete zone control system also known as [Adam HA](https://www.plugwise.com/en_US/zonecontrol), supporting:
 
-- On/Off, OpenTherm or Loria/Thermastage heating, and cooling support.
+- On/Off, OpenTherm heating and cooling support.
 - Running firmwares v3.x or v2.3.
 - Additional devices:
   - Zone thermostats such as Lisa or Anna (see warning below on Anna),
@@ -334,14 +334,11 @@ A complete zone control system also known as [Adam HA](https://www.plugwise.com/
 You can also use the Adam SA (Stand-alone, no Zigbee stick present) to make your regular OpenTherm thermostat smart.
 {% endnote %}
 
-
-{% endtip %}
-
 ### Anna
 
 A [smart thermostat](https://www.plugwise.com/en_US/products/anna), supporting:
 
-- On/Off, OpenTherm heating, and Elga or Loria/Thermastage with heating and cooling support.
+- On/Off, OpenTherm heating and cooling support.
 - Running firmware v4.x, v3.x or v1.x.
 
 ### P1 (DSMR)
