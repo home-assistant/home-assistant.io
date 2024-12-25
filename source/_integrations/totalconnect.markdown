@@ -100,7 +100,7 @@ automation:
   - alias: "Alarm: Disarmed Daytime"
     triggers:
       - trigger: state
-        entity_id: alarm_control_panel.total_connect
+        entity_id: alarm_control_panel.home
         to: "disarmed"
     conditions:
       - condition: sun
@@ -113,7 +113,7 @@ automation:
   - alias: "Alarm: Armed Away"
     triggers:
       - trigger: state
-        entity_id: alarm_control_panel.total_connect
+        entity_id: alarm_control_panel.home
         to: "armed_away"
     actions:
       - action: scene.turn_on
@@ -128,7 +128,7 @@ automation:
     actions:
       - action: totalconnect.arm_home_instant
         target:
-          entity_id: alarm_control_panel.total_connect
+          entity_id: alarm_control_panel.home
 ```
 
 ## Removing the integration
