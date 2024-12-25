@@ -172,7 +172,7 @@ This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or 
 
 ### Climate control actions
 
-Available actions to all climate gateways: `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_hvac_mode`, 
+Available actions to all climate gateways: `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_hvac_mode`,
 
 Additional actions available to Adam: `climate.turn_on`, `climate.turn_off`, `climate.toggle`
 
@@ -185,7 +185,7 @@ The additonal actions will change Adam's **regulation mode** (i.e., the HVAC sys
 Available action: `select.select_option`
 
 {% tip %}
-The available schedules depend on the [schedules](#schedule_management) you have configured. 
+The available schedules depend on the [schedules](#schedule_management) you have configured.
 {% endtip %}
 
 ### HVAC modes
@@ -207,76 +207,104 @@ If you have an Anna with Elga:
 The last schedule that was active is determined the same way long-tapping the top of an Anna works.
 {% endnote %}
 
+## Gateway Modes
+
+The Adam Gateway supports multiple operational modes that provide flexibility in managing your heating and cooling systems, allowing your to tailor yoursystem's behavior to their needs.
+
+- Normal Mode
+  - **Description**: This is the default operational mode, operating based on the active schedules and presets configured. Ideal for day-to-day operations, ensuring optimal comfort and energy efficiency.
+  - **Remarks**: Smart thermostats and zone controls continue their self-regulating behavior, including pre-heating or cooling based on their forecasted requirements.
+- Pause Mode
+  - **Description**: Pause mode temporarily halts the heating or cooling operations, disabling all schedules and temperature control.
+  - **Remarks**: Useful for scenarios where no climate control is needed, such as extended periods when doors or windows are open for ventilation or maintenance work is ongoing. The system remains idle until switched back to Normal mode or another operational state.
+- Vacation Mode
+  - **Description**: Vacation mode optimizes the system for prolonged absence, reducing energy consumption while maintaining basic functionality. Heating or cooling is set to a minimal level to prevent freezing (in winter) or excessive heat (in summer).
+  - **Remarks**: Ideal for extended trips or holidays when the house will be unoccupied. Active schedules are overridden until the mode is switched back to Normal.
+
+{% tip %}
+For best results, ensure your schedules and presets are appropriately configured for Normal mode and align Vacation mode settings with your energy-saving goals.
+{% endtip %}
+
 ## Examples
 
-### Presence-based preset mode
+### Energy-Based Automations
 
-Automation to change the active preset. The preset will be changed by your active schedule, or it could be a likewise automation setting another preset for when someone is present.
+A great example of automating charging your car from the energy data the P1 provides can be found in the [Energy Management System for Car Charging](https://community.home-assistant.io/t/energy-management-system-for-car-charging-surplus-trip-calendar/744069) blueprint.
+
+### Climate-Based Automations
+
+When using smart zone controls or thermostats, relying heavily on additional automations may interfere with their ability to accurately predict warm-up or cool-down times. Instead, leverage their preset modes to optimize energy efficiency and reduce environmental impact, as well as your energy bills. Below are some examples to help you get started.
+
+For advanced customization and full manual control, consider using a blueprint like [Advanced Heating Control](https://community.home-assistant.io/t/advanced-heating-control/469873/1). If you choose this route, we recommend disabling your Plugwise schedules to ensure the blueprint takes full control.
+
+#### Presence-based preset mode
+
+The example automation below adjusts the active preset to 'away' when no one is home, reducing unnecessary heating or cooling. For instance, if you unexpectedly head to the office on a work-from-home day, the system will conserve energy. The active schedule will later override the 'away' mode, or you can create a complementary automation to activate another preset when someone returns home.
 
 ```yaml
-alias: "Set climate to away when nobody is home"
-triggers:
-  # When either occupant leaves for more than 15 minutes
-  - trigger: state
-    entity_id:
-      - person.mom
-      - person.dad
-    to: not_home
-    for:
-      minutes: 15
-conditions:
-  # If Anna is using the normal "home" preset
-  - condition: state
-    entity_id: climate.anna
-    attribute: preset_mode
-    state: home
-  # And nobody is home
-  - condition: state
-    entity_id: person.mom
-    entity_id: person.dad
-    state: not_home
-actions:
-  # Change Anna to Away
-  - action: climate.set_preset_mode
-    data:
-      preset_mode: away
-    target:
+automation:
+  alias: "Set climate to away when nobody is home"
+  triggers:
+    # When either occupant leaves for more than 15 minutes
+    - trigger: state
+      entity_id:
+        - person.mom
+        - person.dad
+      to: not_home
+      for:
+        minutes: 15
+  conditions:
+    # If Anna is using the normal "home" preset
+    - condition: state
       entity_id: climate.anna
+      attribute: preset_mode
+      state: home
+    # And nobody is home
+    - condition: state
+      entity_id: person.mom
+      entity_id: person.dad
+      state: not_home
+  actions:
+    # Change Anna to Away
+    - action: climate.set_preset_mode
+      data:
+        preset_mode: away
+      target:
+        entity_id: climate.anna
 ```
 
-### Seasonal change of HVAC mode
+#### Calendar-based Vacation Mode
+
+The example automations below will change the gateway mode of your Adam to Vacation mode (and back) assuming you have a [calendar](/integrations/calendar) integration with a specific calendar set-up for events when nobdoy is at home.
 
 ```yaml
-alias: "Force Anna to cooling mode only"
-triggers:
-  # When the season changes to summer
-  - trigger: state
-    entity_id:
-      - sensor.season
-    to: summer
-conditions:
-  # If Anna is in either auto or heat mode
-  - condition: or
-    conditions:
-      - condition: device
-        device_id: DEVICE_ID_REPLACE_ME
-        domain: climate
-        entity_id: climate.anna
-        type: is_hvac_mode
-        hvac_mode: auto
-      - condition: device
-        device_id: DEVICE_ID_REPLACE_ME
-        domain: climate
-        entity_id: climate.anna
-        type: is_hvac_mode
-        hvac_mode: heat
-actions:
-  # Set Anna to cool down the summer!
-  - action: climate.set_hvac_mode
-    data:
-      hvac_mode: cool
-    target:
-      entity_id: climate.anna
+automation:
+  - triggers:
+    - trigger: calendar
+      event: start
+      # Calendar when your home is vacant
+      entity_id: calendar.vacancy
+  actions:
+    # Change Adam operational mode
+    - action: select.select_option
+      data:
+        option: "vacation"
+      target:
+        entity_id: select.adam_gateway_mode
+  - triggers:
+    - trigger: calendar
+      event: end
+      # Calendar when your home is vacant
+      entity_id: calendar.vacancy
+      # Offset by some time to allow to pre-condition
+      offset: -04:00:00
+  actions:
+    # Change Adam operational mode
+    - action: select.select_option
+      data:
+        option: "full"
+      target:
+        entity_id: select.adam_gateway_mode
 ```
 
 ### Supported devices
@@ -396,3 +424,4 @@ Also, there's a pause-mode that disables the active schedule and sets the away-p
 ### Idling climate actions
 
 You can only stop climate actions on an Adam, see [turn on / turn off](#turn-on--turn-off). An alternative could be to adjust your [preset mode](#set-preset-mode) to `no_frost` to stop any heating actions.
+```
