@@ -26,7 +26,7 @@ ha_codeowners:
 
 The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
 
-- Control LG appliances as Home Assistant entities through the [LG ThinQ Connect API](https://github.com/thinq-connect/pythinqconnect).
+- Control LG appliances as Home Assistant entities through the LG ThinQ Connect API.
 
 ## Prerequisites
 
@@ -91,7 +91,7 @@ Support LG Appliances as follows:
 
 ## Platforms
 
-LG ThinQ represents devices as a set of [properties](https://smartsolution.developer.lge.com/en/apiManage/device_profile). And these are mapped to entities in Home Assistant.
+LG ThinQ represents devices as a set of properties. And these are mapped to entities in Home Assistant.
 
 A list of all Entity Platforms provided by LG ThinQ Integration:
 
