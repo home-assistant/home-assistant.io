@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 This platform offers presence detection by looking at connected devices to a [BT Smart Hub](https://en.wikipedia.org/wiki/BT_Smart_Hub) based router.

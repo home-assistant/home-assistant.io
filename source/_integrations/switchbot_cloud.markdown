@@ -3,10 +3,10 @@ title: SwitchBot Cloud
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Hub
+  - Lock
   - Plug
   - Remote
   - Sensor
-  - Lock
   - Switch
   - Vacuum
 ha_release: '2023.10'
@@ -52,6 +52,8 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - Outdoor Meter
 - Vacuum K10+, K10+ pro, S1, S1 Plus
 - Hub 2
+- Relay Switch 1
+- Relay Switch 1PM
 
 ## Important considerations
 

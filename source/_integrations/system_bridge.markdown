@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@timmo001'
 ha_domain: system_bridge
-ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
   - media_player

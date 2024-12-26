@@ -13,7 +13,6 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta.de) to obtain the data from your plant sensors and integrate these into Home Assistant.
@@ -32,9 +31,9 @@ To setup the integration you need the following information:
 
 {% configuration_basic %}
 Email:
-    description: "The email address used to access the FYTA account."
+  description: "The email address used to access the FYTA account."
 Password:
-    description: "The password used to access the FYTA account."
+  description: "The password used to access the FYTA account."
 {% endconfiguration_basic %}
 
 ## Configuration options
@@ -42,6 +41,7 @@ Password:
 The integration has no additional configuration options.
 
 ## Supported functionality
+
 ### Sensors
 
 The following sensors are currently available per plant:
@@ -49,16 +49,32 @@ The following sensors are currently available per plant:
 | name                  | Unit   | Description   |
 |-----------------------|--------|:-------------------------------------------|
 | scientific_name       |        | Scientific name of the plant               |
-| plant_status          |        | FYTA-Status (number 1 to 5)                |
-| temperature_status    |        | FYTA-Status (number 1 to 5)                |
-| light_status          |        | FYTA-Status (number 1 to 5)                |
-| moisture_status       |        | FYTA-Status (number 1 to 5)                |
-| salinity_status       |        | FYTA-Status (number 1 to 5)                |
+| plant_status          |        | FYTA-Status (cf. scale below)              |
+| temperature_status    |        | FYTA-Status (cf. scale below)              |
+| light_status          |        | FYTA-Status (cf. scale below)              |
+| moisture_status       |        | FYTA-Status (cf. scale below)              |
+| salinity_status       |        | FYTA-Status (cf. scale below)              |
 | temperature           | °C     | Temperature measured by sensor             |
 | light                 | μmol/h | Light measured by sensor (hourly photosynthetically active radiation PAR)|
 | moisture              | %      | Moisture measured by sensor                |
 | salinity              | mS/cm  | Salinity measured by sensor (measured as conductivity)|
 | battery_level         | %      | Battery level of the sensor                |
+
+The plant status may have one of the following states:
+
+- Plant deleted
+- Plant good status
+- Plant bad status
+- Plant no sensor
+
+For plant measurements, the following status scale is applied:
+
+- No Data
+- Too Low
+- Low
+- Perfect
+- High
+- Too High
 
 ## Data updates
 

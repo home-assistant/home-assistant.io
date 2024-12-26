@@ -2,8 +2,8 @@
 title: Reolink
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
 ha_category:
-  - Doorbell
   - Camera
+  - Doorbell
   - Media source
   - Update
 ha_iot_class: Local Push
@@ -26,6 +26,7 @@ ha_platforms:
   - update
 ha_integration_type: integration
 ha_dhcp: true
+ha_quality_scale: platinum
 related:
   - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
     title: Controlling the camera from the dashboard
@@ -43,22 +44,18 @@ A brand new Reolink camera needs to be connected to the network and initialized.
 - The password used for the Reolink device can only contain characters `a-z, A-Z, 0-9 or @$*~_-+=!?.,:;'()[]`. Other special characters will cause encoding issues in the video streams used by this integration and are, therefore, not allowed. When using an incompatible special character in the password, the integration will prompt you to change the password.
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 Host:
-    description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** -> **Device** (top icon) -> **Networkinformation** -> **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
-    required: false
-    type: string
+  description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** -> **Device** (top icon) -> **Networkinformation** -> **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
 Username:
-    description: "Username to log in to the Reolink device itself. Not the Reolink cloud account."
-    required: true
-    type: string
+  description: "Username to log in to the Reolink device itself. Not the Reolink cloud account."
 Password:
-    description: "Password to log in to the Reolink device itself. Not the Reolink cloud account."
-    required: true
-    type: string
+  description: "Password to log in to the Reolink device itself. Not the Reolink cloud account."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
+
 {% configuration_basic %}
 Protocol:
   description: Switch between <abbr title="real-time streaming protocol">RTSP</abbr>, <abbr title="real-time messaging protocol">RTMP</abbr>, or <abbr title="flash video">FLV</abbr> streaming protocol. <abbr title="real-time streaming protocol">RTSP</abbr> supports 4K streams (h265 encoding) while <abbr title="real-time messaging protocol">RTMP</abbr> and <abbr title="flash video">FLV</abbr> do not. <abbr title="flash video">FLV</abbr> is the least demanding on the camera.
@@ -342,6 +339,8 @@ The following models have been tested and confirmed to work with a direct link t
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
 - [RLN12W NVR](https://reolink.com/product/rln12w/)
+- [NVS8 NVR](https://reolink.com/product/nvs8/) (Retail version of RLN8)
+- [NVS16 NVR](https://reolink.com/product/nvs16/) (Retail version of RLN16)
 - [Reolink Chime](https://reolink.com/product/reolink-chime/) (when connected to a doorbell)
 - [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
@@ -365,6 +364,8 @@ The following hubs/NVRs have been tested and confirmed to work with battery-powe
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/) (only the latest hardware version N7MB01, older versions might receive the required firmware update later)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/) (only the latest hardware version N6MB01, older versions might receive the required firmware update later)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
+- [NVS8 NVR](https://reolink.com/product/nvs8/) (Retail version of RLN8)
+- [NVS16 NVR](https://reolink.com/product/nvs16/) (Retail version of RLN16)
 
 The following battery-powered models have been tested and confirmed to work through the Reolink Home Hub/NVR:
 
@@ -384,6 +385,18 @@ However, these cameras can work with this integration through an NVR or Home Hub
 - E1 Pro
 - E1
 - Reolink Lumus
+- B400*
+- B500*
+- B500W*
+- B800*
+- B800W*
+- B1200*
+- D400*
+- D500*
+- D800*
+- D1200*
+
+*These models are only sold as a kit which includes a NVR.
 
 ### Incompatible models
 

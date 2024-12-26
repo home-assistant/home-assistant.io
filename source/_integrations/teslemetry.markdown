@@ -21,7 +21,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@Bre77'
 ha_domain: teslemetry
-ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button

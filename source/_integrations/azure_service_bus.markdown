@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `Azure Service Bus` integration allows you to send messages to [Azure Service Bus](https://azure.microsoft.com/products/service-bus/) from within Home Assistant.
