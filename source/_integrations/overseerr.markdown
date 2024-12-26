@@ -23,6 +23,10 @@ URL:
     description: "The URL of your overseerr instance."
     required: true
     type: string
+API key:
+    description: "The API key of your overseerr instance, which can be found in the Overseerr settings."
+    required: true
+    type: string
 {% endconfiguration_basic %}
 
 ## Remove integration
