@@ -24,9 +24,13 @@ More {% term platform platforms %} will follow soon, as integration moves to cor
 
 ## Prerequisites
 
-You need to create a new user in your Homee, that is only used by Home Assistant.
+You need to create a new user in your Homee that is only used by Home Assistant. For security reasons, it's recommended to:
 
-1. In your Homee app tap the menu button in the top left corner.
+- Use a strong, unique password.
+- Limit the user's permissions to only what's necessary for Home Assistant.
+- Do not use this account for any other purpose.
+
+1. In your Homee app tap the menu button in the top-left corner.
 2. Tap the gear wheel icon on the top right of the opening menu.
 3. Choose "Manage users".
 4. Choose "Add user" and configure the desired values.
@@ -43,7 +47,7 @@ Password:
 {% endconfiguration_basic %}
 
 Available devices will automatically show up in your Home Assistant installation.
-New devices in Homee will be added after a restart of Home Assistant.
+New devices added to Homee will be automatically discovered after a restart of Home Assistant. This restart is only required when adding new devices, not for state updates of existing devices.
 
 ## Limitations
 
@@ -51,6 +55,6 @@ Changed values are reported from Homee in defined time intervals and not always 
 
 ## Removing the integration
 
-This integration follows standard integration removal, once the integration is removed you can also remove the dedicated user from your Homee.
+This integration follows standard integration removal, and once the integration is removed, you can also remove the dedicated user from your Homee.
 
 {% include integrations/remove_device_service.md %}
