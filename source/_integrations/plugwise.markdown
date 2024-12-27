@@ -209,7 +209,7 @@ The last schedule that was active is determined the same way long-tapping the to
 
 ## Gateway Modes
 
-The Adam Gateway supports multiple operational modes that provide flexibility in managing your heating and cooling systems, allowing your to tailor yoursystem's behavior to their needs.
+The Adam Gateway supports multiple operational modes that provide flexibility in managing your heating and cooling systems, allowing your to tailor your system's behavior to their needs.
 
 - Normal Mode
   - **Description**: This is the default operational mode, operating based on the active schedules and presets configured. Ideal for day-to-day operations, ensuring optimal comfort and energy efficiency.
@@ -275,7 +275,7 @@ automation:
 
 #### Calendar-based Vacation Mode
 
-The example automations below will change the gateway mode of your Adam to Vacation mode (and back) assuming you have a [calendar](/integrations/calendar) integration with a specific calendar set-up for events when nobdoy is at home.
+The example automations below will change the gateway mode of your Adam to Vacation mode (and back) assuming you have a [calendar](/integrations/calendar) integration with a specific calendar set-up for events when nobody is at home.
 
 ```yaml
 automation:
