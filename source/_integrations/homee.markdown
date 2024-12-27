@@ -20,6 +20,8 @@ There is currently support for the following device types in Home Assistant:
 
 - cover
 
+More {% term platform platforms %} will follow soon, as integration moves to core step by step.
+
 ## Prerequisites
 
 You need to create a new user in your Homee, that is only used by Home Assistant.
