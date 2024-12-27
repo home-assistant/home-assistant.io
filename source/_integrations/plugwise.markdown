@@ -424,4 +424,3 @@ Also, there's a pause-mode that disables the active schedule and sets the away-p
 ### Idling climate actions
 
 You can only stop climate actions on an Adam, see [turn on / turn off](#turn-on--turn-off). An alternative could be to adjust your [preset mode](#set-preset-mode) to `no_frost` to stop any heating actions.
-```
