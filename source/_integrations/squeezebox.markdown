@@ -70,6 +70,11 @@ transporter_toslink:
 - **Total genres**: Total number of genres used in current service.
 - **Total songs**: Total number of music files currently in service.
 
+### Switches
+
+- **Alarm**: Enables a scheduled alarm to sound. Alarms must also be enabled on the associated player for the alarm to sound.
+- **Alarms Enabled**: Enables a player to sound alarms. Disabling will prevent alarms from sounding on that player regardless of whether the individual alarm is enabled.
+
 ## Actions
 
 ### Action `call_method`
