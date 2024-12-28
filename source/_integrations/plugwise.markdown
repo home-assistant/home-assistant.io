@@ -108,7 +108,7 @@ A generous number of sensors is provided for your climate setup. Examples includ
 - **Outdoor temperature**
   - **Description**: The temperature your climate gateway retrieves online.
 - **Outdoor air temperature**
-  - **Description**: If you have an auxiliary device with a temperature sensor.
+  - **Description**: The temperature reported by the sensor in your outdoor unit or heat pump.
 
 #### Selects
 
@@ -145,7 +145,7 @@ A generous number of sensors is provided. Examples include:
 #### Switches
 
 - **Relay**
-  - **Description**: Turn a plug on or off
+  - **Description**: Switch a plug on or off
   - **Gateways**: Adam, P1 or Stretch.
 
 ## Data updates
