@@ -3,7 +3,7 @@ title: Model Context Protocol Server
 description: Instructions on how to add a Model Context Protocol Server to Home Assistant.
 ha_category:
   - Voice
-ha_release: 2023.2
+ha_release: 2025.2
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
