@@ -108,7 +108,7 @@ A generous number of sensors is provided for your climate setup. Examples includ
 - **Outdoor temperature**
   - **Description**: The temperature your climate gateway retrieves online.
 - **Outdoor air temperature**
-  - **Description**: The temperature reported by the sensor in your outdoor unit or heat pump.
+  - **Description**: The temperature reported by the sensor present in the outdoor unit of your HVAC system, such as a heat pump.
 
 #### Selects
 
