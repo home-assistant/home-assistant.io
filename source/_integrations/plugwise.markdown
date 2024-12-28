@@ -79,12 +79,12 @@ Each device will list entities such as `binary sensors`, `sensors`, etc., depend
 
 Depending on your setup, one or more binary sensors will provide the state of your connected elements. Examples include:
 
+- **Cooling** & **Heating** 
+  - **Description**: Indicates if your system is actively cooling or heating.
 - **DHW State**
-  - **Description**: Indicates the active heating state for domestic hot water.
-- **Compressor state**
-  - **Description**: Indicates the compressor state
-- **Cooling enabled**
-  - **Description**: Indicates if the cooling functionality of the auxiliary device is active.
+  - **Description**: Indicates active heating of domestic hot water.
+- **Flame State** 
+  - **Description**: If gas is being consumed by your heater, i.e., firing for heating.
 
 #### Numbers
 
