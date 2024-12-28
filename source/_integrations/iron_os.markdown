@@ -106,7 +106,7 @@ The following controls allow you to customize the settings and options for your 
 - **Temperature display unit:** Sets the unit for displaying temperature as Celsius (C°) or Fahrenheit (F°).
 - **Animation speed:** Adjusts the pace of icon animations in the menu, with options for off, slow, medium, or fast.
 - **Boot logo duration:** Sets the duration for the boot logo, with options for off, 1–5 seconds, or loop.
-- **Animation loop:** Should the menu animations loop. Only visible if the animation speed is not set to "Off"
+- **Animation loop:** Controls whether menu animations should loop continuously. This setting is applicable only when animation speed is enabled.
 - **Detailed idle screen:** Enables a more detailed view on the idle screen, showing text with additional information compared to the default icon-based view.
 - **Detailed solder screen:** Enables a more detailed view on the soldering screen in a text-based format, reducing the use of graphical visuals.
 - **Invert screen:** Inverts the OLED screen colors.
@@ -123,7 +123,7 @@ The following controls allow you to customize the settings and options for your 
 - **Power Delivery timeout:** Defines how long the firmware will attempt to negotiate USB-PD before switching to Quick Charge. Lower values are recommended for faster PD negotiation.
 - **Power limit:** Sets a custom wattage cap for the device to maintain the **average** power below this value. Note: Peak power cannot be controlled. When using USB-PD, the limit will be the lower of this setting and the power supply's advertised wattage.
 - **Quick Charge voltage:** Adjusts the maximum voltage for Quick Charge negotiation. Does not affect USB-PD. Ensure the setting aligns with the current rating of your power supply for safety.
-- **Power Delivery 3.1 EPR:** Enables Extended Power Range mode, allowing input voltages up to 28V with a [compatible USB-C power supply](https://wiki.pine64.org/wiki/Pinecil_Power_Supplies#EPR_PD3.1,_140W_Chargers)
+- **Power Delivery 3.1 EPR (Extended Power Range):** Enables EPR mode, allowing input voltages up to 28V with a [compatible USB-C power supply](https://wiki.pine64.org/wiki/Pinecil_Power_Supplies#EPR_PD3.1,_140W_Chargers)
 
 ### Advanced settings
 
@@ -131,7 +131,7 @@ These settings are intended for technically experienced users and require carefu
 
 - **Voltage divider:** Fine-tunes the measured voltage to account for variations in the voltage sense resistors between units.
 - **Calibration offset:** Adjusts the calibration of the thermocouple measurements, which determine the temperature displayed for the tip.
-- **Calibrate CJC:** Initiates Cold Junction Compensation calibration at the next boot. For more details, see the [documentation](https://ralim.github.io/IronOS/Settings/#setting-calibrate-cjc-at-next-boot).
+- **Calibrate CJC (Cold Junction Compensation):** Initiates thermocouple calibration at the next boot to improve temperature accuracy. Only needed if temperature readings are consistently inaccurate. Ensure the device is at room temperature before calibrating. For more details, see the [documentation](https://ralim.github.io/IronOS/Settings/#setting-calibrate-cjc-at-next-boot).
 
 ## Automations
 
