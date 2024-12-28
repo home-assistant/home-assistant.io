@@ -84,7 +84,7 @@ Depending on your setup, one or more binary sensors will provide the state of yo
 - **DHW State**
   - **Description**: Indicates active heating of domestic hot water.
 - **Flame State** 
-  - **Description**: If gas is being consumed by your heater, i.e., firing for heating.
+  - **Description**: If gas is being consumed by your heater, i.e., firing for space or DHW-heating.
 
 #### Numbers
 
