@@ -7,6 +7,7 @@ ha_category:
   - Update
   - Binary sensor
   - Select
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 2024.8
 ha_config_flow: true
@@ -20,6 +21,7 @@ ha_platforms:
   - update
   - binary_sensor
   - select
+  - switch
 ---
 
 The **IronOS** {% term integration %} seamlessly connects Home Assistant with PINE64's Pinecil V2 soldering irons, allowing for remote monitoring and control. This integration provides real-time updates on temperature, power, and various other settings and diagnostic information.
@@ -104,6 +106,12 @@ The following controls allow you to customize the settings and options for your 
 - **Temperature display unit:** Sets the unit for displaying temperature as Celsius (C°) or Fahrenheit (F°).
 - **Animation speed:** Adjusts the pace of icon animations in the menu, with options for off, slow, medium, or fast.
 - **Boot logo duration:** Sets the duration for the boot logo, with options for off, 1–5 seconds, or loop.
+- **Animation loop:** Should the menu animations loop. Only visible if the animation speed is not set to "Off"
+- **Detailed idle screen:** Enables a more detailed view on the idle screen, showing text with additional information compared to the default icon-based view.
+- **Detailed solder screen:** Enables a more detailed view on the soldering screen in a text-based format, reducing the use of graphical visuals.
+- **Invert screen:** Inverts the OLED screen colors.
+- **Swap +/- buttons:** Reverses the button assignment for incrementing and decrementing temperature on adjustment screens.
+- **Cool down screen flashing:** Enables the idle screen to blink the tip temperature when it exceeds 50°C, serving as a tip is still hot warning.
 
 ### Power management
 
@@ -115,6 +123,7 @@ The following controls allow you to customize the settings and options for your 
 - **Power Delivery timeout:** Defines how long the firmware will attempt to negotiate USB-PD before switching to Quick Charge. Lower values are recommended for faster PD negotiation.
 - **Power limit:** Sets a custom wattage cap for the device to maintain the **average** power below this value. Note: Peak power cannot be controlled. When using USB-PD, the limit will be the lower of this setting and the power supply's advertised wattage.
 - **Quick Charge voltage:** Adjusts the maximum voltage for Quick Charge negotiation. Does not affect USB-PD. Ensure the setting aligns with the current rating of your power supply for safety.
+- **Power Delivery 3.1 EPR:** Enables Extended Power Range mode, allowing input voltages up to 28V with a [compatible USB-C power supply](https://wiki.pine64.org/wiki/Pinecil_Power_Supplies#EPR_PD3.1,_140W_Chargers)
 
 ### Advanced settings
 
@@ -122,6 +131,8 @@ These settings are intended for technically experienced users and require carefu
 
 - **Voltage divider:** Fine-tunes the measured voltage to account for variations in the voltage sense resistors between units.
 - **Calibration offset:** Adjusts the calibration of the thermocouple measurements, which determine the temperature displayed for the tip.
+- **Calibrate CJC:** Initiates Cold Junction Compensation calibration at the next boot. For more details, see the [documentation](https://ralim.github.io/IronOS/Settings/#setting-calibrate-cjc-at-next-boot).
+
 ## Automations
 
 Get started with this automation example for IronOS with a ready-to-use blueprint!
