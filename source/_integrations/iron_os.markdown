@@ -7,6 +7,7 @@ ha_category:
   - Update
   - Binary sensor
   - Select
+  - Button
 ha_iot_class: Local Polling
 ha_release: 2024.8
 ha_config_flow: true
@@ -20,6 +21,7 @@ ha_platforms:
   - update
   - binary_sensor
   - select
+  - button
 ---
 
 The **IronOS** {% term integration %} seamlessly connects Home Assistant with PINE64's Pinecil V2 soldering irons, allowing for remote monitoring and control. This integration provides real-time updates on temperature, power, and various other settings and diagnostic information.
@@ -122,6 +124,12 @@ These settings are intended for technically experienced users and require carefu
 
 - **Voltage divider:** Fine-tunes the measured voltage to account for variations in the voltage sense resistors between units.
 - **Calibration offset:** Adjusts the calibration of the thermocouple measurements, which determine the temperature displayed for the tip.
+
+### Save & restore
+
+- **Save settings:** Saves the current configuration to apply it permanently. Use this after making changes to ensure they persist across device reboots.
+- **Restore default settings:** Resets all configuration options to their factory defaults. Note: This action cannot be undone, and all custom settings will be lost. To preserve custom settings, create a {% term scene %} before restoring defaults.
+
 ## Automations
 
 Get started with this automation example for IronOS with a ready-to-use blueprint!
