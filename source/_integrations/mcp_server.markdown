@@ -1,6 +1,6 @@
 ---
 title: Model Context Protocol Server
-description: Instructions on how to integrate Matter with Home Assistant.
+description: Instructions on how to add a Model Context Protocol Server to Home Assistant.
 ha_category:
   - Voice
 ha_release: 2023.2
@@ -48,7 +48,7 @@ This integration can provide similar functionality as other LLM based conversati
 agents (for example [Anthropic](/integrations/anthropic/), [Google Generative AI](/integrations/google_generative_ai_conversation), [Ollama](/integrations/ollama/), [Open AI](/integrations/openai_conversation/)). In those conversation agents, Home Assistant is the
 client and prepares the available tools and passes them into the LLM with a prompt.
 
-The Model Context Protocol follow a different pattern: An LLM application acts as
+The Model Context Protocol follows a different pattern: An LLM application acts as
 a client and can connect to multiple MCP servers to provide context. See the
 [Model Context Protocol Introducton](https://modelcontextprotocol.io/introduction#general-architecture) for more details.
 
@@ -56,7 +56,7 @@ a client and can connect to multiple MCP servers to provide context. See the
 
 The Model Context Protocol specification does not yet currently define standards
 for authentication and connecting to remote servers. These are a *work in progress*
-and this configugration will likely change in the near future.
+and this configuration will likely change in the near future.
 
 ### Access Control
 
