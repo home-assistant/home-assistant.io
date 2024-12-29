@@ -50,7 +50,15 @@ client and prepares the available tools and passes them into the LLM with a prom
 
 The Model Context Protocol follows a different pattern: An LLM application acts as
 a client and can connect to multiple MCP servers to provide context. See the
-[Model Context Protocol Introducton](https://modelcontextprotocol.io/introduction#general-architecture) for more details.
+[Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction#general-architecture) for more details.
+
+The Home Assistant Model Context Protocol Server integration implements the
+[Server-Sent Events (SSE) transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse)
+allowing streaming client-to-server communication. Most MCP clients today only support
+[stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
+and directly run an MCP server as a local command line tool. You can 
+use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
+to act as a gateway to the Home Assistant MCP SSE server.
 
 ## Client Configuration
 
@@ -71,18 +79,51 @@ For now, we can use
 
 See [Authentication](https://www.home-assistant.io/docs/authentication/#your-account-profile) for more information about Authentication in Home Assistant.
 
-### Client Configuration
+### Example: Claude for Desktop
 
-Most MCP clients do not support native remote servers. You will need an
-additional local MCP server to act as a gateway to Home Assistant.
+See [MCP Quickstart: For Claude Desktop Users](https://modelcontextprotocol.io/quickstart/user#for-claude-desktop-users)
+for a detailed guide on using Claude Desktop with an MCP server. It is recommended
+to get the example server working first before using the Home Assistant MCP Server.
 
-#### Example: Claude Desktop
+Claude for Desktop currently only supports local MCP servers. These are called [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio)
+servers that are run as a local service by Claude for Desktop. We use a local proxy MCP server
+to allow Claude to communicate with Home Assistant.
 
-See [MCP Quickstart: For Claude Desktop Users](https://modelcontextprotocol.io/quickstart/user#for-claude-desktop-users) for a detailed guide on using Claude Desktop with
-a local MCP server. It is recommended to get another server working first before
-configuring Home Assistant MCP Server.
+1. Download [Claude for Desktop](https://claude.ai/download). 
 
-TODO: Give example
+1. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
+   For example, `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`
+
+1. Open the configuration file. Visit *Settings…* and *Developer* tab the click *Edit Config*
+   which will edit `claude_desktop_config.json`. The full file location depends on your
+   operating system macOS or Windows.
+
+1. Add a new MCP server to json file. You will need to set the `SSE_URL` to the local url to your
+   Home Assistant instance with the path `/mcp_server/sse`. You will also need to set `API_ACCESS_TOKEN`
+   to the long live access token created above in the [access control instructions](#access-control)
+
+  ```json
+  {
+    "mcpServers": {
+      "home-assistant": {
+        "command": "mcp-proxy",
+        "env": {
+          "SSE_URL": "http://localhost:8123/mcp_server/sse",
+          "API_ACCESS_TOKEN": "eyJhbGciOiJIUzI1NiIsInR5cCI...."
+        }
+      }
+    }
+  }
+  ```
+
+1. Restart Claude
+
+1. You will see a connection icon {% icon "mdi:connection" %} if things are set up correctly. Clicking the connection icon will show enabled MCP servers such as Home Assistant `home-assistant`.
+
+1. You can then use Claude to control Home Assistant similar to how you control Home Assistant through the Voice Assistant. Claude wil ask you for permission before calling any tools.
+
+  ![Screenshot of Claude Desktop adding an item to a Home Assistant To-do list](/images/integrations/nest/claude-todo-list-control.png)
+
 
 ## Supported functionality
 
@@ -101,6 +142,55 @@ are exposed.
 
 The Remote Model Context Protocol integration does not currently support
 notifications which notify clients of state changes.
+
+## Troubleshooting
+
+### LLM client cannot connect to Home Assistant MCP server
+
+#### Symptom: Failed to start MCP server: Could not start MCP server home-assistant
+
+When trying to configure a client like Claude Desktop to talk to Home Assistant, the app shows a
+message like "Failed to start MCP server: Could not start MCP server home-assistant"
+
+##### Description
+
+This means that the local MCP server `mcp-proxy` could not start.
+
+##### Resolution
+
+Verify the command line arguments in the `claude_desktop_config.json` are correct. You may try to run
+the command manually to verify that the command can be found.
+
+#### Symptom: “MCP server home-assistant disconnected” or "Could not attach to MCP server home-assistant"
+
+When trying to configure a client like Claude Desktop to talk to Home Assistant, the app shows a
+message like "MCP server home-assistant disconnected" or "Could not attach to MCP server home-assistant".
+
+##### Description
+
+This means the MCP server has started, however the MCP server is having trouble communicating with Home Assistant,
+or the MCP server in Home Assistant is not configured.
+
+##### Resolution
+
+To understand the root cause, first check debug logs on the client. For example in Claude for Desktop:
+
+1. Visit *Settings...*
+
+1. Click *Developer*
+
+1. Click the `home-assistant` MCP server
+
+1. Click *Open Logs Folder*
+
+1. View `mcp-server-Home-assistant.log`. These are known problems and their resolution:
+
+   -  `Client error '404 Not Found' for url 'http://localhost:8123/mcp_server/sse'`:
+      this means the MCP Server integration is not configured in Home Assistant.
+
+   -  `Client error '401 Unauthorized' for url 'http://localhost:8123/mcp_server/sse'`:
+     this means that the long live access token is not correct.
+...
 
 ## Remove integration
 
