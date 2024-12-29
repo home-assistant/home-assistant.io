@@ -71,6 +71,18 @@ The Ohme integration provides the following entities.
   - **Description**: If a current transformer (CT) was installed with your charger, this will show the current used by your whole home.
   - **Available for devices**: Home Pro, ePod
 
+## Actions
+
+The integration provides the following actions.
+
+### Action: List charge slots
+
+The `ohme.list_charge_slots` service is used to fetch a list of charge slots from your charger. Charge slots will only be returned if a charge is in progress.
+
+| Data attribute         | Optional | Description                                                  |
+|------------------------|----------|--------------------------------------------------------------|
+| `config_entry`         | No       | The config entry of the account to get the charge list from. |
+
 
 ## Removing the integration
 
