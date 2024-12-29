@@ -109,7 +109,7 @@ to allow Claude to communicate with Home Assistant.
         "command": "mcp-proxy",
         "env": {
           "SSE_URL": "http://localhost:8123/mcp_server/sse",
-          "API_ACCESS_TOKEN": "eyJhbGciOiJIUzI1NiIsInR5cCI...."
+          "API_ACCESS_TOKEN": "<your_access_token_here>"
         }
       }
     }
