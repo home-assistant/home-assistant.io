@@ -24,7 +24,6 @@ ha_platforms:
   - switch
   - time
 ha_integration_type: integration
-ha_quality_scale: silver
 ---
 
 The Starlink integration allows you to integrate your [Starlink](https://www.starlink.com/) into Home Assistant.
@@ -42,6 +41,10 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 - Uplink throughput - The amount of data being uploaded through Starlink
 - Downlink throughput - The amount of data being downloaded through Starlink
 - Last boot time - The time Starlink was last turned on
+- Upload - Total number of bytes uploaded from the user terminal since reboot
+- Download - Total number of bytes downloaded to the user terminal since reboot
+- Power - Last measured power [W]
+- Energy - Measured energy consumption since reboot [kWh]
 
 ### Binary sensor
 

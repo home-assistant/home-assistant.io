@@ -12,9 +12,10 @@ ha_codeowners:
   - '@jpbede'
 ha_domain: sabnzbd
 ha_platforms:
-  - sensor
+  - binary_sensor
   - button
   - number
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -29,6 +30,12 @@ You need to grab your API key from your SABnzbd instance in order to configure t
 - Copy your API key under "Security".
 
 {% include integrations/config_flow.md %}
+{% configuration_basic %}
+URL:
+    description: "The full URL, including port, of your SABnzbd server. Example: `http://localhost:8080` or `http://a02368d7-sabnzbd:8080`, if you are using the add-on."
+API key:
+    description: "The API key of your SABnzbd server. You can find this in the SABnzbd web interface under **Config cog** (top right) > **General** > **Security**."
+{% endconfiguration_basic %}
 
 ## Sensor
 
@@ -46,6 +53,10 @@ This integration will create these sensors:
 - `weekly_size`: GB downloaded this week. (disabled by default)
 - `monthly_total`: GB downloaded this month. (disabled by default)
 
+## Binary sensor
+
+This integration will create a binary sensor to indicate if SABnzbd has recorded any warnings or errors.
+
 ## Button
 
 This integration will create two buttons:
@@ -56,3 +67,9 @@ This integration will create two buttons:
 ## Number
 
 This integration will create a number entity to set the download queue speed limit in percentage.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

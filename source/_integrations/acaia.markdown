@@ -12,22 +12,26 @@ ha_domain: acaia
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - sensor
 ha_bluetooth: true
 ha_codeowners:
   - '@zweckj'
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 The **Acaia** {% term integration %} allows you to control [Acaia](https://acaia.co/) scales through Home Assistant.
 
-If your machine is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the scale should be discovered automatically. If you are configuring the device manually, your scale needs to be turned on during setup.
+If your machine is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the scale should be discovered automatically. If you are configuring the device manually, your scale needs to be turned on during setup. 
+
+Once the integration is set up, Home Assistant will try to connect to your scale every 15 seconds. This means there is sometimes a small delay between you turning the scale on and Home Assistant connecting to it.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-MAC:
-  description: "The MAC address of your scale."
+Device:
+  description: "The Bluetooth device that is your scale."
 {% endconfiguration_basic %}
 
 # Available platforms & entities
@@ -52,8 +56,10 @@ MAC:
 
 The following devices have been tested successfully with this integration:
 
-- Lunar (manufactured after 2021)
+- Lunar
 - Pyxis
+- Pearl
+- Pearl S
 
 If you have successfully tested this integration with another Acaia model, please let us know by enhancing this documentation, or by opening an issue in GitHub.
 
@@ -101,6 +107,12 @@ actions:
 ## Known limitations
 
 - While this integration is configured for your device, you won't be able to use the official app, as only one connection at a time is supported.
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Troubleshooting
 

@@ -6,7 +6,6 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.106
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@exxamalte'
 ha_domain: gdacs
