@@ -209,7 +209,7 @@ The last schedule that was active is determined the same way long-tapping the to
 
 ## Gateway Modes
 
-The Adam Gateway supports multiple operational modes that provide flexibility in managing your heating and cooling systems, allowing your to tailor your system's behavior to their needs.
+The Adam Gateway supports multiple operational modes that provide flexibility in managing your heating and cooling systems, allowing you to tailor your system's behavior to their needs.
 
 - Normal Mode
   - **Description**: This is the default operational mode, operating based on the active schedules and presets configured. Ideal for day-to-day operations, ensuring optimal comfort and energy efficiency.
