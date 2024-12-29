@@ -15,17 +15,13 @@ related:
     title: Conversation
 ---
 
-The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol for standardizing how applications provide context to LLMs. The **Model Context Protocol Server** integration enables using Home Assistant as context for MCP LLM Client Applications.
-
-This integration can help you expose other Home Assistant integrations as
-context for LLM applications outside of Home Assistant. For example, you can expose
-your Google Tasks To-do list as a tool for Claude Desktop.
+The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that standardizes how applications provide context to LLMs. The **Model Context Protocol Server** integration enables using Home Assistant to provide context for MCP LLM Client Applications. For example, you can expose your Google Tasks To-do list as a tool for Claude Desktop.
 
 Controlling Home Assistant is done by providing MCP clients access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}.
 
 ## Pre-requisites
 
-1. You will need an [MCP client](https://modelcontextprotocol.io/clients) LLM Application such as [Claude Desktop](https://claude.ai/download).
+1. You will need an [MCP client](https://modelcontextprotocol.io/clients) LLM Application such as [Claude for Desktop](https://claude.ai/download).
 1. Since most clients do not support native remote servers, you will need an additional local MCP server  remote gateway.
 
 See [Client Configuration](#client-configuration) below for detailed instructions.
@@ -82,7 +78,7 @@ See [Authentication](https://www.home-assistant.io/docs/authentication/#your-acc
 ### Example: Claude for Desktop
 
 See [MCP Quickstart: For Claude Desktop Users](https://modelcontextprotocol.io/quickstart/user#for-claude-desktop-users)
-for a detailed guide on using Claude Desktop with an MCP server. It is recommended
+for a detailed guide on using Claude for Desktop with an MCP server. It is recommended
 to get the example server working first before using the Home Assistant MCP Server.
 
 Claude for Desktop currently only supports local MCP servers using the [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio)
@@ -122,7 +118,7 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
 
 1. You can then use Claude to control Home Assistant similar to how you control Home Assistant through the Voice Assistant. Claude wil ask you for permission before calling any tools.
 
-  ![Screenshot of Claude Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
+  ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
 
 
 ## Supported functionality
@@ -152,7 +148,7 @@ the primary client. Also see [Debugging in Claude Desktop](https://modelcontextp
 
 #### Symptom: Failed to start MCP server: Could not start MCP server Home Assistant
 
-When trying to configure a client like Claude Desktop to talk to Home Assistant, the app shows a
+When trying to configure a client like Claude for Desktop to talk to Home Assistant, the app shows a
 message like "Failed to start MCP server: Could not start MCP server Home Assistant"
 
 ##### Description
