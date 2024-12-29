@@ -88,18 +88,16 @@ Get started quickly with these automation examples.
 {% raw %}
 
 ```yaml
-alias: Lower the temperature when last person leaves
-description: Lower the temperature when last person leaves the home
+alias: "Lower the temperature when last person leaves"
+description: "Lower the temperature when last person leaves the home"
 mode: single
 triggers:
   - trigger: state
     entity_id:
       - zone.home
-    to: "0"
-conditions: []
+    to: 0
 actions:
   - action: climate.set_temperature
-    metadata: {}
     data:
       temperature: 16
     target:
