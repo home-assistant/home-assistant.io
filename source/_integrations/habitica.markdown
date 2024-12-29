@@ -98,9 +98,9 @@ Verify SSL certificate:
 
 - **Pending quest invitation**: Indicates if you have an invitation to a quest awaiting your response.
   
-## Image 
+## Image
 
-- **Avatar**: Displays you character's current avatar (note: animated avatars a currently not supported and will be displayed as static images).
+- **Avatar**: Displays your character's current avatar (note: animated avatars are currently not supported and will be displayed as static images).
 
 ## To-do lists
 
