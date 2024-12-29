@@ -185,7 +185,7 @@ The additional actions will change Adam's **regulation mode** (i.e., the HVAC sy
 Available action: `select.select_option`
 
 {% tip %}
-The available schedules depend on the [schedules](#schedule_management) you have configured.
+The available schedules depend on the [schedules](#schedule-management) you have configured.
 {% endtip %}
 
 ### HVAC modes
