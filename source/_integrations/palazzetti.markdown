@@ -17,11 +17,25 @@ ha_integration_type: device
 ha_dhcp: true
 ---
 
+## Prerequisite
+
+- You need the Connection Box bridge to be added to a network accessible to Home Assistant.
+- You either need to:
+  - know the IP address or hostname of the Connection Box on the network.
+  - or configure the Connection Box with DHCP on the same network as Home Assistant.
+
 The **Palazzetti** {% term integration %} integrates the [Palazzetti](https://palazzettigroup.com/)
 stoves equipped with a [Connection Box](https://palazzettigroup.com/research-and-development/app/).
 It is accessing the device's local API.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: "The IP address or hostname of your Connection Box. You can find it in your router or in the Palazzetti app under **Settings** -> **Diagnostic information** -> **Ethernet** or **Wifi**."
+  required: true
+  type: string
+{% endconfiguration_basic %}
 
 ## Climate
 
@@ -56,3 +70,54 @@ The Palazzetti integration offers the following sensors, for the products that p
 - Hydro temperature 2 (°C)
 - Pellet quantity (kg)
 - Pellet level (cm)
+
+## Possible use-cases
+
+- Control the operations, temperature, fans
+- Get alerts when the pellet level is low or empty, or on stove errors
+- Auto start or stop the stove based on presence
+
+## Automations
+
+Get started quickly with these automation examples.
+
+### Automatically lower the temperature when the last person leaves home
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: "Lower the temperature when last person leaves"
+description: "Lower the temperature when last person leaves the home"
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - zone.home
+    to: 0
+actions:
+  - action: climate.set_temperature
+    data:
+      temperature: 16
+    target:
+      entity_id: climate.my_stove
+```
+
+{% endraw %} {% enddetails %}
+
+## Known Limitations
+
+This integration does **not** yet support the following features and sensors:
+
+- Light and Door on stove models equipped with them.
+- Fan control other than the main one.
+- Combustion power control.
+
+## Troubleshooting
+
+{% details "On and off switch does not always work" %}
+During certain operations, it is not possible to turn the stove on or off. This action is available
+only when the status of the stove is one of `off`, `off_timer`, `burning`, `burning_mod`, `cool_fluid`,
+`clean_fire`, `cooling`, `ecomode`, `firewood_finished`.
+{% enddetails %}
