@@ -27,7 +27,7 @@ The `metoffice` weather platform uses the Met Office's [DataHub API](https://www
 
 ## Entities
 
-This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast (daily, twice-daily and hourly), and twelve sensor entities for individual reporting on each of the individual measurements. Note that only some of the sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration.
+This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast (daily and hourly), and twelve sensor entities for individual reporting on each of the individual measurements. Note that only some of the sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration.
 
 The available sensor entities:
 
