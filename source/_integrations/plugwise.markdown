@@ -172,9 +172,11 @@ This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or 
 
 ### Climate control actions
 
-Available actions to all climate gateways: `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_hvac_mode`,
+For information on how to use the available actions please refer to the [climate](/integrations/climate#climate-control-actions) integration.
 
-Additional actions available to Adam: `climate.turn_on`, `climate.turn_off`, `climate.toggle`
+Available actions to all climate gateways: `climate.set_temperature`, `climate.set_hvac_mode`, and `climate.set_preset_mode`.
+
+Additional actions available for Adam: `climate.turn_on`, `climate.turn_off`, and `climate.toggle`.
 
 {% note %}
 The additional actions will change Adam's **regulation mode** (i.e., the HVAC system mode) to either on or off, affecting the operation of **all** connected thermostats. Turning on activates the previously selected heating or cooling mode.
