@@ -116,9 +116,9 @@ If you are using the state of a platform that takes extra time to load, the Temp
 
 In this section you find some real-life examples of how to use this switch.
 
-### Copy Switch
+### Invert a Switch
 
-This example shows a switch that copies another switch.
+This example shows a switch that is the inverse of another switch.
 
 {% raw %}
 
@@ -126,14 +126,15 @@ This example shows a switch that copies another switch.
 switch:
   - platform: template
     switches:
-      copy:
-        value_template: "{{ is_state('switch.source', 'on') }}"
+      invert:
+        value_template: "{{ not is_state('switch.target', 'on') }}"
+        availability_template: "{{ has_value('switch.target') }}"
         turn_on:
-          action: switch.turn_on
+          action: switch.turn_off
           target:
             entity_id: switch.target
         turn_off:
-          action: switch.turn_off
+          action: switch.turn_on
           target:
             entity_id: switch.target
 ```
