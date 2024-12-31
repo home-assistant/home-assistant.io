@@ -123,11 +123,6 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
 
 ## Supported functionality
 
-### Prompts
-
-[MCP Prompts](https://modelcontextprotocol.io/docs/concepts/prompts) are reusable
-workflows that clients can surface. The prompt used by the LLM API are exposed.
-
 ### Tools
 
 [MCP Tools](https://modelcontextprotocol.io/docs/concepts/tools) enable LLMs to
@@ -136,8 +131,17 @@ are exposed.
 
 ## Known Limitations
 
-The Remote Model Context Protocol integration does not currently support
-notifications which notify clients of state changes.
+The Home Assistant Model Context Protocol integration currently only supports a
+subset of MCP features:
+
+| Feature | Supported by Home Assistant |
+| ------- | --------- |
+| Prompts | ❌ |
+| Tools | ✅ |
+| Resources | ❌ |
+| Sampling | ❌ |
+| Notifications | ❌ |
+
 
 ## Troubleshooting
 
