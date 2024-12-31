@@ -77,7 +77,7 @@ The integration provides the following actions.
 
 ### Action: List charge slots
 
-The `ohme.list_charge_slots` service is used to fetch a list of charge slots from your charger. Charge slots will only be returned if a charge is in progress.
+The `ohme.list_charge_slots` action is used to fetch a list of charge slots from your charger. Charge slots will only be returned if a charge is in progress.
 
 | Data attribute         | Optional | Description                                                  |
 |------------------------|----------|--------------------------------------------------------------|
