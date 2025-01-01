@@ -21,7 +21,7 @@ The **igloohome** {% term integration %} provides the following features:
 
 - Non-bridge owners:
   - Regular updates of devices' last-known battery level.
-  - Battery levels are updated by using the sync function on igloohome mobile app with the device.
+    - Battery levels are updated by using the sync function on igloohome mobile app with the device.
 
 ## Prerequisites
 
