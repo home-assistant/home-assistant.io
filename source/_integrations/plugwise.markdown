@@ -172,7 +172,7 @@ This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or 
 
 ### Climate control actions
 
-For information on how to use the available actions please refer to the [climate](/integrations/climate#climate-control-actions) integration.
+For information on how to use the available actions, please refer to the [climate](/integrations/climate#climate-control-actions) integration.
 
 Available actions to all climate gateways: `climate.set_temperature`, `climate.set_hvac_mode`, and `climate.set_preset_mode`.
 
@@ -211,7 +211,7 @@ The last schedule that was active is determined the same way long-tapping the to
 
 ## Gateway Modes
 
-The Adam Gateway supports multiple operational modes that provide flexibility in managing your heating and cooling systems, allowing you to tailor your system's behavior to their needs.
+The Adam Gateway supports multiple operational modes that provide flexibility in managing your heating and cooling systems, allowing you to tailor your system's behavior to your needs.
 
 - Normal Mode
   - **Description**: This is the default operational mode, operating based on the active schedules and presets configured. Ideal for day-to-day operations, ensuring optimal comfort and energy efficiency.
