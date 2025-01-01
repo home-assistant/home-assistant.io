@@ -41,7 +41,7 @@ Client ID:
   description: "Client ID provided by your iglooaccess account."
   required: true
   type: string
-Client Secret:
+Client secret:
   description: "Client Secret provided by your iglooaccess account."
   required: true
   type: string
