@@ -457,13 +457,13 @@ noteworthy changes this release:
   [@karwosts]!
 - The unit of measurment is now shown next to the numeric slider in the
   more-info dialog of number entities. Thanks [@abmantis]!
-- Home Assistant now support `mWh` as a unit of measurement for energy sensors
+- Home Assistant now supports `mWh` as a unit of measurement for energy sensors
   and `mW` for electrical potential power sensors. Thanks [@agners]!
 - [@wendevlin] added settings and category overflow actions to the automation
   and script editor (the three dotted menu in the top right corner), making
   it easier to access those straight from the editor. Nice!
-- The [logbook card] can supports picking a target for things it should show
-  events for. This means, you can now pick based on entities, devices, areas,
+- The [logbook card] supports picking a target for things it should show
+  events for. This means you can now pick based on entities, devices, areas,
   floors, and labels! Thanks, [@silamon]!
 
 [@abmantis]: https://github.com/abmantis
