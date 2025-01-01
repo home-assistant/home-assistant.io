@@ -54,16 +54,6 @@ Client secret:
   type: string
 {% endconfiguration_basic %}
 
-## Verify successful integration
-
-Once the correct `Client ID` & `Client Secret` have been provided:
-
-- Battery entities:
-  - Devices that have a battery level should be automatically recognized, and entities created. If devices are added post-integration, kindly reload the set of `Client Credentials`.
-  - The integration makes use of battery levels stored in the igloohome server as a last-known state.
-  - If you have an igloohome bridge, the bridge will periodically update the server with the latest state.
-  - If you do not have an igloohome bridge, using Bluetooth commands (e.g., Unlock, Sync) via the igloohome mobile app will update the server with the latest state.
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
