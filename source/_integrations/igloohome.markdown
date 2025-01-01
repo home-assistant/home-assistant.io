@@ -3,7 +3,7 @@ title: igloohome
 description: Integrates igloohome devices via the igloodeveloper API.
 ha_category:
   - Sensor
-ha_release: 2024.1.0
+ha_release: 2025.2
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_codeowners:
