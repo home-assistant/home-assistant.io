@@ -14,7 +14,6 @@ ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@PhracturedBlue'
-  - '@tetienne'
   - '@home-assistant/core'
 ha_domain: template
 ha_platforms:
@@ -125,6 +124,8 @@ template:
 ```
 
 {% endraw %}
+
+### Configuration reference
 
 {% configuration %}
 trigger:

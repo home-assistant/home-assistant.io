@@ -39,3 +39,9 @@ Extra attributes of `Water usage yesterday` sensor:
 - Highest monthly consumption
 - Last year total consumption
 - Current year total consumption
+
+## Remove integration
+
+This integration can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}

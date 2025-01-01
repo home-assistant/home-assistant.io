@@ -17,7 +17,7 @@ When a timer finishes or gets canceled the corresponding events are fired. This 
 {% note %}
 Timers will be restored to their correct state and time on Home Assistant startup and restarts when configured with the `restore` option.
 
-However, automations using the `timer.finished` event **will not** trigger if the timer expires when Home Assistant is not running.
+However, automations using the `timer.finished` event **will not** trigger on startup if the timer expires when Home Assistant is not running.
 {% endnote %}
 
 ## Configuration
@@ -56,7 +56,7 @@ timer:
       required: false
       type: icon
     restore:
-      description: When true, active and paused timers will be restored to the correct state and time on Home Assistant startup and restarts. If an active timer was supposed to end while Home Assistant is stopped, the `timer.finished` event will fire on startup for that timer. The `finished_at` property in the event data will provide you with the time that the timer was actually supposed to fire which you can use in automation conditions to decide whether or not to act on it.
+      description: When true, active and paused timers will be restored to the correct state and time on Home Assistant startup and restarts.
       required: false
       type: boolean
       default: false
@@ -77,7 +77,7 @@ Pick an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/
 |           Event | Description |
 | --------------- | ----------- |
 | `timer.cancelled` | Fired when a timer has been canceled |
-| `timer.finished` | Fired when a timer has completed and includes `finished_at` date/time in event data. `finished_at` should usually be now, or within the last several seconds, but if the `restore` property is true, `finished_at` may be further in the past since this event will fire on startup for any timers that would have ended while Home Assistant was stopped. |
+| `timer.finished` | Fired when a timer has completed and includes `finished_at` date/time in event data. `finished_at` should usually be now, or within the last several seconds. |
 | `timer.started` | Fired when a timer has been started |
 | `timer.restarted` | Fired when a timer has been restarted |
 | `timer.paused` | Fired when a timer has been paused |

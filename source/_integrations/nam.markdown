@@ -13,7 +13,6 @@ ha_platforms:
   - button
   - diagnostics
   - sensor
-ha_quality_scale: platinum
 ha_zeroconf: true
 ha_integration_type: device
 ---

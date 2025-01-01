@@ -3,7 +3,6 @@ title: IKEA Idasen Desk
 description: Control and monitor your IKEA Idåsen standing desk.
 ha_iot_class: Local Push
 ha_config_flow: true
-ha_quality_scale: silver
 ha_release: '2023.10'
 ha_category:
   - Cover
@@ -45,8 +44,6 @@ This integration provides two buttons to connect and disconnect to/from the desk
 ## Sensors
 
 {% configuration_basic %}
-
 Height:
   description: The current height of the desk, in meters.
-
 {% endconfiguration_basic %}

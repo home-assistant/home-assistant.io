@@ -11,6 +11,8 @@ ha_codeowners:
 ha_domain: palazzetti
 ha_platforms:
   - climate
+  - diagnostics
+  - sensor
 ha_integration_type: device
 ha_dhcp: true
 ---
@@ -49,6 +51,44 @@ The Palazzetti integration offers control over the combustion power of the stove
 
 The Palazzetti integration offers the following sensors, for the products that provide them:
 
+State sensors:
+
+- Status (current operational state) can take the following values:
+  - `off`: Off
+  - `off_timer`: Timer-regulated switch off
+  - `test_fire`: Ignition test
+  - `heatup`: Pellet feed
+  - `fueling`: Ignition
+  - `ign_test`: Fuel check
+  - `burning`: Operating
+  - `burning_mod`: Operating - Modulating
+  - `unknown`: Unknown
+  - `cool_fluid`: Stand-by
+  - `fire_stop`: Switch off
+  - `clean_fire`: Burn pot cleaning
+  - `cool`: Cooling in progress
+  - `cleanup`: Final cleaning
+  - `ecomode`: Ecomode
+  - `chimney_alarm`: Chimney alarm
+  - `grate_error`: Grate error
+  - `pellet_water_error`: Pellet probe or return water error
+  - `t05_error`: T05 error disconnected or faulty probe
+  - `hatch_door_open`: Feed hatch or door open
+  - `pressure_error`: Safety pressure switch error
+  - `main_probe_failure`: Main probe failure
+  - `flue_probe_failure`: Flue gas probe failure
+  - `exhaust_temp_high`: Too high exhaust gas temperature
+  - `pellet_finished`: Pellets finished or ignition failed
+  - `firewood_finished`: Firewood finished
+  - `cooling`: Cooling
+  - `general_error`: General error
+  - `door_open`: Door open
+  - `temp_too_high`: Temperature too high
+  - `cleaning_warning`: Cleaning warning
+  - `fuel_error`: Fuel error
+  
+Temperature sensors:
+
 - Outlet air temperature (°C)
 - Wood combustion temperature (°C)
 - Room temperature (°C)
@@ -56,5 +96,8 @@ The Palazzetti integration offers the following sensors, for the products that p
 - Tank water temperature (°C)
 - Hydro temperature 1 (°C)
 - Hydro temperature 2 (°C)
-- Pellet quantity (kg)
-- Pellet level (cm)
+
+Fuel Sensors:
+
+- Pellet quantity (kg - cumulative quantity consumed)
+- Pellet level (cm - current level)

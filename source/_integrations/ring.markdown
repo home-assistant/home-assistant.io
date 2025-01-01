@@ -15,7 +15,6 @@ ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: ring
-ha_quality_scale: silver
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
@@ -42,15 +41,13 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
   - [Saving the videos captured by your Ring Door Bell](#saving-the-videos-captured-by-your-ring-door-bell)
 - [Event](#event)
+  - [Realtime event stability](#realtime-event-stability)
 - [Sensor](#sensor)
 - [Siren](#siren)
 - [Switch](#switch)
 - [Light](#light)
 - [Number](#number)
 
-{% note %}
-This integration does NOT allow for live viewing of your Ring camera within Home Assistant.
-{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -66,22 +63,26 @@ Once you have enabled the [Ring integration](/integrations/ring), you can start 
 
 ## Camera
 
-{% important %}
-Please note that downloading and playing Ring video will require a Ring Protect plan.
-{% endimportant %}
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform.
+Currently, it supports doorbells and stickup cameras.
+Two camera entities are provided: `live_view` and `last_recording`.
+`last_recording` is disabled by default.
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform. Currently, it supports doorbell and stickup cameras.
+{% important %}
+Please note that downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
+{% endimportant %}
 
 ### Saving the videos captured by your Ring Door Bell
 
-You can save locally the latest video captured by your Ring Door Bell using the [downloader](/integrations/downloader) along with either an [automation](/integrations/automation) or [python_script](/integrations/python_script). First, enable the [downloader](/integrations/downloader) integration in your configuration by adding the following to your `configuration.yaml`.
+You can save locally the latest video captured by your Ring Door Bell using the [downloader](/integrations/downloader) along with either an [automation](/integrations/automation) or [python_script](/integrations/python_script).
+First, enable the [downloader](/integrations/downloader) integration in your configuration by adding the following to your `configuration.yaml`.
 
 ```yaml
 downloader:
   download_dir: downloads
 ```
 
-Then you can use the following automation, with the entities from your system, which will save the video file under `<config>/downloads/<camera_name>/<camera_name>/`:
+Then you can use the following automation, with the entities from your system, which will save the video file under `<config>/downloads/<camera_name>/<camera_name>.mp4`:
 
 {% raw %}
 
@@ -90,14 +91,20 @@ automation:
   alias: "Save the video when the doorbell is pushed"
   triggers:
   - trigger: state
-    entity_id: binary_sensor.front_doorbell_ding
-    to: "on"
+    entity_id: event.front_doorbell_ding
+    from: null
   actions:
+  - delay:
+    hours: 0
+    minutes: 5
+    seconds: 0
+    milliseconds: 0
   - action: downloader.download_file
     data:
-      url: "{{ state_attr('camera.front_door', 'video_url') }}"
-      subdir: "{{state_attr('camera.front_door', 'friendly_name')}}"
-      filename: "{{state_attr('camera.front_door', 'friendly_name')}}"
+      overwrite: true
+      url: "{{ state_attr('camera.front_door_last_recording', 'video_url') }}"
+      subdir: "{{state_attr('camera.front_door_last_recording', 'friendly_name')}}"
+      filename: "{{state_attr('camera.front_door_last_recording', 'friendly_name')}}.mp4"
 ```
 
 {% endraw %}
@@ -107,8 +114,8 @@ You may consider some modifications in the subdirectory and the filename to suit
 {% raw %}
 ```yaml
     data:
-      url: "{{ state_attr('camera.front_door', 'video_url') }}"
-      subdir: "{{ state_attr('camera.front_door', 'friendly_name') }}/{{ now().strftime('%Y.%m') }}"
+      url: "{{ state_attr('camera.front_door_last_recording', 'video_url') }}"
+      subdir: "{{ state_attr('camera.front_door_last_recording', 'friendly_name') }}/{{ now().strftime('%Y.%m') }}"
       filename: "{{ now().strftime('%Y-%m-%d-at-%H-%M-%S') }}.mp4"
 ```
 {% endraw %}
@@ -126,7 +133,7 @@ You can then use the following `python_script` to save the video file:
 ```python
 # obtain ring doorbell camera object
 # replace the camera.front_door by your camera entity
-ring_cam = hass.states.get("camera.front_door")
+ring_cam = hass.states.get("camera.front_door_last_recording")
 
 subdir_name = f"ring_{ring_cam.attributes.get('friendly_name')}"
 

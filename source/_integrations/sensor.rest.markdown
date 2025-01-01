@@ -179,8 +179,8 @@ You can find your external IP address using the service [JSON Test](https://www.
 ```yaml
 sensor:
   - platform: rest
-    resource: http://ip.jsontest.com
-    name: External IP
+    name: "External IP"
+    resource: "https://api.ipify.org/?format=json"
     value_template: "{{ value_json.ip }}"
 ```
 

@@ -46,18 +46,16 @@ use a different protocol and are not currently supported.
 
 {% configuration_basic %}
 Host:
-    description: The IP address of your device can be found by navigating to the device on the [StreamMagic app](https://www.cambridgeaudio.com/usa/en/products/streammagic) and selecting `Settings` → `IP address`.
-    required: true
-    type: string
+  description: The IP address of your device can be found by navigating to the device on the [StreamMagic app](https://www.cambridgeaudio.com/usa/en/products/streammagic) and selecting `Settings` → `IP address`.
 {% endconfiguration_basic %}
 
 ## Data updates
 
 Cambridge Audio devices push data directly to Home Assistant, enabling immediate updates for device state changes, media information, and playback status.
 
-## Remove integration
+## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
 
@@ -106,6 +104,12 @@ data:
   media_content_type: "internet_radio"
   media_content_id: "https://example.com/internet-radio/station_abcd.mp3"
 ```
+
+## Browsing media
+
+The Cambridge Audio integration allows you to browse saved presets from your dashboard. 
+All stored presets will be categorized into playlists, artists, and tracks.
+
 ## Troubleshooting
 
 ### The buttons to skip, shuffle, and repeat the track are missing

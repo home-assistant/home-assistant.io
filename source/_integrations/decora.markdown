@@ -9,6 +9,7 @@ ha_domain: decora
 ha_platforms:
   - light
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 Support for the Decora Bluetooth dimmer switch [Leviton](https://www.leviton.com/en/products/residential/dimmers/automation-smart-home/decora-digital-with-bluetooth-dimmers#t=Products&sort=%40wcs_site_tree_rank%20ascending&layout=card).

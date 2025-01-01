@@ -64,5 +64,4 @@ Password:
 {% configuration_basic %}
 Audio Codec:
   description: Sets the audio encoding codec to a Jellyfin API supported codec (aac, mp3, vorbis, wma)
-  required: false
 {% endconfiguration_basic %}

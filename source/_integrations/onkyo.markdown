@@ -12,9 +12,6 @@ ha_iot_class: Local Push
 ha_platforms:
   - media_player
 ha_release: 0.17
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ---
 
 The `onkyo` {% term integration %} allows you to control [Onkyo](https://www.onkyo.com) and [Integra](http://www.integrahometheater.com) (from 2011 onward) and also [Pioneer](https://www.pioneerelectronics.com) (from 2016 onward) receivers using Home Assistant.
@@ -25,13 +22,10 @@ Please be aware that you need to enable "Network Standby" for this integration t
 {% configuration_basic %}
 Host:
   description: Hostname or IP address of the device, for example:`192.168.1.2`.
-  type: string
 Volume Resolution:
   description: Number of steps it takes for the receiver to go from the lowest to the highest possible volume. Possible values are 50, 80, 100, 200. For older Onkyo receivers, this typically is 80; newer Onkyo receivers use 200.
-  type: integer
 Input sources:
   description: List of input sources supported by the receiver.
-  type: list
 {% endconfiguration_basic %}
 
 The above settings can also be adjusted later. To do this, click the three-dot menu on the integration entry and select **Reconfigure**.
@@ -41,16 +35,15 @@ The above settings can also be adjusted later. To do this, click the three-dot m
 {% configuration_basic %}
 Max Volume:
   description: Maximum volume limit as a percentage. Often the maximum volume of the receiver is far too loud. Setting this will set Home Assistant's 100% volume to be this setting on the amp, i.e., if you set this to 50%, when you set Home Assistant to be 100%, then your receiver will be set to 50% of its maximum volume.
-  default: 100
-  type: integer
 Input sources:
   description: Mappings of input sources to their names.
-  type: list
 {% endconfiguration_basic %}
 
-### Zones
+## Zones
 
 If your receiver has a second or third zone available, they are displayed as additional media players with functionality similar to the main zone.
+
+## Actions
 
 ### Action `onkyo_select_hdmi_output`
 
@@ -103,3 +96,7 @@ script:
           media_content_type: "radio"
           media_content_id: "1"
 ```
+
+## Supported devices
+
+Network receivers from Onkyo and Integra are supported starting with models from the year 2011. Pioneer network receivers are supported starting with models from 2016.
