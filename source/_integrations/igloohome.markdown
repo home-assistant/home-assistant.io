@@ -14,7 +14,14 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **igloohome** {% term integration %} regularly updates the battery level of your devices by leveraging the [igloodeveloper API](https://igloocompany.stoplight.io/docs/igloohome-api/1w1cuv56ge5xq-overview).
+The **igloohome** {% term integration %} provides the following features:
+
+- [Bridge](https://www.igloohome.co/products/bridge) owners:
+  - Regular updates of all linked devices' battery level.
+
+- Non-bridge owners:
+  - Regular updates of devices' last-known battery level.
+  - Battery levels are updated by using the sync function on igloohome mobile app with the device.
 
 ## Prerequisites
 
@@ -32,7 +39,7 @@ Once you have registered and activated your [iglooaccess](https://access.iglooco
 - Keep these credentials secure and never share them with others.
 - Add this integration to your Home Assistant instance.
 - Copy the `Client ID` & `Client Secret` to the respective text fields when prompted by the integration.
-- The integration will retrieve the devices under your account and update their last known battery level regularly.
+- The integration will retrieve the devices under your account and create entries for them in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
