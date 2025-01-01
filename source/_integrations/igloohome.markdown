@@ -65,11 +65,14 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Troubleshooting
 
-### Battery level not updating
+Some generic troubleshooting steps:
 
-- Try reloading the client credentials.
-- Check if your subscription is active.
-- If you are using an igloohome bridge, ensure that it is linked to the battery-powered devices. 
+- Ensure that your subscription is still active.
+
+### Battery levels not updating
+
+- If you are using a bridge, ensure that it is linked to the correct devices.
+- If you do not have a bridge. Sync the device with the igloohome mobile app, then reload the config entry associated to the device.
 
 ### Authentication problems
 
