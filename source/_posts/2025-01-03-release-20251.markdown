@@ -612,7 +612,7 @@ The included OAuth application credentials have been removed, as Tesla no longer
 supports Open Source application registrations, and is moving to a pay-per-use
 model.
 
-Read more about this announcement in this [blog post](developer.tesla.com/docs/fleet-api/support/announcements#2024-11-27-pay-per-use-pricing).
+Read more about this announcement in this [blog post](https://developer.tesla.com/docs/fleet-api/announcements#2024-11-27-pay-per-use-pricing).
 
 ([@Bre77] - [#132431]) ([documentation](/integrations/tesla_fleet))
 
