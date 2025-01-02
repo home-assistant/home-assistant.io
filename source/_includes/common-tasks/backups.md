@@ -1,6 +1,6 @@
 ## Backups
 
-It is important to regularly back up your Home Assistant setup. You may have spent many hours configuring your system and creating automations. Keep your configurations safe so that you can [restore](#restoring-a-backup) a system or parts of it if a rollback is needed or to migrate your Home Assistant to new hardware.
+It is important to regularly back up your Home Assistant setup. You may have spent many hours configuring your system and creating automations. Keep your configurations safe so that you can [restore](#restoring-a-backup) a system or migrate your Home Assistant to new hardware.
 
 Backups are encrypted and stored in a compressed archive file (.tar) and by default, stored locally in the `/backup` directory.
 
