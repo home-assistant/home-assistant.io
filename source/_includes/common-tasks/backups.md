@@ -43,7 +43,7 @@ The automatic backup process creates a backup on a predefined schedule and also 
    - It is recommended to disable media and the share folder to reduce the size of the backup.
    - A large backup also takes longer to restore.
    - Some add-ons may also be quite large.
-7. [Define the location for backups](#defining-the-location-for-automatic-backups).
+7. [Define the location for backups](#defining-backup-locations).
 8. To be able to restore encrypted backups, download the emergency kit and store it somewhere safe.
    - To learn more, refer to the documentation on the [backup emergency kit](/more-info/backup-emergency-kit/).
 
