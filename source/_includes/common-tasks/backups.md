@@ -44,7 +44,7 @@ The automatic backup process creates a backup on a predefined schedule and also 
    - A large backup also takes longer to restore.
    - Some add-ons may also be quite large.
 7. [Define the location for backups](#defining-backup-locations).
-8. To be able to restore encrypted backups, download the emergency kit and store it somewhere safe.
+8. Backups that are stored on Home Assistant Cloud are always encrypted. To be able to restore encrypted backups, download the emergency kit and store it somewhere safe.
    - To learn more, refer to the documentation on the [backup emergency kit](/more-info/backup-emergency-kit/).
 
 ### Defining backup locations
@@ -53,7 +53,7 @@ You might need a backup in case your system has crashed. If you only store backu
 
 #### About the backup storage on Home Assistant Cloud
 
-If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on Home Assistant Cloud. This cloud storage space is available for all existing and new Home Assistant Cloud subscribers without additional cost. It stores one backup file: the backup that was last saved to Home Assistant Cloud.
+If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on Home Assistant Cloud. This cloud storage space is available for all existing and new Home Assistant Cloud subscribers without additional cost. It stores one backup file: the backup that was last saved to Home Assistant Cloud. Backups that are stored on Home Assistant Cloud are always encrypted. To restore encrypted backups, you need the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
 
 #### To define the backup location for automatic backups
 
@@ -65,7 +65,7 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
 
 ### Creating a manual backup
 
-This creates a backup instantly. You can create a manual backup at any time, irrespective of any automatic backups you may have defined.
+This creates a backup instantly. You can create a manual backup at any time, irrespective of any automatic backups you may have defined. Manually created backups are not encrypted by default.
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}
 2. In the lower-right corner, select **Backup now** and select **Manual backup**.
@@ -145,6 +145,7 @@ You can use a backup during the onboarding process to restore your configuration
 
 - This procedure assumes you have already completed the [installation](/installation/) procedure on your target device and are now viewing the welcome screen as part of the [onboarding](/getting-started/onboarding/).
 - The login credentials of the device from which you made the backup.
+- If your backup is encrypted: the [backup emergency kit](/more-info/backup-emergency-kit/) that contains the key needed to decrypt the backup.
 - **Required storage capacity**: If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
    - Before migrating, on the old system, check how much storage you used.
      - Go to **{% my system_health title="Settings > System > Repairs -> ... -> System Information" %}**, and under **Home Assistant Supervisor**, look at the **Disk used** value.
@@ -164,7 +165,9 @@ You can use a backup during the onboarding process to restore your configuration
    - Then, select **Upload backup**.
    - The file explorer opens on the device on which you are viewing the Home Assistant User interface.
    - You can access any connected network drive from there.
-3. Select the backup file, then, in the dialog, select **Full backup** and **Restore**.
+3. Select the backup file, then, in the dialog, select **Full backup** or in case of a partial backup, select what you want to restore.
+   - If the backup is encrypted, under **Backup password**, enter the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
+   - To start the process, select **Restore**.
    - The restore may take a while, depending on the amount of data.
    - To see if the restore is complete, reload the page from time to time.
    - If your previous installation had certificates enabled directly for the [`http` integration](/integrations/http), when the restore is complete, it will no longer respond to `http://` requests. In this case, use `https://` (added `s`) instead.
