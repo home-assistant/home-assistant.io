@@ -26,6 +26,7 @@ When you set up your backups, an encryption key is generated automatically. This
 3. If you haven't downloaded the old encryption key yet, do it now.
 4. Select **Change encryption key**.
 5. Download the new encryption key and store it in a safe place.
+
 ## Checking and disabling backup location
 
 1. Go to {% my backup title="**Settings** > **System** > **Backups**" %}.
