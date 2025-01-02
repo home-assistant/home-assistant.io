@@ -115,6 +115,7 @@ To delete old backups, follow these steps:
    - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**
 3. To delete multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
    - From the list of backups, select all the ones you want to delete and select **Delete selected**.
+   - {% icon "mdi:information-outline" %} Consider keeping at least one recent backup for recovery purposes.
 
 ### Restoring a backup
 
