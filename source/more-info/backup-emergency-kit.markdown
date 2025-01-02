@@ -40,4 +40,4 @@ When you set up your backups, an encryption key is generated automatically. This
 
 ## I lost my backup encryption key - how can I retrieve it?
 
-You cannot. The backup encryption key is neither stored on Home Assistant nor on Home Assistant Cloud. If you have lost the encryption key, there is no way to restore the backup.
+If you still have access to your Home Assistant instance you can download the encryption key again from the backup settings. If you have lost the encryption key, and have no access to your Home Assistant instance, there is no way to restore the backup.
