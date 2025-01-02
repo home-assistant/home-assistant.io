@@ -2,7 +2,7 @@
 
 It is important to regularly back up your Home Assistant setup. You may have spent many hours configuring your system and creating automations. Keep your configurations safe so that you can [restore](#restoring-a-backup) a system or parts of it if a rollback is needed or to migrate your Home Assistant to new hardware.
 
-Backups are stored in a compressed archive file (.tar) and by default, stored locally in the `/backup` directory.
+Backups are encrypted and stored in a compressed archive file (.tar) and by default, stored locally in the `/backup` directory.
 
 A full backup includes the following directories:
 
@@ -23,43 +23,60 @@ Before creating a backup, check if you can reduce the size of the backup. This i
    - From the three dot menu, select **System information** and under the **Recorder** section, look for the **Estimated Database Size (MiB)**.
    - By default, the data is kept for 10 days. If you have modified that to a longer period, check the [`recorder`](/integrations/recorder/) integration page for options to keep your database data down to a size that won't cause issues.
    - Note the keep days, purge interval, and include/exclude options.
-2. To check how much space you've used in total, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}. 
+2. To check how much space you've used in total, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
    - From the three dot menu, select **System information**, and check under **Home Assistant Supervisor** > **Disk used**.
    - If you have add-ons installed that you no longer use, uninstall those add-ons. Some add-ons require quite a bit of space.
+3. If you want to store the backup on your network storage instead of just locally on your system, follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
 
 ### Setting up an automatic backup process
 
-The automatic backup process allows you to have the system regularly create a backup while also to deleting old, redundant backups.
+The automatic backup process creates a backup on a predefined schedule and also deletes old, redundant backups. It is recommended to create a backup daily.
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}.
 2. Under **Automatic backups**, select **Configure automatic backups**.
 3. Enable automatic backup.
-4. Define the backup schedule.
+4. Define the backup schedule. It is recommended to back up daily.
 5. Define how many backups you want to keep.
    - Older backups will be automatically deleted.
    - For example: if you back up daily, and select 3 backups, then the backup from 4 days ago and older will be deleted.
-6. [Define the location for automatic backups](#defining-the-location-for-automatic-backups).
+6. Define the data you want to backup.
+   - It is recommended to disable media and the share folder to reduce the size of the backup.
+   - A large backup also takes longer to restore.
+   - Some add-ons may also be quite large.
+7. [Define the location for backups](#defining-the-location-for-automatic-backups).
+8. To be able to restore encrypted backups, download the emergency kit and store it somewhere safe.
+   - To learn more, refer to the documentation on the [backup emergency kit](/more-info/backup-emergency-kit/).
 
-### Defining the location for automatic backups
+### Defining backup locations
 
-You might need a backup in case your system has crashed. If you only store backups on the device itself, you won't be able to access them easily. It is recommended to keep a copy on another system and ideally also one off-site. If you have Home Assistant Cloud, you can store up to 5&nbsp;GB of backups on Home Assistant Cloud. This storage space is added to all existing and new Home Assistant Cloud subscribers without any additional costs.
+You might need a backup in case your system has crashed. If you only store backups on the device itself, you won't be able to access them easily. It is recommended to keep a copy on another system and ideally also one off-site.
 
-1. To define the backup location, go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and under **Automatic backups**, select **Configure automatic backups**.
-2. Under **Locations**, enable the backup locations.
+#### About the backup storage on Home Assistant Cloud
+
+If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on Home Assistant Cloud. This cloud storage space is available for all existing and new Home Assistant Cloud subscribers without additional cost. It stores one backup file: the backup that was last saved to Home Assistant Cloud.
+
+#### To define the backup location for automatic backups
+
+1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and under **Automatic backups**, select **Configure automatic backups**.
+2. Under **Locations**, enable all the backup locations you want to use.
    - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
    - If you don't see a network storage, you haven't added one. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
    ![Define the backup locations](/images/screenshots/network-storage/backup_locations_all.png)
 
-### Making a backup from the UI
+### Creating a manual backup
+
+This creates a backup instantly. You can create a manual backup at any time, irrespective of any automatic backups you may have defined.
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}
-2. Select the **Create backup** button in the lower right.
-3. Provide a name for the backup.
-4. Choose **Full backup** or **Partial backup**.
-   - If you choose **Partial backup**, make sure to select Home Assistant and all the folders and add-ons you want to backup or migrate.
-   - Note that the number of add-ons increases the size of the backup as well as the time it takes to restore from that backup.
-5. Optionally, enable password protection.
-6. Select **Create** to begin the backup.
+2. In the lower-right corner, select **Backup now** and select **Manual backup**.
+3. Define the data you want to backup.
+   - It is recommended to disable media and the share folder to reduce the size of the backup.
+   - A large backup also takes longer to restore.
+   - Some add-ons may also be quite large.
+4. Provide a name for the backup.
+5. Choose the backup locations.
+   - To learn more about the locations, refer to the section on [defining the backup location](#defining-backup-locations).
+6. To start the backup process, select **Create back**.
 
 ### Alternative: Creating a backup using the Home Assistant Command Line Interface
 
@@ -69,31 +86,23 @@ You might need a backup in case your system has crashed. If you only store backu
 
 For additional information about command line usage, use the `ha help` command or refer to the [Home Assistant Command Line documentation](/common-tasks/os/#home-assistant-via-the-command-line).
 
-### Copying your backups to another location
+### Downloading your local backups
 
-You might need a backup in case your system has crashed. If you only store them on the device itself, you won't be able to access them easily. We recommend that you copy them from `/backup` to another machine on occasion.
+There are multiple ways to download your local backup and store it on another device:
 
-There are multiple ways to store the backup on another device:
+**Option 1**: Download from the backup page:
 
-- **Option 1**: Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, on the list, single-click or tap the backup of interest.
-  - **Result**: The backup dialog opens.
-  - In the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download backup**.
-  - **Result**: The selected backup is stored in the **Downloads** folder of your computer.
-- **Option 2**: If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/{{page.installation}}/#configuring-access-to-files), using one of the methods listed there.
-  - For example, [use the samba add-on](/common-tasks/{{page.installation}}/#installing-and-using-the-samba-add-on).
-  - In your file explorer, access Home Assistant, open the `backup` folder and copy the file to your computer.
-- **Option 3**: You can also change the default location for backups:
-  - [Add a network storage location](/common-tasks/{{page.installation}}/#network-storage) for backups.
-  - [Change the default location](/common-tasks/{{page.installation}}/#change-default-backup-location) for backups.
+1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
+2. To selection one backup, on the list, single-click or tap the backup of interest.
+   - To select multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
+3. In the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download backup**.
+   - **Result**: The selected backup is stored in the **Downloads** folder of your computer.
 
-- **Option 4**: Or even better, create an automation to handle that, using one of the [backup actions](/integrations/hassio/#action-hassiobackup_full).
-- **Option 5**: Make use of a third-party add-on:
-  - [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
-  - [OneDrive Backup](https://github.com/lavinir/hassio-onedrive-backup)
-  - [Nextcloud Backup](https://github.com/Sebclem/hassio-nextcloud-backup)
-  - [Remote Backup (scp/rsync/rclone)](https://github.com/ikifar2012/remote-backup-addon)
-  - [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
-  - [Syncthing](https://github.com/Poeschl/Hassio-Addons/tree/main/syncthing)
+**Option 2**: Copy backups from the backups folder:
+
+1. If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/{{page.installation}}/#configuring-access-to-files), using one of the methods listed there.
+   - For example, [use the samba add-on](/common-tasks/{{page.installation}}/#installing-and-using-the-samba-add-on).
+2. In your file explorer, access Home Assistant, open the `backup` folder and copy the file to your computer.
 
 ### Restoring a backup
 
