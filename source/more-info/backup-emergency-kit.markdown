@@ -14,7 +14,7 @@ Backups are encrypted (using [AES-128](https://en.wikipedia.org/wiki/Advanced_En
 
     ![Screenshot showing the encryption key in the download dialog for the backup emergency kit](/images/more-info/backup_emergency_kit_01.png)
 
-3. Store the kit somewhere safe, outside of the Home Assistant system.
+3. Store the kit somewhere safe, outside the Home Assistant system.
    - Without the encryption key, there is no way to restore the backup.
 
 ## Changing your encryption key
@@ -36,7 +36,7 @@ When you set up your backups, an encryption key is generated automatically. This
 ## Changing the local backup location
 
 1. To change the local default backup location, go to {% my backup title="**Settings** > **System** > **Backups**" %}.
-2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select the local backup location.
+2. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select the local backup location.
 
 ## I lost my backup encryption key - how can I retrieve it?
 
