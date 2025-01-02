@@ -25,7 +25,7 @@ Go to **Preferences** in the Mastodon web interface, then to **Development** and
 
 Check the following scopes **read:accounts**, **write:statuses** and **write:media**.
 
-Press **Submit** to create the application and generate the key, secret and token required for the integration.
+Select **Submit** to create the application and generate the key, secret, and token required for the integration.
 
 {% include integrations/config_flow.md %}
 
