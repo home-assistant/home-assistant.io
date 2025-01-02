@@ -88,7 +88,7 @@ For additional information about command line usage, use the `ha help` command o
 
 ### Downloading your local backups
 
-There are multiple ways to download your local backup and store it on another device:
+There are multiple ways to download your local backup from your Home Assistant instance and store it on another device:
 
 **Option 1**: Download from the backup page:
 
@@ -103,6 +103,13 @@ There are multiple ways to download your local backup and store it on another de
 1. If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/{{page.installation}}/#configuring-access-to-files), using one of the methods listed there.
    - For example, [use the samba add-on](/common-tasks/{{page.installation}}/#installing-and-using-the-samba-add-on).
 2. In your file explorer, access Home Assistant, open the `backup` folder and copy the file to your computer.
+
+### Downloading a backup from Home Assistant Cloud
+
+If you were logged in to Home Assistant Cloud and had Cloud backup enabled, your last backup is stored on Home Assistant Cloud.
+
+1. To download the backup, log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
+2. Under **Stored files**, you can see the latest available backup file. Select the download button.
 
 ### Deleting obsolete backups
 
