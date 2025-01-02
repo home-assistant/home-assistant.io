@@ -1,5 +1,5 @@
 ---
-title: Reolink IP NVR/camera
+title: Reolink
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
 ha_category:
   - Camera
@@ -26,6 +26,7 @@ ha_platforms:
   - update
 ha_integration_type: integration
 ha_dhcp: true
+ha_quality_scale: platinum
 related:
   - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
     title: Controlling the camera from the dashboard
@@ -98,6 +99,7 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI animal detection++
 - AI face detection++
 - AI package detection++
+- AI baby crying detection+ (sound detection)
 - Sleep status+
 
 \++ These sensors receive events using the following 4 methods (in order): TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
