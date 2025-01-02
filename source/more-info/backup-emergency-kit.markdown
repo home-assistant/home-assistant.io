@@ -3,8 +3,11 @@ title: "Backup emergency kit"
 description: "Information about backup emergency kit"
 ---
 
-The backup emergency kit contains information needed to recover your backup, such as the encryption key and metadata about the backup.
-Backups are encrypted (using [AES-128](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)) and you need this information to decrypt the backup when you want to restore your system from that backup.
+Backups are encrypted (using [AES-128](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)). The backup emergency kit contains information needed to recover your backup, such as the encryption key and metadata about the backup.
+
+## What is encryption and why are backups encrypted?
+
+Encryption is a method of converting data into a coded format so that it can only be read by someone who has the decryption key. This ensures that your data about your home remains private. So even if someone else had a copy of your Home Assistant backup, it is unreadable for them without the decryption key.
 
 ## Storing the backup emergency kit somewhere safe
 
