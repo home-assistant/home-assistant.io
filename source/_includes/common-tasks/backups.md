@@ -76,7 +76,7 @@ This creates a backup instantly. You can create a manual backup at any time, irr
 4. Provide a name for the backup.
 5. Choose the backup locations.
    - To learn more about the locations, refer to the section on [defining the backup location](#defining-backup-locations).
-6. To start the backup process, select **Create back**.
+6. To start the backup process, select **Create backup**.
 
 ### Alternative: Creating a backup using the Home Assistant Command Line Interface
 
