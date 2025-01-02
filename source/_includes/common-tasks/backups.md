@@ -93,7 +93,7 @@ There are multiple ways to download your local backup and store it on another de
 **Option 1**: Download from the backup page:
 
 1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
-2. To selection one backup, on the list, single-click or tap the backup of interest.
+2. To select one backup, on the list, single-click or tap the backup of interest.
    - To select multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
 3. In the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download backup**.
    - **Result**: The selected backup is stored in the **Downloads** folder of your computer.
@@ -103,6 +103,18 @@ There are multiple ways to download your local backup and store it on another de
 1. If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/{{page.installation}}/#configuring-access-to-files), using one of the methods listed there.
    - For example, [use the samba add-on](/common-tasks/{{page.installation}}/#installing-and-using-the-samba-add-on).
 2. In your file explorer, access Home Assistant, open the `backup` folder and copy the file to your computer.
+
+### Deleting obsolete backups
+
+If you defined an automatic backup and backup purge schedule, old backups are deleted automatically. However, you might still have some old backups around that you want to delete.
+
+To delete old backups, follow these steps:
+
+1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
+2. To delete one backup, on the list, select the backup of interest.
+   - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**
+3. To delete multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
+   - From the list of backups, select all the ones you want to delete and select **Delete selected**.
 
 ### Restoring a backup
 
