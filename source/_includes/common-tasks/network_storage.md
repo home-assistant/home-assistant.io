@@ -71,14 +71,14 @@ Server:
 
 {% configuration_basic "hassio.network_share.usage" %}
 Backup:
-  description: This will become a target. You can use it when creating an automatic or manual backup. The first storage you add of this type becomes your new default target. If you want to change the default target, [check out the documentation below](#change-default-backup-location).
+  description: This will become a target. You can use it when creating an automatic or manual backup. The first storage you add of this type becomes your new default target. If you want to change the default target, [check out the documentation below](#change-default-local-backup-location).
 Media:
   description: A new directory with the name you gave your network storage will be created under `/media`. This directory can be accessed by Home Assistant and add-ons.
 Share:
   description: A new directory with the name you gave your network storage will be created under `/share`.  This directory can be accessed by Home Assistant and add-ons.
 {% endconfiguration_basic %}
 
-### Change default backup location
+### Change default local backup location
 
 By default, the first network storage of type **Backup** that you add is used as your local default backup location.
 
