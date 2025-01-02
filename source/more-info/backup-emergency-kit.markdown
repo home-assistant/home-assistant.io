@@ -19,24 +19,24 @@ Backups are encrypted (AES-128) and you need this information to decrypt the bac
 
 ## Generating a new encryption key
 
-The first time when you set up your backups, an encryption key is generated. But you can generate new ones. Old backups will still have the generated encryption key, but new backups will use the encryption key you defined yourself.
+When you set up your backups, an encryption key is generated. This key is applied to all backups. If you want, you can generate a new encryption key. This key will then be used on all new backups (backups that are created after this new key has been created). Too decrypt old backups, you will still need to use the previous encryption key.
 
 1. To generate a new encryption key, go to {% my backup title="**Settings** > **System** > **Backups**" %}.
 2. Select **Configure automatic backups** and under **Encryption key**, select **Change**.
-3. If you haven't downloaded the current encryption key yet, do it now.
+3. If you haven't downloaded the old encryption key yet, do it now.
 4. Select **Change encryption key**.
 5. Download the new encryption key and store it in a safe place.
 
 ## Checking and disabling backup location
 
-1. To generate a new encryption key, go to {% my backup title="**Settings** > **System** > **Backups**" %}.
+1. Go to {% my backup title="**Settings** > **System** > **Backups**" %}.
 2. Select **Configure automatic backups** and under **Locations**, you can see where your backups are currently stored.
 3. You can also enable or disable a backup location.
 
 ## Changing the local backup location
 
-1. To change the local backup location, go to {% my backup title="**Settings** > **System** > **Backups**" %}.
-2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select the backup location.
+1. To change the local default backup location, go to {% my backup title="**Settings** > **System** > **Backups**" %}.
+2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select the local backup location.
 
 ## I lost my backup encryption key - how can I retrieve it?
 
