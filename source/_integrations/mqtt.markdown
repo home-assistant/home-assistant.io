@@ -133,7 +133,7 @@ Note: This action does not remove the [MQTT broker](#setting-up-a-broker) or its
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
 The easiest option is to install the official Mosquitto Broker add-on. You can choose to set up and configure this add-on automatically when you set up the MQTT integration. Home Assistant will automatically generate and assign a safe username and password, and no further attention is required. This also works if you have already set up this add-on yourself in advance.
-You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/create-link/?redirect=supervisor_addon&addon=core_mosquitto).
+You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto).
 
 {% important %}
 When MQTT is set up with the official Mosquitto MQTT broker add-on, the broker's credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the add-on user options, like the additional logins. After re-installing the add-on, the MQTT integration will automatically update the new password for the re-installed broker. It will then reconnect automatically.
@@ -1350,6 +1350,12 @@ The following software has built-in support for MQTT discovery:
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
 - [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
+
+The following software also supports consuming MQTT discovery information that is intended for Home Assistant.
+Compatibility and features will vary, and not all devices may work.
+
+- [Domoticz](https://wiki.domoticz.com/MQTT#Add_hardware_.22MQTT_Auto_Discovery_Client_Gateway.22)
+- [openHAB](https://www.openhab.org/addons/bindings/mqtt.homeassistant/)
 
 ## Manual configured MQTT items
 

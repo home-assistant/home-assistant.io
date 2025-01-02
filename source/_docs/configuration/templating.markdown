@@ -1180,7 +1180,7 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 
 - Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
 - Test `string is search(find, ignorecase=False)` will match the find expression anywhere in the string using regex.
-- Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
+- Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex. Access to the matched groups in `replace` is possible with `'\\1'`, `'\\2'`, etc.
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.
 

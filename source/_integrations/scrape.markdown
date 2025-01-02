@@ -39,7 +39,7 @@ scrape:
   - resource: https://www.home-assistant.io
     sensor:
       - name: "Current version"
-        select: ".current-version h1"
+        select: ".release-date"
 ```
 
 {% configuration %}
@@ -178,8 +178,7 @@ scrape:
   - resource: https://www.home-assistant.io
     sensor:
       - name: Release
-        select: ".current-version h1"
-        value_template: '{{ value.split(":")[1] }}'
+        select: ".release-date"
 ```
 
 {% endraw %}

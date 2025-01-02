@@ -850,6 +850,128 @@ For a summary in a more readable format:
 - Update frontend to 20241127.6 ([@bramkragten] - [#132494])
 - Fix google tasks due date timezone handling ([@allenporter] - [#132498])
 
+## Release 2024.12.2 - December 10
+
+- Enable additional entities on myUplink model SMO20 ([@astrandb] - [#131688])
+- Bump pydrawise to 2024.12.0 ([@dknowles2] - [#132015])
+- Fix API change for AC not supporting floats in SwitchBot Cloud ([@SeraphicRav] - [#132231])
+- Update pyrisco to 0.6.5 ([@agmckaybro] - [#132493])
+- Fix PyTado dependency ([@erwindouna] - [#132510])
+- Bump pycups to 2.0.4 ([@bdraco] - [#132514])
+- Update debugpy to 1.8.8 ([@frenck] - [#132519])
+- bump total_connect_client to 2023.12 ([@austinmroczek] - [#132531])
+- Bump aiounifi to v81 to fix partitioned cookies on python 3.13 ([@Kane610] - [#132540])
+- Update twentemilieu to 2.2.0 ([@frenck] - [#132554])
+- Bump yalexs-ble to 2.5.2 ([@bdraco] - [#132560])
+- Bump plugwise to v1.6.1 ([@bouwew] - [#131950])
+- Bump plugwise to v1.6.2 and adapt ([@bouwew] - [#132608])
+- Fix config flow in Husqvarna Automower ([@Thomas55555] - [#132615])
+- Bump ZHA dependencies ([@puddly] - [#132630])
+- Bump plugwise to v1.6.3 ([@bouwew] - [#132673])
+- Bump yt-dlp to 2024.12.06 ([@joostlek] - [#132684])
+- Revert "Bump pyezviz to 0.2.2.3" ([@srescio] - [#132715])
+- Bump intents to 2024.12.9 ([@synesthesiam] - [#132726])
+- Update frontend to 20241127.7 ([@bramkragten] - [#132729])
+- Bump reolink-aio to 0.11.5 ([@starkillerOG] - [#132757])
+- Catch Hydrawise authorization errors in the correct place ([@dknowles2] - [#132727])
+- Pass an application identifier to the Hydrawise API ([@dknowles2] - [#132779])
+- Bump deebot-client to 9.3.0 ([@edenhaus] - [#132834])
+- Bump aioacaia to 0.1.11 ([@zweckj] - [#132838])
+
+[#131688]: https://github.com/home-assistant/core/pull/131688
+[#131950]: https://github.com/home-assistant/core/pull/131950
+[#132015]: https://github.com/home-assistant/core/pull/132015
+[#132195]: https://github.com/home-assistant/core/pull/132195
+[#132231]: https://github.com/home-assistant/core/pull/132231
+[#132493]: https://github.com/home-assistant/core/pull/132493
+[#132509]: https://github.com/home-assistant/core/pull/132509
+[#132510]: https://github.com/home-assistant/core/pull/132510
+[#132514]: https://github.com/home-assistant/core/pull/132514
+[#132519]: https://github.com/home-assistant/core/pull/132519
+[#132531]: https://github.com/home-assistant/core/pull/132531
+[#132540]: https://github.com/home-assistant/core/pull/132540
+[#132554]: https://github.com/home-assistant/core/pull/132554
+[#132560]: https://github.com/home-assistant/core/pull/132560
+[#132608]: https://github.com/home-assistant/core/pull/132608
+[#132615]: https://github.com/home-assistant/core/pull/132615
+[#132630]: https://github.com/home-assistant/core/pull/132630
+[#132673]: https://github.com/home-assistant/core/pull/132673
+[#132684]: https://github.com/home-assistant/core/pull/132684
+[#132715]: https://github.com/home-assistant/core/pull/132715
+[#132726]: https://github.com/home-assistant/core/pull/132726
+[#132727]: https://github.com/home-assistant/core/pull/132727
+[#132729]: https://github.com/home-assistant/core/pull/132729
+[#132757]: https://github.com/home-assistant/core/pull/132757
+[#132779]: https://github.com/home-assistant/core/pull/132779
+[#132834]: https://github.com/home-assistant/core/pull/132834
+[#132838]: https://github.com/home-assistant/core/pull/132838
+[@Kane610]: https://github.com/Kane610
+[@SeraphicRav]: https://github.com/SeraphicRav
+[@Thomas55555]: https://github.com/Thomas55555
+[@agmckaybro]: https://github.com/agmckaybro
+[@astrandb]: https://github.com/astrandb
+[@austinmroczek]: https://github.com/austinmroczek
+[@bdraco]: https://github.com/bdraco
+[@bouwew]: https://github.com/bouwew
+[@bramkragten]: https://github.com/bramkragten
+[@dknowles2]: https://github.com/dknowles2
+[@edenhaus]: https://github.com/edenhaus
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@puddly]: https://github.com/puddly
+[@srescio]: https://github.com/srescio
+[@starkillerOG]: https://github.com/starkillerOG
+[@synesthesiam]: https://github.com/synesthesiam
+[@zweckj]: https://github.com/zweckj
+
+## Release 2024.12.3 - December 13
+
+- Bump python-linkplay to v0.1.1 ([@silamon] - [#132091])
+- Bump pydaikin to 2.13.8 ([@weltall] - [#132759])
+- Fix pipeline conversation language ([@synesthesiam] - [#132896])
+- fix AndroidTV logging when disconnected ([@chemelli74] - [#132919])
+- Guard Vodafone Station updates against bad data ([@chemelli74] - [#132921])
+- Bump led-ble to 1.1.1 ([@bdraco] - [#132977])
+- Change warning to debug for VAD timeout ([@synesthesiam] - [#132987])
+- Fix LaMetric config flow for cloud import path ([@frenck] - [#133039])
+- Update frontend to 20241127.8 ([@bramkragten] - [#133066])
+- Bump pysuezV2 to 1.3.5 ([@jb101010-2] - [#133076])
+- Bugfix to use evohome's new hostname ([@zxdavb] - [#133085])
+- Bump py-aosmith to 1.0.12 ([@bdr99] - [#133100])
+- Bump deebot-client to 9.4.0 ([@edenhaus] - [#133114])
+- Bump aiowithings to 3.1.4 ([@joostlek] - [#133117])
+
+[#132091]: https://github.com/home-assistant/core/pull/132091
+[#132195]: https://github.com/home-assistant/core/pull/132195
+[#132509]: https://github.com/home-assistant/core/pull/132509
+[#132759]: https://github.com/home-assistant/core/pull/132759
+[#132846]: https://github.com/home-assistant/core/pull/132846
+[#132896]: https://github.com/home-assistant/core/pull/132896
+[#132919]: https://github.com/home-assistant/core/pull/132919
+[#132921]: https://github.com/home-assistant/core/pull/132921
+[#132977]: https://github.com/home-assistant/core/pull/132977
+[#132987]: https://github.com/home-assistant/core/pull/132987
+[#133039]: https://github.com/home-assistant/core/pull/133039
+[#133066]: https://github.com/home-assistant/core/pull/133066
+[#133076]: https://github.com/home-assistant/core/pull/133076
+[#133085]: https://github.com/home-assistant/core/pull/133085
+[#133100]: https://github.com/home-assistant/core/pull/133100
+[#133114]: https://github.com/home-assistant/core/pull/133114
+[#133117]: https://github.com/home-assistant/core/pull/133117
+[@bdr99]: https://github.com/bdr99
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@jb101010-2]: https://github.com/jb101010-2
+[@joostlek]: https://github.com/joostlek
+[@silamon]: https://github.com/silamon
+[@synesthesiam]: https://github.com/synesthesiam
+[@weltall]: https://github.com/weltall
+[@zxdavb]: https://github.com/zxdavb
+
 [#131876]: https://github.com/home-assistant/core/pull/131876
 [#132195]: https://github.com/home-assistant/core/pull/132195
 [#132299]: https://github.com/home-assistant/core/pull/132299
@@ -885,6 +1007,107 @@ For a summary in a more readable format:
 [@ludeeus]: https://github.com/ludeeus
 [@robinostlund]: https://github.com/robinostlund
 [@sdb9696]: https://github.com/sdb9696
+
+## Release 2024.12.4 - December 17
+
+- Simplify recorder RecorderRunsManager ([@emontnemery] - [#131785])
+- Fix fibaro climate hvac mode ([@rappenze] - [#132508])
+- Bump yt-dlp to 2024.12.13 ([@joostlek] - [#133129])
+- Fix strptime in python_script ([@gjohansson-ST] - [#133159])
+- Bump yalexs-ble to 2.5.4 ([@bdraco] - [#133172])
+- Bump starlink-grpc-core to 1.2.1 to fix missing ping ([@MrConorAE] - [#133183])
+- Bump aiolifx to 1.1.2 and add new HomeKit product prefixes ([@Djelibeybi] - [#133191])
+- Revert "Simplify recorder RecorderRunsManager" ([@emontnemery] - [#133201])
+- Revert "Improve recorder history queries (#131702)" ([@emontnemery] - [#133203])
+- Bump incomfort-client to v0.6.4 ([@jbouwh] - [#133205])
+- Bump yalexs-ble to 2.5.5 ([@bdraco] - [#133229])
+- Set code_arm_required to False for homekit_controller ([@bdraco] - [#133284])
+- Allow load_verify_locations with only cadata passed ([@mib1185] - [#133299])
+- Bump `imgw-pib` to version 1.0.7 ([@bieniu] - [#133364])
+- Fix fan setpoints for flexit_bacnet ([@lellky] - [#133388])
+- Bump holidays to 0.63 ([@gjohansson-ST] - [#133391])
+
+[#131785]: https://github.com/home-assistant/core/pull/131785
+[#132195]: https://github.com/home-assistant/core/pull/132195
+[#132508]: https://github.com/home-assistant/core/pull/132508
+[#132509]: https://github.com/home-assistant/core/pull/132509
+[#132846]: https://github.com/home-assistant/core/pull/132846
+[#133123]: https://github.com/home-assistant/core/pull/133123
+[#133129]: https://github.com/home-assistant/core/pull/133129
+[#133159]: https://github.com/home-assistant/core/pull/133159
+[#133172]: https://github.com/home-assistant/core/pull/133172
+[#133183]: https://github.com/home-assistant/core/pull/133183
+[#133191]: https://github.com/home-assistant/core/pull/133191
+[#133201]: https://github.com/home-assistant/core/pull/133201
+[#133203]: https://github.com/home-assistant/core/pull/133203
+[#133205]: https://github.com/home-assistant/core/pull/133205
+[#133229]: https://github.com/home-assistant/core/pull/133229
+[#133284]: https://github.com/home-assistant/core/pull/133284
+[#133299]: https://github.com/home-assistant/core/pull/133299
+[#133364]: https://github.com/home-assistant/core/pull/133364
+[#133388]: https://github.com/home-assistant/core/pull/133388
+[#133391]: https://github.com/home-assistant/core/pull/133391
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@MrConorAE]: https://github.com/MrConorAE
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@lellky]: https://github.com/lellky
+[@mib1185]: https://github.com/mib1185
+[@rappenze]: https://github.com/rappenze
+
+## Release 2024.12.5 - December 20
+
+- Bump `nice-go` to 1.0.0 ([@IceBotYT] - [#133185])
+- Add support for Nice G.O. HAE00080 wall station ([@IceBotYT] - [#133186])
+- Bugfix: also schedule time based integration when source is 0 ([@ronweikamp] - [#133438])
+- Ensure screenlogic retries if the protocol adapter is still booting ([@bdraco] - [#133444])
+- Bump Freebox to 1.2.1 ([@Quentame] - [#133455])
+- Bump pyOverkiz to 1.15.3 ([@iMicknl] - [#133458])
+- Don't raise Overkiz user flow unique_id check ([@iMicknl] - [#133471])
+- Update Roborock to 2.8.1 ([@Lash-L] - [#133492])
+- Update fjäråskupan to 2.3.1 ([@elupus] - [#133493])
+- Update fjäråskupan to 2.3.2 ([@elupus] - [#133499])
+- Bump gardena_bluetooth to 1.5.0 ([@elupus] - [#133502])
+- Bump aiohttp to 3.11.11 ([@bdraco] - [#133530])
+- Handle null value for elapsed time in Music Assistant ([@marcelveldt] - [#133597])
+- Fix Twinkly raise on progress ([@joostlek] - [#133601])
+- Handle mqtt.WebsocketConnectionError when connecting to the MQTT broker ([@bdraco] - [#133610])
+
+[#132195]: https://github.com/home-assistant/core/pull/132195
+[#132509]: https://github.com/home-assistant/core/pull/132509
+[#132846]: https://github.com/home-assistant/core/pull/132846
+[#133123]: https://github.com/home-assistant/core/pull/133123
+[#133185]: https://github.com/home-assistant/core/pull/133185
+[#133186]: https://github.com/home-assistant/core/pull/133186
+[#133422]: https://github.com/home-assistant/core/pull/133422
+[#133438]: https://github.com/home-assistant/core/pull/133438
+[#133444]: https://github.com/home-assistant/core/pull/133444
+[#133455]: https://github.com/home-assistant/core/pull/133455
+[#133458]: https://github.com/home-assistant/core/pull/133458
+[#133471]: https://github.com/home-assistant/core/pull/133471
+[#133492]: https://github.com/home-assistant/core/pull/133492
+[#133493]: https://github.com/home-assistant/core/pull/133493
+[#133499]: https://github.com/home-assistant/core/pull/133499
+[#133502]: https://github.com/home-assistant/core/pull/133502
+[#133530]: https://github.com/home-assistant/core/pull/133530
+[#133597]: https://github.com/home-assistant/core/pull/133597
+[#133601]: https://github.com/home-assistant/core/pull/133601
+[#133610]: https://github.com/home-assistant/core/pull/133610
+[@IceBotYT]: https://github.com/IceBotYT
+[@Lash-L]: https://github.com/Lash-L
+[@Quentame]: https://github.com/Quentame
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@iMicknl]: https://github.com/iMicknl
+[@joostlek]: https://github.com/joostlek
+[@marcelveldt]: https://github.com/marcelveldt
+[@ronweikamp]: https://github.com/ronweikamp
 
 [#113438]: https://github.com/home-assistant/core/pull/113438
 [#120357]: https://github.com/home-assistant/core/pull/120357

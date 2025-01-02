@@ -26,23 +26,25 @@ Your Transmission client must first be configured to allow remote access. In you
 
 {% include integrations/config_flow.md %}
 
-## Integration entities
+## Supported functionality
 
 The Transmission integration will add the following sensors and switches.
 
-**Sensors**:
-- `sensor.transmission_current_status`: The status of your Transmission daemon.
-- `sensor.transmission_download_speed`: The current download speed [MB/s].
-- `sensor.transmission_upload_speed`: The current upload speed [MB/s].
-- `sensor.transmission_active_torrents`: The current number of active torrents.
-- `sensor.transmission_paused_torrents`: The current number of paused torrents.
-- `sensor.transmission_total_torrents`: The total number of torrents present in the client.
-- `sensor.transmission_started_torrents`: The current number of started torrents (downloading).
-- `sensor.transmission_completed_torrents`: The current number of completed torrents (seeding).
+### Sensors
 
-**Switches**:
-- `switch.transmission_switch`: A switch to start/stop all torrents.
-- `switch.transmission_turtle_mode`: A switch to enable turtle mode (a.k.a. alternative speed limits).
+- The status of your Transmission daemon.
+- The current download speed [MB/s].
+- The current upload speed [MB/s].
+- The current number of active torrents.
+- The current number of paused torrents.
+- The total number of torrents present in the client.
+- The current number of started torrents (downloading).
+- The current number of completed torrents (seeding).
+
+### Switches
+
+- A switch to start/stop all torrents.
+- A switch to enable turtle mode (a.k.a. alternative speed limits).
 
 ## Event automation
 

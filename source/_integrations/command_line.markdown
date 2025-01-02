@@ -290,6 +290,10 @@ command_line:
           default: 30
 {% endconfiguration %}
 
+{% note %}
+For sensors, while `value_template` is optional, if you set `json_attributes` because the output is a JSON, it is suggested to provide a template in the `value_template` field to provide a state to the sensor or the state will always be `unknown`. See [example](#usage-of-json-attributes-in-command-output) below.
+{% endnote %}
+
 ## Troubleshooting
 
 As **Command line** {% term integration %} is a yaml only integration, turning on extended logging needs to be done by setting the logging information in your {% term "`configuration.yaml`" %} file.

@@ -109,6 +109,8 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 - *set a timer for 5 minutes*
 - *5 minute timer*
 - *set a 20 minute timer for pizza*
+- *set a timer for 1 hour and 3 minutes*
+  - Break it up into hours, minutes, and seconds instead of using a technical term like *set a timer for 63 minutes*. 
 
 ### Cancelling
 
