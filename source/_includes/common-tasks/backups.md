@@ -1,8 +1,8 @@
 ## Backups
 
-Backup of your Home Assistant, add-on data, and configuration. Backups are used to [restore](#restoring-a-backup) a system or parts of it if a rollback is needed or to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating.
+It is important to regularly back up your Home Assistant setup. You may have spent many hours configuring your system and creating automations. Keep your configurations safe so that you can [restore](#restoring-a-backup) a system or parts of it if a rollback is needed or to migrate your Home Assistant to new hardware.
 
-Backups are made from the backups panel under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. There is also an [action](/integrations/hassio/#action-hassiobackup_full) available that allows you to trigger the creation of a backup from an automation. Backups are stored in a compressed archive file (.tar) and by default, stored locally in the `/backup` directory. 
+Backups are stored in a compressed archive file (.tar) and by default, stored locally in the `/backup` directory.
 
 A full backup includes the following directories:
 
@@ -16,16 +16,43 @@ A partial backup consists of any number of the above default directories and ins
 
 ### Preparing for a backup
 
-1. Before creating a backup, check if you can reduce the size of the backup.
-   - Check if your configuration directory contains a large database file. Go to **{% my system_health title="Settings > System > Repairs" %}**. From the three dot menu, select **System information** and under the **Recorder** section, look for the **Estimated Database Size (MiB)**.
+Before creating a backup, check if you can reduce the size of the backup. This is especially important if you want to use the backup to migrate the system to new hardware, for example from a Raspberry Pi Compute Module&nbsp;4 to a Raspberry Pi Compute Module&nbsp;5.
+
+1. Check if your configuration directory contains a large database file:
+   - Go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
+   - From the three dot menu, select **System information** and under the **Recorder** section, look for the **Estimated Database Size (MiB)**.
    - By default, the data is kept for 10 days. If you have modified that to a longer period, check the [`recorder`](/integrations/recorder/) integration page for options to keep your database data down to a size that won't cause issues.
    - Note the keep days, purge interval, and include/exclude options.
+2. To check how much space you've used in total, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}. 
+   - From the three dot menu, select **System information**, and check under **Home Assistant Supervisor** > **Disk used**.
    - If you have add-ons installed that you no longer use, uninstall those add-ons. Some add-ons require quite a bit of space.
-2. Old backups are not included in the backup. However, while you are here, you could delete all old and unneeded backups.
+
+### Setting up an automatic backup process
+
+The automatic backup process allows you to have the system regularly create a backup while also to deleting old, redundant backups.
+
+1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}.
+2. Under **Automatic backups**, select **Configure automatic backups**.
+3. Enable automatic backup.
+4. Define the backup schedule.
+5. Define how many backups you want to keep.
+   - Older backups will be automatically deleted.
+   - For example: if you back up daily, and select 3 backups, then the backup from 4 days ago and older will be deleted.
+6. [Define the location for automatic backups](#defining-the-location-for-automatic-backups).
+
+### Defining the location for automatic backups
+
+You might need a backup in case your system has crashed. If you only store backups on the device itself, you won't be able to access them easily. It is recommended to keep a copy on another system and ideally also one off-site. If you have Home Assistant Cloud, you can store up to 5&nbsp;GB of backups on Home Assistant Cloud. This storage space is added to all existing and new Home Assistant Cloud subscribers without any additional costs.
+
+1. To define the backup location, go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and under **Automatic backups**, select **Configure automatic backups**.
+2. Under **Locations**, enable the backup locations.
+   - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
+   - If you don't see a network storage, you haven't added one. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
+   ![Define the backup locations](/images/screenshots/network-storage/backup_locations_all.png)
 
 ### Making a backup from the UI
 
-1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} in the UI.
+1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}
 2. Select the **Create backup** button in the lower right.
 3. Provide a name for the backup.
 4. Choose **Full backup** or **Partial backup**.
