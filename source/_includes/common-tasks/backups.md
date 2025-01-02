@@ -182,10 +182,11 @@ You can use a backup during the onboarding process to restore your configuration
 
 1. Go to **{% my backup title="Settings > System > Backups" %}**.
 2. From the list of backups, select the backup from which you want to restore.
-3. If you want to restore the complete configuration with all directories and add-ons, select **Full backup**.
-4. If you only want to restore specific elements, select **Partial backup**.
-   - From the list, select the installation, folders, and add-ons you want to restore.
-5. Select **Restore**.
-   - This may take a while, depending on how much you have to compress or decompress.
-6. Once the restore is complete, Home Assistant restarts to apply the new settings.
+3. Select what to restore:
+   - Your current system will be overwritten with the parts that you choose to restore.
+   - If you want to restore the complete configuration with all directories and add-ons, select everything.
+   - If you only want to restore specific elements, only select the folders and add-ons you want to restore.
+4. Select **Restore**.
+   - This may take a while, depending on how much there is to compress or decompress.
+5. Once the restore is complete, Home Assistant restarts to apply the new settings.
    - You will lose the connection to the UI and it will return once the restart is completed.
