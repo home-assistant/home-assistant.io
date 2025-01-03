@@ -564,12 +564,12 @@ Nice! Thanks, [@silamon]!
 
 ## Media player volume feature for Tile card
 
-A super nice addition from [@simon-zumbrunnen]! The Tile card now supports a
-media player volume slider feature. This feature allows you to control the
-volume of a media player directly from the Tile card. Nice work Simon!
+This is a super nice addition from [@simon-zumbrunnen]! The Tile card now
+supports a media player volume slider feature. This feature allows you to
+control the volume of a media player directly from the Tile card. 🔉
+Nice work Simon!
 
-<img class="no-shadow" alt="The tile card with a media player entity, having the volume feature slider enabled" src="/images/dashboards/features/media_player_volume_slider.png
-"/>
+<img class="no-shadow" alt="The tile card with a media player entity, having the volume feature slider enabled" src="/images/blog/2025-01/tile-card-feature-volume-slider.png" />
 
 [@simon-zumbrunnen]: https://github.com/simon-zumbrunnen
 
