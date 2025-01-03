@@ -66,6 +66,9 @@ Some SwitchBot devices need to be configured within the app before being control
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
+- [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
+- [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
+- [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 
 ## SwitchBot Entity
 
@@ -78,11 +81,11 @@ There are three attributes available on the SwitchBot entity to give you more in
 
 - `Retry count`: How many times to retry sending commands to your SwitchBot devices.
 
-## SwitchBot Lock / SwitchBot Lock Pro
+## SwitchBot Lock / SwitchBot Lock Pro / Relay Switch 1 / Relay Switch 1PM
 
 The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
 
-A SwitchBot lock can be set up in Home Assistant in two different ways. You can enter the key id and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
+A SwitchBot lock and relay switch can be set up in Home Assistant in two different ways. You can enter the key id and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
 
 ### SwitchBot account (recommended)
 

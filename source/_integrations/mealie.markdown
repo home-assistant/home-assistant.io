@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Mealie integration will fetch data from your [Mealie instance](https://mealie.io/).
+[Mealie](https://mealie.io/) is an open source, self-hosted recipe manager, meal planner, and shopping list. The Mealie {% term integration %} will fetch and allow you to create and update data held in your Mealie instance.
 
 ## Prerequisites
 

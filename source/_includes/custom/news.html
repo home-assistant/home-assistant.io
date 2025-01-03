@@ -73,29 +73,6 @@
 <div class="grid__item one-third lap-one-half palm-one-whole">
 
   <!-- All landing pages have a block. -->
-   <a
-    href="https://www.youtube.com/watch?v=ZgoaoTpIhm8&ab_channel=HomeAssistant"
-    class="material-card picture-promo"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Don't miss our Voice: Chapter 8 live stream on YouTube"
-    style="
-      background-image: url(/images/frontpage/feature-voice-c8.jpg);
-      background-size: cover;
-      padding-top: 55%;
-    "
-  >
-    <div class="caption">
-      <div>
-        <div class="title">
-          Product launch incoming
-        </div>
-        <div class="subtitle">
-          Join our Voice Chapter 8 live stream and see our new hardware ushering in the era of open voice.
-        </div>
-      </div>
-    </div>
-  </a>
   {% assign pages_by_date = site.pages | sort: "date" | reverse %} {% for
     page in pages_by_date %} {% if page.layout == "landingpage" and
     page.frontpage != false %}

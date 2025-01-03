@@ -1,5 +1,5 @@
 ---
-title: Reolink IP NVR/camera
+title: Reolink
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
 ha_category:
   - Camera
@@ -26,6 +26,7 @@ ha_platforms:
   - update
 ha_integration_type: integration
 ha_dhcp: true
+ha_quality_scale: platinum
 related:
   - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
     title: Controlling the camera from the dashboard
@@ -496,7 +497,7 @@ You can receive rich notifications on your phone when someone rings a Reolink do
 
 - Turn on (outdoor) lights near the camera to improve image clarity at night once the camera detects a person, vehicle, or animal.
 - Turn off notifications and recording when you get home (based on, e.g., geofencing) and turn it back on when you leave home.
-When someone presses the doorbell, Play ringtones on speakers (Echo Dot/Google Home/smart hubs) throughout the house.
+- When someone presses the doorbell, play ringtones on speakers (Echo Dot/Google Home/smart hubs) throughout the house.
 - Pause a TV and show a notification badge on the TV when the doorbell is pressed (only when the TV is already on).
 - Play the quick replay messages of a Reolink doorbell only when not home (geofencing)
 - Wake up and start recording on other battery cameras nearby if one camera/motion sensor detects an event.

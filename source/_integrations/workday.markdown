@@ -26,7 +26,7 @@ This can be used to make daily automations that act differently on workdays than
 
 ## Setup
 
-Check the [country list](https://github.com/dr-prodigy/python-holidays#available-countries) for available provinces (and other subdivisions, like states and territories) for each country.
+Check the [country list](https://github.com/vacanza/holidays#available-countries) for available provinces (and other subdivisions, like states and territories) for each country.
 
 {% include integrations/config_flow.md %}
 

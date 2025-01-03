@@ -213,8 +213,6 @@ CT measure multiple properties of the energy exchange which are available as Env
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status storage CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active storage CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non zero.
 
-For storage CT energy entities refer to [battery sensor](#aggregated-iq-battery-sensor-entities) description.
-
 ### Grid sensor entities
 
 When the Envoy Metered is equipped with a [net-consumption CT](#current-transformers), entities for Grid import and export are available.
@@ -239,6 +237,7 @@ When used with [multi-phase CT phase data](#ct-aggregate-and-phase-data), disabl
 
 Enphase battery systems of multiple generations and configurations can provide integration entity data.
 
+- **AC-Batteries**: first generation battery setup, out of production.
 - **IQ Batteries**: current Enphase battery models.
 
 The batteries can be implemented in stand-alone configuration or as part of Enphase Ensemble systems with the Enpower/IQ System Controller.  
