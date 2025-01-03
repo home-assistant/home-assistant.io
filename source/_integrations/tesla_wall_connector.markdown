@@ -47,5 +47,11 @@ These are the entities available in the Tesla Wall Connector integration.
 | Sensor        | Status code        | No      |
 
 ## Energy dashboard
+ 
+Energy usage can be easily added to the built-in [Energy dashboard](/docs/energy/) using the Energy sensor.
 
-Energy usage can be easily added to the built-in Energy dashboard using the Energy sensor.
+To add the Tesla Wall Connector to your Energy dashboard:
+1. Navigate to **Settings** > **Dashboards** > **Energy**
+2. In the "Electricity grid" section, click **Add consumption**
+3. Select the Tesla Wall Connector's "Energy" sensor
+4. Click **Save**
