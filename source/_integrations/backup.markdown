@@ -61,4 +61,4 @@ automation:
 
 ## Restoring a backup
 
-To restore a backup, follow the steps described in [Restoring a backup](/common-tasks/os/#restoring-a-backup).
+To restore a backup, follow the steps described in [Restoring a backup](/common-tasks/general/#restoring-a-backup).
