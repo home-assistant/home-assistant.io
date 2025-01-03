@@ -39,7 +39,7 @@ The automatic backup process creates a backup on a predefined schedule and also 
 5. Define how many backups you want to keep.
    - Older backups will be automatically deleted.
    - For example: if you back up daily, and select 7 backups, then the backup from 8 days ago and older will be deleted.
-6. Define the data you want to backup.
+6. Define the data you want to back up.
    - It is recommended to disable media and the share folder to reduce the size of the backup.
    - A large backup also takes longer to restore.
    - Some add-ons may also be quite large.
@@ -70,7 +70,7 @@ This creates a backup instantly. You can create a manual backup at any time, irr
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}
 2. In the lower-right corner, select **Backup now** and select **Manual backup**.
-3. Define the data you want to backup.
+3. Define the data you want to back up.
    - It is recommended to disable media and the share folder to reduce the size of the backup.
    - A large backup also takes longer to restore.
    - Some add-ons may also be quite large.
@@ -176,9 +176,9 @@ You can use a backup during the onboarding process to restore your configuration
    - If your previous installation had certificates enabled directly for the [`http` integration](/integrations/http), when the restore is complete, it will no longer respond to `http://` requests. In this case, use `https://` (added `s`) instead.
 6. On the login screen, enter the credentials of the system from which you took the backup.
    - Your dashboard should show all the elements as they were when you created the backup.
-   - If some devices are shown as unavailable, you may need to wake the battery powered devices.
+   - If some devices are shown as unavailable, you may need to wake the battery-powered devices.
 7. If you had [network storage](/common-tasks/os/#network-storage) connected on the previous system, you may need to reconnect those.
-8. If you had Zigbee devices, and you migrated to a new device with its own Zigbee radio built-in: 
+8. If you had Zigbee devices, and you migrated to a new device with its own Zigbee radio built-in:
    - Because this is now a different Zigbee radio, you need to [migrate Zigbee](/integrations/zha/#migrating-to-a-new-zigbee-coordinator-adapter-inside-zha).
 
 #### To restore a backup on your current system
