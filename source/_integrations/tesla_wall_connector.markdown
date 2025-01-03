@@ -21,3 +21,31 @@ ha_integration_type: integration
 The Tesla Wall Connector integration allows you to integrate your Gen 3 [Tesla Wall Connector](https://www.tesla.com/support/home-charging-installation/wall-connector) with Wi-Fi into Home Assistant.
 
 {% include integrations/config_flow.md %}
+
+## Entities
+
+These are the entities available in the Tesla Wall Connector integration.
+
+| Domain        | Name               | Enabled |
+| ------------- | ------------------ | ------- |
+| Sensor        | Energy             | Yes     |
+| Sensor        | Session energy     | Yes     |
+| Sensor        | Status             | Yes     |
+| Binary sensor | Contactor closed   | Yes     |
+| Sensor        | Grid frequency     | Yes     |
+| Sensor        | Grid voltage       | Yes     |
+| Sensor        | Handle temperature | Yes     |
+| Sensor        | MCU temperature    | Yes     |
+| Sensor        | PCB temperature    | Yes     |
+| Sensor        | Phase A current    | Yes     |
+| Sensor        | Phase A voltage    | Yes     |
+| Sensor        | Phase B current    | Yes     |
+| Sensor        | Phase B voltage    | Yes     |
+| Sensor        | Phase C current    | Yes     |
+| Sensor        | Phase C voltage    | Yes     |
+| Binary sensor | Vehicle connected  | Yes     |
+| Sensor        | Status code        | No      |
+
+## Energy dashboard
+
+Energy usage can be easily added to the built-in Energy dashboard using the Energy sensor.
