@@ -30,7 +30,7 @@ Before creating a backup, check if you can reduce the size of the backup. This i
 
 ### Setting up an automatic backup process
 
-The automatic backup process creates a backup on a predefined schedule and also deletes old, redundant backups. It is recommended to create a backup daily.
+The automatic backup process creates a backup on a predefined schedule and also deletes old, redundant backups.
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}.
 2. Under **Automatic backups**, select **Configure automatic backups**.
@@ -38,13 +38,14 @@ The automatic backup process creates a backup on a predefined schedule and also 
 4. Define the backup schedule. It is recommended to back up daily.
 5. Define how many backups you want to keep.
    - Older backups will be automatically deleted.
-   - For example: if you back up daily, and select 3 backups, then the backup from 4 days ago and older will be deleted.
+   - For example: if you back up daily, and select 7 backups, then the backup from 8 days ago and older will be deleted.
 6. Define the data you want to backup.
    - It is recommended to disable media and the share folder to reduce the size of the backup.
    - A large backup also takes longer to restore.
    - Some add-ons may also be quite large.
 7. [Define the location for backups](#defining-backup-locations).
-8. Backups that are stored on Home Assistant Cloud are always encrypted. To be able to restore encrypted backups, download the emergency kit and store it somewhere safe.
+8. To be able to restore encrypted backups, download the emergency kit and store it somewhere safe.
+   - Backups that are stored on Home Assistant Cloud are always encrypted.
    - To learn more, refer to the documentation on the [backup emergency kit](/more-info/backup-emergency-kit/).
 
 ### Defining backup locations
@@ -148,7 +149,7 @@ You can use a backup during the onboarding process to restore your configuration
 - If your backup is encrypted: the [backup emergency kit](/more-info/backup-emergency-kit/) that contains the key needed to decrypt the backup.
 - **Required storage capacity**: If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
    - Before migrating, on the old system, check how much storage you used.
-     - Go to **{% my system_health title="Settings > System > Repairs -> ... -> System Information" %}**, and under **Home Assistant Supervisor**, look at the **Disk used** value.
+     - Go to **{% my system_health title="Settings > System > Repairs > ... > System Information" %}**, and under **Home Assistant Supervisor**, look at the **Disk used** value.
      - The target device must have more free space than the source device.
         - If your target device is a Home Assistant Yellow, note that it is the size of the eMMC that is relevant.
         - The restore process mainly uses the eMMC, not the NVMe.
@@ -165,17 +166,19 @@ You can use a backup during the onboarding process to restore your configuration
    - Then, select **Upload backup**.
    - The file explorer opens on the device on which you are viewing the Home Assistant User interface.
    - You can access any connected network drive from there.
-3. Select the backup file, then, in the dialog, select **Full backup** or in case of a partial backup, select what you want to restore.
-   - If the backup is encrypted, under **Backup password**, enter the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
-   - To start the process, select **Restore**.
+3. Select the backup file, then, in the dialog, select all parts you want to restore.
+   - Your current system will be overwritten with the parts that you choose to restore.
+   - If you want to restore the complete configuration with all directories and add-ons, select everything.
+4. If the backup is encrypted, under **Backup password**, enter the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
+5. To start the process, select **Restore**.
    - The restore may take a while, depending on the amount of data.
    - To see if the restore is complete, reload the page from time to time.
    - If your previous installation had certificates enabled directly for the [`http` integration](/integrations/http), when the restore is complete, it will no longer respond to `http://` requests. In this case, use `https://` (added `s`) instead.
-4. On the login screen, enter the credentials of the system from which you took the backup.
+6. On the login screen, enter the credentials of the system from which you took the backup.
    - Your dashboard should show all the elements as they were when you created the backup.
    - If some devices are shown as unavailable, you may need to wake the battery powered devices.
-5. If you had [network storage](/common-tasks/os/#network-storage) connected on the previous system, you may need to reconnect those.
-6. If you had Zigbee devices, and you migrated to a new device with its own Zigbee radio built-in: 
+7. If you had [network storage](/common-tasks/os/#network-storage) connected on the previous system, you may need to reconnect those.
+8. If you had Zigbee devices, and you migrated to a new device with its own Zigbee radio built-in: 
    - Because this is now a different Zigbee radio, you need to [migrate Zigbee](/integrations/zha/#migrating-to-a-new-zigbee-coordinator-adapter-inside-zha).
 
 #### To restore a backup on your current system
