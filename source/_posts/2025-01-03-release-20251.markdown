@@ -399,7 +399,7 @@ changes to existing integrations:
 - Add binary states for Weheat indoor unit ([@barryvdh] - [#133811]) ([weheat docs]) (new-platform)
 - Add get_user_keyring_info service to UniFi Protect integration ([@RaHehl] - [#133138]) ([unifiprotect docs])
 - Add media browsing to Cambridge Audio ([@noahhusby] - [#129106]) ([cambridge_audio docs])
-- Add pan/tilt features to tplink integration ([@sdb9696] - [#133829]) ([tplink docs])
+- Add camera platform to tplink integration ([@sdb9696] - [#129180]) ([tplink docs])
 - Add Switchbot Water Leak Detector (BLE) ([@luc-ass] - [#133799]) ([switchbot docs])
 - Add actions with response values to Music Assistant ([@marcelveldt] - [#133521]) ([music_assistant docs])
 
