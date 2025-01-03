@@ -12,7 +12,7 @@ og_image: /images/blog/2025-01-backups/art.jpg
 
 <img src='/images/blog/2025-01-backups/art.jpg' alt="3 2 1 backup">
 
-As we start the New Year, we'd like to encourage all of our users to make a resolution to regularly back up their important data. The great thing about this resolution is that it only takes about 5 minutes, thanks to the new automated and off-site backup features in [the latest release of Home Assistant](/blog/2025/01/03/release-20251/).
+As we start the New Year, we'd like to encourage you to make a resolution to regularly back up your important data. The great thing about this resolution is that it only takes about 5 minutes, thanks to the new automated and off-site backup features in [the latest release of Home Assistant](/blog/2025/01/03/release-20251/).
 
 It's easy to put off setting up backups, but for something as important as your home, downtime shouldn't be an option. Home Assistant can control some pretty important things around the home, from heating to an automatic fish feeder. When a smart home is down or acting up, it can be stressful and inconvenient. It can leave you scrambling to find a recent backup, or even worse, needing to rebuild your setup from scratch. All this while your home isn't working the way you or your household expects.
 
@@ -55,10 +55,6 @@ New Home Assistant features like this supercharged backup capability is only pos
 Backups contain all Home Assistant data, including all the keys to every integrated device in your smart home and the history of how you live your life. This data is very important to keep secure. With automatic backups and the 3-2-1 approach we are promoting to users to store their backups off-site. This is why all automatic backups are fully encrypted.
 
 When a user configures automatic backups, they will be presented with the encryption key and the option to download an emergency kit. The emergency kit contains all the important information, including a link to [the instructions on how to use it to restore a backup](/more-info/backup-emergency-kit). If you were to ever delete your emergency kit, it is available to re-download in the [backup configuration page](https://my.home-assistant.io/redirect/backup/).
-
-{% note %}
-Users can still make a manual backup without encryption by calling the backup action from an automation. Also, add-ons which use the backup action will continue to work.
-{% endnote %}
 
 #### Apply 3-2-1 to your backups
 
