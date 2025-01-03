@@ -130,7 +130,7 @@ To delete old backups, follow these steps:
 There are two ways to use a backup:
 
 - On your current system to recover your settings.
-- During onboarding, to migrate your setup to a new device or a to device on which you performed a factory reset.
+- During onboarding, to migrate your setup to a new device or to device on which you performed a factory reset.
 
 #### Estimated duration
 
@@ -175,7 +175,7 @@ You can use a backup during the onboarding process to restore your configuration
    - To see if the restore is complete, reload the page from time to time.
    - If your previous installation had certificates enabled directly for the [`http` integration](/integrations/http), when the restore is complete, it will no longer respond to `http://` requests. In this case, use `https://` (added `s`) instead.
 6. On the login screen, enter the credentials of the system from which you took the backup.
-   - The login password and user name must match the ones you used at the time the backup was taken.
+   - The login password and username must match the ones you used at the time the backup was taken.
    - Your dashboard should show all the elements as they were when you created the backup.
    - If some devices are shown as unavailable, you may need to wake the battery-powered devices.
 7. If you had [network storage](/common-tasks/os/#network-storage) connected on the previous system, you may need to reconnect those.
@@ -194,4 +194,4 @@ You can use a backup during the onboarding process to restore your configuration
    - This may take a while, depending on how much there is to compress or decompress.
 5. Once the restore is complete, Home Assistant restarts to apply the new settings.
    - You will lose the connection to the UI and it will return once the restart is completed.
-6. On the login screen, enter the password and user name as they were at the time the backup was taken.
+6. On the login screen, enter the password and username as they were at the time the backup was taken.
