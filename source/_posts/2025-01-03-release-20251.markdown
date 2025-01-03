@@ -744,6 +744,7 @@ new features available for your integration: Be sure to follow our
 - [Moving to Pydantic v2](https://developers.home-assistant.io/blog/2024/12/21/moving-to-pydantic-v2)
 - [New vacuum state property](https://developers.home-assistant.io/blog/2024/12/08/new-vacuum-state-property)
 - [Use Kelvin as the preferred color temperature unit](https://developers.home-assistant.io/blog/2024/12/14/kelvin-preferred-color-temperature-unit)
+- [New area device class](https://developers.home-assistant.io/blog/2024/12/26/area-squared-units/)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
