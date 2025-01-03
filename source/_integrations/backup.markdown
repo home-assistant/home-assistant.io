@@ -15,6 +15,8 @@ related:
     title: Backups
   - docs: /getting-started/onboarding/
     title: Recover from backup during onboarding
+  - docs: /more-info/backup-emergency-kit/
+    title: backup emergency kit
 ---
 
 The **Backup** {% term integration %} is used by all [installation types](/installation/#advanced-installation-methods) to create and restore backups.
