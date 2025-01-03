@@ -112,8 +112,7 @@ Enjoy the release!
 
 Let’s talk about backups. Let’s be honest: they’re one of the most important yet
 often overlooked tasks. But when disaster strikes, like a hardware failure,
-having a reliable backup can save the day. You would love to have your home back
-up and running quickly after such an event, right?
+having a reliable backup can save the day. Wouldn't you love to be back up and running after disaster strikes?
 
 While Home Assistant's previous backup system has proven to be solid
 and reliable over the years, it didn't exactly make following best
@@ -125,7 +124,7 @@ or blueprints for backups to fill the gaps.
 
 We've completely reworked the Home Assistant backup experience to help you set
 up a solid backup strategy, using best practices in just a few clicks;
-giving you a peace of mind when it comes to your backups.
+giving you peace of mind when it comes to your backups.
 
 No worries, if you are using any custom solution for backups, they will continue
 to work today. Even with everything new, we've made sure to keep everything
@@ -148,9 +147,7 @@ greeted with a new overview page that shows you exactly when your last backup
 took place and when the next one is scheduled. Instant peace of mind!
 
 Automated backups are taking place at 4:45 AM. So, while everyone in your home
-is sleeping, Home Assistant makes sure your data is safe and sound. At this
-time, Home Assistant also finished internal database maintenance, ensuring your
-backup is as compact as possible.
+is sleeping, Home Assistant makes sure your data is safe and sound. Backing up at this early hour also means Home Assistant is done with its internal database maintenance, ensuring your backup is as compact as possible.
 
 If something ever goes wrong during the automated scheduled backup process,
 Home Assistant will notify you through the repair center, ensuring you are
@@ -168,8 +165,7 @@ configuration as your scheduled automated backups.
 
 <img class="no-shadow" alt="Screenshot showing the backup now button + dialog that allows you to trigger an off-schedule backup at any time" src="/images/blog/2025-01/backups-backup-now.png" />
 
-The ability to trigger an off-schedule automated backup is excellent, as it
-covers everything you have in a single go. However, the ability to create manual
+The ability to trigger an on-demand automated backup is excellent, as it covers all your backup settings in a single click. However, the ability to create manual
 backups also still exists. This allows you to create a very specific backup with
 the exact contents you want to have in it.
 
@@ -185,15 +181,15 @@ encrypted off-site protection for your data! 🎁**
 <img class="no-shadow" alt="Home Assistant Cloud is now a backup target location, that is included with the Home Assistant Cloud subscription at no additional costs" src="/images/blog/2025-01/backups-home-assistant-cloud.png" />
 
 The backup can be downloaded from Home Assistant itself, but also from the
-Home Assistant Cloud account page @ Nabu Casa in case you need it. This way,
-you can always access your latest backup, even in case you Home Assistant
-hardware failed completely.
+[Home Assistant Cloud account page](https://account.nabucasa.com/) @ Nabu Casa in case you need it. This way,
+you can always access your latest backup, even in case your Home Assistant
+hardware completely fails.
 
 [Home Assistant Cloud by Nabu Casa]: https://www.nabucasa.com/
 
 ### Backup locations are extendable by design 🧩
 
-So, automated backup can be backed up to your local disk to Home Assistant
+So, automated backup can be stored on your local disk and Home Assistant
 Cloud, but what if you want to store your backups somewhere else?
 
 Choice is an important aspect of Home Assistant; we want to make everything as
@@ -206,8 +202,7 @@ Google Drive, Backblaze B2, or other storage providers—in the future.
 <img class="no-shadow" alt="Screenshot showing an potential example storage provider provided by an integration" src="/images/blog/2025-01/backups-integration-location.png" />
 
 Currently, this feature is brand new ✨, so **no** integrations offer additional
-location yet. But we are sure we see a few more integrations providing
-backup locations in the next release.
+locations yet. However, we expect to see a few more integrations that provide backup locations in the next release.
 
 This extensibility ensures you can store your backups where you want them,
 giving you the flexibility and choice to choose the storage solution you
@@ -217,15 +212,9 @@ prefer and trust.
 
 With the addition of Home Assistant Cloud as an off-site backup location, and
 the potential for integrations to offer even more (off-site) backup locations,
-security has become more important than ever. No one should be able to access
-the contents of your backups! **Ever!**
+security has become more important than ever. Your backups not only contain the access credentials to your smart home devices but also the history of your home, and no one should be able to access information that sensitive! **Ever!**
 
-That is why all backups are now encrypted by default. We have prioritized your
-backups' security and replaced the previous optional password with a mandatory
-encryption key.
-
-This key is required to restore your ([AES-128] encrypted) backups, and it is
-essential to keep it safe and ensure your privacy is protected.
+That is why all backups are now AES-128  encrypted by default. To prioritize your backups’ security we replaced the previous optional password with a mandatory encryption key.
 
 <img class="no-shadow" alt="The new backup overview page shows you exactly when your last backup took place" src="/images/blog/2025-01/backups-encryption.png" />
 
@@ -265,7 +254,7 @@ want to keep, and Home Assistant will handle the rest.
 <img class="no-shadow" alt="You can now configure a retention policy for your backups, allowing Home Assistant to clean it up automatically" src="/images/blog/2025-01/backups-retention.png" />
 
 This cleanup will happen automatically after each backup. If you create a backup
-manually, for whatever reason, those will remain untouched, giving you full
+manually for whatever reason, those will remain untouched, giving you full
 control over special cases and workflows.
 
 ### Setting up backups for the first time 🚀
@@ -284,7 +273,7 @@ will immediately kick off your first backup!
 
 All set! One less thing to worry about 🎉
 
-### Time to get serious about backups 🫵
+### 3…2…1… Backups 🎊
 
 We are super excited about this new backup system! As we enter the new year,
 we encourage you to get serious about your backups.
@@ -575,12 +564,12 @@ Nice! Thanks, [@silamon]!
 
 ## Media player volume feature for Tile card
 
-This is a super nice addition from [@simon-zumbrunnen]! The Tile card now
-supports a media player volume slider feature. This feature allows you to
-control the volume of a media player directly from the Tile card. 🔉
-Nice work Simon!
+A super nice addition from [@simon-zumbrunnen]! The Tile card now supports a
+media player volume slider feature. This feature allows you to control the
+volume of a media player directly from the Tile card. Nice work Simon!
 
-<img class="no-shadow" alt="The tile card with a media player entity, having the volume feature slider enabled" src="/images/blog/2025-01/tile-card-feature-volume-slider.png" />
+<img class="no-shadow" alt="The tile card with a media player entity, having the volume feature slider enabled" src="/images/dashboards/features/media_player_volume_slider.png
+"/>
 
 [@simon-zumbrunnen]: https://github.com/simon-zumbrunnen
 
@@ -755,7 +744,6 @@ new features available for your integration: Be sure to follow our
 - [Moving to Pydantic v2](https://developers.home-assistant.io/blog/2024/12/21/moving-to-pydantic-v2)
 - [New vacuum state property](https://developers.home-assistant.io/blog/2024/12/08/new-vacuum-state-property)
 - [Use Kelvin as the preferred color temperature unit](https://developers.home-assistant.io/blog/2024/12/14/kelvin-preferred-color-temperature-unit)
-- [New area device class](https://developers.home-assistant.io/blog/2024/12/26/area-squared-units/)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
