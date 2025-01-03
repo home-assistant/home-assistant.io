@@ -47,20 +47,15 @@ the database.
 
 ### Deleting obsolete backups
 
-Previous backups are not included when you create a new one. But they do take up space. To delete old backups, follow these steps:
+Previous backups are not included when you create a new one. But they do take up space.
 
-1. Go to {% my backup title="**Settings** > **System** > **Backups**" %}.
-2. From the list of backups, select all the ones you want to delete, then select **Delete selected backups**.
-   - This clears up space in Home Assistant.
+1. To delete old backups, follow the steps on [deleting obsolete backups](/common-tasks/os/#deleting-obsolete-backups).
+2. Ideally, backups don't pile up on the system to begin with.
+   - To define how long automatic backups should be kept on the system, follow the steps on [setting up an automatic backup process](/common-tasks/os/#setting-up-an-automatic-backup-process).
 
 ### Storing backups outside of Home Assistant
 
-Storing backups outside of Home Assistant makes sure they don't use space on Home Assistant to begin with. It also makes sure you can [restore Home Assistant from backup](/common-tasks/os/#restoring-a-backup) in case you have an issue with your current installation.
-
-1. Go to {% my backup title="**Settings** > **System** > **Backups**" %}, and from the list of backups, select the backup you want to keep.
-2. In the dialog, select the checkbox for each component, in the three-dots menu, select **Download backup**.
-3. Store the backup somewhere safe.
-   - For example, [add network storage](/common-tasks/os/#network-storage), and then [change your default backup location](/common-tasks/os/#change-default-backup-location).
+Storing backups outside of Home Assistant makes sure they don't use space on Home Assistant to begin with. It also makes sure you can [restore Home Assistant from backup](/common-tasks/os/#restoring-a-backup) in case you have an issue with your current installation. Follow the steps on [defining backup locations](/common-tasks/os/#defining-backup-locations).
 
 ## Uninstalling unused add-ons
 

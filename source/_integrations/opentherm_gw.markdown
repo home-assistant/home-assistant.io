@@ -73,6 +73,14 @@ Floor Temperature:
 
 ### Button
 
+The integration adds the following buttons to your Home Assistant instance:
+
+#### Cancel Room Setpoint Override
+
+Pressing this button, which can be found on the `OpenTherm Thermostat` device, cancels an active room setpoint override. Note that it does not change the target temperature, it only returns control to the thermostat.
+
+#### Restart
+
 The restart button on the `OpenTherm Gateway` device can be used to restart the OpenTherm Gateway.
 
 ### Select

@@ -43,14 +43,24 @@ Only a single instance of the integration is needed to access the entire HEOS sy
 
 {% configuration_basic %}
 Host:
-    description: "The hostname or IP address (e.g., \"192.168.1.2\") of your HEOS device. If you have more than one device, select, or enter a host, that is connected to the LAN via wire or has the strongest wireless signal."
+    description: "The host name or IP address (e.g., \"192.168.1.2\") of your HEOS-capable product. If you have more than one device, select, or enter a host, that is connected to the LAN via wire or has the strongest wireless signal."
 {% endconfiguration_basic %}
 
-## Removing the integration
+## Reconfiguration
+
+Once setup, the host name or IP address used to access the HEOS System can be changed by reconfiguring the integration.
+
+1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
+2. Select **Denon HEOS**. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
+3. Enter a new [host name or IP address](/integrations/heos/#host).
+4. Click Submit to complete the reconfiguration.
+
+## Removal
 
 This integration follows standard integration removal. No extra steps are required.
 
-{% include integrations/remove_device_service.md %}
+1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
+2. Select **Denon HEOS**. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Delete**.
 
 ## Playing media
 

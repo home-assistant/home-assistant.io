@@ -256,6 +256,40 @@ Use to remove a privacy zone from a camera.
 | `device_id`            | No       | Camera you want to remove privacy zone from.                                                            |
 | `name`                 | No       | The name of the zone to remove.                                                                         |
 
+### Action unifiprotect.get_user_keyring_info
+
+| Data attribute | Optional | Description                                                                                                 |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
+| `device_id`    | No       | Any device from the UniFi Protect instance you want to retrieve keyring information for.                    |
+
+#### Example Usage
+
+```yaml
+service: unifiprotect.get_user_keyring_info
+data:
+  device_id: your_device_id_here
+```
+
+The response will include a list of users with their full names, statuses, and associated keys (fingerprint or NFC).
+
+#### Example Response
+
+```yaml
+users:
+  - full_name: User One
+    user_status: ACTIVE
+    ulp_id: d23e27e0-a32a-41e5-9424-be646330c2d5
+    keys: []
+  - full_name: User Two
+    user_status: ACTIVE
+    ulp_id: a243ffdb-3ab2-4186-b2fe-0b53ccb29f24
+    keys:
+      - key_type: nfc
+        nfc_id: ABCDEF12
+      - key_type: fingerprint
+        fingerprint_id: "1"
+```
+
 ## Views
 
 The {% term integrations %} provides two proxy views to proxy media content from your Home Assistant instance so you can access thumbnails and video clips from within the context of Home Assistant without having to expose your UniFi Protect NVR Console. As with the media identifiers, all IDs are UniFi Protect IDs as they may not map to specific Home Assistant entities depending on how you have configured your {% term integrations %}.
@@ -380,9 +414,11 @@ actions:
     action: notify.mobile_app_your_device # Replace with your notification target
 ```
 
+You can obtain the `nfc_id` using the [Action unifiprotect.get_user_keyring_info](#action-unifiprotectget_user_keyring_info).
+
 **Warning:**
 
-When processing NFC scans, always validate the scanned ID. Unknown NFC cards also trigger the scan event. Additionally, this event was developed using third-party cards, as the developer did not have access to official UniFi cards at the time. With third-party cards, the scan relies on the card's serial number. While this approach is not uncommon, it is essential to note that the card's serial number is generally not considered a secure identifier and can be duplicated relatively easily.
+When processing NFC scans, always validate the scanned ID. Unknown NFC cards also trigger the scan event. Additionally, this event was developed using third-party cards, as the developer did not have access to official UniFi cards at the time. With third-party cards, the scan relies on the card's serial number. While this approach is not uncommon, it is essential to note that the card's serial number is generally not considered a secure identifier and can be duplicated relatively easily. When the device becomes unavailable and becomes available again in Home Assistant, repeated event processing can occur. The state change is not an issue with the integration but should be considered, mainly if the device is used for actions such as unlocking doors.
 
 ### Fingerprint Identified Event
 
@@ -391,7 +427,9 @@ When processing NFC scans, always validate the scanned ID. Unknown NFC cards als
   - **event_type**: Either `identified` or `not_identified`
   - **event_id**: A unique ID that identifies the fingerprint event.
   - **ulp_id**: The ID used to identify the person. If no fingerprint match is found, the `ulp_id` will be empty and the `event_type` will be `not_identified`.
-- **Description**: This event is triggered when a fingerprint is scanned by a compatible device. If the fingerprint is recognized, it provides a `ulp_id`, which represents the a internal user ID. If the fingerprint is not recognized, the `event_type` will be set to `not_identified`, and no `ulp_id` will be provided.
+- **Description**: This event is triggered when a fingerprint is scanned by a compatible device. If the fingerprint is recognized, it provides a `ulp_id`, which represents the internal user ID. If the fingerprint is not recognized, the `event_type` will be set to `not_identified`, and no `ulp_id` will be provided.
+
+You can obtain the `ulp_id` using the [Action unifiprotect.get_user_keyring_info](#action-unifiprotectget_user_keyring_info).
 
 #### Example G4 Doorbell Fingerprint Identified Automation
 
@@ -409,6 +447,36 @@ condition:
       {% raw %}{{ 
          not trigger.event.data.old_state.attributes.get('restored', false) and
          not trigger.event.data.old_state.state == 'unavailable' and
+         trigger.event.data.new_state is not none and
+         trigger.event.data.new_state.attributes.event_type == 'identified' and
+         (trigger.event.data.new_state.attributes.ulp_id|default('')) != '' and
+         trigger.event.data.new_state.attributes.ulp_id in ['ALLOWED_ID1', 'ALLOWED_ID2']
+       }}{% endraw %}
+action:
+  - service: notify.mobile_app_your_device # Replace with your notification target
+    data:
+      {% raw %}message: "Fingerprint identified with ID: {{ trigger.event.data.new_state.attributes.ulp_id }}"{% endraw %}
+      title: "Fingerprint Scan Notification"
+```
+
+**Warning:**
+
+Similar to NFC, an event is triggered when a fingerprint is recognized and not recognized. However, unlike NFC, at the time of implementation, no fingerprint ID is included in the event if the fingerprint is unknown. When the device becomes unavailable and becomes available again in Home Assistant, repeated event processing can occur. The state change is not an issue with the integration but should be considered, mainly if the device is used for actions such as unlocking doors.
+
+#### Example G4 Doorbell Fingerprint Identified Automation
+
+```yaml
+alias: G4 Doorbell Fingerprint Identified Automation
+description: Automation that triggers when a fingerprint is successfully identified on the G4 Doorbell Pro
+trigger:
+  - platform: event
+    event_type: state_changed
+    event_data:
+      entity_id: event.g4_doorbell_pro_poe_fingerprint # Replace with your doorbell entity
+condition:
+  - condition: template
+    value_template: >
+      {% raw %}{{ 
          trigger.event.data.new_state is not none and
          trigger.event.data.new_state.attributes.event_type == 'identified' and
          (trigger.event.data.new_state.attributes.ulp_id|default('')) != '' and

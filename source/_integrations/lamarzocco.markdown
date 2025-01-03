@@ -28,6 +28,7 @@ ha_dhcp: true
 ha_codeowners:
   - '@zweckj'
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 This integration interacts with [La Marzocco](https://lamarzocco.com/it/en/) coffee machines through calls to the La Marzocco cloud API. Optionally, local API calls, which include a WebSocket connection for (near) real-time updates and a Bluetooth connection, can be utilized for local connections.
@@ -86,7 +87,6 @@ Use Bluetooth:
 | **Preinfusion time** | Duration of preinfusion | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | `GS3` has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 | **Smart standby time** | Time until the machine will automatically stand by (if enabled) | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 
-
 ## Switches
 
 | Switch name | Description | Available for machines | Controllable through |
@@ -102,6 +102,7 @@ Use Bluetooth:
 | **Water tank empty** | Indicates whether the water tank needs a refill. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} {% icon "material-symbols:wifi" title="Local connection" %} | - |
 | **Brewing active** | Is on if you are in the process of making coffee. | `all` | {% icon "material-symbols:wifi" title="Local connection" %} |  Only available when the `Host` was set during component configuration. |
 | **Backflush enabled** | Is on if you started the backflushing process. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} {% icon "material-symbols:wifi" title="Local connection" %} | - |
+| **Connectivity** | Whether the LM Acaia scale is currently connected to the machine. | `Linea Mini` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | Only available if you have the Acaia LM scale and configured it with your machine. |
 
 ## Sensors
 
@@ -112,6 +113,7 @@ Use Bluetooth:
 | **Total coffees made** | Counter for total coffees made| `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Total flushes made** | Counter for total flushes done | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| - |
 | **Shot timer** | Time the current brew is running | `all` | {% icon "material-symbols:wifi" title="Local connection" %} | Only available when the `Host` was set during component configuration. |
+| **Battery** | Battery level of the LM Acaia scale | `Linea Mini` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | Only available if you have the Acaia LM scale and configured it with your machine. |
 
 ## Updates
 
