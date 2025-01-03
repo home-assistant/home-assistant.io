@@ -86,7 +86,6 @@ These entities are disabled by default.
 
 For supported devices, this integration provides support to set the following modes by the select entity:
 
-- Horizontal swing
 - Light
 
 ## Sensor entities
