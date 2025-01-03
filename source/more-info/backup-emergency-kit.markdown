@@ -8,7 +8,7 @@ related:
 
 [Backups](/common-tasks/general/#backups) are encrypted (using [AES-128](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)). The backup emergency kit contains information needed to recover your backup, such as the encryption key and metadata about the related backup.
 
-## What is encryption and why are backups encrypted?
+## What is encryption, and why are backups encrypted?
 
 Encryption is a method of converting data into a coded format so that it can only be read by someone who has the encryption key. This ensures that your data about your home remains private. So even if someone else had a copy of your Home Assistant backup, it is unreadable for them without the encryption key.
 
