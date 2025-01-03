@@ -192,6 +192,7 @@ data:
   file:
     url: "http://site.com/image.jpg"
 ```
+Note that if the image does not meet the [minimum dimension requirements for previews](https://api.slack.com/methods/files.remote.add#markdown:~:text=dimension%20requirements%20for%20previews%20are%20a%20minimum%20of%20800w%20x%20400h.), it will be resized automatically.
 
 To send a file from remote path that is protected by HTTP Basic Auth:
 
