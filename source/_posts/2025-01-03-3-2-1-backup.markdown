@@ -44,9 +44,9 @@ The new automatic backup feature in Home Assistant 2025.1 comes with a new easy 
 
 <img src='/images/blog/2025-01-backups/locations.png' style='border: 0;box-shadow: none;' alt="backup locations">
 
-At launch only a few backup locations will be available, but we've made it easy for developers to integrate more, so expect a lot of options to follow. As part of this renewed focus on smart home resilience set out in [our roadmap](/blog/2024/06/12/roadmap-2024h1/#next-priority-encrypted-cloud-backup), cloud backup has been added to [Home Assistant Cloud](/cloud/) , which will be available day one to all subscribers for no additional cost. It will only store the latest backup, which must be under 5GB (you'll be notified to repair it if it is too large to upload). If you lose your other backups, you can always go to [your Cloud account page](https://account.nabucasa.com/) and download the latest backup.
+At launch, only a few backup locations will be available, but we've made it easy for developers to integrate more, so expect a lot of options to follow. As part of this renewed focus on smart home resilience set out in [our roadmap](/blog/2024/06/12/roadmap-2024h1/#next-priority-encrypted-cloud-backup), cloud backup has been added to [Home Assistant Cloud](/cloud/), which will be available day one to all subscribers for no additional cost. It will only store the latest backup, which must be under 5GB (you'll be notified to repair it if it is too large to upload). If you lose your other backups, you can always go to [your Cloud account page](https://account.nabucasa.com/) and download the latest backup.
 
-New Home Assistant features like this supercharged backup capability are only possible with funding from our Home Assistant Cloud subscribers. Adding backup to the subscription at no additional cost, was the least we could do to thank them for their continued support.
+New Home Assistant features like this supercharged backup capability is only possible with funding from our Home Assistant Cloud subscribers. Adding backup to the subscription at no additional cost, was the least we could do to thank them for their continued support.
 
 ### Secure by default
 
