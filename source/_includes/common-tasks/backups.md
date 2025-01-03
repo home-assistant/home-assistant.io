@@ -44,8 +44,7 @@ The automatic backup process creates a backup on a predefined schedule and also 
    - A large backup also takes longer to restore.
    - Some add-ons may also be quite large.
 7. [Define the location for backups](#defining-backup-locations).
-8. To be able to restore encrypted backups, download the emergency kit and store it somewhere safe.
-   - Backups that are stored on Home Assistant Cloud are always encrypted.
+8. Backups are encrypted. To be able to restore encrypted backups, download the emergency kit and store it somewhere safe.
    - To learn more, refer to the documentation on the [backup emergency kit](/more-info/backup-emergency-kit/).
 
 ### Defining backup locations
@@ -54,7 +53,7 @@ You might need a backup in case your system has crashed. If you only store backu
 
 #### About the backup storage on Home Assistant Cloud
 
-If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on Home Assistant Cloud. This cloud storage space is available for all existing and new Home Assistant Cloud subscribers without additional cost. It stores one backup file: the backup that was last saved to Home Assistant Cloud. Backups that are stored on Home Assistant Cloud are always encrypted. To restore encrypted backups, you need the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
+If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on Home Assistant Cloud. This cloud storage space is available for all existing and new Home Assistant Cloud subscribers without additional cost. It stores one backup file: the backup that was last saved to Home Assistant Cloud. Backups are always encrypted. To restore encrypted backups, you need the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
 
 #### To define the backup location for automatic backups
 
@@ -66,9 +65,9 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
 
 ### Creating a manual backup
 
-This creates a backup instantly. You can create a manual backup at any time, irrespective of any automatic backups you may have defined. Manually created backups are not encrypted by default.
+This creates a backup instantly. You can create a manual backup at any time, irrespective of any automatic backups you may have defined.
 
-1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}
+1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}.
 2. In the lower-right corner, select **Backup now** and select **Manual backup**.
 3. Define the data you want to back up.
    - It is recommended to disable media and the share folder to reduce the size of the backup.
@@ -77,7 +76,8 @@ This creates a backup instantly. You can create a manual backup at any time, irr
 4. Provide a name for the backup.
 5. Choose the backup locations.
    - To learn more about the locations, refer to the section on [defining the backup location](#defining-backup-locations).
-6. To start the backup process, select **Create backup**.
+6. Download the [backup emergency kit](/more-info/backup-emergency-kit/) and store it somewhere safe. Make sure you take note of the backup name it belongs to.
+7. To start the backup process, select **Create backup**.
 
 ### Alternative: Creating a backup using the Home Assistant Command Line Interface
 
@@ -107,7 +107,7 @@ There are multiple ways to download your local backup from your Home Assistant i
 
 ### Downloading a backup from Home Assistant Cloud
 
-If you were logged in to Home Assistant Cloud and had Cloud backup enabled, your last backup is stored on Home Assistant Cloud.
+If you were logged in to Home Assistant Cloud and had Cloud backup enabled when creating a backup, your last backup is stored on Home Assistant Cloud.
 
 1. To download the backup, log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
 2. Under **Stored files**, you can see the latest available backup file. Select the download button.
@@ -130,7 +130,7 @@ To delete old backups, follow these steps:
 There are two ways to use a backup:
 
 - On your current system to recover your settings.
-- During onboarding, to migrate your setup to a new device or a to device on which you performed a factory reset and a new installation.
+- During onboarding, to migrate your setup to a new device or a to device on which you performed a factory reset.
 
 #### Estimated duration
 
@@ -146,7 +146,7 @@ You can use a backup during the onboarding process to restore your configuration
 
 - This procedure assumes you have already completed the [installation](/installation/) procedure on your target device and are now viewing the welcome screen as part of the [onboarding](/getting-started/onboarding/).
 - The login credentials of the device from which you made the backup.
-- If your backup is encrypted: the [backup emergency kit](/more-info/backup-emergency-kit/) that contains the key needed to decrypt the backup.
+- The [backup emergency kit](/more-info/backup-emergency-kit/) that contains the key needed to decrypt the backup.
 - **Required storage capacity**: If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
   - Before migrating, on the old system, check how much storage you used.
   - Go to **{% my system_health title="Settings > System > Repairs > ... > System Information" %}**, and under **Home Assistant Supervisor**, look at the **Disk used** value.
@@ -169,12 +169,13 @@ You can use a backup during the onboarding process to restore your configuration
 3. Select the backup file, then, in the dialog, select all parts you want to restore.
    - Your current system will be overwritten with the parts that you choose to restore.
    - If you want to restore the complete configuration with all directories and add-ons, select everything.
-4. If the backup is encrypted, under **Backup password**, enter the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
+4. Under **Backup password**, enter the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
 5. To start the process, select **Restore**.
    - The restore may take a while, depending on the amount of data.
    - To see if the restore is complete, reload the page from time to time.
    - If your previous installation had certificates enabled directly for the [`http` integration](/integrations/http), when the restore is complete, it will no longer respond to `http://` requests. In this case, use `https://` (added `s`) instead.
 6. On the login screen, enter the credentials of the system from which you took the backup.
+   - The login password and user name must match the ones you used at the time the backup was taken.
    - Your dashboard should show all the elements as they were when you created the backup.
    - If some devices are shown as unavailable, you may need to wake the battery-powered devices.
 7. If you had [network storage](/common-tasks/os/#network-storage) connected on the previous system, you may need to reconnect those.
@@ -193,3 +194,4 @@ You can use a backup during the onboarding process to restore your configuration
    - This may take a while, depending on how much there is to compress or decompress.
 5. Once the restore is complete, Home Assistant restarts to apply the new settings.
    - You will lose the connection to the UI and it will return once the restart is completed.
+6. On the login screen, enter the password and user name as they were at the time the backup was taken.
