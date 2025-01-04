@@ -204,13 +204,13 @@ The HEOS integration makes various custom {% term actions %} available in additi
 
 ### Action `heos.sign_in`
 
+{% warning %}
+**This action is deprecated and will be removed in the 2025.8.0 release.** Enter your HEOS Account credentials in the [configuration options](#configuration-options) and the integration will manage authentication automatically.
+{% endwarning %}
+
 Use the sign-in action to sign the connected device into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful.
 
-{% note %}
-The [configuration options](#configuration-options) is the preferred method for managing your HEOS Account credentials. This service action will be deprecated in the future.
-
-&nbsp;
-
+{%note %}
 The device the integration connects to authenticates independently of other devices and the HEOS mobile app. When you first set up the integration, or after a device firmware update, the device will most likely not be logged in.
 {% endnote %}
 
@@ -232,11 +232,11 @@ data:
 
 ### Action `heos.sign_out`
 
-Use the sign-out action to sign the connected device out of a HEOS account. An error message is logged if sign-out is unsuccessful. There are no parameters to this action Example action data payload:
+{% warning %}
+**This action is deprecated and will be removed in the 2025.8.0 release.** Enter your HEOS Account credentials in the [configuration options](#configuration-options) and the integration will manage authentication automatically.
+{% endwarning %}
 
-{% note %}
-The [configuration options](#configuration-options) is the preferred method for managing your HEOS Account credentials. This service action will be deprecated in the future.
-{% endnote %}
+Use the sign-out action to sign the connected device out of a HEOS account. An error message is logged if sign-out is unsuccessful. There are no parameters to this action Example action data payload:
 
 ```yaml
 action: heos.sign_out
