@@ -90,7 +90,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Capabilities
 
-This integration offers various sensors depending on the configuration of your Enphase system. The Envoy can communicate with Enphase IQ micro-inverters, Enphase IQ batteries, Enphase Ensemble Enpower switch and load shedding relays and Enphase compatible generators.
+This integration offers various sensors depending on the configuration of your Enphase system. The Envoy can communicate with Enphase IQ micro-inverters, Enphase ACB and IQ batteries, Enphase Ensemble Enpower switch and load shedding relays and Enphase compatible generators.
 
 {% note %}
 
@@ -213,6 +213,8 @@ CT measure multiple properties of the energy exchange which are available as Env
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status storage CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active storage CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non zero.
 
+For storage CT energy entities refer to [battery sensor](#aggregated-iq-battery-sensor-entities) description.
+
 ### Grid sensor entities
 
 When the Envoy Metered is equipped with a [net-consumption CT](#current-transformers), entities for Grid import and export are available.
@@ -237,7 +239,7 @@ When used with [multi-phase CT phase data](#ct-aggregate-and-phase-data), disabl
 
 Enphase battery systems of multiple generations and configurations can provide integration entity data.
 
-- **AC-Batteries**: first generation battery setup, out of production.
+- **AC-Batteries**: first generation battery setup, no longer in production.
 - **IQ Batteries**: current Enphase battery models.
 
 The batteries can be implemented in stand-alone configuration or as part of Enphase Ensemble systems with the Enpower/IQ System Controller.  
@@ -289,6 +291,37 @@ For each IQ Battery an Encharge device is created, linked to the Envoy parent de
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_encharge.png" alt="iq battery">
   <figcaption>Envoy Encharge IQ battery Sensor entities.</figcaption>
+</figure>
+
+#### AC-Battery data
+
+No individual AC-battery data is available, only aggregated AC-Battery data for all AC-batteries.
+
+##### AC-battery Sensor entities
+
+- **ACB <abbr title="Envoy serial number">SN</abbr> Battery**: Current AC-battery state of charge in %
+- **ACB <abbr title="Envoy serial number">SN</abbr> Battery state**: AC-battery state: charging, idle, discharging
+- **ACB <abbr title="Envoy serial number">SN</abbr> Power**: Current AC-battery power in W
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Available ACB battery energy**: Current AC-battery energy content in Wh
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_acb_battery.png" alt="acb battery">
+  <figcaption>Envoy ACB battery Sensor entities.</figcaption>
+</figure>
+
+##### Aggregated IQ and AC battery Sensor entities
+
+If both IQ and AC batteries are used, aggregated battery data for all installed IQ Batteries and AC-Batteries is available.
+
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Aggregated Battery SOC**: Overall aggregated batttery state of charge in %
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Aggregated Available battery energy**: Overall aggregated battery energy content in Wh
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Aggregated Battery capacity**: Overall aggregated maximum battery energy content in Wh
+
+Below figure shows the 3 Aggregated entities along with the [AC_Battery energy](#ac-battery-sensor-entities) and 3 of the [IQ Battery aggregate](#aggregated-iq-battery-sensor-entities) values.
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_aggr_acb_iq_battery.png" alt="aggregated acb iq battery">
+  <figcaption>Envoy Aggregated ACB and IQ battery Sensor entities.</figcaption>
 </figure>
 
 ### Enpower data
@@ -358,7 +391,7 @@ The names of entities and devices are derived from the load_name configured in t
 
 ## Data polling Interval
 
-All data is collection in one coordinated collection cycle, minimizing the number of requests to the Envoy. The local REST API of the Envoy is used. Only when the 1 year valid token is to expire, 1 month before due data, a new token is requested from the Enphase Enlighten web-site.
+All data is collection in one coordinated collection cycle, minimizing the number of requests to the Envoy. The local REST API of the Envoy is used. Only when the 1-year valid token is to expire, 1 month before due data, a new token is requested from the Enphase Enlighten web-site.
 
 The integration collects data for all entities by default every 60 seconds. To customize the collection interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the action using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
 
@@ -517,7 +550,7 @@ Above example does not address handling `unavailable` or `unknown` states, value
 
 ### Individual devices
 
-Although not a replacement for individual energy or power measurement devices, with multiphase CT installed, [energy consumption for phases](#ct-aggregate-and-phase-data) is available. These can be used for high level individual devices if of interest.
+Although not a replacement for individual energy or power measurement devices, with multiphase CT installed, [energy consumption for phases](#ct-aggregate-and-phase-data) is available. These can be used for individual devices, if of interest.
 
 ## Actions
 
@@ -654,7 +687,7 @@ The Envoy should not be both on your local LAN and local Wi-Fi at the same time.
 
 ### CT Active flag count
 
-If this value is non-zero, consult the [diagnostic](#diagnostics) report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`). These may be an indication of installation issues.
+This value is the count of CT status flags that are raised. In normal state the value is zero. If the value is non-zero, consult the [diagnostic](#diagnostics) report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags, one or more from  (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`). Their somewhat descriptive names may be an indication of installation issues.
 
 ### Debug logs and diagnostics
 
