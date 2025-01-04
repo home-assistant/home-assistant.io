@@ -86,8 +86,6 @@ Verify SSL certificate:
 - **Mana**: Displays the current mana points of your character (for example, "61 MP").
 - **Max. mana**: Indicates the maximum mana points your character can have at the current level (for example, "70 MP").
 - **Next level**: Indicates the remaining experience points needed to reach the next level (for example, "440 XP").
-- **Habits**: Shows the number of habits being tracked (for example, "4 tasks").
-- **Rewards**: Displays the rewards that can be redeemed (for example, "1 task")
 - **Gems**: Shows the total number of gems currently owned by your Habitica character, used for purchasing items and customizations.
 - **Mystic hourglasses**: Displays the number of mystic hourglasses earned as a subscriber, which can be redeemed for exclusive items from past events.
 - **Strength, intelligence, constitution, perception**: Display your character's attribute points (stats). The sensors' attributes provide a breakdown of contributions from level, battle gear, class equip bonus, allocation, and buffs.
@@ -376,22 +374,6 @@ actions:
 ```
 
 {% enddetails %}
-
-## Templating
-
-`sensor.habitica_USER_habits` and `sensor.habitica_USER_rewards` have state attributes listing the user's respective tasks. For example, you can see this information in **{% my developer_states title="Developer Tools > States" %}** under `sensor.habitica_USER_habits` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
-
-{% raw %}
-
-```jinja
-{% for key, value in states.sensor.habitica_USER_habits.attributes.items() %}
-  {% if 'text' in value | string %}
-    {{ loop.index }}. {{ value.text }}
-  {% endif %}
-{% endfor %}
-```
-
-{% endraw %}
 
 ## Data updates
 
