@@ -118,7 +118,7 @@ The Envoy device reports aggregated data for all connected micro-inverters.
   <figcaption>Envoy device with solar production entities.</figcaption>
 </figure>
 
-When used with [multi-phase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
+When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
 
 #### Individual micro-inverter production data
 
@@ -150,7 +150,7 @@ House consumption data requires an Envoy Metered equipped and configured with at
   <figcaption>Envoy metered with CT reporting production and consumption entities.</figcaption>
 </figure>
 
-When used with [multi-phase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available but not shown. Enable as needed.
+When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available but not shown. Enable as needed.
 
 ### Current Transformers
 
@@ -178,7 +178,7 @@ Either a net-consumption or a total-consumption CT is installed. The Envoy will 
 
 #### CT Aggregate and phase data
 
-When using <abbr title="current transformers">[CT](#current-transformers)</abbr> in multi-phase enabled configurations, both aggregated and individual phase data is available. If only 1 phase is configured, phase data is the same as the aggregated data and no phase entities are created. If more than 1 phase are configured and measured, individual, disabled, phase entities are available, enable them as needed.
+When using <abbr title="current transformers">[CT](#current-transformers)</abbr> in multiphase enabled configurations, both aggregated and individual phase data is available. If only 1 phase is configured, phase data is the same as the aggregated data and no phase entities are created. If more than 1 phase are configured and measured, individual, disabled, phase entities are available, enable them as needed.
 
 Phase entity names are the names used for the aggregated entities, post fixed with the phase name. Phase names are **L1**, **L2**, **L3**. For example, once enabled, [**lifetime energy production**](#solar-production-data) on phase 3 is available as **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime energy production L3**.
 
@@ -223,7 +223,7 @@ When the Envoy Metered is equipped with a [net-consumption CT](#current-transfor
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy consumption**: Lifetime energy consumed / imported from the grid in Wh, default display in MWh.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy production**: Lifetime energy produced / exported to the grid in Wh, default display in MWh.
 
-When used with [multi-phase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
+When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
 
 #### Grid Balanced import/export sensor entities
 
@@ -233,7 +233,7 @@ When the Envoy Metered is equipped with a [total-consumption CT](#current-transf
   (This is the same value as [Envoy <abbr title="Envoy serial number">SN</abbr> Current net power consumption](#grid-sensor-entities) when using a net-consumption CT.)
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption**: Lifetime energy balance (difference) of imported and exported grid energy in Wh, default display in kWh.
 
-When used with [multi-phase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
+When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
 
 ### Battery Storage data
 
@@ -550,7 +550,7 @@ Above example does not address handling `unavailable` or `unknown` states, value
 
 ### Individual devices
 
-Although not a replacement for individual energy or power measurement devices, with multi-phase CT installed, [energy consumption for phases](#ct-aggregate-and-phase-data) is available. These can be used for individual devices, if of interest.
+Although not a replacement for individual energy or power measurement devices, with multiphase CT installed, [energy consumption for phases](#ct-aggregate-and-phase-data) is available. These can be used for individual devices, if of interest.
 
 ## Actions
 
@@ -679,11 +679,11 @@ Envoy Metered without installed CT, running older firmware versions reportedly r
 
 ### Summed Voltage
 
-The Envoy Metered in multi-phase setup, sums the voltages of the phases measured on the CT for the aggregated data. This may be valid for split-phase, but for 3-phase systems, use the individual phases rather than the summed value.
+The Envoy Metered in multiphase setup, sums the voltages of the phases measured on the CT for the aggregated data. This may be valid for split-phase, but for 3-phase systems, use the individual phases rather than the summed value.
 
 ### Balancing grid meter
 
-In multi-phase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. This other phase pulls the missing amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multi-phase net-consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
+In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. This other phase pulls the missing amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multiphase net-consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
 
 ## Troubleshooting
 
