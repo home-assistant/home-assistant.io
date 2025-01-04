@@ -602,7 +602,7 @@ The *OAuth Client ID* used must be consistent, so check these:
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Make sure to check the logs for any error messages. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
 
-- *Cannot create project with Pub/Sub or cannot enable it*: Device Access Console has a [known issue](https://issuetracker.google.com/issues/348675996) with enabling pub/sub. If you're having issues enabling pub/sub, refer to [this comment](https://issuetracker.google.com/issues/348675996#comment145) on the issue tracker page and create your topic manually.
+- *Cannot create project with Pub/Sub or cannot enable it*: Device Access Console has a [known issue](https://issuetracker.google.com/issues/348675996) with enabling Pub/Sub. If you're having issues enabling Pub/Sub, refer to [this comment](https://issuetracker.google.com/issues/348675996#comment145) on the Google IssueTracker page and create your topic manually before trying to enable Pub/Sub topic again.
 
 - You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all.
 
