@@ -94,8 +94,8 @@ This integration offers various sensors depending on the configuration of your E
 
 {% note %}
 
-- You may know referred product names under other names from the past, or future.
-- In this documentation the term SN is used for a device serial-number placeholder. Entities will contain the actual serial-number of the device.
+- You may know referred product names under other names from the past or future.
+- In this documentation, the term SN is used for a device serial-number placeholder. Entities will contain the actual serial-number of the device.
 {% endnote %}
 
 ### Solar production data
@@ -172,9 +172,9 @@ Below diagram shows CT installation positions and how they are referred to.
 This in no way represents a configuration direction, as actual configuration is driven by local rules, installer designs and Enphase installation guidelines. Variations may exist, based on specific needs or rules. This merely describes a simplified view and naming conventions used in this documentation to clarify integration operation. Refer to [Enphase documentation](https://enphase.com/installers/resources/documentation/communication) for more information.
 {% endnote %}
 
-When an Envoy Metered is equipped with a production ct, the ct data will be used to provide the [aggregated solar production data](#aggregated-production-data). Likewise the installed consumption CT will be the source for the [house consumption data](#house-consumption-data).
+When an Envoy Metered is equipped with a production CT, the CT data will be used to provide the [aggregated solar production data](#aggregated-production-data). Likewise, the installed consumption CT will be the source for the [house consumption data](#house-consumption-data).
 
-Either a net-consumption or a total-consumption is installed. The Envoy will calculate the data for the other one.
+Either a net-consumption or a total-consumption CT is installed. The Envoy will calculate the data for the other one.
 
 #### CT Aggregate and phase data
 
@@ -313,7 +313,7 @@ No individual AC-battery data is available, only aggregated AC-Battery data for 
 
 If both IQ and AC batteries are used, aggregated battery data for all installed IQ Batteries and AC-Batteries is available.
 
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Aggregated Battery SOC**: Overall aggregated batttery state of charge in %
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Aggregated Battery SOC**: Overall aggregated battery state of charge in %
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Aggregated Available battery energy**: Overall aggregated battery energy content in Wh
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Aggregated Battery capacity**: Overall aggregated maximum battery energy content in Wh
 
@@ -472,7 +472,7 @@ With a [storage CT](#aggregated-iq-battery-sensor-entities) installed, data for 
 
 #### Home battery storage without storage CT
 
-Without a [storage CT](#aggregated-iq-battery-sensor-entities) installed, only the current Power in and out individual batteries, or the current aggregated battery energy content is available. These value are not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export values.
+Without a [storage CT](#aggregated-iq-battery-sensor-entities) installed, only the current Power in and out of individual batteries, or the current aggregated battery energy content is available. These value are not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export values.
 
 ##### Home battery storage data using battery power
 
@@ -641,11 +641,17 @@ Technically `select.first`, `select.last`, `select.previous`, `select.next` are 
 
 ### Firmware changes
 
-[Envoy firmware](https://enphase.com/installers/resources/documentation/communication?&f[0]=document%3A217) versions come with changing behavior, features and issues. Firmware is pushed to the Envoy by Enphase, while 'not always communicated in detail upfront'. This may result in sudden changes in the Envoy behavior and is always accompanied by an outage while Envoy is being updated.
+[Envoy firmware](https://enphase.com/installers/resources/documentation/communication?&f[0]=document%3A217) versions come with changing behavior, features, and potential issues. Firmware is pushed to the Envoy by Enphase, while 'not always communicated in detail upfront'. This may result in sudden changes in the Envoy behavior and is always accompanied by an outage while Envoy is being updated.
 
 ### No battery controls
 
-As of Envoy firmware  8.2.4225, the Envoy no longer supports setting battery modes, enabling/disabling charging from the grid, or changing reserve battery level through the local REST API used by HA. Until a resolution is found, you will need to use the Enphase APP to control these.
+As of Envoy firmware 8.2.4225, the Envoy no longer supports the following operations through the local REST API used by Home Assistant:
+
+- Setting battery modes
+- Enabling/disabling charging from the grid
+- Changing reserve battery level
+
+Until a resolution is found, you must use the Enphase App to control these features.
 
 ### Late reset
 
@@ -683,7 +689,7 @@ In multiphase installations with batteries, in countries with phase-balancing gr
 
 ### Single network
 
-The Envoy should not be both on your local LAN and local Wi-Fi at the same time. This may cause auto-discovery to switch back and forth between the interfaces resulting in brief outages every 30 minutes. If you experience these frequent brief outages, make sure only 1 interface is used.
+The Envoy should not be both on your local LAN (Ethernet) and local Wi-Fi simultaneously. Having both connections active can cause auto-discovery to alternate between interfaces, resulting in connection interruptions approximately every 30 minutes. If you experience these periodic connection issues, ensure the Envoy is connected using only one interface (either Ethernet OR Wi-Fi, not both).
 
 ### CT Active flag count
 
