@@ -18,6 +18,7 @@ ha_bluetooth: true
 ha_codeowners:
   - '@zweckj'
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 The **Acaia** {% term integration %} allows you to control [Acaia](https://acaia.co/) scales through Home Assistant.

@@ -132,6 +132,11 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
     - Metering status for storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
     - Count of meter status flags active storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
 
+For system with both older type ACB batteries and Encharge/IQ Batteries:
+
+- Sensors for ACB Battery State of Charge in %, battery state (charging, idle, discharging), current available energy in Wh and current power flow in W.
+- Sensors for aggregated ACB and Encharge battery status for current State of Charge in %, current available energy in Wh and total battery capacity in Wh.
+
 *: The load shedding and on/off-grid functions are only available with the Enpower/IQ System Controller installed. In battery installations without load-shedding and off-grid functionality, used in many EU countries, these sensors and switches are not available.
 
 **: When used with Enpower/IQ System Controller, the entities to charge from the grid, battery storage mode, and reserve battery level are connected to the Enpower device with the Enpower serial number in their entity and unique IDs. When no Enpower is installed, these are connected to the Envoy itself and the Envoy serial number is used in the IDs.

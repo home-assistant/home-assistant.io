@@ -285,15 +285,70 @@ data:
 
 ### Custom actions
 
-The Bang & Olufsen integration additionally supports different custom actions
+The Bang & Olufsen integration additionally supports different custom actions for Beolink.
+
+[Beolink](https://support.bang-olufsen.com/hc/en-us/articles/4411572883089-What-is-Beolink-Multiroom) is Bang & Olufsen's advanced multiroom audio solution. This integration supports Home Assistant's `media_player` grouping, but to fully benefit from Beolink, such as being able to join legacy devices not added in Home Assistant, custom actions have been defined.
+
+Attempting to execute an invalid Beolink action will result in either a Home Assistant error or an audible error indication from your device.
 
 #### `bang_olufsen.beolink_join`
 
 Join a Beolink experience.
 
-| Action data attribute | Optional | Description                           |
-| --------------------- | -------- | ------------------------------------- |
-| `beolink_jid`         | yes      | Manually specify Beolink JID to join. |
+| Action data attribute | Optional | Description                                                                                                                                                                                                                                                                                                                                          |
+| --------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `beolink_jid`         | yes      | Manually specify Beolink JID to join.                                                                                                                                                                                                                                                                                                                |
+| `source_id`           | yes      | Specify which source to join, behavior varies between hardware platforms. Source names prefaced by a platform name can only be used when connecting to that platform. For example "ASE Beoradio" can only be used when joining an ASE device, while ”ASE / Mozart Deezer” can be used with ASE or Mozart devices. A defined Beolink JID is required. |
+
+##### Join a currently active beolink experience or device playing compatible source
+
+```yaml
+action: bang_olufsen.beolink_join
+target:
+  entity_id: media_player.beosound_balance_12345678
+```
+
+Repeatedly calling this will cycle through available devices.
+
+Will also be triggered by calling the `media_player.join` action with an empty list of `group_members`:
+
+```yaml
+action: media_player.join
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  group_members:
+```
+
+##### Join a specific active beolink experience
+
+```yaml
+action: bang_olufsen.beolink_join
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  beolink_jid: 1111.2222222.33333333@products.bang-olufsen.com
+```
+
+##### Join the "radio" source on a Beolink Converter NL/ML
+
+```yaml
+action: bang_olufsen.beolink_join
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  beolink_jid: 1111.2222222.33333333@products.bang-olufsen.com
+  source_id: radio
+```
+
+A limited selection of `source_id`s are available. The below table shows which `source_id` can be joined on which hardware platform:
+
+| Hardware platform       | Compatible source_ids                      |
+| ----------------------- | ------------------------------------------ |
+| ASE                     | `beoradio`                                 |
+| ASE and Mozart          | `deezer`, `spotify`                        |
+| Mozart                  | `tidal`                                    |
+| Beolink Converter NL/ML | `radio`, `tp1`, `tp2`, `cd`, `aux_a`, `ph` |
 
 #### `bang_olufsen.beolink_expand`
 
@@ -304,6 +359,62 @@ Expand current Beolink experience.
 | `all_discovered`      | yes      | Expand Beolink experience to all discovered devices.             |
 | `beolink_jids`        | yes      | Specify which Beolink JIDs will join current Beolink experience. |
 
+##### Expand an active Beolink experience to all other devices discovered by the defined device
+
+```yaml
+action: bang_olufsen.beolink_expand
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  all_discovered: true
+```
+
+##### Expand an active Beolink experience to a specific device
+
+```yaml
+action: bang_olufsen.beolink_expand
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  beolink_jids:
+    - 1111.2222222.33333333@products.bang-olufsen.com
+```
+
+Will also be triggered by calling the `media_player.join` action, with the entity_id of a `media_player` entity from this integration in `group_members`:
+
+```yaml
+action: media_player.join
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  group_members:
+    - media_player.beosound_balance_33333333
+```
+
+##### Expand an active Beolink experience to specific devices
+
+```yaml
+action: bang_olufsen.beolink_expand
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  beolink_jids:
+    - 1111.2222222.33333333@products.bang-olufsen.com
+    - 4444.5555555.66666666@products.bang-olufsen.com
+```
+
+Will also be triggered by calling the `media_player.join` action, with the entity_ids of `media_player` entities from this integration in `group_members`:
+
+```yaml
+action: media_player.join
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  group_members:
+    - media_player.beosound_balance_33333333
+    - media_player.beosound_balance_66666666
+```
+
 #### `bang_olufsen.beolink_unexpand`
 
 Unexpand from current Beolink experience.
@@ -312,13 +423,60 @@ Unexpand from current Beolink experience.
 | --------------------- | -------- | ---------------------------------------------------------------------- |
 | `beolink_jids`        | no       | Specify which Beolink JIDs will leave from current Beolink experience. |
 
+##### Remove a device from an active Beolink experience
+
+```yaml
+action: bang_olufsen.beolink_unexpand
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  beolink_jids:
+    - 1111.2222222.33333333@products.bang-olufsen.com
+```
+
+##### Remove devices from an active Beolink experience
+
+```yaml
+action: bang_olufsen.beolink_unexpand
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  beolink_jids:
+    - 1111.2222222.33333333@products.bang-olufsen.com
+    - 4444.5555555.66666666@products.bang-olufsen.com
+```
+
 #### `bang_olufsen.beolink_leave`
 
 Leave a Beolink experience.
 
+##### Action usage example
+
+```yaml
+action: bang_olufsen.beolink_leave
+target:
+  entity_id: media_player.beosound_balance_12345678
+```
+
+Same behavior as calling the `media_player.unjoin` action:
+
+```yaml
+action: media_player.unjoin
+target:
+  entity_id: media_player.beosound_balance_12345678
+```
+
 #### `bang_olufsen.beolink_allstandby`
 
 Set all connected Beolink devices to standby.
+
+##### Action usage example
+
+```yaml
+action: bang_olufsen.beolink_allstandby
+target:
+  entity_id: media_player.beosound_balance_12345678
+```
 
 ## Automations
 

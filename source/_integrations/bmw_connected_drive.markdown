@@ -117,11 +117,22 @@ This {% term integration %} provides the following {% term platforms %}:
 
 {% warning %}
 Every platform except **binary sensors** and **sensors** can change the state of your vehicle. Once you change the state in Home Assistant, a command is sent to your car. 
+{% endwarning %}
 
 &nbsp;
 
-**Use with care!**
-{% endwarning %}
+{% important %}
+The `North America` and `Rest of world` regions require a captcha challenge to be solved, i.e. you need to verify that you are a human.
+After entering your login data, a second step will ask for a `Captcha token` and provide you with a link to a website. 
+Please open this link, solve the "are you a human?" challenge and press `Submit`.
+Copy the resulting token into Home Assistant and continue.
+
+No data of your Home Assistant instance is shared with any third party during this step.
+{% endimportant %}
+
+{% note %}
+For `china`, it is mandatory to prefix your username/phone number with `86`, i.e. `8612345678`.
+{% endnote %}
 
 ### Notifications
 

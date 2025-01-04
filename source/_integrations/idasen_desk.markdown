@@ -12,7 +12,7 @@ ha_platforms:
   - button
   - cover
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ha_codeowners:
   - '@abmantis'
 ---

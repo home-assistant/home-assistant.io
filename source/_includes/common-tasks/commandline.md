@@ -101,7 +101,7 @@ Use "ha [command] --help" for more information about a command.
 
 You can also access the {% term "Home Assistant Operating System" %} via a directly connected keyboard and monitor, the console.
 
-#### Wiping the data disk wipe from the command line
+#### Wiping the data disk from the command line
 
 In {% term "Home Assistant Operating System" %}, the `ha os datadisk wipe` command wipes the data disk. The command deletes all user data as well as Home Assistant Core, Supervisor, and any installed add-ons.
 
@@ -109,7 +109,12 @@ The command `ha os datadisk wipe` marks the data partition (either internal on t
 
 The `ha os datadisk wipe` command can only be run from the local terminal. Connect a display and keyboard and use the terminal.
 
-Note, if you have a Home Assistant Yellow, there is a red hardware button to wipe the data disk. Follow the procedure on [resetting the device](https://yellow.home-assistant.io/guides/factory-reset/).
+Note, some systems have a reset button you can use to clear the data disk, instead of using the command line:
+
+- If you have a Home Assistant Yellow with a Raspberry Pi Compute Module 5, use the command line steps described above.
+
+- If you have a Home Assistant Yellow with a Raspberry Pi Compute Module 4, there is a red hardware button to wipe the data disk. Follow the procedure on [resetting the Home Assistant Yellow](https://yellow.home-assistant.io/guides/factory-reset/).
+- If you have a Home Assistant Green, there is a black hardware button to wipe the data disk. Follow the procedure on [resetting the Home Assistant Green](https://green.home-assistant.io/guides/reset/).
 
 #### Listing all users from the command line
 
