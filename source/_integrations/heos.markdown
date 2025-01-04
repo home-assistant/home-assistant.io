@@ -51,9 +51,9 @@ Host:
 The integration provides the following configuration options. By entering your HEOS Account login information, the integration will be able to access streaming services, playlists, favorites, and other features. The integration will validate and sign in to your HEOS Account when credentials are entered or updated, and will ensure the HEOS System remains logged in while the credentials remain valid. Clearing the credentials will sign the HEOS System out of your account.
 
 1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
-2. Select **Denon HEOS**. Click **CONFIGURE**.
+2. Select **Denon HEOS**. Select **Configure**.
 3. Enter or clear your HEOS Account credentials.
-4. Click Submit to save the options.
+4. Select **Submit** to save the options.
 
 {% configuration_basic %}
 Username:
@@ -207,7 +207,7 @@ The HEOS integration makes various custom {% term actions %} available in additi
 Use the sign-in action to sign the connected device into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful.
 
 {% note %}
-The [configuration options](/integrations/heos#configuration-options) is the preferred method for managing your HEOS Account credentials. This service action will be deprecated in the future.
+The [configuration options](#configuration-options) is the preferred method for managing your HEOS Account credentials. This service action will be deprecated in the future.
 
 &nbsp;
 
@@ -235,7 +235,7 @@ data:
 Use the sign-out action to sign the connected device out of a HEOS account. An error message is logged if sign-out is unsuccessful. There are no parameters to this action Example action data payload:
 
 {% note %}
-The [configuration options](/integrations/heos#configuration-options) is the preferred method for managing your HEOS Account credentials. This service action will be deprecated in the future.
+The [configuration options](#configuration-options) is the preferred method for managing your HEOS Account credentials. This service action will be deprecated in the future.
 {% endnote %}
 
 ```yaml
@@ -279,7 +279,7 @@ To access features, such as favorites, playlists, and streaming services, the HE
 
 ##### Resolution
 
-Enter the credentials to your HEOS Account in the [configuration options](/integrations/heos#configuration-options) if you want to access playlists, favorites, and streaming services; otherwise the logged warning can be ignored. If credentials are entered, the integration will ensure that the HEOS System remains logged in while the credentials remain valid.
+Enter the credentials to your HEOS Account in the [configuration options](#configuration-options) if you want to access playlists, favorites, and streaming services; otherwise, the logged warning can be ignored. If credentials are entered, the integration will ensure that the HEOS System remains logged in while the credentials remain valid.
 
 ### Error attempting to submit configuration options
 
