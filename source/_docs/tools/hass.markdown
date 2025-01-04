@@ -3,7 +3,8 @@ title: "hass"
 description: "Description of hass."
 ---
 
-The command-line part of Home Assistant is `hass`.\
+The command-line part of Home Assistant is `hass`.
+
 This tool is only available to Home Assistant Core users, is started from the command line on the computer running Home Assistant Core (accessed perhaps via ssh) and is not the same as Home Assistant CLI (aka hass-cli). [link](https://www.home-assistant.io/blog/2019/02/04/introducing-home-assistant-cli/)
 
 ```text
