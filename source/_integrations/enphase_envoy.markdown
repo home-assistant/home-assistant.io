@@ -273,7 +273,7 @@ If an Enpower device is installed, then **Charge from grid**, **Reserve battery 
 
 #### Individual IQ battery data
 
-For each IQ Battery an Encharge device is created, linked to the Envoy parent device. Each encharge devices offers individual battery sensors.
+For each IQ Battery, an Encharge device is created, linked to the Envoy parent device. Each encharge devices offers individual battery sensors.
 
 ##### Individual IQ battery Sensor entities
 
@@ -454,7 +454,7 @@ The concept is to track value changes of the **Envoy <abbr title="Envoy serial n
 Above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor changing UOM to a preferred one. Examples for these exist in various community topics.
 
 {% tip %}
-Alternatively this can be done splitting  **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption** into power import and export and two Riemann sum integral helpers to calculate energy from the power values.
+Alternatively, this can be done splitting  **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption** into power import and export and two Riemann sum integral helpers to calculate energy from the power values.
 {% endtip %}
 
 {% enddetails %}
@@ -550,7 +550,7 @@ Above example does not address handling `unavailable` or `unknown` states, value
 
 ### Individual devices
 
-Although not a replacement for individual energy or power measurement devices, with multiphase CT installed, [energy consumption for phases](#ct-aggregate-and-phase-data) is available. These can be used for individual devices, if of interest.
+Although not a replacement for individual energy or power measurement devices, with multi-phase CT installed, [energy consumption for phases](#ct-aggregate-and-phase-data) is available. These can be used for individual devices, if of interest.
 
 ## Actions
 
@@ -679,11 +679,11 @@ Envoy Metered without installed CT, running older firmware versions reportedly r
 
 ### Summed Voltage
 
-The Envoy Metered in multiphase setup, sums the voltages of the phases measured on the CT for the aggregated data. This may be valid for split-phase, but for 3-phase systems, use the individual phases rather than the summed value.
+The Envoy Metered in multi-phase setup, sums the voltages of the phases measured on the CT for the aggregated data. This may be valid for split-phase, but for 3-phase systems, use the individual phases rather than the summed value.
 
 ### Balancing grid meter
 
-In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. This other phase pulls the missing amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multiphase net-consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
+In multi-phase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. This other phase pulls the missing amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multi-phase net-consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
 
 ## Troubleshooting
 
@@ -693,7 +693,7 @@ The Envoy should not be both on your local LAN (Ethernet) and local Wi-Fi simult
 
 ### CT Active flag count
 
-This value is the count of CT status flags that are raised. In normal state the value is zero. If the value is non-zero, consult the [diagnostic](#diagnostics) report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags, one or more from  (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`). Their somewhat descriptive names may be an indication of installation issues.
+This value is the count of CT status flags that are raised. In normal state, the value is zero. If the value is non-zero, consult the [diagnostic](#diagnostics) report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags, one or more from  (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`). Their somewhat descriptive names may be an indication of installation issues.
 
 ### Debug logs and diagnostics
 
