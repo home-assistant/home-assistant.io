@@ -94,7 +94,7 @@ This integration offers various sensors depending on the configuration of your E
 
 {% note %}
 
-- You may know referred product names under other names from the past or future.
+- You may know referred product names under other names from the past, or future.
 - In this documentation the term SN is used for a device serial-number placeholder. Entities will contain the actual serial-number of the device.
 {% endnote %}
 
@@ -193,7 +193,7 @@ CT measure multiple properties of the energy exchange which are available as Env
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Production CT current**: Current in A.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor production CT**: Powerfactor, ratio of active to apparent power.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status production CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active production CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non zero.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active production CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non-zero.
 
 ##### Net-consumption CT sensor entities
 
@@ -202,7 +202,7 @@ CT measure multiple properties of the energy exchange which are available as Env
 - **Envoy <abbr title="Envoy serial number">SN</abbr> net consumption CT current**: Current in A.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor net consumption CT**: Powerfactor, ratio of active to apparent power .
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status net consumption CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active net consumption CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non zero.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active net consumption CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non-zero.
 
 ##### Storage CT sensor entities
 
@@ -211,7 +211,7 @@ CT measure multiple properties of the energy exchange which are available as Env
 - **Envoy <abbr title="Envoy serial number">SN</abbr> storage CT current**: Current in A.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor storage CT**: Powerfactor, ratio of active to apparent power .
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status storage CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active storage CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non zero.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active storage CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non-zero.
 
 For storage CT energy entities refer to [battery sensor](#aggregated-iq-battery-sensor-entities) description.
 
