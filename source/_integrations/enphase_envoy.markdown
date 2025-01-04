@@ -44,7 +44,7 @@ This integration does not work with:
 - The <abbr title="IQ Gateway">Envoy</abbr> must be configured and commissioned.
 - The <abbr title="IQ Gateway">Envoy</abbr> must be on your local network with IPV4 connectivity from Home Assistant. (Also See troubleshooting, [single network](#single-network))
 - <abbr title="IQ Gateway">Envoy</abbr> firmware version 3.9 or newer.
-- With <abbr title="IQ Gateway">Envoy</abbr> firmware 7 and greater
+- With <abbr title="IQ Gateway">Envoy</abbr> firmware 7 and greater:
   - an Enlighten cloud username and password.
   - Home Assistant 2023.9 or newer.
 
@@ -90,7 +90,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Capabilities
 
-This integration offers various sensors depending on the configuration of your Enphase system. The Envoy can communicate with Enphase IQ micro-inverters, Enphase ACB and IQ batteries, Enphase Ensemble Enpower switch and load shedding relays and Enphase compatible generators.
+This integration offers various entities depending on the configuration of your Enphase system. The Envoy can communicate with Enphase IQ micro-inverters, Enphase ACB and IQ batteries, Enphase Ensemble Enpower switch and load shedding relays and Enphase compatible generators.
 
 {% note %}
 
@@ -154,7 +154,7 @@ When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disable
 
 ### Current Transformers
 
-The Envoy Metered can be equipped with up-to 6 <abbr title="current transformers">CT</abbr>. These can be assigned to production, consumption and/or storage measurements in single of multiple phase setups.
+The Envoy Metered can be equipped with up-to 6 <abbr title="current transformers">CT</abbr>. These can be assigned to production, consumption and/or storage measurements in single or multiple phase setups.
 
 Below diagram shows CT installation positions and how they are referred to.
 
@@ -472,11 +472,11 @@ With a [storage CT](#aggregated-iq-battery-sensor-entities) installed, data for 
 
 #### Home battery storage without storage CT
 
-Without a [storage CT](#aggregated-iq-battery-sensor-entities) installed, only the current Power in and out of individual batteries, or the current aggregated battery energy content is available. These value are not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export values.
+Without a [storage CT](#aggregated-iq-battery-sensor-entities) installed, only the current Power in and out of individual batteries, or the current aggregated battery energy content is available. These values are not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export values.
 
 ##### Home battery storage data using battery power
 
-Battery power is the current power flow in or out of an individual battery. Using the summed Power values of all batteries, the result needs to be split in 2 entities, representing total power in and power out. Next each entity needs to be integrated into energy, using two Riemann sum integral helpers. The resulting data can be used for Energy going into the battery and Energy coming out off the battery.
+Battery power is the current power flow in or out of an individual battery. Using the summed Power values of all batteries, the result needs to be split in 2 entities, representing total power in and power out. Next, each entity needs to be integrated into energy, using two Riemann sum integral helpers. The resulting data can be used for Energy going into the battery and Energy coming out of the battery.
 
 {% details "Concept to split Battery power value into individual import-export power values" %}
 
@@ -655,18 +655,18 @@ Until a resolution is found, you must use the Enphase App to control these featu
 
 ### Late reset
 
-When using Envoy Metered with <abbr title="current transformers">CT</abbr>, not all firmware versions reset 'Energy production today' at midnight. Delays of up to 15 minutes have been reported. In this case best use a utility meter with the `Lifetime energy production` entity for daily reporting.
+When using Envoy Metered with <abbr title="current transformers">CT</abbr>, not all firmware versions reset 'Energy production today' at midnight. Delays of up to 15 minutes have been reported. In this case, best use a utility meter with the `Lifetime energy production` entity for daily reporting.
 
 ### Energy incorrect
 
 When using Envoy Metered with <abbr title="current transformers">CT</abbr>
 
-- not all firmware versions report `Energy production today` correctly. Zero data and unexpected spikes have been reported. In this case best use a utility meter with the `Lifetime energy production` entity for daily reporting.
+- not all firmware versions report `Energy production today` correctly. Zero data and unexpected spikes have been reported. In this case, best use a utility meter with the `Lifetime energy production` entity for daily reporting.
 - not all firmware versions report `Energy production last seven days` correctly. Zero and unexpected values have been reported.
 
 ### Lifetime reset
 
-Envoy Metered without installed CT, running older firmware versions reportedly resets **Lifetime energy production** to 0 when reaching 1.2 MWh. For use with the energy dashboard the reset is not an issue. In a recent firmware version 8.x.x the reset is solved, but results in a one-time step change to the full lifetime value. This has impact on the energy dashboard, it can be solved by setting the statistics value for that moment to 0 in  [Developer Tools: Statistics](/docs/tools/dev-tools/#statistics-tab)
+Envoy Metered without installed CT, running older firmware versions, reportedly resets **Lifetime energy production** to 0 when reaching 1.2 MWh. For use with the energy dashboard, the reset is not an issue. In a recent firmware version 8.x.x the reset is solved, but results in a one-time step change to the full lifetime value. This has impact on the energy dashboard, it can be solved by setting the statistics value for that moment to 0 in  [Developer Tools: Statistics](/docs/tools/dev-tools/#statistics-tab)
 
 {% details "History example for Envoy Lifetime energy production value reset" %}
 
