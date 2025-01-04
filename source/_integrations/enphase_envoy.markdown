@@ -156,7 +156,7 @@ When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disable
 
 The Envoy Metered can be equipped with up-to 6 <abbr title="current transformers">CT</abbr>. These can be assigned to production, consumption and/or storage measurements in single or multiple phase setups.
 
-Below diagram shows CT installation positions and how they are referred to.
+The below diagram shows CT installation positions and how they are referred to.
 
 - The production CT measures the energy exchange between Solar production and the switchboard.
 - If the consumption CT is installed as **Load only** a.k.a.  **total-consumption** it measures energy exchange from the switchboard to the loads/house.
@@ -317,7 +317,7 @@ If both IQ and AC batteries are used, aggregated battery data for all installed 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Aggregated Available battery energy**: Overall aggregated battery energy content in Wh
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Aggregated Battery capacity**: Overall aggregated maximum battery energy content in Wh
 
-Below figure shows the 3 Aggregated entities along with the [AC_Battery energy](#ac-battery-sensor-entities) and 3 of the [IQ Battery aggregate](#aggregated-iq-battery-sensor-entities) values.
+The below figure shows the 3 Aggregated entities along with the [AC_Battery energy](#ac-battery-sensor-entities) and 3 of the [IQ Battery aggregate](#aggregated-iq-battery-sensor-entities) values.
 
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_aggr_acb_iq_battery.png" alt="aggregated acb iq battery">
@@ -451,7 +451,7 @@ The concept is to track value changes of the **Envoy <abbr title="Envoy serial n
 
 {% endraw %}
 
-Above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor changing UOM to a preferred one. Examples for these exist in various community topics.
+The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor changing UOM to a preferred one. Examples for these exist in various community topics.
 
 {% tip %}
 Alternatively, this can be done splitting  **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption** into power import and export and two Riemann sum integral helpers to calculate energy from the power values.
@@ -507,7 +507,7 @@ The concept is to first sum all battery Power values using a combine state helpe
 
 {% endraw %}
 
-Above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor conversion losses.
+The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor conversion losses.
 
 {% enddetails %}
 
@@ -544,7 +544,7 @@ The concept is to track value changes of the **Envoy <abbr title="Envoy serial n
 
 {% endraw %}
 
-Above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor conversion losses.
+The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor conversion losses.
 
 {% enddetails %}
 
