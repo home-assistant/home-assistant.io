@@ -27,7 +27,7 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
 - [Backup](/common-tasks/general/#backups) your installation.
   - Make sure the backup is downloaded and stored outside of the system.
-  - So that you can restore from that backup in case there is an issue with the system.
+  - So that you can [restore from that backup](/common-tasks/general/#restoring-a-backup) in case there is an issue with the system.
 
 #### To update the Home Assistant Operating System
 
