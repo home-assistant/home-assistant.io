@@ -191,7 +191,15 @@ This integration provides several values suitable for the energy dashboard:
 
 ## Actions
 
-Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select`](#action-selectselect)
+Available actions are:
+
+- `switch.turn_on`, `switch.turn_off`, `switch.toggle`
+- [`number.set_value`](#action-numberset_value)
+- [`select.select`](#action-selectselect)
+- [`enphase_envoy.get_firmware`](#action-enphase_envoyget_firmware)
+- [`enphase_envoy.get_last_data`](#action-enphase_envoyget_last_data)
+- [`enphase_envoy.get_current_data`](#action-enphase_envoyget_current_data)
+- [`enphase_envoy.post_data`](#action-enphase_envoypost_data)
 
 ### Action `switch.turn_on`/`switch.turn_off`/`switch.toggle`
 
@@ -273,6 +281,292 @@ data:
 {% note %}
 Technically `select.first`, `select.last`, `select.previous`, `select.next` are available as well, but as there's no logical sequence in the values to select, their use is not advocated.
 {% endnote %}
+
+### Action `enphase_envoy.get_firmware`
+
+The envoy firmware version is only read when the configuration entry is loaded. This action will read the current firmware version from the Envoy. It will return the actual running firmware from the Envoy, as well as the local cached firmware.
+
+| Data attribute | Optional | Description |
+| - | - | - |
+| `envoy` | no | Entity_id of an entity associated with the target Envoy. In the UI select an entity from the dropdown list. <br> In yaml mode the format `envoy.SN` can be used as well, where SN is the target envoy serial number |
+
+Example with envoy entity:
+
+```yaml
+action: enphase_envoy.get_firmware
+data:
+  envoy: sensor.envoy_123456789012_current_power_production
+```
+
+Response
+
+```yaml
+firmware: 5.0.62
+previous_firmware: 5.0.62
+```
+
+Example with envoy serial number:
+
+```yaml
+action: enphase_envoy.get_firmware
+data:
+  envoy: envoy.123456789012
+```
+
+In the Developer tools - actions, automation or script UI, this action shows as: _Enphase Envoy: Current firmware version_.
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_action_getfirmware_dev_ui.png" alt="enphase_envoy: get firmware">
+  <figcaption>Envoy action Current Firmware Version.</figcaption>
+</figure>
+
+When used in automation or script actions, use `response_variable` to specify which variable will receive the returned data
+
+{% raw %}
+
+```yaml
+alias: Get_Envoy_Firmware
+variables:
+  envoy_entity: envoy.123456789012
+sequence:
+  - action: enphase_envoy.get_firmware
+    metadata: {}
+    data:
+      envoy: "{{ envoy_entity }}"
+    response_variable: envoy_reply
+  - action: notify.persistent_notification
+    metadata: {}
+    data:
+      message: "Envoy runs {{ envoy_reply['firmware'] }}"
+      title: Current firmware for {{ envoy_entity }}
+description: Read current firmware from Envoy
+```
+
+{% endraw %}
+
+{% note %}
+This action sends a GET request to the Envoy. Do not schedule or execute it at intervals less then the default collection time of 1 minute. As Firmware installs do not happen often and will take some time being installed, 5, 15 or 60 minutes is probably a more suited interval.
+{% endnote %}
+
+### Action `enphase_envoy.get_last_data`
+
+Each time this integration updates its entities, it collects data from a set of endpoints in the Envoy. That set of data is referred to as `raw`. It contains more information as strictly needed for entity data. The raw data is cached until the next collection cycle, when it is replaced by a fresh dataset from the envoy.
+
+The action `enphase_envoy.get_last_data` returns data from the `raw` data cache. To successfully use it, you will need to be familiar with the data structures returned by the Envoy API. To explore the returned data use the [developer tools - actions](/docs/tools/dev-tools/#actions-tab) menu and test this action.
+
+| Data attribute | Optional | Description |
+| - | - | - |
+| `envoy` | no | Entity_id of an entity associated with the target Envoy. In the UI select an entity from the dropdown list. <br> In yaml mode the format `envoy.SN` can be used as well, where SN is the target envoy serial number |
+| `endpoint` | yes | The endpoint in the envoy. Must start with leading /. <br> Optionally add a comma separated list of dict keys and/or list indexes to select sub dict or list elements from the returned data. <br> If not specified all raw data is returned |
+
+Example with envoy entity:
+
+```yaml
+action: enphase_envoy.get_last_data
+data:
+  envoy: sensor.envoy_123456789012_current_power_production
+```
+
+Response (partially)
+
+```yaml
+raw:
+  /api/v1/production:
+    wattHoursToday: 20161
+    wattHoursSevenDays: 366671
+    wattHoursLifetime: 133798553
+    wattsNow: 7907
+  /api/v1/production/inverters:
+    - serialNumber: "123456009079"
+      lastReportDate: 1694554838
+      devType: 1
+      lastReportWatts: 202
+      maxReportWatts: 246
+    - serialNumber: "123456009193"
+      lastReportDate: 1694554845
+      devType: 1
+      lastReportWatts: 201
+      maxReportWatts: 244
+```
+
+To only select the inverter data specify the inverters endpoint:
+
+```yaml
+action: enphase_envoy.get_last_data
+data:
+  envoy: sensor.envoy_123456789012_current_power_production
+  endpoint: /api/v1/production/inverters
+```
+
+Response
+
+```yaml
+/api/v1/production/inverters:
+  - serialNumber: "123456009079"
+    lastReportDate: 1694554838
+    devType: 1
+    lastReportWatts: 202
+    maxReportWatts: 246
+  - serialNumber: "123456009193"
+    lastReportDate: 1694554845
+    devType: 1
+    lastReportWatts: 201
+    maxReportWatts: 244
+```
+
+To select the maxReportWatts of the second inverter, add comma separated keys to the endpoint. Strings are dict keys, numbers are list indexes. For a numbered dict key add ' or " around it.
+
+```yaml
+action: enphase_envoy.get_last_data
+data:
+  envoy: sensor.envoy_123456789012_current_power_production
+  endpoint: /api/v1/production/inverters,1,maxReportWatts
+```
+
+Response
+
+```yaml
+maxReportWatts: 244
+```
+
+When used in automation or script actions, use `response_variable` to specify which variable will receive the returned data
+
+In the Developer tools - actions, automation or script UI, this action shows as: _Enphase Envoy: Get last collected data_.
+
+{% raw %}
+
+```yaml
+alias: Get_Envoy_last_data
+variables:
+  envoy_entity: envoy.123456789012
+sequence:
+  - action: enphase_envoy.get_last_data
+    metadata: {}
+    data:
+      envoy: "{{ envoy_entity }}"
+      endpoint: /api/v1/production/inverters
+    response_variable: envoy_reply
+  - action: notify.persistent_notification
+    metadata: {}
+    data:
+      message: "Envoy Inverters {{ envoy_reply['/api/v1/production/inverters'] }}"
+      title: Envoy Inverters
+description: Read data last collected from Envoy
+```
+
+{% endraw %}
+
+### Action `enphase_envoy.get_current_data`
+
+When interested in envoy data which is not available in the [`raw` dataset](#action-enphase_envoyget_last_data), the `enphase_envoy.get_current_data` action allows for reading data directly from the envoy. This requires to specify the endpoint on the envoy as well as understand the returned data format. Furthermore, it requires access to the endpoint on the envoy. Not all envoy endpoints are accessible using an Enphase Home Owner account.
+
+| Data attribute | Optional | Description |
+| - | - | - |
+| `envoy` | no | Entity_id of an entity associated with the target Envoy. In the UI select an entity from the dropdown list. <br> In yaml mode the format `envoy.SN` can be used as well, where SN is the target envoy serial number |
+| `endpoint` | no | The endpoint in the envoy. Must start with leading /. <br>Optionally add a comma separated list of dict keys and/or list indexes to select sub dict or list elements from the returned data. |
+
+Example with envoy entity:
+
+```yaml
+action: enphase_envoy.get_current_data
+data:
+  envoy: sensor.envoy_123456789012_current_power_production
+  endpoint: /api/v1/production/inverters
+```
+
+Response
+
+```yaml
+/api/v1/production/inverters:
+  - serialNumber: "123456009079"
+    lastReportDate: 1694554838
+    devType: 1
+    lastReportWatts: 202
+    maxReportWatts: 246
+  - serialNumber: "123456009193"
+    lastReportDate: 1694554845
+    devType: 1
+    lastReportWatts: 201
+    maxReportWatts: 244
+```
+
+This action resembles the [`enphase_envoy.get_last_data`](#action-enphase_envoyget_last_data), same endpoint specification with comma separated dict key and/or list indexes to select data to be returned. This action however, has the endpoint as required, no *give me all data* option. Also, a GET request is send to the envoy for each action call.
+
+In the Developer tools - actions UI, this action shows as: _Enphase Envoy: Get current data_.
+
+{% note %}
+This action sends a GET request to the Envoy for each use. Be careful with scheduling it at intervals less then the default collection time of 1 minute. When using multiple `enphase_envoy.get_current_data` actions or shorter intervals, be cautious to avoid unintended overload on the envoy.
+{% endnote %}
+
+### Action `enphase_envoy.post_data`
+
+{% warning %}
+Only send data to the envoy if you fully understand the effect of the data on the Envoy. Sending data may have undesired or unexpected results in the Envoy. The fact that you can send data, does not imply you should send data. Such evaluation and decision is yours!
+{% endwarning%}
+
+This action allows sending data to the envoy. Data must be a JSON string that can pass the json.loads method. The jason data is send to the specified endpoint on the envoy. Default method used is POST, optionally PUT can be specified. Any reply received from the envoy is returned by the action.
+
+| Data attribute | Optional | Description |
+| - | - | - |
+| `envoy` | no | Entity_id of an entity associated with the target Envoy. In the UI select an entity from the dropdown list. <br> In yaml mode the format `envoy.SN` can be used as well, where SN is the target envoy serial number |
+| `endpoint` | no | The endpoint in the envoy. Must start with leading /. <br>Optionally add a comma separated list of dict keys and/or list indexes to select sub dict or list elements from the reply. |
+| `data` | no | JSON to send to the envoy |
+| `method` | yes | Method to use. Default if not specified, is POST. Select from POST or PUT. |
+
+Below example reads the admin_lib_tariff.json file from the /config folder and sends it to the /admin/lib/tariff endpoint on the envoy.
+
+{% warning %}
+A PUT to /admin/lib/tariff on the envoy replaces the content of the endpoint on the envoy. If the format is incomplete, contains invalid data or invalid keys, this may result in a destroyed tariff page on the envoy!
+{% endwarning %}
+
+{% raw %}
+
+```yaml
+alias: SendTariff
+description: Send tariff json file to Envoy
+triggers: []
+conditions: []
+actions:
+  - action: shell_command.jq
+    data:
+      jqparams: "{{ jqoptions }} {{ jsonfile }}"
+    response_variable: file_data
+  - action: enphase_envoy.post_data
+    metadata: {}
+    data:
+      envoy: "{{envoy_id}}"
+      endpoint: "{{envoy_endpoint}}"
+      data: |
+        {% set file_json = file_data['stdout'] %} {{ file_json }}
+      method: "PUT"
+    response_variable: envoy_reply
+  - action: notify.persistent_notification
+    metadata: {}
+    data:
+      message: "{{ envoy_reply['/admin/lib/tariff']}}"
+      title: Reply from {{envoy_endpoint}}
+variables:
+  jsonfile: ./config/admin_lib_tariff.json
+  jqoptions: "'.' -c"
+  envoy_id: envoy.121621012167
+  envoy_endpoint: /admin/lib/tariff
+mode: single
+```
+
+Above example requires a shell command definition in configuration.yaml to read the JSON file.
+
+```yaml
+shell_command:
+  jq: jq {{jqparams}}
+```
+
+{% endraw %}
+
+In the Developer tools - actions, automation or script UI, this action shows as: _Enphase Envoy: Send data_.
+
+{% warning %}
+Only send data to the envoy if you fully understand the effect of the data on the Envoy. Sending data may have undesired or unexpected results in the Envoy. The fact that you can send data, does not imply you should send data. Such evaluation and decision is yours!
+{% endwarning%}
 
 ## Know issues and limitations
 
