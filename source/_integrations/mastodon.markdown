@@ -59,9 +59,9 @@ Post a status to your Mastodon account
 | `config_entry_id`      | No       | The ID of the Mastodon config entry to post to. |
 | `status`               | No       | The status text to post. |
 | `visibility`           | Yes      | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. |
-| `content_warning`      | Yes      | Text will be be shown as a warning before the text of the status. If not used, no warning will be displayed. |
+| `content_warning`      | Yes      | Text will be shown as a warning before the text of the status. If not used, no warning will be displayed. |
 | `media`                | Yes      | Attach an image or video to the post. |
-| `media_warning`        | Yes      | If an image or video is attached, `True`: will marked the media as sensitive. `False` is default. |
+| `media_warning`        | Yes      | If an image or video is attached, `True` will mark the media as sensitive. `False` is default. |
 
 {% tip %}
 You can get your `config_entry_id` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
