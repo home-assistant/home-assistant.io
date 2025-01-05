@@ -345,7 +345,7 @@ description: Read current firmware from Envoy
 {% endraw %}
 
 {% note %}
-This action sends a GET request to the Envoy. Do not schedule or execute it at intervals less then the default collection time of 1 minute. As Firmware installs do not happen often and will take some time being installed, 5, 15 or 60 minutes is probably a more suited interval.
+This action sends a GET request to the Envoy. Do not schedule or execute it at intervals less than the default collection time of 1 minute. As Firmware installs do not happen often and will take some time being installed, 5, 15 or 60 minutes is probably a more suited interval.
 {% endnote %}
 
 ### Action `enphase_envoy.get_last_data`
@@ -490,12 +490,12 @@ Response
     maxReportWatts: 244
 ```
 
-This action resembles the [`enphase_envoy.get_last_data`](#action-enphase_envoyget_last_data), same endpoint specification with comma separated dict key and/or list indexes to select data to be returned. This action however, has the endpoint as required, no *give me all data* option. Also, a GET request is send to the envoy for each action call.
+This action resembles the [`enphase_envoy.get_last_data`](#action-enphase_envoyget_last_data), same endpoint specification with comma separated dict key and/or list indexes to select data to be returned. This action, however, has the endpoint as required, no *give me all data* option. Also, a GET request is sent to the envoy for each action call.
 
 In the Developer tools - actions UI, this action shows as: _Enphase Envoy: Get current data_.
 
 {% note %}
-This action sends a GET request to the Envoy for each use. Be careful with scheduling it at intervals less then the default collection time of 1 minute. When using multiple `enphase_envoy.get_current_data` actions or shorter intervals, be cautious to avoid unintended overload on the envoy.
+This action sends a GET request to the Envoy for each use. Be careful with scheduling it at intervals less than the default collection time of 1 minute. When using multiple `enphase_envoy.get_current_data` actions or shorter intervals, be cautious to avoid unintended overload on the envoy.
 {% endnote %}
 
 ### Action `enphase_envoy.post_data`
@@ -504,7 +504,7 @@ This action sends a GET request to the Envoy for each use. Be careful with sched
 Only send data to the envoy if you fully understand the effect of the data on the Envoy. Sending data may have undesired or unexpected results in the Envoy. The fact that you can send data, does not imply you should send data. Such evaluation and decision is yours!
 {% endwarning%}
 
-This action allows sending data to the envoy. Data must be a JSON string that can pass the json.loads method. The jason data is send to the specified endpoint on the envoy. Default method used is POST, optionally PUT can be specified. Any reply received from the envoy is returned by the action.
+This action allows sending data to the envoy. Data must be a JSON string that can pass the json.loads method. The JSON data is sent to the specified endpoint on the envoy. Default method used is POST, optionally PUT can be specified. Any reply received from the envoy is returned by the action.
 
 | Data attribute | Optional | Description |
 | - | - | - |
@@ -513,7 +513,7 @@ This action allows sending data to the envoy. Data must be a JSON string that ca
 | `data` | no | JSON to send to the envoy |
 | `method` | yes | Method to use. Default if not specified, is POST. Select from POST or PUT. |
 
-Below example reads the admin_lib_tariff.json file from the /config folder and sends it to the /admin/lib/tariff endpoint on the envoy.
+Below example reads the admin_lib_tariff JSON file from the /config folder and sends it to the /admin/lib/tariff endpoint on the envoy.
 
 {% warning %}
 A PUT to /admin/lib/tariff on the envoy replaces the content of the endpoint on the envoy. If the format is incomplete, contains invalid data or invalid keys, this may result in a destroyed tariff page on the envoy!
