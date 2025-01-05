@@ -509,7 +509,7 @@ Prerequisites:
   <img src='/images/integrations/reolink/rich_notification__new_trigger.png' alt='Screenshot: new trigger'>
 </p>
 
-    Then under **Entity**, select the binary sensor from the drop-down list corresponding to the camera event for which you want to receive a rich notification. For the Reolink integration the options are:
+  Then under **Entity**, select the binary sensor from the drop-down list corresponding to the camera event for which you want to receive a rich notification. For the Reolink integration the options are:
 
     - binary_sensor.*camera name*_motion
     - binary_sensor.*camera name*_person
