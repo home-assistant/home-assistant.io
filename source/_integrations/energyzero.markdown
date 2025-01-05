@@ -151,10 +151,10 @@ To use the response data from the actions, you can create a template sensor that
 
 ```yaml
 template:
-  - triggers:
+  - trigger:
       - trigger: time_pattern
         hours: "*"
-    actions:
+    action:
       - action: energyzero.get_energy_prices
         response_variable: prices
         data:
