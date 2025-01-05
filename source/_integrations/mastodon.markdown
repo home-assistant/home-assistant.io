@@ -1,6 +1,6 @@
 ---
 title: Mastodon
-description: Instructions on how to add Mastodon notifications to Home Assistant.
+description: Instructions on how to add Mastodon posts and account statistics to Home Assistant.
 ha_category:
   - Notifications
   - Sensor
@@ -50,6 +50,10 @@ The Mastodon integration has the following actions:
 
 - `mastodon.post`
 
+{% note %}
+The previous `notify.mastodon` service has been deprecated in favor of the new `mastodon.post` action. If you're upgrading from a previous version, you'll need to update your automations to use the new action format shown below.
+{% endnote %}
+
 ### Action `mastodon.post`
 
 Post a status to your Mastodon account
@@ -71,7 +75,7 @@ You can get your `config_entry_id` by using actions within [Developer Tools](/do
 
 {% details "Example status post action" %}
 
-Example post action that will post a status using your accounts default visibility:
+Example post action that will post a status using your account's default visibility:
 
 {% raw %}
 
