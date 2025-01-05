@@ -63,7 +63,9 @@ publish_states_host:
   required: false
   type: string
 include_strings:
-  description: Also publish string states, i.e. states which cannot be cast to a numeric value.
+    description: >-
+      Also publish string states, i.e. states which cannot be cast to a numeric value.
+      Introduced in Home Assistant Core PR #134773.
   required: false
   type: boolean
   default: false
@@ -114,6 +116,7 @@ zabbix:
   username: USERNAME
   password: PASSWORD
   publish_states_host: homeassistant
+  include_strings: true
   exclude:
     domains:
       - device_tracker
