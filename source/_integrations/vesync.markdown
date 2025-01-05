@@ -20,6 +20,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - humidifier
 ha_integration_type: integration
 ---
 
@@ -69,9 +70,9 @@ This {% term integration %} supports devices controllable by the VeSync App.  Th
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
 
 ### Humidifiers
+
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
-
 
 ## Prerequisite
 
