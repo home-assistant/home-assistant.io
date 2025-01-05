@@ -62,6 +62,11 @@ publish_states_host:
   description: The host that will receive the state changes from Home Assistant. It needs to be manually created in Zabbix first and have the template associated with it (see above).
   required: false
   type: string
+include_strings:
+  description: Also publish string states, i.e. states which cannot be cast to a numeric value.
+  required: false
+  type: boolean
+  default: false
 exclude:
   type: list
   description: Configure which integrations should be excluded from being published to Zabbix. ([Configure Filter](#configure-filter))
