@@ -400,8 +400,9 @@ layout: null
 /cookbook/#infrastructure /examples/#infrastructure
 /cookbook/#automation-examples /examples
 /cookbook /examples
-/common-tasks/os/#snapshots /common-tasks/os/#backups
-/common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
+/common-tasks/os/#snapshots /common-tasks/general/#backups
+/common-tasks/os/#backups /common-tasks/general/#backups
+/common-tasks/supervised/#snapshots /common-tasks/general/#backups
 /more-info/unsupported/container /more-info/unsupported/software
 /integrations/zigbee /integrations/zha
 /examples /
@@ -612,6 +613,7 @@ layout: null
 /integrations/shiftr /more-info/removed-integration 301
 /integrations/sht31 /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
+/integrations/simulated /more-info/removed-integration 301
 /integrations/smarthab /more-info/removed-integration 301
 /integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
@@ -619,6 +621,7 @@ layout: null
 /integrations/spider /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /integrations/srp_energy /more-info/removed-integration 301
+/integrations/stookalert /more-info/removed-integration 301
 /integrations/synology /more-info/removed-integration 301
 /integrations/sytadin /more-info/removed-integration 301
 /integrations/tahoma /more-info/removed-integration 301

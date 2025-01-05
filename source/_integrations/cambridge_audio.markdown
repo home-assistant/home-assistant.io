@@ -17,6 +17,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_integration_type: device
 ha_zeroconf: true
+ha_quality_scale: platinum
 ---
 
 The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the [StreamMagic](https://www.cambridgeaudio.com/usa/en/products/streammagic) app.
@@ -104,6 +105,12 @@ data:
   media_content_type: "internet_radio"
   media_content_id: "https://example.com/internet-radio/station_abcd.mp3"
 ```
+
+## Browsing media
+
+The Cambridge Audio integration allows you to browse saved presets from your dashboard. 
+All stored presets will be categorized into playlists, artists, and tracks.
+
 ## Troubleshooting
 
 ### The buttons to skip, shuffle, and repeat the track are missing

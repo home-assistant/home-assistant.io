@@ -35,7 +35,6 @@ The integration will add one Home Assistant device for each connected home appli
 
 - A power switch
 - If the device has programs:
-  - Switches for each of the individual programs will be added. Note that program options cannot be configured currently.
   - Two select entities that will allow you to select and start a program between the available ones.
   - A timestamp sensor for remaining time and a numeric sensor for the progress percentage.
 - Light:

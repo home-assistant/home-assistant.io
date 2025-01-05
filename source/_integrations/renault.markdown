@@ -21,6 +21,7 @@ ha_platforms:
   - select
   - sensor
 ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The Renault integration offers integration with the **MyRenault** cloud service and provides sensors such as charger state and temperature.

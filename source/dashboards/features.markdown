@@ -470,6 +470,27 @@ type:
   type: string
 {% endconfiguration %}
 
+## Media player volume slider
+
+Widget that displays a slider to control the volume for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_volume_slider.png' alt='Screenshot of the tile card with media player volume slider feature'>
+  Screenshot of the tile card with media player volume slider feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-volume-slider"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-volume-slider`"
+  type: string
+{% endconfiguration %}
+
 ## Numeric input
 
 Widget that displays a slider or buttons to set the value for a [number](/integrations/number) or [input number](/integrations/input_number).
