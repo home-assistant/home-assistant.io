@@ -38,6 +38,10 @@ There is currently support for the following device types within Home Assistant:
 - Sensor - for some additional information of the zones.
 - Weather - for information about the current weather at the location of your Tado home.
 
+## Unsupported device types
+
+New Tado X devices are not supported by this integration, they have to be used through the [Matter integration](/integrations/matter).
+
 {% include integrations/config_flow.md %}
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.

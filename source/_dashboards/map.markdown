@@ -58,11 +58,11 @@ type:
   type: string
 entities:
   required: true
-  description: List of entity IDs or `entity` objects (see below). Either this or the `geo_location_sources` configuration option is required.
+  description: List of entity IDs or `entity` objects (see [below](#options-for-entities)). Either this or the `geo_location_sources` configuration option is required.
   type: list
 geo_location_sources:
   required: true
-  description: List of geolocation sources. All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this or the `entities` configuration option is required.
+  description: List of geolocation sources or `source` objects (see [below](#options-for-geolocation-sources)). All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this or the `entities` configuration option is required.
   type: list
 auto_fit:
   required: false
@@ -125,12 +125,33 @@ name:
 label_mode:
   required: false
   default: name
-  description: When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
   type: string
 focus:
   required: false
   default: true
   description: When set to `false`, this entity will not be considered for determining the default zoom or fit of the map.
+  type: boolean
+{% endconfiguration %}
+
+## Options for geolocation sources:
+
+If you define geolocation sources as objects instead of strings (by adding `source:` before the ID), you can add more customization and configuration.
+
+{% configuration %}
+source:
+  required: true
+  description: Name of a geolocation source, or `all`.
+  type: string
+label_mode:
+  required: false
+  default: name
+  description: When set to `icon`, renders the geolocation entity's icon in the marker instead of text. When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. 
+  type: string    
+focus:
+  required: false
+  default: true
+  description: When set to `false`, the entities of this source will not be considered for determining the default zoom or fit of the map.
   type: boolean
 {% endconfiguration %}
 
@@ -150,6 +171,8 @@ entities:
 type: map
 geo_location_sources:
   - nsw_rural_fire_service_feed
+  - source: gdacs
+    focus: false
 entities:
   - zone.home
 ```

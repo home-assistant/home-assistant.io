@@ -3,93 +3,47 @@ title: Onkyo
 description: Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant.
 ha_category:
   - Media player
-ha_release: 0.17
-ha_iot_class: Local Push
-ha_domain: onkyo
-ha_platforms:
-  - media_player
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ha_codeowners:
   - '@arturpragacz'
+ha_config_flow: true
+ha_domain: onkyo
+ha_integration_type: device
+ha_iot_class: Local Push
+ha_platforms:
+  - media_player
+ha_release: 0.17
 ---
 
-The `onkyo` {% term integration %} allows you to control a [Onkyo](https://www.onkyo.com), [Integra](http://www.integrahometheater.com)
-and some recent [Pioneer](https://www.pioneerelectronics.com) receivers from Home Assistant.
-Please be aware that you need to enable "Network Standby" for this integration to work in your Hardware.
+The `onkyo` {% term integration %} allows you to control [Onkyo](https://www.onkyo.com) and [Integra](http://www.integrahometheater.com) (from 2011 onward) and also [Pioneer](https://www.pioneerelectronics.com) (from 2016 onward) receivers using Home Assistant.
+Please be aware that you need to enable "Network Standby" for this integration to work with your hardware.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add an Onkyo or Pioneer receiver to your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% configuration_basic %}
+Host:
+  description: Hostname or IP address of the device, for example:`192.168.1.2`.
+Volume Resolution:
+  description: Number of steps it takes for the receiver to go from the lowest to the highest possible volume. Possible values are 50, 80, 100, 200. For older Onkyo receivers, this typically is 80; newer Onkyo receivers use 200.
+Input sources:
+  description: List of input sources supported by the receiver.
+{% endconfiguration_basic %}
 
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: onkyo
-    host: 192.168.1.2
-    name: receiver
-    sources:
-      pc: "HTPC"
-```
+The above settings can also be adjusted later. To do this, click the three-dot menu on the integration entry and select **Reconfigure**.
 
- If your receiver has second or third zone’s available, they are displayed as additional media players with the same functionality as the main zone.
+{% include integrations/option_flow.md %}
 
-{% configuration %}
-host:
-  description: IP address of the device. Example:`192.168.1.2`. If not specified, the platform will load any discovered receivers.
-  required: false
-  type: string
-name:
-  description: Name of the device. (*Required if host is specified*)
-  required: false
-  type: string
-max_volume:
-  description: Maximum volume as a percentage. Often the maximum volume of the receiver is far too loud. Setting this will set Home Assistant's 100% volume to be this setting on the amp. i.e., if you set this to 50% when you set Home Assistant to be 100% then your receiver will be set to 50% of its maximum volume.
-  required: false
-  default: 100
-  type: integer
-receiver_max_volume:
-  description: The number of steps it takes for the receiver to go from the lowest to the highest possible volume. Possible values are 50, 80, 100, 200. For older Onkyo receivers, this typically is 80; newer Onkyo receivers use 200.
-  required: false
-  default: 80
-  type: integer
-sources:
-  description: A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
-  required: false
-  type: list
-{% endconfiguration %}
+{% configuration_basic %}
+Max Volume:
+  description: Maximum volume limit as a percentage. Often the maximum volume of the receiver is far too loud. Setting this will set Home Assistant's 100% volume to be this setting on the amp, i.e., if you set this to 50%, when you set Home Assistant to be 100%, then your receiver will be set to 50% of its maximum volume.
+Input sources:
+  description: Mappings of input sources to their names.
+{% endconfiguration_basic %}
 
-List of source names:
+## Zones
 
-- `video1`
-- `video2`
-- `video3`
-- `video4`
-- `video5`
-- `video6`
-- `video7`
-- `dvd`
-- `bd-dvd`
-- `tape1`
-- `tv-tape`
-- `tape2`
-- `phono`
-- `cd`
-- `tv-cd`
-- `fm`
-- `am`
-- `tuner`
-- `dlna`
-- `internet-radio`
-- `usb`
-- `network`
-- `universal-port`
-- `multi-ch`
-- `xm`
-- `sirius`
+If your receiver has a second or third zone available, they are displayed as additional media players with functionality similar to the main zone.
+
+## Actions
 
 ### Action `onkyo_select_hdmi_output`
 
@@ -105,6 +59,21 @@ Accepted values are:
 which one to use seems to vary depending on model so you will have to try them out.
 ( For model TX-NR676E it seems to be 'out' for main, 'out-sub' for sub, and 'sub' for both )
 
+### Example `onkyo_select_hdmi_output` script
+
+```yaml
+# Example onkyo_select_hdmi_output script
+#
+script:
+  hdmi_sub:
+    alias: "Hdmi out projector"
+    sequence:
+      - action: media_player.onkyo_select_hdmi_output
+        data:
+          entity_id: media_player.onkyo
+          hdmi_output: out-sub
+```
+
 ### Example `play_media` script
 
 The `play_media` function can be used in script to play radio station by preset number.
@@ -114,7 +83,7 @@ Not working for NET radio.
 # Example play_media script
 #
 script:
- radio1:
+  radio1:
     alias: "Radio 1"
     sequence:
       - action: media_player.turn_on
@@ -128,17 +97,6 @@ script:
           media_content_id: "1"
 ```
 
-### Example `onkyo_select_hdmi_output` script
+## Supported devices
 
-```yaml
-# Example onkyo_select_hdmi_output script
-#
-script:
- hdmi_sub:
-    alias: "Hdmi out projector"
-    sequence:
-      - action: media_player.onkyo_select_hdmi_output
-        data:
-          entity_id: media_player.onkyo
-          hdmi_output: out-sub
-```
+Network receivers from Onkyo and Integra are supported starting with models from the year 2011. Pioneer network receivers are supported starting with models from 2016.

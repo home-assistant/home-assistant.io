@@ -143,7 +143,7 @@ The ecobee climate entity has some extra attributes to represent the state of th
 
 ### Concepts
 
-The ecobee thermostat supports the addition of an accessory. If you have an air exchanger (ventilator, HRV, or ERV), you can control it via the min time home and min time away numbers.
+The ecobee thermostat supports the addition of an accessory. If you have an air exchanger (ventilator, HRV, or ERV), you can control it via the minimum time home and minimum time away numbers.
 
 ### Switch
 
@@ -158,6 +158,22 @@ The `ventilator 20 min` switch is behaving like the switch in the physical ecobe
 | `ventilator_min_on_time_home` | The minimum amount of time (in minutes) that the ventilator will run per hour, when you are home. This is determined by the minimum ventilator runtime setting which can be changed in the ecobee app or on the thermostat itself. |
 | `ventilator_min_on_time_away` | The minimum amount of time (in minutes) that the ventilator will run per hour, when you are away. This is determined by the minimum ventilator runtime setting which can be changed in the ecobee app or on the thermostat itself. |
 
+## Auxiliary Heat
+
+### Concepts 
+
+When an HVAC system is equipped with a heat pump, a form of auxiliary heat is usually included. This may also be referred to as 'Emergency Heat'. You can control whether the thermostat requests only auxiliary heat, and adjust the outdoor temperature at which the heat pump compressor will no longer be used, for example, in response to utility costs or solar production in a hybrid system. A hybrid system refers to a system that does not use electricity for the auxiliary heat (natural gas, propane, etc.). This applies more to air source heat pumps than geothermal. 
+
+### Switch
+
+The `Auxiliary heat only` switch is provided to disable the use of the compressor (heat pump), only using the auxiliary heater. Be careful with this setting, as it can incur additional utility costs from using a less-efficient heat source. 
+
+### Number
+
+The `Compressor minimum temperature` number represents the outdoor temperature at which the compressor (heat pump) will not run. This is represented in the temperature units you have selected in Home Assistant; however, ecobee allows configuration only in increments of 5 degrees Fahrenheit. This is also represented in the thermostat user interface. When the outdoor temperature is below this value, only auxiliary heat will be used. Be careful with this setting, as it can incur additional utility costs from using a less-efficient heat source.
+
+Check your heat pump Owners' Manual prior to adjusting this value; do not adjust it below the rated minimum operating temperature of the heat pump. **Failure to observe the rated minimum operating temperature can cause damage to the system**
+
 ## Actions
 
 Besides the standard actions provided by the Home Assistant [Climate](/integrations/climate/) integration, the following extra actions are provided by the ecobee integration:
@@ -169,6 +185,7 @@ Besides the standard actions provided by the Home Assistant [Climate](/integrati
 - `ecobee.set_dst_mode`
 - `ecobee.set_mic_mode`
 - `ecobee.set_occupancy_modes`
+- `ecobee.set_sensors_in_climate`
 
 ### Action `ecobee.create_vacation`
 
@@ -241,3 +258,13 @@ Enable/disable Smart Home/Away and Follow Me modes.
 | `entity_id`            | yes      | ecobee thermostat on which to set occupancy modes. Omit to target all ecobee thermostats. |
 | `auto_away`            | yes      | true or false                                                                             |
 | `follow_me`            | yes      | true or false                                                                             |
+
+### Service `ecobee.set_sensors_in_climate`
+
+Set which sensors are active on a termostat for a specific climate program.
+
+| Service data attribute | Optional | Description                                                                                                                                         |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | ecobee thermostat on which to set the active sensors.                                                                                                |
+| `preset_mode`          | yes      | Name of the climate program to set the sensors active on (defaults to currently active program).                                                     |
+| `sensors`              | no       | Sensors to set as participating for climate. This is the device ID of the sensor/thermostat. These can be found in the available_sensors attribute. |

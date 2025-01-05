@@ -177,3 +177,11 @@ The following Number entities are available. The values could also be change fro
 |-------------------------|------|----|:--------------|
 | Battery min Home Consumption | W    | RW | Min. home consumption power for battery. |
 | Battery min SoC         | %    | RW | Min. SoC of battery. |
+
+## Diagnostics
+
+The following diagnostic sensors are available.
+
+| Name                    | Data Type | Description   |
+|-------------------------|-----------|:-------------------------------------------|
+| Active Errors           | Integer   | Count of currently active errors. |

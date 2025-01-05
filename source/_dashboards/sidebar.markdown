@@ -9,7 +9,7 @@ related:
   - docs: /dashboards/panel/
     title: Panel view
   - docs: /dashboards/sections/
-    title: Sections view (experimental)
+    title: Sections view (default)
   - docs: /dashboards/views/
     title: About views
 ---

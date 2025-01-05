@@ -38,6 +38,7 @@ For authentication, the integration requires the `email` and `password` you used
 - **On occasion:** Displays the count of items marked with the **If convenient** badge.
 - **Discount only:** Indicates the number of items tagged with the **Offer** badge.
 - **Region & Language:** The sensor can be used for diagnostics. If everything is set correctly, it will display the selected region for the shopping list. If it shows **Unknown**, the region has not been set properly in the **Bring!** app.
+- **List access**: Indicates whether the shopping list is **personal** (private) or **shared** (accessible to others).
 
 ## Actions
 

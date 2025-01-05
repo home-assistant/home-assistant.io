@@ -9,6 +9,7 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `twilio_call` notification platform enables sending notifications via Voice, powered by [Twilio](https://twilio.com).

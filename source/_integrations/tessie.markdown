@@ -34,7 +34,6 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: integration
-ha_quality_scale: platinum
 ---
 
 The Tessie integration exposes various commands and sensors from the Tesla vehicles and energy products connected to your [Tessie](https://tessie.com/) subscription.

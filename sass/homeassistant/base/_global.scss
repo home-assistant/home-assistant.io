@@ -64,6 +64,11 @@ table {
   }
 }
 
+.text-input,
+textarea {
+  cursor: text;
+}
+
 .gist {
   font-size: 0.75em;
 }

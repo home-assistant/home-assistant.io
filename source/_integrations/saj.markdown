@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `saj` {% term integration %} will poll a [SAJ](https://www.saj-electric.com/) solar inverter and present the values as sensors in Home Assistant.

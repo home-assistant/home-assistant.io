@@ -4,6 +4,7 @@ description: Connect and control your Pinecil devices using the IronOS integrati
 ha_category:
   - Number
   - Sensor
+  - Update
 ha_release: 2024.8
 ha_domain: pinecil
 ha_integration_type: virtual
@@ -15,6 +16,7 @@ ha_config_flow: true
 ha_platforms:
   - number
   - sensor
+  - update
 ha_iot_class: Local Polling
 ---
 
