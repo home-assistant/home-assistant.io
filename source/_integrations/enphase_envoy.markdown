@@ -513,6 +513,8 @@ This action allows sending data to the envoy. Data must be a JSON string that ca
 | `data` | no | JSON to send to the envoy |
 | `method` | yes | Method to use. Default if not specified, is POST. Select from POST or PUT. |
 
+Upon completion, the action will trigger a data update for all Envoy entities. This to make sure any changes incurred by the send are reflected in HA.
+
 Below example reads the admin_lib_tariff JSON file from the /config folder and sends it to the /admin/lib/tariff endpoint on the envoy.
 
 {% warning %}
