@@ -21,6 +21,8 @@ It uses the Python module [holidays](https://pypi.org/project/holidays/) to inco
 
 A calendar entity has a state and attributes that represent the next upcoming event (only). A calendar trigger is a much more flexible way to power automations with fewer limitations than using the entity state.
 
+Some countries provides additional categories to be configured besides the public holidays. See the details for each country in the [holidays](https://pypi.org/project/holidays/) library. If the country does not support additional categories, the option to configure categories will not be displayed.
+
 {% include integrations/config_flow.md %}
 
 ## Holiday calendar automations

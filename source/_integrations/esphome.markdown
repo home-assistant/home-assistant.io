@@ -18,6 +18,7 @@ ha_domain: esphome
 ha_zeroconf: true
 ha_platforms:
   - alarm_control_panel
+  - assist_satellite
   - binary_sensor
   - button
   - camera

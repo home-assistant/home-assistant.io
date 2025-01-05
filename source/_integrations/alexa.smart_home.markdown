@@ -323,7 +323,7 @@ alexa:
       type: map
       keys:
         locale:
-          description: The locale of your Alexa devices. Supported locales are `de-DE`,  `en-AU`, `en-CA`, `en-GB`, `en-IN`, `en-US`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`, `pt-BR`. See [Alexa Locale](#alexa-locale) for additional information.
+          description: The locale of your Alexa devices. Supported locales are `de-DE`,  `en-AU`, `en-CA`, `en-GB`, `en-IN`, `en-US`, `es-ES`, `es-MX`, `es-US`,`fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `nl-NL`, and `pt-BR`. See [Alexa Locale](#alexa-locale) for additional information.
           required: false
           type: string
           default: en-US
@@ -416,6 +416,7 @@ The supported locales are:
 - `hi-IN`
 - `it-IT`
 - `ja-JP`
+- `nl-NL`
 - `pt-BR`
 
 See [List of Capability Interfaces and Supported Locales][alexa-supported-locales].
