@@ -23,9 +23,9 @@ Backups will be created in the `App Folder` of your OneDrive, the integration do
 You will need an Azure tenant with an active Azure subscription to create your own client credentials.
 {% endnote %}
 
-This integration comes with a predefined set of [application credentials](https://www.home-assistant.io/integrations/application_credentials/) through Home assistant account linking. 
-Everything is done in the user context, so nobody will every have access to your data except you. However, because you want to your own credentials this is possible, 
-follow [this guide](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret 
+This integration comes with a predefined set of [application credentials](https://www.home-assistant.io/integrations/application_credentials/) through Home Assistant account linking. 
+Everything is done in the user context, so nobody will ever have access to your data except you. However, if you want to use your own credentials, 
+follow [this guide](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
 
 ## Known Limitations
 
