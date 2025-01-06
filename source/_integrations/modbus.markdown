@@ -350,7 +350,7 @@ All modbus entities have the following parameters:
 
 {% configuration %}
 address:
-  description: "Address of coil/register."
+  description: "Address of coil/register. Note that this can also be specified in Hex. For example: `0x789A`"
   required: true
   type: integer
 name:
