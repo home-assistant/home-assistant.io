@@ -68,7 +68,7 @@ One sensor per found network interface will be created
 
 ## Add `process` binary sensor
 
-The `process` binary sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & services" %}**, select the **System Monitor** integration and click **Configure**.
+The `process` binary sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & services" %}**, select the **System Monitor** integration and select **Configure**.
 
 You can select from the pre-populated list (current running processes) or manually enter the process name, to which a binary sensor will be created per selected `process`.
 
