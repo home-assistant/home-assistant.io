@@ -13,7 +13,7 @@ ha_integration_type: service
 ---
 
 This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for use with Home Assistant Backups.
-Backups will be created in the `App Folder` of your OneDrive, the integration does have no access to any other parts of your OneDrive except its own folder.
+Backups will be created in the `App Folder` of your OneDrive. The integration only has access to a application specific folder in this folder and cannot access any other parts of your OneDrive.
 
 {% include integrations/config_flow.md %}
 
@@ -29,7 +29,7 @@ follow [this guide](https://learn.microsoft.com/en-us/entra/identity-platform/qu
 
 ## Known Limitations
 
-- Only personal OneDrives are supported a the moment
+- Only personal OneDrives are supported at the moment
 
 ## Removing the integration
 
