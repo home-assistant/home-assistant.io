@@ -66,6 +66,11 @@ hide_completed:
   description: Hide the completed items section in the card.
   type: boolean
   default: "false"
+hide_create:
+  required: false
+  description: Hide the textbox for creating new tasks at the top of the card.
+  type: boolean
+  default: "false"  
 {% endconfiguration %}
 
 ### Examples
