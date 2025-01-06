@@ -819,7 +819,7 @@ modbus:
     port: 502
     climates:
       - name: "Watlow F4T"
-        address: 27586
+        address: 0x6BC2
         input_type: holding
         count: 1
         data_type: custom
@@ -1439,7 +1439,7 @@ modbus:
     sensors:
       - name: Room_1
         slave: 10
-        address: 0
+        address: 0x9A
         input_type: holding
         unit_of_measurement: °C
         state_class: measurement
