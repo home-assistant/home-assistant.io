@@ -44,7 +44,8 @@ All prices are displayed as `[Currency]/kWh`.
 
 Data is polled from the **Nord Pool** API on an hourly basis, exactly on the hour, to ensure the price sensors are displaying the correct price.
 
-If polling cannot happen because of no connectivity or a malfunctioning API, there is no retry; the next periodic update will try again.
+If polling cannot happen because of no connectivity or a malfunctioning API, it will wait a retry a few times before failing.
+The user can use the [`homeassistant.update_entity`](homeassistant#action-homeassistantupdate_entity) action to manually try again later, in the case the user has solved the connectivity issue.
 
 ## Troubleshooting
 
