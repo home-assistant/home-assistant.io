@@ -39,6 +39,7 @@ Counter ID:
    5. Select the request and open the **Preview** tab.
    6. Expand the `content > clientCompteursPro > list > compteursPro > list` path.
    7. Look for the `id_PDS` field - this value is your counter ID.
+  "
 
 {% endconfiguration_basic %}
 
