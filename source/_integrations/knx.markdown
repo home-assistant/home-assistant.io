@@ -133,7 +133,7 @@ The KNX integration supports both IP Secure and Data Secure.
 IP Secure credentials can be provided in two ways:
 
 1. Using a `.knxkeys` file: This file can be exported from ETS and imported into the integration settings.
-2. Manual configuration: If you are only using IP Secure, you can manually input the required credentials in the integration settings.
+2. Manual configuration: If you are not using Data Secure, you can manually input the required IP Secure credentials in the integration settings.
 
 #### Data Secure
 
@@ -158,14 +158,20 @@ If you use KNX IP Secure tunneling or Data Secure, export the Keyring file from 
 
 ![Tunnel endpoint setup in ETS 6](/images/integrations/knx/knx_ets_tunnel.png)
 
+{% note %}
+
+If you want Home Assistant to use a specific individual address, you can change the address of the used tunnel endpoint in ETS.
+
+{% endnote %}
+
 {% details "Manual IP Secure tunneling credentials" %}
 
 If you opt for manual configuration of IP Secure tunneling, you will need the following:
 
-- User-ID: Use a User-ID of 2 or higher. (IDs 0 and 1 are reserved.)
-For example, the first tunnel endpoint in ETS will typically use User-ID `2`, the second `3`, and so on.
-- User password
-- Device authentication code (optional)
+1. User-ID: Use a User-ID of 2 or higher. (IDs 0 and 1 are reserved.)
+The first tunnel endpoint in ETS will typically use User-ID `2`, the second `3`, and so on.
+1. User password
+2. Device authentication code (optional)
 
 ![Obtain the tunnel User-ID and password in ETS](/images/integrations/knx/knx_ets_tunnel_password.png)
 
@@ -181,11 +187,11 @@ Routing communicates with KNXnet/IP routers via IP Multicast.
 
 When using routing:
 
-- Add a dummy device in ETS at the same topology level as your routers.
-- Assign this dummy device the same individual address configured in the KNX integration setup.
-- Connect all group addresses that Home Assistant will use to the dummy device.
+1. Add a dummy device in ETS at the same topology level as your routers.
+2. Assign this dummy device the same individual address configured in the KNX integration setup.
+3. Connect all group addresses that Home Assistant will use to the dummy device.
 This ensures routers and couplers maintain updated filter tables and enables the use of secure group addresses in Home Assistant.
-- If you use KNX IP Secure routing or Data Secure groups, export the Keyring file from ETS and import it in the KNX integration settings.
+4. If you use KNX IP Secure routing or Data Secure groups, export the Keyring file from ETS and import it in the KNX integration settings.
 
 ![Routing dummy setup in ETS 6](/images/integrations/knx/knx_ets_dummy.png)
 
