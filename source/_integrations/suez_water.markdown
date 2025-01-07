@@ -32,19 +32,13 @@ Counter ID:
 
   Follow these steps to find your counter ID:
 
-   1. Open the browser's developer tools (usually F12 or right-click > Inspect)
-
-   2. Open the Network tab in the developer tools
-
-   3. Navigate to the page or reload it if already open
-
-   4. In the Network tab, search for `https://www.toutsurmoneau.fr/public-api/cel-consumption/meters-list`
-
-   5. Click on the request and open the Preview tab
-
-   6. Expand the `content > clientCompteursPro > list > compteursPro > list` path
-
-   7. Look for the `id_PDS` field - this value is your counter ID
+   1. Open the browser's developer tools (usually F12 or right-click > **Inspect**).
+   2. Open the **Network** tab in the developer tools.
+   3. Navigate to the page or reload it if already open.
+   4. In the **Network** tab, search for `https://www.toutsurmoneau.fr/public-api/cel-consumption/meters-list`.
+   5. Select the request and open the **Preview** tab.
+   6. Expand the `content > clientCompteursPro > list > compteursPro > list` path.
+   7. Look for the `id_PDS` field - this value is your counter ID.
 "
 
 {% endconfiguration_basic %}
