@@ -168,10 +168,10 @@ If you want Home Assistant to use a specific individual address, you can change 
 
 If you opt for manual configuration of IP Secure tunneling, you will need the following:
 
-1. User-ID: Use a User-ID of 2 or higher. (IDs 0 and 1 are reserved.)
+1. User-ID: Use a User-ID of 2 or higher. (IDs 0 and 1 are reserved.)  
 The first tunnel endpoint in ETS will typically use User-ID `2`, the second `3`, and so on.
-1. User password
-2. Device authentication code (optional)
+2. User password
+3. Device authentication code (optional)
 
 ![Obtain the tunnel User-ID and password in ETS](/images/integrations/knx/knx_ets_tunnel_password.png)
 
