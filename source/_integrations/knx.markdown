@@ -122,7 +122,7 @@ knx:
 
 ## Connection
 
-Connection parameters are configured during integration setup and can be modified later from the `Integrations` panel.
+Connection parameters are configured during integration setup and can be modified later in the integrations settings.
 
 ### KNX Secure
 
