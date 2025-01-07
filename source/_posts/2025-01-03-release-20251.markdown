@@ -68,6 +68,8 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [Dashboard background settings](#dashboard-background-settings)
 - [Media player volume feature for Tile card](#media-player-volume-feature-for-tile-card)
+- [Patch releases](#patch-releases)
+  - [2025.1.1 - January 7](#202511---january-7)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -553,6 +555,136 @@ Nice work Simon!
 <img class="no-shadow" alt="The tile card with a media player entity, having the volume feature slider enabled" src="/images/blog/2025-01/tile-card-feature-volume-slider.png" />
 
 [@simon-zumbrunnen]: https://github.com/simon-zumbrunnen
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2025.1 in January.
+These patch releases only contain bug fixes. Our goal is to release a patch
+release every Friday.
+
+### 2025.1.1 - January 7
+
+- Matter Battery replacement icon ([@lboue] - [#134460])
+- Small fix to allow playing of expandable favorites on Squeezebox ([@peteS-UK] - [#134572])
+- Bump bleak-esphome to 2.0.0 ([@bdraco] - [#134580])
+- Bump uiprotect to version 7.2.0 ([@RaHehl] - [#134587])
+- Mention case-sensitivity in tplink credentials prompt ([@rytilahti] - [#134606])
+- Fix Flick Electric authentication ([@ZephireNZ] - [#134611])
+- Fix hive color tunable light ([@epenet] - [#134628])
+- Set logging in manifest for Cookidoo ([@miaucl] - [#134645])
+- Remove call to remove slide ([@joostlek] - [#134647])
+- Update twentemilieu to 2.2.1 ([@frenck] - [#134651])
+- Fix Reolink playback of recodings ([@starkillerOG] - [#134652])
+- Update peblar to 0.3.3 ([@frenck] - [#134658])
+- Bump cookidoo-api library to 0.11.1 of for Cookidoo ([@miaucl] - [#134661])
+- Update demetriek to 1.1.1 ([@frenck] - [#134663])
+- Cookidoo exotic domains ([@miaucl] - [#134676])
+- Iterate over a copy of the list of programs at Home Connect select setup entry ([@Diegorro98] - [#134684])
+- Change from host to ip in zeroconf discovery for slide_local ([@dontinelli] - [#134709])
+- Bump ZHA to 0.0.45 ([@TheJulianJES] - [#134726])
+- Bump openwebifpy to 4.3.1 ([@autinerd] - [#134746])
+- Fix swapped letter order in "°F" and "°C" temperature units ([@NoRi2909] - [#134750])
+- Bumb python-homewizard-energy to 7.0.1 ([@DCSBL] - [#134753])
+- Register base device entry during coordinator setup in AVM Fritz!Tools integration ([@mib1185] - [#134764])
+- Bump pysuezV2 to 2.0.1 ([@jb101010-2] - [#134769])
+- Fix missing sentence-casing etc. in several strings ([@NoRi2909] - [#134775])
+- Raise ImportError in python_script ([@gjohansson-ST] - [#134792])
+- Replace "id" with "ID" for consistency across HA ([@NoRi2909] - [#134798])
+- Fix a few typos or grammar issues in asus_wrt ([@NoRi2909] - [#134813])
+- Bump uiprotect to version 7.4.1 ([@RaHehl] - [#134829])
+- Bump habluetooth to 3.7.0 ([@bdraco] - [#134833])
+- Fix how function arguments are passed on actions at Home Connect ([@Diegorro98] - [#134845])
+- Bump aiolifx-themes to update colors ([@Djelibeybi] - [#134846])
+- Update Roborock config flow message when an account is already configured ([@allenporter] - [#134854])
+- Log upload BackupAgentError ([@ludeeus] - [#134865])
+- Log cloud backup upload response status ([@ludeeus] - [#134871])
+- Bump solax to 3.2.3 ([@squishykid] - [#134876])
+- Add extra failure exceptions during roborock setup ([@Lash-L] - [#134889])
+- Use uppercase for "ID" and sentence-case for "name" / "icon" ([@NoRi2909] - [#134890])
+- Bump python-kasa to 0.9.1 ([@sdb9696] - [#134893])
+- Add `bring_api` to loggers in Bring integration ([@tr4nt0r] - [#134897])
+- Fix wrong power limit decimal place in IronOS ([@tr4nt0r] - [#134902])
+- Update frontend to 20250106.0 ([@bramkragten] - [#134905])
+- Bump powerfox to v1.1.0 ([@klaasnicolaas] - [#134730])
+- Bump powerfox to v1.2.0 ([@klaasnicolaas] - [#134908])
+- Bump holidays to 0.64 ([@gjohansson-ST] - [#134922])
+- Revert "Remove deprecated supported features warning in LightEntity" ([@arturpragacz] - [#134927])
+
+[#134460]: https://github.com/home-assistant/core/pull/134460
+[#134572]: https://github.com/home-assistant/core/pull/134572
+[#134580]: https://github.com/home-assistant/core/pull/134580
+[#134587]: https://github.com/home-assistant/core/pull/134587
+[#134606]: https://github.com/home-assistant/core/pull/134606
+[#134611]: https://github.com/home-assistant/core/pull/134611
+[#134628]: https://github.com/home-assistant/core/pull/134628
+[#134645]: https://github.com/home-assistant/core/pull/134645
+[#134647]: https://github.com/home-assistant/core/pull/134647
+[#134651]: https://github.com/home-assistant/core/pull/134651
+[#134652]: https://github.com/home-assistant/core/pull/134652
+[#134658]: https://github.com/home-assistant/core/pull/134658
+[#134661]: https://github.com/home-assistant/core/pull/134661
+[#134663]: https://github.com/home-assistant/core/pull/134663
+[#134676]: https://github.com/home-assistant/core/pull/134676
+[#134684]: https://github.com/home-assistant/core/pull/134684
+[#134709]: https://github.com/home-assistant/core/pull/134709
+[#134726]: https://github.com/home-assistant/core/pull/134726
+[#134730]: https://github.com/home-assistant/core/pull/134730
+[#134746]: https://github.com/home-assistant/core/pull/134746
+[#134750]: https://github.com/home-assistant/core/pull/134750
+[#134753]: https://github.com/home-assistant/core/pull/134753
+[#134764]: https://github.com/home-assistant/core/pull/134764
+[#134769]: https://github.com/home-assistant/core/pull/134769
+[#134775]: https://github.com/home-assistant/core/pull/134775
+[#134792]: https://github.com/home-assistant/core/pull/134792
+[#134798]: https://github.com/home-assistant/core/pull/134798
+[#134813]: https://github.com/home-assistant/core/pull/134813
+[#134829]: https://github.com/home-assistant/core/pull/134829
+[#134833]: https://github.com/home-assistant/core/pull/134833
+[#134845]: https://github.com/home-assistant/core/pull/134845
+[#134846]: https://github.com/home-assistant/core/pull/134846
+[#134854]: https://github.com/home-assistant/core/pull/134854
+[#134865]: https://github.com/home-assistant/core/pull/134865
+[#134871]: https://github.com/home-assistant/core/pull/134871
+[#134876]: https://github.com/home-assistant/core/pull/134876
+[#134889]: https://github.com/home-assistant/core/pull/134889
+[#134890]: https://github.com/home-assistant/core/pull/134890
+[#134893]: https://github.com/home-assistant/core/pull/134893
+[#134897]: https://github.com/home-assistant/core/pull/134897
+[#134902]: https://github.com/home-assistant/core/pull/134902
+[#134905]: https://github.com/home-assistant/core/pull/134905
+[#134908]: https://github.com/home-assistant/core/pull/134908
+[#134922]: https://github.com/home-assistant/core/pull/134922
+[#134927]: https://github.com/home-assistant/core/pull/134927
+[@DCSBL]: https://github.com/DCSBL
+[@Diegorro98]: https://github.com/Diegorro98
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@Lash-L]: https://github.com/Lash-L
+[@NoRi2909]: https://github.com/NoRi2909
+[@RaHehl]: https://github.com/RaHehl
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@ZephireNZ]: https://github.com/ZephireNZ
+[@allenporter]: https://github.com/allenporter
+[@arturpragacz]: https://github.com/arturpragacz
+[@autinerd]: https://github.com/autinerd
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@dontinelli]: https://github.com/dontinelli
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jb101010-2]: https://github.com/jb101010-2
+[@joostlek]: https://github.com/joostlek
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@lboue]: https://github.com/lboue
+[@ludeeus]: https://github.com/ludeeus
+[@miaucl]: https://github.com/miaucl
+[@mib1185]: https://github.com/mib1185
+[@peteS-UK]: https://github.com/peteS-UK
+[@rytilahti]: https://github.com/rytilahti
+[@sdb9696]: https://github.com/sdb9696
+[@squishykid]: https://github.com/squishykid
+[@starkillerOG]: https://github.com/starkillerOG
+[@tr4nt0r]: https://github.com/tr4nt0r
 
 ## Need help? Join the community!
 
