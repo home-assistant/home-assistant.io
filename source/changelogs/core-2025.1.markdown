@@ -1060,6 +1060,7 @@ For a summary in a more readable format:
 - Bump powerfox to v1.2.0 ([@klaasnicolaas] - [#134908])
 - Bump holidays to 0.64 ([@gjohansson-ST] - [#134922])
 - Revert "Remove deprecated supported features warning in LightEntity" ([@arturpragacz] - [#134927])
+- Revert "Remove deprecated supported features warning in ..." (multiple) ([@frenck] - [#134933])
 
 [#134460]: https://github.com/home-assistant/core/pull/134460
 [#134572]: https://github.com/home-assistant/core/pull/134572
@@ -1106,6 +1107,7 @@ For a summary in a more readable format:
 [#134908]: https://github.com/home-assistant/core/pull/134908
 [#134922]: https://github.com/home-assistant/core/pull/134922
 [#134927]: https://github.com/home-assistant/core/pull/134927
+[#134933]: https://github.com/home-assistant/core/pull/134933
 [@DCSBL]: https://github.com/DCSBL
 [@Diegorro98]: https://github.com/Diegorro98
 [@Djelibeybi]: https://github.com/Djelibeybi
