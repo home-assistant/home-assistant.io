@@ -32,9 +32,9 @@ Client secret:
 
 The integration will request the following permissions on your OneDrive for the integration to work:
 
-- `Files.ReadWrite.AppFolder`: Grants the application to read and write in its own, app-specific folder inside your OneDrive
-- `offline_access`: Grants the application to refresh its authentication token without requiring your manual intervention
-- `openid`: Grants the application to read basic information, e.g. if you have a OneDrive
+- `Files.ReadWrite.AppFolder`: Grants the application permission to read and write in its own, app-specific folder inside your OneDrive
+- `offline_access`: Grants the application permission to refresh its authentication token without requiring your manual intervention
+- `openid`: Grants the application permission to read basic information, e.g. if you have a OneDrive
 
 ## Getting application credentials
 
