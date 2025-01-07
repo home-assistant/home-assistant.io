@@ -122,32 +122,80 @@ knx:
 
 ## Connection
 
-Connection parameters are set up when adding the integration and can be changed from the `Integrations` panel.
-
-Use `route back` if your tunneling server is located on a different network.
+Connection parameters are configured during integration setup and can be modified later from the `Integrations` panel.
 
 ### KNX Secure
 
-The KNX integration supports IP Secure and Data Secure .
+The KNX integration supports both IP Secure and Data Secure.
 
-You can configure the IP Secure credentials either manually or by providing a `.knxkeys` file, which you can obtain by exporting the keyring in ETS as seen in the screenshot below.
+#### IP Secure
+
+IP Secure credentials can be provided in two ways:
+
+1. Using a `.knxkeys` file: This file can be exported from ETS and imported into the integration settings.
+2. Manual configuration: If you are only using IP Secure, you can manually input the required credentials in the integration settings.
+
+#### Data Secure
+
 Data Secure credentials are always sourced from a `.knxkeys` file. You can import or update the Keyring file from the integrations settings.
 
-For Data Secure, please make sure that all secured group addresses you want to use in Home Assistant are assigned to a tunnel of your interface or a dummy device in ETS and all participating devices are updated accordingly.
+{% important %}
 
-![Export Keyring in ETS5](/images/integrations/knx/export_keyring_ets.png)
+Assign all secured group addresses that Home Assistant will use to either the interface's tunnel endpoint or a dummy device in ETS before exporting the Keyring file.
 
-If you decide to configure IP Secure manually you will need the user ID, the user password and the device authentication password.
+{% endimportant %}
 
-The user id 0 is reserved and the user id 1 is used for management tasks, thus you will need to specify a user id that is 2 or higher according to the tunneling channel you would like to use.
+When updating secure groups, ensure all participating devices, routers, and couplers applications are updated as well. After making changes, load the updated Keyring file into Home Assistant.
 
-The following screenshot will show how you can get the device authentication password in ETS.
+### Tunneling
 
-![Obtain device authentication password in ETS](/images/integrations/knx/device_authentication_password.png)
+Tunneling uses a KNX IP Interface to connect to the KNX bus. Most KNX IP Routers support tunneling connections too. This is the recommended connection type and also used when selecting "Automatic" connection in the integration setup.
 
-The user password can be obtained almost the same way as seen in the below screenshot.
+For modern interfaces (supporting TCP or IP Secure) you can select a specific tunnel endpoint to be used. Make sure that Home Assistant is the only client connecting to this tunnel endpoint.
+It is recommended to connect the group addresses you want to use to the tunnel endpoint that Home Assistant uses. For secure group addresses, this is mandatory.
 
-![Obtain the user password in ETS](/images/integrations/knx/user_password.png)
+If you use KNX IP Secure tunneling or Data Secure, export the Keyring file from ETS and import it in the KNX integration settings.
+
+![Tunnel endpoint setup in ETS 6](/images/integrations/knx/knx_ets_tunnel.png)
+
+{% details "Manual IP Secure tunneling credentials" %}
+
+If you opt for manual configuration of IP Secure tunneling, you will need the following:
+
+- User-ID: Use a User-ID of 2 or higher. (IDs 0 and 1 are reserved.)
+For example, the first tunnel endpoint in ETS will typically use User-ID `2`, the second `3`, and so on.
+- User password
+- Device authentication code (optional)
+
+![Obtain the tunnel User-ID and password in ETS](/images/integrations/knx/knx_ets_tunnel_password.png)
+
+The following screenshot will show how you can find the device authentication code in ETS.
+
+![Obtain device authentication code in ETS](/images/integrations/knx/knx_ets_authentication_code.png)
+
+{% enddetails %}
+
+### Routing
+
+Routing communicates with KNXnet/IP routers via IP Multicast.
+
+When using routing:
+
+- Add a dummy device in ETS at the same topology level as your routers.
+- Assign this dummy device the same individual address configured in the KNX integration setup.
+- Connect all group addresses that Home Assistant will use to the dummy device.
+This ensures routers and couplers maintain updated filter tables and enables the use of secure group addresses in Home Assistant.
+- If you use KNX IP Secure routing or Data Secure groups, export the Keyring file from ETS and import it in the KNX integration settings.
+
+![Routing dummy setup in ETS 6](/images/integrations/knx/knx_ets_dummy.png)
+
+{% details "Manual IP Secure routing credentials" %}
+
+If you opt for manual configuration of IP Secure routing, you will need the backbone key. This can be found in the ETS "Project Security" report.
+
+![Backbone key in ETS Project Security report](/images/integrations/knx/knx_ets_backbone_key.png)
+
+{% enddetails %}
 
 ## Triggers
 
