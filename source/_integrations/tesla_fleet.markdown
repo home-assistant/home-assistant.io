@@ -181,7 +181,9 @@ Certain vehicles, including all vehicles manufactured since late 2023, require v
 
 The integration expects your private key to be located at `config/tesla_fleet.key`.
 
-Your public key must be added to each of your vehicles by visiting https://tesla.com/_ak/YOUR.DOMAIN and following the instructions in the Tesla app. you can read more about this process [here](https://developer.tesla.com/docs/fleet-api/endpoints/vehicle-commands#key-pairing).
+Your public key must be added to each of your vehicles by visiting https://tesla.com/_ak/YOUR.DOMAIN and following the instructions in the Tesla app.
+
+For more details see [Tesla Fleet API vehicle commands documentation](https://developer.tesla.com/docs/fleet-api/endpoints/vehicle-commands#key-pairing).
 
 ## Entities
 
