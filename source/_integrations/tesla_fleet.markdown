@@ -177,26 +177,11 @@ Note that Tesla does not support billing in all countries yet. **Developers in c
 
 ## Command signing
 
-Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. All actions on vehicle entities will fail with an error if this is required and the key has not been added to the vehicle.
+Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. All actions on vehicle entities will fail with an error if this is required and the key has not been setup correctly.
 
-You will need to use Tesla's [command line tools](https://github.com/teslamotors/vehicle-command/blob/main/README.md#installation-and-configuration) to generate a key pair and install the public key on your vehicle using Bluetooth.
+The integration expects your private key to be located at `config/tesla_fleet.key`.
 
-```shell
-tesla-keygen -key-file tesla_fleet.key create > tesla_fleet.pem
-tesla-control -ble -key-file tesla_fleet.key -vin VINVINVINVIN -debug add-key-request tesla_fleet.pem owner cloud_key
-```
-
-Finally, copy `tesla_fleet.key` to your Home Assistant config directory and then reload the Tesla Fleet {% term integration %}.
-
-{% note %}
-If you receive a "BLE connection attempt failed" error, follow these steps:
-
-1. Disable Bluetooth on your phone
-2. Execute the `tesla-control` command
-3. Re-enable Bluetooth after the command completes
-
-This is necessary because the tool cannot establish a connection while another Bluetooth device is connected to the car.
-{% endnote %}
+Your public key must be added to each of your vehicles by visiting https://tesla.com/_ak/YOUR.DOMAIN and following the instructions in the Tesla app. you can read more about this process [here](https://developer.tesla.com/docs/fleet-api/endpoints/vehicle-commands#key-pairing).
 
 ## Entities
 
