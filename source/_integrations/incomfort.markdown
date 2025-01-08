@@ -38,6 +38,14 @@ Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** dev
 
 {% include integrations/config_flow.md %}
 
+{% important %}
+
+Some older room thermostat might report the wrong setpoint when the setpoint is manually changed on the room thermostat. If you experience this issue you can try to enable `Legacy setpoint handling`.
+
+{% include integrations/option_flow.md %}
+
+{% endimportant %}
+
 The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
 
 ## Automation
