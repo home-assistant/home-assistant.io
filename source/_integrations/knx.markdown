@@ -2403,3 +2403,17 @@ The `unique_id` for KNX entities is generated based on required configuration va
 - weather: `address_temperature`
 
 There can not be multiple entities on the same platform sharing these exact group addresses, even if they differ in other configuration.
+
+## Remove integration
+
+This integration can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}
+
+Additionally you'll want to remove `knx:` from your {% term "`configuration.yaml`" %}.
+
+{% warning %}
+
+Removing the integration will delete an uploaded keyring file, ETS project information, telegram history and all entitiy configuration done via the UI panel.
+
+{% endwarning %}
