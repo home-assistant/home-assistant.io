@@ -33,7 +33,7 @@ It is accessing the device's local API.
 
 {% configuration_basic %}
 Host:
-  description: "The IP address or hostname of your Connection Box. You can find it in your router or in the Palazzetti app under **Settings** -> **Diagnostic information** -> **Ethernet** or **Wifi**."
+  description: "The IP address or hostname of your Connection Box. You can find it in your router or in the Palazzetti app under **Settings** > **Diagnostic information** > **Ethernet** or **Wifi**."
   required: true
   type: string
 {% endconfiguration_basic %}
@@ -119,9 +119,9 @@ Fuel Sensors:
 
 ## Possible use-cases
 
-- Control the operations, temperature, fans
-- Get alerts when the pellet level is low or empty, or on stove errors
-- Auto start or stop the stove based on presence
+- Control the operations, temperature, and fans.
+- Get alerts when the pellet level is low or empty, or on stove errors.
+- Auto start or stop the stove based on presence.
 
 ## Automations
 
@@ -152,11 +152,11 @@ actions:
 
 {% endraw %} {% enddetails %}
 
-## Known Limitations
+## Known limitations
 
 This integration does **not** yet support the following features and sensors:
 
-- Light and Door on stove models equipped with them.
+- Light and Door entities on stove models equipped with them.
 - Fan control other than the main one.
 - Combustion power control.
 
@@ -164,7 +164,7 @@ This integration does **not** yet support the following features and sensors:
 
 {% details "On and off switch does not always work" %}
 During certain operations, it is not possible to turn the stove on or off. This action is available
-only when the status of the stove is one of `off`, `off_timer`, `burning`, `burning_mod`, `cool_fluid`,
+only when the status of the stove is in one of the following states: `off`, `off_timer`, `burning`, `burning_mod`, `cool_fluid`,
 `clean_fire`, `cooling`, `ecomode`, `firewood_finished`.
 {% enddetails %}
 
