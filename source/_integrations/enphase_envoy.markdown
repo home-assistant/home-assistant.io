@@ -275,7 +275,7 @@ If an Enpower device is installed, then **Charge from grid**, **Reserve battery 
 
 For each IQ Battery, an Encharge device is created, linked to the Envoy parent device. Each encharge devices offers individual battery sensors.
 
-##### Individual IQ battery Sensor entities
+##### Individual IQ battery sensor entities
 
 - **Encharge <abbr title="Encharge serial number">SN</abbr> Battery**: Current state of charge of the battery in %
 - **Encharge <abbr title="Encharge serial number">SN</abbr> Power**: Current power in W
@@ -283,14 +283,14 @@ For each IQ Battery, an Encharge device is created, linked to the Envoy parent d
 - **Encharge <abbr title="Encharge serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
 - **Encharge <abbr title="Encharge serial number">SN</abbr> Last reported**: Time when Envoy received last update from the battery.
 
-##### Individual IQ battery Binary sensor entities
+##### Individual IQ battery binary sensor entities
 
 - **Encharge <abbr title="Encharge serial number">SN</abbr> Communicating**: Communication status of encharge battery, Connected / Disconnected. This is a diagnostics entity.
 - **Encharge <abbr title="Encharge serial number">SN</abbr> DC Switch**: DC Switched off status of encharge battery, On / Off. This is a diagnostics entity.
 
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_encharge.png" alt="iq battery">
-  <figcaption>Envoy Encharge IQ battery Sensor entities.</figcaption>
+  <figcaption>Envoy Encharge IQ battery sensor entities.</figcaption>
 </figure>
 
 #### AC-battery data
@@ -309,9 +309,9 @@ No individual AC-battery data is available, only aggregated AC-battery data for 
   <figcaption>Envoy AC-battery sensor entities.</figcaption>
 </figure>
 
-##### Aggregated IQ and AC battery Sensor entities
+##### Aggregated IQ and AC battery sensor entities
 
-If both IQ and AC batteries are used, aggregated battery data for all installed IQ Batteries and AC-Batteries is available.
+If both IQ and AC batteries are used, aggregated battery data for all installed IQ batteries and AC batteries is available.
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Aggregated Battery SOC**: Overall aggregated battery state of charge in %
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Aggregated Available battery energy**: Overall aggregated battery energy content in Wh
@@ -357,7 +357,7 @@ Data for an installed Enphase Enpower off-grid enabling switch is available in v
 </figure>
 
 {% note %}
-If no Enpower is installed, then **Charge from grid**, **Reserve battery level** and **Storage mode** are available as [Envoy device entities](#aggregated-iq-battery-data) instead of Enpower device entities.
+If no Enpower is installed, then **Charge from grid**, **Reserve battery level**, and **Storage mode** are available as [Envoy device entities](#aggregated-iq-battery-data) instead of Enpower device entities.
 {% endnote %}
 
 ### Enpower load shedding relays
@@ -407,18 +407,18 @@ This integration provides several entities suitable for the energy dashboard.
 
 For **Solar production**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime energy production** entity. Overall this has proven to be more stable as the daily value reported by the Envoy. (See known limitations [Late reset](#late-reset), [Energy Incorrect](#energy-incorrect)).
 
-### Electricity Grid
+### Electricity grid
 
 Wether data to use with the electricity grid is available, depends on installed <abbr title="current transformers">CT</abbr>, if any. Also see Limitations, [Balancing grid meter](#balancing-grid-meter).
 
-#### Electricity Grid with net-consumption CT
+#### Electricity grid with net-consumption CT
 
 With a [net-consumption CT](#grid-sensor-entities) installed, both grid consumption and return to grid data is available.
 
 - For **Grid consumption**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy consumption** entity.
 - For **Return to grid**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy production** entity.
 
-#### Electricity Grid with total-consumption CT
+#### Electricity grid with total-consumption CT
 
 With a [total-consumption CT](#grid-balanced-importexport-sensor-entities) installed, only the balanced grid import-export value is available. This value is not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export value.
 
@@ -454,7 +454,7 @@ The concept is to track value changes of the **Envoy <abbr title="Envoy serial n
 The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor changing UOM to a preferred one. Examples for these exist in various community topics.
 
 {% tip %}
-Alternatively, this can be done splitting  **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption** into power import and export and two Riemann sum integral helpers to calculate energy from the power values.
+Alternatively, this can be done by splitting the **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption** into power import and export and two Riemann sum integral helpers to calculate energy from the power values.
 {% endtip %}
 
 {% enddetails %}
@@ -468,7 +468,7 @@ Wether data to use with the Home battery storage is available, depends on instal
 With a [storage CT](#aggregated-iq-battery-sensor-entities) installed, data for both Energy coming out and going into the battery is available.
 
 - For **Energy going into the battery**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime battery energy charged** entity.
-- For **Energy coming out off the battery**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime battery energy discharged** entity.
+- For **Energy coming out of the battery**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime battery energy discharged** entity.
 
 #### Home battery storage without storage CT
 
