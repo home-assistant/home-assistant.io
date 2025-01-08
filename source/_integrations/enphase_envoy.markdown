@@ -268,7 +268,7 @@ If a [storage <abbr title="current transformers">CT</abbr>](#storage-ct-sensor-e
 </figure>
 
 {% note %}
-If an Enpower device is installed, then **Charge from grid**, **Reserve battery level** and **Storage mode** are available as [Enpower device entities](#enpower-binary-sensor-entities) instead of Envoy device entities.
+If an Enpower device is installed, then **Charge from grid**, **Reserve battery level**, and **Storage mode** are available as [Enpower device entities](#enpower-binary-sensor-entities) instead of Envoy device entities.
 {% endnote %}
 
 #### Individual IQ battery data
@@ -364,11 +364,11 @@ If no Enpower is installed, then **Charge from grid**, **Reserve battery level**
 
 With the Enpower/IQ System Controller installed, entities for the state and control of the Enpower's four load-shedding relays are available. In battery installations without load-shedding and off-grid functionality, used in many EU countries, these sensors and switches are not available.
 
-The Enphase Enpower has 4 load shedding relays, dry-contacts, that can be used to control non-essential loads in your home. These have two main modes of operation:
+The Enphase Enpower has 4 load shedding relays (volt-free contacts, often referred to as dry-contacts) that can be used to control non-essential loads in your home. These have two main modes of operation:
 
 - **Standard**: When the mode entity is set to standard, you can simply set the state of the relay to be powered or not powered for each mode of operation: on grid, off grid, and on generator.
 
-- **Battery level**: When the relay mode is set to battery level, the relays will turn on and off based on the remaining battery level of your Encharge IQ batteries. Two number entities are available to control the cutoff and restore levels for the relays. When the battery level drops below the cutoff level, the relays will turn off. When the battery level rises above the restore level, the relays will turn back on.
+- **Battery level**: When the relay mode is set to battery level, the relays will turn on and off based on the remaining battery level of your Encharge IQ batteries. Two number entities are available to control the cutoff and restore levels for the relays. When the battery level drops below the cutoff level, the relays will turn off, removing power from attached loads. When the battery level rises above the restore level, the relays will turn back on and restore power to attached loads.
 
 The names of entities and devices are derived from the load_name configured in the Enpower device.
 
@@ -409,7 +409,7 @@ For **Solar production**, use the **Envoy <abbr title="Envoy serial number">SN</
 
 ### Electricity grid
 
-Wether data to use with the electricity grid is available, depends on installed <abbr title="current transformers">CT</abbr>, if any. Also see Limitations, [Balancing grid meter](#balancing-grid-meter).
+Whether there is data available to use with the electricity grid depends on the installed <abbr title="current transformers">CT</abbr>, if any. Also, see Limitations, [Balancing grid meter](#balancing-grid-meter).
 
 #### Electricity grid with net-consumption CT
 
@@ -461,7 +461,7 @@ Alternatively, this can be done by splitting the **Envoy <abbr title="Envoy seri
 
 ### Home battery storage
 
-Wether data to use with the Home battery storage is available, depends on installed storage <abbr title="current transformers">CT</abbr>, if any.
+Whether there is data available to use with the electricity grid depends on the installed storage <abbr title="current transformers">CT</abbr>, if any.
 
 #### Home battery storage with storage CT
 
@@ -511,7 +511,7 @@ The above example does not address handling `unavailable` or `unknown` states, v
 
 {% enddetails %}
 
-##### Home battery storage data using Available battery energy
+##### Home battery storage data on the available battery energy
 
 Changes in the Available battery energy are a result from Energy going in or out of the battery. Splitting these energy changes into 2 entities, one tracking positive changes, one the negative changes, results in data that can be used for Energy going into the battery and Energy coming out off the battery. This method does not account for conversion losses as Energy content changes do not exactly match actual energy flow in and out of the battery.
 
@@ -687,13 +687,13 @@ In multiphase installations with batteries, in countries with phase-balancing gr
 
 ## Troubleshooting
 
-### Single network
+### Periodic network connection issues
 
-The Envoy should not be both on your local LAN (Ethernet) and local Wi-Fi simultaneously. Having both connections active can cause auto-discovery to alternate between interfaces, resulting in connection interruptions approximately every 30 minutes. If you experience these periodic connection issues, ensure the Envoy is connected using only one interface (either Ethernet OR Wi-Fi, not both).
+If you experience periodic connection issues, ensure the Envoy is connected to only one interface (either Ethernet OR Wi-Fi, not both). The Envoy should not be both on your local LAN (Ethernet) and local Wi-Fi simultaneously. Having both connections active can cause auto-discovery to alternate between interfaces, resulting in connection interruptions approximately every 30 minutes.
 
-### CT Active flag count
+### CT Active flag count is non-zero
 
-This value is the count of CT status flags that are raised. In normal state, the value is zero. If the value is non-zero, consult the [diagnostic](#diagnostics) report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags, one or more from  (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`). Their somewhat descriptive names may be an indication of installation issues.
+The **CT active flag count** value shows the number of CT status flags that are raised. In a normal state, the value of **CT active flag count** is zero. If the value is non-zero, consult the [diagnostic](#diagnostics) report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags, one or more from  (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`). Their somewhat descriptive names may be an indication of installation issues.
 
 ### Debug logs and diagnostics
 
