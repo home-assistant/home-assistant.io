@@ -40,6 +40,8 @@ You are in control of the information and capabilities exposed to Home Assistant
 
 {% caution %}
 The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
+
+As of January 2025 there is [a known issue with the Device Access console](https://issuetracker.google.com/issues/348675996) which may prevent you from creating or updating an SDM project.  If you are unable to configure your SDM project you will not be able to complete the integration configuration with Home Assistant.  Please be aware of this before you pay the SDM API fee.
 {% endcaution %}
 
 {% note %}
