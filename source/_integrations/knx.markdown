@@ -149,7 +149,7 @@ When updating secure groups, ensure all participating devices, routers, and coup
 
 ### Tunneling
 
-Tunneling uses a KNX IP Interface to connect to the KNX bus. Most KNX IP Routers support tunneling connections too. This is the recommended connection type and also used when selecting "Automatic" connection in the integration setup.
+Tunneling uses a KNX IP Interface to connect to the KNX bus. Most KNX IP Routers also support tunneling connections. This is the recommended connection type and is also used when selecting an "Automatic" connection in the integration setup.
 
 For modern interfaces (supporting TCP or IP Secure) you can select a specific tunnel endpoint to be used. Make sure that Home Assistant is the only client connecting to this tunnel endpoint.
 It is recommended to connect the group addresses you want to use to the tunnel endpoint that Home Assistant uses. For secure group addresses, this is mandatory.
