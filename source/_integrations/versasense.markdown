@@ -15,11 +15,18 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `VersaSense` integration supports the VersaSense Edge Gateway. The gateway is able to control hubs and their peripherals (sensors and actuators) in the mesh network.
+The **VersaSense** {% term integration %} supports the VersaSense Edge Gateway. The gateway is able to control hubs and their peripherals (sensors and actuators) in the mesh network.
 
 ## Configuration
+
+To enable VersaSense in your installation, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -38,7 +45,7 @@ host:
 
 All VersaSense gateways with software version >= 1.0.2.10
 
-The integration is tested with following peripherals and devices:
+The {% term integration %} is tested with following peripherals and devices:
 
 - S03 S04: Temperature and Humidity sensor
 - S06: Barometric Pressure sensor

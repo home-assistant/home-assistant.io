@@ -13,9 +13,9 @@ og_image: /images/blog/2017-11-0.58/components.png
 
 <a href='/integrations/#version/0.58'><img src='/images/blog/2017-11-0.58/components.png' style='border: 0;box-shadow: none;'></a>
 
-<div class='note'>
+{% note %}
 The Hass.io release of 0.58 will be delayed by a couple of days because Pascal is moving this weekend.
-</div>
+{% endnote %}
 
 ## Translation update
 
@@ -38,9 +38,9 @@ frontend:
   javascript_version: latest
 ```
 
-<div class='note'>
+{% important %}
 For Custom UI users: your custom UI will need to be updated before it can work with the new version of the frontend.
-</div>
+{% endimportant %}
 
 ### System log enhanced
 
@@ -80,7 +80,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
  - `hass.states.is_state_attr(entity_id, attribute, value)` has been removed. The template version still exists. Unused method parameter `wait` has been removed from `hass.bus.async_fire` ([@balloob] - [#10305]) (breaking change)
 - Refactor Neato botvac components as a vacuum ([@jabesq] - [#9946]) ([neato docs])  ([switch.neato docs]) ([vacuum.neato docs]) (breaking change) (new-platform)

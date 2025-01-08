@@ -57,7 +57,7 @@ Enjoy the release!
 - [Release 2023.8.3 - August 18](#release-202383---august-18)
 - [Release 2023.8.4 - August 24](#release-202384---august-24)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -84,7 +84,7 @@ to turn on a light is now also translated into Dutch.
 A big step forward! Implementing this change has resulted in a substantial
 increase in the number of translations. They have doubled! 😅
 
-Because of that, translating all services might take some time; however… 
+Because of that, translating all services might take some time; however…
 You can help! You don’t have to be a developer to help with this; you can do this
 from the comfort of your browser. Check out our documentation on
 [how to contribute translations](https://developers.home-assistant.io/docs/translations).
@@ -135,7 +135,7 @@ This is powered by [OpenStreetMap](https://www.openstreetmap.org/) ❤️
 
 ## Add items to your shopping list using Assist
 
-What if you could ask [Assist](/integrations/assist) to add items to your
+What if you could ask [Assist] to add items to your
 Home Assistant [shopping list](/integrations/shopping_list)? Well, now you can!
 
 > Add milk to my shopping list!
@@ -259,7 +259,6 @@ noteworthy changes this release:
 - [UniFi Network] now has controls to turn an UniFi WLAN on and off and added
   image entities for QR codes for WLAN access. Thanks, [@Kane610]!
 
-
 [@bdraco]: https://github.com/bdraco
 [@emontnemery]: https://github.com/emontnemery
 [@Ernst79]: https://github.com/Ernst79
@@ -276,6 +275,7 @@ noteworthy changes this release:
 [UniFi Network]: /integrations/unifi
 [Xiaomi BLE]: /integrations/xiaomi_ble
 [Roborock]: /integrations/roborock
+[Assist]: /voice_control/
 
 ## New integrations
 
@@ -737,7 +737,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking changes
+## Backward-incompatible changes
 
 {% details "Python 3.10 support has been removed" %}
 
@@ -756,7 +756,6 @@ Your system has been using Python 3.11 for quite some time already.
 [#97007]: https://github.com/home-assistant/core/pull/97007
 
 {% enddetails %}
-
 
 {% details "Discovery" %}
 
@@ -927,7 +926,7 @@ changes and new features available for your integration: Be sure to follow our
 The following integrations are also no longer available as of this release:
 
 - **Discovery** has been removed. This is the old legacy discovery integration.
-  See the breaking changes above for more information.  
+  See the backward-incompatible changes above for more information.  
   ([@frenck] - [#96856])
 - **Mi Flora** has been removed. This integration was replaced by the
   [Xiaomi BLE] integration a long time ago and was in a non-functional state.  

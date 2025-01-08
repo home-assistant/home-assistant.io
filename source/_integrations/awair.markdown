@@ -14,7 +14,6 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_zeroconf: true
-ha_dhcp: true
 ---
 
 The Awair integration will fetch data from your [Awair devices](https://getawair.com).
@@ -33,7 +32,7 @@ This integration refreshes once every 5 minutes, based on the [default per-devic
 
 {% include integrations/config_flow.md %}
 
-## Available Sensors
+## Available sensors
 
 The integration will fetch data from each device. The following sensors are supported:
 

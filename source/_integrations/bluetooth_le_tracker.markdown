@@ -2,13 +2,17 @@
 title: Bluetooth LE Tracker
 description: Instructions for integrating bluetooth low-energy tracking within Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Local Push
 ha_release: 0.27
 ha_domain: bluetooth_le_tracker
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 This tracker discovers new devices on boot and in regular intervals and tracks Bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other.
@@ -17,11 +21,12 @@ Devices discovered are stored with 'BLE_' as the prefix for device mac addresses
 
 ## Setup
 
-This integration requires the [Bluetooth](/integrations/bluetooth) integration to be enabled and functional.
+This {% term integration %} requires the [Bluetooth](/integrations/bluetooth) integration to be enabled and functional.
 
 ## Configuration
 
-To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
+To use the Bluetooth tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

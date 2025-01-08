@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: picnic
 ha_platforms:
   - sensor
+  - todo
 ha_integration_type: integration
 ---
 
@@ -41,15 +42,22 @@ This integration provides the following sensors. Some sensors are disabled by de
 | Next delivery slot start       | Start of the next delivery's delivery slot. |
 | Next delivery slot end         | End of the next delivery's delivery slot. |
 
-## Services
 
-### Service `picnic.add_product`
+ ## Shopping cart
 
-Add a product to your cart using the `picnic.add_product` service, either using a product ID or a product name.
+This integration provides a list containing the content of your shopping cart. This list is provided as a [to-do list](/integrations/todo/) and can also be found in the to-do list dashboard in the main sidebar of your Home Assistant instance. 
+
+You can add products to your shopping cart by entering a name in the **Add item** field. Just like with the [`picnic.add_product`](#action-picnicadd_product) action, a search will be done and the first item found will be added.
+
+## Actions
+
+### Action `picnic.add_product`
+
+Add a product to your cart using the `picnic.add_product` action, either using a product ID or a product name.
 A search will be done and the first result will be added to the cart when one adds a product using a product name.
-The service call will fail when no product can be found, or when no `product_id` or `product_name` is specified. 
+The action will fail when no product can be found, or when no `product_id` or `product_name` is specified. 
 
-| Service data attribute | Optional | Description                                                                      |
+| Data attribute | Optional | Description                                                                      |
 |------------------------|----------|----------------------------------------------------------------------------------|
 | `config_entry_id`      | No       | The Id of the Picnic service config entry.                                       |
 | `product_id`           | yes      | The Picnic product ID.                                                           |
@@ -58,7 +66,7 @@ The service call will fail when no product can be found, or when no `product_id`
 
 ```yaml
 # Example automation action to add a product to the cart by name.
-- service: picnic.add_product
+- action: picnic.add_product
   data:
     config_entry_id: 6b4be47a1fa7c3764f14cf756dc9899d
     product_name: "Picnic cola zero"

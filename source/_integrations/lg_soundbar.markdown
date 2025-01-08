@@ -2,7 +2,7 @@
 title: LG Soundbars
 description: Instructions on how to integrate LG Soundbars into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Polling
 ha_release: 0.81
 ha_domain: lg_soundbar

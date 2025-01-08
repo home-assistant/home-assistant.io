@@ -7,19 +7,20 @@ ha_iot_class: Cloud Polling
 ha_release: 0.59
 ha_domain: dominos
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-The `dominos` integration allows you to order Dominos Pizza from within your Home Assistant scripts and automations.
+The **Dominos Pizza** {% term integration %} allows you to order Dominos Pizza from within your Home Assistant scripts and automations.
 
 At present, this integration only supports ordering within Canada and the US.
 
 ## Configuration
 
-To enable the integration, you need to set up your customer information and define some orders.
+To enable the {% term integration %}, you need to set up your customer information and define some orders.
 
 Orders are a group of product codes. You can get these product codes by inspecting an order request from the Dominos web app, or you can [add this custom panel by following this readme](https://github.com/craigjmidwinter/hass-dominos-panel) to see the available product codes in a separate panel in your install.
 
-Currently, there is no support in this integration for toppings, coupons or order tracking.
+Currently, there is no support in this integration for toppings, coupons, or order tracking.
 
 ```yaml
 dominos:
@@ -35,10 +36,10 @@ dominos:
       - P12IPAZA
 ```
 
-Now you can use the Dominos service to order pizza within your automations:
+Now you can use the Dominos {% term action %} to order pizza within your automations:
 
 ```yaml
-- service: dominos.order
+- action: dominos.order
   data:
     order_entity_id: dominos.medium_pan
 ```

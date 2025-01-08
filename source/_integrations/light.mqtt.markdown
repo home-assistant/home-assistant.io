@@ -40,9 +40,7 @@ When a state topic is not available, the light will work in optimistic mode. In 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect light operation.
 
 Home Assistant internally assumes that a light's state corresponds to a defined `color_mode`.
-The state of MQTT lights with default schema and support for both color and color temperature will set the `color_mode` according to the last received valid color or color temperature. Optionally, a `color_mode_state_topic` can be configured for explicit control of the `color_mode`
-
-<a id='new_format'></a>
+The state of MQTT lights with default schema and support for both color and color temperature will set the `color_mode` according to the last received valid color or color temperature. Optionally, a `color_mode_state_topic` can be configured for explicit control of the `color_mode`.
 
 ```yaml
 # Example configuration.yaml entry
@@ -166,8 +164,16 @@ device:
       description: 'The model of the device.'
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: 'The name of the device.'
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -196,7 +202,10 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 effect_command_topic:
   description: "The MQTT topic to publish commands to change the light's effect state."
   required: false
@@ -294,6 +303,10 @@ payload_on:
   required: false
   type: string
   default: "ON"
+platform:
+  description: Must be `light`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -358,15 +371,15 @@ schema:
   type: string
   default: default
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: "The MQTT topic subscribed to receive state updates. A \"None\" payload resets to an `unknown` state. An empty payload is ignored. By default, valid state payloads are `OFF` and `ON`. The accepted payloads can be overridden with the `payload_off` and `payload_on` config options."
   required: false
   type: string
 state_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the state value. The template should match the payload `on` and `off` values, so if your light uses `power on` to turn on, your `state_value_template` string should return `power on` when the switch is on. For example if the message is just `on`, your `state_value_template` should be `power {{ value }}`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the state value. The template should return the `payload_on` and `payload_off` values, so if your light uses `power on` to turn on, your `state_value_template` string should return `power on` when the switch is on. For example, if the message is just `on`, your `state_value_template` should be `power {{ value }}`. When your `payload_on = 27` and `payload_off = 'off'`, then this template might be `'off' if value_json.my_custom_brightness_field <= 0 else 27`."
   required: false
   type: template
 unique_id:
-  description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 white_command_topic:
@@ -396,15 +409,13 @@ xy_value_template:
   type: template
 {% endconfiguration %}
 
-<div class='note warning'>
+{% important %}
+Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
+{% endimportant %}
 
-  Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
-
-<div class='note warning'>
-  XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
-</div>
+{% note %}
+XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
+{% endnote %}
 
 ## Default schema - Examples
 
@@ -412,7 +423,7 @@ In this section you will find some real-life examples of how to use this sensor.
 
 ### Brightness and RGB support
 
-To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
+To enable a light with brightness and RGB support in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -440,7 +451,7 @@ mqtt:
 
 ### Brightness and no RGB support
 
-To enable a light with brightness (no RGB version) in your installation, add the following to your `configuration.yaml` file:
+To enable a light with brightness (no RGB version) in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -459,7 +470,7 @@ mqtt:
 
 ### Brightness without on commands
 
-To enable a light that sends only brightness topics to turn it on, add the following to your `configuration.yaml` file. The `command_topic` is only used to send an off command in this case:
+To enable a light that sends only brightness topics to turn it on, add the following to your {% term "`configuration.yaml`" %} file. The `command_topic` is only used to send an off command in this case:
 
 ```yaml
 # Example configuration.yaml entry
@@ -562,7 +573,7 @@ availability_topic:
   required: false
   type: string
 brightness:
-  description: Flag that defines if the light supports brightness.
+  description: Flag that defines if light supports brightness when the `rgb`, `rgbw`, or `rgbww` color mode is supported.
   required: false
   type: boolean
   default: false
@@ -571,11 +582,6 @@ brightness_scale:
   required: false
   type: integer
   default: 255
-color_mode:
-  description: Flag that defines if the light supports color modes.
-  required: false
-  type: boolean
-  default: false
 command_topic:
   description: The MQTT topic to publish commands to change the light’s state.
   required: true
@@ -609,6 +615,10 @@ device:
       description: 'The name of the device.'
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     sw_version:
       description: 'The firmware version of the device.'
       required: false
@@ -627,7 +637,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 effect:
   description: Flag that defines if the light supports effects.
   required: false
@@ -691,6 +700,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+platform:
+  description: Must be `light`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -707,15 +720,15 @@ schema:
   type: string
   default: default
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: 'The MQTT topic subscribed to receive state updates in a JSON-format. The JSON payload may contain the elements: `"state"`: `"ON"` the light is on, `"OFF"` the light is off, `null` the state is `unknown`; `"color_mode"`: one of the `supported_color_modes`; `"color"`: A dict with the color attributes*; `"brightness"`: The brightness; `"color_temp"`: The color temperature; `"effect"`: The effect of the light.'
   required: false
   type: string
 supported_color_modes:
-  description: A list of color modes supported by the list. This is required if `color_mode` is `True`. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`.
+  description: A list of color modes supported by the list. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`. Note that if `onoff` **or** `brightness` are used, that must be the _only_ value in the list.
   required: false
   type: list
 unique_id:
-   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
+   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
    required: false
    type: string
 white_scale:
@@ -725,17 +738,39 @@ white_scale:
   default: 255
 {% endconfiguration %}
 
-<div class='note warning'>
+*The `color` attribute dict in the JSON state payload should contain the following keys based on the `color_mode`:
 
-  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
+- `hs`:
+  - `h`: The hue value
+  - `s`: The saturation value
+- `xy`:
+  - `x`: X color value
+  - `y`: Y color value
+- `rgb`:
+  - `r`: Red color value
+  - `g`: Green color value
+  - `b`: Blue color value
+- `rgbw`:
+  - `r`: Red color value
+  - `g`: Green color value
+  - `b`: Blue color value
+  - `w`: White value
+- `rgbww`:
+  - `r`: Red color value
+  - `g`: Green color value
+  - `b`: Blue color value
+  - `c`: Cool white value
+  - `w`: Warm white value
 
-</div>
+More details about the different colors, color modes and range values [can be found here](https://www.home-assistant.io/integrations/light/).
 
-<div class='note warning'>
+{% important %}
+Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
+{% endimportant %}
 
-  RGB, XY and HSV can not be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
-
-</div>
+{% note %}
+RGB, XY and HSV can not be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
+{% endnote %}
 
 ## JSON schema - Examples
 
@@ -743,7 +778,7 @@ In this section you find some real-life examples of how to use this sensor.
 
 ### Brightness and RGB support
 
-To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
+To enable a light with brightness and RGB support in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -754,13 +789,12 @@ mqtt:
       state_topic: "home/rgb1"
       command_topic: "home/rgb1/set"
       brightness: true
-      color_mode: true
       supported_color_modes: ["rgb"]
 ```
 
 ### Brightness and no RGB support
 
-To enable a light with brightness (but no color support) in your installation, add the following to your `configuration.yaml` file:
+To enable a light with brightness (but no color support) in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -771,11 +805,10 @@ mqtt:
       state_topic: "home/rgb1"
       command_topic: "home/rgb1/set"
       brightness: true
-      color_mode: true
       supported_color_modes: ["brightness"]
 ```
 
-### Brightness Scaled
+### Brightness scaled
 
 To enable a light using a brightness scale other than 8bit the `brightness_scale` option may be added to denote the "fully on" value:
 
@@ -789,7 +822,6 @@ mqtt:
       command_topic: "home/light/set"
       brightness: true
       brightness_scale: 4095
-      color_mode: true
       supported_color_modes: ["brightness"]
 ```
 
@@ -802,7 +834,7 @@ Home Assistant will then convert its 8bit value in the message to and from the d
 }
 ```
 
-### HS Color
+### HS color
 
 To use a light with hue+saturation as the color model, set `supported_color_modes` to `["hs"]` in the platform configuration:
 
@@ -813,7 +845,6 @@ mqtt:
       name: mqtt_json_hs_light
       state_topic: "home/light"
       command_topic: "home/light/set"
-      color_mode: true
       supported_color_modes: ["hs"]
 ```
 
@@ -832,7 +863,7 @@ Home Assistant expects the hue values to be in the range 0 to 360 and the satura
 
 ### Brightness and RGBW support
 
-To enable a light with brightness, RGB support and a separate white channel (RGBW) in your installation, add the following to your `configuration.yaml` file:
+To enable a light with brightness, RGB support and a separate white channel (RGBW) in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -843,7 +874,6 @@ mqtt:
       state_topic: "home/rgbw1"
       command_topic: "home/rgbw1/set"
       brightness: true
-      color_mode: true
       supported_color_modes: ["rgbw"]
 ```
 
@@ -942,7 +972,7 @@ command_off_template:
   required: true
   type: template
 command_on_template:
-  description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `color_temp` is provided as integer representing mired units."
+  description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `hue`, `sat`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `hue` is provided as float from range 0-360. Value of `sat` is provided as float from range 0-100. Value of `color_temp` is provided as integer representing mired units."
   required: true
   type: template
 command_topic:
@@ -978,6 +1008,10 @@ device:
       description: 'The name of the device.'
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     sw_version:
       description: 'The firmware version of the device.'
       required: false
@@ -996,7 +1030,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 effect_list:
   description: List of possible effects.
   required: false
@@ -1053,6 +1086,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+platform:
+  description: Must be `light`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -1072,20 +1109,18 @@ state_template:
   required: false
   type: template
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 unique_id:
-   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
+   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
    required: false
    type: string
 {% endconfiguration %}
 
-<div class='note warning'>
-
-  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% important %}
+Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
+{% endimportant %}
 
 ## Template schema - Examples
 
@@ -1093,7 +1128,7 @@ In this section you find some real-life examples of how to use this light.
 
 ### Simple string payload
 
-For a simple string payload with the format `state,brightness,r-g-b,h-s` (e.g., `on,255,255-255-255,360-100`), add the following to your `configuration.yaml` file:
+For a simple string payload with the format `state,brightness,r-g-b,h-s` (e.g., `on,255,255-255-255,360-100`), add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -1117,7 +1152,7 @@ mqtt:
 
 ### JSON payload
 
-For a JSON payload with the format `{"state": "on", "brightness": 255, "color": [255, 255, 255], "effect": "rainbow"}`, add the following to your `configuration.yaml` file:
+For a JSON payload with the format `{"state": "on", "brightness": 255, "color": [255, 255, 255], "effect": "rainbow"}`, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -1162,7 +1197,7 @@ mqtt:
 This example comes from a configuration of Shelly RGBW Bulb working in White mode.
 `max_mireds` and `min_mireds` set color temperature boundaries to 3000K - 6500K. Notice the same limits are applied in `command_on_template`, but in kelvin units this time. It's due to conversion from mired to kelvin which causes exceeding boundary values accepted by the device.
 The code also ensures bi-directional conversion of brightness scale between 0-100 (required by the device) and 0-255 (required by Home Assistant).
-Add the following to your `configuration.yaml` file:
+Add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 

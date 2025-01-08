@@ -70,7 +70,7 @@ Happy holidays and for the last time in 2022: Enjoy the release!
 - [Release 2022.12.8 - December 21](#release-2022128---december-21)
 - [Release 2022.12.9 - January, 2](#release-2022129---january-2)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -708,7 +708,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 {% details "Cloudflare" %}
 
@@ -1096,7 +1096,7 @@ each PoE-capable port without mapping it to a client.
 {% enddetails %}
 
 If you are a custom integration or theme developer and want to learn about
-breaking changes and new features available for your integration: Be sure to
+backward-incompatible changes and new features available for your integration: Be sure to
 follow our [developer blog][devblog].
 The following are the most notable for this release:
 

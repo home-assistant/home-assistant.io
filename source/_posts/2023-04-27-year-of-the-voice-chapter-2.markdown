@@ -127,11 +127,11 @@ The Whisper and Piper add-ons mentioned above are integrated into Home Assistant
 
 Today we’re launching support for building voice assistants using ESPHome. Connect a microphone to your ESPHome device, and you can control your smart home with your voice. Include a speaker and the smart home will speak back.
 
-<lite-youtube videoid="w6QxGdxVMJs" videotitle="$13 voice remote for Home Assistant"></lite-youtube>
+<lite-youtube videoid="w6QxGdxVMJs" videotitle="$13 voice assistant for Home Assistant"></lite-youtube>
 
-We’ve been focusing on the [M5STACK ATOM Echo][atom-echo] for testing and development. For $13 it comes with a microphone and a speaker in a nice little box. We’ve created a tutorial to turn this device into a voice remote directly from your browser!
+We’ve been focusing on the [M5STACK ATOM Echo][atom-echo] for testing and development. For $13 it comes with a microphone and a speaker in a nice little box. We’ve created a tutorial to turn this device into a voice assistant directly from your browser!
 
-[Tutorial: create a $13 voice remote for Home Assistant.](https://www.home-assistant.io/voice_control/thirteen-usd-voice-remote/)
+[Tutorial: create a $13 voice assistant for Home Assistant.](https://www.home-assistant.io/voice_control/thirteen-usd-voice-remote/)
 
 [ESPHome Voice Assistant documentation.](https://esphome.io/components/voice_assistant.html)
 

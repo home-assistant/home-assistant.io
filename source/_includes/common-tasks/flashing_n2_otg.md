@@ -38,21 +38,19 @@ After The ODROID-N2+ is set to SPI boot mode and powered on, it boots into a ter
 
    ![Exit to shell](/images/hassio/screenshots/exit-shell.png)
 
-<div class='note'>
-
+{% note %}
 When using the command line, it may return the following message:
 `can't access tty; job control turned off.`
 You can safely ignore this message and proceed with the installation
+{% endnote %}
 
-</div>
-
-2. Use the following command at the console to confirm the storage device node:
+1. Use the following command at the console to confirm the storage device node:
 
    ```bash
    ls /dev/mmc*
    ```
 
-3. Set the storage device on the ODROID-N2+ as a mass storage device using the `ums` command (USB Mass storage mode).
+2. Set the storage device on the ODROID-N2+ as a mass storage device using the `ums` command (USB Mass storage mode).
 This will configure the ODROID-N2+ and OTG to act as a memory card reader:
 
    ```bash
@@ -72,9 +70,9 @@ This will configure the ODROID-N2+ and OTG to act as a memory card reader:
    - Make sure to toggle the boot mode switch back to MMC.
 
 4. Put the ODROID back in its case.
-5. Connect your ODROID-N2+ to your network with an Ethernet cable and plug in power.
+5. Connect your ODROID-N2+ to your network with an Ethernet cable, make sure there is internet access, and plug in power.
 
 6. If your router supports mDNS, you can reach your installation at `http://homeassistant.local:8123`. 
-   - If your network doesn’t support mDNS, you’ll have to use the IP address of your ODROID-N2+ instead of `homeassistant.local`. For example, `http://192.168.0.9:8123`. 
+   - If your network doesn’t support mDNS, you’ll have to use the IP address of your ODROID-N2+ instead of `homeassistant.local`. For example, `http://192.168.0.9:8123`.
    - You should be able to find the IP address of your ODROID-N2+ from the admin interface of your router.
 7. Continue with [onboarding](/getting-started/onboarding/).

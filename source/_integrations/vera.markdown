@@ -2,7 +2,7 @@
 title: Vera
 description: Instructions on how to setup Vera Z-Wave hubs and configure devices within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Hub
@@ -31,13 +31,13 @@ The [Vera](https://getvera.com/) hub is a controller mainly for connecting to Z-
 
 The supported Vera hubs (Edge, Plus and Secure) are no longer available and the firmware is not being actively enhanced by the vendor. New Z-Wave devices are not directly supported and so are not easy to add to the platform.
 
-The newer Ezlo hubs use a different firmware and are not supported by this integration.
+The newer Ezlo hubs use a different firmware and are not supported by this {% term integration %}.
 
 [Z-Wave JS](/integrations/zwave_js/) is a better choice for new Z-Wave users or for users wanting support for new Z-Wave devices.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Cover
 - Light
 - Lock
@@ -50,14 +50,13 @@ and will be automatically added when HA connects to your Vera controller.
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-
-  It is recommended to assign a static IP address to your Vera Controller. This ensures that it won't change IP addresses, so you won't have to change the `vera_controller_url` if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.
-
-</div>
+{% tip %}
+It is recommended to assign a static IP address to your Vera Controller. This ensures that it won't change IP addresses, so you won't have to change the `vera_controller_url` if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.
+{% endtip %}
 
 ## Options
-Once the Vera integration is configured, you can set additional options in the integration, click the gear icon.
+
+Once the Vera {% term integration %} is configured, you can set additional options in the {% term integration %}, click the gear icon.
 
 - Vera switch device - By default your switches will be added to Home Assistant as switches, however, if some of them are light switches, you can tell Home Assistant this by providing a list of light ids.
 - Vera device ids to exclude - Vera imports detailed Z-Wave devices into Home Assistant. This can include system devices and other devices that you don't use; you can tell Home Assistant not to load these devices by providing a list of device ids.
@@ -66,7 +65,7 @@ You can find the Vera device id either via the advanced properties of the device
 
 ### Using Z-Wave devices in automation
 
-If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under **Developer Tools** -> **States**. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the entity id on the left.
+If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the {% term entity %} id. In the Home Assistant UI you'll find all entities listed under **Developer Tools** -> **States**. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the {% term entity %} id on the left.
 
 ### Sensor
 

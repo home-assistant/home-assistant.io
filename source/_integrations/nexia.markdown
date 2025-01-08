@@ -2,7 +2,7 @@
 title: Nexia/American Standard/Trane
 description: Instructions on how to integrate Trane and American Standard thermostats into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Scene
   - Sensor
@@ -29,7 +29,7 @@ The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Sensor](#sensor)
 - [Scene](#scene)
@@ -37,7 +37,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-### Binary Sensor
+### Binary sensor
 
 The following binary sensors are added for each thermostat:
 
@@ -84,21 +84,21 @@ The scene platform lets you activate a nexia automation.
 
 The switch platform lets you enable or disable hold mode for each thermostat.
 
-### Service `nexia.set_aircleaner_mode`
+### Action `nexia.set_aircleaner_mode`
 
 Sets the air cleaner mode. Options include 'auto', 'quick', and 
 'allergy'. This setting will affect all zones on the same thermostat.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
 | `aircleaner_mode` | no | 'auto', 'quick', or 'allergy'
 
-### Service `nexia.set_humidify_setpoint`
+### Action `nexia.set_humidify_setpoint`
 
 Sets the humidify setpoint. This setting will affect all zones on the same thermostat.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
 | `humidity` | no | Humidify setpoint level, from 35 to 65.

@@ -17,9 +17,14 @@ ha_integration_type: integration
 
 The SMA Solar integration will poll a [SMA](http://www.sma-solar.com/) [(US)](https://www.sma-america.com/) solar inverter, energy meter or battery inverter and present the values as sensors in Home Assistant.
 
-The integration uses the web interface of the device. Before you start, make sure you are able to connect to the solar inverter from your favorite web browser.
 
 {% include integrations/config_flow.md %}
+
+## Supported Devices
+
+Not all inverters, energy meters and batteries from SMA are supported.
+
+The integration uses the device's web interface (called webconnect). Before you start, make sure you are able to connect to the solar inverter from your favorite web browser. Devices with the ennexos operating system (like the Tripower X series) and all Energy Meters (SMA Energy Meter and SMA Sunny Home Manager) are not supported.
 
 ## Sensors
 

@@ -12,7 +12,7 @@ ha_platforms:
 ha_codeowners:
   - '@davet2001'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The `generic` camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.

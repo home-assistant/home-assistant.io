@@ -44,9 +44,9 @@ In addition to the serial device you also need to enter the baud rate.
 If you are using the MQTT gateway, you will need to enter topic prefixes for input and output. These need to be swapped
 with the settings of the gateway. I.e. the input topic for Home Assistant needs to be the output (publish) topic of the gateway.
 
-<div class='note'>
+{% note %}
 The MQTT gateway requires MySensors version 2.0+ and only the MQTT client gateway is supported.
-</div>
+{% endnote %}
 
 ### Ethernet gateway
 
@@ -185,7 +185,7 @@ Visit the [library API][MySensors library api] of MySensors for more information
 
 [MySensors library API]: https://www.mysensors.org/download
 
-## Binary Sensor
+## Binary sensor
 
 The following binary sensor types are supported:
 
@@ -207,7 +207,7 @@ The following binary sensor types are supported:
 | S_VIBRATION  | V_TRIPPED |
 | S_MOISTURE   | V_TRIPPED |
 
-### Binary Sensor example sketch
+### Binary sensor example sketch
 
 ```cpp
 /**
@@ -604,7 +604,7 @@ This sketch is ideally for star topology wiring. You can run up to 12 covers wit
 
 [Check out the code on GitHub.](https://github.com/gryzli133/RollerShutterSplit)
 
-## Device Tracker
+## Device tracker
 
 The following sensor types are supported:
 
@@ -614,7 +614,7 @@ The following sensor types are supported:
 | ------ | ---------- |
 | S_GPS  | V_POSITION |
 
-### Device Tracker example sketch for MySensors 2.x
+### Device tracker example sketch for MySensors 2.x
 
 ```cpp
 /**

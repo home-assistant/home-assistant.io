@@ -2,7 +2,7 @@
 title: Person
 description: Instructions on how to set up people tracking within Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.88
 ha_quality_scale: internal
 ha_domain: person
@@ -30,7 +30,38 @@ In short, when you're at home, your position is determined first by stationary t
 
 **Hint**: When you use multiple device trackers together, especially stationary and GPS trackers, it's advisable to set `consider_home` for stationary trackers as low as possible see [device_tracker](/integrations/device_tracker/#configuring-a-device_tracker-platform)).
 
-You can manage persons {% my people title="via the UI from the person page inside the configuration panel" %}  or via `YAML` in your `configuration.yaml` file.
+You can manage persons {% my people title="via the UI from the person page inside the configuration panel" %}  or via `YAML` in your {% term "`configuration.yaml`" %} file.
+
+## Adding a person to Home Assistant
+
+If you have administrator rights, you can add other persons to Home Assistant and create them a user account. Depending on the rights you give them, they can then use Home Assistant on their own devices, can have their own dashboards, and be used in automations.
+
+1. Go to {% my people title="**Settings** > **People**" %} and select **Add person**.
+2. Enter their **Name**.
+3. Add an image if you like.
+4. Under **Allow login**, select if they should be able to log in.
+   - If they cannot log in, they do not get a user account, and they cannot do much with Home Assistant.
+   - They cannot have their own dashboard, for example.
+   - But they can still be used for device tracking and show up on a map and be used in automations.
+5. If they are able to log in, fill in the user information.
+   - Check if the username is correct. A suggestion is made based on the person name. But they do not have to be identical.
+     - The username must be lowercase and contain no spaces.
+     - The username is required to log in.
+     - The person name is the name displayed in the UI.
+   - Enter a password and store it in a safe location.
+   - Define if they should have **Local access only**.
+     - If this is enabled, they won't have access to Home Assistant when they are outside your network, for example from their phone.
+   - Define if they should have **Administrator** rights.
+   - Select **Create**.
+6. If you have already set up devices for [presence detection](/getting-started/presence-detection/), **select the devices that belong to this person**.
+
+### Customizing the picture for a person
+
+You can easily upload a picture in the frontend. Simply click on a person, select or drop an image in the input field, and then crop it.
+
+<lite-youtube videoid="rOlRnwaaT7Y" videotitle="Changing a profile picture" posterquality="maxresdefault"></lite-youtube>
+
+See the documentation about [hosting files](/integrations/http/#hosting-files) for more information about the `www` folder.
 
 ## Configuring the `person` integration via the Home Assistant configuration panel
 
@@ -42,7 +73,7 @@ person:
 
 ## Configuring the `person` integration via YAML
 
-If you prefer YAML, you can also configure your persons via the `configuration.yaml` file:
+If you prefer YAML, you can also configure your persons via the {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -89,20 +120,4 @@ person:
       - device_tracker.beacon
 ```
 
-If you change the YAML, you can reload it by calling the `person.reload` service.
-
-### Customizing the picture for a person
-
-You can easily upload a picture in the frontend. Simply click on a person, select or drop an image in the input field, and then crop it.
-
-<lite-youtube videoid="rOlRnwaaT7Y" videotitle="Changing a profile picture" posterquality="maxresdefault"></lite-youtube>
-
-You can also do this using YAML. By following the instructions on the [customizing entities](/docs/configuration/customizing-devices#entity_picture) page, you can customize the picture used for a person entity in the `customize:` section of your configuration. For example:
-
-```yaml
-customize:
-  person.ada:
-    entity_picture: "/local/ada.jpg"
-```
-
-See the documentation about [hosting files](/integrations/http/#hosting-files) for more information about the `www` folder.
+If you change the YAML, you can reload it by calling the `person.reload` action.

@@ -2,7 +2,7 @@
 title: Kaleidescape
 description: Instructions on how to integrate Kaleidescape into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Remote
   - Sensor
 ha_release: '2022.4'
@@ -34,13 +34,13 @@ This integration is intended for the automation of Kaleidescape players with a m
 
 {% include integrations/config_flow.md %}
 
-## Media Player
+## Media player
 
-The Kaleidescape media player platform will create a [Media Player](/integrations/media_player/) entity for the device. This entity will display the currently playing media and playback controls.
+The Kaleidescape media player platform will create a [media player](/integrations/media_player/) entity for the device. This entity will display the currently playing media and playback controls.
 
 ## Remote
 
-The Kaleidescape remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) service.
+The Kaleidescape remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) action.
 
 - `select`
 - `up`
@@ -54,10 +54,10 @@ The Kaleidescape remote platform will create a [Remote](/integrations/remote/) e
 - `go_movie_covers`
 - `menu_toggle`
 
-A typical service call might look like the example below, which sends a command to the device to _select_ the currently highlighted item.
+A typical action might look like the example below, which sends a command to the device to _select_ the currently highlighted item.
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.kaleidescape_theater
 data:
@@ -228,13 +228,13 @@ Additional details about the values provided by the sensors can be found in Kale
 A typical automation might look like the example below, which turns up the lights when the _media_location_ sensor leaves the _content_ state.
 
 ```yaml
-- alias: kaleidescape_theater_lights_up
-  trigger:
-    - platform: state
+- alias: "Kaleidescape theater lights up"
+  triggers:
+    - trigger: state
       entity_id: sensor.kaleidescape_theater_media_location
       from: content
-  action:
-    - service: scene.turn_on
+  actions:
+    - action: scene.turn_on
       target:
         entity_id: scene.theater_lights
 ```

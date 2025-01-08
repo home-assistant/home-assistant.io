@@ -1,6 +1,6 @@
 ---
-title: DSMR Slimme Meter
-description: Instructions on how to integrate DSMR Smartmeter within Home Assistant.
+title: DSMR Smart Meter
+description: Instructions on how to integrate DSMR smart meter within Home Assistant.
 ha_category:
   - Energy
 ha_release: 0.34
@@ -9,8 +9,8 @@ ha_config_flow: true
 ha_domain: dsmr
 ha_codeowners:
   - '@Robbie1221'
-  - '@frenck'
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: hub
 ---
@@ -19,7 +19,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 
 - Currently support DSMR V2.2, V3, V4, V5, Belgian V5 variant, Luxembourg V5 variant (Smarty), Swedish V5 variant and the EasyMeter Q3D (Germany) through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
 - For official information about DSMR refer to: [DSMR Document](https://www.netbeheernederland.nl/dossiers/slimme-meter-15)
-- For official information about the P1 port refer to: [P1 Companion Standard](https://www.netbeheernederland.nl/_upload/Files/Slimme_meter_15_a727fce1f1.pdf)
+- For official information about the P1 port refer to: [P1 Companion Standard](https://www.netbeheernederland.nl/sites/default/files/2024-02/dsmr_5.0.2_p1_companion_standard.pdf)
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 - For official information about the Swedish variant refer to: [Swedish specification](https://www.energiforetagen.se/globalassets/energiforetagen/det-erbjuder-vi/kurser-och-konferenser/elnat/branschrekommendation-lokalt-granssnitt-v2_0-201912.pdf).
 - Supports [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602) integrated in a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103).
@@ -38,15 +38,15 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 
 ### Options
 
-To configure options for DSMR integration go to **Settings** -> **Devices & Services** and press **Options** on the DSMR card.
+To configure options for DSMR integration go to **Settings** -> **Devices & services** and press **Options** on the DSMR card.
 
 #### Time between updates
 
 Typically the smart meter sends new data every 5-10 seconds. This value defines the minimum time between entity updates in seconds. Setting this value to 0 will update entities each time data is received from the smart meter.
 
-<div class='note warning'>
+{% important %}
 Reducing the default time between updates will increase the amount of events generated and can potentially flood the system with events.
-</div>
+{% endimportant %}
 
 ### Supported meters
 
@@ -63,6 +63,12 @@ This integration is known to work for:
 - Sagemcom T211 
 - Ziv E0058 ESMR5
 - EasyMeter Q3D
+
+### M-Bus support
+
+A smart meter can have multiple subdevices, also known as [M-Bus](https://m-bus.com/) devices.
+For the <abbr title="Dutch smart meter requirement">DSMR</abbr> version 5B, support was added for water and gas M-Bus devices. This means you can have up to 4 subdevices on your <abbr title="Dutch smart meter requirement">DSMR</abbr> meter.
+While previously only 1 gas meter was supported, there is now support for multiple gas and water meters.
 
 ### Connecting to the meter
 
@@ -86,7 +92,8 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 - [ser2net](https://ser2net.sourceforge.net)
 - [Smart Meter bridge](https://github.com/legolasbo/smartmeterBridge)
 - [WIZnet WIZ110SR](https://www.wiznet.io/product-item/wiz110sr/)
-- [esp8266 espeasy (Poluket)](https://www.domohab.be/produit/kit-complet-passerelle-compteur/) (create for Sagemcom T211 model in Belgium)
+- [esp8266 SmartMeter (Poluket)](https://www.domohab.be/categorie-produit/passerelle/) (create for DSMR5 / ESMR5 Meter)
+- [Smart Gateways NL](https://smartgateways.nl/)
 
 DIY solutions (ESP8266 based):
 

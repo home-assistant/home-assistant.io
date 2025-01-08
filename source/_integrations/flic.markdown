@@ -2,20 +2,24 @@
 title: Flic
 description: Instructions on how to integrate flic buttons within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_iot_class: Local Push
 ha_release: 0.35
 ha_domain: flic
 ha_platforms:
   - binary_sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `flic` platform allows you to receive click events from [flic](https://flic.io) smart buttons.
+The `flic` {% term integration %} allows you to receive click events from [flic](https://flic.io) smart buttons.
 
-The platform does not directly interact with the buttons, *but communicates with a flic service* that manages the buttons. The service can run on the same instance as Home Assistant or any other reachable machine.
+The {% term integration %} does not directly interact with the buttons, *but communicates with a flic service* that manages the buttons. The service can run on the same instance as Home Assistant or any other reachable machine.
 
-## Service setup
+## Action setup
 
 If you are using the Home Assistant Operating System, you can run the service locally by [installing](/common-tasks/os#installing-third-party-add-ons) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/home-assistant-addons).
 
@@ -23,7 +27,8 @@ For instructions on how to install the service manually, visit the GitHub reposi
 
 ## Configuration
 
-To use your flic buttons in your installation, add the following to your `configuration.yaml` file:
+To use your flic buttons in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -74,16 +79,16 @@ The flic integration fires `flic_click` events on the bus. You can capture the e
 # Example configuration.yaml automation entry
 automation:
   - alias: "Turn on lights in the living room when flic is pressed once"
-    trigger:
-      platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_81e4ac74b6d2
-        click_type: single
-    action:
-      service: homeassistant.turn_on
-      target:
-        entity_id: group.lights_livingroom
+    triggers:
+      - trigger: event
+        event_type: flic_click
+        event_data:
+          button_name: flic_81e4ac74b6d2
+          click_type: single
+    actions:
+      - action: homeassistant.turn_on
+        target:
+          entity_id: group.lights_livingroom
 ```
 
 Event data:
@@ -100,11 +105,11 @@ To help detect and debug flic button clicks, you can use this automation that se
 ```yaml
 automation:
   - alias: "FLIC Html5 notify on every click"
-    trigger:
-      platform: event
-      event_type: flic_click
-    action:
-      - service: notify.html5
+    triggers:
+      - trigger: event
+        event_type: flic_click
+    actions:
+      - action: notify.html5
         data:
           title: "flic click"
           message: "flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"
@@ -112,6 +117,6 @@ automation:
 
 {% endraw %}
 
-### Ignoring Click Types
+### Ignoring click types
 
-For some purposes it might make sense to exclude a specific click type from triggering click events. For example when ignoring double clicks, pressing the button twice fast results in two `single` instead of a `double` click event. This is very useful for applications where you want to click fast.
+For some purposes it might make sense to exclude a specific click type from triggering click events. For example, when ignoring double clicks, pressing the button twice fast results in two `single` instead of a `double` click event. This is very useful for applications where you want to click fast.

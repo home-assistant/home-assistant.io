@@ -44,7 +44,7 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 - Lock: [Vera] now supported ([@rhooper])
 - HTTP: Migrate to CherryPy WSGI server to fix install and runtime problems ([@balloob])
 
-### Breaking changes
+### Backward-incompatible changes
 
 - Homematic thermostat configuration has changed and now depends on the new [Homematic] component.
 

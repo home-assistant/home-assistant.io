@@ -4,13 +4,12 @@ description: Instructions on how to integrate Pi-hole with Home Assistant.
 ha_category:
   - Sensor
   - Switch
-  - System Monitor
+  - System monitor
   - Update
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 0.28
 ha_codeowners:
-  - '@johnluetke'
   - '@shenxn'
 ha_domain: pi_hole
 ha_platforms:
@@ -40,26 +39,30 @@ The combined host, port and location should take you to the login page of Pi-Hol
 
 If your Pi-hole web interface is password protected, an API key will be requested by Home Assistant after submitting the initial details above. You can get the API key by logging into your Pi-Hole and going to _from Settings > API_ and then the **Show API token** button.
 
-## Services
+## Actions
 
-The platform provides the following services to interact with your Pi-hole. Use switch entities when calling the services.
+The platform provides the following actions to interact with your Pi-hole. Use switch entities when calling the actions.
 
-### Service `pi_hole.disable`
+### Action `pi_hole.disable`
 
 Disables configured Pi-hole(s) for the specified amount of time.
 
-| Service data attribute | Required | Type | Description |
+| Data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
 | `entity_id` | `False` | string | Target switch entity. Use `all` to target all Pi-hole services |
 | `duration` | `True` | timedelta | Time for which Pi-hole should be disabled |
 
-Example service call:
+Example action:
 
 ```yaml
-# Example service call to disable Pi-Hole for 30 minutes
-service: pi_hole.disable
+# Example action to disable Pi-Hole for 30 minutes
+action: pi_hole.disable
 data:
   duration: '00:30'
 target:
   entity_id: all
 ```
+
+## Switches
+
+The integration creates a switch for the Pi-hole allowing you to toggle the Pi-hole on and off.

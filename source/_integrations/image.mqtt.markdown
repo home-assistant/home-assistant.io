@@ -18,9 +18,7 @@ An alternative setup is to use the `url_topic` option to receive an image URL fo
 
 ## Configuration
 
-<a id='new_format'></a>
-
-To enable this image in your installation, add the following to your `configuration.yaml` file:
+To enable this image in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -81,7 +79,7 @@ device:
       required: false
       type: string
     connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
     hw_version:
@@ -100,8 +98,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -130,7 +136,10 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -139,7 +148,6 @@ image_encoding:
   description: The encoding of the image payloads received. Set to `"b64"` to enable base64 decoding of image payload. If not set, the image payload must be raw binary data.
   required: false
   type: string
-  default: None
 image_topic:
   description: The MQTT topic to subscribe to receive the image payload of the image to be downloaded. Ensure the `content_type` type option is set to the corresponding content type. This option cannot be used together with the `url_topic` option. But at least one of these option is required.
   required: exclusive
@@ -161,7 +169,7 @@ object_id:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this image. If two images have the same unique ID Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this image. If two images have the same unique ID Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 url_template:
@@ -176,7 +184,7 @@ url_topic:
 
 ### Example receiving images from a URL
 
-Add the configuration below to your `configuration.yaml`.
+Add the configuration below to your {% term "`configuration.yaml`" %}.
 
 To test it publish an image URL to the topic from the console:
 
@@ -197,7 +205,7 @@ mqtt:
 
 ### Example receiving images from a file
 
-Add the configuration below to your `configuration.yaml`.
+Add the configuration below to your {% term "`configuration.yaml`" %}.
 
 To test it, publish an image URL to the topic from the console:
 

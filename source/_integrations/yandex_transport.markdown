@@ -13,9 +13,13 @@ ha_domain: yandex_transport
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `yandex_tranport` sensor platform uses [Yandex Maps](https://maps.yandex.ru/) it will give you the time until the next departure time from a bus/tramway/etc stop.
+The `yandex_tranport` {% term integration %} uses [Yandex Maps](https://maps.yandex.ru/) it will give you the time until the next departure time from a bus/tramway/etc stop.
 
 The [Yandex Maps](https://maps.yandex.ru/) website can help to determine the id of your bus stop. You can select a bus stop by clicking on the map, and look to the URL:
 
@@ -27,7 +31,8 @@ If you want to track only specific routes, you can add them in the routes sectio
 
 ## Configuration
 
-To activate Yandex Transport, add the following lines to your `configuration.yaml`:
+To activate Yandex Transport, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -71,14 +76,13 @@ sensor:
       - 677к
 ```
 
-## Options For Entities
+## Options for entities
 
 You can configure view information about the next bus using dashboard card.
 To enable displaying the relative time in your `default_view` add the following lines:
 
 ```yaml
 # Example default_view entry
-title: Home Assistant
 views:
     cards:
       - entities:

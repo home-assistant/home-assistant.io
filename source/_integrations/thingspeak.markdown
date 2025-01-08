@@ -7,6 +7,7 @@ ha_iot_class: Cloud Push
 ha_release: 0.32
 ha_domain: thingspeak
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `thingspeak` integrations makes Home Assistant communicate with the [ThingSpeak API](https://thingspeak.com/).
@@ -16,7 +17,7 @@ For now, it records exactly one entity at once, which is great for testing purpo
 
 You will have to create a [new channel](https://thingspeak.com/channels/new) on ThingSpeak and grab your Write API Key from the "API Keys" tab of the channel you want to use.
 
-To setup the ThingSpeak integration in your installation, add the following to your `configuration.yaml` file:
+To setup the ThingSpeak integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -2,7 +2,7 @@
 title: Panasonic Viera
 description: Instructions on how to integrate a Panasonic Viera TV with Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Remote
 ha_release: 0.17
 ha_iot_class: Local Polling
@@ -12,13 +12,16 @@ ha_platforms:
   - media_player
   - remote
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The Panasonic Viera integration allows you to control a Panasonic Viera TV.
+The Panasonic Viera {% term integration %} allows you to control a Panasonic Viera TV.
 
 There is currently support for the following device types within Home Assistant:
 
-- Media Player
+- Media player
 - [Remote](#remote)
 
 {% include integrations/config_flow.md %}
@@ -30,6 +33,8 @@ To allow your TV to be turned on or controlled while off, enable `Powered On By 
 ## Manual configuration
 
 If you prefer to use YAML to set up your Panasonic Viera TV, you can still do it. It also allows for some extra settings.
+To enable the integration via YAML, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -58,7 +63,7 @@ turn_on_action:
   type: list
 {% endconfiguration %}
 
-When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Settings > Devices & Services** to type the PIN code that will be displayed on it and finish the setup.
+When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Settings > Devices & services** to type the PIN code that will be displayed on it and finish the setup.
 
 ### Example `turn_on_action`
 
@@ -72,7 +77,7 @@ panasonic_viera:
   host: YOUR_TV_IP
   name: Living Room TV
   turn_on_action:
-    - service: wake_on_lan.send_magic_packet
+    - action: wake_on_lan.send_magic_packet
       data:
         mac: "AA:BB:CC:DD:99:1A"
 ```
@@ -87,10 +92,10 @@ script:
   front_door_camera:
     alias: "Show who's at the door"
     sequence:
-      - service: media_player.turn_on
+      - action: media_player.turn_on
         target:
           entity_id: media_player.living_room_tv
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.living_room_tv
         data:
@@ -98,14 +103,14 @@ script:
           media_content_id: YOUR_URL
       - delay:
         seconds: 5
-      - service: media_player.media_stop
+      - action: media_player.media_stop
         target:
           entity_id: media_player.living_room_tv
 ```
 
 ### Remote
 
-When the integration is configured, two entities will be created: a `media_player` and a `remote`. The remote allows you to send key commands to your TV with the `remote.send_command` service.
+When the integration is configured, two entities will be created: a `media_player` and a `remote`. The remote allows you to send key commands to your TV with the `remote.send_command` action.
 
 Some of the known valid key values are:
 
@@ -161,5 +166,6 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-P50GT30Y
 - TX-P50GT60E
 - TX-65HZ1000W
+- TX-65HZ1500
 
 If your model is not on the list, give it a test. If everything works correctly, then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).

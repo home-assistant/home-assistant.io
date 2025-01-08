@@ -7,14 +7,17 @@ ha_release: 0.36
 ha_iot_class: Local Push
 ha_domain: rest_command
 ha_integration_type: integration
+ha_codeowners:
+  - '@jpbede'
 ---
 
-This integration can expose regular REST commands as services. Services can be called from a [script] or in [automation].
+This {% term integration %} can expose regular REST commands as actions. Actions can be called from a [script] or in [automation].
 
 [script]: /integrations/script/
 [automation]: /getting-started/automation/
 
-To use this integration, add the following lines to your `configuration.yaml` file:
+To use this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -25,7 +28,7 @@ rest_command:
 
 {% configuration %}
 service_name:
-  description: The name used to expose the service. E.g., in the above example, it would be 'rest_command.example_request'.
+  description: The name used to expose the action. E.g., in the above example, it would be 'rest_command.example_request'.
   required: true
   type: map
   keys:
@@ -74,7 +77,7 @@ service_name:
 
 ### Basic example which uses PUT method and payload encoded as form data
 
-This example implements 2 REST commands to add service calls for the missing shuffle functionality of the iTunes integration.
+This example implements 2 REST commands to add actions for the missing shuffle functionality of the iTunes integration.
 
 ```yaml
 rest_command:
@@ -90,9 +93,58 @@ rest_command:
     payload: "mode=off"
 ```
 
+### Using REST command Response in automations
+
+REST commands provide an action response in a dictionary containing `status` (containing the HTTP response code) and `content` containing the response body as text or JSON. This response can be accessed in automations using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+
+The following example shows how the REST command response may be used in automations. In this case, checking the [Traefik API](https://doc.traefik.io/traefik/operations/api/) for errors.
+
+{% raw %}
+
+```yaml
+# Create a ToDo notification based on file contents
+automation:
+  - alias: "Check API response"
+    triggers:
+      - ...
+    actions:
+      - action: rest_command.traefik_get_rawdata
+        response_variable: traefik_response
+      - if: "{{ traefik_response['status'] == 200 }}"
+        then:
+          - alias: "Parse data"
+            variables:
+              routers: "{{ traefik_response['content']['routers'] }}"
+              router_errors: >
+                {%- for router in routers -%}
+                  {%- if 'error' in routers[router] -%}
+                    {{router}}: {{ routers[router]['error'] }}
+                  {% endif -%}
+                {%- endfor -%}
+              got_errors: "{{ router_errors|length > 0 }}"
+          - if: "{{ got_errors }}"
+            then:
+              - action: notify.mobile_app_iphone
+                data:
+                  title: "Traefik errors"
+                  message: "{{ router_errors }}"
+        else:
+          - action: notify.mobile_app_iphone
+            data:
+              title: "Could not reach Traefik"
+              message: "HTTP code: {{ traefik_response['returncode'] }}"
+
+rest_command:
+  traefik_get_rawdata:
+    url: http://127.0.0.1:8080/api/rawdata
+    method: GET
+```
+
+{% endraw %}
+
 ### Using templates to change the payload based on entities
 
-The commands can be dynamic, using templates to insert values of other entities. Service call support variables for doing things with templates.
+The commands can be dynamic, using templates to insert values of other entities. Actions support variables for doing things with templates.
 
 In this example, uses [templates](/docs/configuration/templating/) for dynamic parameters.
 
@@ -117,7 +169,7 @@ rest_command:
 
 ### How to test your new REST command
 
-Call the new service from [developer tools](/docs/tools/dev-tools/) in the sidebar with some `data` like:
+Call the new action from [developer tools](/docs/tools/dev-tools/) in the sidebar with some `data` like:
 
 ```json
 {
@@ -131,13 +183,13 @@ Call the new service from [developer tools](/docs/tools/dev-tools/) in the sideb
 ```yaml
 automation:
 - alias: "Arrive at Work"
-  trigger:
-    platform: zone
-    entity_id: device_tracker.my_device
-    zone: zone.work
-    event: enter
-  action:
-    - service: rest_command.my_request
+  triggers:
+    - trigger: zone
+      entity_id: device_tracker.my_device
+      zone: zone.work
+      event: enter
+  actions:
+    - action: rest_command.my_request
       data:
         status: "At Work"
         emoji: ":calendar:"

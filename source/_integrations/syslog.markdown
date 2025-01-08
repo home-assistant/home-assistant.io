@@ -9,11 +9,16 @@ ha_domain: syslog
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `syslog` platform allows you to deliver notifications from Home Assistant to the local syslog.
+The `syslog` {% term integration %} allows you to deliver notifications from Home Assistant to the local syslog.
 
-To enable syslog notifications in your installation, add the following to your `configuration.yaml` file:
+To enable syslog notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -24,7 +29,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
@@ -47,26 +52,26 @@ priority:
 
 The table contains values to use in your `configuration.yaml` file.
 
-| facility  | option  | priority  |
-| :-------- |:--------| :---------|
-| kernel    | pid     | 5         |
-| user      | cons    | 4         |
-| mail      | ndelay  | 3         |
-| daemon    | nowait  | 2         |
-| auth      | perror  | 1         |
-| LPR       |         | 0         |
-| news      |         | -1        |
-| uucp      |         | -2        |
-| cron      |         |           |
-| syslog    |         |           |
-| local0    |         |           |
-| local1    |         |           |
-| local2    |         |           |
-| local3    |         |           |
-| local4    |         |           |
-| local5    |         |           |
-| local6    |         |           |
-| local7    |         |           |
+| facility | option | priority |
+| :------- | :----- | :------- |
+| kernel   | pid    | 5        |
+| user     | cons   | 4        |
+| mail     | ndelay | 3        |
+| daemon   | nowait | 2        |
+| auth     | perror | 1        |
+| LPR      |        | 0        |
+| news     |        | -1       |
+| uucp     |        | -2       |
+| cron     |        |          |
+| syslog   |        |          |
+| local0   |        |          |
+| local1   |        |          |
+| local2   |        |          |
+| local3   |        |          |
+| local4   |        |          |
+| local5   |        |          |
+| local6   |        |          |
+| local7   |        |          |
 
 For details about facility, option, and priority please consult the [wikipedia article](https://en.wikipedia.org/wiki/Syslog) and [RFC 3164](https://tools.ietf.org/html/rfc3164).
 

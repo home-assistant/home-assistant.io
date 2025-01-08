@@ -27,9 +27,7 @@ Optimistic mode can be forced, even if a `state_topic` / `position_topic` is def
 
 The `mqtt` cover platform optionally supports a list of `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT cover device. During normal operation, if the MQTT cover device goes offline (i.e., publishes a matching `payload_not_available` to any `availability` topic), Home Assistant will display the cover as "unavailable". If these messages are published with the `retain` flag set, the cover will receive an instant update after subscription and Home Assistant will display correct availability state of the cover when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the cover as "unavailable" when Home Assistant starts up.
 
-<a id='new_format'></a>
-
-To use your MQTT cover in your installation, add the following to your `configuration.yaml` file:
+To use your MQTT cover in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -72,7 +70,7 @@ availability_template:
   required: false
   type: template
 availability_topic:
-  description: "The MQTT topic subscribed to to receive birth and LWT messages from the MQTT cover device. If an `availability` topic is not defined, the cover availability state will always be `available`. If an `availability` topic is defined, the cover availability state will be `unavailable` by default. Must not be used together with `availability`."
+  description: "The subscribed-to MQTT topic to receive birth and LWT messages from the MQTT cover device. If an `availability` topic is not defined, the cover availability state will always be `available`. If an `availability` topic is defined, the cover availability state will be `unavailable` by default. Must not be used together with `availability`."
   required: false
   type: string
 command_topic:
@@ -89,7 +87,7 @@ device:
       required: false
       type: string
     connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
     hw_version:
@@ -108,8 +106,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -126,7 +132,6 @@ device:
       type: string
 device_class:
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend. The `device_class` can be `null`.
-  default: None
   required: false
   type: string
 enabled_by_default:
@@ -143,7 +148,10 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -195,6 +203,10 @@ payload_stop:
   required: false
   type: string
   default: STOP
+platform:
+  description: Must be `cover`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 position_closed:
   description: Number which represents closed position.
   required: false
@@ -257,7 +269,7 @@ state_stopped:
   type: string
   default: stopped
 state_topic:
-  description: The MQTT topic subscribed to receive cover state messages. State topic can only read (`open`, `opening`, `closed`, `closing` or `stopped`) state.
+  description: The MQTT topic subscribed to receive cover state messages. State topic can only read a (`open`, `opening`, `closed`, `closing` or `stopped`) state.  A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 tilt_closed_value:
@@ -302,7 +314,7 @@ tilt_status_topic:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 value_template:
@@ -311,13 +323,12 @@ value_template:
   type: template
 {% endconfiguration %}
 
-<div class="note">
 
+{% note %}
 MQTT cover expects position and tilt values to be in range of 0 to 100, where 0 indicates closed position and 100 indicates fully open position.
 If position `min` or `max` are set to a different range (e.g. 40 to 140), when sending command to the device the range will be adjusted to the device range (position 0 will send a value of 40 to device) and when position payload is received from the device it will be adjusted back to the 0 to 100 range (device value of 40 will report cover position 0).
 `min` and `max` can also be used to reverse the direction of the device, if `min` is set to 100 and `max` is set to `0` device operation will be inverted (e.g. when setting position to 40, a value of 60 will be sent to device).
-
-</div>
+{% endnote %}
 
 ## Examples
 
@@ -534,6 +545,8 @@ mqtt:
 
 ### Full configuration using advanced templating
 
+The `position_template` can accept JSON, where `position` and `tilt_position` is provided at the same time.
+
 The example below shows a full example of how to set up a venetian blind which has a combined position and tilt topic. The blind in the example has moveable slats which tilt with a position change. In the example, it takes the blind 6% of the movement for a full rotation of the slats.
 
 Following variable might be used in `position_template`, `set_position_template`, `tilt_command_template` and `tilt_status_template`, `json_attributes_template` (only `entity_id`).
@@ -574,24 +587,20 @@ mqtt:
       position_template: |-
         {% if not state_attr(entity_id, "current_position") %}
           {
-            "position" : value,
-            "tilt_value" : 0
+            "position" : {{ value }},
+            "tilt_position" : 0
           }
         {% else %}
-          {% set position = state_attr(entity_id, "current_position") %}
-          {% set tilt_percent = (state_attr(entity_id, "current_tilt_position")) %}
+          {% set old_position = state_attr(entity_id, "current_position") %}
+          {% set old_tilt_percent = (state_attr(entity_id, "current_tilt_position")) %}
 
-          {% set movement = value | int - position %}
-          {% set tilt = (tilt_percent / 100 * (tilt_max - tilt_min)) %}
-          {% set tilt_value = min(max((tilt + movement), tilt_min), max) %}
+          {% set movement = value | int - old_position %}
+          {% set old_tilt_position = (old_tilt_percent / 100 * (tilt_max - tilt_min)) %}
+          {% set new_tilt_position = min(max((old_tilt_position + movement), tilt_min), tilt_max) %}
   
           {
-            "position": value,
-            "pos": position,
-            "tilt": tilt,
-            "tilt_value": tilt_value,
-            "tilt_percent" : tilt_percent,
-            "mov" : movement
+            "position": {{ value }},
+            "tilt_position": {{ new_tilt_position }}
           }
         {% endif %}
     tilt_command_template: >-

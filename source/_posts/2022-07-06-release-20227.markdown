@@ -59,7 +59,7 @@ like. So without further due: Enjoy the release!
 - [Release 2022.7.6 - July 20](#release-202276---july-20)
 - [Release 2022.7.7 - July 26](#release-202277---july-26)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -767,7 +767,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 [](https://github.com/home-assistant/core/pull/58768)other news about building an Open Home; straight into your inbox.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change

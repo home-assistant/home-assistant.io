@@ -2,13 +2,17 @@
 title: Meraki
 description: Instructions on how to integrate Meraki-based presence detection into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Cloud Polling
 ha_release: '0.60'
 ha_domain: meraki
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Use your Meraki AP as device tracker. Note that Meraki will see all devices, not only connected to the network.
@@ -26,7 +30,8 @@ Use your Meraki AP as device tracker. Note that Meraki will see all devices, not
 
 ## Configuration
 
-After you configure access to the Meraki CMX API, add the following to your `configuration.yaml` file:
+After you configure access to the Meraki CMX API, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

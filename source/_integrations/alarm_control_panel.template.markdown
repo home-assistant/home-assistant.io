@@ -1,17 +1,27 @@
 ---
-title: "Template Alarm Control Panel"
-description: "Instructions on how to integrate Template Alarm Control Panels into Home Assistant."
+title: "Template Alarm control panel"
+description: "Instructions on how to integrate template alarm control panels into Home Assistant."
 ha_category: 
   - Alarm
+  - Helper
 ha_release: 0.105
 ha_iot_class: "Local Push"
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_config_flow: true
+ha_platforms:
+  - alarm_control_panel
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `template` integrations creates alarm control panels that combine integrations or adds pre-processing logic to actions.
+The `template` {% term integration %} creates alarm control panels that combine integrations or adds preprocessing logic to actions.
 
-There are several powerful ways to use this integration, including grouping existing integrations into a simpler integrations, or adding logic that Home Assistant will execute when accessed.
+There are several powerful ways to use this {% term integration %}, including grouping existing integrations into a simpler integrations, or adding logic that Home Assistant will execute when accessed.
 
 For example, if you want to expose a true alarm panel to Google Home, Alexa, or HomeKit - but limit its ability to disarm when there's no one home, you can do that using a template.
 
@@ -21,9 +31,12 @@ This can simplify the GUI and make it easier to write automations.
 
 In optimistic mode, the alarm control panel will immediately change state after every command. Otherwise, the alarm control panel will wait for state confirmation from the template. Try to enable it, if experiencing incorrect operation.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable a Template Alarm Control Panel in your installation, add the following to your `configuration.yaml` file:
+## YAML Configuration
+
+To enable a template alarm control panel in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% raw %}
 
@@ -35,13 +48,13 @@ alarm_control_panel:
       safe_alarm_panel:
         value_template: "{{ states('alarm_control_panel.real_alarm') }}"
         arm_away:
-          service: alarm_control_panel.alarm_arm_away
+          action: alarm_control_panel.alarm_arm_away
           target:
             entity_id: alarm_control_panel.real_alarm
           data:
             code: !secret alarm_code
         arm_home:
-          service: alarm_control_panel.alarm_arm_home
+          action: alarm_control_panel.alarm_arm_home
           target:
             entity_id: alarm_control_panel.real_alarm
           data:
@@ -50,7 +63,7 @@ alarm_control_panel:
           - condition: state
             entity_id: device_tracker.paulus
             state: "home"
-          - service: alarm_control_panel.alarm_disarm
+          - action: alarm_control_panel.alarm_disarm
             target:
               entity_id: alarm_control_panel.real_alarm
             data:
@@ -129,6 +142,6 @@ State-based template entities have the special template variable `this` availabl
 
 ## Considerations
 
-If you are using the state of an integration that takes extra time to load, the Template Alarm Control Panel may get an `unknown` state during startup. This results in error messages in your log file until that integration has completed loading. If you use `is_state()` function in your template, you can avoid this situation.
+If you are using the state of an integration that takes extra time to load, the template alarm control panel may get an `unknown` state during startup. This results in error messages in your log file until that integration has completed loading. If you use `is_state()` function in your template, you can avoid this situation.
 
 For example, you would replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an unknown result: {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}

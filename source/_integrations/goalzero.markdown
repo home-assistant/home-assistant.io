@@ -8,7 +8,6 @@ ha_release: 0.116
 ha_config_flow: true
 ha_dhcp: true
 ha_domain: goalzero
-ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
   - sensor
@@ -22,7 +21,7 @@ This Goal Zero Yeti integration pulls data from a Wifi-enabled [Goal Zero Yeti](
 
 {% include integrations/config_flow.md %}
 
-## Integration Entities
+## Integration entities
 
 Each added configuration entry will create the following binary sensors:
 

@@ -5,8 +5,6 @@ ha_category:
   - Hub
 ha_release: pre 0.7
 ha_iot_class: Local Polling
-ha_codeowners:
-  - '@janiversen'
 ha_domain: modbus
 ha_platforms:
   - binary_sensor
@@ -16,15 +14,17 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_quality_scale: gold
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 [modbus](http://www.modbus.org/) is a communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit).
 
 The integration adheres strictly to the [protocol specification](https://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the protocol implementation.
 
-The modbus integration supports all devices adhering to the modbus standard. The communication to the device/devices can be serial (rs-485), TCP, or UDP connections. The modbus integration allows multiple communication channels e.g. a serial port connection combined with one or more TCP connections.
+The modbus {% term integration %} supports all devices adhering to the modbus standard. The communication to the device/devices can be serial (rs-485), TCP, or UDP connections. The modbus integration allows multiple communication channels e.g. a serial port connection combined with one or more TCP connections.
 
 # Configuring modbus communication
 
@@ -33,6 +33,9 @@ Configure the modbus communication with modbus devices. This is a general setup 
 The modbus integration allows you to use multiple connections each with multiple sensors etc.
 
 The modbus integration provides a number of parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
+
+To enable this integration, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% configuration %}
 delay:
@@ -52,11 +55,6 @@ name:
   description: "Name of this hub. Must be unique."
   required: true
   type: string
-retries:
-  description: "Number of times to retry a request."
-  required: false
-  default: 3
-  type: integer
 timeout:
   description: "Timeout while waiting for a response in seconds."
   required: false
@@ -115,10 +113,8 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
-    retries: 3
     timeout: 5
 ```
 
@@ -163,10 +159,8 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
-    retries: 3
     timeout: 5
 ```
 
@@ -207,10 +201,8 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
-    retries: 3
     timeout: 5
 ```
 
@@ -303,10 +295,8 @@ modbus:
     parity: E
     stopbits: 1
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
-    retries: 3
     timeout: 5
 ```
 
@@ -352,22 +342,17 @@ modbus:
 
 modbus entities are grouped below each modbus communication entry.
 
-All modbus entities have the following parameters:
+**REMARK** Each modbus device must have at least 1 entity defined, otherwise the integration will not be loaded.
 
 Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
+All modbus entities have the following parameters:
+
 {% configuration %}
 address:
-  description: "Address of coil/register."
+  description: "Address of coil/register. Note that this can also be specified in Hex. For example: `0x789A`"
   required: true
   type: integer
-lazy_error_count:
-  description: "Number of errors before entity becomes unavailable.
-  Is used to prevent spontaneous errors affecting statistic graphs.
-  A succesfull request resets the error count."
-  required: false
-  type: integer
-  default: 0
 name:
   description: "Name of the entity which must be unique within the entity type."
   required: true
@@ -375,8 +360,8 @@ name:
 scan_interval:
   description: "Update interval in seconds.
   scan_interval = 0 for no polling.
-  Entities are unavailable until the first scan interval is passed,
-  except for entities with scan_interval = 0, which are read at startup and not updated."
+  Entities are read shortly after startup and then according to scan_interval.
+  Remark, when restarting HA the last known value is restored."
   required: false
   type: integer
   default: 15
@@ -512,7 +497,6 @@ modbus:
         address: 100
         device_class: door
         input_type: coil
-        lazy_error_count: 0
         scan_interval: 15
         slave: 1
         slave_count: 0
@@ -543,7 +527,7 @@ The master configuration like device_class are automatically copied to the slave
 
 ## Configuring climate entities
 
-The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature.
+The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature, HVAC mode, swing mode, and fan state.
 
 Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
@@ -553,13 +537,43 @@ climates:
   required: false
   type: map
   keys:
+    temperature_unit:
+      description: "Temperature unit: C or F."
+      required: false
+      default: C
+      type: list
+      keys:
+        C:
+          description: "Celsius"
+        F:
+          description: "Fahrenheit"
+    precision:
+      description: "Number of valid decimals for temperature."
+      required: false
+      type: integer
+      default: 0
+    temp_step:
+      description: "Step size target temperature."
+      required: false
+      type: float
+      default: 0.5
+    max_temp:
+      description: "Maximum setpoint for target temperature."
+      required: false
+      type: integer
+      default: 35
+    min_temp:
+      description: "Minimum setpoint for target temperature."
+      required: false
+      type: integer
+      default: 5
     count:
-      description: "Number of registers to read.
+      description: "Number of registers to read to fetch the current temperature.
       **only valid for `data_type: custom` and `data_type: string`**, for other data types count is automatically calculated."
       required: false
       type: integer
     data_type:
-      description: "Response representation."
+      description: "Response representation when reading the current temperature register(s)."
       required: false
       default: int16
       type: list
@@ -574,8 +588,6 @@ climates:
           description: "64 bit signed float (4 register holds 1 value)."
         int:
           description: "**DEPRECATED** is silently converted to `int16`"
-        int8:
-          description: "8 bit signed integer (1 register holds 1 value in lower byte)."
         int16:
           description: "16 bit signed integer (1 register holds 1 value)."
         int32:
@@ -586,14 +598,60 @@ climates:
           description: "set of 8 bit characters, `count:` must be configured."
         uint:
           description: "**DEPRECATED** is silently converted to `uint16`"
-        uint8:
-          description: "8 bit unsigned integer (1 register holds 1 value in lower byte)."
         uint16:
           description: "16 bit unsigned integer (1 register holds 1 value)."
         uint32:
           description: "32 bit unsigned integer (2 registers holds 1 value)."
         uint64:
           description: "64 bit unsigned integer (4 registers holds 1 value)."
+    input_type:
+      description: Modbus register type for current temperature.
+      required: false
+      default: holding
+      type: list
+      keys:
+        holding:
+          description: "Holding register."
+        input:
+          description: "Input register."
+    offset:
+      description: "Final offset for current temperature (output = scale * value + offset)."
+      required: false
+      type: float
+      default: 0
+    target_temp_register:
+      description: "Register address for target temperature (Setpoint). Using a list, it is possible to define one register for each of the available HVAC Modes. The list has to have a fixed size of 7 registers corresponding to the 7 available HVAC Modes, as follows: Register **1: HVAC AUTO mode**; Register **2: HVAC Cool mode**; Register **3: HVAC Dry mode**; Register **4: HVAC Fan only mode**; Register **5: HVAC Heat mode**; Register **6: HVAC Heat Cool mode**; Register **7: HVAC OFF mode**. It is possible to set duplicated values for the modes where the devices don't have a related register."
+      required: true
+      type: [integer, list]
+    target_temp_write_registers:
+      description: "If `true` use `write_registers` for target temperature (`target_temp_register`), else use `write_register`."
+      required: false
+      type: boolean
+      default: false
+    scale:
+      description: "Scale factor (output = scale * value + offset) for setting target temperature."
+      required: false
+      type: float
+      default: 1
+    structure:
+      description: "If `data_type: custom` is specified a double-quoted Python struct is expected,
+      to format the string to unpack the value. See Python documentation for details.
+      Example: `>i`."
+      required: false
+      type: string
+      default: ">f"
+    swap:
+      description: "Swap the order of bytes/words, **not valid with `custom` and `datatype: string`** when setting target temperature"
+      required: false
+      default: none
+      type: list
+      keys:
+        byte:
+          description: "Swap bytes AB -> BA."
+        word:
+          description: "Swap word ABCD -> CDAB, **not valid with data types: `int16`, `uint16`**"
+        word_byte:
+          description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
     hvac_mode_register:
       description: "Configuration of register for HVAC mode"
       required: false
@@ -604,7 +662,7 @@ climates:
           required: true
           type: integer
         write_registers:
-          description: "Request type, use `write_registers` if true  else `write_register`.
+          description: "Request type for setting HVAC mode, use `write_registers` if true else `write_register`.
             If more than one value is specified for a specific mode, only the first one is used for writing to the register."
           required: false
           type: boolean
@@ -615,7 +673,8 @@ climates:
           type: map
           keys:
             state_off:
-              description: "Value corresponding to HVAC Off mode."
+              description: "Value corresponding to HVAC Off mode.
+                If the On/Off state handled on a different address and/or register the `state_off` state should be omitted from your configuration"
               required: false
               type: [integer, list]
             state_heat:
@@ -629,7 +688,7 @@ climates:
             state_auto:
               description: "Value corresponding to HVAC Auto mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_dry:
               description: "Value corresponding to HVAC Dry mode."
               required: false
@@ -642,96 +701,107 @@ climates:
               description: "Value corresponding to HVAC Heat/Cool mode."
               required: false
               type: [integer, list]
+    fan_mode_register:
+      description: "Configuration of register for Fan mode"
+      required: false
+      type: map
+      keys:
+        address:
+          description: "Address of Fan mode register. (int to call write_register, list of 1 int to call write_registers)"
+          required: true
+          type: [integer, list]
+        values:
+          description: "Mapping between the register values and Fan modes
+            This is typically used to control one of: Speed, Direction or On/Off state."
+          required: true
+          type: map
+          keys:
+            state_fan_on:
+              description: "Value corresponding to Fan On mode."
+              required: false
+              type: integer
+            state_fan_off:
+              description: "Value corresponding to Fan Off mode."
+              required: false
+              type: integer
+            state_fan_low:
+              description: "Value corresponding to Fan Low mode."
+              required: false
+              type: integer
+            state_fan_medium:
+              description: "Value corresponding to Fan Medium mode."
+              required: false
+              type: integer
+            state_fan_high:
+              description: "Value corresponding to Fan High mode."
+              required: false
+              type: integer
+            state_fan_auto:
+              description: "Value corresponding to Fan Auto mode."
+              required: false
+              type: integer
+            state_fan_top:
+              description: "Value corresponding to Fan Top mode."
+              required: false
+              type: integer
+            state_fan_middle:
+              description: "Value corresponding to Fan Middle mode."
+              required: false
+              type: integer
+            state_fan_focus:
+              description: "Value corresponding to Fan Focus mode."
+              required: false
+              type: integer
+            state_fan_diffuse:
+              description: "Value corresponding to Fan Diffuse mode."
+              required: false
+              type: integer
+    swing_mode_register:
+      description: "Configuration of the register for swing mode"
+      required: false
+      type: map
+      keys:
+        address:
+          description: "Address of swing mode register. (int to call write_register, list of 1 int to call write_registers). - Reading done through holding register"
+          required: true
+          type: [integer, list]
+        values:
+          description: "Mapping between the register values and swing modes"
+          required: true
+          type: map
+          keys:
+            swing_mode_state_on:
+              description: "Value corresponding to swing mode on."
+              required: false
+              type: integer
+            swing_mode_state_off:
+              description: "Value corresponding to swing mode off."
+              required: false
+              type: integer
+            swing_mode_state_horizontal:
+              description: "Value corresponding to swing mode horizontal."
+              required: false
+              type: integer
+            swing_mode_state_vertical:
+              description: "Value corresponding to swing mode vertical."
+              required: false
+              type: integer
+            swing_mode_state_both:
+              description: "Value corresponding to Swing mode both."
+              required: false
+              type: integer
     hvac_onoff_register:
       description: "Address of On/Off state.
+        Only use this setting if your On/Off state is not handled as a HVAC mode.
         When zero is read from this register, the HVAC state is set to Off, otherwise the `hvac_mode_register`
         dictates the state of the HVAC. If no such register is defined, it defaults to Auto.
         When the HVAC mode is set to Off, the value 0 is written to the register, otherwise the
         value 1 is written."
       required: false
       type: integer
-    input_type:
-      description: Modbus register type for current temperature.
-      required: false
-      default: holding
-      type: list
-      keys:
-        holding:
-          description: "Holding register."
-        input:
-          description: "Input register."
-    max_temp:
-      description: "Maximum setpoint temperature."
-      required: false
-      type: integer
-      default: 35
-    min_temp:
-      description: "Minimum setpoint temperature."
-      required: false
-      type: integer
-      default: 5
-    offset:
-      description: "Final offset (output = scale * value + offset)."
-      required: false
-      type: float
-      default: 0
-    precision:
-      description: "Number of valid decimals."
-      required: false
-      type: integer
-      default: 0
-    scale:
-      description: "Scale factor (output = scale * value + offset)."
-      required: false
-      type: float
-      default: 1
-    structure:
-      description: "If `data_type: custom` is specified a double-quoted Python struct is expected,
-      to format the string to unpack the value. See Python documentation for details.
-      Example: `>i`."
-      required: false
-      type: string
-      default: ">f"
-    swap:
-      description: "Swap the order of bytes/words, **not valid with `custom` and `datatype: string`**"
-      required: false
-      default: none
-      type: list
-      keys:
-        none:
-          description: "No swapping."
-        byte:
-          description: "Swap bytes AB -> BA."
-        word:
-          description: "Swap word ABCD -> CDAB, **not valid with data types: `int8`, `uint8`, `int16`, `uint16`**"
-        word_byte:
-          description: "Swap word ABCD -> DCBA, **not valid with data types: `int8`, `uint8`, `int16`, `uint16`**"
-    target_temp_register:
-      description: "Register address for target temperature (Setpoint)."
-      required: true
-      type: integer
-    target_temp_write_registers:
-      description: "If `true` use `write_registers` for target temperature."
-      required: false
-      type: boolean
-      default: false
-    temp_step:
-      description: "Step size target temperature."
-      required: false
-      type: float
-      default: 0.5
-    temperature_unit:
-      description: "Temperature unit reported by current_temp_register. C or F."
-      required: false
-      default: C
-      type: list
-      keys:
-        C:
-          description: "Celsius"
-        F:
-          description: "Fahrenheit"
     write_registers:
-      description: "Request type, use `write_registers` if true  else `write_register`."
+      description: "If `true` use `write_registers` to control the On/Off state (`hvac_onoff_register`), else use `write_register`.
+      Note that it is not yet possible to control the On/Off state via a coil."
       required: false
       type: boolean
       default: false
@@ -749,7 +819,7 @@ modbus:
     port: 502
     climates:
       - name: "Watlow F4T"
-        address: 27586
+        address: 0x6BC2
         input_type: holding
         count: 1
         data_type: custom
@@ -1207,8 +1277,6 @@ sensors:
           description: "64 bit signed float (4 register holds 1 value)."
         int:
           description: "**DEPRECATED** is silently converted to `int16`"
-        int8:
-          description: "8 bit signed integer (1 register holds 1 value in lower byte)."
         int16:
           description: "16 bit signed integer (1 register holds 1 value)."
         int32:
@@ -1219,8 +1287,6 @@ sensors:
           description: "set of 8 bit characters, `count:` must be configured."
         uint:
           description: "**DEPRECATED** is silently converted to `uint16`"
-        uint8:
-          description: "8 bit unsigned integer (1 register holds 1 value in lower byte)."
         uint16:
           description: "16 bit unsigned integer (1 register holds 1 value)."
         uint32:
@@ -1306,14 +1372,12 @@ sensors:
       default: none
       type: list
       keys:
-        none:
-          description: "No swapping."
         byte:
           description: "Swap bytes AB -> BA."
         word:
-          description: "Swap word ABCD -> CDAB, **not valid with data types: `int8`, `uint8`, `int16`, `uint16`**"
+          description: "Swap word ABCD -> CDAB, **not valid with data types: `int16`, `uint16`**"
         word_byte:
-          description: "Swap word ABCD -> DCBA, **not valid with data types: `int8`, `uint8`, `int16`, `uint16`**"
+          description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
     unit_of_measurement:
       description: "Unit to attach to value."
       required: false
@@ -1322,13 +1386,15 @@ sensors:
       description: "Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer"
       required: false
       type: float
+    unique_id:
+      description: ID that uniquely identifies the entity. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
-<div class='note'>
-
+{% note %}
 If you specify scale or offset as floating point values, double precision floating point arithmetic will be used to calculate final value. This can cause loss of precision for values that are larger than 2^53.
-
-</div>
+{% endnote %}
 
 ### Example: sensor configuration
 
@@ -1373,7 +1439,7 @@ modbus:
     sensors:
       - name: Room_1
         slave: 10
-        address: 0
+        address: 0x9A
         input_type: holding
         unit_of_measurement: °C
         state_class: measurement
@@ -1421,9 +1487,9 @@ switches:
         coils:
           description: "write_coils is called."
     verify:
-      description: "Read from Modbus device to verify fan.
+      description: "Read from Modbus device to verify switch.
         If used without attributes, it uses the toggle register configuration.
-        If omitted, no verification is done, but the state of the fan is set with each toggle."
+        If omitted, no verification is done, but the state of the switch is set with each toggle."
       required: false
       type: map
       keys:
@@ -1452,15 +1518,15 @@ switches:
             input:
               description: "Input register."
         state_on:
-          description: "Value when switch is on."
+          description: "Value(s) when switch is on. The value must be an `integer` or a list of integers."
           required: false
           default: "Same as `command_on`"
-          type: integer
+          type: [integer, list]
         state_off:
-          description: "Value when switch is off."
+          description: "Value(s) when switch is off.  The value must be an `integer` or a list of integers."
           required: false
           default: "Same as `command_off`"
-          type: integer
+          type: [integer, list]
 
 {% endconfiguration %}
 
@@ -1531,17 +1597,16 @@ Some parameters exclude other parameters, the following tables show what can be 
 | structure       | Yes    | No     | No  | No  | No  |
 | slave_count     | No     | No     | Yes | Yes | Yes |
 | virtual_count   | No     | No     | Yes | Yes | Yes |
-| swap: none      | Yes    | Yes    | Yes | Yes | Yes |
 | swap: byte      | No     | No     | Yes | Yes | Yes |
 | swap: word      | No     | No     | No  | Yes | Yes |
 | swap: word_byte | No     | No     | No  | Yes | Yes |
 
 
-# modbus services
+# Actions
 
-The modbus integration provides two generic write services in addition to the platform-specific services.
+The modbus integration provides two generic write actions in addition to the platform-specific actions.
 
-| Service               | Description                 |
+| Action                | Description                 |
 | --------------------- | --------------------------- |
 | modbus.write_register | Write register or registers |
 | modbus.write_coil     | Write coil or coils         |
@@ -1551,30 +1616,17 @@ Description:
 | Attribute | Description                                                                                                                                                                                                                                                                                 |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | hub       | Hub name (defaults to 'modbus_hub' when omitted)                                                                                                                                                                                                                                            |
-| slave     | Slave address (0-255)                                                                                                                                                                                                                                                  |
+| slave     | Slave address (0-255)                                                                                                                                                                                                                                                                       |
 | address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |
-
-The modbus integration also provides communication stop/restart services. These services will not do any reconfiguring, but simply stop/start the modbus communication layer.
-
-| Service        | Description                                   |
-| -------------- | --------------------------------------------- |
-| modbus.stop    | Stop communication                            |
-| modbus.restart | Restart communication (Stop first if running) |
-
-Description:
-
-| Attribute | Description                                      |
-| --------- | ------------------------------------------------ |
-| hub       | Hub name (defaults to 'modbus_hub' when omitted) |
 
 ## Example: writing a float32 type register
 
 To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal).
 
 ```yaml
-service: modbus.write_register
+action: modbus.write_register
 data:
   address: <target register address>
   slave: <target slave address>
@@ -1582,17 +1634,17 @@ data:
   value: [0x4120, 0x0000]
 ```
 
-## Service `modbus.set-temperature`
+## Action `modbus.set-temperature`
 
-| Service         | Description                                                                                                                                   |
+| Action          | Description                                                                                                                                   |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | set_temperature | Set temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
 
-## Service `modbus.set_hvac_mode`
+## Action `modbus.set_hvac_mode`
 
-| Service       | Description                                                                                                                                                                                                                                                                                                                           |
+| Action        | Description                                                                                                                                                                                                                                                                                                                           |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| set_hvac_mode | Set HVAC mode. Requires `value` to be passed in, which is the desired mode. `value` should be a valid HVAC mode. A mapping between the desired state and the value to be written to the HVAC mode register must exist. Calling this service will also set the On/Off register to an appropriate value, if such a register is defined. |
+| set_hvac_mode | Set HVAC mode. Requires `value` to be passed in, which is the desired mode. `value` should be a valid HVAC mode. A mapping between the desired state and the value to be written to the HVAC mode register must exist. Performing this action will also set the On/Off register to an appropriate value, if such a register is defined. |
 
 
 # Opening an issue
@@ -1603,7 +1655,7 @@ When opening an issue, please add your current configuration (or a scaled down v
  - the entity (sensor, etc.) lines
 
 In order for the developers better to identify the problem, please add the
-following lines to configuration.yaml:
+following lines to {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:
@@ -1617,10 +1669,4 @@ and restart Home Assistant, reproduce the problem, and include the log in the is
 
 # Building on top of modbus
 
- - [modbus Binary Sensor](#configuring-platform-binary-sensor)
- - [modbus Climate](#configuring-platform-climate)
- - [modbus Cover](#configuring-platform-cover)
- - [modbus Fan](#configuring-platform-fan)
- - [modbus Light](#configuring-platform-light)
- - [modbus Sensor](#configuring-platform-sensor)
- - [modbus Switch](#configuring-platform-switch)
+The only recommended way is to inherit the entities needed.

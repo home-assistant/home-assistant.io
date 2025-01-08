@@ -1,9 +1,9 @@
 ---
-title: "Quick Bar"
+title: "Quick bar"
 description: "Dialog for quickly accessing entities or running commands."
 ---
 
-The "Quick Bar" allows you to quickly look up entities or run commands without needing to navigate away from your current view (Similar to the "quick open" feature in VS Code, Chrome Developer Tools, etc).
+The **Quick bar** allows you to quickly look up entities or run commands without needing to navigate away from your current view (Similar to the "quick open" feature in VS Code, Chrome Developer Tools, etc).
 
 It can be launched from anywhere in the frontend using [hotkeys](#hotkeys).
 
@@ -18,15 +18,17 @@ Type these from anywhere in the application to launch the dialog.
 
 | Mode  | Hotkey | Switch Modes
 | ------------- | ------------- | ------------- |
-| Entity Filter | `e` | Type `>` at start of input to switch to command palette.
+| Entity Filter | `e` | Type `>` at start of input to switch to command palette. Type `#` at start of input to switch to device filter.
 | Command Palette | `c` | Remove `>` from start of input to switch to entity filter.
+| Device Filter | `d` | Remove `#` from start of input to switch to entity filter.
 | Create [`my`](/integrations/my) link | `m` | Open a new tab to create a my link to the page you are on.
+| Assist | `a` | Open the Home Assistant Assist dialog.
 
-<div class='note'>
-  The application must have focus for the hotkey to register. If the dialog doesn't launch, try clicking into an empty part of the main content area of Home Assistant and type it again.
-</div>
+{% important %}
+The application must have focus for the hotkey to register. If the dialog doesn't launch, try clicking into an empty part of the main content area of Home Assistant and type it again.
+{% endimportant %}
 
-## Entity Filter
+## Entity filter
 
 *Hotkey: `e`*
 
@@ -41,7 +43,18 @@ Once launched, start typing your entity id (or ["bits and pieces" of your entity
 
 This is helpful when, say, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to Developer Tools.
 
-## Command Palette
+## Device filter
+
+*Hotkey: `d`*
+
+Similar to {% my entities title="Settings -> Devices & Services -> Devices" %}, but accessible from anywhere in the frontend.
+
+Once launched, start typing your device name to get back a filtered list of your devices. Clicking on a device (or hitting `enter` when the desired device is highlighted) will open the selected device detail page.
+
+This is helpful when you need to quickly access a device's detail page without navigating your way through the menu.
+
+
+## Command palette
 
 *Hotkey: `c`*
 
@@ -57,7 +70,7 @@ Run various commands from anywhere without having to navigate to another view.
 Type | Available |
 | ------------- | ------------- |
 | Navigate | All entries in the sidebar and settings |
-| Reload | All currently-supported "Reload {domain}" services.<br />*(E.g., "Reload Scripts")* |
+| Reload | All currently-supported "Reload {domain}" actions.<br />*(E.g., "Reload Scripts")* |
 | Server | Restart/Stop |
 
 ## My links
@@ -66,7 +79,16 @@ Type | Available |
 
 Create [`my`](/integrations/my) links from any supported page in the user interface, when invoked on a supported page it will open a new tab that will allow you to share the link in different formats.
 
-## Disabling Shortcuts
+## Assist
+
+*Hotkey: `a`*
+
+Opens the Assist dialog to interact with Home Assistant using your voice or by text.
+This feature is only available if you have set up a voice assistant.
+
+Learn more about [voice assistants](/voice_control).
+
+## Disabling shortcuts
 
 You can enable or disable all of Home Assistant's keyboard shortcuts by going to your User Profile and clicking the "Keyboard Shortcuts" toggle button.
 

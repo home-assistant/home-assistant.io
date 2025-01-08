@@ -24,6 +24,7 @@ The sensor provided by this integration will always show you the lowest/highest/
 If the source sensor provides an unknown state, it will be ignored in the calculation except for sum where it will set the state to unknown. If the unit of measurement of the sensors differs, the Min/Max sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR`.
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 Name:
   description: The name the sensor should have. You can change it again later.
@@ -35,11 +36,11 @@ Precision:
   description: Round the calculated mean, median or sum value to at most N decimal places.
 {% endconfiguration_basic %}
 
-## YAML Configuration
+## YAML configuration
 
 Alternatively, this integration can be configured and set up manually via YAML
 instead. To enable the Integration sensor in your installation, add the
-following to your `configuration.yaml` file:
+following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

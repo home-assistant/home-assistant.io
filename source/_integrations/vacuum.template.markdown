@@ -1,16 +1,25 @@
 ---
-title: "Template Vacuum"
-description: "Instructions how to setup Template vacuums within Home Assistant."
+title: "Template vacuum"
+description: "Instructions how to setup template vacuums within Home Assistant."
 ha_category:
   - Vacuum
+  - Helper
 ha_release: 0.96
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - vacuum
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` platform creates vacuums that combine integrations and provides the
-ability to run scripts or invoke services for each of the start, pause, stop,
+ability to run scripts or invoke actions for each of the start, pause, stop,
 return_to_base, clean_spot, locate and set_fan_speed commands of a vacuum.
 
 To enable Template Vacuums in your installation, add the following to your
@@ -25,7 +34,7 @@ vacuum:
     vacuums:
       living_room_vacuum:
         start:
-          service: script.vacuum_start
+          action: script.vacuum_start
 ```
 
 {% endraw %}
@@ -106,7 +115,7 @@ vacuum:
 
 ### Template and action variables
 
-State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an {% term entity %}'s state and attribute in templates and actions.
 
 ## Examples
 
@@ -120,21 +129,21 @@ vacuum:
     vacuums:
       living_room_vacuum:
         start:
-          - service: remote.send_command
+          - action: remote.send_command
             target:
               entity_id: remote.harmony_hub
             data:
               command: Clean
               device: 52840686
         return_to_base:
-          - service: remote.send_command
+          - action: remote.send_command
             target:
               entity_id: remote.harmony_hub
             data:
               command: Home
               device: 52840686
         clean_spot:
-          - service: remote.send_command
+          - action: remote.send_command
             target:
               entity_id: remote.harmony_hub
             data:
@@ -157,19 +166,19 @@ vacuum:
         battery_level_template: "{{ states('sensor.vacuum_battery_level')|int }}"
         fan_speed_template: "{{ states('sensor.vacuum_fan_speed') }}"
         start:
-            service: script.vacuum_start
+            action: script.vacuum_start
         pause:
-            service: script.vacuum_pause
+            action: script.vacuum_pause
         stop:
-            service: script.vacuum_stop
+            action: script.vacuum_stop
         return_to_base:
-            service: script.vacuum_return_to_base
+            action: script.vacuum_return_to_base
         clean_spot:
-            service: script.vacuum_clean_spot
+            action: script.vacuum_clean_spot
         locate:
-            service: script.vacuum_locate_vacuum
+            action: script.vacuum_locate_vacuum
         set_fan_speed:
-            service: script.vacuum_set_fan_speed
+            action: script.vacuum_set_fan_speed
             data:
               speed: "{{ fan_speed }}"
         fan_speeds:
@@ -180,7 +189,7 @@ vacuum:
 
 {% endraw %}
 
-### Add Custom Attributes
+### Add custom attributes
 
 This example shows how to add custom attributes.
 

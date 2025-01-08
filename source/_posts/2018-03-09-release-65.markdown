@@ -178,7 +178,7 @@ intent_script:
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - Insteon PLM: If you have created platform overrides in your configuration.yaml file to change a your INSTEON device to map to a different Home Assistant platform, that mapping will no longer be in effect. Please see the new device override capabilities in the [insteon_plm documentation](/integrations/insteon/). ([@teharris1] - [#12534]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
 - AirVisual's air index unit is AQI (Air Quality Index), not PSI (Pressure per Square Inch). ([@chilicheech] - [#12730]) ([sensor.airvisual docs]) (breaking change)

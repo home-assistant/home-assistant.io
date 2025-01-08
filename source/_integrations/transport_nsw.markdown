@@ -9,6 +9,7 @@ ha_domain: transport_nsw
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `transport_nsw` sensor will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.
@@ -25,7 +26,7 @@ As a default the sensor picks up the next mode of transport leaving from a stop 
 
 ## Configuration
 
-To enable the sensor, add the following lines to your `configuration.yaml` file:
+To enable the sensor, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

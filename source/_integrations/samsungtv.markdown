@@ -2,7 +2,7 @@
 title: Samsung Smart TV
 description: Instructions on how to integrate a Samsung Smart TV into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Remote
 ha_release: 0.13
 ha_iot_class: Local Push
@@ -38,11 +38,11 @@ wake_on_lan: # enables `wake_on_lan` integration
 
 automation:
   - alias: "Turn On Living Room TV with WakeOnLan"
-    trigger:
-      - platform: samsungtv.turn_on
+    triggers:
+      - trigger: samsungtv.turn_on
         entity_id: media_player.samsung_smart_tv
-    action:
-      - service: wake_on_lan.send_magic_packet
+    actions:
+      - action: wake_on_lan.send_magic_packet
         data:
           mac: aa:bb:cc:dd:ee:ff
 ```
@@ -53,7 +53,7 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 
 #### Changing channels
 
-Changing channels can be done by calling the `media_player.play_media` service
+Changing channels can be done by calling the `media_player.play_media` action
 with the following payload:
 
 ```yaml
@@ -69,7 +69,7 @@ Some older models also expose the installed applications through the WebSocket, 
 
 ### Remote
 
-The integration supports the `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` service. The supported keys vary between TV models.
+The integration supports the `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` action. The supported keys vary between TV models.
 
 {% details "Full keycodes list" %}
 
@@ -157,6 +157,7 @@ KEY_LEFT|NavigationLeft
 KEY_RIGHT|NavigationRight
 KEY_RETURN|NavigationReturn/Back
 KEY_ENTER|NavigationEnter
+KEY_EXIT|NavigationExit
 ____________
 
 **Media Keys**
@@ -333,6 +334,7 @@ KEY_MIC|
 KEY_NINE_SEPERATE|
 KEY_AUTO_FORMAT|AutoFormat
 KEY_DNET|DNET
+KEY_MINUS|Minus
 _______________
 
 **Auto Arc Keys**
@@ -425,7 +427,7 @@ The code list has been extracted from: https://github.com/kdschlosser/samsungctl
 **Example to send sequence of commands:**
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   device_id: 72953f9b4c9863e28ddd52c87dcebe05
 data:
@@ -451,6 +453,6 @@ Some televisions from the H and J series use an encrypted protocol and require m
 
 #### Samsung TV keeps asking for permission
 
-The default setting on newer televisions is to ask for permission on ever connection attempt.
+The default setting on newer televisions is to ask for permission on every connection attempt.
 To avoid this behavior, please ensure that you adjust this to `First time only` in the `Device connection manager > Access notification` settings of your television.
 It is also recommended to cleanup the previous attempts in `Device connection manager > Device list`

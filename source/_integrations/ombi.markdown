@@ -11,13 +11,17 @@ ha_domain: ombi
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The Ombi integration monitors data from your [Ombi](https://ombi.io) instance.
 
 ## Setup
 
-This integration needs to authenticate to your Ombi instance with either a user `password` or an `api_key`.
+This {% term integration %} needs to authenticate to your Ombi instance with either a user `password` or an `api_key`.
 
 To find your `api_key` open the Ombi web interface. Navigate to **Settings** and then to **Ombi**, you should then be able to see your `api_key`.
 
@@ -25,7 +29,8 @@ If you want to use `password` authentication simply use the same `password` you 
 
 ## Configuration
 
-If you want to enable this sensor, add the following lines to your `configuration.yaml`:
+If you want to enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -81,33 +86,33 @@ ombi:
   ssl: true
 ```
 
-## Services
+## Actions
 
-### Submit request services
+### Submit request actions
 
-Available services: `submit_movie_request`, `submit_music_request`, `submit_tv_request`
+Available actions: `submit_movie_request`, `submit_music_request`, `submit_tv_request`
 
-#### Service `submit_movie_request`
+#### Action `submit_movie_request`
 
 Searches and requests the closest matching movie.
 
-| Service data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `name`                 |      no  | Search parameter.                                |
+| Data attribute | Optional | Description       |
+| ---------------------- | -------- | ----------------- |
+| `name`                 | no       | Search parameter. |
 
-#### Service `submit_music_request`
+#### Action `submit_music_request`
 
 Searches and requests the closest matching music album.
 
-| Service data attribute | Optional | Description                                      |
-|------------------------|----------|--------------------------------------------------|
-| `name`                 |      no  | Search parameter.                                |
+| Data attribute | Optional | Description       |
+| ---------------------- | -------- | ----------------- |
+| `name`                 | no       | Search parameter. |
 
-#### Service `submit_tv_request`
+#### Action `submit_tv_request`
 
 Searches and requests the closest matching TV show.
 
-| Service data attribute | Optional | Description                                                                                   |
-|------------------------|----------|-----------------------------------------------------------------------------------------------|
-| `name`                 |       no | Search parameter.                                                                             |
-| `season`               |      yes | Which season(s) to request. Must be one of `first`, `latest` or `all`. Defaults to latest.    |
+| Data attribute | Optional | Description                                                                                |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------ |
+| `name`                 | no       | Search parameter.                                                                          |
+| `season`               | yes      | Which season(s) to request. Must be one of `first`, `latest` or `all`. Defaults to latest. |

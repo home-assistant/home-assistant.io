@@ -6,18 +6,21 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.88
 ha_domain: rejseplanen
-ha_codeowners:
-  - '@DarkFox'
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `rejseplanen` sensor will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
+The `rejseplanen` {% term integration %} will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
 
 ## Configuration
 
-Add a sensor to your `configuration.yaml` file as shown in the example:
+Add a sensor to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,10 +78,10 @@ Find the name of your stop in the list and the "id" is the one you are looking f
 ## Direction
 
 If you use the `direction` filter it's important to put correct final destination(s) or else the sensor will not work at all.
-The `direction` has to be the final destination(s) for the `Departure type` - ***NOT the stop where you want to get off***. 
+The `direction` has to be the scheduled final destination (direction) for the `Departure type` - ***NOT the stop where you want to get off***.
 
 - Replace YOUR_STOP_ID with the id for your stop and go to [http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID](http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID)
-- The values under `finalStop` is the ones you need to put under `direction`. Make sure you use the exact name and insert all possible finalstops.
+- The values under `direction` is the ones you need to put under `direction`. Make sure you use the exact name, and add all that apply.
 
 You will see an output like this:
 
@@ -139,48 +142,48 @@ sensor:
 
 The sensor can filter the timetables by one or more routes, directions and types. The known types are listed in the table below.
 
-| Departure type | Description |
-|--------------|-------------|
-| BUS | Normal bus |
-| EXB | Express bus |
-| TB | Harbour bus|
-| LET | Letbanen |
-| M | Metro |
-| S | S-train |
-| REG | Regional train |
-| IC | Intercity train |
-| LYN | Intercity express train |
-| TOG | Other trains |
+| Departure type | Description             |
+| -------------- | ----------------------- |
+| BUS            | Normal bus              |
+| EXB            | Express bus             |
+| TB             | Harbour bus             |
+| LET            | Letbanen                |
+| M              | Metro                   |
+| S              | S-train                 |
+| REG            | Regional train          |
+| IC             | Intercity train         |
+| LYN            | Intercity express train |
+| TOG            | Other trains            |
 
 ## Attributes
 
-| Attribute    | Description                            |
-| ------------ | -------------------------------------- |
-| `due_in` | Minutes until departure |
-| `due_at` | Departure date and time |
-| `scheduled_at` | Scheduled departure date and time |
-| `real_time_at` | Real time departure date and time (in cases where it's different from scheduled) |
-| `type` | Transport type |
-| `route` | Route code |
-| `direction` | Destination stop |
-| `final_stop` | Final stop (if departure doesn't go all the way to the destination stop) |
-| `stop` | Departure stop |
-| `stop_id` | ID of departure stop |
-| `track` | Departure track (if available) |
-| `attribution` | Attribution (required by data source) |
-| `next_departures` | List of further departures |
+| Attribute         | Description                                                                      |
+| ----------------- | -------------------------------------------------------------------------------- |
+| `due_in`          | Minutes until departure                                                          |
+| `due_at`          | Departure date and time                                                          |
+| `scheduled_at`    | Scheduled departure date and time                                                |
+| `real_time_at`    | Real time departure date and time (in cases where it's different from scheduled) |
+| `type`            | Transport type                                                                   |
+| `route`           | Route code                                                                       |
+| `direction`       | Destination stop                                                                 |
+| `final_stop`      | Final stop (if departure doesn't go all the way to the destination stop)         |
+| `stop`            | Departure stop                                                                   |
+| `stop_id`         | ID of departure stop                                                             |
+| `track`           | Departure track (if available)                                                   |
+| `attribution`     | Attribution (required by data source)                                            |
+| `next_departures` | List of further departures                                                       |
 
 ### `next_departures`
 
-| Attribute    | Description                            |
-| ------------ | -------------------------------------- |
-| `due_in` | Minutes until departure |
-| `due_at` | Departure date and time |
-| `scheduled_at` | Scheduled departure date and time |
+| Attribute      | Description                                                                      |
+| -------------- | -------------------------------------------------------------------------------- |
+| `due_in`       | Minutes until departure                                                          |
+| `due_at`       | Departure date and time                                                          |
+| `scheduled_at` | Scheduled departure date and time                                                |
 | `real_time_at` | Real time departure date and time (in cases where it's different from scheduled) |
-| `type` | Transport type |
-| `route` | Route code |
-| `direction` | Destination stop |
-| `final_stop` | Final stop (if departure doesn't go all the way to the destination stop) |
-| `stop` | Departure stop |
-| `track` | Departure track (if available) |
+| `type`         | Transport type                                                                   |
+| `route`        | Route code                                                                       |
+| `direction`    | Destination stop                                                                 |
+| `final_stop`   | Final stop (if departure doesn't go all the way to the destination stop)         |
+| `stop`         | Departure stop                                                                   |
+| `track`        | Departure track (if available)                                                   |

@@ -1,6 +1,6 @@
 ---
 title: "0.61: Coinbase, Discogs, iGlo, Sochain"
-description: "New crypto currency sensors and other new stuff including breaking changes."
+description: "New crypto currency sensors and other new stuff including backward-incompatible changes."
 date: 2018-01-14 18:00:00
 date_formatted: "January 14, 2018"
 author: Fabian Affolter
@@ -15,11 +15,11 @@ og_image: /images/blog/2018-01-0.61/components.png
 
 Almost a 100 contributors to this release 🎉  That's what you get when you skip a release. It's a little late but "Happy New Year" and welcome to 0.61 the first release 2018.
 
-This release contain some breaking changes. Please make sure that you check the section below if you are running into trouble.
+This release contain some backward-incompatible changes. Please make sure that you check the section below if you are running into trouble.
 
 ## Assistant configs
 
-We made a mistake in the foundation of both the Google Assistant and Alexa integrations: they were storing their config inside customize. This is not the right place and we moved them to be under the components itself. See the breaking changes section on how to migrate.
+We made a mistake in the foundation of both the Google Assistant and Alexa integrations: they were storing their config inside customize. This is not the right place and we moved them to be under the components itself. See the backward-incompatible changes section on how to migrate.
 
 ## Hass.io updates
 
@@ -73,7 +73,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Extend Threshold binary sensor to support ranges. This means that you can now set `up` and `lower`. ([@DanNixon] - [#11110]) ([binary_sensor.threshold docs]) (breaking change)
 - The Steam game platform contains changes:

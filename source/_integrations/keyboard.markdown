@@ -7,6 +7,7 @@ ha_release: pre 0.7
 ha_domain: keyboard
 ha_iot_class: Local Push
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `keyboard` integration simulates key presses on the host machine. It currently offers the following Buttons as a Service (BaaS):
@@ -18,7 +19,7 @@ The `keyboard` integration simulates key presses on the host machine. It current
 - `keyboard/media_next_track`
 - `keyboard/media_prev_track`
 
-To load this component, add the following lines to your `configuration.yaml`:
+To load this component, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 keyboard:

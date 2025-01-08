@@ -1,21 +1,21 @@
 ## Network storage
 
-You can configure both Network File Share (NFS) and Windows samba (CIFS) targets to be used within Home Assistant and add-ons.
+You can configure both Network File System (NFS) and Samba/Windows (CIFS) targets to be used within Home Assistant and add-ons.
 To list all your currently connected network storages, go to **{% my storage title="Settings > System > Storage" %}** in the UI.
 
 {% if page.installation == "os" %}
 
-<div class='note'>
-  You need to update to Home Assistant Operating System 10.2 before you can use this feature.
-</div>
+{% important %}
+You need to update to Home Assistant Operating System 10.2 before you can use this feature.
+{% endimportant %}
 
 {% else %}
 
-<div class='note'>
+{% important %}
 
-  You need to make sure you run a supported Home Assistant Supervised installation with the latest version of the [os-agent](https://github.com/home-assistant/os-agent). Make sure that your supervisor uses [slave bind propagation](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation) for the data volume.
+You need to make sure you run a supported {% term "Home Assistant Supervised" %} installation with the latest version of the [os-agent](https://github.com/home-assistant/os-agent). Make sure that your supervisor uses [slave bind propagation](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation) for the data volume.
 
-</div>
+{% endimportant %}
 
 {% endif %}
 
@@ -71,31 +71,21 @@ Server:
 
 {% configuration_basic "hassio.network_share.usage" %}
 Backup:
-  description: This will become a target.  You can use it in service calls or when manually creating a backup. The first storage you add of this type becomes your new default target. If you want to change the default target, [check out the documentation below](#change-default-backup-location).
+  description: This will become a target. You can use it when creating an automatic or manual backup. The first storage you add of this type becomes your new default target. If you want to change the default target, [check out the documentation below](#change-default-local-backup-location).
 Media:
   description: A new directory with the name you gave your network storage will be created under `/media`. This directory can be accessed by Home Assistant and add-ons.
 Share:
   description: A new directory with the name you gave your network storage will be created under `/share`.  This directory can be accessed by Home Assistant and add-ons.
 {% endconfiguration_basic %}
 
-### Change default backup location
+### Change default local backup location
 
-By default, the first network storage of type **Backup** that you add will be set as your default backup target.
+By default, the first network storage of type **Backup** that you add is used as your local default backup location.
 
-If you want to change the default backup target, you can do the following:
+If you want to change the local network storage that is used to store your backups, follow these steps:
 
-1. Go to **{% my backup title="Settings > System > Backups" %}** in the UI.
-2. Select the menu in the top right of the screen and select the **Change default backup location** option.
-3. In the dialog, there is a single option to set the default backup target.
-4. Choose the one you want from the list.
-5. Select **Save**.
-
-This list will contain all the network storage targets you have added of usage type **Backup**. It also contains another option to set it back to use `/backup` again.
-
-<p class='img'>
-  <picture>
-    <source srcset="/images/screenshots/network-storage/change_backup_dark.png" media="(prefers-color-scheme: dark)">
-    <img src="/images/screenshots/network-storage/change_backup_light.png">
-  </picture>
-  Screenshot of changing the default backup target.
-</p>
+1. Go to **{% my backup title="Settings > System > Backups" %}**.
+2. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Change local backup location**.
+3. Select your preferred network location and save your changes.
+   ![Select default location used for local backup](/images/screenshots/network-storage/backup_select_local_default.png)
+4. **Troubleshooting**: Don't see your external storage location? This list contains only the network storage targets you have added of type **Backup**.

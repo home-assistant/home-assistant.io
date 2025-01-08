@@ -2,7 +2,7 @@
 title: MeteoAlarm
 description: Instructions on how to set up MeteoAlarm binary sensors within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.93
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -11,6 +11,7 @@ ha_domain: meteoalarm
 ha_platforms:
   - binary_sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `MeteoAlarm` platform allows one to watch for weather alerts in Europe from [MeteoAlarm](https://www.meteoalarm.org) (EUMETNET). To use this binary sensor, you need the country and the province name from  [MeteoAlarm](https://feeds.meteoalarm.org). Please note that it is crucial to write the country name exactly as it appears in the URL starting with https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-, including any hyphens used in the name. Failure to do so may result in errors or incorrect data.
@@ -19,7 +20,7 @@ The binary sensor state shows the warning message if applicable. The details are
 
 ## Configuration
 
-To enable this binary sensor, add the following lines to your `configuration.yaml`:
+To enable this binary sensor, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 binary_sensor:
@@ -91,12 +92,12 @@ Example automation
 ```yaml
 automation:
   - alias: "Alert me about weather warnings"
-    trigger:
-      platform: state
-      entity_id: binary_sensor.meteoalarm
-      from: ‘off’
-    action:
-      - service: notify.notify
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.meteoalarm
+        from: "off"
+    actions:
+      - action: notify.notify
         data:
           title: "{{state_attr('binary_sensor.meteoalarm', 'headline')}}"
           message: "{{state_attr('binary_sensor.meteoalarm', 'description')}} is effective on {{state_attr('binary_sensor.meteoalarm', 'effective')}}"
@@ -104,6 +105,6 @@ automation:
 
 {% endraw %}
 
-<div class='note warning'>
+{% note %}
 This integration is not affiliated with MeteoAlarm and retrieves data from the website by using the XML feeds. Use it at your own risk.
-</div>
+{% endnote %}

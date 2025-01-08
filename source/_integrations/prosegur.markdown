@@ -29,6 +29,6 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-### Service `camera.request_image`
+### Action `camera.request_image`
 
-This service will have Prosegur cloud service "Request image" from your local camera. This service should only be called seldom, as Prosegur tends to throttle this service for long periods of time, resulting in errors for both this integration and your Prosegur mobile application.
+This action will have Prosegur cloud service "Request image" from your local camera. This action should only be called seldom, as Prosegur tends to throttle this action for long periods of time, resulting in errors for both this integration and your Prosegur mobile application.

@@ -12,6 +12,8 @@ ha_codeowners:
 ha_domain: tplink_omada
 ha_platforms:
   - binary_sensor
+  - device_tracker
+  - sensor
   - switch
   - update
 ha_integration_type: hub
@@ -27,6 +29,10 @@ The integration provides basic configuration and status of Omada devices control
 - Verify SSL Certificates: Enable to check the validity of the certificate presented by the Omada controller.
 - Username/Password: A user account with permissions to view & configure the site is required.
 
+{% note %}
+A local account must be used for login. Do not turn on two-factor authentication for local accounts, or the integration will not be able to log in.
+{% endnote %}
+
 ### Multiple Sites
 
 If you have multiple sites managed by your controller, you will be prompted to choose which site to manage.
@@ -37,26 +43,33 @@ TP-Link Omada Controller:
 
 - OC200
 - OC300
-- Software Controller.
+- Software Controller
 
 Controller versions 5.1.0 and later are supported.
 
 ## Supported Omada devices
 
-### Network Switches
+All adopted Omada devices expose:
 
-- Support for enabling/disabling Power over Ethernet on a per-port basis.
-- Firmware Update entities.
+- Device status sensors
+- CPU and Memory percentage sensors
+- Firmware updates
 
-### Access Points
+### Network switches
 
-- Firmware Update entities.
+- Support for enabling/disabling Power over Ethernet on a per-port basis
 
-### Internet Gateways
+### Internet gateways
 
-- Firmware Update entities.
-- WAN/LAN Port connectivity sensor entities.
+- WAN/LAN Port connectivity sensors
+- WAN Port Online detection sensors
+- WAN Port Connect/Disconnect switches
+- LAN Port PoE activity sensor
 
-## Device Trackers
+## Device trackers
 
-- Not currently supported.
+The integration can track Wi-Fi devices connected to access points managed by the TP-Link Omada controller. All known Wi-Fi clients will be initially created in a disabled state. You then need to enable the entities that you want to track.
+
+If you want to increase the polling frequency of client updates, follow [these instructions](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval). You only need to request a refresh from one of the tracked devices, all of the tracked devices will be refreshed at the same time.
+
+Note: The TP-Link Omada controller takes a few minutes to detect when a client disconnects from the Wi-Fi network, even with more regular polling updates.

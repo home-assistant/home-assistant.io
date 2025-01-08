@@ -1,6 +1,6 @@
 ---
 title: "Notify using TTS"
-description: "Instructions on how to set up a Notify integration using TTS service and media_player within Home Assistant."
+description: "Instructions on how to set up a Notify integration using TTS action and media_player within Home Assistant."
 ha_category:
   - Notifications
 ha_release: 0.117
@@ -9,13 +9,13 @@ ha_quality_scale: internal
 ha_domain: notify
 ---
 
-The notify TTS platform lets you use the TTS integration [speak](/integrations/tts/#service-speak) or legacy [say](/integrations/tts/#service-say-legacy) service and a [media_player](/integrations/media_player) to alert you of important events. This integration provides a simple interface to use in your automations and alerts.
+The notify TTS platform lets you use the TTS integration [speak](/integrations/tts/#action-speak) or legacy [say](/integrations/tts/#action-say-legacy) action and a [media_player](/integrations/media_player) to alert you of important events. This integration provides a simple interface to use in your automations and alerts.
 
 In order to use this integration, you must already have a TTS platform installed and configured, and a media_player working with the TTS platform.
 
 To enable this platform in your installation, consider the following example using [google_translate](/integrations/google_translate/) and an example `media_player.living_room`.
 
-In your `configuration.yaml` file type:
+In your {% term "`configuration.yaml`" %} file type:
 
 ```yaml
 notify:
@@ -25,11 +25,9 @@ notify:
     media_player: media_player.living_room
 ```
 
-Please note that the `tts_service` parameter, must match the `service_name` defined in the TTS integration.
-
 {% configuration %}
   name:
-    description: The name of the notify service.
+    description: The name of the notify action.
     required: true
     type: string
   entity_id:
@@ -45,7 +43,7 @@ Please note that the `tts_service` parameter, must match the `service_name` defi
     required: true
     type: string
   language:
-    description: "The `language` to be passed to the TTS `speak` or `say` service."
+    description: "The `language` to be passed to the TTS `speak` or `say` action."
     required: false
     type: string
 {% endconfiguration %}

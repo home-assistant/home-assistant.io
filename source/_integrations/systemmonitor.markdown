@@ -1,188 +1,100 @@
 ---
-title: System Monitor
+title: System monitor
 description: Instructions on how to monitor the Home Assistant host.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: systemmonitor
+ha_config_flow: true
 ha_platforms:
+  - binary_sensor
+  - diagnostics
   - sensor
 ha_integration_type: integration
+ha_codeowners:
+  - '@gjohansson-ST'
 ---
 
-The `systemmonitor` sensor platform allows you to monitor disk usage,
-memory usage, CPU usage, and running processes. 
+The **System monitor** {% term integration %} allows you to monitor disk usage, memory usage, network usage, CPU usage, and running processes.
 
-To add this platform to your installation,
-add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /config
-      - type: memory_free
-```
+## Sensors
 
-{% configuration %}
-resources:
-  description: Contains all entries to display.
-  required: true
-  type: list
-  keys:
-    type:
-      description: The type of the information to display, please check the table below for details.
-      required: true
-    arg:
-      description: Argument to use, please check the table below for details.
-      required: false
-{% endconfiguration %}
+{% note %}
 
-After restarting Home Assistant, these sensors will show up and update their
-information every 15 seconds.
+All entities are disabled by default, you need to [enable the entities](/common-tasks/general/#enabling-or-disabling-entities) that you wish to use.
 
-The table contains types and their argument to use in your `configuration.yaml`
-file.
+All sensors are also marked as diagnostic and won't be automatically added to automatic dashboards.
 
-| Type (`type:`)         | Argument (`arg:`)         | Argument mandatory        |
-| :--------------------- |:--------------------------|:--------------------------|
-| disk_use_percent       | Path, e.g., `/`           | no                        |
-| disk_use               | Path, e.g., `/`           | no                        |
-| disk_free              | Path, e.g., `/`           | no                        |
-| memory_use_percent     |                           |                           |
-| memory_use             |                           |                           |
-| memory_free            |                           |                           |
-| swap_use_percent       |                           |                           |
-| swap_use               |                           |                           |
-| swap_free              |                           |                           |
-| load_1m                |                           |                           |
-| load_5m                |                           |                           |
-| load_15m               |                           |                           |
-| network_in             | Interface, e.g., `eth0`   | yes                       |
-| network_out            | Interface, e.g., `eth0`   | yes                       |
-| throughput_network_in  | Interface, e.g., `eth0`   | yes                       |
-| throughput_network_out | Interface, e.g., `eth0`   | yes                       |
-| packets_in             | Interface, e.g., `eth0`   | yes                       |
-| packets_out            | Interface, e.g., `eth0`   | yes                       |
-| ipv4_address           | Interface, e.g., `eth0`   | yes                       |
-| ipv6_address           | Interface, e.g., `eth0`   | yes                       |
-| processor_use          |                           |                           |
-| processor_temperature  |                           |                           |
-| process                | Binary, e.g., `octave-cli` | yes                       |
-| last_boot              |                           |                           |
+{% endnote %}
+
+### Disks
+
+One sensor per found disk/mount point will be created
+
+- Disk free
+- Disk use
+- Disk usage (percent)
+
+### Network
+
+One sensor per found network interface will be created
+
+- IPv4 address
+- IPv6 address
+- Network in
+- Network out
+- Packets in
+- Packets out
+- Network throughput in
+- Network throughput out
+
+### Other
+
+- Last boot
+- Load (15m)
+- Load (5m)
+- Load (1m)
+- Memory free
+- Memory use
+- Memory usage (percent)
+- Processor use
+- Processor temperature
+- Swap free
+- Swap use
+- Swap usage (percent)
+
+## Add `process` binary sensor
+
+The `process` binary sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & services" %}**, select the **System Monitor** integration and select **Configure**.
+
+You can select from the pre-populated list (current running processes) or manually enter the process name, to which a binary sensor will be created per selected `process`.
 
 ## Disk usage
 
-If no path is provided via the optional argument, the integration defaults to '/' (root).
+{% note %}
 
-**Note:** The disk usage sensors do not support monitoring folder/directory sizes. Instead, it is only concerned with "disks" (more specifically mount points on Linux).
+The disk usage sensors do not support monitoring folder/directory sizes. Instead, it is only targeting "disks" (more specifically mount points on Linux).
+
+{% endnote %}
+
+**Example output from the Linux `df -H` command**
 
 ```bash
+
 $ df -H
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/root        29G   12G   16G  42% /
 devtmpfs        805M     0  805M   0% /dev
 tmpfs           934M     0  934M   0% /dev/shm
 /dev/mmcblk0p1  253M   54M  199M  22% /boot
-```
 
-Defining a `disk_use` sensor for `/` and `/home/pi` is redundant and will return the same values, since they both belong to the same "disk". However, defining separate sensors for `/dev` and `/dev/shm` is possible and provides different values, since those are treated as separate "disks" by the integration.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use
-        arg: /dev
-      - type: disk_use
-        arg: /dev/shm
 ```
 
 ## Processor temperature
 
 - If no hardware sensor data is available (e.g., because the integration runs in a virtualized environment), the sensor entity will not be created.
 - The unit of measurement (Celsius vs. Fahrenheit) will be chosen based on the system configuration.
-- Only the very first processor related hardware sensor is read, i.e., no individual core temperatures (even if the hardware sensor could provide that level of detail).
-
-## Linux specific
-
-To retrieve all available network interfaces on a Linux System, execute the
-`ifconfig` or `ip` command. The command differs based on your operation system and version.
-
-```bash
-ifconfig -a | sed 's/[ \t].*//;/^$/d'
-```
-
-```bash
-ip link show
-```
-
-## Windows specific
-
-When running this platform on Microsoft Windows, Typically,
-the default interface would be called `Local Area Connection`,
-so your configuration might look like:
-
-```yaml
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: network_in
-        arg: "Local Area Connection"
-```
-
-If you need to use some other interface, open a command line prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ipconfig` might look like:
-
-```bash
-Wireless LAN adapter Wireless Network Connection:
-
-   Media State . . . . . . . . . . . : Media disconnected
-   Connection-specific DNS Suffix  . :
-```
-
-Where the name is `Wireless Network Connection`.
-
-## All available resources
-
-```yaml
-# Example configuration.yaml entry with all entry types (delete/comment out as necessary)
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /config
-      - type: disk_use
-      - type: disk_free
-      - type: memory_use_percent
-      - type: memory_use
-      - type: memory_free
-      - type: swap_use_percent
-      - type: swap_use
-      - type: swap_free
-      - type: load_1m
-      - type: load_5m
-      - type: load_15m
-      - type: network_in
-        arg: eth0
-      - type: network_out
-        arg: eth0
-      - type: throughput_network_in
-        arg: eth0
-      - type: throughput_network_out
-        arg: eth0
-      - type: packets_in
-        arg: eth0
-      - type: packets_out
-        arg: eth0
-      - type: ipv4_address
-        arg: eth0
-      - type: ipv6_address
-        arg: eth0
-      - type: processor_use
-      - type: processor_temperature
-      - type: last_boot
-```
+- Only the very first processor related hardware sensor is read, i.e. no individual core temperatures are available (even if the hardware sensor provides that level of detail).

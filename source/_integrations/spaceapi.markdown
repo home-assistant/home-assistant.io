@@ -9,13 +9,18 @@ ha_codeowners:
   - '@fabaff'
 ha_domain: spaceapi
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `spaceapi` integration allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](https://spaceapi.io/).
+The `spaceapi` {% term integration %} allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](https://spaceapi.io/).
 
 ## Configuration
 
-To setup the `spaceapi` integration in your installation, add the following to your `configuration.yaml` file:
+To setup the `spaceapi` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -90,7 +95,7 @@ contact:
           required: false
           type: string
         twitter:
-          description: Twitter username of the keymaster.
+          description: X username of the keymaster.
           required: false
           type: string
     irc:
@@ -98,7 +103,7 @@ contact:
       required: false
       type: string
     twitter:
-      description: The Twitter account of the Hackerspace.
+      description: The X account of the Hackerspace.
       required: false
       type: string
     facebook:
@@ -285,7 +290,7 @@ spaceapi:
   issue_report_channels:
     - email
   state:
-    entity_id: binary_sensor.front_door"
+    entity_id: "binary_sensor.front_door"
     icon_open: https://eastermundigen.ch/open.png
     icon_closed: https://eastermundigen.ch/close.png
   sensors:

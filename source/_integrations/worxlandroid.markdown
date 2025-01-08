@@ -9,11 +9,16 @@ ha_domain: worxlandroid
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `worxlandroid` sensor platform allows you to get the current state, battery level and error status Worx Landroid WG796E.1 or WG797E.
+The `worxlandroid` {% term integration %} allows you to get the current state, battery level and error status Worx Landroid WG796E.1 or WG797E.
 
-To use your Worx Landroid mower in your installation, add the following to your `configuration.yaml` file:
+To use your Worx Landroid mower in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

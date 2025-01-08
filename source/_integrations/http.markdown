@@ -16,14 +16,12 @@ The `http` integration serves all files and data required for the Home Assistant
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-<div class='note'>
-
+{% warning %}
 The option `server_host` should only be used on a Home Assistant Core installation!
-
-</div>
+{% endwarning %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,7 +73,7 @@ ip_ban_enabled:
   description: Flag indicating whether additional IP filtering is enabled.
   required: false
   type: boolean
-  default: false
+  default: true
 login_attempts_threshold:
   description: "Number of failed login attempt from single IP after which it will be automatically banned if `ip_ban_enabled` is `true`. When set to -1 no new automatic bans will be added."
   required: false
@@ -88,7 +86,7 @@ ssl_profile:
   default: modern
 {% endconfiguration %}
 
-The sample below shows a configuration entry with possible values:
+The sample below shows a configuration entry in the {% term "`configuration.yaml`" %} file with possible values:
 
 ```yaml
 # Example configuration.yaml entry
@@ -131,7 +129,7 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use those kind of [sensors](#sensor) or [binary sensors](#binary-sensor) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
-Create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI at the bottom of your profile if you want to use HTTP sensors.
+If you want to use HTTP sensors, create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI in the **Security** section of your {% my profile title="**User profile**" %} page.
 
 All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and must be **POST**.
 
@@ -150,19 +148,15 @@ After a ban is added a Persistent Notification is populated to the Home Assistan
 
 If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config`). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
 
-<div class='note'>
+{% important %}
+If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
+{% endimportant %}
 
-  If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
+{% caution %}
+Files served from the `www` folder (`/local/` URL), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
+{% endcaution %}
 
-</div>
-
-<div class='note warning'>
-
-  Files served from the `www` folder (`/local/` URL), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
-
-</div>
-
-## Binary Sensor
+## Binary sensor
 
 The HTTP binary sensor is dynamically created with the first request that is made to its URL. You don't have to define it in the configuration first.
 
@@ -174,9 +168,9 @@ The URL for a binary sensor looks like the example below:
 http://IP_ADDRESS:8123/api/states/binary_sensor.DEVICE_NAME
 ```
 
-<div class='note'>
+{% important %}
 You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
-</div>
+{% endimportant %}
 
 The JSON payload must contain the new state and can have a friendly name. The friendly name is used in the frontend to name the sensor.
 
@@ -208,6 +202,13 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
     "last_updated": "16:45:51 05-02-2016",
     "state": "off"
 }
+```
+
+To delete the sensor, send DELETE request with curl
+
+```bash
+$ curl -X DELETE -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
+       http://localhost:8123/api/states/binary_sensor.radio
 ```
 
 ### Examples
@@ -252,9 +253,9 @@ The URL for a sensor looks like the example below:
 http://IP_ADDRESS:8123/api/states/sensor.DEVICE_NAME
 ```
 
-<div class='note'>
+{% important %}
 You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
-</div>
+{% endimportant %}
 
  The JSON payload must contain the new state and should include the unit of measurement and a friendly name. The friendly name is used in the frontend to name the sensor.
 
@@ -289,4 +290,4 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
 }
 ```
 
-For more examples please visit the [HTTP Binary Sensor](#examples) page.
+For more examples please visit the [HTTP binary sensor](#examples) page.

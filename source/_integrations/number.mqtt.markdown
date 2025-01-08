@@ -12,9 +12,7 @@ The `mqtt` Number platform allows you to integrate devices that might expose con
 
 ## Configuration
 
-<a id='new_format'></a>
-
-To enable MQTT Number in your installation, add the following to your `configuration.yaml` file:
+To enable MQTT Number in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -70,7 +68,7 @@ device:
       required: false
       type: string
     connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
     hw_version:
@@ -89,8 +87,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -107,10 +113,8 @@ device:
       type: string
 device_class:
   description: The [type/class](/integrations/number/#device-class) of the number. The `device_class` can be `null`.
-  default: None
   required: false
   type: device_class
-  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
@@ -125,7 +129,10 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -171,6 +178,10 @@ payload_reset:
   required: false
   type: string
   default: '"None"'
+platform:
+  description: Must be `number`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -182,7 +193,7 @@ retain:
   type: boolean
   default: false
 state_topic:
-  description: The MQTT topic subscribed to receive number values.
+  description: The MQTT topic subscribed to receive number values. An empty payload is ignored.
   required: false
   type: string
 step:
@@ -191,12 +202,11 @@ step:
   type: float
   default: 1
 unique_id:
-  description: An ID that uniquely identifies this Number. If two Numbers have the same unique ID Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this Number. If two Numbers have the same unique ID Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 unit_of_measurement:
   description: Defines the unit of measurement of the sensor, if any. The `unit_of_measurement` can be `null`.
-  Default: None
   required: false
   type: string
 value_template:
@@ -205,8 +215,6 @@ value_template:
   type: template
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}

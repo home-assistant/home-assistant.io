@@ -89,7 +89,7 @@ Straight to 0.50.2. We released 0.50 as 0.50.1 due to an upload error to PyPi.
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - Automations: The state trigger keyword `state` and the time trigger keyword `after` were deprecated in 0.46. They have now been removed. Use `to` and `at` instead. ([@amelchio] - [#8510]) ([automation.state docs]) ([automation.time docs]) (breaking change)
 - Wink: the component is no longer supporting the `access_token` in the config. Use the new OAuth authentication or add your username and password to the config. ([@w1ll1am23] - [#8208]) ([wink docs]) (breaking change)

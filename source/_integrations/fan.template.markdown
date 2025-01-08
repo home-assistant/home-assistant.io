@@ -1,22 +1,31 @@
 ---
-title: "Template Fan"
-description: "Instructions how to setup the Template fans within Home Assistant."
+title: "Template fan"
+description: "Instructions how to setup the template fans within Home Assistant."
 ha_category:
   - Fan
+  - Helper
 ha_release: 0.69
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - fan
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `template` platform creates fans that combine integrations and provides the
-ability to run scripts or invoke services for each of the `turn_on`, `turn_off`, `set_percentage`,
+The **Template** {% term integration %} creates fans that combine integrations and provides the
+ability to run scripts or invoke actions for each of the `turn_on`, `turn_off`, `set_percentage`,
 `set_preset_mode`, `set_oscillating`, and `set_direction` commands of a fan.
 
 ## Configuration
 
-To enable Template Fans in your installation, add the following to your
-`configuration.yaml` file:
+To enable template fans in your installation, add the following to your
+{% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -33,23 +42,23 @@ fan:
         oscillating_template: "{{ states('input_select.osc') }}"
         direction_template: "{{ states('input_select.direction') }}"
         turn_on:
-          service: script.fan_on
+          action: script.fan_on
         turn_off:
-          service: script.fan_off
+          action: script.fan_off
         set_percentage:
-          service: script.fans_set_speed
+          action: script.fans_set_speed
           data:
             percentage: "{{ percentage }}"
         set_preset_mode:
-          service: script.fans_set_preset_mode
+          action: script.fans_set_preset_mode
           data:
             preset_mode: "{{ preset_mode }}"
         set_oscillating:
-          service: script.fan_oscillating
+          action: script.fan_oscillating
           data:
             oscillating: "{{ oscillating }}"
         set_direction:
-          service: script.fan_direction
+          action: script.fan_direction
           data:
             direction: "{{ direction }}"
         speed_count: 6
@@ -130,7 +139,7 @@ fan:
         type: [string, list]
         default: []
       speed_count:
-        description: The number of speeds the fan supports. Used to calculate the percentage step for the `fan.increase_speed` and `fan.decrease_speed` services.
+        description: The number of speeds the fan supports. Used to calculate the percentage step for the `fan.increase_speed` and `fan.decrease_speed` actions.
         required: false
         type: integer
         default: 100
@@ -151,10 +160,10 @@ When converting a fan with 3 speeds from the old fan entity model, the following
 
 ## Examples
 
-### Helper Fan
+### Helper fan
 
 This example uses an input_boolean and an input_number to mimic a fan, and 
-the example shows multiple service calls for set_percentage.  
+the example shows multiple actions for `set_percentage`.
 
 {% raw %}
 
@@ -166,21 +175,21 @@ fan:
         friendly_name: "Helper Fan"
         value_template: "{{ states('input_boolean.state') }}"
         turn_on:
-          - service: input_boolean.turn_on
+          - action: input_boolean.turn_on
             target:
               entity_id: input_boolean.state
         turn_off:
-          - service: input_boolean.turn_off
+          - action: input_boolean.turn_off
             target:
               entity_id: input_boolean.state
         percentage_template: >
           {{ states('input_number.percentage') if is_state('input_boolean.state', 'on') else 0 }}
         speed_count: 6
         set_percentage:
-          - service: input_boolean.turn_{{ 'on' if percentage > 0 else 'off' }}
+          - action: input_boolean.turn_{{ 'on' if percentage > 0 else 'off' }}
             target:
               entity_id: input_boolean.state
-          - service: input_number.set_value
+          - action: input_number.set_value
             target:
               entity_id: input_number.percentage
             data:
@@ -189,7 +198,7 @@ fan:
 
 {% endraw %}
 
-### Preset Modes Fan
+### Preset modes fan
 
 This example uses an existing fan with only a percentage. It extends the 
 percentage value into useable preset modes without a helper entity.
@@ -204,18 +213,18 @@ fan:
         friendly_name: "Preset Mode Fan Example"
         value_template: "{{ states('fan.percentage_fan') }}"
         turn_on:
-          - service: fan.turn_on
+          - action: fan.turn_on
             target:
               entity_id: fan.percentage_fan
         turn_off:
-          - service: fan.turn_off
+          - action: fan.turn_off
             target:
               entity_id: fan.percentage_fan
         percentage_template: >
           {{ state_attr('fan.percentage_fan', 'percentage') }}
         speed_count: 3
         set_percentage:
-          - service: fan.set_percentage
+          - action: fan.set_percentage
             target:
               entity_id: fan.percentage_fan
             data:
@@ -238,7 +247,7 @@ fan:
             off
           {% endif %}
         set_preset_mode:
-          - service: fan.set_percentage
+          - action: fan.set_percentage
             target:
               entity_id: fan.percentage_fan
             data:

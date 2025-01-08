@@ -2,7 +2,7 @@
 title: Seven Segments OCR
 description: Instructions on how to use OCR for seven segments displays into Home Assistant.
 ha_category:
-  - Image Processing
+  - Image processing
 ha_release: 0.45
 og_image: /images/screenshots/ssocr.png
 ha_iot_class: Local Polling
@@ -10,9 +10,13 @@ ha_domain: seven_segments
 ha_codeowners:
   - '@fabaff'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `seven_segments` image processing platform allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/integrations/camera/).
+The `seven_segments` image processing {% term integration %} allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/integrations/camera/).
 
 {% details "Notes for Home Assistant Core Installations" %}
 
@@ -33,7 +37,8 @@ make deb # (Optional) This allows you to make a deb so that you apt is aware of 
 
 ## Configuration
 
-To enable the OCR of a seven segment display in your installation, add the following to your `configuration.yaml` file:
+To enable the OCR of a seven segment display in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -111,7 +116,7 @@ It's suggested that the first attempt to determine the needed parameters is usin
 ssocr -D erosion crop 390 250 490 280 -t 20 -d 4 seven-seg.png
 ```
 
-This would lead to the following entry for the `configuration.yaml` file:
+This would lead to the following entry for the {% term "`configuration.yaml`" %} file:
 
 ```yaml
 camera:

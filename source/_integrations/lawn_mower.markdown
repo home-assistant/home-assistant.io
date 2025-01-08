@@ -1,46 +1,58 @@
 ---
-title: Lawn Mower
+title: Lawn mower
 description: Instructions on how to setup and use lawn mowers in Home Assistant.
 ha_release: 2023.9
 ha_domain: lawn_mower
 ha_quality_scale: internal
 ha_category:
-  - Lawn Mower
+  - Lawn mower
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
 ---
 
-The lawn mower integration allows the control of robotic lawn mowers to be reflected within Home Assistant.
+The **Lawn mower** {% term integration %} allows the control of robotic lawn mowers to be reflected within Home Assistant.
 
 {% include integrations/building_block_integration.md %}
 
-## Services
+## The state of a lawn mower entity
 
-Available services: `start_mowing`, `pause` and `dock`.
+A lawn mower entity can have the following states:
 
-Before calling one of these services, make sure your lawn_mower platform supports it.
+- **Mowing**: The lawn mower is currently mowing.
+- **Docked**: The lawn mower is done mowing and is currently docked.
+- **Paused**: The lawn mower was active and is now paused.
+- **Returning**: The lawn mower is returning to the dock.
+- **Error**: The lawn mower encountered an error while active and needs assistance.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
-### Service `lawn_mower.start_mowing`
+## Actions
+
+Available actions: `start_mowing`, `pause` and `dock`.
+
+Before calling one of these actions, make sure your lawn_mower platform supports it.
+
+### Action `lawn_mower.start_mowing`
 
 Start or resume a mowing task.
 
-| Service data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
+| Data attribute | Optional | Description                                                          |
+| -------------- | -------- | -------------------------------------------------------------------- |
+| `entity_id`    | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
 
-### Service `lawn_mower.pause`
+### Action `lawn_mower.pause`
 
 Pause a mowing task.
 
-| Service data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
+| Data attribute | Optional | Description                                                          |
+| -------------- | -------- | -------------------------------------------------------------------- |
+| `entity_id`    | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
 
-### Service `lawn_mower.dock`
+### Action `lawn_mower.dock`
 
 Tell the lawn_mower to return to dock.
 
-| Service data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
+| Data attribute | Optional | Description                                                          |
+| -------------- | -------- | -------------------------------------------------------------------- |
+| `entity_id`    | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |

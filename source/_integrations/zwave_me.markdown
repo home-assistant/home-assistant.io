@@ -2,7 +2,7 @@
 title: Z-Wave.Me
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave.Me Z-Way.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover
@@ -38,21 +38,15 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-This integration allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way](https://z-wave.me/z-way/). It combines the performance and the power of the diagnostics tools built-in Z-Way with the flexibility of Home Assistant. The integration brings all Z-Way devices in Home Assistant (Z-Wave, EnOcean, HTTP based, and others).
+This integration allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way](https://z-wave.me/z-way/). It combines the performance and the power of the diagnostics tools built-in Z-Way with the flexibility of Home Assistant. The integration brings all Z-Way devices in Home Assistant (Z-Wave, Zigbee, EnOcean, HTTP based, and others).
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-
 URL:
   description: The IP address with the port of the Z-Way server. The IP address can be prefixed with wss:// if HTTPS should be used instead of HTTP (when using find.z-wave.me remote access service or public IP with SSL).
-  required: true
-  type: string
 API Token:
   description: Z-Way API access token of the Z-Way server. To get the token go to the Z-Way user interface Smart Home UI > Menu > Settings > Users > Administrator > API token.
-  required: true
-  type: string
-
 {% endconfiguration_basic %}
 
 When connecting via find.z-wave.me remote access service you need to use a token with a global scope (log-in to Z-Way via [find.z-wave.me](https://find.z-wave.me) for this).
@@ -70,27 +64,24 @@ Example of connecting to Z-Way via remote access find.z-wave.me:
  - API Token: /112f7a4a-0051-cc2b-3b61-1898181b9950
 
 
-<div class='note warning'>
-
-  To grant access only to certain devices, create a new user and select the necessary devices from the list. Then use the API token of that user. It is suggested **not to use the API token of the admin**.
-
-</div>
+{% warning %}
+To grant access only to certain devices, create a new user and select the necessary devices from the list. Then use the API token of that user. It is suggested **not to use the API token of the admin**.
+{% endwarning %}
 
 
-<div class='note warning'>
-
-  You can use Z-Wave.Me UI with its enhanced Z-Wave network diagnostics tools together with the Home Assistant UI.
-
-</div>
+{% tip %}
+You can use Z-Wave.Me UI with its enhanced Z-Wave network diagnostics tools together with the Home Assistant UI.
+{% endtip %}
 
 ## Hardware requirements
 
 Z-Wave.Me Z-Way requires Z-Wave.Me hardware:
  - [RaZberry 7](https://z-wave.me/products/razberry/) and [RaZberry 7 Pro](https://z-wave.me/products/razberry/)
+ - [Wiren Board 7](https://z-wave.me/products/wirenboard-7/)
  - [Z-Station](https://z-wave.me/products/z-station/)
  - [Z-Wave & Zigbee mPCIe](https://z-wave.me/products/mpcie/)
- - [RaZberry](https://z-wave.me/products/razberry-old/)
- - [UZB1](https://z-wave.me/products/uzb/ )
+ - [RaZberry (old)](https://z-wave.me/products/razberry-old/)
+ - [UZB1](https://z-wave.me/products/uzb/)
  - [Hub1](https://z-wave.me/products/hub/)
  - or any other Z-Wave.Me based controller.
 

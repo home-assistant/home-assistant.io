@@ -14,56 +14,69 @@ ha_integration_type: entity
 Keeps track which locks are in your environment, their state and allows you to control them.
 
 - Maintains a state per lock and a combined state `all_locks`.
-- Registers services `lock.lock`, `lock.unlock` and `lock.open` (unlatch) to control locks.
+- Registers actions `lock.lock`, `lock.unlock`, and `lock.open` (unlatch) to control locks.
 
 {% include integrations/building_block_integration.md %}
 
-### Services
+## The state of a lock entity
 
-A lock integration provides the following services:
+A lock entity can have the following states:
 
-#### Service `lock.lock` 
+- **Jammed**: The lock is currently jammed.
+- **Open**: Indication of whether the lock is currently open.
+- **Opening**: Indication of whether the lock is currently opening.
+- **Locked**: The lock is currently locked.
+- **Locking**: The lock is in the process of being locked.
+- **Unlocking**: The lock is in the process of being unlocked.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
-Lock your door, the attribute should appear under a 'data' attribute for the service.
+## Actions
 
-| Service data attribute | Optional | Description                  |
-| ---------------------- | -------- | ---------------------------- |
-| `entity_id`            | no       | Entity of the relevant lock. |
+A lock integration provides the following actions:
 
-##### Example
+### Action `lock.lock` 
+
+Lock your door, the attribute should appear under a 'data' attribute for the action.
+
+| Data attribute | Optional | Description                  |
+| -------------- | -------- | ---------------------------- |
+| `entity_id`    | no       | Entity of the relevant lock. |
+
+#### Example
 
 ```yaml
-action:
-  service: lock.lock
+actions:
+  action: lock.lock
   target:
     entity_id: lock.my_place
 ```
 
-#### Service `lock.unlock` 
+### Action `lock.unlock` 
 
-Unlock your door, the attribute should appear under a 'data' attribute for the service.
+Unlock your door, the attribute should appear under a 'data' attribute for the action.
 
-| Service data attribute | Optional | Description                  |
-| ---------------------- | -------- | ---------------------------- |
-| `entity_id`            | no       | Entity of the relevant lock. |
+| Data attribute | Optional | Description                  |
+| -------------- | -------- | ---------------------------- |
+| `entity_id`    | no       | Entity of the relevant lock. |
 
-##### Example
+#### Example
 
 ```yaml
-action:
-  service: lock.unlock
+actions:
+  action: lock.unlock
   target:
     entity_id: lock.my_place
 ```
 
-### Use the services
+## Use the actions
 
-Go to the **Developer Tools**, then to **Call Service** in the frontend, and choose `lock.lock`, `lock.unlock` or `lock.open` from the list of available services (**Services:** on the left). Enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
+Go to the **Developer Tools**, then to **Actions** in the frontend, and choose `lock.lock`, `lock.unlock` or `lock.open` from the list of available actions. Enter something like the sample below into the **data** field and select **Perform action**.
 
 ```json
 {"entity_id":"lock.front_door"}
 ```
 
-| Service data attribute | Optional | Description                                                    |
-| ---------------------- | -------- | -------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific lock. Use `entity_id: all` to target all. |
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `entity_id`    | yes      | Only act on specific lock. Use `entity_id: all` to target all. |

@@ -2,7 +2,7 @@
 title: Linn / OpenHome
 description: Instructions on how to integrate Linn Ds and Openhome renderers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Update
 ha_release: 0.39
 ha_iot_class: Local Polling
@@ -24,8 +24,8 @@ The Linn / OpenHome integration allows you to connect an [Openhome Compliant Ren
 ### Example local audio playback action
 
 ```yaml
-action:
-  - service: media_player.play_media
+actions:
+  - action: media_player.play_media
     target:
       entity_id: media_player.linn_bedroom
     data:
@@ -36,7 +36,7 @@ action:
 ### Example web stream playback action
 
 ```yaml
-  - service: media_player.play_media
+  - action: media_player.play_media
     target:
       entity_id: media_player.linn_bedroom
     data:
@@ -44,12 +44,13 @@ action:
       media_content_type: music
 ```
 
-## Services
+## Actions
 
-### Media control services
-Available services: `invoke_pin`
+### Media control actions
 
-| Service data attribute | Optional | Description                                      |
+Available actions: `invoke_pin`
+
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            |     yes | The name of the openhome device to invoke the pin on.|
 | `pin`                  |      no | Which pin to invoke.                              |

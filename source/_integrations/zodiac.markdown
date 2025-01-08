@@ -5,7 +5,6 @@ ha_category:
   - Environment
 ha_iot_class: Calculated
 ha_release: 0.116
-ha_quality_scale: silver
 ha_codeowners:
   - '@JulienTant'
 ha_domain: zodiac
@@ -15,7 +14,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The Zodiac integration tracks the current zodiac sign.
+The **Zodiac** {% term integration %} tracks the current zodiac sign.
 
 {% include integrations/config_flow.md %}
 

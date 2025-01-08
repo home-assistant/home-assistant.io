@@ -9,9 +9,13 @@ ha_domain: waterfurnace
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `waterfurnace` integration communicates with the WaterFurnace Symphony website's WebSocket to show you many of the sensors in your system. While not an official API, this is the same backend the Symphony website is based on, and should be reasonably stable.
+The **WaterFurnace** {% term integration %} communicates with the WaterFurnace Symphony website's WebSocket to show you many of the sensors in your system. While not an official API, this is the same backend the Symphony website is based on, and should be reasonably stable.
 
 The sensors provided include:
 
@@ -32,7 +36,8 @@ The sensors provided include:
 
 ## Configuration
 
-To use Waterfurnace in your installation, add the following to your `configuration.yaml` file:
+To use Waterfurnace in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

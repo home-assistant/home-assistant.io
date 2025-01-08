@@ -2,7 +2,7 @@
 title: SmartTub
 description: Instructions on how to integrate SmartTub into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Light
   - Sensor
@@ -10,7 +10,6 @@ ha_category:
 ha_release: 2021.3
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@mdz'
 ha_domain: smarttub
@@ -32,44 +31,44 @@ The `smarttub` integration allows you to view and control hot tubs which use the
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
-### Service `smarttub.set_primary_filtration`
+### Action `smarttub.set_primary_filtration`
 
-This service allows you to update the settings for the primary filtration cycle
+This action allows you to update the settings for the primary filtration cycle
 on a hot tub.
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | no | The entity to update. | sensor.jacuzzi_j_335_primary_filtration_cycle
 | `duration` | no | The desired duration of the primary filtration cycle, in hours. | 4
 | `start_hour` | no | The desired starting hour of the day for the primary filtration cycle. | 2 (i.e. 02:00 or 2:00am)
 
 
-### Service `smarttub.set_secondary_filtration`
+### Action `smarttub.set_secondary_filtration`
 
-This service allows you to update the settings for the secondary filtration
+This action allows you to update the settings for the secondary filtration
 cycle on a hot tub.
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | no | The entity to update. | sensor.jacuzzi_j_335_secondary_filtration_cycle
 | `mode` | no | The desired secondary filtration mode. Can be frequent, infrequent or away. | away
 
-### Service `smarttub.snooze_reminder`
+### Action `smarttub.snooze_reminder`
 
-This service allows you to temporarily suppress a maintenance reminder on a hot tub.
+This action allows you to temporarily suppress a maintenance reminder on a hot tub.
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | no | The entity to update. | binary_sensor.jacuzzi_j_335_refresh_water_reminder
 | `days` | no | The number of days to snooze the reminder (minimum 10). | 10
 
-### Service `smarttub.reset_reminder`
+### Action `smarttub.reset_reminder`
 
-This service allows you to reset a maintenance reminder on a hot tub.
+This action allows you to reset a maintenance reminder on a hot tub.
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | no | The entity to update. | binary_sensor.jacuzzi_j_335_refresh_water_reminder
 | `days` | no | The number of days when reminder should trigger next (minimum 30). | 180

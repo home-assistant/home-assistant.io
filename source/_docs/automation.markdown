@@ -3,7 +3,7 @@ title: "Automating Home Assistant"
 description: "Steps to help you get automation setup in Home Assistant."
 ---
 
-Home Assistant contains information about all your devices and services. This information is available for the user in the dashboard and it can be used to trigger automations. And that's fun!
+Home Assistant contains information about all your {% term devices %} and {% term services %}. This information is available for the user in the dashboard and it can be used to trigger {% term automations %}. And that's fun!
 
 Automations in Home Assistant allow you to automatically respond to things that happen. You can turn the lights on at sunset or pause the music when you receive a call.
 

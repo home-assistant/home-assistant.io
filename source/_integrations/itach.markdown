@@ -9,13 +9,18 @@ ha_domain: itach
 ha_platforms:
   - remote
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `itach` remote platform allows you to control IR devices with a Global Caché iTach Device and GC-100 devices. The Global Cache IR API are similar across their product line. See API documentation links at the end of this page.
+The `itach` remote {% term integration %} allows you to control IR devices with a Global Caché iTach Device and GC-100 devices. The Global Cache IR API are similar across their product line. See API documentation links at the end of this page.
 
 In order to utilize the digital input (binary sensor) and relay (switch) features of your Global Cache device you will need to use the [gc100 integration](/integrations/gc100) and associated platforms.
 
-To use your iTach remote in your installation, you will need to know the IR commands for your devices in Pronto hex format and add the following to your `configuration.yaml` file:
+To use your iTach remote in your installation, you will need to know the IR commands for your devices in Pronto hex format and add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -81,7 +86,7 @@ devices:
           type: string
 {% endconfiguration %}
 
-An example to call the integration from developer tools using the `remote.send_command` service: `{ "entity_id":"remote.tv", "command":"menu" }`
+An example to call the integration from developer tools using the `remote.send_command` action: `{ "entity_id":"remote.tv", "command":"menu" }`
 
 Note: Global Cache devices expect data in their own format of "sendir...". This integration converts hex code to Global Cache IR form.
 

@@ -1,113 +1,122 @@
 ---
-title: TP-Link Kasa Smart
+title: TP-Link Smart Home
 description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
 ha_category:
+  - Binary sensor
+  - Button
+  - Camera
+  - Climate
+  - Fan
   - Hub
   - Light
+  - Number
+  - Select
   - Sensor
+  - Siren
   - Switch
 ha_release: 0.89
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@rytilahti'
-  - '@thegardenmonkey'
+  - '@bdraco'
+  - '@sdb9696'
 ha_domain: tplink
 ha_platforms:
+  - binary_sensor
+  - button
+  - camera
+  - climate
   - diagnostics
+  - fan
   - light
+  - number
+  - select
   - sensor
+  - siren
   - switch
 ha_dhcp: true
-ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 
-The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as plugs, power strips, wall switches and bulbs.
+The `tplink` integration allows you to control your [TP-Link Kasa Smart Home Devices](https://www.tp-link.com/kasa-smart/) and [TP-Link Tapo Devices](https://www.tapo.com/) such as plugs, power strips, wall switches and bulbs.
 
-You need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done either by using [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning) or by adding it to the official Kasa app before trying to add them to Home Assistant. If you use the app, do not upgrade the firmware if it presents the option to avoid blocking the local access by potential firmware updates.
+You need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done either by using [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning) or by adding it to the official Kasa or Tapo app before trying to add them to Home Assistant. Some apps for TP-Link's other products, such as the Deco app, also allow you to add Kasa and Tapo devices. Since these devices use the same TP-Link Cloud Account for authorization, they work with this integration as well.
 
-There is currently support for the following device types within Home Assistant:
-
-- **Light**
-- **Switch**
-- **Sensor**
+If your device is a newer Kasa or Tapo device it will require your TP-Link cloud username and password to authenticate for local access.
+If you have an older device that does not currently require authentication, you may consider disabling automatic firmware updates to keep it that way.
 
 {% include integrations/config_flow.md %}
 
 ## Supported Devices
 
-See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kasa#supported-devices) for an up to date list.
+See [Supported Devices in python-kasa](https://python-kasa.readthedocs.io/en/stable/SUPPORTED.html) for an up to date list that includes hardware and firmware versions.
 
-## Supported devices
+Devices not listed below may work but if you encounter issues submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
 
-### Plugs
+{% note %}
+The hub attached Tapo buttons S200B and S200D, which do not currently support alerting when the button is pressed.
+{% endnote %}
 
-- HS100
-- HS103
-- HS105
-- HS107
-- HS110
-- KP100
-- KP105
-- KP115
-- KP125
-- KP401
-- EP10
-- EP25
+{% note %}
+Some firmware versions of Tapo Cameras will not authenticate unless you enable **Tapo Lab** > **Third-Party Compatibility** in the native Tapo app.
+Alternatively, you can factory reset and then prevent the device from accessing the internet.
+{% endnote %}
 
-### Power Strips
+### Supported Kasa devices
 
-- EP40
-- HS300
-- KP303
-- KP400
+- **Plugs**: EP10, EP25[^1], HS100[^2], HS103, HS105, HS110, KP100, KP105, KP115, KP125, KP125M[^1], KP401
+- **Power Strips**: EP40, EP40M[^1], HS107, HS300, KP200, KP303, KP400
+- **Wall Switches**: ES20M, HS200[^2], HS210, HS220[^2], KP405, KS200, KS200M, KS205[^1], KS220, KS220M, KS225[^1], KS230, KS240[^1]
+- **Bulbs**: KL110, KL120, KL125, KL130, KL135, KL50, KL60, LB110
+- **Light Strips**: KL400L5, KL420L5, KL430
+- **Hubs**: KH100[^1]
+- **Hub-Connected Devices[^3]**: KE100[^1]
 
-### Wall switches
+### Supported Tapo[^1] devices
 
-- ES20M
-- HS200
-- HS210
-- HS220
-- KS200M
-- KS220M
-- KS230
+- **Plugs**: P100, P110, P110M, P115, P125M, P135, TP15
+- **Power Strips**: P210M, P300, P304M, P306, TP25
+- **Wall Switches**: S500D, S505, S505D
+- **Bulbs**: L510B, L510E, L530E, L630
+- **Light Strips**: L900-10, L900-5, L920-5, L930-5
+- **Cameras**: C100, C210, C225, C325WB, C520WS, TC65, TC70
+- **Hubs**: H100, H200
+- **Hub-Connected Devices[^3]**: S200B, S200D, T100, T110, T300, T310, T315
 
-### Bulbs
+[^1]: Model requires authentication
+[^2]: Newer versions require authentication
+[^3]: Devices may work across TAPO/KASA branded hubs
 
-- EP40
-- LB100
-- LB110
-- LB120
-- LB130
-- LB230
-- KL50
-- KL60
-- KL110
-- KL120
-- KL125
-- KL130
-- KL135
+## Unavailable entities
 
-### Light strips
+Some entities might be showing as Unavailable if they have been removed from the integration.
 
-- KL400
-- KL420
-- KL430
+## Cameras
 
-Other bulbs may also work, but with limited color temperature range (2700-5000). If you find a bulb isn't reaching the full-color temperature boundaries, submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
+Only Tapo cameras are currently supported.
+In order for live view to work, you will need to enable your camera account in the Tapo App > **Advanced Settings** > **Camera Account**.
+If you do not want to do this, keep **Live view** unchecked when adding the device.
 
-## Unsupported devices
+### Total consumption
 
-### Plugs
+This entity is only reported by older kasa devices.
+Currently, Tapo devices and newer Kasa devices do not report total consumption, although briefly during 2024.6, they incorrectly reported today's consumption as "total consumption." You can safely delete this entity if it is reported as unavailable on a newer Kasa or Tapo device.
 
-- KP125M (supported via [Matter](/integrations/matter/#tp-link-tapo-p125m-power-plug), but without energy monitoring features)
+### Update
 
-### Random Effect - Service `tplink.random_effect`
+This entity has been removed from the integration due to stability issues, calling the TPLink cloud API to check for updates. It will be replaced in a future release with a new Update entity, but if you have an Unavailable entity ID starting with `binary_sensor.` and ending with `update`, you can safely delete it.
 
-The light strips allow setting a random effect.
+## Light effects
 
-| Service data attribute | Description |
+If light effects are supported by a device they can be selected from the bottom of the light card.
+They are currently not supported on Kasa bulbs.
+
+### Random Effect - Action `tplink.random_effect`
+
+Light strips allow setting a random effect.
+
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | The entity_id of the light strip to set the effect on |
 | `init_states` | Initial HSV sequence |
@@ -124,8 +133,8 @@ The light strips allow setting a random effect.
 | `random_seed` | Random seed |
 
 ```yaml
-#Example Service Call
-service: tplink.random_effect
+#Example action
+action: tplink.random_effect
 target:
   entity_id:
     - light.strip
@@ -152,11 +161,11 @@ data:
   random_seed: 80
 ```
 
-### Seqeuence Effect - Service `tplink.sequence_effect`
+### Sequence Effect - Action `tplink.sequence_effect`
 
-The light strips allow setting a sequence effect.
+Light strips allow setting a sequence effect.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | The entity_id of the light strip to set the effect on |
 | `sequence` | List of HSV sequences (Max 16) |
@@ -169,8 +178,8 @@ The light strips allow setting a sequence effect.
 | `direction` | Direction |
 
 ```yaml
-#Example Service Call
-service: tplink.sequence_effect
+#Example action
+action: tplink.sequence_effect
 target:
   entity_id:
     - light.strip
@@ -191,3 +200,9 @@ data:
   spread: 1
   direction: 1
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

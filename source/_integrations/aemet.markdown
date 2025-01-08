@@ -9,6 +9,8 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: aemet
 ha_platforms:
+  - diagnostics
+  - image
   - sensor
   - weather
 ha_integration_type: integration

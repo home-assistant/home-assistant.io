@@ -1,13 +1,16 @@
 <section class="aside-module grid__item one-whole lap-one-half">
   <div class="section">
-    <h1 class="title delta">&nbsp;</h1>
+    <h1 class="title epsilon">Topics</h1>
     <ul class="divided sidebar-menu">
       <li>{% active_link /help/ Help %}</li>
       <li>
-        <a href="https://developers.home-assistant.io"
+        <a class="external-link" href="https://developers.home-assistant.io"
           >Developer documentation
-          <i class="icon-external-link"></i>
+          {% icon "tabler:external-link" %}
         </a>
+      </li>
+      <li>
+        {% active_link /help/reporting_issues/ Reporting issues %}
       </li>
       <li>
         Governance

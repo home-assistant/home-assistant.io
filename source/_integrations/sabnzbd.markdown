@@ -9,10 +9,15 @@ ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@shaiu'
+  - '@jpbede'
 ha_domain: sabnzbd
 ha_platforms:
+  - binary_sensor
+  - button
+  - number
   - sensor
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The SABnzbd integration will allow you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from within Home Assistant and setup automations based on the information.
@@ -26,6 +31,12 @@ You need to grab your API key from your SABnzbd instance in order to configure t
 - Copy your API key under "Security".
 
 {% include integrations/config_flow.md %}
+{% configuration_basic %}
+URL:
+    description: "The full URL, including port, of your SABnzbd server. Example: `http://localhost:8080` or `http://a02368d7-sabnzbd:8080`, if you are using the add-on."
+API key:
+    description: "The API key of your SABnzbd server. You can find this in the SABnzbd web interface under **Config cog** (top right) > **General** > **Security**."
+{% endconfiguration_basic %}
 
 ## Sensor
 
@@ -43,30 +54,23 @@ This integration will create these sensors:
 - `weekly_size`: GB downloaded this week. (disabled by default)
 - `monthly_total`: GB downloaded this month. (disabled by default)
 
+## Binary sensor
 
-## Services
+This integration will create a binary sensor to indicate if SABnzbd has recorded any warnings or errors.
 
-Available services:
+## Button
 
-- `pause`: Pause the download queue.
-- `resume`: Resume the download queue.
-- `set_speed`: Set the download queue speed limit.
+This integration will create two buttons:
 
-### Service `sabnzbd.pause`
+- Pause the download queue.
+- Resume the download queue.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                 |
-|------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `api_key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
+## Number
 
-### Service `sabnzbd.resume`
+This integration will create a number entity to set the download queue speed limit in percentage.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                 |
-|------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `api_key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
+## Removing the integration
 
-### Service `sabnzbd.set_speed`
+This integration follows standard integration removal. No extra steps are required.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                 |
-|------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `speed`                | yes      | Sets the download speed limit. If specified as a number with no units, will be interpreted as a percent. If units are provided (e.g., 500K) will be interpreted absolutely. Defaults to 100 |
-| `api_key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
+{% include integrations/remove_device_service.md %}

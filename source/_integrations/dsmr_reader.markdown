@@ -9,10 +9,12 @@ ha_config_flow: true
 ha_mqtt: true
 ha_release: 0.103
 ha_codeowners:
-  - '@depl0y'
+  - '@sorted-bits'
   - '@glodenox'
+  - '@erwindouna'
 ha_domain: dsmr_reader
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---
@@ -34,7 +36,7 @@ To use this DSMR Reader sensor integration, you need to have a DSMR Reader insta
 
 {% include integrations/config_flow.md %}
 
-## Configuring the Energy Dashboard
+## Configuring the energy dashboard
 
 It is most advisable to not use the "total" and "daily" sources. The regular "reading" sensors provide the most stable source of data for Home Assistant to use. These MQTT values are part of the "Telegram: Split topic" MQTT values within DSMR Reader, so make sure to enable them.
 

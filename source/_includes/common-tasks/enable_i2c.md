@@ -1,6 +1,6 @@
 ## Enable I2C
 
-Home Assistant using the Home Assistant Operating System which is a managed environment, which means you can't use existing methods to enable the I2C bus on a Raspberry Pi. In order to use I2C devices you will have to 
+Home Assistant using the {% term "Home Assistant Operating System" %} which is a managed environment, which means you can't use existing methods to enable the I2C bus on a Raspberry Pi. In order to use I2C devices you will have to 
 - Enable I2C for the Home Assistant Operating System 
 - Setup I2C devices e.g. sensors
 
@@ -10,7 +10,7 @@ Home Assistant using the Home Assistant Operating System which is a managed envi
 
 You will need:
 - SD card reader
-- SD card with Home Assistant Operating System flashed on it
+- SD card with {% term "Home Assistant Operating System" %} flashed on it
 
 Shutdown/turn-off your Home Assistant installation and unplug the SD card.
 Plug the SD card into an SD card reader and find a drive/file system named
@@ -43,7 +43,7 @@ and make sure the first partition is available.
 
 ### Enable I2C via Home Assistant Operating System Terminal
 
-Alternatively, by attaching a keyboard and screen to your device, you can access the physical terminal to the Home Assistant Operating System.
+Alternatively, by attaching a keyboard and screen to your device, you can access the physical terminal to the {% term "Home Assistant Operating System" %}.
 
 You can enable I2C via this terminal:
 
@@ -54,10 +54,10 @@ You can enable I2C via this terminal:
   ```shell
   mkdir /tmp/mnt
   mount /dev/sda1 /tmp/mnt
-  mkdir -p /tmp/mnt/CONFIG/modules
-  echo -ne i2c-dev>/tmp/mnt/CONFIG/modules/rpi-i2c.conf
-  echo dtparam=i2c_vc=on >> /tmp/mnt/CONFIG/config.txt
-  echo dtparam=i2c_arm=on >> /tmp/mnt/CONFIG/config.txt
+  mkdir -p /tmp/mnt/modules
+  echo -ne i2c-dev>/tmp/mnt/modules/rpi-i2c.conf
+  echo dtparam=i2c_vc=on >> /tmp/mnt/config.txt
+  echo dtparam=i2c_arm=on >> /tmp/mnt/config.txt
   sync
   reboot
   ```

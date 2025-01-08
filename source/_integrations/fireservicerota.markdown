@@ -2,7 +2,7 @@
 title: FireServiceRota
 description: Instructions on how to configure the FireServiceRota integration for Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
   - Switch
 ha_iot_class: Cloud Polling
@@ -25,16 +25,16 @@ The FireServiceRota integration provides you real-time information about inciden
 
 You will need a FireServiceRota or BrandweerRooster account.
 
-<div class='note'>
+{% caution %}
 
 A word of caution: Do not solely rely on this integration for your emergency calls!
 
-</div>
+{% endcaution %}
 
 This integration provides the following platforms:
 
 - Sensor: Incoming emergency calls. Metadata contains _among other data_ the location of the incident and a text-to-speech URL. The integration uses a WebSocket client connection with the service to ensure a minimum delay.
-- Binary Sensor: Your current duty status (as scheduled via the FireServiceRota mobile app and/or website).
+- Binary sensor: Your current duty status (as scheduled via the FireServiceRota mobile app and/or website).
 - Switch: Enabled for 30 minutes after an emergency call. ‘on’ represents a confirmed response. Use this to automate your emergency call response and save valuable seconds.
 
 On how to write automations using these platform read the 'Advanced Configuration' section below.
@@ -45,7 +45,7 @@ On how to write automations using these platform read the 'Advanced Configuratio
 
 The following entity types are created:
 
-### Incidents Sensor
+### Incidents sensor
 
 This is the main entity of the integration containing the incident message as its `value`, it has several attributes which are described below.
 
@@ -65,7 +65,7 @@ This is the main entity of the integration containing the incident message as it
 | `formatted_address`     | Address in string format.                                           |
 | `task_ids`              | ID(s) of appliance(s) or task(s).                                   |
 
-### Duty Binary Sensor
+### Duty binary sensor
 
 This entity reflects the duty you have scheduled, the value can be `on` = on duty, `off` = no duty. When you have no duty the response switch is disabled which means you cannot respond to a call.
 
@@ -80,10 +80,10 @@ This entity reflects the duty you have scheduled, the value can be `on` = on dut
 | `type`                  | Type, e.g. `standby_duty`.            |
 | `assigned function`     | Assigned function, e.g. `Chauffeur`.  |
 
-### Incident Response Switch
+### Incident response switch
 
 With this switch you can respond to an incident, either by manually controlling the switch via the GUI, or by using an automation action.
-It gets reset to `unknown` value with every incident received. Switching it to `on` means you send a response acknowledgement, switching it back `off` sends a response rejected.
+It gets reset to `unknown` value with every incident received. Switching it to `on` means you send a response acknowledgment, switching it back `off` sends a response rejected.
 
 The following attributes are available:
 
@@ -99,7 +99,7 @@ The following attributes are available:
 | `available_at_incident_creation` | `true` or `false`.                   |
 | `active_duty_function_ids`       | Active function ID's, e.g., `540`.   |
 
-## Advanced Configuration
+## Advanced configuration
 
 With Automation you can configure one or more of the following useful actions:
 
@@ -110,67 +110,66 @@ With Automation you can configure one or more of the following useful actions:
 
 These are documented below.
 
-### Example Automation
+### Example automation
 
 {% raw %}
 
 ```yaml
 automation:
   - alias: "Switch on a light when incident is received"
-    trigger:
-      platform: state
-      entity_id: sensor.incidents
-    action:
-      service: light.turn_on
-      target:
-        entity_id: light.bedroom
+    triggers:
+      - trigger: state
+        entity_id: sensor.incidents
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: light.bedroom
 
   - alias: "Play TTS incident details when incident is received"
-    trigger:
-      platform: state
-      entity_id: sensor.incidents
-      attribute: message_to_speech_url
-    condition:
+    triggers:
+      - trigger: state
+        entity_id: sensor.incidents
+        attribute: message_to_speech_url
+    conditions:
       - condition: not
         conditions:
           - condition: state
             entity_id: sensor.incidents
             attribute: message_to_speech_url
             state: None
-    action:
-      - service: media_player.play_media
-        data_template:
+    actions:
+      - action: media_player.play_media
+        data:
           entity_id: media_player.nest_hub_bedroom
           media_content_id: >
               {{ state_attr('sensor.incidents','message_to_speech_url') }}
           media_content_type: "audio/mp4"
 
   - alias: "Send response acknowledgement when a button is pressed"
-    trigger:
-      platform: state
-      entity_id: switch.response_button
-    action:
-      service: homeassistant.turn_on
-      target:
-        entity_id: switch.incident_response
+    triggers:
+      - trigger: state
+        entity_id: switch.response_button
+    actions:
+      - action: homeassistant.turn_on
+        target:
+          entity_id: switch.incident_response
 
   - alias: "Cast FireServiceRota dashboard to Nest Hub"
-    trigger: 
-      platform: homeassistant
-      event: start
-    action:
-      service: cast.show_lovelace_view
-      data: 
-        entity_id: media_player.nest_hub_bedroom
-        view_path: fsr
+    triggers: 
+      - trigger: homeassistant
+        event: start
+    actions:
+      - action: cast.show_lovelace_view
+        data: 
+          entity_id: media_player.nest_hub_bedroom
+          view_path: fsr
 ```
 
 
-### Example Dashboard
+### Example dashboard
 
 ```yaml
 panel: true
-title: Home
 views:
   - badges: []
     cards:
@@ -215,7 +214,7 @@ This screenshot shows what a FireServiceRota dashboard can look like.
 
 ## Debugging
 
-The FireServiceRota integration will log additional information about WebSocket incidents received, response and duty status gathered, and other messages when the log level is set to `debug`. Add the relevant lines below to the `configuration.yaml`:
+The FireServiceRota integration will log additional information about WebSocket incidents received, response and duty status gathered, and other messages when the log level is set to `debug`. Add the relevant lines below to the {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:

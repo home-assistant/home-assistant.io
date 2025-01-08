@@ -1,19 +1,23 @@
 ---
-title: Custom Panel
-description: Instructions on how to add customized panels to the frontend of Home Assistant.
+title: Custom panel
+description: Instructions on how to add customized panels to the front end of Home Assistant.
 ha_category:
-  - Front End
+  - Front end
 ha_release: 0.26
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/frontend'
 ha_domain: panel_custom
-ha_integration_type: integration
+ha_integration_type: system
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `panel_custom` integration allows you to write your own panels in JavaScript and add them to Home Assistant. See the developer documentation on [instructions how to build your own panels](https://developers.home-assistant.io/docs/frontend/custom-ui/creating-custom-panels/).
+The `panel_custom` {% term integration %} allows you to write your own panels in JavaScript and add them to Home Assistant. See the developer documentation on [instructions how to build your own panels](https://developers.home-assistant.io/docs/frontend/custom-ui/creating-custom-panels/).
 
-To enable customized panels in your installation, add the following to your `configuration.yaml` file:
+To enable customized panels in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,11 +31,9 @@ panel_custom:
       who: world
 ```
 
-<div class='note'>
-
+{% tip %}
 Store your custom panels in `<config>/www` to make them available in the frontend at the path `/local`.
-
-</div>
+{% endtip %}
 
 {% configuration %}
 name:

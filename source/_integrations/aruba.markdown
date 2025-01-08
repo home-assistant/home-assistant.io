@@ -2,13 +2,17 @@
 title: Aruba
 description: Instructions on how to integrate Aruba routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.7
 ha_iot_class: Local Polling
 ha_domain: aruba
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 This platform allows you to detect presence by looking at connected devices to an [Aruba Instant](https://www.arubanetworks.com/products/networking/aruba-instant/) device.
@@ -16,14 +20,19 @@ This platform allows you to detect presence by looking at connected devices to a
 Supported devices (tested):
 
 - Aruba AP-105
+- Aruba AP-205
+- Aruba AP-505
+- Aruba AP-515
+- Aruba IAP-315
 - Aruba IAP-335
 - Aruba Instant IAP-275
 
-<div class='note warning'>
+{% important %}
 This device tracker needs telnet to be enabled on the router.
-</div>
+{% endimportant %}
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

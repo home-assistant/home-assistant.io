@@ -2,8 +2,8 @@
 title: OctoPrint
 description: Integration between OctoPrint and Home Assistant.
 ha_category:
-  - 3D Printing
-  - Binary Sensor
+  - 3D printing
+  - Binary sensor
   - Button
   - Sensor
 ha_config_flow: true
@@ -29,39 +29,26 @@ ha_integration_type: integration
 {% configuration_basic %}
 username:
   description: Username for the server.
-  required: true
-  type: string
 host:
-  description: Address of the server, e.g., 192.168.1.32.
-  required: true
-  type: string
+  description: Address of the server, e.g., `192.168.1.32`.
 port:
   description:  Port of the server.
-  required: false
-  type: string
-  default: 80
 path:
   description: URL path of the server
-  required: false
-  type: string
-  default: /
 ssl:
   description: Whether to use SSL or not when communicating.
-  required: false
-  type: boolean
-  default: false
 verify ssl:
   description: Should the SSL certificate be validated.
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration_basic %}
 
-### API Key
-For the integration to work, please check that in Octoprint, the plugin Discovery is enabled and in the settings -> printer notifications menu pop-ups are enabled.
-The Octoprint integration will attempt to register itself via the [application keys plugin](https://docs.octoprint.org/en/master/bundledplugins/appkeys.html). After submitting the configuration UI in Home Assistant, open the Octoprint UI and click allow on the prompt.
+### API key
 
-## Binary Sensor
+For the integration to work, please check that in Octoprint, the [Discovery Plugin](https://docs.octoprint.org/en/master/bundledplugins/discovery.html) is enabled and in the **Settings** -> **Printer Notifications** menu that **Enable popups** is checked.
+The Octoprint integration will attempt to register itself via the [Application Keys Plugin](https://docs.octoprint.org/en/master/bundledplugins/appkeys.html). After submitting the configuration UI in Home Assistant, log in to Octoprint as the user whose credentials you just entered in Home Assistant, and select **Allow** on the prompt.
+
+NOTE: You *must* be logged into Octoprint as the user which you are adding to Home Assistant. If you log in to Octoprint as any other user, you will not see the prompt to allow access.
+
+## Binary sensor
 
 The OctoPrint integration provides the following binary sensors:
 
@@ -71,6 +58,7 @@ The OctoPrint integration provides the following binary sensors:
 ## Sensor
 
 The OctoPrint integration lets you monitor various states of your 3D printer and its print jobs.
+
 Supported sensors:
 
 - Current Printer State
@@ -89,6 +77,9 @@ The OctoPrint integration provides the following buttons:
 - Pause Job
 - Resume Job
 - Stop Job
+- Shutdown System
+- Reboot System
+- Restart Octoprint
 
 ## Troubleshooting
 

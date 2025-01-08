@@ -3,15 +3,19 @@ title: Google Maps
 description: Instructions how to use Google Maps Location Sharing to track devices in Home Assistant.
 ha_release: 0.67
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Cloud Polling
 ha_domain: google_maps
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `google_maps` platform allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
+The `google_maps` {% term integration %} allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
 
 ## Setup
 
@@ -35,16 +39,14 @@ device_tracker:
     username: "ACCOUNT_B_EMAIL"
 ```
 
-<div class='note'>
+{% note %}
 If using more than one account, your own device may show twice, however, the parameters returned from Account A will not include a value for battery_level or entity_picture. These parameters will be present in your device tracker entity from Account B. Therefore, disregard the device tracker entity with is missing those parameters. 
-</div>
-
-
-
+{% endnote %}
 
 ## Configuration
 
-To integrate Google Maps Location Sharing in Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate Google Maps Location Sharing in Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -55,7 +57,7 @@ device_tracker:
 
 Once enabled and you have rebooted devices discovered through this integration will be listed in the `known_devices.yaml` file within your configuration directory.
 
-They will be created with indentifiers like `google_maps_<numeric_id>`. To be able to properly track entities you must set the `track` attribute to `true`. 
+They will be created with identifiers like `google_maps_<numeric_id>`. To be able to properly track entities you must set the `track` attribute to `true`. 
 
 {% configuration %}
 username:
@@ -73,6 +75,6 @@ scan_interval:
   type: integer
 {% endconfiguration %}
 
-<div class='note'>
+{% note %}
 As of release 0.97 Google passwords are no longer required in your configuration. Users coming from earlier releases should only remove the password entry from their configuration file (username is still required) and restart Home Assistant. The cookie file previously generated should still be valid and will allow the tracker to continue functioning normally until the cookie is invalidated.
-</div>
+{% endnote %}

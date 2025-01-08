@@ -54,7 +54,7 @@ All in all, a fine release, with an exciting one ahead of us.
 - [Release 0.118.4 - November 26](#release-01184---november-26)
 - [Release 0.118.5 - December 5](#release-01185---december-5)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -170,7 +170,7 @@ more advanced future additions and can significantly reduce the complexity of
 existing templates in your set up.
 
 It should be mostly compatible with your existing templates; However, be sure
-to check the breaking changes section for known possible breaking scenarios.
+to check the backward-incompatible changes section for known possible breaking scenarios.
 
 ## Logbook Card
 
@@ -398,7 +398,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change

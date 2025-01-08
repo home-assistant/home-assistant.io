@@ -5,33 +5,52 @@ ha_category:
   - Health
   - Sensor
 ha_release: 0.99
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - '@vangorra'
   - '@joostlek'
 ha_domain: withings
 ha_platforms:
   - binary_sensor
+  - calendar
+  - diagnostics
   - sensor
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
-The Withings integration consumes data from various health products produced by [Withings](https://www.withings.com).
+The **Withings** {% term integration %} consumes data from various health products produced by [Withings](https://www.withings.com).
 
-## Create a Withings developer account
+## Prerequisites
 
-You must have a developer account to distribute the data. [Create a free developer account](https://account.withings.com/partner/add_oauth2).
+- Withings account
+- Withings app installed
+- Withings device setup in the app
+- [Withings developer account](#creating-a-withings-developer-account) to get a *ClientID* and *Secret* to connect to be able to get the data from the Withings cloud API
 
-Values for your account:
+### Creating a Withings developer account
 
-- Logo: Any reasonable picture will do.
-- Description: Personal app for collecting my data.
-- Contact Email: Your email address
-- Callback Uri: `https://my.home-assistant.io/redirect/oauth`.
-- Company: Home Assistant
+You must have a developer account to distribute the data.
 
-Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You will need these in the next step.
+{% note %}
+  You only need one developer account. The same account and credentials are used for each Withings configuration.
+{% endnote %}
+
+1. [Create a free developer account](https://account.withings.com/partner/add_oauth2).
+2. Make sure to select **Withings public cloud** (and not Withings US medical cloud or similar).
+3. Select **Create an application**.
+4. Under **Application creation**, select **Public API integration**.
+   - Read and accept the terms and select **Next**.
+5. Under **Information**:
+   - **Target environment**: *Development*
+   - **Application name**: [any name]
+   - **Application description**: [any description]
+   - **Registered URLs**: `https://my.home-assistant.io/redirect/oauth`
+     - Do not test this URL. It won't work at this stage. It will be setup once you install the integration in Home Assistant.
+   - **Change logo**: Optional
+6. **Save** your changes.
+   - Once saved, the *ClientID* and *Secret* fields will be populated.
+   - Copy and store them in a save place. You will need these in the next step.
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -45,9 +64,9 @@ authentication process.
 Withings will validate (with HTTP HEAD) these requirements each time you save your Withings developer account. When these checks fail, the Withings UI is not always clear about why.
 
 - Home Assistant (For create/update of Withings developer account):
-    - Publicly accessible.
-    - Running on a fully qualified domain name.
-    - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
+  - Publicly accessible.
+  - Running on a fully qualified domain name.
+  - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
 
 {% enddetails %}
 
@@ -55,5 +74,15 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 
 ## Data updates
 
-The integration will automatically detect if you can use webhooks. This will enable the integration only to update when there is new data.
-The binary sensor for sleep will only work if the integration can establish webhooks with Withings.
+The {% term integration %} automatically detects if you can use webhooks. This enables the {% term integration %} only to update when there is new data.
+The binary sensor for sleep will only work if the {% term integration %} can establish webhooks with Withings.
+
+## Available data
+
+The {% term integration %} provides several entities, some of which are dynamically enabled if data is available.
+
+For example, measurement sensors like weight only work when data has been registered in the last 14 days. So if you start using a new device, for example, to measure your temperature or you manually update a value in the app, the sensor automatically appears.
+
+Sleep sensors are only created if the {% term integration %} can find sleep data for you within the last day.
+
+Workout calendar and the workout and activity sensors show if the latest available data point is no older than 14 days.
