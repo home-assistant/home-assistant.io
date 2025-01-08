@@ -58,16 +58,16 @@ If you have an older device that does not currently require authentication, you 
 
 Host:
   description: |
-    "Hostname or IP address of your TP-Link device."
+    Hostname or IP address of your TP-Link device.
 Username:
   description: |
-    "Your TP-Link cloud username which is the full email and is case sensitive. Required for Tapo and newer Kasa devices that authenticate."
+    Your TP-Link cloud username which is the full email and is case-sensitive. Required for Tapo and newer Kasa devices that authenticate.
 Password:
   description: |
-    "Your TP-Link cloud password which is case sensitive. Required for Tapo and newer Kasa devices that authenticate."
+    Your TP-Link cloud password which is case-sensitive. Required for Tapo and newer Kasa devices that authenticate.
 Live view:
   description: |
-    "Checkbox to enable live view will create the live view camera entity for Tapo cameras. Requires your camera account credentials which you setup from the Tapo app under **Device Settings** > **Advanced Settings** > **Camera Account**."
+    Checkbox to enable live view will create the live view camera entity for Tapo cameras. Requires your camera account credentials which you set up from the Tapo app under **Device Settings** > **Advanced Settings** > **Camera Account**.
 Camera account username:
   description: |
     Your camera account username configured for the device in the Tapo app.
@@ -126,11 +126,11 @@ Only Tapo cameras are currently supported.
 In order for live view to work, you will need to enable your camera account in the Tapo App under **Device Settings** > **Advanced Settings** > **Camera Account**.
 If you do not want to do this, keep **Live view** unchecked when adding the device. This can be changed at a later date using the `reconfigure` option on the integration entry.
 
-Depending on the supported features of the camera you can control various settings such as privacy mode, pan/tilt and motion detection alerts.
+Depending on the supported features of the camera, you can control various settings such as privacy mode, pan/tilt, and motion detection alerts.
 
 ### Lights
 
-Light entitites are added for bulbs, lightstrips and dimmer switches. Depending on the supported features of the device the integrating will allow setting brightness, color, color temperature, and light effects. If light effects are supported by a device they can be selected from the bottom of the light card. Light presets are also supported and can be set via the config preset drop down on the device page. Depending on the supported features of the device you can control various other configuration settings such as on/off transitions and auto-on/off.
+Light entitites are added for bulbs, lightstrips, and dimmer switches. Depending on the supported features of the device, the integrating will allow setting brightness, color, color temperature, and light effects. If light effects are supported by a device, they can be selected from the bottom of the light card. Light presets are also supported and can be set via the config preset drop down on the device page. Depending on the supported features of the device you can control various other configuration settings such as on/off transitions and auto-on/off.
 
 ### Plugs and switches
 
@@ -147,8 +147,8 @@ Various hub attached sensors are supported such as those providing climate contr
 
 ## Data updates
 
-Devices are polled for data updates every 5 seconds. If an update occurs in Home Assistant, such as switching on a device, then it will update it's data immediately afterwards.
-The integration connects locally to the devices without going via the TP-Link cloud. This is different to the native Tapo and Kasa apps which will connect to the devices via the TP-Link cloud if the device has access to the internet.
+Devices are polled for data updates every 5 seconds. If an update occurs in Home Assistant, such as switching on a device, then it will update it's data immediately afterward.
+The integration connects locally to the devices without going via the TP-Link cloud. This is different from the native Tapo and Kasa apps which will connect to the devices via the TP-Link cloud if the device has access to the internet.
 
 ## Known limitations
 
@@ -159,7 +159,7 @@ Alternatively, you can factory reset and then prevent the device from accessing 
 
 ### Subnets and discovery
 
-If devices are on a different subnet to Home Assistant, automatic discovery will not work. In this instance it is recommended to add devices by ip address and configure them with static ip addresses to prevent issues when ip addresses change.
+If devices are on a different subnet to Home Assistant, automatic discovery will not work. In this instance it is recommended to add devices by IP address and configure them with static IP addresses to prevent issues when IP addresses change.
 
 ### Buttons
 
