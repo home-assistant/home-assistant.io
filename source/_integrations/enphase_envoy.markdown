@@ -389,9 +389,9 @@ The names of entities and devices are derived from the load_name configured in t
   <figcaption>Envoy Enpower dry-contact entities.</figcaption>
 </figure>
 
-## Data polling Interval
+## Data polling interval
 
-All data is collected in one coordinated collection cycle and sourced from a limited set of endpoints on the Envoy. For example, three different values sourced from the same endpoint, are not pulled in three different requests, but provided from the same single request. This method minimizes the number of requests to the Envoy. The local REST API of the Envoy is used. Only when the 1-year valid token is to expire, 1 month before due data, a new token is requested from the Enphase Enlighten website.
+All data is collected in one coordinated collection cycle and sourced from a limited set of endpoints on the Envoy. For example, three different values sourced from the same endpoint are not pulled in three different requests but provided from the same single request. This method minimizes the number of requests to the Envoy. The local REST API of the Envoy is used. Only when the 1-year valid token is to expire, 1 month before due data, a new token is requested from the Enphase Enlighten website.
 
 The integration collects data for all entities by default every 60 seconds. To customize the collection interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the action using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
 
