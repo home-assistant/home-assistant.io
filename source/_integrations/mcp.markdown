@@ -4,11 +4,11 @@ description: Instructions on how to use the Model Context Protocol with Home Ass
 ha_category:
   - Voice
 ha_release: 2025.2
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - 'allenporter'
-ha_domain: mcp_server
+ha_domain: mcp
 ha_integration_type: integration
 related:
   - docs: /integrations/conversation/
@@ -48,10 +48,11 @@ SSE Server URL:
 This integration can provide additional functionality for LLM conversation agents
 (for example [Anthropic](/integrations/anthropic/), [Google Generative AI](/integrations/google_generative_ai_conversation), [Ollama](/integrations/ollama/), [Open AI](/integrations/openai_conversation/)). 
 
-Home Assistant acts as a client to the MCP server you specify. The MCP server
-provides additional tools that Home Assistant will expose to the conversation
-agent. See the [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction#general-architecture)
-for more details.
+Home Assistant acts as a client to the MCP server you specify. Home Assistant will
+poll the MCP server SSE endpoint and query the list of available tools. The tools are
+made available for use by Home Assistant conversation agents, similar to the Assist API.
+See the [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction#general-architecture)
+for more details on the protocol.
 
 The Home Assistant Model Context Protocol integration acts as a client using the
 [Server-Sent Events (SSE) transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse)
