@@ -2352,6 +2352,7 @@ logger:
     xknx.knx: debug  # logs incoming and outgoing KNX/IP frames
     xknx.raw_socket: warning  # logs incoming UDP/TCP frames in raw hex format at socket level
     # Loggers for xknx internals
+    xknx.ga_dpt: warning  # logs when payloads can't be decoded with given project file information
     xknx.state_updater: warning  # provides information about the state updater
 ```
 
