@@ -18,7 +18,7 @@ ha_integration_type: device
 ha_dhcp: true
 ---
 
-## Prerequisite
+## Prerequisites
 
 - You need the Connection Box bridge to be added to a network accessible to Home Assistant.
 - You either need to:
