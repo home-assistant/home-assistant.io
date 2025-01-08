@@ -109,7 +109,7 @@ The following example shows how the shell command response may be used in automa
 ```yaml
 # Create a ToDo notification based on file contents
 automation:
-  - alias: "run_set_ac"
+  - alias: "run_get_file_contents"
     triggers:
       - ...
     actions:

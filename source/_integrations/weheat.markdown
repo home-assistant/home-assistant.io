@@ -12,6 +12,7 @@ ha_codeowners:
   - '@jesperraemaekers'
 ha_domain: weheat
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: integration
 ---
@@ -45,6 +46,17 @@ The Weheat integration provides the following sensors:
 - **Current room temperature**: Current room temperature in °C
 - **Room temperature setpoint**: Setpoint for the room temperature in °C
 - **Electricity used**: Total electricity used in kWh
+- **Energy output**: Total output generated in kWh
 - **State**: The current heat pump state
 - **DHW top temperature**: The domestic hot water temperature in the top of the vessel in °C (optional)
 - **DHW bottom temperature"**: The domestic hot water temperature in the bottom of the vessel in °C (optional)
+- **Compressor RPM**: The rpm of the compressor fan.
+- **Compressor percentage**: The percentage of the compressor fan. Can exceed 100% for some models.
+
+Depending on the model/installation, states for the Indoor Unit states are available:
+
+- **Indoor unit water pump**
+- **Indoor unit auxiliary water pump**
+- **Indoor unit DHW valve or water pump**
+- **Indoor unit gas boiler heating allowed** - Note: This may be True even when no gas boiler is installed or active at this time.
+- **Indoor unit electric heater**
