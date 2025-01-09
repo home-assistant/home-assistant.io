@@ -18,7 +18,7 @@ The **ntfy** {% term integration %} allows publishing push notifications on [ntf
 
 ## About ntfy
 
-**ntfy** is a simple HTTP-based pub-sub notification service to sernd notifications to phones or desktops. The official [ntfy](https://ntfy.sh/) service also offers notifications via e-mail or by phone calls using text-to-speech to read the message out loud. As Ntfy is 100% open-source, there are also alternative public ntfy services but can also be self-hosted.
+**ntfy** is a simple HTTP-based pub-sub notification service to send notifications to phones or desktops. The official [ntfy](https://ntfy.sh/) service also offers notifications via e-mail or by phone calls using text-to-speech to read the message out loud. As Ntfy is 100% open-source, there are also alternative public ntfy services but can also be self-hosted.
 
 ## How you can use this integration
 
@@ -28,14 +28,14 @@ The ntfy integration can be used to send push notifications from automations and
 
 1. **Service URL**
     
-    To set up the **ntfy** integration, you need the URL of the ntfy service you wish to use. 
-    
+    To set up the **ntfy** integration, you need the URL of the ntfy service you wish to use.
+
     - Use `https://ntfy.sh` for the official ntfy service.
-    - Provide the URL of an alternative public ntfy service or your self-hosted instance (for example, `https://your-ntfy-instance.com`). 
+    - Provide the URL of an alternative public ntfy service or your self-hosted instance (for example, `https://your-ntfy-instance.com`).
 2. **Topic name**
 
     Determine the topic name you want to publish notifications to.
-    
+
     - Enter a **new topic name** to create a unique channel for notifications.
     - Leave the topic field empty to allow the integration to generate a **random topic name** automatically.
     - Use an **existing topic name** by retrieving it from the ntfy app or the ntfy service's website. Simply copy and paste the topic name into the configuration.
@@ -53,7 +53,7 @@ The ntfy integration can be used to send push notifications from automations and
 
 ## Notifiers
 
-The **ntfy** integration will add a notify entity with the name of the topic. To publish notifications you can use the `notify.send_message` action. To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+The **ntfy** integration will add a notify entity with the name of the topic. To publish notifications, you can use the `notify.send_message` action. To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 
 {% details "Example YAML configuration" %}
