@@ -1139,6 +1139,60 @@ For a summary in a more readable format:
 [@starkillerOG]: https://github.com/starkillerOG
 [@tr4nt0r]: https://github.com/tr4nt0r
 
+## Release 2025.1.2 - January 9
+
+- Fix Météo-France setup in non French cities (because of failed next rain sensor) ([@Quentame] - [#134782]) ([meteo_france docs])
+- Increase cloud backup download timeout ([@ludeeus] - [#134961]) ([cloud docs])
+- Fix ZHA "referencing a non existing `via_device`" warning ([@puddly] - [#135008]) ([zha docs])
+- Catch errors in automation (instead of raise unexpected error) in Overkiz ([@iMicknl] - [#135026]) ([overkiz docs])
+- Fix channel retrieval for Reolink DUO V1 connected to a NVR ([@starkillerOG] - [#135035]) ([reolink docs])
+- Bump aioautomower to 2025.1.0 ([@Thomas55555] - [#135039]) ([husqvarna_automower docs])
+- Bump cookidoo-api to 0.12.2 ([@miaucl] - [#135045]) ([cookidoo docs])
+- Implement upload retry logic in CloudBackupAgent ([@ludeeus] - [#135062]) ([cloud docs])
+- Add jitter to backup start time to avoid thundering herd ([@emontnemery] - [#135065]) ([backup docs])
+- Bump pysuezV2 to 2.0.3 ([@jb101010-2] - [#135080]) ([suez_water docs])
+- Fix Flick Electric Pricing ([@ZephireNZ] - [#135154]) ([flick_electric docs])
+- Update frontend to 20250109.0 ([@bramkragten] - [#135235]) ([frontend docs])
+
+[#134782]: https://github.com/home-assistant/core/pull/134782
+[#134961]: https://github.com/home-assistant/core/pull/134961
+[#135008]: https://github.com/home-assistant/core/pull/135008
+[#135026]: https://github.com/home-assistant/core/pull/135026
+[#135035]: https://github.com/home-assistant/core/pull/135035
+[#135039]: https://github.com/home-assistant/core/pull/135039
+[#135045]: https://github.com/home-assistant/core/pull/135045
+[#135062]: https://github.com/home-assistant/core/pull/135062
+[#135065]: https://github.com/home-assistant/core/pull/135065
+[#135080]: https://github.com/home-assistant/core/pull/135080
+[#135154]: https://github.com/home-assistant/core/pull/135154
+[#135235]: https://github.com/home-assistant/core/pull/135235
+[@Quentame]: https://github.com/Quentame
+[@Thomas55555]: https://github.com/Thomas55555
+[@ZephireNZ]: https://github.com/ZephireNZ
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@iMicknl]: https://github.com/iMicknl
+[@jb101010-2]: https://github.com/jb101010-2
+[@ludeeus]: https://github.com/ludeeus
+[@miaucl]: https://github.com/miaucl
+[@puddly]: https://github.com/puddly
+[@starkillerOG]: https://github.com/starkillerOG
+[abode docs]: /integrations/abode/
+[acaia docs]: /integrations/acaia/
+[adax docs]: /integrations/adax/
+[backup docs]: /integrations/backup/
+[cloud docs]: /integrations/cloud/
+[cookidoo docs]: /integrations/cookidoo/
+[flick_electric docs]: /integrations/flick_electric/
+[frontend docs]: /integrations/frontend/
+[husqvarna_automower docs]: /integrations/husqvarna_automower/
+[meteo_france docs]: /integrations/meteo_france/
+[overkiz docs]: /integrations/overkiz/
+[reolink docs]: /integrations/reolink/
+[suez_water docs]: /integrations/suez_water/
+[zha docs]: /integrations/zha/
+
 [#115483]: https://github.com/home-assistant/core/pull/115483
 [#117355]: https://github.com/home-assistant/core/pull/117355
 [#121371]: https://github.com/home-assistant/core/pull/121371
