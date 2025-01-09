@@ -73,7 +73,7 @@ Camera account username:
     Your camera account username as configured in the Tapo app.
 Camera account password:
   description: |
-    Your camera account password configured for the device in the Tapo app.    
+    Your camera account password configured for the device in the Tapo app.
 
 {% endconfiguration_basic %}
 
@@ -153,7 +153,7 @@ Various hub attached devices are supported such as those providing climate contr
 
 ## Data updates
 
-Devices are polled for data updates every 5 seconds. If an update occurs in Home Assistant, such as switching on a device, then it will update it's data immediately afterward.
+Devices are polled for data updates every 5 seconds. When you make changes through Home Assistant (e.g., switching a device on), the device's state is updated immediately rather than waiting for the next poll.
 The integration connects locally to the devices without going via the TP-Link cloud. This is different from the native Tapo and Kasa apps which will connect to the devices via the TP-Link cloud if the device has access to the internet.
 
 ## Known limitations
@@ -176,13 +176,15 @@ The hub-attached Tapo buttons S200B and S200D, do not currently support alerting
 
 Hub attached cameras will be supported in the future. Due to battery considerations they do not support live view.
 
-### Light effects
+### No light effects on kasa bulbs
 
 Light effects are currently not supported on Kasa bulbs.
 
 ### Kasa power strips
 
 Due to limitations of the devices, the energy monitoring state of Kasa power strip child plugs is only updated every 60 seconds.
+
+If required, you can manually trigger an update via **Developer tools** > **Actions** > **Home Assistant Core Integration: Update entity** passing a list of the child entities.
 
 ## Troubleshooting
 
@@ -218,6 +220,8 @@ This entity has been removed from the integration due to stability issues, calli
 ### Light effect services
 
 There are two services for light effects that can be used in automations.
+
+These are available on devices that support light effects such as bulbs and light strips, except for [kasa bulbs](#no-light-effects-on-kasa-bulbs)
 
 #### Random Effect - Action `tplink.random_effect`
 
