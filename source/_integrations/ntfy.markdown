@@ -18,7 +18,7 @@ The **ntfy** {% term integration %} allows publishing push notifications on [ntf
 
 ## About ntfy
 
-**ntfy** is a simple HTTP-based pub-sub notification service to send notifications to phones or desktops. The official [ntfy](https://ntfy.sh/) service also offers notifications via e-mail or by phone calls using text-to-speech to read the message out loud. As Ntfy is 100% open-source, there are also alternative public ntfy services but can also be self-hosted.
+**ntfy** is a simple HTTP-based pub-sub notification service that allows you to send notifications to phones or desktops. The official [ntfy](https://ntfy.sh/) service also provides additional features, such as notifications via email or phone calls using text-to-speech to read messages aloud. Since ntfy is 100% open-source, you can choose to use alternative public ntfy services or even host your own instance.
 
 ## How you can use this integration
 
