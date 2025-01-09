@@ -10,12 +10,15 @@ ha_domain: onedrive
 ha_codeowners:
   - '@zweckj'
 ha_integration_type: service
+related:
+  - docs: /common-tasks/general/#backups
+    title: Backups
 ---
 
-This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for use with Home Assistant Backups.
+This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for use with [Home Assistant Backups](/common-tasks/general/#backups).
 
 Backups will be created in a folder called `home-assistant\backups` in the `App Folder` of your OneDrive.
-The integration only has access to a application specific `home-assistant` folder in the `App Folder` and cannot access any other parts of your OneDrive.
+The integration only has access to an application specific `home-assistant` folder in the `App Folder` and cannot access any other parts of your OneDrive.
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
