@@ -27,7 +27,7 @@ The ntfy integration can be used to send push notifications from automations and
 ## Prerequisites
 
 1. **Service URL**
-    
+
     To set up the **ntfy** integration, you need the URL of the ntfy service you wish to use.
 
     - Use `https://ntfy.sh` for the official ntfy service.
@@ -54,7 +54,6 @@ The ntfy integration can be used to send push notifications from automations and
 ## Notifiers
 
 The **ntfy** integration will add a notify entity with the name of the topic. To publish notifications, you can use the `notify.send_message` action. To use notifications, please see the [getting started with automation page](/getting-started/automation/).
-
 
 {% details "Example YAML configuration" %}
 
