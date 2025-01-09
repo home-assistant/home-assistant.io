@@ -56,6 +56,12 @@ For example, if you add a pasta recipe, ingredients like "500g pasta" and "2 tom
 
 In contrast, in your "Additional purchases" list, you can freely add items like "Kitchen towels" or "Dish soap", and modify or remove them as needed.
 
+## Button entities
+
+The _clear shopping list_ button entity allows you to clear both the shopping list and additional purchases list, mirroring the functionality available in the Cookidoo app. When triggered, this button will remove all items from both lists.
+
+This button entity will appear automatically in your Home Assistant instance after adding the integration. You can use it in automations or add it to your dashboard using the Button card.
+
 ## Known Limitations
 
 {% important %}
