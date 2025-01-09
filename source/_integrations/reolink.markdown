@@ -361,8 +361,8 @@ The following hubs/NVRs have been tested and confirmed to work with battery-powe
 
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
-- [RLN8-410 NVR](https://reolink.com/product/rln8-410/) (only the latest hardware version N7MB01, older versions might receive the required firmware update later)
-- [RLN16-410 NVR](https://reolink.com/product/rln16-410/) (only the latest hardware version N6MB01, older versions might receive the required firmware update later)
+- [RLN8-410 NVR](https://reolink.com/product/rln8-410/) (only hardware versions N7MB01, N3MB01, N2MB02, or H3MB18. Hardware versions H3MB02 and H3MB16 did not get firmware updates since 2022)
+- [RLN16-410 NVR](https://reolink.com/product/rln16-410/) (only hardware versions N6MB01 or H3MB18. Hardware version H3MB02 did not get firmware updates since 2022)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
 - [NVS8 NVR](https://reolink.com/product/nvs8/) (Retail version of RLN8)
 - [NVS16 NVR](https://reolink.com/product/nvs16/) (Retail version of RLN16)
