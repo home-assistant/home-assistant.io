@@ -1591,7 +1591,7 @@ section#hero .bg-gradient {
 
 
 .vpe-main #timeline[data-event="2"] .timeline .track .icon {
-  --top: calc(var(--grid-m) * (var(--event-height) * 2.5));
+  --top: calc(var(--grid-m) * (var(--event-height) * 2.333));
 }
 
 
