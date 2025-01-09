@@ -61,16 +61,16 @@ Host:
     Hostname or IP address of your TP-Link device.
 Username:
   description: |
-    Your TP-Link cloud username which is the full email and is case-sensitive. Required for Tapo and newer Kasa devices that authenticate.
+    Your TP-Link cloud username which is your *case-sensitive* email address. Required for Tapo and newer Kasa devices.
 Password:
   description: |
-    Your TP-Link cloud password which is case-sensitive. Required for Tapo and newer Kasa devices that authenticate.
+    Your TP-Link cloud password. Required for Tapo and newer Kasa devices.
 Live view:
   description: |
     Checkbox to enable live view will create the live view camera entity for Tapo cameras. Requires your camera account credentials which you set up from the Tapo app under **Device Settings** > **Advanced Settings** > **Camera Account**.
 Camera account username:
   description: |
-    Your camera account username configured for the device in the Tapo app.
+    Your camera account username as configured in the Tapo app.
 Camera account password:
   description: |
     Your camera account password configured for the device in the Tapo app.    
@@ -130,7 +130,13 @@ Depending on the supported features of the camera, you can control various setti
 
 ### Lights
 
-Light entitites are added for bulbs, lightstrips, and dimmer switches. Depending on the supported features of the device, the integrating will allow setting brightness, color, color temperature, and light effects. If light effects are supported by a device, they can be selected from the bottom of the light card. Light presets are also supported and can be set via the config preset drop down on the device page. Depending on the supported features of the device you can control various other configuration settings such as on/off transitions and auto-on/off.
+Light entities are added for bulbs, light strips, and dimmer switches. 
+Depending on the supported features of the device, the integration will allow changing brightness, color, color temperature, and light effects.
+
+If light effects are supported by a device, they can be selected from the bottom of the light card.
+Light presets are also supported and can be set via the config preset drop down on the device page.
+
+Depending on the supported features of the device you can control various other configuration settings such as on/off transitions and auto-on/off.
 
 ### Plugs and switches
 
@@ -140,9 +146,9 @@ Switch entities are added for plugs, simple wall switches and power strips. In a
 
 If a device supports energy monitoring sensors will be created for consumption metrics which can be fed into the Home Assistant energy dashboard.
 
-### Hub attached sensors
+### Hub-attached devices
 
-Various hub attached sensors are supported such as those providing climate control, motion detection, humidity monitoring and water leak detection.
+Various hub attached devices are supported such as those providing climate control, motion detection, humidity monitoring and water leak detection.
 
 
 ## Data updates
@@ -159,7 +165,8 @@ Alternatively, you can factory reset and then prevent the device from accessing 
 
 ### Subnets and discovery
 
-If devices are on a different subnet to Home Assistant, automatic discovery will not work. In this instance it is recommended to add devices by IP address and configure them with static IP addresses to prevent issues when IP addresses change.
+If devices are on a different subnet to Home Assistant, automatic discovery will not work.
+In this instance it is recommended to add devices by IP address and configure them with static IP addresses to prevent issues when IP addresses change.
 
 ### Buttons
 
