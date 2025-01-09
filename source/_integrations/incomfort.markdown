@@ -42,7 +42,7 @@ The hub does not have to be in the same network as HA, but must be reachable via
 
 {% important %}
 
-Some older room thermostats might report the wrong setpoint when the setpoint is manually changed on the room thermostat. Some older room thermostats might report the wrong setpoint when the setpoint is manually changed on the room thermostat. If you encounter this behavior, you can enable `Legacy setpoint handling` option.
+Some older room thermostats might report the wrong setpoint when the setpoint is manually changed on the room thermostat. If you encounter this behavior, you can enable `Legacy setpoint handling` option.
 
 {% endimportant %}
 
