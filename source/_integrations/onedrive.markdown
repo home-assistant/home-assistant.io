@@ -17,7 +17,8 @@ related:
 
 This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for use with [Home Assistant Backups](/common-tasks/general/#backups).
 
-Backups will be created in a folder called `home-assistant\backups` in the `App Folder` of your OneDrive.
+Backups will be created in a folder called `home-assistant\backups_<id>` in the `App Folder` of your OneDrive.
+`id` is part of your Home Assistant instance's unique id to allow backups from multiple instances to the same OneDrive.
 The integration only has access to an application specific `home-assistant` folder in the `App Folder` and cannot access any other parts of your OneDrive.
 
 {% include integrations/config_flow.md %}
@@ -42,8 +43,8 @@ The integration will request the following permissions on your OneDrive for the 
 ## Getting application credentials
 
 This integration comes with a predefined set of [application credentials](https://www.home-assistant.io/integrations/application_credentials/) through Home Assistant account linking. 
-Everything is done in a delegated user context, so nobody will ever have access to your data except you. However, if you want to use your own credentials, 
-follow [this guide](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
+Nobody will ever have access to your data except you, as the app does not have permission to do anything on its own. It only works with a signed in user (it only has `delegated` not `application permissions`). 
+However, if you want to use your own credentials, follow [this guide](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
 
 {% note %}
 You will need an Azure tenant with an active Azure subscription to create your own client credentials.
