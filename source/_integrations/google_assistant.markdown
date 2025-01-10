@@ -27,6 +27,10 @@ For Home Assistant Cloud users, documentation can be found [here](https://www.na
 
 ## Manual setup (if you don't have Home Assistant Cloud)
 
+{% important %}
+Note: The Manual setup procedure is broken due to recent changes in Google Developer Console.  Please follow up here: https://github.com/home-assistant/home-assistant.io/issues/35867
+{% endimportant %}
+
 The Google Assistant integration (without Home Assistant Cloud) requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
 {% important %}
