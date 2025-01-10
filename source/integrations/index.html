@@ -124,7 +124,7 @@ regenerate: false
             {% assign quality_scale_data = quality_scale | split: "," %}
             {% assign quality_icon = quality_scale_data[0] | split: ":" | last %}
             {% assign quality_name = quality_scale_data[1] | split: ":" | last %}
-            {%- assign quality_scale_count = components | where: 'ha_quality_scale', name | size -%}
+            {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_name | size -%}
             {%- if quality_scale_count != 0 -%}
             <option value="{{ quality_name | slugify }}">{{quality_icon}} {{ quality_name | capitalize }}</option>
             {%- endif -%}
