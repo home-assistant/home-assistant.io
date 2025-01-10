@@ -40,7 +40,7 @@ Control Home Assistant:
 
 ## Architecture Overview
 
-This integration can provide similar functionality as other LLM-ased conversation
+This integration can provide similar functionality as other LLM-based conversation
 agents (for example [Anthropic](/integrations/anthropic/), [Google Generative AI](/integrations/google_generative_ai_conversation), [Ollama](/integrations/ollama/), [Open AI](/integrations/openai_conversation/)). In those conversation agents, Home Assistant is the
 client and prepares the available tools and passes them into the LLM with a prompt.
 
