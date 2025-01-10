@@ -12,6 +12,7 @@ ha_domain: voip
 ha_integration_type: integration
 ha_quality_scale: internal
 ha_platforms:
+  - assist_satellite
   - binary_sensor
   - select
   - switch

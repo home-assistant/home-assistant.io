@@ -16,6 +16,7 @@ layout: null
 /feature-requests https://community.home-assistant.io/c/feature-requests
 /issues https://github.com/home-assistant/core/issues
 /community https://community.home-assistant.io/
+/voice /voice_control/builtin_sentences/
 /latest-security-alert /security/
 
 # Link to latest release notes
@@ -400,8 +401,9 @@ layout: null
 /cookbook/#infrastructure /examples/#infrastructure
 /cookbook/#automation-examples /examples
 /cookbook /examples
-/common-tasks/os/#snapshots /common-tasks/os/#backups
-/common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
+/common-tasks/os/#snapshots /common-tasks/general/#backups
+/common-tasks/os/#backups /common-tasks/general/#backups
+/common-tasks/supervised/#snapshots /common-tasks/general/#backups
 /more-info/unsupported/container /more-info/unsupported/software
 /integrations/zigbee /integrations/zha
 /examples /
@@ -605,12 +607,14 @@ layout: null
 /integrations/rpi_gpio_pwm /more-info/removed-integration 301
 /integrations/rpi_pfio /more-info/removed-integration 301
 /integrations/rpi_rf /more-info/removed-integration 301
+/integrations/rtsp_to_webrtc /more-info/removed-integration 301
 /integrations/ruter /more-info/removed-integration 301
 /integrations/salt /more-info/removed-integration 301
 /integrations/sensehat /more-info/removed-integration 301
 /integrations/shiftr /more-info/removed-integration 301
 /integrations/sht31 /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
+/integrations/simulated /more-info/removed-integration 301
 /integrations/smarthab /more-info/removed-integration 301
 /integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
@@ -618,6 +622,7 @@ layout: null
 /integrations/spider /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /integrations/srp_energy /more-info/removed-integration 301
+/integrations/stookalert /more-info/removed-integration 301
 /integrations/synology /more-info/removed-integration 301
 /integrations/sytadin /more-info/removed-integration 301
 /integrations/tahoma /more-info/removed-integration 301

@@ -227,3 +227,14 @@ target:
   entity_id: vacuum.s7_roborock
 
 ```
+
+## Troubleshooting
+
+### I get a invalid or no user agreement error - but nothing shows up in my app
+
+Roborock servers require accepting a user agreement before using the API, which may block Home Assistant during setup. Additionally, the Roborock may ask you to re-enter the user agreement, even if you have entered it before.  To allow Home Assistant to use the Roborock API, you need to take the following steps:
+1. Open your Roborock app.
+2. Open **Profile** > **About Us** > **User Agreement & Privacy Policy**.
+3. Hit **Revoke authorization**.
+4. Log back in and accept the policy.
+5. Reload the Roborock integration!

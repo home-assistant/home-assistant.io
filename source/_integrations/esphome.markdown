@@ -18,6 +18,7 @@ ha_domain: esphome
 ha_zeroconf: true
 ha_platforms:
   - alarm_control_panel
+  - assist_satellite
   - binary_sensor
   - button
   - camera
@@ -41,7 +42,6 @@ ha_platforms:
   - valve
 ha_integration_type: device
 ha_dhcp: true
-ha_quality_scale: platinum
 works_with:
   - local
 ---

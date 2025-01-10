@@ -22,9 +22,23 @@ The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver no
 ### Setup
 
 Go to **Preferences** in the Mastodon web interface, then to **Development** and create a new application.
-If you want to grant only required accesses, uncheck all checkboxes then check only **read:accounts** and **write:statuses**.
+
+Check the following scopes **read:accounts**, **write:statuses** and **write:media**.
+
+Select **Submit** to create the application and generate the key, secret, and token required for the integration.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+URL:
+  description: The URL of your Mastodon instance, for example `https://mastodon.social`.
+Client key:
+  description: The client key for the application created within your Mastodon account web interface.
+Client secret:
+  description: The client secret for the application created within your Mastodon account web interface.
+Access token:
+  description: The access token for the application created within your Mastodon account web interface.
+{% endconfiguration_basic %}
 
 ## Sensors
 
@@ -99,3 +113,13 @@ This will post a message to Mastodon that includes an image and a target of `unl
 ```
 
 For more on how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
+
+## Known limitations
+
+The integration only allows reading the status of the authenticated account and posting to that account. It does not provide functionality to get the stream, favorite, bookmark, or boost posts of that account.
+
+## Removing the integration
+
+This integration follows standard integration removal, once the integration is removed you can remove the application registration (assuming it was only used by this integration) from your Mastodon account by going to **Preferences** in the Mastodon web interface, then to **Development** and deleting the application you created for Home Assistant.
+
+{% include integrations/remove_device_service.md %}

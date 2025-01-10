@@ -1,8 +1,10 @@
 ---
-title: Reolink IP NVR/camera
+title: Reolink
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
 ha_category:
   - Camera
+  - Doorbell
+  - Media source
   - Update
 ha_iot_class: Local Push
 ha_release: 2023.1
@@ -24,6 +26,7 @@ ha_platforms:
   - update
 ha_integration_type: integration
 ha_dhcp: true
+ha_quality_scale: platinum
 related:
   - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
     title: Controlling the camera from the dashboard
@@ -41,22 +44,18 @@ A brand new Reolink camera needs to be connected to the network and initialized.
 - The password used for the Reolink device can only contain characters `a-z, A-Z, 0-9 or @$*~_-+=!?.,:;'()[]`. Other special characters will cause encoding issues in the video streams used by this integration and are, therefore, not allowed. When using an incompatible special character in the password, the integration will prompt you to change the password.
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 Host:
-    description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** -> **Device** (top icon) -> **Networkinformation** -> **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
-    required: false
-    type: string
+  description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** -> **Device** (top icon) -> **Networkinformation** -> **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
 Username:
-    description: "Username to log in to the Reolink device itself. Not the Reolink cloud account."
-    required: true
-    type: string
+  description: "Username to log in to the Reolink device itself. Not the Reolink cloud account."
 Password:
-    description: "Password to log in to the Reolink device itself. Not the Reolink cloud account."
-    required: true
-    type: string
+  description: "Password to log in to the Reolink device itself. Not the Reolink cloud account."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
+
 {% configuration_basic %}
 Protocol:
   description: Switch between <abbr title="real-time streaming protocol">RTSP</abbr>, <abbr title="real-time messaging protocol">RTMP</abbr>, or <abbr title="flash video">FLV</abbr> streaming protocol. <abbr title="real-time streaming protocol">RTSP</abbr> supports 4K streams (h265 encoding) while <abbr title="real-time messaging protocol">RTMP</abbr> and <abbr title="flash video">FLV</abbr> do not. <abbr title="flash video">FLV</abbr> is the least demanding on the camera.
@@ -65,6 +64,12 @@ Protocol:
 ## Asterisk (*) next to entities listed in this documentation
 
 If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#enabling-entities) first.
+
+## Data updates: plus (+) next to entities listed in this documentation
+
+If an entity listed below has a plus (+) next to its name, it means this entity supports push updates. These entities will have almost instant state changes. 
+For redundancy, the state of all entities is also polled every 60 seconds. For entities without a plus (+), this is the only update method. Therefore, a device's state change can take up to 60 seconds to be reflected in Home Assistant.
+An exception is the firmware update entity, which is polled every 12 hours.
 
 ## Supported functionality
 
@@ -86,17 +91,17 @@ Dual lens cameras provide additional streams for the second lens.
 
 Depending on the supported features of the camera, binary sensors are added for:
 
-- Motion detection+
-- Visitor+ (Doorbell presses)
-- AI person detection+
-- AI vehicle detection+
-- AI pet detection+
-- AI animal detection+
-- AI face detection+
-- AI package detection+
-- Sleep status
+- Motion detection++
+- Visitor++ (Doorbell presses)
+- AI person detection++
+- AI vehicle detection++
+- AI pet detection++
+- AI animal detection++
+- AI face detection++
+- AI package detection++
+- Sleep status+
 
-\+ These sensors receive events using the following 4 methods (in order): TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
+\++ These sensors receive events using the following 4 methods (in order): TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for TCP push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
@@ -190,8 +195,14 @@ Depending on the supported features of the camera, select entities are added for
 - Auto track method (Digital, Digital first, Pan/Tilt first)
 - Doorbell LED (Stay off, Auto, Auto & always on at night)
 - HDR* (Off, On, Auto)
+- Binning mode* (Off, On, Auto)
+- Clear frame rate*
+- Fluent frame rate*
+- Clear bit rate*
+- Fluent bit rate*
 - Chime motion ringtone
 - Chime person ringtone
+- Chime vehicle ringtone
 - Chime visitor ringtone
 - Hub alarm ringtone
 - Hub visitor ringtone
@@ -255,7 +266,7 @@ The **PTZ patrol** positions first need to be configured using the Reolink [app]
 
 Depending on the supported features of the camera, light entities are added for:
 
-- Floodlight
+- Floodlight+
 - Status LED
 
 When the **floodlight** entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see the **Floodlight mode** select entity.
@@ -265,19 +276,19 @@ When the **floodlight** entity is ON always ON, when OFF controlled based on the
 Depending on the supported features of the camera, the following sensor entities are added:
 
 - PTZ pan position
+- PTZ tilt position
 - Wi-Fi signal*
 - CPU usage*
 - HDD/SD storage*
-- Battery percentage
-- Battery temperature*
-- Battery state* (discharging, charging, charge complete)
+- Battery percentage+
+- Battery temperature*+
+- Battery state*+ (discharging, charging, charge complete)
 
 ### Update entity
 
 An update entity is available that checks for firmware updates every 12 hours.
-This does the same as pressing the "Check for latest version" in the Reolink applications.
-Unfortunately this does not always shows the latest available firmware (also not in the Reolink applications).
-The latest firmware can be downloaded from the [Reolink download center](https://reolink.com/download-center/) and uploaded to the camera/NVR manually.
+Updates are checked both through the camera API and directly from the [Reolink download center](https://reolink.com/download-center/).
+Therefore the update entity in Home Assistant can find and install a firmware update from the [Reolink download center](https://reolink.com/download-center/) while the Reolink app/windows/web client does not always find this update.
 
 ### Media browser for playback of recordings
 
@@ -286,6 +297,8 @@ In the sidebar, select "Media" > "Reolink" and select the **camera** of which yo
 Recordings up to 1 month old can be viewed in Home Assistant.
 
 ## Tested models
+
+### Tested directly connected models
 
 The following models have been tested and confirmed to work with a direct link to Home Assistant:
 
@@ -326,6 +339,8 @@ The following models have been tested and confirmed to work with a direct link t
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
 - [RLN12W NVR](https://reolink.com/product/rln12w/)
+- [NVS8 NVR](https://reolink.com/product/nvs8/) (Retail version of RLN8)
+- [NVS16 NVR](https://reolink.com/product/nvs16/) (Retail version of RLN16)
 - [Reolink Chime](https://reolink.com/product/reolink-chime/) (when connected to a doorbell)
 - [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
@@ -340,13 +355,17 @@ The following models have been tested and confirmed to work with a direct link t
 
 ### Tested battery-powered models
 
-Battery-powered Reolink cameras can be used with Home Assistant with the help of a [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/) or NVR ([RLN8-410 N7MB01](https://reolink.com/product/rln8-410/)). The Home Hub/NVR will act as a bridge between the battery-powered cameras and Home Assistant, conserving the battery life. All features of the battery-powered cameras will be available just like regular-powered cameras. Viewing the camera stream in Home Assistant will keep the battery camera awake during viewing, consuming battery life. Therefore, ensure you do not use the camera stream on a dashboard that is constantly being viewed, like a wall panel dashboard. You can check proper operation by ensuring that the "Sleep status" entity will go to "Sleeping" if the battery camera is not being actively used.
+Battery-powered Reolink cameras can be used with Home Assistant with the help of a [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/) or NVR. The Home Hub/NVR will act as a bridge between the battery-powered cameras and Home Assistant, conserving the battery life. All features of the battery-powered cameras will be available just like regular-powered cameras. Viewing the camera stream in Home Assistant will keep the battery camera awake during viewing, consuming battery life. Therefore, ensure you do not use the camera stream on a dashboard that is constantly being viewed, like a wall panel dashboard. You can check proper operation by ensuring that the "Sleep status" entity will go to "Sleeping" if the battery camera is not being actively used.
 
 The following hubs/NVRs have been tested and confirmed to work with battery-powered models in Home Assistant:
 
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
-- [RLN8-410 NVR](https://reolink.com/product/rln8-410/) (only the latest hardware version N7MB01, older versions might receive the required firmware update later)
+- [RLN8-410 NVR](https://reolink.com/product/rln8-410/) (only hardware versions N7MB01, N3MB01, N2MB02, or H3MB18. Hardware versions H3MB02 and H3MB16 did not get firmware updates since 2022)
+- [RLN16-410 NVR](https://reolink.com/product/rln16-410/) (only hardware versions N6MB01 or H3MB18. Hardware version H3MB02 did not get firmware updates since 2022)
+- [RLN36 NVR](https://reolink.com/product/rln36/)
+- [NVS8 NVR](https://reolink.com/product/nvs8/) (Retail version of RLN8)
+- [NVS16 NVR](https://reolink.com/product/nvs16/) (Retail version of RLN16)
 
 The following battery-powered models have been tested and confirmed to work through the Reolink Home Hub/NVR:
 
@@ -366,6 +385,30 @@ However, these cameras can work with this integration through an NVR or Home Hub
 - E1 Pro
 - E1
 - Reolink Lumus
+- B400*
+- B500*
+- B500W*
+- B800*
+- B800W*
+- B1200*
+- D400*
+- D500*
+- D800*
+- D1200*
+
+*These models are only sold as a kit which includes a NVR.
+
+### Incompatible models
+
+Reolink LTE cameras do not work with this integration.
+
+- Reolink Go Plus
+- Reolink Go PT Plus
+- Reolink Go PT Ultra
+- Reolink Go Ranger PT
+- Reolink Go Ultra
+- Reolink TrackMix LTE
+- Reolink TrackMix LTE Plus
 
 ## Initial setup
 
@@ -407,10 +450,195 @@ Then power up the camera while pointing it at the QR code. It takes about a minu
 
 Set up the Reolink integration in Home Assistant using the credentials you set in step 1.
 
-## Showing the camera in the dashboard
+## Remove integration
 
-1. One way to show the camera in the dashboard is by using the picture glance card.
-2. For example, you can place arrow buttons on the card to [control the camera](/dashboards/picture-glance/#creating-a-card-to-control-the-camera).
+### Removing a directly connected camera/NVR/Home Hub
+
+Removing a directly connected camera/NVR/Home Hub can be done by removing the integration following these steps:
+
+{% include integrations/remove_device_service_steps.md %}
+
+This will also remove all cameras/chimes connected to the NVR/Home Hub from Home Assistant.
+
+### Removing a camera from a NVR/Home Hub
+
+Removing a camera from a NVR/Home Hub can be done by deleting the device following these steps:
+
+1. First physically disconnect the ethernet cable of the camera from the NVR if the camera is directly connected to the NVR (PoE).
+2. Then remove the camera from the NVR/Home Hub following the [NVR instructions](https://support.reolink.com/hc/en-us/articles/900003769346-How-to-delete-offline-camera-information-on-Channel-Management-Page-via-Reolink-NVR-New-UI-/) or [Home Hub instructions](https://support.reolink.com/hc/en-us/articles/33883674141977-How-to-Change-Camera-Order-Remove-Device-from-Reolink-Home-Hub/).
+3. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
+4. From the list of integration entries, select the **x devices** underneath the integration instance of the NVR/Home Hub from which you want to remove a camera.
+5. Select the camera you want to remove from the list of devices
+6. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+
+### Removing a chime
+
+Removing a chime from a doorbell can be done by deleting the chime following these steps:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
+2. From the list of integration entries, select the **x devices** underneath the integration instance of the Doorbell/NVR/Home Hub from which you want to remove a chime.
+3. Select the chime you want to remove from the list of devices
+4. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+
+This will also decouple the chime from the doorbell in the Reolink app/client. Therefore, the chime will no longer ring when the doorbell is pressed.
+
+## Examples
+
+### Showing the camera in the dashboard
+
+One way to show the camera in the dashboard is by using the picture glance card.
+For example, you can place arrow buttons on the card to [control the camera](/dashboards/picture-glance/#creating-a-card-to-control-the-camera).
+
+### Sending rich notifications
+
+You can receive rich notifications on your phone when someone rings a Reolink doorbell or a Reolink camera detects an event like motion or a person.
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__small_notification.jpg' alt='Screenshot: Small phone notification'>
+  <img src='/images/integrations/reolink/rich_notification__big_notification.jpg' alt='Screenshot: Expanded phone notification'>
+</p>
+
+{% details "Rich notification tutorial" icon="mdi:cursor-hand" %}
+
+Prerequisites:
+
+- This [Reolink integration](#configuration)
+- [Android or iOS companion app](https://companion.home-assistant.io/docs/getting_started#setting-up)
+- [Remote access to Home Assistant](https://www.home-assistant.io/docs/configuration/remote/). Although you can receive text notifications without remote access, to see the camera image in the notification (rich notification), the phone needs to be able to reach Home Assistant. The rich notification will always work, even without remote access, when the phone is on the same network as Home Assistant.
+
+1. In order to receive such a rich notification, we are going to make an automation in Home Assistant. In Home Assistant go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
+
+![Settings button](/images/integrations/reolink/rich_notification__settings.png)
+![Automations & scenes button](/images/integrations/reolink/rich_notification__automations_and_scenes.png)
+![Create automation button](/images/integrations/reolink/rich_notification__create_automation.png)
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__new_automation.png' alt='Screenshot: new automation'>
+</p>
+
+2. Under **When**, select: **Add trigger** > **Entity** > **State**.
+
+![Add trigger](/images/integrations/reolink/rich_notification__add_trigger.png)
+![Entity](/images/integrations/reolink/rich_notification__entity.png)
+![State](/images/integrations/reolink/rich_notification__state.png)
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__new_trigger.png' alt='Screenshot: new trigger'>
+</p>
+
+  Then under **Entity**, select the binary sensor from the drop-down list corresponding to the camera event for which you want to receive a rich notification. For the Reolink integration the options are:
+
+    - binary_sensor.*camera name*_motion
+    - binary_sensor.*camera name*_person
+    - binary_sensor.*camera name*_vehicle
+    - binary_sensor.*camera name*_pet
+    - binary_sensor.*camera name*_animal
+    - binary_sensor.*camera name*_visitor (doorbell press)
+    - binary_sensor.*camera name*_package
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__entity_select.png' alt='Screenshot: Entity select'>
+</p>
+
+  Note that these entity names will be translated into the language you configured Home Assistant in. You can type to search through all your entities. You can add multiple triggers if you want to send the same message for multiple camera events like person and vehicle detection. You can also create multiple automations with different messages for each event. In this case, we chose the visitor detection for doorbell presses:
+
+3. Under **To** select the state in which the event is detected: for visitor **On** for the other sensors **Detected**:
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__state_select.png' alt='Screenshot: State select'>
+</p>
+
+4. Under **And if** you can **optionally** limit when the notifications need to be sent.
+
+- For instance only when you are not home. The companion app will provide a device_tracker entity based on the GPS of your phone if you allow location tracking during the setup of the app. We will use this as an example but you can add as many conditions as you like:
+
+  Select **+ Add Condition** > **Entity** > **State**. Then under **Entity** select the device_tracker entity of your phone and under **State** select **Home**.
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__device_tracker_condition.png' alt='Screenshot: Device tracker condition'>
+</p>
+
+- If you want to limit the amount of notifications being sent using a cooldown time you can use the following template condition:
+
+  Select **Add Condition** again > **Other conditions** > **Template**. Then, under **Value template**, type the following:
+
+{% raw %}
+
+```yaml
+{{as_timestamp(now()) - as_timestamp(state_attr('automation.reolink_push', 'last_triggered'), 0) > 30}}
+```
+
+{% endraw %}
+
+  The `automation.reolink_push` is the name of this automation, which will be set under step 7, and the `30` is the cooldown time in seconds.
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__cooldown_time_condition.png' alt='Screenshot: cooldown time condition'>
+</p>
+
+5. Under **Then do**, select **Add Action** > **Camera** > **Take snapshot**.
+
+![Add action button](/images/integrations/reolink/rich_notification__add_action.png)
+![Camera button](/images/integrations/reolink/rich_notification__camera.png)
+![Take snapshot button](/images/integrations/reolink/rich_notification__take_snapshot.png)
+
+  Under **Targets**, select **Choose entity** and select the camera for which you want to add the image to the notification.
+
+![Choose entity button](/images/integrations/reolink/rich_notification__chose_entity.png)
+![Select Fluent camera](/images/integrations/reolink/rich_notification__select_fluent_camera.png)
+
+  Under **Filename**, fill in `/config/www/reolink_snapshot/last_snapshot_doorbell.jpg`. The first part `/config/www/` is absolutely necessary to allow your phone to access the saved image when it receives the notification. The reset of the folder and filename can be changed at will as long as you fill in the same filename under step 6.
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__screenshot_take_snapshot.png' alt='Screenshot: take snapshot'>
+</p>
+
+6. Add another action underneath by selecting **Add Action** > **Notifications** > **Send a notification via mobile_app_<phone name>**.
+
+![Add action button](/images/integrations/reolink/rich_notification__add_action.png)
+![Notifications button](/images/integrations/reolink/rich_notification__notifications.png)
+![Send a notification via mobile app](/images/integrations/reolink/rich_notification__send_to_mobile_button.png)
+
+  Under **message**, type the text you want to receive in the notification. For instance, “Someone rang the doorbell”.
+  If you want to give the notification a title, select the **title** option. For instance, if you have multiple cameras that send you notifications, select the camera name: `Doorbell`.
+  Select the **data** option and fill in `image: /local/reolink_snapshot/last_snapshot_doorbell.jpg`. Note that `/config/www/` of the filename of step 5 now needs to be changed to `/local/`. The rest of the filename needs to be the same as in step 5.
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__send_to_mobile.png' alt='Screenshot: send notification'>
+</p>
+
+  You can personalize the notification further and even control what happens if you tap the notification on your phone, [read more about this here](https://companion.home-assistant.io/docs/notifications/notifications-basic/).
+
+7. Select **Save**, give your automation a name like `doorbell notification`, and select **save** again.
+
+![Save](/images/integrations/reolink/rich_notification__save.png)
+
+  You are all set, ring your doorbell and see the notification on your phone. Remember the conditions under **And if** need to be met, otherwise you will not receive the notification.
+
+{% enddetails %}
+
+### Automation ideas
+
+- Turn on (outdoor) lights near the camera to improve image clarity at night once the camera detects a person, vehicle, or animal.
+- Turn off notifications and recording when you get home (based on, e.g., geofencing) and turn it back on when you leave home.
+- When someone presses the doorbell, play ringtones on speakers (Echo Dot/Google Home/smart hubs) throughout the house.
+- Pause a TV and show a notification badge on the TV when the doorbell is pressed (only when the TV is already on).
+- Play the quick replay messages of a Reolink doorbell only when not home (geofencing)
+- Wake up and start recording on other battery cameras nearby if one camera/motion sensor detects an event.
+- Turn on the spotlights or sirens of other cameras nearby when one camera detects a person, vehicle, or animal.
+- If a camera detects a person/vehicle/animal, then point other PTZ cameras in that direction using PTZ presets.
+- Switch day night mode (Color/IR Black&White) based on sunset/sunrise times or the status of (outdoor) lights instead of relying on the internal light sensor.
+- Change the camera volume based on the time and/or when you are home or not (geofencing)
+- Increase the framerate and maximum bitrate of a camera when a person/vehicle/animal is detected and lower them again after 1 minute of no detection. This saves storage space, so you can record longer when recording 24/7 without compromising image clarity during events.
+- Turn on indoor lights close to windows in a sequence with some time delays if a camera detects a person to make it look like someone is home.
+- Show a camera stream on a full screen on a wall panel, tablet, or Google Home display when someone rings the doorbell.
+- Switch HDR mode of the camera based on sunset/sunrise
+- Make an input boolean helper to easily disable notifications on all cameras and automatically enable notifications again after 1 hour.
+
+## Known limitations
+
+- 2-way audio or Text-to-speech is not available in the Reolink Home Assistant integration.
+- The 4K camera streams are H265 encoded, support for playing H265 encoding in browsers (Chrome/Firefox/Edge/Safari etc.) is still very limited, therefore the 4K clear stream may not play in all browsers or on all phones in the Home Assistant Companion app. By default only the lower resolution Fluent camera entity is enabled in Home Assistant. This Fluent stream is H264 encoded and will play on any browser or phone.
 
 ## Troubleshooting
 

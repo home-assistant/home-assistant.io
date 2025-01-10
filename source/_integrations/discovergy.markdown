@@ -29,6 +29,12 @@ The integration supports the following meters within Home Assistant:
 For this {% term integration %}, you need a inexogy smart meter, a [inexogy account](https://my.inexogy.com/) and your credentials.
 
 {% include integrations/config_flow.md %}
+{% configuration_basic %}
+"Email address":
+  description: "Email address to connect Home Assistant to your inexogy account"
+Password:
+  description: "Password for the account to connect Home Assistant to inexogy"
+{% endconfiguration_basic %}
 
 ## Electricity meter
 
@@ -40,3 +46,9 @@ In case you have a combined meter for consumption and production, the all-time t
 ## Gas meter
 
 A Sensor {% term entity %} is being added for total gas consumption.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
