@@ -59,7 +59,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Automatic blind spot camera|No|
 |Binary sensor|Automatic emergency braking off|No|
 |Binary sensor|Battery heater|No|
-|Binary sensor|Binary spot collision warning chime|No|
+|Binary sensor|Blind spot collision warning chime|No|
 |Binary sensor|BMS full charge|No|
 |Binary sensor|Brake pedal|No|
 |Binary sensor|Cabin overheat protection actively cooling|No|
