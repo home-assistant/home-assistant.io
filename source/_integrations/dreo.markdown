@@ -19,6 +19,7 @@ The following platforms are supported:
 - **fan**
 
 ## Supported devices
+
 This integration supports devices controllable by the Dreo App.  The following devices are supported by this integration:
 
 ### Fans
@@ -33,6 +34,7 @@ This integration supports devices controllable by the Dreo App.  The following d
 - DR-HTF010S: Tower Fan
 
 ## Prerequisite
+
 Before you can use this integration, all devices must be registered with the
 Dreo App. Once registration is complete, you can add the Dreo integration in Home Assistant through the UI.
 
@@ -44,8 +46,8 @@ Dreo App. Once registration is complete, you can add the Dreo integration in Hom
 4. **Initiate Setup**: Once you've located the Dreo integration, click on it to start the setup wizard. Follow the on-screen prompts to authorize Home Assistant to access your Dreo App account. This will involve logging into your Dreo App credentials within the Home Assistant setup flow.
 5. **Complete Setup**: After providing the necessary information and authorizing the connection, the integration should be set up successfully. You should then be able to control your Dreo devices from within Home Assistant.
 
-
 ## Fan exposed attributes
+
 Dreo Tower Fan will expose the following details depending on the features supported by the model:
 
 | Attribute | Description                                                  | Example |
@@ -57,11 +59,14 @@ Dreo Tower Fan will expose the following details depending on the features suppo
 All attributes are supported by models: DR-HTF001S/002S/004S/005S/007S/008S/009S/010S
 
 ## Troubleshooting
+
 ### Device not discovered
+
 - **Check Dreo App Connection**: Ensure that your devices are properly connected to the Dreo App. Try restarting the Dreo App and checking if the devices are still visible and controllable within it. If not, re-pair the devices with the Dreo App following the app's official pairing instructions.
 - **Home Assistant Network Issues**: Make sure that your Home Assistant instance has network access. You can test this by trying to access other online services from within Home Assistant (for example, checking the weather integration if it's set up). If there are network problems, troubleshoot your Home Assistant's network connection, which may involve checking your router settings, Wi-Fi passwords, or Ethernet connections.
 - **Permissions**: Double-check that you've granted all the necessary permissions during the integration setup process. Incorrect permissions can prevent Home Assistant from discovering your Dreo devices.
 
 ### Inability to control devices
+
 - **Device State Sync**: Sometimes, the device state may not sync correctly between the Dreo App and Home Assistant. Try toggling the device on/off, changing the mode, or adjusting the speed from within the Dreo App, and then refreshing the device page in Home Assistant to see if the state updates.
 - **App Version Mismatch**: Ensure that both the Dreo App and Home Assistant are running up-to-date versions. An outdated version of either software could lead to compatibility issues and control problems. Update the Dreo App from the official app store for your device, and check for Home Assistant updates in the Home Assistant UI's update section.
