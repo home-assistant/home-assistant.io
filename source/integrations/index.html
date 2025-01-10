@@ -212,7 +212,7 @@ integrations.pop(); // remove placeholder element at the end
         return a.titleLC.localeCompare(b.titleLC);
       });
 
-      //add these to the window for dynamic grabbing in matchSelectToURL()
+      //add these to the window for dynamic grabbing in matchFilterElementToQuery()
       window.$catFilter = document.querySelector('.integration-filter select[data-id="cat"]');
       window.$versionFilter = document.querySelector('.integration-filter select[data-id="version"]');
       window.$iot_classFilter = document.querySelector('.integration-filter select[data-id="iot_class"]');
@@ -554,7 +554,10 @@ integrations.pop(); // remove placeholder element at the end
     function updateFilterElements(queryFilter) {
 
       let filterElements = [...document.querySelectorAll('.integration-filter select, input.search, .integration-filter input')];
-      let activeFilterElements = filterElements.filter(el => !(el.value === '#' || el.value === '' || el.checked === false));
+      let activeFilterElements = filterElements.filter(el => !(el.value === '#' || el.value === '' || (el.id !== 'search' && el.checked === false) ));
+
+      console.log(filterElements)
+       console.log(activeFilterElements);
 
       if (queryFilter === null) {
         // resetFilterElements will match elements to query string filter in url
