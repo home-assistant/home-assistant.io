@@ -51,6 +51,7 @@ Dreo Tower Fan will expose the following details depending on the features suppo
 | `mode`    | The current mode the device is in. | "manual", "auto", "sleep" |
 | `speed`   | The current speed setting (1-4). | 1 |
 | `oscillate` | Whether oscillation is enabled. | true/false |
+
 All attributes are supported by models: DR-HTF001S/002S/004S/005S/007S/008S/009S/010S
 
 ## Troubleshooting
