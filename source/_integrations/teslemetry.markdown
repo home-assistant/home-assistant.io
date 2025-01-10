@@ -56,9 +56,15 @@ These are the entities available in the Teslemetry integration. Not all entities
 
 |Domain|Name|Enabled|
 |---|---|---|
+|Binary sensor|Automatic blind spot camera|No|
+|Binary sensor|Automatic emergency braking off|No|
 |Binary sensor|Battery heater|No|
-|Binary sensor|Cabin overheat protection actively cooling|No|
+|Binary sensor|Blind spot collision warning chime|No|
+|Binary sensor|BMS full charge|No|
+|Binary sensor|Brake pedal|No|
+|Binary sensor|Cabin overheat protection active|No|
 |Binary sensor|Charge cable|Yes|
+|Binary sensor|Charge port cold weather mode|No|
 |Binary sensor|Charger has multiple phases|No|
 |Binary sensor|Dashcam|No|
 |Binary sensor|Front driver door|Yes|
@@ -72,6 +78,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Rear passenger door|Yes|
 |Binary sensor|Rear passenger window|Yes|
 |Binary sensor|Scheduled charging pending|No|
+|Binary sensor|Service mode|No|
 |Binary sensor|Status|Yes|
 |Binary sensor|Tire pressure warning front left|No|
 |Binary sensor|Tire pressure warning front right|No|
