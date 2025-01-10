@@ -24,7 +24,9 @@ regenerate: false
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
 {%- assign categories = components | map: 'ha_category' | join: ',' | downcase | split: ',' | uniq | sort -%}
 {%- assign iot_classes = "Local Push,Local Polling,Cloud Push,Cloud Polling,Assumed State,Calculated,Configurable" | join: ',' | join: ',' | split: ',' -%}
-{%- assign quality_scales = "platinum,gold,silver,internal" | join: ',' | join: ',' | split: ',' -%}
+{% assign quality_scales =
+  "icon:🏆,name:platinum|icon:🥇,name:gold|icon:🥈,name:silver|icon:🥉,name:bronze|icon:🏠,name:internal|icon:💾,name:legacy" | split: "|"
+%}
 
 <div class="grid">
 
@@ -119,9 +121,12 @@ regenerate: false
         <select class="ha_category" name="quality_scales" data-id="quality_scale">
           <option value="#">All</option>
           {%- for quality_scale in quality_scales -%}
-            {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_scale | size -%}
+            {% assign quality_scale_data = quality_scale | split: "," %}
+            {% assign quality_icon = quality_scale_data[0] | split: ":" | last %}
+            {% assign quality_name = quality_scale_data[1] | split: ":" | last %}
+            {%- assign quality_scale_count = components | where: 'ha_quality_scale', name | size -%}
             {%- if quality_scale_count != 0 -%}
-            <option value="{{ quality_scale | slugify }}">{{ quality_scale | capitalize }}</option>
+            <option value="{{ quality_name | slugify }}">{{quality_icon}} {{ quality_name | capitalize }}</option>
             {%- endif -%}
           {%- endfor -%}
         </select>
