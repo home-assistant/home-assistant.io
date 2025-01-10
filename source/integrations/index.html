@@ -556,9 +556,6 @@ integrations.pop(); // remove placeholder element at the end
       let filterElements = [...document.querySelectorAll('.integration-filter select, input.search, .integration-filter input')];
       let activeFilterElements = filterElements.filter(el => !(el.value === '#' || el.value === '' || (el.id !== 'search' && el.checked === false) ));
 
-      console.log(filterElements)
-       console.log(activeFilterElements);
-
       if (queryFilter === null) {
         // resetFilterElements will match elements to query string filter in url
         resetFilterElements(activeFilterElements);
