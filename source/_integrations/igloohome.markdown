@@ -1,6 +1,6 @@
 ---
 title: igloohome
-description: Integrates igloohome devices via the igloodeveloper API.
+description: Integrates igloohome smart access devices.
 ha_category:
   - Sensor
 ha_release: 2025.2
@@ -14,12 +14,12 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **igloohome** {% term integration %} grants Home Assistant access to paired [smart access device\(s\)](https://www.igloohome.co/#products) with the following features:
+The **igloohome** {% term integration %} grants Home Assistant access to paired [smart access device\(s\)](https://www.igloohome.co/#products) via the igloodeveloper API. The features of this integration includes:
 
-- [Bridge](https://www.igloohome.co/products/bridge) owners:
+- For [Bridge](https://www.igloohome.co/products/bridge) owners:
   - Regular updates of all linked devices' battery level.
 
-- Non-bridge owners:
+- For non-bridge owners:
   - Regular updates of devices' last-known battery level.
     - Battery levels are updated by using the sync function on igloohome mobile app with the device.
 
