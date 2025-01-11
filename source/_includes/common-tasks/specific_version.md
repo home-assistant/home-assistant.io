@@ -20,7 +20,7 @@ ha core update --version {{current_version}} --backup
 
 _The_ `--backup` _flag here ensures that you have a partial backup of your current setup in case you need to downgrade later._
 
-To downgrade your installation, do a [partial restore of a backup](/common-tasks/os/#backups) instead.
+To downgrade your installation, do a [partial restore of a backup](/common-tasks/general/#backups) instead.
 
 {% elsif page.installation == "container" %}
 

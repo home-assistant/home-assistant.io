@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_domain: ohme
 ha_platforms:
   - sensor
+  - switch
   - button
 ---
 
@@ -70,6 +71,18 @@ The Ohme integration provides the following entities.
 - **CT current**
   - **Description**: If a current transformer (CT) was installed with your charger, this will show the current used by your whole home.
   - **Available for devices**: Home Pro, ePod
+
+#### Switches
+
+- **Lock buttons**
+  - **Description**: Disable the controls on the device.
+  - **Available for devices**: all
+- **Require approval**
+  - **Description**: Require approval every time a vehicle is plugged in.
+  - **Available for devices**: Home Pro
+- **Sleep when inactive**
+  - **Description**: Turn off the screen of the device after a few minutes of inactivity.
+  - **Available for devices**: Home Pro
 
 ## Actions
 

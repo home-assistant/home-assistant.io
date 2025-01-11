@@ -5,6 +5,7 @@ ha_category:
   - Calendar
   - Sensor
   - To-do list
+  - Image
 ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_domain: habitica
@@ -16,6 +17,7 @@ ha_platforms:
   - sensor
   - switch
   - todo
+  - image
 ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
@@ -96,6 +98,10 @@ Verify SSL certificate:
 
 - **Pending quest invitation**: Indicates if you have an invitation to a quest awaiting your response.
   
+## Image
+
+- **Avatar**: Displays your character's current avatar (note: animated avatars are currently not supported and will be displayed as static images).
+
 ## To-do lists
 
 The following Habitica tasks are available as to-do lists in Home Assistant. You can add, delete, edit and check-off completed tasks
