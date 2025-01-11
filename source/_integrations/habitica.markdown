@@ -93,6 +93,11 @@ Verify SSL certificate:
 - **Gems**: Shows the total number of gems currently owned by your Habitica character, used for purchasing items and customizations.
 - **Mystic hourglasses**: Displays the number of mystic hourglasses earned as a subscriber, which can be redeemed for exclusive items from past events.
 - **Strength, intelligence, constitution, perception**: Display your character's attribute points (stats). The sensors' attributes provide a breakdown of contributions from level, battle gear, class equip bonus, allocation, and buffs.
+- **Eggs**: Shows the total number of eggs in your inventory. The sensor's attributes provide a detailed list of each egg type and quantity.
+- **Pet food**: Displays the total amount of food available. The sensor's attributes list each food type and its quantity. Feed it to your pets and they may grow into a sturdy steed.
+- **Saddles**: Indicates the number of saddles owned, used for instantly raising pets to mounts.
+- **Hatching potions**: Shows the total count of available hatching potions. The sensor's attributes detail each potion type and quantity. Pour them on an egg to hatch a pet.
+- **Quest scrolls**: Displays the total number of quest scrolls in your inventory. A list of each quest scroll and its quantity is provided in the sensor's attributes.
 
 ## Binary sensors
 
