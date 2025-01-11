@@ -91,7 +91,7 @@ Some systems may not come with Bluetooth and require a USB adapter. Installing a
 
 If you experience an unreliable Bluetooth connection, installing a short USB extension cable between your Bluetooth adapter and your Home Assistant server may improve reliability.
 
-The Bluetooth integation developers primarily use a Feasycom FSC-BP119 (CSR8510A10) 📶 for development and testing.
+The Bluetooth integration developers primarily use a Feasycom FSC-BP119 (CSR8510A10) 📶 for development and testing.
 
 ### Known working high-performance adapters
 
