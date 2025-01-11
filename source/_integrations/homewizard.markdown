@@ -36,7 +36,7 @@ Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It
 
 You have to enable the local API to allow Home Assistant to communicate with your device. Do this in the HomeWizard Energy app:
 
-{% tio %}
+{% tip %}
 If your Wi-Fi P1 Meter is running firmware version 6 or higher, you can skip this step. This version uses a different authentication method that doesn't require enabling the local API.
 {% endtip %}
 
