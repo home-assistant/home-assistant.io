@@ -134,7 +134,7 @@ These adapters may require additional patch files available at <a href="https://
 There is currently no supported method to install these patch files when using Home Assistant Operating System.
 {% endwarning %}
 
-{% details %}
+{% details "Broadcom (BCM) based adapters" %}
   
 - ASUS USB-BT400 (BCM20702A0)
 - Cable Matters 604002-BLK (BCM20702A0)
@@ -192,7 +192,7 @@ Known working adapters list adapters that do not meet high-performance requireme
 These adapters do not have a reset pin. If they stop responding, there is currently no way for the kernel to reset them automatically. A generic USB reset for these adapters has been introduced in Linux kernel 6.1 and later.
 {% endwarning %}
 
-{% details %}
+{% details "Realtek RTL8761BU adapters" %}
 
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)
@@ -218,7 +218,7 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 
 ### Unsupported adapters
 
-{% details %}
+{% details "Unsupported adapters" %}
 
 - Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
 - BASEUS BR8651A01 BA04 - Advertisement drops out
