@@ -369,12 +369,12 @@ slave:
   description: "Identical to `device_address`"
   required: false
   type: integer
-  default: 0
+  default: 1
 device_address:
-  description: "Id of the device. Used to address multiple devices on a rs485 bus or devices connected to a modbus repeater."
+  description: "Id of the device. Used to address multiple devices on a rs485 bus or devices connected to a modbus repeater. 0 is the broadcast id. "
   required: false
   type: integer
-  default: 0
+  default: 1
 unique_id:
   description: "ID that uniquely identifies this entity.
   Slaves will be given a unique_id of <<unique_id>>_<<slave_index>>.
