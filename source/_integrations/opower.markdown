@@ -120,10 +120,19 @@ In the configuration of the energy dashboard (**{% my config_energy title="Setti
 
 For electricity:
 
-1. Select **Add consumption** for the **Electricity grid**.
+1. Select **Add consumption** under **Electricity grid**.
 2. Select **Opower {utility name} elec {account number} consumption** for the **consumed energy**.
 3. Select the radio button to **Use an entity tracking the total costs**.
-4. Select **Opower {utility name} elec {account number} cost** for the **entity with the total costs**.
+4. Select **Opower {utility name} elec {account number} cost** for **entity with the total costs**.
+
+{% details "Track return to grid energy and compensation" %}
+
+1. Select **Add return** under **Electricity grid**.
+2. Select **Opower {utility name} elec {account number} return** for **energy returned to the grid**.
+3. Select the radio button to **Use an entity tracking the total received money**.
+4. Select **Opower {utility name} elec {account number} compensation**.
+
+{% enddetails %}
 
 Your **Configure grid consumption** should now look like this:
 ![Screenshot configure grid consumption](/images/integrations/opower/configure_grid_consumption.png)
