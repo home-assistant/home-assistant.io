@@ -191,7 +191,7 @@ Known working adapters list adapters that do not meet high-performance requireme
 #### Realtek RTL8761BU adapters
 
 {% warning %}
-These adapters do not have a reset pin. If they stop responding, there is currently no way for the kernel to reset them automatically. A generic USB reset for these adapters has been introduced in Linux kernel 6.1 and later.
+These adapters do not have a reset pin. When they stop responding, there is currently no way for the kernel to reset them automatically, and they may have to be physically unplugged and replugged to restore operation.
 {% endwarning %}
 
 {% details "Realtek RTL8761BU adapters" %}
