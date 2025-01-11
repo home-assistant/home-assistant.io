@@ -133,6 +133,8 @@ These adapters may require additional patch files available at <a href="https://
   
 There is currently no supported method to install these patch files when using Home Assistant Operating System.
 {% endwarning %}
+
+{% details %}
   
 - ASUS USB-BT400 (BCM20702A0)
 - Cable Matters 604002-BLK (BCM20702A0)
@@ -146,6 +148,8 @@ There is currently no supported method to install these patch files when using H
 - SoundBot SB342 (BCM20702A0)
 - StarTech USBBT2EDR4 (BCM20702A0)
 - Targus ACB10US1 (BCM20702A0)
+
+{% enddetails %}
 
 📶 Denotes external antenna
 
@@ -188,6 +192,8 @@ Known working adapters list adapters that do not meet high-performance requireme
 These adapters do not have a reset pin. If they stop responding, there is currently no way for the kernel to reset them automatically. A generic USB reset for these adapters has been introduced in Linux kernel 6.1 and later.
 {% endwarning %}
 
+{% details %}
+
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)
 - COMCAST CF-B03 (RTL8761BU)
@@ -206,9 +212,13 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - ZEXMTE Z01 (RTL8761BU) 📶
 - ZETSAGE BH451A (RTL8761BU) 📶
 
+{% enddetails %}
+
 📶 Denotes external antenna
 
 ### Unsupported adapters
+
+{% details %}
 
 - Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
 - BASEUS BR8651A01 BA04 - Advertisement drops out
@@ -228,6 +238,8 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - CSR 4.0 clones with USB ID `0a12:0001` - Unrecoverable driver failure: These clones will usually show a message like `CSR: Unbranded CSR clone detected; adding workarounds and force-suspending once...` in the system log when they are plugged in.
   - Multiple unbranded adapters labeled with CSR 4.0
   - 5 CORE CSR 4.0
+
+{% enddetails %}
 
 📶 Denotes external antenna
 
