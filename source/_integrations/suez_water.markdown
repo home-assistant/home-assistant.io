@@ -22,14 +22,7 @@ The **Suez Water** {% term integration %} fetches your water consumption data fr
 - The **Water usage yesterday** sensor shows yesterday's water consumption data if that data is available.
 - The **Water price** sensor shows the current water price in euros per cubic meter (€/m3).
 
-{% include integrations/config_flow.md %}
-
-{% configuration_basic %}
-Counter ID:
-  description: "The water counter ID. It should be found automatically during setup. If it was not found, the ID can be found on your _Tout Sur Mon Eau_ [user account](https://www.toutsurmoneau.fr/mon-compte-en-ligne/historique-de-consommation-tr). Look in the source code of the page for something similar to `url: '/mon-compte-en-ligne/statMData' + '/123456789'`. The `counter_id` in this case is `123456789`."
-{% endconfiguration_basic %}
-
-## Extra attributes
+### Extra attributes
 
 Extra attributes of `Water usage yesterday` sensor:
 
@@ -39,6 +32,34 @@ Extra attributes of `Water usage yesterday` sensor:
 - Highest monthly consumption
 - Last year total consumption
 - Current year total consumption
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Username:
+  description: "The username used to connect on your _Tout Sur Mon Eau_ [user account](https://www.toutsurmoneau.fr/mon-compte-en-ligne)."
+Password:
+  description: "The password used to connect on your _Tout Sur Mon Eau_ [user account](https://www.toutsurmoneau.fr/mon-compte-en-ligne) with the above username."
+{% endconfiguration_basic %}
+
+## Devices
+
+The integration will automatically use the meter provided by _Tout Sur Mon Eau_ website and create a {% term device %} representing the meter.
+
+### Supported meters
+
+All **connected meters** provided by Suez are supported.
+
+For the integration to work you **need to have** a Suez connected meter installed, to know if your meter is compatible you can check if consumption data is available on _Tout sur mon eau_ [consumption page](https://www.toutsurmoneau.fr/mon-compte-en-ligne/historique-de-consommation-tr).
+
+If your meter change, the integration will automatically create a new device representing the new meter.
+
+### Unsupported meters
+
+Currently this integration does not support the following meters:
+
+- Not connected meters
+- Connected meters provided by other brands than Suez
 
 ## Remove integration
 
