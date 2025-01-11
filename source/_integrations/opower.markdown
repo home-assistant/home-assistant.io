@@ -121,7 +121,7 @@ In the configuration of the energy dashboard (**{% my config_energy title="Setti
 For electricity:
 
 1. Select **Add consumption** under **Electricity grid**.
-2. Select **Opower {utility name} elec {account number} consumption** for the **consumed energy**.
+2. Select **Opower {utility name} elec {account number} consumption** for **consumed energy**.
 3. Select the radio button to **Use an entity tracking the total costs**.
 4. Select **Opower {utility name} elec {account number} cost** for **entity with the total costs**.
 
@@ -130,7 +130,7 @@ For electricity:
 1. Select **Add return** under **Electricity grid**.
 2. Select **Opower {utility name} elec {account number} return** for **energy returned to the grid**.
 3. Select the radio button to **Use an entity tracking the total received money**.
-4. Select **Opower {utility name} elec {account number} compensation**.
+4. Select **Opower {utility name} elec {account number} compensation** for **entity with the total compensation**.
 
 {% enddetails %}
 
