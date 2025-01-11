@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **igloohome** {% term integration %} grants Home Assistant access to paired [smart access device\(s\)](https://www.igloohome.co/#products) via the igloodeveloper API. The features of this integration includes:
+The **igloohome** {% term integration %} grants Home Assistant access to paired [smart access device\(s\)](https://www.igloohome.co/#products). The features of this integration includes:
 
 - For [Bridge](https://www.igloohome.co/products/bridge) owners:
   - Regular updates of all linked devices' battery level.
