@@ -37,9 +37,9 @@ Extra attributes of `Water usage yesterday` sensor:
 
 {% configuration_basic %}
 Username:
-  description: "The username used to connect on your _Tout Sur Mon Eau_ [user account](https://www.toutsurmoneau.fr/mon-compte-en-ligne)."
+  description: "The username used to connect to your _Tout Sur Mon Eau_ [user account](https://www.toutsurmoneau.fr/mon-compte-en-ligne)."
 Password:
-  description: "The password used to connect on your _Tout Sur Mon Eau_ [user account](https://www.toutsurmoneau.fr/mon-compte-en-ligne) with the above username."
+  description: "The password used to connect to your _Tout Sur Mon Eau_ [user account](https://www.toutsurmoneau.fr/mon-compte-en-ligne) with the above username."
 {% endconfiguration_basic %}
 
 ## Devices
@@ -50,16 +50,16 @@ The integration will automatically use the meter provided by _Tout Sur Mon Eau_ 
 
 All **connected meters** provided by Suez are supported.
 
-For the integration to work you **need to have** a Suez connected meter installed, to know if your meter is compatible you can check if consumption data is available on _Tout sur mon eau_ [consumption page](https://www.toutsurmoneau.fr/mon-compte-en-ligne/historique-de-consommation-tr).
+For the integration to work, you **need to have** a Suez connected meter installed. To check if your meter is compatible, you can verify if consumption data is available on _Tout sur mon eau_ [consumption page](https://www.toutsurmoneau.fr/mon-compte-en-ligne/historique-de-consommation-tr).
 
-If your meter change, the integration will automatically create a new device representing the new meter.
+If your meter changes, the integration will automatically create a new device representing the new meter.
 
 ### Unsupported meters
 
-Currently this integration does not support the following meters:
+Currently, this integration does not support the following meters:
 
-- Not connected meters
-- Connected meters provided by other brands than Suez
+- Non-connected meters
+- Meters provided by other brands than Suez
 
 ## Remove integration
 
