@@ -28,7 +28,7 @@ More {% term platform platforms %} will follow soon, as integration moves to cor
 You need to create a new user in your Homee that is only used by Home Assistant. For security reasons, it's recommended to:
 
 - Use a strong, unique password.
-- Limit the user's permissions to only what's necessary for Home Assistant.
+- Set the user's permissions for what you what to do from Home Assistant.
 - Do not use this account for any other purpose.
 
 1. In your Homee app tap the menu button in the top-left corner.
