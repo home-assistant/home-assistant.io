@@ -38,6 +38,7 @@ The following integrations are automatically discovered by the SSDP integration:
  - [Hyperion](/integrations/hyperion/)
  - [Keenetic NDMS2 Router](/integrations/keenetic_ndms2/)
  - [Konnected.io](/integrations/konnected/)
+ - [LG webOS TV](/integrations/webostv/)
  - [Logitech Harmony](/integrations/harmony/)
  - [OctoPrint](/integrations/octoprint/)
  - [Philips Hue](/integrations/hue/)
