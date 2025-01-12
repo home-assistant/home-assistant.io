@@ -19,6 +19,7 @@ ha_integration_type: hub
 There is currently support for the following device types in Home Assistant:
 
 - cover
+- sensor
 
 More {% term platform platforms %} will follow soon, as integration moves to core step by step.
 
