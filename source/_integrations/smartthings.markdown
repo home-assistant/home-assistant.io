@@ -31,6 +31,10 @@ ha_dhcp: true
 ha_integration_type: integration
 ---
 
+<p class="note warning">
+The Samsung SmartThings integration currently does not allow new installations. We are working directly with Samsung to get this resolved.
+</p>
+
 SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:
 
 1. Controlling SmartThings devices as Home Assistant entities ([see platforms for supported devices and capabilities](#platforms)).
