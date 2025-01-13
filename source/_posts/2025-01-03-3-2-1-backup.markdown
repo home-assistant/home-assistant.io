@@ -3,7 +3,7 @@ layout: post
 title: "3…2…1… Backup"
 description: "Stop what you're doing and take 5 minutes to set up automatic encrypted backups to keep your smart home running smoothly."
 date: 2025-01-03 00:00:01
-date_formatted: "January 03, 2025"
+date_formatted: "January 3, 2025"
 author: Paulus Schoutsen
 comments: true
 categories: Announcements
