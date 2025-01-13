@@ -56,7 +56,7 @@ The Ituran {% term integration %} also exposes the following sensors for each re
 ## Known limitations
 
 - While this integration is configured with your account, you won't be able to use the official app, as only one connection at a time is supported
-  - As a workaround, it's possible to add another user from the app, with a different ID and mobile phone number, that will be dedicated for Home Assistant use
+  - As a workaround, it's possible to add another user from the app, with a different ID and mobile phone number that will be dedicated for Home Assistant use.
 - The vehicle's heading value is unreliable when it's not in motion
 - The mileage value is not read from the vehicle's odometer but is calculated from GPS, which may result in slight variations from the actual odometer reading
 
