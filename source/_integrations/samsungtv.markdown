@@ -157,6 +157,7 @@ KEY_LEFT|NavigationLeft
 KEY_RIGHT|NavigationRight
 KEY_RETURN|NavigationReturn/Back
 KEY_ENTER|NavigationEnter
+KEY_EXIT|NavigationExit
 ____________
 
 **Media Keys**

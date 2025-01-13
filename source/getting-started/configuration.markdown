@@ -8,7 +8,7 @@ related:
     title: configuration.yaml file
   - docs: /common-tasks/os/#network-storage
     title: Network storage
-  - docs: /common-tasks/os/#backups
+  - docs: /common-tasks/general/#backups
     title: Backups
   - docs: /voice_control/
     title: Voice control
@@ -40,8 +40,8 @@ You can back up your Home Assistant, add-on data, and configuration. Backups are
 
 To learn how to create a backup of your Home Assistant installation, select the link below that matches your installation type.
 
-- {% term "Home Assistant Operating System" %}: [Creating a backup from OS](/common-tasks/os/#backups)
-- {% term "Home Assistant Supervised" %}: [Creating a backup from Supervised](/common-tasks/supervised/#backups)
+- {% term "Home Assistant Operating System" %}: [Creating a backup from OS](/common-tasks/general/#backups)
+- {% term "Home Assistant Supervised" %}: [Creating a backup from Supervised](/common-tasks/general/#backups)
 - {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}: [Creating a backup from Core or Container](/integrations/backup/)
 
 ## Editing the configuration.yaml and configuring file access

@@ -7,6 +7,7 @@ ha_category:
   - Climate
   - Select
   - Sensor
+  - Switch
   - Water heater
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -17,6 +18,7 @@ ha_platforms:
   - diagnostics
   - select
   - sensor
+  - switch
   - water_heater
 ha_codeowners:
   - '@Noltari'
@@ -96,6 +98,10 @@ For each Airzone zone (thermostat), the following *sensors* are created:
 | :------------------ | :--------------------------------- |
 | humidity            | Current zone relative humidity.    |
 | temperature         | Current zone temperature.          |
+
+## Switch
+
+For each Airzone zone (thermostat), a *switch entity* is created.
 
 ## Water heater
 

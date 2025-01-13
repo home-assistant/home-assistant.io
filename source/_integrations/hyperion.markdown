@@ -8,7 +8,6 @@ ha_iot_class: Local Push
 ha_domain: hyperion
 ha_codeowners:
   - '@dermotduffy'
-ha_quality_scale: platinum
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:

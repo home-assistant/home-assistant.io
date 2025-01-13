@@ -844,6 +844,7 @@ $ha__primary_color: #03a9f4;
           margin: auto;
 
           summary.region {
+            cursor: pointer;
             display: list-item;
           }
         }

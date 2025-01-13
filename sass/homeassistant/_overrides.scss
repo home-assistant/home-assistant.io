@@ -366,7 +366,7 @@ header .breadcrumbs {
     margin: 0 -24px;
     text-align: left;
 
-    h4 {
+    h3 {
       text-transform: uppercase;
       font-size: .9rem;
       letter-spacing: 0.005em;
@@ -444,16 +444,21 @@ header .breadcrumbs {
   h1 {
     font-family: $heading-font;
     -webkit-font-smoothing: antialiased;
-    font-size: 1.33rem;
+    font-size: 1.3125rem;
     font-weight: 600;
     letter-spacing: -0.012em;
     line-height: 40px;
     color: #212121;
     margin: -8px 0 0;
+
+    iconify-icon {
+      margin-right: 8px;
+    }
   }
 
   &.text {
     padding: 24px;
+    font-size: 1rem;
 
     h1 {
       padding: 0px 0px 12px;
@@ -517,7 +522,7 @@ a.material-card:hover {
     .img {
       background-color: $grayLighter;
       width: calc(100%-8px);
-      aspect-ratio: 120/63;
+      // aspect-ratio: 120/63;
       background-size: cover;
       background-position: center;
       border-radius: 8px;
@@ -656,21 +661,34 @@ a.material-card:hover {
     .blog-date {
       white-space: nowrap;
     }
+    ol {
+      margin: 0;
+    }
   }
 
   .highlight-blog-post {
-    font-size: 2rem;
-    line-height: 1.15;
-    padding: 15px;
-    display: block;
+    padding: 24px;
     text-decoration: none;
     color: white;
-    transition: background-color 0.5s;
-    background-color: #038fc7;
+    transition: background-color 0.5s, box-shadow 0.5s;
+    background-color: $primary-color;
+    display: flex;
+    padding: 20px 12px 20px 24px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    
+    p {
+      font-size: 1rem;
+      margin: 10px 0 0 0;
 
-    &.large {
-      font-size: 2.25rem;
-      line-height: 1.33333;
+      &.lead {
+        font-family: $heading-font;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.15;
+        margin-top: 0;
+      }
     }
 
     &:hover {
@@ -679,6 +697,71 @@ a.material-card:hover {
 
     iconify-icon {
       vertical-align: middle;
+    }
+  }
+
+  .highlight-detail-post {
+    padding: 24px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.5s, box-shadow 0.5s;
+    background-color: #006895;
+    box-shadow: inset 0 0 64px #038fc7;
+    font-size: 1.5rem;
+
+    .caption {
+      padding-bottom: 24px;
+
+      p {
+        font-family: $heading-font;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0;
+        line-height: 1.2;
+
+        strong {
+          font-size: 1.75rem;
+          font-weight: 800;
+        }
+      }
+    }
+
+    .detail-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      align-self: stretch;
+
+      p {
+        font-size: 0.875rem;
+
+        &.lead {
+          font-size: 1rem;
+          margin-bottom: 4px;
+          font-weight: 500;
+        }
+      }
+
+      iconify-icon {
+        padding: 8px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.15);
+        color: white;
+      }
+
+    }
+    animation-name: box-shadow-color;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    @keyframes box-shadow-color {
+      from {
+        box-shadow: inset 0 0 64px hsl(197, 97%, 40%);
+      }
+      to {
+        box-shadow: inset 0 0 64px hsl(159, 100%, 35%);
+      }
     }
   }
 
@@ -726,15 +809,16 @@ a.material-card:hover {
 
   .picture-promo {
     display: block;
-    padding-top: 30%;
+    padding-top: 33%;
     background-size: cover;
     background-position: center;
     text-decoration: none;
     border: none;
 
     .caption {
-      padding: 8px 12px 12px;
-      background-color: rgba(0, 0, 0, 0.54);
+      padding: 48px 24px 24px 24px;
+      background: rgb(0,0,0);
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
       color: white;
       border-bottom-left-radius: 16px;
       border-bottom-right-radius: 16px;
@@ -743,16 +827,19 @@ a.material-card:hover {
       align-items: center;
 
       .title {
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 1.2em;
+        font-family: $heading-font;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: normal;
       }
 
       .subtitle {
-        margin-top: 4px;
-        line-height: 1.4em;
-        font-size: 12px;
+        margin-top: 8px;
+        line-height: 1.5rem;
+        font-size: 1rem;
         font-weight: initial;
+        text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.33);
+        opacity: .8;
       }
 
       svg {
@@ -760,6 +847,21 @@ a.material-card:hover {
         width: 32px;
         height: 32px;
         min-width: 32px;
+      }
+    }
+
+    &.picture-top {
+      padding-top: 0;
+      padding-bottom: 33%;
+
+      .caption {
+        padding: 24px 24px 48px 24px;
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;    
       }
     }
   }
@@ -781,8 +883,101 @@ a.material-card:hover {
     }
   }
 
+  .getting-started {
+    text-align: center;
+
+    .badge {
+      display: flex;
+      padding: 2px 8px 2px 8px;
+      align-items: flex-start;
+      gap: 8px;
+      border-radius: 4px;
+      background: #E8E6F0;
+      font-family: $heading-font;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .getting-started-grid {
+      display: flex;
+      padding: 48px 0 48px 24px;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .getting-started-device {
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        img {
+          box-shadow: none;
+          border: 0;
+        }
+
+        h3 {
+          font-size: 2rem;
+          font-weight: 700;
+          line-height: 133%;
+          text-transform: none;
+          letter-spacing: -.75px;
+          margin: 0;
+        }
+
+        p {
+          font-size: 1rem;
+          line-height: 1.5;
+          opacity: .9;
+          margin: 0;
+        }
+      }
+
+      .button {
+        padding: 6px 20px;
+        background: $primary-color;
+        color: white;
+        font-size: 1rem;
+        text-transform: uppercase;
+      }
+    }
+
+    #HA_Yellow, #Raspberry_Pi {
+      padding-top: 96px;
+    }
+
+    #HA_Yellow .badge {
+      color: $orange;
+    }
+    #HA_Green .badge {
+      color: $green;
+    }
+    #Raspberry_Pi .badge {
+      color: $primary-color;
+    }
+    
+    @media only screen and (max-width: $palm-end) {
+      .getting-started-grid {
+        flex-direction: column;
+      }
+
+      .getting-started-device {
+        padding-bottom: 64px;
+      }
+
+      #HA_Yellow, #Raspberry_Pi {
+        padding-top: 0;
+        order: 2;
+      }
+    }
+  }
+
+
   .sponsors-and-press {
     margin-top: 24px;
+    text-align: center;
   }
 
   .seen-press {
@@ -790,12 +985,6 @@ a.material-card:hover {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 24px;
     margin: 48px 0;
-
-    h2 {
-      grid-column: 1/-1;
-      margin: 0;
-      text-align: center;
-    }
 
     a {
       aspect-ratio: 1;
@@ -861,7 +1050,6 @@ a.material-card:hover {
   }
 }
 
-
 h1:hover a.title-link,
 h2:hover a.title-link,
 h3:hover a.title-link,
@@ -889,11 +1077,28 @@ dt:hover a.title-link {
   }
 }
 
-.hero-buttons a {
-  margin: 0 30px 10px 0;
+.hero-github-badge .desktop {
+  display: none;
+  max-width: 658px;
+  width: 100%;
+}
 
-  &:last-child {
-    margin: 0;
+.hero-github-badge .mobile {
+  display: block;
+  max-width: 420px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+// after 768px, show desktop, hide mobile
+@media only screen and (min-width: 1025px) {
+  .hero-github-badge .mobile {
+    display: none;
+    max-width: 385px;
+  }
+
+  .hero-github-badge .desktop {
+    display: block;
   }
 }
 
@@ -1360,11 +1565,16 @@ a.my {
   }
 }
 
-:target {
-  display: block;
+// Prevent headings from disappearing behind the site header when linked to
+h1, h2, h3, h4, h5, h6 {
   position: relative;
-  top: -100px;
-  visibility: hidden;
+  word-wrap: break-word;
+}
+
+:target, .title-link {
+  display: inline-block;
+  position: relative;
+  scroll-margin-top: 140px;
 }
 
 .site-header {

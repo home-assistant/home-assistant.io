@@ -29,21 +29,21 @@ A weather {% term entity %}'s state is used to indicate the current overall cond
 
 The `weather` {% term entity %} can provide the conditions listed below as its state:
 
-- **Clear-night**: The sky is clear during the night.
-- **Cloudy**: There are many clouds in the sky.
-- **Fog**: There is a thick mist or fog reducing visibility.
-- **Hail**: Hailstones are falling.
-- **Lightning**: Lightning/thunderstorms are occurring.
-- **Lightning-rainy**: Lightning/thunderstorm is occurring along with rain.
-- **Partly cloudy**: The sky is partially covered with clouds.
-- **Pouring**: It is raining heavily.
-- **Rainy**: It is raining.
-- **Snowy**: It is snowing.
-- **Snowy-rainy**: It is snowing and raining at the same time.
-- **Sunny**: The sky is clear and the sun is shining.
-- **Windy**: It is windy.
-- **Windy-variant**: It is windy and cloudy.
-- **Exceptional**: Exceptional weather conditions are occurring.
+- **Clear, night**: The sky is clear during the night. `clear-night`.
+- **Cloudy**: There are many clouds in the sky. `cloudy`.
+- **Fog**: There is a thick mist or fog reducing visibility. `fog`.
+- **Hail**: Hailstones are falling. `hail`.
+- **Lightning**: Lightning/thunderstorms are occurring. `lighting`.
+- **Lightning, rainy**: Lightning/thunderstorm is occurring along with rain. `lightning-rainy`.
+- **Partly cloudy**: The sky is partially covered with clouds. `partlycloudy`.
+- **Pouring**: It is raining heavily. `pouring`.
+- **Rainy**: It is raining. `rainy`.
+- **Snowy**: It is snowing. `snowy`.
+- **Snowy, rainy**: It is snowing and raining at the same time. `snowy-rainy`.
+- **Sunny**: The sky is clear and the sun is shining. `sunny`.
+- **Windy**: It is windy. `windy`.
+- **Windy, cloudy**: It is windy and cloudy. `windy-variant`.
+- **Exceptional**: Exceptional weather conditions are occurring. `exceptional`.
 
 ### State attributes
 
@@ -73,9 +73,9 @@ wind_speed_unit: km/h
 This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with a mapping of weather services and their associated forecasts.
 
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `type` | no | The type of forecast, must be one of `daily`, `twice_daily`, or `hourly`. The default is `daily`. | daily
+| Data attribute | Optional | Description                                                                                       | Example |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------- | ------- |
+| `type`         | no       | The type of forecast, must be one of `daily`, `twice_daily`, or `hourly`. The default is `daily`. | daily   |
 
 ```yaml
 action: weather.get_forecasts
@@ -91,24 +91,24 @@ response_variable: weather_forecast
 The response data field is a mapping of called target entities, each containing the `forecast` field.
 `forecast` is a list of forecasted conditions at a given point in time:
 
-| Response data | Description | Example |
-| ---------------------- | ----------- | -------- |
-| `datetime` | The time of the forecasted conditions. | 2023-02-17T14:00:00+00:00
-| `is_daytime` | Only set for `twice_daily` forecasts. | False
-| `apparent_temperature` | The apparent (feels-like) temperature in the unit indicated by the `temperature_unit` state attribute. | 10.2
-| `cloud_coverage` | The cloud coverage in %. | 15
-| `condition` | The weather condition. | Sunny
-| `dew_point` | The dew point temperature in the unit indicated by the `temperature_unit` state attribute. | 6.0
-| `humidity` | The relative humidity in %. | 82
-| `precipitation_probability` | The probability of precipitation in %. | 0
-| `precipitation` | The precipitation amount in the unit indicated by the `precipitation_unit` state attribute. | 0
-| `pressure` | The air pressure in the unit indicated by the `pressure_unit` state attribute. | 1019
-| `temperature` | The temperature in the unit indicated by the `temperature_unit` state attribute. If `templow` is also provided, this is the higher temperature. | 14.2
-| `templow` | The lower temperature in the unit indicated by the `temperature_unit` state attribute. | 5.0
-| `uv_index` | The UV index. | 3
-| `wind_bearing` | The wind bearing in azimuth angle (degrees) or 1-3 letter cardinal direction. | 268
-| `wind_gust_speed` | The wind gust speed in the unit indicated by the `wind_speed_unit` state attribute. | 34.41
-| `wind_speed` | The wind speed in the unit indicated by the `wind_speed_unit` state attribute. | 24.41
+| Response data               | Description                                                                                                                                     | Example                   |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `datetime`                  | The time of the forecasted conditions.                                                                                                          | 2023-02-17T14:00:00+00:00 |
+| `is_daytime`                | Only set for `twice_daily` forecasts.                                                                                                           | False                     |
+| `apparent_temperature`      | The apparent (feels-like) temperature in the unit indicated by the `temperature_unit` state attribute.                                          | 10.2                      |
+| `cloud_coverage`            | The cloud coverage in %.                                                                                                                        | 15                        |
+| `condition`                 | The weather condition.                                                                                                                          | Sunny                     |
+| `dew_point`                 | The dew point temperature in the unit indicated by the `temperature_unit` state attribute.                                                      | 6.0                       |
+| `humidity`                  | The relative humidity in %.                                                                                                                     | 82                        |
+| `precipitation_probability` | The probability of precipitation in %.                                                                                                          | 0                         |
+| `precipitation`             | The precipitation amount in the unit indicated by the `precipitation_unit` state attribute.                                                     | 0                         |
+| `pressure`                  | The air pressure in the unit indicated by the `pressure_unit` state attribute.                                                                  | 1019                      |
+| `temperature`               | The temperature in the unit indicated by the `temperature_unit` state attribute. If `templow` is also provided, this is the higher temperature. | 14.2                      |
+| `templow`                   | The lower temperature in the unit indicated by the `temperature_unit` state attribute.                                                          | 5.0                       |
+| `uv_index`                  | The UV index.                                                                                                                                   | 3                         |
+| `wind_bearing`              | The wind bearing in azimuth angle (degrees) or 1-3 letter cardinal direction.                                                                   | 268                       |
+| `wind_gust_speed`           | The wind gust speed in the unit indicated by the `wind_speed_unit` state attribute.                                                             | 34.41                     |
+| `wind_speed`                | The wind speed in the unit indicated by the `wind_speed_unit` state attribute.                                                                  | 24.41                     |
 
 
 ## Examples

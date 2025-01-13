@@ -23,7 +23,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `**VeSync** {% term integration %} enables you to control smart switches and outlets connected to the VeSync App.
+The **VeSync** {% term integration %} enables you to control smart switches and outlets connected to the VeSync App.
 
 The devices must be added to the VeSync App before this {% term integration %} can discover them.
 

@@ -10,7 +10,6 @@ ha_codeowners:
   - '@tronikos'
 ha_domain: google_generative_ai_conversation
 ha_integration_type: service
-ha_quality_scale: platinum
 ha_platforms:
   - conversation
   - diagnostics
@@ -45,41 +44,31 @@ On the same page, you can see your plan: *free of charge* if the associated Goog
 Comparison of the plans is available [at this pricing page](https://ai.google.dev/pricing). The major differences include: the free of charge plan is rate limited, free prompts/responses are used for product improvement, and the free plan is not available in all [regions](https://ai.google.dev/gemini-api/docs/available-regions).
 
 {% include integrations/option_flow.md %}
-{% configuration_basic %}
 
+{% configuration_basic %}
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
-
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
-
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
-
 {% endconfiguration_basic %}
 
 If you choose to not use the recommended settings, you can configure the following options:
 
 {% configuration_basic %}
-
 Model:
   description: Model used to generate response.
-
 Temperature:
   description: Creativity allowed in the responses. Higher values produce a more random and varied response. A temperature of zero will be deterministic.
-
 Top P:
   description: Probability threshold for top-p sampling.
-
 Top K:
   description: Number of top-scored tokens to consider during generation.
-
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate.
-
 Safety settings:
   description: Thresholds for different [harmful categories](https://ai.google.dev/gemini-api/docs/safety-settings).
-
 {% endconfiguration_basic %}
 
 ## Talking to Super Mario
@@ -90,7 +79,7 @@ The tutorial is using OpenAI, but this could also be done with the Google Genera
 
 ## Actions
 
-### Action `google_generative_ai_conversation.generate_content`
+### Generate content
 
 {% tip %}
 This action isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` action.

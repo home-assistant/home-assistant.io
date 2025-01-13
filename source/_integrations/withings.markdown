@@ -16,7 +16,6 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: integration
-ha_quality_scale: platinum
 ---
 
 The **Withings** {% term integration %} consumes data from various health products produced by [Withings](https://www.withings.com).
@@ -26,7 +25,7 @@ The **Withings** {% term integration %} consumes data from various health produc
 - Withings account
 - Withings app installed
 - Withings device setup in the app
-- [Withings developer account](#create-a-withings-developer-account) to get a *ClientID* and *Secret* to connect to be able to get the data from the Withings cloud API
+- [Withings developer account](#creating-a-withings-developer-account) to get a *ClientID* and *Secret* to connect to be able to get the data from the Withings cloud API
 
 ### Creating a Withings developer account
 
