@@ -18,6 +18,8 @@ ha_zeroconf: true
 
 The **IOmeter** {% term integration %} fetches data from your [IOmeter](https://iometer.de/produkt/) device, by using the local HTTP API.
 
+IOmeter is a German company that provides the IOmeter device for reading electricity meters.
+
 {% important %}
 In order for the IOmeter to be used by Home Assistant, the Core/Bridge firmware version should be at least 62/69.
 {% endimportant %}
@@ -33,7 +35,7 @@ IP address:
 
 ## Data updates
 
-The integration will update its sensors by polling the IOmeter Bridge every ten seconds for new values. We recommend to use USB-C power for the IOmeter Core instead of batteries.
+The integration will update its sensors by polling the IOmeter Bridge every ten seconds for new values. We recommend using USB-C power for the IOmeter Core instead of batteries.
 
 ## Available sensors
 
