@@ -178,19 +178,13 @@ or the MCP server in Home Assistant is not configured.
 
 To understand the root cause, first check debug logs on the client. For example in Claude for Desktop:
 
-1. Visit *Settings...*
-
-1. Click *Developer*
-
-1. Click the `Home Assistant` MCP server
-
-1. Click *Open Logs Folder*
-
-1. View `mcp-server-Home Assistant.log`. These are known problems and their resolution:
-
+1. Visit **Settings...**.
+2. Select **Developer**.
+3. Select the `Home Assistant` MCP server.
+4. Select **Open Logs Folder**.
+5. View `mcp-server-Home Assistant.log`. These are known problems and their resolution:
    - `Client error '404 Not Found' for url 'http://localhost:8123/mcp_server/sse'`:
      this means the MCP Server integration is not configured in Home Assistant.
-
    - `Client error '401 Unauthorized' for url 'http://localhost:8123/mcp_server/sse'`:
      this means that the long live access token is not correct.
 ...
