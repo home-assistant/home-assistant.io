@@ -4,6 +4,7 @@ description: Instructions on how to set up VeSync switches, outlets, and fans wi
 ha_category:
   - Fan
   - Light
+  - Number
   - Switch
 ha_release: 0.66
 ha_iot_class: Cloud Polling
@@ -18,6 +19,7 @@ ha_platforms:
   - diagnostics
   - fan
   - light
+  - number
   - sensor
   - switch
   - humidifier
@@ -33,6 +35,7 @@ The following platforms are supported:
 - **light**
 - **switch**
 - **fan**
+- **number**
 - **sensor**
 - **humidifier**
 
