@@ -45,10 +45,10 @@ This integration supports the following actions (see [Climate](/integrations/cli
 
 ## Numbers
 
-When the appliance supports it, the Palazzetti integration offers control over:
+When the appliance supports it, the Palazzetti integration offers control over the following elements:
 
-- The combustion power of the stove on a scale from `1` to `5`
-- The speed of the Left and Right fans
+- The combustion power of the stove on a scale from `1` to `5`.
+- The speed of the Left and Right fans.
 
 ## Sensors
 
