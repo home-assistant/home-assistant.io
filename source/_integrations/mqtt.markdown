@@ -217,9 +217,9 @@ To change the options, follow these steps:
 
 The MQTT discovery options can be changed by following these steps:
 
-1. Navigate to **Settings** > **Devices & Services**
-2. Find the MQTT integration and click on it
-3. Click **CONFIGURE MQTT OPTIONS** button to open the MQTT discovery options page
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the MQTT integration and select it.
+3. To open the MQTT discovery options page, select the **Configure MQTT Options** button.
 
 ### Discovery options
 
