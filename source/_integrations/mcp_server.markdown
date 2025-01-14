@@ -94,7 +94,7 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
    which will edit `claude_desktop_config.json`. The full file location depends on your
    operating system macOS or Windows.
 
-1. Add a new MCP server to JSON file. You will need to set the `SSE_URL` to the URL you use to
+4. Add a new MCP server to the JSON file. You need to set the `SSE_URL` to the URL you use to
    connect to Home Assistant with the path `/mcp_server/sse`. You will also need to set `API_ACCESS_TOKEN`
    to the long live access token created above in the [access control instructions](#access-control)
 
