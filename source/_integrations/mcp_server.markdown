@@ -69,9 +69,9 @@ For now, we can use
 
 1. Visit your account profile settings, under the **Security** tab. {% my profile badge %}.
 
-1. Create a **Long-lived access token**
+2. Create a **Long-lived access token**
 
-1. Copy the access token to use when configuring the MCP client LLM application.
+3. Copy the access token to use when configuring the MCP client LLM application.
 
 See [Authentication](https://www.home-assistant.io/docs/authentication/#your-account-profile) for more information about Authentication in Home Assistant.
 
@@ -82,17 +82,17 @@ for a detailed guide on using Claude for Desktop with an MCP server. It is recom
 to get the example server working first before using the Home Assistant MCP Server.
 
 Claude for Desktop currently only supports local MCP servers using the [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio)
-transport, run as a local command line tool. We can use a local MCP proxy server
+transport, run as a local command line tool. You can use a local MCP proxy server
 to allow Claude for Desktop to access Home Assistant using the SSE transport.
 
 1. Download [Claude for Desktop](https://claude.ai/download). 
 
-1. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
-   For example, `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`
+2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
+   For example, `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`.
 
-1. Open the configuration file. Visit *Settings…* and *Developer* tab the click *Edit Config*
+3. Open the configuration file. Visit **Settings…** and on the **Developer** tab, select **Edit Config**.
    which will edit `claude_desktop_config.json`. The full file location depends on your
-   operating system macOS or Windows.
+   operating system (macOS or Windows).
 
 4. Add a new MCP server to the JSON file. You need to set the `SSE_URL` to the URL you use to
    connect to Home Assistant with the path `/mcp_server/sse`. You will also need to set `API_ACCESS_TOKEN`
