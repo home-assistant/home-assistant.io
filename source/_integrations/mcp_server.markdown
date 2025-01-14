@@ -19,10 +19,10 @@ The [Model Context Protocol](https://modelcontextprotocol.io) is an open protoco
 
 Controlling Home Assistant is done by providing MCP clients access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}.
 
-## Pre-requisites
+## Prerequisites
 
-1. You will need an [MCP client](https://modelcontextprotocol.io/clients) LLM Application such as [Claude for Desktop](https://claude.ai/download).
-1. Since most clients do not support native remote servers, you will need an additional local MCP server  remote gateway.
+1. You need an [MCP client](https://modelcontextprotocol.io/clients) LLM Application such as [Claude for Desktop](https://claude.ai/download).
+2. Since most clients do not support native remote servers, you need an additional local MCP server remote gateway.
 
 See [Client Configuration](#client-configuration) below for detailed instructions.
 
@@ -38,7 +38,7 @@ Control Home Assistant:
     can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
 {% endconfiguration_basic %}
 
-## Architecture Overview
+## Architecture overview
 
 This integration can provide similar functionality as other LLM-based conversation
 agents (for example [Anthropic](/integrations/anthropic/), [Google Generative AI](/integrations/google_generative_ai_conversation), [Ollama](/integrations/ollama/), [Open AI](/integrations/openai_conversation/)). In those conversation agents, Home Assistant is the
@@ -56,13 +56,13 @@ and directly run an MCP server as a local command line tool. You can
 use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
 to act as a gateway to the Home Assistant MCP SSE server.
 
-## Client Configuration
+## Client configuration
 
-The Model Context Protocol specification does not yet currently define standards
+The Model Context Protocol specification does not yet define standards
 for authentication and connecting to remote servers. These are a *work in progress*
 and this configuration will likely change in the near future.
 
-### Access Control
+### Access control
 
 For now, we can use
 [Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to control access to the API.
