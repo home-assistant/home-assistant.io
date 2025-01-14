@@ -86,36 +86,29 @@ transport, run as a local command line tool. You can use a local MCP proxy serve
 to allow Claude for Desktop to access Home Assistant using the SSE transport.
 
 1. Download [Claude for Desktop](https://claude.ai/download). 
-
 2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
    For example, `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`.
-
 3. Open the configuration file. Visit **Settings…** and on the **Developer** tab, select **Edit Config**.
    which will edit `claude_desktop_config.json`. The full file location depends on your
    operating system (macOS or Windows).
-
 4. Add a new MCP server to the JSON file. You need to set the `SSE_URL` to the URL you use to
    connect to Home Assistant with the path `/mcp_server/sse`. You will also need to set `API_ACCESS_TOKEN`
    to the long live access token created above in the [access control instructions](#access-control)
-
-  ```json
-  {
-    "mcpServers": {
-      "Home Assistant": {
-        "command": "mcp-proxy",
-        "env": {
-          "SSE_URL": "http://localhost:8123/mcp_server/sse",
-          "API_ACCESS_TOKEN": "<your_access_token_here>"
+    ```json
+    {
+      "mcpServers": {
+        "Home Assistant": {
+          "command": "mcp-proxy",
+          "env": {
+            "SSE_URL": "http://localhost:8123/mcp_server/sse",
+            "API_ACCESS_TOKEN": "<your_access_token_here>"
+          }
         }
       }
     }
-  }
-  ```
-
-5. Restart Claude
-
+    ```
+5. Restart Claude.
 6. You will see a connection icon {% icon "mdi:connection" %} if things are set up correctly. Clicking the connection icon will show enabled MCP servers such as *Home Assistant*.
-
 7. You can then use Claude to control Home Assistant similar to how you control Home Assistant through the Voice Assistant. Claude wil ask you for permission before calling any tools.
 
   ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
