@@ -21,10 +21,10 @@ Controlling Home Assistant is done by providing <abbr title="Model Context Proto
 
 ## Prerequisites
 
-1. You need an [MCP client](https://modelcontextprotocol.io/clients) LLM Application such as [Claude for Desktop](https://claude.ai/download).
-2. Since most clients do not support native remote servers, you need an additional local MCP server remote gateway.
+- You need an [MCP client](https://modelcontextprotocol.io/clients) LLM Application such as [Claude for Desktop](https://claude.ai/download).
+- Since most clients do not support native remote servers, you need an additional local MCP server remote gateway.
 
-See [Client Configuration](#client-configuration) below for detailed instructions.
+For detailed configuration instructions, refer to the [Client configuration](#client-configuration) section.
 
 {% include integrations/config_flow.md %}
 
@@ -73,7 +73,7 @@ For now, we can use
 
 3. Copy the access token to use when configuring the MCP client LLM application.
 
-See [Authentication](https://www.home-assistant.io/docs/authentication/#your-account-profile) for more information about Authentication in Home Assistant.
+For more information about Authentication in Home Assistant, refer to the [Authentication documentation](https://www.home-assistant.io/docs/authentication/#your-account-profile).
 
 ### Example: Claude for Desktop
 
