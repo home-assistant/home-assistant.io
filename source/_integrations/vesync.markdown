@@ -18,11 +18,11 @@ ha_domain: vesync
 ha_platforms:
   - diagnostics
   - fan
+  - humidifier
   - light
   - number
   - sensor
   - switch
-  - humidifier
 ha_integration_type: integration
 ---
 
@@ -32,12 +32,12 @@ The devices must be added to the VeSync App before this {% term integration %} c
 
 The following platforms are supported:
 
-- **light**
-- **switch**
 - **fan**
+- **humidifier**
+- **light**
 - **number**
 - **sensor**
-- **humidifier**
+- **switch**
 
 ## Supported devices
 
@@ -113,6 +113,17 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s/EverestAir)   | 142       |
 | `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
 | `pm2_5`                 | The current air quality reading. (Core300s/400s/600s/EverestAir)                       | 8         |
+
+## Humidifier
+These are the sensors and settings exposed by VeSync humidifiers.
+
+| Sensor                  | Description                                                                            | Example   |
+| ----------------------- | -------------------------------------------------------------------------------------- | --------- |
+| `humiidity`             | Current humidity                                                                       | 35        |
+
+| Number                  | Description                                                                            | Example   |
+| ----------------------- | -------------------------------------------------------------------------------------- | --------- |
+| `mist_level`            | Mist level                                                                             | 3         |
 
 ## Fan exposed attributes
 
