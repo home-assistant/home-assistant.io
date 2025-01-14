@@ -583,7 +583,7 @@ brightness_scale:
   type: integer
   default: 255
 color_temp_kelvin:
-  description: "When set to `true`, `command_topic` will publish color mode updates in Kelvin and process `state_topic` will process state updates in Kelvin. By default the `color_temp` values are converted to and from mireds."
+  description: "When set to `true`, `command_topic` will publish color mode updates in Kelvin, and process `state_topic` will process state updates in Kelvin. By default, the `color_temp` values are converted to and from mireds."
   required: false
   type: boolean
   default: false
