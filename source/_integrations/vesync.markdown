@@ -133,11 +133,11 @@ Sensors and settings exposed by VeSync humidifiers.
 
 | Sensor                  | Description                                                                            | Example   |
 | ----------------------- | -------------------------------------------------------------------------------------- | --------- |
-| `humidity`              | Current humidity                                                                       | 35        |
+| `humidity`              | Current humidity (%)                                                                   | 35        |
 
 | Number                  | Description                                                                            | Example   |
 | ----------------------- | -------------------------------------------------------------------------------------- | --------- |
-| `mist_level`            | Mist level                                                                             | 3         |
+| `mist_level`            | Mist level (1-9)                                                                       | 3         |
 
 ## Extracting attribute data
 
