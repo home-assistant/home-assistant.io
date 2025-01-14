@@ -20,6 +20,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - humidifier
 ha_integration_type: integration
 ---
 
@@ -33,6 +34,7 @@ The following platforms are supported:
 - **switch**
 - **fan**
 - **sensor**
+- **humidifier**
 
 ## Supported devices
 
@@ -66,6 +68,11 @@ This {% term integration %} supports devices controllable by the VeSync App.  Th
 - Vital 100S Smart True HEPA Air Purifier (LAP-V102S-WUS) 
 - Vital 200S Smart True HEPA Air Purifier (LAP-V201S-WUS)
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
+
+### Humidifiers
+
+- Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
+- Classic300S: Classic 300S Ultrasonic Smart Humidifier
 
 ## Prerequisite
 
