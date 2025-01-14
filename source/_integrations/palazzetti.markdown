@@ -18,16 +18,17 @@ ha_integration_type: device
 ha_dhcp: true
 ---
 
-## Prerequisites
-
-- You need the Connection Box bridge to be added to a network accessible to Home Assistant.
-- You either need to:
-  - know the IP address or hostname of the Connection Box on the network.
-  - or configure the Connection Box with DHCP on the same network as Home Assistant.
-
 The **Palazzetti** {% term integration %} integrates the [Palazzetti](https://palazzettigroup.com/)
 stoves equipped with a [Connection Box](https://palazzettigroup.com/research-and-development/app/).
-It is accessing the device's local API.
+It is accessing the device's local API. [WPalaControl](https://github.com/Domochip/WPalaControl)
+devices have a compatible API and are supported by this integration too.
+
+## Prerequisites
+
+- You need the Connection Box bridge or WPalaControl to be added to a network accessible to Home Assistant.
+- You either need to:
+  - know the IP address or hostname of the Connection Box or WPalaControl on the network.
+  - or configure the Connection Box or WPalaControl with DHCP on the same network as Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -168,3 +169,8 @@ only when the status of the stove is in one of the following states: `off`, `off
 `clean_fire`, `cooling`, `ecomode`, `firewood_finished`.
 {% enddetails %}
 
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
