@@ -20,7 +20,7 @@ The following platforms are supported:
 
 ## Supported devices
 
-This integration supports devices controllable by the Dreo App.  The following devices are supported by this integration:
+This integration supports devices controllable by the Dreo App. The following devices are supported by this integration:
 
 ### Fans
 
@@ -62,7 +62,7 @@ All attributes are supported by models: DR-HTF001S/002S/004S/005S/007S/008S/009S
 
 ### Device not discovered
 
-- **Check Dreo App Connection**: Ensure that your devices are properly connected to the Dreo App. Try restarting the Dreo App and checking if the devices are still visible and controllable within it. If not, re-pair the devices with the Dreo App following the app's. official pairing instructions.
+- **Check Dreo App Connection**: Ensure that your devices are properly connected to the Dreo App. Try restarting the Dreo App and checking if the devices are still visible and controllable within it. If not, re-pair the devices with the Dreo App following the app's official pairing instructions.
 - **Home Assistant Network Issues**: Make sure that your Home Assistant instance has network access. You can test this by trying to access other online services from within Home Assistant (for example, checking the weather integration if it's set up). If there are network problems, troubleshoot your Home Assistant's network connection, which may involve checking your router settings, Wi-Fi passwords, or Ethernet connections.
 - **Permissions**: Double-check that you've granted all the necessary permissions during the integration setup process. Incorrect permissions can prevent Home Assistant from discovering your Dreo devices.
 
