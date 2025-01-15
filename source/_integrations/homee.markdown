@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-[Homee](https://hom.ee) is a smart home system, able to integrate various protocols such as Z-Wave, Zigbee, EnOcean, and more. The Homee {% term integration %} will let you use the {% term device devices %} from your Homee in Home Assistant.
+[Homee](https://hom.ee) is a smart home system, able to integrate various protocols such as Z-Wave, Zigbee, EnOcean, and more. The Homee {% term integration %} will let you use the {% term devices %} from your Homee in Home Assistant.
 
 There is currently support for the following device types in Home Assistant:
 
@@ -31,10 +31,10 @@ You need to create a new user in your Homee that is only used by Home Assistant.
 - Set the user's permissions for what you what to do from Home Assistant.
 - Do not use this account for any other purpose.
 
-1. In your Homee app tap the menu button in the top-left corner.
+1. In your Homee app, in the top-left corner, tap the menu button.
 2. Tap the gear wheel icon on the top right of the opening menu.
-3. Choose "Manage users".
-4. Choose "Add user" and configure the desired values.
+3. Choose **Manage users**.
+4. Choose **Add user** and configure the desired values.
 
 {% include integrations/config_flow.md %}
 
@@ -42,7 +42,7 @@ You need to create a new user in your Homee that is only used by Home Assistant.
 Host:
   description: The IP Address of your Homee.
 User:
-  description: The username you chose in the prerequisites.
+  description: The username you chose in the Prerequisites.
 Password:
   description: The password for that user.
 {% endconfiguration_basic %}
