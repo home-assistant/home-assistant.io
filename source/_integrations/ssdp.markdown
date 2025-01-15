@@ -41,6 +41,7 @@ The following integrations are automatically discovered by the SSDP integration:
  - [LG webOS TV](/integrations/webostv/)
  - [Logitech Harmony](/integrations/harmony/)
  - [OctoPrint](/integrations/octoprint/)
+ - [Onkyo](/integrations/onkyo/)
  - [Philips Hue](/integrations/hue/)
  - [Roku](/integrations/roku/)
  - [Samsung SyncThru Printer](/integrations/syncthru/)
