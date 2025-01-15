@@ -61,9 +61,9 @@ The following device classes are supported for sensors:
 - **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB or YiB
 - **date**: Date string (ISO 8601)
 - **distance**: Generic distance in km, m, cm, mm, mi, nmi, yd, or in
-- **duration**: Duration in d, h, min, or s
-- **energy**: Energy in J, kJ, MJ, GJ, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
-- **energy_storage**: Stored energy in J, kJ, MJ, GJ, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
+- **duration**: Duration in d, h, min, s, or ms
+- **energy**: Energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
+- **energy_storage**: Stored energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
 - **enum**: Has a limited set of (non-numeric) states
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
 - **gas**: Gasvolume in m³, ft³ or CCF
@@ -81,7 +81,7 @@ The following device classes are supported for sensors:
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **power_factor**: Power factor (unitless), unit may be `None` or %
-- **power**: Power in W, kW, MW, GW or TW
+- **power**: Power in mW, W, kW, MW, GW or TW
 - **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d or mm/h
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg or psi
@@ -94,7 +94,7 @@ The following device classes are supported for sensors:
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
 - **volatile_organic_compounds_parts**: Ratio of volatile organic compounds in ppm or ppb
-- **voltage**: Voltage in V, mV, µV
+- **voltage**: Voltage in V, mV, µV, kV, MV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **volume_flow_rate**: Volume flow rate in m³/h, ft³/min, L/min, gal/min, or mL/s
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF

@@ -13,7 +13,6 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_config_flow: true
-ha_quality_scale: silver
 ---
 
 The Jewish Calendar (`jewish_calendar`) {% term integration %} displays various information related to the Jewish Calendar as various sensors.

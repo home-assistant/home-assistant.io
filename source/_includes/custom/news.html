@@ -1,0 +1,170 @@
+
+<!--  Left column begins -->
+<div class="grid__item one-third lap-one-half palm-one-whole">
+
+  <!-- Recent blog posts -->
+  <div class="recent-posts material-card text">
+    <h1>{% icon "mdi:newspaper-variant-multiple" %} Recent Blog Posts</h1>
+
+    <ol>
+      {% for post in site.posts limit: 4 %}
+        <li class="post" style="display: grid; font-size: 16px">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+          <small class="blog-date">{{ post.date_formatted }}</small>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+
+  <!-- OHF notice -->
+  <a href="https://www.openhomefoundation.org/blog/announcing-the-open-home-foundation/" class="material-card highlight-blog-post">
+    <div>
+      <p class="lead">We are a non-profit and can't be sold or acquired.</p>
+      <p>Home Assistant is a project by the Open Home Foundation.</p>
+    </div>
+    <iconify-icon icon="mdi:chevron-right"></iconify-icon>
+  </a>
+
+  <a
+    class="material-card highlight-blog-post"
+    href="/blog/2016/01/19/perfect-home-automation/"
+  >
+    <p class="lead">Read our founder's vision for the perfect home automation</p>
+    <iconify-icon icon="mdi:chevron-right"></iconify-icon>
+  </a>
+
+  <div class="join-community material-card text">
+    <h1>{% icon "simple-icons:amazonalexa" %} Alexa, turn on the lights</h1>
+
+    Use Alexa to control Home Assistant.
+
+    <div class="links">
+      <a href="/cloud/">Learn more</a>
+    </div>
+  </div>
+
+  <div class="join-community material-card text">
+    <h1>{% icon "simple-icons:googleassistant" %} Ok Google, turn off the AC</h1>
+
+    Use Google Assistant to control Home Assistant.
+
+    <div class="links">
+      <a href="/cloud/">Learn more</a>
+    </div>
+  </div>
+
+  <div class="join-community material-card text">
+    <h1>{% icon "mdi:people-group-outline" %} Join The Community</h1>
+
+    Our vibrant community is very active and super friendly. We love to talk and share our passion for home automation.
+
+    <div class="links">
+      <a href="https://community.home-assistant.io">{% icon "simple-icons:discourse" %} Forums</a>
+      <a href="/join-chat/">{% icon "simple-icons:discord" %} Chat</a>
+      <a href="/newsletter/">{% icon "mdi:email-newsletter" %} Newsletter</a>
+    </div>
+  </div>
+
+</div>
+<!-- Left column ends -->
+
+
+<!-- Center content begins -->
+<div class="grid__item one-third lap-one-half palm-one-whole">
+
+  <!-- All landing pages have a block. -->
+  {% assign pages_by_date = site.pages | sort: "date" | reverse %} {% for
+    page in pages_by_date %} {% if page.layout == "landingpage" and
+    page.frontpage != false %}
+    <a
+      class="material-card picture-promo"
+      href="{{page.url}}"
+      style="
+          background-image: url({{page.frontpage_image | default:page.og_image}});
+          background-size: cover;
+          background-color: #41bdf5;
+        "
+    >
+      <div class="caption">
+        <div>
+          <div class="title">
+            {{page.title}}
+          </div>
+          <div class="subtitle">{{page.description}}</div>
+        </div>
+      </div>
+    </a>
+  {% endif %} {% endfor %}
+
+</div>
+<!-- Center sidebar ends -->
+
+
+<!-- Right content begins -->
+<div class="grid__item one-third lap-one-half palm-one-whole">
+
+  <!-- State of the Open Home -->
+  <a
+    href="/blog/2024/04/24/state-of-the-open-home-2024/"
+    class="material-card picture-promo"
+    style="
+      background-image: url(/images/frontpage/feature-sotoh2024.jpg);
+      background-size: cover;
+      padding-top: 55%;
+    "
+  >
+    <div class="caption">
+      <div>
+        <div class="title">
+          State of the Open Home 2024
+        </div>
+        <div class="subtitle">
+          Learn about our progress so far and also the roadmap for this year.
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Assist -->
+  <a
+    class="material-card picture-promo picture-top"
+    href="/voice_control/"
+    style="
+      background-image: url(/images/frontpage/feature-voice.jpg);
+      background-size: cover;
+      padding-bottom: 35%;
+    "
+  >
+    <div class="caption">
+      <div>
+        <div class="title">
+          Control your home with Assist
+        </div>
+        <div class="subtitle">
+          Our private, insanely fast, voice assistant running on affordable
+          hardware. Now supporting wake words.
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <!-- Merch store -->
+  <a
+    class="material-card picture-promo"
+    href="https://home-assistant-store.creator-spring.com/"
+    style="background-image: url(/images/merchandise/shirt-frontpage.jpg)"
+  >
+    <div class="caption">
+      <div>
+        <div class="title">
+          Join the Home Assistant t-shirt revolution!
+        </div>
+        <div class="subtitle">
+          Look sharp in blue, black or gray. Wearing a HA t-shirt is okay.
+        </div>
+      </div>
+    </div>
+  </a>
+
+</div>
+<!-- Right content ends -->

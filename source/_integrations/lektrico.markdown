@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: lektrico
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - button
   - number
   - select

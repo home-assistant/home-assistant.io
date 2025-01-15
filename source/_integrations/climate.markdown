@@ -33,7 +33,7 @@ An HVAC entity can have the following states, depending on the specific climate 
 
 ### Climate control actions
 
-Available actions: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_hvac_mode`, `climate.set_swing_mode`, `climate.turn_on`, `climate.turn_off`, `climate.toggle`
+Available actions: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_hvac_mode`, `climate.set_swing_mode`, `climate.set_swing_horizontal_mode`, `climate.turn_on`, `climate.turn_off`, `climate.toggle`
 
 {% tip %}
 Not all climate {% term actions %}  may be available for your platform. You can check which climate action are available under **Developer Tools** -> **Actions**.
@@ -228,6 +228,30 @@ automation:
         entity_id: climate.kitchen
       data:
         swing_mode: 1
+```
+
+### Action `climate.set_swing_horizontal_mode`
+
+Set horizontal swing operation mode for climate device
+
+| Data attribute          | Optional | Description                                                                                                                       |
+| ----------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`             | yes      | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`. |
+| `swing_horizontal_mode` | no       | New value of horizontal swing mode.                                                                                               |
+
+#### Automation example
+
+```yaml
+automation:
+  trigger:
+    platform: time
+    at: "07:15:00"
+  action:
+    - action: climate.set_swing_horizontal_mode
+      target:
+        entity_id: climate.kitchen
+      data:
+        swing_horizontal_mode: on
 ```
 
 ### Action `climate.turn_on`

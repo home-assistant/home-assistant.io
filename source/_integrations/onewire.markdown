@@ -10,10 +10,10 @@ ha_codeowners:
   - '@garbled1'
   - '@epenet'
 ha_domain: onewire
-ha_quality_scale: gold
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - select
   - sensor
   - switch
 ha_integration_type: hub
@@ -37,6 +37,12 @@ Each 1-wire component data sheet describes the different properties the componen
 | 29     | [DS2408](https://datasheets.maximintegrated.com/en/ds/DS2408.pdf)  | 8 sensed (sensed.0-7) <sup>[4](#note_4)</sup> |
 | 3A     | [DS2413](https://datasheets.maximintegrated.com/en/ds/DS2413.pdf)  | 2 sensed (sensed.A/B) <sup>[4](#note_4)</sup> |
 | EF     | [HobbyBoard](https://hobbyboards.com/)                             | Hub Branch State <sup>[3](#note_3) [4](#note_4)</sup> |
+
+#### Select:
+
+| Family | Device           | Physical Quantity  |
+| -------|:-----|:-----|
+| 28     | [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)          | Temperature resolution          |
 
 #### Sensors:
 
@@ -133,3 +139,9 @@ UPDATE states SET entity_id='sensor.<sensor_name>_humidity' WHERE entity_id LIKE
 ```
 
 Remember to replace `<sensor_name>` with the actual name of the sensor, as seen in the `SELECT` query.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

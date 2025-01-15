@@ -3,8 +3,8 @@ title: "Assist on Android"
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing devices to Assist
-  - docs: /voice_control/start_assist_from_dashboard/
-    title: Starting Assist from your dashboard
+  - docs: /voice_control/best_practices/
+    title: Best practices with Assist
   - url: https://companion.home-assistant.io/docs/getting_started/
     title: Home Assistant Companion App
 ---
@@ -17,7 +17,7 @@ Assist can be used on Android phones and tablets using the [Home Assistant Compa
 
 - [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/) installed
 - Have an Assistant set up: either [cloud](/voice_control/voice_remote_cloud_assistant/) (recommended, more performant) or [local](/voice_control/voice_remote_local_assistant/).
-- The devices you want to control with Assist are [exposed to Assist](/voice_control/voice_remote_expose_devices/)
+- The devices you want to control with Assist are [exposed to Assist](/voice_control/voice_remote_expose_devices/) and you have checked most of the [best practices](/voice_control/best_practices/)
 
 ### Starting Assist in Home Assistant
 

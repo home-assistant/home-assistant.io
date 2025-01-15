@@ -7,11 +7,9 @@ This section lists a few steps that may help you troubleshoot issues with Assist
 ## View debug information
 
 1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
-2. From the list of assistants, select your assistant.
-   ![Select your assistant](/images/assist/assistant-select.png)
-3. In the dialog, select **Debug**.
+2. From the list of assistants, go to your assistant and select **Debug** in the dialog.
 ![Open the debug dialog](/images/assist/assistant-debug-03.png)
-4. At the top of the screen, from the dropdown menu, select the run you are interested in.
+3. At the top of the screen, from the dropdown menu, select the run you are interested in.
 ![Debug speech-to-text](/images/assist/assistant-debug-02.png)
 
 ## Test a sentence per language without voice: without executing commands

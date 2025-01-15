@@ -15,7 +15,6 @@ ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: ring
-ha_quality_scale: silver
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
@@ -42,15 +41,13 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
   - [Saving the videos captured by your Ring Door Bell](#saving-the-videos-captured-by-your-ring-door-bell)
 - [Event](#event)
+  - [Realtime event stability](#realtime-event-stability)
 - [Sensor](#sensor)
 - [Siren](#siren)
 - [Switch](#switch)
 - [Light](#light)
 - [Number](#number)
 
-{% note %}
-This integration does NOT allow for live viewing of your Ring camera within Home Assistant.
-{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -66,22 +63,26 @@ Once you have enabled the [Ring integration](/integrations/ring), you can start 
 
 ## Camera
 
-{% important %}
-Please note that downloading and playing Ring video will require a Ring Protect plan.
-{% endimportant %}
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform.
+Currently, it supports doorbells and stickup cameras.
+Two camera entities are provided: `live_view` and `last_recording`.
+`last_recording` is disabled by default.
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform. Currently, it supports doorbell and stickup cameras.
+{% important %}
+Please note that downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
+{% endimportant %}
 
 ### Saving the videos captured by your Ring Door Bell
 
-You can save locally the latest video captured by your Ring Door Bell using the [downloader](/integrations/downloader) along with either an [automation](/integrations/automation) or [python_script](/integrations/python_script). First, enable the [downloader](/integrations/downloader) integration in your configuration by adding the following to your `configuration.yaml`.
+You can save locally the latest video captured by your Ring Door Bell using the [downloader](/integrations/downloader) along with either an [automation](/integrations/automation) or [python_script](/integrations/python_script).
+First, enable the [downloader](/integrations/downloader) integration in your configuration by adding the following to your `configuration.yaml`.
 
 ```yaml
 downloader:
   download_dir: downloads
 ```
 
-Then you can use the following automation, with the entities from your system, which will save the video file under `<config>/downloads/<camera_name>/<camera_name>/`:
+Then you can use the following automation, with the entities from your system, which will save the video file under `<config>/downloads/<camera_name>/<camera_name>.mp4`:
 
 {% raw %}
 
@@ -90,14 +91,20 @@ automation:
   alias: "Save the video when the doorbell is pushed"
   triggers:
   - trigger: state
-    entity_id: binary_sensor.front_doorbell_ding
-    to: "on"
+    entity_id: event.front_doorbell_ding
+    from: null
   actions:
+  - delay:
+    hours: 0
+    minutes: 5
+    seconds: 0
+    milliseconds: 0
   - action: downloader.download_file
     data:
-      url: "{{ state_attr('camera.front_door', 'video_url') }}"
-      subdir: "{{state_attr('camera.front_door', 'friendly_name')}}"
-      filename: "{{state_attr('camera.front_door', 'friendly_name')}}"
+      overwrite: true
+      url: "{{ state_attr('camera.front_door_last_recording', 'video_url') }}"
+      subdir: "{{state_attr('camera.front_door_last_recording', 'friendly_name')}}"
+      filename: "{{state_attr('camera.front_door_last_recording', 'friendly_name')}}.mp4"
 ```
 
 {% endraw %}
@@ -107,8 +114,8 @@ You may consider some modifications in the subdirectory and the filename to suit
 {% raw %}
 ```yaml
     data:
-      url: "{{ state_attr('camera.front_door', 'video_url') }}"
-      subdir: "{{ state_attr('camera.front_door', 'friendly_name') }}/{{ now().strftime('%Y.%m') }}"
+      url: "{{ state_attr('camera.front_door_last_recording', 'video_url') }}"
+      subdir: "{{ state_attr('camera.front_door_last_recording', 'friendly_name') }}/{{ now().strftime('%Y.%m') }}"
       filename: "{{ now().strftime('%Y-%m-%d-at-%H-%M-%S') }}.mp4"
 ```
 {% endraw %}
@@ -126,7 +133,7 @@ You can then use the following `python_script` to save the video file:
 ```python
 # obtain ring doorbell camera object
 # replace the camera.front_door by your camera entity
-ring_cam = hass.states.get("camera.front_door")
+ring_cam = hass.states.get("camera.front_door_last_recording")
 
 subdir_name = f"ring_{ring_cam.attributes.get('friendly_name')}"
 
@@ -147,13 +154,39 @@ The event entity captures events like doorbell rings, motion alerts, and interco
 
 ### Realtime event stability
 
-If you are experiencing issues with receiving ring alerts, the reason could be that you have too many authenticated devices on your ring account.
-Prior to version 2023.12.0, the Home Assistant ring integration would register a new entry in `Authorized Client Devices` in the `Control Centre` at [ring.com](https://account.ring.com/account/control-center/authorized-devices) every time it restarted.
-If you have been using the ring integration before this, you may have many `Authorized Client Devices` in the `Control Centre` on [ring.com](https://account.ring.com/account/control-center/authorized-devices).
-This can cause issues receiving ring alerts.
-You should delete all authorised devices from [ring.com](https://account.ring.com/account/control-center/authorized-devices) `Control Centre` which are from Home Assistant
-(i.e. do not delete those named `iPhone` or `Android`; Home Assistant authorized devices are named `ring-doorbell:HomeAssistant/something` or `Python`).
-If you have too many `Authorised Client Devices` to delete them individually, it might be easier to `Remove all devices` and then re-authorize your required devices.
+Home Assistant requires outbound TCP access to port 5228 to connect to Ring's real-time event service.
+Ensure your firewall and network configuration allow this connection.
+
+Below are steps to follow if realtime events are not working.
+
+#### Step 1
+
+Issues with Ring alerts may be caused by having too many authenticated devices on your Ring account. Before version 2023.12.0, the Home Assistant Ring integration would register a new entry in `Authorized Client Devices` in the `Control Center` at [ring.com](https://account.ring.com/account/control-center/authorized-devices) on every restart.
+{% warning %}
+When cleaning up devices:
+1. Only delete entries that start with `ring-doorbell:HomeAssistant` or `Python`
+2. Do NOT delete entries for your phones or other Ring apps
+3. If there are too many devices to delete individually, you can use the `Remove all devices` option, but you'll need to re-authorize all your devices afterward
+{% endwarning %}
+
+#### Step 2
+
+If you're still experiencing issues after Step 1, try generating a new unique ID for the Home Assistant Ring integration instance.
+To do this, click the three-dot menu on the integration entry and select the `Reconfigure` option.
+Do not try this step before clearing down all the excess `Authorized Client Devices` as per Step 1, or it will simply invalidate the reconfigured entry.
+
+#### Step 3
+
+If alerts are still not working after Steps 1 and 2, try toggling the Motion Warning setting:
+
+1. Go to [ring.com](https://ring.com) and sign in
+2. Select your device
+3. Navigate to Device Settings
+4. Find the Motion Warning toggle
+5. Turn it off, wait 30 seconds
+6. Turn it back on
+
+This has successfully restored alerts for many users.
 
 ## Sensor
 

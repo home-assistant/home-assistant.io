@@ -27,7 +27,7 @@ ha_zeroconf: true
 The AirGradient integration will fetch data from your [AirGradient devices](https://www.airgradient.com/).
 
 {% important %}
-In order for the device to be set up or discovered by Home Assistant, the firmware version should be at least 3.1.1.
+In order for the device to be set up or discovered by Home Assistant, the [firmware](https://www.airgradient.com/documentation/firmwares) version should be at least 3.1.1.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
