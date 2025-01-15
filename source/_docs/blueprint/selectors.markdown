@@ -152,7 +152,7 @@ device:
       required: false
     model_id:
       description: >
-        When set, it limits the list of areas that provide devices that have
+        When set, the list of areas is limited to areas with devices that have
         the set model ID.
       type: string
       required: false      
@@ -569,7 +569,7 @@ filter:
       required: false
     model_id:
       description: >
-        When set, it limits the list of devices to devices that have the set model ID.
+        When set, the list of devices is limited to devices that have the set model ID.
       type: string
       required: false      
 multiple:
@@ -805,7 +805,7 @@ device:
       required: false
     model_id:
       description: >
-        When set, the list only includes floors that have devices which have
+        When set, the list only includes floors with devices that have
         the set model ID.
       type: string
       required: false      
@@ -1360,7 +1360,7 @@ device:
       type: string
       required: false
     model_id:
-      description: When set, it limits the targets to devices by the set model ID.
+      Description: When set, the targets are limited to devices that have the set model ID.
       type: string
       required: false      
 entity:
