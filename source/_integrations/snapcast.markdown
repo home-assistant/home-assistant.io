@@ -65,3 +65,7 @@ Set the latency of a speaker.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s for which latency will be adjusted.
 | `latency` | no | Latency in ms.
+
+## Binary Sensor
+
+The Snapcast integration provides binary sensors that indicate whether or not a stream is playing audio. These sensors are created from the websocket server connection.
