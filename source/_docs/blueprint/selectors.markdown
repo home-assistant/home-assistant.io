@@ -1360,7 +1360,7 @@ device:
       type: string
       required: false
     model_id:
-      Description: When set, the targets are limited to devices that have the set model ID.
+      description: When set, the targets are limited to devices that have the set model ID.
       type: string
       required: false      
 entity:
