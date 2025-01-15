@@ -129,6 +129,7 @@ VeSync air purifiers will expose the following details depending on the features
 | `child_lock`            | The current status of the child lock (Core200S/300s/400s)                         | off             |
 
 ## Humidifier
+
 Sensors and settings exposed by VeSync humidifiers.
 
 | Sensor                  | Description                                                                        | Example   |
