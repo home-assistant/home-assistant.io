@@ -39,7 +39,13 @@ ha_dhcp: true
 ha_integration_type: integration
 ---
 
-The `tplink` integration allows you to control your [TP-Link Kasa Smart Home Devices](https://www.tp-link.com/kasa-smart/) and [TP-Link Tapo Devices](https://www.tapo.com/) such as plugs, power strips, wall switches and bulbs.
+The `tplink` integration allows you to control your [TP-Link Kasa Smart Home Devices](https://www.tp-link.com/kasa-smart/) and [TP-Link Tapo Devices](https://www.tapo.com/) such as cameras, lights, plugs, wall switches, hubs, and hub-attached devices.
+
+## How you can use this integration
+
+The TP-Link integration lets you do many things, such as switching devices on and off based on schedules or events, monitoring energy usage in the Home Assistant dashboards, viewing live camera feeds, and controlling device configurations manually or via automations.
+
+## Prerequisites
 
 You need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done either by using [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning) or by adding it to the official Kasa or Tapo app before trying to add them to Home Assistant. Some apps for TP-Link's other products, such as the Deco app, also allow you to add Kasa and Tapo devices. Since these devices use the same TP-Link Cloud Account for authorization, they work with this integration as well.
 
@@ -47,6 +53,29 @@ If your device is a newer Kasa or Tapo device it will require your TP-Link cloud
 If you have an older device that does not currently require authentication, you may consider disabling automatic firmware updates to keep it that way.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+
+Host:
+  description: |
+    Hostname or IP address of your TP-Link device.
+Username:
+  description: |
+    Your TP-Link cloud username which is your *case-sensitive* email address. Required for Tapo and newer Kasa devices.
+Password:
+  description: |
+    Your TP-Link cloud password. Required for Tapo and newer Kasa devices.
+Live view:
+  description: |
+    Checkbox to enable live view will create the live view camera entity for Tapo cameras. Requires your camera account credentials which you set up from the Tapo app under **Device Settings** > **Advanced Settings** > **Camera Account**.
+Camera account username:
+  description: |
+    Your camera account username as configured in the Tapo app.
+Camera account password:
+  description: |
+    Your camera account password configured for the device in the Tapo app.
+
+{% endconfiguration_basic %}
 
 ## Supported Devices
 
@@ -88,31 +117,113 @@ Alternatively, you can factory reset and then prevent the device from accessing 
 [^2]: Newer versions require authentication
 [^3]: Devices may work across TAPO/KASA branded hubs
 
-## Unavailable entities
+
+## Supported functionality
+
+### Cameras
+
+Only Tapo cameras are currently supported.
+In order for live view to work, you will need to enable your camera account in the Tapo App under **Device Settings** > **Advanced Settings** > **Camera Account**.
+If you do not want to do this, keep **Live view** unchecked when adding the device. This can be changed at a later date using the `reconfigure` option on the integration entry.
+
+Depending on the supported features of the camera, you can control various settings such as privacy mode, pan/tilt, and motion detection alerts.
+
+### Lights
+
+Light entities are added for bulbs, light strips, and dimmer switches. 
+Depending on the supported features of the device, the integration will allow changing brightness, color, color temperature, and light effects.
+
+If light effects are supported by a device, they can be selected from the bottom of the light card.
+Light presets are also supported and can be set via the config preset drop down on the device page.
+
+Depending on the supported features of the device you can control various other configuration settings such as on/off transitions and auto-on/off.
+
+### Plugs and switches
+
+Switch entities are added for plugs, simple wall switches and power strips. In addition to turning devices on and off, you can control the various configuration options that the device supports, such as auto-on/off and automatic firmware updates.
+
+### Energy monitoring
+
+If a device supports energy monitoring sensors will be created for consumption metrics which can be fed into the Home Assistant energy dashboard.
+
+### Hub-attached devices
+
+Various hub attached devices are supported such as those providing climate control, motion detection, humidity monitoring and water leak detection.
+
+
+## Data updates
+
+Devices are polled for data updates every 5 seconds. When you make changes through Home Assistant (e.g., switching a device on), the device's state is updated immediately rather than waiting for the next poll.
+The integration connects locally to the devices without going via the TP-Link cloud. This is different from the native Tapo and Kasa apps which will connect to the devices via the TP-Link cloud if the device has access to the internet.
+
+## Known limitations
+
+### Camera connections
+
+Some firmware versions of Tapo Cameras will not authenticate unless you enable **Tapo Lab** > **Third-Party Compatibility** in the native Tapo app.
+Alternatively, you can factory reset and then prevent the device from accessing the internet.
+
+### Subnets and discovery
+
+If devices are on a different subnet to Home Assistant, automatic discovery will not work.
+In this instance it is recommended to add devices by IP address and configure them with static IP addresses to prevent issues when IP addresses change.
+
+### Buttons
+
+The hub-attached Tapo buttons S200B and S200D, do not currently support alerting when the button is pressed.
+
+### Hub-attached cameras
+
+Hub attached cameras will be supported in the future. Due to battery considerations they do not support live view.
+
+### No light effects on kasa bulbs
+
+Light effects are currently not supported on Kasa bulbs.
+
+### Kasa power strips
+
+Due to limitations of the devices, the energy monitoring state of Kasa power strip child plugs is only updated every 60 seconds.
+
+If required, you can manually trigger an update via **Developer tools** > **Actions** > **Home Assistant Core Integration: Update entity** passing a list of the child entities.
+
+## Troubleshooting
+
+### Device connections
+
+- Take note of the known limitation for subnets above.
+- Try switching the device off for 5 seconds before switching back on again.
+- Check the [supported device list](#supported-devices) to see if the device is tested to work with the integration. 
+- Try running the [kasa tool](https://github.com/python-kasa/python-kasa) to connect to the device. An easy way to do this is to [install uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx --from python-kasa kasa --username <tplink cloud username> --password <tplink cloud password>`
+- Raise a support issue
+
+### Unavailable entities
 
 Some entities might be showing as Unavailable if they have been removed from the integration.
 
-## Cameras
-
-Only Tapo cameras are currently supported.
-In order for live view to work, you will need to enable your camera account in the Tapo App > **Advanced Settings** > **Camera Account**.
-If you do not want to do this, keep **Live view** unchecked when adding the device.
-
-### Total consumption
+#### Total consumption sensor
 
 This entity is only reported by older kasa devices.
 Currently, Tapo devices and newer Kasa devices do not report total consumption, although briefly during 2024.6, they incorrectly reported today's consumption as "total consumption." You can safely delete this entity if it is reported as unavailable on a newer Kasa or Tapo device.
 
-### Update
+#### Update available sensor
 
 This entity has been removed from the integration due to stability issues, calling the TPLink cloud API to check for updates. It will be replaced in a future release with a new Update entity, but if you have an Unavailable entity ID starting with `binary_sensor.` and ending with `update`, you can safely delete it.
 
-## Light effects
 
-If light effects are supported by a device they can be selected from the bottom of the light card.
-They are currently not supported on Kasa bulbs.
+## Examples
 
-### Random Effect - Action `tplink.random_effect`
+### Automation ideas 
+
+- Turn on lights when it gets dark and turn them off again with a voice command.
+- Turn off privacy mode and turn on motion detection for internal cameras when you leave home (with geofencing) and toggle back when you get home.
+
+### Light effect services
+
+There are two services for light effects that can be used in automations.
+
+These are available on devices that support light effects such as bulbs and light strips, except for [kasa bulbs](#no-light-effects-on-kasa-bulbs)
+
+#### Random Effect - Action `tplink.random_effect`
 
 Light strips allow setting a random effect.
 
@@ -161,7 +272,7 @@ data:
   random_seed: 80
 ```
 
-### Sequence Effect - Action `tplink.sequence_effect`
+#### Sequence Effect - Action `tplink.sequence_effect`
 
 Light strips allow setting a sequence effect.
 

@@ -11,6 +11,8 @@ related:
     title: Best practices with Assist
   - url: https://www.nabucasa.com/config/assist/
     title: Home Assistant Cloud
+  - url: https://voice-pe.home-assistant.io/
+    title: Voice Preview Edition
 ---
 
 This section will help you set up Assist, which is Home Assistant voice assistant.
