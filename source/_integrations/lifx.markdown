@@ -86,7 +86,21 @@ To apply a theme interactively, use the theme selection drop-down box found on t
 
 To apply a theme as part of an automation, use the `select.select_option` action call. You can also apply a theme when calling the `lifx.effect_move` action. See the **Light effects** section below for more details, including how to set a custom theme for that effect.
 
-The following themes are available: `autumn`, `blissful`, `cheerful`, `dream`, `energizing`, `epic`, `exciting`, `focusing`, `halloween`, `hanukkah`, `holly`, `independence_day`, `intense`, `mellow`, `peaceful`, `powerful`, `relaxing`, `santa`, `serene`, `soothing`, `sports`, `spring`, `tranquil`, `warming`.
+The following themes are available: `autumn`, `blissful`, `bias_lighting`, `calaveras`, `cheerful`, `christmas`, `dream`, `energizing`, `epic`, `evening`, `exciting`, `fantasy`, `focusing`, `gentle`, `halloween`, `hanukkah`, `holly`, `hygge`, `independence`, `intense`, `love`, `kwanzaa`, `mellow`, `party`, `peaceful`, `powerful`, `proud`, `pumpkin`, `relaxing`, `romance`, `santa`, `serene`, `shamrock`, `soothing`, `spacey`, `sports`, `spring`, `stardust`, `thanksgiving`, `tranquil`, `warming`, `zombie`.
+
+### Action `lifx.paint_theme`
+
+This action allows you to paint either one of the predefined themes listed above or you can specify a custom palette and create your own theme. Your palette must have at least two colors defined in hue, saturation, brightness, and kelvin.
+
+If you provide a value for both `palette` and `theme` then the palette will override the theme. If neither are provided, the `exciting` theme is used by default.
+
+| Data attribute | Description |
+| ---------------------- | ----------- |
+| `palette` | (optional, overrides `theme`) a list of 2 to 16 colors defined as a list of values representing hue (0-360), saturation (0-100), brightness (0-100), and kelvin (1500-9000). All four values must be provided for each color.
+| `theme` | (optional, overridden by `palette`) the name of the theme to paint on the target lights. See above for a list of available themes.
+| `transition` | (optional, default: 1 second) duration in seconds to paint the theme across the target lights.
+| `power_on` | (optional, default: True) set this to False to prevent lights being turned on before the theme is painted.
+
 
 ## Light effects
 
@@ -185,8 +199,8 @@ The device will be powered on by default, but this can be overridden by setting 
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of matrix lights.
 | `speed` | Duration in seconds for the effect to travel the length of the device (min: 1s, max: 25s)
-| `palette` | A list of at least 2 and at most 16 HSBK values to use for this effect.
-| `theme` | The theme to use for the effect. Must be one of: `autumn`, `blissful`, `cheerful`, `dream`, `energizing`, `epic`, `exciting`, `focusing`, `halloween`, `hanukkah`, `holly`, `independence` `day`, `intense`, `mellow`, `peaceful`, `powerful`, `relaxing`, `santa`, `serene`, `soothing`, `sports`, `spring`, `tranquil`, `warming`.
+| `palette` | A list of at least 2 and at most 16 HSBK values to use for this effect (optional, overrides theme).
+| `theme` | The theme to use for the effect. See above for a list of available themes (optional, overriden by palette).
 | `power_on` | Whether to turn the light on before starting the effect (optional, default: true)
 
 ### Action `lifx.effect_sky`
@@ -245,7 +259,7 @@ The effect will not be visible if all LEDs on the device are set to the same col
 | `entity_id` | String or list of strings that point at `entity_id`s of multizone lights.
 | `speed` | Duration in seconds for the effect to travel the length of the device (min: 0.1s, max: 60s)
 | `direction` | The direction in which the effect will travel, either "right" or "left" (default: right)
-| `theme` | The name of a pre-defined theme to apply to the multizone device before starting the effect.
+| `theme` | The theme to use for the effect. See above for a list of available themes (optional).
 | `power_on` | Whether to turn the light on before starting the effect (optional, default: true)
 
 ### Action `lifx.effect_stop`
