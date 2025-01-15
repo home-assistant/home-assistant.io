@@ -131,9 +131,9 @@ VeSync air purifiers will expose the following details depending on the features
 ## Humidifier
 Sensors and settings exposed by VeSync humidifiers.
 
-| Sensor                  | Description                                                                        | Example (%) |
-| ----------------------- | ---------------------------------------------------------------------------------- | ----------- |
-| `humidity`              | Current humidity                                                                   | 35          |
+| Sensor                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `humidity`              | Current humidity (in %)                                                            | 35        |
 
 | Number                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
