@@ -131,13 +131,13 @@ VeSync air purifiers will expose the following details depending on the features
 ## Humidifier
 Sensors and settings exposed by VeSync humidifiers.
 
-| Sensor                  | Description                                                                            | Example   |
-| ----------------------- | -------------------------------------------------------------------------------------- | --------- |
-| `humidity`              | Current humidity (%)                                                                   | 35        |
+| Sensor                  | Description                                                                        | Example (%) |
+| ----------------------- | ---------------------------------------------------------------------------------- | ----------- |
+| `humidity`              | Current humidity                                                                   | 35          |
 
-| Number                  | Description                                                                            | Example   |
-| ----------------------- | -------------------------------------------------------------------------------------- | --------- |
-| `mist_level`            | Mist level (1-9)                                                                       | 3         |
+| Number                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `mist_level`            | Mist level intensity (Range: 1-9, Step: 1)                                         | 1         |
 
 ## Extracting attribute data
 
