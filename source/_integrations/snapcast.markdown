@@ -3,12 +3,14 @@ title: Snapcast
 description: Instructions on how to integrate Snapcast into Home Assistant.
 ha_category:
   - Media player
+  - Binary Sensor
 ha_release: 0.13
 ha_iot_class: Local Push
 ha_domain: snapcast
 ha_config_flow: true
 ha_platforms:
   - media_player
+  - binary_sensor
 ha_integration_type: integration
 ha_codeowners:
   - '@luar123'
