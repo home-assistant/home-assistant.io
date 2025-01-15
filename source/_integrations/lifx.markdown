@@ -99,7 +99,7 @@ If you provide a value for both `palette` and `theme` then the palette will over
 | `palette` | (optional, overrides `theme`) a list of 2 to 16 colors defined as a list of values representing hue (0-360), saturation (0-100), brightness (0-100), and kelvin (1500-9000). All four values must be provided for each color. |
 | `theme` | (optional, overridden by `palette`) the name of the theme to paint on the target lights. See above for a list of available themes. |
 | `transition` | (optional, default: 1 second) duration in seconds to paint the theme across the target lights. |
-| `power_on` | (optional, default: True) set this to False to prevent lights being turned on before the theme is painted. |
+| `power_on` | (optional, default: True) set this to `False` to prevent lights being turned on before the theme is painted. |
 
 
 ## Light effects
