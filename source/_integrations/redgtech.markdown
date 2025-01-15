@@ -1,4 +1,3 @@
-
 ---
 title: Redgtech
 description: Integrate Redgtech devices
