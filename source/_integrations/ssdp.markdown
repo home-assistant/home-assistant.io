@@ -40,6 +40,7 @@ The following integrations are automatically discovered by the SSDP integration:
  - [Konnected.io](/integrations/konnected/)
  - [LG webOS TV](/integrations/webostv/)
  - [Logitech Harmony](/integrations/harmony/)
+ - [Lutron Caseta](/integrations/lutron_caseta/)
  - [OctoPrint](/integrations/octoprint/)
  - [Philips Hue](/integrations/hue/)
  - [Roku](/integrations/roku/)
