@@ -78,4 +78,4 @@ In simple terms, parameters can be divided into monitoring and control. The tabl
 
 ### Scenes
 
-Most devices also offer sets of preset behaviors, called scenes, which are uploaded as buttons when building an integration. These scenes are set directly in the device and cannot be edited by the user. They can only be activated. They are therefore visible as buttons in HASS. The number of such scenes is dynamic and depends on the type and design of the HVAC
+Most devices also offer sets of preset behaviors, called scenes, which are uploaded as buttons when building an integration. These scenes are set directly in the device and cannot be edited by the user. They can only be activated. They are therefore visible as buttons in Home Assistant. The number of such scenes is dynamic and depends on the type and design of the HVAC
