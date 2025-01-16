@@ -4,12 +4,18 @@ description: Instructions on how to integrate aMotion family HVAC device unit
 ha_category:
   - Health
   - Sensor
+  - Climate
+  - HVAC
 ha_config_flow: true
 ha_release: 2025.1.2
 ha_iot_class: Local Polling
 ha_domain: amotion
 ha_platforms:
   - air_quality
+  - climate
+  - number
+  - switch
+  - button
 ha_codeowners:
   - '@karelcavojsky'
 ha_integration_type: integration
@@ -62,7 +68,6 @@ In simple terms, parameters can be divided into monitoring and control. The tabl
 | `zone_request`            |       BOTH<br>ZONE_1<br>ZONE_2<br> | Required zone<br>   |
 | `circulation_fix_request`            |       % | Circulation damper position<br>Number between 0 and 100   |
 | `bypass_control_req`            |       AUTO<br>CLOSED<br>OPEN<br> | Bypass damper  - control request<br>   |
-| `season_current`            |       AUTO_TODA<br>AUTO_TODA_RATIO<br>HEATING<br>NON_HEATING<br>USER<br> | Current season<br>   |
 | `fan_power_req_sup`            |       % | Required power - supply<br>Number between 0 and 100   |
 | `fan_power_req_eta`            |       % | Required power - extract<br>Number between 0 and 100   |
 | `flow_sup_ref`            |       m<sup>3</sup>/h | Flow SUP request<br>Number between 600 and 3000   |
@@ -73,8 +78,4 @@ In simple terms, parameters can be divided into monitoring and control. The tabl
 
 ### Scenes
 
-Most devices also offer sets of preset behaviors, called scenes, which are uploaded as buttons when building an integration.
-
-### Functions
-
-Devices have something like programmable I/O. We call them “triggers.” Its behavior is similar to triggers in Home Assistant. A function is a switch to turn a trigger on or off (enable or disable a response to an input).
+Most devices also offer sets of preset behaviors, called scenes, which are uploaded as buttons when building an integration. These scenes are set directly in the device and cannot be edited by the user. They can only be activated. They are therefore visible as buttons in HASS. The number of such scenes is dynamic and depends on the type and design of the HVAC
