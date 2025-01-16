@@ -35,7 +35,7 @@ In addition, there is a **Sensor** for each of CV pressure, CV temperature, and 
 
 ### Rooms
 
-Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's target `temperature` and `current_temperature` and the target temperature can be changed. This similar to changing the changing the target temperature override using the Comfort Touch App that comes with the thermostat/gateway. Note that any override will be reset if when a new set point is reached on the thermostats schedule.
+Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's target `temperature` and `current_temperature` and the target temperature can be changed. This is similar to changing the target temperature override using the Comfort Touch App that comes with the thermostat/gateway. Note that any override will be reset when a new set point is reached on the thermostat's schedule.
 
 {% include integrations/config_flow.md %}
 
