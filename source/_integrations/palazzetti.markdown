@@ -38,10 +38,13 @@ This integration supports the following actions (see [Climate](/integrations/cli
   - `heat` for heating mode
   - `off` to turn the stove off
 - [`set_fan_mode`](/integrations/climate/#action-climateset_fan_mode)
-  - `Silent` let the stove run in silent mode
-  - `1` to `5` increasing fan speeds
+  - `0` to `5` increasing fan speeds
   - `High` the highest available fan speed
   - `Auto` let the stove set the optimal fan speed
+
+## Buttons
+
+For the stoves that support it, this integration provides a Silent button to trigger the silent mode.
 
 ## Numbers
 
