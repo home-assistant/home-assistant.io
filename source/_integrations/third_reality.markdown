@@ -13,6 +13,7 @@ ha_domain: third_reality
 ha_integration_type: integration
 works_with:
   - zigbee
+  - matter
 ha_platforms:
   - binary_sensor
   - button
