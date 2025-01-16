@@ -5,7 +5,7 @@ ha_category:
   - Light
   - Switch
 ha_release: 2025.1
-ha_iot_class: cloud Polling
+ha_iot_class: cloud_polling
 ha_domain: redgtech
 ha_config_flow: true
 ha_platforms:
@@ -21,7 +21,7 @@ The **Redgtech** integration allows you to connect compatible devices with Home 
 
 To set up Redgtech integration:
 
-1. *Go to **Settings** > **Devices e Services**.*
+1. *Go to **Settings** > **Devices & Services**.*
 2. *Click on **Add Integration**.*
 3. *Choose **Redgtech** from the list.*
 4. Log in with your Redgtech app credentials.
@@ -41,4 +41,4 @@ To set up Redgtech integration:
 
 ## Troubleshooting
 
-If you encounter issues using this integration, refer to the [guia de solução de problemas](../troubleshooting.md) or contact our support.
+If you encounter issues using this integration, refer to the [troubleshooting guide](../toubleshooting.md) or contact our support.
