@@ -1,15 +1,11 @@
 ---
 title: Lorem ipsum
 description: Example document structure and text blocks for integration documentation.
-ha_category:
-  - Other
 ha_release: 2025.02
 ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: lorem_ipsum
-ha_platforms:
-  - other
 ha_integration_type: internal
 related:
   - url: https://developers.home-assistant.io/docs/documenting/standards
