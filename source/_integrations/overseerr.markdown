@@ -17,7 +17,7 @@ ha_platforms:
   - sensor
 ---
 
-Overseerr is a service that allows you to manage media requests and to integrate those with Plex, Radarr and Sonarr. The **Overseerr** {% term integration %} allows you to integrate your [Overseerr](https://overseerr.dev/) instance.
+Overseerr is a service that allows you to manage media requests and to integrate these media requests with Plex, Radarr, and Sonarr. The **Overseerr** {% term integration %} allows you to integrate your [Overseerr](https://overseerr.dev/) instance.
 
 {% include integrations/config_flow.md %}
 
