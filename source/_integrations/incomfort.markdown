@@ -41,6 +41,10 @@ Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** dev
 
 The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
 
+## Data updates
+
+The `incomfort` {% term integration %} will fetch state data from the gateway every 30 seconds. When the target temperature on the thermostat is changed, it might take some time for the set point to be updated on the Home Assistant climate {% term entity %}.
+
 ## Remove integration
 
 This integration follows standard integration removal, no extra steps are required.
