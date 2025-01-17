@@ -24,13 +24,30 @@ To learn how to create and restore a backup, refer to the backup section under [
 
 {% include integrations/config_flow.md %}
 
-## Configuration Options
-
-While initially configuring the integration, some settings are required
-
-- **Host** : Hostname or IP address of SSH/SFTP Server to connect to.
-- **Port** : Port of your SSH/SFTP Server. Default value is: `22`.
-- **Username** : Username to authenticate with.
-- **Password** : Password to authenticate with. Provide this or Private Key File.
-- **Private Key File** : Location to private key file to authenticate with. File must be uploaded to Home Assistant `/config` folder. Provide this or password.
-- **Remote path** : Remote path where to upload backups. Directory must already exist and user provided in `Username` must have write access to it.
+{% configuration_basic %}
+Host:
+  description: Hostname or IP address of SSH/SFTP Server to connect to.
+  required: true
+  type: string
+Port:
+  description: Port of your SSH/SFTP Server. This is usually 22.
+  required: true
+  type: integer
+  default: 22
+Username:
+  description: Username to authenticate with.
+  required: true
+  type: string
+Password:
+  description: Password to authenticate with. Provide this or Private Key File.
+  required: true
+  type: string
+Private Key File:
+  description: Location to private key file to authenticate with. File must be uploaded to Home Assistant `/config` folder. Provide this or password.
+  required: true
+  type: string
+Remote path:
+  description: Remote path where to upload backups. Directory must already exist and user provided in `Username` must have write access to it.
+  required: true
+  type: string
+{% endconfiguration_basic %}
