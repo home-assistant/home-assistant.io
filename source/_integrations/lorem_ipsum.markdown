@@ -104,6 +104,19 @@ You can use a note to highlight a section.
 You can use "important" to highlight a section that you feel is very important.
 {% endimportant %}
 
+## Images
+
+Markdown syntax to add an image, for example to illustrate a step:
+
+1. To adjust the light temperature and brightness, move the sliders:
+    ![Screenshot of tile cards with features](/images/dashboards/features/screenshot-tile-feature-grid.png)
+
+To add an image legend you can use HTML:
+
+<p class='img'><img src='/images/dashboards/features/screenshot-tile-feature-grid.png' alt="Screenshot of tile cards with features.">
+Screenshot of tile cards with features.
+</p>
+
 ## Document structure with dummy content
 
 This section shows outlines the document structure and provides some example text. The example text includes some reusable text blocks such as `{% include integrations/config_flow.md %}` and styling elements such as `configuration_basic`.
