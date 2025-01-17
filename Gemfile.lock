@@ -159,7 +159,7 @@ GEM
     tilt (2.6.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2024.2)
+    tzinfo-data (1.2025.1)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.6.0)
     webrick (1.9.1)
