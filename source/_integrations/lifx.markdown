@@ -92,7 +92,7 @@ The following themes are available: `autumn`, `blissful`, `bias_lighting`, `cala
 
 This action allows you to paint either one of the predefined themes listed above, or you can specify a custom palette and create your own theme. Your palette must be a list of at least two colors each defined as a list of four integer values representing hue, saturation, brightness, and kelvin (in that order). See below for the allowed range for each value.
 
-If you provide a value for both `palette` and `theme` then the palette will override the theme. If neither are provided, the `exciting` theme is used by default.
+If you provide a value for both `palette` and `theme`, then the palette will override the theme. If neither is provided, the `exciting` theme is used by default.
 
 | Data attribute | Description |
 | ---------------------- | ----------- |
