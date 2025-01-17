@@ -67,8 +67,8 @@ There are sensors for:
 When loading the integration, it will try to configure the webhook in Overseerr to give updates to Home Assistant.
 This makes the integration a push-based integration.
 
-When the integration receives an update about the requests, it will update the statistics to make sure they are up to date.
-Otherwise the integration will check for updates every 5 minutes.
+When the integration receives an update about the requests, it updates the statistics to make sure they are up to date.
+In addition, the integration checks for updates every 5 minutes.
 
 ## Remove integration
 
