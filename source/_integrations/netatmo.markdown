@@ -69,7 +69,7 @@ The `netatmo` binary sensor platform is showing the connectivity for the [Netatm
 ## Button
 
 The `netatmo` button sensor platform provides support for moving compatible shutters to a preferred position.
-Not all cover support this functionnality, and we cannot determine the capability automatically, so entities are disabled by default.
+Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are disabled by default.
 
 ## Camera
 
