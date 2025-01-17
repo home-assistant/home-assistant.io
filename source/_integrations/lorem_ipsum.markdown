@@ -118,6 +118,12 @@ To add an image legend you can use HTML:
 Screenshot of tile cards with features.
 </p>
 
+## Videos
+
+Use the following syntax to reference a video from Youtube:
+
+<lite-youtube videoid="ZgoaoTpIhm8" videoStartAt="3907" videotitle="Introducing the Home Assistant Voice Preview Edition - Voice: Chapter 8"></lite-youtube>
+
 ## Document structure with dummy content
 
 This section shows outlines the document structure and provides some example text. The example text includes some reusable text blocks (includes) such as `include integrations/config_flow.md` and styling elements such as `configuration_basic`.
