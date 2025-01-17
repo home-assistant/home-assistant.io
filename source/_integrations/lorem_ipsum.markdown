@@ -110,6 +110,7 @@ Markdown syntax to add an image, for example to illustrate a step:
 
 1. To adjust the light temperature and brightness, move the sliders:
     ![Screenshot of tile cards with features](/images/dashboards/features/screenshot-tile-feature-grid.png)
+2. Then do this ...
 
 To add an image legend you can use HTML:
 
