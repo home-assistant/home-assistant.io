@@ -42,7 +42,7 @@ The hub does not have to be in the same network as HA, but must be reachable via
 
 The above configuration can also be adjusted later via
 {% my integrations title="**Settings** > **Devices & services**" %},
-click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
+select "Intergas InComfort/Intouch Lan2RF gateway" and click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
 
 {% important %}
 
