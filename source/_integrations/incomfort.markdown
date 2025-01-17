@@ -47,6 +47,14 @@ This integration follows standard integration removal, no extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
+{% important %}
+
+Some older room thermostats might report the wrong setpoint when the setpoint is manually changed on the room thermostat. If you encounter this behavior, you can enable the `Legacy setpoint handling` option.
+
+{% endimportant %}
+
+{% include integrations/option_flow.md %}
+
 ## Automation
 
 To send an alert if the CV pressure is too low or too high, consider the following example:

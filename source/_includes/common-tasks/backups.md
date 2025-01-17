@@ -62,7 +62,6 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
    - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
    - If you don't see a network storage, you haven't added one. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
    ![Define the backup locations](/images/screenshots/network-storage/backup_locations_all.png)
-
 ### Creating a manual backup
 
 This creates a backup instantly. You can create a manual backup at any time, irrespective of any automatic backups you may have defined.
