@@ -31,3 +31,31 @@ Integrates [ThermoPro](https://buythermopro.com/) devices into Home Assistant.
 The ThermoPro integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
 {% include integrations/config_flow.md %}
+
+## Actions
+
+These {% term actions %} allow one to set the time on supported devices(TP358, TP393) via Home Assistant.
+
+### Action `set_datetime`
+
+Sets the date & time on target devices.
+
+| Data attribute         | Optional | Description                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------ |
+| `datetime`             | Yes      | Set a custom date time instead of using system time          |
+
+For example, the following action in an automation and set the datetime of the thermometer.
+
+{% raw %}
+
+```yaml
+actions:
+  - variables:
+      entity_id: sensor.tp358_8e50_1_humidity # Store the camera entity_id in a variable for reuse
+  - action: image.snapshot
+    target:
+      entity_id: '{{ entity_id }}'
+    data: {}
+```
+
+{% endraw %}
