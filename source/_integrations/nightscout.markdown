@@ -9,7 +9,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@marciogranzotto'
 ha_domain: nightscout
-ha_quality_scale: platinum
 ha_platforms:
   - sensor
 ha_integration_type: integration

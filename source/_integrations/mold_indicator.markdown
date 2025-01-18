@@ -3,14 +3,15 @@ title: Mold Indicator
 description: How to use the mold growth indication integration in Home Assistant
 ha_category:
   - Environment
+  - Helper
 ha_release: '0.20'
-ha_iot_class: Local Polling
+ha_iot_class: Calculated
 ha_quality_scale: internal
 ha_domain: mold_indicator
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -50,6 +51,7 @@ sensor:
     indoor_humidity_sensor: sensor.humidity
     outdoor_temp_sensor: sensor.weather_temperature
     calibration_factor: 2.0
+    unique_id: very_unique_id_123
 ```
 
 {% configuration %}
@@ -73,6 +75,10 @@ calibration_factor:
   description: Needs to be calibrated to the critical point in the room.
   required: true
   type: float
+unique_id:
+  description: Provide a unique id for the sensor.
+  required: false
+  type: string
 {% endconfiguration %}
 
 In this case, the weather forecast temperature sensor is used for the outside temperature.

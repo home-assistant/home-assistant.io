@@ -40,8 +40,7 @@ Metric prefix:
 Integration time:
   description: SI unit of time to integrate over.
 Max sub-interval:
-  description: Applies time-based integration if the source did not change for this duration. This implies that at least every `max sub-interval`, the integral is updated. If you don't want time-based updates, enter 0.
-
+  description: Applies time-based integration if the source did not change for this duration. This implies that at least every `max sub-interval`, the integral is updated. If you don't want time-based updates, enter `0`.
 {% endconfiguration_basic %}
 
 

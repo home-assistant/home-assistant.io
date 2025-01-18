@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 This tracker discovers new devices on boot and in regular intervals and tracks Bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other.

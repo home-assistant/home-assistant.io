@@ -22,7 +22,7 @@ Home Assistant can give you an interface to control covers such as rollershutter
 
 ## The state of a cover
 
-A can have the following states:
+A cover can have the following states:
 
 - **Opening**: The cover is in the process of opening to reach a set position.
 - **Open**: The cover has reached the open position.

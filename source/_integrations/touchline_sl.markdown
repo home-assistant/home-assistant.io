@@ -8,7 +8,10 @@ ha_iot_class: Cloud Polling
 ha_domain: touchline_sl
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: hub
+ha_codeowners:
+  - '@jnsgruk'
+ha_config_flow: true
 ---
 
 The **Roth Touchline SL** climate integration enables you to control [Roth Touchline SL](https://www.roth-uk.com/products/control-systems/roth-touchliner-sl-wireless-system) underfloor heating systems.
@@ -25,5 +28,6 @@ The integration will present each Roth Touchline SL zone as a climate entity, wh
 
 - Display the current temperature
 - Display the current humidity
+- Display when the zone is being actively heated or cooled.
 - Set a target temperature
 - Assign to a configured "Global Schedule" using Home Assistant climate entity presets.

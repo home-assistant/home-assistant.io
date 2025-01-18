@@ -13,6 +13,8 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_codeowners:
+  - '@alexyao2015'
 ---
 
 The `html5` notification {% term integration %} enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
@@ -81,7 +83,7 @@ data:
 
 #### Data
 
-Any parameters that you pass in the notify payload that aren't valid for use in the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`, `priority`, `ttl`) will be sent back to you in the [callback events](#automating-notification-events).
+Any parameters that you pass in the notify payload that aren't valid for use in the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`, `priority`, `ttl`, `silent`) will be sent back to you in the [callback events](#automating-notification-events).
 
 ```yaml
 title: Front door
@@ -193,7 +195,7 @@ Common event payload parameters are:
 | Parameter | Description                                                                                                                                                                                                                                                    |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `action`  | The `action` key that you set when sending the notification of the action clicked. Only appears in the `clicked` event.                                                                                                                                        |
-| `data`    | The data dictionary you originally passed in the notify payload, minus any parameters that were added to the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`). |
+| `data`    | The data dictionary you originally passed in the notify payload, minus any parameters that were added to the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`, `silent`). |
 | `tag`     | The unique identifier of the notification. Can be overridden when sending a notification to allow for replacing existing notifications.                                                                                                                        |
 | `target`  | The target that this notification callback describes.                                                                                                                                                                                                          |
 | `type`    | The type of event callback received. Can be `received`, `clicked` or `closed`.                                                                                                                                                                                 |

@@ -42,6 +42,7 @@ The login credentials used to authenticate the integration are the same as the o
 | Yale Conexis L2 | yes |
 | Yale Doorman L3 | yes |
 | Yale Linus | yes |
+| Yale Linus L2 | no |
 | Yale Smart Safe | yes |
 
 Other devices not listed above have not been tested and may not function as expected.
@@ -94,7 +95,7 @@ Not all models include motion sensors and support for locks with built-in doorbe
 
 ## Camera
 
-The `yale` camera platform allows you to view the latest camera image (triggered by motion) by your [Yale](https://yale.com/) device in Home Assistant.
+The `yale` camera platform allows you to view the latest camera image (triggered by motion) by your [Yale](https://yalehome.com/) device in Home Assistant.
 
 ## Sensor
 

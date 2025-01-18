@@ -41,16 +41,16 @@ Firmware can be upgraded using the below directions:
 {% endwarning %}
 
 - 800 series controllers (with some caveats, see notes)
-  - Z-Wave.Me Z-Station
   - HomeSeer SmartStick G8
   - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
 - 700 series controllers
   - Aeotec Z-Stick 7 USB stick (ZWA010) (the EU version is not recommended due to RF performance issues)
-  - Silicon Labs UZB-7 USB Stick (Silabs SLUSB7000A / SLUSB001A)
-  - Zooz S2 Stick 700 (ZST10 700)
   - HomeSeer SmartStick+ G3
   - HomeSeer Z-NET G3
+  - Silicon Labs UZB-7 USB Stick (Silabs SLUSB7000A / SLUSB001A)
+  - Zooz S2 Stick 700 (ZST10 700)
+  - Z-Wave.Me Z-Station
 
 - 500 series controllers
   - Aeotec Z-Stick Gen5 (see note below)

@@ -106,6 +106,10 @@ Extensions allow templates to access all of the Home Assistant specific states a
 
 Templates for some [triggers](/docs/automation/trigger/) as well as `trigger_variables` only support a subset of the Home Assistant template extensions. This subset is referred to as "Limited Templates".
 
+### This
+
+State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. See more details and examples in the [Template integration documentation](/integrations/template).
+
 ### States
 
 Not supported in [limited templates](#limited-templates).
@@ -318,7 +322,7 @@ List of lights that are on with a brightness of 255:
 {% raw %}
 
 ```text
-{{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
+{{ ['light.kitchen', 'light.dining_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
 ```
 
 {% endraw %}
@@ -714,10 +718,10 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
 ### Time
 
-`now()`, `relative_time()`, `today_at()`, and `utcnow()` are not supported in [limited templates](#limited-templates).
+`now()`, `time_since()`, `time_until()`, `today_at()`, and `utcnow()` are not supported in [limited templates](#limited-templates).
 
 - `now()` returns a datetime object that represents the current time in your time zone.
-  - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3.8/library/datetime.html#datetime.datetime) attributes and functions.
+  - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime) attributes and functions.
   - Using `now()` will cause templates to be refreshed at the start of every new minute.
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
@@ -738,7 +742,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 - `as_datetime(value, default)` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error. When the input is already a datetime object it will be returned as is. in case the input is a datetime.date object, midnight will be added as time. This function can also be used as a filter.
 - `as_timestamp(value, default)` converts a datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts a datetime object to local time. This function can also be used as a filter.
-- `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3.10/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
+- `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
 - `time_since(datetime, precision)` converts a datetime object into its human-readable time string. The time string can be in seconds, minutes, hours, days, months, and years. `precision` takes an integer (full number) and indicates the number of units returned.  The last unit is rounded. For example: `precision = 1` could return "2 years" while `precision = 2` could return "1 year 11 months". This function can also be used as a filter.
 If the datetime is in the future, returns 0 seconds.
 A precision of 0 returns all available units, default is 1.
@@ -1176,7 +1180,7 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 
 - Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
 - Test `string is search(find, ignorecase=False)` will match the find expression anywhere in the string using regex.
-- Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
+- Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex. Access to the matched groups in `replace` is possible with `'\\1'`, `'\\2'`, etc.
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.
 
@@ -1459,12 +1463,14 @@ To evaluate a response, go to **{% my developer_template title="Developer Tools 
 
 ### Using templates with the MQTT integration
 
-The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to status updates or incoming actions (command templates) to payloads that configure the MQTT device.
+The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to state updates or incoming actions (command templates) to payloads that configure the MQTT device.
 
 #### Using value templates with MQTT
 
-For incoming data a value template translates incoming JSON or raw data to a valid payload.
-Incoming payloads are rendered with possible JSON values, so when rendering the `value_json` can be used access the attributes in a JSON based payload.
+Value templates translate received MQTT payload to a valid state or attribute.
+The received MQTT is available in the `value` template variable, and in the `value_json` template variable if the received MQTT payload is valid JSON.
+
+In addition, the template variables `entity_id`, `name` and `this` are available for MQTT entity value templates. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 {% note %}
 
@@ -1478,13 +1484,13 @@ With given payload:
 
 Template {% raw %}`{{ value_json.temperature | round(1) }}`{% endraw %} renders to `21.9`.
 
-Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
-
 {% endnote %}
 
 #### Using command templates with MQTT
 
-For actions, command templates are defined to format the outgoing MQTT payload to the device. When an action is executed, `value` can be used to generate the correct payload to the device.
+For actions, command templates are defined to format the outgoing MQTT payload to a format supported by the remote device. When an action is executed, the template variable `value` has the action data in most cases unless otherwise specified in the documentation.
+
+In addition, the template variables `entity_id`, `name` and `this` are available for MQTT entity command templates. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 {% note %}
 
@@ -1497,8 +1503,6 @@ With given value `21.9` template {% raw %}`{"temperature": {{ value }} }`{% endr
   "temperature": 21.9
 }
 ```
-
-Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 {% endnote %}
 

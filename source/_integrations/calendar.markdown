@@ -177,7 +177,7 @@ Add a new calendar event. A calendar `target` is selected with a [Target Selecto
 You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
 {% endnote %}
 
-This is a full example of a {% term service %} call in YAML:
+This is a full example of an {% term action %} in YAML:
 
 ```yaml
 action: calendar.create_event

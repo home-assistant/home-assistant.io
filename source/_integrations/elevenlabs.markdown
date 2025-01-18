@@ -1,15 +1,17 @@
 ---
-title: ElevenLabs text-to-speech
+title: ElevenLabs
 description: Instructions on how to setup ElevenLabs text-to-speech with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 2024.8
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Polling
 ha_domain: elevenlabs
 ha_platforms:
   - tts
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
+ha_codeowners:
+  - '@sorgfresser'
 ---
 
 The **ElevenLabs** text-to-speech {% term integrations %} adds support for [ElevenLabs](https://elevenlabs.io/) as text-to-speech to read a text with natural sounding voices.

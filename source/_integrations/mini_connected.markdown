@@ -12,7 +12,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
-ha_release: 2024.8
+ha_release: 0.64
 ha_integration_type: virtual
 ha_supporting_domain: bmw_connected_drive
 ha_supporting_integration: BMW Connected Drive

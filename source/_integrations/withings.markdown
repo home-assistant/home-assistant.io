@@ -16,28 +16,40 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: integration
-ha_quality_scale: platinum
 ---
 
 The **Withings** {% term integration %} consumes data from various health products produced by [Withings](https://www.withings.com).
 
-## Create a Withings developer account
+## Prerequisites
 
-You must have a developer account to distribute the data. [Create a free developer account](https://account.withings.com/partner/add_oauth2).
+- Withings account
+- Withings app installed
+- Withings device setup in the app
+- [Withings developer account](#creating-a-withings-developer-account) to get a *ClientID* and *Secret* to connect to be able to get the data from the Withings cloud API
 
-Create an application:
-1. Ensure you have selected *Withings public cloud* (instead of Withings US medical cloud)
-2. Create an application
-3. Application creation: Public API integration
-  - Read and accept the terms if you're happy by pressing **Next**
-4. Information:
-  - Target environment: *Development*
-  - Application name: [any name]
-  - Application description: [any description]
-  - Registered URLs: `https://my.home-assistant.io/redirect/oauth`
-  - Change logo: Optional.
+### Creating a Withings developer account
 
-Once saved, the *ClientID* and *Secret* fields will be populated. You will need these in the next step.
+You must have a developer account to distribute the data.
+
+{% note %}
+  You only need one developer account. The same account and credentials are used for each Withings configuration.
+{% endnote %}
+
+1. [Create a free developer account](https://account.withings.com/partner/add_oauth2).
+2. Make sure to select **Withings public cloud** (and not Withings US medical cloud or similar).
+3. Select **Create an application**.
+4. Under **Application creation**, select **Public API integration**.
+   - Read and accept the terms and select **Next**.
+5. Under **Information**:
+   - **Target environment**: *Development*
+   - **Application name**: [any name]
+   - **Application description**: [any description]
+   - **Registered URLs**: `https://my.home-assistant.io/redirect/oauth`
+     - Do not test this URL. It won't work at this stage. It will be setup once you install the integration in Home Assistant.
+   - **Change logo**: Optional
+6. **Save** your changes.
+   - Once saved, the *ClientID* and *Secret* fields will be populated.
+   - Copy and store them in a save place. You will need these in the next step.
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -51,13 +63,11 @@ authentication process.
 Withings will validate (with HTTP HEAD) these requirements each time you save your Withings developer account. When these checks fail, the Withings UI is not always clear about why.
 
 - Home Assistant (For create/update of Withings developer account):
-    - Publicly accessible.
-    - Running on a fully qualified domain name.
-    - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
+  - Publicly accessible.
+  - Running on a fully qualified domain name.
+  - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
 
 {% enddetails %}
-
-Note: You will only need one developer account; the same account and credentials are used for each Withings configuration.
 
 {% include integrations/config_flow.md %}
 

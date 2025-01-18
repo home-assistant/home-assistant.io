@@ -9,7 +9,6 @@ ha_codeowners:
   - '@MatthewFlamm'
   - '@kamiyo'
 ha_domain: nws
-ha_quality_scale: platinum
 ha_config_flow: true
 ha_platforms:
   - diagnostics

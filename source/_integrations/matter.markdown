@@ -14,6 +14,8 @@ ha_category:
   - Sensor
   - Switch
   - Update
+  - Vacuum
+  - Valve
 ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -35,6 +37,8 @@ ha_platforms:
   - sensor
   - switch
   - update
+  - vacuum
+  - valve
 ha_integration_type: integration
 related:
   - docs: /integrations/thread/
@@ -334,6 +338,14 @@ The CSA operates a Distributed Compliance Ledger (DCL) which provides metadata f
 <img src='/images/integrations/matter/matter_ota_message.png' alt='Matter device OTA update message'>
 Notification of an OTA update for a Matter device
 </p>
+
+{% note %}
+The Home Assistant Matter updates currently do not work for Thread devices on a Thread network with (any) Apple border routers. Typically you'll see "Target node did not process the update file" error instead. The Apple border routers do not forward the necessary mDNS packets which allow to discover the update provider on Home Assistant end. The Apple Home ecosystem might offer updates from their end as an alternative (e.g. for Eve devices).
+{% endnote %}
+
+## Automate on a button press
+
+You have a device that takes button presses as inputs (such as a Tuo Smart Button, VTM31SN dimmer by Inovelli, or the Matter Pushbutton Module by Innovation Matters) and now want to trigger an automation based on that button press. To learn how to create an automation triggered by a button press, refer to this [tutorial](/integrations/event/#automating-on-a-button-press).
 
 ## Experiment with Matter using a ESP32 dev board
 

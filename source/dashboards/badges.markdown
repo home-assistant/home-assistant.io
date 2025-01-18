@@ -75,7 +75,7 @@ show_name:
   required: false
   description: Show the name
   type: boolean
-  default: "true"
+  default: "false"
 show_icon:
   required: false
   description: Show the icon
@@ -85,7 +85,7 @@ show_state:
   required: false
   description: Show the state.
   type: boolean
-  default: "false"
+  default: "true"
 state_content:
   required: false
   description: >

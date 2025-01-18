@@ -40,7 +40,6 @@ Examples:
 All events will also have the following data:
 
 {% configuration_basic %}
-
 Device ID:
   description: (`device_traccar_id`) This will be the device ID that the event is related to.
 Device name:
@@ -51,7 +50,6 @@ Server time:
   description: (`serverTime`) This will be the time the event was received by the Traccar Server.
 Attributes:
   description: (`attributes`) This will be a dictionary of attributes related to the event.
-
 {% endconfiguration_basic %}
 
 {% details "Example" %}
@@ -74,7 +72,7 @@ Attributes:
 
 The Traccar Server integration will create devices for each device registered in the Traccar Server with at least one position update.
 
-These device representations in Home Assistant will have [entities](#entities) associated with them, which you can use in [automations](/docs/automation), [scripts](/docs/script), and display on your [dashboard](/docs/dashboard).
+These device representations in Home Assistant will have [entities](#entities) associated with them, which you can use in [automations](/docs/automation), [scripts](/docs/scripts), and display on your [dashboard](/dashboards).
 
 ## Entities
 

@@ -115,6 +115,10 @@ double_tap_action:
   required: false
   description: Action taken on row double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
+confirmation:
+  required: false
+  description: For entities that display a button element in the row (for example, button, lock, script), this option adds a confirmation dialog to the press of the button. See [options for confirmation](/dashboards/actions/#options-for-confirmation) for configuration options.
+  type: map
 {% endconfiguration %}
 
 ## Special row elements

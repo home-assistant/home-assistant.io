@@ -22,7 +22,7 @@ Notes:
 
 - If a unit system is not specified, the {% term integration %} will use the unit system configured on your Home Assistant instance.
 - **Origin** and **Destination** can be the address or the GPS coordinates of the location. For coordinates, use the following format: `52.5200, 13.4050`. Make sure the coordinates are separated by a comma. They must not include letters. You can also enter an entity id which provides this information in its state, an entity id with latitude and longitude attributes, or zone friendly name (case sensitive).
-- The string inputs for `Substring *` allow you to force the {% term integration %} to use a particular route or avoid a particular route in its time travel calculation. These inputs are case insensitive and matched against the description of the route.
+- The `incl_filter`/`excl_filter` allow you to force the {% term integration %} to use a particular route or avoid a particular route in its time travel calculation. These inputs must be an exact match to the street name including casing, spaces, and special characters. Use the service [`waze_travel_time.get_travel_times`](#action-waze_travel_timeget_travel_times) to get the exact street names for each route.
 - When using the `Avoid Toll Roads?`, `Avoid Subscription Roads?` and `Avoid Ferries?` options, be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behavior is that Waze will route you over roads having subscription options. It is therefor best is to set both `Avoid Toll Roads?` and `Avoid Subscription Roads?` or `Avoid Ferries?` if needed and experiment to ensure the desired outcome.
 
 ## Action `waze_travel_time.get_travel_times`
@@ -37,8 +37,8 @@ with route alternatives and travel times between two locations.
 | `region` | no | The region. Controls which waze server is used. | "us" |
 | `units` | yes | Which unit system to use | metric |
 | `vehicle_type` | yes | Which vehicle to use | "car" |
-| `incl_filter` | yes | Which street names must be part of the route | "A321" |
-| `excl_filter` | yes | Which street names must not be part of the route | "A321" |
+| `incl_filter` | yes | Exact streetname which must be part of the selected route | "L3482 - Wiesbadener Straße" |
+| `excl_filter` | yes | Exact streetname which must NOT be part of the selected route | "L3482 - Wiesbadener Straße" |
 | `realtime` | yes | Use real-time or statistical data | True |
 | `avoid_toll_roads` | yes | Whether to avoid toll roads | True |
 | `avoid_ferries` | yes | Whether to avoid ferries | True |

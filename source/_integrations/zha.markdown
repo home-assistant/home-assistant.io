@@ -101,7 +101,6 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 - Texas Instruments based radios (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
   - [CC2652P/CC2652R/CC2652RB USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
   - [CC1352P/CC1352R USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
-  - [XZG - Universal Firmware for Zigbee Gateway](https://xzg.xyzroe.cc/)
 - dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
   - [ConBee III (a.k.a. ConBee 3) USB adapter from dresden elektronik](https://phoscon.de/conbee3)
 
@@ -233,6 +232,21 @@ To see OTA updates for a device, it's required that it both supports OTA updates
 Before updating a device, you should search for any disadvantages or if you even need to install an available update. Some firmware updates can break features you might use (e.g. group binding for IKEA devices). Some updates might also require changes to ZHA. In rare cases, you can even brick devices by installing a firmware update.
 {% endwarning %}
 
+### Global Options
+
+There are a few global options available once ZHA has been configured. Press **Configure** to access these settings.
+
+The options are as follows:
+
+{% configuration_basic %}
+Enable enhanced light color/temperature transition from an off-state:
+  description: "For older non Zigbee 3.0 lights, this still allows a proper transition from an off-state to a new color (without seeing the old color). _(default: off)_"
+Enable enhanced brightness slider during light transition:
+  description: "This avoids seeing intermediary brightness state when turning on lights with a transition. _(default: on)_"
+Group members assume state of group:
+  description: "When using ZHA groups, turning on a ZHA group light makes the ZHA group members optimistically change their state to \"on\", instead of waiting and polling the lights when off. _(default: on)_"
+{% endconfiguration_basic %}
+
 ## Configuration - YAML
 
 For more advanced configuration, you can modify {% term "`configuration.yaml`" %} and restart Home Assistant
@@ -240,7 +254,7 @@ For more advanced configuration, you can modify {% term "`configuration.yaml`" %
 {% configuration %}
 database_path:
   description: _Full_ path to the database which will keep persistent network data.
-  required: true
+  required: false
   type: string
 enable_quirks:
   description: Enable quirks mode for devices where manufacturers didn't follow specs.
@@ -255,23 +269,9 @@ custom_quirks_path:
 
 ### Advanced OTA configuration
 
-The default configuration for OTA firmware updates is chosen by ZHA developers, so normal users should not need to change any configuration. Most of the config options listed in the zigpy section are just meant for development or advanced users.
+OTA for a few manufacturers is enabled by default, currently Ledvance, Sonoff, Inovelli, and ThirdReality. Other manufacturers are supported but disabled by default because their updates may change or remove device functionality, may require you to reconfigure devices, or are contributed by the community and may be minimally tested.
 
-Further advanced configuration options are only provided in the [zigpy project's developers documentation](https://github.com/zigpy/zigpy).
-
-However, if you want to disable OTA updates for a specific manufacturer, you can add the following lines to your `configuration.yaml` and restart Home Assistant.
-
-```yaml
-zha:
-  zigpy_config:
-    ota:
-      ikea_provider: false                       # Disable OTA update downloads for Trådfri devices
-      inovelli_provider: false                   # Disable OTA update downloads for INOVELLI devices
-      ledvance_provider: false                   # Disable OTA update downloads for LEDVANCE/OSRAM devices
-      salus_provider: false                      # Disable OTA update downloads for SALUS/Computime devices
-      sonoff_provider: false                     # Disable OTA update downloads for Sonoff (ITead) devices
-      thirdreality_provider: false               # Disable OTA update downloads for 3REALITY devices
-```
+Refer to the [zigpy documentation for OTA configuration](https://github.com/zigpy/zigpy/wiki/OTA-Configuration) for more information on additional OTA providers.
 
 ### Defining Zigbee channel to use
 
@@ -617,16 +617,20 @@ Some end devices (for example, Xiaomi door sensors) sleep for an extended period
 This is what causes devices to show a missing link. Even though the device is no longer in the child table, the end device can still communicate via the parent Zigbee router.
 #### How to interpret RSSI and LQI values
 
-Interpreting RSSI and LQI values is complex. Unless you are a Zigbee specialist yourself or are guided by one, please ignore those values. They can be misleading. If you delve into this, it is important to understand not to judge RSSI or LQI values on their own. When troubleshooting Zigbee messages that are being dropped, you must interpret the combination of both RSSI and LQI.
+Interpreting RSSI and LQI values can be complex, as metrics of network health and communication quality are provided by the devices themselves, and each device could get to its results in different ways. Unless you are a Zigbee specialist yourself or are guided by one, please ignore those values. They can be misleading. If you delve into this, it is important to understand not to judge RSSI or LQI values on their own. When troubleshooting Zigbee messages that are being dropped, you must interpret the combination of both RSSI and LQI.
 
 RSSI (Received Signal Strength Indicator) values are an indicator value of the raw signal strength between two devices. RSSI values are negative numbers in -dBm format (0 to -100 power ratio in decibels of the measured power referenced to one milliwatt). Lower negative values indicate less interference and a good signal. RSSI information is only between the endpoint device and the first hop from that device. As such, it may not necessarily show signal strength to the Zigbee Coordinator but instead could be showing signal strength to the nearest Zigbee Router device.
 
 - Generally, anything -60 and above (meaning -50, -40, etc.) in RSSI should be considered a strong signal (not losing messages).
-- Anything at -80 and below (meaning -85, -90, etc.) should be considered a noise environment and you risk losing messages.
+- Usually, anything at -80 and below (meaning -85, -90, etc.) in RSSI should be considered a noisy environment and you risk losing messages.
 
-LQI (Link Quality Index) values can be hard to interpret for Zigbee. This is because the Zigbee specifications and the (IEEE 802.15.4 specification) do not standardize how to perform LQI measurements. LQI values are shown as positive numbers on a scale. But because the value provided by the Zigbee devices is not measured using unified standards from all device manufacturers and Zigbee stacks, the values can not always be trusted. For example, Zigbee devices based on Silicon Labs EmberZNet stack use positive display numbers for LQI, where higher is better and lower is worse. The Texas Instruments Z-Stack computes LQI for each received packet from the raw “received signal strength index” (RSSI) by linearly scaling it between the minimum and maximum defined RF power levels for the radio that more or less just provides an LQI value that, based on the strength of the received signal.  This can be misleading in case the user has a noisy environment with interference within the same frequency range (as the RSSI value may be shown as increased even though the true link quality decreases). Other manufacturers and Zigbee stacks measure and calculate LQI values in another way.
+LQI (Link Quality Index) values are shown as positive numbers on a scale but can be very hard to interpret for Zigbee and not as useful for troubleshooting. This is because the Zigbee specifications and the (IEEE 802.15.4 specification) do not standardize how to perform LQI measurements. The LQI value provided by the Zigbee devices is not measured using unified standards from all device manufacturers and Zigbee stacks, and often, LQI is only a measure of the last-hop link quality anyway, which is most of the time not useful information as such the values can not always be trusted.
 
-- In theory, an LQI value of 255 means a zero error rate in theory. In general, a positive high LQI value is better and a lower LQI value is worse. However, depending on your devices, that might not be the reality.
+For example, Zigbee devices based on Silicon Labs EmberZNet stack use positive display numbers for LQI, where higher is better and lower is worse. The Texas Instruments Z-Stack computes LQI for each received packet from the raw “received signal strength index” (RSSI) by linearly scaling it between the minimum and maximum defined RF power levels for the radio that more or less just provides an LQI value that, based on the strength of the received signal. This can be misleading in case you have a noisy environment with interference within the same frequency range (as the RSSI value may be shown as increased even though the true link quality decreases). Other manufacturers and Zigbee stacks measure and calculate LQI values in another way.
+
+In theory, a positive high LQI value is better, and a lower LQI value is worse, but depending on your devices, that might not always be the reality.
+
+- Best practice is to ignore LQI value.
 
 ### Reporting issues
 
