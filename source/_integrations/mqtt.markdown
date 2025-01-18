@@ -160,7 +160,7 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
-3. Select **Configure**, then **Re-configure MQTT**.
+3. Reconfigure the MQTT broker settings via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
 
 {% important %}
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
@@ -206,12 +206,20 @@ A configured client certificate will only be active if broker certificate valida
 
 ## Configure MQTT options
 
-To change the settings, follow these steps:
+To change the options, follow these steps:
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
 3. Select **Configure**, then **Re-configure MQTT**.
 4. To open the MQTT options page, select **Next**.
+
+### Change MQTT discovery options
+
+The MQTT discovery options can be changed by following these steps:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the MQTT integration and select it.
+3. To open the MQTT discovery options page, select the **Configure MQTT Options** button.
 
 ### Discovery options
 
@@ -692,6 +700,7 @@ support_url:
     'bri_val_tpl':         'brightness_value_template',
     'clr_temp_cmd_tpl':    'color_temp_command_template',
     'clr_temp_cmd_t':      'color_temp_command_topic',
+    'clr_temp_k':           'color_temp_kelvin',
     'clr_temp_stat_t':     'color_temp_state_topic',
     'clr_temp_tpl':        'color_temp_template',
     'clr_temp_val_tpl':    'color_temp_value_template',
@@ -758,11 +767,13 @@ support_url:
     'lrst_val_tpl':        'last_reset_value_template',
     'max':                 'max',
     'max_hum':             'max_humidity',
+    'max_k':               'max_kelvin',
     'max_mirs':            'max_mireds',
     'max_temp':            'max_temp',
     'migr_discvry':        'migrate_discovery',
     'min':                 'min',
     'min_hum':             'min_humidity',
+    'min_k':               'min_kelvin',
     'min_mirs':            'min_mireds',
     'min_temp':            'min_temp',
     'mode':                'mode',

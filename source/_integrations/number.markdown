@@ -80,7 +80,7 @@ The following device classes are supported for numbers:
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C, °F or K
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
-- **voltage**: Voltage in V, mV, µV
+- **voltage**: Voltage in V, mV, µV, kV, MV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **volume_flow_rate**: Volume flow rate in m³/h, ft³/min, L/min, gal/min, or mL/s
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
