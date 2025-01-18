@@ -32,7 +32,7 @@ You need to create a new user in your Homee that is only used by Home Assistant.
 - Do not use this account for any other purpose.
 
 1. In your Homee app, in the top-left corner, tap the menu button.
-2. Tap the gear wheel icon on the top right of the opening menu.
+2. On the top right of the opening menu, tap the gear {% icon "mdi:gear-outline" %} icon.
 3. Choose **Manage users**.
 4. Choose **Add user** and configure the desired values.
 
