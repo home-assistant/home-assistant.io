@@ -25,7 +25,7 @@ More {% term platforms %} will be added soon.
 
 ## Prerequisites
 
-You need to create a new user in your Homee that is only used by Home Assistant. For security reasons, it's recommended to:
+You need to create a new user in your Homee app. Create a user that is only used by Home Assistant. For security reasons, it's recommended to:
 
 - Use a strong, unique password.
 - Set the user's permissions for what you what to do from Home Assistant.
