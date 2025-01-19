@@ -30,6 +30,7 @@ It requires the following components:
 By now, the following units are tested:
 
 - LWZ 504e
+- LWZ 404eco
 - LWZ 304
 - LWZ 304 Trend
 
