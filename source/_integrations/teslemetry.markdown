@@ -120,6 +120,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Cover|Trunk|Yes|
 |Cover|Vent windows|Yes|
 |Device tracker|Location|Yes|
+|Device tracker|Origin|No|
 |Device tracker|Route|Yes|
 |Lock|Charge cable lock|Yes|
 |Lock|Lock|Yes|
