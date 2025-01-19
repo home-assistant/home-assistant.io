@@ -60,8 +60,8 @@ Note that **all** sensors are disabled by default.
   - Boiler Tap temperature: Indicates the tap water temperature.
 - **Binary sensors**
   - Boiler Burner: Indicates if the burner is on.
-  - Boiler Fault: Indicates of there is a problem. The fault code is set as an attribute.
-  - Boiler Hot water tap: Indicates of the hot water tap is running.
+  - Boiler Fault: Indicates if there is a problem. The fault code is set as an attribute.
+  - Boiler Hot water tap: Indicates if the hot water tap is running.
   - Boiler Pump: Indicate the pump is running for cental heating.
 
 ## Automation
