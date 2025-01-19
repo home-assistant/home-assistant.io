@@ -296,7 +296,7 @@ Follow this guide if you already are running a supported virtual machine hypervi
 
 {% if page.installation_type == 'macos' %}
 
-- VirtualBox currently is not able to run ARM VMs on Apple Silicon Macs. Instructions for VMware Fusion are provided below, or you can try running the Home Assistant Operating System on [UTM](https://mac.getutm.app/) if you have experience using virtual machines.
+- On Apple Silicon Macs, you can use [VMware Fusion](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) to run the Home Assistant Operating System, instructions for which are provided below, or [UTM](https://mac.getutm.app/) as the FOSS alternative.
 {% endif %}
 
 ### Create the virtual machine
@@ -344,15 +344,16 @@ Minimum recommended assignments:
   content: |
     1. Start VMware Fusion and select **File > New** from the menu bar.
     2. Select **Create a custom virtual machine**, then select **Linux** > **Other Linux 6.x kernel 64-bit Arm**.
-    3. Select **Use an existing virtual disk** and locate the unzipped disk image file.
+       - On Intel Macs, select **Other Linux 6.x kernel 64-bit**.
+    4. Select **Use an existing virtual disk** and locate the unzipped disk image file.
        - Ensure **Make a separate copy of the virtual disk** is selected in the file picker options.
-    4. Select **Customize Settings** at the "Finish" step.
-    5. Define the amount of memory and the number of cores the VM is allowed to use under **Processors & Memory**.
-    6. Under **General**, you may choose to start the VM when your Mac boots up if preferred.
-    7. Connect an Ethernet cable and ensure it is connected to your network.
-    8. Under **Network Adapter**, select **Ethernet** under **Bridged Networking**.
-    9. Under **Hard Disk**, increase the disk size to the recommended minimum.
-    10. Under **USB**, select any USB devices that you want to pass through to Home Assistant, such as Home Assistant Connect, or other Zigbee/Z-Wave dongles. You may also want to choose to always connect the device to Home Assistant by choosing **Connect to Linux** in the **Plug In Action** dropdown.
+    5. Select **Customize Settings** at the "Finish" step.
+    6. Define the amount of memory and the number of cores the VM is allowed to use under **Processors & Memory**.
+    7. Under **General**, you may choose to start the VM when your Mac boots up if preferred.
+    8. Connect an Ethernet cable and ensure it is connected to your network.
+    9. Under **Network Adapter**, select **Ethernet** under **Bridged Networking**.
+    10. Under **Hard Disk**, increase the disk size to the recommended minimum.
+    11. Under **USB**, select any USB devices that you want to pass through to Home Assistant, such as Home Assistant Connect, or other Zigbee/Z-Wave dongles. You may also want to choose to always connect the device to Home Assistant by choosing **Connect to Linux** in the **Plug In Action** dropdown.
 {% endif %}
 
 {% unless page.installation_type == 'macos' %}
