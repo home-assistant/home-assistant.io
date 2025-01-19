@@ -275,6 +275,10 @@ If you are running an older Windows version or have a stricter network configura
 ### Download the appropriate image
 
 - [VirtualBox][vdi] (.vdi)
+{% if page.installation_type == 'macos' %}
+- [VMware Fusion (Apple Silicon)][generic-aarch64-vmdk] (.vmdk)
+- [VMware Fusion (Intel)][vmdk] (.vmdk)
+{% endif %}
 {% if page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
 {% elsif page.installation_type == 'alternative' %}
@@ -292,7 +296,7 @@ Follow this guide if you already are running a supported virtual machine hypervi
 
 {% if page.installation_type == 'macos' %}
 
-- If VirtualBox is not supported on your Mac, and you have experience using virtual machines, you can try running the Home Assistant Operating System on [UTM](https://mac.getutm.app/).
+- If VirtualBox is not supported on your Mac, and you'd rather not use VMWare Fusion, you can try running the Home Assistant Operating System on [UTM](https://mac.getutm.app/).
 {% endif %}
 
 ### Create the virtual machine
@@ -333,6 +337,22 @@ Minimum recommended assignments:
     ```
 
     More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
+
+{% if page.installation_type == 'macos' %}
+
+- title: VMware Fusion
+  content: |
+    1. Start VMware Fusion and select **File > New** from the menu bar.
+    2. Select **Create a custom virtual machine**, then select **Linux** > **Other Linux 6.x kernel 64-bit Arm**.
+    3. Select **Use an existing virtual disk** and locate the unzipped disk image file. Keep the option to *Make a separate copy of the virtual disk* selected, as it is the default.
+    4. Select **Customize Settings** at the "Finish" step.
+    5. Define the amount of memory and the number of cores the VM is allowed to use under **Processors & Memory**.
+    6. Under **General**, you may choose to start the VM when your Mac boots up, which you can enable if preferred.
+    7. Connect an Ethernet cable and ensure it is connected to your network.
+    8. Under **Network Adapter**, select **Ethernet** under **Bridged Networking**.
+    9. Under **Hard Disk**, increase the disk size to the recommended minimum.
+    10. Under **USB**, select any USB devices that you want to pass through to Home Assistant, such as Home Assistant Connect or other Zigbee/Z-Wave dongles. You may also want to choose to always connect the device to Home Assistant via the **Plug In Action** dropdown.
+{% endif %}
 
 {% unless page.installation_type == 'macos' %}
 
@@ -480,6 +500,7 @@ With the Home Assistant Operating System installed and accessible, you can conti
 {% endif %}
 
 [generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['generic-x86-64']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
+[generic-aarch64-vmdk]: {{release_url}}/{{site.data.version_data.hassos['generic-aarch64']}}/haos_generic-aarch64-{{site.data.version_data.hassos['generic-aarch64']}}.vmdk.zip
 [vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip
 [vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.zip
 [vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.zip
