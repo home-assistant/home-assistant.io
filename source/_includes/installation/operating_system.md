@@ -345,15 +345,15 @@ Minimum recommended assignments:
     1. Start VMware Fusion and select **File > New** from the menu bar.
     2. Select **Create a custom virtual machine**, then select **Linux** > **Other Linux 6.x kernel 64-bit Arm**.
        - On Intel Macs, select **Other Linux 6.x kernel 64-bit**.
-    4. Select **Use an existing virtual disk** and locate the unzipped disk image file.
+    3. Select **Use an existing virtual disk** and locate the unzipped disk image file.
        - Ensure **Make a separate copy of the virtual disk** is selected in the file picker options.
-    5. Select **Customize Settings** at the "Finish" step.
-    6. Define the amount of memory and the number of cores the VM is allowed to use under **Processors & Memory**.
-    7. Under **General**, you may choose to start the VM when your Mac boots up if preferred.
-    8. Connect an Ethernet cable and ensure it is connected to your network.
-    9. Under **Network Adapter**, select **Ethernet** under **Bridged Networking**.
-    10. Under **Hard Disk**, increase the disk size to the recommended minimum.
-    11. Under **USB**, select any USB devices that you want to pass through to Home Assistant, such as Home Assistant Connect, or other Zigbee/Z-Wave dongles. You may also want to choose to always connect the device to Home Assistant by choosing **Connect to Linux** in the **Plug In Action** dropdown.
+    4. Select **Customize Settings** at the "Finish" step.
+    5. Define the amount of memory and the number of cores the VM is allowed to use under **Processors & Memory**.
+    6. Under **General**, you may choose to start the VM when your Mac boots up if preferred.
+    7. Connect an Ethernet cable and ensure it is connected to your network.
+    8. Under **Network Adapter**, select **Ethernet** under **Bridged Networking**.
+    9. Under **Hard Disk**, increase the disk size to the recommended minimum.
+    10. Under **USB**, select any USB devices that you want to pass through to Home Assistant, such as Home Assistant Connect, or other Zigbee/Z-Wave dongles. You may also want to choose to always connect the device to Home Assistant by choosing **Connect to Linux** in the **Plug In Action** dropdown.
 {% endif %}
 
 {% unless page.installation_type == 'macos' %}
