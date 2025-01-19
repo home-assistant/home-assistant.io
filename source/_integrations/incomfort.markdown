@@ -38,6 +38,10 @@ Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** dev
 
 The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
 
+The above configuration can also be adjusted later via
+{% my integrations title="**Settings** > **Devices & services**" %},
+select "Intergas InComfort/Intouch Lan2RF gateway" and click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
+
 {% important %}
 
 Some older room thermostats might report the wrong setpoint when the setpoint is manually changed on the room thermostat. If you encounter this behavior, you can enable the `Legacy setpoint handling` option.
