@@ -196,7 +196,7 @@ Available actions are:
 - `switch.turn_on`, `switch.turn_off`, `switch.toggle`
 - [`number.set_value`](#action-numberset_value)
 - [`select.select`](#action-selectselect)
-- [`enphase_envoy.get_firmware`](#action-enphase_envoyget_firmware)
+- [`enphase_envoy.get_raw_tariff`](#action-enphase_envoyget_raw_tariff)
 
 ### Action `switch.turn_on`/`switch.turn_off`/`switch.toggle`
 
@@ -279,71 +279,83 @@ data:
 Technically `select.first`, `select.last`, `select.previous`, `select.next` are available as well, but as there's no logical sequence in the values to select, their use is not advocated.
 {% endnote %}
 
-### Action `enphase_envoy.get_firmware`
+### Action `enphase_envoy.get_raw_tariff`
 
-The envoy firmware version is only read when the configuration entry is loaded. This action will read the current firmware version from the Envoy. It will return the actual running firmware from the Envoy, as well as the local cached firmware.
+Each time this integration updates its entities, it collects data from a set of endpoints in the Envoy. That set of data is referred to as `raw`. It contains more information as strictly needed for entity data. The raw data is cached until the next collection cycle, when it is replaced by a fresh dataset from the envoy.
+
+The action `enphase_envoy.get_raw_tariff` returns tariff data from the `raw` data cache. To explore the cached tariff data use the [developer tools - actions](/docs/tools/dev-tools/#actions-tab) menu and use this action.
 
 | Data attribute | Optional | Description |
 | - | - | - |
-| `envoy` | no | Entity_id of an entity associated with the target Envoy. In the UI select an entity from the dropdown list. <br> In yaml mode the format `envoy.SN` can be used as well, where SN is the target envoy serial number |
+| `config_entry_id` | no | Config entry id of the target Envoy. <br>In the UI select an Envoy from the dropdown list. <br>When switching to yaml mode the config_entry_id shows as numeric.|
 
 Example with envoy entity:
 
 ```yaml
-action: enphase_envoy.get_firmware
+action: enphase_envoy.get_raw_tariff
 data:
-  envoy: sensor.envoy_123456789012_current_power_production
+  config_entry_id: 01JFG9B5GQRWW4RPE5CTVFGNS7
 ```
 
-Response
+Response (partially)
 
 ```yaml
-firmware: 5.0.62
-previous_firmware: 5.0.62
+{
+  raw:
+  {
+    "tariff": {
+        "currency": {
+            "code": "EUR"
+        },
+        "logger": "mylogger",
+        "date": "1695744220",
+        "storage_settings": {
+            "mode": "self-consumption",
+            "operation_mode_sub_type": "",
+            "reserved_soc": 15.0,
+            "very_low_soc": 5,
+            "charge_from_grid": true,
+            "date": "1695598084"
+        },
+        "single_rate": {
+            "rate": 0.0,
+            "sell": 0.0
+        },
 ```
-
-Example with envoy serial number:
-
-```yaml
-action: enphase_envoy.get_firmware
-data:
-  envoy: envoy.123456789012
-```
-
-In the Developer tools - actions, automation or script UI, this action shows as: _Enphase Envoy: Current firmware version_.
-
-<figure>
-  <img src="/images/integrations/enphase_envoy/enphase_envoy_action_getfirmware_dev_ui.png" alt="enphase_envoy: get firmware">
-  <figcaption>Envoy action Current Firmware Version.</figcaption>
-</figure>
 
 When used in automation or script actions, use `response_variable` to specify which variable will receive the returned data
 
 {% raw %}
 
 ```yaml
-alias: Get_Envoy_Firmware
-variables:
-  envoy_entity: envoy.123456789012
-sequence:
-  - action: enphase_envoy.get_firmware
-    metadata: {}
+alias: GetTariffSingleRate
+description: Get tariff Single rate json from Cache
+triggers: []
+conditions: []
+actions:
+  - action: enphase_envoy.get_raw_tariff
     data:
-      envoy: "{{ envoy_entity }}"
-    response_variable: envoy_reply
+      config_entry_id: 01JFG9B5GQRWW4RPE5CTVFGNS7
+    response_variable: tariff_data
   - action: notify.persistent_notification
     metadata: {}
     data:
-      message: "Envoy runs {{ envoy_reply['firmware'] }}"
-      title: Current firmware for {{ envoy_entity }}
-description: Read current firmware from Envoy
+      message: |
+        {{ tariff_data["raw"]["tariff"]["single_rate"]}}
+      title: Tariff data
+mode: single
 ```
 
-{% endraw %}
+Result:
 
-{% note %}
-This action sends a GET request to the Envoy. Do not schedule or execute it at intervals less than the default collection time of 1 minute. As Firmware installs do not happen often and will take some time being installed, 5, 15 or 60 minutes is probably a more suited interval.
-{% endnote %}
+```json
+{"rate": 0.0, "sell": 0.0}
+
+```
+
+In the Developer tools - actions, automation or script UI, this action shows as: _Enphase Envoy: Tariff details_.
+
+{% endraw %}
 
 ## Know issues and limitations
 
