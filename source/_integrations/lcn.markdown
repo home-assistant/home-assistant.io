@@ -812,3 +812,15 @@ The motor values specify which hardware relay or outputs configuration will be u
 
 Whenever a key has to be provided, it is defined by a joint string consisting of the table identifier (`a`, `b`, `c`, `d`) and the corresponding key number.
 Examples: `a1`, `a5`, `d8`.
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+{% warning %}
+
+Removing the integration will delete all device and entity configuration done via the UI panel.
+
+{% endwarning %}
