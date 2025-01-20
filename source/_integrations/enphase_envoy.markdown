@@ -175,6 +175,22 @@ This integration supports updating the Envoy configuration through a `reconfigur
 
 Use this menu option also when an Envoy firmware upgrade requires a switch from local Envoy username/password to token-based authentication with Enlighten username/password (refer to [authentication requirements](#envoy-authentication-requirements)).
 
+## Firmware updates
+
+The firmware version is read from the envoy when the configuration entry is loaded. The firmware version is then used in the process of determining capabilities and required authorization methods. The firmware version is available as the `sw_version` attribute of the configuration entry and shown on the device view of the envoy.
+
+Every 4 hours, the actual firmware version in the Envoy is compared to the known one. If the actual version differs, the configuration entry is reloaded to effect any needed configuration changes. If the moment of the firmware update is known, a manual reload on the envoy configuration entry can be done to achieve the same.
+
+The firmware version is not available as an entity, but rather as an attribute of the envoy. To use the firmware in automation, scripts or templates, use below example with any envoy entity.
+
+{% raw %}
+
+```yaml
+{{device_attr(device_id('sensor.envoy_SN_current_power_production'),'sw_version')}}
+```
+
+{% endraw %}
+
 ## Energy dashboard
 
 This integration provides several values suitable for the energy dashboard:
