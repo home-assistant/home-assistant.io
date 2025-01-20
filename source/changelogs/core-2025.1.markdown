@@ -1141,18 +1141,18 @@ For a summary in a more readable format:
 
 ## Release 2025.1.2 - January 9
 
-- Fix Météo-France setup in non French cities (because of failed next rain sensor) ([@Quentame] - [#134782]) ([meteo_france docs])
-- Increase cloud backup download timeout ([@ludeeus] - [#134961]) ([cloud docs])
-- Fix ZHA "referencing a non existing `via_device`" warning ([@puddly] - [#135008]) ([zha docs])
-- Catch errors in automation (instead of raise unexpected error) in Overkiz ([@iMicknl] - [#135026]) ([overkiz docs])
-- Fix channel retrieval for Reolink DUO V1 connected to a NVR ([@starkillerOG] - [#135035]) ([reolink docs])
-- Bump aioautomower to 2025.1.0 ([@Thomas55555] - [#135039]) ([husqvarna_automower docs])
-- Bump cookidoo-api to 0.12.2 ([@miaucl] - [#135045]) ([cookidoo docs])
-- Implement upload retry logic in CloudBackupAgent ([@ludeeus] - [#135062]) ([cloud docs])
-- Add jitter to backup start time to avoid thundering herd ([@emontnemery] - [#135065]) ([backup docs])
-- Bump pysuezV2 to 2.0.3 ([@jb101010-2] - [#135080]) ([suez_water docs])
-- Fix Flick Electric Pricing ([@ZephireNZ] - [#135154]) ([flick_electric docs])
-- Update frontend to 20250109.0 ([@bramkragten] - [#135235]) ([frontend docs])
+- Fix Météo-France setup in non French cities (because of failed next rain sensor) ([@Quentame] - [#134782])
+- Increase cloud backup download timeout ([@ludeeus] - [#134961])
+- Fix ZHA "referencing a non existing `via_device`" warning ([@puddly] - [#135008])
+- Catch errors in automation (instead of raise unexpected error) in Overkiz ([@iMicknl] - [#135026])
+- Fix channel retrieval for Reolink DUO V1 connected to a NVR ([@starkillerOG] - [#135035])
+- Bump aioautomower to 2025.1.0 ([@Thomas55555] - [#135039])
+- Bump cookidoo-api to 0.12.2 ([@miaucl] - [#135045])
+- Implement upload retry logic in CloudBackupAgent ([@ludeeus] - [#135062])
+- Add jitter to backup start time to avoid thundering herd ([@emontnemery] - [#135065])
+- Bump pysuezV2 to 2.0.3 ([@jb101010-2] - [#135080])
+- Fix Flick Electric Pricing ([@ZephireNZ] - [#135154])
+- Update frontend to 20250109.0 ([@bramkragten] - [#135235])
 
 [#134782]: https://github.com/home-assistant/core/pull/134782
 [#134961]: https://github.com/home-assistant/core/pull/134961
@@ -1178,20 +1178,114 @@ For a summary in a more readable format:
 [@miaucl]: https://github.com/miaucl
 [@puddly]: https://github.com/puddly
 [@starkillerOG]: https://github.com/starkillerOG
-[abode docs]: /integrations/abode/
-[acaia docs]: /integrations/acaia/
-[adax docs]: /integrations/adax/
-[backup docs]: /integrations/backup/
-[cloud docs]: /integrations/cloud/
-[cookidoo docs]: /integrations/cookidoo/
-[flick_electric docs]: /integrations/flick_electric/
-[frontend docs]: /integrations/frontend/
-[husqvarna_automower docs]: /integrations/husqvarna_automower/
-[meteo_france docs]: /integrations/meteo_france/
-[overkiz docs]: /integrations/overkiz/
-[reolink docs]: /integrations/reolink/
-[suez_water docs]: /integrations/suez_water/
-[zha docs]: /integrations/zha/
+
+## Release 2025.1.3 - January 20
+
+- Fix DiscoveryFlowHandler when discovery_function returns bool ([@kgraefe] - [#133563])
+- Aprilaire - Fix humidifier showing when it is not available ([@chamberlain2007] - [#133984])
+- Gracefully handle webhook unsubscription if error occurs while contacting Withings ([@dcmeglio] - [#134271])
+- Image entity key error when camera is ignored in EZVIZ ([@RenierM26] - [#134343])
+- Bump pyaussiebb to 0.1.5 ([@Bre77] - [#134943])
+- Fix Watergate Power supply mode description and MQTT/Wifi uptimes ([@adam-the-hero] - [#135085])
+- Fix missing comma in ollama MODEL_NAMES ([@epenet] - [#135262])
+- Bump Freebox to 1.2.2 ([@Quentame] - [#135313])
+- Actually use translated entity names in Lametric ([@joostlek] - [#135381])
+- Fix descriptions of send_message action of Bring! integration ([@NoRi2909] - [#135446])
+- Bump switchbot-api to 2.3.1 ([@SeraphicRav] - [#135451])
+- Fix incorrect cast in HitachiAirToWaterHeatingZone in Overkiz ([@iMicknl] - [#135468])
+- Replace pyhiveapi with pyhive-integration ([@KJonline] - [#135482])
+- Fix referenced objects in script sequences ([@arturpragacz] - [#135499])
+- Use STT/TTS languages for LLM fallback ([@synesthesiam] - [#135533])
+- Bump demetriek to 1.2.0 ([@joostlek] - [#135580])
+- Use device supplied ranges in LaMetric ([@joostlek] - [#135590])
+- Bump elkm1-lib to 2.2.11 ([@gwww] - [#135616])
+- Fix mqtt number state validation ([@jbouwh] - [#135621])
+- Add reauthentication to SmartThings ([@joostlek] - [#135673])
+- Handle invalid HS color values in HomeKit Bridge ([@bdraco] - [#135739])
+- Update aioairzone to v0.9.9 ([@Noltari] - [#135866])
+- Remove device_class from NFC and fingerprint event descriptions ([@RaHehl] - [#135867])
+- Prevent HomeKit from going unavailable when min/max is reversed ([@bdraco] - [#135892])
+- Bump onvif-zeep-async to 3.2.2 ([@bdraco] - [#135898])
+- Round brightness in Niko Home Control ([@VandeurenGlenn] - [#135920])
+- Update NHC lib to v0.3.4 ([@VandeurenGlenn] - [#135923])
+- Update knx-frontend to 2025.1.18.164225 ([@farmio] - [#135941])
+- Bump aiooui to 0.1.8 ([@bdraco] - [#135945])
+- Bump aiooui to 0.1.9 ([@bdraco] - [#135956])
+- Fix switchbot cloud library logger ([@joostlek] - [#135987])
+- Correct type for off delay in rfxtrx ([@elupus] - [#135994])
+- Handle invalid datetime in onvif ([@bdraco] - [#136014])
+- Bump aioraven to 0.7.1 ([@cottsay] - [#136017])
+- Bump onvif-zeep-async to 3.2.3 ([@bdraco] - [#136022])
+- Bump yt-dlp to 2025.01.15 ([@joostlek] - [#136072])
+- Bump deebot-client to 11.0.0 ([@edenhaus] - [#136073])
+- Always include SSL folder in backups ([@emontnemery] - [#136080])
+
+[#133563]: https://github.com/home-assistant/core/pull/133563
+[#133984]: https://github.com/home-assistant/core/pull/133984
+[#134271]: https://github.com/home-assistant/core/pull/134271
+[#134343]: https://github.com/home-assistant/core/pull/134343
+[#134943]: https://github.com/home-assistant/core/pull/134943
+[#135085]: https://github.com/home-assistant/core/pull/135085
+[#135262]: https://github.com/home-assistant/core/pull/135262
+[#135313]: https://github.com/home-assistant/core/pull/135313
+[#135381]: https://github.com/home-assistant/core/pull/135381
+[#135446]: https://github.com/home-assistant/core/pull/135446
+[#135451]: https://github.com/home-assistant/core/pull/135451
+[#135468]: https://github.com/home-assistant/core/pull/135468
+[#135482]: https://github.com/home-assistant/core/pull/135482
+[#135499]: https://github.com/home-assistant/core/pull/135499
+[#135533]: https://github.com/home-assistant/core/pull/135533
+[#135580]: https://github.com/home-assistant/core/pull/135580
+[#135590]: https://github.com/home-assistant/core/pull/135590
+[#135616]: https://github.com/home-assistant/core/pull/135616
+[#135621]: https://github.com/home-assistant/core/pull/135621
+[#135673]: https://github.com/home-assistant/core/pull/135673
+[#135739]: https://github.com/home-assistant/core/pull/135739
+[#135866]: https://github.com/home-assistant/core/pull/135866
+[#135867]: https://github.com/home-assistant/core/pull/135867
+[#135892]: https://github.com/home-assistant/core/pull/135892
+[#135898]: https://github.com/home-assistant/core/pull/135898
+[#135920]: https://github.com/home-assistant/core/pull/135920
+[#135923]: https://github.com/home-assistant/core/pull/135923
+[#135941]: https://github.com/home-assistant/core/pull/135941
+[#135945]: https://github.com/home-assistant/core/pull/135945
+[#135956]: https://github.com/home-assistant/core/pull/135956
+[#135987]: https://github.com/home-assistant/core/pull/135987
+[#135994]: https://github.com/home-assistant/core/pull/135994
+[#136014]: https://github.com/home-assistant/core/pull/136014
+[#136017]: https://github.com/home-assistant/core/pull/136017
+[#136022]: https://github.com/home-assistant/core/pull/136022
+[#136072]: https://github.com/home-assistant/core/pull/136072
+[#136073]: https://github.com/home-assistant/core/pull/136073
+[#136080]: https://github.com/home-assistant/core/pull/136080
+[@Bre77]: https://github.com/Bre77
+[@KJonline]: https://github.com/KJonline
+[@NoRi2909]: https://github.com/NoRi2909
+[@Noltari]: https://github.com/Noltari
+[@Quentame]: https://github.com/Quentame
+[@RaHehl]: https://github.com/RaHehl
+[@RenierM26]: https://github.com/RenierM26
+[@SeraphicRav]: https://github.com/SeraphicRav
+[@VandeurenGlenn]: https://github.com/VandeurenGlenn
+[@adam-the-hero]: https://github.com/adam-the-hero
+[@arturpragacz]: https://github.com/arturpragacz
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@chamberlain2007]: https://github.com/chamberlain2007
+[@cottsay]: https://github.com/cottsay
+[@dcmeglio]: https://github.com/dcmeglio
+[@edenhaus]: https://github.com/edenhaus
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gwww]: https://github.com/gwww
+[@iMicknl]: https://github.com/iMicknl
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@kgraefe]: https://github.com/kgraefe
+[@synesthesiam]: https://github.com/synesthesiam
 
 [#115483]: https://github.com/home-assistant/core/pull/115483
 [#117355]: https://github.com/home-assistant/core/pull/117355
