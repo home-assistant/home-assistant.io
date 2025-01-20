@@ -316,14 +316,14 @@ binary_sensor:
       oregontemp_4f93_bat:
         name: Outdoor sensor battery
         device_class: battery
-       pir_00aa66_01:
-         name: PIR Outdoor
-         device_class: presence
-         off_delay: 5
-       smokealert_00123456_01:
-         name: Smoke Outdoor
-         device_class: smoke
-         off_delay: 10
+      pir_00aa66_01:
+        name: PIR Outdoor
+        device_class: presence
+        off_delay: 5
+      smokealert_00123456_01:
+        name: Smoke Outdoor
+        device_class: smoke
+        off_delay: 10
 ```
 
 ## Cover
