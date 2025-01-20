@@ -8,7 +8,6 @@ ha_category:
   - Switch
   - Binary sensor
   - Light
-  - Plug
   - Sensor
   - Button
 ha_domain: third_reality
@@ -20,11 +19,11 @@ ha_platforms:
   - binary_sensor
   - button
   - light
-  - plug
   - sensor
   - switch
   - cover
 ha_iot_standard: zigbee
+ha_iot_standard: matter
 ha_brand: true
 ---
 
