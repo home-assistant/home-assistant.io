@@ -22,8 +22,9 @@ ha_platforms:
   - sensor
   - switch
   - cover
-ha_iot_standard: zigbee
-ha_iot_standard: matter
+ha_iot_standard:
+  - zigbee
+  - matter
 ha_brand: true
 ---
 
