@@ -306,6 +306,26 @@ binary_sensor:
          off_delay: 5
 ```
 
+Configuring binary sensors from RFLink events
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  - platform: rflink
+    devices:
+      oregontemp_4f93_bat:
+        name: Outdoor sensor battery
+        device_class: battery
+       pir_00aa66_01:
+         name: PIR Outdoor
+         device_class: presence
+         off_delay: 5
+       smokealert_00123456_01:
+         name: Smoke Outdoor
+         device_class: smoke
+         off_delay: 10
+```
+
 ## Cover
 
 After configuring the RFLink hub, covers will be automatically discovered and added. Except the Somfy RTS devices.
