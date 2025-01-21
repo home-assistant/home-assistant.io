@@ -18,7 +18,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-If you run a {% term "Home Assistant Core" %} installation type, the `remote_rpi_gpio` {% term integration %} is the base for all related GPIO platforms in Home Assistant. For the platform configurations, please check their corresponding sections. Don't use this if you run an installation type other than {% term "Home Assistant Core" %}.
+The `remote_rpi_gpio` {% term integration %} is the base for all related GPIO platforms in Home Assistant. For the platform configurations, please check their corresponding sections.
 
 The remote Raspberry Pi, and the control computer where Home Assistant is running must be configured to be able to run `remote_rpi_gpio`, see [Configuring Remote GPIO](https://gpiozero.readthedocs.io/en/stable/remote_gpio.html) for more details. Unfortunately, this setup is not currently possible with remote, Raspberry Pi 5 hosts, [due to a lack of support in pigiod](https://github.com/joan2937/pigpio/issues/586).
 
