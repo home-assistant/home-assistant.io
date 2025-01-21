@@ -22,13 +22,13 @@ Backups will be created in a folder called `home-assistant\backups_<id>` in the 
 The integration only has write access to an application specific `home-assistant` folder in the `App Folder` and cannot write to any other parts of your OneDrive.
 
 {% note %}
-Because of an issue in the Graph API the application specific folder sometimes is called `Graph` instead of `home-assistant`.
+Because of an issue in the Graph API, the application-specific folder sometimes is called `Graph` instead of `home-assistant`.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
 Client ID:
-  description: "Application Id of the app registration to be used with the integration. Uses Home Assistant provided by default."
+  description: "Application ID of the app registration to be used with the integration. Uses Home Assistant provided by default."
 Client secret:
   description: "Application secret for the app registration. Uses Home Assistant provided by default."
 
@@ -52,16 +52,16 @@ The integration will request the following permissions on your OneDrive for the 
 ## Getting application credentials
 
 This integration comes with a predefined set of [application credentials](https://www.home-assistant.io/integrations/application_credentials/) through Home Assistant account linking. 
-Nobody will ever have access to your data except you, as the app does not have permission to do anything on its own. It only works with a signed in user (it only has `delegated` not `application permissions`). 
+Nobody will ever have access to your data except you, as the app does not have permission to do anything on its own. It only works with a signed-in user (it only has `delegated` not `application permissions`). 
 However, if you want to use your own credentials, follow [this guide](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
 
 {% note %}
 You will need an Azure tenant with an active Azure subscription to create your own client credentials.
 {% endnote %}
 
-## Known Limitations
+## Known limitations
 
-- Only personal OneDrives are supported at the moment
+- Only personal OneDrives are supported at the moment.
 
 ## Removing the integration
 
