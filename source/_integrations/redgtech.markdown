@@ -41,4 +41,4 @@ To set up Redgtech integration:
 
 ## Troubleshooting
 
-If you encounter issues using this integration, refer to the [troubleshooting guide](../toubleshooting.md) or contact our support.
+If you encounter issues using this integration, refer to the [troubleshooting guide](../troubleshooting.md) or contact our support.
