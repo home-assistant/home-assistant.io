@@ -19,7 +19,11 @@ This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/mi
 
 Backups will be created in a folder called `home-assistant\backups_<id>` in the `App Folder` of your OneDrive.
 `id` is part of your Home Assistant instance's unique id to allow backups from multiple instances to the same OneDrive.
-The integration only has access to an application specific `home-assistant` folder in the `App Folder` and cannot access any other parts of your OneDrive.
+The integration only has write access to an application specific `home-assistant` folder in the `App Folder` and cannot write to any other parts of your OneDrive.
+
+{% note %}
+Because of an issue in the Graph API the application specific folder sometimes is called `Graph` instead of `home-assistant`.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -37,8 +41,13 @@ Client secret:
 The integration will request the following permissions on your OneDrive for the integration to work:
 
 - `Files.ReadWrite.AppFolder`: Grants the application permission to read and write in its own, app-specific folder inside your OneDrive
+- `Files.Read`: Grant permission to read your OneDrive and its files. Required to get your OneDrive.
 - `offline_access`: Grants the application permission to refresh its authentication token without requiring your manual intervention
 - `openid`: Grants the application permission to read basic information, e.g. if you have a OneDrive
+
+
+<img src='/images/integrations/onedrive/onedrive-permissions.png' alt='Lists of permissions that the application will request.'>
+
 
 ## Getting application credentials
 
