@@ -31,6 +31,10 @@ ha_dhcp: true
 ha_integration_type: integration
 ---
 
+{% warning %}
+The Samsung SmartThings integration currently does not allow new installations. We are working directly with Samsung to get this resolved.
+{% endwarning %}
+
 SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:
 
 1. Controlling SmartThings devices as Home Assistant entities ([see platforms for supported devices and capabilities](#platforms)).
@@ -61,7 +65,9 @@ The PAT is used to create a Home Assistant SmartApp in your SmartThings account 
 
 This integration requires an internet accessible incoming webhook to receive push updates from SmartThings. The preferred approach is to subscribe to [Home Assistant Cloud (Nabu Casa)](https://www.nabucasa.com/) and the integration will configure and use a cloudhook automatically. Alternatively, you will have to configure and setup an internet accessible webhook in Home Assistant as described below:
 
-1. Setup [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
+1. Setup [remote access](/docs/configuration/remote/) via a domain name secured with SSL.
+    1. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
+    2. *SmartThings Cloud API requires SSL connection with **maximum** TLS version 1.2*
 2. Set the external URL in the Home Assistant [configuration](/integrations/homeassistant/#external_url) to the URL that Home Assistant is available on the internet (this must start with `https://`). If you do not use Nabu Casa you must configure your network to allow TCP traffic from the internet to reach the IP address and port of the device running Home Assistant.
 
 ## Setup instructions

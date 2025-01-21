@@ -79,14 +79,6 @@ This creates a backup instantly. You can create a manual backup at any time, irr
 6. Download the [backup emergency kit](/more-info/backup-emergency-kit/) and store it somewhere safe. Make sure you take note of the backup name it belongs to.
 7. To start the backup process, select **Create backup**.
 
-### Alternative: Creating a backup using the Home Assistant Command Line Interface
-
-1. `ha backups list` - lists backups and their slugnames
-2. `ha backups restore slugname` - restores a specific backup
-3. `ha backups new --name nameofbackup` - create a backup
-
-For additional information about command line usage, use the `ha help` command or refer to the [Home Assistant Command Line documentation](/common-tasks/os/#home-assistant-via-the-command-line).
-
 ### Downloading your local backups
 
 There are multiple ways to download your local backup from your Home Assistant instance and store it on another device:

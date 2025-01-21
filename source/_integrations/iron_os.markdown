@@ -2,13 +2,13 @@
 title: IronOS
 description: Instructions on how to integrate IronOS-based Pinecil V2 devices with Home Assistant.
 ha_category:
-  - Number
-  - Sensor
-  - Update
   - Binary sensor
-  - Select
   - Button
+  - Number
+  - Select
+  - Sensor
   - Switch
+  - Update
 ha_iot_class: Local Polling
 ha_release: 2024.8
 ha_config_flow: true
@@ -17,13 +17,13 @@ ha_codeowners:
 ha_domain: iron_os
 ha_integration_type: integration
 ha_platforms:
-  - number
-  - sensor
-  - update
   - binary_sensor
-  - select
   - button
+  - number
+  - select
+  - sensor
   - switch
+  - update
 ---
 
 The **IronOS** {% term integration %} seamlessly connects Home Assistant with PINE64's Pinecil V2 soldering irons, allowing for remote monitoring and control. This integration provides real-time updates on temperature, power, and various other settings and diagnostic information.

@@ -350,7 +350,7 @@ All modbus entities have the following parameters:
 
 {% configuration %}
 address:
-  description: "Address of coil/register."
+  description: "Address of coil/register. Note that this can also be specified in Hex. For example: `0x789A`"
   required: true
   type: integer
 name:
@@ -369,12 +369,12 @@ slave:
   description: "Identical to `device_address`"
   required: false
   type: integer
-  default: 0
+  default: 1
 device_address:
-  description: "Id of the device. Used to address multiple devices on a rs485 bus or devices connected to a modbus repeater."
+  description: "Id of the device. Used to address multiple devices on a rs485 bus or devices connected to a modbus repeater. 0 is the broadcast id. "
   required: false
   type: integer
-  default: 0
+  default: 1
 unique_id:
   description: "ID that uniquely identifies this entity.
   Slaves will be given a unique_id of <<unique_id>>_<<slave_index>>.
@@ -838,7 +838,7 @@ modbus:
     port: 502
     climates:
       - name: "Watlow F4T"
-        address: 27586
+        address: 0x6BC2
         input_type: holding
         count: 1
         data_type: custom
@@ -1458,7 +1458,7 @@ modbus:
     sensors:
       - name: Room_1
         slave: 10
-        address: 0
+        address: 0x9A
         input_type: holding
         unit_of_measurement: °C
         state_class: measurement

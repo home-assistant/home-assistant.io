@@ -49,7 +49,7 @@ Play Adele's album 25
 
 ```yaml
 entity_id: media_player.music_assistant_player
-media_content_type: MUSIC
+media_content_type: album
 media_content_id: 'Adele - 25'
 ```
 
@@ -57,7 +57,7 @@ Play all tracks from Stevie Wonder in random order
 
 ```yaml
 entity_id: media_player.music_assistant_player
-media_content_type: MUSIC
+media_content_type: artist
 media_content_id: 'Stevie Wonder'
 ```
 
@@ -65,7 +65,7 @@ Play the playlist The Best of Disco
 
 ```yaml
 entity_id: media_player.music_assistant_player
-media_content_type: PLAYLIST
+media_content_type: playlist
 media_content_id: 'The Best of Disco'
 ```
 

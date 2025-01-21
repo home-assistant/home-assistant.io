@@ -12,6 +12,8 @@ ha_domain: eheimdigital
 ha_integration_type: hub
 ha_platforms:
   - light
+ha_quality_scale: bronze
+ha_zeroconf: true
 ---
 
 The **EHEIM Digital** {% term integration %} allows you to control your [EHEIM Digital](https://eheim.com/en_GB/aquatics/eheim-digital/) smart aquarium devices from Home Assistant.
