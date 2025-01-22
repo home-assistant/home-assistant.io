@@ -6,7 +6,7 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: lorem_ipsum
-ha_integration_type: internal
+ha_integration_type: integration
 related:
   - url: https://developers.home-assistant.io/docs/documenting/standards
     title: Documentation standard
@@ -49,7 +49,7 @@ To identify a My link, in Home Assistant, open the page of interest and press th
 
 ### Glossary term reference
 
-Some Home Assistant terms and concepts are explained in a Glossary. If you add a reference to the definition of such a term, the term definition is shown as a tooltip. For example: {% term integration %}, {% term entity %}, and {% term "Home Assistant Operating System" %}. You can find the full list of glossary terms on the [Glossary](/docs/glossary/) page. To learn more about glossary terms, refer to the [developer documentation](https://developers.home-assistant.io/docs/documenting/standards#glossary--terminology-tooltips).
+Some Home Assistant terms and concepts are explained in a Glossary. If you add a reference to the definition of such a term, the term definition is shown as a tooltip. For example: {% term integration %}, {% term entity %}, and {% term "Home Assistant Operating System" %}. You can find the full list of glossary terms on the [Glossary](/docs/glossary/) page. To learn more about using glossary terms, refer to the [Glossary section in the developer documentation](/docs/documenting/standards#glossary--terminology-tooltips).
 
 ### Acronyms
 
