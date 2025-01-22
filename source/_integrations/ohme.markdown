@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_domain: ohme
 ha_platforms:
   - button
+  - number
   - sensor
   - switch
 ha_quality_scale: silver
@@ -54,6 +55,12 @@ The Ohme integration provides the following entities.
 
 - **Approve charge**
   - **Description**: If sensor **Status** is `Pending approval`, this will approve the charge.
+  - **Available for devices**: all
+
+#### Numbers
+
+- **Target percentage**
+  - **Description**: Sets the charge target for your vehicle.
   - **Available for devices**: all
 
 #### Sensors
