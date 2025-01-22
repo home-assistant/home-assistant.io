@@ -28,7 +28,7 @@ After Home Assistant has been [installed](/installation/) on your device, there 
      - Select **Create account**.
 
    - **Option 2: restore from backup**: If you want to restore a backup of a previous installation, select **Restore from backup**.
-     - Ignore the rest of this procedure and continue with the procedure on [restoring from backup](/common-tasks/os/#restoring-a-backup).
+     - Ignore the rest of this procedure and continue with the procedure on [restoring from backup](/common-tasks/general/#restoring-a-backup).
        - If you have a Home Assistant Yellow, start with the [Yellow documentation on restoring from backup](https://yellow.home-assistant.io/guides/restore-backup/).
        - If you have a Home Assistant Green, start with the [Green documentation on restoring from backup](https://green.home-assistant.io/guides/restore-backup/).
 

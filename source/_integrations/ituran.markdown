@@ -14,7 +14,7 @@ ha_domain: ituran
 ha_platforms:
   - device_tracker
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Ituran** {% term integration %} allows you to retrieve information from your Ituran-equipped vehicle using the [Ituran APP service](https://www.ituran.co.il/ituranfront/comfort-services-2/ituran-app-comfort). It pulls information from the Ituran web service regarding the vehicle's location.
@@ -44,7 +44,7 @@ The Ituran {% term integration %} will track the location of each vehicle regist
 
 ### Sensor
 
-The Ituran {% term integration %} also exposes the following sensor for each registered vehicle:
+The Ituran {% term integration %} also exposes the following sensors for each registered vehicle:
 
 - **Address** - The address that corresponds with the vehicle's location, as determined by Ituran
 - **Battery voltage** - The measured voltage (V) of the car battery. If not supported by the installation, the value will be set to `-1`
@@ -56,6 +56,7 @@ The Ituran {% term integration %} also exposes the following sensor for each reg
 ## Known limitations
 
 - While this integration is configured with your account, you won't be able to use the official app, as only one connection at a time is supported
+  - As a workaround, it's possible to add another user from the app, with a different ID and mobile phone number that will be dedicated for Home Assistant use.
 - The vehicle's heading value is unreliable when it's not in motion
 - The mileage value is not read from the vehicle's odometer but is calculated from GPS, which may result in slight variations from the actual odometer reading
 

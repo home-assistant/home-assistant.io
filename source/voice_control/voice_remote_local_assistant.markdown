@@ -1,16 +1,16 @@
 ---
 title: "Getting started - Local"
 related:
-  - docs: /voice_control/voice_remote_expose_devices/#exposing-your-devices
-    title: Expose your devices to Assist
-  - docs: /voice_control/create_wake_word/
-    title: Create your own wake words
-  - url: https://github.com/openai/whisper
-    title: Whisper for speech-to-text
-  - url: https://github.com/rhasspy/piper
-    title: Piper for text-to-speech
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
+  - docs: /voice_control/expanding_assist/
+    title: Expanding Assist
+  - docs: /voice_control/voice_remote_local_assistant/
+    title: Creating a local assistant
+  - docs: /voice_control/voice_remote_expose_devices/
+    title: Exposing devices to Assist
+  - url: https://voice-pe.home-assistant.io/documentation/
+    title: Voice Preview Edition - Documentation
 ---
 
 The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and text-to-speech) included in [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) 
@@ -95,4 +95,6 @@ The options are also documented in the add-on itself. Go to the {% my supervisor
 Also be sure to check the specific tutorial for [using Piper in Automations](voice_control/using_tts_in_automation/)
 
 ## Next steps
-Once the pipeline is configured, you are ready to jump into the basic conversation setup in Best Practices
+Once Assist is configured, now can now start using it. You can now talk through your device ([Android](/voice_control/android/), [iOS](/voice_control/apple/) or [Voice Preview edition](https://voice-pe.home-assistant.io/getting-started/)).
+
+To get the best out of the voice interaction, don't forget to check the [best practices](/voice_control/best_practices/).

@@ -12,6 +12,7 @@ ha_domain: palazzetti
 ha_platforms:
   - climate
   - diagnostics
+  - number
   - sensor
 ha_integration_type: device
 ha_dhcp: true
@@ -19,9 +20,24 @@ ha_dhcp: true
 
 The **Palazzetti** {% term integration %} integrates the [Palazzetti](https://palazzettigroup.com/)
 stoves equipped with a [Connection Box](https://palazzettigroup.com/research-and-development/app/).
-It is accessing the device's local API.
+It is accessing the device's local API. [WPalaControl](https://github.com/Domochip/WPalaControl)
+devices have a compatible API and are supported by this integration too.
+
+## Prerequisites
+
+- You need the Connection Box bridge or WPalaControl to be added to a network accessible to Home Assistant.
+- You either need to:
+  - know the IP address or hostname of the Connection Box or WPalaControl on the network.
+  - or configure the Connection Box or WPalaControl with DHCP on the same network as Home Assistant.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: "The IP address or hostname of your Connection Box. You can find it in your router or in the Palazzetti app under **Settings** > **Diagnostic information** > **Ethernet** or **Wifi**."
+  required: true
+  type: string
+{% endconfiguration_basic %}
 
 ## Climate
 
@@ -107,3 +123,60 @@ Fuel Sensors:
 
 - Pellet quantity (kg - cumulative quantity consumed)
 - Pellet level (cm - current level)
+
+## Possible use-cases
+
+- Control the operations, temperature, and fans.
+- Get alerts when the pellet level is low or empty, or on stove errors.
+- Auto start or stop the stove based on presence.
+
+## Automations
+
+Get started quickly with these automation examples.
+
+### Automatically lower the temperature when the last person leaves home
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: "Lower the temperature when last person leaves"
+description: "Lower the temperature when last person leaves the home"
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - zone.home
+    to: 0
+actions:
+  - action: climate.set_temperature
+    data:
+      temperature: 16
+    target:
+      entity_id: climate.my_stove
+```
+
+{% endraw %} {% enddetails %}
+
+## Known limitations
+
+This integration does **not** yet support the following features and sensors:
+
+- Light and Door entities on stove models equipped with them.
+- Fan control other than the main one.
+- Combustion power control.
+
+## Troubleshooting
+
+{% details "On and off switch does not always work" %}
+During certain operations, it is not possible to turn the stove on or off. This action is available
+only when the status of the stove is in one of the following states: `off`, `off_timer`, `burning`, `burning_mod`, `cool_fluid`,
+`clean_fire`, `cooling`, `ecomode`, `firewood_finished`.
+{% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
