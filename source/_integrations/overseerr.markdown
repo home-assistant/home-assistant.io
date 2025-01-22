@@ -62,6 +62,63 @@ There are sensors for:
  - Processing requests
  - Available requests
 
+## Actions
+
+The Overseerr integration has the following actions:
+
+- Get requests
+
+### Action get requests
+
+Get a list of media requests using `overseerr.get_requests`.
+
+| Data attribute    | Optional | Description                                                 |
+|-------------------|----------|-------------------------------------------------------------|
+| `config_entry_id` | No       | The ID of the Overseerr config entry to get data from.      |
+| `status`          | Yes      | The status to filter the results on.                        |
+| `sort_order`      | Yes      | The sort order to sort the results in (`added`/`modified`). |
+| `requested_by`    | Yes      | Filter the requests based on the user ID of the requester.  |
+
+
+## Use cases
+
+The integration can be used to build automations to help and notify you of new media requests.
+The provided actions can be used to provide extra context to voice assistants.
+
+## Example automations
+
+{% details "Send me a push notification on a new request" %}
+
+{% raw %}
+
+```yaml
+alias: Overseerr push notification
+description: "Send me a push notification on a new media request"
+triggers:
+  - trigger: state
+    entity_id:
+      - event.overseerr_last_media_event
+    not_from:
+      - unknown
+      - unavailable
+conditions:
+  - condition: template
+    value_template: >-
+      {{ state_attr('event.overseerr_last_media_event', 'event_type') ==
+      'pending' }}
+actions:
+  - action: notify.mobile_app
+    metadata: {}
+    data:
+      message: >-
+        {{ state_attr('event.overseerr_last_media_event', 'subject') }} has been
+        requested
+mode: single
+```
+
+{% endraw %}
+{% enddetails %}
+
 ## Data updates
 
 When loading the integration, it will try to configure the webhook in Overseerr to give updates to Home Assistant.
@@ -70,8 +127,19 @@ This makes the integration a push-based integration.
 When the integration receives an update about the requests, it updates the statistics to make sure they are up to date.
 In addition, the integration checks for updates every 5 minutes.
 
+## Known limitations
+
+There are no known limitations.
+
 ## Remove integration
 
 This integration follows standard integration removal, no extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
+## Troubleshooting
+
+{% details "Failed to register Overseerr webhook" %}
+
+Make sure you Overseerr instance is able to reach your Overseerr instance.
+{% enddetails %}
