@@ -17,7 +17,7 @@ ha_integration_type: device
 AquaCell is a water-softening device. The [AquaCell](https://www.aquacell-waterontharder.nl/) {% term integration %} allows you to monitor your AquaCell device in Home Assistant.
 You will need your Aquacell account information as used in the **AquaCell** app.
 
-This integration also supports [Harvey](https://www.harveywatersofteners.co.uk/) softeners.
+This integration also supports [Harvey](https://www.harveywatersofteners.co.uk/) and [TwinTec](https://www.twintec.com/) (rebranded Harvey) softeners.
 
 ## Supported devices
 
@@ -25,6 +25,7 @@ This integration only works for softener models which have an **i-Lid** and are 
 These models are also recognizable by the required curved salt blocks.
 - [AquaCell](https://www.aquacell-waterontharder.nl/aquacell)
 - [HarveyArc Water Softener](https://www.harveywatersofteners.co.uk/products/water-softeners/harveyarc-water-softener)
+- [TwinTec Cobalt](https://www.twintec.com/our-products/tt-cobalt/)
 
 ## Prerequisites
 
