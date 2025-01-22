@@ -32,6 +32,10 @@ API key:
     type: string
 {% endconfiguration_basic %}
 
+## Supported versions
+
+The latest version of Overseerr is supported by this integration.
+
 ## Supported functionality
 
 The Overseerr intergation provides a couple of entities to Home Assistant.
