@@ -96,7 +96,7 @@ The provided actions can be used to provide extra context to voice assistants.
 {% raw %}
 
 ```yaml
-alias: Overseerr push notification
+alias: "Overseerr push notification"
 description: "Send me a push notification on a new media request"
 triggers:
   - trigger: state
@@ -117,7 +117,6 @@ actions:
       message: >-
         {{ state_attr('event.overseerr_last_media_event', 'subject') }} has been
         requested
-mode: single
 ```
 
 {% endraw %}
