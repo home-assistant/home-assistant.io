@@ -93,6 +93,12 @@ The Ohme integration provides the following entities.
   - **Description**: Turn off the screen of the device after a few minutes of inactivity.
   - **Available for devices**: Home Pro
 
+#### Times
+
+- **Target time**
+  - **Description**: Sets the time you need your vehicle charged by.
+  - **Available for devices**: all
+
 ## Actions
 
 The integration provides the following actions.
