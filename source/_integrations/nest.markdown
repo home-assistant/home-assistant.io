@@ -625,3 +625,9 @@ logger:
 ```
 
 - *Not receiving camera motion and person events*: assuming the integration is correctly configured (for example, the oauth and SDM API are set up correctly, you can see camera streams, and permissions are correctly set in [Partner Connections Manager](https://nestservices.google.com/partnerconnections)): If you are then still not seeing events, it's possible you need to adjust the Google Home App settings. Refer to the [Google Home App Notification Settings](#google-home-app-notification-settings) for details.
+
+- **Configuration error: Failed to create subscriber `subscription/name` was not found** - By default, Google pub/sub subscriptions will be deleted after 31 days of inactivity ([reference](https://cloud.google.com/knowledge/kb/pub-sub-subscriptions-disappeared-without-any-deletion-logs-000004170)). If this happens, then the integration will fail, and you will see the preceding log line in your Home Assistant logs. If that is the case, then:
+
+  1. Go to the [Device Access Console](https://console.nest.google.com/device-access/project-list) and re-enable the Pub/Sub Topic.
+  2. The Nest integration may need to be recreated to pick up the new Pub/Sub topic.
+  3. (Optional) To prevent future expirations, go to your [Google Cloud Console Pub/Sub subscription page](https://console.cloud.google.com/cloudpubsub/subscription/list) and edit the Pub/Sub subscription created by Nest to not expire by default.

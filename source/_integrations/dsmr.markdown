@@ -54,7 +54,8 @@ This integration is known to work for:
 
 - Iskra ME382 / MT382 (DSMR 2.2)
 - ISKRA AM550 (DSMR 5.0)
-- Landis+Gyr E350 (DMSR 4)
+- Landis+Gyr E350 (DSMR 4)
+- Landis+Gyr E360 (DSMR 5)*
 - Landis+Gyr ZCF110 / ZM F110 (DSMR 4.2)
 - Kaifa E0026
 - Kaifa MA304C (DSMR 4.2)
@@ -64,6 +65,8 @@ This integration is known to work for:
 - Ziv E0058 ESMR5
 - EasyMeter Q3D
 
+Remarks:  
+\* The E360 requires a special P1 cable, various webstores sell these specific to the E360.
 ### M-Bus support
 
 A smart meter can have multiple subdevices, also known as [M-Bus](https://m-bus.com/) devices.
