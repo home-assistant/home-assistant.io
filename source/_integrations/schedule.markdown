@@ -183,7 +183,7 @@ triggers:
 
 ## Actions
 
-The schedule integration provides the {% term actions %} described below. To learn more, read the documentation about [actions](/docs/scripts/perform-actions/).
+The schedule integration provides the follwing {% term actions %} to interact with the entities.
 
 ### Action `schedule.reload`
 
@@ -207,7 +207,7 @@ The response data contains a field for every schedule entity (e.g. `schedule.vac
 Every schedule entity response has 7 fields (for each day of the week in lowercase) containing a list of selected time ranges.
 Days without any selected ranges will be returned as an empty list:
 
-```
+```yaml
 schedule.vacuum_robot:
   monday:
     - start: "09:00:00"
