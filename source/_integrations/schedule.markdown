@@ -260,14 +260,13 @@ data:
 
 {% endraw %}
 
-
 If you want to run the above action both once per day and whenever one of the schedules changes, you can create an {% term automation %} that combines a time-based {% term trigger %} with an {% term event %} trigger per entity.
 
 {% raw %}
 
 ```yaml
 triggers:
-  - triger: time
+  - trigger: time
     at: "07:30:00"
   - trigger: event
     event_type: entity_registry_updated
