@@ -47,7 +47,7 @@ For devices that support Auto Comfort and are running firmware 3.1 or later, an 
 For devices that support Auto Comfort, a climate {% term entity %} allows adjusting the target temperature.
 
 {% note %}
-**Climate and Climate Sensors become unavailable:**: Climate and some sensors like temperature are provided by the remote not the fan itself on certain models.  When the fan loses connection to the remote, these entities may become unavailable while the fan remains available.  Consult vendor documentation on how to re-establish connectivity between the fan and remote and reload the integration to restore entities availability.
+**Climate and Climate Sensors become unavailable:**: Climate and some sensors like temperature are provided by the remote not the fan itself on certain models. When the fan loses connection to the remote, these entities may become unavailable while the fan remains available. Consult vendor documentation on how to re-establish connectivity between the fan and remote and reload the integration to restore entities availability.
 {% endnote %}
 
 ### Number
