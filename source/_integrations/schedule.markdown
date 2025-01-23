@@ -181,10 +181,80 @@ triggers:
 
 {% endraw %}
 
-### Actions
+## Actions
 
-Available action: `schedule.reload`.
+The schedule integration provides the {% term actions %} described below. To learn more, read the documentation about [actions](/docs/scripts/perform-actions/).
 
-#### schedule.reload
+### Action `schedule.reload`
 
-`schedule.reload` action allows one to reload the schedule's configuration without restarting Home Assistant itself.
+`schedule.reload` action allows one to reload the schedule's configuration from YAML without restarting Home Assistant itself.
+
+### Action `schedule.get_schedule`
+
+`schedule.get_schedule` populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the selected/active time ranges of a schedule.
+It can return multiple schedules.
+
+```yaml
+action: schedule.get_schedule
+target:
+  entity_id:
+    - schedule.vacuum_robot
+    - schedule.air_purifier
+response_variable: schedules
+```
+
+The response data contains a field for every schedule entity (e.g. `schedule.vacuum_robot` and `schedule.air_purifier` in this case).
+Every schedule entity response has 7 fields (for each day of the week in lowercase) containing a list of selected time ranges.
+Days without any selected ranges will be returned as an empty list:
+
+```
+schedule.vacuum_robot:
+  monday:
+    - start: "09:00:00"
+      end: "15:00:00"
+  tuesday: []
+  wednesday: []
+  thursday:
+    - start: "09:00:00"
+      end: "15:00:00"
+  friday: []
+  saturday: []
+  sunday: []
+schedule.air_purifier:
+  monday:
+    - start: "09:00:00"
+      end: "18:00:00"
+  tuesday: []
+  wednesday: []
+  thursday:
+    - start: "09:00:00"
+      end: "18:00:00"
+  friday: []
+  saturday:
+    - start: "10:30:00"
+      end: "12:00:00"
+    - start: "14:00:00"
+      end: "19:00:00"
+  sunday: []
+```
+
+This example uses a template with response data in another action:
+
+{% raw %}
+
+```yaml
+action: notify.nina
+data:
+  title: Today's schedules
+  message: >-
+    Your vacuum robot will run today:
+    {% for event in schedules["schedule.vacuum_robot"][now().strftime('%A').lower()] %}
+    - from {{ event.start }} until {{ event.end }}<br>
+    {% endfor %}
+    Your air purifier will run today:
+    {% for event in schedules["schedule.air_purifier"][now().strftime('%A').lower()] %}
+    - from {{ event.start }} until {{ event.end }}<br>
+    {% endfor %}
+```
+
+{% endraw %}
