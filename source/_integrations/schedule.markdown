@@ -183,7 +183,7 @@ triggers:
 
 ## Actions
 
-The schedule integration provides the follwing {% term actions %} to interact with the entities.
+The schedule integration provides the following {% term actions %} to interact with the entities.
 
 ### Action `schedule.reload`
 
@@ -191,7 +191,7 @@ The schedule integration provides the follwing {% term actions %} to interact wi
 
 ### Action `schedule.get_schedule`
 
-`schedule.get_schedule` populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the selected/active time ranges of a schedule.
+`schedule.get_schedule` populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the configured time ranges of a schedule.
 It can return multiple schedules.
 
 ```yaml
@@ -255,6 +255,29 @@ data:
     {% for event in schedules["schedule.air_purifier"][now().strftime('%A').lower()] %}
     - from {{ event.start }} until {{ event.end }}<br>
     {% endfor %}
+```
+
+{% endraw %}
+
+
+If you want to run the above notify action both once per day and whenever one of the schedules changes, you can create an {% term automation %} that combines a time-based {% term trigger %} with an {% term event %} trigger per entity.
+
+{% raw %}
+
+```yaml
+triggers:
+  - triger: time
+    at: "07:30:00"
+  - trigger: event
+    event_type: entity_registry_updated
+    event_data:
+      action: update
+      entity_id: schedule.sched1
+  - trigger: event
+    event_type: entity_registry_updated
+    event_data:
+      action: update
+      entity_id: schedule.test1
 ```
 
 {% endraw %}
