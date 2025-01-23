@@ -58,7 +58,7 @@ The LetPot integration provides the following entities.
 - **Power**: Main switch to turn on/off the device. Device features (like the built-in light and pump) will only operate when the power is on.
 - **Pump cycling**: Turn on/off cycling of the water pump. When on, the pump will run intermittently (controlled by the device).
 
-For devices with an alarm that allows configuration of the sound, the following switch is also available:
+For devices with an alarm that allows muting the sound, the following switch is also available:
 
 - **Alarm sound**: Turn on/off the alarm sound.
 
