@@ -27,9 +27,18 @@ As for the rest of Home Assistant core functionalities, Assist can be personaliz
 
 <lite-youtube videoid="XF53wUbeLxA" videotitle="Voice at Home Assistant"></lite-youtube>
 
-Although adding voice to your smart home configuration is exciting, it will require you to check your existing setup of Home Assistant, especially if you made a lot of customization. But we have prepared a guide of steps and best practices to help you out, as well as our [Troubleshooting](/voice_control/troubleshooting/) guides.
+## Getting Started
 
-Ready? Now let's get started
+Most of the recent voice assistant hardware compatible with Home Assistant will automatically guide you thought their configuration by utilizing a wizard.
+
+![Screenshot of Home Assistant's voice wizard](/images/assist/voice-wizard.png)
+
+All you need to do is integrate the device into your Home Assistant installation, and follow the steps displayed on the screen.
+The wizard will help you get stated with your hardware based on your system.
+
+Our recommended voice assistant hardware is the [Home Assistant Voice Preview Edition](/voice-pe/).
+
+In case your hardware does not support our wizard, do not worry. Here are two detailed guides based on how you plan to process your voice (Locally, or using Home Assistant Cloud voice services)
 
 - [I plan to use a local speech-to-text/text-to-speech setup](/voice_control/voice_remote_local_assistant/)
 - [I plan to use Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) (recommended as it is the simplest)
