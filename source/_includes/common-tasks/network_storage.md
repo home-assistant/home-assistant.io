@@ -56,7 +56,7 @@ Server:
 "[NFS]<sup>1</sup> Remote share path":
   description: The path used to connect to the remote storage server.
 "[CIFS]<sup>2</sup> Username":
-  description: The username to use when connecting to the storage server. Use User Principal Name for domain accounts. For example: `user@domain.com`.
+  description: "The username to use when connecting to the storage server. Use User Principal Name for domain accounts. For example: `user@domain.com`."
 "[CIFS]<sup>2</sup> Password":
   description: The password to use when connecting to the storage server.
 "[CIFS]<sup>2</sup> Share":
