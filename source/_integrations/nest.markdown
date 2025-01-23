@@ -630,4 +630,4 @@ logger:
 
   1. Go to the [Device Access Console](https://console.nest.google.com/device-access/project-list) and re-enable the Pub/Sub Topic.
   2. The Nest integration may need to be recreated to pick up the new Pub/Sub topic.
-  3. (Optional) To prevent future expirations, visit your [Google Cloud Console Pub/Sub subscription page](https://console.cloud.google.com/cloudpubsub/subscription/list) and edit the Pub/Sub subscription created by Nest to not expire by default.
+  3. (Optional) To prevent future expirations, go to your [Google Cloud Console Pub/Sub subscription page](https://console.cloud.google.com/cloudpubsub/subscription/list) and edit the Pub/Sub subscription created by Nest to not expire by default.
