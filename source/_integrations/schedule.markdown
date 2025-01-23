@@ -204,8 +204,9 @@ response_variable: schedules
 ```
 
 The response data contains a field for every schedule entity (e.g. `schedule.vacuum_robot` and `schedule.air_purifier` in this case).
-Every schedule entity response has 7 fields (for each day of the week in lowercase) containing a list of selected time ranges.
-Days without any selected ranges will be returned as an empty list:
+
+Every schedule entity response has 7 fields (for each day of the week in lowercase), containing a list of the selected time ranges.
+Days without any ranges will be returned as an empty list.
 
 ```yaml
 schedule.vacuum_robot:
@@ -238,7 +239,7 @@ schedule.air_purifier:
   sunday: []
 ```
 
-This example uses a template with response data in another action:
+The example below uses the response data from above in a template for another action.
 
 {% raw %}
 
