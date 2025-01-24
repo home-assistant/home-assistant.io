@@ -209,7 +209,7 @@ Provides access to browsing the media tree provided by the integration. Similar 
 Example, integration dependent.
 
 ```yaml
-  - service: media_player.browse_media
+  - action: media_player.browse_media
     target:
       entity_id: media_player.living_room
     data:
