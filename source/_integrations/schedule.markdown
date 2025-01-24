@@ -140,17 +140,17 @@ Using the `light_schedule` example from above in an automation might look like t
 
 ```yaml
 triggers:
-    - trigger: state
-      entity_id:
-        - schedule.light_schedule
-      to: "on"
-  actions:
-    - action: light.turn_on
-      target:
-        entity_id: light.kitchen
-      data:
-        brightness_pct: "{{ state_attr('schedule.light_schedule', 'brightness') }}"
-        kelvin: "{{ state_attr('schedule.light_schedule', 'temperature') }}"
+  - trigger: state
+    entity_id:
+      - schedule.light_schedule
+    to: "on"
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.kitchen
+    data:
+      brightness_pct: "{{ state_attr('schedule.light_schedule', 'brightness') }}"
+      kelvin: "{{ state_attr('schedule.light_schedule', 'temperature') }}"
 ```
 
 {% endraw %}
@@ -159,14 +159,14 @@ The same schedule can be used to turn the lights off again once the time blocks 
 
 ```yaml
 triggers:
-    - trigger: state
-      entity_id:
-        - schedule.light_schedule
-      to: "off"
-  actions:
-    - action: light.turn_off
-      target:
-        entity_id: light.kitchen
+  - trigger: state
+    entity_id:
+      - schedule.light_schedule
+    to: "off"
+actions:
+  - action: light.turn_off
+    target:
+      entity_id: light.kitchen
 ```
 
 {% endraw %}
