@@ -14,8 +14,6 @@ ha_integration_type: helper
 
 The **Schedule** {% term integration %} provides a way to create a weekly schedule {% term entity %} in Home Assistant that can be used to trigger or make decisions in your automations and scripts.
 
-To add a schedule to your Home Assistant Instance, use the My button below.
-
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -23,15 +21,15 @@ Name:
   description: Friendly name of the schedule. It can be changed again later.
 Icon:
   description: Icon to display in the frontend for this schedule.
-Schedule blocks (week view):
+Schedule blocks:
   description: >
     Drag and drop with your mouse to select time boxes for each day of the week.
-    It is not possible to create overlapping time boxes (on the same day).
+    It is not possible to create overlapping time boxes on the same day.
 {% endconfiguration_basic %}
 
-After you have created schedule blocks, you can use a single left click to open an edit view for a single time block.
+After you have created schedule blocks, you can use a **single left click** on a block to open an edit view for a this time block.
 
-{% configuration %}
+{% configuration_basic  %}
 Start:
   required: true
   type: time
@@ -44,17 +42,22 @@ Additional data:
   required: false
   type: map
   description: Additional data to add to the entity's attributes when this block is active.
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 The **Additional data** entry of each block should be a mapping of attribute names to values.
-For example, the schedule helper entity could have `brightness` and `color_temp` attributes when the blocks are active.
+For example, a block with the the following data will show `brightness` and `color_temp` as {% term entity %} attributes when the blocks is active:
+
+```yaml
+brightness: 100
+color_temp: 4000
+```
 
 ## YAML configuration
 
 Alternatively, this {% term integration %} can be configured and set up manually via YAML instead.
 To enable the Integration sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
-Additional data can be added as `data` block mapping for each schedule block.
+Additional data can be added using the `data` block for each schedule block, as shown in the example below.
 
 ```yaml
 schedule:
@@ -126,24 +129,11 @@ A schedule entity's state exports attributes that can be useful in automations a
 | Attribute | Description |
 | ----- | ----- |
 | `next_event` | A datetime object containing the next time the schedule is going to change state. |
-| Additional data | The entries in **Additional data** / `data` of a schedule block, when the respective block is active. |
+| Additional data | The entries in **Additional data** / `data` of a schedule block when the respective block is active. |
 
 ## Automation example
 
-A schedule creates an on/off (schedule) sensor within the times set. Using the thermostat schedule example above, you can turn on your thermostat:
-
-```yaml
-triggers:
-    - trigger: state
-      entity_id:
-        - schedule.thermostat_schedule
-      to: "on"
-  actions:
-    - action: climate.turn_on
-      target:
-        entity_id: climate.thermostat
-```
-
+A schedule creates an on/off (schedule) sensor within the times set. 
 Using the `light_schedule` example from above in an automation might look like this:
 
 {% raw %}
@@ -160,7 +150,7 @@ triggers:
         entity_id: light.kitchen
       data:
         brightness_pct: "{{ state_attr('schedule.light_schedule', 'brightness') }}"
-        kelvin: "{{ state_attr('schedule.light_schedule, 'temperature') }}"
+        kelvin: "{{ state_attr('schedule.light_schedule', 'temperature') }}"
 ```
 
 {% endraw %}
