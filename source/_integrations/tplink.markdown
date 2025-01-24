@@ -191,7 +191,7 @@ If required, you can manually trigger an update via **Developer tools** > **Acti
 ### Device connections
 
 - Take note of the known limitation for subnets above.
-- Ensure that your username is your TP-Link cloud username which is your *case-sensitive* email address.
+- Ensure that your username is your TP-Link cloud username, which is your *case-sensitive* email address.
 - Ensure you have enabled **Tapo Lab** > **Third-Party Compatibility** in the Tapo app. You may need to factory reset and re-add to the Tapo app after this step.
 - Disable or remove any custom integrations that interact with TPLink devices supported by this integration.
 - Check the [reported connection solutions](#reported-connection-solutions) section below.
@@ -245,6 +245,10 @@ logger:
 ```
 
 Then restart Home Assistant, trigger the error, and download the logs from **Settings** > **System** > **Logs** > **Download logs**
+
+{% note %}
+Remember to disable debug logging after troubleshooting to prevent excessive log growth and performance impact.
+{% endnote %}
 
 ## Examples
 
