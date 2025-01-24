@@ -206,6 +206,8 @@ Provides access to browsing the media tree provided by the integration. Similar 
 | `media_content_type`   |      yes | The type of media to browse such as music, playlist, video, etc. Integration specific.  |
 | `media_content_id`   |      yes | The content ID to browse. Integration specific. An empty content ID returns the top-level of the browse tree. |
 
+Browse the root of the tree.
+
 ```yaml
   # Get the top of the browse tree
   - action: media_player.browse_media
