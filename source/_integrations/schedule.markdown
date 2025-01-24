@@ -27,7 +27,7 @@ Schedule blocks:
     It is not possible to create overlapping time boxes on the same day.
 {% endconfiguration_basic %}
 
-After you have created schedule blocks, you can use a **single left click** on a block to open an edit view for a this time block.
+After you have created schedule blocks, you can use a **single left click** on a block to open an edit view for this time block.
 
 {% configuration_basic  %}
 Start:
@@ -45,7 +45,7 @@ Additional data:
 {% endconfiguration_basic %}
 
 The **Additional data** entry of each block should be a mapping of attribute names to values.
-For example, a block with the the following data will show `brightness` and `color_temp` as {% term entity %} attributes when the blocks is active:
+For example, a block with the following data will show `brightness` and `color_temp` as {% term entity %} attributes when the block is active:
 
 ```yaml
 brightness: 100
@@ -133,7 +133,7 @@ A schedule entity's state exports attributes that can be useful in automations a
 
 ## Automation example
 
-A schedule creates an on/off (schedule) sensor within the times set. 
+A schedule creates an on/off (schedule) sensor within the times set.
 Using the `light_schedule` example from above in an automation might look like this:
 
 {% raw %}
@@ -151,6 +151,22 @@ triggers:
       data:
         brightness_pct: "{{ state_attr('schedule.light_schedule', 'brightness') }}"
         kelvin: "{{ state_attr('schedule.light_schedule', 'temperature') }}"
+```
+
+{% endraw %}
+
+The same schedule can be used to turn the lights off again once the time blocks of the schedule have passed:
+
+```yaml
+triggers:
+    - trigger: state
+      entity_id:
+        - schedule.light_schedule
+      to: "off"
+  actions:
+    - action: light.turn_off
+      target:
+        entity_id: light.kitchen
 ```
 
 {% endraw %}
