@@ -206,7 +206,6 @@ Provides access to browsing the media tree provided by the integration. Similar 
 | `media_content_type`   |      yes | The type of media to browse such as music, playlist, video, etc. Integration specific.  |
 | `media_content_id`   |      yes | The content ID to browse. Integration specific. An empty content ID returns the top-level of the browse tree. |
 
-
 ```yaml
   # Get the top of the browse tree
   - action: media_player.browse_media
@@ -266,6 +265,7 @@ media_player.living_room:
       media_content_type: album
       media_content_id: A:ALBUMARTIST/Beatles/Abbey%20Road
 ```
+
 ## Device class
 
 {% include integrations/device_class_intro.md %}
