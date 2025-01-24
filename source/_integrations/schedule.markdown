@@ -14,7 +14,7 @@ ha_integration_type: helper
 
 The **Schedule** {% term integration %} provides a way to create a weekly schedule {% term entity %} in Home Assistant that can be used to trigger or make decisions in your automations and scripts.
 
-To add a schedule to your Home assistant Instance, use the My button below.
+To add a schedule to your Home Assistant Instance, use the My button below.
 
 {% include integrations/config_flow.md %}
 
