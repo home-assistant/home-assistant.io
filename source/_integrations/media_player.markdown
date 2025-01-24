@@ -212,6 +212,7 @@ Provides access to browsing the media tree provided by the integration. Similar 
   - action: media_player.browse_media
     target:
       entity_id: media_player.living_room
+    response_variable: top_level
 ```
 
 ```yaml
