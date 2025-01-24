@@ -21,7 +21,7 @@ ha_config_flow: true
 ---
 
 This integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
-The integration uses the [incomfort](https://pypi.org/project/incomfort-client/) client library.
+The integration uses the [incomfort-client](https://pypi.org/project/incomfort-client/) library.
 
 ### Supported devices
 
@@ -57,6 +57,10 @@ password:
 {% endconfiguration_basic %}
 
 The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
+
+## Troubleshooting
+
+In case setting up an older gateway type fails, then try to leave `username` and `password` fields empty.
 
 ## Data updates
 
