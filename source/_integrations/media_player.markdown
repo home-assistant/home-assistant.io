@@ -197,6 +197,26 @@ Allows to group media players together for synchronous playback. Only works on s
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Unjoin this media player from any player groups.     |
 
+#### Action `media_player.browse_media`
+
+Provides access to browsing the media tree provided by the integration. Similar in functionality to browsing media through the media player UI.
+
+| Data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `media_content_type`   |      yes | The type of media to browse such as music, playlist, video, etc. Integration specific.  |
+| `media_content_id`   |      yes | The content ID to browse. Integration specific. An empty content ID returns the top-level of the browse tree. |
+
+Example, integration dependent.
+
+```yaml
+  - service: media_player.browse_media
+    target:
+      entity_id: media_player.living_room
+    data:
+      media_content_id: A:ALBUMARTIST/Beatles
+      media_content_type: album
+    response_variable: albums
+```
 ## Device class
 
 {% include integrations/device_class_intro.md %}
