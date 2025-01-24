@@ -206,6 +206,14 @@ Provides access to browsing the media tree provided by the integration. Similar 
 | `media_content_type`   |      yes | The type of media to browse such as music, playlist, video, etc. Integration specific.  |
 | `media_content_id`   |      yes | The content ID to browse. Integration specific. An empty content ID returns the top-level of the browse tree. |
 
+The action returns a media tree object that can be stored in a response variable for use in subsequent automation steps. The response includes:
+- `title`: Display name of the current level
+- `media_class`: Type of the current item (e.g., directory, music, video)
+- `media_content_type`: Content type identifier
+- `media_content_id`: Integration specific content ID
+- `children_media_class`: Type of items in the children array
+- `children`: Array of child items with similar properties
+
 Browse the root of the tree.
 
 ```yaml
@@ -229,12 +237,10 @@ media_player.living_room:
       media_class: directory
       media_content_type: favorites
       media_content_id: ""
-      thumbnail: https://brands.home-assistant.io/_/sonos/logo.png
     - title: Music Library
       media_class: directory
       media_content_type: library
       media_content_id: ""
-      thumbnail: https://brands.home-assistant.io/_/sonos/logo.png  
 ```
 
 Browse a specific artist, integration dependent:
