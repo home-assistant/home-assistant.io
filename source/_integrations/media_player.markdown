@@ -206,7 +206,36 @@ Provides access to browsing the media tree provided by the integration. Similar 
 | `media_content_type`   |      yes | The type of media to browse such as music, playlist, video, etc. Integration specific.  |
 | `media_content_id`   |      yes | The content ID to browse. Integration specific. An empty content ID returns the top-level of the browse tree. |
 
-Example, integration dependent.
+
+```yaml
+  # Get the top of the browse tree
+  - action: media_player.browse_media
+    target:
+      entity_id: media_player.living_room
+```
+
+```yaml
+# abbreviated Example response
+media_player.living_room:
+  title: Sonos
+  media_class: directory
+  media_content_type: root
+  media_content_id: ""
+  children_media_class: directory
+  children:
+    - title: Favorites
+      media_class: directory
+      media_content_type: favorites
+      media_content_id: ""
+      thumbnail: https://brands.home-assistant.io/_/sonos/logo.png
+    - title: Music Library
+      media_class: directory
+      media_content_type: library
+      media_content_id: ""
+      thumbnail: https://brands.home-assistant.io/_/sonos/logo.png  
+```
+
+Browse a specific artist, integration dependent:
 
 ```yaml
   - action: media_player.browse_media
@@ -216,6 +245,25 @@ Example, integration dependent.
       media_content_id: A:ALBUMARTIST/Beatles
       media_content_type: album
     response_variable: albums
+```
+
+```yaml
+# Abbreviated Example response
+media_player.living_room:
+  title: Beatles
+  media_class: album
+  media_content_type: album
+  media_content_id: A:ALBUMARTIST/Beatles
+  children_media_class: directory
+  children:
+    - title: A Hard Day's Night
+      media_class: album
+      media_content_type: album
+      media_content_id: A:ALBUMARTIST/Beatles/A%20Hard%20Day's%20Night
+    - title: Abbey Road
+      media_class: album
+      media_content_type: album
+      media_content_id: A:ALBUMARTIST/Beatles/Abbey%20Road
 ```
 ## Device class
 
