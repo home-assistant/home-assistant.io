@@ -10,9 +10,13 @@ ha_codeowners:
   - '@dontinelli'
 ha_domain: slide_local
 ha_platforms:
+  - button
   - cover
-ha_integration_type: integration
+  - diagnostics
+  - switch
+ha_integration_type: device
 ha_zeroconf: true
+ha_quality_scale: gold
 ---
 
 The Slide Local {% term integration %} allows you to integrate your [Slide](https://slide.store/) devices in Home Assistant using the local API.

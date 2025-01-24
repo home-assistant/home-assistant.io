@@ -156,11 +156,11 @@ json_attributes_topic:
   required: false
   type: string
 latest_version_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the latest version value."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the latest version value. Use `state_topic` with a `value_template` if all update state values can be extracted from a single JSON payload."
   required: false
   type: template
 latest_version_topic:
-  description: The MQTT topic subscribed to receive an update of the latest version.
+  description: The MQTT topic subscribed to receive an update of the latest version. Use `state_topic` with a `value_template` if all update state values can be extracted from a single JSON payload.
   required: false
   type: string
 name:
@@ -198,7 +198,7 @@ retain:
   type: boolean
   default: false
 state_topic:
-  description: "The MQTT topic subscribed to receive state updates. The state update may be either JSON or a simple string with `installed_version` value. When a JSON payload is detected, the state value of the JSON payload should supply the `installed_version` and can optional supply: `latest_version`, `title`, `release_summary`, `release_url` or an `entity_picture` URL."
+  description: "The MQTT topic subscribed to receive state updates. The state update may be either JSON or a simple string with `installed_version` value. When a JSON payload is detected, the state value of the JSON payload should supply the `installed_version` and can optionally supply: `latest_version`, `title`, `release_summary`, `release_url`, and an `entity_picture` URL. To allow progress monitoring `in_progress` (a boolean to indicate an update is in progress), or `update_percentage` (a float value to indicate the progress percentage) may be part of the JSON message."
   required: false
   type: string
 title:
