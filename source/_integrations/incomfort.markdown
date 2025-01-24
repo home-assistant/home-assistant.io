@@ -20,7 +20,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The `incomfort` {% term integration %} links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
+This integrations links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
 The integration uses the [incomfort](https://pypi.org/project/incomfort-client/) client library.
 
 ### Supported devices
@@ -60,7 +60,7 @@ The hub does not have to be in the same network as HA, but must be reachable via
 
 ## Data updates
 
-The `incomfort` {% term integration %} will fetch state data from the gateway every 30 seconds. When the target temperature on the thermostat is changed, it might take some time for the set point to be updated on the Home Assistant climate {% term entity %}.
+The Intergas Lan2RF Gateway will fetch state data from the gateway every 30 seconds. When the target temperature on the thermostat is changed, it might take some time for the set point to be updated on the Home Assistant climate {% term entity %}.
 
 ## Remove integration
 
