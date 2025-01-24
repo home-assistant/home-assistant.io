@@ -12,64 +12,49 @@ ha_domain: schedule
 ha_integration_type: helper
 ---
 
-The schedule integration provides a way to create a weekly schedule in
-Home Assistant that can be used to trigger or make decisions in your
-automations and scripts.
+The **Schedule** {% term integration %} provides a way to create a weekly schedule {% term entity %} in Home Assistant that can be used to trigger or make decisions in your automations and scripts.
 
-The preferred way to configure a schedule is via the user interface at
-**{% my helpers title="Settings > Devices & services > Helpers." %}** Click the add button
-and then choose the **{% my config_flow_start domain=schedule title="Schedule" %}** option, or click the My button below.
+To add a schedule to your Home assistant Instance, use the My button below.
 
 {% include integrations/config_flow.md %}
 
-To be able to add **{% my helpers title="Helpers" %}** via the user interface you should
-have `default_config:` in your {% term "`configuration.yaml`" %}, it should already
-be there by default unless you removed it.
+{% configuration_basic %}
+Name:
+  description: Friendly name of the schedule. It can be changed again later.
+Icon:
+  description: Icon to display in the frontend for this schedule.
+Schedule blocks (week view):
+  description: >
+    Drag and drop with your mouse to select time boxes for each day of the week.
+    It is not possible to create overlapping time boxes (on the same day).
+{% endconfiguration_basic %}
 
-If you removed `default_config:` from your configuration,
-you must add it back or, alternatively, `schedule:` to your
-`configuration.yaml` first, before you can create them via the UI.
+After you have created schedule blocks, you can use a single left click to open an edit view for a single time block.
 
-Alternatively, a schedule can also be created and configured via YAML
-configuration. For example:
+{% configuration %}
+Start:
+  required: true
+  type: time
+  description: The start time to mark the schedule as active/on.
+End:
+  required: true
+  type: time
+  description: The end time to mark as inactive/off again.
+Additional data:
+  required: false
+  type: map
+  description: Additional data to add to the entity's attributes when this block is active.
+{% endconfiguration %}
 
-```yaml
-# Example configuration.yaml entry
-schedule:
-  thermostat_schedule:
-    name: "Thermostat schedule"
-    monday:
-      - from: "17:00:00"
-        to: "21:00:00"
-    tuesday:
-      - from: "17:00:00"
-        to: "21:00:00"
-    wednesday:
-      - from: "17:00:00"
-        to: "21:00:00"
-    thursday:
-      - from: "17:00:00"
-        to: "21:00:00"
-    friday:
-      - from: "17:00:00"
-        to: "23:00:00"
-    saturday:
-      - from: "07:00:00"
-        to: "10:00:00"
-      - from: "16:00:00"
-        to: "23:00:00"
-    sunday:
-      - from: "07:00:00"
-        to: "21:00:00"
-```
+The **Additional data** entry of each block should be a mapping of attribute names to values.
+For example, the schedule helper entity could have `brightness` and `color_temp` attributes when the blocks are active.
 
-Defining the schedule in YAML also allows adding extra data to each block, which will
-appear as attributes on the schedule helper entity when that block is active. This can
-be used to easily build schedule-based automations.
+## YAML configuration
 
-The `data` key of each block should be a mapping of attribute names to values. In this example,
-the schedule helper entity will have "Brightness" and "Color temp" attributes when
-the blocks are active:
+Alternatively, this {% term integration %} can be configured and set up manually via YAML instead.
+To enable the Integration sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+
+Additional data can be added as `data` block mapping for each schedule block.
 
 ```yaml
 schedule:
@@ -116,7 +101,6 @@ schedule:
       type: icon
     "monday|tuesday|wednesday|thursday|friday|saturday|sunday":
       description: A schedule for each day of the week.
-      required: false
       required: true
       type: list
       keys:
@@ -135,16 +119,16 @@ schedule:
           default: {}
 {% endconfiguration %}
 
-### Attributes
+## Attributes
 
-A schedule entity's state exports attributes that can be useful in
-automations and templates.
+A schedule entity's state exports attributes that can be useful in automations and templates.
 
 | Attribute | Description |
 | ----- | ----- |
 | `next_event` | A datetime object containing the next time the schedule is going to change state. |
+| Additional data | The entries in **Additional data** / `data` of a schedule block, when the respective block is active. |
 
-### Automation example
+## Automation example
 
 A schedule creates an on/off (schedule) sensor within the times set. Using the thermostat schedule example above, you can turn on your thermostat:
 
