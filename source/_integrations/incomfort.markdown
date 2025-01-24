@@ -20,7 +20,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-This integrations links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
+This integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
 The integration uses the [incomfort](https://pypi.org/project/incomfort-client/) client library.
 
 ### Supported devices
