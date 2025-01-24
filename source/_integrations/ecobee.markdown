@@ -40,11 +40,11 @@ As of March 28th, 2024, ecobee is no longer accepting new developer subscription
 
 In the meantime, you can use the [HomeKit Device](/integrations/homekit_controller/) integration as a partially functional alternative. 
 
-When using the Homekit integration you lose these features:
-* No control over auxiliary heat
-* No list of currently running equipment (can't tell when aux heat is running)
-* No information from air quality sensors
-* No support for vacation features
+When using the HomeKit integration you lose these features:
+- No control over auxiliary heat
+- No list of currently running equipment (can't tell when aux heat is running)
+- No information from air quality sensors
+- No support for vacation features
 
 {% endwarning %}
 
