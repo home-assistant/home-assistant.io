@@ -157,6 +157,8 @@ actions:
 
 The same schedule can be used to turn the lights off again once the time blocks of the schedule have passed:
 
+{% raw %}
+
 ```yaml
 triggers:
   - trigger: state
