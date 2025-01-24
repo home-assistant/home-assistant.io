@@ -194,6 +194,7 @@ If required, you can manually trigger an update via **Developer tools** > **Acti
 - Ensure that your username is your TP-Link cloud username, which is your *case-sensitive* email address.
 - Ensure you have enabled **Tapo Lab** > **Third-Party Compatibility** in the Tapo app. You may need to factory reset and re-add to the Tapo app after this step.
 - Disable or remove any custom integrations that interact with TPLink devices supported by this integration.
+- Ensure stable network connectivity between Home Assistant and the device.
 - Check the [reported connection solutions](#reported-connection-solutions) section below.
 - Check the [supported device list](#supported-devices) to see if the device is tested to work with the integration. 
 - Try running the [kasa tool](https://github.com/python-kasa/python-kasa) to connect to the device. An easy way to do this is to [install uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx --from python-kasa kasa --username <tplink cloud username> --password <tplink cloud password>`
@@ -224,13 +225,12 @@ This entity has been removed from the integration due to stability issues, calli
 
 ### Raising support issues
 
-For the maintainers of the TP-Link integration to be able to properly assist with a support issue please follow these guidelines:
+For the maintainers of the TP-Link integration to be able to properly assist with a support issue, please follow these guidelines:
 
 - Raise an issue with [Home Assistant Core](https://github.com/home-assistant/core/issues).
 - Fill in as many of the fields in the issue template as you can.
 - If applicable, list all steps taken from the [Troubleshooting device connections](#device-connections) section above.
 - Upload [debug logs](#enable-debug-logging) that run from Home Assistant first starting up, until the error is encountered.
-
 
 ### Enable debug logging
 
