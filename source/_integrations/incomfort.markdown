@@ -39,6 +39,21 @@ Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** dev
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+host:
+    description: "Hostname or IP-address of the Intergas InComfort Lan2RF Gateway."
+    required: true
+    type: string
+username:
+    description: "The username to log into the gateway. This is `admin` in most cases."
+    required: false
+    type: string
+password:
+    description: "The password to log into the gateway, is printed at the bottom of the Lan2RF Gateway or is `intergas` for some older devices."
+    required: false
+    type: string
+{% endconfiguration_basic %}
+
 The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
 
 ## Data updates
