@@ -668,7 +668,7 @@ Technically `select.first`, `select.last`, `select.previous`, `select.next` are 
 
 Each time this integration updates its entities, it collects data from a set of endpoints in the Envoy. That set of data is referred to as `raw`. It contains more information as strictly needed for entity data. The raw data is cached until the next collection cycle, when it is replaced by a fresh dataset from the envoy.
 
-The action `enphase_envoy.get_raw_tariff` returns tariff data from the `raw` data cache. To explore the cached tariff data use the [developer tools - actions](/docs/tools/dev-tools/#actions-tab) menu and use this action.
+The action `enphase_envoy.get_raw_tariff` returns tariff data from the `raw` data cache. To explore the cached tariff data, use the [developer tools - actions](/docs/tools/dev-tools/#actions-tab) menu and use this action.
 
 | Data attribute | Optional | Description |
 | - | - | - |
@@ -686,7 +686,7 @@ Response (partially)
 
 ```yaml
 {
-  raw:
+  "raw":
   {
     "tariff": {
         "currency": {
