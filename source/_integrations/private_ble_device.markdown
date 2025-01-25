@@ -47,10 +47,10 @@ If you have a rooted Android phone, the IRK (and LTKs) can be viewed in the file
 Alternatively, the IRK of an Android phone and/or secondary device can be obtained using Wireshark:
 
 1. On the Android phone, enable "USB Debugging" and "Enable Bluetooth HCI snoop log" options in developer settings.
-2. Ensure a second bluetooth device (e.g smart watch or earbuds) is unpaired
-3. Disable and re-enable bluetooth on the phone then re-pair the secondary device
+2. Ensure a second Bluetooth device (e.g., smart watch or earbuds) is unpaired
+3. Disable and re-enable Bluetooth on the phone then re-pair the secondary device
 4. Connect the Android phone to a computer with [adb](https://developer.android.com/tools/adb) installed
-5. Estabhlish an adb connection (`adb connect...`) then run the command: `adb bugreport scanwatch`
+5. Establish an adb connection (`adb connect...`) then run the command: `adb bugreport scanwatch`
 6. In the generated `scanwatch.zip` file, locate and extract `FS\data\misc\bluetooth\logs\btsnoop_hci.log`
 7. Open `btsnoop_hci.log` in [Wireshark](https://www.wireshark.org/download.html) and search for `btsmp.id_resolving_key`
 8. Select one of the frames and expand the "Bluetooth Security Manager Protocol". Either the sending or receiving device IRK will be visible in the hex dump.
