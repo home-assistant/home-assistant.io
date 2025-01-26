@@ -68,15 +68,33 @@ This button entity will appear automatically in your Home Assistant instance aft
 ### Diagnostics
 
 1. **Subscription**
-   - _Premium_: The premium subscription is obtained with a yearly fee and grants access to all recipes
-   - _Trial_: The same as the premium but limited in time and usually only available when creating the account or linking a new Vorwerk purchase
-   - _Free_: The free access still gives full access to the shopping list features but limits the access to most recipes
+   - State: `premium`, `trial`, or `free`
+   - Description: Indicates the current subscription type
+     - `premium`: Yearly subscription with full recipe access
+     - `trial`: Time-limited premium access (available during account creation or new device linking)
+     - `free`: Limited recipe access with full shopping list features
 
 2. **Subscription expiration date**
-   - _Timestamp_:  For premium and trial subscription, the expiration date is available as timestamp
-   - _Unknown_: For the free subscription it is not applicable
+   - State: ISO 8601 timestamp or `unknown`
+   - Description: Shows when the current subscription expires
+     - For `premium` and `trial` subscriptions: Timestamp of expiration date
+     - For `free` subscriptions: Returns `unknown` state
 
 These sensor entities will appear automatically in your Home Assistant instance after adding the integration.
+
+{% details "Example state attributes" %}
+
+```yaml
+subscription:
+  state: premium
+  icon: mdi:account-star
+
+subscription_expiration_date:
+  state: "2025-01-15T23:59:59+00:00"
+  icon: mdi:clock-reactivate
+```
+
+{% enddetails %}
 
 ## Known Limitations
 
