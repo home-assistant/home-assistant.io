@@ -109,9 +109,9 @@ text_type:
   type: string
   default: "text"
 tts_timeout:
-   description: "Time in seconds to wait for the TTS response generation. The default timeout of 10 seconds is sufficient for most text (up to 600-800 characters). For longer text, increase this value to allow more time for audio file generation. Configurable through the UI."
+   description: "Time in seconds to wait for the TTS response generation. The default timeout of 10 seconds is sufficient for most text (up to 600-800 characters). For longer text, increase this value to allow more time for audio file generation."
    required: false
-   type: integer
+   type: int
    default: 10
    selector:
      number:
