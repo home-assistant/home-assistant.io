@@ -207,7 +207,7 @@ If you previously set up events, then your Device Access Project may have alread
 
 5. You now have a *Topic Name* needed by the Device Access Console and Home Assistant. The full *Topic Name* that contains your Cloud Project ID and the *Topic ID* such as `projects/<cloud console id>/topics/home-assistant-nest`.
 
-6. Next you need to give the Device Access Console permission to public to your Topic. From the Pub/Sub Topic page click **Add Principal**.
+6. Next, you need to give the Device Access Console permission to publish to your Topic. From the Pub/Sub Topic page click **Add Principal**.
 
   ![Screenshot of OAuth confirmation](/images/integrations/nest/cloud_pubsub_add_principal.png)
 
@@ -275,8 +275,7 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
 10.  If you instead see the error message *No eligible Pub/Sub topics found, please ensure Device Access Console has a Pub/Sub topic.* then follow the steps in the previous section to enable events and create a Pub/Sub topic in another browser tab. Once you have created and configured the topic, you may press on this screen *Submit* to refresh the list of topics and continue.
 
-11. Home Assistant uses a *Subscription* to subscribe to device events published on the topic. You can select the subscription you created in the Device Access Console or the integration will automatically create one for you if don't have one already.
-
+11. Home Assistant uses a *Subscription* to subscribe to device events published on the topic. You can select the subscription you created in the Device Access Console or the integration will automatically create one for you if you don't have one already.
      ![Screenshot of OAuth confirmation](/images/integrations/nest/config_flow_subscription.png)
 
 
