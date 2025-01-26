@@ -279,7 +279,7 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
      ![Screenshot of OAuth confirmation](/images/integrations/nest/config_flow_subscription.png)
 
 
-9.  If all went well, you are ready to go!
+12.  If all went well, you are ready to go!
 
     ![Screenshot of success](/images/integrations/nest/finished.png)
 
