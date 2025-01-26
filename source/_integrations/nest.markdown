@@ -529,56 +529,6 @@ This feature is enabled by the following permissions:
 
 {% endnote %}
 
-## Deprecated App Auth Credentials
-
-To improve security and reduce phishing risk Google has [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) a previous authentication method used by Home Assistant. **This requires action by you to resolve** if you previously configured *Nest* using *App Auth*.
-
-{% details "Reconfigure the integration" %}
-
-1. Make sure to upgrade to the latest version of Home Assistant.
-2. Go to **{% my integrations title="Settings > Devices & services" %}**.
-3. The **Nest** integration should appear with alert.
-
-    ![Screenshot of success](/images/integrations/nest/attention.png)
-
-4. Click **Reconfigure**.
-
-    ![Screenshot of success](/images/integrations/nest/deprecation.png)
-
-
-If the *Nest* integration does not have an Alert then you probably used *Web Auth* and have nothing to do.
-
-{% enddetails %}
-
-{% details "Create new Web Auth Application Credentials" %}
-
-1. In the Home Assistant flow confirm your *Google Cloud Project ID* and proceed to the next step.
-2. You will be prompted to enter new *Application Credentials*.
-3. In another tab visit the [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
-4. On the *Credentials* page click **Create Credential**.
-5. From the drop-down list select **OAuth client ID**.
-6. Enter **Web Application** for the Application type.
-7.  Pick a new name for your credential.
-8.  Add **Authorized redirect URIs** end enter `https://my.home-assistant.io/redirect/oauth`
-9.  Click *Create* to create the credential.
-10. You now have *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.
-11. Back in Home Assistant, you should now be prompted to create [Application Credentials](/integrations/application_credentials) where you will enter the *Client ID* and *Client Secret*.
-
-{% enddetails %}
-
-{% details "Update Device Access Project" %}
-
-1.  Visit the [Device Access Console](https://console.nest.google.com/device-access/)
-2.  Select the *Device Access Project* used by *Home Assistant*
-3.  You need to then delete the old *OAuth Client ID* by clicking the Trash icon to unlink your Nest project from the deprecated Auth method.
-4.  Click the overflow menu `...` then *Add Client ID*
-5.  Enter the new *OAuth Client ID* for *Web App Auth* credentials
-6.  Back in Home Assistant confirm your *Device Access Project ID*
-
-{% enddetails %}
-
-Once you have completed the above steps, you can continue through the flow to re-authorize *Home Assistant* to restore access to your Nest Devices.
-
 ## Troubleshooting
 
 - *No access to partner information* "Information could not be retrieved" error message during the setup wizard means that the Google Account used is not able to access the Home. Please ensure that you have successfully migrated your Nest Account to a Google Account using the Google Nest App. Additionally, if your home has multiple members, please note that the individual who initially set up the home must complete the migration of their Nest Account to a Google Account before you can establish a connection with Home Assistant.
