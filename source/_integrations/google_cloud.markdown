@@ -108,6 +108,11 @@ text_type:
   required: false
   type: string
   default: "text"
+tts_timeout:
+  description: "Time in seconds to wait for the TTS response generation. Increasing this value will allow to generate longer audio files from Google Cloud TTS"
+  required: false
+  type: int
+  default: 10
 {% endconfiguration %}
 
 ### Action speak
