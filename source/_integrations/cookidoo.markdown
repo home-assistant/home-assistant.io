@@ -63,6 +63,21 @@ The _clear shopping list_ button entity allows you to clear both the shopping li
 
 This button entity will appear automatically in your Home Assistant instance after adding the integration. You can use it in automations or add it to your dashboard using the Button card.
 
+## Sensor entities
+
+### Diagnostics
+
+1. **Subscription**
+   - _Premium_: The premium subscription is obtained with a yearly fee and grants access to all recipes
+   - _Trial_: The same as the premium but limited in time and usually only available when creating the account or linking a new Vorwerk purchase
+   - _Free_: The free access still gives full access to the shopping list features but limits the access to most recipes
+
+2. **Subscription expiration date**
+   - _Timestamp_:  For premium and trial subscription, the expiration date is available as timestamp
+   - _Unknown_: For the free subscription it is not applicable
+
+These sensor entities will appear automatically in your Home Assistant instance after adding the integration.
+
 ## Known Limitations
 
 {% important %}
