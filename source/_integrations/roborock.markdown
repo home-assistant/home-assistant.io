@@ -95,6 +95,8 @@ Total cleaning time - The lifetime cleaning duration of your vacuum.
 
 Total cleaning area - The lifetime cleaning area of your vacuum.
 
+Total cleaning count - The lifetime cleaning count of your vacuum.
+
 Vacuum error - The current error with your vacuum, if there is one.
 
 ### Time
