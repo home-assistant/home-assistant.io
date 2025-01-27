@@ -44,6 +44,8 @@ ha hardware audio
 
 ### Usage examples
 
+#### Update core
+
 To update Home Assistant to a specific version, use the command:
 
 ```bash
@@ -51,6 +53,32 @@ ha core update --version x.y.z
 ```
 
 Replace x.y.z with the desired version like `--version {{current_version}}`
+
+#### Create an Access Point
+
+To create a WiFi access point, run these commands (adjust as appropriate):
+
+```bash
+interface=wlan0
+ipv4address='10.42.0.1/24'
+band='bg' # for 2.4GHz, 'a' for 5GHz, more later with 802.11ax and 802.11be
+channel=5 # typically 1-14 for 'bg', 32-177 for 'a'
+ssid='ha-example'
+password='YourSecurePassphrase123!' # Must be 8-63 characters, use a strong password
+
+ha network update "$interface" --disabled=false \
+--ipv4-method shared --ipv4-address "$ipv4address" \
+--wifi-mode ap --wifi-ssid "$ssid" --wifi-band "$band" --wifi-channel "$channel" \
+--wifi-auth wpa-psk --wifi-psk "$password"
+```
+
+**Security Note:** Creating an access point exposes your Home Assistant instance to wireless clients. Ensure you:
+
+- Use a strong password (minimum 12 characters, mix of letters, numbers, and symbols)
+- Consider changing the default IP range if it conflicts with your network
+- Regularly update your system to patch security vulnerabilities
+
+#### Help
 
 You can get a better description of the CLI capabilities by typing `ha help`:
 
@@ -62,26 +90,32 @@ Usage:
   ha [command]
 
 Available Commands:
-  addons         Install, update, remove and configure Home Assistant add-ons
-  audio          Audio device handling.
-  authentication Authentication for Home Assistant users.
-  backups        Create, restore and remove backups
-  banner         Prints the CLI Home Assistant banner along with some useful information
-  cli            Get information, update or configure the Home Assistant cli backend
-  core           Provides control of the Home Assistant Core
-  dns            Get information, update or configure the Home Assistant DNS server
-  docker         Docker backend specific for info and OCI configuration
-  hardware       Provides hardware information about your system
-  help           Help about any command
-  host           Control the host/system that Home Assistant is running on
-  info           Provides a general Home Assistant information overview
-  jobs           Get information and manage running jobs
-  multicast      Get information, update or configure the Home Assistant Multicast
-  network        Network specific for updating, info and configuration imports
-  observer       Get information, update or configure the Home Assistant observer
-  os             Operating System specific for updating, info and configuration imports
-  resolution     Resolution center of Supervisor, show issues and suggest solutions
-  supervisor     Monitor, control and configure the Home Assistant Supervisor
+  addons            Install, update, remove and configure Home Assistant add-ons
+  audio             Audio device handling.
+  authentication    Authentication for Home Assistant users.
+  available-updates Provides information about current pending updates
+  backups           Create, restore and remove backups
+  banner            Prints the CLI Home Assistant banner along with some useful information
+  cli               Get information, update or configure the Home Assistant cli backend
+  completion        Generate the autocompletion script for the specified shell
+  core              Provides control of the Home Assistant Core
+  dns               Get information, update or configure the Home Assistant DNS server
+  docker            Docker backend specific for info and OCI configuration
+  hardware          Provides hardware information about your system
+  help              Help about any command
+  host              Control the host/system that Home Assistant is running on
+  info              Provides a general Home Assistant information overview
+  jobs              Get information and manage running jobs
+  mounts            Get information, update or configure mounts in Supervisor
+  multicast         Get information, update or configure the Home Assistant Multicast
+  network           Network specific for updating, info and configuration imports
+  observer          Get information, update or configure the Home Assistant observer
+  os                Operating System specific for updating, info and configuration imports
+  refresh-updates   Reload stores and version information
+  resolution        Resolution center of Supervisor, show issues and suggest solutions
+  security          Get information and manage security functionality
+  store             Install and update Home Assistant add-ons and manage stores
+  supervisor        Monitor, control and configure the Home Assistant Supervisor
 
 Flags:
       --api-token string   Home Assistant Supervisor API token
