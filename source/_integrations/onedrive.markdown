@@ -34,8 +34,6 @@ Client secret:
 
 {% endconfiguration_basic %}
 
-{% include integrations/option_flow.md %}
-
 ## Requested permissions by the integration
 
 The integration will request the following permissions on your OneDrive for the integration to work:
