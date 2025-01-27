@@ -251,7 +251,7 @@ Depending on the supported features of the camera, switch entities are added for
 - PIR reduce false alarm*
 - Chime LED
 
-When the **Privacy mode** is ON, allmost all other entities will be unavailable because the camera shuts down the API and camera streams. When turning OFF the **Privacy mode**, all entities will become available again. Take this into consideration when making automations; ensure the **Privacy mode** is OFF before changing camera settings using other entities.
+When the **Privacy mode** is ON, almost all other entities will be unavailable because the camera shuts down the API and camera streams. When turning OFF the **Privacy mode**, all entities will become available again. Take this into consideration when making automations; ensure the **Privacy mode** is OFF before changing camera settings using other entities.
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
 
