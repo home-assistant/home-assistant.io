@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: homee
 ha_platforms:
   - cover
+  - sensor
 ha_integration_type: hub
 ---
 
