@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: heos
 ha_ssdp: true
 ha_platforms:
+  - diagnostics
   - media_player
 ha_integration_type: integration
 ---
@@ -222,6 +223,10 @@ HEOS pushes data to Home Assistant via the local network when data and entity st
 - AVR receiver features, such as zone selection/control and power on/off, cannot be controlled through this integration. Use the [Universal Media Player](/integrations/universal/#denon-avr--heos) to combine AVR receiver functionality with this integration.
 - {% term TTS %} is not supported.
 - The maximum length of a URL that can be used in the `play_media` action is 255 characters due to a limitation in the HEOS firmware.
+
+## Diagnostics and logging
+
+The HEOS integration supports [Home Assistant debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). Diagnostics are available at both the integration entry and device level.
 
 ## Troubleshooting
 
