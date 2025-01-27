@@ -179,7 +179,7 @@ Available actions to all climate gateways: `climate.set_temperature`, `climate.s
 Additional actions available for Adam: `climate.turn_on`, `climate.turn_off`, and `climate.toggle`.
 
 {% note %}
-The additional actions will change Adam's **regulation mode** (i.e., the HVAC system mode) to either on or off, affecting the operation of **all** connected thermostats. Turning on activates the previously selected heating or cooling mode.
+The additional actions will change Adam's **regulation mode** (the HVAC system mode) to either on or off, affecting the operation of **all** connected thermostats. Turning on activates the previously selected heating or cooling mode.
 {% endnote %}
 
 ### Schedule select action
@@ -277,7 +277,7 @@ automation:
 
 #### Calendar-based Vacation Mode
 
-The example automations below will change the gateway mode of your Adam to Vacation mode (and back) assuming you have a [calendar](/integrations/calendar) integration with a specific calendar set-up for events when nobody is at home.
+The example automations below will change the gateway mode of your Adam to Vacation mode (and back) assuming you have a [calendar](/integrations/calendar) integration with a specific calendar set up for events when nobody is at home.
 
 ```yaml
 automation:
