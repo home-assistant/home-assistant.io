@@ -199,7 +199,7 @@ Allows to group media players together for synchronous playback. Only works on s
 
 #### Action `media_player.browse_media`
 
-Provides access to browsing the media tree provided by the integration. Similar in functionality to browsing media through the media player UI.
+Provides access to browsing the media tree provided by the integration. Similar in functionality to browsing media through the media player UI. Common use cases include automations that need to navigate media libraries and find media by specific categories.
 
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
@@ -208,12 +208,14 @@ Provides access to browsing the media tree provided by the integration. Similar 
 
 The action returns a media tree object that can be stored in a response variable for use in subsequent automation steps. The response includes:
 
-- `title`: Display name of the current level
-- `media_class`: Type of the current item (e.g., directory, music, video)
-- `media_content_type`: Content type identifier
-- `media_content_id`: Integration specific content ID
-- `children_media_class`: Types of items in the children array
-- `children`: Array of child items with similar properties
+| Field | Description |
+|-------|-------------|
+| `title` | Display name of the current level |
+| `media_class` | Type of the current item (e.g., directory, music, video) |
+| `media_content_type` | Content type identifier |
+| `media_content_id` | Integration specific content ID |
+| `children_media_class` | Types of items in the children array |
+| `children` | Array of child items with similar properties |
 
 Browse the root of the tree.
 
@@ -234,6 +236,7 @@ media_player.living_room:
   media_class: directory
   media_content_type: root
   media_content_id: ""
+  # children_media_class indicates that all items in the children array are directories  
   children_media_class: directory
   children:
     - title: Favorites
