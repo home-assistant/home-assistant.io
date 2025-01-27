@@ -163,21 +163,21 @@ Now that you have authentication configured, you will create a Nest Device Acces
 Read the warnings on the page before proceeding, including Google Account type limitations.
 {% endnote %}
 
-2. Click on the button **[Go to the Device Access Console](https://console.nest.google.com/device-access/)**.
+2. Select the button **[Go to the Device Access Console](https://console.nest.google.com/device-access/)**.
     ![Screenshot of Device Access Registration](/images/integrations/nest/device_access.png)
 
-3. Check the box to "Accept the Terms of Service" and click **Continue to Payment** where you need to pay a fee (currently US$5).
+3. Check the box to "Accept the Terms of Service" and select **Continue to Payment** where you need to pay a fee (currently US$5).
     ![Screenshot of accepting terms](/images/integrations/nest/accept_terms.png)
 
-4. Now the [Device Access Console](https://console.nest.google.com/device-access/project-list) should be visible. Click on **Create project**.
+4. Now the [Device Access Console](https://console.nest.google.com/device-access/project-list) should be visible. Select  **Create project**.
 
-5. Give your Device Access project a name and click **Next**.
+5. Give your Device Access project a name and select **Next**.
     ![Screenshot of naming a project](/images/integrations/nest/project_name.png)
 
-6. Next you will be asked for an *OAuth client ID*  which you created in the previous step and click **Next**.
+6. Next you will be asked for an **OAuth client ID**  which you created in the previous step and select **Next**.
     ![Screenshot of Device Access Console OAuth client ID](/images/integrations/nest/device_access_oauth_client_id.png)
 
-7. Leave *Enable Events* unchecked for now and **Create project**. You need a Pub/Sub topic
+7. Leave **Enable Events** unchecked for now and **Create project**. You need a Pub/Sub topic
   (created in the next section) to enable events. This requires additional setup in the
   Google Cloud Pub/Sub console so we will skip that step for now then come back to it in
   the next section.
@@ -197,37 +197,37 @@ If you previously set up events, then your Device Access Project may have alread
 
 1. Go to the [Pub/Sub Google Cloud Console](https://console.cloud.google.com/cloudpubsub/topic/list).
 
-2. Click **Create Topic**.
+2. Select **Create Topic**.
 
-3. Enter a *Topic ID* such as `home-assistant-nest`. You may leave the default settings.
+3. Enter a **Topic ID** such as `home-assistant-nest`. You may leave the default settings.
 
   ![Screenshot of OAuth confirmation](/images/integrations/nest/cloud_pubsub_create_topic.png)
 
-4. Click **Create** to create the topic.
+4. Select **Create** to create the topic.
 
-5. You now have a *Topic Name* needed by the Device Access Console and Home Assistant. The full *Topic Name* that contains your Cloud Project ID and the *Topic ID* such as `projects/<cloud console id>/topics/home-assistant-nest`.
+5. You now have a **Topic Name** needed by the Device Access Console and Home Assistant. The full **Topic Name** that contains your Cloud Project ID and the **Topic ID** such as `projects/<cloud console id>/topics/home-assistant-nest`.
 
-6. Next, you need to give the Device Access Console permission to publish to your Topic. From the Pub/Sub Topic page click **Add Principal**.
+6. Next, you need to give the Device Access Console permission to publish to your Topic. From the Pub/Sub Topic page select **Add Principal**.
 
   ![Screenshot of OAuth confirmation](/images/integrations/nest/cloud_pubsub_add_principal.png)
 
-7. In *New Principals* enter `sdm-publisher@googlegroups.com`
+7. In **New Principals** enter `sdm-publisher@googlegroups.com`
 
-8. In *Select a Role* under *Pub/Sub* select *Pub/Sub Publisher* and click *Create*.
+8. In **Select a Role** under **Pub/Sub** select **Pub/Sub Publisher** and **Create**.
 
   ![Screenshot of OAuth confirmation](/images/integrations/nest/cloud_pubsub_add_principal_role.png)
 
 9. Next you can configure the Device Access Console to use this topic. Visit the [Device Access Console](https://console.nest.google.com/device-access/).
 
-10. Click the Device Access Project you previously created. It should show the Pub/Sub topic
+10. Select the Device Access Project you previously created. It should show the Pub/Sub topic
    as disabled. If there is an existing topic shown, then you may delete it and use
    the one you just created to avoid getting them mixed up.
 
   ![Screenshot of OAuth confirmation](/images/integrations/nest/device_access_topic_disabled.png)
 
-11. Click *...* next to *Pub/Sub topic* then *Enable events with PubSub topic*.
+11. select *...* next to **Pub/Sub topic**, then **Enable events with PubSub topic**.
 
-12. Enter the full Pub/Sub *Topic Name* and click **Add & Validate**. If you see an error, then
+12. Enter the full Pub/Sub **Topic Name** and select **Add & Validate**. If you see an error, then
    review the previous steps again and configure the topic and permissions.
 
   ![Screenshot of OAuth confirmation](/images/integrations/nest/device_access_validate_pubsub.png)
@@ -273,7 +273,7 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
      ![Screenshot of OAuth confirmation](/images/integrations/nest/config_flow_with_topic.png)
 
-10.  If you instead see the error message *No eligible Pub/Sub topics found, please ensure Device Access Console has a Pub/Sub topic.* then follow the steps in the previous section to enable events and create a Pub/Sub topic in another browser tab. Once you have created and configured the topic, you may press on this screen *Submit* to refresh the list of topics and continue.
+10.  If you instead see the error message *No eligible Pub/Sub topics found, please ensure Device Access Console has a Pub/Sub topic.* then follow the steps in the previous section to enable events and create a Pub/Sub topic in another browser tab. Once you have created and configured the topic, you may press on this screen **Submit** to refresh the list of topics and continue.
 
 11. Home Assistant uses a *Subscription* to subscribe to device events published on the topic. You can select the subscription you created in the Device Access Console or the integration will automatically create one for you if you don't have one already.
      ![Screenshot of OAuth confirmation](/images/integrations/nest/config_flow_subscription.png)
