@@ -22,7 +22,6 @@ There is currently support for the following device types in Home Assistant:
 - cover
 - sensor
 
-More {% term platforms %} will be added soon.
 
 ## Prerequisites
 
