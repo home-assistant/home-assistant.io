@@ -224,7 +224,7 @@ HEOS pushes data to Home Assistant via the local network when data and entity st
 - {% term TTS %} is not supported.
 - The maximum length of a URL that can be used in the `play_media` action is 255 characters due to a limitation in the HEOS firmware.
 
-## Diagnostics and logging
+## Logging and diagnostics
 
 The HEOS integration supports [Home Assistant debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). Diagnostics are available at both the integration entry and device level.
 
