@@ -80,7 +80,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
 |Button|Flash lights|Yes|
-|Button|Homelink|Yes|
+|Button|HomeLink|Yes|
 |Button|Honk horn|Yes|
 |Button|Keyless driving|Yes|
 |Button|Play fart|Yes|
