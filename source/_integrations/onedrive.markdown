@@ -15,7 +15,7 @@ related:
     title: Backups
 ---
 
-This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for use with [Home Assistant Backups](/common-tasks/general/#backups).
+This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
 
 Backups will be created in a folder called `home-assistant.io\backups_<id>` in the `App Folder` of your OneDrive.
 `id` is part of your Home Assistant instance's unique id to allow backups from multiple instances to the same OneDrive.
