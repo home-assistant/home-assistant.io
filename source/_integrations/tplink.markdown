@@ -191,10 +191,24 @@ If required, you can manually trigger an update via **Developer tools** > **Acti
 ### Device connections
 
 - Take note of the known limitation for subnets above.
-- Try switching the device off for 5 seconds before switching back on again.
+- Ensure that your username is your TP-Link cloud username, which is your *case-sensitive* email address.
+- Ensure you have enabled **Tapo Lab** > **Third-Party Compatibility** in the Tapo app. You may need to factory reset and re-add to the Tapo app after this step.
+- Disable or remove any custom integrations that interact with TPLink devices supported by this integration.
+- Ensure stable network connectivity between Home Assistant and the device.
+- Check the [reported connection solutions](#reported-connection-solutions) section below.
 - Check the [supported device list](#supported-devices) to see if the device is tested to work with the integration. 
 - Try running the [kasa tool](https://github.com/python-kasa/python-kasa) to connect to the device. An easy way to do this is to [install uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx --from python-kasa kasa --username <tplink cloud username> --password <tplink cloud password>`
-- Raise a support issue
+- Raise a support issue.  See the [section below](#raising-support-issues) for guidelines.
+
+#### Reported connection solutions
+
+These are some of the solutions that Home Assistant users have reported as solving their device connection issues:
+
+- Make the first letter of your TP-Link cloud username email upper-case. This could be because it was automatically capitalized when first entered into the Tapo app.
+- Remove the device from the Tapo app and re-add by searching for the correct model (i.e. do not use auto-discovery)
+- Log out of the Tapo and Kasa apps, factory reset the device, log back in to the Tapo app, then re-add the device to the Tapo app.
+- Specifically for cameras, disable and re-enable the **Settings** > **Advanced Settings** > **Camera account** options in the Tapo app.
+- Specifically for cameras, reset the **Settings** > **Advanced Settings** > **Camera account** credentials in the Tapo app.
 
 ### Unavailable entities
 
@@ -209,6 +223,32 @@ Currently, Tapo devices and newer Kasa devices do not report total consumption, 
 
 This entity has been removed from the integration due to stability issues, calling the TPLink cloud API to check for updates. It will be replaced in a future release with a new Update entity, but if you have an Unavailable entity ID starting with `binary_sensor.` and ending with `update`, you can safely delete it.
 
+### Raising support issues
+
+For the maintainers of the TP-Link integration to be able to properly assist with a support issue, please follow these guidelines:
+
+- Raise an issue with [Home Assistant Core](https://github.com/home-assistant/core/issues).
+- Fill in as many of the fields in the issue template as you can.
+- If applicable, list all steps taken from the [Troubleshooting device connections](#device-connections) section above.
+- Upload [debug logs](#enable-debug-logging) that run from Home Assistant first starting up, until the error is encountered.
+
+### Enable debug logging
+
+To capture debug logs from Home Assistant first starting up, update [`configuration.yaml`](https://www.home-assistant.io/docs/configuration/) to look like this:
+
+```yaml
+logger:
+  default: warning  # This will already be present. Add the lines below.
+  logs:
+    homeassistant.components.tplink: debug
+    kasa: debug
+```
+
+Then restart Home Assistant, trigger the error, and download the logs from **Settings** > **System** > **Logs** > **Download logs**
+
+{% note %}
+Remember to disable debug logging after troubleshooting to prevent excessive log growth and performance impact.
+{% endnote %}
 
 ## Examples
 
