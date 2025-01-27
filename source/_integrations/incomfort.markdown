@@ -18,6 +18,7 @@ ha_platforms:
   - water_heater
 ha_integration_type: integration
 ha_config_flow: true
+ha_dhcp: true
 ---
 
 The `incomfort` {% term integration %} links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
@@ -37,7 +38,7 @@ Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** dev
 
 {% include integrations/config_flow.md %}
 
-The hub does not have to be in the same network as Home Assistant, but the hub must be reachable via port 80/HTTP. If the gateway is configured via DHCP, Home Assistant might be able to discover it automatically. Once discovered, the host IP address will be updated automatically when the dynamically assigned IP address changes.
+The hub does not have to be in the same network as Home Assistant, but the hub must be reachable via port 80/HTTP.
 
 The above configuration can also be adjusted later via
 {% my integrations title="**Settings** > **Devices & services**" %},

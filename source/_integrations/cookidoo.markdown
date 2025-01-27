@@ -63,6 +63,39 @@ The _clear shopping list_ button entity allows you to clear both the shopping li
 
 This button entity will appear automatically in your Home Assistant instance after adding the integration. You can use it in automations or add it to your dashboard using the Button card.
 
+## Sensor entities
+
+### Diagnostics
+
+1. **Subscription**
+   - State: `premium`, `trial`, or `free`
+   - Description: Indicates the current subscription type
+     - `premium`: Yearly subscription with full recipe access
+     - `trial`: Time-limited premium access (available during account creation or new device linking)
+     - `free`: Limited recipe access with full shopping list features
+
+2. **Subscription expiration date**
+   - State: ISO 8601 timestamp or `unknown`
+   - Description: Shows when the current subscription expires
+     - For `premium` and `trial` subscriptions: Timestamp of expiration date
+     - For `free` subscriptions: Returns `unknown` state
+
+These sensor entities will appear automatically in your Home Assistant instance after adding the integration.
+
+{% details "Example state attributes" %}
+
+```yaml
+subscription:
+  state: premium
+  icon: mdi:account-star
+
+subscription_expiration_date:
+  state: "2025-01-15T23:59:59+00:00"
+  icon: mdi:clock-reactivate
+```
+
+{% enddetails %}
+
 ## Known Limitations
 
 {% important %}
