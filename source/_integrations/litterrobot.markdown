@@ -30,7 +30,6 @@ ha_integration_type: hub
 
 The Litter-Robot integration allows you to control and monitor your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders.
 
-## Prerequisites
 
 ## Prerequisites
 
