@@ -16,7 +16,7 @@ related:
 ---
 
 The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that
-standardizes how applications provide context to LLMs. The **Model Context Protocol** integration
+standardizes how applications provide context to LLMs. The **Model Context Protocol** {% term integration %}
 enables using MCP Servers in Home Assistant for providing additional tools to use with a
 [conversation agent](/integrations/conversation). For example, you can add an MCP server that
 supports memory functionality, or that can search the web using functionality not already
@@ -25,12 +25,12 @@ available in Home Assistant.
 Controlling Home Assistant is done by providing MCP clients access to the Assist API of Home
 Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}.
 
-## Pre-requisites
+## Prerequisites
 
 1. You will need an [MCP server](https://modelcontextprotocol.io/examples).
-1. If your MCP server only supports the stdio protocol, you will also need an additional
+1. If your MCP server only supports the <abbr title="Standard input/output">*stdio*</abbr> protocol, you will also need an additional
    MCP proxy (such as [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)) to expose
-   the server over SSE.
+   the server over <abbr title="Server-sent events">*SSE*</abbr>.
 
 {% include integrations/config_flow.md %}
 
@@ -40,12 +40,12 @@ The integration provides the following configuration options:
 
 {% configuration_basic %}
 SSE Server URL:
-  description: The URL for the SSE endpoint of the MCP server e.g. `http://example/sse`
+  description: The URL for the SSE endpoint of the MCP server. For example, `http://example/sse`.
 {% endconfiguration_basic %}
 
-## Architecture Overview
+## Architecture overview
 
-This integration can provide additional functionality for LLM conversation agents
+This {% term integration %} can provide additional functionality for LLM conversation agents
 (for example [Anthropic](/integrations/anthropic/), [Google Generative AI](/integrations/google_generative_ai_conversation), [Ollama](/integrations/ollama/), [Open AI](/integrations/openai_conversation/)). 
 
 Home Assistant acts as a client to the MCP server you specify. Home Assistant will
@@ -73,7 +73,7 @@ agent to use the tools.
 perform actions through Home Assistant. The tools used by the configured LLM API
 are exposed.
 
-## Known Limitations
+## Known limitations
 
 The Home Assistant Model Context Protocol integration currently only supports a
 subset of MCP features:
