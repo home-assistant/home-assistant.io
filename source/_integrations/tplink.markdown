@@ -126,7 +126,7 @@ Alternatively, you can factory reset and then prevent the device from accessing 
 
 ### Cameras, doorbells and chimes
 
-Only Tapo cameras and doorbells are currently supported.
+Only Tapo cameras, doorbells, and chimes are currently supported.
 In order for live view to work on devices that support it, you will need to enable your camera account in the Tapo App under **Device Settings** > **Advanced Settings** > **Camera Account**.
 If you do not want to do this, keep **Live view** unchecked when adding the device. This can be changed at a later date using the `reconfigure` option on the integration entry.
 
