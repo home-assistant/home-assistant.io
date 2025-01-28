@@ -600,7 +600,7 @@ The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/)
 
 {% note %}
 
-Binary sensors are read-only entities. To write to the KNX bus configure a [KNX Switch entity](#switch) or use the [`knx.send` action](#send).
+Binary sensors are read-only entities. To write to the KNX bus, configure a [KNX Switch entity](#switch) or use the [`knx.send` action](#send).
 
 {% endnote %}
 
@@ -1837,7 +1837,7 @@ The KNX sensor platform allows you to monitor [KNX](https://www.knx.org/) sensor
 
 {% note %}
 
-Sensors are read-only entities. To write to the KNX bus configure a [KNX Number entity](#number) or use the [`knx.send` action](#send).
+Sensors are read-only entities. To write to the KNX bus, configure a [KNX Number entity](#number) or use the [`knx.send` action](#send).
 
 {% endnote %}
 
