@@ -164,7 +164,7 @@ automation:
 ```
 
 {% important %}
-The icon has to be a local file accessible by Home Assistant, not a web URL and does not need to be accessible by the TV, the integration send the icon to the TV encoded inside the notification message.
+The icon has to be a local file accessible by Home Assistant, not a web URL. The icon does not need to be accessible by the TV. The integration sends the icon to the TV encoded inside the notification message.
 {% endimportant %}
 
 ## Data updates
