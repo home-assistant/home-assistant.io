@@ -773,7 +773,7 @@ climates:
         of the HVAC. If no such register is defined, it defaults to Auto.
         When the HVAC mode is set to Off, the value defined by `hvac_off_value` is written to
         the register, otherwise the value defined by `hvac_on_value` is written.
-        **Cannot be used with `hvac_onoff_register`.**"
+        **Cannot be used with `hvac_onoff_coil`.**"
       required: false
       type: integer
     hvac_on_value:
