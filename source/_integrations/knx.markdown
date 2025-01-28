@@ -1058,11 +1058,6 @@ fan_zero_mode:
   required: false
   type: string
   default: "off"
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 swing_address:
   description: KNX address for turning the (vertical) swing on/off. *DPT 1*
   required: false
@@ -1079,6 +1074,11 @@ swing_horizontal_state_address:
   description: KNX address for gathering the current state (on/off) of the horizontal swing. *DPT 1*
   required: false
   type: [string, list]
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Cover
