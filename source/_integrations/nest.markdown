@@ -40,13 +40,9 @@ You are in control of the information and capabilities exposed to Home Assistant
 
 # Prerequisites
 
-{% caution %}
-The Nest Device Access Console Pub/Sub setup process has changed as of January 23rd 2025. **Please make sure you are using the latest version of Home Assistant.**
-{% endcaution %}
+- The Nest Device Access Console Pub/Sub setup process has changed as of January 23rd 2025. **Please make sure you are using the latest version of Home Assistant.**
 
-{% caution %}
-The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
-{% endcaution %}
+- The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
 
 ## Configuration
 
