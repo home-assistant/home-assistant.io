@@ -32,6 +32,8 @@ The Litter-Robot integration allows you to control and monitor your Wi-Fi-enable
 
 ## Prerequisites
 
+## Prerequisites
+
 Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabled Litter-Robot or Feeder-Robot linked to it. You can do this via the Whisker app.
 
 {% include integrations/config_flow.md %}
