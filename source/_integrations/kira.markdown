@@ -12,6 +12,7 @@ ha_platforms:
   - remote
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `kira` integration is the main integration to integrate Keene Electronics IR over IP [Kira](https://k2audio.co.uk/collections/ip-and-internet-control) modules with Home Assistant.

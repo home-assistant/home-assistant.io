@@ -4,6 +4,7 @@ description: Connect and control your Tapo devices using the TP-Link Smart Home 
 ha_category:
   - Binary sensor
   - Button
+  - Camera
   - Climate
   - Fan
   - Hub
@@ -26,6 +27,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - climate
   - diagnostics
   - fan

@@ -14,7 +14,6 @@ ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@PhracturedBlue'
-  - '@tetienne'
   - '@home-assistant/core'
 ha_domain: template
 ha_platforms:
@@ -125,6 +124,8 @@ template:
 ```
 
 {% endraw %}
+
+### Configuration reference
 
 {% configuration %}
 trigger:
@@ -938,7 +939,7 @@ binary_sensor:
     sensors:
       sun_up:
         friendly_name: "Sun is up"
-        value_template: {{ state_attr('sun.sun', 'elevation') > 0 }}
+        value_template: "{{ state_attr('sun.sun', 'elevation') > 0 }}"
 ```
 
 {% endraw %}

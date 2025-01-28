@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `sesame` {% term integration %} allows you to control your [Sesame](https://candyhouse.co/) smart locks made by CANDY HOUSE, Inc.

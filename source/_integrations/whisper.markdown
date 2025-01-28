@@ -14,6 +14,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - conversation
   - number
   - select
   - stt

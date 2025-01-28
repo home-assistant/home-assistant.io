@@ -15,7 +15,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@allenporter'
 ha_domain: nest
-ha_quality_scale: platinum
 ha_dhcp: true
 ha_platforms:
   - camera
@@ -520,7 +519,7 @@ Once you have completed the above steps, you can continue through the flow to re
 
 - *No access to partner information* "Information could not be retrieved" error message during the setup wizard means that the Google Account used is not able to access the Home. Please ensure that you have successfully migrated your Nest Account to a Google Account using the Google Nest App. Additionally, if your home has multiple members, please note that the individual who initially set up the home must complete the migration of their Nest Account to a Google Account before you can establish a connection with Home Assistant.
 
-- You can manage devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Restart Home Assistant to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
+- You can add or remove devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Reload the Nest integration to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
 
 - *Error 400: redirect_uri_mismatch* means that your OAuth Client ID is not configured to match the *My Home Assistant* callback URL. Home Assistant's redirect URL behavior may have changed since you initially set this up!
 
@@ -626,3 +625,9 @@ logger:
 ```
 
 - *Not receiving camera motion and person events*: assuming the integration is correctly configured (for example, the oauth and SDM API are set up correctly, you can see camera streams, and permissions are correctly set in [Partner Connections Manager](https://nestservices.google.com/partnerconnections)): If you are then still not seeing events, it's possible you need to adjust the Google Home App settings. Refer to the [Google Home App Notification Settings](#google-home-app-notification-settings) for details.
+
+- **Configuration error: Failed to create subscriber `subscription/name` was not found** - By default, Google pub/sub subscriptions will be deleted after 31 days of inactivity ([reference](https://cloud.google.com/knowledge/kb/pub-sub-subscriptions-disappeared-without-any-deletion-logs-000004170)). If this happens, then the integration will fail, and you will see the preceding log line in your Home Assistant logs. If that is the case, then:
+
+  1. Go to the [Device Access Console](https://console.nest.google.com/device-access/project-list) and re-enable the Pub/Sub Topic.
+  2. The Nest integration may need to be recreated to pick up the new Pub/Sub topic.
+  3. (Optional) To prevent future expirations, go to your [Google Cloud Console Pub/Sub subscription page](https://console.cloud.google.com/cloudpubsub/subscription/list) and edit the Pub/Sub subscription created by Nest to not expire by default.

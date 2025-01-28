@@ -17,11 +17,12 @@ ha_codeowners:
 ha_config_flow: true
 ha_integration_type: device
 ha_zeroconf: true
+ha_quality_scale: platinum
 ---
 
-The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the StreamMagic app.
+The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the [StreamMagic](https://www.cambridgeaudio.com/usa/en/products/streammagic) app.
 
-The integration automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information and controls (such as play, pause, skip) are supported if the selected source reports it.
+The integration automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information and controls (such as play, pause, skip) are supported if the selected source reports it. The integration allows you to navigate presets, control streaming (Spotify, Tidal, Qobuz), and play radio stations all from your Home Assistant dashboard.
 
 ## Supported devices
 
@@ -46,10 +47,18 @@ use a different protocol and are not currently supported.
 
 {% configuration_basic %}
 Host:
-    description: The IP address of your device can be found by navigating to the device on the [StreamMagic app](https://www.cambridgeaudio.com/usa/en/products/streammagic) and selecting `Settings` → `IP address`.
-    required: true
-    type: string
+  description: The IP address of your device can be found by navigating to the device on the [StreamMagic app](https://www.cambridgeaudio.com/usa/en/products/streammagic) and selecting `Settings` → `IP address`.
 {% endconfiguration_basic %}
+
+## Data updates
+
+Cambridge Audio devices push data directly to Home Assistant, enabling immediate updates for device state changes, media information, and playback status.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Available configuration entities
 
@@ -96,6 +105,12 @@ data:
   media_content_type: "internet_radio"
   media_content_id: "https://example.com/internet-radio/station_abcd.mp3"
 ```
+
+## Browsing media
+
+The Cambridge Audio integration allows you to browse saved presets from your dashboard. 
+All stored presets will be categorized into playlists, artists, and tracks.
+
 ## Troubleshooting
 
 ### The buttons to skip, shuffle, and repeat the track are missing

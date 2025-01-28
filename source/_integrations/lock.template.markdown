@@ -74,13 +74,17 @@ lock:
     required: false
     type: template
     default: None
- lock:
+  lock:
     description: Defines an action to run when the lock is locked.
     required: true
     type: action
   unlock:
     description: Defines an action to run when the lock is unlocked.
     required: true
+    type: action
+  open:
+    description: Defines an action to run when the lock is opened.
+    required: false
     type: action
   optimistic:
     description: Flag that defines if lock works in optimistic mode.

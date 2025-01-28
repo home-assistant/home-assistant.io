@@ -44,12 +44,25 @@ ha_platforms:
   - valve
   - water_heater
 ha_integration_type: integration
-ha_quality_scale: platinum
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
 
 {% include integrations/config_flow.md %}
+
+### Removing the MQTT integration
+
+The MQTT integration and its entities can be removed by following these steps:
+
+1. Navigate to **Settings** > **Devices & Services**
+2. Find the MQTT integration and click on it
+3. Click the delete button to remove the MQTT config entry
+
+Note: This action does not remove the [MQTT broker](#setting-up-a-broker) or its data. If you want to completely remove MQTT:
+
+1. Check your `configuration.yaml` and other YAML files for MQTT-related configurations and remove them
+2. Review your automations and scripts for any MQTT dependencies
+3. Consider backing up your configuration before making these changes
 
 <a name="configuration-via-mqtt-discovery"></a>
 {% details "Configuration of MQTT components via MQTT discovery" %}
@@ -120,7 +133,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
 The easiest option is to install the official Mosquitto Broker add-on. You can choose to set up and configure this add-on automatically when you set up the MQTT integration. Home Assistant will automatically generate and assign a safe username and password, and no further attention is required. This also works if you have already set up this add-on yourself in advance.
-You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/create-link/?redirect=supervisor_addon&addon=core_mosquitto).
+You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto).
 
 {% important %}
 When MQTT is set up with the official Mosquitto MQTT broker add-on, the broker's credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the add-on user options, like the additional logins. After re-installing the add-on, the MQTT integration will automatically update the new password for the re-installed broker. It will then reconnect automatically.
@@ -942,7 +955,7 @@ support_url:
 
 {% enddetails %}
 
-### Discovery messages en availability
+### Discovery messages and availability
 
 When MQTT discovery is set up, and a device or service sends a discovery message,
 an MQTT entity, tag, or device automation will be set up directly after receiving the message.
@@ -1307,6 +1320,7 @@ The following software has built-in support for MQTT discovery:
 - [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
 - [ble2mqtt](https://github.com/devbis/ble2mqtt)
+- [diematic_server](https://github.com/IgnacioHR/diematic_server)
 - [digitalstrom-mqtt](https://github.com/gaetancollaud/digitalstrom-mqtt)
 - [ebusd](https://github.com/john30/ebusd)
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
@@ -1318,6 +1332,7 @@ The following software has built-in support for MQTT discovery:
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
 - [MyElectricalData](https://github.com/MyElectricalData/myelectricaldata_import#english)
+- [MqDockerUp](https://github.com/MichelFR/MqDockerUp)
 - [Nuki Hub](https://github.com/technyon/nuki_hub)
 - [Nuki Smart Lock 3.0 Pro](https://support.nuki.io/hc/articles/12947926779409-MQTT-support), [more info](https://developer.nuki.io/t/mqtt-api-specification-v1-3/17626)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
@@ -1335,6 +1350,12 @@ The following software has built-in support for MQTT discovery:
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
 - [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
+
+The following software also supports consuming MQTT discovery information that is intended for Home Assistant.
+Compatibility and features will vary, and not all devices may work.
+
+- [Domoticz](https://wiki.domoticz.com/MQTT#Add_hardware_.22MQTT_Auto_Discovery_Client_Gateway.22)
+- [openHAB](https://www.openhab.org/addons/bindings/mqtt.homeassistant/)
 
 ## Manual configured MQTT items
 

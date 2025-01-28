@@ -15,7 +15,6 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - sensor
-ha_quality_scale: platinum
 ha_integration_type: hub
 ---
 

@@ -27,7 +27,6 @@ ha_integration_type: device
 ha_config_flow: true
 ha_ssdp: true
 ha_dhcp: true
-ha_quality_scale: platinum
 ---
 
 [LaMetric TIME](https://lametric.com/) is a smart clock that can be used to access applications, listen to web radio and display notifications.
@@ -94,7 +93,7 @@ message:
   required: true
   type: string
 icon:
-  description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
+  description: "The ID of an icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
   required: false
   type: string
 cycles:
@@ -133,7 +132,7 @@ following, additional, optional parameters:
 
 {% configuration "notification" %}
 icon:
-  description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
+  description: "The ID of an icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
   required: false
   type: string
 cycles:

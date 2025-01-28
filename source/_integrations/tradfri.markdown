@@ -23,7 +23,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The IKEA TRÅDFRI integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it. Home Assistant will automatically discover the gateway's presence on your local network if `discovery:` is present in your {% term "`configuration.yaml`" %} file.
+The IKEA TRÅDFRI integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it.
 
 {% include integrations/config_flow.md %}
 

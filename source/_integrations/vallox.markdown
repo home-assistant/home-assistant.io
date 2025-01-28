@@ -99,4 +99,4 @@ Set the profile, and optionally a duration for the profile to be active.
 | Data attribute | Optional | Description                                                                                                                                                                           |
 |----------------|---------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `profile`      |       no | Profile to set, one of `home`, `away`, `boost`, `fireplace`, or `extra`.                                                                                                              |
-| `duration`     |      yes | Duration to activate the profile for; in minutes. `Integer` between 1 and 65535. Only applies to  `boost`, `fireplace` or `extra` profiles. 65535 sets the profile without a timeout. | 
+| `duration`     |      yes | Duration to activate the profile for; in minutes. `Integer` between 1 and 65535. Only applies to  `boost`, `fireplace` or `extra` profiles. 65535 sets the profile without a timeout. |

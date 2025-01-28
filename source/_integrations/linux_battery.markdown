@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `linux_battery` sensor {% term integration %} is using the information stored in `/sys/class/power_supply/` on your local Linux system to display details about the current state of your battery.

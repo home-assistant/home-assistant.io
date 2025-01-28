@@ -43,16 +43,10 @@ This integration allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-
 URL:
   description: The IP address with the port of the Z-Way server. The IP address can be prefixed with wss:// if HTTPS should be used instead of HTTP (when using find.z-wave.me remote access service or public IP with SSL).
-  required: true
-  type: string
 API Token:
   description: Z-Way API access token of the Z-Way server. To get the token go to the Z-Way user interface Smart Home UI > Menu > Settings > Users > Administrator > API token.
-  required: true
-  type: string
-
 {% endconfiguration_basic %}
 
 When connecting via find.z-wave.me remote access service you need to use a token with a global scope (log-in to Z-Way via [find.z-wave.me](https://find.z-wave.me) for this).
