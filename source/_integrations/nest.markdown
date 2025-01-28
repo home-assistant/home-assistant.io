@@ -38,6 +38,8 @@ Cameras and doorbells use [Automation and device triggers](#automation-and-devic
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
+# Prerequisites
+
 {% caution %}
 The Nest Device Access Console Pub/Sub setup process has changed as of January 23rd 2025. **Please make sure you are using the latest version of Home Assistant.**
 {% endcaution %}
@@ -45,8 +47,6 @@ The Nest Device Access Console Pub/Sub setup process has changed as of January 2
 {% caution %}
 The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
 {% endcaution %}
-
-<lite-youtube videoid="RwZmQ7QfhsM" videotitle="Finally! A WORKING NEST Integration with Home Assistant using Oauth!" posterquality="maxresdefault"></lite-youtube>
 
 ## Configuration
 
@@ -225,7 +225,7 @@ If you previously set up events, then your Device Access Project may have alread
 
   ![Screenshot of OAuth confirmation](/images/integrations/nest/device_access_topic_disabled.png)
 
-11. select *...* next to **Pub/Sub topic**, then **Enable events with PubSub topic**.
+11. Select *...* next to **Pub/Sub topic**, then **Enable events with PubSub topic**.
 
 12. Enter the full Pub/Sub **Topic Name** and select **Add & Validate**. If you see an error, then
    review the previous steps again and configure the topic and permissions.
