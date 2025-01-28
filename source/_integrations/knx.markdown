@@ -1063,6 +1063,22 @@ entity_category:
   required: false
   type: string
   default: None
+swing_address:
+  description: KNX address for turning the (vertical) swing on/off. *DPT 1*
+  required: false
+  type: [string, list]
+swing_state_address:
+  description: KNX address for gathering the current state (on/off) of the (vertical) swing. *DPT 1*
+  required: false
+  type: [string, list]
+swing_horizontal_address:
+  description: KNX address for turning the horizontal swing on/off. *DPT 1*
+  required: false
+  type: [string, list]
+swing_horizontal_state_address:
+  description: KNX address for gathering the current state (on/off) of the horizontal swing. *DPT 1*
+  required: false
+  type: [string, list]
 {% endconfiguration %}
 
 ## Cover
