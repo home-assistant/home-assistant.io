@@ -79,6 +79,11 @@ Sensors for Water meter:
 - **Water usage (L/min)**: Flow of water measured at that time.
 - **Total water usage (m³)**: Total water usage since the installation of the HomeWizard Water meter.
 
+Sensors for Plug-In Battery:
+
+- **Cycles**: Number of charge cycles the battery has gone through.
+- **State of charge (%)**: The current state of charge of the battery.
+
 ## Energy Socket
 
 The Energy Socket outlet state and status light can be controlled. There are two switches:
