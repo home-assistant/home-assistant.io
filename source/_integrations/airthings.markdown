@@ -30,7 +30,7 @@ Airthings API setup (needed to acquire the required ID and Secret for the Home A
 1. Login [here](https://dashboard.airthings.com/integrations/api-integration) to find your credentials.
 2. Select [Integrations](https://dashboard.airthings.com/integrations/api-integration) from the left side-bar.
 3. Click on "Request API Client" in order to set up an API connection.
-4. Name your API connection ie. "Home Assistant".
+4. Name your API connection i.e. "Home Assistant".
 5. Give the connection an accurate description.
 6. Select a Resource Scope.
 7. Select an access Type, i.e., Confidential.
