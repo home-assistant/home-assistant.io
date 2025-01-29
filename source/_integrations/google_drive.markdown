@@ -38,7 +38,6 @@ These are not the same as *Device Auth* credentials previously recommended for [
 
 ## Known limitations
 
-
 - The integration can only access files that it creates in the Home Assistant folder. It cannot access or modify any other files in your Google Drive.
 
 ## Troubleshooting
