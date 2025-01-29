@@ -444,8 +444,8 @@ API and for this reason, the following entities are removed:
 
 The "State Updater" option in the integration settings now works as intended. Previously, the option wasn’t applied correctly.
 
-- When disabled: KNX will only read a `state_addres` once when the connection is established.
-- When enabled: KNX will also read any `state_addres` if no value has been received for one hour.
+- When disabled: KNX will only read a `state_address` once when the connection is established.
+- When enabled: KNX will also read any `state_address` if no value has been received for one hour.
 
 Please review your integration settings to ensure this option is configured according to your preferences.
 ([@farmio] - [#135611]) ([documentation](/integrations/knx))
