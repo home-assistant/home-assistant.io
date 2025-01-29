@@ -96,7 +96,7 @@ You can also use `entity_id: all` and all active timers will be started.
 
 ### Action `timer.change`
 
-Change an active timer. This changes the duration of the timer with the duration given. You can also use `entity_id: all` and all active timers will be changed.
+Change an active timer. This changes the duration of the timer with the duration given. You can also use `entity_id: all` and all active timers will be changed. You cannot extend the duration beyond that set by `timer.start`.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

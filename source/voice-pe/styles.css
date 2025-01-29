@@ -1590,25 +1590,10 @@ section#hero .bg-gradient {
 
 
 
-.vpe-main #timeline[data-event="0"] .timeline .track .icon {
-  --top: calc(var(--grid-m) * -5);
-}
-
-.vpe-main #timeline[data-event="1"] .timeline .track .icon {
-  --top: calc(var(--grid-m) * var(--event-height));
-}
-
 .vpe-main #timeline[data-event="2"] .timeline .track .icon {
-  --top: calc(var(--grid-m) * (var(--event-height) * 2));
+  --top: calc(var(--grid-m) * (var(--event-height) * 2.333));
 }
 
-.vpe-main #timeline[data-event="3"] .timeline .track .icon {
-  --top: calc(var(--grid-m) * (var(--event-height) * 3));
-}
-
-.vpe-main #timeline[data-event="4"] .timeline .track .icon {
-  --top: calc(var(--grid-m) * (var(--event-height) * 4));
-}
 
 .vpe-main #timeline[data-event="0"] .event:nth-child(1) .content {
   opacity: 1;

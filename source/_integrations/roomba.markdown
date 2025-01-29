@@ -5,7 +5,6 @@ ha_category:
   - Vacuum
 ha_iot_class: Local Push
 ha_release: 0.51
-ha_conflig_flow: true
 ha_codeowners:
   - '@pschmitt'
   - '@cyr-ius'

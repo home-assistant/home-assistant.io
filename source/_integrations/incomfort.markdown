@@ -20,9 +20,12 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The `incomfort` {% term integration %} links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
+This integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
+The integration uses the [incomfort-client](https://pypi.org/project/incomfort-client/) library.
 
-It uses the [incomfort](https://pypi.org/project/incomfort-client/) client library.
+### Supported devices
+
+The Intergas Lan2RF Gateway connects thermostats based on the OpenTherm standard. An example of such a thermostat is the [Comfort Touch Thermostat](https://www.intergas-verwarming.nl/en/consumer/products/comfort-touch-thermostat/). The thermostats and LAN2RF gateway are often sold as a set. The gateway is suitable for use with Intergas Kombi Kompakt HRE and HReco appliances from year of manufacture 2014. If the Comfort Touch thermostat is used together with the gateway, then this will work in combination with Intergas Kombi Kompakt HRE, HReco, or Xtreme devices from year of manufacture 2017.
 
 ### Boiler
 
@@ -34,11 +37,40 @@ In addition, there is a **Sensor** for each of CV pressure, CV temperature, and 
 
 ### Rooms
 
-Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's `temperature` (setpoint, target temperature) and `current_temperature` and the setpoint can be changed.
+Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's target `temperature` and `current_temperature` and the target temperature can be changed. This is similar to changing the target temperature override using the Comfort Touch App that comes with the thermostat/gateway. Note that any override will be reset when a new set point is reached on the thermostat's schedule.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+host:
+    description: "Hostname or IP-address of the Intergas InComfort Lan2RF Gateway."
+    required: true
+    type: string
+username:
+    description: "The username to log into the gateway. This is `admin` in most cases."
+    required: false
+    type: string
+password:
+    description: "The password to log into the gateway, is printed at the bottom of the Lan2RF Gateway or is `intergas` for some older devices."
+    required: false
+    type: string
+{% endconfiguration_basic %}
+
 The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
+
+## Troubleshooting
+
+In case setting up an older gateway type fails, then try to leave `username` and `password` fields empty.
+
+## Data updates
+
+The Intergas Lan2RF Gateway will fetch state data from the gateway every 30 seconds. When the target temperature on the thermostat is changed, it might take some time for the set point to be updated on the Home Assistant climate {% term entity %}.
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Automation
 

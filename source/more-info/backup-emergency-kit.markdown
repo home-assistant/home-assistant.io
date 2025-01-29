@@ -4,9 +4,11 @@ description: "Information about backup emergency kit"
 related:
   - docs: /common-tasks/general/#backups
     title: Backups
+  - docs: /common-tasks/general/#restoring-a-backup
+    title: Restoring a backup
 ---
 
-[Backups](/common-tasks/general/#backups) are encrypted (using [AES-128](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)). The backup emergency kit contains information needed to recover your backup, such as the encryption key and metadata about the related backup.
+[Backups](/common-tasks/general/#backups) are encrypted (using [AES-128](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)). The backup emergency kit contains information needed to [restore the backup](/common-tasks/general/#restoring-a-backup), such as the encryption key and metadata about the related backup.
 
 ## What is encryption, and why are backups encrypted?
 
@@ -14,14 +16,14 @@ Encryption is a method of converting data into a coded format so that it can onl
 
 ## Storing the backup emergency kit somewhere safe
 
-1. To download the backup emergency kit, go to {% my backup title="**Settings** > **System** > **Backups**" %}
+1. To download the backup emergency kit, go to {% my backup title="**Settings** > **System** > **Backups**" %}.
 2. If it is your first time defining backup settings, select **Setup automatic backup** and download the backup emergency kit.
    - You can also download the encryption key again later from the backup configuration page.
 
     ![Screenshot showing the encryption key in the download dialog for the backup emergency kit](/images/more-info/backup_emergency_kit_01.png)
 
 3. Store the kit somewhere safe, outside the Home Assistant system.
-   - Without the encryption key, there is no way to restore the [backup](/common-tasks/general/#backups).
+   - Without the encryption key, there is no way to [restore the backup](/common-tasks/general/#restoring-a-backup).
 
 ## Changing your encryption key
 
