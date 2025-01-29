@@ -41,7 +41,7 @@ The Ring integration lets you do many things, such as switching devices on and o
 ## Prerequisites
 
 You need to provision your newly purchased devices via the Ring application, which will require creating a Ring account at [Ring.com](https://ring.com/) or via the official application.
-After that you will use your Ring account credentials to log on to the Ring cloud in Home Assistant.
+After that, you will use your Ring account credentials to log on to the Ring cloud in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -92,7 +92,6 @@ Two camera entities are provided: `live_view` and `last_recording`.
 Please note that downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
 {% endimportant %}
 
-
 ### Event
 
 The event entity captures events like doorbell rings, motion alerts, and intercom unlocking.
@@ -101,7 +100,7 @@ The event entity captures events like doorbell rings, motion alerts, and interco
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level and Wi-Fi signal.
 
-The volume sensors are being replaced with the number entity which allows setting the volume. You should migrate any automations using the volume sensors to the number entity by release 2025.4.0.
+The volume sensors are being replaced with the number entity, which allows setting the volume. You should migrate any automations using the volume sensors to the number entity by release 2025.4.0.
 
 ### Siren
 
@@ -124,7 +123,6 @@ Once you have enabled the [Ring integration](/integrations/ring), you can start 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the number platform.
 Currently, it supports showing and setting the volume of the doorbell/chime ring, intercom voice volume, and intercom microphone volume.
 
-
 ## Data updates
 
 The Ring cloud API is polled for data updates every 60 seconds. When you make changes through Home Assistant (e.g., switching motion detection on), the device's state is updated immediately rather than waiting for the next poll.
@@ -132,9 +130,9 @@ The Ring integration does not connect locally to devices, all communication goes
 
 ## Known limitations
 
-### Two way audio
+### Two-way audio
 
-Two way audio in camera live view is not currently supported.
+Two-way audio in camera live view is not currently supported.
 
 ### Last recording
 
@@ -159,9 +157,11 @@ Below are steps to follow if realtime events are not working.
 Issues with Ring alerts may be caused by having too many authenticated devices on your Ring account. Before version 2023.12.0, the Home Assistant Ring integration would register a new entry in `Authorized Client Devices` in the `Control Center` at [ring.com](https://account.ring.com/account/control-center/authorized-devices) on every restart.
 {% warning %}
 When cleaning up devices:
-1. Only delete entries that start with `ring-doorbell:HomeAssistant` or `Python`
-2. Do NOT delete entries for your phones or other Ring apps
-3. If there are too many devices to delete individually, you can use the `Remove all devices` option, but you'll need to re-authorize all your devices afterward
+
+1. Only delete entries that start with `ring-doorbell:HomeAssistant` or `Python`.
+2. Do NOT delete entries for your phones or other Ring apps.
+3. If there are too many devices to delete individually, you can use the `Remove all devices` option, but you'll need to re-authorize all your devices afterward.
+
 {% endwarning %}
 
 #### Step 2
@@ -174,12 +174,12 @@ Do not try this step before clearing down all the excess `Authorized Client Devi
 
 If alerts are still not working after Steps 1 and 2, try toggling the Motion Warning setting:
 
-1. Go to [ring.com](https://ring.com) and sign in
-2. Select your device
-3. Navigate to Device Settings
-4. Find the Motion Warning toggle
-5. Turn it off, wait 30 seconds
-6. Turn it back on
+1. Go to [ring.com](https://ring.com) and sign in.
+2. Select your device.
+3. Navigate to Device Settings.
+4. Find the Motion Warning toggle.
+5. Turn it off, wait 30 seconds.
+6. Turn it back on.
 
 This has successfully restored alerts for many users.
 
@@ -196,8 +196,8 @@ This has successfully restored alerts for many users.
 You can set an automation up in the Home Assistant UI.
 
 1. Find the correct `event` entity under `Entity triggers`.
-1. For `From` choose the setting `Any state (ignoring attribute changes)`.
-1. Then add a `Send notification` action under `Notifications`
+2. For `From` choose the setting `Any state (ignoring attribute changes)`.
+3. Then add a `Send notification` action under `Notifications`.
 
 This will result in yaml similar to the following:
 
