@@ -596,7 +596,7 @@ respond_to_read:
 
 ## Binary sensor
 
-The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors.
+The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors like window/door contacts, motion detectors, alarms, etc.
 
 {% note %}
 
@@ -607,7 +607,7 @@ Binary sensors are read-only entities. To write to the KNX bus, configure a [KNX
 Binary sensor entities can be created from the frontend in the KNX panel or via YAML.
 
 <a name="configuration-binary-sensor-yaml"></a>
-{% details "Configuration of KNX switch entities via YAML" %}
+{% details "Configuration of KNX binary sensor entities via YAML" %}
 
 ```yaml
 knx:
