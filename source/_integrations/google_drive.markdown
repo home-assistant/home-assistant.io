@@ -15,14 +15,14 @@ api: Google Drive API
 api_link: https://console.developers.google.com/start/api?id=drive
 ---
 
-This integration allows you to connect your [Google Drive](https://drive.google.com) with Home Assistant Backups. When you set up this integration, your Google Drive will have a new folder called Home Assistant where all the backups will be stored. You can rename this folder to whatever you like in Google Drive at any point of time. If you delete the folder, it will automatically be re-created as long as you have the integration enabled.
+This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with Home Assistant Backups. When you set up this integration, your Google Drive will have a new folder called Home Assistant where all the backups will be stored. You can rename this folder to whatever you like in Google Drive at any point in time. If you delete the folder, it will automatically be re-created as long as you have the {% term integration %} enabled.
+
 
 ## Prerequisites
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
 These credentials are the same as the ones for [Google Sheets](/integrations/google_sheets), [Nest](/integrations/nest), [YouTube](/integrations/youtube), and [Google Mail](/integrations/google_mail).
 These are not the same as *Device Auth* credentials previously recommended for [Google Calendar](/integrations/google).
-
 
 {% include integrations/google_client_secret.md %}
 
@@ -34,10 +34,12 @@ These are not the same as *Device Auth* credentials previously recommended for [
 
 {% include integrations/remove_device_service.md %}
 
-## Known Limitations
+- If you remove the integration, the Home Assistant folder in Google Drive is not automatically deleted. You have to manually delete it in Google Drive.
+
+## Known limitations
+
 
 - The integration can only access files that it creates in the Home Assistant folder. It cannot access or modify any other files in your Google Drive.
-- If you remove the integration, the Home Assistant folder in Google Drive is not automatically deleted. You have to manually delete it in Google Drive.
 
 ## Troubleshooting
 
