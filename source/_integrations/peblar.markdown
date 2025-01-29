@@ -243,8 +243,7 @@ as a device.
   - _Suspended_ ({% term state %}: `suspended`): The charger is currently not charging
     the electric vehicle, but is ready to start charging when needed.
   - _Invalid_ ({% term state %}: `invalid`): The charger is in an invalid state.
-- **Uptime**\*\*: The total time the charger has been running since the last
-  restart. This sensor is reset when the charger is restarted.
+- **Last restart**\*\*: The timestamp when the charger was powered on or restarted. This sensor is reset when the charger is restarted.
 - **Voltage**: The current voltage (in volts) the charger is using to charge.
   Only available if your charger is connected to a single-phase power source.
 - **Voltage Phase 1**\*\*: The current voltage (in volts) on phase 1. Only
