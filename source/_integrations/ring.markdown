@@ -1,6 +1,6 @@
 ---
 title: Ring
-description: Instructions on how to integrate your Ring.com devices within Home Assistant.
+description: Instructions on integrating Ring.com devices with Home Assistant.
 ha_category:
   - Binary sensor
   - Button
@@ -32,11 +32,16 @@ ha_codeowners:
   - '@sdb9696'
 ---
 
-The Ring integration allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. 
+The Ring integration allows you to control your [Ring.com](https://ring.com/) doorbell, stick up cam, chime, and intercom devices in Home Assistant.
 
 ## How you can use this integration
 
+The Ring integration lets you do many things, such as switching devices on and off based on schedules or events, viewing live camera feeds, and controlling device configurations manually or via automations.
+
 ## Prerequisites
+
+You need to provision your newly purchased devices via the Ring application, which will require creating a Ring account at [Ring.com](https://ring.com/) or via the official application.
+After that you will use your Ring account credentials to log on to the Ring cloud in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -44,13 +49,13 @@ The Ring integration allows you to integrate your [Ring.com](https://ring.com/) 
 
 Username:
   description: |
-    Your Ring cloud username.
+    Your Ring account username.
 Password:
   description: |
-    Your Ring cloud password.
+    Your Ring account password.
 2fa:
   description: |
-    Account verification code via the method selected in your ring account settings.
+    Account verification code via the method selected in your Ring account settings.
 
 {% endconfiguration_basic %}
 
@@ -58,17 +63,11 @@ Password:
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary sensor](#binary-sensor)
-- [Button](#button)
-- [Camera](#camera)
-  - [Saving the videos captured by your Ring Door Bell](#saving-the-videos-captured-by-your-ring-door-bell)
-- [Event](#event)
-  - [Realtime event stability](#realtime-event-stability)
-- [Sensor](#sensor)
-- [Siren](#siren)
-- [Switch](#switch)
-- [Light](#light)
-- [Number](#number)
+- **Doorbells**: Doorbell, Doorbell 2, Doorbell 3, Doorbell 3 Plus, Doorbell 4, Doorbell Pro, Doorbell Pro 2, Doorbell Elite, Doorbell Wired, Battery Doorbell, Doorbell (2nd Gen), Peephole Cam
+- **Stickup cams**: Floodlight Cam, Floodlight Cam Pro, Floodlight Cam Plus, Indoor Cam, Indoor Cam (2nd Gen), Spotlight Cam Battery, Spotlight Cam Wired, Spotlight Cam Plus, Spotlight Cam Pro, Stick Up Cam, Stick Up Battery, Stick Up Wired, Stick Up Cam (3rd Gen)
+- **Chimes**: Chime, Chime Pro
+- **Intercoms**: Intercom
+
 
 ## Supported functionality
 
@@ -128,7 +127,23 @@ Currently, it supports showing and setting the volume of the doorbell/chime ring
 
 ## Data updates
 
+The Ring cloud API is polled for data updates every 60 seconds. When you make changes through Home Assistant (e.g., switching motion detection on), the device's state is updated immediately rather than waiting for the next poll.
+The Ring integration does not connect locally to devices, all communication goes via the cloud.
+
 ## Known limitations
+
+### Two way audio
+
+Two way audio in camera live view is not currently supported.
+
+### Last recording
+
+To view the last recording entity you will need a Ring subscription.
+
+### Multiple alerts
+
+Some device models send two alerts for a single doorbell ring event.
+The integration will provide a workaround for this in a future release.
 
 ## Troubleshooting
 
@@ -169,6 +184,40 @@ If alerts are still not working after Steps 1 and 2, try toggling the Motion War
 This has successfully restored alerts for many users.
 
 ## Examples
+
+### Automation ideas
+
+- Turn on motion detection for internal cameras when you leave home (with geofencing) and turn off when you get home.
+- Start a live feed on a device when the doorbell rings.
+- Turn up the volume on a digital chime when you are in the garden.
+
+### Setting up doorbell alerts
+
+You can set an automation up in the Home Assistant UI.
+
+1. Find the correct `event` entity under `Entity triggers`.
+1. For `From` choose the setting `Any state (ignoring attribute changes)`.
+1. Then add a `Send notification` action under `Notifications`
+
+This will result in yaml similar to the following:
+
+```yaml
+alias: Doorbell alerts
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - event.front_door_ding
+    from: null
+conditions: []
+actions:
+  - device_id: internalhadeviceid
+    domain: mobile_app
+    type: notify
+    message: Front door ding
+    title: Front door ding
+mode: single
+```
 
 ### Saving the videos captured by your Ring Door Bell
 
