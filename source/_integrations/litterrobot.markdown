@@ -28,7 +28,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The Litter-Robot integration allows you to control and monitor your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders.
+The Litter-Robot integration allows you to monitor and control your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders. If you have pet profiles set up, you can also track your pet's weight.
 
 ## Prerequisites
 
@@ -70,6 +70,12 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 | Food level       | `sensor` | Displays the approximate food level remaining in the hopper.                     |
 | Night light mode | `switch` | When turned on, automatically turns on the night light in darker settings.       |
 | Panel lockout    | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
+
+### Pet
+
+| Entity | Domain   | Description   |
+| ------ | -------- | ------------- |
+| Weight | `sensor` | Pet's weight. |
 
 ## Actions
 
