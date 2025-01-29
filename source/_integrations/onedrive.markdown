@@ -22,7 +22,7 @@ Backups will be created in a folder called `Home Assistant\backups_<id>` in the 
 The integration only has access to an application specific `Home Assistant` folder in the `App Folder` and cannot access to any other parts of your OneDrive.
 
 {% note %}
-Because of an issue in the Graph API, the application-specific folder sometimes is called `Graph` instead of `Home Assistant`.
+Because of an [issue in the Graph API](https://github.com/OneDrive/onedrive-api-docs/issues/1866), the application-specific folder sometimes is called `Graph` instead of `Home Assistant`.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
