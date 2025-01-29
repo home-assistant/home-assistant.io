@@ -125,7 +125,7 @@ Currently, it supports showing and setting the volume of the doorbell/chime ring
 
 ## Data updates
 
-The Ring cloud API is polled for data updates every 60 seconds. When you make changes through Home Assistant (e.g., switching motion detection on), the device's state is updated immediately rather than waiting for the next poll.
+The Ring cloud API is {% term polling polled %} for data updates every 60 seconds. When you make changes through Home Assistant (for example by switching motion detection on), the device's state is updated immediately rather than waiting for the next  {% term polling poll %}.
 The Ring integration does not connect locally to devices, all communication goes via the cloud.
 
 ## Known limitations
@@ -155,19 +155,20 @@ Below are steps to follow if realtime events are not working.
 #### Step 1
 
 Issues with Ring alerts may be caused by having too many authenticated devices on your Ring account. Before version 2023.12.0, the Home Assistant Ring integration would register a new entry in `Authorized Client Devices` in the `Control Center` at [ring.com](https://account.ring.com/account/control-center/authorized-devices) on every restart.
-{% warning %}
+
+{% important %}
 When cleaning up devices:
 
 1. Only delete entries that start with `ring-doorbell:HomeAssistant` or `Python`.
 2. Do NOT delete entries for your phones or other Ring apps.
-3. If there are too many devices to delete individually, you can use the `Remove all devices` option, but you'll need to re-authorize all your devices afterward.
+3. If there are too many devices to delete individually, you can use the **Remove all devices** option, but you'll need to re-authorize all your devices afterward.
 
-{% endwarning %}
+{% endimportant %}
 
 #### Step 2
 
 If you're still experiencing issues after Step 1, try generating a new unique ID for the Home Assistant Ring integration instance.
-To do this, click the three-dot menu on the integration entry and select the `Reconfigure` option.
+To do this, select the three dots {% icon "mdi:dots-vertical" %} menu on the integration entry and select the **Reconfigure** option.
 Do not try this step before clearing down all the excess `Authorized Client Devices` as per Step 1, or it will simply invalidate the reconfigured entry.
 
 #### Step 3
@@ -176,9 +177,9 @@ If alerts are still not working after Steps 1 and 2, try toggling the Motion War
 
 1. Go to [ring.com](https://ring.com) and sign in.
 2. Select your device.
-3. Navigate to Device Settings.
-4. Find the Motion Warning toggle.
-5. Turn it off, wait 30 seconds.
+3. Navigate to **Device Settings**.
+4. Find the **Motion Warning** toggle.
+5. Turn it off and wait for 30 seconds.
 6. Turn it back on.
 
 This has successfully restored alerts for many users.
@@ -195,9 +196,9 @@ This has successfully restored alerts for many users.
 
 You can set an automation up in the Home Assistant UI.
 
-1. Find the correct `event` entity under `Entity triggers`.
-2. For `From` choose the setting `Any state (ignoring attribute changes)`.
-3. Then add a `Send notification` action under `Notifications`.
+1. Find the correct **event** entity under **Entity triggers**.
+2. For **From** choose the setting **Any state (ignoring attribute changes)**.
+3. Then add a **Send notification** action under **Notifications**.
 
 This will result in yaml similar to the following:
 
