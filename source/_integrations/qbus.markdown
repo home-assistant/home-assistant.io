@@ -9,7 +9,7 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@Qbus-iot'
   - '@thomasddn'
-ha_release: 2025.1
+ha_release: 2025.2
 ha_domain: qbus
 ha_integration_type: device
 ha_config_flow: true
