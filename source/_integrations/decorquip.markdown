@@ -7,7 +7,7 @@ ha_domain: decorquip
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds
 ha_supporting_integration: Motionblinds
-ha_release: 2025.01
+ha_release: 2025.2
 ha_codeowners:
   - '@starkillerOG'
 ha_config_flow: true
