@@ -95,3 +95,15 @@ After the integration has been initialized, the user can configure any of the fo
 - **Show values averaged by the device**. Default: `on`. In its default configuration, air-Q averages the stream of sensor values. The strength of this averaging can be configured on the device side (not exposed through the HA). However, this integration allows to switch between polling the averaged and the raw data from the device. To poll noisy sensor readings from the device, set **Show values averaged by the device** to `off`.
 
 - **Clip negative values**. Default: `on`. For baseline calibration purposes, certain sensor values may briefly become negative. The default behavior is to clip such values to 0.
+
+## Troubleshooting
+
+If you encounter issues with the integration, consider enabling debug logging for both the integration and the `aioairq` Python backend. Debug logging records each instance of the integration polling the device, which can be useful for diagnosing problems. However, keep in mind that enabling debug logging for `aioairq` adds some computational overhead, so it’s best not to leave it enabled by default.
+
+To activate debug logging, modify your {% term "`configuration.yaml`" %} file in the `/config` directory and add the following:
+
+```yaml
+logger:
+  logs:
+   homeassistant.components.airq: debug
+   aioairq: debug
