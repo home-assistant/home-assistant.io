@@ -25,7 +25,6 @@ To learn how to create and restore a backup, refer to the backup section under [
 
 ## Actions
 
-The **Backup** integration exposes an action that can be used to automate the backup
 The **Backup** integration exposes actions that can be used to automate the backup
 process.
 
@@ -51,7 +50,6 @@ action: backup.create_automatic
 ### Action {% my developer_call_service service="backup.create" %}
 
 The {% my developer_call_service service="backup.create" %} action can be used
-to create a backup for your Home Assistant instance.
 to create a backup of your Home Assistant instance.
 This action is only available in [core and container installations](/installation/#advanced-installation-methods).
 The action has no additional options or parameters.
