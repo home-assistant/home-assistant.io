@@ -52,7 +52,7 @@ When creating the user, it is possible to deny access to all locations and appli
 
 If you want to add cameras from [Surveillance Station](https://www.synology.com/surveillance), the user needs application permission for [Surveillance Station](https://www.synology.com/surveillance).
 
-If you want to use a shared folder from the [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) as {% term backup %} location, the user needs application permission for [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) and read/write permissions on the specific shared folder.
+If you want to use a shared folder from the [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) as {% term backup %} location, the user needs application permission for [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) and read/write permissions on the specific [shared folder](https://kb.synology.com/en-us/DSM/help/DSM/AdminCenter/file_share_desc).
 
 ### If you utilize 2-Step Verification or Two Factor Authentication (2FA) with your Synology NAS
 
@@ -63,6 +63,10 @@ Make sure to log out of your "normal" user's account and then login with the sep
 {% note %}
 If you denied access to all locations and applications it is normal to receive a message indicating you do not have access to DSM when trying to login with this separate user. As noted above, you do not need access to the DSM and Home Assistant will still be able to read statistics from your NAS.
 {% endnote %}
+
+## Backup location
+
+The NAS can also be used as a {% term backup %} location, without the need to add the NAS as a network drive to Home Assistant. For this you need to setup the correct permissions for the user (_see #separate-user-configuration_), afterwards you will be able to select the shared folder and define a relative path to be used as backup location in the integration options (**Settings > Devices & Services > Synology DSM > _select the instance_ > Configure**)
 
 ## Sensors
 
