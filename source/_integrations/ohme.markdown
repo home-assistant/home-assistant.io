@@ -12,7 +12,11 @@ ha_config_flow: true
 ha_domain: ohme
 ha_platforms:
   - button
+  - number
+  - select
   - sensor
+  - switch
+  - time
 ha_quality_scale: silver
 ha_integration_type: device
 ---
@@ -55,6 +59,18 @@ The Ohme integration provides the following entities.
   - **Description**: If sensor **Status** is `Pending approval`, this will approve the charge.
   - **Available for devices**: all
 
+#### Numbers
+
+- **Target percentage**
+  - **Description**: Sets the charge target for your vehicle.
+  - **Available for devices**: all
+
+#### Selects
+
+- **Charger mode**
+  - **Description**: Sets the mode of the charger. Possible options: `Smart charge`, `Max charge`, `Paused`. This is only available with a vehicle plugged in.
+  - **Available for devices**: all
+
 #### Sensors
 
 - **Status**
@@ -72,6 +88,36 @@ The Ohme integration provides the following entities.
 - **CT current**
   - **Description**: If a current transformer (CT) was installed with your charger, this will show the current used by your whole home.
   - **Available for devices**: Home Pro, ePod
+
+#### Switches
+
+- **Lock buttons**
+  - **Description**: Disable the controls on the device.
+  - **Available for devices**: all
+- **Require approval**
+  - **Description**: Require approval every time a vehicle is plugged in.
+  - **Available for devices**: Home Pro
+- **Sleep when inactive**
+  - **Description**: Turn off the screen of the device after a few minutes of inactivity.
+  - **Available for devices**: Home Pro
+
+#### Times
+
+- **Target time**
+  - **Description**: Sets the time you need your vehicle charged by.
+  - **Available for devices**: all
+
+## Actions
+
+The integration provides the following actions.
+
+### Action: List charge slots
+
+The `ohme.list_charge_slots` action is used to fetch a list of charge slots from your charger. Charge slots will only be returned if a charge is in progress.
+
+| Data attribute         | Optional | Description                                                  |
+|------------------------|----------|--------------------------------------------------------------|
+| `config_entry`         | No       | The config entry of the account to get the charge list from. |
 
 
 ## Removing the integration

@@ -31,10 +31,15 @@ Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It
 - [Wi-Fi Energy Socket](https://www.homewizard.com/energy-socket): Sensors for power import/export and energy consumption, and switches for controlling the outlet (model: `HWE-SKT`).
 - [Wi-Fi Watermeter](https://www.homewizard.com/watermeter): Sensors for active and total water usage (model: `HWE-WTR`).
 - [Wi-Fi kWh Meter](https://www.homewizard.com/kwh-meter): Sensors for power import/export and energy consumption (models: `HWE-KWH1`, `HWE-KWH3`, `SDM230-wifi`, and `SDM630-wifi`.).
+- [Plug-In Battery](https://www.homewizard.com/nl/plug-in-battery/): Sensors for power import/export, energy consumption, production, and state of charge (model: `HWE-BAT`).
 
 ## Enable the API
 
 You have to enable the local API to allow Home Assistant to communicate with your device. Do this in the HomeWizard Energy app:
+
+{% tip %}
+If your Wi-Fi P1 Meter is running firmware version 6 or higher, you can skip this step. This version uses a different authentication method that doesn't require enabling the local API.
+{% endtip %}
 
   1. Go to Settings (gear icon in the upper-right).
   2. Go to 'Meters'.
@@ -79,6 +84,11 @@ Sensors for Water meter:
 - **Water usage (L/min)**: Flow of water measured at that time.
 - **Total water usage (m³)**: Total water usage since the installation of the HomeWizard Water meter.
 
+Sensors for Plug-In Battery:
+
+- **Cycles**: Number of charge cycles the battery has gone through.
+- **State of charge (%)**: The current state of charge of the battery.
+
 ## Energy Socket
 
 The Energy Socket outlet state and status light can be controlled. There are two switches:
@@ -97,7 +107,7 @@ _This feature is not available for the kWh Meter._
 
 The HomeWizard Energy devices are designed to work with the HomeWizard Energy app and require communication with the HomeWizard cloud to function with the app. The "Cloud connection" configuration toggle can be used to turn off all communication with the HomeWizard cloud, making the device fully local. The device cannot communicate with the app, and the device won't receive any future firmware updates.
 
-Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
+This feature is not available for the Plug-In Battery. Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
 
 ## Examples
 
@@ -133,6 +143,15 @@ It may happen that you can't find your devices or they won't show up in the inte
 - Make sure you have updated the device to the latest firmware. Follow this guide to learn how to update your device: [How do I check if I have the latest software on my HomeWizard product?](https://helpdesk.homewizard.com/en/articles/9167578-how-do-i-check-if-i-have-the-latest-software-on-my-homewizard-product)
 - Make sure you have enabled the local API in device settings via the HomeWizard Energy app.
 - Make sure both Home Assistant and the device are on the same network.
+
+### Which button do I need to press to configure the device?
+
+1. During setup, you may be asked to press a button on your device to authenticate it with Home Assistant.  
+- **P1 Meter**: Press the white button on the front of the P1 Meter.  
+- **Plug-In Battery**: Press the black touch button on the front of the device. You will hear a beep. 
+- **Water Meter** and **kWh Meter**: they do not require this step.
+2. After pressing the button, you must select **Continue** within 30 seconds to complete the setup. 
+    - If the setup times out, you may need to press the button again.
 
 ## Remove integration
 
