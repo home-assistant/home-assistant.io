@@ -274,7 +274,7 @@ Starting with this release, both agents now share the same command history, fixi
 
 ### Home Assistant will be able to call your analog phone to tell you a message
 
-The [VoIP](/integrations/voip/) integration will now be able to call your phone and tell you a message! Using the [`assist_satellite.announce`](/integrations/assist_satellite#action-assist_satelliteannounce) you can play a message when some one picks up the phone.
+The [VoIP](/integrations/voip/) integration will now be able to call your phone and tell you a message! Using the [`assist_satellite.announce`](/integrations/assist_satellite#action-assist_satelliteannounce) you can play a message when someone picks up the phone.
 
 ## Integrations
 
