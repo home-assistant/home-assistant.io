@@ -33,9 +33,14 @@ Before creating a backup, check if you can reduce the size of the backup. This i
 The automatic backup process creates a backup on a predefined schedule and also deletes old, redundant backups.
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}.
-2. Under **Automatic backups**, select **Configure automatic backups**.
-3. Enable automatic backup.
-4. Define the backup schedule. It is recommended to back up daily.
+2. Under **Set up backups**, select **Set up backups**.
+3. To be able to restore encrypted backups, download the emergency kit and store it somewhere safe.
+   - To learn more about backup encryption, refer to the documentation on the [backup emergency kit](/more-info/backup-emergency-kit/).
+4. Define the backup schedule.
+   - It is recommended to back up **Daily**, but you can also choose to backup on specific days.
+   - Define the time:
+     - **System optimal** sets a time in a predefined time window as shown in the UI. If you backup on Home Assistant Cloud, it picks the time so that it does not create too many request at once to the Home Assistant Cloud server in your region.
+     - **Custom**: Pick the time when you want the backup to be performed. Home Assistant cleans up the database at 04:45. Ideally, start the backup at some point *after* 04:45.
 5. Define how many backups you want to keep.
    - Older backups will be automatically deleted.
    - For example: if you back up daily, and select 7 backups, then the backup from 8 days ago and older will be deleted.
@@ -44,8 +49,6 @@ The automatic backup process creates a backup on a predefined schedule and also 
    - A large backup also takes longer to restore.
    - Some add-ons may also be quite large.
 7. [Define the location for backups](#defining-backup-locations).
-8. Backups are encrypted. To be able to restore encrypted backups, download the emergency kit and store it somewhere safe.
-   - To learn more, refer to the documentation on the [backup emergency kit](/more-info/backup-emergency-kit/).
 
 ### Defining backup locations
 
@@ -58,11 +61,12 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
 #### To define the backup location for automatic backups
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and under **Automatic backups**, select **Configure automatic backups**.
-2. Under **Locations**, enable all the backup locations you want to use.
+2. Under **Locations**, use the toggle to enable all the backup locations you want to use.
    - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
    - If you don't see a network storage, you haven't added one. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
    ![Define the backup locations](/images/screenshots/network-storage/backup_locations_encryption.png)
 3. For each enabled location, define whether or not you want the backup to be encrypted.
+   - To change whether or not the backup should be encrypted for a particular location, select the cog {% icon "mdi:cog-outline" %}.
    - **Info**: The backup stored on Home Assistant Cloud is always encrypted.
 
 ### Creating a manual backup
