@@ -20,11 +20,11 @@ Before creating a backup, check if you can reduce the size of the backup. This i
 
 1. Check if your configuration directory contains a large database file:
    - Go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
-   - From the three dot menu, select **System information** and under the **Recorder** section, look for the **Estimated Database Size (MiB)**.
+   - From the three dots {% icon "mdi:dots-vertical" %} menu, select **System information** and under the **Recorder** section, look for the **Estimated Database Size (MiB)**.
    - By default, the data is kept for 10 days. If you have modified that to a longer period, check the [`recorder`](/integrations/recorder/) integration page for options to keep your database data down to a size that won't cause issues.
    - Note the keep days, purge interval, and include/exclude options.
 2. To check how much space you've used in total, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
-   - From the three dot menu, select **System information**, and check under **Home Assistant Supervisor** > **Disk used**.
+   - From the three dots {% icon "mdi:dots-vertical" %} menu, select **System information**, and check under **Home Assistant Supervisor** > **Disk used**.
    - If you have add-ons installed that you no longer use, uninstall those add-ons. Some add-ons require quite a bit of space.
 3. If you want to store the backup on your network storage instead of just locally on your system, follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
 
@@ -49,11 +49,11 @@ The automatic backup process creates a backup on a predefined schedule and also 
 
 ### Defining backup locations
 
-You might need a backup in case your system has crashed. If you only store backups on the device itself, you won't be able to access them easily. It is recommended to keep a copy on another system and ideally also one off-site.
+You might need a backup in case your system has crashed. If you only store backups on the device itself, you won't be able to access them easily. It is recommended to keep a copy on another system (outside of Home Assistant) and ideally also one off-site.
 
 #### About the backup storage on Home Assistant Cloud
 
-If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on Home Assistant Cloud. This cloud storage space is available for all existing and new Home Assistant Cloud subscribers without additional cost. It stores one backup file: the backup that was last saved to Home Assistant Cloud. Backups are always encrypted. To restore encrypted backups, you need the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
+If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on Home Assistant Cloud. This cloud storage space is available for all existing and new Home Assistant Cloud subscribers without additional cost. It stores one backup file: the backup that was last saved to Home Assistant Cloud. These backups are always encrypted. To restore encrypted backups, you need the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
 
 #### To define the backup location for automatic backups
 
@@ -61,7 +61,9 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
 2. Under **Locations**, enable all the backup locations you want to use.
    - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
    - If you don't see a network storage, you haven't added one. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
-   ![Define the backup locations](/images/screenshots/network-storage/backup_locations_all.png)
+   ![Define the backup locations](/images/screenshots/network-storage/backup_locations_encryption.png)
+3. For each enabled location, define whether or not you want the backup to be encrypted.
+   - **Info**: The backup stored on Home Assistant Cloud is always encrypted.
 
 ### Creating a manual backup
 
