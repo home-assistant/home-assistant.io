@@ -34,7 +34,8 @@ The automatic backup process creates a backup on a predefined schedule and also 
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}.
 2. Under **Set up backups**, select **Set up backups**.
-3. To be able to restore encrypted backups, download the emergency kit and store it somewhere safe.
+3. Download the emergency kit and store it somewhere safe.
+   - You need it to restore encrypted backups.
    - To learn more about backup encryption, refer to the documentation on the [backup emergency kit](/more-info/backup-emergency-kit/).
 4. Define the backup schedule.
    - It is recommended to back up **Daily**, but you can also choose to back up on specific days.
