@@ -179,7 +179,7 @@ It may happen that you can't find your devices or they won't show up in the inte
     
 ## I can't find sensors like voltage, current, or frequency
 
-Some sensors are disabled by default. You can enable them in the integration setup. See the [enabling od disabling entities](/common-tasks/general/#enabling-or-disabling-entities) documentation for more information.
+Some sensors are disabled by default. You can enable them in the integration setup. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) documentation for more information.
 
 ## Remove integration
 
