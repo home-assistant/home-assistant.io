@@ -66,7 +66,7 @@ If you denied access to all locations and applications it is normal to receive a
 
 ## Backup location
 
-The NAS can also be used as a {% term backup %} location, without the need to add the NAS as a network drive to Home Assistant. For this you need to setup the correct permissions for the user (_see #separate-user-configuration_), afterwards you will be able to select the shared folder and define a relative path to be used as backup location in the integration options (**Settings > Devices & Services > Synology DSM > _select the instance_ > Configure**)
+The NAS can also be used as a {% term backup %} location, without the need to add the NAS as a network drive to Home Assistant. For this you need to setup the correct permissions for the user (_see [Separate User Configuration](#separate-user-configuration) above_), afterwards you will be able to select the shared folder and define a relative path to be used as backup location in the integration options (**[Settings > Devices & Services](https://my.home-assistant.io/redirect/integrations) > Synology DSM > _select the instance_ > Configure**)
 
 ## Sensors
 
