@@ -30,7 +30,7 @@ process.
 
 However, it is no longer needed to create your own automation. Follow these steps to [set up an automatic backup from the UI](/common-tasks/general/#setting-up-an-automatic-backup-process).
 
-### Action {% my developer_call_service service="backup.create_automatic" %}
+### Action backup.create_automatic
 
 The {% my developer_call_service service="backup.create_automatic" %} action can be used
 to create a backup of your Home Assistant instance, using the same settings as those used
