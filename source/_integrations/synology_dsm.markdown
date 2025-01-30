@@ -2,6 +2,7 @@
 title: Synology DSM
 description: Instructions on how to integrate the Synology DSM sensor within Home Assistant.
 ha_category:
+  - Backup
   - Camera
   - Media source
   - System monitor
