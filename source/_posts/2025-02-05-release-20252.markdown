@@ -180,9 +180,9 @@ If you run the Home Assistant OS, you get updates for Home Assistant and
 all add-ons. This used to have a toggle to create a backup before updating,
 which was removed in the previous release.
 
-This change was made because when on running automated regular backups, this
+This change was made because when running automated regular backups, this
 feature was considered redundant. However, we've received a lot of feedback
-that this feature was used by many, to ensure they have the latest data before
+that this feature was used by many, to ensure they backup the latest data before
 updating and, in case of add-ons, to have a backup of the previous version
 of the add-on.
 
@@ -212,8 +212,7 @@ When updating add-ons, things are slightly different. The toggle exists here
 too, and is disabled by default. However, when you enable it, only a backup
 of your add-on and its data is created. 
 
-We automatically keep around the last previous version of the add-on, so you
-can always roll back to the previous version if needed.
+That way you can keep around the previous version of the add-on, so you can always roll back to the it if needed.
 
 To prevent your system for filling up with old add-on backups, we automatically
 delete the previous versions of the add-on backup after a new one is created.
@@ -234,7 +233,7 @@ for, even outside of Home Assistant.
 
 ### New locations
 
-This release also introduces new locations to store your backups, including [Google Drive](/integrations/google_drive/) and [Microsoft OneDrive](/integrations/onedrive/)!
+This release also introduces new locations to store your backups, there are new integrations for [Google Drive](/integrations/google_drive/) and [Microsoft OneDrive](/integrations/onedrive/), and backup support was added to the [Synology DSM](/integrations/synology_dsm) integration.
 
 <img class="no-shadow" alt="Temporary screenshot" src="/images/blog/2025-02/backup-locations.png" />
 
@@ -249,8 +248,8 @@ As always with new intents, support may vary depending on your language, but our
 ### Setting Temperature on Thermostat
 A few releases ago we introduced an intent to get a climate current temperature.
 As of this release, you can also set the target temperature of your thermostat by voice.
-Try it by saying "Set the temperature to 19 degrees"
-This will smartly target the area you are in (If you have a thermostat per area, such as thermostatic valves on your radiators) or the floor you are in (If you only have a central unit). You can also target specific devices by name if you prefer.
+Try it by saying "Set the temperature to 19 degrees".
+This will smartly target the area you are in (if you have a thermostat per area, such as thermostatic valves on your radiators) or the floor you are in (if you only have a central unit). You can also target specific devices by name if you prefer.
 
 ### LLMs meet calendars
 Without complex custom tooling, LLM-based conversation agents previously could not fetch events from your calendar. This release changes that. Out of the box, LLM-based agents can now retrieve today’s and this week’s events from any of your calendars. Don’t forget to [expose your calendar entities](/voice_control/voice_remote_expose_devices/) to enable this functionality.
@@ -300,7 +299,7 @@ We welcome the following new integrations in this release:
 - **[Qbus]**, added by [@thomasddn]
   Allows you to integrate your [Qbus Control] into Home Assistant.
 - **[Google Drive]**, added by [@tronikos]
-  Allows you to store your Home Assistant backups in your Google drive.
+  Allows you to store your Home Assistant backups in your Google Drive.
 - **[OneDrive]**, added by [@zweckj]
   Allows you to store your Home Assistant backups in your Microsoft OneDrive.
 
