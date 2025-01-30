@@ -47,7 +47,7 @@ Example action:
 action: backup.create_automatic
 ```
 
-### Action {% my developer_call_service service="backup.create" %}
+### Action backup.create
 
 The {% my developer_call_service service="backup.create" %} action can be used
 to create a backup of your Home Assistant instance.
