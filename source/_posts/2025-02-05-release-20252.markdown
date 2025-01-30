@@ -234,7 +234,7 @@ for, even outside of Home Assistant.
 
 ### New locations
 
-This release also introduces new locations to store your backups, including [Google Drive](integrations/google_drive/) and [Microsoft OneDrive](/integrations/onedrive/)!
+This release also introduces new locations to store your backups, including [Google Drive](/integrations/google_drive/) and [Microsoft OneDrive](/integrations/onedrive/)!
 
 <img class="no-shadow" alt="Temporary screenshot" src="/images/blog/2025-02/backup-locations.png" />
 
@@ -242,7 +242,7 @@ This release also introduces new locations to store your backups, including [Goo
 Assist, our [private voice assistant](/voice_control/), is getting a few new features in this release. So let's talk about them!
 
 ### New Broadcast intent
-You can now broadcast messages to every other voice assistant in your home. 
+You can now broadcast messages to every other voice assistant in your home.
 Try it by saying "Broadcast it is time for dinner".
 As always with new intents, support may vary depending on your language, but our language leaders are working hard on making sure it will be supported soon in your language!
 
