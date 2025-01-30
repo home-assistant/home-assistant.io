@@ -37,15 +37,15 @@ The automatic backup process creates a backup on a predefined schedule and also 
 3. To be able to restore encrypted backups, download the emergency kit and store it somewhere safe.
    - To learn more about backup encryption, refer to the documentation on the [backup emergency kit](/more-info/backup-emergency-kit/).
 4. Define the backup schedule.
-   - It is recommended to back up **Daily**, but you can also choose to backup on specific days.
+   - It is recommended to back up **Daily**, but you can also choose to back up on specific days.
    - Define the time:
-     - **System optimal** sets a time in a predefined time window as shown in the UI. If you backup on Home Assistant Cloud, it picks the time so that it does not create too many request at once to the Home Assistant Cloud server in your region.
-     - **Custom**: Pick the time when you want the backup to be performed. Home Assistant cleans up the database at 04:45. Ideally, start the backup at some point *after* 04:45.
+     - **System optimal** sets a time in a predefined time window as shown in the UI.
+     - **Custom**: Pick the time when you want the backup to start.
 5. Define how many backups you want to keep.
    - Older backups will be automatically deleted.
    - For example: if you back up daily, and select 7 backups, then the backup from 8 days ago and older will be deleted.
 6. Define the data you want to back up.
-   - It is recommended to disable media and the share folder to reduce the size of the backup.
+   - It is recommended to disable media and the shared folder to reduce the size of the backup.
    - A large backup also takes longer to restore.
    - Some add-ons may also be quite large.
 7. [Define the location for backups](#defining-backup-locations).
