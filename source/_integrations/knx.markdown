@@ -598,7 +598,11 @@ respond_to_read:
 
 The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors.
 
-Binary sensors are read-only. To write to the KNX bus configure an exposure [KNX Integration Expose](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus).
+{% note %}
+
+Binary sensors are read-only entities. To write to the KNX bus, configure a [KNX Switch entity](#switch) or use the [`knx.send` action](#send).
+
+{% endnote %}
 
 ```yaml
 knx:
@@ -1831,7 +1835,11 @@ entity_category:
 
 The KNX sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors.
 
-Sensors are read-only. To write to the KNX bus configure a [Number](#number), an exposure [KNX Integration Expose](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus) or use the `knx.send` action.
+{% note %}
+
+Sensors are read-only entities. To write to the KNX bus, configure a [KNX Number entity](#number) or use the [`knx.send` action](#send).
+
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry

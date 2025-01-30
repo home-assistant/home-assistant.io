@@ -4,7 +4,7 @@ ruby '> 2.5.0'
 
 group :development do
   gem 'rake', '13.2.1'
-  gem 'jekyll', '4.3.4'
+  gem 'jekyll', '4.4.1'
   gem 'compass', '1.0.3'
   gem 'sass-globbing', '1.1.5'
   gem 'stringex', '2.8.6'
@@ -12,7 +12,7 @@ group :development do
   gem 'sassc', '2.1.0'
   gem 'sass-embedded', '1.83.4'
   gem 'rubocop', '1.71.0'
-  gem 'ruby-lsp', '0.23.6'
+  gem 'ruby-lsp', '0.23.7'
   gem 'rackup', '2.2.1'
 end
 
