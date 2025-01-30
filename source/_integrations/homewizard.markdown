@@ -38,7 +38,7 @@ Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It
 You have to enable the local API to allow Home Assistant to communicate with your device. Do this in the HomeWizard Energy app:
 
 {% tip %}
-If your Wi-Fi P1 Meter is running firmware version 6 or higher, you can skip this step. This version uses a different authentication method that doesn't require enabling the local API.
+You can skip this step if you are configuring a your Wi-Fi P1 Meter with firmware version 6 or higher, or your Plug-In Battery. These products use a different authentication method that doesn't require enabling the local API.
 {% endtip %}
 
   1. Go to Settings (gear icon in the upper-right).
@@ -53,50 +53,70 @@ IP address:
   description: "The IP address of your device. You can find it in your router."
 {% endconfiguration_basic %}
 
-## Sensors
+## Supported functionality
 
-Sensors for the P1 meter, Energy Socket, and kWh meter:
+The HomeWizard integration provides sensors about what your device is measuring or doing. All of them are provided as {% term entities %} in Home Assistant. Below is an overview of the entities provided by this integration.
 
-- **Energy import/export (kWh)**: Total energy imported or exported since installation. Each tariff has its own sensor (e.g., T1, T2) and a sensor for the combined value.
-- **Power (W)**: Active power that is measured on each phase.
+### P1 Meter
 
-Sensors for P1 meter, only available when the smart meter exposes these values:
+_Not all sensors are provided by all Smart Meters, only the available sensors are shown in the integration._
 
-- **Gas usage (m³)**: Total gas used since the installation of the gas meter. A gas meter sends its measurement once every 5 minutes or per hour, depending on the version of the smart meter.
+- **Energy import/export (kWh)**: Total energy imported or exported since installation of your smart meter. Each tariff has its own sensor (e.g., T1, T2) and a sensor for the combined value.
+- **Power (W)**: Active power measured, each phase has its own sensor.
+- **Voltage (V)**: Active voltage measured, each phase has its own sensor.
+- **Current (A)**: Active current measured, each phase has its own sensor.
 - **Tariff**: Current tariff that is used. Can be used to keep consumption as low as possible during peak hours.
-- **Voltage (V)**: Active voltage measured on each phase.
-- **Current (A)**: Active current measured on each phase.
 - **Frequency (Hz)**: Net frequency.
 - **Voltage sags and swells**: Number of times a voltage sag or swell has been detected.
 - **Power failures**: Two sensors indicate the number of power failures detected by the smart meter. One for all power failures and another for 'long' power failures.
 - **Peak demand**: Belgium users are starting to get charged for the peak usage per month (see [capaciteitstarief](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief)). Two sensors are available: one shows the current quarterly average, and another shows the peak measured this month. Both sensors are provided directly from the smart meter and can be used to keep the peak as low as possible.
 
-Sensors for Energy Socket and kWh meter:
+External meters, like a gas or water meter, can be connected to your Smart meter. Each device is exposed as a separate {% term device %} with its own measurement.
 
-- **Voltage (V)**: Active voltage measured on each phase.
-- **Current (A)**: Active current measured on each phase.
+### kWh Meter
+
+- **Energy import/export (kWh)**: Total energy imported or exported measured by kWh meter.
+- **Power (W)**: Active power that is measured, each phase has its own sensor.
+- **Voltage (V)**: Active voltage measured, each phase has its own sensor.
+- **Current (A)**: Active current measured, each phase has its own sensor.
 - **Frequency (Hz)**: Net frequency.
-- **Reactive power (VAR)**: Active reactive power measurement on each phase.
-- **Apparent power (VA)**: Active apparent power measurement on each phase.
+- **Reactive power (VAR)**: Active reactive power measurement, each phase has its own sensor.
+- **Apparent power (VA)**: Active apparent power measurement, each phase has its own sensor.
 
-Sensors for Water meter:
+### Energy Socket
+
+- **Energy import/export (kWh)**: Total energy imported or exported measured by Energy Socket.
+- **Power (W)**: Active power that is measured.
+- **Voltage (V)**: Active voltage measured.
+- **Current (A)**: Active current measured.
+- **Frequency (Hz)**: Net frequency.
+- **Reactive power (VAR)***: Active reactive power measurement.
+- **Apparent power (VA)***: Active apparent power measurement.
+
+{% note %}
+Reactive power and apparent power are not available for all hardware versions, this depends on the internal metering chip.
+{% endnote %}
+
+The Energy Socket also has a switch to control the outlet state and a status light that can be controlled.
+
+- **Switch**: Controls the outlet state of the Energy Socket. This switch is permanently on when _Switch Lock_ is turned on. Use this to control the power of simple devices, such as a heater or a charger.
+- **Switch lock**: Forces the outlet state to the _on_ position and disables the physical button. This option is useful when the socket is used for a device that must not be turned off, such as a refrigerator.
+- **Status light brightness**: Controls the brightness of the green status light. This light turns on when the switch is on.
+
+### Watermeter
 
 - **Water usage (L/min)**: Flow of water measured at that time.
 - **Total water usage (m³)**: Total water usage since the installation of the HomeWizard Water meter.
 
-Sensors for Plug-In Battery:
+### Plug-In Battery
 
+- **Energy import/export (kWh)**: Total energy imported or exported by the battery.
+- **Power (W)**: Active power consumed or produced by the battery.
+- **Voltage (V)**: Active voltage measured.
+- **Current (A)**: Active current consumed or produced by the battery.
+- **Frequency (Hz)**: Net frequency.
 - **Cycles**: Number of charge cycles the battery has gone through.
 - **State of charge (%)**: The current state of charge of the battery.
-
-## Energy Socket
-
-The Energy Socket outlet state and status light can be controlled. There are two switches:
-
-- **Switch**: Controls the outlet state of the Energy Socket. This switch is permanently on when _Switch Lock_ is turned on. Use this to control the power of simple devices, such as a heater or a charger.
-- **Switch lock**: Forces the outlet state to the _on_ position and disables the physical button. This option is useful when the socket is used for a device that must not be turned off, such as a refrigerator.
-
-You can also control the green status light brightness with **Status light brightness**. This light turns on when the switch is on.
 
 ## Identify
 
@@ -116,6 +136,10 @@ This feature is not available for the Plug-In Battery. Cloud communication is re
 If you know the energy characteristics of your washing machine, you can create an automation that sends a notification when the energy usage drops below a certain threshold. This can notify you when your washing machine is done. You can use the following blueprint for this:
 
 - [Appliance Power Monitor Blueprint With Elapsed Time and Energy Used Variables](https://community.home-assistant.io/t/appliance-power-monitor-blueprint-with-elapsed-time-and-energy-used-variables/549073), created by [@Jhonattan-Souza](https://community.home-assistant.io/u/jhonattan-souza)
+
+### Add your Energy data to the Energy dashboard
+
+The HomeWizard Energy integration provides data that can be used in the Energy dashboard. To add your data to the Energy dashboard, follow the steps in the [Energy dashboard documentation](/home-energy-management).
 
 ## Data fetching interval
 
@@ -152,6 +176,10 @@ It may happen that you can't find your devices or they won't show up in the inte
     - **Energy Socket**, **Water Meter** and **kWh Meter**: they do not require this step.
 2. After pressing the button, you must select **Continue** within 30 seconds to complete the setup. 
     - If the setup times out, you may need to press the button again.
+    
+## I can't find sensors like voltage, current, or frequency
+
+Some sensors are disabled by default. You can enable them in the integration setup. See the [enabling od disabling entities](/common-tasks/general/#enabling-or-disabling-entities) documentation for more information.
 
 ## Remove integration
 
