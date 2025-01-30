@@ -46,7 +46,7 @@ target:
 
 ### Action `assist_satellite.start_conversation`
 
-The {% my developer_call_service service="assist_satellite.start_conversation" %} action first announces a message or media id on the satellite and then listens for one or more voice commands. The satellite's configured [pipeline](/voice_control/voice_remote_local_assistant/) must use a supported [conversation agent](/integrations/conversation), such as [OpenAI](/integrations/openai_conversation) or [Ollama](/integrations/ollama). The builtin Assist conversation agent does not support conversations yet.
+The {% my developer_call_service service="assist_satellite.start_conversation" %} action first announces a message or media id on the satellite and then listens for one or more voice commands. The satellite's configured [pipeline](/voice_control/voice_remote_local_assistant/) must use a supported [conversation agent](/integrations/conversation), such as [OpenAI](/integrations/openai_conversation) or [Google Generative AI](/integrations/google_generative_ai_conversation). The builtin Assist conversation agent does not support conversations yet.
 
 If a message is to be announced, it will first be converted to a media id using the [text-to-speech](/integrations/tts) system of the satellite's configured [pipeline](/voice_control/voice_remote_local_assistant/).
 
