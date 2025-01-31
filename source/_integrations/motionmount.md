@@ -26,7 +26,7 @@ This integration uses the Ethernet (IP) connection of your MotionMount. It's not
 
 It provides information about the current position of the mount and allows setting a new position.
 
-A use case would be to position the TV based on whether anyone is actively watching. The MotionMount provides an HDMI connection to monitor whether the TV is turned on and move to a preset position or the last known position in response. But if you also use the TV for background music you probably don't want the MotionMount to extend. By using a presence sensor to check whether anyone is actually in front of the TV, you can only extend the MotionMount when the TV is actively being watched.
+A use case would be to position the TV based on whether anyone is actively watching. The MotionMount provides an HDMI connection to monitor whether the TV is turned on and in response move to a preset position or the last known position. However, if you also use the TV for background music, you probably don't want the MotionMount to extend. By using a presence sensor to check whether anyone is actually in front of the TV, you can ensure the MotionMount only extends when the TV is actively being watched.
 
 {% include integrations/config_flow.md %}
 
@@ -89,6 +89,7 @@ The following devices are *not* supported:
 
 - **Extension**
   - **Description**: The current extension of the MotionMount from the wall.
+
 - **Turn**
   - **Description**: The current rotation of the MotionMount.
      
