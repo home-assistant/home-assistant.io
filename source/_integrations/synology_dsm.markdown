@@ -67,27 +67,25 @@ If you denied access to all locations and applications it is normal to receive a
 
 ## Backup location
 
-The NAS can also be used as a {% term backup %} location, without the need to add the NAS as a network drive to Home Assistant. For this you need to setup the correct permissions for the user (_see [Separate User Configuration](#separate-user-configuration) above_), afterwards you will be able to select the shared folder and define a relative path to be used as backup location in the integration options (**[Settings > Devices & Services](https://my.home-assistant.io/redirect/integrations) > Synology DSM > _select the instance_ > Configure**)
+The NAS can also be used as a {% term backup %} location, without the need to add the NAS as a network drive to Home Assistant. For this you need to setup the correct permissions for the user (_see [Separate User Configuration](#separate-user-configuration) above_), afterwards you will be able to select the shared folder and define a relative path to be used as backup location in the integration options ({% my integrations title="**Settings** > **Devices & services**" %}) > **Synology DSM** > _select the instance_ > **Configure**)
 
 ### Example
 
-Assume there is a shared folder called "HA Backup", with two directories in it "productive_instance" and "test_instance"
+Assume there is a shared folder called `HA Backup`, with two directories in it `productive_instance` and `test_instance`.
 
 <img src="/images/integrations/synology_dsm/synology_file_station.png" />
 
-#### use an existing path
+#### Use an existing path
 
-- select "HA Backup" as shared folder
+1. Select `HA Backup` as shared folder.
 - define `productive_instance` as backup path (_without trailing slash_)
+    - The existing `productive_instance` will be used as backup location.
 
-The existing `productive_instance` will be used as backup location.
+#### Use a non-existing path
 
-#### use a non-existing path
-
-- select "HA Backup" as shared folder
-- define `cottage_instance` as backup path (_without trailing slash_)
-
-A new directory `cottage_instance` will be created on the shared folder "HA Backup" during first backup.
+1. Select `HA Backup` as a shared folder.
+2. Define `cottage_instance` as backup path (_without trailing slash_).
+- **Result**: A new directory `cottage_instance` will be created on the shared folder "HA Backup" during first backup.
 
 ## Sensors
 
