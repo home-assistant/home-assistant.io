@@ -41,7 +41,8 @@ The automatic backup process creates a backup on a predefined schedule and also 
    - It is recommended to back up **Daily**, but you can also choose to back up on specific days.
    - Define the time:
      - **System optimal** sets a time in a predefined time window as shown in the UI.
-     - **Custom**: Pick the time when you want the backup to start.
+     - **Custom** lets you pick the time when you want the backup to start.
+     - {% important %} Make sure you pick a time when all your backup locations are up and running and available. Otherwise the backup will fail. {% endimportant %}
 5. Define how many backups you want to keep.
    - Older backups will be automatically deleted.
    - For example: if you back up daily, and select 7 backups, then the backup from 8 days ago and older will be deleted.
@@ -64,6 +65,7 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and under **Automatic backups**, select **Configure automatic backups**.
 2. Under **Locations**, use the toggle to enable all the backup locations you want to use.
    - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
+   - If you want to backup to your NAS or a cloud provider, check their [integration documentation](/integrations/) for specific instructions on setting up a Home Assistant backup.
    - If you don't see a network storage, you haven't added one. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
    ![Define the backup locations](/images/screenshots/network-storage/backup_locations_encryption.png)
 3. For each enabled location, define whether or not you want the backup to be encrypted.
