@@ -132,8 +132,10 @@ In addition, the integration checks for updates every 5 minutes.
 
 ## Known limitations
 
-Overseerr is only capable of having one webhook set up at a time.
+There are a few known limitations for using the integration:
+- Overseerr is only capable of having one webhook set up at a time.
 This means you can only have 1 Home Assistant instance connected to your Overseerr instance at a time.
+- The integration is not able to function with CSRF protection turned on, make sure that it is turned off.
 
 ## Remove integration
 
