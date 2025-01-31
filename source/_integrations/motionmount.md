@@ -26,7 +26,7 @@ This integration uses the Ethernet (IP) connection of your MotionMount. It's not
 
 It provides information about the current position of the mount and allows setting a new position.
 
-A use case would be to position the TV based on whether anyone is actively watching. The MotionMount provides an HDMI connection to monitor whether the TV is turned on and move to a preset position or the last known position in respond. But if you also use the TV for background music you probably don't want the MotionMount to extend. By using a presence sensor to check whether anyone is actually in front of the TV you can only extend the MotionMount when the TV is actively being watched.
+A use case would be to position the TV based on whether anyone is actively watching. The MotionMount provides an HDMI connection to monitor whether the TV is turned on and move to a preset position or the last known position in response. But if you also use the TV for background music you probably don't want the MotionMount to extend. By using a presence sensor to check whether anyone is actually in front of the TV, you can only extend the MotionMount when the TV is actively being watched.
 
 {% include integrations/config_flow.md %}
 
@@ -48,7 +48,7 @@ This integration follows standard integration removal. No extra steps are requir
 ## Data updates
 
 The MotionMount pushes new data to the integration.
-The only exception is the presets. Changes to the presets are polled, by default every 60 seconds.
+The only exception is the presets. Changes to the presets are {% term polling polled %}, by default every 60 seconds.
 
 ## Known limitations
 
@@ -101,8 +101,8 @@ The following devices are *not* supported:
 
 ### Can't connect to device
 
-1. Make sure the device is powered on
-2. Make sure the device is connected to the same network as Home Assistant
-3. Make sure the IP address of the MotionMount is configured correctly
+1. Make sure the device is powered on.
+2. Make sure the device is connected to the same network as Home Assistant.
+3. Make sure the IP address of the MotionMount is configured correctly.
     - In case of doubt, perform a network reset by holding the reset button for approx. 5 seconds. The LED will start to blink slowly. This will reset the network configuration to use DHCP. Warning! Don't hold the reset button for too long (approx. 10 s). If the LED starts blinking fast you will perform a factory reset.
 
