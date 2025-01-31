@@ -596,13 +596,18 @@ respond_to_read:
 
 ## Binary sensor
 
-The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors.
+The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors like window/door contacts, motion detectors, alarms, etc.
 
 {% note %}
 
 Binary sensors are read-only entities. To write to the KNX bus, configure a [KNX Switch entity](#switch) or use the [`knx.send` action](#send).
 
 {% endnote %}
+
+Binary sensor entities can be created from the frontend in the KNX panel or via YAML.
+
+<a name="configuration-binary-sensor-yaml"></a>
+{% details "Configuration of KNX binary sensor entities via YAML" %}
 
 ```yaml
 knx:
@@ -643,7 +648,7 @@ device_class:
   required: false
   type: string
 reset_after:
-  description: Reset back to "off" state after specified seconds.
+  description: Reset back to "off" state after specified time in seconds.
   required: false
   type: float
 invert:
@@ -657,7 +662,7 @@ ignore_internal_state:
   type: boolean
   default: false
 context_timeout:
-  description: The time in seconds between multiple identical telegram payloads would count towards the internal counter that is used for automations. Ex. You have automations in place that trigger your lights on button press and another set of lights if you click that button twice. This setting defines the time that a second button press would count toward, so if you set this 3.0 you can take up to 3 seconds in order to trigger the second button press. If set `ignore_internal_state` will be set to `true` internally. Maximum value is 10.0.
+  description: The time in seconds between multiple identical telegram payloads would count towards an internal counter that can be used for automations. This setting defines the time window that a second telegram would count toward a single state change. So if you set this 3.0 you can take up to 3 seconds in order to trigger the second button press, and a single press would take 3 seconds to trigger a Home Assistant state update. If this is set, `ignore_internal_state` will be set to `true` internally. Maximum value is 10.0.
   required: false
   type: float
   default: None
@@ -668,14 +673,14 @@ entity_category:
   default: None
 {% endconfiguration %}
 
-### Support for automations
+{% enddetails %}
 
-You can use a built in event in order to trigger an automation (e.g. to switch on a light when a switch was pressed).
+### Automation example
 
-Let's pretend you have a binary sensor with the name `Livingroom.Switch` and you want to switch one light on when the button was pressed once and two other lights when the button was pressed twice. `context_timeout` has to be configured in order for this to work.
+Let's pretend you have configured a binary sensor with the name `Livingroom Switch` and you want to toggle a light when the button was pressed once and another light when the button was pressed twice.
+`context_timeout` has to be configured in order for this to work and the switch would have to send the same payloads on each press (`on` - `on` within the time window).
 
 ```yaml
-# Example automation.yaml entry
 automation:
   - triggers:
       - trigger: numeric_state
@@ -683,53 +688,21 @@ automation:
         attribute: counter
         above: 0
         below: 2
-    condition:
-      - condition: state
-        entity_id: binary_sensor.cover_abstell
-        state: "on"
     actions:
-      - action: light.turn_on
-        entity_id: light.hue_color_lamp_1
-
+      - action: light.toggle
+        entity_id: light.livingroom_ceiling_lamp
   - triggers:
       - trigger: numeric_state
         entity_id: binary_sensor.livingroom_switch
         attribute: counter
         above: 1
         below: 3
-    conditions:
-      - condition: state
-        entity_id: binary_sensor.cover_abstell
-        state: "on"
     actions:
-      - action: light.turn_on
+      - action: light.toggle
         target:
           entity_id: 
-            - light.hue_bloom_1
-            - light.hue_bloom_2
-        
+            - light.livingroom_floor_lamp
 ```
-
-{% configuration %}
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
-counter:
-  description: Set to 2 if you only want the action to be executed if the button was pressed twice. Set to 3 for three times button pressed.
-  required: false
-  type: integer
-  default: 1
-hook:
-  description: Indicates if the automation should be executed on what state of the binary sensor. Values are "on" or "off".
-  required: false
-  type: string
-  default: "on"
-action:
-  description: Specify a list of actions analog to the [automation rules](/docs/automation/action/).
-  required: false
-  type: list
-{% endconfiguration %}
 
 ## Button
 
@@ -1058,6 +1031,22 @@ fan_zero_mode:
   required: false
   type: string
   default: "off"
+swing_address:
+  description: KNX address for turning the (vertical) swing on/off. *DPT 1*
+  required: false
+  type: [string, list]
+swing_state_address:
+  description: KNX address for gathering the current state (on/off) of the (vertical) swing. *DPT 1*
+  required: false
+  type: [string, list]
+swing_horizontal_address:
+  description: KNX address for turning the horizontal swing on/off. *DPT 1*
+  required: false
+  type: [string, list]
+swing_horizontal_state_address:
+  description: KNX address for gathering the current state (on/off) of the horizontal swing. *DPT 1*
+  required: false
+  type: [string, list]
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false

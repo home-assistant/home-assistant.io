@@ -2,6 +2,7 @@
 title: EHEIM Digital
 description: Instructions on how to set up EHEIM Digital with Home Assistant.
 ha_category:
+  - Climate
   - Light
 ha_release: 2025.1
 ha_iot_class: Local Polling
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: eheimdigital
 ha_integration_type: hub
 ha_platforms:
+  - climate
   - light
 ha_quality_scale: bronze
 ha_zeroconf: true
@@ -37,6 +39,13 @@ Currently, the following devices and entities are supported:
 
 - **Brightness**: Controlling the brightness of both light channels
 - **Daycycle mode effect**: Automatically controls the brightness based on the daytime as configured on the device
+
+### [EHEIM thermocontrol+e](https://eheim.com/en_GB/aquatics/eheim-digital/aquarium-heaters/)
+
+#### Climate
+
+- **Target temperature**: Controlling the target temperature of the heater (which corresponds to the day temperature in Bio and Smart mode)
+- **Presets / Operation mode**: Switching between Manual, Bio and Smart mode
 
 Support for additional EHEIM Digital devices and entities will be added in future updates.
 

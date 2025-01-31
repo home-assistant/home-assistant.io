@@ -27,6 +27,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
 - [3 Day Blinds](https://www.3dayblinds.com/)
+- [Decorquip Dream](https://www.decorquip.com/post.php?dream)
 - [Diaz](https://www.diaz.be/en/)
 - [Dooya](http://www.dooya.com/)
 - [Gaviota](https://www.gaviotagroup.com/en/)
@@ -65,6 +66,8 @@ The following bridges are reported to work with this integration:
 - SIRO Connect SI7005
 - Heicko Smart Stick 1ST
 - DD7006A Smart Home bridge
+- Dreamhub Pro 191726
+- Dreamhub mini 191717
 
 {% include integrations/config_flow.md %}
 
