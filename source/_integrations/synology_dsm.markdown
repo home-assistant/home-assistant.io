@@ -79,7 +79,7 @@ Assume there is a shared folder called `HA Backup`, with two directories in it `
 
 1. Select `HA Backup` as shared folder.
 2. Define `productive_instance` as backup path (_without trailing slash_).
-    - The existing `productive_instance` will be used as backup location.
+    - **Result**: The existing `productive_instance` will be used as backup location.
 
 #### Use a non-existing path
 
