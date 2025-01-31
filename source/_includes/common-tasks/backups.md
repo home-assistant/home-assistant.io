@@ -91,7 +91,7 @@ This creates a backup instantly. You can create a manual backup at any time, irr
 
 There are multiple ways to download your local backup from your Home Assistant instance and store it on another device:
 
-**Option 1**: Download the entire backup from the backup page:
+**Option 1**: Download from the backup page:
 
 1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
 2. To select multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
@@ -129,7 +129,7 @@ To delete old backups, follow these steps:
 
 1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
 2. To delete one backup, on the list, select the backup of interest.
-   - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**
+   - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
 3. To delete multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
    - From the list of backups, select all the ones you want to delete and select **Delete selected**.
    - {% icon "mdi:information-outline" %} Consider keeping at least one recent backup for recovery purposes.
