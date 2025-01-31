@@ -106,5 +106,7 @@ The following devices are *not* supported:
 1. Make sure the device is powered on.
 2. Make sure the device is connected to the same network as Home Assistant.
 3. Make sure the IP address of the MotionMount is configured correctly.
-    - In case of doubt, perform a network reset by holding the reset button for approx. 5 seconds. The LED will start to blink slowly. This will reset the network configuration to use DHCP. Warning! Don't hold the reset button for too long (approx. 10 s). If the LED starts blinking fast you will perform a factory reset.
+    - In case of doubt, perform a network reset by holding the reset button for approx. 5 seconds.
+      - **Result**: The LED will start to blink slowly. This indicates that the network configuration is being reset to use DHCP.
+      - **Important**: Don't hold the reset button for too long (approx. 10 s). Holding the button for 10 s or longer starts a factory reset. A factory reset is indicated by the LED blinking fast.
 
