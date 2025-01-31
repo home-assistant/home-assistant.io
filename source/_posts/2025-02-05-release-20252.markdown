@@ -84,7 +84,6 @@ Enjoy the (beta) release!
   - [Re-introduction of the backup toggle on update](#re-introduction-of-the-backup-toggle-on-update)
     - [Backup on updating Home Assistant](#backup-on-updating-home-assistant)
     - [Backup on updating add-ons](#backup-on-updating-add-ons)
-  - [Improved filenames for backups](#improved-filenames-for-backups)
   - [New locations](#new-locations)
 - [Voice](#voice)
   - [Home Assistant will be able to call your analog phone to tell you a message](#home-assistant-will-be-able-to-call-your-analog-phone-to-tell-you-a-message)
@@ -215,20 +214,6 @@ That way you can keep around the previous version of the add-on, so you can alwa
 
 To prevent your system from filling up with old add-on backups, we automatically
 delete the previous versions of the add-on backup after a new one is created.
-
-### Improved filenames for backups
-
-One of the feedback we've seen a lot, is that the filenames created by
-backups stored on backup locations, have been very cryptic and hard to
-understand for humans.
-
-This feedback was fair, as the filename was a hash and originally not designed
-to be human readable. This method was not newly introduced last release, but it was made more apparent to us with the new backup system.
-
-So, this release, we've improved the filenames of the backups stored on your
-backup locations. The filename now includes the date and time the backup was
-created, making it easier to understand and identify the backup you are looking
-for, even outside of Home Assistant.
 
 ### New locations
 
