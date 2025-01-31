@@ -91,13 +91,14 @@ This creates a backup instantly. You can create a manual backup at any time, irr
 
 There are multiple ways to download your local backup from your Home Assistant instance and store it on another device:
 
-**Option 1**: Download from the backup page:
+**Option 1**: Download the entire backup from the backup page:
 
 1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
-2. To select one backup, on the list, single-click or tap the backup of interest.
-   - To select multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
-3. In the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download backup**.
+2. To select multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download backup**.
    - **Result**: The selected backup is stored in the **Downloads** folder of your computer.
+4. If a backup is stored on multiple locations, you can select where you download it from:
+   - Select the backup, and under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 
 **Option 2**: Copy backups from the backups folder:
 
@@ -109,8 +110,16 @@ There are multiple ways to download your local backup from your Home Assistant i
 
 If you were logged in to Home Assistant Cloud and had Cloud backup enabled when creating a backup, your last backup is stored on Home Assistant Cloud.
 
-1. To download the backup, log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
-2. Under **Stored files**, you can see the latest available backup file. Select the download button.
+There are two ways to download the backup from Home Assistant Cloud:
+
+- **Option 1**: From the backups page
+  1. Got to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
+  2. Under **Stored files**, you can see the latest available backup file. Select the download button.
+
+- **Option 2**: From your Home Assistant Cloud account
+  1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
+  2. Select the backup from the list.
+  3. Under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 
 ### Deleting obsolete backups
 
