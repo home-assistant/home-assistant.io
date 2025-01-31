@@ -62,7 +62,7 @@ Only IP connections are supported. Connection via RS-232 or Bluetooth Low Energy
 The following devices are supported:
 
 - TVM 7675 Pro (SIGNATURE MotionMount with Pro extension)
- 
+
 ## Unsupported devices
 
 The following devices are *not* supported:
@@ -77,7 +77,7 @@ The following devices are *not* supported:
 #### Sensors
 
 - **Moving**
-  - **Description**: Indicates whether the MotionMount is moving. 
+  - **Description**: Indicates whether the MotionMount is moving.
 
 - **Error Status**
   - **Description**: The error status of the MotionMount.
@@ -92,8 +92,9 @@ The following devices are *not* supported:
 
 - **Turn**
   - **Description**: The current rotation of the MotionMount.
-     
+
 #### Selects
+
 - **Presets**
   - **Description**: If the MotionMount is at a preset location, this shows the corresponding preset.
         Any preset can be selected to move the MotionMount to this preset position.
