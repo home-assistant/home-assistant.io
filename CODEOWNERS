@@ -978,6 +978,7 @@ source/_integrations/workday.markdown @fabaff @gjohansson-ST
 source/_integrations/worldclock.markdown @fabaff
 source/_integrations/ws66i.markdown @ssaenger
 source/_integrations/wyoming.markdown @balloob @synesthesiam
+source/_integrations/xai_conversation.markdown @balloob
 source/_integrations/xbox.markdown @hunterjm
 source/_integrations/xiaomi_aqara.markdown @danielhiversen @syssi
 source/_integrations/xiaomi_ble.markdown @Jc2k @Ernst79
