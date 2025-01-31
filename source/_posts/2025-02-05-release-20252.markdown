@@ -171,7 +171,7 @@ to trigger a backup in an automation.
 
 This allows you to create automated backups on any schedule you like, or even
 add conditions and actions around it. For example, you could make an automation
-that triggers on a calendar, turns on your NAS, awaits till it is online, and
+that triggers on a calendar, turns on your NAS, waits till it is online, and
 then triggers a backup.
 
 ### Re-introduction of the backup toggle on update
@@ -212,9 +212,9 @@ When updating add-ons, things are slightly different. The toggle exists here
 too, and is disabled by default. However, when you enable it, only a backup
 of your add-on and its data is created. 
 
-That way you can keep around the previous version of the add-on, so you can always roll back to the it if needed.
+That way you can keep around the previous version of the add-on, so you can always roll back to it if needed.
 
-To prevent your system for filling up with old add-on backups, we automatically
+To prevent your system from filling up with old add-on backups, we automatically
 delete the previous versions of the add-on backup after a new one is created.
 
 ### Improved filenames for backups
