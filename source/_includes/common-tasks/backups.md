@@ -42,7 +42,7 @@ The automatic backup process creates a backup on a predefined schedule and also 
    - Define the time:
      - **System optimal** sets a time in a predefined time window as shown in the UI.
      - **Custom** lets you pick the time when you want the backup to start.
-     - {% important %} Make sure you pick a time when all your backup locations are up and running and available. Otherwise the backup will fail. {% endimportant %}
+     - {% important %} Make sure you pick a time when all your backup locations are up and running and available. Otherwise the backup will fail for the location that is not available. {% endimportant %}
 5. Define how many backups you want to keep.
    - Older backups will be automatically deleted.
    - For example: if you back up daily, and select 7 backups, then the backup from 8 days ago and older will be deleted.
