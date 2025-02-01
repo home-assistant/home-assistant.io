@@ -25,6 +25,8 @@ As an alternative, the [Grandstream HT802](https://www.amazon.com/Grandstream-GS
 
 Also, the Grandstream HT812 has been reported to work. Home Assistant supports using only one of the two phone ports.
 
+If you are running Home Assistant on a machine with other VoIP software you can configure the port the **VoIP** {%term integration %} listens on in the configuration. For outgoing calls, if your phone requires specifying a username check the "advanced options" box in the configuration and enter the username on the next page.
+
 <p class='img'>
   <img src="/images/integrations/voip/voip_adapter.png" />
   Connecting a phone to Home Assistant requires an adapter.
