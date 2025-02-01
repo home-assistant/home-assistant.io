@@ -211,31 +211,31 @@ Days without any ranges will be returned as an empty list.
 ```yaml
 schedule.vacuum_robot:
   monday:
-    - start: "09:00:00"
-      end: "15:00:00"
+    - from: "09:00:00"
+      to: "15:00:00"
   tuesday: []
   wednesday: []
   thursday:
-    - start: "09:00:00"
-      end: "15:00:00"
+    - from: "09:00:00"
+      to: "15:00:00"
   friday: []
   saturday: []
   sunday: []
 schedule.air_purifier:
   monday:
-    - start: "09:00:00"
-      end: "18:00:00"
+    - from: "09:00:00"
+      to: "18:00:00"
   tuesday: []
   wednesday: []
   thursday:
-    - start: "09:00:00"
-      end: "18:00:00"
+    - from: "09:00:00"
+      to: "18:00:00"
   friday: []
   saturday:
-    - start: "10:30:00"
-      end: "12:00:00"
-    - start: "14:00:00"
-      end: "19:00:00"
+    - from: "10:30:00"
+      to: "12:00:00"
+    - from: "14:00:00"
+      to: "19:00:00"
   sunday: []
 ```
 
@@ -250,11 +250,11 @@ data:
   message: >-
     Your vacuum robot will run today:
     {% for event in schedules["schedule.vacuum_robot"][now().strftime('%A').lower()] %}
-    - from {{ event.start }} until {{ event.end }}<br>
+    - from {{ event.from }} until {{ event.to }}<br>
     {% endfor %}
     Your air purifier will run today:
     {% for event in schedules["schedule.air_purifier"][now().strftime('%A').lower()] %}
-    - from {{ event.start }} until {{ event.end }}<br>
+    - from {{ event.from }} until {{ event.to }}<br>
     {% endfor %}
 ```
 
