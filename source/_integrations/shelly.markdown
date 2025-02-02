@@ -152,6 +152,24 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
 
 If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
+Each script which generates events using [Shelly.emitEvent()](https://shelly-api-docs.shelly.cloud/gen2/Scripts/ShellyScriptLanguageFeatures#shellyemitevent) also gets an corresponding event entity. This entity is disabled by default. After changing a script, it's required to manually reload the device before new event types show up.
+
+For example, the following script will emit an event every time an input (button or switch) on the device is changed.
+
+```javascript
+// Example shelly script
+function eventHandler(event, userdata) {
+  if (
+    typeof event.component === "string" &&
+    event.component.substring(0, 5) === "input"
+  ) {
+    let id = Number(event.component.substring(6));
+    Shelly.emitEvent("input_event", { id: id });
+  }
+}
+Shelly.addEventHandler(eventHandler);
+```
+
 ## Events
 
 If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events under the type `shelly.click` when the switch is used. You can use these events in your automations.
@@ -331,25 +349,7 @@ The integration supports the following virtual components:
 
 ## Scripts (generation 2 and 3)
 
-For each device script, the integration creates a `switch` entity that allows you to control the script and an `event` entity. These entities are disabled by default.
-
-The `event` entity shows event that are emitted by the script using [Shelly.emitEvent()](https://shelly-api-docs.shelly.cloud/gen2/Scripts/ShellyScriptLanguageFeatures#shellyemitevent). After changing a script, it's required to manually reload the device before new event types show up.
-
-For example, the following script will emit an event every time an input (button or switch) on the device is changed.
-
-```javascript
-// Example shelly script
-function eventHandler(event, userdata) {
-  if (
-    typeof event.component === "string" &&
-    event.component.substring(0, 5) === "input"
-  ) {
-    let id = Number(event.component.substring(6));
-    Shelly.emitEvent("input_event", { id: id });
-  }
-}
-Shelly.addEventHandler(eventHandler);
-```
+For each device script, the integration creates a `switch` entity that allows you to control the script. These entities are disabled by default.
 
 ## Additional info
 
