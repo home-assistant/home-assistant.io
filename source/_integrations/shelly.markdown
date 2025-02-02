@@ -154,7 +154,7 @@ If the **Input Mode** of the switch connected to the device is set to `Button`, 
 
 ## Events
 
-If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events under the type `shelly.click` when the switch is used. You can use these events in your automations.
+If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events under the type `shelly.click` when the switch is used. Certain devices such as the Plus Smoke can generate test events, which are fired under the type `shelly.test`. You can use these events in your automations.
 
 Also, some devices do not add an entity for the button/switch. For example, the Shelly Button1 has only one entity for the battery level. It does not have an entity for the button itself. To trigger automations based on button presses, use the `shelly.click` event.
 
@@ -240,6 +240,10 @@ Generation 2 and 3 devices use the values `btn_down`, `btn_up`, `single_push`, `
 {% note %}
 Not all devices support all input events. You can check on [Shelly API Reference](https://shelly-api-docs.shelly.cloud/) website what types of Shelly input events your device supports.
 {% endnote %}
+
+### Possible values for `test_type`
+
+At this time only the `alarm_test` test event as fired by the Plus Smoke is supported.
 
 ## Appliance type (generation 1)
 
