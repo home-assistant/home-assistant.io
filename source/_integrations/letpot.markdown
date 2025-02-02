@@ -2,6 +2,7 @@
 title: LetPot
 description: Instructions on how to integrate LetPot hydroponic gardens into Home Assistant.
 ha_category:
+  - Switch
   - Time
 ha_release: 2025.2
 ha_iot_class: Cloud Push
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: letpot
 ha_integration_type: integration
 ha_platforms:
+  - switch
   - time
 ---
 
@@ -50,6 +52,19 @@ Password:
 ### Entities
 
 The LetPot integration provides the following entities.
+
+#### Switches
+
+- **Power**: Main switch to turn on/off the device. Device features (like the built-in light and pump) will only operate when the power is on.
+- **Pump cycling**: Turn on/off cycling of the water pump. When on, the pump will run intermittently (controlled by the device).
+
+For devices with an alarm that allows muting the sound, the following switch is also available:
+
+- **Alarm sound**: Turn on/off the alarm sound.
+
+For LetPot Max devices, the following switch is also available:
+
+- **Auto mode**: Turn on/off auto mode, which automatically adds water and nutrients to the garden when needed.
 
 #### Times
 

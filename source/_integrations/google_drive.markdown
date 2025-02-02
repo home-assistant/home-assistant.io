@@ -10,6 +10,7 @@ ha_domain: google_drive
 ha_codeowners:
   - '@tronikos'
 ha_integration_type: service
+ha_quality_scale: platinum
 google_dev_console_link: https://console.developers.google.com/start/api?id=drive
 api: Google Drive API
 api_link: https://console.developers.google.com/start/api?id=drive
