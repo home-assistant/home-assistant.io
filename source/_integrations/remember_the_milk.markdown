@@ -51,7 +51,7 @@ remember_the_milk:
 
 ### Step 2: Registering your account
 
-After saving the configuration, you need to (re-)start Home Assistant. On the first start you will notice a new "Configuration" panel appearing on the Home Assistant page. After opening the configuration page, follow the link "Remember The Milk login". This will take you to a login page where you have to log in with your normal Remember The Milk credentials. This will authorize Home Assistant to access your Remember The Milk account.
+After saving the configuration, you need to (re-)start Home Assistant. On the first start you will notice a notification in the notifications panel. After opening the notification, follow the link "Remember The Milk login". This will take you to a login page where you have to log in with your normal Remember The Milk credentials. This will authorize Home Assistant to access your Remember The Milk account.
 
 After that click on the "login completed" button. This will tell Home Assistant that you have completed the login process on the Remember The Milk page and Home Assistant should try to register with this account.
 
@@ -71,9 +71,10 @@ The task creation supports the "smart syntax", so to create a task with the tag 
 At the moment, smart syntax is *not* supported when updating tasks. All smart syntax commands are ignored during the update and will end up as normal text in the name of the task.
 
 | Data attribute | Optional | Description                                                                                  | Example                     |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------- | --------------------------- |
-| name                   | no       | Name of the new task, you can use the smart syntax here.                                     | "do this ^today #from_hass" |
-| id                     | yes      | Identifier for the task you're creating, can be used to update or complete the task later on | "myid"                      |
+|----------------| -------- |----------------------------------------------------------------------------------------------|-----------------------------|
+| name           | no       | Name of the new task, you can use the smart syntax here.                                     | "do this ^today #from_hass" |
+| id             | yes      | Identifier for the task you're creating, can be used to update or complete the task later on | "myid"                      |
+| list_id        | yes      | Optional list_id for the task you're creating.                                               | "1234567"                   |
 
 ## Completing tasks with service `complete_task`
 
