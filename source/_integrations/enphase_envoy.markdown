@@ -113,7 +113,7 @@ The Envoy device reports aggregated data for all connected micro-inverters.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Energy production today**: Energy produced since midnight in Wh, default display scaled to kWh. (See known limitations [Late reset](#late-reset), [Energy Incorrect](#energy-incorrect)).
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime energy production**: Lifetime energy production in Wh, default display scaled to MWh. (See known limitations [Lifetime reset](#lifetime-reset)).
 
-<figure>
+<figure id="envoy_device_figure">
   <img src="/images/integrations/enphase_envoy/enphase_envoy_solar_production.png" alt="Envoy device">
   <figcaption>Envoy device with solar production entities.</figcaption>
 </figure>
@@ -684,6 +684,95 @@ The Envoy Metered in multiphase setup, sums the voltages of the phases measured 
 ### Balancing grid meter
 
 In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. This other phase pulls the missing amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multiphase net-consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
+
+## Technical Information
+
+This integration uses the [pyenphase library](https://pypi.org/project/pyenphase/) as a mean to collect all envoy data. Depending on the version of Home Assistant you are running, this integration may be using different versions of the library.
+
+### Setup
+
+When a configuration entry for this integration is newly added, or each time a configured entry is (re)loaded, the envoy setup is performed. Using the specified DNS name or IP address, either from the user input, or from the configuration entry, the `/info` endpoint on the envoy is read using a GET request. This returns XML data containing, amongst other information, the envoy serial-number, the hardware version and the running firmware version. No username, password or tokens are needed in this stage of the process.
+
+{% details "example /info endpoint data" %}
+
+The serial-number is in the `sn` element, the hardware version is in the `pn` element and  the firmware version is in the `software` element. These 3 are shown on the [Envoy device](#envoy_device_figure) info.
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<envoy_info>
+  <time>1738247528</time>
+  <device>
+    <sn>123456789012</sn>
+    <pn>800-00656-r06</pn>
+    <software>D8.2.4264</software>
+    <euaid>4c8675</euaid>
+    <seqnum>0</seqnum>
+    <apiver>1</apiver>
+    <imeter>false</imeter>
+  </device>
+  <web-tokens>true</web-tokens>
+  <package name='rootfs'>
+    <pn>500-00001-r01</pn>
+    <version>02.00.00</version>
+    <build>1211</build>
+  </package>
+
+  <other packages removed from example />
+
+  <build_info>
+    <build_id>-envoy_uber-pkg_master:pkg-Jul-16-24-16:04:25</build_id>
+    <build_time_gmt>1721146183</build_time_gmt>
+    <release_ver>02.00.5338</release_ver>
+    <release_stage>700-GA</release_stage>
+  </build_info>
+</envoy_info>
+```
+
+The `imeter` signals if the envoy is a metered or non-metered type. The `web-tokens` element signals if token authorization is required.
+
+{% enddetails %}
+
+The envoy serial-number is used as unique_id for the configuration entry, as well as part of the unique_id and entity_id of the entities created.
+
+### Authentication
+
+Next step is authentication with the envoy. For firmware versions before version 7, the specified username and password are used to authenticate directly with the envoy using `DigestAuth`. If the [recommended username](#required-manual-input) `installer` is used, the password to use is calculated from the serial-number.
+
+For firmware versions 7 and later, a token is used to authenticate with the envoy. If no token is available, as is the case when being configured, or when a check reveals the token is expired, a token is retrieved from the Enphase enlighten web-site. The specified [username and password](#required-manual-input), and the envoy serial-number are used during the token retrieval. The token is then validated with the envoy on endpoint /auth/check_jwt, and stored with username and password in the configuration entry. The token will be checked for expiry once a day, and refreshed in the background if within 30 days of the expiration date. When you change your Enphase Enlighten credentials use the [reconfigure](#reconfigure) menu to update these, for the token refresh to be successful when needed.
+
+If, for any reason, the Enphase web-site is not reachable when requesting a toking during first configuration, a failure will occur and the configuration needs to be repeated, maybe even at a later moment in time. If such a failure occurs during the background token refresh in the final 30 day window, it will be retried the next day without any error reporting. An error will occur when the expiry date is passed and the failure persists.
+
+### Probing
+
+Once authentication is successful, the envoy is scanned for available data. This probing process determines what endpoints are available and which ones to use for entity data. It will account for differences in models, firmware versions and configured features.
+
+A fallback mechanism is used for data that is sourced from different endpoints over firmware versions or models. This is trying the most advanced endpoint first, if that is not available, or not populated, a less advanced alternative is tried. This continues until a minimal or no dataset is found. If no dataset is found, entities will not be available. Some data may be identified by an entry in single endpoint, but require multiple endpoints for all options.
+
+{% details "Endpoint overview." %}
+
+| data type | endpoint | Description |
+| - | - | - |
+| [Inverters](#individual-micro-inverter-production-data) |/api/v1/production/inverters| Only source for individual inverter power data.|
+| [Solar production](#solar-production-data) |/ivp/meters <br>/ivp/meters/readings |Primary source data for production current power and lifetime energy, if production CT is installed.|
+| |/production.json?details=1 |Fallback for production current power and lifetime energy. <br>Primary source for today's and last seven day energy data.|
+| |/production<br>/api/v1/production |Fallback for production current power and lifetime energy. <br>Fallback for today's and last seven day energy data.|
+| [House Consumption](#house-consumption-data) |/ivp/meters <br>/ivp/meters/readings |Primary source for house consumption current power and lifetime energy, if total-consumption CT is installed.|
+| |/production.json?details=1 |Fallback for house consumption current power and lifetime energy. <br>Primary source for consumption today's and last seven day energy data.|
+| |/production|Fallback for consumption current power and lifetime energy. <br>Fallback for today's and last seven day energy data.|
+| [Grid import-export](#grid-sensor-entities) |/ivp/meters <br>/ivp/meters/readings | Only if net-consumption CT is installed.|
+| |/production.json?details=1 | fallback as [balanced grid import export](#grid-balanced-importexport-sensor-entities).|
+| [Battery](#battery-storage-data) | /ivp/ensemble/inventory | for probing and data|
+| | /ivp/ensemble/secctrl <br>/ivp/ensemble/power <br>/admin/lib/tariff| Additional data.|
+| [On/Off-Grid](#enpower-data) | /ivp/ensemble/inventory | for probing and data |
+| | /ivp/ensemble/dry_contacts <br>/ivp/ss/dry_contact_settings | Additional data endpoints.|
+| Generator| /ivp/ss/gen_config| |
+| [<abbr title="current transformers">CT</abbr> details](#current-transformer-entities) | /ivp/meters <br>/ivp/meters/readings | |
+
+{% enddetails %}
+
+### Data
+
+Entities are configured in Home Assistant based on the final data set available from probing. Some entities are disabled by default and require you to enable them before they can be used. The list of selected endpoints is then used to collect the data. New data is collected once per minute by [default](#data-polling-interval). All data from the endpoints is stored in an internal `raw` cache, and parts of this cache are used for entity data. To view the cache content, download the [diagnostics report](#diagnostics), it has the data in it's [raw_data](#raw-data) section.
 
 ## Troubleshooting
 
