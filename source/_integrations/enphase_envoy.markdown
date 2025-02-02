@@ -393,7 +393,7 @@ The names of entities and devices are derived from the load_name configured in t
 
 All data is collected in one coordinated collection cycle and sourced from a limited set of endpoints on the Envoy. For example, three different values sourced from the same endpoint are not pulled in three different requests but provided from the same single request. This method minimizes the number of requests to the Envoy. The local REST API of the Envoy is used. Only when the 1-year valid token is to expire, 1 month before due data, a new token is requested from the Enphase Enlighten website.
 
-The integration collects data for all entities by default every 60 seconds. To customize the collection interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the action using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
+The integration collects data for all entities by default every 60 seconds. To customize the collection interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the Envoy device as target of the action using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each Envoy as targets or create separate custom polling intervals with a single entity as needed.
 
 Envoy installations without installed <abbr title="current transformers">CT</abbr>, collect individual solar inverter data every 5 minutes. This collection does not occur for each inverter at the same time in the 5-minute period. Shortening the collection interval will at best show updates for individual inverters quicker, but not yield more granular data.
 
@@ -687,11 +687,11 @@ In multiphase installations with batteries, in countries with phase-balancing gr
 
 ## Technical Information
 
-This integration uses the [pyenphase library](https://pypi.org/project/pyenphase/) as a mean to collect all envoy data. Depending on the version of Home Assistant you are running, this integration may be using different versions of the library.
+This integration uses the [pyenphase library](https://pypi.org/project/pyenphase/) as a means to collect all Envoy data. Depending on the version of Home Assistant you are running, this integration may be using different versions of the library.
 
 ### Setup
 
-When a configuration entry for this integration is newly added, or each time a configured entry is (re)loaded, the envoy setup is performed. Using the specified DNS name or IP address, either from the user input, or from the configuration entry, the `/info` endpoint on the envoy is read using a GET request. This returns XML data containing, amongst other information, the envoy serial-number, the hardware version and the running firmware version. No username, password or tokens are needed in this stage of the process.
+When a configuration entry for this integration is newly added, or each time a configured entry is (re)loaded, the Envoy setup is performed. Using the specified DNS name or IP address, either from the user input, or from the configuration entry, the `/info` endpoint on the Envoy is read using a GET request. This returns XML data containing, among other information, the Envoy serial-number, the hardware version and the running firmware version. No username, password or tokens are needed in this stage of the process.
 
 {% details "example /info endpoint data" %}
 
@@ -728,23 +728,23 @@ The serial-number is in the `sn` element, the hardware version is in the `pn` el
 </envoy_info>
 ```
 
-The `imeter` signals if the envoy is a metered or non-metered type. The `web-tokens` element signals if token authorization is required.
+The `imeter` signals if the Envoy is a metered or non-metered type. The `web-tokens` element signals if token authorization is required.
 
 {% enddetails %}
 
-The envoy serial-number is used as unique_id for the configuration entry, as well as part of the unique_id and entity_id of the entities created.
+The Envoy serial-number is used as unique_id for the configuration entry, as well as part of the unique_id and entity_id of the entities created.
 
 ### Authentication
 
-Next step is authentication with the envoy. For firmware versions before version 7, the specified username and password are used to authenticate directly with the envoy using `DigestAuth`. If the [recommended username](#required-manual-input) `installer` is used, the password to use is calculated from the serial-number.
+Next step is authentication with the Envoy. For firmware versions before version 7, the specified username and password are used to authenticate directly with the Envoy using `DigestAuth`. If the [recommended username](#required-manual-input) `installer` is used, the password to use is calculated from the serial-number.
 
-For firmware versions 7 and later, a token is used to authenticate with the envoy. If no token is available, as is the case when being configured, or when a check reveals the token is expired, a token is retrieved from the Enphase enlighten web-site. The specified [username and password](#required-manual-input), and the envoy serial-number are used during the token retrieval. The token is then validated with the envoy on endpoint /auth/check_jwt, and stored with username and password in the configuration entry. The token will be checked for expiry once a day, and refreshed in the background if within 30 days of the expiration date. When you change your Enphase Enlighten credentials use the [reconfigure](#reconfigure) menu to update these, for the token refresh to be successful when needed.
+For firmware versions 7 and later, a token is used to authenticate with the Envoy. If no token is available, as is the case when being configured, or when a check reveals the token is expired, a token is retrieved from the Enphase enlighten web-site. The specified [username and password](#required-manual-input), and the Envoy serial-number are used during the token retrieval. The token is then validated with the Envoy on endpoint /auth/check_jwt, and stored with username and password in the configuration entry. The token will be checked for expiry once a day, and refreshed in the background if within 30 days of the expiration date. When you change your Enphase Enlighten credentials use the [reconfigure](#reconfigure) menu to update these, for the token refresh to be successful when needed.
 
-If, for any reason, the Enphase web-site is not reachable when requesting a toking during first configuration, a failure will occur and the configuration needs to be repeated, maybe even at a later moment in time. If such a failure occurs during the background token refresh in the final 30 day window, it will be retried the next day without any error reporting. An error will occur when the expiry date is passed and the failure persists.
+If at first configuration, the Enphase web-site is not reachable, a failure will occur and the configuration needs to be repeated, maybe at a later moment in time. If such a failure occurs during the background token refresh in the final 30-day window, it will be retried the next day without any error reporting. An error will occur when the expiry date is passed and the failure persists.
 
 ### Probing
 
-Once authentication is successful, the envoy is scanned for available data. This probing process determines what endpoints are available and which ones to use for entity data. It will account for differences in models, firmware versions and configured features.
+Once authentication is successful, the Envoy is scanned for available data. This probing process determines what endpoints are available and which ones to use for entity data. It will account for differences in models, firmware versions and configured features.
 
 A fallback mechanism is used for data that is sourced from different endpoints over firmware versions or models. This is trying the most advanced endpoint first, if that is not available, or not populated, a less advanced alternative is tried. This continues until a minimal or no dataset is found. If no dataset is found, entities will not be available. Some data may be identified by an entry in single endpoint, but require multiple endpoints for all options.
 
@@ -772,7 +772,7 @@ A fallback mechanism is used for data that is sourced from different endpoints o
 
 ### Data
 
-Entities are configured in Home Assistant based on the final data set available from probing. Some entities are disabled by default and require you to enable them before they can be used. The list of selected endpoints is then used to collect the data. New data is collected once per minute by [default](#data-polling-interval). All data from the endpoints is stored in an internal `raw` cache, and parts of this cache are used for entity data. To view the cache content, download the [diagnostics report](#diagnostics), it has the data in it's [raw_data](#raw-data) section.
+Entities are configured in Home Assistant based on the final data set available from probing. Some entities are disabled by default and require you to enable them before they can be used. The list of selected endpoints is then used to collect the data. New data is collected once per minute by [default](#data-polling-interval). All data from the endpoints is stored in an internal `raw` cache, and parts of this cache are used for entity data. To view the cache content, download the [diagnostics report](#diagnostics), it has the data in its [raw_data](#raw-data) section.
 
 ## Troubleshooting
 
