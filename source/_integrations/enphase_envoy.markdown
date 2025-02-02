@@ -687,7 +687,7 @@ In multiphase installations with batteries, in countries with phase-balancing gr
 
 ## Technical Information
 
-This integration uses the [pyenphase library](https://pypi.org/project/pyenphase/) as a means to collect all Envoy data. Depending on the version of Home Assistant you are running, this integration may be using different versions of the library.
+This integration uses the [pyenphase library](https://pypi.org/project/pyenphase/) to collect all Envoy data. Depending on the version of Home Assistant you are running, this integration may be using different versions of the library.
 
 ### Setup
 
@@ -738,15 +738,15 @@ The Envoy serial-number is used as unique_id for the configuration entry, as wel
 
 Next step is authentication with the Envoy. For firmware versions before version 7, the specified username and password are used to authenticate directly with the Envoy using `DigestAuth`. If the [recommended username](#required-manual-input) `installer` is used, the password to use is calculated from the serial-number.
 
-For firmware versions 7 and later, a token is used to authenticate with the Envoy. If no token is available, as is the case when being configured, or when a check reveals the token is expired, a token is retrieved from the Enphase enlighten web-site. The specified [username and password](#required-manual-input), and the Envoy serial-number are used during the token retrieval. The token is then validated with the Envoy on endpoint /auth/check_jwt, and stored with username and password in the configuration entry. The token will be checked for expiry once a day, and refreshed in the background if within 30 days of the expiration date. When you change your Enphase Enlighten credentials use the [reconfigure](#reconfigure) menu to update these, for the token refresh to be successful when needed.
+For firmware versions 7 and later, a token is used to authenticate with the Envoy. If no token is available, as is the case when being configured, or when a check reveals the token is expired, a token is retrieved from the Enphase enlighten web-site. The specified [username and password](#required-manual-input), and the Envoy serial-number are used during the token retrieval. The token is then validated with the Envoy on endpoint /auth/check_jwt, and stored with username and password in the configuration entry. The token will be checked for expiry once a day, and refreshed in the background if within 30 days of the expiration date. When you change your Enphase Enlighten credentials, use the [reconfigure](#reconfigure) menu to update these, for the token refresh to be successful when needed.
 
-If at first configuration, the Enphase web-site is not reachable, a failure will occur and the configuration needs to be repeated, maybe at a later moment in time. If such a failure occurs during the background token refresh in the final 30-day window, it will be retried the next day without any error reporting. An error will occur when the expiry date is passed and the failure persists.
+If at first configuration, the Enphase web-site is not reachable, a failure will occur and the configuration needs to be repeated, maybe at a later time. If such a failure occurs during the background token refresh in the final 30-day window, it will be retried the next day without any error reporting. An error will occur when the expiry date is passed and the failure persists.
 
 ### Probing
 
 Once authentication is successful, the Envoy is scanned for available data. This probing process determines what endpoints are available and which ones to use for entity data. It will account for differences in models, firmware versions and configured features.
 
-A fallback mechanism is used for data that is sourced from different endpoints over firmware versions or models. This is trying the most advanced endpoint first, if that is not available, or not populated, a less advanced alternative is tried. This continues until a minimal or no dataset is found. If no dataset is found, entities will not be available. Some data may be identified by an entry in single endpoint, but require multiple endpoints for all options.
+A fallback mechanism is used for data that is sourced from different endpoints over firmware versions or models. This is trying the most advanced endpoint first, if that is not available, or not populated, a less advanced alternative is tried. This continues until a minimal or no dataset is found. If no dataset is found, entities will not be available. Some data may be identified by an entry in a single endpoint, but require multiple endpoints for all data.
 
 {% details "Endpoint overview." %}
 
