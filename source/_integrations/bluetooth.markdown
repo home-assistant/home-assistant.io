@@ -293,7 +293,11 @@ Bluetooth advertisement bundling reduces traffic between Home Assistant and the 
 
 ### Improving connection times
 
-Connection time and performance vary greatly depending on the Bluetooth adapter and interference. When switching to an adapter with better performance, disable the old, less performant adapters. The best signal and available connection slots are considered when making connections, and performance will be limited to the worst-performing adapter with the best signal to reach the remote device.
+Connection time and performance vary greatly depending on the Bluetooth adapter and interference. 
+
+{% warning %}
+When switching to an adapter with better performance, disable the old, less performant adapters. The best signal and available connection slots are considered when making connections, and performance will be limited to the worst-performing adapter with the best signal to reach the remote device.
+{% endwarning %}
 
 The below adapters are listed from best-performing to worst-performing:
 
