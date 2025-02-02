@@ -34,8 +34,10 @@ The integration provides the following configuration options:
 
 {% configuration_basic %}
 Control Home Assistant:
-  description: The API to use to expose tools over the Model Context Protocol. Clients
-    can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+  description: The API to use to expose tools over the Model Context Protocol. It is recommended
+    to use **Stateless Assist** which is a version of the **Assist** API where the
+    prompt does not contain any state information. Clients can only control or
+    provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
 {% endconfiguration_basic %}
 
 ## Architecture overview
@@ -109,7 +111,8 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
     ```
 5. Restart Claude.
 6. You will see a connection icon {% icon "mdi:connection" %} if things are set up correctly. Clicking the connection icon will show enabled MCP servers such as *Home Assistant*.
-7. You can then use Claude to control Home Assistant similar to how you control Home Assistant through the Voice Assistant. Claude wil ask you for permission before calling any tools.
+7. Select the prompt provided by Home Assistant.
+8. You can then use Claude to control Home Assistant similar to how you control Home Assistant through the Voice Assistant. Claude wil ask you for permission before calling any tools.
 
   ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
 
@@ -122,6 +125,17 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
 perform actions through Home Assistant. The tools used by the configured LLM API
 are exposed.
 
+### Prompts
+
+The [MCP Prompts](https://modelcontextprotocol.io/docs/concepts/prompts) provided
+inform LLMs how to call the tools. The tools used by the configured LLM API
+are exposed.
+
+It is recommended to use the **Stateless Assist** API since the prompt does
+not contain any state information, which will be incorrect after any actions
+are performed.
+
+
 ## Known Limitations
 
 The Home Assistant Model Context Protocol integration currently only supports a
@@ -129,12 +143,13 @@ subset of MCP features:
 
 | Feature | Supported by Home Assistant |
 | ------- | --------- |
-| Prompts | ❌ |
+| Prompts | ✅ |
 | Tools | ✅ |
 | Resources | ❌ |
 | Sampling | ❌ |
 | Notifications | ❌ |
 
+Home Assistant does not yet provide built-in tools that can fetch device state.
 
 ## Troubleshooting
 
