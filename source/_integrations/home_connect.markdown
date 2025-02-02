@@ -49,7 +49,7 @@ The integration will add one Home Assistant device for each connected home appli
 - Binary sensors that show binary states of the appliance.
 
 {% note %}
-Some appliances don't report data while they are turned off so they will not appear in the Home Connect integration after loading until they are turned on.
+Some appliances don't report data while they are turned off so corresponding entities will not appear in the Home Connect integration after loading until the appliances are turned on.
 {% endnote %}
 
 {% note %}
