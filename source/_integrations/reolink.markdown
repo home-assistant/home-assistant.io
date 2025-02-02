@@ -587,7 +587,7 @@ Prerequisites:
 ![Choose entity button](/images/integrations/reolink/rich_notification__chose_entity.png)
 ![Select Fluent camera](/images/integrations/reolink/rich_notification__select_fluent_camera.png)
 
-  Under **Filename**, fill in `/config/www/reolink_snapshot/last_snapshot_doorbell.jpg`. The first part `/config/www/` is absolutely necessary to allow your phone to access the saved image when it receives the notification. The reset of the folder and filename can be changed at will as long as you fill in the same filename under step 6.
+  Under **Filename**, fill in `/media/reolink_snapshot/last_snapshot_doorbell.jpg`. The first part `/media/` is absolutely necessary to allow your phone to access the saved image when it receives the notification. The reset of the folder and filename can be changed at will as long as you fill in the same filename under step 6.
 
 <p class='img'>
   <img src='/images/integrations/reolink/rich_notification__screenshot_take_snapshot.png' alt='Screenshot: take snapshot'>
@@ -601,7 +601,7 @@ Prerequisites:
 
   Under **message**, type the text you want to receive in the notification. For instance, “Someone rang the doorbell”.
   If you want to give the notification a title, select the **title** option. For instance, if you have multiple cameras that send you notifications, select the camera name: `Doorbell`.
-  Select the **data** option and fill in `image: /local/reolink_snapshot/last_snapshot_doorbell.jpg`. Note that `/config/www/` of the filename of step 5 now needs to be changed to `/local/`. The rest of the filename needs to be the same as in step 5.
+  Select the **data** option and fill in `image: /media/local/reolink_snapshot/last_snapshot_doorbell.jpg`. Note that `/media/` of the filename of step 5 now needs to be changed to `/media/local/`. The rest of the filename needs to be the same as in step 5.
 
 <p class='img'>
   <img src='/images/integrations/reolink/rich_notification__send_to_mobile.png' alt='Screenshot: send notification'>
