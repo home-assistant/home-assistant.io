@@ -335,6 +335,22 @@ For each device script, the integration creates a `switch` entity that allows yo
 
 The `event` entity shows event that are emitted by the script using [Shelly.emitEvent()](https://shelly-api-docs.shelly.cloud/gen2/Scripts/ShellyScriptLanguageFeatures#shellyemitevent). After changing a script, it's required to manually reload the device before new event types show up.
 
+For example, the following script will emit an event every time an input (button or switch) on the device is changed.
+
+```javascript
+// Example shelly script
+function eventHandler(event, userdata) {
+  if (
+    typeof event.component === "string" &&
+    event.component.substring(0, 5) === "input"
+  ) {
+    let id = Number(event.component.substring(6));
+    Shelly.emitEvent("input_event", { id: id });
+  }
+}
+Shelly.addEventHandler(eventHandler);
+```
+
 ## Additional info
 
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
