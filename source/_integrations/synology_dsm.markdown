@@ -69,6 +69,12 @@ If you denied access to all locations and applications it is normal to receive a
 
 The NAS can also be used as a {% term backup %} location, without the need to add the NAS as a network drive to Home Assistant. For this you need to setup the correct permissions for the user (_see [Separate User Configuration](#separate-user-configuration) above_), afterwards, you will be able to select the shared folder and define a relative path to be used as a backup location in the integration options ({% my integrations title="**Settings** > **Devices & services**" %} > **Synology DSM** > _select the instance_ > **Configure**)
 
+{% important %}
+
+Don't manually delete or rename the files in the backup path on the NAS. This could result in the backups no longer being able to be read or restored.
+
+{% endimportant %}
+
 ### Example
 
 Assume there is a shared folder called `HA Backup`, with two directories in it `productive_instance` and `test_instance`.
