@@ -3,7 +3,7 @@ title: Actron Air Neo
 description: Instructions on how to integrate the Actron Air Neo A/C controller into Home Assistant.
 ha_category:
   - Climate
-ha_release: 2025.02
+ha_release: 2025.03
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
