@@ -13,6 +13,8 @@ ha_integration_type: system
 related:
   - docs: /common-tasks/general/#backups
     title: Backups
+  - docs: /common-tasks/general/#defining-backup-locations
+    title: Backup locations
   - docs: /getting-started/onboarding/
     title: Recover from backup during onboarding
   - docs: /more-info/backup-emergency-kit/
