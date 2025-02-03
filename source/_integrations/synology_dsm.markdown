@@ -87,6 +87,8 @@ Assume there is a shared folder called `HA Backup`, with two directories in it `
 2. Define `cottage_instance` as backup path (_without trailing slash_).
     - **Result**: A new directory `cottage_instance` will be created on the shared folder `HA Backup` during the first backup.
 
+**Note**: Sub-directories in backup path needs to be separated by the regular slash `/` - eq. `home-assistant/prod_instance`
+
 ## Sensors
 
 ### CPU utilization sensors
