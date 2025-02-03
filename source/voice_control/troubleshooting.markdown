@@ -104,6 +104,15 @@ To fix the URL, follow these steps:
    ![Create alias for entity name](/images/assist/local_url.png)
 
 
+### Missing Media Source
+
+If you are using YAML configuration make sure the media source is present:
+
+```yaml
+media_source:
+```
+
+
 ## Tweaking the Assist audio configuration for your device
 
 You think there is an issue with background noise or speaker volume? In some cases, it can help to tweak settings such as noise suppression and gain of your voice assistant device (such as the S32-S3-BOX-3).
