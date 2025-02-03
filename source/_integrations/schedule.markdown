@@ -12,24 +12,24 @@ ha_domain: schedule
 ha_integration_type: helper
 ---
 
-The **Schedule** {% term integration %} provides a way to create a weekly schedule {% term entity %} in Home Assistant that can be used to trigger or make decisions in your automations and scripts.
+The **Schedule** {% term integration %} provides a way to create a weekly schedule {% term entity %} in Home Assistant, consisting of time blocks with defined start and end times. The schedule activates when a time block starts and deactivates when it ends, allowing it to be used for triggering or making decisions in automations and scripts.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Name:
-  description: Friendly name of the schedule. It can be changed again later.
+  description: Friendly name of the schedule. 
 Icon:
   description: Icon to display in the frontend for this schedule.
 Schedule blocks:
   description: >
-    Drag and drop with your mouse to select time boxes for each day of the week.
-    It is not possible to create overlapping time boxes on the same day.
+    Press and drag to select time blocks for each day of the week.
+    It is not possible to create overlapping time blocks on the same day.
 {% endconfiguration_basic %}
 
-After you have created schedule blocks, you can use a **single left click** on a block to open an edit view for this time block.
+After creating schedule blocks, you can press a block to edit the details.
 
-{% configuration_basic  %}
+{% configuration_basic %}
 Start:
   required: true
   type: time
@@ -41,7 +41,7 @@ End:
 Additional data:
   required: false
   type: map
-  description: Additional data to add to the entity's attributes when this block is active.
+  description: Additional data should be a mapping of attribute names to values, which will be added to the entity's attributes when the block is active.
 {% endconfiguration_basic %}
 
 The **Additional data** entry of each block should be a mapping of attribute names to values.
@@ -124,7 +124,7 @@ schedule:
 
 ## Attributes
 
-A schedule entity's state exports attributes that can be useful in automations and templates.
+A schedule entity exports state attributes that can be useful in automations and templates.
 
 | Attribute | Description |
 | ----- | ----- |
