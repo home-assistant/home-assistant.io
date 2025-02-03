@@ -57,7 +57,7 @@ The automatic backup process creates a backup on a predefined schedule and also 
 You might need a backup in case your system has crashed. If you only store backups on the device itself, you won't be able to access them easily. It is recommended to keep a copy on another system (outside of Home Assistant) and ideally also one off-site.
 
 {% note %}
-You will find an overview of integrations which provide a backup location [here](/integrations/#backup)
+You will find an overview of integrations which provide a backup location [here](/integrations/#backup).
 {% endnote %}
 
 #### About the backup storage on Home Assistant Cloud
