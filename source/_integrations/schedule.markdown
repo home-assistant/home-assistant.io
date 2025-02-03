@@ -55,8 +55,7 @@ color_temp: 4000
 ## YAML configuration
 
 Alternatively, this {% term integration %} can be configured and set up manually via YAML instead.
-To enable the Integration sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file:
-
+To enable the Integration sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 Additional data can be added using the `data` block for each schedule block, as shown in the example below.
 
 ```yaml
@@ -129,12 +128,12 @@ A schedule entity exports state attributes that can be useful in automations and
 | Attribute | Description |
 | ----- | ----- |
 | `next_event` | A datetime object containing the next time the schedule is going to change state. |
-| Additional data | The entries in **Additional data** / `data` of a schedule block when the respective block is active. |
+| `key_1`, `key_2`, ... | The mapping values from **Additional data** / `data` settings of a time block when the respective block is active. |
 
 ## Automation example
 
 A schedule creates an on/off (schedule) sensor within the times set.
-Using the `light_schedule` example from above in an automation might look like this:
+By using the `light_schedule` example from above in an automation, we can turn on a light only during the time box when a schedule is active.
 
 {% raw %}
 
