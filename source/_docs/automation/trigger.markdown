@@ -868,7 +868,7 @@ See the [Persistent Notification](/integrations/persistent_notification/) integr
 
 ## Webhook trigger
 
-Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger.
+Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. You may need to restart home assistant if you are setting up webhook for very first time.
 
 ```yaml
 automation:
@@ -904,6 +904,12 @@ Note that to use JSON encoded payloads, the `Content-Type` header must be set to
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{ "key": "value" }' https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
+If you want to pass webhook data to action, you will need to use something like this in your action
+```yaml
+data_template:
+  payload: "{{trigger.json}}"
+```
+Note: if you pass json when template is expecting non-json data or vice versa, then automation will trigger but payload will be empty.
 
 ### Webhook security
 
