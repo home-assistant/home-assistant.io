@@ -184,7 +184,7 @@ The time in seconds between sending keep alive messages for this client. The def
 
 #### Broker certificate validation
 
-To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose `Auto`. This will allow validation against certificate CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM- or DER_encoded CA certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
+To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose `Auto`. This will allow validation against certificate CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM- or DER-encoded CA certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
 If the server certificate does not match the hostname then validation will fail. To allow a connection without the verification of the hostname, turn the `Ignore broker certificate validation` switch on.
 
 #### MQTT Protocol
@@ -193,7 +193,7 @@ The MQTT protocol setting defaults to version `3.1.1`. If your MQTT broker suppo
 
 #### Securing the connection
 
-With a secure broker connection it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to show the controls to upload the files. Only a client certificates and the related a private key must uploaded together. The client certificate and private cate must be either PEM- or DER-encoded. If the private key is encrypted with a password, then make sure to supply the correct password when uploading the client certificate and key files.
+With a secure broker connection, it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to reveal file upload controls. A client certificate and the corresponding private key must be uploaded together. Both client certificate and private key must be either PEM- or DER-encoded. If the private key is encrypted with a password, ensure you supply the correct password when uploading the client certificate and key files.
 
 #### Using WebSockets as transport
 
