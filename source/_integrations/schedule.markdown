@@ -18,7 +18,7 @@ The **Schedule** {% term integration %} provides a way to create a weekly schedu
 
 {% configuration_basic %}
 Name:
-  description: Friendly name of the schedule. 
+  description: Friendly name of the schedule.
 Icon:
   description: Icon to display in the frontend for this schedule.
 Schedule blocks:
