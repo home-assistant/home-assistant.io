@@ -53,7 +53,7 @@ Integrate [Shelly devices](https://shelly.com) into Home Assistant.
 
 There are four generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
 
-Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported, please use BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV which is supported by this integration via Shelly BLU Gateway Gen3.
+Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3.
 
 ## Shelly device configuration (generation 1)
 
@@ -144,7 +144,7 @@ Depending on how a device's button type is configured, the integration will crea
 
 ### Binary input sensors (generation 2+)
 
-For generation 2+ hardware it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the input mode is set to `switch`. When the input is of type `button` you need to use events for your automations.
+For generation 2+ hardware, it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the input mode is set to `switch`. When the input is of type `button` you need to use events for your automations.
 
 ## Event entities (generation 1)
 
