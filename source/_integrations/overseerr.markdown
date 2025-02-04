@@ -147,5 +147,5 @@ This integration follows standard integration removal, no extra steps are requir
 
 {% details "Failed to register Overseerr webhook" %}
 
-Make sure your Overseerr instance is able to reach your Overseerr instance.
+Make sure your Overseerr instance is able to reach your Home Assistant instance.
 {% enddetails %}
