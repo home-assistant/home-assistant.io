@@ -78,6 +78,14 @@ ha network update "$interface" --disabled=false \
 - Consider changing the default IP range if it conflicts with your network
 - Regularly update your system to patch security vulnerabilities
 
+**Practical Note:** Most WiFi chips do not support AP mode nor support AP reliably
+for extended or heavy use.
+Home Assistant relies **entirely** on capabilities provided by
+[Linux](https://kernel.org) and [NetworkManager](https://networkmanager.dev/).
+As such, if it works for you, **GREAT!**, if not,
+any resolution to your AP problems will most likely come from
+better hardware or OS upgrades.
+
 #### Help
 
 You can get a better description of the CLI capabilities by typing `ha help`:
