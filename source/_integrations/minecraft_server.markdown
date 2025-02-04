@@ -21,6 +21,8 @@ ha_integration_type: integration
 
 {% important %}
 Minecraft Java Edition servers must be version 1.7 or newer, since older versions don't expose any information.
+
+You must also set `enable-status` and `enable-query` to `true`.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
