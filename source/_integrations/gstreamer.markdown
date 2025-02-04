@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `gstreamer` {% term integration %} allows you to play audio via a [gstreamer](https://gstreamer.freedesktop.org/) pipeline. Practically, this means you can play audio directly on the computer running Home Assistant. It is particularly suited for playing TTS. Advanced users can specify a pipeline to transform the audio stream and/or redirect it elsewhere.

@@ -144,6 +144,10 @@ description: "The Home Assistant contributor license agreement (CLA) signature p
     currentUser.getProfile(function(err, profile){
       if(err){
         console.error('Got an error when attempting to load users profile', err);
+        const errorEl = document.querySelector("#error");
+        errorEl.textContent = "Failed to load your GitHub profile: " + (err.response?.data?.message || err.message);
+        errorEl.style.display = "block";
+        $('#loading').hide();
       } else {
         $("#name").val(profile.name);
         $('#github_user_id').val(profile.id);
@@ -152,6 +156,10 @@ description: "The Home Assistant contributor license agreement (CLA) signature p
       currentUser.getEmails(function(err, emails){
         if(err){
           console.error('Got an error when attempting to load users emails', err);
+          const errorEl = document.querySelector("#error");
+          errorEl.textContent = "Failed to load your GitHub emails: " + (err.response?.data?.message || err.message);
+          errorEl.style.display = "block";
+          $('#loading').hide();
         } else {
           $.each(emails, function (i, item) {
             $('#email').append($('<option>', { value: item.email, text: item.email }));

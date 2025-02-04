@@ -14,7 +14,6 @@ ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@PhracturedBlue'
-  - '@tetienne'
   - '@home-assistant/core'
 ha_domain: template
 ha_platforms:
@@ -126,6 +125,8 @@ template:
 
 {% endraw %}
 
+### Configuration reference
+
 {% configuration %}
 trigger:
   description: Define an automation trigger to update the entities. Optional. If omitted will update based on referenced entities. [See trigger documentation](/docs/automation/trigger).
@@ -136,15 +137,15 @@ unique_id:
   required: false
   type: string
 condition:
-  description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed. Optional. [See condition documentation](/docs/automation/condition).
+  description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed (for trigger-based entities only). Optional. [See condition documentation](/docs/automation/condition).
   required: false
   type: list
 action:
-  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  description: Define actions to be executed when the trigger fires (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
   required: false
   type: list
 variables:
-  description: Key-value pairs of variable definitions which can be referenced and used in the templates below. Mostly used by blueprints.
+  description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints.
   required: false
   type: map
   keys:
@@ -938,7 +939,7 @@ binary_sensor:
     sensors:
       sun_up:
         friendly_name: "Sun is up"
-        value_template: {{ state_attr('sun.sun', 'elevation') > 0 }}
+        value_template: "{{ state_attr('sun.sun', 'elevation') > 0 }}"
 ```
 
 {% endraw %}

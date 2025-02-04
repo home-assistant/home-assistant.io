@@ -6,7 +6,6 @@ ha_category:
 ha_release: 0.43
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_quality_scale: silver
 ha_codeowners:
   - '@frenck'
   - '@joostlek'
@@ -101,6 +100,11 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 {% enddetails %}
 
 {% include integrations/config_flow.md %}
+
+## Data updates
+
+The integration polls at least every 30 seconds.
+If the track that is playing ends in less than 30 seconds, the integration will poll again after the track has ended to update the state again.
 
 ## Using multiple Spotify accounts
 

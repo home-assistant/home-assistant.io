@@ -44,7 +44,6 @@ ha_platforms:
   - valve
   - water_heater
 ha_integration_type: integration
-ha_quality_scale: platinum
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
@@ -134,7 +133,7 @@ Note: This action does not remove the [MQTT broker](#setting-up-a-broker) or its
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
 The easiest option is to install the official Mosquitto Broker add-on. You can choose to set up and configure this add-on automatically when you set up the MQTT integration. Home Assistant will automatically generate and assign a safe username and password, and no further attention is required. This also works if you have already set up this add-on yourself in advance.
-You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/create-link/?redirect=supervisor_addon&addon=core_mosquitto).
+You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto).
 
 {% important %}
 When MQTT is set up with the official Mosquitto MQTT broker add-on, the broker's credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the add-on user options, like the additional logins. After re-installing the add-on, the MQTT integration will automatically update the new password for the re-installed broker. It will then reconnect automatically.
@@ -161,7 +160,7 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
-3. Select **Configure**, then **Re-configure MQTT**.
+3. Reconfigure the MQTT broker settings via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
 
 {% important %}
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
@@ -207,12 +206,20 @@ A configured client certificate will only be active if broker certificate valida
 
 ## Configure MQTT options
 
-To change the settings, follow these steps:
+To change the options, follow these steps:
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
 3. Select **Configure**, then **Re-configure MQTT**.
 4. To open the MQTT options page, select **Next**.
+
+### Change MQTT discovery options
+
+The MQTT discovery options can be changed by following these steps:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the MQTT integration and select it.
+3. To open the MQTT discovery options page, select the **Configure MQTT Options** button.
 
 ### Discovery options
 
@@ -361,12 +368,12 @@ The component specific options are placed as mappings under the `components` key
     "mdl": "xya",
     "sw": "1.0",
     "sn": "ea334450945afc",
-    "hw": "1.0rev2",
+    "hw": "1.0rev2"
   },
   "o": {
     "name":"bla2mqtt",
     "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support",
+    "url": "https://bla2mqtt.example.com/support"
   },
   "cmps": {
     "some_unique_component_id1": {
@@ -374,18 +381,18 @@ The component specific options are placed as mappings under the `components` key
       "device_class":"temperature",
       "unit_of_measurement":"°C",
       "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id":"temp01ae_t",
+      "unique_id":"temp01ae_t"
     },
     "some_unique_id2": {
       "p": "sensor",
       "device_class":"humidity",
       "unit_of_measurement":"%",
       "value_template":"{% raw %}{{ value_json.humidity}}{% endraw %}",
-      "unique_id":"temp01ae_h",
+      "unique_id":"temp01ae_h"
     }
   },
   "state_topic":"sensorBedroom/state",
-  "qos": 2,
+  "qos": 2
 }
 ```
 
@@ -404,12 +411,12 @@ An empty config can be published as an update to remove a single component from 
     "mdl": "xya",
     "sw": "1.0",
     "sn": "ea334450945afc",
-    "hw": "1.0rev2",
+    "hw": "1.0rev2"
   },
   "o": {
     "name":"bla2mqtt",
     "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support",
+    "url": "https://bla2mqtt.example.com/support"
   },
   "cmps": {
     "some_unique_component_id1": {
@@ -417,14 +424,14 @@ An empty config can be published as an update to remove a single component from 
       "device_class":"temperature",
       "unit_of_measurement":"°C",
       "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id":"temp01ae_t",
+      "unique_id":"temp01ae_t"
     },
     "some_unique_id2": {
-      "p": "sensor",
+      "p": "sensor"
     }
   },
   "state_topic":"sensorBedroom/state",
-  "qos": 2,
+  "qos": 2
 }
 ```
 
@@ -441,12 +448,12 @@ After removing a component, you should send another update with the removed comp
     "mdl": "xya",
     "sw": "1.0",
     "sn": "ea334450945afc",
-    "hw": "1.0rev2",
+    "hw": "1.0rev2"
   },
   "o": {
     "name":"bla2mqtt",
     "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support",
+    "url": "https://bla2mqtt.example.com/support"
   },
   "cmps": {
     "some_unique_component_id1": {
@@ -454,11 +461,11 @@ After removing a component, you should send another update with the removed comp
       "device_class":"temperature",
       "unit_of_measurement":"°C",
       "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id":"temp01ae_t",
+      "unique_id":"temp01ae_t"
     }
   },
   "state_topic":"sensorBedroom/state",
-  "qos": 2,
+  "qos": 2
 }
 ```
 
@@ -576,7 +583,7 @@ Discovery payload device:
       "state_topic": "foobar/sensor/sensor1",
       "unique_id": "bla_sensor001"
     }
-  },
+  }
 }
 ```
 
@@ -619,19 +626,19 @@ Example discovery payload:
     "mdl": "xya",
     "sw": "1.0",
     "sn": "ea334450945afc",
-    "hw": "1.0rev2",
+    "hw": "1.0rev2"
   },
   "o": {
     "name":"bla2mqtt",
     "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support",
+    "url": "https://bla2mqtt.example.com/support"
   },
   "device_class":"temperature",
   "unit_of_measurement":"°C",
   "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
   "unique_id":"temp01ae_t",
   "state_topic":"sensorBedroom/state",
-  "qos": 2,
+  "qos": 2
 }
 ```
 
@@ -693,6 +700,7 @@ support_url:
     'bri_val_tpl':         'brightness_value_template',
     'clr_temp_cmd_tpl':    'color_temp_command_template',
     'clr_temp_cmd_t':      'color_temp_command_topic',
+    'clr_temp_k':           'color_temp_kelvin',
     'clr_temp_stat_t':     'color_temp_state_topic',
     'clr_temp_tpl':        'color_temp_template',
     'clr_temp_val_tpl':    'color_temp_value_template',
@@ -759,11 +767,13 @@ support_url:
     'lrst_val_tpl':        'last_reset_value_template',
     'max':                 'max',
     'max_hum':             'max_humidity',
+    'max_k':               'max_kelvin',
     'max_mirs':            'max_mireds',
     'max_temp':            'max_temp',
     'migr_discvry':        'migrate_discovery',
     'min':                 'min',
     'min_hum':             'min_humidity',
+    'min_k':               'min_kelvin',
     'min_mirs':            'min_mireds',
     'min_temp':            'min_temp',
     'mode':                'mode',
@@ -956,7 +966,7 @@ support_url:
 
 {% enddetails %}
 
-### Discovery messages en availability
+### Discovery messages and availability
 
 When MQTT discovery is set up, and a device or service sends a discovery message,
 an MQTT entity, tag, or device automation will be set up directly after receiving the message.
@@ -1287,12 +1297,12 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
       "mdl_id": "ABC123",
       "sw": "1.0",
       "sn": "ea334450945afc",
-      "hw": "1.0rev2",
+      "hw": "1.0rev2"
     },
     "o": {
       "name":"bla2mqtt",
       "sw": "2.1",
-      "url": "https://bla2mqtt.example.com/support",
+      "url": "https://bla2mqtt.example.com/support"
     }
   }
   ```
@@ -1351,6 +1361,12 @@ The following software has built-in support for MQTT discovery:
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
 - [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
+
+The following software also supports consuming MQTT discovery information that is intended for Home Assistant.
+Compatibility and features will vary, and not all devices may work.
+
+- [Domoticz](https://wiki.domoticz.com/MQTT#Add_hardware_.22MQTT_Auto_Discovery_Client_Gateway.22)
+- [openHAB](https://www.openhab.org/addons/bindings/mqtt.homeassistant/)
 
 ## Manual configured MQTT items
 

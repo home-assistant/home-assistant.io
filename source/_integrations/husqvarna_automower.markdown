@@ -29,6 +29,7 @@ ha_platforms:
   - switch
 ha_integration_type: integration
 ha_domain: husqvarna_automower
+ha_quality_scale: silver
 ---
 
 The Husqvarna Automower integration provides connectivity with Husqvarna Automowers lawn mowers through Husqvarna's cloud API. Only mowers with *Automower® Connect* or with the *Automower® Connect Module* are supported.
@@ -78,11 +79,11 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% configuration_basic %}
 Name:
-    description: "Enter the name for the provided credentials. You can choose your favorite name."
+  description: "Enter the name for the provided credentials. You can choose your favorite name."
 OAuth Client ID:
-    description: "Enter the Application key from your Husqvarna developer application."
+  description: "Enter the Application key from your Husqvarna developer application."
 OAuth Client Secret:
-    description: "Enter the Application secret from your Husqvarna developer application."
+  description: "Enter the Application secret from your Husqvarna developer application."
 {% endconfiguration_basic %}
 
 ## Troubleshooting

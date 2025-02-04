@@ -15,6 +15,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `iperf3` sensor {% term integration %} allows you to measure network bandwidth performance against a private or public [Iperf3](https://software.es.net/iperf/index.html) server.

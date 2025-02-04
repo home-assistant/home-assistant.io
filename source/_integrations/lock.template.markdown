@@ -74,7 +74,7 @@ lock:
     required: false
     type: template
     default: None
- lock:
+  lock:
     description: Defines an action to run when the lock is locked.
     required: true
     type: action
