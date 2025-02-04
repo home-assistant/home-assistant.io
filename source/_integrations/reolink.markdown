@@ -630,17 +630,17 @@ Prerequisites:
 ![Overview of end result](/images/integrations/reolink/auto_pause__overview.png)
 
 1. First, create the dropdown from **Settings** > **Devices & services** > **Helpers** > **+ Create Helper** > **Dropdown**. 
-  - Decide how many time delay choices you want. 
-  - Add them all to the dropdown like below. 
-  - Your first entry needs to be "Notifications active" (or simular phrasing) for when the notifications are turned on. 
-  - The time amounts can be any amount and you can have as many as you want to code.
+   - Decide how many time delay choices you want. 
+   - Add them all to the dropdown like below. 
+   - Your first entry needs to be "Notifications active" (or simular phrasing) for when the notifications are turned on. 
+   - The time amounts can be any amount and you can have as many as you want to code.
 
-   ![Dropdown](/images/integrations/reolink/auto_pause__dropdown.png)
+    ![Dropdown](/images/integrations/reolink/auto_pause__dropdown.png)
 
 2. Next, also from the **Helpers** menu create a **Timer**. 
-  - Leave the time duration all zeros. Select the **Restore state and time** box.
+   - Leave the time duration all zeros. Select the **Restore state and time** box.
 
-    ![Timer](/images/integrations/reolink/auto_pause__timer.png)
+     ![Timer](/images/integrations/reolink/auto_pause__timer.png)
 
 3. Now you will create a new automation script. 
    - For the **When** select **+ Add Trigger** > **Entity** > **State** and choose your dropdown box for the entity and in the **From** choose your "Notifications active" or whatever you chose for the top item.
@@ -683,14 +683,14 @@ Prerequisites:
    - You can easliy duplicate by clicking the overflow menu (three dots) at the far right of the option.
 
 10. Lastly, you need to apply this new feature. 
-   - Go into your rich notifications automation, or for that matter any automation that you would like to have pause control over, and add a condition. 
-   - Below is an example. In the **And if** press **+ Add condition** > **Entity** > **State** add select the dropdown box as the entity and "Notifications Active", the first item, as the state.
+    - Go into your rich notifications automation, or for that matter any automation that you would like to have pause control over, and add a condition. 
+    - Below is an example. In the **And if** press **+ Add condition** > **Entity** > **State** add select the dropdown box as the entity and "Notifications Active", the first item, as the state.
 
-   ![Condition](/images/integrations/reolink/auto_pause__condition.png)
+    ![Condition](/images/integrations/reolink/auto_pause__condition.png)
 
 11. Add the dropdown box and the timer onto your dashboard and you are all set. 
-   - Here is what it looks like when it is running (holding notifications). 
-   - You can end it early by just clicking on the timer and hitting finish. That ends the timer, it goes to idle, and the automation resets the dropdown box to active.
+    - Here is what it looks like when it is running (holding notifications). 
+    - You can end it early by just clicking on the timer and hitting finish. That ends the timer, it goes to idle, and the automation resets the dropdown box to active.
 
     ![Result when running](/images/integrations/reolink/auto_pause__result_when_running.png)
 
