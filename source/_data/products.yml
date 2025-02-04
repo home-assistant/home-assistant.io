@@ -1,5 +1,3 @@
-# Flags rendered via https://flagpedia.net/
-# ship_from accepts ISO 3166 country code
 green:
   name: "<strong>Home Assistant Green</strong>"
   distributors:
@@ -447,3 +445,8 @@ voice-pe:
       ship_to: Europe
       url: https://shop.everythingsmart.io/products/home-assistant-voice-preview-edition
       logo: /images/distributors/est.webp
+    - name: Pimoroni
+      ship_from: UK
+      ship_to: Europe
+      url: https://shop.pimoroni.com/products/home-assistant-voice
+      logo: /images/distributors/pimoroni.webp
