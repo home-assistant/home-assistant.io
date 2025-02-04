@@ -102,8 +102,8 @@ For example, to create an automation to mute playback, use the command `mixer` a
 
 | Row | Parameter | Description |
 | --- | --------  | ----------- |
-|  1  | - muting  | Toggle muting on / off 
-|  2  |           | 
+|  1  | - muting  | Toggle muting on / off |
+|  2  |           |             |
 
 resulting in the YAML:
 
@@ -123,8 +123,8 @@ For example, to increase the playback volume, use the command `mixer` and the pa
 
 | Row | Parameter | Description |
 | --- | --------  | ----------- |
-|  1  | - volume  | Parameter to change
-|  2  | - "+5"    | Increment volume by 5 percent
+|  1  | - volume  | Parameter to change |
+|  2  | - "+5"    | Increment volume by 5 percent |
 
 resulting in the YAML:
 
@@ -138,7 +138,6 @@ data:
     - volume
     - "+5"
 ```
-
 
 
 ### Action `call_query`
