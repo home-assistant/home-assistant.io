@@ -48,7 +48,6 @@ The following sensors are supported:
 - Pin status: Electricity meter pin status
 - Core battery level: Battery level of the IOmeter Core in percent
 - Core power status: Battery or USB-C power for the IOmeter Core
-- Core/Bridge status: Status of the Sub-GHz connection between Core and Bridge
 - Signal strength WiFi: WiFi connection strength of the Bridge
 - Signal strength Core/Bridge: Sub-GHz connection strength between Core and Bridge
 
