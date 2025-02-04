@@ -621,9 +621,9 @@ Prerequisites:
 
 - Turn on (outdoor) lights near the camera to improve image clarity at night once the camera detects a person, vehicle, or animal.
 - Turn off notifications and recording when you get home (based on, e.g., geofencing) and turn it back on when you leave home.
-- Auto pause rich notifications for x time
+- Auto-pause rich notifications for x time
 
-{% details "Auto pause rich notifications tutorial" icon="mdi:cursor-hand" %}
+{% details "Auto-pause rich notifications tutorial" icon="mdi:cursor-hand" %}
 
 **Goal**: At the end of this tutorial, you will have a drop-down on your dashboard with different time choices to pause your notifications. When the time is up, the notifications will become active again. It will look like this:
 
