@@ -648,7 +648,7 @@ Prerequisites:
    ![Automation When dropdown](/images/integrations/reolink/auto_pause__automation_when.png)
 
 4. Add another trigger using **+ Add Trigger** > **Entity** > **State** and choose your timer for the entity and in the **To** choose "Idle". 
-   - Now click on the overflow menu (3 dots) of this tigger and press **Edit ID**. In the **Trigger ID** type "TIMER DONE".
+   - Now select the three dots {% icon "mdi:dots-vertical" %} menu of this trigger and press **Edit ID**. In the **Trigger ID** type "TIMER DONE".
 
     ![Automation When timer](/images/integrations/reolink/auto_pause__automation_when_timer.png)
 
