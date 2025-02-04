@@ -633,7 +633,7 @@ Prerequisites:
    - Decide how many time delay choices you want. 
    - Add them all to the dropdown like below. 
    - Your first entry needs to be "Notifications active" (or simular phrasing) for when the notifications are turned on. 
-   - The time amounts can be any amount and you can have as many as you want to code.
+   - You can define as many time options as you want. And you can define any time interval you like, for example, 22 minutes, 2 hours.
 
     ![Dropdown](/images/integrations/reolink/auto_pause__dropdown.png)
 
