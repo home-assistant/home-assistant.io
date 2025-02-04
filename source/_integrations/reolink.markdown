@@ -625,51 +625,74 @@ Prerequisites:
 
 {% details "Auto pause rich notifications tutorial" icon="mdi:cursor-hand" %}
 
-This tutorial will give you a drop down on your dashboard with different time choices to pause your notifications. When the time is up, the notifications will become active again. It will look like this:
+**Goal**: At the end of this tutorial, you will have a drop-down on your dashboard with different time choices to pause your notifications. When the time is up, the notifications will become active again. It will look like this:
 
 ![Overview of end result](/images/integrations/reolink/auto_pause__overview.png)
 
-First create the dropdown from **Settings** > **Devices & services** > **Helpers** > **+ Create Helper** > **Dropdown**. Decide how many time delay choices you want. Add them all to the dropdown like below. Your first entry needs to be "Notifications active" (or simular phrasing) for when the notifications are turned on. The time amounts can be any amount and you can have as many as you want to code.
+1. First, create the dropdown from **Settings** > **Devices & services** > **Helpers** > **+ Create Helper** > **Dropdown**. 
+  - Decide how many time delay choices you want. 
+  - Add them all to the dropdown like below. 
+  - Your first entry needs to be "Notifications active" (or simular phrasing) for when the notifications are turned on. 
+  - The time amounts can be any amount and you can have as many as you want to code.
 
-![Dropdown](/images/integrations/reolink/auto_pause__dropdown.png)
+   ![Dropdown](/images/integrations/reolink/auto_pause__dropdown.png)
 
-Next, also from the **Helpers** menu create a **Timer**. Leave the time duration all zeros. Click on Restore state and time box.
+2. Next, also from the **Helpers** menu create a **Timer**. 
+  - Leave the time duration all zeros. Select the **Restore state and time** box.
 
-![Timer](/images/integrations/reolink/auto_pause__timer.png)
+    ![Timer](/images/integrations/reolink/auto_pause__timer.png)
 
-Now you will create a new automation script. For the **When** select **+ Add Trigger** > **Entity** > **State** and choose your dropdown box for the entity and in the **From** choose your "Notifications active" or whatever you chose for the top item.
+3. Now you will create a new automation script. 
+   - For the **When** select **+ Add Trigger** > **Entity** > **State** and choose your dropdown box for the entity and in the **From** choose your "Notifications active" or whatever you chose for the top item.
 
-![Automation When dropdown](/images/integrations/reolink/auto_pause__automation_when.png)
+   ![Automation When dropdown](/images/integrations/reolink/auto_pause__automation_when.png)
 
-Add another trigger using **+ Add Trigger** > **Entity** > **State** and choose your timer for the entity and in the **To** choose "Idle". Now click on the overflow menu (3 dots) of this tigger and press **Edit ID**. In the **Trigger ID** type "TIMER DONE".
+4. Add another trigger using **+ Add Trigger** > **Entity** > **State** and choose your timer for the entity and in the **To** choose "Idle". 
+   - Now click on the overflow menu (3 dots) of this tigger and press **Edit ID**. In the **Trigger ID** type "TIMER DONE".
 
-![Automation When timer](/images/integrations/reolink/auto_pause__automation_when_timer.png)
+    ![Automation When timer](/images/integrations/reolink/auto_pause__automation_when_timer.png)
 
-There is nothing in the **And if** section. For the **Then do** section choose **add building block** and use **Choose**. You will have as many options as you have times in your dropdown box plus one to reset the dropdown box. First we make the option to reset the dropdown box, this needs to be the first option. Under **Option 1** click **+ Add Condition** > **Other conditions** > **Triggered by**. Now check the box in front of "TIMER DONE".
+5. There is nothing in the **And if** section. For the **Then do** section choose **add building block** and use **Choose**. 
+   - You will have as many options as you have times in your dropdown box plus one to reset the dropdown box. 
+   - First we make the option to reset the dropdown box, this needs to be the first option. 
+   - Under **Option 1** select **+ Add Condition** > **Other conditions** > **Triggered by**. 
+   - Now check the box in front of "TIMER DONE".
 
-![Automation Triggered by](/images/integrations/reolink/auto_pause__automation_triggered_by.png)
+    ![Automation Triggered by](/images/integrations/reolink/auto_pause__automation_triggered_by.png)
 
-Add an action under this **Option 1**, choose **Select** as your action and then choose **First**. Then enter your dropdown box as the entity. This will change your dropdown box back to the first item when the timer is done. This will allow your notification automation to run again.
+6. Add an action under this **Option 1**, choose **Select** as your action and then choose **First**. 
+   - Then enter your dropdown box as the entity. 
+   - This will change your dropdown box back to the first item when the timer is done. 
+   - This will allow your notification automation to run again.
 
-![Automation Select first](/images/integrations/reolink/auto_pause__automation_select_first.png)
+    ![Automation Select first](/images/integrations/reolink/auto_pause__automation_select_first.png)
 
-Let’s code the first option to pause the notifications now. Under **Option 2** click **+ Add Condition** > **Entity** > **State**. Your dropdown box goes in the **Entity** and for **State** choose your first time delay.
+7. Let’s code the first option to pause the notifications now. 
+   - Under **Option 2** click **+ Add Condition** > **Entity** > **State**. 
+   - Your dropdown box goes in the **Entity** and for **State** choose your first time delay.
 
-![Automation Choose](/images/integrations/reolink/auto_pause__automation_choose.png)
+   ![Automation Choose](/images/integrations/reolink/auto_pause__automation_choose.png)
 
-For **+ Add Action** choose **Helpers** > **Timer** > **Start** and enter your timer entity. Check the duration box and enter the time delay you used for your first time delay. Format is HH:MM:SS
+8. For **+ Add Action** choose **Helpers** > **Timer** > **Start** and enter your timer entity. 
+   - Check the duration box and enter the time delay you used for your first time delay. Format is HH:MM:SS
 
-![Automation Start timer](/images/integrations/reolink/auto_pause__automation_start_timer.png)
+    ![Automation Start timer](/images/integrations/reolink/auto_pause__automation_start_timer.png)
 
-Only thing left here is to duplicate Option 2 to as many items as you have in your dropdown box. The only changes you will need to make for each new option is to choose the correct state (time amount) for the dropdown box and then change the amount of time in the timer. You can easliy duplicate by clicking the overflow menu (three dots) at the far right of the option.
+9. The only thing left here is to duplicate Option 2 to as many items as you have in your dropdown box. 
+   - The only changes you will need to make for each new option is to choose the correct state (time amount) for the dropdown box and then change the amount of time in the timer. 
+   - You can easliy duplicate by clicking the overflow menu (three dots) at the far right of the option.
 
-Lastly you need to apply this new feature. Go into your rich notifications automation, or for that matter any automation that you would like to have pause control over, and add a condition. Below is an example. In the **And if** press **+ Add condition** > **Entity** > **State** add select the dropdown box as the entity and "Notifications Active", the first item, as the state.
+10. Lastly, you need to apply this new feature. 
+   - Go into your rich notifications automation, or for that matter any automation that you would like to have pause control over, and add a condition. 
+   - Below is an example. In the **And if** press **+ Add condition** > **Entity** > **State** add select the dropdown box as the entity and "Notifications Active", the first item, as the state.
 
-![Condition](/images/integrations/reolink/auto_pause__condition.png)
+   ![Condition](/images/integrations/reolink/auto_pause__condition.png)
 
-Add the dropdown box and the timer onto your dashboard and you are all set. Here is what it looks like when it is running (holding notifications). You can end it early by just clicking on the timer and hitting finish. That ends the timer, it goes to idle, and the automation resets the dropdown box to active.
+11. Add the dropdown box and the timer onto your dashboard and you are all set. 
+   - Here is what it looks like when it is running (holding notifications). 
+   - You can end it early by just clicking on the timer and hitting finish. That ends the timer, it goes to idle, and the automation resets the dropdown box to active.
 
-![Result when running](/images/integrations/reolink/auto_pause__result_when_running.png)
+    ![Result when running](/images/integrations/reolink/auto_pause__result_when_running.png)
 
 {% enddetails %}
 
