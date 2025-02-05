@@ -9,9 +9,9 @@ ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - "@emontnemery"
-  - "@jbouwh"
-  - "@bdraco"
+  - '@emontnemery'
+  - '@jbouwh'
+  - '@bdraco'
 ha_domain: mqtt
 ha_platforms:
   - alarm_control_panel
@@ -139,7 +139,7 @@ You can set up additional logins for your MQTT devices and services using the [M
 When MQTT is set up with the official Mosquitto MQTT broker add-on, the broker's credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the add-on user options, like the additional logins. After re-installing the add-on, the MQTT integration will automatically update the new password for the re-installed broker. It will then reconnect automatically.
 {% endimportant %}
 
-Alternatively, you can use a different MQTT broker that you configure yourself, ensuring it is compatible with Home Assistant.
+ Alternatively, you can use a different MQTT broker that you configure yourself, ensuring it is compatible with Home Assistant.
 
 ## Setting up a broker
 
@@ -319,7 +319,7 @@ The discovery topic needs to follow a specific format:
 
 - `<discovery_prefix>`: The Discovery Prefix defaults to `homeassistant` and this prefix can be [changed](#discovery-options).
 - `<component>`: One of the supported MQTT integrations, e.g., `binary_sensor`, or `device` in case of a device discovery.
-- `<node_id>`: (_Optional_): ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
+- `<node_id>`: (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 - `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 
 The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
@@ -363,27 +363,27 @@ The component specific options are placed as mappings under the `components` key
     "hw": "1.0rev2"
   },
   "o": {
-    "name": "bla2mqtt",
+    "name":"bla2mqtt",
     "sw": "2.1",
     "url": "https://bla2mqtt.example.com/support"
   },
   "cmps": {
     "some_unique_component_id1": {
       "p": "sensor",
-      "device_class": "temperature",
-      "unit_of_measurement": "°C",
-      "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id": "temp01ae_t"
+      "device_class":"temperature",
+      "unit_of_measurement":"°C",
+      "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+      "unique_id":"temp01ae_t"
     },
     "some_unique_id2": {
       "p": "sensor",
-      "device_class": "humidity",
-      "unit_of_measurement": "%",
-      "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}",
-      "unique_id": "temp01ae_h"
+      "device_class":"humidity",
+      "unit_of_measurement":"%",
+      "value_template":"{% raw %}{{ value_json.humidity}}{% endraw %}",
+      "unique_id":"temp01ae_h"
     }
   },
-  "state_topic": "sensorBedroom/state",
+  "state_topic":"sensorBedroom/state",
   "qos": 2
 }
 ```
@@ -406,23 +406,23 @@ An empty config can be published as an update to remove a single component from 
     "hw": "1.0rev2"
   },
   "o": {
-    "name": "bla2mqtt",
+    "name":"bla2mqtt",
     "sw": "2.1",
     "url": "https://bla2mqtt.example.com/support"
   },
   "cmps": {
     "some_unique_component_id1": {
       "p": "sensor",
-      "device_class": "temperature",
-      "unit_of_measurement": "°C",
-      "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id": "temp01ae_t"
+      "device_class":"temperature",
+      "unit_of_measurement":"°C",
+      "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+      "unique_id":"temp01ae_t"
     },
     "some_unique_id2": {
       "p": "sensor"
     }
   },
-  "state_topic": "sensorBedroom/state",
+  "state_topic":"sensorBedroom/state",
   "qos": 2
 }
 ```
@@ -443,20 +443,20 @@ After removing a component, you should send another update with the removed comp
     "hw": "1.0rev2"
   },
   "o": {
-    "name": "bla2mqtt",
+    "name":"bla2mqtt",
     "sw": "2.1",
     "url": "https://bla2mqtt.example.com/support"
   },
   "cmps": {
     "some_unique_component_id1": {
       "p": "sensor",
-      "device_class": "temperature",
-      "unit_of_measurement": "°C",
-      "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id": "temp01ae_t"
+      "device_class":"temperature",
+      "unit_of_measurement":"°C",
+      "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+      "unique_id":"temp01ae_t"
     }
   },
-  "state_topic": "sensorBedroom/state",
+  "state_topic":"sensorBedroom/state",
   "qos": 2
 }
 ```
@@ -490,7 +490,7 @@ Consider testing the migration process in a non-production environment before ap
 **Step 1: Original single component discovery configurations:**
 
 Discovery topic single: `homeassistant/device_automation/0AFFD2/bla1/config`
-Discovery id: `0AFFD2 bla1` _(both `0AFFD2` and `bla1` from the discovery topic)_
+Discovery id: `0AFFD2 bla1` *(both `0AFFD2` and `bla1` from the discovery topic)*
 Discovery payload single:
 
 ```json
@@ -511,7 +511,7 @@ Discovery payload single:
 ```
 
 Discovery topic single: `homeassistant/sensor/0AFFD2/bla2/config`
-Discovery id: `0AFFD2 bla2` _(both `0AFFD2` and `bla2` from the discovery topic)_
+Discovery id: `0AFFD2 bla2` *(both `0AFFD2` and `bla2` from the discovery topic)*
 Discovery payload single:
 
 ```json
@@ -533,7 +533,7 @@ Discovery payload single:
 When these single component discovery payloads are processed, and we want to initiate migration to a device-based discovery, we need to publish ...
 
 ```json
-{ "migrate_discovery": true }
+{"migrate_discovery": true }
 ```
 
 ... to both discovery topics ...
@@ -548,13 +548,15 @@ Check the logs to ensure this step is executed correctly.
 **Step 3: Publish the new device-based discovery configuration:**
 
 Discovery topic device: `homeassistant/device/0AFFD2/config`
-Discovery id: `0AFFD2 bla` _(`0AFFD2`from discovery topic, `bla`: The key under `cmp` in the discovery payload)_
+Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmp` in the discovery payload)*
 Discovery payload device:
 
 ```json
 {
   "device": {
-    "identifiers": ["0AFFD2"]
+    "identifiers": [
+      "0AFFD2"
+    ]
   },
   "o": {
     "name": "foobar"
@@ -591,7 +593,7 @@ The logs should indicate if the discovery migration was successful.
 To rollback publish ...
 
 ```json
-{ "migrate_discovery": true }
+{"migrate_discovery": true }
 ```
 
 To the device-based discovery topic(s).
@@ -619,15 +621,15 @@ Example discovery payload:
     "hw": "1.0rev2"
   },
   "o": {
-    "name": "bla2mqtt",
+    "name":"bla2mqtt",
     "sw": "2.1",
     "url": "https://bla2mqtt.example.com/support"
   },
-  "device_class": "temperature",
-  "unit_of_measurement": "°C",
-  "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}",
-  "unique_id": "temp01ae_t",
-  "state_topic": "sensorBedroom/state",
+  "device_class":"temperature",
+  "unit_of_measurement":"°C",
+  "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+  "unique_id":"temp01ae_t",
+  "state_topic":"sensorBedroom/state",
   "qos": 2
 }
 ```
@@ -638,7 +640,7 @@ For more examples [see](/integrations/mqtt/#discovery-examples-with-component-di
 
 #### Discovery payload
 
-The payload must be a serialized JSON dictionary and will be checked like an entry in your {% term "`configuration.yaml`" %} file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are _required_ must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
+The payload must be a serialized JSON dictionary and will be checked like an entry in your {% term "`configuration.yaml`" %} file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
 
 A discovery payload can be sent with a retain flag set. In that case, the discovery message will be stored at the MQTT broker and processed automatically when the MQTT integrations start. This method removes the need for it to be resent. A better approach, though, is for the software generating MQTT discovery messages to send discovery payload(s) when the MQTT integration sends the [Birth message](#birth-and-last-will-messages).
 
@@ -655,11 +657,11 @@ Note: These options also support abbreviations, as shown in the table below.
 
 {% configuration_basic %}
 name:
-description: The name of the application that is the origin of the discovered MQTT item. (Required)
+  description: The name of the application that is the origin of the discovered MQTT item. (Required)
 sw_version:
-description: Software version of the application that supplies the discovered MQTT item.
+  description: Software version of the application that supplies the discovered MQTT item.
 support_url:
-description: Support URL of the application that supplies the discovered MQTT item.
+  description: Support URL of the application that supplies the discovered MQTT item.
 {% endconfiguration_basic %}
 
 #### Supported abbreviations in MQTT discovery messages
@@ -986,7 +988,7 @@ After the configs have been published, the state topics will need an update.
 State updates also need to be re-published after a config as been processed.
 This can also be done by publishing `retained` messages. As soon as a config is received (or replayed from a retained message),
 the setup will subscribe any state topics. If a retained message is available at a state topic,
-this message will be replayed so that the state can be restored for this topic.
+ this message will be replayed so that the state can be restored for this topic.
 
 {% warning %}
 A disadvantage of using retained messages is that these messages retain at the broker,
@@ -1008,52 +1010,52 @@ Platform specific availability settings are available for `mqtt` entity platform
 
 {% configuration %}
 availability:
-description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
-required: false
-type: list
-keys:
-payload_available:
-description: The payload that represents the available state.
-required: false
-type: string
-default: online
-payload_not_available:
-description: The payload that represents the unavailable state.
-required: false
-type: string
-default: offline
-topic:
-description: An MQTT topic subscribed to receive availability (online/offline) updates.
-required: true
-type: string
-value_template:
-description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
-required: false
-type: template
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_topic:
-description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
-required: false
-type: string
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
+  required: false
+  type: string
 availability_mode:
-description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
-required: false
-type: string
-default: latest
+   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+   required: false
+   type: string
+   default: latest
 availability_template:
-description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
-required: false
-type: template
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
 payload_available:
-description: The payload that represents the available state.
-required: false
-type: string
-default: online
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
 payload_not_available:
-description: The payload that represents the unavailable state.
-required: false
-type: string
-default: offline
-{% endconfiguration %}
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+{% endconfiguration %}  
 
 {% enddetails %}
 
@@ -1069,14 +1071,16 @@ A motion detection device which can be represented by a [binary sensor](/integra
 
 ```json
 {
-  "name": null,
-  "device_class": "motion",
-  "state_topic": "homeassistant/binary_sensor/garden/state",
-  "unique_id": "motion01ad",
-  "device": {
-    "identifiers": ["01ad"],
-    "name": "Garden"
-  }
+   "name":null,
+   "device_class":"motion",
+   "state_topic":"homeassistant/binary_sensor/garden/state",
+   "unique_id":"motion01ad",
+   "device":{
+      "identifiers":[
+         "01ad"
+      ],
+      "name":"Garden"
+   }
 }
 ```
 
@@ -1088,14 +1092,16 @@ It is also a good idea to add a `unique_id` to allow changes to the entity and a
 
 ```json
 {
-  "name": null,
-  "device_class": "motion",
-  "state_topic": "homeassistant/binary_sensor/garden/state",
-  "unique_id": "motion01ad",
-  "device": {
-    "identifiers": ["01ad"],
-    "name": "Garden"
-  }
+   "name":null,
+   "device_class":"motion",
+   "state_topic":"homeassistant/binary_sensor/garden/state",
+   "unique_id":"motion01ad",
+   "device":{
+      "identifiers":[
+         "01ad"
+      ],
+      "name":"Garden"
+   }
 }
 ```
 
@@ -1115,7 +1121,7 @@ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state"
 
 Delete the sensor by sending an empty message.
 
-```bash
+ ```bash
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
 
@@ -1130,23 +1136,26 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 
 ```json
 {
-  "device_class": "temperature",
-  "state_topic": "homeassistant/sensor/sensorBedroom/state",
-  "unit_of_measurement": "°C",
-  "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}",
-  "unique_id": "temp01ae",
-  "device": {
-    "identifiers": ["bedroom01ae"],
-    "name": "Bedroom",
-    "manufacturer": "Example sensors Ltd.",
-    "model": "Example Sensor",
-    "model_id": "K9",
-    "serial_number": "12AE3010545",
-    "hw_version": "1.01a",
-    "sw_version": "2024.1.0",
-    "configuration_url": "https://example.com/sensor_portal/config"
-  }
+   "device_class":"temperature",
+   "state_topic":"homeassistant/sensor/sensorBedroom/state",
+   "unit_of_measurement":"°C",
+   "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+   "unique_id":"temp01ae",
+   "device":{
+      "identifiers":[
+          "bedroom01ae"
+      ],
+      "name":"Bedroom",
+      "manufacturer": "Example sensors Ltd.",
+      "model": "Example Sensor",
+      "model_id": "K9",
+      "serial_number": "12AE3010545",
+      "hw_version": "1.01a",
+      "sw_version": "2024.1.0",
+      "configuration_url": "https://example.com/sensor_portal/config"
+   }
 }
+
 ```
 
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
@@ -1154,14 +1163,16 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 
 ```json
 {
-  "device_class": "humidity",
-  "state_topic": "homeassistant/sensor/sensorBedroom/state",
-  "unit_of_measurement": "%",
-  "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}",
-  "unique_id": "hum01ae",
-  "device": {
-    "identifiers": ["bedroom01ae"]
-  }
+   "device_class":"humidity",
+   "state_topic":"homeassistant/sensor/sensorBedroom/state",
+   "unit_of_measurement":"%",
+   "value_template":"{% raw %}{{ value_json.humidity}}{% endraw %}",
+   "unique_id":"hum01ae",
+   "device":{
+      "identifiers":[
+         "bedroom01ae"
+      ]
+   }
 }
 ```
 
@@ -1175,8 +1186,8 @@ A common state payload that can be parsed with the `value_template` in the senso
 
 ```json
 {
-  "temperature": 23.2,
-  "humidity": 43.7
+   "temperature":23.20,
+   "humidity":43.70
 }
 ```
 
@@ -1187,18 +1198,20 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
-- Payload:
+- Payload:  
 
 ```json
 {
-  "name": "Irrigation",
-  "command_topic": "homeassistant/switch/irrigation/set",
-  "state_topic": "homeassistant/switch/irrigation/state",
-  "unique_id": "irr01ad",
-  "device": {
-    "identifiers": ["garden01ad"],
-    "name": "Garden"
-  }
+   "name":"Irrigation",
+   "command_topic":"homeassistant/switch/irrigation/set",
+   "state_topic":"homeassistant/switch/irrigation/state",
+   "unique_id":"irr01ad",
+   "device":{
+      "identifiers":[
+         "garden01ad"
+      ],
+      "name":"Garden"
+   }
 }
 ```
 
@@ -1226,10 +1239,10 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 
 ```json
 {
-  "~": "homeassistant/switch/irrigation",
-  "name": "garden",
-  "cmd_t": "~/set",
-  "stat_t": "~/state"
+   "~":"homeassistant/switch/irrigation",
+   "name":"garden",
+   "cmd_t":"~/set",
+   "stat_t":"~/state"
 }
 ```
 
@@ -1257,31 +1270,31 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
 
 #### Example with using abbreviated Device and Origin info in discovery messages
 
-```json
-{
-  "~": "homeassistant/light/kitchen",
-  "name": null,
-  "uniq_id": "kitchen_light",
-  "cmd_t": "~/set",
-  "stat_t": "~/state",
-  "schema": "json",
-  "dev": {
-    "ids": "ea334450945afc",
-    "name": "Kitchen",
-    "mf": "Bla electronics",
-    "mdl": "xya",
-    "mdl_id": "ABC123",
-    "sw": "1.0",
-    "sn": "ea334450945afc",
-    "hw": "1.0rev2"
-  },
-  "o": {
-    "name": "bla2mqtt",
-    "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support"
+  ```json
+  {
+    "~": "homeassistant/light/kitchen",
+    "name": null,
+    "uniq_id": "kitchen_light",
+    "cmd_t": "~/set",
+    "stat_t": "~/state",
+    "schema": "json",
+    "dev": {
+      "ids": "ea334450945afc",
+      "name": "Kitchen",
+      "mf": "Bla electronics",
+      "mdl": "xya",
+      "mdl_id": "ABC123",
+      "sw": "1.0",
+      "sn": "ea334450945afc",
+      "hw": "1.0rev2"
+    },
+    "o": {
+      "name":"bla2mqtt",
+      "sw": "2.1",
+      "url": "https://bla2mqtt.example.com/support"
+    }
   }
-}
-```
+  ```
 
 #### Use object_id to influence the entity id
 
@@ -1292,10 +1305,10 @@ The entity id is automatically generated from the entity's name. All MQTT integr
 
 ```json
 {
-  "name": "My Super Device",
-  "object_id": "my_super_device",
+  "name":"My Super Device",
+  "object_id":"my_super_device",
   "state_topic": "homeassistant/sensor/device1/state"
-}
+ }
 ```
 
 In the example above, the entity_id will be `sensor.my_super_device` instead of `sensor.device1`.
@@ -1348,7 +1361,7 @@ Compatibility and features will vary, and not all devices may work.
 
 For most integrations, it is also possible to manually set up MQTT items in {% term "`configuration.yaml`" %}. Read more [about configuration in YAML](/docs/configuration/yaml).
 
-MQTT supports two styles for configuring items in YAML. All configuration items are placed directly under the `mqtt` integration key. Note that you cannot mix these styles. Use the _YAML configuration listed per item_ style when in doubt.
+MQTT supports two styles for configuring items in YAML. All configuration items are placed directly under the `mqtt` integration key. Note that you cannot mix these styles. Use the *YAML configuration listed per item* style when in doubt.
 
 ### YAML configuration listed per item
 
@@ -1438,13 +1451,13 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 
 ### Action `mqtt.publish`
 
-| Data attribute     | Optional | Description                                                                                 |
-| ------------------ | -------- | ------------------------------------------------------------------------------------------- |
-| `topic`            | no       | Topic to publish payload to.                                                                |
-| `payload`          | no       | Payload to publish.                                                                         |
-| `evaluate_payload` | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false) |
-| `qos`              | yes      | Quality of Service to use. (default: 0)                                                     |
-| `retain`           | yes      | If message should have the retain flag set. (default: false)                                |
+| Data attribute | Optional | Description                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------ |
+| `topic`                | no       | Topic to publish payload to.                                 |
+| `payload`              | no       | Payload to publish.                                          |
+| `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
+| `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
+| `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
 {% note %}
 When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
@@ -1532,9 +1545,9 @@ retain: true
 Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
 
 | Data attribute | Optional | Description                                                                 |
-| -------------- | -------- | --------------------------------------------------------------------------- |
-| `topic`        | no       | Topic to dump. Can contain a wildcard (`#` or `+`).                         |
-| `duration`     | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
+| ---------------------- | -------- | --------------------------------------------------------------------------- |
+| `topic`                | no       | Topic to dump. Can contain a wildcard (`#` or `+`).                         |
+| `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
 
 ```yaml
 topic: zigbee2mqtt/#
