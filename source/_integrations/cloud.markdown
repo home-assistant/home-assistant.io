@@ -31,7 +31,7 @@ cloud:
 
 Documentation of further configuration possibilities are located at [NabuCasa](https://www.nabucasa.com/config/)
 
-Once activated, go to the configuration panel in Home Assistant and create an account and log in. If you are not seeing the **Settings** panel, make sure you have the following option enabled in your {% term "`configuration.yaml`" %} file.
+Once activated, go to the configuration panel in Home Assistant, create an account, and log in. If you are not seeing the **Settings** panel, make sure you have the following option enabled in your {% term "`configuration.yaml`" %} file.
 
 ```yaml
 config:
