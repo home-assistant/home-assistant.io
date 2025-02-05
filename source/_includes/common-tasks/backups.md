@@ -75,7 +75,7 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
 3. For each enabled location, select the cog {% icon "mdi:cog-outline" %} to enable/disable encryption.
    - **Info**: The backup stored on Home Assistant Cloud is always encrypted.
 
-### Creating a backup automation using a backup action
+### Creating a backup automation using the backup action
 
 If the backup automation settings provided in the UI do not match your use case, you can manually configure your own backup automation using the [backup.create_automatic](/integrations/backup/#action-backupcreate_automatic) action.
 
