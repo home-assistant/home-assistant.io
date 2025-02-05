@@ -5,6 +5,8 @@ ha_release: '0.60'
 ha_category:
   - Text-to-speech
   - Voice
+  - Backup
+  - Speech-to-text
 ha_iot_class: Cloud Push
 ha_codeowners:
   - '@home-assistant/cloud'
@@ -16,7 +18,7 @@ ha_platforms:
 ha_integration_type: system
 ---
 
-The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services like Amazon Alexa and Google Assistant. [Learn more.](/cloud)
+The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services like Amazon Alexa and Google Assistant. It also enables secure remote connection, Speech-to-Text, Text-to-Speech, an offsite backup location, Webhooks support, and better WebRTC. [Learn more.](/cloud)
 
 ## Configuration
 
