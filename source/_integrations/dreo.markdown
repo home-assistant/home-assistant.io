@@ -88,16 +88,16 @@ If your Dreo App credentials are invalid or expired, you can follow these steps:
 1. Open the Dreo App. Navigate to the account settings section.
 2. Click on the "Log out" option if you are currently logged in.
 3. Enter your correct username and password. If you have forgotten your password, use the "Forgot password" option in the app to reset it.
-4. Once you have successfully logged in to the Dreo App, go back to Home Assistant. Navigate to the Dreo integration settings and re - enter your Dreo App credentials. Then save the settings.
+4. Once you have successfully logged in to the Dreo App, go back to Home Assistant. Navigate to the Dreo integration settings and re-enter your Dreo App credentials. Then save the settings.
 
 ### Device becomes unresponsive
 
 If the device becomes unresponsive, try the following steps:
 
-1. **Power cycle the device**: Turn off the device using its power switch or unplug it from the power source. Wait for about 10 - 15 seconds and then turn it back on or plug it back in.
-2. **Check the Wi - Fi connection**: Ensure that the device is connected to a stable Wi - Fi network. You can try moving the device closer to the router to improve the signal strength.
+1. **Power cycle the device**: Turn off the device using its power switch or unplug it from the power source. Wait for about 10-15 seconds and then turn it back on or plug it back in.
+2. **Check the Wi-Fi connection**: Ensure that the device is connected to a stable Wi - Fi network. You can try moving the device closer to the router to improve the signal strength.
 3. **Restart the Dreo App and Home Assistant**: Close the Dreo App completely on your mobile device and restart it. Also, restart your Home Assistant instance. Then try to control the device again.
-4. **Reset the device**: If the above steps do not work, you may need to reset the device to its factory settings. Refer to the device's user manual for the specific reset procedure. After resetting, re - add the device to the Dreo App and then to Home Assistant.
+4. **Reset the device**: If the above steps do not work, you may need to reset the device to its factory settings. Refer to the device's user manual for the specific reset procedure. After resetting, re-add the device to the Dreo App and then to Home Assistant.
 
 ## Firmware update scenarios
 
@@ -110,5 +110,5 @@ If the device becomes unresponsive, try the following steps:
 
 ### Issues during firmware update
 
-- **Update fails**: If the firmware update fails, check your network connection. Try restarting the device, the Dreo App, and your Wi - Fi router. Then attempt the update again.
-- **Device becomes unresponsive after update**: If the device becomes unresponsive after the firmware update, perform a power cycle on the device. If the problem persists, reset the device to its factory settings and re - add it to the Dreo App and Home Assistant.
+- **Update fails**: If the firmware update fails, check your network connection. Try restarting the device, the Dreo App, and your Wi-Fi router. Then attempt the update again.
+- **Device becomes unresponsive after update**: If the device becomes unresponsive after the firmware update, perform a power cycle on the device. If the problem persists, reset the device to its factory settings and re-add it to the Dreo App and Home Assistant.
