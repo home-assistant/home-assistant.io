@@ -11,7 +11,8 @@ ha_codeowners:
 ha_domain: igloohome
 ha_platforms:
   - sensor
-ha_integration_type: device
+ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The **igloohome** {% term integration %} grants Home Assistant access to paired [smart access device\(s\)](https://www.igloohome.co/#products). The features of this integration includes:

@@ -242,6 +242,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Doorbell button sound
 - Record
 - Manual record
+- Privacy mode+
 - Push notifications
 - Hub ringtone on event
 - Email on event
@@ -249,6 +250,8 @@ Depending on the supported features of the camera, switch entities are added for
 - PIR enabled*
 - PIR reduce false alarm*
 - Chime LED
+
+When the **Privacy mode** is ON, almost all other entities will be unavailable because the camera shuts down the API and camera streams. When turning OFF the **Privacy mode**, all entities will become available again. Take this into consideration when making automations; ensure the **Privacy mode** is OFF before changing camera settings using other entities.
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
 
@@ -362,8 +365,8 @@ The following hubs/NVRs have been tested and confirmed to work with battery-powe
 
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
-- [RLN8-410 NVR](https://reolink.com/product/rln8-410/) (only the latest hardware version N7MB01, older versions might receive the required firmware update later)
-- [RLN16-410 NVR](https://reolink.com/product/rln16-410/) (only the latest hardware version N6MB01, older versions might receive the required firmware update later)
+- [RLN8-410 NVR](https://reolink.com/product/rln8-410/) (only hardware versions N7MB01, N3MB01, N2MB02, or H3MB18. Hardware versions H3MB02 and H3MB16 did not get firmware updates since 2022)
+- [RLN16-410 NVR](https://reolink.com/product/rln16-410/) (only hardware versions N6MB01 or H3MB18. Hardware version H3MB02 did not get firmware updates since 2022)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
 - [NVS8 NVR](https://reolink.com/product/nvs8/) (Retail version of RLN8)
 - [NVS16 NVR](https://reolink.com/product/nvs16/) (Retail version of RLN16)
@@ -457,7 +460,7 @@ Set up the Reolink integration in Home Assistant using the credentials you set i
 
 Removing a directly connected camera/NVR/Home Hub can be done by removing the integration following these steps:
 
-{% include integrations/remove_device_service.md %}
+{% include integrations/remove_device_service_steps.md %}
 
 This will also remove all cameras/chimes connected to the NVR/Home Hub from Home Assistant.
 
@@ -494,11 +497,210 @@ For example, you can place arrow buttons on the card to [control the camera](/da
 
 You can receive rich notifications on your phone when someone rings a Reolink doorbell or a Reolink camera detects an event like motion or a person.
 
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__small_notification.jpg' alt='Screenshot: Small phone notification'>
+  <img src='/images/integrations/reolink/rich_notification__big_notification.jpg' alt='Screenshot: Expanded phone notification'>
+</p>
+
+{% details "Rich notification tutorial" icon="mdi:cursor-hand" %}
+
+Prerequisites:
+
+- This [Reolink integration](#configuration)
+- [Android or iOS companion app](https://companion.home-assistant.io/docs/getting_started#setting-up)
+- [Remote access to Home Assistant](https://www.home-assistant.io/docs/configuration/remote/). Although you can receive text notifications without remote access, to see the camera image in the notification (rich notification), the phone needs to be able to reach Home Assistant. The rich notification will always work, even without remote access, when the phone is on the same network as Home Assistant.
+
+1. In order to receive such a rich notification, we are going to make an automation in Home Assistant. In Home Assistant go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
+
+![Settings button](/images/integrations/reolink/rich_notification__settings.png)
+![Automations & scenes button](/images/integrations/reolink/rich_notification__automations_and_scenes.png)
+![Create automation button](/images/integrations/reolink/rich_notification__create_automation.png)
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__new_automation.png' alt='Screenshot: new automation'>
+</p>
+
+2. Under **When**, select: **Add trigger** > **Entity** > **State**.
+
+![Add trigger](/images/integrations/reolink/rich_notification__add_trigger.png)
+![Entity](/images/integrations/reolink/rich_notification__entity.png)
+![State](/images/integrations/reolink/rich_notification__state.png)
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__new_trigger.png' alt='Screenshot: new trigger'>
+</p>
+
+  Then under **Entity**, select the binary sensor from the drop-down list corresponding to the camera event for which you want to receive a rich notification. For the Reolink integration the options are:
+
+    - binary_sensor.*camera name*_motion
+    - binary_sensor.*camera name*_person
+    - binary_sensor.*camera name*_vehicle
+    - binary_sensor.*camera name*_pet
+    - binary_sensor.*camera name*_animal
+    - binary_sensor.*camera name*_visitor (doorbell press)
+    - binary_sensor.*camera name*_package
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__entity_select.png' alt='Screenshot: Entity select'>
+</p>
+
+  Note that these entity names will be translated into the language you configured Home Assistant in. You can type to search through all your entities. You can add multiple triggers if you want to send the same message for multiple camera events like person and vehicle detection. You can also create multiple automations with different messages for each event. In this case, we chose the visitor detection for doorbell presses:
+
+3. Under **To** select the state in which the event is detected: for visitor **On** for the other sensors **Detected**:
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__state_select.png' alt='Screenshot: State select'>
+</p>
+
+4. Under **And if** you can **optionally** limit when the notifications need to be sent.
+
+- For instance only when you are not home. The companion app will provide a device_tracker entity based on the GPS of your phone if you allow location tracking during the setup of the app. We will use this as an example but you can add as many conditions as you like:
+
+  Select **+ Add Condition** > **Entity** > **State**. Then under **Entity** select the device_tracker entity of your phone and under **State** select **Home**.
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__device_tracker_condition.png' alt='Screenshot: Device tracker condition'>
+</p>
+
+- If you want to limit the amount of notifications being sent using a cooldown time you can use the following template condition:
+
+  Select **Add Condition** again > **Other conditions** > **Template**. Then, under **Value template**, type the following:
+
+{% raw %}
+
+```yaml
+{{as_timestamp(now()) - as_timestamp(state_attr('automation.reolink_push', 'last_triggered'), 0) > 30}}
+```
+
+{% endraw %}
+
+  The `automation.reolink_push` is the name of this automation, which will be set under step 7, and the `30` is the cooldown time in seconds.
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__cooldown_time_condition.png' alt='Screenshot: cooldown time condition'>
+</p>
+
+5. Under **Then do**, select **Add Action** > **Camera** > **Take snapshot**.
+
+![Add action button](/images/integrations/reolink/rich_notification__add_action.png)
+![Camera button](/images/integrations/reolink/rich_notification__camera.png)
+![Take snapshot button](/images/integrations/reolink/rich_notification__take_snapshot.png)
+
+  Under **Targets**, select **Choose entity** and select the camera for which you want to add the image to the notification.
+
+![Choose entity button](/images/integrations/reolink/rich_notification__chose_entity.png)
+![Select Fluent camera](/images/integrations/reolink/rich_notification__select_fluent_camera.png)
+
+  Under **Filename**, fill in `/media/reolink_snapshot/last_snapshot_doorbell.jpg`. The first part `/media/` is absolutely necessary to allow your phone to access the saved image when it receives the notification. The reset of the folder and filename can be changed at will as long as you fill in the same filename under step 6.
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__screenshot_take_snapshot.png' alt='Screenshot: take snapshot'>
+</p>
+
+6. Add another action underneath by selecting **Add Action** > **Notifications** > **Send a notification via mobile_app_<phone name>**.
+
+![Add action button](/images/integrations/reolink/rich_notification__add_action.png)
+![Notifications button](/images/integrations/reolink/rich_notification__notifications.png)
+![Send a notification via mobile app](/images/integrations/reolink/rich_notification__send_to_mobile_button.png)
+
+  Under **message**, type the text you want to receive in the notification. For instance, “Someone rang the doorbell”.
+  If you want to give the notification a title, select the **title** option. For instance, if you have multiple cameras that send you notifications, select the camera name: `Doorbell`.
+  Select the **data** option and fill in `image: /media/local/reolink_snapshot/last_snapshot_doorbell.jpg`. Note that `/media/` of the filename of step 5 now needs to be changed to `/media/local/`. The rest of the filename needs to be the same as in step 5.
+
+<p class='img'>
+  <img src='/images/integrations/reolink/rich_notification__send_to_mobile.png' alt='Screenshot: send notification'>
+</p>
+
+  You can personalize the notification further and even control what happens if you tap the notification on your phone, [read more about this here](https://companion.home-assistant.io/docs/notifications/notifications-basic/).
+
+7. Select **Save**, give your automation a name like `doorbell notification`, and select **save** again.
+
+![Save](/images/integrations/reolink/rich_notification__save.png)
+
+  You are all set, ring your doorbell and see the notification on your phone. Remember the conditions under **And if** need to be met, otherwise you will not receive the notification.
+
+{% enddetails %}
+
 ### Automation ideas
 
 - Turn on (outdoor) lights near the camera to improve image clarity at night once the camera detects a person, vehicle, or animal.
 - Turn off notifications and recording when you get home (based on, e.g., geofencing) and turn it back on when you leave home.
-When someone presses the doorbell, Play ringtones on speakers (Echo Dot/Google Home/smart hubs) throughout the house.
+- Auto-pause rich notifications for x time
+
+{% details "Auto-pause rich notifications tutorial" icon="mdi:cursor-hand" %}
+
+**Goal**: At the end of this tutorial, you will have a drop-down on your dashboard with different time choices to pause your notifications. When the time is up, the notifications will become active again. It will look like this:
+
+![Overview of end result](/images/integrations/reolink/auto_pause__overview.png)
+
+1. First, create the dropdown from **Settings** > **Devices & services** > **Helpers** > **+ Create Helper** > **Dropdown**. 
+   - Decide how many time delay choices you want. 
+   - Add them all to the dropdown like below. 
+   - Your first entry needs to be "Notifications active" (or simular phrasing) for when the notifications are turned on. 
+   - You can define as many time options as you want. And you can define any time interval you like, for example, 22 minutes, 2 hours.
+
+    ![Dropdown](/images/integrations/reolink/auto_pause__dropdown.png)
+
+2. Next, also from the **Helpers** menu create a **Timer**. 
+   - Leave the time duration all zeros. Select the **Restore state and time** box.
+
+     ![Timer](/images/integrations/reolink/auto_pause__timer.png)
+
+3. Now you will create a new automation script. 
+   - For the **When** select **+ Add Trigger** > **Entity** > **State** and choose your dropdown box for the entity and in the **From** choose your "Notifications active" or whatever you chose for the top item.
+
+   ![Automation When dropdown](/images/integrations/reolink/auto_pause__automation_when.png)
+
+4. Add another trigger using **+ Add Trigger** > **Entity** > **State** and choose your timer for the entity and in the **To** choose "Idle". 
+   - Now select the three dots {% icon "mdi:dots-vertical" %} menu of this trigger and press **Edit ID**. In the **Trigger ID** type "TIMER DONE".
+
+    ![Automation When timer](/images/integrations/reolink/auto_pause__automation_when_timer.png)
+
+5. There is nothing in the **And if** section. For the **Then do** section choose **add building block** and use **Choose**. 
+   - You will have as many options as you have times in your dropdown box plus one to reset the dropdown box. 
+   - First, we make the option to reset the dropdown box. This needs to be the first option. 
+   - Under **Option 1**, select **+ Add Condition** > **Other conditions** > **Triggered by**. 
+   - Now check the box in front of "TIMER DONE".
+
+    ![Automation Triggered by](/images/integrations/reolink/auto_pause__automation_triggered_by.png)
+
+6. Add an action under this **Option 1**, choose **Select** as your action and then choose **First**. 
+   - Then enter your dropdown box as the entity. 
+   - This will change your dropdown box back to the first item when the timer is done. 
+   - This will allow your notification automation to run again.
+
+    ![Automation Select first](/images/integrations/reolink/auto_pause__automation_select_first.png)
+
+7. Let’s code the first option to pause the notifications now. 
+   - Under **Option 2**, select **+ Add Condition** > **Entity** > **State**. 
+   - Your dropdown box goes in the **Entity** and for **State** choose your first time delay.
+
+   ![Automation Choose](/images/integrations/reolink/auto_pause__automation_choose.png)
+
+8. For **+ Add Action**, choose **Helpers** > **Timer** > **Start** and enter your timer entity. 
+   - Check the duration box and enter the time delay you used for your first time delay. Format is HH:MM:SS
+
+    ![Automation Start timer](/images/integrations/reolink/auto_pause__automation_start_timer.png)
+
+9. The only thing left here is to duplicate Option 2 as many items as you have in your dropdown box. 
+   - The only changes you will need to make for each new option is to choose the correct state (time amount) for the dropdown box and then change the amount of time in the timer. 
+   - You can easliy duplicate by clicking the three dots {% icon "mdi:dots-vertical" %} menu at the far right of the option.
+
+10. Lastly, you need to apply this new feature. 
+    - Go into your rich notifications automation, or for that matter any automation that you would like to have pause control over, and add a condition. 
+    - Below is an example. In the **And if** press **+ Add condition** > **Entity** > **State** add select the dropdown box as the entity and "Notifications Active", the first item, as the state.
+
+    ![Condition](/images/integrations/reolink/auto_pause__condition.png)
+
+11. Add the dropdown box and the timer onto your dashboard and you are all set. 
+    - Here is what it looks like when it is running (holding notifications). 
+    - You can end it early by just selecting the timer, then selecting finish. That ends the timer, it goes to idle, and the automation resets the dropdown box to active.
+
+    ![Result when running](/images/integrations/reolink/auto_pause__result_when_running.png)
+
+{% enddetails %}
+
+- When someone presses the doorbell, play ringtones on speakers (Echo Dot/Google Home/smart hubs) throughout the house.
 - Pause a TV and show a notification badge on the TV when the doorbell is pressed (only when the TV is already on).
 - Play the quick replay messages of a Reolink doorbell only when not home (geofencing)
 - Wake up and start recording on other battery cameras nearby if one camera/motion sensor detects an event.
@@ -528,6 +730,7 @@ When someone presses the doorbell, Play ringtones on speakers (Echo Dot/Google H
 
 ### Entities intermittently become unavailable
 
+- Note that almost all entities, including motion/ai detection and the camera streams, will be unavailable when privacy mode is turned ON. Check the history of the **Privacy mode** entity to see if this is causing the issues. 
 - Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.
 - Reolink cameras can support a limited amount of simultaneous connections. Therefore using third-party software like Frigate, Blue Iris, or Scrypted, or using the ONVIF integration at the same time can cause the camera to drop connections. This results in short unavailabilities of the Reolink entities in Home Assistant. Especially when the connections are coming from the same device (IP) where Home Assistant is running, the Reolink cameras can get confused, dropping one connection in favor of the other originating from the same host IP. If you experience disconnections/unavailabilities of the entities, please first temporarily shut down the other connections (like Frigate) to diagnose if that is the problem. If that is indeed the problem, you could try moving the third-party software to a different host (IP address) since that is known to solve the problem most of the time. You could also try switching the protocol to FLV on Home Assistant and/or the third-party software, as that is known to be less resource-intensive on the camera.

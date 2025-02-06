@@ -16,6 +16,7 @@ ha_release: 2023.5
 ha_config_flow: true
 ha_codeowners:
   - '@Lash-L'
+  - '@allenporter'
 ha_domain: roborock
 ha_platforms:
   - binary_sensor
@@ -129,6 +130,47 @@ Reset main brush consumable - The main brush/ roller is expected to be replaced 
 
 Reset air filter - The air filter is expected to be replaced every 150 hours.
 
+### Actions
+
+#### Action `roborock.set_vacuum_goto_position`
+
+Go the specified coordinates.
+
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+- **Data attribute**: `x_coord`
+  - **Description**: X-coordinate, integer value. The dock is located at x-coordinate 25500.
+  - **Optional**: No.
+- **Data attribute**: `y_coord`
+  - **Description**: Y-coordinate, integer value. The dock is located at y-coordinate 25500.
+  - **Optional**: No.
+
+#### Action `roborock.get_vacuum_current_position`
+
+Get the current position of the vacuum. This is a cloud call and should only be used for diagnostics. This is not meant to be used for automations. Frequent requests can lead to rate limiting. 
+
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+
+Example:
+
+```yaml
+action: roborock.get_vacuum_current_position
+target:
+  entity_id: vacuum.roborock_s7
+data: {}
+```
+
+- **Result**: You will get a response like this:
+
+  ```yaml
+  vacuum.roborock_s7:
+    x: 28081
+    y: 25168
+  ```
+
 ### Image
 
 You can see all the maps within your Roborock account. Keep in mind that they are device-specific. The maps require the cloud API to communicate as the maps are seemingly stored on the cloud. If someone can figure out a way around this - contributions are always welcome.
@@ -229,3 +271,20 @@ target:
   entity_id: vacuum.s7_roborock
 
 ```
+
+## Troubleshooting
+
+### I get a invalid or no user agreement error - but nothing shows up in my app
+
+Roborock servers require accepting a user agreement before using the API, which may block Home Assistant during setup. Additionally, the Roborock may ask you to re-enter the user agreement, even if you have entered it before.  To allow Home Assistant to use the Roborock API, you need to take the following steps:
+1. Open your Roborock app.
+2. Open **Profile** > **About Us** > **User Agreement & Privacy Policy**.
+3. Hit **Revoke authorization**.
+4. Log back in and accept the policy.
+5. Reload the Roborock integration!
+
+### The integration tells me it cannot reach my vacuum and is using the cloud API and that this is not supported
+
+This integration has the capability to control your devices through the cloud API and the local API. If the local API is not reachable, it will just use the cloud API. We recommend only using the local API as it helps prevent any kind of rate-limiting.
+
+The steps needed to fix this issue are specific to your networking setup. Make sure your Home Assistant instance can communicate on port 58867 with the IP address of your vacuum. This may require changing firewall settings, VLAN configuration, etc.

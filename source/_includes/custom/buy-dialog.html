@@ -1,0 +1,138 @@
+{% if include.product and site.data.products[include.product] %}
+    {% assign product = site.data.products[include.product] %}
+    {% assign distributor_regions = product.distributors | group_by: 'ship_to' %}
+{% endif %}
+
+<div class="ha-buy-dialog">
+    <div class="ha-buy-dialog-inner">
+        <div class="ha-buy-dialog-header">
+            <div class="product-name">{{ product.name }}</div>
+            <div class="close">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                  </svg>
+            </div>
+        </div>
+        <div class="ha-buy-dialog-content">
+            <div class="ha-buy-dialog-sidebar">
+                <div class="ha-buy-dialog-sidebar-label">Shipping to</div>
+                <div class="ha-buy-dialog-sidebar-tabs">
+                    {% for distributor_region in distributor_regions %}
+                    <div class="ha-buy-dialog-sidebar-tab {% if forloop.first %}active{% endif %}" aria-role="tab" aria-selected="true" aria-controls="#{{ distributor_region.name | slugify }}" data-tab="#{{ distributor_region.name | slugify }}">
+                        {{ distributor_region.name }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="ha-buy-dialog-tab-content-wrapper">
+                {% for distributor_region in distributor_regions %}
+                <div class="ha-buy-dialog-tab-content {% if forloop.first %}active{% endif %}" id="{{ distributor_region.name | slugify }}">
+                    {% assign az_ship_distributors = distributor_region.items | sort: 'name' | sort: 'ship_from'%}
+                    <div class="ha-buy-dialog-distributor-items">
+                        {% for distributor in az_ship_distributors %}
+                        <a href="{{ distributor.url }}" target="_blank" rel="noreferrer" class="ha-buy-dialog-distributor-item">
+                            {% if distributor.logo %}
+                            <img src="{{ distributor.logo }}" alt="{{ distributor.name }} logo" class="ha-buy-dialog-distributor-logo">
+                            {% else %}
+                            {{ distributor.name }}
+                            {% endif %}
+                            <span>
+                                Ships from {{ distributor.ship_from }}
+                            </span>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="/voice-pe/nice-select2.css" />
+<script src="/voice-pe/nice-select2.js" defer></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let dialog = document.querySelector('.ha-buy-dialog');
+        let tabs = dialog.querySelectorAll('.ha-buy-dialog-sidebar-tab');
+        let tabContents = dialog.querySelectorAll('.ha-buy-dialog-tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+                tabs = dialog.querySelectorAll('.ha-buy-dialog-sidebar-tab');
+
+                tabs.forEach(tab => tab.classList.remove('active'));
+                tabContents.forEach(tabContent => tabContent.classList.remove('active'));
+
+                let tabContent = dialog.querySelector(tab.getAttribute('data-tab'));
+                if(!tabContent) return;
+
+                tab.classList.add('active');
+                tabContent.classList.add('active');
+            })
+        });
+
+        let close = dialog.querySelector('.close');
+        close.addEventListener('click', function () {
+            dialog.classList.remove('open');
+            document.documentElement.style.overflow = "";
+        });
+
+        let openTargets = document.querySelectorAll('.buy');
+        openTargets.forEach(target => {
+            target.addEventListener('click', function (e) {
+                e.preventDefault();
+                dialog.classList.add('open');
+                document.documentElement.style.overflow = "hidden";
+                focusDistributors(dialog);
+            });
+        });
+
+        if (window.location.hash === '#buy') {
+            dialog.classList.add('open');
+            document.documentElement.style.overflow = "hidden";
+            focusDistributors(dialog);
+        }
+
+        dialog.addEventListener('click', function (e) {
+            if (!e.target.closest('.ha-buy-dialog-inner')) {
+                dialog.classList.remove('open');
+                document.documentElement.style.overflow = "";
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                dialog.classList.remove('open');
+                document.documentElement.style.overflow = "";
+            }
+        });
+
+    });
+
+    function focusDistributors(dialog){
+        let tabs = dialog.querySelectorAll('.ha-buy-dialog-sidebar-tab');
+        let tabContents = dialog.querySelectorAll('.ha-buy-dialog-tab-content');
+        let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        let region = timezone.split('/')[0].toLowerCase();
+        let locale = Intl.DateTimeFormat().resolvedOptions().locale;
+        let countryCode = locale.split('-')[1].toLowerCase();
+
+        
+        let defaultTab = dialog.querySelector(`.ha-buy-dialog-sidebar-tab[data-tab="#${region}"]`);
+        if (defaultTab) {
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabContents.forEach(tabContent => tabContent.classList.remove('active'));
+
+            defaultTab.classList.add('active');
+            let tabContent = document.querySelector(defaultTab.getAttribute('data-tab'));
+            tabContent.classList.add('active');
+
+            let country = tabContent.querySelector(`.ha-buy-dialog-distributor-country[data-code="${countryCode}"]`);
+            if (country) {
+                country.scrollIntoView({ behavior: 'instant', block: 'center' });
+            }
+        }
+    }
+</script>
