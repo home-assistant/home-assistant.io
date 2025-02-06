@@ -139,11 +139,11 @@ Depending on the supported features of the camera, number entities are added for
 - Auto track disappear time
 - Auto track stop time
 - Day night switch threshold*
-- Image brightness* (default 128)
-- Image contrast* (default 128)
-- Image saturation* (default 128)
-- Image sharpness* (default 128)
-- Image hue* (default 128)
+- Image brightness*+ (default 128)
+- Image contrast*+ (default 128)
+- Image saturation*+ (default 128)
+- Image sharpness*+ (default 128)
+- Image hue*+ (default 128)
 
 **Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
@@ -189,7 +189,7 @@ Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at di
 Depending on the supported features of the camera, select entities are added for:
 
 - Floodlight mode (Off, Auto, Schedule)
-- Day night mode (Auto, Color, Black&White)
+- Day night mode+ (Auto, Color, Black&White)
 - <abbr title="pan, tilt, and zoom">PTZ</abbr> preset
 - Play quick reply message
 - Auto quick reply message
