@@ -31,7 +31,7 @@ This integration supports devices controllable by the Dreo App. The following de
 - **Intelligent Auto Mode**: The "auto" mode of each model can adjust the fan speed based on temperature and humidity. For example, it provides a more precise and personalized comfort experience.
 - **Child Lock Function**: Many fans include a child lock that helps prevent accidental setting changes and enhances household safety.
 - **Fast Speed Adjustment Response**: Most fans offer a rapid speed-adjustment response time, enabling you to swiftly alter the fan speed according to your requirements.
-- **Multi-Voice Assistant Integration**: Many models support integration with a wider range of voice assistants which facilitates a wider range of hands-free operations
+- **Multi-Voice Assistant Integration**: Many models support integration with a wider range of voice assistants which facilitates a wider range of hands-free operations.
 - **Energy-Efficient Motor**: Many fans come with an energy-efficient motor that reduces electricity costs while delivering strong airflow.
 - **Long Timer Setting**: Most fans offer a timer setting of up to 12 hours, which gives you more flexibility in scheduling the fan's operation.
 
@@ -72,7 +72,7 @@ All attributes are supported by models: DR-HTF001S, DR-HTF002S, DR-HTF004S, DR-H
 
 ### Device not discovered
 
-- **Check Dreo App Connection**: Ensure that your devices are properly connected to the Dreo App. Try restarting the Dreo App and checking if the devices are still visible and controllable within it. If not, re-pair the devices with the Dreo App following the app's official pairing instructions.
+- **Check Dreo App Connection**: Ensure that your devices are properly connected to the Dreo App. Try restarting the Dreo App and checking if the devices are still visible and controllable within it. If not, re-pair the devices with the Dreo App, following the app's official pairing instructions.
 - **Home Assistant Network Issues**: Make sure that your Home Assistant instance has network access. You can test this by trying to access other online services from within Home Assistant (for example, checking the weather integration if it's set up). If there are network problems, troubleshoot your Home Assistant's network connection, which may involve checking your router settings, Wi-Fi passwords, or Ethernet connections.
 - **Permissions**: Double-check that you've granted all the necessary permissions during the integration setup process. Incorrect permissions can prevent Home Assistant from discovering your Dreo devices.
 
