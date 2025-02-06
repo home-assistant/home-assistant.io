@@ -25,8 +25,7 @@ If you have been using a data disk previously with {% term "Home Assistant Opera
 3. Select **Move data disk**.
 4. Select the data disk from the list of available devices.
 5. Select **Move**.
-
-![Screenshot of the "Move datadisk" feature](/images/screenshots/move-datadisk.png)
+   - Depending on the amount of data, this may take a while.
 
 ### Using CLI to move the data partition
 

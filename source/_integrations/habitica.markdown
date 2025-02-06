@@ -3,9 +3,9 @@ title: Habitica
 description: Instructions on enabling Habitica support for your Home Assistant
 ha_category:
   - Calendar
+  - Image
   - Sensor
   - To-do list
-  - Image
 ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_domain: habitica
@@ -14,10 +14,10 @@ ha_platforms:
   - button
   - calendar
   - diagnostics
+  - image
   - sensor
   - switch
   - todo
-  - image
 ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
@@ -88,11 +88,14 @@ Verify SSL certificate:
 - **Mana**: Displays the current mana points of your character (for example, "61 MP").
 - **Max. mana**: Indicates the maximum mana points your character can have at the current level (for example, "70 MP").
 - **Next level**: Indicates the remaining experience points needed to reach the next level (for example, "440 XP").
-- **Habits**: Shows the number of habits being tracked (for example, "4 tasks").
-- **Rewards**: Displays the rewards that can be redeemed (for example, "1 task")
 - **Gems**: Shows the total number of gems currently owned by your Habitica character, used for purchasing items and customizations.
 - **Mystic hourglasses**: Displays the number of mystic hourglasses earned as a subscriber, which can be redeemed for exclusive items from past events.
 - **Strength, intelligence, constitution, perception**: Display your character's attribute points (stats). The sensors' attributes provide a breakdown of contributions from level, battle gear, class equip bonus, allocation, and buffs.
+- **Eggs**: Shows the total number of eggs in your inventory. The sensor's attributes provide a detailed list of each egg type and quantity.
+- **Pet food**: Displays the total amount of food available. The sensor's attributes list each food type and its quantity. Feed it to your pets and they may grow into a sturdy steed.
+- **Saddles**: Indicates the number of saddles owned, used for instantly raising pets to mounts.
+- **Hatching potions**: Shows the total count of available hatching potions. The sensor's attributes detail each potion type and quantity. Pour them on an egg to hatch a pet.
+- **Quest scrolls**: Displays the total number of quest scrolls in your inventory. A list of each quest scroll and its quantity is provided in the sensor's attributes.
 
 ## Binary sensors
 
@@ -263,6 +266,19 @@ Use a transformation item from your Habitica character's inventory on a member o
 - **Seafoam**: `seafoam` (transforms into a starfish)
 - **Shiny seed** `shiny_seed` (transforms into flower)
 
+### Action `habitica.get_tasks`
+
+Fetch tasks from your Habitica account, with optional filters to narrow down the results for more precise task retrieval.
+
+| Data attribute | Optional | Description                                                                                              |
+| -------------- | -------- | -------------------------------------------------------------------------------------------------------- |
+| config_entry   | no       | Choose the Habitica character to retrieve tasks from.                                                    |
+| type           | yes      | Filter tasks by type.  Valid types: "habits", "dailies", "todos", "rewards".                                                                                     |
+| priority       | yes      | Filter tasks by difficulty. Valid values: "trivial", "easy", "medium", "hard".                                                                              |
+| task           | yes      | Select specific tasks by matching their name (or task ID).                                               |
+| tag            | yes      | Filter tasks that have one or more of the selected tags.                                                 |
+| keyword        | yes      | Filter tasks by keyword, searching across titles, notes, and checklists.                                 |
+
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
@@ -383,22 +399,6 @@ actions:
 
 {% enddetails %}
 
-## Templating
-
-`sensor.habitica_USER_habits` and `sensor.habitica_USER_rewards` have state attributes listing the user's respective tasks. For example, you can see this information in **{% my developer_states title="Developer Tools > States" %}** under `sensor.habitica_USER_habits` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
-
-{% raw %}
-
-```jinja
-{% for key, value in states.sensor.habitica_USER_habits.attributes.items() %}
-  {% if 'text' in value | string %}
-    {{ loop.index }}. {{ value.text }}
-  {% endif %}
-{% endfor %}
-```
-
-{% endraw %}
-
 ## Data updates
 
 This integration retrieves data from Habitica every 60 seconds to ensure timely updates.
@@ -414,6 +414,12 @@ This integration performs the following requests:
 - 1 additional request 5 seconds after an action to sync the data with Habitica.
 
 Please keep these limits in mind to avoid exceeding Habitica's request allowance. Efforts are ongoing to optimize the integration and reduce the number of requests it makes.
+
+## Troubleshooting
+
+The Habitica integration relies on an active internet connection to communicate with **Habitica**. If you encounter issues, verify that your network connection is stable. Additionally, the Habitica service itself may experience downtime, whether unexpected or due to scheduled maintenance. In these trying times of uncertainty and challenge, when fate tests your resolve, seek guidance from the [Habitica Outage Instructions](https://habitica.fandom.com/wiki/Outage_Instructions) on the community-maintained Habitica wiki — wisdom shared by adventurers who have faced such trials before.
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
 ## Remove integration
 

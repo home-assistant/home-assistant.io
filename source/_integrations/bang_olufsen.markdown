@@ -2,16 +2,16 @@
 title: Bang & Olufsen
 description: Instructions on how to integrate Bang & Olufsen devices into Home Assistant.
 ha_category:
+  - Event
   - Media Player
   - Multimedia
-  - Event
 ha_release: 2024.2
 ha_iot_class: Local Push
 ha_domain: bang_olufsen
 ha_platforms:
   - diagnostics
-  - media_player
   - event
+  - media_player
 ha_codeowners:
   - '@mj23000'
 ha_config_flow: true
@@ -73,7 +73,7 @@ A number of features are available through the media player entity:
 
 ## Limitations
 
-Currently, some features of the Mozart platform such as:
+Currently, some features of the Mozart platform are not available through the [public API](https://github.com/bang-olufsen/mozart-open-api). Some may become available at a later point, but until then the [Bang & Olufsen App](https://www.bang-olufsen.com/en/dk/story/apps) can be used to configure these settings and features:
 
 - Creating timers and alarms
 - Retrieving detailed alarm and timer information
@@ -86,8 +86,6 @@ And more advanced app-centric features such as:
 - Creating stereo pairs
 - Adjusting specific sound settings
 - Pairing remotes
-
-These features are not available through the API. Some may become available at a later point, but until then the [Bang & Olufsen App](https://www.bang-olufsen.com/en/dk/story/apps) can be used to configure these settings and features.
 
 ## Actions
 

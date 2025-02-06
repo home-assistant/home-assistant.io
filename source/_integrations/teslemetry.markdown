@@ -56,31 +56,58 @@ These are the entities available in the Teslemetry integration. Not all entities
 
 |Domain|Name|Enabled|
 |---|---|---|
+|Binary sensor|Automatic blind spot camera|No|
+|Binary sensor|Automatic emergency braking off|No|
 |Binary sensor|Battery heater|No|
+|Binary sensor|Blind spot collision warning chime|No|
+|Binary sensor|BMS full charge|No|
+|Binary sensor|Brake pedal|No|
 |Binary sensor|Cabin overheat protection actively cooling|No|
 |Binary sensor|Charge cable|Yes|
+|Binary sensor|Charge port cold weather mode|No|
 |Binary sensor|Charger has multiple phases|No|
 |Binary sensor|Dashcam|No|
+|Binary sensor|DC DC|No|
+|Binary sensor|Drive rail|No|
+|Binary sensor|Driver seat belt|No|
+|Binary sensor|Driver seat occupied|No|
+|Binary sensor|Emergency lane departure avoidance|No|
+|Binary sensor|Europe vehicle|No|
+|Binary sensor|Fast charger present|No|
 |Binary sensor|Front driver door|Yes|
 |Binary sensor|Front driver window|Yes|
 |Binary sensor|Front passenger door|Yes|
 |Binary sensor|Front passenger window|Yes|
+|Binary sensor|GPS state|No|
+|Binary sensor|Guest mode enabled|No|
+|Binary sensor|Homelink nearby|No|
+|Binary sensor|Located at favorite|Yes|
+|Binary sensor|Located at home|Yes|
+|Binary sensor|Located at work|Yes|
+|Binary sensor|Offroad lightbar|No|
+|Binary sensor|Passenger seat belt|No|
+|Binary sensor|Pin to drive enabled|No|
 |Binary sensor|Preconditioning enabled|No|
 |Binary sensor|Preconditioning|No|
+|Binary sensor|Rear display HVAC|No|
 |Binary sensor|Rear driver door|Yes|
 |Binary sensor|Rear driver window|Yes|
 |Binary sensor|Rear passenger door|Yes|
 |Binary sensor|Rear passenger window|Yes|
+|Binary sensor|Right hand drive|No|
 |Binary sensor|Scheduled charging pending|No|
+|Binary sensor|Service mode|No|
 |Binary sensor|Status|Yes|
+|Binary sensor|Supercharger session trip planner|No|
 |Binary sensor|Tire pressure warning front left|No|
 |Binary sensor|Tire pressure warning front right|No|
 |Binary sensor|Tire pressure warning rear left|No|
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
+|Binary sensor|Wiper heat|No|
 |Button|Flash lights|Yes|
-|Button|Homelink|Yes|
+|Button|HomeLink|Yes|
 |Button|Honk horn|Yes|
 |Button|Keyless driving|Yes|
 |Button|Play fart|Yes|
@@ -93,6 +120,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Cover|Trunk|Yes|
 |Cover|Vent windows|Yes|
 |Device tracker|Location|Yes|
+|Device tracker|Origin|No|
 |Device tracker|Route|Yes|
 |Lock|Charge cable lock|Yes|
 |Lock|Lock|Yes|
@@ -209,10 +237,6 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Power|Yes|
 |Sensor|State|Yes|
 |Sensor|Vehicle|Yes|
-
-## Vehicle sleep
-
-Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the Teslemetry integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` action to force polling the API, which will reset the timer.
 
 ## Actions
 

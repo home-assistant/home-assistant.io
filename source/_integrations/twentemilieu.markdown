@@ -16,6 +16,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: service
+ha_quality_scale: silver
 ---
 
 The Twente Milieu {% term integration %} enables you to monitor the upcoming

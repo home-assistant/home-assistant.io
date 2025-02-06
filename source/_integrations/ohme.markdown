@@ -2,8 +2,8 @@
 title: Ohme
 description: Instructions to configure the Ohme integration into Home Assistant.
 ha_category:
-  - Sensor
   - Car
+  - Sensor
 ha_release: 2025.1
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -11,9 +11,14 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: ohme
 ha_platforms:
+  - button
+  - number
+  - select
   - sensor
   - switch
-  - button
+  - time
+ha_quality_scale: silver
+ha_integration_type: device
 ---
 
 The **Ohme** {% term integration %} allows you to connect your [Ohme](https://ohme-ev.com/) EV charger to Home Assistant.
@@ -54,6 +59,18 @@ The Ohme integration provides the following entities.
   - **Description**: If sensor **Status** is `Pending approval`, this will approve the charge.
   - **Available for devices**: all
 
+#### Numbers
+
+- **Target percentage**
+  - **Description**: Sets the charge target for your vehicle.
+  - **Available for devices**: all
+
+#### Selects
+
+- **Charger mode**
+  - **Description**: Sets the mode of the charger. Possible options: `Smart charge`, `Max charge`, `Paused`. This is only available with a vehicle plugged in.
+  - **Available for devices**: all
+
 #### Sensors
 
 - **Status**
@@ -83,6 +100,12 @@ The Ohme integration provides the following entities.
 - **Sleep when inactive**
   - **Description**: Turn off the screen of the device after a few minutes of inactivity.
   - **Available for devices**: Home Pro
+
+#### Times
+
+- **Target time**
+  - **Description**: Sets the time you need your vehicle charged by.
+  - **Available for devices**: all
 
 ## Actions
 

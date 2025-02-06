@@ -6,8 +6,6 @@ ha_category:
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_release: 0.85
-ha_codeowners:
-  - '@thibmaek'
 ha_domain: nmbs
 ha_platforms:
   - sensor
