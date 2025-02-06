@@ -26,11 +26,35 @@ related:
     title: Bring!
 ---
 
-The **Bring!** integration allows you to interact with your [Bring!](https://www.getbring.com/) shopping lists within Home Assistant.
+The **Bring!** integration allows you to sync your [Bring!](https://www.getbring.com/) shopping lists with Home Assistant.
 
-For authentication, the integration requires the `email` and `password` you used for your Bring! account. If you want to automatically receive notifications via the Bring! app when Home Assistant adds or removes an item from the list, you should use a dedicated account (such as `email: your.name+ha@gmail.com`) to connect Home Assistant with [Bring!](https://www.getbring.com/).
+## About Bring!  
+
+**Bring!** is a grocery shopping list app that allows users to create shared lists and organize grocery shopping with family, partners, or roommates.  
+
+Available as a mobile app on [Google Play for Android](https://play.google.com/store/apps/details?id=ch.publisheria.bring) and the [App Store for iOS](https://itunes.apple.com/app/apple-store/id580669177). **Bring!** also offers a web version at [web.getbring.com](https://web.getbring.com).  
+
+## How you can use this integration
+
+- **Automated notifications:** Receive alerts on your phone when essential items are added to your list or when the quantity of items reaches a set value.
+- **List updates based on events:** Automatically add items to your shopping list when appliances are low on supplies, like dishwasher salt, or need routine maintenance, such as tub cleaner for the washer.
+- **Voice control:** Use voice assistants connected to Home Assistant to add items to your **Bring!** list.
+- **Geofencing:** Receive reminders when you are near a specific store and need to pick up items, based on your location.
+
+## Prerequisites
+
+For authentication, the integration requires the `email` and `password` of your **Bring!** account.  If you don’t have an account, you can easily sign up via the mobile app or WebApp.
 
 {% include integrations/config_flow.md %}
+
+### Configuration parameters
+
+{% configuration_basic %}
+Email:
+  description: "The email address associated with your Bring! account."
+Password:
+  description: "The password to log in to your Bring! account."
+{% endconfiguration_basic %}
 
 ## Sensors
 
@@ -46,13 +70,17 @@ You can use the actions from the [to-do list](/integrations/todo/) to create, up
 
 ### Notifications
 
-The **Bring** integration offers an action to send push notifications to the Bring! mobile apps of other members of a shared shopping list. The Bring! mobile app has 4 predefined notification types. Note: If you want to receive these notifications yourself, you need to use a dedicated account as mentioned above.
+The **Bring!** integration offers an action to send push notifications to the Bring! mobile apps of other members of a shared shopping list. The Bring! mobile app has 4 predefined notification types.
+
+{% note %}
+If you want to receive these notifications, you must use a dedicated account, as outlined in the [known limitations](#known-limitations).
+{% endnote %}
 
 | Data attribute | Optional | Description                                                                                                                      |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `target`               |       no | Target Bring! list(s) whose members should be notified.                                                                          |
 | `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types).                      |
-| `item`                 |      yes | **Required for `urgent_message`.** Article name to include in the message. For example: *Urgent Message - Please buy cilantro urgently*. |
+| `item`                 |      yes | Required for `urgent_message`. Article name to include in the message. For example: *Urgent Message - Please buy cilantro urgently*. |
 
 ### Available notification types
 
@@ -89,3 +117,81 @@ actions:
       message: urgent_message
       item: Cilantro
 ```
+
+## Automations
+
+Get started with these automation examples for **Bring!**, each featuring ready-to-use blueprints!
+
+### Grocery shopping reminder 🛒
+
+Get notified when it's time to go grocery shopping. A notification is sent when your shopping list reaches a set threshold or when urgent items are added.
+
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/bring-grocery-shopping-reminder/843123" %}
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: numeric_state
+    entity_id: todo.shopping_list
+    above: 10
+    id: shopping list too long
+  - trigger: numeric_state
+    entity_id: sensor.shopping_list_urgent
+    above: 0
+    id: shopping is urgent
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: shopping list too long
+        sequence:
+          - action:
+              - action: notify.notify
+                data:
+                  message: >-
+                    The list is getting long, plan a trip to the grocery shop in
+                    the next days
+                  title: Shopping needed soon 🛒
+      - conditions:
+          - condition: trigger
+            id: shopping is urgent
+        sequence:
+          - action:
+              - action: notify.notify
+                data:
+                  title: 🚨 Time to go shopping! 🛒
+                  message: Urgent groceries needed! Grab your shopping bag and go!
+  - delay:
+      hours: 1
+mode: single
+alias: "Bring!: Grocery shopping reminder 🛒"
+description: "Get notified when it's time to go grocery shopping. A notification is sent when your shopping list reaches a set threshold or when urgent items are added."
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+## Data updates
+
+This integration syncs your lists by {% term polling %} the **Bring!** service every 90 seconds or immediately after an action is performed in Home Assistant, such as adding an item.
+
+## Known limitations
+
+- Changes made in Home Assistant are reflected instantly in the **Bring!** app, while changes in the Bring! app may be delayed by up to 90 seconds due to the polling interval.
+- To receive push notifications in the **Bring!** app when items are added or removed in Home Assistant, or when triggered by the `bring.send_message` action, it is recommended to use a dedicated account (such as `email:name+ha@example.com`) when setting up the integration.
+
+## Troubleshooting
+
+The **Bring!** integration relies on an active internet connection to communicate with Bring!. If you encounter issues, verify that your network connection is stable. Additionally, the Bring! service itself may experience downtime, whether unexpected or due to scheduled maintenance.
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (_download of debug log file will start automatically_). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+
+## Remove integration
+
+This integration can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}
