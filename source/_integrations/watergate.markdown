@@ -12,8 +12,10 @@ ha_codeowners:
   - '@adam-the-hero'
 ha_domain: watergate
 ha_platforms:
-  - valve
   - sensor
+  - valve
+ha_quality_scale: bronze
+ha_integration_type: integration
 ---
 
 The **Watergate** integration integrates your Watergate Devices (currently Sonic Wi-Fi) with your Home Assistant.

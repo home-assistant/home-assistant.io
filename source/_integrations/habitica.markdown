@@ -3,9 +3,9 @@ title: Habitica
 description: Instructions on enabling Habitica support for your Home Assistant
 ha_category:
   - Calendar
+  - Image
   - Sensor
   - To-do list
-  - Image
 ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_domain: habitica
@@ -14,10 +14,10 @@ ha_platforms:
   - button
   - calendar
   - diagnostics
+  - image
   - sensor
   - switch
   - todo
-  - image
 ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
@@ -91,6 +91,11 @@ Verify SSL certificate:
 - **Gems**: Shows the total number of gems currently owned by your Habitica character, used for purchasing items and customizations.
 - **Mystic hourglasses**: Displays the number of mystic hourglasses earned as a subscriber, which can be redeemed for exclusive items from past events.
 - **Strength, intelligence, constitution, perception**: Display your character's attribute points (stats). The sensors' attributes provide a breakdown of contributions from level, battle gear, class equip bonus, allocation, and buffs.
+- **Eggs**: Shows the total number of eggs in your inventory. The sensor's attributes provide a detailed list of each egg type and quantity.
+- **Pet food**: Displays the total amount of food available. The sensor's attributes list each food type and its quantity. Feed it to your pets and they may grow into a sturdy steed.
+- **Saddles**: Indicates the number of saddles owned, used for instantly raising pets to mounts.
+- **Hatching potions**: Shows the total count of available hatching potions. The sensor's attributes detail each potion type and quantity. Pour them on an egg to hatch a pet.
+- **Quest scrolls**: Displays the total number of quest scrolls in your inventory. A list of each quest scroll and its quantity is provided in the sensor's attributes.
 
 ## Binary sensors
 
@@ -409,6 +414,12 @@ This integration performs the following requests:
 - 1 additional request 5 seconds after an action to sync the data with Habitica.
 
 Please keep these limits in mind to avoid exceeding Habitica's request allowance. Efforts are ongoing to optimize the integration and reduce the number of requests it makes.
+
+## Troubleshooting
+
+The Habitica integration relies on an active internet connection to communicate with **Habitica**. If you encounter issues, verify that your network connection is stable. Additionally, the Habitica service itself may experience downtime, whether unexpected or due to scheduled maintenance. In these trying times of uncertainty and challenge, when fate tests your resolve, seek guidance from the [Habitica Outage Instructions](https://habitica.fandom.com/wiki/Outage_Instructions) on the community-maintained Habitica wiki — wisdom shared by adventurers who have faced such trials before.
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
 ## Remove integration
 

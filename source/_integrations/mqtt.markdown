@@ -44,6 +44,7 @@ ha_platforms:
   - valve
   - water_heater
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
@@ -133,7 +134,7 @@ Note: This action does not remove the [MQTT broker](#setting-up-a-broker) or its
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
 The easiest option is to install the official Mosquitto Broker add-on. You can choose to set up and configure this add-on automatically when you set up the MQTT integration. Home Assistant will automatically generate and assign a safe username and password, and no further attention is required. This also works if you have already set up this add-on yourself in advance.
-You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/create-link/?redirect=supervisor_addon&addon=core_mosquitto).
+You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto).
 
 {% important %}
 When MQTT is set up with the official Mosquitto MQTT broker add-on, the broker's credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the add-on user options, like the additional logins. After re-installing the add-on, the MQTT integration will automatically update the new password for the re-installed broker. It will then reconnect automatically.
@@ -368,12 +369,12 @@ The component specific options are placed as mappings under the `components` key
     "mdl": "xya",
     "sw": "1.0",
     "sn": "ea334450945afc",
-    "hw": "1.0rev2",
+    "hw": "1.0rev2"
   },
   "o": {
     "name":"bla2mqtt",
     "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support",
+    "url": "https://bla2mqtt.example.com/support"
   },
   "cmps": {
     "some_unique_component_id1": {
@@ -381,18 +382,18 @@ The component specific options are placed as mappings under the `components` key
       "device_class":"temperature",
       "unit_of_measurement":"°C",
       "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id":"temp01ae_t",
+      "unique_id":"temp01ae_t"
     },
     "some_unique_id2": {
       "p": "sensor",
       "device_class":"humidity",
       "unit_of_measurement":"%",
       "value_template":"{% raw %}{{ value_json.humidity}}{% endraw %}",
-      "unique_id":"temp01ae_h",
+      "unique_id":"temp01ae_h"
     }
   },
   "state_topic":"sensorBedroom/state",
-  "qos": 2,
+  "qos": 2
 }
 ```
 
@@ -411,12 +412,12 @@ An empty config can be published as an update to remove a single component from 
     "mdl": "xya",
     "sw": "1.0",
     "sn": "ea334450945afc",
-    "hw": "1.0rev2",
+    "hw": "1.0rev2"
   },
   "o": {
     "name":"bla2mqtt",
     "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support",
+    "url": "https://bla2mqtt.example.com/support"
   },
   "cmps": {
     "some_unique_component_id1": {
@@ -424,14 +425,14 @@ An empty config can be published as an update to remove a single component from 
       "device_class":"temperature",
       "unit_of_measurement":"°C",
       "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id":"temp01ae_t",
+      "unique_id":"temp01ae_t"
     },
     "some_unique_id2": {
-      "p": "sensor",
+      "p": "sensor"
     }
   },
   "state_topic":"sensorBedroom/state",
-  "qos": 2,
+  "qos": 2
 }
 ```
 
@@ -448,12 +449,12 @@ After removing a component, you should send another update with the removed comp
     "mdl": "xya",
     "sw": "1.0",
     "sn": "ea334450945afc",
-    "hw": "1.0rev2",
+    "hw": "1.0rev2"
   },
   "o": {
     "name":"bla2mqtt",
     "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support",
+    "url": "https://bla2mqtt.example.com/support"
   },
   "cmps": {
     "some_unique_component_id1": {
@@ -461,11 +462,11 @@ After removing a component, you should send another update with the removed comp
       "device_class":"temperature",
       "unit_of_measurement":"°C",
       "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id":"temp01ae_t",
+      "unique_id":"temp01ae_t"
     }
   },
   "state_topic":"sensorBedroom/state",
-  "qos": 2,
+  "qos": 2
 }
 ```
 
@@ -583,7 +584,7 @@ Discovery payload device:
       "state_topic": "foobar/sensor/sensor1",
       "unique_id": "bla_sensor001"
     }
-  },
+  }
 }
 ```
 
@@ -626,19 +627,19 @@ Example discovery payload:
     "mdl": "xya",
     "sw": "1.0",
     "sn": "ea334450945afc",
-    "hw": "1.0rev2",
+    "hw": "1.0rev2"
   },
   "o": {
     "name":"bla2mqtt",
     "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support",
+    "url": "https://bla2mqtt.example.com/support"
   },
   "device_class":"temperature",
   "unit_of_measurement":"°C",
   "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
   "unique_id":"temp01ae_t",
   "state_topic":"sensorBedroom/state",
-  "qos": 2,
+  "qos": 2
 }
 ```
 
@@ -793,7 +794,7 @@ support_url:
     'osc_cmd_tpl':         'oscillation_command_template',
     'osc_stat_t':          'oscillation_state_topic',
     'osc_val_tpl':         'oscillation_value_template',
-    'platform':            'p',
+    'p':                   'platform',
     'pct_cmd_t':           'percentage_command_topic',
     'pct_cmd_tpl':         'percentage_command_template',
     'pct_stat_t':          'percentage_state_topic',
@@ -1297,12 +1298,12 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
       "mdl_id": "ABC123",
       "sw": "1.0",
       "sn": "ea334450945afc",
-      "hw": "1.0rev2",
+      "hw": "1.0rev2"
     },
     "o": {
       "name":"bla2mqtt",
       "sw": "2.1",
-      "url": "https://bla2mqtt.example.com/support",
+      "url": "https://bla2mqtt.example.com/support"
     }
   }
   ```

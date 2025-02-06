@@ -5,19 +5,18 @@ ha_codeowners:
   - '@VandeurenGlenn'
 ha_config_flow: true
 ha_category:
-  - Light
   - Cover
+  - Light
 ha_iot_class: Local Push
 ha_release: 0.82
 ha_domain: niko_home_control
 ha_platforms:
-  - light
   - cover
+  - light
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The `niko_home_control` {% term integration %} allows you to integrate your [Niko Home Control](https://www.niko.eu/enus/products/niko-home-control) into Home Assistant.

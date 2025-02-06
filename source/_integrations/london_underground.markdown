@@ -35,12 +35,17 @@ sensor:
       - Elizabeth line
       - Hammersmith & City
       - Jubilee
-      - London Overground
       - Metropolitan
       - Northern
       - Piccadilly
       - Victoria
       - Waterloo & City
+      - Liberty
+      - Lioness
+      - Mildmay
+      - Suffragette
+      - Weaver
+      - Windrush
 ```
 
 {% configuration %}

@@ -1,0 +1,631 @@
+---
+layout: post
+title: "2025.2: Iterating on backups"
+description: "Lot of backup features including using Google Drive and Microsoft OneDrive as backup locations! Voice can now broadcast messages and control your thermostat. And much more!"
+date: 2025-02-05 00:00:00
+date_formatted: "February 5, 2025"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2025-02/social.jpg
+---
+
+<lite-youtube videoid="rflpsHsEE5s" videotitle="Home Assistant 2025.2 Release Party"></lite-youtube>
+
+Home Assistant 2025.2! ❤️
+
+In the previous release, we [overhauled our backup system](/blog/2025/01/03/release-20251/#overhaul-of-the-backup-system),
+and the response was overwhelming! Tons of suggestions and feature requests
+came in, so this release is—once again—focused on backups. Based on this
+community feedback, we’ve added loads of improvements, including the first
+integrations to store your backups in **Google Drive**
+and **Microsoft OneDrive**!
+
+This release also brings exciting new features to **Voice**! Home Assistant can
+now call your **analog phone**, and when dinner is ready, you can **broadcast**
+that message to all voice assistants in your home! But wait… there’s more!
+
+On **February 12, 2025**, we’re streaming live on YouTube all about Voice:
+[**Voice - Chapter 9**](https://www.youtube.com/live/k6VvzDSI8RU)! 🎙
+Be sure to subscribe and hit the bell so you don’t miss it. 🛎
+
+Before diving into the release notes, I also want to give a shoutout to our
+friends at [**ESPHome**](https://esphome.io/) powering so much of the Home
+Assistant ecosystem, including Home Assistant Voice PE! And
+on **February 19th**, they’ll be hosting a
+[**live release party for ESPHome 2025.2**](https://www.youtube.com/live/HtG3fjAO96c)! 🎉
+
+Enjoy the release!
+
+../Frenck
+
+_PS: It is almost Valentine's day, did you set up some romantic scenes yet? 🌹_
+
+<!--more-->
+
+- [Iterating on backups](#iterating-on-backups)
+  - [Unencrypted backups](#unencrypted-backups)
+    - [Ability to turn off encryption for specific locations](#ability-to-turn-off-encryption-for-specific-locations)
+    - [Downloading backups unencrypted](#downloading-backups-unencrypted)
+  - [Customize the time of your backups](#customize-the-time-of-your-backups)
+  - [Taking backups on an advanced schedule](#taking-backups-on-an-advanced-schedule)
+  - [Re-introduction of the backup toggle on update](#re-introduction-of-the-backup-toggle-on-update)
+    - [Backup on updating Home Assistant](#backup-on-updating-home-assistant)
+    - [Backup on updating add-ons](#backup-on-updating-add-ons)
+  - [Improved filenames for backups](#improved-filenames-for-backups)
+  - [New locations](#new-locations)
+- [Voice](#voice)
+  - [Home Assistant will be able to call your analog phone to tell you a message](#home-assistant-will-be-able-to-call-your-analog-phone-to-tell-you-a-message)
+  - [New Broadcast intent](#new-broadcast-intent)
+  - [Setting Temperature on Thermostat](#setting-temperature-on-thermostat)
+  - [LLMs meet calendars](#llms-meet-calendars)
+  - [Shared history between the default conversation agent and its LLM-based fallback](#shared-history-between-the-default-conversation-agent-and-its-llm-based-fallback)
+  - [Model Context Protocol](#model-context-protocol)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [Bluetooth config panel](#bluetooth-config-panel)
+- [Preparing our graphs for the future](#preparing-our-graphs-for-the-future)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+## Iterating on backups
+
+In the previous release, we [fully revamped the entire backup experience](/blog/2025/01/03/release-20251/#overhaul-of-the-backup-system)
+and added many new features to make it easier to use. That release set the
+stage for the next iterations and opened up the ability for integrations to
+provide locations to store backups.
+
+We've received **a lot** of feedback on the new backup system, which is awesome! ❤️
+All the feedback helped us prioritize the most requested features, and other
+improvements to the backup system.
+
+This release includes a lot of the most requested improvements and abilities.
+
+### Unencrypted backups
+
+The new backup system came with a lot of security improvements, including
+encryption of backups. However, as it turns out, many users use these backups
+to extract and restore single files or configurations, a use case in which
+encryption made things more difficult. In this release we made two changes
+to the backup system to address this.
+
+#### Ability to turn off encryption for specific locations
+
+While our default recommendation remains to encrypt backups, as of this
+release, you can turn off encryption on a per location basis. This allows you
+to store backups on you local NAS, for example, in an unencrypted format.
+
+<img class="no-shadow" alt="Screenshot showing the option to turn off encryption for a specific backup location." src="/images/blog/2025-02/backups-turn-off-encryption.png" />
+
+<img class="no-shadow" alt="Screenshot showing the backup locations, one location indicates that encryption has been turned off." src="/images/blog/2025-02/backups-encryption-turned-off.png" />
+
+There is one exception to this, which is [Home Assistant Cloud](/cloud). Backups
+stored in Home Assistant Cloud will always be encrypted, and encryption cannot
+be turned off. At Nabu Casa, we take your privacy and security very seriously,
+and we never ever want to be able to access your data.
+
+#### Downloading backups unencrypted
+
+When downloading backups from the Home Assistant interface, you will now always
+download the backup in an unencrypted format that can be extracted using your
+favorite archive tool.
+
+This works for all backups, regardless of the encryption settings of the
+location in which they are stored. For instance, if you download an encrypted
+backup from Home Assistant Cloud through the Home Assistant interface,
+it will decrypt the backup on the fly while you download it.
+
+### Customize the time of your backups
+
+The initial iteration of the backup system scheduled backups to run at 4:45 AM,
+but this time wasn't ideal for everyone. Some, for example, turned off their
+network storage during the night, meaning the backup would fail.
+
+This release, we added the ability to customize the time of your backups to your
+liking. Additionally, if you choose to make weekly backups, you can now select
+the days of the week you want the backup to run.
+
+<img class="no-shadow" alt="Screenshot showing the backup configuration options, you can now set your own time and select which days to backup." src="/images/blog/2025-02/backups-customize-backups-change.png" />
+
+### Taking backups on an advanced schedule
+
+The above backup time changes not flexible enough for you? Well, you are in luck! In this
+release, we added an action (`backup.create_automatic`) that you can use
+to trigger a backup, with your preferred settings, in an automation.
+
+<img class="no-shadow" alt="Screenshot showing an automation in the automation editor that is using the new action to create an automated backup." src="/images/blog/2025-02/backups-action.png" />
+
+This allows you to create automated backups on any schedule you like, or even
+add conditions and actions around it. For example, you could make an automation
+that triggers on a calendar, wakes up your network storage, waits till it is
+online, and then starts a backup.
+
+### Re-introduction of the backup toggle on update
+
+If you run Home Assistant OS, you get updates for Home Assistant along with
+all your add-ons. The update dialog used to have a toggle to create a backup
+before updating, which was removed in the previous release.
+
+This change was made because this feature was considered redundant when running
+regular automated backups. However, we’ve received a lot of feedback that many
+people relied on these backups to ensure they had the latest data, for instance,
+if they needed to roll back to a previous version of an add-on. We are
+re-introducing this backup on update toggle in this release, but in a smarter
+way. 🤓
+
+#### Backup on updating Home Assistant
+
+When updating Home Assistant, the toggle is now turned off by default and
+shows the last time you made a backup. This allows you to decide whether to make
+a new backup before updating.
+
+<img class="no-shadow" alt="Screenshot showing an Home Assistant Core update dialog, giving the option to make a backup before update." src="/images/blog/2025-02/backups-before-update-core.png" />
+
+If you turn the switch on, a full automated backup is created and synced to
+your configured locations, before the update is started.
+
+This full sync is done to ensure you have the most recent backup available in
+case the update causes issues and you need to restore your system. In the rare
+case a Home Assistant update fatally fails and you can’t access the backup page,
+if you’ve configured a second backup location, you’ll be able to download it
+from there.
+
+#### Backup on updating add-ons
+
+Things are slightly different when updating add-ons. The toggle exists here too,
+and is disabled by default. However, when you enable it, only a backup of your
+add-on and its data is created. That way you can keep around the previous
+version of the add-on, so you can always roll back to it if needed.
+
+<img class="no-shadow" alt="Screenshot showing an Home Assistant add-on update dialog, giving the option to make a backup before update." src="/images/blog/2025-02/backups-addons-before-update.png" />
+
+To prevent your system from filling up with old add-on backups, we only retain
+one backup per add-on, automatically deleting the previous backup whenever
+a new one is created. Add-on backups you created manually, of course,
+remain untouched and will not be deleted automatically.
+
+### Improved filenames for backups
+
+One piece of feedback we’ve seen a lot, is that the filenames created by backups
+can be a bit cryptic and hard to understand for humans.
+
+This feedback was fair, as the filename was a hash and originally not designed
+to be human-readable. This method was not newly introduced in the last release,
+but it was made more apparent with the new backup system and locations.
+
+So, in this release, we've improved the filenames of the backups stored on your
+backup locations. The filename now includes the date and time the backup was
+created, making it easier to understand and identify the backup you are looking
+for, even outside of Home Assistant.
+
+### New locations
+
+This release also introduces new locations to store your backups. There are new
+integrations for [Google Drive](/integrations/google_drive/) and
+[Microsoft OneDrive](/integrations/onedrive/), and backup support was added to
+the [Synology DSM](/integrations/synology_dsm) integration.
+
+<img class="no-shadow" alt="Screenshot showing the backup configuration panel, with all possible backup integrations set up!" src="/images/blog/2025-02/backups-new-locations.png" />
+
+## Voice
+
+Assist, our [private voice assistant](/voice_control/), is getting a few new
+features in this release. If you don't have Assist set up yet, check out our
+[Home Assistant Voice: Preview Edition](/voice-pe/) to get started.
+
+### Home Assistant will be able to call your analog phone to tell you a message
+
+Remember our tutorial on turning an analog phone into the
+[world's most private voice assistant](/voice_control/worlds-most-private-voice-assistant/)?
+Thanks to [Jamin](https://github.com/jaminh), we now have a way to call
+your analog phone from Home Assistant!
+
+You can use [`assist_satellite.announce`](/integrations/assist_satellite#action-assist_satelliteannounce)
+to have Home Assistant call your phone and play a message when someone picks up
+the phone.
+
+If you use an LLM as the brains for your voice assistant, you can take this one
+step further with the new [`assist_satellite.start_conversation`](/integrations/assist_satellite#action-assist_satellitestart_conversation)
+action. Instead of playing an announcement, it starts a conversation between
+Home Assistant and the user, with Home Assistant saying the first message.
+Left the garage door open for 30 minutes? No problem, let Home Assistant call
+and ask if they want to close it.
+
+_(Starting a conversation with the default conversation agent is a bit more work
+and did not make it this release)._
+
+### New Broadcast intent
+
+You can now broadcast messages to every other voice assistant in your home.
+Try it by saying _"Broadcast it is time for dinner"_.
+As always with new intents, support may vary
+[depending on your language](https://home-assistant.github.io/intents/),
+but our language leaders are working hard on making sure it will be supported
+soon in your language!
+
+### Setting Temperature on Thermostat
+
+A few releases ago we introduced an intent to get the current temperature from
+a climate device. As of this release, you can also set the target temperature
+of your thermostat by voice.
+
+By saying _"Set the temperature to 19 degrees"_ this will smartly target the
+area you are in (if you have a thermostat per area, such as thermostatic valves
+on your radiators) or the floor you are in (if you only have a central unit).
+You can also target specific devices by name if you prefer.
+
+### LLMs meet calendars
+
+Without complex custom tooling, LLM-based conversation agents previously could
+not fetch events from your calendar. This release changes that. Out of the box,
+LLM-based agents can now retrieve today’s and this week’s events from any of
+your calendars. Don’t forget to
+[expose your calendar entities](/voice_control/voice_remote_expose_devices/)
+to enable this functionality.
+
+### Shared history between the default conversation agent and its LLM-based fallback
+
+In [2024.12](/blog/2024/12/04/release-202412/) we introduced a lovely feature
+that allowed you to use our fast and local default conversation agent for most
+queries while still being able to fall back to a much more powerful LLM-based
+agent for more complex queries.
+
+This introduced some interesting behaviors. From a user perspective, it looked
+like you were talking to the same assistant, whereas, in reality, nothing was
+shared between the two agents. This led to some less-than-optimal scenarios,
+such as this one:
+
+<img class="no-shadow" alt="Screenshot of missing history in the conversation" src="/images/blog/2025-02/conversation-history-before.png" />
+
+The first command is processed locally by our default agent, but the follow-up
+request is processed by the LLM-based agent. Since no memory is shared, it does
+not understand what device you want to turn off.
+
+Starting with this release, both agents now share the same command history,
+helping address this issue.
+
+<img class="no-shadow" alt="Screenshot of the new improved behavior" src="/images/blog/2025-02/conversation-history-after.png" />
+
+### Model Context Protocol
+
+This release adds the [Model Context Protocol](https://modelcontextprotocol.io/introduction)
+to Home Assistant thanks to [Allen][@allenporter]. Home Assistant can both be an
+[MCP server](/integrations/mcp_server/) and an
+[MCP client](/integrations/mcp/). From the MCP website:
+
+> MCP is an open protocol that standardizes how applications provide context to LLMs. Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect your devices to various peripherals and accessories, MCP provides a standardized way to connect AI models to different data sources and tools.
+
+To give it a try yourself, [check out this client demo](https://gist.github.com/allenporter/b0e9946feb2ab60901c4f467ac1ba6f9).
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Google Drive]**, added by [@tronikos]<br>
+  Add your Google Drive as a location to store your Home Assistant backups.
+- **[Homee]**, added by [@Taraman17]<br>
+  Integrate your [Homee smart home system] into Home Assistant.
+- **[igloohome]**, added by [@keithle888]<br>
+  Monitor the battery levels of your [igloo smart access device(s)].
+- **[LetPot]**, added by [@jpelgrom]<br>
+  Monitor and control your [LetPot indoor garden].
+- **[OneDrive]**, added by [@zweckj]<br>
+  Allows you to store your Home Assistant backups in your Microsoft OneDrive.
+- **[Overseerr]**, added by [@joostlek]<br>
+  Interact with your [Overseerr media requests] directly from Home Assistant.
+- **[Model Context Protocol Server]**, added by [@allenporter]<br>
+  Enables using Home Assistant to provide context for MCP LLM Client
+  Applications. For example, you can expose your Google Tasks to-do list as a
+  tool for [Claude Desktop].
+- **[Model Context Protocol]**, added by [@allenporter]<br>
+  Enables using [MCP Servers] in Home Assistant to provide additional tools to
+  use with a conversation agent.
+- **[Qbus]**, added by [@thomasddn]<br>
+  Allows you to integrate your [Qbus Control] into Home Assistant.
+
+This release also has a new virtual integration. Virtual integrations are stubs
+that are handled by other (existing) integrations to help with findability.
+The following virtual integration have been added:
+
+- **[Decorquip Dream]**, provided by [Motionblinds] added by [@starkillerOG]
+
+[@allenporter]: https://github.com/allenporter
+[@joostlek]: https://github.com/joostlek
+[@jpelgrom]: https://github.com/jpelgrom
+[@keithle888]: https://github.com/keithle888
+[@starkillerOG]: https://github.com/starkillerOG
+[@Taraman17]: https://github.com/Taraman17
+[@thomasddn]: https://github.com/thomasddn
+[@tronikos]: https://github.com/tronikos
+[@zweckj]: https://github.com/zweckj
+[Claude Desktop]: https://claude.ai/download
+[Decorquip Dream]: /integrations/decorquip/
+[Google Drive]: /integrations/google_drive
+[Homee smart home system]: https://hom.ee/
+[Homee]: /integrations/homee
+[igloo smart access device(s)]: https://www.igloohome.co/#products
+[igloohome]: /integrations/igloohome
+[LetPot indoor garden]: https://letpot.com/
+[LetPot]: /integrations/letpot
+[MCP Servers]: https://modelcontextprotocol.io/
+[Model Context Protocol Server]: /integrations/mcp_server
+[Model Context Protocol]: /integrations/mcp
+[Motionblinds]: /integrations/motion_blinds
+[OneDrive]: /integrations/onedrive
+[Overseerr media requests]: https://overseerr.dev/
+[Overseerr]: /integrations/overseerr
+[Qbus Control]: https://www.qbus.be/
+[Qbus]: /integrations/qbus/
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing
+integrations are also being constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+- A big shoutout to [@NoRi2909]! He has been reviewing and improving every single
+  piece of text we show anywhere in Home Assistant. Thank you for your hard work!
+- Also, [@lboue]! This hero keeps extending the device support for the [Matter]
+  integration by adding support for more and more devices. Home Assistant is
+  close to reaching full Matter 1.4 device support!
+- [@chemelli74] added support for the [Shelly BLU TRV] to the [Shelly]
+  integration. Nice!
+- The [HomeWizard Energy] integration now supports the
+  [HomeWizard Plug-In Battery]. Awesome work [@DCSBL]!
+- Thanks to [@iprak], the [Vesync] integration now supports humidifiers!
+- [@rytilahti] added vacuum support to the [TP-Link Smart Home] integration. Sweet!
+- The [Reolink] integration keeps evolving, [@starkillerOG] added support for baby crying detection as a sensor. Nice!
+- The [Bang & Olufsen] integration now provides entities allowing you to react
+  to physical button presses on all Bang & Olufsen devices. Thanks [@mj23000]!
+
+[@chemelli74]: https://github.com/chemelli74
+[@DCSBL]: https://github.com/DCSBL
+[@iprak]: https://github.com/iprak
+[@lboue]: https://github.com/lboue
+[@mj23000]: https://github.com/mj23000
+[@NoRi2909]: https://github.com/NoRi2909
+[@rytilahti]: https://github.com/rytilahti
+[@starkillerOG]: https://github.com/starkillerOG
+[Bang & Olufsen]: /integrations/bang_olufsen
+[HomeWizard Energy]: /integrations/homewizard
+[HomeWizard Plug-In Battery]: https://www.homewizard.com/nl/plug-in-battery/
+[Matter]: /integrations/matter
+[Reolink]: /integrations/reolink
+[Shelly BLU TRV]: https://www.shelly.com/products/shelly-blu-trv-single-pack
+[Shelly]: /integrations/shelly
+[TP-Link Smart Home]: /integrations/tplink
+[Vesync]: /integrations/vesync
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
+more integrations to the UI, making them more accessible for everyone
+to set up and use.
+
+The following integration is now available via the Home Assistant UI:
+
+- **[NMBS]**, done by [@silamon]
+- **[Filter]**, done by [@gjohansson-ST]
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@silamon]: https://github.com/silamon
+[Filter]: /integrations/filter
+[NMBS]: /integrations/nmbs
+
+## Other noteworthy changes
+
+- When using the [Generic thermostat], setting a temperature that matches
+  one of the presets will automatically select that preset as active.
+  Thanks [@domingues]!
+- [Time triggers] in automations can now be offset when using datetime input
+  helpers. Thanks [@Petro31]!
+
+[@domingues]: https://github.com/domingues
+[@Petro31]: https://github.com/Petro31
+[Generic thermostat]: /integrations/generic_thermostat
+[Time triggers]: /docs/automation/trigger/#time-trigger
+
+## Bluetooth config panel
+
+The [Bluetooth integration] now has its own configuration panel! 💙
+
+The panel is accessible by going to **Settings** > **Device & services**. Find
+and select the **Bluetooth** integration, and next select **Configure**.
+
+This new panel gives you access to the Bluetooth integration options and
+insights into the connection slot allocations. More importantly,
+it has an advertisement monitor!
+
+Selecting **Advertisement monitor** will open a new panel, where you can see
+information about your Bluetooth devices, including the raw advertisement data
+and how they are connected to your Home Assistant instance. This includes
+which [Bluetooth proxy] it connects through!
+
+<img class="no-shadow" alt="Screenshot of the new advertisement panel" src="/images/blog/2025-02/bluetooth-panel.png" />
+
+[Bluetooth integration]: /integrations/bluetooth
+[Bluetooth proxy]: /integrations/bluetooth/#remote-adapters-bluetooth-proxies
+
+## Preparing our graphs for the future
+
+This release includes a major overhaul of every graph we display and show in
+Home Assistant. We have entirely replaced the software library that renders
+these graphs in the frontend.
+
+You can most definitely tell things have changed, but everything still looks
+very similar. The latter was our goal for now, as we wanted the existing
+experience to be familiar.
+
+However, this change is a preparation for the future. We have many plans and
+ideas for our graphs, and this change was a necessary step to make those plans
+possible.
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might
+unexpectedly impact your Home Assistant installation. Unfortunately, sometimes,
+it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Ecovacs" %}
+
+The attributes on the vacuum entity for the lifespan of the main brush, side
+brush, and filter have been deprecated and are now removed. These attributes
+are superseded by dedicated sensor entities.
+
+([@gjohansson-ST] - [#134492]) ([documentation](/integrations/ecovacs))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#134492]: https://github.com/home-assistant/core/pull/134492
+
+{% enddetails %}
+
+{% details "Home Connect" %}
+
+Some appliances might lose their power entity as the API does not report the
+power setting.
+
+([@Diegorro98] - [#135930]) ([documentation](/integrations/home_connect))
+
+[@Diegorro98]: https://github.com/Diegorro98
+[#135930]: https://github.com/home-assistant/core/pull/135930
+
+{% enddetails %}
+
+{% details "IMGW-PIB" %}
+
+Some hydrology data is no longer available to Home Assistant users via IMGW-PIB
+API and for this reason, the following entities are removed:
+
+- `flood alarm` binary sensor
+- `flood alarm level` sensor
+- `flood warning` binary sensor
+- `flood warning level` sensor
+
+([@bieniu] - [#134668]) ([documentation](/integrations/imgw_pib))
+
+[@bieniu]: https://github.com/bieniu
+[#134668]: https://github.com/home-assistant/core/pull/134668
+
+{% enddetails %}
+
+{% details "KNX" %}
+
+The "State Updater" option in the integration settings now works as intended.
+Previously, the option wasn’t applied correctly.
+
+- When disabled: KNX will only read a `state_address` once when the connection
+  is established.
+- When enabled: KNX will also read any `state_address` if no value has been
+  received for one hour.
+
+Please review your integration settings to ensure this option is configured
+according to your preferences.
+
+([@farmio] - [#135611]) ([documentation](/integrations/knx))
+
+[@farmio]: https://github.com/farmio
+[#135611]: https://github.com/home-assistant/core/pull/135611
+
+{% enddetails %}
+
+{% details "Litter-Robot" %}
+
+Remove extra_state_attributes from Litter-Robot vacuum entities.
+These were previously migrated to sensors.
+
+([@natekspencer] - [#136196]) ([documentation](/integrations/litterrobot))
+
+[@natekspencer]: https://github.com/natekspencer
+[#136196]: https://github.com/home-assistant/core/pull/136196
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+To change the MQTT broker settings, you need to start a reconfiguration.
+When `CONFIGURE` is selected, MQTT shows a "MQTT settings" page with subscribe
+and publish tools. The `Re-configure MQTT` button will be replaced with
+an `MQTT options` page.
+
+The reconfiguration option will only be available from the MQTT integration
+entry context menu.
+
+([@jbouwh] - [#133342]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#133342]: https://github.com/home-assistant/core/pull/133342
+
+{% enddetails %}
+
+{% details "Pentair ScreenLogic" %}
+
+Raw states derived from ScreenLogic enums are now lowercase instead of Title
+Case. This change impacts:
+
+- pH/ORP dosing state sensor entities:
+  - `Dosing` -> `dosing`
+  - `Mixing` -> `mixing`
+  - `Monitoring` -> `monitoring`
+- The `preset_mode` state attribute for ScreenLogic climate entities, where
+  raw states have also been underscored-spaced and had any punctuation removed.
+  - `Solar` -> `solar`
+  - `Solar Preferred` -> `solar_preferred`
+  - `Heater` -> `heater`
+  - `Don't Change` -> `dont_change`
+
+These changes support the addition of translation keys for text-based entity
+states. You should update any references to the above states/preset_modes to
+the new, lowercase versions.
+
+([@dieselrabbit] - [#133866]) ([documentation](/integrations/screenlogic))
+
+[@dieselrabbit]: https://github.com/dieselrabbit
+[#133866]: https://github.com/home-assistant/core/pull/133866
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Energy by distance units](https://developers.home-assistant.io/blog/2025/01/31/energy-distance-units/)
+- [Relocate dhcp/ssdp/usb/zeroconf ServiceInfo models](https://developers.home-assistant.io/blog/2025/01/15/service-info)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2025.2](/changelogs/core-2025.2)

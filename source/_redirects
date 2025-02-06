@@ -16,6 +16,7 @@ layout: null
 /feature-requests https://community.home-assistant.io/c/feature-requests
 /issues https://github.com/home-assistant/core/issues
 /community https://community.home-assistant.io/
+/voice /voice_control/builtin_sentences/
 /latest-security-alert /security/
 
 # Link to latest release notes

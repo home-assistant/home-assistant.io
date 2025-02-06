@@ -17,6 +17,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_integration_type: device
 ha_zeroconf: true
+ha_quality_scale: platinum
 ---
 
 The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the [StreamMagic](https://www.cambridgeaudio.com/usa/en/products/streammagic) app.
