@@ -10,7 +10,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Dreo integration enables you to control smart switches and outlets connected to the Dreo App.
+The Dreo integration enables you to control smart switches connected to the Dreo App.
 
 The devices must be added to the Dreo App before this integration can discover them.
 
