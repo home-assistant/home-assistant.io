@@ -28,12 +28,12 @@ This integration supports devices controllable by the Dreo App. The following de
 
 - **Sleep Mode**: All models can adjust the fan speed smoothly in the "sleep" mode. However, some models (such as DR-HTF001S) perform better in terms of adjustment smoothness, providing a more stable and quiet environment for sleeping.
 - **Wide-Angle Oscillation**: Fans are typically equipped with a wide oscillation function, which ensures more even air circulation—especially in larger spaces.
-- **Intelligent Auto Mode**: The "auto" mode of each model can adjust the fan speed based on temperature and humidity. For example, it provides a more precise and personalized comfort experience..
+- **Intelligent Auto Mode**: The "auto" mode of each model can adjust the fan speed based on temperature and humidity. For example, it provides a more precise and personalized comfort experience.
 - **Child Lock Function**: Many fans include a child lock that helps prevent accidental setting changes and enhances household safety.
 - **Fast Speed Adjustment Response**: Most fans offer a rapid speed-adjustment response time, enabling you to swiftly alter the fan speed according to your requirements.
 - **Multi-Voice Assistant Integration**: Many models support integration with a wider range of voice assistants which facilitates a wider range of hands-free operations
 - **Energy-Efficient Motor**: Many fans come with an energy-efficient motor that reduces electricity costs while delivering strong airflow.
-- **Long Timer Setting**: Most fans offer a timer setting of up to 12 hours. giving you more flexibility in scheduling the fan's operation.
+- **Long Timer Setting**: Most fans offer a timer setting of up to 12 hours, which gives you more flexibility in scheduling the fan's operation.
 
 The supported models include: DR-HTF001S, DR-HTF002S, DR-HTF005S, DR-HTF007S, DR-HTF008S, DR-HTF009S, DR-HTF010S.
 
