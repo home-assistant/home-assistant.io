@@ -27,5 +27,8 @@
     "markdown:lint": "remark --quiet --frail .",
     "textlint:all": "textlint source",
     "textlint": "textlint source/_docs source/_faq source/_integrations source/_dashboards source/cloud source/getting-started source/hassio source/dashboards"
+  },
+  "dependencies": {
+    "home-assistant.io": "file:"
   }
 }
