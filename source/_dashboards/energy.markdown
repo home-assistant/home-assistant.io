@@ -237,7 +237,7 @@ max_devices: 5
 
 ## Using Multiple Collections
 
-By default, all energy cards are linked to any `energy-date-selection` card on the view, and all `energy-date-selection` cards are linked to the same period. To enable multiple different date selections on the same view, it is necessary to link them to different collections. This is done by adding the variable `collection_key` to the card yaml, and giving this a value of any custom string that begins with `energy_`. (strings that do not start with `energy_` will generate an error).
+By default, all energy cards are linked to any `energy-date-selection` card on the view, and all `energy-date-selection` cards are linked to the same period. To enable multiple different date selections on the same view, it is necessary to link them to different collections. This is done by adding the variable `collection_key` to the card YAML, and giving this a value of any custom string that begins with `energy_`. (strings that do not start with `energy_` will generate an error).
 
 All energy cards support use of `collection_key` option.
 
