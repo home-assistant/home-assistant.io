@@ -27,7 +27,7 @@ This integration supports devices controllable by the Dreo App. The following de
 #### General Features
 
 - **Sleep Mode**: All models can adjust the fan speed smoothly in the "sleep" mode. However, some models (such as DR-HTF001S) perform better in terms of adjustment smoothness, providing a more stable and quiet environment for sleeping.
-- **Wide-Angle Oscillation**: Fans generally offer a wide oscillation function. However, ensuring better and more even air circulation, especially in larger spaces.
+- **Wide-Angle Oscillation**: Fans are typically equipped with a wide oscillation function, which ensures more even air circulation—especially in larger spaces.
 - **Intelligent Auto Mode**: The "auto" mode of each model can adjust the fan speed based on temperature and humidity. For example,  providing a more precise and personalized comfort experience.
 - **Child Lock Function**: Many fans are equipped with a child lock. better preventing accidental setting changes and ensuring the safety of households with children.
 - **Fast Speed Adjustment Response**: Most fans have a fast speed adjustment response time. allowing you to quickly change the fan speed as needed.
@@ -35,7 +35,7 @@ This integration supports devices controllable by the Dreo App. The following de
 - **Energy-Efficient Motor**: Many fans are equipped with energy-efficient motors. saving more electricity costs while providing strong airflow.
 - **Long Timer Setting**: Most fans offer a timer setting of up to 12 hours. giving you more flexibility in scheduling the fan's operation.
 
-The supported models include: DR-HTF001S、DR-HTF002S、DR-HTF005S、DR-HTF007S、DR-HTF008S、DR-HTF009S、DR-HTF010S.
+The supported models include: DR-HTF001S, DR-HTF002S, DR-HTF005S, DR-HTF007S, DR-HTF008S, DR-HTF009S, DR-HTF010S.
 
 #### Different Features
 
@@ -66,13 +66,13 @@ Dreo Tower Fan will expose the following details depending on the features suppo
 | `speed`   | The current speed setting (1-4). | 1 |
 | `oscillate` | Whether oscillation is enabled. | true/false |
 
-All attributes are supported by models: DR-HTF001S/002S/004S/005S/007S/008S/009S/010S
+All attributes are supported by models: DR-HTF001S, DR-HTF002S, DR-HTF004S, DR-HTF005S, DR-HTF007S, DR-HTF008S, DR-HTF009S, DR-HTF010S
 
 ## Troubleshooting
 
 ### Device not discovered
 
-- **Check Dreo App Connection**: Ensure that your devices are properly connected to the Dreo App. Try restarting the Dreo App and checking if the devices are still visible and controllable within it. If not, re-pair the devices with the Dreo App following the app's official pairing instructions.
+- **Check Dreo App Connection**: Ensure that your devices are properly connected to the Dreo App. Try restarting the Dreo App and checking if the devices are still visible and controllable within it. "If not, re-pair the devices with the Dreo App following the app's official pairing instructions".
 - **Home Assistant Network Issues**: Make sure that your Home Assistant instance has network access. You can test this by trying to access other online services from within Home Assistant (for example, checking the weather integration if it's set up). If there are network problems, troubleshoot your Home Assistant's network connection, which may involve checking your router settings, Wi-Fi passwords, or Ethernet connections.
 - **Permissions**: Double-check that you've granted all the necessary permissions during the integration setup process. Incorrect permissions can prevent Home Assistant from discovering your Dreo devices.
 
@@ -94,8 +94,8 @@ If your Dreo App credentials are invalid or expired, you can follow these steps:
 
 If the device becomes unresponsive, try the following steps:
 
-1. **Power cycle the device**: Turn off the device using its power switch or unplug it from the power source. Wait for about 10-15 seconds and then turn it back on or plug it back in.
-2. **Check the Wi-Fi connection**: Ensure that the device is connected to a stable Wi - Fi network. You can try moving the device closer to the router to improve the signal strength.
+1. **Power cycle the device**: Turn off the device using its power switch or unplug it from the power source. Wait for about 10–15 seconds and then turn it back on or plug it back in.
+2. **Check the Wi-Fi connection**: Ensure that the device is connected to a stable Wi-Fi network. You can try moving the device closer to the router to improve the signal strength.
 3. **Restart the Dreo App and Home Assistant**: Close the Dreo App completely on your mobile device and restart it. Also, restart your Home Assistant instance. Then try to control the device again.
 4. **Reset the device**: If the above steps do not work, you may need to reset the device to its factory settings. Refer to the device's user manual for the specific reset procedure. After resetting, re-add the device to the Dreo App and then to Home Assistant.
 
