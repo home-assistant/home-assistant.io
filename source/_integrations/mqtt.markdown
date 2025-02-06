@@ -1466,7 +1466,7 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 | Data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `topic`                | no       | Topic to publish payload to.                                 |
-| `payload`              | no       | Payload to publish.                                          |
+| `payload`              | yes      | Payload to publish. Will publish an empty payload when `payload` is omitted.               |
 | `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
