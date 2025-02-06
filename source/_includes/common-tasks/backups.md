@@ -99,7 +99,7 @@ This creates a backup instantly. You can create a manual backup at any time, irr
 
 ### Downloading your local backups
 
-When downloading the backup from the backup page in Home Assistant, the backup is decrypted on the fly so that you then can view the data using your favorite archive tool. This is done for all backup locations, also when you download from Home Assistant Cloud.
+When downloading the backup from the Home Assistant backup page, it is decrypted on the fly so that you can view the data using your favorite archive tool. This is done for all backup locations and also when you download from Home Assistant Cloud.
 
 There are multiple ways to download your local backup from your Home Assistant instance and store it on another device:
 
