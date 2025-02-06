@@ -63,7 +63,7 @@ data:
 
 ## Identifying New Functions
 
-Since the integration doesn't actively poll, as such it'll not know on its own if new function is available. However, reloading the integration should automatically generate service for new function.
+Since the integration doesn't actively poll, it won't automatically detect when a new function becomes available. However, reloading the integration will automatically generate a service for the new function.
 
 ## Remove integration
 
