@@ -241,9 +241,10 @@ By default, all energy cards are linked to any `energy-date-selection` card on t
 
 All energy cards support use of `collection_key` option.
 
+### Examples
 Example view with multiple collections:
 
-```
+```yaml
 type: masonry
 path: example
 cards:
