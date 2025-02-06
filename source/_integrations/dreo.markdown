@@ -37,7 +37,7 @@ This integration supports devices controllable by the Dreo App. The following de
 
 The supported models include: DR-HTF001S, DR-HTF002S, DR-HTF005S, DR-HTF007S, DR-HTF008S, DR-HTF009S, DR-HTF010S.
 
-#### Different Features
+#### Model-Specific Features
 
 - **Wide-Angle Oscillation**: Generally, fans are equipped with a wide-angle oscillation function. However, the fan of model DR-HTF004S distinguishes itself with its remarkable performance. It offers an oscillation range of up to 120 degrees, and its oscillation mechanism is precisely engineered to ensure a more uniform and efficient air circulation. This feature is particularly advantageous in larger spaces, effectively spreading fresh air across the area.
 
