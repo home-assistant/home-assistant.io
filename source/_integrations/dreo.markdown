@@ -28,11 +28,11 @@ This integration supports devices controllable by the Dreo App. The following de
 
 - **Sleep Mode**: All models can adjust the fan speed smoothly in the "sleep" mode. However, some models (such as DR-HTF001S) perform better in terms of adjustment smoothness, providing a more stable and quiet environment for sleeping.
 - **Wide-Angle Oscillation**: Fans are typically equipped with a wide oscillation function, which ensures more even air circulation—especially in larger spaces.
-- **Intelligent Auto Mode**: The "auto" mode of each model can adjust the fan speed based on temperature and humidity. For example,  providing a more precise and personalized comfort experience.
-- **Child Lock Function**: Many fans are equipped with a child lock. better preventing accidental setting changes and ensuring the safety of households with children.
-- **Fast Speed Adjustment Response**: Most fans have a fast speed adjustment response time. allowing you to quickly change the fan speed as needed.
-- **Multi-Voice Assistant Integration**: Many models support integration with a wider range of voice assistants. facilitating a wider range of hands-free operations.
-- **Energy-Efficient Motor**: Many fans are equipped with energy-efficient motors. saving more electricity costs while providing strong airflow.
+- **Intelligent Auto Mode**: The "auto" mode of each model can adjust the fan speed based on temperature and humidity. For example, it provides a more precise and personalized comfort experience..
+- **Child Lock Function**: Many fans include a child lock that helps prevent accidental setting changes and enhances household safety.
+- **Fast Speed Adjustment Response**: Most fans offer a rapid speed-adjustment response time, enabling you to swiftly alter the fan speed according to your requirements.
+- **Multi-Voice Assistant Integration**: Many models support integration with a wider range of voice assistants which facilitates a wider range of hands-free operations
+- **Energy-Efficient Motor**: Many fans come with an energy-efficient motor that reduces electricity costs while delivering strong airflow.
 - **Long Timer Setting**: Most fans offer a timer setting of up to 12 hours. giving you more flexibility in scheduling the fan's operation.
 
 The supported models include: DR-HTF001S, DR-HTF002S, DR-HTF005S, DR-HTF007S, DR-HTF008S, DR-HTF009S, DR-HTF010S.
@@ -72,7 +72,7 @@ All attributes are supported by models: DR-HTF001S, DR-HTF002S, DR-HTF004S, DR-H
 
 ### Device not discovered
 
-- **Check Dreo App Connection**: Ensure that your devices are properly connected to the Dreo App. Try restarting the Dreo App and checking if the devices are still visible and controllable within it. "If not, re-pair the devices with the Dreo App following the app's official pairing instructions".
+- **Check Dreo App Connection**: Ensure that your devices are properly connected to the Dreo App. Try restarting the Dreo App and checking if the devices are still visible and controllable within it. If not, re-pair the devices with the Dreo App following the app's official pairing instructions.
 - **Home Assistant Network Issues**: Make sure that your Home Assistant instance has network access. You can test this by trying to access other online services from within Home Assistant (for example, checking the weather integration if it's set up). If there are network problems, troubleshoot your Home Assistant's network connection, which may involve checking your router settings, Wi-Fi passwords, or Ethernet connections.
 - **Permissions**: Double-check that you've granted all the necessary permissions during the integration setup process. Incorrect permissions can prevent Home Assistant from discovering your Dreo devices.
 
@@ -104,7 +104,7 @@ If the device becomes unresponsive, try the following steps:
 ### Updating the device firmware
 
 1. **Check for updates in the Dreo App**: Open the Dreo App and navigate to the device management section. Select the device you want to update. If there is a firmware update available, the app will prompt you.
-2. **Start the update**: Follow the on - screen instructions in the Dreo App to start the firmware update process. Make sure the device is connected to a stable power source and Wi - Fi network during the update.
+2. **Start the update**: Follow the on-screen instructions in the Dreo App to start the firmware update process. Make sure the device is connected to a stable power source and Wi-Fi network during the update.
 3. **Wait for the update to complete**: The update process may take several minutes. Do not turn off the device or interrupt the update during this time.
 4. **Verify the update**: Once the update is complete, check if the device's features are working as expected. You can also check the device information in the Dreo App to confirm the new firmware version.
 
