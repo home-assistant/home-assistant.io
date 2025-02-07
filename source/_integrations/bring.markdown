@@ -43,7 +43,14 @@ Available as a mobile app on [Google Play for Android](https://play.google.com/s
 
 ## Prerequisites
 
-For authentication, the integration requires the `email` and `password` of your **Bring!** account.  If you don’t have an account, you can easily sign up via the mobile app or WebApp.
+For authentication, the integration requires the `email` and `password` of your **Bring!** account.  If you don’t have an account, you can sign up via the mobile app or the web version.
+
+If you signed up using **Apple ID**, **Google Sign-in**, or **Facebook Login**, you will need to create a password to use the integration.
+
+- On mobile: Open the Bring! app and go to **Profile → More settings → Change password**.  
+- On the web: Visit **Settings → Reset password** or go directly to [Reset Password](https://web.getbring.com/app/settings/resetpassword).
+
+You can still log in with your existing authentication method afterward.
 
 {% include integrations/config_flow.md %}
 
