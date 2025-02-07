@@ -2,6 +2,7 @@
 title: FYTA
 description: Instructions on how to integrate FYTA sensors within Home Assistant.
 ha_category:
+  - Binary sensor
   - Sensor
 ha_release: 2024.4
 ha_iot_class: Cloud Polling
@@ -10,7 +11,9 @@ ha_codeowners:
   - '@dontinelli'
 ha_domain: fyta
 ha_platforms:
+  - binary_sensor
   - diagnostics
+  - image
   - sensor
 ha_integration_type: hub
 ha_quality_scale: platinum
@@ -44,6 +47,23 @@ The integration has no additional configuration options.
 
 ## Supported functionality
 
+### Binary sensors
+
+The following binary sensors are currently available per plant:
+
+- Low battery
+- Light notification
+- Nutrition notification
+- Temperature notification
+- Water notification
+- Productive plant
+- Repotted
+- Sensor update available
+
+### Image
+
+The picture created or chosen in the FYTA app is also exposed to Home Assistant.
+
 ### Sensors
 
 The following sensors are currently available per plant:
@@ -55,11 +75,14 @@ The following sensors are currently available per plant:
 | temperature_status    |        | FYTA-Status (cf. scale below)              |
 | light_status          |        | FYTA-Status (cf. scale below)              |
 | moisture_status       |        | FYTA-Status (cf. scale below)              |
+| nutrients_status      |        | FYTA-Status (cf. scale below)              |
 | salinity_status       |        | FYTA-Status (cf. scale below)              |
 | temperature           | °C     | Temperature measured by sensor             |
 | light                 | μmol/h | Light measured by sensor (hourly photosynthetically active radiation PAR)|
 | moisture              | %      | Moisture measured by sensor                |
 | salinity              | mS/cm  | Salinity measured by sensor (measured as conductivity)|
+| fertilise_last        | date   | Date when plant has last been fertilized   |
+| fertilise_next        | date   | Date when plant should be fertilized       |
 | battery_level         | %      | Battery level of the sensor                |
 
 The plant status may have one of the following states:

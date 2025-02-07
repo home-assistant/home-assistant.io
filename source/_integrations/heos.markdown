@@ -11,8 +11,10 @@ ha_codeowners:
 ha_domain: heos
 ha_ssdp: true
 ha_platforms:
+  - diagnostics
   - media_player
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The HEOS {% term integration %} is used to connect a [HEOS](https://www.denon.com/en-gb/category/heos/) System to Home Assistant. HEOS is a wireless audio ecosystem
@@ -43,14 +45,40 @@ Only a single instance of the integration is needed to access the entire HEOS sy
 
 {% configuration_basic %}
 Host:
-    description: "The hostname or IP address (e.g., \"192.168.1.2\") of your HEOS device. If you have more than one device, select, or enter a host, that is connected to the LAN via wire or has the strongest wireless signal."
+    description: "The host name or IP address (e.g., \"192.168.1.2\") of your HEOS-capable product. If you have more than one device, select, or enter a host, that is connected to the LAN via wire or has the strongest wireless signal."
 {% endconfiguration_basic %}
 
-## Removing the integration
+## Configuration options
+
+The integration provides the following configuration options. By entering your HEOS Account login information, the integration will be able to access streaming services, playlists, favorites, and other features. The integration will validate and sign in to your HEOS Account when credentials are entered or updated, and will ensure the HEOS System remains logged in while the credentials remain valid. Clearing the credentials will sign the HEOS System out of your account.
+
+1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
+2. Select **Denon HEOS**. Select **Configure**.
+3. Enter or clear your HEOS Account credentials.
+4. Select **Submit** to save the options.
+
+{% configuration_basic %}
+Username:
+  description: "The username or e-mail address of your HEOS Account."
+Password:
+  description: "The password to your HEOS Account."
+{% endconfiguration_basic %}
+
+## Reconfiguration
+
+Once setup, the host name or IP address used to access the HEOS System can be changed by reconfiguring the integration.
+
+1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
+2. Select **Denon HEOS**. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
+3. Enter a new [host name or IP address](/integrations/heos/#host).
+4. Click Submit to complete the reconfiguration.
+
+## Removal
 
 This integration follows standard integration removal. No extra steps are required.
 
-{% include integrations/remove_device_service.md %}
+1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
+2. Select **Denon HEOS**. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Delete**.
 
 ## Playing media
 
@@ -174,40 +202,7 @@ data:
 
 ## Actions
 
-The HEOS integration makes various custom {% term actions %} available in addition to the standard [Media Player actions](/integrations/media_player#actions).
-
-### Action `heos.sign_in`
-
-Use the sign-in action to sign the connected device into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful.
-
-{% note %}
-The device the integration connects to authenticates independently of other devices and the HEOS mobile app. When you first set up the integration, or after a device firmware update, the device will most likely not be logged in.
-{% endnote %}
-
-To run, go to **Developer Tools** > **Actions** and then type in `heos.sign_in`. Then enter your HEOS account username and password, and click the Perform Action button. An error message is only logged if sign-in is unsuccessful.
-
-Example action data payload:
-
-```yaml
-action: heos.sign_in
-data:
-  username: "example@example.com"
-  password: "password"
-```
-
-| Data attribute | Optional | Description                                |
-| ---------------------- | -------- | ------------------------------------------ |
-| `username`             | no       | The username or email of the HEOS account. |
-| `password`             | no       | The password of the HEOS account.          |
-
-### Action `heos.sign_out`
-
-Use the sign-out action to sign the connected device out of a HEOS account. An error message is logged if sign-out is unsuccessful. There are no parameters to this action Example action data payload:
-
-```yaml
-action: heos.sign_out
-data: {% raw %}{}{% endraw %}
-```
+The HEOS integration makes available the standard [Media Player actions](/integrations/media_player#actions).
 
 ## Supported devices
 
@@ -230,19 +225,45 @@ HEOS pushes data to Home Assistant via the local network when data and entity st
 - {% term TTS %} is not supported.
 - The maximum length of a URL that can be used in the `play_media` action is 255 characters due to a limitation in the HEOS firmware.
 
+## Logging and diagnostics
+
+The HEOS integration supports [Home Assistant debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). Diagnostics are available at both the integration entry and device level.
+
 ## Troubleshooting
 
 ### Missing favorites
 
-#### Symptom: "IP_ADDRESS is not logged in to a HEOS account and will be unable to retrieve HEOS favorites..."
+#### Symptom: "The HEOS System is not logged in: Enter credentials in the integration options to access favorites and streaming services"
 
-The message above is logged and the `source_list` attribute of the integration's media_player entities are empty. Attempting call the `media_player.play_media` action
-for `favorite` and `playlist` will fail.
+The message above is logged during integration startup and the `source_list` attribute of the integration's media_player entities are empty. Attempting call the `media_player.play_media` action
+for `favorite` and `playlist` will fail. Other functionality of the integration is unaffected.
 
 ##### Description
 
-The HEOS system is not logged in to a HEOS account. This occurs when the integration is first added, the HEOS account has changed (e.g. password reset), and sometimes after a firmware update.
+To access features, such as favorites, playlists, and streaming services, the HEOS System must be logged in to your HEOS Account. This occurs when credentials are not entered in the configuration options and the HEOS System is in a logged out state.
 
 ##### Resolution
 
-Use the [heos.sign_in action](/integrations/heos#action-heossign_in) to sign the HEOS system into a HEOS account. This only needs to be performed once, as the system will remain signed in while the account credentials are valid.
+Enter the credentials to your HEOS Account in the [configuration options](#configuration-options) if you want to access playlists, favorites, and streaming services; otherwise, the logged warning can be ignored. If credentials are entered, the integration will ensure that the HEOS System remains logged in while the credentials remain valid.
+
+### Error attempting to submit configuration options
+
+#### Symptom: "Invalid authentication"
+
+##### Description
+
+The integration was unable to log the HEOS System in using the credentials provided. An informational log message contains the specific reason, such as: `User not found (10)` or `Invalid credentials (6)`.
+
+##### Resolution
+
+Validate your credentials by logging in to the HEOS Mobile App and then re-enter your credentials in the configuration options and try submitting again.
+
+#### Symptom: "Unexpected error"
+
+##### Description
+
+An unexpected error occurred signing in or logging out of your HEOS Account. An error-level log message contains the error information.
+
+##### Resolution
+
+Power-cycle the host that the integration is connected to and try again. If the problem persists, open an issue and include the error information.

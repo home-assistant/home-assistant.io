@@ -15,6 +15,7 @@ ha_platforms:
   - device_tracker
   - sensor
 ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **Ituran** {% term integration %} allows you to retrieve information from your Ituran-equipped vehicle using the [Ituran APP service](https://www.ituran.co.il/ituranfront/comfort-services-2/ituran-app-comfort). It pulls information from the Ituran web service regarding the vehicle's location.

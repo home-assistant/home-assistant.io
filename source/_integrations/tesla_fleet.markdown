@@ -283,31 +283,45 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 
 ### Energy sites
 
-| Domain        | Name                     | Enabled |
-| ------------- | ------------------------ | ------- |
-| Binary sensor | Backup capable           | Yes     |
-| Binary sensor | Grid services active     | Yes     |
-| Binary sensor | Grid services enabled    | Yes     |
-| Binary sensor | Storm watch active       | Yes     |
-| Number        | Backup reserve           | Yes     |
-| Number        | Off grid reserve         | Yes     |
-| Select        | Allow export             | Yes     |
-| Select        | Operation mode           | Yes     |
-| Sensor        | Battery power            | Yes     |
-| Sensor        | Energy left              | Yes     |
-| Sensor        | Generator power          | No      |
-| Sensor        | Grid power               | Yes     |
-| Sensor        | Grid services power      | Yes     |
-| Sensor        | Grid status              | Yes     |
-| Sensor        | Island status            | Yes     |
-| Sensor        | Load power               | Yes     |
-| Sensor        | Percentage charged       | Yes     |
-| Sensor        | Solar power              | Yes     |
-| Sensor        | Total pack energy        | No      |
-| Sensor        | VPP backup reserve       | Yes     |
-| Sensor        | Version                  | Yes     |
-| Switch        | Allow charging from grid | Yes     |
-| Switch        | Storm watch              | Yes     |
+| Domain        | Name                           | Enabled |
+|--------------|--------------------------------|---------|
+| Binary sensor | Backup capable                 | Yes     |
+| Binary sensor | Grid services active           | Yes     |
+| Binary sensor | Grid services enabled          | Yes     |
+| Binary sensor | Storm watch active             | Yes     |
+| Number        | Backup reserve                 | Yes     |
+| Number        | Off grid reserve               | Yes     |
+| Select        | Allow export                   | Yes     |
+| Select        | Operation mode                 | Yes     |
+| Sensor        | Battery power                  | Yes     |
+| Sensor        | Consumer imported from battery | No      |
+| Sensor        | Consumer imported from generator| No      |
+| Sensor        | Consumer imported from grid    | No      |
+| Sensor        | Consumer imported from solar   | No      |
+| Sensor        | Energy left                    | Yes     |
+| Sensor        | Generator exported             | Yes     |
+| Sensor        | Generator power                | No      |
+| Sensor        | Grid exported                  | Yes     |
+| Sensor        | Grid exported from battery     | No      |
+| Sensor        | Grid exported from generator   | No      |
+| Sensor        | Grid exported from solar       | No      |
+| Sensor        | Grid imported                  | No      |
+| Sensor        | Grid power                     | Yes     |
+| Sensor        | Grid services exported         | No      |
+| Sensor        | Grid services imported         | No      |
+| Sensor        | Grid services power            | Yes     |
+| Sensor        | Home usage                     | Yes     |
+| Sensor        | Island status                  | Yes     |
+| Sensor        | Load power                     | Yes     |
+| Sensor        | Percentage charged             | Yes     |
+| Sensor        | Solar exported                 | No      |
+| Sensor        | Solar generated                | Yes     |
+| Sensor        | Solar power                    | Yes     |
+| Sensor        | Total pack energy              | No      |
+| Sensor        | Version                        | Yes     |
+| Sensor        | VPP backup reserve             | Yes     |
+| Switch        | Allow charging from grid       | Yes     |
+| Switch        | Storm watch                    | Yes     |
 
 ### Wall connector
 
@@ -347,4 +361,3 @@ which then can be used within the energy dashboard.
 
 - **Integration shows `a condition has not been met to process the request`**
   1. Confirm that you've run all the steps from both the **Hosting a Public/Private Key Pair** and **Register your application as a Fleet API partner** sections above.
-  
