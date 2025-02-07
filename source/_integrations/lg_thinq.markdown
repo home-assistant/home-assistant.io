@@ -127,7 +127,7 @@ The properties for controlling both the temperature and wind strength of the app
 
 | Device | Property |
 | ------ | -------- |
-| Air Conditioner | Current temperature<br>Fan mode<br>HVAC mode<br>Preset mode<br>Temperature<br>Temperature cool<br>Temperature heat<br>Unit |
+| Air Conditioner | Current temperature<br>Fan mode<br>Swing mode<br>Swing horizontal mode<br>HVAC mode<br>Preset mode<br>Temperature<br>Temperature cool<br>Temperature heat<br>Unit |
 | System Boiler | Current temperature<br>HVAC mode<br>Temperature<br>Temperature cool<br>Temperature heat<br>Unit |
 
 ### Event
@@ -173,7 +173,6 @@ A read-write property which has a numeric value is represented as a number platf
 | Oven | Temperature |
 | Refrigerator | Temperature |
 | Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Delay ends in |
-| Water Heater | Temperature |
 | Wine Cellar | Light<br>Temperature |
 
 ### Select
@@ -191,7 +190,6 @@ A writable property which has a list of selectable values is represented as a se
 | Oven | Cook mode<br>Operation<br> |
 | Refrigerator | Fresh air filter |
 | Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Operation |
-| Water Heater | Operating mode |
 | Wine Cellar | Light<br>Operating mode |
 
 ### Switch
@@ -200,13 +198,13 @@ A read-write property which has only two states that can be toggled is represent
 
 | Device | Property |
 | ------ | -------- |
-| Air Conditioner | Energy saving |
+| Air Conditioner | Power<br>Lighting<br>Energy saving |
 | Air Purifier | Power |
 | Air Purifier Fan | Heating<br>Power<br>UVnano |
 | Dehumidifier | Power |
 | Humidifier | Auto mode<br>Heating<br>Mood light<br>Power<br>Sleep mode |
-| Refrigerator | Ice plus<br>Quick freeze |
-| System Boiler | Hot water |
+| Refrigerator | Express mode<br>Express cool<br>Quick freeze |
+| System Boiler | Power<br>Hot water |
 | Wine Cellar | Ventilation |
 
 ### Vacuum
@@ -216,6 +214,14 @@ The properties for controlling the clean operations of the appliance are represe
 | Device | Property |
 | ------ | -------- |
 | Robot Cleaner | Battery<br>Current status<br>Operation |
+
+### Water heater
+
+The properties for controlling the operating mode and temperature are represented as a water_heater platform.
+
+| Device | Property |
+| ------ | -------- |
+| Water heater | Mode<br>Current temperature<br>Temperature |
 
 ### Sensor
 
@@ -238,16 +244,16 @@ A read-only property which has states is represented as a sensor platform.
 | Refrigerator | Fresh air filter<br>Water filter used |
 | Robot Cleaner | Current status<br>Operating mode<br>Running time |
 | Stick Cleaner | Battery<br>Current status<br>Operating mode |
-| Water Heater | Temperature |
+| System Boiler | Indoor temperature<br>Inlet temperature<br>Outlet temperature |
 | Water Purifier | High-temp sterilization<br>Type<br>UVnano|
-| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Current status<br>Delay in<br>Remaining time<br>Total time |
+| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Current status<br>Delay in<br>Remaining time<br>Total time<br>Cycles |
 
-### Custom card configuration
+## User guide
+### 1. Custom card configuration
 
-#### Timer Bar Card
-
-- Supported devices: Washer, Dryer, Styler, Dish washer
-- Entities: sensor.washer_current_status, sensor.washer_remaining_time, sensor.washer_total_time
+**- Timer Bar Card**
+> - Supported devices: Washer, Dryer, Styler, Dish washer
+> - Used entities: sensor.washer_**current_status**, sensor.washer_**remaining_time**, sensor.washer_**total_time**
 
 ```yaml
 type: custom:timer-bar-card
@@ -272,6 +278,29 @@ entities:
       entity: sensor.washer_total_time
       units: minutes
     invert: true
+```
+
+### 2. Automation
+**- Notification, Error event**
+> - Guide: [Automating on event](https://www.home-assistant.io/integrations/event/#automating-on-a-button-press)
+> - Important: guide's step 3, 4
+> - You can select the state change you want to act as trigger in step 4
+```yaml
+alias: lack of water example
+description: Toggle switch when air purifier's lack_of_water
+triggers:
+  - trigger: state
+    entity_id:
+      - event.purifier_notification
+actions:
+  - condition: state
+    entity_id: event.purifier_notification
+    attribute: event_type
+    state: lack_of_water
+  - type: toggle
+    device_id: xxxxxxxx
+    entity_id: xxxxxxxx
+    domain: switch
 ```
 
 ## Troubleshooting
