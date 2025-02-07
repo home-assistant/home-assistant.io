@@ -23,6 +23,9 @@ Integrates [Flexit](https://www.flexit.no/en/) Nordic series air handling unit i
 
 ## Prerequisites
 
+Your Flexit device should be equipped with an ethernet port and no additional modules should be required,
+i.e. this integration communicates with the device using the prootocol BACnet over ethernet.
+
 To configure the integration, you need to obtain the IP address and Device ID for the unit.
 
 1. Open the Flexit Go app on your mobile.
