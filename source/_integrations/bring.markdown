@@ -175,9 +175,9 @@ description: "Get notified when it's time to go grocery shopping. A notification
 
 {% enddetails %}
 
-## Data updates
+## Data updates  
 
-This integration syncs your lists by {% term polling %} the **Bring!** service every 90 seconds or immediately after an action is performed in Home Assistant, such as adding an item.
+This integration syncs your lists by {% term polling %} the **Bring!** service every 90 seconds or immediately after an action is performed in Home Assistant, such as adding an item. If you prefer a less frequent update, **custom polling interval** can also be defined — see [Defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval) for details.
 
 ## Known limitations
 
@@ -188,7 +188,9 @@ This integration syncs your lists by {% term polling %} the **Bring!** service e
 
 The **Bring!** integration relies on an active internet connection to communicate with Bring!. If you encounter issues, verify that your network connection is stable. Additionally, the Bring! service itself may experience downtime, whether unexpected or due to scheduled maintenance.
 
-In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (_download of debug log file will start automatically_). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+- A **502 - Bad Gateway** error (`aiohttp.client_exceptions.ClientResponseError: 502, message='Bad Gateway'`) is known to occur occasionally (1–2 times per day) but is usually temporary. The integration will retry automatically after 90 seconds, so there’s no need to take action.
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically_). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
 ## Remove integration
 
