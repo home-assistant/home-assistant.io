@@ -181,7 +181,7 @@ The configuration for each type follows specific rules. Remember:
 #### Classic Scheme
 
 ```yaml
-gryf_smart:
+gryfsmart:
     lights:
         - name: "Example Lamp"    # Example name
           id: 11                  # Combined ID: where 1 = controller ID and 1 = pin
@@ -190,7 +190,7 @@ gryf_smart:
 #### Device Class Scheme
 
 ```yaml
-gryf_smart:
+gryfsmart:
     p_cover:
         - name: "Example Blind"    # Example name
           id: 12                  # Combined ID: 1 for controller, 2 for pin
