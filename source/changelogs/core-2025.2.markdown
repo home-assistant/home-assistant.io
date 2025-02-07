@@ -1358,6 +1358,91 @@ For a summary in a more readable format:
 - Bump hassil and intents ([@synesthesiam] - [#137440])
 - Bump dbus-fast to 2.33.0 ([@bdraco] - [#137446])
 
+## Release 2025.2.1 - February 7
+
+- Fix hassio test using wrong fixture ([@emontnemery] - [#137516])
+- Change Electric Kiwi authentication ([@mikey0000] - [#135231])
+- Update govee-ble to 0.42.1 ([@cdce8p] - [#137371])
+- Bump holidays to 0.66 ([@gjohansson-ST] - [#137449])
+- Bump aiohttp-asyncmdnsresolver to 0.1.0 ([@bdraco] - [#137492])
+- Bump aiohttp to 3.11.12 ([@bdraco] - [#137494])
+- Bump govee-ble to 0.43.0 to fix compat with new H5179 firmware ([@bdraco] - [#137508])
+- Bump habiticalib to v0.3.5 ([@tr4nt0r] - [#137510])
+- Fix Mill issue, where no sensors were shown ([@Danielhiversen] - [#137521])
+- Don't overwrite setup state in async_set_domains_to_be_loaded ([@emontnemery] - [#137547])
+- Use separate metadata files for onedrive ([@zweckj] - [#137549])
+- Fix sending polls to Telegram threads ([@jwhb] - [#137553])
+- Skip building wheels for electrickiwi-api ([@cdce8p] - [#137556])
+- Add excluded domains to broadcast intent ([@synesthesiam] - [#137566])
+- Revert "Add `PaddleSwitchPico` (Pico Paddle Remote) device trigger to Lutron Caseta" ([@bdraco] - [#137571])
+- Fix Overseerr webhook configuration JSON ([@denniseffing] - [#137572])
+- Do not rely on pyserial for port scanning with the CM5 + ZHA ([@puddly] - [#137585])
+- Bump eheimdigital to 1.0.6 ([@autinerd] - [#137587])
+- Bump pyfireservicerota to 0.0.46 ([@cyberjunky] - [#137589])
+- Bump reolink-aio to 0.11.10 ([@starkillerOG] - [#137591])
+- Allow to omit the payload attribute to MQTT publish action to allow an empty payload to be sent by default ([@jbouwh] - [#137595])
+- Handle previously migrated HEOS device identifier ([@andrewsayre] - [#137596])
+- Bump `aioshelly` to version `12.4.1` ([@bieniu] - [#137598])
+- Bump electrickiwi-api to 0.9.13 ([@mikey0000] - [#137601])
+- Bump ZHA to 0.0.48 ([@TheJulianJES] - [#137610])
+- Bump Electrickiwi-api to 0.9.14 ([@mikey0000] - [#137614])
+- Update google-nest-sdm to 7.1.3 ([@allenporter] - [#137625])
+- Don't use the current temperature from Shelly BLU TRV as a state for External Temperature number entity ([@bieniu] - [#137658])
+- Fix LG webOS TV turn off when device is already off ([@thecode] - [#137675])
+
+[#135231]: https://github.com/home-assistant/core/pull/135231
+[#137371]: https://github.com/home-assistant/core/pull/137371
+[#137448]: https://github.com/home-assistant/core/pull/137448
+[#137449]: https://github.com/home-assistant/core/pull/137449
+[#137492]: https://github.com/home-assistant/core/pull/137492
+[#137494]: https://github.com/home-assistant/core/pull/137494
+[#137508]: https://github.com/home-assistant/core/pull/137508
+[#137510]: https://github.com/home-assistant/core/pull/137510
+[#137516]: https://github.com/home-assistant/core/pull/137516
+[#137521]: https://github.com/home-assistant/core/pull/137521
+[#137547]: https://github.com/home-assistant/core/pull/137547
+[#137549]: https://github.com/home-assistant/core/pull/137549
+[#137553]: https://github.com/home-assistant/core/pull/137553
+[#137556]: https://github.com/home-assistant/core/pull/137556
+[#137566]: https://github.com/home-assistant/core/pull/137566
+[#137571]: https://github.com/home-assistant/core/pull/137571
+[#137572]: https://github.com/home-assistant/core/pull/137572
+[#137585]: https://github.com/home-assistant/core/pull/137585
+[#137587]: https://github.com/home-assistant/core/pull/137587
+[#137589]: https://github.com/home-assistant/core/pull/137589
+[#137591]: https://github.com/home-assistant/core/pull/137591
+[#137595]: https://github.com/home-assistant/core/pull/137595
+[#137596]: https://github.com/home-assistant/core/pull/137596
+[#137598]: https://github.com/home-assistant/core/pull/137598
+[#137601]: https://github.com/home-assistant/core/pull/137601
+[#137610]: https://github.com/home-assistant/core/pull/137610
+[#137614]: https://github.com/home-assistant/core/pull/137614
+[#137625]: https://github.com/home-assistant/core/pull/137625
+[#137658]: https://github.com/home-assistant/core/pull/137658
+[#137675]: https://github.com/home-assistant/core/pull/137675
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@allenporter]: https://github.com/allenporter
+[@andrewsayre]: https://github.com/andrewsayre
+[@autinerd]: https://github.com/autinerd
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@cdce8p]: https://github.com/cdce8p
+[@cyberjunky]: https://github.com/cyberjunky
+[@denniseffing]: https://github.com/denniseffing
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@jwhb]: https://github.com/jwhb
+[@mikey0000]: https://github.com/mikey0000
+[@puddly]: https://github.com/puddly
+[@starkillerOG]: https://github.com/starkillerOG
+[@synesthesiam]: https://github.com/synesthesiam
+[@thecode]: https://github.com/thecode
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
+
 [#112047]: https://github.com/home-assistant/core/pull/112047
 [#121522]: https://github.com/home-assistant/core/pull/121522
 [#121548]: https://github.com/home-assistant/core/pull/121548
