@@ -19,7 +19,7 @@ ha_integration_type: integration
 
 {% warning %}
 This integration is now deprecated and will be removed in 2025.8.0.
-Please move to the new [Nice G.O.](https://home-assistant.io/integrations/nice_go) integration to avoid disruption.
+Please use the new [Nice G.O.](/integrations/nice_go) integration instead to avoid disruption.
 
 For more information, refer to the [Nice G.O. migration documentation](https://na.niceforyou.com/features/nice-go-app/#migration).
 {% endwarning %}
