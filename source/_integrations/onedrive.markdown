@@ -1,5 +1,5 @@
 ---
-title: OneDrive
+title: Microsoft OneDrive
 description: Instructions on how to setup OneDrive to be used with backups.
 ha_release: 2025.2
 ha_category:
@@ -16,14 +16,14 @@ related:
 ha_quality_scale: bronze
 ---
 
-This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
+This integration allows you to use [Microsoft OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
 
 Backups will be created in a folder called `Home Assistant\backups_<id>` in the `App Folder` of your OneDrive.
 `id` is part of your Home Assistant instance's unique id to allow backups from multiple instances to the same OneDrive account.
 The integration only has access to an application specific `Home Assistant` folder in the `App Folder` and cannot access any other parts of your OneDrive.
 
 {% important %}
-Because of an [issue in the Graph API](https://github.com/OneDrive/onedrive-api-docs/issues/1866), the application-specific folder is often called `Graph` instead of `Home Assistant`.
+Because of an issue in Microsoft's APIs, the application-specific folder is often called `Graph` instead of `Home Assistant`. More on that [below](#backup-folder-is-called-graph).
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
@@ -60,6 +60,14 @@ If you set the integration up with the default credentials and switch to custom 
 {% tip %}
 You will need an Azure tenant with an active Azure subscription to create your own client credentials.
 {% endtip %}
+
+## Backup folder is called `Graph`
+
+This integration uses Microsoft's Graph API to communicate with your OneDrive. Because of an [issue](https://github.com/OneDrive/onedrive-api-docs/issues/1866) in that API, the application folder is often not named with the name of the application (`Home Assistant`), but `Graph` instead. 
+
+There is no risk of different applications mixing in that `Graph` folder, if you already have such a `Graph` folder from a different application, the next folders will just be called `Graph 1`, `Graph 2` and so on. 
+
+You should be able to manually rename the folder to something else, without the integration breaking.
 
 ## Known limitations
 
