@@ -63,7 +63,11 @@ You will need an Azure tenant with an active Azure subscription to create your o
 
 ## Backup folder is called `Graph`
 
-This integration uses Microsoft's Graph API to communicate with your OneDrive. Because of an [issue](https://github.com/OneDrive/onedrive-api-docs/issues/1866) in that API the application folder is often not named with the name of the application (`Home Assistant`), but `Graph` instead. There is no risk of different applications mixing in that `Graph` folder, if you already have such a `Graph` folder from a different application, the next folders will just be called `Graph 1`, `Graph 2` and so on. You should be able to manually rename the folder to something else, without the integration breaking.
+This integration uses Microsoft's Graph API to communicate with your OneDrive. Because of an [issue](https://github.com/OneDrive/onedrive-api-docs/issues/1866) in that API, the application folder is often not named with the name of the application (`Home Assistant`), but `Graph` instead. 
+
+There is no risk of different applications mixing in that `Graph` folder, if you already have such a `Graph` folder from a different application, the next folders will just be called `Graph 1`, `Graph 2` and so on. 
+
+You should be able to manually rename the folder to something else, without the integration breaking.
 
 ## Known limitations
 
