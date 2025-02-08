@@ -1,5 +1,5 @@
 ---
-title: Microsoft OneDrive
+title: OneDrive
 description: Instructions on how to setup OneDrive to be used with backups.
 ha_release: 2025.2
 ha_category:
@@ -16,14 +16,14 @@ related:
 ha_quality_scale: bronze
 ---
 
-This integration allows you to use [Microsoft OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
+This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
 
 Backups will be created in a folder called `Home Assistant\backups_<id>` in the `App Folder` of your OneDrive.
 `id` is part of your Home Assistant instance's unique id to allow backups from multiple instances to the same OneDrive account.
 The integration only has access to an application specific `Home Assistant` folder in the `App Folder` and cannot access any other parts of your OneDrive.
 
 {% important %}
-Because of an issue in Microsoft's APIs, the application-specific folder is often called `Graph` instead of `Home Assistant`. More on that [below](#backup-folder-is-called-graph).
+Because of an [issue in the Graph API](https://github.com/OneDrive/onedrive-api-docs/issues/1866), the application-specific folder is often called `Graph` instead of `Home Assistant`.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
@@ -61,13 +61,58 @@ If you set the integration up with the default credentials and switch to custom 
 You will need an Azure tenant with an active Azure subscription to create your own client credentials.
 {% endtip %}
 
-## Backup folder is called `Graph`
+## Sensors
 
-This integration uses Microsoft's Graph API to communicate with your OneDrive. Because of an [issue](https://github.com/OneDrive/onedrive-api-docs/issues/1866) in that API, the application folder is often not named with the name of the application (`Home Assistant`), but `Graph` instead. 
+The integration provides the following sensors, which are updated every 5 minutes:
 
-There is no risk of different applications mixing in that `Graph` folder, if you already have such a `Graph` folder from a different application, the next folders will just be called `Graph 1`, `Graph 2` and so on. 
+- **Total available storage**: The total size of your drive (disabled by default)
+- **Used storage**: The amount of storage you have used up
+- **Remaining storage**: The amount of storage that is left in your drive
+- **Drive state**: Calculated state of your drive, based on the storage left. Possible values: `Normal`, `Nearing limit`, `Critical`, `Exceeded`
 
-You should be able to manually rename the folder to something else, without the integration breaking.
+{% note %}
+A drive that is in **Drive state** `Exceeded` will be automatically frozen (meaning you can't upload any more backups & files), until you clear up enough storage.
+{% endnote %}
+
+## Automations
+
+Get started with these automation examples.
+
+### Send alert when drive is near storage limit
+
+Send an alert when the drive usage is close to the storage limit and needs cleanup.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: Alert when OneDrive is close to storage limit
+description: Send notification to phone when drive needs cleanup.
+triggers:
+  - trigger: state
+    entity_id:
+      - sensor.my_drive_drive_state
+    from: "normal"
+    to: "nearing"
+  - trigger: state
+    entity_id:
+      - sensor.my_drive_drive_state
+    from: "nearing"
+    to: "critical"
+actions:
+  - action: notify.mobile_app_iphone
+    data:
+      title: OneDrive is almost full!
+      message: >
+        OneDrive has used up {{ states('sensor.my_drive_used_storage') }} of {{
+        states('sensor.my_drive_total_available') }}GB.  Only {{ states('sensor.my_drive_remaining_storage') }}GB remaining.
+mode: single
+```
+
+{% endraw %}
+{% enddetails %}
+
 
 ## Known limitations
 
