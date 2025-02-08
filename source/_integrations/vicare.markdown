@@ -107,7 +107,7 @@ Number entities are available to adjust values like the predefined temperature f
 
 The following actions of the [climate integration](/integrations/climate/) are provided by the ViCare integration: `set_temperature`, `set_hvac_mode`, `set_preset_mode` 
 
-The following actions of the [water_heater integration](/integrations/water_heater/) are provided by the ViCare integration: `set_temperature`
+The following actions of the [water_heater integration](/integrations/water_heater/) are provided by the ViCare integration: `set_temperature', ``
 
 ### Action `vicare.set_vicare_mode`
 
@@ -124,7 +124,7 @@ Set the schedule for the domestic hot water circulation pump as defined by Viess
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of climate devices to control. To target all entities, use the `all` keyword instead of entity_id. |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of climate devices to control. To target all entities, use the `all` keyword instead of entity_id. |
 | `schedule` | no | New schedule as json-string. See example below. |
 
 Example schedule:
