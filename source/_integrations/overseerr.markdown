@@ -45,8 +45,9 @@ Below is an overview of these entities.
 
 ### Events
 
-Overseerr provides an event entity for updates around media.
-The possible events that this entity has are:
+Overseerr provides two event entities for updates around media and issues.
+
+The possible events that the media entity has are:
  - `pending`
  - `approved`
  - `available`
@@ -54,11 +55,17 @@ The possible events that this entity has are:
  - `declined`
  - `auto_approved`
 
+The possible events that the issue entity has are:
+ - `reported`
+ - `comment`
+ - `resolved`
+ - `reopened`
+
 Relevant data about the request are stored in the attributes.
 
 ### Sensors
 
-The integration also provides statistics for the requests stored in Overseerr.
+The integration also provides statistics for the requests and issues stored in Overseerr.
 There are sensors for:
  - Total requests
  - Movie requests
@@ -67,6 +74,12 @@ There are sensors for:
  - Declined requests
  - Processing requests
  - Available requests
+ - Total issues
+ - Audio issues
+ - Subtitle issues
+ - Video issues
+ - Other issues
+ - Open issues
 
 ## Actions
 
@@ -88,7 +101,7 @@ Get a list of media requests using `overseerr.get_requests`.
 
 ## Use cases
 
-The integration can be used to build automations to help and notify you of new media requests.
+The integration can be used to build automations to help and notify you of new media and issue requests.
 The provided actions can be used to provide extra context to voice assistants.
 
 ## Example automations
@@ -98,7 +111,7 @@ The provided actions can be used to provide extra context to voice assistants.
 {% raw %}
 
 ```yaml
-alias: "Overseerr push notification"
+alias: "Overseerr request push notification"
 description: "Send me a push notification on a new media request"
 triggers:
   - trigger: state
@@ -124,12 +137,43 @@ actions:
 {% endraw %}
 {% enddetails %}
 
+{% details "Send me a push notification on a new issue" %}
+
+{% raw %}
+
+```yaml
+alias: "Overseerr issue push notification"
+description: "Send me a push notification on a new issue"
+triggers:
+  - trigger: state
+    entity_id:
+      - event.overseerr_last_issue_event
+    not_from:
+      - unknown
+      - unavailable
+conditions:
+  - condition: template
+    value_template: >-
+      {{ state_attr('event.overseerr_last_issue_event', 'event_type') ==
+      'reported' }}
+actions:
+  - action: notify.mobile_app
+    metadata: {}
+    data:
+      message: >-
+        {{ state_attr('event.overseerr_last_issue_event', 'subject') }} has been
+        logged
+```
+
+{% endraw %}
+{% enddetails %}
+
 ## Data updates
 
 When loading the integration, it will try to configure the webhook in Overseerr to give updates to Home Assistant.
 This makes the integration a push-based integration.
 
-When the integration receives an update about the requests, it updates the statistics to make sure they are up to date.
+When the integration receives an update about the requests/issues, it updates the statistics to make sure they are up to date.
 In addition, the integration checks for updates every 5 minutes.
 
 ## Known limitations
