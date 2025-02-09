@@ -12,7 +12,6 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: service
-ha_quality_scale: silver
 ---
 
 [Flick Electric Co](https://www.flickelectric.co.nz/) is a power company in New Zealand, based around a transparent pricing model where each component of pricing is provided. This integration uses the mobile app's API from Flick Electric Co to get the current power price as well as each of the components price.
