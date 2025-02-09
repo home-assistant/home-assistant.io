@@ -58,15 +58,17 @@ Make sure to configure the following settings on the app registration:
 - **Supported account types**: Personal Microsoft accounts only
 - **Redirect URI**: Type: `Web`, URL: `https://my.home-assistant.io/redirect/oauth`
 
+{% tip %}
+You will need an Azure tenant with an active Azure subscription to create your own client credentials.
+{% endtip %}
+
+
 <img src='/images/integrations/onedrive/onedrive-app-registration.png' alt='Configuring a custom app.'>
+
 
 {% note %}
 If you set the integration up with the default credentials and switch to custom credentials later, your backup folder will change inside your OneDrive, and you will have to manually copy existing backups from the old folder to the new one.
 {% endnote %}
-
-{% tip %}
-You will need an Azure tenant with an active Azure subscription to create your own client credentials.
-{% endtip %}
 
 ## Backup folder is called `Graph`
 
