@@ -35,6 +35,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For Luxembourg meters, choose DSMR version `5L`
 - For Swedish meters, choose DSMR version `5S`
 - For EasyMeter Q3D, choose DSMR version `Q3D`
+- For E-ON Hungary meters (and for most of other Hungarian meters), choose DSMR version `5EONHU`
 
 ### Options
 
@@ -61,7 +62,8 @@ This integration is known to work for:
 - Kaifa MA304C (DSMR 4.2)
 - Kamstrup 382JxC (DSMR 2.2)
 - Sagemcom XS210 ESMR5
-- Sagemcom T211 
+- Sagemcom T211
+- Sagemcom MA304
 - Ziv E0058 ESMR5
 - EasyMeter Q3D
 
