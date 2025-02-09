@@ -598,7 +598,7 @@ actions:
       message_tag: "example_tag"
 ```
 
-## Example: send_message with disabled webpage preview:
+## Example: send_message with disabled webpage preview
 
 ```yaml
 actions:
@@ -611,7 +611,7 @@ actions:
       disable_web_page_preview: true
 ```
 
-## Example: send_message to a topic within a group:
+## Example: send_message to a topic within a group
 
 ```yaml
 actions:
