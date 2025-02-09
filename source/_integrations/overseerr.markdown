@@ -70,6 +70,8 @@ Relevant data about the request is stored in the attributes.
 The integration also provides statistics for the requests and issues stored in Overseerr.
 There are sensors for:
 
+#### Requests
+
 - Total requests
 - Movie requests
 - TV requests
@@ -77,6 +79,9 @@ There are sensors for:
 - Declined requests
 - Processing requests
 - Available requests
+
+#### Issues
+
 - Total issues
 - Audio issues
 - Subtitle issues
