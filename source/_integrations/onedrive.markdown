@@ -87,3 +87,9 @@ You should be able to manually rename the folder to something else, without the 
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
+## Troubleshooting
+
+{% details "Unknown error while adding the integration" %}
+
+Make sure that your OneDrive is not frozen. This can happen if you haven't used it for a longer period of time, or went over your data quota. {% enddetails %}
