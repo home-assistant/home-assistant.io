@@ -56,7 +56,7 @@ If this stops working, you can find the new ones by using a MITM proxy with the 
 
 The integration provides a `sensor` entity with the power price for the current time interval.
 
-The attributes of the entity has a breakdown of the pricing components, such as `generation` and `network` charges.
+The attributes of the entity have a breakdown of the pricing components, such as `generation` and `network` charges.
 
 {% note %}
 
