@@ -111,6 +111,8 @@ The provided actions can be used to provide extra context to voice assistants.
 
 {% details "Send me a push notification on a new request" %}
 
+Here we are just checking for `pending` but you can check for any other event types.
+
 {% raw %}
 
 ```yaml
@@ -141,6 +143,8 @@ actions:
 {% enddetails %}
 
 {% details "Send me a push notification on a new issue" %}
+
+Here we are just checking for `reported` but you can check for any other event types.
 
 {% raw %}
 
@@ -176,7 +180,7 @@ actions:
 When loading the integration, it will try to configure the webhook in Overseerr to give updates to Home Assistant.
 This makes the integration a push-based integration.
 
-When the integration receives an update about the requests/issues, it updates the statistics to make sure they are up-todate.
+When the integration receives an update about the requests/issues, it updates the statistics to make sure they are up-to-date.
 In addition, the integration checks for updates every 5 minutes.
 
 ## Known limitations
