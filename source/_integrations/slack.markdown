@@ -146,6 +146,7 @@ sequence:
 ### Target Types
 
 The `target` field accepts either a single value or a list of values. Each target can be:
+
 - A channel name with a `#` prefix (e.g., `#general`)
 - A channel name without the `#` prefix (e.g., `general`)
 - A channel ID (e.g., `C01234ABCD`)
