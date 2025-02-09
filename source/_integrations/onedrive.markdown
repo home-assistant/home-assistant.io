@@ -20,6 +20,7 @@ This integration allows you to use [Microsoft OneDrive](https://www.microsoft.co
 
 Backups will be created in a folder called `Home Assistant\backups_<id>` in the `App Folder` of your OneDrive.
 `id` is part of your Home Assistant instance's unique id to allow backups from multiple instances to the same OneDrive account.
+
 The integration only has access to an application specific `Home Assistant` folder in the `App Folder` and cannot access any other parts of your OneDrive.
 
 {% important %}
@@ -53,13 +54,21 @@ This integration comes with a predefined set of [application credentials](https:
 Nobody will ever have access to your data except you, as the app does not have permission to do anything on its own. It only works with a signed-in user (it only has `delegated` not `application permissions`). 
 However, if you want to use your own credentials, follow [this guide](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
 
-{% note %}
-If you set the integration up with the default credentials and switch to custom credentials later, your backup folder will change inside your OneDrive, and you will have to manually copy existing backups from the old folder to the new one.
-{% endnote %}
-
 {% tip %}
 You will need an Azure tenant with an active Azure subscription to create your own client credentials.
 {% endtip %}
+
+Make sure to configure the following settings on the app registration:
+
+- **Supported account types**: Personal Microsoft accounts only
+- **Redirect URI**: Type: `Web`, URL: `https://my.home-assistant.io/redirect/oauth`
+
+<img src='/images/integrations/onedrive/onedrive-app-registration.png' alt='Configuring a custom app.'>
+
+
+{% note %}
+If you set the integration up with the default credentials and switch to custom credentials later, your backup folder will change inside your OneDrive, and you will have to manually copy existing backups from the old folder to the new one.
+{% endnote %}
 
 ## Backup folder is called `Graph`
 
@@ -78,3 +87,9 @@ You should be able to manually rename the folder to something else, without the 
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
+## Troubleshooting
+
+{% details "Unknown error while adding the integration" %}
+
+Make sure that your OneDrive is not frozen. This can happen if you haven't used it for a longer period of time, or went over your data quota. {% enddetails %}
