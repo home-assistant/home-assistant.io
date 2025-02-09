@@ -53,6 +53,13 @@ This integration comes with a predefined set of [application credentials](https:
 Nobody will ever have access to your data except you, as the app does not have permission to do anything on its own. It only works with a signed-in user (it only has `delegated` not `application permissions`). 
 However, if you want to use your own credentials, follow [this guide](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
 
+Make sure to configure the following settings on the app registration:
+
+- **Supported account types**: Personal Microsoft accounts only
+- **Redirect URI**: Type: `Web`, URL: `https://my.home-assistant.io/redirect/oauth`
+
+<img src='/images/integrations/onedrive/onedrive-app-registration.png' alt='Configuring a custom app.'>
+
 {% note %}
 If you set the integration up with the default credentials and switch to custom credentials later, your backup folder will change inside your OneDrive, and you will have to manually copy existing backups from the old folder to the new one.
 {% endnote %}
