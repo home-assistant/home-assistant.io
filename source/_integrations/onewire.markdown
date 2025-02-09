@@ -17,6 +17,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
+ha_zeroconf: true
 ---
 
 The Onewire integration supports sensors that use the 1-wire bus for communication.

@@ -13,6 +13,7 @@ ha_domain: fyta
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - image
   - sensor
 ha_integration_type: hub
 ha_quality_scale: platinum

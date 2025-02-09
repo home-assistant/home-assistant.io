@@ -22,11 +22,6 @@ ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@imicknl'
-  - '@vlebourl'
-  - '@tetienne'
-  - '@nyroDev'
-  - '@tronix117'
-  - '@alexfp14'
 ha_domain: overkiz
 ha_dhcp: true
 ha_zeroconf: true

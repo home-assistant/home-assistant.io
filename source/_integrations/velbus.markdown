@@ -187,4 +187,3 @@ The Velbus integration and its entities can be removed by following these steps:
 {% include integrations/remove_device_service.md %}
 
 Note: Removing the integration will delete all Velbus devices and their history from Home Assistant.
-

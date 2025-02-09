@@ -16,6 +16,7 @@ ha_release: 2023.5
 ha_config_flow: true
 ha_codeowners:
   - '@Lash-L'
+  - '@allenporter'
 ha_domain: roborock
 ha_platforms:
   - binary_sensor

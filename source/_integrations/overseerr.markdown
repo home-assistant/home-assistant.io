@@ -13,8 +13,10 @@ ha_codeowners:
 ha_domain: overseerr
 ha_integration_type: service
 ha_platforms:
+  - diagnostics
   - event
   - sensor
+ha_quality_scale: platinum
 ---
 
 Overseerr is a service that allows you to manage media requests and to integrate these media requests with Plex, Radarr, and Sonarr. The **Overseerr** {% term integration %} allows you to integrate your [Overseerr](https://overseerr.dev/) instance.
@@ -132,8 +134,10 @@ In addition, the integration checks for updates every 5 minutes.
 
 ## Known limitations
 
-Overseerr is only capable of having one webhook set up at a time.
+There are a few known limitations for using the integration:
+- Overseerr is only capable of having one webhook set up at a time.
 This means you can only have 1 Home Assistant instance connected to your Overseerr instance at a time.
+- The integration is not able to function with <abbr title="cross-site request forgery">CSRF</abbr> protection turned on. In Overseer, go to **Settings** and turn off the **CSRF Protection**.
 
 ## Remove integration
 
@@ -145,5 +149,5 @@ This integration follows standard integration removal, no extra steps are requir
 
 {% details "Failed to register Overseerr webhook" %}
 
-Make sure you Overseerr instance is able to reach your Overseerr instance.
+Make sure your Overseerr instance is able to reach your Home Assistant instance.
 {% enddetails %}

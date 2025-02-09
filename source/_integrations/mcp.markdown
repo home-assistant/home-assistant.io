@@ -7,12 +7,13 @@ ha_release: 2025.2
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - 'allenporter'
+  - '@allenporter'
 ha_domain: mcp
 ha_integration_type: integration
 related:
   - docs: /integrations/conversation/
     title: Conversation
+ha_quality_scale: silver
 ---
 
 The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that

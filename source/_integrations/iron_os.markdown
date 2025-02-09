@@ -19,6 +19,7 @@ ha_integration_type: integration
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - number
   - select
   - sensor

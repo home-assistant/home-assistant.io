@@ -181,10 +181,103 @@ triggers:
 
 {% endraw %}
 
-### Actions
+## Actions
 
-Available action: `schedule.reload`.
+To interact with schedules from {% term scripts %} and {% term automations %}, the schedule integration provides the following {% term actions %}.
 
-#### schedule.reload
+### Action `schedule.reload`
 
-`schedule.reload` action allows one to reload the schedule's configuration without restarting Home Assistant itself.
+`schedule.reload` reloads the schedule's configuration from YAML without the need of restarting Home Assistant itself.
+
+### Action `schedule.get_schedule`
+
+`schedule.get_schedule` populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the configured time ranges of a schedule.
+It can return multiple schedules.
+
+```yaml
+action: schedule.get_schedule
+target:
+  entity_id:
+    - schedule.vacuum_robot
+    - schedule.air_purifier
+response_variable: schedules
+```
+
+The response data contains a field for every schedule entity (e.g. `schedule.vacuum_robot` and `schedule.air_purifier` in this case).
+
+Every schedule entity response has 7 fields (one for each day of the week in lowercase), containing a list of the selected time ranges.
+Days without any ranges will be returned as an empty list.
+
+```yaml
+schedule.vacuum_robot:
+  monday:
+    - from: "09:00:00"
+      to: "15:00:00"
+  tuesday: []
+  wednesday: []
+  thursday:
+    - from: "09:00:00"
+      to: "15:00:00"
+  friday: []
+  saturday: []
+  sunday: []
+schedule.air_purifier:
+  monday:
+    - from: "09:00:00"
+      to: "18:00:00"
+  tuesday: []
+  wednesday: []
+  thursday:
+    - from: "09:00:00"
+      to: "18:00:00"
+  friday: []
+  saturday:
+    - from: "10:30:00"
+      to: "12:00:00"
+    - from: "14:00:00"
+      to: "19:00:00"
+  sunday: []
+```
+
+The example below uses the response data from above in a template for another action.
+
+{% raw %}
+
+```yaml
+action: notify.nina
+data:
+  title: Today's schedules
+  message: >-
+    Your vacuum robot will run today:
+    {% for event in schedules["schedule.vacuum_robot"][now().strftime('%A').lower()] %}
+    - from {{ event.from }} until {{ event.to }}<br>
+    {% endfor %}
+    Your air purifier will run today:
+    {% for event in schedules["schedule.air_purifier"][now().strftime('%A').lower()] %}
+    - from {{ event.from }} until {{ event.to }}<br>
+    {% endfor %}
+```
+
+{% endraw %}
+
+If you want to run the above action both once per day and whenever one of the schedules changes, you can create an {% term automation %} that combines a time-based {% term trigger %} with an {% term event %} trigger per entity.
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: time
+    at: "07:30:00"
+  - trigger: event
+    event_type: entity_registry_updated
+    event_data:
+      action: update
+      entity_id: schedule.vacuum_robot
+  - trigger: event
+    event_type: entity_registry_updated
+    event_data:
+      action: update
+      entity_id: schedule.air_purifier
+```
+
+{% endraw %}

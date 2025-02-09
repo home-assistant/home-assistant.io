@@ -13,6 +13,7 @@ ha_platforms:
   - cover
   - sensor
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 [Homee](https://hom.ee) is a smart home system, able to integrate various protocols such as Z-Wave, Zigbee, EnOcean, and more. The Homee {% term integration %} will let you use the {% term devices %} from your Homee in Home Assistant.

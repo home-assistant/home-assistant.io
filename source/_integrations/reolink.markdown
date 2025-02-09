@@ -591,7 +591,7 @@ Prerequisites:
 ![Choose entity button](/images/integrations/reolink/rich_notification__chose_entity.png)
 ![Select Fluent camera](/images/integrations/reolink/rich_notification__select_fluent_camera.png)
 
-  Under **Filename**, fill in `/config/www/reolink_snapshot/last_snapshot_doorbell.jpg`. The first part `/config/www/` is absolutely necessary to allow your phone to access the saved image when it receives the notification. The reset of the folder and filename can be changed at will as long as you fill in the same filename under step 6.
+  Under **Filename**, fill in `/media/reolink_snapshot/last_snapshot_doorbell.jpg`. The first part `/media/` is absolutely necessary to allow your phone to access the saved image when it receives the notification. The reset of the folder and filename can be changed at will as long as you fill in the same filename under step 6.
 
 <p class='img'>
   <img src='/images/integrations/reolink/rich_notification__screenshot_take_snapshot.png' alt='Screenshot: take snapshot'>
@@ -605,7 +605,7 @@ Prerequisites:
 
   Under **message**, type the text you want to receive in the notification. For instance, “Someone rang the doorbell”.
   If you want to give the notification a title, select the **title** option. For instance, if you have multiple cameras that send you notifications, select the camera name: `Doorbell`.
-  Select the **data** option and fill in `image: /local/reolink_snapshot/last_snapshot_doorbell.jpg`. Note that `/config/www/` of the filename of step 5 now needs to be changed to `/local/`. The rest of the filename needs to be the same as in step 5.
+  Select the **data** option and fill in `image: /media/local/reolink_snapshot/last_snapshot_doorbell.jpg`. Note that `/media/` of the filename of step 5 now needs to be changed to `/media/local/`. The rest of the filename needs to be the same as in step 5.
 
 <p class='img'>
   <img src='/images/integrations/reolink/rich_notification__send_to_mobile.png' alt='Screenshot: send notification'>
@@ -625,6 +625,81 @@ Prerequisites:
 
 - Turn on (outdoor) lights near the camera to improve image clarity at night once the camera detects a person, vehicle, or animal.
 - Turn off notifications and recording when you get home (based on, e.g., geofencing) and turn it back on when you leave home.
+- Auto-pause rich notifications for x time
+
+{% details "Auto-pause rich notifications tutorial" icon="mdi:cursor-hand" %}
+
+**Goal**: At the end of this tutorial, you will have a drop-down on your dashboard with different time choices to pause your notifications. When the time is up, the notifications will become active again. It will look like this:
+
+![Overview of end result](/images/integrations/reolink/auto_pause__overview.png)
+
+1. First, create the dropdown from **Settings** > **Devices & services** > **Helpers** > **+ Create Helper** > **Dropdown**. 
+   - Decide how many time delay choices you want. 
+   - Add them all to the dropdown like below. 
+   - Your first entry needs to be "Notifications active" (or simular phrasing) for when the notifications are turned on. 
+   - You can define as many time options as you want. And you can define any time interval you like, for example, 22 minutes, 2 hours.
+
+    ![Dropdown](/images/integrations/reolink/auto_pause__dropdown.png)
+
+2. Next, also from the **Helpers** menu create a **Timer**. 
+   - Leave the time duration all zeros. Select the **Restore state and time** box.
+
+     ![Timer](/images/integrations/reolink/auto_pause__timer.png)
+
+3. Now you will create a new automation script. 
+   - For the **When** select **+ Add Trigger** > **Entity** > **State** and choose your dropdown box for the entity and in the **From** choose your "Notifications active" or whatever you chose for the top item.
+
+   ![Automation When dropdown](/images/integrations/reolink/auto_pause__automation_when.png)
+
+4. Add another trigger using **+ Add Trigger** > **Entity** > **State** and choose your timer for the entity and in the **To** choose "Idle". 
+   - Now select the three dots {% icon "mdi:dots-vertical" %} menu of this trigger and press **Edit ID**. In the **Trigger ID** type "TIMER DONE".
+
+    ![Automation When timer](/images/integrations/reolink/auto_pause__automation_when_timer.png)
+
+5. There is nothing in the **And if** section. For the **Then do** section choose **add building block** and use **Choose**. 
+   - You will have as many options as you have times in your dropdown box plus one to reset the dropdown box. 
+   - First, we make the option to reset the dropdown box. This needs to be the first option. 
+   - Under **Option 1**, select **+ Add Condition** > **Other conditions** > **Triggered by**. 
+   - Now check the box in front of "TIMER DONE".
+
+    ![Automation Triggered by](/images/integrations/reolink/auto_pause__automation_triggered_by.png)
+
+6. Add an action under this **Option 1**, choose **Select** as your action and then choose **First**. 
+   - Then enter your dropdown box as the entity. 
+   - This will change your dropdown box back to the first item when the timer is done. 
+   - This will allow your notification automation to run again.
+
+    ![Automation Select first](/images/integrations/reolink/auto_pause__automation_select_first.png)
+
+7. Let’s code the first option to pause the notifications now. 
+   - Under **Option 2**, select **+ Add Condition** > **Entity** > **State**. 
+   - Your dropdown box goes in the **Entity** and for **State** choose your first time delay.
+
+   ![Automation Choose](/images/integrations/reolink/auto_pause__automation_choose.png)
+
+8. For **+ Add Action**, choose **Helpers** > **Timer** > **Start** and enter your timer entity. 
+   - Check the duration box and enter the time delay you used for your first time delay. Format is HH:MM:SS
+
+    ![Automation Start timer](/images/integrations/reolink/auto_pause__automation_start_timer.png)
+
+9. The only thing left here is to duplicate Option 2 as many items as you have in your dropdown box. 
+   - The only changes you will need to make for each new option is to choose the correct state (time amount) for the dropdown box and then change the amount of time in the timer. 
+   - You can easliy duplicate by clicking the three dots {% icon "mdi:dots-vertical" %} menu at the far right of the option.
+
+10. Lastly, you need to apply this new feature. 
+    - Go into your rich notifications automation, or for that matter any automation that you would like to have pause control over, and add a condition. 
+    - Below is an example. In the **And if** press **+ Add condition** > **Entity** > **State** add select the dropdown box as the entity and "Notifications Active", the first item, as the state.
+
+    ![Condition](/images/integrations/reolink/auto_pause__condition.png)
+
+11. Add the dropdown box and the timer onto your dashboard and you are all set. 
+    - Here is what it looks like when it is running (holding notifications). 
+    - You can end it early by just selecting the timer, then selecting finish. That ends the timer, it goes to idle, and the automation resets the dropdown box to active.
+
+    ![Result when running](/images/integrations/reolink/auto_pause__result_when_running.png)
+
+{% enddetails %}
+
 - When someone presses the doorbell, play ringtones on speakers (Echo Dot/Google Home/smart hubs) throughout the house.
 - Pause a TV and show a notification badge on the TV when the doorbell is pressed (only when the TV is already on).
 - Play the quick replay messages of a Reolink doorbell only when not home (geofencing)

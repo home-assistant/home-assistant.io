@@ -46,4 +46,3 @@ This integration supports the following functionalities (if the devices support 
 ## Outside temperature
 
 On units that support it, this integration will expose a temperature sensor that reports the outside temperature that the unit is sensing.
-

@@ -10,6 +10,7 @@ ha_codeowners:
   - '@dotvav'
 ha_domain: palazzetti
 ha_platforms:
+  - button
   - climate
   - diagnostics
   - number

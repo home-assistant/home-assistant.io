@@ -11,8 +11,9 @@ ha_codeowners:
   - '@thomasddn'
 ha_release: 2025.2
 ha_domain: qbus
-ha_integration_type: device
+ha_integration_type: hub
 ha_config_flow: true
+ha_quality_scale: bronze
 ---
 
 The **Qbus** {% term integration %} allows you to integrate your [Qbus Control](https://www.qbus.be) into Home Assistant. **Qbus** is a Belgian manufacturer of Home Automation systems.

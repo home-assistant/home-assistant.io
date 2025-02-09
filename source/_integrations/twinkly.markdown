@@ -14,6 +14,7 @@ ha_codeowners:
 ha_platforms:
   - diagnostics
   - light
+  - select
 ha_dhcp: true
 ha_integration_type: integration
 ---

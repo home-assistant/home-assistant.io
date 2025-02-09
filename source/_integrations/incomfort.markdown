@@ -14,6 +14,7 @@ ha_domain: incomfort
 ha_platforms:
   - binary_sensor
   - climate
+  - diagnostics
   - sensor
   - water_heater
 ha_integration_type: integration

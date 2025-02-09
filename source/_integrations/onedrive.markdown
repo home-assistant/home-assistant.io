@@ -13,6 +13,7 @@ ha_integration_type: service
 related:
   - docs: /common-tasks/general/#backups
     title: Backups
+ha_quality_scale: bronze
 ---
 
 This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).

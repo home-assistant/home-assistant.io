@@ -36,7 +36,7 @@ If you see an "Unable to connect" message, restart the gateway and try again. Do
 {% note %}
 There is currently no dedicated core integration for the Dirigera hub released in October 2022.
 
-The Dirigera hub can, however, be integrated directly via the [HomeKit device](/integrations/homekit_controller/) integration. This configuration even provides events for motion sensors and buttons, which the original integration lacks.
+The Dirigera hub can, however, be integrated directly via the [HomeKit device](/integrations/homekit_controller/) integration or the [Matter](/integrations/matter/#using-a-matter-bridge) integration. As of Hub version 2.615.8 (September 2024), there is support for the following device types via Matter Bridge: lights (including drivers), smart plugs/outlets, connected blinds, remotes, motion sensors, open/close sensors, air purifiers, and air quality sensors.
 {% endnote %}
 
 

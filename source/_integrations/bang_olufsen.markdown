@@ -2,16 +2,16 @@
 title: Bang & Olufsen
 description: Instructions on how to integrate Bang & Olufsen devices into Home Assistant.
 ha_category:
+  - Event
   - Media Player
   - Multimedia
-  - Event
 ha_release: 2024.2
 ha_iot_class: Local Push
 ha_domain: bang_olufsen
 ha_platforms:
   - diagnostics
-  - media_player
   - event
+  - media_player
 ha_codeowners:
   - '@mj23000'
 ha_config_flow: true

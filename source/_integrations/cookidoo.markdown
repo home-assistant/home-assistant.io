@@ -11,6 +11,9 @@ ha_codeowners:
 ha_domain: cookidoo
 ha_integration_type: service
 ha_platforms:
+  - button
+  - diagnostics
+  - sensor
   - todo
 related:
   - docs: /integrations/todo
