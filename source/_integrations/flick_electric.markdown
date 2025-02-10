@@ -21,24 +21,14 @@ ha_integration_type: service
 {% configuration_basic %}
 Username:
     description: "Username used to log into Flick Electric."
-    required: true
-    type: string
 Password:
     description: "Password used to log into Flick Electric."
-    required: true
-    type: string
 Client ID:
     description: "Client ID to authenticate (see below note)."
-    required: false
-    type: string
 Client Secret:
     description: "Client Secret to authenticate (see below note)."
-    required: false
-    type: string
 Account:
     description: "Address of the account to add (required when user has multiple active accounts)."
-    required: true
-    type: string
 {% endconfiguration_basic %}
 
 {% note %}
