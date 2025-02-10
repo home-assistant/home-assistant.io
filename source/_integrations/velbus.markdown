@@ -45,7 +45,7 @@ During the setup you will be shown 2 choices on ways to connect to the Velbus bu
 
 The USB connection is a way to connect to the Velbus bus. You will need a Velbus USB interface to connect to the bus. The USB interface is connected to the USB port of your Home Assistant device.
 The interface USB devices are automatically detected and shown in a list.
-Select the correct USB interface from the list and click on submit.
+Select the correct USB interface from the list and select **Submit**.
 
 There will be a connection test to make sure the connection is working, and if it's working the integration will be added to Home Assistant.
 
