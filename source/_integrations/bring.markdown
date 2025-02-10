@@ -85,7 +85,7 @@ If you want to receive these notifications, you must use a dedicated account, as
 
 | Data attribute         | Optional | Description                                                                                                                             |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `target`               |       no | Target Bring! list(s) whose members should be notified.                                                                                 |
+| `target`               |       no | Target Bring! list(s) the members to be notified.                                                                                 |
 | `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types).                             |
 | `item`                 |      yes | Required for `urgent_message`. Item to include in the message. For example: *Attention! Attention! - We still urgently need: Cilantro*. |
 
