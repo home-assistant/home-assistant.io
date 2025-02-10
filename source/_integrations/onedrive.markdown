@@ -106,8 +106,7 @@ actions:
       title: OneDrive is almost full!
       message: >
         OneDrive has used up {{ states('sensor.used_storage') }} of {{
-        states('sensor.total_available') }}GB.  Only {
-        states('sensor.remaining_storage') }}GB remaining.
+        states('sensor.total_available') }}GB.  Only {{ states('sensor.remaining_storage') }}GB remaining.
 mode: single
 ```
 
