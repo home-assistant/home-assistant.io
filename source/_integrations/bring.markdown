@@ -83,20 +83,30 @@ The **Bring!** integration offers an action to send push notifications to the Br
 If you want to receive these notifications, you must use a dedicated account, as outlined in the [known limitations](#known-limitations).
 {% endnote %}
 
-| Data attribute | Optional | Description                                                                                                                      |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `target`               |       no | Target Bring! list(s) whose members should be notified.                                                                          |
-| `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types).                      |
-| `item`                 |      yes | Required for `urgent_message`. Article name to include in the message. For example: *Urgent Message - Please buy cilantro urgently*. |
+| Data attribute         | Optional | Description                                                                                                                             |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `target`               |       no | Target Bring! list(s) whose members should be notified.                                                                                 |
+| `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types).                             |
+| `item`                 |      yes | Required for `urgent_message`. Item to include in the message. For example: *Attention! Attention! - We still urgently need: Cilantro*. |
+
 
 ### Available notification types
 
-| Notification type | Text of notification                                |
-| ----------------- | --------------------------------------------------- |
-| going_shopping    | I'm going shopping! - Last chance to make changes   |
-| changed_list      | List updated - Take a look at the articles          |
-| shopping_done     | Shopping done - The fridge is well stocked          |
-| urgent_message    | Urgent Message - Please buy `Article name` urgently |
+| Notification type | Name of notification                                           |
+| ----------------- | -------------------------------------------------------------- |
+| going_shopping    | I'm going shopping! - Last chance for adjustments              |
+| changed_list      | I changed the list! - Take a look at the items                 |
+| shopping_done     | The shopping is done! - The fridge is well stocked             |
+| urgent_message    | Attention! Attention! - We still urgently need: `[Items]`      |
+
+{% note %}
+The notification that list members receive differs from the label shown in the Bring! app. This variation depends not only on the recipient’s language settings but also on the sender's profile name. Additionally, notifications may change with new app updates. Here are some example notifications:
+
+- `name` is going shopping for "`shopping list name`"! Last chance to make changes
+- `name` went shopping for "`shopping list name`"! The fridge is well stocked
+- `name` updated the list "`shopping list name`"! Take a look at the articles
+- Attention, something's missing! Please buy `item` urgently
+{% endnote %}
 
 ### Sending a going shopping notification
 
