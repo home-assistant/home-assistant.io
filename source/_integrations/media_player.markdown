@@ -203,7 +203,7 @@ Provides access to browsing the media tree provided by the integration. Similar 
 
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
-| `media_content_type`   |      yes | The type of media to browse such as music, playlist, video, etc. Integration specific.  |
+| `media_content_type`   |      yes | The type of media to browse such as music, playlist, and video. Integration specific.  |
 | `media_content_id`   |      yes | The content ID to browse. Integration specific. An empty content ID returns the top-level of the browse tree. |
 
 The action returns a media tree object that can be stored in a response variable for use in subsequent automation steps. The response includes:
@@ -211,7 +211,7 @@ The action returns a media tree object that can be stored in a response variable
 | Field | Description |
 |-------|-------------|
 | `title` | Display name of the current level |
-| `media_class` | Type of the current item (e.g., directory, music, video) |
+| `media_class` | Type of the current item (for example, directory, music, video) |
 | `media_content_type` | Content type identifier |
 | `media_content_id` | Integration specific content ID |
 | `children_media_class` | Types of items in the children array |
@@ -251,7 +251,7 @@ media_player.living_room:
 
 Example of browsing a specific artist with the Sonos Integration:
 
-Note: This example demonstrates browsing an artist's albums. The format of `media_content_id` (`A:ALBUMARTIST/artist_name`) is specific to Sonos. Notice how special characters in album names are URL-encoded in the response (e.g., `%20` for spaces).
+Note: This example demonstrates browsing an artist's albums. The format of `media_content_id` (`A:ALBUMARTIST/artist_name`) is specific to Sonos. Notice how special characters in album names are URL-encoded in the response (for example, `%20` for spaces).
 
 ```yaml
   - action: media_player.browse_media
