@@ -1443,6 +1443,91 @@ For a summary in a more readable format:
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@zweckj]: https://github.com/zweckj
 
+## Release 2025.2.2 - February 10
+
+- LaCrosse View new endpoint ([@IceBotYT] - [#137284])
+- Convert coinbase account amounts as floats to properly add them together ([@natekspencer] - [#137588])
+- Bump ohmepy to 1.2.9 ([@dan-r] - [#137695])
+- Bump onedrive_personal_sdk to 0.0.9 ([@zweckj] - [#137729])
+- Limit habitica ConfigEntrySelect to integration domain ([@cdce8p] - [#137767])
+- Limit nordpool ConfigEntrySelect to integration domain ([@cdce8p] - [#137768])
+- Limit transmission ConfigEntrySelect to integration domain ([@cdce8p] - [#137769])
+- Fix tplink child updates taking up to 60s ([@bdraco] - [#137782])
+- Call backup listener during setup in Google Drive ([@tronikos] - [#137789])
+- Use the external URL set in Settings > System > Network if my is disabled as redirect URL for Google Drive instructions ([@tronikos] - [#137791])
+- Fix manufacturer_id matching for 0 ([@patman15] - [#137802])
+- Fix DAB radio in Onkyo ([@arturpragacz] - [#137852])
+- Fix LG webOS TV fails to setup when device is off ([@thecode] - [#137870])
+- Fix heos migration ([@balloob] - [#137887])
+- Bump pydrawise to 2025.2.0 ([@dknowles2] - [#137961])
+- Bump aioshelly to version 12.4.2 ([@bieniu] - [#137986])
+- Prevent crash if telegram message failed and did not generate an ID ([@CloCkWeRX] - [#137989])
+- Bump habiticalib to v0.3.7 ([@tr4nt0r] - [#137993])
+- Refresh the nest authentication token on integration start before invoking the pub/sub subsciber ([@allenporter] - [#138003])
+- Use resumable uploads in Google Drive ([@tronikos] - [#138010])
+- Bump py-synologydsm-api to 2.6.2 ([@mib1185] - [#138060])
+- Handle generic agent exceptions when getting and deleting backups ([@abmantis] - [#138145])
+- Bump onedrive-personal-sdk to 0.0.10 ([@zweckj] - [#138186])
+- Keep one backup per backup agent when executing retention policy ([@emontnemery] - [#138189])
+- Improve inexogy logging when failed to update ([@jpbede] - [#138210])
+- Bump pyheos to v1.0.2 ([@andrewsayre] - [#138224])
+- Update frontend to 20250210.0 ([@bramkragten] - [#138227])
+- Bump lacrosse-view to 1.1.1 ([@IceBotYT] - [#137282])
+
+[#137282]: https://github.com/home-assistant/core/pull/137282
+[#137284]: https://github.com/home-assistant/core/pull/137284
+[#137448]: https://github.com/home-assistant/core/pull/137448
+[#137588]: https://github.com/home-assistant/core/pull/137588
+[#137688]: https://github.com/home-assistant/core/pull/137688
+[#137695]: https://github.com/home-assistant/core/pull/137695
+[#137729]: https://github.com/home-assistant/core/pull/137729
+[#137767]: https://github.com/home-assistant/core/pull/137767
+[#137768]: https://github.com/home-assistant/core/pull/137768
+[#137769]: https://github.com/home-assistant/core/pull/137769
+[#137782]: https://github.com/home-assistant/core/pull/137782
+[#137789]: https://github.com/home-assistant/core/pull/137789
+[#137791]: https://github.com/home-assistant/core/pull/137791
+[#137802]: https://github.com/home-assistant/core/pull/137802
+[#137852]: https://github.com/home-assistant/core/pull/137852
+[#137870]: https://github.com/home-assistant/core/pull/137870
+[#137887]: https://github.com/home-assistant/core/pull/137887
+[#137961]: https://github.com/home-assistant/core/pull/137961
+[#137986]: https://github.com/home-assistant/core/pull/137986
+[#137989]: https://github.com/home-assistant/core/pull/137989
+[#137993]: https://github.com/home-assistant/core/pull/137993
+[#138003]: https://github.com/home-assistant/core/pull/138003
+[#138010]: https://github.com/home-assistant/core/pull/138010
+[#138060]: https://github.com/home-assistant/core/pull/138060
+[#138145]: https://github.com/home-assistant/core/pull/138145
+[#138186]: https://github.com/home-assistant/core/pull/138186
+[#138189]: https://github.com/home-assistant/core/pull/138189
+[#138210]: https://github.com/home-assistant/core/pull/138210
+[#138224]: https://github.com/home-assistant/core/pull/138224
+[#138227]: https://github.com/home-assistant/core/pull/138227
+[@CloCkWeRX]: https://github.com/CloCkWeRX
+[@IceBotYT]: https://github.com/IceBotYT
+[@abmantis]: https://github.com/abmantis
+[@allenporter]: https://github.com/allenporter
+[@andrewsayre]: https://github.com/andrewsayre
+[@arturpragacz]: https://github.com/arturpragacz
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@dan-r]: https://github.com/dan-r
+[@dknowles2]: https://github.com/dknowles2
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jpbede]: https://github.com/jpbede
+[@mib1185]: https://github.com/mib1185
+[@natekspencer]: https://github.com/natekspencer
+[@patman15]: https://github.com/patman15
+[@thecode]: https://github.com/thecode
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@tronikos]: https://github.com/tronikos
+[@zweckj]: https://github.com/zweckj
+
 [#112047]: https://github.com/home-assistant/core/pull/112047
 [#121522]: https://github.com/home-assistant/core/pull/121522
 [#121548]: https://github.com/home-assistant/core/pull/121548
