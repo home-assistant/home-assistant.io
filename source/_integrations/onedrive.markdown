@@ -102,7 +102,6 @@ triggers:
     to: "critical"
 actions:
   - action: notify.mobile_app_iphone
-    metadata: {}
     data:
       title: OneDrive is almost full!
       message: >
