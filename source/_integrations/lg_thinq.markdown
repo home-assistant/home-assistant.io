@@ -235,7 +235,7 @@ A read-only property which has states is represented as a sensor platform.
 | Cooktop | Current status<br>Power level |
 | Dehumidifier | Humidity<br>Operating mode |
 | Dish Washer | Current cycle<br>Current status<br>Rinse aid dispenser level<br>Softening level<br>Delay in<br>Remaining time<br>Total time |
-| Home Brew| Brewing duration<br>Brewing period<br>Current status<br>Flavor<br>Homebrew recipe<br>Hops<br>Recipe progress<br>Wort<br>Yeast |
+| Home Brew| Brewing duration<br>Brewing period<br>Current status<br>First flavor<br>Second flavor<br>Homebrew recipe<br>First hop<br>Second hop<br>Recipe progress<br>Wort<br>Yeast |
 | Humidifier | Air quality sensor<br>Humidity<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Schedule turn-off<br>Schedule turn-on<br>Sleep timer<br>Temperature |
 | Kimchi Refrigerator | Fresh air filter<br>Temperature |
 | Microwave Oven | Current status |
