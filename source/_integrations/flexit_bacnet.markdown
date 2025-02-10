@@ -74,9 +74,16 @@ The integration adds entities for setting setpoints for the fan in the respectiv
  - High
  - Cooker hood
 
+The integration adds entities for setting remaining time in minutes for:
+
+ - Fireplace mode runtime (in minutes)
+
 ### Switch
 
-The integration adds an entity for a switch called _Electric heater_ that controls the heating element in the unit.
+The integration adds the following switches:
+
+- _Electric heater_ that controls the heating element in the unit.
+- _Fireplace mode_ that enables or disables the Fireplace mode.
 
 ### A note about shutting down the device
  

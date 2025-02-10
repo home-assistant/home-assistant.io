@@ -58,14 +58,15 @@ The previous `notify.mastodon` service has been deprecated in favor of the new `
 
 Post a status to your Mastodon account
 
-| Data attribute         | Optional | Description |
-|------------------------|----------|-------------|
-| `config_entry_id`      | No       | The ID of the Mastodon config entry to post to. |
-| `status`               | No       | The status text to post. |
-| `visibility`           | Yes      | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. |
-| `content_warning`      | Yes      | Text will be shown as a warning before the text of the status. If not used, no warning will be displayed. |
-| `media`                | Yes      | Attach an image or video to the post. |
-| `media_warning`        | Yes      | If an image or video is attached, `True` will mark the media as sensitive. `False` is default. |
+| Data attribute      | Optional | Description                                                                                                                                                                                                                                                        |
+| ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `config_entry_id`   | No       | The ID of the Mastodon config entry to post to.                                                                                                                                                                                                                    |
+| `status`            | No       | The status text to post.                                                                                                                                                                                                                                           |
+| `visibility`        | Yes      | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. |
+| `content_warning`   | Yes      | Text will be shown as a warning before the text of the status. If not used, no warning will be displayed.                                                                                                                                                          |
+| `media`             | Yes      | Attach an image or video to the post.                                                                                                                                                                                                                              |
+| `media_description` | Yes      | If an image or video is attached, will add a description for this media for people with visual impairments.                                                                                                                                                        |
+| `media_warning`     | Yes      | If an image or video is attached, `True` will mark the media as sensitive. `False` is default.                                                                                                                                                                     |
 
 {% tip %}
 You can get your `config_entry_id` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
@@ -125,7 +126,7 @@ This will post a status to Mastodon that includes an image.
 
 {% details "Example post with media and a content warning that will not be visible in the public timeline" %}
 
-This will post a status to Mastodon that includes an image, with a content warning and a visibility of `unlisted`, so it doesn't show in the public timeline.
+This will post a status to Mastodon that includes an image, with a description, a content warning, and a visibility of `unlisted`, so it doesn't show in the public timeline.
 
 {% raw %}
 
@@ -135,6 +136,7 @@ This will post a status to Mastodon that includes an image, with a content warni
   status: "A media toot from Home Assistant"
   visibility: unlisted
   media: /config/www/funny_meme.png
+  media_description: "A funny meme"
   content_warning: "This might not be funny enough"
 ```
 
