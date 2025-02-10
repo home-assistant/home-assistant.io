@@ -92,12 +92,12 @@ description: Send notification to phone when drive needs cleanup.
 triggers:
   - trigger: state
     entity_id:
-      - sensor.drive_state
+      - sensor.my_drive_drive_state
     from: "normal"
     to: "nearing"
   - trigger: state
     entity_id:
-      - sensor.drive_state
+      - sensor.my_drive_drive_state
     from: "nearing"
     to: "critical"
 actions:
@@ -105,8 +105,8 @@ actions:
     data:
       title: OneDrive is almost full!
       message: >
-        OneDrive has used up {{ states('sensor.used_storage') }} of {{
-        states('sensor.total_available') }}GB.  Only {{ states('sensor.remaining_storage') }}GB remaining.
+        OneDrive has used up {{ states('sensor.my_drive_used_storage') }} of {{
+        states('sensor.my_drive_total_available') }}GB.  Only {{ states('sensor.my_drive_remaining_storage') }}GB remaining.
 mode: single
 ```
 
