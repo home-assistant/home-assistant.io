@@ -49,7 +49,7 @@ The attributes of the entity have a breakdown of the pricing components, such as
 
 {% note %}
 
-The power price shown is in cents, and is *excluding GST*. You can customise this by creating a template sensor:
+The power price shown is in cents, and is *excluding <abbr title="goods and services tax">GST</abbr>*. You can customize this by creating a template sensor:
 
 1. Go to
 {% my helpers title="**Settings** > **Devices** & **Services** > **Helpers**" %} and click the add button;
