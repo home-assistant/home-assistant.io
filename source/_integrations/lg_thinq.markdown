@@ -249,7 +249,7 @@ A read-only property which has states is represented as a sensor platform.
 | Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Current status<br>Delay in<br>Remaining time<br>Total time<br>Cycles |
 
 ## User guide
-### 1. Custom card configuration
+### 1. Custom card configuration (HACS)
 
 **- Timer Bar Card**
 > - Supported devices: Washer, Dryer, Styler, Dish washer
@@ -322,5 +322,11 @@ The LG ThinQ integration will work properly after some time.
 
 ## Debugging / Issue report
 The LG ThinQ integration will show additional information by enabling log configuration.
-1. Enable debug logging in /config/integrations/integration/lg_thinq,
-2. Please report your device info (screenshot including name, device type, entities) and logs.
+1. Enable debug logging:
+   - Navigate to **Integrations** -> **LG ThinQ**
+   - **Enable Debug logging**
+   - If you change **Enable** to **Disable**, the log will be saved to the download folder.
+2. When reporting an issue:
+   - Provide screenshots of your device configuration (including device name, type, and entities)
+   - Include the debug logs
+   - Describe the expected behavior and what's not working
