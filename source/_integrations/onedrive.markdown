@@ -88,7 +88,7 @@ Send an alert when the drive usage is close to the storage limit and needs clean
 
 ```yaml
 alias: Alert when OneDrive is close to storage limit
-description: Ensure the steamboiler is on, when the machine gets turned on
+description: Send notification to phone when drive needs cleanup.
 triggers:
   - trigger: state
     entity_id:
