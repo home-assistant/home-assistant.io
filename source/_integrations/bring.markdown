@@ -47,8 +47,8 @@ For authentication, the integration requires the `email` and `password` of your 
 
 If you signed up using **Apple ID**, **Google Sign-in**, or **Facebook Login**, you will need to create a password to use the integration.
 
-- On mobile: Open the Bring! app and go to **Profile → More settings → Change password**.  
-- On the web: Visit **Settings → Reset password** or go directly to [Reset Password](https://web.getbring.com/app/settings/resetpassword).
+- On mobile: Open the Bring! app and go to **Profile** > **More settings** > **Change password**.  
+- On the web: Visit **Settings** > **Reset password** or go directly to [Reset Password](https://web.getbring.com/app/settings/resetpassword).
 
 You can still log in with your existing authentication method afterward.
 
