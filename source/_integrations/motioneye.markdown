@@ -301,32 +301,32 @@ A dashboard card with icons that will call the `action` action to send action co
       - entity: camera.living_room
         icon: "mdi:arrow-left"
         tap_action:
-          action: call-service
-          action: motioneye.action
+          action: perform-action
+          perform_action: motioneye.action
           data:
             action: left
             entity_id: camera.living_room
       - entity: camera.living_room
         icon: "mdi:arrow-right"
         tap_action:
-          action: call-service
-          action: motioneye.action
+          action: perform-action
+          perform_action: motioneye.action
           data:
             action: right
             entity_id: camera.living_room
       - entity: camera.living_room
         icon: "mdi:arrow-up"
         tap_action:
-          action: call-service
-          action: motioneye.action
+          action: perform-action
+          perform_action: motioneye.action
           data:
             action: up
             entity_id: camera.living_room
       - entity: camera.living_room
         icon: "mdi:arrow-down"
         tap_action:
-          action: call-service
-          action: motioneye.action
+          action: perform-action
+          perform_action: motioneye.action
           data:
             action: down
             entity_id: camera.living_room
