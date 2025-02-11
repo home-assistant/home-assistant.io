@@ -4,7 +4,7 @@ description: Integrate your Smart Meter using B Route.
 ha_category:
   - Energy
   - Sensor
-ha_release: '2024.10'
+ha_release: '2025.03'
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@SeraphicRav'
@@ -21,11 +21,13 @@ The Smart Meter B Route integration allows you to access the data of your smart 
 
 This integration enables you to access and monitor your household energy consumption data from a smart meter using the B Route protocol in Home Assistant. You'll need a compatible USB dongle and your B Route credentials to set up this integration. It has been tested for the Japanese market.
 
-## Requirements
+## Prerequisites
 
 1. **Compatible USB Dongle**: Tested with the Wi-SUN USB dongle from [Ratoc Systems](https://www.ratocsystems.com/products/wisun/usb-wisun/rs-wsuha/).
 2. **B Route Credentials**: Obtain your B Route credentials from your utility company.
 3. **Smart Meter**: A smart meter that supports the B Route protocol. The installation is free, but if you are renting, you will need to contact your house management company.
+
+{% include integrations/config_flow.md %}
 
 ## Signal Reach
 
@@ -52,3 +54,9 @@ Refer to the links below to apply for your B Route credentials:
 - [Shikoku Electric Power](https://www.yonden.co.jp/nw/b_root/index.html)
 - [Kyushu Electric Power](https://www.kyuden.co.jp/td_service_meter_b-root_index.html)
 - [Okinawa Electric Power](https://www.okiden.co.jp/business-support/service/smartmeter/b-route/index.html)
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
