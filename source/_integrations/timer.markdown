@@ -113,7 +113,7 @@ Pause a running timer. This will retain the remaining duration for later continu
 
 ### Action `timer.cancel`
 
-Cancel an active or paused timer. This resets the duration to the last known initial value without firing the `timer.finished` event. You can also use `entity_id: all` and all active and paused timers will be canceled.
+Cancel a running or paused timer. This resets the duration to the last known initial value without firing the `timer.finished` event. You can also use `entity_id: all` and all active and paused timers will be canceled.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
