@@ -29,32 +29,32 @@ You can add or remove items from your shopping list by using the following actio
 Add an item to the shopping list.
 
 | Data attribute | Optional | Description                              |
-| ---------------------- | -------- | ---------------------------------------- |
-| `name`                 | no       | Name of the item to add. Example: "Milk" |
+| -------------- | -------- | ---------------------------------------- |
+| `name`         | no       | Name of the item to add. Example: "Milk" |
 
 ### Action `shopping_list.remove_item`
 
 Remove the first item with matching name from the shopping list.
 
 | Data attribute | Optional | Description                                 |
-| ---------------------- | -------- | ------------------------------------------- |
-| `name`                 | no       | Name of the item to remove. Example: "Milk" |
+| -------------- | -------- | ------------------------------------------- |
+| `name`         | no       | Name of the item to remove. Example: "Milk" |
 
 ### Action `shopping_list.complete_item`
 
 Mark the first item with matching name as completed in the shopping list. It does not remove the item.
 
 | Data attribute | Optional | Description                                            |
-| ---------------------- | -------- | ------------------------------------------------------ |
-| `name`                 | no       | Name of the item to mark as completed. Example: "Milk" |
+| -------------- | -------- | ------------------------------------------------------ |
+| `name`         | no       | Name of the item to mark as completed. Example: "Milk" |
 
 ### Action `shopping_list.incomplete_item`
 
 Mark the first item with matching name as incomplete in the shopping list.
 
 | Data attribute | Optional | Description                                             |
-| ---------------------- | -------- | ------------------------------------------------------- |
-| `name`                 | no       | Name of the item to mark as incomplete. Example: "Milk" |
+| -------------- | -------- | ------------------------------------------------------- |
+| `name`         | no       | Name of the item to mark as incomplete. Example: "Milk" |
 
 ### Action `shopping_list.complete_all`
 
@@ -73,8 +73,8 @@ Clear completed items from the shopping list.
 Sort all items by name in the shopping list.
 
 | Data attribute | Optional | Description                                                         |
-| ---------------------- | -------- | ------------------------------------------------------------------- |
-| `reverse`              | yes      | Whether to sort in reverse (_descending_) order. (default: `False`) |
+| -------------- | -------- | ------------------------------------------------------------------- |
+| `reverse`      | yes      | Whether to sort in reverse (_descending_) order. (default: `False`) |
 
 ## Using in automations
 
@@ -107,3 +107,12 @@ actions:
 ```
 
 {% endraw %}
+
+You can also trigger an automation when a `shopping_list_updated` event was triggered by any of the following actions:
+
+- `clear`: A completed item was cleared from the list.
+- `sorted`: The items in the list were sorted by name.
+- `reorder` An item has been reordered in the list.
+- `update_list` All items have been updated.
+
+In these cases, the event does not return a list item.
