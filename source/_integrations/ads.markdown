@@ -26,6 +26,7 @@ related:
     title: Configuration file
 ha_codeowners:
   - '@mrpasztoradam'
+ha_quality_scale: legacy
 ---
 
 The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](https://www.beckhoff.com/en-en/products/automation/twincat/) and other devices implementing this interface.
@@ -222,6 +223,7 @@ file:
 cover:
   - platform: ads
     name: Curtain master bed room
+    adsvar: covers.master_bed_room_is_closed
     adsvar_open: covers.master_bed_room_open
     adsvar_close: covers.master_bed_room_close
     adsvar_stop: covers.master_bed_room_stop

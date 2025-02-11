@@ -14,26 +14,92 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-AquaCell is a water-softening device. The **AquaCell** {% term integration %} allows you to monitor your AquaCell device in Home Assistant.
+AquaCell is a water-softening device made by [Culligan](https://culliganinternational.com). The [AquaCell](https://www.aquacell-waterontharder.nl/) {% term integration %} allows you to monitor your AquaCell device in Home Assistant.
 You will need your Aquacell account information as used in the **AquaCell** app.
 
-This integration also supports **Harvey** softeners.
+This integration also supports other [Culligan brands](https://culliganinternational.com/brands) of water softener, such as [Harvey](https://www.harveywatersofteners.co.uk/) and [TwinTec](https://www.twintec.com/) (made by Harvey) softeners.
+
+## Supported devices
+
+This integration only works for softener models which have an **i-Lid** and are configured through the 'Mijn AquaCell' or 'myHarvey' mobile app.
+These models are also recognizable by the required curved salt blocks.
+
+- [AquaCell](https://www.aquacell-waterontharder.nl/aquacell)
+- [HarveyArc Water Softener](https://www.harveywatersofteners.co.uk/products/water-softeners/harveyarc-water-softener)
+- [TwinTec Cobalt](https://www.twintec.com/our-products/tt-cobalt/)
+
+## Prerequisites
+
+The softener needs to be set up with the official app before being able to integrate it in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-<div class='note warning'>
-This integration only works with <b>AquaCell</b> or <b>Harvey</b> devices which have an <b>i-Lid</b> and are configured through the 'Mijn AquaCell' or 'My Harvey' mobile app.
-</div>
+{% configuration_basic %}
+Email address:
+  description: The email address used to log in to the mobile app used to monitor the softener.
+  required: true
+  type: string
+Password:
+  description: The password used to log in to the mobile app used to monitor the softener.
+  required: true
+  type: string
+{% endconfiguration_basic %}
 
 ## Sensors
 
-This integration provides {% term sensors %} for the following information from the AquaCell device:
+This integration provides {% term sensors %} for the following information from the softener device:
 
 - Percentage of salt remaining.
 - Time remaining until 0% salt level is reached.
-- iLid battery level.
+- i-Lid battery level.
 - Wi-Fi signal strength.
 
-<div class="note">
-The device does not update frequently, the integration polls the information once a day from the cloud.
-</div>
+## Use cases
+
+The integration provides sensors to monitor the salt level of the softener. You can use this information to create automations, for example, to notify you when the salt level is low and a refill is needed.
+
+You can also easily plot the history of the salt level sensors over time, which can give you more insight into usage.
+
+## Examples
+
+The following examples show how to use this integration in Home Assistant automations.
+
+### Send notification when salt is running out
+
+The following example sends a notification to your mobile device when the salt is running out on either side.
+
+```yaml
+automation:
+  - alias: "Notify when salt is running low"
+    triggers:
+      - trigger: numeric_state
+        entity_id:
+          - sensor.my_softener_salt_left_side_percentage
+          - sensor.my_softener_salt_right_side_percentage
+        below: 10
+
+    actions:
+      - action: notify.mobile_app_your_device
+        data:
+          title: "Softener is almost out of salt"
+          message: > 
+            Place new salt blocks in the softener.
+```
+
+## Data updates
+
+The device does not update frequently, the integration is {% term polling %} new data every day from the cloud.
+
+## Known limitations
+
+There are no known limitations for this integration.
+
+## Troubleshooting
+
+There are no commonly known issues with this integration.
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

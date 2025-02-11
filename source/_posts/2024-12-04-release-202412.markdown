@@ -1,0 +1,950 @@
+---
+layout: post
+title: "2024.12: Scene you in 2025! 🎄"
+description: "Holidays are coming, time for the last release of the year! View your scenes without immediately activating them. Let your voice assistant fall back to an LLM-based agent, and enjoy a faster voice experience. A revised Integration Quality Scale, new integrations, plus, we've upgraded to Python 3.13! See you in 2025!"
+date: 2024-12-04 00:00:00
+date_formatted: "December 4, 2024"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2024-12/social.jpg
+---
+
+<lite-youtube videoid="9Y9YY_YHNBY" videotitle="Home Assistant 2024.12 Release Party"></lite-youtube>
+
+Home Assistant 2024.12! 🎄
+
+Holidays are coming, and it is time for the last release of the year! 🎉
+
+**2024** has been a crazy year for Home Assistant. Not just in terms of features
+like [drag-and-drop dashboards], [organization capabilities] like labels, and
+the countless improvements to our voice efforts. But also the founding of
+[the Open Home Foundation], and even more in the growth of our lovely community
+as we've risen up to become [the #1 open source project on GitHub]! ❤️
+
+However, the year ain't over yet! This month, we want to learn about all your
+_"What the heck?!"_ moments with Home Assistant. Tell us about any little
+annoyances, bugs, ideas, or suggestions. You can read all about it in
+[the WTH announcement blog], or join the conversation [on our WTH forums]!
+
+Honestly, **the biggest announcement of the year has yet to come though**... 🤫
+I'm pretty sure it is voice hardware related. 😉 So make sure you aren't
+missing [the live stream on 19 December]! 📺 You will not be disappointed! 🎁
+
+Before you check out everything in this release, I just want to close this
+year with a big thank you to every single person in our community, which
+includes you!
+
+**Thank you for using Home Assistant!** ❤️
+
+Happy holidays! And for the last time in 2024: Enjoy the release!
+
+../Frenck
+
+[drag-and-drop dashboards]: /blog/2024/11/06/release-202411/#sections-dashboard-no-longer-experimental
+[on our WTH forums]: https://community.home-assistant.io/c/month-of-what-the-heck/61
+[organization capabilities]: /blog/2024/04/03/release-20244/#three-new-ways-to-organize
+[the #1 open source project on GitHub]: /blog/2024/11/18/event-wrapup-github-universe-24/#we-are-number-1
+[the live stream on 19 December]: https://youtube.com/live/ZgoaoTpIhm8
+[the Open Home Foundation]: https://www.openhomefoundation.org/
+[the WTH announcement blog]: /blog/2024/11/30/the-month-of-what-the-heck/
+
+<!--more-->
+
+- [Improved scene editor experience](#improved-scene-editor-experience)
+- [Voice](#voice)
+  - [Let your voice assistant fall back to an LLM-based agent](#let-your-voice-assistant-fall-back-to-an-llm-based-agent)
+  - [Language leaders are accelerating the pace](#language-leaders-are-accelerating-the-pace)
+  - [A faster voice experience](#a-faster-voice-experience)
+- [Revised Integration Quality Scale](#revised-integration-quality-scale)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [Translations for units of measurement](#translations-for-units-of-measurement)
+- [We've upgraded to Python 3.13](#weve-upgraded-to-python-313)
+- [Patch releases](#patch-releases)
+  - [2024.12.1 - December 6](#2024121---december-6)
+  - [2024.12.2 - December 10](#2024122---december-10)
+  - [2024.12.3 - December 13](#2024123---december-13)
+  - [2024.12.4 - December 17](#2024124---december-17)
+  - [2024.12.5 - December 20](#2024125---december-20)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+## Improved scene editor experience
+
+{% term Scenes %} are a great way to set the mood in your home. They allow you
+to capture the state of your devices at a specific moment and restore it
+later, using a button on your dashboard, an automation, or even a voice command.
+
+One of the common frustrations with editing scenes in Home Assistant is that it
+would immediately activate and apply the scene if you opened the scene editor.
+Not the best experience if you are doing some midnight tinkering and
+accidentally activate a scene that turns on all the lights in the house,
+waking up everyone. 😅
+
+[@karwosts] & [@marcinbauer85] to the rescue! 🦸‍♂️ As of this release, the scene
+editor has two modes. A **review mode** and an **edit mode**.
+
+<img class="no-shadow" alt="The improved scene editor now has a preview mode, which is shown in this screenshot." src="/images/blog/2024-12/scene-review-mode.png"/>
+
+The “review mode” is how your scene will open, and it will show you the scene as
+it is currently set up, but it will not apply it. You can then switch to the
+"edit mode"; only then will the scene activate, allowing you to adjust the
+actual scenery and snapshot it again once you are happy with the changes.
+
+Additionally, if you prefer {% term YAML %}, you can edit scenes directly from
+the scene editor by selecting **“Edit in YAML”** from the three-dotted 
+{% icon "mdi:dots-vertical" %} overflow menu in the top right corner.
+
+[@karwosts]: https://github.com/karwosts
+[@marcinbauer85]: https://github.com/marcinbauer85
+
+## Voice
+
+It has almost been two years since [we started our journey] into building our
+very own open source voice assistants, with the goal of letting users control
+Home Assistant in their own language.
+
+Today, we are getting even closer to the finish line. Not just with the features
+that ship in this release, but you might have heard about our voice hardware
+that is coming soon...
+
+With some help from Santa 🎅 and his elves, we have prepared a product launch
+YouTube live stream on 19 December 2024, at 20:00 GMT / 12:00 PT / 21:00 CET!
+
+<lite-youtube videoid="ZgoaoTpIhm8" videotitle="Product Launch 🗣️ Voice: Chapter 8"></lite-youtube>
+
+Curious? Be sure to [join the live stream], hit like 👍, subscribe to our
+channel, and the little bell 🔔 to get notified when we go live! You really
+don't want to miss this one!
+
+But before we get there, let's dive into the features that ship in this release!
+
+[join the live stream]: https://www.youtube.com/watch?v=ZgoaoTpIhm8
+[we started our journey]: /blog/2022/12/20/year-of-voice/
+
+### Let your voice assistant fall back to an LLM-based agent
+
+[Exactly 6 months ago], we bridged the gap between our default conversation agent
+and the wonderful (and scary) world of [LLMs]. We allowed you to experiment and
+let an LLM-based conversation agent control your home instead of relying on our
+built-in sentences.
+
+This choice was an interesting first step. LLMs are generally much better at
+interpreting natural language and more knowledgeable about the world than our
+default agent. However, they are often slow and/or expensive. And let’s face it:
+Even if the demos are cool, 90% of the commands we say in our homes are simple:
+_“Turn this on”_ or _“Turn that off”_.
+
+Today, we're finally allowing users to **mix** these worlds. Starting from this
+release, you can set up a voice assistant that targets our fast,
+community-driven conversation agent first and only falls back to an LLM-based
+agent if no matches are found.
+
+<img class="no-shadow" alt="Dialog showing the Assist pipeline configuration, showing the new option to prefer handling commands locally." src="/images/blog/2024-12/llm-fallback-configuration.png"/>
+
+This allows you to mix the pros of both worlds with almost none of the cons.
+
+Specific known commands will be processed locally and extremely fast, and the
+power of an LLM will only be used for more complex queries that Home Assistant
+does not natively understand.
+
+<lite-youtube videoid="vThoxRIxHyI" videotitle="Let your voice assistant fall back to an LLM-based agent" posterquality="maxresdefault"></lite-youtube>
+
+[Exactly 6 months ago]: /blog/2024/06/05/release-20246/
+[LLMs]: https://en.wikipedia.org/wiki/Language_model
+
+### Language leaders are accelerating the pace
+
+It is no secret: our voice hardware will be revealed on 19 December 2024.
+Language leaders have already got their hands on the device, and are working
+extremely hard to polish support for their language.
+
+The number of contributions to our [intents repository] (where we store the
+supported sentences) skyrocketed during the last month, which we all truly
+appreciate. More and more languages are becoming usable or even complete!
+You can follow the progress [here](https://home-assistant.github.io/intents/).
+
+We won’t list them all, but rest assured, someone is likely working hard to
+ensure your native language works seamlessly, so you can use it comfortably
+at home.
+
+[intents repository]: https://github.com/home-assistant/intents?tab=readme-ov-file
+
+### A faster voice experience
+
+Our default conversation agent was built from the ground up to match a sentence
+to its underlying intention extremely fast and on cheap hardware.
+
+Release after release, we added more use cases and sentences to Home Assistant,
+and our sentence-matching logic became slower and slower. In some languages,
+a non-matching sentence could take more than 15 seconds to process!
+
+This release adds a lot of love to this matching logic; we completely
+reengineered the way we match sentences. On top of that, language leaders spent
+some time reducing the complexity of their sentences. Some languages saw a 99%
+reduction in the number of possible combinations!
+
+The results speak for themselves:
+
+<lite-youtube videoid="RH69Dh6coMM" videotitle="A faster voice experience with our default conversation agent" posterquality="maxresdefault"></lite-youtube>
+
+## Revised Integration Quality Scale
+
+The Integration Quality Scale (IQS) is a way we classify the "quality" of an
+integration. It gives users an idea of what to expect from an integration.
+You might have noticed our IQS indicator listed on
+[each integration documentation page].
+
+The scale was initially introduced in 2018 and aimed more at the technical
+side and code of an integration back then. Over the years, it didn't
+really evolve with the rest of Home Assistant and the general expectations of
+our community. It was time for a change!
+
+Over the last few months, we have worked with the community to revise and
+improve the scale. Involving not just our community developers but also
+documentation writers, user experience designers, and anyone interested
+in the community.
+
+As a result, the new Integration Quality Scale is not just focused on the code
+but even more on the overall user experience. It is now a more holistic view
+of the integration, and we hope it will help everyone make better decisions
+about what to use in their homes.
+
+<img class="no-shadow" alt="The integration quality scale is also shown in the Home Assistant UI now. The image shows the HomeWizard Energy integration scoring platinum on the new integration quality scale." src="/images/blog/2024-12/integration-quality-scale.png" />
+
+We now have a total of 4 scaled tiers:
+
+- **🥉 [Bronze](/docs/quality_scale/#-bronze)**:
+  The new minimum set of requirements we've set for new integrations.
+- **🥈 [Silver](/docs/quality_scale/#-silver)**:
+  Ensuring reliability and robustness of integrations.
+- **🥇 [Gold](/docs/quality_scale/#-gold)**:
+  Ensuring a gold standard user experience, including documentation.
+- **🏆 [Platinum](/docs/quality_scale/#-platinum)**:
+  The epitome of quality, supreme code quality, and optimal performance.
+
+We also have four additional (non-scaled) special tiers: 
+
+- **❓&nbsp;[No&nbsp;score](/docs/quality_scale/#-no-score)**:
+  For integrations that are not yet scored against the new scale.
+- **🏠&nbsp;[Internal](/docs/quality_scale/#-internal)**
+  For integrations Home Assistant itself uses, like the automation engine.
+- **💾&nbsp;[Legacy](/docs/quality_scale/#-legacy)**
+  For older integrations that can't be set up through the UI.
+- **📦&nbsp;[Custom](/docs/quality_scale/#-custom)**
+  For custom integrations, as we can't score those.
+
+You can read all about these tiers, what they have been designed for, and a
+summary of their characteristics on our dedicated
+[Integration Quality Scale page].
+
+We sincerely hope this new scale will not just help our users, but also our
+community developers to understand what is expected by providing a clear path
+to improving their integrations. To help with that, we have now
+[extensively documented every rule and requirement for each tier in our
+developer documentation].
+
+[each integration documentation page]: /integrations/homewizard
+[Integration Quality Scale page]: /docs/quality_scale/
+[extensively documented every rule and requirement for each tier in our developer documentation]: https://developers.home-assistant.io/docs/core/integration-quality-scale/#integration-quality-scale-rules 
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome. 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Acaia]**, added by [@zweckj]  
+  Adds support for [Acaia coffee scales] to Home Assistant.
+- **[Music Assistant]**, added by [@jozefKruszynski]  
+  The integration for [Music Assistant](https://music-assistant.io/) is making
+  its way into Home Assistant! 🎉
+- **[NASweb]**, added by [@nasWebio]  
+  Brings in support for the NASweb automation system to Home Assistant.
+- **[Nord Pool]**, added by [@gjohansson-ST]  
+  Pulls in latest energy prices from the Nord Pool energy market as sensors.
+- **[Sky Remote]**, added by [@dunnmj]  
+  Control your [Sky] box using automations or from your Home Assistant
+  dashboards.
+
+[@dunnmj]: https://github.com/dunnmj
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jozefKruszynski]: https://github.com/jozefKruszynski
+[@nasWebio]: https://github.com/nasWebio
+[@zweckj]: https://github.com/zweckj
+[Acaia coffee scales]: https://acaia.co/
+[Acaia]: /integrations/acaia
+[Music Assistant]: /integrations/music_assistant
+[NASweb]: /integrations/nasweb
+[Nord Pool]: /integrations/nordpool
+[Sky Remote]: /integrations/sky_remote
+[Sky]: https://www.sky.com/
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing
+integrations are also being constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+- The [UniFi Protect integration] now has support for fingerprint and NFC
+  events. You can even automate on the specific fingerprint or NFC scanned!
+  Awesome, [@RaHehl]!
+- The [TP-Link integration] now supports the H200 hubs and adds more
+  energy-monitoring sensors for Tapo devices. It also exposes new entities like
+  a motion sensor switch, a child lock switch for thermostats, and the last
+  water leak alert timestamp.
+  Thanks to [@sdb9696], [@rytilahti], and [@ryenitcher]!
+- [@starKillerOG] added selector entities for bitrate, framerate, and vehicle
+  tone to the [Reolink integration]. Additionally, a tilt position sensor for
+  PTZ cameras has been added. Thanks!
+- [@fwestenberg] updated the [Stookwijzer integration], with some new sensors,
+  right on time for the winter season. Nice!
+- The [Habitica integration] now provides actions for quest handling, scoring
+  habits, and rewards. It also adds calendars for your to-do and daily reminders.
+  Nice, [@tr4nt0r]!
+- The [eQ-3 Bluetooth Smart integration] now provides several helpful switches
+  and sensors (like away mode, boost, battery). Thanks, [@EuleMitKeule]!
+- [@YogevBokobza] added Switcher Lights support to the [Switcher integration].
+  Thanks!
+
+[@sdb9696]: https://github.com/sdb9696
+[@EuleMitKeule]: https://github.com/EuleMitKeule
+[@fwestenberg]: https://github.com/fwestenberg
+[@RaHehl]: https://github.com/RaHehl
+[@ryenitcher]: https://github.com/ryenitcher
+[@rytilahti]: https://github.com/rytilahti
+[@starKillerOG]: https://github.com/starKillerOG
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@YogevBokobza]: https://github.com/YogevBokobza
+[eQ-3 Bluetooth Smart integration]: /integrations/eq3btsmart
+[Habitica integration]: /integrations/habitica
+[Reolink integration]: /integrations/reolink
+[Stookwijzer integration]: /integrations/stookwijzer
+[Switcher integration]: /integrations/switcher_kis
+[TP-Link integration]: /integrations/tplink
+[UniFi Protect integration]: /integrations/unifiprotect
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- [@jpbede] added a download snapshot button to the camera entity information
+  dialog. Super nice! Thanks!
+- The UI now displays durations using a timer format (like 03:26:00) in natural
+  language (3h 26min). Thanks [@piitaya]!
+- Support for new units of measurement has been added:
+  - Units for area sizes (and conversions between metric and US).
+    Thanks [@mikey0000]!
+  - [@jschlyter] has added support for MW, GW, TW, GWh, and TWh. Nice!
+  - µV has been added as a unit of electric potential. Thanks [@tr4nt0r]!
+  - Lastly, mL/s has been added as a unit of volume flow rate. Thanks [@zweckj]!
+- If you are editing an automation using YAML via our UI and you make a mistake…
+  you will now actually see the parsing error message in the UI. This is really
+  helpful! Thanks, [@karwosts]!
+
+[@jpbede]: https://github.com/jpbede
+[@jschlyter]: https://githubc.com/jschlyter
+[@karwosts]: https://github.com/karwosts
+[@mikey0000]: htttps://github.com/mikey0000
+[@piitaya]: https://github.com/piitaya
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
+
+## Translations for units of measurement
+
+Over the last few years, we have been working hard to make every little
+bit of Home Assistant accessible for everyone by providing translations
+for every part of the system. 🌐
+
+However, we still have some edge cases, where we are not able to provide
+translations for everything. One of those edge cases is the units of
+measurement. 📏
+
+Although units do not need translation (like `°C` or `kWh`) in most cases, many
+sensors in a home might use specific and non-standardized units. For example,
+a sensor that measures the number of “people” in a home or one that tells you
+how many “movies” are in your collection.
+
+So, suppose you now have a sensor with a custom measurement unit, like the
+amount of “movies” in your collection. In that case, integrations can now
+provide translations for those units. 🎉
+
+Several integrations have already added translations for their units, including
+[Jellyfin], [Lyrion Music Server], [Transmission], [Pi-hole], [QBitTorrent],
+[NextDNS], [Mastodon], and [Mealie]!
+
+[Jellyfin]: /integrations/jellyfin
+[Lyrion Music Server]: /integrations/squeezebox
+[Mastodon]: /integrations/mastodon
+[Mealie]: /integrations/mealie
+[NextDNS]: /integrations/nextdns
+[Pi-hole]: /integrations/pi_hole
+[QBitTorrent]: /integrations/qbittorrent
+[Transmission]: /integrations/transmission
+
+## We've upgraded to Python 3.13
+
+<center><img class="no-shadow" style="width: 65%" alt="The Python logo; Home Assistant now runs on top of Python latest 3.13 update" src="/images/blog/2024-12/python.png"/></center>
+
+This release comes packaged with Python 3.13!  🐍
+
+Wondering what that means? Python is the programming language that powers Home
+Assistant behind the scenes.
+
+Why does it matter? Every new Python release brings improvements that we can
+tap into—better performance, fewer bugs, and a smoother developer experience
+for our contributors. Plus, Python 3.13 offers a speed boost to Home Assistant
+overall—what’s not to love? 🚀
+
+Running Home Assistant OS or using the Home Assistant Container? No sweat—we’ve
+got you covered. The upgrade to Python 3.13 is handled automatically. Just
+update Home Assistant as usual, and you’re good to go.
+
+Easy, right? 😎
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2024.12 in December.
+These patch releases only contain bug fixes. Our goal is to release a patch
+release every Friday.
+
+### 2024.12.1 - December 6
+
+- Bump elmax-api to 0.0.6.3 ([@albertogeniola] - [#131876])
+- Fix deprecated call to mimetypes.guess_type in CachingStaticResource ([@bdraco] - [#132299])
+- Bump tesla-fleet-api to 0.8.5 ([@Bre77] - [#132339])
+- Add missing UnitOfPower to sensor ([@robinostlund] - [#132352])
+- Removes references to croniter from utility_meter ([@dgomes] - [#132364])
+- Bump upb-lib to 0.5.9 ([@gwww] - [#132411])
+- Bump pydeako to 0.6.0 ([@Balake] - [#132432])
+- Bump aiohttp to 3.11.10 ([@bdraco] - [#132441])
+- Bump aioesphomeapi to 28.0.0 ([@bdraco] - [#132447])
+- Update exception handling for python3.13 for getpass.getuser() ([@allenporter] - [#132449])
+- Bump hass-nabucasa from 0.85.0 to 0.86.0 ([@ludeeus] - [#132456])
+- Fix nordpool dont have previous or next price ([@gjohansson-ST] - [#132457])
+- Bump deebot-client to 9.2.0 ([@edenhaus] - [#132467])
+- Point to the Ecovacs issue in the library for unspoorted devices ([@edenhaus] - [#132470])
+- Bump tplink python-kasa dependency to 0.8.1 ([@sdb9696] - [#132472])
+- Bump samsungtvws to 2.7.2 ([@epenet] - [#132474])
+- Update frontend to 20241127.5 ([@bramkragten] - [#132475])
+- Update frontend to 20241127.6 ([@bramkragten] - [#132494])
+- Fix google tasks due date timezone handling ([@allenporter] - [#132498])
+
+[#131876]: https://github.com/home-assistant/core/pull/131876
+[#132195]: https://github.com/home-assistant/core/pull/132195
+[#132299]: https://github.com/home-assistant/core/pull/132299
+[#132339]: https://github.com/home-assistant/core/pull/132339
+[#132352]: https://github.com/home-assistant/core/pull/132352
+[#132364]: https://github.com/home-assistant/core/pull/132364
+[#132411]: https://github.com/home-assistant/core/pull/132411
+[#132432]: https://github.com/home-assistant/core/pull/132432
+[#132441]: https://github.com/home-assistant/core/pull/132441
+[#132447]: https://github.com/home-assistant/core/pull/132447
+[#132449]: https://github.com/home-assistant/core/pull/132449
+[#132456]: https://github.com/home-assistant/core/pull/132456
+[#132457]: https://github.com/home-assistant/core/pull/132457
+[#132467]: https://github.com/home-assistant/core/pull/132467
+[#132470]: https://github.com/home-assistant/core/pull/132470
+[#132472]: https://github.com/home-assistant/core/pull/132472
+[#132474]: https://github.com/home-assistant/core/pull/132474
+[#132475]: https://github.com/home-assistant/core/pull/132475
+[#132494]: https://github.com/home-assistant/core/pull/132494
+[#132498]: https://github.com/home-assistant/core/pull/132498
+[@Balake]: https://github.com/Balake
+[@Bre77]: https://github.com/Bre77
+[@albertogeniola]: https://github.com/albertogeniola
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@dgomes]: https://github.com/dgomes
+[@edenhaus]: https://github.com/edenhaus
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@gwww]: https://github.com/gwww
+[@ludeeus]: https://github.com/ludeeus
+[@robinostlund]: https://github.com/robinostlund
+[@sdb9696]: https://github.com/sdb9696
+
+### 2024.12.2 - December 10
+
+- Enable additional entities on myUplink model SMO20 ([@astrandb] - [#131688])
+- Bump pydrawise to 2024.12.0 ([@dknowles2] - [#132015])
+- Fix API change for AC not supporting floats in SwitchBot Cloud ([@SeraphicRav] - [#132231])
+- Update pyrisco to 0.6.5 ([@agmckaybro] - [#132493])
+- Fix PyTado dependency ([@erwindouna] - [#132510])
+- Bump pycups to 2.0.4 ([@bdraco] - [#132514])
+- Update debugpy to 1.8.8 ([@frenck] - [#132519])
+- bump total_connect_client to 2023.12 ([@austinmroczek] - [#132531])
+- Bump aiounifi to v81 to fix partitioned cookies on python 3.13 ([@Kane610] - [#132540])
+- Update twentemilieu to 2.2.0 ([@frenck] - [#132554])
+- Bump yalexs-ble to 2.5.2 ([@bdraco] - [#132560])
+- Bump plugwise to v1.6.1 ([@bouwew] - [#131950])
+- Bump plugwise to v1.6.2 and adapt ([@bouwew] - [#132608])
+- Fix config flow in Husqvarna Automower ([@Thomas55555] - [#132615])
+- Bump ZHA dependencies ([@puddly] - [#132630])
+- Bump plugwise to v1.6.3 ([@bouwew] - [#132673])
+- Bump yt-dlp to 2024.12.06 ([@joostlek] - [#132684])
+- Revert "Bump pyezviz to 0.2.2.3" ([@srescio] - [#132715])
+- Bump intents to 2024.12.9 ([@synesthesiam] - [#132726])
+- Update frontend to 20241127.7 ([@bramkragten] - [#132729])
+- Bump reolink-aio to 0.11.5 ([@starkillerOG] - [#132757])
+- Catch Hydrawise authorization errors in the correct place ([@dknowles2] - [#132727])
+- Pass an application identifier to the Hydrawise API ([@dknowles2] - [#132779])
+- Bump deebot-client to 9.3.0 ([@edenhaus] - [#132834])
+- Bump aioacaia to 0.1.11 ([@zweckj] - [#132838])
+
+[#131688]: https://github.com/home-assistant/core/pull/131688
+[#131950]: https://github.com/home-assistant/core/pull/131950
+[#132015]: https://github.com/home-assistant/core/pull/132015
+[#132195]: https://github.com/home-assistant/core/pull/132195
+[#132231]: https://github.com/home-assistant/core/pull/132231
+[#132493]: https://github.com/home-assistant/core/pull/132493
+[#132509]: https://github.com/home-assistant/core/pull/132509
+[#132510]: https://github.com/home-assistant/core/pull/132510
+[#132514]: https://github.com/home-assistant/core/pull/132514
+[#132519]: https://github.com/home-assistant/core/pull/132519
+[#132531]: https://github.com/home-assistant/core/pull/132531
+[#132540]: https://github.com/home-assistant/core/pull/132540
+[#132554]: https://github.com/home-assistant/core/pull/132554
+[#132560]: https://github.com/home-assistant/core/pull/132560
+[#132608]: https://github.com/home-assistant/core/pull/132608
+[#132615]: https://github.com/home-assistant/core/pull/132615
+[#132630]: https://github.com/home-assistant/core/pull/132630
+[#132673]: https://github.com/home-assistant/core/pull/132673
+[#132684]: https://github.com/home-assistant/core/pull/132684
+[#132715]: https://github.com/home-assistant/core/pull/132715
+[#132726]: https://github.com/home-assistant/core/pull/132726
+[#132727]: https://github.com/home-assistant/core/pull/132727
+[#132729]: https://github.com/home-assistant/core/pull/132729
+[#132757]: https://github.com/home-assistant/core/pull/132757
+[#132779]: https://github.com/home-assistant/core/pull/132779
+[#132834]: https://github.com/home-assistant/core/pull/132834
+[#132838]: https://github.com/home-assistant/core/pull/132838
+[@Kane610]: https://github.com/Kane610
+[@SeraphicRav]: https://github.com/SeraphicRav
+[@Thomas55555]: https://github.com/Thomas55555
+[@agmckaybro]: https://github.com/agmckaybro
+[@astrandb]: https://github.com/astrandb
+[@austinmroczek]: https://github.com/austinmroczek
+[@bdraco]: https://github.com/bdraco
+[@bouwew]: https://github.com/bouwew
+[@bramkragten]: https://github.com/bramkragten
+[@dknowles2]: https://github.com/dknowles2
+[@edenhaus]: https://github.com/edenhaus
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@puddly]: https://github.com/puddly
+[@srescio]: https://github.com/srescio
+[@starkillerOG]: https://github.com/starkillerOG
+[@synesthesiam]: https://github.com/synesthesiam
+[@zweckj]: https://github.com/zweckj
+
+### 2024.12.3 - December 13
+
+- Bump python-linkplay to v0.1.1 ([@silamon] - [#132091])
+- Bump pydaikin to 2.13.8 ([@weltall] - [#132759])
+- Fix pipeline conversation language ([@synesthesiam] - [#132896])
+- fix AndroidTV logging when disconnected ([@chemelli74] - [#132919])
+- Guard Vodafone Station updates against bad data ([@chemelli74] - [#132921])
+- Bump led-ble to 1.1.1 ([@bdraco] - [#132977])
+- Change warning to debug for VAD timeout ([@synesthesiam] - [#132987])
+- Fix LaMetric config flow for cloud import path ([@frenck] - [#133039])
+- Update frontend to 20241127.8 ([@bramkragten] - [#133066])
+- Bump pysuezV2 to 1.3.5 ([@jb101010-2] - [#133076])
+- Bugfix to use evohome's new hostname ([@zxdavb] - [#133085])
+- Bump py-aosmith to 1.0.12 ([@bdr99] - [#133100])
+- Bump deebot-client to 9.4.0 ([@edenhaus] - [#133114])
+- Bump aiowithings to 3.1.4 ([@joostlek] - [#133117])
+
+[#132091]: https://github.com/home-assistant/core/pull/132091
+[#132195]: https://github.com/home-assistant/core/pull/132195
+[#132509]: https://github.com/home-assistant/core/pull/132509
+[#132759]: https://github.com/home-assistant/core/pull/132759
+[#132846]: https://github.com/home-assistant/core/pull/132846
+[#132896]: https://github.com/home-assistant/core/pull/132896
+[#132919]: https://github.com/home-assistant/core/pull/132919
+[#132921]: https://github.com/home-assistant/core/pull/132921
+[#132977]: https://github.com/home-assistant/core/pull/132977
+[#132987]: https://github.com/home-assistant/core/pull/132987
+[#133039]: https://github.com/home-assistant/core/pull/133039
+[#133066]: https://github.com/home-assistant/core/pull/133066
+[#133076]: https://github.com/home-assistant/core/pull/133076
+[#133085]: https://github.com/home-assistant/core/pull/133085
+[#133100]: https://github.com/home-assistant/core/pull/133100
+[#133114]: https://github.com/home-assistant/core/pull/133114
+[#133117]: https://github.com/home-assistant/core/pull/133117
+[@bdr99]: https://github.com/bdr99
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@jb101010-2]: https://github.com/jb101010-2
+[@joostlek]: https://github.com/joostlek
+[@silamon]: https://github.com/silamon
+[@synesthesiam]: https://github.com/synesthesiam
+[@weltall]: https://github.com/weltall
+[@zxdavb]: https://github.com/zxdavb
+
+### 2024.12.4 - December 17
+
+- Simplify recorder RecorderRunsManager ([@emontnemery] - [#131785])
+- Fix fibaro climate hvac mode ([@rappenze] - [#132508])
+- Bump yt-dlp to 2024.12.13 ([@joostlek] - [#133129])
+- Fix strptime in python_script ([@gjohansson-ST] - [#133159])
+- Bump yalexs-ble to 2.5.4 ([@bdraco] - [#133172])
+- Bump starlink-grpc-core to 1.2.1 to fix missing ping ([@MrConorAE] - [#133183])
+- Bump aiolifx to 1.1.2 and add new HomeKit product prefixes ([@Djelibeybi] - [#133191])
+- Revert "Simplify recorder RecorderRunsManager" ([@emontnemery] - [#133201])
+- Revert "Improve recorder history queries (#131702)" ([@emontnemery] - [#133203])
+- Bump incomfort-client to v0.6.4 ([@jbouwh] - [#133205])
+- Bump yalexs-ble to 2.5.5 ([@bdraco] - [#133229])
+- Set code_arm_required to False for homekit_controller ([@bdraco] - [#133284])
+- Allow load_verify_locations with only cadata passed ([@mib1185] - [#133299])
+- Bump `imgw-pib` to version 1.0.7 ([@bieniu] - [#133364])
+- Fix fan setpoints for flexit_bacnet ([@lellky] - [#133388])
+- Bump holidays to 0.63 ([@gjohansson-ST] - [#133391])
+
+[#131785]: https://github.com/home-assistant/core/pull/131785
+[#132195]: https://github.com/home-assistant/core/pull/132195
+[#132508]: https://github.com/home-assistant/core/pull/132508
+[#132509]: https://github.com/home-assistant/core/pull/132509
+[#132846]: https://github.com/home-assistant/core/pull/132846
+[#133123]: https://github.com/home-assistant/core/pull/133123
+[#133129]: https://github.com/home-assistant/core/pull/133129
+[#133159]: https://github.com/home-assistant/core/pull/133159
+[#133172]: https://github.com/home-assistant/core/pull/133172
+[#133183]: https://github.com/home-assistant/core/pull/133183
+[#133191]: https://github.com/home-assistant/core/pull/133191
+[#133201]: https://github.com/home-assistant/core/pull/133201
+[#133203]: https://github.com/home-assistant/core/pull/133203
+[#133205]: https://github.com/home-assistant/core/pull/133205
+[#133229]: https://github.com/home-assistant/core/pull/133229
+[#133284]: https://github.com/home-assistant/core/pull/133284
+[#133299]: https://github.com/home-assistant/core/pull/133299
+[#133364]: https://github.com/home-assistant/core/pull/133364
+[#133388]: https://github.com/home-assistant/core/pull/133388
+[#133391]: https://github.com/home-assistant/core/pull/133391
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@MrConorAE]: https://github.com/MrConorAE
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@lellky]: https://github.com/lellky
+[@mib1185]: https://github.com/mib1185
+[@rappenze]: https://github.com/rappenze
+
+### 2024.12.5 - December 20
+
+- Bump `nice-go` to 1.0.0 ([@IceBotYT] - [#133185])
+- Add support for Nice G.O. HAE00080 wall station ([@IceBotYT] - [#133186])
+- Bugfix: also schedule time based integration when source is 0 ([@ronweikamp] - [#133438])
+- Ensure screenlogic retries if the protocol adapter is still booting ([@bdraco] - [#133444])
+- Bump Freebox to 1.2.1 ([@Quentame] - [#133455])
+- Bump pyOverkiz to 1.15.3 ([@iMicknl] - [#133458])
+- Don't raise Overkiz user flow unique_id check ([@iMicknl] - [#133471])
+- Update Roborock to 2.8.1 ([@Lash-L] - [#133492])
+- Update fjäråskupan to 2.3.1 ([@elupus] - [#133493])
+- Update fjäråskupan to 2.3.2 ([@elupus] - [#133499])
+- Bump gardena_bluetooth to 1.5.0 ([@elupus] - [#133502])
+- Bump aiohttp to 3.11.11 ([@bdraco] - [#133530])
+- Handle null value for elapsed time in Music Assistant ([@marcelveldt] - [#133597])
+- Fix Twinkly raise on progress ([@joostlek] - [#133601])
+- Handle mqtt.WebsocketConnectionError when connecting to the MQTT broker ([@bdraco] - [#133610])
+
+[#132195]: https://github.com/home-assistant/core/pull/132195
+[#132509]: https://github.com/home-assistant/core/pull/132509
+[#132846]: https://github.com/home-assistant/core/pull/132846
+[#133123]: https://github.com/home-assistant/core/pull/133123
+[#133185]: https://github.com/home-assistant/core/pull/133185
+[#133186]: https://github.com/home-assistant/core/pull/133186
+[#133422]: https://github.com/home-assistant/core/pull/133422
+[#133438]: https://github.com/home-assistant/core/pull/133438
+[#133444]: https://github.com/home-assistant/core/pull/133444
+[#133455]: https://github.com/home-assistant/core/pull/133455
+[#133458]: https://github.com/home-assistant/core/pull/133458
+[#133471]: https://github.com/home-assistant/core/pull/133471
+[#133492]: https://github.com/home-assistant/core/pull/133492
+[#133493]: https://github.com/home-assistant/core/pull/133493
+[#133499]: https://github.com/home-assistant/core/pull/133499
+[#133502]: https://github.com/home-assistant/core/pull/133502
+[#133530]: https://github.com/home-assistant/core/pull/133530
+[#133597]: https://github.com/home-assistant/core/pull/133597
+[#133601]: https://github.com/home-assistant/core/pull/133601
+[#133610]: https://github.com/home-assistant/core/pull/133610
+[@IceBotYT]: https://github.com/IceBotYT
+[@Lash-L]: https://github.com/Lash-L
+[@Quentame]: https://github.com/Quentame
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@iMicknl]: https://github.com/iMicknl
+[@joostlek]: https://github.com/joostlek
+[@marcelveldt]: https://github.com/marcelveldt
+[@ronweikamp]: https://github.com/ronweikamp
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might
+unexpectedly impact your Home Assistant installation. Unfortunately, sometimes,
+it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Brother Printer" %}
+
+The unit of measurement for pages changed from `p` to `pages`.
+
+This could potentially break use cases if it was used in templates where a state
+with a unit is used, such as `states('sensor.pages', with_unit=True)`.
+
+([@bieniu] - [#131275]) ([documentation](/integrations/brother))
+
+[@bieniu]: https://github.com/bieniu
+[#131275]: https://github.com/home-assistant/core/pull/131275
+
+{% enddetails %}
+
+{% details "Ecovacs" %}
+
+Ecovacs devices not recognized by the library will no longer use the fallback
+vacuum. Instead, the device will not be added to Home Assistant,
+and a warning log will created.
+
+([@edenhaus] - [#131525]) ([documentation](/integrations/ecovacs))
+
+[@edenhaus]: https://github.com/edenhaus
+[#131525]: https://github.com/home-assistant/core/pull/131525
+
+{% enddetails %}
+
+{% details "Glances" %}
+
+The previously deprecated Glances v2 API has been removed. Upgrade to v3 or
+higher to continue using the integration.
+
+([@gjohansson-ST] - [#131427]) ([documentation](/integrations/glances))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#131427]: https://github.com/home-assistant/core/pull/131427
+
+{% enddetails %}
+
+{% details "History Stats" %}
+
+After this change, `history_stats` in `time` or `ratio` mode will only count
+definitively known time-based recorded data.
+
+Prior to this change, if the start of the time window was earlier than the
+oldest datapoint in the recorder, `history_stats` would count time using the
+assumption that an entity was in the first state it found since the beginning
+of time. This could lead to wild overcalculations when a switch was turned on
+after a long period of inactivity, and `history_stats` would assume it had
+_always_ been on and calculate a huge value based on that.
+
+([@karwosts] - [#126271]) ([documentation](/integrations/history_stats))
+
+[@karwosts]: https://github.com/karwosts
+[#126271]: https://github.com/home-assistant/core/pull/126271
+
+{% enddetails %}
+
+{% details "Jewish Calendar" %}
+
+To support Rosh Chodesh this creates a breaking change as the holiday sensor
+will return "Chanukah, Rosh Chodesh" when both of those days fall on the same
+date. If you have an automation expecting the "Chanukah" value, you must update
+it.
+
+([@tsvi] - [#130456]) ([documentation](/integrations/jewish_calendar))
+
+[@tsvi]: https://github.com/tsvi
+[#130456]: https://github.com/home-assistant/core/pull/130456
+
+{% enddetails %}
+
+{% details "Plugwise" %}
+
+For the Plugwise Adam, all device-based climate entities will be replaced by new zone-based climate entities, which will most likely have different entity names.
+This change aligns with the Plugwise App's representation of climate entities as zones (as discovered in Issue [#130597](https://github.com/home-assistant/core/issues/130597)).
+
+ ([@bouwew] - [#131659]) ([documentation](/integrations/plugwise))
+
+ [@bouwew]: https://github.com/bouwew
+ [#131659]: https://github.com/home-assistant/core/pull/131659
+
+ {% enddetails %}
+
+{% details "QNAP" %}
+
+The QNAP sensors will no longer have the following extra state attributes:
+
+- `memory_free`
+- `memory_percent_used`
+- `memory_size`
+- `memory_used`
+- `network_err`
+- `network_link_status`
+- `network_max_speed`
+- `network_rx`
+- `network_tx`
+- `status`
+- `system_temp`
+- `uptime`
+- `volume_percentage_used`
+- `volume_size_free`
+- `volume_size_total`
+- `volume_size_used`
+
+These extra state attributes were deprecated in Home Assistant 2024.6 and have
+now been removed. If you are using this in your automation or script, use
+the separate available sensors instead.
+
+([@jbouwh] - [#130310]) ([documentation](/integrations/qnap))
+
+[@jbouwh]: https://github.com/jbouwh
+[#130310]: https://github.com/home-assistant/core/pull/130310
+
+{% enddetails %}
+
+{% details "Spotify" %}
+
+The Spotify audio feature sensors have been removed since Spotify
+removed access for them, starting 27 November.
+
+Additionally, featured and category playlists have been removed from
+the Spotify media browser since Spotify deprecated the API,
+starting on 27 November.
+
+([@joostlek] - [#131754] [#131758]) ([documentation](/integrations/spotify))
+
+[@joostlek]: https://github.com/joostlek
+[#131754]: https://github.com/home-assistant/core/pull/131754
+[#131758]: https://github.com/home-assistant/core/pull/131758
+
+{% enddetails %}
+
+{% details "Statistics" %}
+
+Previously the attributes of the entity states of the Statistics integration were only provided when they had a non `None` value.
+This has now changed so the attributes are always provided even with `None`
+values. You might need to modify your automations or scripts depending on
+whether these attributes are present or not.
+
+([@gjohansson-ST] - [#129353]) ([documentation](/integrations/statistics))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#129353]: https://github.com/home-assistant/core/pull/129353
+
+{% enddetails %}
+
+{% details "Stookwijzer" %}
+
+The Stookwijzer sensor has migrated to the new API provided by Atlas
+Leefomgeving. As a result, the reported states are slightly different.
+
+Old versus new:
+
+- Blue (`blauw`) -> Yellow (`code_yellow`)
+- Orange (`oranje`) -> Orange (`code_orange`)
+- Red (`rood`) -> Red (`code_red`)
+
+If you use the Stookwijzer sensor in your automations or scripts, you might
+need to adjust those for this change.
+
+([@frenck] - [#131567]) ([documentation](/integrations/stookwijzer))
+
+[@frenck]: https://github.com/frenck
+[#131567]: https://github.com/home-assistant/core/pull/131567
+
+{% enddetails %}
+
+{% details "Templates" %}
+
+The `this` template variable which is available in some templatable helpers was
+previously based on the new state instead of the current state.
+
+The change affects the following integrations, if templates use the `this`
+variable. The user might have to update their templates to reflect the above
+change using the `value` variable instead, which holds the new value.
+
+- `command_line`
+- `rest`
+- `scrape`
+- `snmp`
+- `sql`
+
+([@gjohansson-ST] - [#130135])
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#130135]: https://github.com/home-assistant/core/pull/130135
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+With this release, you will need to update your zwave-js-server instance. You
+must use zwave-js-server 1.39.0 or greater (schema 39).
+
+- If you use the Z-Wave JS add-on, you need at least version `0.9.0`.
+- If you use the Z-Wave JS UI add-on, you need at least version [`3.17.0`](https://github.com/hassio-addons/addon-zwave-js-ui/releases/tag/v3.17.0).
+- If you use the Z-Wave JS UI Docker container, you need at least version [`9.26.0`](https://github.com/zwave-js/zwave-js-ui/releases/tag/v9.26.0).
+- If you run your own Docker container or some other installation method, you will need to update your zwave-js-server instance to at least `1.39.0`.
+
+([@MindFreeze] - [#129482]) ([documentation](/integrations/zwave_js))
+
+[@MindFreeze]: https://github.com/MindFreeze
+[#129482]: https://github.com/home-assistant/core/pull/129482
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Camera API changes](https://developers.home-assistant.io/blog/2024/11/26/camera-deprecations)
+- [Integration quality scale](https://developers.home-assistant.io/blog/2024/11/20/integration-quality-scale)
+- [New options flow properties](https://developers.home-assistant.io/blog/2024/11/12/options-flow/)
+- [Translating units of measurement](https://developers.home-assistant.io/blog/2024/11/21/unit-of-measurement-translations)
+- [Utility function homeassistant.util.dt.utc_to_timestamp is deprecated](https://developers.home-assistant.io/blog/2024/11/28/dt-util-utc-to-timestamp-deprecation/)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2024.12](/changelogs/core-2024.12)

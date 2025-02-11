@@ -1,26 +1,25 @@
 ---
-title: "Creating a cloud Assist pipeline"
+title: "Getting Started - Home Assistant Cloud"
 related:
-  - docs: /voice_control/install_wake_word_add_on/
-    title: Enabling a wake word
-  - docs: /voice_control/create_wake_word/
-    title: Create your own wake word
+  - docs: /voice_control/best_practices/
+    title: Best practices with Assist
+  - docs: /voice_control/expanding_assist/
+    title: Expanding Assist
   - docs: /voice_control/voice_remote_local_assistant/
     title: Creating a local assistant
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing devices to Assist
+  - url: https://voice-pe.home-assistant.io/documentation/
+    title: Voice Preview Edition - Documentation
 ---
 
-In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant.
+Before being able to use Assist, you need to configure it.
 
-You can use Assist out of the box by typing into its text field. But the main goal is to use a voice command. A speech-to-text engine is used so that you can speak to the assistant. For Assist to be able to talk to you, you need to set up a text-to-speech engine. You can use these engines fully locally on your own hardware. To learn how, [follow this procedure](/voice_control/create_wake_word/).
+The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and text-to-speech) included in Home Assistant Cloud.
+This page will detail how to do just that.
 
-If you have Home Assistant Cloud, there is a default assistant set up automatically. The advantage of using Home Assistant Cloud is that there is more powerful hardware at play. This makes for faster processing and an overall more smooth experience. This procedure shows how to tweak the settings of the assistant that is set up with Home Assistant Cloud.
+If you are interested in setting up a fully local voice assistant, follow this procedure instead.
 
-## Prerequisites
-
-- In this procedure, Home Assistant Cloud will be used
-- Home Assistant Cloud is a paid subscription. It helps run servers and pay for things like development and security audits. If you just want to try this for the fun of it, you can start a free 1 month trial and then cancel.
 
 ## Setting up a cloud Assist pipeline
 
@@ -46,8 +45,11 @@ To have the fastest processing voice assistant experience, follow these steps:
    - Under **Speech-to-text**, select the language you want to speak.
    - Under **Text-to-speech**, select the language you want Assist to use when speaking to you.
    - Depending on your language, you may be able to select different language variants.
-   - If you want to use a wake word, [install the openWakeWord add-on](/voice_control/install_wake_word_add_on/).
 
 6. That's it. You can now speak to your device, and the device can answer in the language you defined.
-7. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
-   - Otherwise you won't be able to control them by voice.
+
+
+## Next steps
+Once Assist is configured, now can now start using it. You can now talk through your device ([Android](/voice_control/android/), [iOS](/voice_control/apple/) or [Voice Preview edition](https://voice-pe.home-assistant.io/getting-started/)).
+
+To get the best out of the voice interaction, don't forget to check the [best practices](/voice_control/best_practices/).

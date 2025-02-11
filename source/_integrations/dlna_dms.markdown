@@ -10,7 +10,6 @@ ha_codeowners:
   - '@chishm'
 ha_domain: dlna_dms
 ha_ssdp: true
-ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 

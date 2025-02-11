@@ -95,3 +95,8 @@ After the integration has been initialized, the user can configure any of the fo
 - **Show values averaged by the device**. Default: `on`. In its default configuration, air-Q averages the stream of sensor values. The strength of this averaging can be configured on the device side (not exposed through the HA). However, this integration allows to switch between polling the averaged and the raw data from the device. To poll noisy sensor readings from the device, set **Show values averaged by the device** to `off`.
 
 - **Clip negative values**. Default: `on`. For baseline calibration purposes, certain sensor values may briefly become negative. The default behavior is to clip such values to 0.
+
+## Troubleshooting
+
+For troubleshooting or when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and restart the integration. As soon as the issue reoccurs stop the debug logging, which will trigger the download of the debug log file.
+Enabling debug logging has a slight performance impact on the system and is not recommended for long-term use.

@@ -21,6 +21,7 @@ ha_codeowners:
   - '@natekspencer'
 ha_config_flow: true
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 The **Balboa Spa Client** {% term integration %} adds support for [Balboa](https://www.balboawatergroup.com/) Spa WiFi Modules to be used within Home Assistant.
@@ -44,16 +45,13 @@ Balboa Spa Client integration is not compatible with ControlMySpa™ cloud API u
 {% configuration_basic %}
 host:
   description: "Hostname or IP address of your Balboa Spa Wifi Device, e.g., `192.168.1.58`."
-  required: true
-  type: string
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
+
 {% configuration_basic %}
 sync_time:
   description: Sync the Spa's internal clock with Home Assistant daily
-  type: boolean
-  default: false
 {% endconfiguration_basic %}
 
 ## Known limitations

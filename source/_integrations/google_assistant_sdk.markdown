@@ -14,7 +14,6 @@ ha_integration_type: service
 ha_platforms:
   - diagnostics
   - notify
-ha_quality_scale: platinum
 google_dev_console_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
 api: Google Assistant API
 api_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
@@ -141,6 +140,7 @@ The easiest way to check if the integration is working is to check [My Google Ac
 - If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity), the integration is working fine. If the commands don't have the expected outcome, don't open an issue in the Home Assistant Core project or the [underlying library](https://github.com/tronikos/gassist_text). You should instead report the issue directly to Google [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
   - Media playback commands (other than play news, play podcast, play white noise, or play rain sounds) don't work.
   - Routines don't work.
+  - Google Assistant automations that use `assistant.event.OkGoogle` as a starter cannot be triggered.
   - Broadcast to specific rooms often doesn't work for non-English languages.
   - Commands that need to verify your identity through voice match do not work.
 
@@ -150,14 +150,14 @@ On the configure page, you can set the language code of the interactions with Go
 
 ## Actions
 
-### Action `google_assistant_sdk.send_text_command`
+### Send text command
 
 You can use the `google_assistant_sdk.send_text_command` action to send commands to Google Assistant.
 
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `command`              | no       | Command(s) to send to Google Assistant. | turn off kitchen TV |
-| `media_player`         | yes      | Name(s) of media player entities to play response on | media_player.living_room_speaker |
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `command`              | no       | Command(s) to send to Google Assistant. |
+| `media_player`         | yes      | Name(s) of media player entities to play response on |
 
 Examples:
 

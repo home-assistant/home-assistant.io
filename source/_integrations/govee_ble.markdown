@@ -10,7 +10,6 @@ ha_release: 2022.8
 ha_iot_class: Local Push
 ha_codeowners:
   - '@bdraco'
-  - '@PierreAronnax'
 ha_domain: govee_ble
 ha_config_flow: true
 ha_platforms:
@@ -49,6 +48,7 @@ The Govee BLE integration will automatically discover devices once the [Bluetoot
 - H5125 2 Button Switch
 - H5126 6 Button Switch
 - H5127 Presence Sensor
+- H5130 Pressure Sensor
 - [H5177/5178 Bluetooth Thermo-Hygrometer](https://us.govee.com/collections/thermo-hydrometer/products/bluetooth-thermo-hygrometer)
 - H5174 Hygrometer Thermometer
 - [H5179 Hygrometer Thermometer](https://us.govee.com/products/wi-fi-temperature-humidity-sensor)

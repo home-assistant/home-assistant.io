@@ -123,11 +123,16 @@ homeassistant:
           - group: system-users
 ```
 
-First note, for `trusted_users` configuration you need to use `user id`, which you can find through {% my users title="Settings -> People" %} -> View User Detail. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id by yourself.
+First note, for `trusted_users` configuration you need to use `user id`.
 
-Second note, a trusted user with an IPv6 address must put the IPv6 address in quotes as shown.
+1. To find the user ID, in your browser, make sure the URL of your Home Assistant ends in `config/users/`.
+   - For example: `homeassistant:8123/config/users`.
+2. Select the user from the list, and copy the ID.
+   - For example: `acbbff56461748718f3650fb914b88c9`.
+3. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id.
+4. A trusted user with an IPv6 address must put the IPv6 address in quotes as shown.
 
-In above example, if user try to access Home Assistant from 192.168.0.1, they will have only one user available to choose. They will have two users available if access from 192.168.0.38 (from 192.168.0.0/24 network). If they access from 192.168.10.0/24 network, they can choose from all available users (non-system and active users).
+In the above example, if user try to access Home Assistant from 192.168.0.1, they will have only one user available to choose. They will have two users available if access from 192.168.0.38 (from 192.168.0.0/24 network). If they access from 192.168.10.0/24 network, they can choose from all available users (non-system and active users).
 
 Specially, you can use `group: GROUP_ID` to assign all users in certain `user group` to be available to choose. Group and users can be mix and match.
 

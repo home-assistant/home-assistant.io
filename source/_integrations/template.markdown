@@ -14,7 +14,6 @@ ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@PhracturedBlue'
-  - '@tetienne'
   - '@home-assistant/core'
 ha_domain: template
 ha_platforms:
@@ -126,6 +125,8 @@ template:
 
 {% endraw %}
 
+### Configuration reference
+
 {% configuration %}
 trigger:
   description: Define an automation trigger to update the entities. Optional. If omitted will update based on referenced entities. [See trigger documentation](/docs/automation/trigger).
@@ -136,15 +137,15 @@ unique_id:
   required: false
   type: string
 condition:
-  description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed. Optional. [See condition documentation](/docs/automation/condition).
+  description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed (for trigger-based entities only). Optional. [See condition documentation](/docs/automation/condition).
   required: false
   type: list
 action:
-  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  description: Define actions to be executed when the trigger fires (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
   required: false
   type: list
 variables:
-  description: Key-value pairs of variable definitions which can be referenced and used in the templates below. Mostly used by blueprints.
+  description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints.
   required: false
   type: map
   keys:
@@ -155,7 +156,7 @@ variables:
 sensor:
   description: List of sensors
   required: true
-  type: map
+  type: list
   keys:
     state:
       description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
@@ -179,7 +180,7 @@ sensor:
 binary_sensor:
   description: List of binary sensors
   required: true
-  type: map
+  type: list
   keys:
     state:
       description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor’s device_class value
@@ -435,13 +436,18 @@ template:
 [trigger-doc]: /docs/automation/trigger
 
 #### Video tutorial
+
 This video tutorial explains how to set up a Trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
 
 <lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
 ### Template and action variables
 
-State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attribute in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/). 
+State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the current [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attributes in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/).
+
+{% note %}
+Self-referencing using `this` provides the state and attributes for the entity before rendering the templates to calculate a new state. To access the new state, use the `value` or `value_json` variable.
+{% endnote %}
 
 ### Rate limiting updates
 
@@ -933,7 +939,7 @@ binary_sensor:
     sensors:
       sun_up:
         friendly_name: "Sun is up"
-        value_template: {{ state_attr('sun.sun', 'elevation') > 0 }}
+        value_template: "{{ state_attr('sun.sun', 'elevation') > 0 }}"
 ```
 
 {% endraw %}

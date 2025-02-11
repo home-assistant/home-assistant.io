@@ -11,7 +11,9 @@ ha_codeowners:
 ha_domain: wyoming
 ha_integration_type: service
 ha_platforms:
+  - assist_satellite
   - binary_sensor
+  - conversation
   - number
   - select
   - stt

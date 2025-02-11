@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Integrate your [EBox](https://client.ebox.ca/) account information into Home Assistant.
