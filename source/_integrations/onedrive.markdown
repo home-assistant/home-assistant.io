@@ -18,7 +18,7 @@ ha_quality_scale: bronze
 
 This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
 
-Backups will be created in a folder called `Home Assistant\backups_<id>` in the `App Folder` of your OneDrive.
+Backups will be created in a folder called `Home Assistant\backups_<id>` in the `App Folder` of your OneDrive by default.
 `id` is part of your Home Assistant instance's unique id to allow backups from multiple instances to the same OneDrive account.
 The integration only has access to an application specific `Home Assistant` folder in the `App Folder` and cannot access any other parts of your OneDrive.
 
@@ -32,8 +32,16 @@ Client ID:
   description: "Application ID of the app registration to be used with the integration. Uses Home Assistant provided by default."
 Client secret:
   description: "Application secret for the app registration. Uses Home Assistant provided by default."
+Folder name:
+  description: "The name of the instance specific [backup folder](#backup-folder)."
 
 {% endconfiguration_basic %}
+
+## Backup folder
+
+The backup folder is `root:\Apps\[Home Assistant | Graph]\backups_{id}`. This is not configurable, because otherwise the integration would need permissions to write in your entire drive. You can however rename the application folder which is called `Home Assistant` or `Graph` in your OneDrive. 
+
+The last folder in the hierarchy (`backups_{id}`) is always a unique folder per Home Assistant instance to ensure that backups from different instances are not mixed. The name of this folder can be set during integration setup and can be changed later through reconfiguring the integration or by renaming the folder OneDrive.
 
 ## Requested permissions by the integration
 
@@ -45,7 +53,6 @@ The integration will request the following permissions on your OneDrive for the 
 
 
 <img src='/images/integrations/onedrive/onedrive-permissions.png' alt='Lists of permissions that the application will request.'>
-
 
 ## Getting application credentials
 
