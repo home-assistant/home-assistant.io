@@ -1,7 +1,7 @@
 ---
-title: Lorem ipsum
+title: Integration documentation template
 description: Example document structure and text blocks for integration documentation.
-ha_release: 2025.02
+ha_release: 2025.03
 ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
@@ -18,132 +18,11 @@ related:
     title: My link
 ---
 
-The **Lorem ipsum** {% term integration %} is not an actual integration but a documentation page about creating integration documentation. It shows examples of the available documentation features (such as inline icons, text box, links to related topics, and glossary entries). It also shows how the documentation could be structured.
+The integration documentation template provides a documentation structure as well as some example content per section. The example content is meant for inspiration, it may not apply for your integration or will at least have to be adapted.
 
-Much of this content you have already encountered in the developer documentation, under [Documentation standard](https://developers.home-assistant.io/docs/documenting/standards) or in the documentation rules of the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/). This page here is meant to be used as a hands-on copy-paste-then-edit type of template.
+Use this template together with the developer documentation, under [Documentation standard](https://developers.home-assistant.io/docs/documenting/standards) and the documentation rules of the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/).
 
-## Inline text elements
-
-This section shows elements you can use within your text.
-
-### My links
-
-To indicate a location in the UI, you can use a [My link](/docs/tools/quick-bar/#my-links). Selecting that link opens that page in the user's installation. For example: "Go to {% my integrations title="**Settings** > **Devices & services**" %} and select your integration."
-
-Here are a few examples:
-
-- {% my areas title="**Settings** > **Areas, labels & zones**" %}
-- {% my automations title="**Settings** > **Automations & scenes**" %}
-- {% my backup title="**Settings** > **System** > **Backups**" %}
-- {% my general title="**Settings** > **System** > **General**" %}
-- {% my logs title="**Settings** > **System** > **Logs**" %}
-- {% my network title="**Settings** > **System** > **Network**" %}
-- {% my profile title="**User profile**" %}
-
-To identify a My link, in Home Assistant, open the page of interest and press the `m` key.
-
-### Formatting
-
-- Use bold when referring to UI strings: **Settings**, **Areas, labels & zones**
-- Use backtick when referring to file paths, file names, variable names, or a text that you enter in a field: the `/boot/config.txt` file, the `this` variable, enter `/newbot`.
-
-### Glossary term reference
-
-Some Home Assistant terms and concepts are explained in a Glossary. If you add a reference to the definition of such a term, the term definition is shown as a tooltip. For example: {% term integration %}, {% term entity %}, and {% term "Home Assistant Operating System" %}. You can find the full list of glossary terms on the [Glossary](/docs/glossary/) page. To learn more about using glossary terms, refer to the [Glossary section in the developer documentation](/docs/documenting/standards#glossary--terminology-tooltips).
-
-### Acronyms
-
-If possible, try to avoid using abbreviations and acronyms.
-
-If you want to use an acronym or abbreviation, you can add an abbreviation tag to show the full term as a tooltip. For example: <abbr title="Audio & video">A/V</abbr>, <abbr title="current transformers">CT</abbr>, <abbr title="Dutch smart meter requirement">DSMR</abbr>, <abbr title="embedded MultiMediaCard">eMMC</abbr>, <abbr title="flash video">FLV</abbr>, <abbr title="Large Language Models">LLMs</abbr>, <abbr title="Model Context Protocol">MCP</abbr>, <abbr title="pan, tilt, and zoom">PTZ</abbr>, <abbr title="real-time messaging protocol">RTMP</abbr>, <abbr title="real-time streaming protocol">RTSP</abbr>, or <abbr title="USB-On-The-Go">USB-OTG</abbr>.
-
-### Inline icons
-
-To refer to an icon in the UI, you can use icons from the [Iconify library](https://icon-sets.iconify.design/mdi/). Here are some examples:
-
-- Three dots menu: {% icon "mdi:dots-vertical" %}
-- Hamburger menu: {% icon "mdi:menu" %}
-- Edit: {% icon "mdi:edit" %}
-- Revert {% icon "mdi:restore" %}
-- Eye: {% icon "mdi:eye" %}
-- Trash: {% icon "mdi:trash" %}
-- Cog: {% icon "mdi:cog" %}
-- Cog outline: {% icon "mdi:cog-outline" %}
-- Drag: {% icon "mdi:drag" %}
-- Move-cursor: {% icon "mdi:cursor-move" %}
-- Arrow left: {% icon "mdi:arrow-left-bold" %}
-- Arrow right: {% icon "mdi:arrow-right-bold" %}
-- Checkbox list: {% icon "mdi:order-checkbox-ascending" %}
-- Upload network: {% icon "mdi:upload-network" %}
-- Security network: {% icon "mdi:security-network" %}
-- Routes: {% icon "mdi:routes" %}
-
-## Collapsible text block
-
-Use a details block to make a text block collapsible:
-
-{% details "Generate Client ID and Client Secret" %}
-
-1. Your Fitbit account must be registered as a Developer account at the [Fitbit Developer Portal](https://dev.fitbit.com), and have a verified email address.
-2. Visit the [fitbit developer page](https://dev.fitbit.com/apps/new) to register an application.
-3. Enter an **Application Name** of your choosing, for example **Home Assistant**.
-4. ...
-{% enddetails %}
-
-## Text boxes
-
-{% note %}
-You can use a note to highlight a section.
-{% endnote %}
-
-{% important %}
-You can use "important" to highlight a section that you feel is very important.
-{% endimportant %}
-
-## Images
-
-Markdown syntax to add an image, for example to illustrate a step:
-
-1. To adjust the light temperature and brightness, move the sliders:
-    ![Screenshot of tile cards with features](/images/dashboards/features/screenshot-tile-feature-grid.png)
-2. Then do this ...
-
-To add an image legend you can use HTML:
-
-<p class='img'><img src='/images/dashboards/features/screenshot-tile-feature-grid.png' alt="Screenshot of tile cards with features.">
-Screenshot of tile cards with features.
-</p>
-
-## Videos
-
-Use the following syntax to reference a video from Youtube:
-
-<lite-youtube videoid="ZgoaoTpIhm8" videoStartAt="3907" videotitle="Introducing the Home Assistant Voice Preview Edition - Voice: Chapter 8"></lite-youtube>
-
-## Document structure with dummy content
-
-This section shows outlines the document structure and provides some example text. The example text includes some reusable text blocks (includes) such as `include integrations/config_flow.md` and styling elements such as `configuration_basic`.
-
-The examples are taken from the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/).
-
-### Basic structure
-
-- Introduction
-  - Use case
-- [Supported/unsupported devices](#supported-devices)
-- [Prerequisites](#prerequisites)
-- Configuration
-- [Configuration options](#configuration-options)
-- [Supported functionality](#supported-functionality)
-- [Actions](#actions)
-- [Examples](#examples)
-- [Data updates](#data-updates)
-- [Known limitations](#known-limitations)
-- [Troubleshooting](#troubleshooting)
-- [Community notes](#community-notes)
-- [Removing the integration](#removing-the-integration)
-
-### Example text below
+### Example integration documentation text below
 
 The **my integration** {% term integration %} is used to integrate with the devices of [MyCompany](https://www.mycompany.com). MyCompany creates various smart home appliances and devices and are known for their MyProduct.
 Use case: When you combine it with their other device you can do x.
@@ -172,6 +51,8 @@ The following devices are not supported by the integration:
 5. Select **Expose API**.
 
 {% include integrations/config_flow.md %}
+
+The next section is about documenting configuration variables. For details, refer to the [documentation standard on configuration variables](/docs/documenting/standards#configuration-variables).
 
 In case your integration is used via a config flow:
 
