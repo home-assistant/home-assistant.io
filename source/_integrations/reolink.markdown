@@ -387,6 +387,7 @@ The following models are lacking the HTTP web server API and can, therefore, not
 However, these cameras can work with this integration through an NVR or Home Hub in which the NVR/Home Hub is connected to Home Assistant.
 
 - E1 Pro
+  - The `IPC_NT1NA45MP` hardware version works with this integration natively (without NVR/Home Hub), as its latest firmware has HTTP server included.
 - E1
 - Reolink Lumus
 - B400*
