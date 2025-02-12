@@ -85,7 +85,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 5. Add services in the Google Home App (note that app versions may be slightly different).
     1. Open the Google Home app.
     2. Select the Devices tab at the bottom and select the `+ Add` button on the bottom right corner.
-    3. In the **Choose a device** screen, select **Works with Google Home**. You should have `[test] <Action Name>` listed under **Add new**. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
+    3. In the **Choose a device** screen, select **Works with Google Home**. You should have `[test] <Action Name>` listed under **Add new**. Selecting that should lead you to a browser to log in your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
 
 {% important %}
 If you've added Home Assistant to your phone's home screen, you have to first remove it from the home screen. Otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant redirecting back to the Google Home app.
