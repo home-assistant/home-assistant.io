@@ -1528,6 +1528,57 @@ For a summary in a more readable format:
 [@tronikos]: https://github.com/tronikos
 [@zweckj]: https://github.com/zweckj
 
+## Release 2025.2.3 - February 12
+
+- Bump hass-nabucasa from 0.88.1 to 0.89.0 ([@ludeeus] - [#137321])
+- Move cloud backup upload/download handlers to lib ([@ludeeus] - [#137416])
+- Handle non-retryable errors when uploading cloud backup ([@ludeeus] - [#137517])
+- Add missing thermostat state EMERGENCY_HEAT to econet ([@jdanders] - [#137623])
+- Fix broken issue creation in econet ([@jdanders] - [#137773])
+- Fix version extraction for APsystems ([@alfwro13] - [#138023])
+- Refresh nest access token before before building subscriber Credentials ([@allenporter] - [#138259])
+- Fix BackupManager.async_delete_backup ([@emontnemery] - [#138286])
+- Fix next authentication token error handling ([@allenporter] - [#138299])
+- Bump pyenphase to 1.25.1 ([@catsmanac] - [#138327])
+- Bump sentry-sdk to 1.45.1 ([@edenhaus] - [#138349])
+- Bump zeroconf to 0.144.1 ([@bdraco] - [#138353])
+- Bump cryptography to 44.0.1 ([@edenhaus] - [#138371])
+- Fix tplink iot strip sensor refresh ([@sdb9696] - [#138375])
+- Bump deebot-client to 12.1.0 ([@edenhaus] - [#138382])
+- Bump hass-nabucasa from 0.89.0 to 0.90.0 ([@emontnemery] - [#138387])
+- Update cloud backup agent to use calculate_b64md5 from lib ([@emontnemery] - [#138391])
+
+[#137321]: https://github.com/home-assistant/core/pull/137321
+[#137416]: https://github.com/home-assistant/core/pull/137416
+[#137448]: https://github.com/home-assistant/core/pull/137448
+[#137517]: https://github.com/home-assistant/core/pull/137517
+[#137623]: https://github.com/home-assistant/core/pull/137623
+[#137688]: https://github.com/home-assistant/core/pull/137688
+[#137773]: https://github.com/home-assistant/core/pull/137773
+[#138023]: https://github.com/home-assistant/core/pull/138023
+[#138231]: https://github.com/home-assistant/core/pull/138231
+[#138259]: https://github.com/home-assistant/core/pull/138259
+[#138286]: https://github.com/home-assistant/core/pull/138286
+[#138299]: https://github.com/home-assistant/core/pull/138299
+[#138327]: https://github.com/home-assistant/core/pull/138327
+[#138349]: https://github.com/home-assistant/core/pull/138349
+[#138353]: https://github.com/home-assistant/core/pull/138353
+[#138371]: https://github.com/home-assistant/core/pull/138371
+[#138375]: https://github.com/home-assistant/core/pull/138375
+[#138382]: https://github.com/home-assistant/core/pull/138382
+[#138387]: https://github.com/home-assistant/core/pull/138387
+[#138391]: https://github.com/home-assistant/core/pull/138391
+[@alfwro13]: https://github.com/alfwro13
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@catsmanac]: https://github.com/catsmanac
+[@edenhaus]: https://github.com/edenhaus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jdanders]: https://github.com/jdanders
+[@ludeeus]: https://github.com/ludeeus
+[@sdb9696]: https://github.com/sdb9696
+
 [#112047]: https://github.com/home-assistant/core/pull/112047
 [#121522]: https://github.com/home-assistant/core/pull/121522
 [#121548]: https://github.com/home-assistant/core/pull/121548
