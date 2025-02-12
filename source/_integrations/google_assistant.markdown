@@ -102,8 +102,8 @@ If you want to allow other household users to control the devices:
     2. Select **Select a role** and choose **Project** > **Viewer**.
     3. Select **Save**.
     4. Copy and share the project link (`https://console.home.google.com/projects/YOUR_PROJECT_ID`) with the new user.
-5. Have the new user open the link with their own Google account, agree to the **Terms of Service** popup(s).
-6. Have the new user go to their **Google Assistant** app to add `[test] your app name` to their account.
+4. Have the new user open the link with their own Google account, agree to the **Terms of Service** popup(s).
+5. Have the new user go to their **Google Assistant** app to add `[test] your app name` to their account.
 
 ### Utilize device sync
 
@@ -137,7 +137,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 4. Upload Javascript files
    1. Download `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest)
    2. Select **Upload your JavaScript targeting Node** and upload the `app.js` from step 4.1.
-   4. Select **Upload your JavaScript targeting Chrome (browser)** and upload the same `app.js` from step 4.1.
+   3. Select **Upload your JavaScript targeting Chrome (browser)** and upload the same `app.js` from step 4.1.
 5. Check the box **Support local queries**.
 6. Add device scan configuration:
    1. Select **+ Add scan configuration** if no configuration exists.
