@@ -14,7 +14,7 @@ og_image: /images/blog/2025-02-voice-chapter-9/art.png
 
 **Welcome to Voice chapter 9 🎉 part of our [long-running series](https://www.home-assistant.io/blog/categories/assist/) following the development of open voice.**
 
-We're still pumped from the launch of the [Home Assistant Voice Preview Edition](/voice-pe/) at the end of December. It sold out 23 minutes into our announcement. Wow! We've been hard at work at keeping stock available at [all our distributors](/voice-pe#buy).
+We're still pumped from the launch of the [Home Assistant Voice Preview Edition](/voice-pe/) at the end of December. It sold out 23 minutes into our announcement - wow! We've been working hard to keep it in stock at [all our distributors](/voice-pe#buy).
 
 Today, we have a lot of cool stuff to improve your experience with Voice PE or any other Assist satellite you're using. This includes fully local and offline voice control that can be powered by nearly any Home Assistant system.
 
@@ -29,9 +29,9 @@ Today, we have a lot of cool stuff to improve your experience with Voice PE or a
 
 [Dragon NaturallySpeaking](https://en.wikipedia.org/wiki/Dragon_NaturallySpeaking) was a popular speech recognition program introduced in 1997. To run this software you needed at least a 133 MHz Pentium processor, 32 MB of RAM, and Windows 95 or later. Nearly thirty years later, Speech-to-Text is much better, but needs orders of magnitude more resources.
 
-Incredible technologies are being developed in the speech processing, but it's currently unrealistic for a device that costs less than $100 to take real advantage of them. It's possible, of course, but running [Whisper](https://github.com/openai/whisper) on a Raspberry Pi 4 takes at least 5 seconds to turn your speech into text, with varying levels of success. This is why we ended up recommending at least an Intel N100 to run your voice assistant fully locally. That stung. Our opt-in analytics shows over [50% of the Home Assistant OS users](https://analytics.home-assistant.io/) are running their homes on affordable, low-powered machines like the [Home Assistant Green](/green) or a Raspberry Pi.
+Incredible technologies are being developed in speech processing, but it's currently unrealistic for a device that costs less than $100 to take real advantage of them. It's possible, of course, but running [Whisper](https://github.com/openai/whisper) on a Raspberry Pi 4 takes at least 5 seconds to turn your speech into text, with varying levels of success. This is why we ended up recommending at least an Intel N100 to run your voice assistant fully locally. That stung. Our opt-in analytics shows over [50% of the Home Assistant OS users](https://analytics.home-assistant.io/) are running their homes on affordable, low-powered machines like the [Home Assistant Green](/green) or a Raspberry Pi.
 
-What's more, advancing the development of Whisper is effectively in the hands of OpenAI, as we don't have the resources required to add languages to that tool. We could add every language possible to Home Assistant, but if any single part of our local speech processing pipeline lacks support or performs poorly for a given language, it will be unusable. As a result, many widely spoken languages were unsupported for local voice control.
+What's more, advancing the development of Whisper is largely in the hands of OpenAI, as we don't have the resources required to add languages to that tool. We could add every possible language to Home Assistant, but if any single part of our voice pipeline lacks support or performs poorly, the entire system becomes unusable. As a result, many widely spoken languages were unsupported for local voice control.
 
 This left many users unable to use voice to control their smart home without purchasing extra hardware or services. We’re changing this today with the launch of a new tool.
 
@@ -50,7 +50,7 @@ The most important home control commands are supported, including turning lights
 <img src='/images/blog/2025-02-voice-chapter-9/green-pe.png' style='border: 0;box-shadow: none;' alt="Green and Voice PE join forces">
 <p align="center"><em>All you need to get started with voice</em></p>
 
-Speech-to-Phrase is launching with support for English, French, German, Dutch, Spanish, and Italian - covering nearly 70% of Home Assistant users. Nice. Unlike the local Speech-to-Text tools currently available, adding languages to Speech-to-Phrase is much easier. This means many languages will be in the pipeline for future releases, and [we would love your help](/voice_control/contribute-voice) adding even more!
+Speech-to-Phrase is launching with support for English, French, German, Dutch, Spanish, and Italian - covering nearly 70% of Home Assistant users. Nice. Unlike the local Speech-to-Text tools currently available, adding languages to Speech-to-Phrase is much easier. This means many more languages will be available in future releases, and [we would love your help](/voice_control/contribute-voice) adding them!
 
 We're working on updating the Voice wizard to include Speech-to-Phrase. Until then, you need to install the add-on manually:
 
