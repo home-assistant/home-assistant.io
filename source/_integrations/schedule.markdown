@@ -44,7 +44,7 @@ Additional data:
   description: A mapping of attribute names to values, which will be added to the entity's attributes when the block is active.
 {% endconfiguration_basic %}
 
-{% note %}
+### Adding additional data
 
 Adding the following as `Additional data` will show `brightness` and `color_temp` as {% term entity %} attributes when the block is active:
 
@@ -53,12 +53,17 @@ brightness: 100
 color_temp: 4000
 ```
 
-{% endnote %}
-
 ## YAML configuration
 
 Alternatively, this {% term integration %} can be configured and set up manually via YAML instead.
 To enable the Integration sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+
+{% note %}
+
+The `data` field follows the same logic as described above in *Adding additional data*.
+
+{% endnote %}
+
 
 ```yaml
 schedule:
