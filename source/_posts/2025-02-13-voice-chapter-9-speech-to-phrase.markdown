@@ -7,7 +7,7 @@ date_formatted: "February 13, 2025"
 author: Mike Hansen
 comments: true
 categories: Assist
-og_image: /images/blog/2025-02-voice-chapter-9/art.png
+og_image: /images/blog/2025-02-voice-chapter-9/art.jpg
 ---
 
 <lite-youtube videoid="k6VvzDSI8RU" videotitle="Voice Chapter 9 - Speech-to-Phrase"></lite-youtube>
