@@ -34,6 +34,15 @@ To configure the integration, you need to obtain the IP address and Device ID fo
 5. Go to **More** > **Installer** > **Communication**  > **BACnet settings**.
 6. Note down the **IP address** and **Device ID**.
 
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+IP address:
+  description: "The IP address of your Flexit Nordic device."
+Device ID:
+  description: "The Device ID of your Flexit Nordic device. This is usually 2."
+{% endconfiguration_basic %}
+
 ## Platforms
 
 This integration supports the following platforms.
@@ -96,8 +105,6 @@ The consequences of shutting down the unit can be costly and extensive. For exam
 If you need to shut down the unit, make sure to take all necessary precautions, such as securing the system with frost protection dampers.
 
 Furthermore, Flexit recommends unplugging the unit from the power socket before replacing a filter. To prevent damage, always initiate a controlled shutdown from the control panel (or, in the future, from an action in Home Assistant) before unplugging the device.
-
-{% include integrations/config_flow.md %}
 
 ## Removing the integration
 
