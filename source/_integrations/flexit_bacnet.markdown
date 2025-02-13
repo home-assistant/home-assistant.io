@@ -99,6 +99,10 @@ If you need to shut down the unit, make sure to take all necessary precautions, 
 
 Furthermore, Flexit recommends unplugging the unit from the power socket before replacing a filter. To prevent damage, always initiate a controlled shutdown from the control panel (or, in the future, from an action in Home Assistant) before unplugging the device.
 
+## Data updates
+
+The integration fetches data from the Flexit device every 60 seconds by default. This interval is not configurable.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
