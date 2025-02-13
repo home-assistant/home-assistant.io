@@ -2,6 +2,7 @@
 title: Bang & Olufsen
 description: Instructions on how to integrate Bang & Olufsen devices into Home Assistant.
 ha_category:
+  - Event
   - Media Player
   - Multimedia
 ha_release: 2024.2
@@ -9,6 +10,7 @@ ha_iot_class: Local Push
 ha_domain: bang_olufsen
 ha_platforms:
   - diagnostics
+  - event
   - media_player
 ha_codeowners:
   - '@mj23000'
@@ -481,6 +483,30 @@ target:
 ## Automations
 
 WebSocket notifications received from the device are fired as events in Home Assistant. These can be received by listening to `bang_olufsen_websocket_event` event types, where `device_id` or `serial_number` can be used to differentiate devices.
+
+### Events
+
+Event entities are created for each of the physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
+Available event entities:
+- Bluetooth
+- Microphone
+- Next
+- Play / Pause
+- Favourite 1
+- Favourite 2
+- Favourite 3
+- Favourite 4
+- Previous
+- Volume
+
+All of these event entities support the following event types:
+- Release of short press
+- Long press
+- Release of long press
+- Very long press
+- Release of very long press
+
+All devices except the [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) support device controls.
 
 ### Getting Deezer URIs
 

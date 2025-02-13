@@ -123,7 +123,7 @@ The following steps involve sensitive credentials. Never share your `Client Secr
 3. The CURL request should return a response that looks something like:
   
    ```json
-   {"access_token":"JSON_WEB_TOKEN","expires_in":28800,"token_type":"Bearer"}
+   {"access_token":"ACCESS_TOKEN","expires_in":28800,"token_type":"Bearer"}
    ```
   
    This is your access token. Copy everything between the double-quotes to be used next.
@@ -132,14 +132,14 @@ The following steps involve sensitive credentials. Never share your `Client Secr
    ```shell
    curl --location 'https://fleet-api.prd.na.vn.cloud.tesla.com/api/1/partner_accounts' \
    --header 'Content-Type: application/json' \
-   --header 'Authorization: Bearer JSON_WEB_TOKEN' \
+   --header 'Authorization: Bearer ACCESS_TOKEN' \
    --data '{
        "domain": "my.domain.com"
    }'
    ```
   
    - If you had to change the `AUDIENCE` URL for your region in step 2, update the main domain of the `--location` arg.
-   - Replace `LONG_GIBBERISH_ACCESS_TOKEN_STRING` with the access token that you copied in the previous step.
+   - Replace `ACCESS_TOKEN` with the access token that you copied in the previous step.
    - In the `domain:` line, enter your domain without the leading `https://` and the trailing `/`.
 5. You should see a response that contains information about your Tesla Fleet developer app, pricing info, and such. This confirms that the Tesla Fleet API has successfully registered your developer application as a partner. The hard part is over.
 
@@ -165,7 +165,7 @@ When connecting your Tesla account to Home Assistant, you **must** select at lea
 
 Previously, Tesla restricted this integration to a very modest rate limit. However, from January 2025, accounts in eligible countries will be charged for every API call. Here's what you need to know:
 
-- Tesla provides a $10 credit per developer account per calendar month
+- Tesla provides a USD$10 credit per developer account per calendar month
 - Every vehicle coordinator refresh, vehicle command, and wake up has a cost
 - This credit only allows for a maximum of 5000 coordinator refreshes
 - Energy product APIs are free to use at this time
@@ -283,31 +283,45 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 
 ### Energy sites
 
-| Domain        | Name                     | Enabled |
-| ------------- | ------------------------ | ------- |
-| Binary sensor | Backup capable           | Yes     |
-| Binary sensor | Grid services active     | Yes     |
-| Binary sensor | Grid services enabled    | Yes     |
-| Binary sensor | Storm watch active       | Yes     |
-| Number        | Backup reserve           | Yes     |
-| Number        | Off grid reserve         | Yes     |
-| Select        | Allow export             | Yes     |
-| Select        | Operation mode           | Yes     |
-| Sensor        | Battery power            | Yes     |
-| Sensor        | Energy left              | Yes     |
-| Sensor        | Generator power          | No      |
-| Sensor        | Grid power               | Yes     |
-| Sensor        | Grid services power      | Yes     |
-| Sensor        | Grid status              | Yes     |
-| Sensor        | Island status            | Yes     |
-| Sensor        | Load power               | Yes     |
-| Sensor        | Percentage charged       | Yes     |
-| Sensor        | Solar power              | Yes     |
-| Sensor        | Total pack energy        | No      |
-| Sensor        | VPP backup reserve       | Yes     |
-| Sensor        | Version                  | Yes     |
-| Switch        | Allow charging from grid | Yes     |
-| Switch        | Storm watch              | Yes     |
+| Domain        | Name                           | Enabled |
+|--------------|--------------------------------|---------|
+| Binary sensor | Backup capable                 | Yes     |
+| Binary sensor | Grid services active           | Yes     |
+| Binary sensor | Grid services enabled          | Yes     |
+| Binary sensor | Storm watch active             | Yes     |
+| Number        | Backup reserve                 | Yes     |
+| Number        | Off grid reserve               | Yes     |
+| Select        | Allow export                   | Yes     |
+| Select        | Operation mode                 | Yes     |
+| Sensor        | Battery power                  | Yes     |
+| Sensor        | Consumer imported from battery | No      |
+| Sensor        | Consumer imported from generator| No      |
+| Sensor        | Consumer imported from grid    | No      |
+| Sensor        | Consumer imported from solar   | No      |
+| Sensor        | Energy left                    | Yes     |
+| Sensor        | Generator exported             | Yes     |
+| Sensor        | Generator power                | No      |
+| Sensor        | Grid exported                  | Yes     |
+| Sensor        | Grid exported from battery     | No      |
+| Sensor        | Grid exported from generator   | No      |
+| Sensor        | Grid exported from solar       | No      |
+| Sensor        | Grid imported                  | No      |
+| Sensor        | Grid power                     | Yes     |
+| Sensor        | Grid services exported         | No      |
+| Sensor        | Grid services imported         | No      |
+| Sensor        | Grid services power            | Yes     |
+| Sensor        | Home usage                     | Yes     |
+| Sensor        | Island status                  | Yes     |
+| Sensor        | Load power                     | Yes     |
+| Sensor        | Percentage charged             | Yes     |
+| Sensor        | Solar exported                 | No      |
+| Sensor        | Solar generated                | Yes     |
+| Sensor        | Solar power                    | Yes     |
+| Sensor        | Total pack energy              | No      |
+| Sensor        | Version                        | Yes     |
+| Sensor        | VPP backup reserve             | Yes     |
+| Switch        | Allow charging from grid       | Yes     |
+| Switch        | Storm watch                    | Yes     |
 
 ### Wall connector
 
@@ -347,4 +361,3 @@ which then can be used within the energy dashboard.
 
 - **Integration shows `a condition has not been met to process the request`**
   1. Confirm that you've run all the steps from both the **Hosting a Public/Private Key Pair** and **Register your application as a Fleet API partner** sections above.
-  

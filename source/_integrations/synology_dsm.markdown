@@ -2,6 +2,7 @@
 title: Synology DSM
 description: Instructions on how to integrate the Synology DSM sensor within Home Assistant.
 ha_category:
+  - Backup
   - Camera
   - Media source
   - System monitor
@@ -16,6 +17,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
+  - backup
   - binary_sensor
   - button
   - camera
@@ -27,7 +29,7 @@ ha_integration_type: integration
 ha_zeroconf: true
 ---
 
-The Synology DSM integration provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_) as well as cameras from the [Surveillance Station](https://www.synology.com/surveillance).
+The Synology DSM integration provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_), as well as cameras from the [Surveillance Station](https://www.synology.com/surveillance) and will allow to use the [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) as a {% term backup %} location.
 
 {% include integrations/config_flow.md %}
 
@@ -51,6 +53,8 @@ When creating the user, it is possible to deny access to all locations and appli
 
 If you want to add cameras from [Surveillance Station](https://www.synology.com/surveillance), the user needs application permission for [Surveillance Station](https://www.synology.com/surveillance).
 
+If you want to use a shared folder from the [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) as {% term backup %} location, the user needs application permission for [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) and read/write permissions on the specific [shared folder](https://kb.synology.com/en-us/DSM/help/DSM/AdminCenter/file_share_desc).
+
 ### If you utilize 2-Step Verification or Two Factor Authentication (2FA) with your Synology NAS
 
 If you have the "Enforce 2-step verification for the following users" option checked under **Control Panel > Security > Account > 2-Factor Authentication**, you'll need to configure the 2-step verification/one-time password (OTP) for the user you just created before the credentials for this user will work with Home Assistant.
@@ -60,6 +64,40 @@ Make sure to log out of your "normal" user's account and then login with the sep
 {% note %}
 If you denied access to all locations and applications it is normal to receive a message indicating you do not have access to DSM when trying to login with this separate user. As noted above, you do not need access to the DSM and Home Assistant will still be able to read statistics from your NAS.
 {% endnote %}
+
+## Backup location
+
+The NAS can also be used as a {% term backup %} location, without the need to add the NAS as a network drive to Home Assistant. For this you need to setup the correct permissions for the user (_see [Separate User Configuration](#separate-user-configuration) above_), afterwards, you will be able to select the shared folder and define a relative path to be used as a backup location in the integration options ({% my integrations title="**Settings** > **Devices & services**" %} > **Synology DSM** > _select the instance_ > **Configure**)
+
+{% important %}
+
+Don't manually delete or rename the files in the backup path on the NAS. This could result in the backups no longer being able to be read or restored.
+
+{% endimportant %}
+
+### Example
+
+Assume there is a shared folder called `HA Backup`, with two directories in it `productive_instance` and `test_instance`.
+
+<img src="/images/integrations/synology_dsm/synology_file_station.png" />
+
+#### Use an existing path
+
+1. Select `HA Backup` as shared folder.
+2. Define `productive_instance` as backup path (_without trailing slash_).
+    - **Result**: The existing `productive_instance` will be used as backup location.
+
+#### Use a non-existing path
+
+1. Select `HA Backup` as a shared folder.
+2. Define `cottage_instance` as backup path (_without trailing slash_).
+    - **Result**: A new directory `cottage_instance` will be created on the shared folder `HA Backup` during the first backup.
+
+{% important %}
+
+Sub-directories in the backup path need to be separated by the regular slash `/`. For example: `home-assistant/prod_instance`.
+
+{% endimportant %}
 
 ## Sensors
 

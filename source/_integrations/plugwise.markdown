@@ -14,7 +14,6 @@ ha_release: 0.98
 ha_codeowners:
   - '@CoMPaTech'
   - '@bouwew'
-  - '@frenck'
 ha_config_flow: true
 ha_domain: plugwise
 ha_zeroconf: true
@@ -28,6 +27,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
+ha_quality_scale: platinum
 ---
 
 [Plugwise](https://www.plugwise.com) provides smart home devices that allow you to monitor and control your climate, energy (including gas) consumption, and energy production. The energy information can be used for the [energy dashboard](/home-energy-management).
