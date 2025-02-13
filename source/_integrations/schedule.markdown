@@ -41,22 +41,24 @@ End:
 Additional data:
   required: false
   type: map
-  description: Additional data should be a mapping of attribute names to values, which will be added to the entity's attributes when the block is active.
+  description: A mapping of attribute names to values, which will be added to the entity's attributes when the block is active.
 {% endconfiguration_basic %}
 
-The **Additional data** entry of each block should be a mapping of attribute names to values.
-For example, a block with the following data will show `brightness` and `color_temp` as {% term entity %} attributes when the block is active:
+{% note %}
+
+Adding the following as `Additional data` will show `brightness` and `color_temp` as {% term entity %} attributes when the block is active:
 
 ```yaml
 brightness: 100
 color_temp: 4000
 ```
 
+{% endnote %}
+
 ## YAML configuration
 
 Alternatively, this {% term integration %} can be configured and set up manually via YAML instead.
 To enable the Integration sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-Additional data can be added using the `data` block for each schedule block, as shown in the example below.
 
 ```yaml
 schedule:
@@ -115,7 +117,7 @@ schedule:
           required: true
           type: time
         data:
-          description: Additional data to add to the entity's attributes when this block is active.
+          description: A mapping of attribute names to values, which will be added to the entity's attributes when the block is active.
           required: false
           type: map
           default: {}
