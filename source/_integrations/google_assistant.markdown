@@ -78,7 +78,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     7. This will start a download of a JSON file.
         1. Rename the file to `SERVICE_ACCOUNT.JSON`.
         2. In Home Assistant, add this file to your config-folder. This will be the same folder as your {% term "`configuration.yaml`" %}.
-    8. Go to the **Search (/) for resources, docs, products, and more** at the top middle and search for **Homegraph API** and select it.
+    8. Go to the **Search (/) for resources, documentation, products, and more** at the top middle and search for **Homegraph API** and select it.
     9. Enable the HomeGraph API.
 
 4. Add the `google_assistant` integration configuration to your {% term "`configuration.yaml`" %} file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
@@ -141,8 +141,8 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 5. Check the box **Support local queries**.
 6. Add device scan configuration:
    1. Select **+ Add scan configuration** if no configuration exists.
-   2. For Discovery protocol select **MDNS**.
-   3. Set **Enter MDNS service name** to `_home-assistant._tcp.local`
+   2. For Discovery protocol select **mDNS**.
+   3. Set **Enter mDNS service name** to `_home-assistant._tcp.local`
    4. Select **Add field**, then under **Select a field**, choose **Name**.
    5. Enter a new **Value** field set to `.*\._home-assistant\._tcp\.local`
 7. Scroll to bottom of page and **Save** your changes.
