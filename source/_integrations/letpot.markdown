@@ -2,6 +2,7 @@
 title: LetPot
 description: Instructions on how to integrate LetPot hydroponic gardens into Home Assistant.
 ha_category:
+  - Sensor
   - Switch
   - Time
 ha_release: 2025.2
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: letpot
 ha_integration_type: hub
 ha_platforms:
+  - sensor
   - switch
   - time
 ha_quality_scale: bronze
@@ -53,6 +55,13 @@ Password:
 ### Entities
 
 The LetPot integration provides the following entities.
+
+#### Sensors
+
+For LetPot Max devices, the following sensors are available:
+
+- **Temperature**: Ambient temperature measured by the device.
+- **Water level**: Percentage of the water tank filled with water. The official app will display 0-30% as "Low", 30-90% as "Medium", and 90% or more as "High".
 
 #### Switches
 
