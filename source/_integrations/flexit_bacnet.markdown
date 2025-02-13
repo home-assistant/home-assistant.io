@@ -38,9 +38,9 @@ To configure the integration, you need to obtain the IP address and Device ID fo
 
 {% configuration_basic %}
 IP address:
-description: "The IP address of your Flexit Nordic device."
+  description: "The IP address of your Flexit Nordic device."
 Device ID:
-description: "The Device ID of your Flexit Nordic device. This is usually 2."
+  description: "The Device ID of your Flexit Nordic device. This is usually 2."
 {% endconfiguration_basic %}
 
 ## Platforms
