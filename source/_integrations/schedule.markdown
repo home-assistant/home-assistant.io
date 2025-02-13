@@ -12,7 +12,7 @@ ha_domain: schedule
 ha_integration_type: helper
 ---
 
-The **Schedule** {% term integration %} provides a way to create a weekly schedule {% term entity %} in Home Assistant, consisting of time blocks with defined start and end times. The schedule activates when a time block starts and deactivates when it ends, allowing it to be used for triggering or making decisions in automations and scripts.
+The **Schedule** {% term integration %} provides a way to create a weekly schedule {% term entity %} in Home Assistant, consisting of time blocks with defined start and end times. The schedule is active when a time block starts and becomes inactive when it ends, allowing it to be used for triggering or making decisions in automations and scripts.
 
 {% include integrations/config_flow.md %}
 
@@ -133,7 +133,7 @@ A schedule entity exports state attributes that can be useful in automations and
 ## Automation example
 
 A schedule creates an on/off (schedule) sensor within the times set.
-By using the `light_schedule` example from above in an automation, we can turn on a light only during the time box when a schedule is active.
+By incorporating the `light_schedule` example from above in an automation, we can turn on a light when the schedule is active.
 
 {% raw %}
 
@@ -154,7 +154,7 @@ actions:
 
 {% endraw %}
 
-The same schedule can be used to turn the lights off again once the time blocks of the schedule have passed:
+Another automation can be added to turn the lights off once the schedule is inactive: 
 
 {% raw %}
 
