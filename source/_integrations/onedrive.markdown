@@ -39,7 +39,7 @@ Folder name:
 
 ## Backup folder
 
-The backup folder is `root:\Apps\[Home Assistant | Graph]\backups_{id}`. This is not configurable, because otherwise the integration would need permissions to write in your entire drive. You can however rename the application folder which is called `Home Assistant` or `Graph` in your OneDrive. 
+The backup folder is `root:\Apps\[Home Assistant | Graph]\backups_{id}`. This is not configurable because otherwise the integration would need permissions to write into your entire drive. You can, however, rename the application folder which is called `Home Assistant` or `Graph` in your OneDrive. 
 
 The last folder in the hierarchy (`backups_{id}`) is always a unique folder per Home Assistant instance to ensure that backups from different instances are not mixed. The name of this folder can be set during integration setup and can be changed later through reconfiguring the integration or by renaming the folder OneDrive.
 
