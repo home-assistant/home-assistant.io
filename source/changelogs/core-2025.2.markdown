@@ -1579,6 +1579,39 @@ For a summary in a more readable format:
 [@ludeeus]: https://github.com/ludeeus
 [@sdb9696]: https://github.com/sdb9696
 
+## Release 2025.2.4 - February 14
+
+- Bump python-kasa to 0.10.2 ([@sdb9696] - [#138381])
+- Bump hass-nabucasa from 0.90.0 to 0.91.0 ([@ludeeus] - [#138441])
+- Bump aiowebostv to 0.6.2 ([@thecode] - [#138488])
+- Bump ZHA to 0.0.49 to fix Tuya TRV issues ([@TheJulianJES] - [#138492])
+- Bump pyseventeentrack to 1.0.2 ([@shaiu] - [#138506])
+- Bump hass-nabucasa from 0.91.0 to 0.92.0 ([@emontnemery] - [#138510])
+- Bump py-synologydsm-api to 2.6.3 ([@mib1185] - [#138516])
+- Update frontend to 20250214.0 ([@bramkragten] - [#138521])
+
+[#137448]: https://github.com/home-assistant/core/pull/137448
+[#137688]: https://github.com/home-assistant/core/pull/137688
+[#138231]: https://github.com/home-assistant/core/pull/138231
+[#138381]: https://github.com/home-assistant/core/pull/138381
+[#138408]: https://github.com/home-assistant/core/pull/138408
+[#138441]: https://github.com/home-assistant/core/pull/138441
+[#138488]: https://github.com/home-assistant/core/pull/138488
+[#138492]: https://github.com/home-assistant/core/pull/138492
+[#138506]: https://github.com/home-assistant/core/pull/138506
+[#138510]: https://github.com/home-assistant/core/pull/138510
+[#138516]: https://github.com/home-assistant/core/pull/138516
+[#138521]: https://github.com/home-assistant/core/pull/138521
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@ludeeus]: https://github.com/ludeeus
+[@mib1185]: https://github.com/mib1185
+[@sdb9696]: https://github.com/sdb9696
+[@shaiu]: https://github.com/shaiu
+[@thecode]: https://github.com/thecode
+
 [#112047]: https://github.com/home-assistant/core/pull/112047
 [#121522]: https://github.com/home-assistant/core/pull/121522
 [#121548]: https://github.com/home-assistant/core/pull/121548
