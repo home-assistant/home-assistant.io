@@ -103,29 +103,7 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 ## Actions
 
 The Home Connect integration makes various actions available.
-Available actions: `set_option_active`, `set_option_selected`, `pause_program`, `resume_program`, `select_program`, `start_program` and `change_setting`
-
-### Action `home_connect.set_option_active`
-
-Sets an option for the active program.
-
-| Data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
-| `key` | no | Key of the option. |
-| `value` | no | Value of the option. |
-| `unit` | yes | Unit for the option. |
-
-### Action `home_connect.set_option_selected`
-
-Sets an option for the selected program.
-
-| Data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
-| `key` | no | Key of the option. |
-| `value` | no | Value of the option. |
-| `unit` | yes | Unit for the option. |
+Available actions: `pause_program`, `resume_program`, and `change_setting`
 
 ### Action `home_connect.pause_program`
 
@@ -142,30 +120,6 @@ Resumes a paused program.
 | Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
-
-### Action `home_connect.select_program`
-
-Selects a program without starting it.
-
-| Data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
-| `program` | no | Program to select. |
-| `key` | yes | Key of the option. |
-| `value` | yes | Value of the option. |
-| `unit` | yes | Unit for the option. |
-
-### Action `home_connect.start_program`
-
-Selects a program and starts it.
-
-| Data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
-| `program` | no | Program to select. |
-| `key` | yes | Key of the option. |
-| `value` | yes | Value of the option. |
-| `unit` | yes | Unit for the option. |
 
 ### Action `home_connect.change_setting`
 
