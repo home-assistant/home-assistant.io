@@ -2,6 +2,7 @@
 title: LetPot
 description: Instructions on how to integrate LetPot hydroponic gardens into Home Assistant.
 ha_category:
+  - Binary sensor
   - Sensor
   - Switch
   - Time
@@ -13,6 +14,7 @@ ha_codeowners:
 ha_domain: letpot
 ha_integration_type: hub
 ha_platforms:
+  - binary_sensor
   - sensor
   - switch
   - time
