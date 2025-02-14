@@ -75,6 +75,7 @@ _PS: It is almost Valentine's day, did you set up some romantic scenes yet? 🌹
   - [2025.2.1 - February 7](#202521---february-7)
   - [2025.2.2 - February 10](#202522---february-10)
   - [2025.2.3 - February 12](#202523---february-12)
+  - [2025.2.4 - February 14](#202524---february-14)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -703,6 +704,39 @@ release every Friday.
 [@jdanders]: https://github.com/jdanders
 [@ludeeus]: https://github.com/ludeeus
 [@sdb9696]: https://github.com/sdb9696
+
+### 2025.2.4 - February 14
+
+- Bump python-kasa to 0.10.2 ([@sdb9696] - [#138381])
+- Bump hass-nabucasa from 0.90.0 to 0.91.0 ([@ludeeus] - [#138441])
+- Bump aiowebostv to 0.6.2 ([@thecode] - [#138488])
+- Bump ZHA to 0.0.49 to fix Tuya TRV issues ([@TheJulianJES] - [#138492])
+- Bump pyseventeentrack to 1.0.2 ([@shaiu] - [#138506])
+- Bump hass-nabucasa from 0.91.0 to 0.92.0 ([@emontnemery] - [#138510])
+- Bump py-synologydsm-api to 2.6.3 ([@mib1185] - [#138516])
+- Update frontend to 20250214.0 ([@bramkragten] - [#138521])
+
+[#137448]: https://github.com/home-assistant/core/pull/137448
+[#137688]: https://github.com/home-assistant/core/pull/137688
+[#138231]: https://github.com/home-assistant/core/pull/138231
+[#138381]: https://github.com/home-assistant/core/pull/138381
+[#138408]: https://github.com/home-assistant/core/pull/138408
+[#138441]: https://github.com/home-assistant/core/pull/138441
+[#138488]: https://github.com/home-assistant/core/pull/138488
+[#138492]: https://github.com/home-assistant/core/pull/138492
+[#138506]: https://github.com/home-assistant/core/pull/138506
+[#138510]: https://github.com/home-assistant/core/pull/138510
+[#138516]: https://github.com/home-assistant/core/pull/138516
+[#138521]: https://github.com/home-assistant/core/pull/138521
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@ludeeus]: https://github.com/ludeeus
+[@mib1185]: https://github.com/mib1185
+[@sdb9696]: https://github.com/sdb9696
+[@shaiu]: https://github.com/shaiu
+[@thecode]: https://github.com/thecode
 
 ## Need help? Join the community!
 
