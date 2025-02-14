@@ -101,7 +101,7 @@ Furthermore, Flexit recommends unplugging the unit from the power socket before 
 
 ## Data updates
 
-The integration fetches data from the Flexit device every 60 seconds by default. This interval is not configurable.
+The integration {% term polling polls %} data from the Flexit device every 60 seconds by default. This interval is not configurable.
 
 ## Removing the integration
 
