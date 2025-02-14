@@ -815,8 +815,14 @@ entry context menu.
 
 ([@jbouwh] - [#133342]) ([documentation](/integrations/mqtt))
 
+
+The MQTT publish action no longer supports the `topic_template` and `payload_template` attributes. Instead, only `topic` and `payload` should be used. In automation and scripts, users can use templates by default. Users were instructed to update their automations and scripts with a repair flow when the use of the deprecated action options was detected.
+
+([@jbouwh] - [#134056]) ([documentation](/integrations/mqtt))
+
 [@jbouwh]: https://github.com/jbouwh
 [#133342]: https://github.com/home-assistant/core/pull/133342
+[#134056]: https://github.com/home-assistant/core/pull/134056
 
 {% enddetails %}
 
