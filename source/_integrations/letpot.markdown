@@ -61,7 +61,8 @@ The LetPot integration provides the following entities.
 #### Binary sensors
 
 - **Pump**: Indicates if the water pump is running (on) or idle (off). Updates may be delayed by the device until another entity updates.
-  - Available for LetPot Air devices, and other device models which report this value, but never on LetPot Pro.
+  - Available for LetPot Air devices, and other device models which report this value.
+  - Not available for LetPot Pro devices.
 
 Additionally, binary sensors for possible issues are available:
 
@@ -71,7 +72,7 @@ Additionally, binary sensors for possible issues are available:
   - Available for all devices except LetPot Pro.
 - **Pump error**: Indicates if the water pump detected a flow issue and should be cleaned.
   - Available for some LetPot Mini and LetPot SE devices which report this value.
-- **Refill error**: Indicates if the external water tank/input used for refilling in auto mode is not increasing the main water tank level and should be checked.
+- **Refill error**: Indicates that the external water tank/input used for refilling in auto mode is not filling up the main water tank. If you see a refill error, check the external water tank/input and the connection to the main water tank.
   - Available for LetPot Max devices.
 
 {% important %}
