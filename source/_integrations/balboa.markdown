@@ -16,6 +16,7 @@ ha_platforms:
   - fan
   - light
   - select
+  - sensor
   - switch
   - time
 ha_codeowners:
@@ -35,6 +36,7 @@ There is currently support for the following device types within Home Assistant:
 - Fan (Pumps/Jets)
 - Light
 - Select (Low/high temperature range)
+- Sensor (Last known fault message, if any)
 - Switch (Enable/disable filter cycle 2)
 - Time (Set filter cycle start/end times)
 
