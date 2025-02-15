@@ -156,7 +156,7 @@ actions:
       entity_id: light.kitchen
     data:
       brightness_pct: "{{ state_attr('schedule.light_schedule', 'brightness') }}"
-      kelvin: "{{ state_attr('schedule.light_schedule', 'temperature') }}"
+      kelvin: "{{ state_attr('schedule.light_schedule', 'color_temp') }}"
 ```
 
 {% endraw %}
