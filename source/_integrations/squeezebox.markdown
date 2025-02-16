@@ -59,7 +59,7 @@ Browse limit:
  description: Maximum number of items to include when browsing media or in a playlist.
 Volume step:  
  description: Amount to adjust the volume when turning volume up or down.  
-{% end configuration_basic %}
+{% endconfiguration_basic %}
 
 ## Entities
 
