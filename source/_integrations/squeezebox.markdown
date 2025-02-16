@@ -59,7 +59,7 @@ Once the integration has been added, there are 2 options which can be configured
 | Title          | Description                                                              |
 | -------------- | ------------------------------------------------------------------------ |
 | `Browse limit` | Maximum number of items to include when browsing media or in a playlist. |
-| `Volume step`  | Amount to adjust the volume when turning volume up or down..             |
+| `Volume step`  | Amount to adjust the volume when turning volume up or down.              |
 
 ## Entities
 
