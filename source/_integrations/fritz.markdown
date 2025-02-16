@@ -110,9 +110,9 @@ WiFi {% term switches %} are created for each SSID the FRITZ!Box is serving. Wit
 
 **Note 2**: For mesh repeaters, these switches are disabled by default, but can be enabled.
 
-{% important %}
-Please keep in mind, when your mesh is based on a WiFi connection between the mesh master and the mesh repeater, then disabling the WiFi on the repeater causes the repeater to become unavailable for Home Assistant.
-{% endimportant %}
+{% note %}
+When your mesh is based on a WiFi connection between the mesh master and the mesh repeater, the WiFi switches won't be created for the mesh repeater either.
+{% endnote %}
 
 ## Example Automations and Scripts
 
