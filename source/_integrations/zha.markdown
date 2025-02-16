@@ -491,9 +491,9 @@ Please note the current limitations and follow the instructions in this troubles
 
 {% note %}
 To help resolve any kinks or compatibility problems, report bugs as issues with debug logs.
-{% note %}
+{% endnote %}
 
-### Limitations 
+### Limitations
 
 ZHA only supports connecting a single dedicated Zigbee Coordinator radio adapter or module with a single Zigbee network. The Zigbee Coordinator cannot already be connected or used by any other application. Devices currently or previously connected to another Zigbee implementation will need to be reset to their factory default settings before they can be paired/joined to ZHA. Refer to each device manufacturer's documentation for reset steps.
 
