@@ -52,14 +52,14 @@ transporter_toslink:
         media_content_type: "music"
 ```
 
-### Configuration Options
+{% include integrations/options_flow.md %}
 
-Once the integration has been added, there are 2 options which can be configured.
-
-| Title          | Description                                                              |
-| -------------- | ------------------------------------------------------------------------ |
-| `Browse limit` | Maximum number of items to include when browsing media or in a playlist. |
-| `Volume step`  | Amount to adjust the volume when turning volume up or down.              |
+{% configuration_basic %}  
+Browse limit:  
+ description: Maximum number of items to include when browsing media or in a playlist.
+Volume step:  
+ description: Amount to adjust the volume when turning volume up or down.  
+{% end configuration_basic %}
 
 ## Entities
 
