@@ -44,7 +44,7 @@ response_variable: stookwijzer_forecast
 ```
 
 The response data field contains the `forecast` field.
-`forecast` is a list of forecast advice entries at a given moment in time:
+`forecast` is a list of forecast advice entries at a given time:
 
 | Response data               | Description                                                                                                                                     | Example                   |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
@@ -95,16 +95,16 @@ template:
 forecast:
   - datetime: "2025-02-12T17:00:00+01:00"
     advice: code_yellow
-    final: "True"
+    final: True
   - datetime: "2025-02-12T23:00:00+01:00"
     advice: code_yellow
-    final: "True"
+    final: True
   - datetime: "2025-02-13T05:00:00+01:00"
     advice: code_orange
-    final: "False"
+    final: False
   - datetime: "2025-02-13T11:00:00+01:00"
     advice: code_red
-    final: "False"
+    final: False
 ```
 
 {% enddetails %}
