@@ -39,13 +39,12 @@ with a mapping of the Stookwijzer advice forecast.
 ```yaml
 action: stookwijzer.get_forecast
 target:
-  entity_id:
-    - sensor.stookwijzer_advice_code
+  config_entry_id: 12345
 response_variable: stookwijzer_forecast
 ```
 
-The response data field is a mapping of called target entities, each containing the `forecast` field.
-`forecast` is a list of forecasted advices at a given point in time:
+The response data field contains the `forecast` field.
+`forecast` is a list of forecast advice entries at a given moment in time:
 
 | Response data               | Description                                                                                                                                     | Example                   |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
@@ -74,16 +73,16 @@ template:
     sensor:
       - name: Stookwijzer forecast 6 hours
         unique_id: stookwijzer_forecast_6_hours
-        state: "{{ advice_forecast['sensor.stookwijzer_advice_code'][0]['advice'] }}"
+        state: "{{ advice_forecast['forecast'][0]['advice'] }}"
         attributes:
-          final: "{{ advice_forecast['sensor.stookwijzer_advice_code'][0]['final'] }}"
-          timestamp: "{{ advice_forecast['sensor.stookwijzer_advice_code'][0]['datetime'] }}"
+          final: "{{ advice_forecast['forecast'][0]['final'] }}"
+          timestamp: "{{ advice_forecast['forecast'][0]['datetime'] }}"
       - name: Stookwijzer forecast 12 hours
         unique_id: stookwijzer_forecast_12_hours
-        state: "{{ advice_forecast['sensor.stookwijzer_advice_code'][1]['advice'] }}"
+        state: "{{ advice_forecast['forecast'][1]['advice'] }}"
         attributes:
-          final: "{{ advice_forecast['sensor.stookwijzer_advice_code'][1]['final'] }}"
-          timestamp: "{{ advice_forecast['sensor.stookwijzer_advice_code'][1]['datetime'] }}"
+          final: "{{ advice_forecast['forecast'][1]['final'] }}"
+          timestamp: "{{ advice_forecast['forecast'][1]['datetime'] }}"
 ```
 
 {% endraw %}
@@ -93,7 +92,7 @@ template:
 {% details "Example action response" %}
 
 ```yaml
-sensor.stookwijzer_advice_code:
+forecast:
   - datetime: "2025-02-12T17:00:00+01:00"
     advice: code_yellow
     final: "True"
