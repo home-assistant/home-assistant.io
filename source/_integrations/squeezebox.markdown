@@ -52,7 +52,7 @@ transporter_toslink:
         media_content_type: "music"
 ```
 
-{% include integrations/options_flow.md %}
+{% include integrations/option_flow.md %}
 
 {% configuration_basic %}  
 Browse limit:  
