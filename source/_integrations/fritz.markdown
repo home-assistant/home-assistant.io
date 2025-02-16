@@ -108,11 +108,7 @@ WiFi {% term switches %} are created for each SSID the FRITZ!Box is serving. Wit
 
 **Note 1**: In a mesh setup, the WiFi settings are adopted by each mesh repeater (_**Home Network > Mesh > Mesh Settings > Automatically Adopting Settings from the Mesh**_)
 
-**Note 2**: For mesh repeaters, these switches are disabled by default, but can be enabled.
-
-{% note %}
-When your mesh is based on a WiFi connection between the mesh master and the mesh repeater, the WiFi switches won't be created for the mesh repeater either.
-{% endnote %}
+**Note 2**: For mesh repeaters, these switches are disabled by default, but can be enabled. When your mesh is based on a WiFi connection between the mesh master and the mesh repeater, the WiFi switches won't be created for the mesh repeater either.
 
 ## Example Automations and Scripts
 
