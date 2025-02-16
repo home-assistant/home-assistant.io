@@ -124,17 +124,17 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `consumer_products_coffee_maker_option_multiple_beverages` | yes | Defines if double dispensing is enabled. |
 | `consumer_products_coffee_maker_option_coffee_milk_ratio` | yes | Defines the amount of milk. |
 | `consumer_products_coffee_maker_option_hot_water_temperature` | yes | Defines the temperature suitable for the type of tea. |
-| `b_s_h_common_option_start_in_relative` | yes | Defines in how many time the program should start. |
+| `b_s_h_common_option_start_in_relative` | yes | Defines when the program should start, in seconds from now. For example: a value of 9000 means in 2 h 30 min. |
 | `dishcare_dishwasher_option_intensiv_zone` | yes | Defines if the cleaning is done with higher spray pressure on the lower basket for very dirty pots and pans. |
 | `dishcare_dishwasher_option_brilliance_dry` | yes | Defines if the program sequence is optimized with a special drying cycle to ensure more shine on glasses and plastic items. |
-| `dishcare_dishwasher_option_vario_speed_plus` | yes | Defines if the program run time is reduced by up to 66% with the usual optimum cleaning and drying. |
+| `dishcare_dishwasher_option_vario_speed_plus` | yes | Defines if the program duration is shortened dynamically (up to 66% less run time) with the usual optimum cleaning and drying. |
 | `dishcare_dishwasher_option_silence_on_demand` | yes | Defines if the extra silent mode is activated for a selected period of time. |
 | `dishcare_dishwasher_option_half_load` | yes | Defines if economical cleaning is enabled for smaller loads. This reduces energy and water consumption and also saves time. The utensils can be placed in the upper and lower baskets. |
 | `dishcare_dishwasher_option_extra_dry` | yes | Defines if improved drying for glasses and plasticware is enabled. |
 | `dishcare_dishwasher_option_hygiene_plus` | yes | Defines if the cleaning is done with increased temperatures. This ensures maximum hygienic cleanliness for regular use. |
 | `dishcare_dishwasher_option_eco_dry` | yes | Defines if the door is opened automatically for extra energy efficient and effective drying. |
 | `dishcare_dishwasher_option_zeolite_dry` | yes | Defines if the program sequence is optimized with special drying cycle ensures improved drying for glasses, plates and plasticware. |
-| `laundry_care_dryer_option_drying_target` | yes | Describes the drying target for a dryer program. |
+| `laundry_care_dryer_option_drying_target` | yes | Describes the drying target for a dryer program. For example: Iron Dry, Cupboard Dry, Extra Dry. |
 | `cooking_hood_option_venting_level` | yes | Defines the required fan setting. |
 | `cooking_hood_option_intensive_level` | yes | Defines the intensive setting. |
 | `cooking_oven_option_setpoint_temperature` | yes | Defines the target cavity temperature, which will be hold by the oven. |
@@ -143,7 +143,7 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `cooking_oven_option_warming_level` | yes | Defines the level of the warming drawer. |
 | `laundry_care_washer_option_temperature` | yes | Defines the temperature of the washing program. |
 | `laundry_care_washer_option_spin_speed` | yes | Defines the spin speed of a washer program. |
-| `b_s_h_common_option_finish_in_relative` | yes | Defines when the program should end in seconds. |
+| `b_s_h_common_option_finish_in_relative` | yes | Defines when the program should end, in seconds from now. For example: a value of 9000 means in 2 h 30 min. |
 | `laundry_care_washer_option_i_dos1_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 1) |
 | `laundry_care_washer_option_i_dos2_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 2) |
 | `laundry_care_washer_option_vario_perfect` | yes | Defines if a cycle saves energy (Eco Perfect) or time (Speed Perfect). |
