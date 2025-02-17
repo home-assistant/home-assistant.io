@@ -74,7 +74,7 @@ The following extra keys are available to modify the announcement
 | `announce_volume`  | yes      | Specify the volume of the announcement                                                                    |
 | `announce_timeout` | yes      | Specify the maximum length of the announcement in seconds after which the original media will be resumed. |
 
-### Examples:
+### Examples
 
 Playing a local file as an announcement:
 
