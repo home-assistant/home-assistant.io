@@ -1006,7 +1006,7 @@ Under normal circumstances, it is not necessary to add a device to this group.
 ## Identification via Z-Wave
 
 Other Z-Wave devices can instruct a Home Assistant instance to identify itself by sending the following `Indicator Set` Z-Wave command (all bytes are hexadecimal):
-```
+```txt
 87010003500308500403500506
             ~~    ~~    ~~
 ```
