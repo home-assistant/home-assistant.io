@@ -39,7 +39,8 @@ We propose two options for local speech-to-text engines.
 **Speech-to-Phrase**:
 [Speech-to-Phrase](https://github.com/OHF-voice/speech-to-phrase) is a close-ended speech model. This means it will transcribe only what it knows.
 
-The result is an extremely fast transcription even on a Home Assistant Green or Raspberry Pi 4 (under one second)
+The result is an extremely fast transcription even on a Home Assistant Green or Raspberry Pi 4 (under one second).
+
 Speech-to-Phrase only supports a subset of Assist’s voice commands, and more open-ended things like shopping lists, naming a timer, and broadcasts are not usable out of the box. 
 
 Speech-to-Phrase supports various languages available [here](https://github.com/OHF-voice/speech-to-phrase?tab=readme-ov-file#supported-languages).
