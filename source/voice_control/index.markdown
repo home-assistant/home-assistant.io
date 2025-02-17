@@ -19,15 +19,16 @@ This section will help you set up Assist, which is Home Assistant voice assistan
 
 Assist allows you to control Home Assistant using natural language. It is built on top of an open voice foundation and powered by knowledge provided by our community.
 
-Assist is available to use on most platforms that can interface with Home Assistant. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'>:
-
-As for the rest of Home Assistant core functionalities, Assist can be personalized and extended to fit your needs.
-- It can work locally or leverage the greatest LLMs of the moment.
-- It can work on your phone or tablet or other custom voice devices.
+Assist is available to use on most platforms that can interface with Home Assistant. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'>
 
 The simplest way to try out Assist is side our companion app. We have dedicated pages to guide you on both [Android](/voice_control/android/) and [iOS](/voice_control/apple/).
+
 The simplest way to get started with Assist is with our recommended voice assistant hardware, the [Home Assistant Voice Preview Edition](/voice-pe/).
 
+As for the rest of Home Assistant core functionalities, Assist can be personalized and extended to fit your needs.
+
+- It can work locally or leverage the greatest LLMs of the moment.
+- It can work on your phone or tablet or other custom voice devices.
 
 <lite-youtube videoid="XF53wUbeLxA" videotitle="Voice at Home Assistant"></lite-youtube>
 
@@ -44,7 +45,7 @@ Our recommended voice assistant hardware is the [Home Assistant Voice Preview Ed
 
 In case your hardware does not support our wizard, do not worry. Here are two detailed guides based on how you plan to process your voice (Locally, or using Home Assistant Cloud voice services)
 
-- [I plan to use a local speech-to-text/text-to-speech setup](/voice_control/voice_remote_local_assistant/)
+- [I plan to process my voice locally](/voice_control/voice_remote_local_assistant/)
 - [I plan to use Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) (recommended as it is the simplest)
 
 ## Expand and Experiment
