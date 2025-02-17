@@ -117,7 +117,7 @@ GEM
     rbs (3.8.1)
       logger
     regexp_parser (2.10.0)
-    rexml (3.4.0)
+    rexml (3.4.1)
     rouge (4.5.1)
     rubocop (1.72.1)
       json (~> 2.3)
