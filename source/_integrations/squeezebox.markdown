@@ -105,13 +105,13 @@ data:
 
 ### Announcements and Text to Speech (TTS)
 
-When using the "Text-to-Speech (TTS): Speak" action, Home Assistant automatically sets the announce parameter as true, and the announcement features, such as pausing current playback, will be used.
+When using the "Text-to-speech (TTS): Speak" action, Home Assistant automatically sets the announce parameter as true, and the announcement features, such as pausing current playback, will be used.
 
 However,
 
 #### Example
 
-Play announcement using Text-to-Speech (TTS) action
+Play announcement using Text-to-speech (TTS) action
 
 ```yaml
 action: tts.speak
