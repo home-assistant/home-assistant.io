@@ -82,7 +82,7 @@ Add a new to-do item. A to-do list `target` is selected with a [Target Selector]
 
 | Data attribute | Optional | Description                                                      | Example                                                      |
 | -------------- | -------- | ---------------------------------------------------------------- | ------------------------------------------------------------ |
-| `item`         | no       | the name of the to-do Item.                                      | Submit income tax return                                     |
+| `item`         | no       | The name and summary of the to-do Item.                          | Submit income tax return                                     |
 | `due_date`     | yes      | The date the to-do item is expected to be completed.             | 2024-04-10                                                   |
 | `due_datetime` | yes      | The date and time the to-do item is expected to be completed.    | 2024-04-10 23:00:00                                          |
 | `description`  | yes      | A more complete description than the one provided by the summary | Collect all necessary documents and submit the final return. |
@@ -107,7 +107,7 @@ Update a to-do item. A to-do list `target` is selected with a [Target Selector](
 
 | Data attribute | Optional | Description                                                       | Example                                                      |
 | -------------- | -------- | ----------------------------------------------------------------- | ------------------------------------------------------------ |
-| `item`         | no       | The name of the to-do Item to update.                             | Submit income tax return                                     |
+| `item`         | no       | The name and summary of the to-do Item to update.                 | Submit income tax return                                     |
 | `rename`       | yes      | The new name of the to-do Item.                                   | Something else                                               |
 | `status`       | yes      | The overall status of the To-do Item.                             | `needs_action` or `completed`                                |
 | `due_date`     | yes      | The date the to-do item is expected to be completed.              | 2024-04-10                                                   |
