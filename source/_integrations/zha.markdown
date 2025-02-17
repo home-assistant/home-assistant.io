@@ -495,17 +495,21 @@ The migration process is complete. However, be aware that you will not be able t
 
 ## Troubleshooting
 
-To help resolve any kinks or compatibility problems, report bugs as issues with debug logs. Please note the current limitations and follow the instructions in this troubleshooting section.
+Please note the current limitations and follow the instructions in this troubleshooting section.
+
+{% note %}
+To help resolve any kinks or compatibility problems, report bugs as issues with debug logs.
+{% endnote %}
 
 ### Limitations
 
-Note that ZHA only supports connecting a single dedicated Zigbee Coordinator radio adapter or module with a single Zigbee network and that the Zigbee Coordinator cannot already be connected or used by any other application. Any devices that are or have previously been connected to another Zigbee implementation will also need to first be reset to their factory default settings before they can be paired/joined to ZHA, please see each device manufacturer's documentation.
+ZHA only supports connecting a single dedicated Zigbee Coordinator radio adapter or module with a single Zigbee network. The Zigbee Coordinator cannot already be connected or used by any other application. Devices currently or previously connected to another Zigbee implementation will need to be reset to their factory default settings before they can be paired/joined to ZHA. Refer to each device manufacturer's documentation for reset steps.
 
-Any Zigbee device can only be connected to a single Zigbee Coordinator (only one Zigbee gateway). This is a limitation in the current (as well as previous) Zigbee protocol specifications, governed by the [CSA (Connectivity Standards Alliance)](https://csa-iot.org/all-solutions/zigbee/). As such, it is a limit that applies to all Zigbee implementations, not just the ZHA implementation.
+Any Zigbee device can only be connected to a single Zigbee Coordinator (only one Zigbee gateway). This is a limitation in the Zigbee protocol specifications, governed by the [CSA (Connectivity Standards Alliance)](https://csa-iot.org/all-solutions/zigbee/), applying to all Zigbee implementations and not just the ZHA implementation.
 
 Support for commissioning Zigbee 3.0 devices via "Install Code" or "QR Code" via the `zha.permit` action has so far only been implemented for 'ezsp' (Silicon Labs EmberZNet) or 'znp' (Texas Instruments) radio type in ZHA. Other radio types are missing support in their respective [radio libraries for zigpy](https://github.com/zigpy/) or manufacturer's firmware commands/APIs.
 
-ZHA does currently not support devices that can only use the ZGP ("Zigbee Green Power") profile which is used in a few batteryless self-powered or energy harvesting devices, (such as for example; Philips Hue Click, Philips Hue Tap, and some "Friends of Hue" partnership switches).
+ZHA currently does not support devices that can only use the ZGP ("Zigbee Green Power") profile which is used in a few batteryless self-powered or energy harvesting devices, (such as for example; Philips Hue Click, Philips Hue Tap, and some "Friends of Hue" partnership switches).
 
 ZHA does not currently support devices that can only use the ZSE ("Zigbee Smart Energy") profile, that is however due to the "Zigbee SE" specification not being part of the standard Zigbee 3.0 specification and thus not implemented in most of the Zigbee protocol stacks that are commonly available Zigbee Coordinator radio adapters and modules.
 
