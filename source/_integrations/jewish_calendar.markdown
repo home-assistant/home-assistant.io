@@ -86,6 +86,8 @@ Time sensor states are represented as ISO8601 formatted *UTC time*.
 
 The holiday sensor includes 2 attributes: *type*, and *id*.
 
+The *id* is useful for automations so they're not language-dependent.
+
 On Rosh Chodesh Tevet, which always falls on Chanukah, the sensor will report both values: "Rosh Chodesh, Chanukah".
 
 In Israel, on the 30th of Shvat, the sensor will report: "Rosh Chodesh, Family day". On the 22nd of Tishrei it will report: "Shmini Atzeret, Simchat Torah".
