@@ -40,7 +40,6 @@ There are currently two options to run speech-to-text locally: **Speech-to-Phras
 [Speech-to-Phrase](https://github.com/OHF-voice/speech-to-phrase) is a close-ended speech model. 
 
 - It transcribes what it knows.
-
 - Extremely fast transcription even on a Home Assistant Green or Raspberry Pi 4 (under one second).
 - Only supports a subset of Assist’s voice commands.
    - More open-ended items such as shopping lists, naming a timer, and broadcasts are *not* usable out of the box.
