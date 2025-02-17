@@ -142,7 +142,7 @@ Serial protocols used by the Zigbee Coordinator do not have enough robustness, r
 A Zigbee Coordinator requires a stable local connection to its serial port interface with no drops in communication between it and the Zigbee gateway application running on the host computer.
 {% endcaution %}
 
-## Configuration Requirements
+## Configuration requirements
 
 Be sure to connect a compatible radio module and restart Home Assistant before proceeding with configuration.
 
