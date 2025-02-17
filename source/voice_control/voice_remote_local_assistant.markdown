@@ -113,7 +113,7 @@ Also be sure to check the specific tutorial for [using Piper in Automations](voi
 
 ## Learning more about Speech-to-Phrase philosophy
 
-You can check out [Voice Chapter 9](/blog/2025/02/13/voice-chapter-9-speech-to-phrase/) to learn more about why we introduced Speech-to-Phrase. And why it's a great option for home control.
+You can check out [Voice Chapter 9](/blog/2025/02/13/voice-chapter-9-speech-to-phrase/) to learn more about why we introduced Speech-to-Phrase, and why it's a great option for home control.
 
 <lite-youtube videoid="k6VvzDSI8RU" videotitle="Voice Chapter 9"></lite-youtube>
 
