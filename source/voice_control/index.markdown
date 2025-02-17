@@ -25,6 +25,10 @@ As for the rest of Home Assistant core functionalities, Assist can be personaliz
 - It can work locally or leverage the greatest LLMs of the moment.
 - It can work on your phone or tablet or other custom voice devices.
 
+The simplest way to try out Assist is side our companion app. We have dedicated pages to guide you on both [Android](/voice_control/android/) and [iOS](/voice_control/apple/).
+The simplest way to get started with Assist is with our recommended voice assistant hardware, the [Home Assistant Voice Preview Edition](/voice-pe/).
+
+
 <lite-youtube videoid="XF53wUbeLxA" videotitle="Voice at Home Assistant"></lite-youtube>
 
 ## Getting Started
