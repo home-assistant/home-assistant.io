@@ -154,6 +154,16 @@ light:
         required: false
         type: template
         default: optimistic
+      min_color_temp_kelvin_template:
+        description: Defines a template to get the min kelvin value of the light.
+        required: false
+        type: template
+        default: optimistic
+      max_color_temp_kelvin_template:
+        description: Defines a template to get the max kelvin value of the light.
+        required: false
+        type: template
+        default: optimistic
       icon_template:
         description: Defines a template for an icon or picture, e.g.,  showing a different icon for different states.
         required: false
@@ -179,6 +189,11 @@ light:
         description: Defines an action to run when the light is given a color temperature command. Receives variable `color_temp`. May also receive variables `brightness` and/or `transition`.
         required: false
         type: action
+      color_temp_kelvin:
+        description: Controls whether the `color_temp` variable passed to the `set_temperature` template and received from the `temperature` template is in Kelvin, or mireds.
+        required: false
+        type: boolean
+        default: false
       set_hs:
         description: "Defines an action to run when the light is given a hs color command. Available variables: `hs` as a tuple, `h` and `s`"
         required: false
