@@ -310,6 +310,7 @@ The following models have been tested and confirmed to work with a direct link t
 - C2 Pro*
 - [CX410](https://reolink.com/product/cx410/)
 - [CX810](https://reolink.com/product/cx810/)
+- [E1 Pro](https://reolink.com/product/e1-pro/) (only hardware version IPC_NT1NA45MP)
 - [E1 Zoom](https://reolink.com/product/e1-zoom/)
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
@@ -386,7 +387,7 @@ Reolink provides [this larger list of battery camera models](https://support.reo
 The following models are lacking the HTTP web server API and can, therefore, not work directly with this integration.
 However, these cameras can work with this integration through an NVR or Home Hub in which the NVR/Home Hub is connected to Home Assistant.
 
-- E1 Pro
+- E1 Pro (The IPC_NT1NA45MP hardware version also works with a direct connection)
 - E1
 - Reolink Lumus
 - B400*
