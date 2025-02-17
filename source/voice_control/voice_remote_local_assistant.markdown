@@ -36,7 +36,7 @@ There are speech-to-text and text-to-speech options that run entirely local. No 
 
 There are currently two options to run speech-to-text locally: **Speech-to-Phrase** and **Whisper**.
 
-**Speech-to-Phrase**:
+#### Speech-to-Phrase
 [Speech-to-Phrase](https://github.com/OHF-voice/speech-to-phrase) is a close-ended speech model. 
 
 - It transcribes what it knows.
@@ -46,7 +46,7 @@ There are currently two options to run speech-to-text locally: **Speech-to-Phras
    - Speech-to-Phrase supports [various languages](https://github.com/OHF-voice/speech-to-phrase?tab=readme-ov-file#supported-languages).
 - These qualities make it a great option for Home control!
 
-**Whisper**
+#### Whisper
 
 [Whisper](https://github.com/openai/whisper) is an open-ended speech model.
 
