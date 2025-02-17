@@ -28,7 +28,7 @@ The configuration uses `client_id` and `client_secret` provided to Home Assistan
 
 ## Supported functionality
 
-The integration provides `sensor` entities with account balances, billing and hour of free power start and end time. It also provides a `select` entity to change the hour of free power.
+The integration provides `sensor` entities with account balances, billing, and hour of free power start and end time. It also provides a `select` entity to change the hour of free power.
 
 ## Use cases
 
