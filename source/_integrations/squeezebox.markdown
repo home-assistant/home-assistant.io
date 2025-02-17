@@ -7,9 +7,9 @@ ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: squeezebox
 ha_codeowners:
-  - '@rajlaud'
-  - '@pssc'
-  - '@peteS-UK'
+  - "@rajlaud"
+  - "@pssc"
+  - "@peteS-UK"
 ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
@@ -60,6 +60,68 @@ Browse limit:
 Volume step:  
  description: Amount to adjust the volume when turning volume up or down.  
 {% endconfiguration_basic %}
+
+## Announce
+
+The Squeezebox media player entity supports the "announce" parameter. When media is played with announce:true, the current state of the media player is saved, the media is then played, and when playing is finished, the original state is restored. For example, if the media player is on and playing a track, once the announcement is finished, the track will resume playing at the same point it was paused by the announcement. If the media player was off, it will be turned off again after playing the announcement.
+
+### Extra Keys
+
+The following extra keys are available to modify the announcement
+
+| Data attribute     | Optional | Description                                                                                               |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------------------- |
+| `announce_volume`  | yes      | Specify the volume of the announcement                                                                    |
+| `announce_timeout` | yes      | Specify the maximum length of the announcement in seconds after which the original media will be resumed. |
+
+### Examples:
+
+Playing a local file as an announcement:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.squeezebox
+data:
+  media_content_type: music
+  media_content_id: media-source://media_source/local/doorbell.mp3
+  announce: true
+```
+
+Playing a local file as an announcement with volume of 20 and timeout of 60 seconds:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.squeezebox
+data:
+  media_content_type: music
+  media_content_id: media-source://media_source/local/doorbell.mp3
+  announce: true
+  extra:
+    announce_volume: 20
+    announce_timeout: 60
+```
+
+### Announcements and Text to Speech (TTS)
+
+When using the "Text-to-Speech (TTS): Speak" action, Home Assistant automatically sets the announce parameter as true, and the announcement features, such as pausing current playback, will be used.
+
+However,
+
+#### Example
+
+Play announcement using Text-to-Speech (TTS) action
+
+```yaml
+action: tts.speak
+data:
+  media_player_entity_id: media_player.squeezebox
+  message: There's someone at the door
+  cache: false
+target:
+  entity_id: tts.google_translate_en_co_uk
+```
 
 ## Entities
 
