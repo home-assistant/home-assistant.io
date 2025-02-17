@@ -107,7 +107,7 @@ Update a to-do item. A to-do list `target` is selected with a [Target Selector](
 
 | Data attribute | Optional | Description                                                       | Example                                                      |
 | -------------- | -------- | ----------------------------------------------------------------- | ------------------------------------------------------------ |
-| `item`         | no       | The name and summary of the to-do item to update.                 | Submit income tax return                                     |
+| `item`         | no       | The name/summary of the to-do item to update.                     | Submit income tax return                                     |
 | `rename`       | yes      | The new name of the to-do item.                                   | Something else                                               |
 | `status`       | yes      | The overall status of the to-do item.                             | `needs_action` or `completed`                                |
 | `due_date`     | yes      | The date the to-do item is expected to be completed.              | 2024-04-10                                                   |
