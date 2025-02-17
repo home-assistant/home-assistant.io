@@ -142,13 +142,11 @@ Serial protocols used by the Zigbee Coordinator do not have enough robustness, r
 A Zigbee Coordinator requires a stable local connection to its serial port interface with no drops in communication between it and the Zigbee gateway application running on the host computer.
 {% endcaution %}
 
-## Configuration - GUI
+## Configuration requirements
 
-Connect your radio module and restart Home Assistant.
+Be sure to connect a compatible radio module and restart Home Assistant before proceeding with configuration.
 
-From the Home Assistant front page go to **Configuration** and then select **Integrations** from the list.
-
-Use the plus button in the bottom right to add a new {% term integration %} called **ZHA**.
+{% include integrations/config_flow.md %}
 
 In the popup:
 
@@ -255,7 +253,7 @@ Group members assume state of group:
   description: "When using ZHA groups, turning on a ZHA group light makes the ZHA group members optimistically change their state to \"on\", instead of waiting and polling the lights when off. _(default: on)_"
 {% endconfiguration_basic %}
 
-## Configuration - YAML
+### Configuration - YAML
 
 For more advanced configuration, you can modify {% term "`configuration.yaml`" %} and restart Home Assistant
 
@@ -275,13 +273,13 @@ custom_quirks_path:
   type: string
 {% endconfiguration %}
 
-### Advanced OTA configuration
+#### Advanced OTA configuration
 
 OTA for a few manufacturers is enabled by default, currently Ledvance, Sonoff, Inovelli, and ThirdReality. Other manufacturers are supported but disabled by default because their updates may change or remove device functionality, may require you to reconfigure devices, or are contributed by the community and may be minimally tested.
 
 Refer to the [zigpy documentation for OTA configuration](https://github.com/zigpy/zigpy/wiki/OTA-Configuration) for more information on additional OTA providers.
 
-### Defining Zigbee channel to use
+#### Defining Zigbee channel to use
 
 Tip! Before considering to change to an other Zigbee channel on an existing Zigbee network, it is highly recommended that you read through the two segments under the [troubleshooting](#troubleshooting) section below about "*Best practices to avoid pairing/connection difficulties*" and "*Zigbee interference avoidance and network range/coverage optimization*". These sections provide prerequisite information and advice on how to achieve the best possible Zigbee network in your environment.
 
@@ -304,7 +302,7 @@ The Zigbee specification standards divide the 2.4&nbsp;GHz ISM radio band into 1
 
 The general recommendation is to only use channels 15, 20, or 25 in order to avoid interoperability problems with Zigbee devices. Not only because there is less chance of Wi-Fi networks interfering too much with the Zigbee network on other channels, but also because not all Zigbee devices support all channels. Some devices, for example, are limited to only being compatible with ZLL (Zigbee Light Link) channels. It is therefore especially not recommended to use Zigbee channels 11, 24, 25, or 26 on your Zigbee coordinator. These Zigbee channels are commonly only supported by relatively modern Zigbee hardware devices with newer Zigbee firmware. If using those channels, your coordinator may not be usable with older Zigbee devices.
 
-### Modifying the device type
+#### Modifying the device type
 
 As not all device manufacturers follow the Zigbee standard, at times a device can be incorrectly classified. For example, a switch could be classified as a light.
 
