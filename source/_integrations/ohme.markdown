@@ -65,7 +65,7 @@ The Ohme integration provides the following entities.
   - **Description**: Sets the charge target for your vehicle.
   - **Available for devices**: all
 - **Preconditioning duration**
-  - **Description**: Sets the length of time to precondition your vehicle before the target time. 0 is disabled.
+  - **Description**: Defines how long to precondition your vehicle before the target time. `0` means preconditioning is disabled.
   - **Available for devices**: all
 
 #### Selects
