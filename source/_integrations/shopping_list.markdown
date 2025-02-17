@@ -107,3 +107,12 @@ actions:
 ```
 
 {% endraw %}
+
+You can also trigger an automation when a `shopping_list_updated` event was triggered by any of the following actions:
+
+- `clear`: A completed item was cleared from the list.
+- `sorted`: The items in the list were sorted by name.
+- `reorder`: An item has been reordered in the list.
+- `update_list`: All items have been updated.
+
+In these cases, the event does not return a list item.
