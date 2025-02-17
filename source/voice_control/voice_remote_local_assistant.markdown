@@ -43,7 +43,7 @@ There are currently two options to run speech-to-text locally: **Speech-to-Phras
 - Extremely fast transcription even on a Home Assistant Green or Raspberry Pi 4 (under one second).
 - Only supports a subset of Assist’s voice commands.
    - More open-ended items such as shopping lists, naming a timer, and broadcasts are *not* usable out of the box.
-   - Speech-to-Phrase supports [various languages](https://github.com/OHF-voice/speech-to-phrase?tab=readme-ov-file#supported-languages).
+- Speech-to-Phrase supports [various languages](https://github.com/OHF-voice/speech-to-phrase?tab=readme-ov-file#supported-languages).
 - These qualities make it a great option for Home control!
 
 #### Whisper
