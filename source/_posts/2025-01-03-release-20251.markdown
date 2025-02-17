@@ -72,6 +72,7 @@ Enjoy the release!
   - [2025.1.1 - January 7](#202511---january-7)
   - [2025.1.2 - January 9](#202512---january-9)
   - [2025.1.3 - January 20](#202513---january-20)
+  - [2025.1.4 - January 24](#202514---january-24)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -837,6 +838,46 @@ release every Friday.
 [@joostlek]: https://github.com/joostlek
 [@kgraefe]: https://github.com/kgraefe
 [@synesthesiam]: https://github.com/synesthesiam
+
+### 2025.1.4 - January 24
+
+- Update Hydrawise maximum watering duration to meet the app limits ([@mattdoran] - [#136050])
+- Bump holidays to 0.65 ([@gjohansson-ST] - [#136122])
+- Handle width and height placeholders in the thumbnail URL ([@Makrit] - [#136227])
+- Fix slave id equal to 0 ([@crug80] - [#136263])
+- Handle LinkPlay devices with no mac ([@silamon] - [#136272])
+- Fallback to None for literal "Blank" serial number for APCUPSD integration ([@yuxincs] - [#136297])
+- Update peblar to v0.4.0 ([@frenck] - [#136329])
+- Avoid keyerror on incomplete api data in myuplink ([@astrandb] - [#136333])
+- Update frontend to 20250109.1 ([@piitaya] - [#136339])
+- Update frontend to 20250109.2 ([@piitaya] - [#136348])
+- Bump aiowithings to 3.1.5 ([@joostlek] - [#136350])
+- Bump powerfox to v1.2.1 ([@klaasnicolaas] - [#136366])
+
+[#136050]: https://github.com/home-assistant/core/pull/136050
+[#136122]: https://github.com/home-assistant/core/pull/136122
+[#136227]: https://github.com/home-assistant/core/pull/136227
+[#136263]: https://github.com/home-assistant/core/pull/136263
+[#136272]: https://github.com/home-assistant/core/pull/136272
+[#136297]: https://github.com/home-assistant/core/pull/136297
+[#136329]: https://github.com/home-assistant/core/pull/136329
+[#136333]: https://github.com/home-assistant/core/pull/136333
+[#136339]: https://github.com/home-assistant/core/pull/136339
+[#136348]: https://github.com/home-assistant/core/pull/136348
+[#136350]: https://github.com/home-assistant/core/pull/136350
+[#136366]: https://github.com/home-assistant/core/pull/136366
+[@Makrit]: https://github.com/Makrit
+[@astrandb]: https://github.com/astrandb
+[@bramkragten]: https://github.com/bramkragten
+[@crug80]: https://github.com/crug80
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@mattdoran]: https://github.com/mattdoran
+[@piitaya]: https://github.com/piitaya
+[@silamon]: https://github.com/silamon
+[@yuxincs]: https://github.com/yuxincs
 
 ## Need help? Join the community!
 

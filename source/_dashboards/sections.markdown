@@ -35,6 +35,7 @@ You can group cards without using horizontal or vertical stack cards.
 3. Under **Max number of sections wide**, select the maximum number of columns you want to see in the new sections view.
 4. Under **Dense section placement**, select if you want to allow the cards to be arranged automatically in order to fill gaps between cards.
    - This will remove some gaps, but it also means you have less control over the order of the cards.
+   - Note that this only applies to horizontal gaps if you used sections more than one column wide.
 5. When you are done, select **Save**.
    - You are now presented with a new, empty view.
    - If you chose a background image, the page is filled with that image.
