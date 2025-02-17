@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Squeezebox integration allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem.  Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
+The Squeezebox integration allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem. Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
 
 This integration connects to an existing <abbr title="Lyrion Music Server">LMS</abbr> server and provides both media players and sensors for monitoring server status.
 
@@ -52,12 +52,21 @@ transporter_toslink:
         media_content_type: "music"
 ```
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}  
+Browse limit:  
+ description: Maximum number of items to include when browsing media or in a playlist.
+Volume step:  
+ description: Amount to adjust the volume when turning volume up or down.  
+{% endconfiguration_basic %}
+
 ## Entities
 
 ### Binary sensors
 
-- **Needs restart**:  Server Service needs to be restarted (typically, this is needed to apply updates).
-- **Library rescan**:  The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
+- **Needs restart**: Server Service needs to be restarted (typically, this is needed to apply updates).
+- **Library rescan**: The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
 
 ### Sensors
 
@@ -78,11 +87,11 @@ Call a custom Squeezebox JSON-RPC API.
 
 See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Lyrion Music Server.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Squeezebox entities where to run the API method.
-| `command` | no | Command to pass to Lyrion Music Server (p0 in the CLI documentation).
-| `parameters` | yes | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation).
+| Data attribute | Optional | Description                                                                                           |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------- |
+| `entity_id`    | no       | Name(s) of the Squeezebox entities where to run the API method.                                       |
+| `command`      | no       | Command to pass to Lyrion Music Server (p0 in the CLI documentation).                                 |
+| `parameters`   | yes      | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation). |
 
 This action can be used to integrate any Squeezebox action to an automation.
 
@@ -92,7 +101,7 @@ For example, to play an album from your collection, create an IFTTT applet like 
 
 - Trigger: Google Assistant, with sentence: `I want to listen to album $`
 - Action: JSON post query with such JSON body:
-`{ "entity_id": "media_player.squeezebox_radio", "command": "playlist", "parameters": ["loadtracks", "album.titlesearch={{TextField}}"] }`
+  `{ "entity_id": "media_player.squeezebox_radio", "command": "playlist", "parameters": ["loadtracks", "album.titlesearch={{TextField}}"] }`
 
 This can work with title search and basically any thing. The same wouldn't have worked by calling directly Squeezebox server as IFTTT cannot escape the text field.
 
@@ -102,11 +111,11 @@ Call a custom Squeezebox JSON-RPC API. The result of the query will be stored in
 
 See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Lyrion Music Server.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Squeezebox entities where to run the API method.
-| `command` | no | Command to pass to Lyrion Music Server (p0 in the CLI documentation).
-| `parameters` | yes | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation).
+| Data attribute | Optional | Description                                                                                           |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------- |
+| `entity_id`    | no       | Name(s) of the Squeezebox entities where to run the API method.                                       |
+| `command`      | no       | Command to pass to Lyrion Music Server (p0 in the CLI documentation).                                 |
+| `parameters`   | yes      | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation). |
 
 This action can be used to integrate a Squeezebox query into an automation. For example, in a Python script, you can get a list of albums available by an artist like this:
 `hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`
