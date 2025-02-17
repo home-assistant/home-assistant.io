@@ -226,7 +226,15 @@ Additional devices in the [Known working Zigbee radio modules](#known-working-zi
 
 The ZHA integration has the ability to perform OTA (over-the-air) firmware updates of Zigbee devices. This feature is enabled by default. As it uses standard [Update](/integrations/update/) entities in Home Assistant, users will get a UI notification if and when an OTA firmware update is available for a specific device, with an option to initiate the update or ignore that specific update for the device.
 
-To see OTA updates for a device, it's required that it both supports OTA updates and that firmware images for the device are publicly provided by the manufacturer. For this reason, ZHA currently only includes OTA providers for a few manufacturers that provide these updates publicly. This includes IKEA, Inovelli, Ledvacnce/OSRAM, SALUS/Computime, Sonoff/iTead, and Third Reality.
+To see OTA updates for a device, it must support OTA updates and firmware images for the device must be publicly provided by the manufacturer. ZHA currently only includes OTA providers for a few manufacturers that provide these updates publicly.
+
+**Included manufacturers:**
+- IKEA
+- Inovelli
+- Ledvacnce/OSRAM
+- SALUS/Computime
+- Sonoff/iTead
+- Third Reality
 
 {% warning %}
 Before updating a device, you should search for any disadvantages or if you even need to install an available update. Some firmware updates can break features you might use (e.g. group binding for IKEA devices). Some updates might also require changes to ZHA. In rare cases, you can even brick devices by installing a firmware update.
@@ -397,7 +405,7 @@ Tip! It is highly recommended that you read through the two segments under the t
 
 ### Using router devices to add more devices
 
-Most mains-powered devices, e.g., many always-powered wall plugs or light bulbs in your Zigbee network will automatically act as a Zigbee router device (sometimes also referred to as a Zigbee "signal repeater" or "range extender"). 
+Most mains-powered devices, e.g., many always-powered wall plugs or light bulbs in your Zigbee network will automatically act as a Zigbee router device (sometimes also referred to as a Zigbee "signal repeater" or "range extender").
 
 Because Zigbee should use a [wireless mesh network](https://en.wikipedia.org/wiki/Wireless_mesh_network) to be effective, you will need to add Zigbee router devices to increase the number of Zigbee devices that can be used in your Zigbee network, both in the total number of devices that can be added as well as the total range and coverage of the network. Some Zigbee router devices do a much better job at routing and repeating Zigbee signals and messages than some other devices. You should not have a setup where Zigbee router devices (e.g. light bulbs) are often powered-off.  Zigbee router devices are meant to be always available.
 
@@ -467,7 +475,7 @@ Follow this guide if you have a Zigbee Home Assistant (ZHA) network running and 
     - Select **Submit**.
 6. **Unplug your old radio** will inform you that your old Zigbee coordinator radio has been reset and that you can now plug in your new Zigbee coordinator radio adapter.
     - To avoid interference, use a USB extension cable.
-    - Use a USB 2.0 port or a powered USB 2.0 hub and keep the Zigbee stick away from USB 3.0 devices. 
+    - Use a USB 2.0 port or a powered USB 2.0 hub and keep the Zigbee stick away from USB 3.0 devices.
     - You may now also choose to either unplug your old Zigbee coordinator radio adapter or keep your old radio plugged in.
     - If that radio was a combined Z-Wave and Zigbee radio, like the HUSBZB-1 adapter, then only the Zigbee radio part of it was reset. Confirm that the Zigbee Coordinator radio adapter is properly connected and select **Submit**.
 7. You now need to start the backup restore process.
@@ -489,7 +497,7 @@ The migration process is complete. However, be aware that you will not be able t
 
 To help resolve any kinks or compatibility problems, report bugs as issues with debug logs. Please note the current limitations and follow the instructions in this troubleshooting section.
 
-### Limitations 
+### Limitations
 
 Note that ZHA only supports connecting a single dedicated Zigbee Coordinator radio adapter or module with a single Zigbee network and that the Zigbee Coordinator cannot already be connected or used by any other application. Any devices that are or have previously been connected to another Zigbee implementation will also need to first be reset to their factory default settings before they can be paired/joined to ZHA, please see each device manufacturer's documentation.
 
@@ -514,7 +522,8 @@ Tip to new Zigbee users: Checkout [blakadder's unofficial Zigbee Device Compatib
 
 ### How to add support for new and unsupported devices
 
-If your Zigbee device pairs/joins successfully with the ZHA {% term integration %} but does not show all of the expected entities: 
+If your Zigbee device pairs/joins successfully with the ZHA {% term integration %} but does not show all of the expected entities:
+
 1. Try to re-pair/re-join the device several times.
 2. Checkout the troubleshooting section.
 3. Still not working? You may need a custom device handler. This handler will have exception handling code to work around device-specific issues.
@@ -523,13 +532,14 @@ For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Clu
 
 People familiar with other Zigbee gateway solutions for home automation may know similar concepts of using custom Zigbee device handlers/converters for non-standard devices. For example, [Zigbee2MQTT (and IoBroker) uses zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html) and [SmartThings Classics (Legacy) platform has Hub Connected Device Handlers](https://developer.smartthings.com/docs/devices/hub-connected/legacy).
 
-If you do not want to develop such a "quirk" Python script yourself, you can submit a "device support request" as a new issue to the [ZHA Device Handlers project repository on GitHub](https://github.com/zigpy/zha-device-handlers/issues): 
-1. Sign in to GitHub.
-2. Select **New issue** and follow the instructions. 
-  - New device support requests require the device signature + diagnostic information. 
-  - You may also need to actively help in further testing or provide additional information to the volunteering developers. 
+If you do not want to develop such a "quirk" Python script yourself, you can submit a "device support request" as a new issue to the [ZHA Device Handlers project repository on GitHub](https://github.com/zigpy/zha-device-handlers/issues):
 
-Note that submitting a new "device support request" does not guarantee that someone else will develop a custom "quirk" for ZHA. The project relies on volunteering developers. However, without "device support requests", the developers may not be aware that your specific Zigbee device is not working correctly in ZHA. 
+1. Sign in to GitHub.
+2. Select **New issue** and follow the instructions.
+  - New device support requests require the device signature + diagnostic information.
+  - You may also need to actively help in further testing or provide additional information to the volunteering developers.
+
+Note that submitting a new "device support request" does not guarantee that someone else will develop a custom "quirk" for ZHA. The project relies on volunteering developers. However, without "device support requests", the developers may not be aware that your specific Zigbee device is not working correctly in ZHA.
 
 ### Best practices to avoid pairing/connection difficulties
 
@@ -569,13 +579,13 @@ Common root causes of unreliable performance are often seen with outdated Zigbee
 
 - Update to a later version of Zigbee Coordinator firmware on the existing radio adapter.
   - Most manufacturers usually provide straightforward guides for updating the firmware.
-  
+
 - Try different physical placement and orientations of the Zigbee Coordinator and its antenna.
   - Optimal placement of the Zigbee adapter is close to the middle of the house as possible.
   - Try placing Zigbee Coordinator at some distance away from walls, ceilings, and floors.
   - Try different orientations of the Zigbee Coordinator adapter or its antenna.
 
-While using an older Zigbee Coordinator radio adapter hardware might work, using obsolete hardware and/or old firmware can prevent reliable operation. It is also generally a good idea to upgrade Zigbee Coordinator firmware before troubleshooting any further if and when run into problems with devices. 
+While using an older Zigbee Coordinator radio adapter hardware might work, using obsolete hardware and/or old firmware can prevent reliable operation. It is also generally a good idea to upgrade Zigbee Coordinator firmware before troubleshooting any further if and when run into problems with devices.
 
 #### Actions to avoid or workaround EMI/EMF/RMI interference
 
@@ -587,7 +597,7 @@ Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to al
   - Extension cables also makes it easier to try different orientations of the adapter/antenna.
 
 - Avoid USB 3.0 ports/computers/peripherals as they are known culprits of RFI/EMI/EMF disruption. (See Ref. [1](https://www.usb.org/sites/default/files/327216.pdf) and [2](https://www.unit3compliance.co.uk/2-4ghz-intra-system-or-self-platform-interference-demonstration/)).
-  - Make sure to only connect the Zigbee USB adapter to a USB 2.0 port (and not to a USB 3.x port). 
+  - Make sure to only connect the Zigbee USB adapter to a USB 2.0 port (and not to a USB 3.x port).
   - If a computer only has USB 3.x ports then buy and connect Zigbee Coordinator via a powered USB 2.0 hub.
 
 - Shield any unshielded computers/peripherals/devices by adding all-metal enclosures/chassis/casings.
