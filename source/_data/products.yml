@@ -175,6 +175,12 @@ yellow:
       ship_to: Asia
       url: https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html
       logo: /images/distributors/seeed-studio.webp
+      # Australia
+    - name: Smart Guys
+      ship_from: Australia
+      ship_to: Australia
+      url: https://smartguys.com.au/product/home-assistant-yellow-smart-hub/
+      logo: /images/distributors/smart-guys.webp
       # Europe
     - name: Botland
       ship_from: Poland
