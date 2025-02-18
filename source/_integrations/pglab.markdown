@@ -3,6 +3,7 @@ title: PG LAB Electronics
 description: Instructions on how to integrate PG LAB Electronics with Home Assistant.
 ha_category:
   - Switch
+  - Sensor
 ha_release: "2025.3"
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: pglab
 ha_platforms:
   - switch
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -49,9 +51,10 @@ Configure each PG LAB Electronics devices following these steps:
 
 ## Supported features
 
-PG LAB Electronics relays, shutters, and switches are supported.
+PG LAB Electronics relays, sensors, and switches are supported.
 
 - PG LAB Relays will be added as Home Assistant `switch` entities.
+- PG LAB Sensors will be added as Home Assistant `sensor` entities.
 - The integration will also create diagnostic status sensors, with device different information.
 
 ## Removing the integration
