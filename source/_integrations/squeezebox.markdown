@@ -63,7 +63,7 @@ Volume step:
 
 ## Announce
 
-The Squeezebox media player entity supports the "announce" parameter. When media is played with announce:true, the current state of the media player is saved, the media is then played, and when playing is finished, the original state is restored. For example, if the media player is on and playing a track, once the announcement is finished, the track will resume playing at the same point it was paused by the announcement. If the media player was off, it will be turned off again after playing the announcement.
+The Squeezebox media player entity supports the "announce" parameter in the `media_player.play_media` action. When media is played with announce:true, the current state of the media player is saved, the media is then played, and when playing is finished, the original state is restored. For example, if the media player is on and playing a track, once the announcement is finished, the track will resume playing at the same point it was paused by the announcement. If the media player was off, it will be turned off again after playing the announcement.
 
 ### Extra Keys
 
