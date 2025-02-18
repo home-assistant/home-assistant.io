@@ -11,7 +11,9 @@ ha_codeowners:
 ha_domain: homee
 ha_platforms:
   - cover
+  - light
   - sensor
+  - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -21,6 +23,7 @@ ha_quality_scale: bronze
 There is currently support for the following device types in Home Assistant:
 
 - cover
+- light
 - sensor
 - switch
 
