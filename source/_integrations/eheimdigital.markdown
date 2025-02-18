@@ -3,6 +3,7 @@ title: EHEIM Digital
 description: Instructions on how to set up EHEIM Digital with Home Assistant.
 ha_category:
   - Climate
+  - Fan
   - Light
 ha_release: 2025.1
 ha_iot_class: Local Polling
@@ -13,6 +14,7 @@ ha_domain: eheimdigital
 ha_integration_type: hub
 ha_platforms:
   - climate
+  - fan
   - light
 ha_quality_scale: bronze
 ha_zeroconf: true
@@ -51,8 +53,8 @@ Currently, the following devices and entities are supported:
 
 #### Fan
 
-- **Pump speed**: Controlling the pump speed of the aquarium filter
-- **Presets / Filter mode**: Switching to the Bio and Pulse mode
+- **Pump speed**: Controlling the manual pump speed of the aquarium filter, which also switches to the Manual mode
+- **Presets / Filter mode**: Switching to the Bio and Pulse modes
 
 Support for additional EHEIM Digital devices and entities will be added in future updates.
 
