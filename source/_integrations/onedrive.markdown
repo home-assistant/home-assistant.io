@@ -78,6 +78,59 @@ There is no risk of different applications mixing in that `Graph` folder, if you
 
 You should be able to manually rename the folder to something else, without the integration breaking.
 
+## Sensors
+
+The integration provides the following sensors, which are updated every 5 minutes:
+
+- **Total available storage**: The total size of your drive (disabled by default)
+- **Used storage**: The amount of storage you have used up
+- **Remaining storage**: The amount of storage that is left in your drive
+- **Drive state**: Calculated state of your drive, based on the storage left. Possible values: `Normal`, `Nearing limit`, `Critical`, `Exceeded`
+
+{% note %}
+A drive that is in **Drive state** `Exceeded` will be automatically frozen (meaning you can't upload any more backups & files), until you clear up enough storage.
+{% endnote %}
+
+## Automations
+
+Get started with these automation examples.
+
+### Send alert when drive is near storage limit
+
+Send an alert when the drive usage is close to the storage limit and needs cleanup.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: Alert when OneDrive is close to storage limit
+description: Send notification to phone when drive needs cleanup.
+triggers:
+  - trigger: state
+    entity_id:
+      - sensor.my_drive_drive_state
+    from: "normal"
+    to: "nearing"
+  - trigger: state
+    entity_id:
+      - sensor.my_drive_drive_state
+    from: "nearing"
+    to: "critical"
+actions:
+  - action: notify.mobile_app_iphone
+    data:
+      title: OneDrive is almost full!
+      message: >
+        OneDrive has used up {{ states('sensor.my_drive_used_storage') }} of {{
+        states('sensor.my_drive_total_available') }}GB.  Only {{ states('sensor.my_drive_remaining_storage') }}GB remaining.
+mode: single
+```
+
+{% endraw %}
+{% enddetails %}
+
+
 ## Known limitations
 
 - Only personal OneDrives are supported at the moment.

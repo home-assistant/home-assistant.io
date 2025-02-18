@@ -36,7 +36,7 @@ The Synology DSM integration provides access to various statistics from your [Sy
 {% warning %}
 This sensor will wake up your Synology NAS if it's in hibernation mode.
 
-You can change the scan interval within the configuration options (default is 15 min).
+The default polling interval is 15 minutes. You can also [define a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval) if needed.
 
 Having cameras or the Home mode toggle from [Surveillance Station](https://www.synology.com/en-us/surveillance) will fetch every 30 seconds. Disable those entities if you don't want your NAS to be fetched as frequently.
 {% endwarning %}
