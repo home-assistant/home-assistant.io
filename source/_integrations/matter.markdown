@@ -401,8 +401,8 @@ This button will only be visible within the Home Assistant Companion App (so not
 6. If you only just installed or updated the Home Assistant Companion app:
    - Wait.
    - It can take a while before the required components are installed in the background. - Try again after 1 hour to ensure the installation is complete.
-7. If the error persists, uninstall and reinstall the Home Assistant Companion app.
-8. Some users have reported that uninstalling and reinstalling the Google Home app fixed this issue for them.
+7. If the error persists, reinstall the Home Assistant Companion app.
+8. Some users have reported that reinstalling the Google Home app fixed this issue for them.
 9. For more information, refer to the [extended troubleshooting guide](https://developers.home.google.com/matter/verify-services) from Google.
 
 ### Unable to commission devices, it keeps giving errors or stops working randomly
