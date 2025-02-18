@@ -49,7 +49,7 @@ The integration can be configured through the UI by going to **Settings** > **De
 During setup you will need to provide:
 
 1. Gaposa API key for cloud service access
-2. Your username and password for ther RollApp app
+2. Your username and password for the RollApp app
 
 Use the RollApp app first to set up and name your devices. The Home Assistant integration will pull the device list and names from the app. If you make changes to the device list or device names in the mobile application you will need to restart the Gaposa integration to pick these up.
 
