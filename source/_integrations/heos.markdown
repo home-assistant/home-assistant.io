@@ -80,9 +80,24 @@ This integration follows standard integration removal. No extra steps are requir
 1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
 2. Select **Denon HEOS**. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Delete**.
 
-## Playing media
+## Actions
 
-### Play a favorite
+The HEOS integration makes available the following actions in addition to the standard [Media Player actions](/integrations/media_player#actions).
+
+### Action `media_player.group_volume_set`
+
+Sets the group's volume while preserving member volume ratios. This action can be called on any entity in a group.
+
+| Data attribute | Optional | Description                                      |
+|------------------------|----------|------------------------------------------------------------------|
+| `entity_id`            |      yes | A media player entity that is joined to a group                  |
+| `volume_level`         |       no | The volume level, where 0 is inaudible, 1 is the maximum volume. |
+
+## Examples
+
+### Playing media
+
+#### Play a favorite
 
 You can play a HEOS favorite by number or name with the `media_player.play_media` action. Example action data payload:
 
@@ -100,7 +115,7 @@ data:
 | `media_content_type`   | no       | Set to the value `favorite`                                         |
 | `media_content_id`     | no       | (e.g., `1`) or name (e.g., `Thumbprint Radio`) of the HEOS favorite |
 
-### Play a playlist
+#### Play a playlist
 
 You can play a HEOS playlist with the `media_player.play_media` action. Example action data payload:
 
@@ -118,7 +133,7 @@ data:
 | `media_content_type`   | no       | Set to the value `playlist`   |
 | `media_content_id`     | no       | The name of the HEOS playlist |
 
-### Play a Quick Select
+#### Play a Quick Select
 
 You can play a HEOS Quick Select by number or name with the `media_player.play_media` action. Example action data payload:
 
@@ -136,7 +151,7 @@ data:
 | `media_content_type`   | no       | Set to the value `quick_select`                                      |
 | `media_content_id`     | no       | The quick select number (e.g., `1`) or name (e.g., `Quick Select 1`) |
 
-### Play a URL
+#### Play a URL
 
 You can play a URL through a HEOS media player using the `media_player.play_media` action. The HEOS player must be able to reach the URL.
 
@@ -160,9 +175,9 @@ data:
 | `media_content_type`   | no       | Set to the value `url`                           |
 | `media_content_id`     | no       | The full URL to the stream (max 255 characters)  |
 
-## Grouping players
+### Grouping players
 
-### Join
+#### Join
 
 To group HEOS media players together for synchronous playback, use the `media_player.join` action.
 
@@ -186,7 +201,7 @@ data:
 | `entity_id`            | yes      | The media player entity whose playback will be expanded to the players specified in `group_members`. |
 | `group_members`        | no       | The player entities which will be synced with the playback from `entity_id`.                         |
 
-### Unjoin
+#### Unjoin
 
 For removing a HEOS player from a group, use the `media_player.unjoin` action.
 
@@ -200,9 +215,6 @@ data:
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | yes      | Remove this media player from any player groups. |
 
-## Actions
-
-The HEOS integration makes available the standard [Media Player actions](/integrations/media_player#actions).
 
 ## Supported devices
 
