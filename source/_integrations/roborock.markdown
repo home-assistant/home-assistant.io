@@ -34,7 +34,7 @@ ha_integration_type: integration
 
 The Roborock integration allows you to control your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) vacuum while using the Roborock app.
 
-This integration requires a continuous cloud connection while using the device. However, excluding map data, communication between the integration and the device is conducted locally.
+This integration requires a continuous cloud connection while using the device. However, excluding map data and scenes, communication between the integration and the device is conducted locally.
 
 Once you log in with your Roborock account, the integration will automatically discover your Roborock devices and get the needed information to communicate locally with them. Please ensure your Home Assistant instance can communicate with the local IP of your device. We recommend setting a static IP for your Roborock Vacuum to help prevent future issues. The device communicates on port 58867. Depending on your firewall, you may need to allow communication from Home Assistant to your vacuum on that port.
 
@@ -129,6 +129,10 @@ Reset side brush consumable - The side brush is expected to be replaced every 20
 Reset main brush consumable - The main brush/ roller is expected to be replaced every 300 hours.
 
 Reset air filter - The air filter is expected to be replaced every 150 hours.
+
+### Scene
+
+For every scene/routine/program you define for your vacuum, a scene entity will be created to activate it.
 
 ### Actions
 

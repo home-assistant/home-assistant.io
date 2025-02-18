@@ -142,7 +142,11 @@ Sensors and settings exposed by VeSync humidifiers.
 
 | Number                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
-| `mist_level`            | Mist level intensity (Range: 1-9, Step: 1)                                         | 1         |
+| `mist_level`            | Mist level intensity (Range: 1-9, Step: 1). Only available in manual mode.         | 1         |
+
+| Select                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `night_light_level`| Night light brightness level (Values: off, dim, bright).             | off         |
 
 ## Binary Sensors
 
