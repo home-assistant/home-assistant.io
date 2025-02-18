@@ -21,6 +21,13 @@ This integration uses the official [Electric Kiwi API](https://developer.electri
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Username:
+    description: "Username used to log into Electric Kiwi."
+Password:
+    description: "Password used to log into Electric Kiwi."
+{% endconfiguration_basic %}
+
 {% note %}
 The configuration uses `client_id` and `client_secret` provided to Home Assistant, so all you need to do is install the integration and authenticate using your account credentials. 
 {% endnote %}
