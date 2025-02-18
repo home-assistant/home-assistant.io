@@ -47,6 +47,13 @@ Currently, the following devices and entities are supported:
 - **Target temperature**: Controlling the target temperature of the heater (which corresponds to the day temperature in Bio and Smart mode)
 - **Presets / Operation mode**: Switching between Manual, Bio and Smart mode
 
+### [EHEIM classicVARIO+e](https://eheim.com/en_GB/aquatics/technology/external-filters/classicvario-e-250/classicvario-e-250)
+
+#### Fan
+
+- **Pump speed**: Controlling the pump speed of the aquarium filter
+- **Presets / Filter mode**: Switching to the Bio and Pulse mode
+
 Support for additional EHEIM Digital devices and entities will be added in future updates.
 
 ## Remove integration
