@@ -32,7 +32,7 @@ The integration provides `sensor` entities with account balances, billing, and h
 
 ## Use cases
 
-This integration can be used as part of an automation, for example to turn on/off appliances automatically.
+This integration can be used as part of an automation, for example, to turn on/off appliances automatically.
 
 ## Example automations
 
