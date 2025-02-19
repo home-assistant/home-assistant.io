@@ -40,6 +40,10 @@ The following sensor entities will be created.
 
 For each tracked [device](/integrations/device_tracker/) or [person](/integrations/person/), a sensor is created showing the distance from the monitored zone in a unit depending on your [Home Assistant Unit System](/docs/configuration/basic) selection. When a tracked person or device enters the monitored zone, the distance is set to 0.
 
+{% important %}
+In version TBD the calculation was corrected to reflect the distance to the edge of the zone. Previously, the value showed the distance to the centre of the zone. Depending on your setup this may make a difference in your existing automations and scripts. Also, consider that changing the size of the zone will change the distance to it now, which was not the case previously.
+{% endimportant %}
+
 ### Direction of travel
 
 For each tracked device or person, a sensor is created showing the direction of travel to or from the monitored zone. Possible states are:
