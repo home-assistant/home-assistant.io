@@ -113,7 +113,7 @@ The options are also documented in the add-on itself. Go to the {% my supervisor
 
 Also be sure to check the specific tutorial for [using Piper in Automations](voice_control/using_tts_in_automation/)
 
-## Learning more about Speech-to-Phrase philosophy
+## Learning more about Speech-to-Phrase
 
 You can check out [Voice Chapter 9](/blog/2025/02/13/voice-chapter-9-speech-to-phrase/) to learn more about why we introduced Speech-to-Phrase, and why it's a great option for home control.
 
