@@ -132,24 +132,25 @@ The properties for controlling both the temperature and wind strength of the app
 
 ### Event
 
-A notification message pushed from the server is represented as an event platform.
+A notification message pushed from the server is represented as an event platform. The **Notification codes** shows the full support range, and you can check the range of your device through the developer tools.
 
-| Device | Property |
-| ------ | -------- |
-| Air Conditioner | Notification |
-| Air Purifier| Notification |
-| Air Purifier Fan | Notification |
-| Dehumidifier | Notification |
-| Dish Washer | Error<br>Notification |
-| Humidifier | Notification |
-| Kimchi Refrigerator | Notification |
-| Microwave Oven | Notification |
-| Oven | Notification |
-| Refrigerator | Notification |
-| Robot Cleaner | Error<br>Notification |
-| Stick Cleaner | Notification |
-| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Error<br>Notification |
-| Wine Cellar | Notification |
+| Device | Property | Notification codes |
+| ------ | -------- | ---------- |
+| Air Conditioner | Notification | water_is_full |
+| Air Purifier| Notification | lack_of_water, time_to_clean_filter, pollution_is_high, time_to_change_filter |
+| Air Purifier Fan | Notification | time_to_change_filter |
+| Dehumidifier | Notification | water_is_full |
+| Dish Washer | Error<br>Notification | cleaning_is_complete, error_during_cleaning, water_leak_has_occurred, rinse_is_not_enough, salt_refill_is_needed |
+| Humidifier | Notification | time_to_change_filter, lack_of_water |
+| Kimchi Refrigerator | Notification | door_is_open |
+| Microwave Oven | Notification | none |
+| Oven | Notification | preheating_is_complete, cooking_is_complete, time_to_clean, error_has_occurred |
+| Refrigerator | Notification | time_to_change_filter, time_to_change_water_filter, frozen_is_complete, door_is_open |
+| Robot Cleaner | Error<br>Notification | - |
+| Stick Cleaner | Notification | charging_is_complete, time_to_clean_filter |
+| Washer<br>Dryer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Error<br>Notification | washing_is_complete, error_during_washing, drying_is_complete, drying_failed |
+| Styler | Error<br>Notification | styling_is_complete, error_has_occurred |
+| Wine Cellar | Notification | door_is_open |
 
 ### Fan
 
@@ -172,7 +173,8 @@ A read-write property which has a numeric value is represented as a number platf
 | Microwave Oven | Fan<br>Light |
 | Oven | Temperature |
 | Refrigerator | Temperature |
-| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Delay ends in |
+| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Delayed start/end |
+| Water Heater | Temperature |
 | Wine Cellar | Light<br>Temperature |
 
 ### Select
@@ -190,6 +192,7 @@ A writable property which has a list of selectable values is represented as a se
 | Oven | Cook mode<br>Operation<br> |
 | Refrigerator | Fresh air filter |
 | Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Operation |
+| Water Heater | Operating mode |
 | Wine Cellar | Light<br>Operating mode |
 
 ### Switch
@@ -234,7 +237,7 @@ A read-only property which has states is represented as a sensor platform.
 | Air Purifier Fan | Air quality sensor<br>Humidity<br>Odor<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Sleep timer<br>Temperature<br>Schedule turn-off<br>Schedule turn-on |
 | Cooktop | Current status<br>Power level |
 | Dehumidifier | Humidity<br>Operating mode |
-| Dish Washer | Current cycle<br>Current status<br>Rinse aid dispenser level<br>Softening level<br>Delay in<br>Remaining time<br>Total time |
+| Dish Washer | Current cycle<br>Current status<br>Rinse aid dispenser level<br>Softening level<br>Delayed start<br>Remaining time<br>Total time |
 | Home Brew| Brewing duration<br>Brewing period<br>Current status<br>First flavor<br>Second flavor<br>Homebrew recipe<br>First hop<br>Second hop<br>Recipe progress<br>Wort<br>Yeast |
 | Humidifier | Air quality sensor<br>Humidity<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Schedule turn-off<br>Schedule turn-on<br>Sleep timer<br>Temperature |
 | Kimchi Refrigerator | Fresh air filter<br>Temperature |
@@ -246,7 +249,7 @@ A read-only property which has states is represented as a sensor platform.
 | Stick Cleaner | Battery<br>Current status<br>Operating mode |
 | System Boiler | Indoor temperature<br>Inlet temperature<br>Outlet temperature |
 | Water Purifier | High-temp sterilization<br>Type<br>UVnano|
-| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Current status<br>Delay in<br>Remaining time<br>Total time<br>Cycles |
+| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Current status<br>Delayed start/end<br>Remaining time<br>Total time<br>Cycles |
 
 ## User guide
 ### 1. Custom card configuration (HACS)
