@@ -417,6 +417,23 @@ Make sure the requirements listed in the [prerequisites](#prerequisites) are met
 
 Refer to the steps under [Troubleshooting the installation](#troubleshooting-the-installation).
 
+### Error "this device requires a border router"
+
+#### Symptom
+
+While trying to add a Matter device with your Home Assistant Companion app, you get the error "this device requires a border router".
+
+#### Cause
+
+To add a Matter device which is based on the {% term Thread %} radio protocol, you need a {% term "Thread border router" %} near the device and your phone needs to know the credentials of your (newly created) Thread network.
+
+#### Remedy
+
+Set up a {% term "Thread border router" %} and synchronize the credentials from Home Assistant to your Android device:
+
+1. Follow the steps on [Turning Home Assistant into a Thread border router](https://www.home-assistant.io/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+2. Make sure to Sync the Thread credentials as described in step 3.
+
 ### Unable to commission devices, it keeps giving errors or stops working randomly
 
 #### Symptom
@@ -430,9 +447,8 @@ The initial {% term commissioning %} keeps failing, you experience issues with d
 
 #### Remedy
 
-1. Make sure that Matter devices that use Wi-Fi (including Thread border routers) are on the same <abbr title="local area networks">VLANs</abbr>/<abbr title="virtual local area networks">VLAN</abbr> as Home Assistant.
-2. Make sure that Matter devices that only use {% term Thread %} are joined to Thread networks for which there is at least one border router connected to the Home Assistant LAN.
+1. Make sure that Matter devices that use Wi-Fi (including {% term "Thread border router" %}) are on the same <abbr title="local area networks">VLANs</abbr>/<abbr title="virtual local area networks">VLAN</abbr> as Home Assistant.
+2. Make sure that Matter devices that only use {% term Thread %} are joined to Thread networks for which there is at least one {% term "Thread border router" %} connected to the Home Assistant LAN.
 3. Investigate your network topology.
    - For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices.
    - To avoid issues, try to keep your network topology as simple and flat as possible.
-
