@@ -211,18 +211,18 @@ Check these steps if you are experiencing issues when trying to add a Matter dev
 
 #### Symptom
 
-While trying to add the Matter device, I get an error stating that *Matter is currently unavailable*. 
+While trying to add the Matter device, I get an error stating that _Matter is currently unavailable_.
 
 #### Remedy
 
 This could mean that not all required Matter modules that are needed by the Home Assistant Companion App have been downloaded yet. Try the following steps:
 
-1. Wait up to 24 hours for the Google Play services to download the necessary Matter modules.
+1. Wait up to 24 hours for the Google Play Services to download the necessary Matter modules.
 2. Make sure the requirements listed in the [prerequisites](#prerequisites) are met. This includes meeting the minimum system requirements:
    - **Android**:
      - Minimum version is 8.1. Ideally, update to the latest version.
      - Use a regular, Google-account Android setup. No alternative Android versions.
-     - Make sure the play services are all up to date.
+     - Make sure the Google Play Services are all up to date.
    - **iPhone**:
      - Have the iOS version 16 or higher
 3. Home Assistant Companion app:
@@ -398,12 +398,18 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 - For more detailed information on network configuration, refer to the [README of the Matter server repository](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md).
 
-### I do not see the button "Commission using the Companion app"
+### I do not see the button _Commission using the Companion app_
 
-This button will only be visible within the Home Assistant Companion App (so not in the browser) and your device meets all requirements for Matter support.
+This button only exists in the Home Assistant Companion App. It is not available in the browser.
 
-- For iOS, minimum version is iOS 16 (minimal 16.3 is preferred) and the most recent version of the HA companion app.
-- For Android, minimum version is 8.1 and the most recent version of the (full) HA Companion app, downloaded from the Play Store.
+Make sure the requirements listed in the [prerequisites](#prerequisites) are met. This includes meeting the minimum system requirements:
+
+- **Android**:
+  - Minimum version is 8.1. Ideally, update to the latest version.
+    - Use a regular, Google-account Android setup. No alternative Android versions.
+    - Make sure the Google Play Services are all up to date.
+- **iPhone**:
+  - Have the iOS version 16 or higher
 
 ### When trying to commission using Android, I get an error "Matter is unavailable"
 
