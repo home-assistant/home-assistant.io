@@ -35,7 +35,7 @@ Devices that have been tested and _should_ work without any trouble are:
 - [Beosound Emerge](https://www.bang-olufsen.com/en/dk/speakers/beosound-emerge)
 - [Beosound Level](https://www.bang-olufsen.com/en/dk/speakers/beosound-level)
 - [Beosound Theatre](https://www.bang-olufsen.com/en/dk/soundbars/beosound-theatre)
-- [Beoremote One](https://www.bang-olufsen.com/en/dk/accessories/beoremote-one)
+- [Beoremote One](https://www.bang-olufsen.com/en/dk/accessories/beoremote-one) through paired devices
 
 and any other [Mozart](https://support.bang-olufsen.com/hc/en-us/articles/24766979863441-Which-platform-is-my-Connected-Audio-product-based-on) based products. This means all [Connected Speakers](https://www.bang-olufsen.com/en/dk/story/connected-speakers) that have been launched after 2020.
 
@@ -67,10 +67,10 @@ A number of features are available through the media player entity:
   - Control with Home Assistant media_player grouping.
   - Monitor current [Beolink state](#beolink) through media player properties.
   - For more advanced usage, [custom Beolink services](#custom-actions) have been defined:
-    - Connect or expand to [ASE](https://support.bang-olufsen.com/hc/en-us/articles/24766979863441-Which-platform-is-my-Connected-Audio-product-based-on) products not available in Home Assistant.
-    - Expand sessions to all discovered devices.
-    - Connect to, expand to or unexpand devices.
-    - Set all connected Beolink devices to standby.
+     - Connect or expand to [ASE](https://support.bang-olufsen.com/hc/en-us/articles/24766979863441-Which-platform-is-my-Connected-Audio-product-based-on) products not available in Home Assistant.
+     - Expand sessions to all discovered devices.
+     - Connect to, expand to or unexpand devices.
+     - Set all connected Beolink devices to standby.
 
 ### Events
 
@@ -103,20 +103,22 @@ All devices except the [Beoconnect Core](https://www.bang-olufsen.com/en/dk/acce
 
 #### Beoremote One
 
-A Home Assistant device is created for each of any paired Beoremote One via their connected Mozart device. Beoremote One devices are automatically added as they are detected.
+A Home Assistant device is created for each of any paired Beoremote One, via their paired Mozart device. Event entities, that are disabled by default, are created for each of the compatible keys on the remote.
+
+Beoremote One devices are automatically added as they are detected.
 
 ##### Triggering events
 
 There are 4 different types of key events:
 
-- Light functions
-- Light keys
 - Control functions
 - Control keys
+- Light functions
+- Light keys
 
-Functions can be accessed by pressing the `Right` key while either `Control` or `Light` are higlighted and can be triggered by pressing `Select`.
+Functions can be accessed by pressing the `Right` key while either `Control` or `Light` are highlighted and can be triggered by pressing `Select`.
 
-Keys can be triggered by pressing the `Select` key while either `Control` or `Light` are higlighted and then pressing one of the compatible keys. The `Select` press can also be skipped, by simply pressing one of the compatible keys while the desired submenu is highlighted.
+Keys can be triggered by pressing the `Select` key while either `Control` or `Light` are highlighted and then pressing one of the compatible keys. The `Select` press can also be skipped, by simply pressing one of the compatible keys while the desired submenu is highlighted.
 
 Each of these triggers have two different event states:
 
@@ -138,7 +140,7 @@ Only a subset of these functions are enabled by default. Change settings for the
   - Use the `Rename` setting to rename the visible functions
   - Use the `Move` setting to reorder the visible functions
 
-The function names are not available to the Mozart device, so enable [debug logging](#diagnostics-and-troubleshooting) and trigger functions to see what function ID is associated with which function.
+The function names are not available to the Mozart device, so enable [debug logging](#diagnostics-and-troubleshooting) and trigger functions to see what function IDs are associated with which functions on the remote.
 
 ## Limitations
 
