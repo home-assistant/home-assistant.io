@@ -35,6 +35,7 @@ Devices that have been tested and _should_ work without any trouble are:
 - [Beosound Emerge](https://www.bang-olufsen.com/en/dk/speakers/beosound-emerge)
 - [Beosound Level](https://www.bang-olufsen.com/en/dk/speakers/beosound-level)
 - [Beosound Theatre](https://www.bang-olufsen.com/en/dk/soundbars/beosound-theatre)
+- [Beoremote One](https://www.bang-olufsen.com/en/dk/accessories/beoremote-one)
 
 and any other [Mozart](https://support.bang-olufsen.com/hc/en-us/articles/24766979863441-Which-platform-is-my-Connected-Audio-product-based-on) based products. This means all [Connected Speakers](https://www.bang-olufsen.com/en/dk/story/connected-speakers) that have been launched after 2020.
 
@@ -66,12 +67,14 @@ A number of features are available through the media player entity:
   - Control with Home Assistant media_player grouping.
   - Monitor current [Beolink state](#beolink) through media player properties.
   - For more advanced usage, [custom Beolink services](#custom-actions) have been defined:
-     - Connect or expand to [ASE](https://support.bang-olufsen.com/hc/en-us/articles/24766979863441-Which-platform-is-my-Connected-Audio-product-based-on) products not available in Home Assistant.
-     - Expand sessions to all discovered devices.
-     - Connect to, expand to or unexpand devices.
-     - Set all connected Beolink devices to standby.
+    - Connect or expand to [ASE](https://support.bang-olufsen.com/hc/en-us/articles/24766979863441-Which-platform-is-my-Connected-Audio-product-based-on) products not available in Home Assistant.
+    - Expand sessions to all discovered devices.
+    - Connect to, expand to or unexpand devices.
+    - Set all connected Beolink devices to standby.
 
 ### Events
+
+#### Device controls
 
 Event entities are created for each of the physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
 Available event entities:
@@ -97,6 +100,45 @@ All of these event entities support the following event types:
 
 All devices except the [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) support device controls.
 
+#### Beoremote One
+
+A Home Assistant device is created for each of any paired Beoremote One via their connected Mozart device. Beoremote One devices are automatically added as they are detected.
+
+##### Triggering events
+
+There are 4 different types of key events:
+
+- Light functions
+- Light keys
+- Control functions
+- Control keys
+
+Functions can be accessed by pressing the `Right` key while either `Control` or `Light` are higlighted and can be triggered by pressing `Select`.
+
+Keys can be triggered by pressing the `Select` key while either `Control` or `Light` are higlighted and then pressing one of the compatible keys. The `Select` press can also be skipped, by simply pressing one of the compatible keys while the desired submenu is highlighted.
+
+Each of these triggers have two different event states:
+
+- key_press
+- key_release
+
+In total this amounts to 90 different remote key Event entities per remote.
+
+##### Configuring Light / Control functions
+
+A number of functions are available on the Beoremote One. These are available as `function` 1-17 for the Light submenu and 1-27 for the Control submenu.
+
+Only a subset of these functions are enabled by default. Change settings for the `Control` and `Light` submenus following these steps:
+
+- Press up and select the name of currently selected paired device. This will show a list the paired devices.
+- Select `Beovision`
+- Navigate to `Settings` → `Advanced` → `Light menu` / `Control menu`
+  - Use the `Show` setting to change which functions are visible
+  - Use the `Rename` setting to rename the visible functions
+  - Use the `Move` setting to reorder the visible functions
+
+The function names are not available to the Mozart device, so enable [debug logging](#diagnostics-and-troubleshooting) and trigger functions to see what function ID is associated with which function.
+
 ## Limitations
 
 Currently, some features of the Mozart platform are not available through the [public API](https://github.com/bang-olufsen/mozart-open-api). Some may become available at a later point, but until then the [Bang & Olufsen App](https://www.bang-olufsen.com/en/dk/story/apps) can be used to configure these settings and features:
@@ -112,6 +154,10 @@ And more advanced app-centric features such as:
 - Creating stereo pairs
 - Adjusting specific sound settings
 - Pairing remotes
+
+### Beoremote One
+
+Remote controls paired to the same device are created as Home Assistant devices and Event entities. These remote controls will trigger the same WebSocket notification, meaning that a press on remote A will also trigger Remote B's associated Event entity. This has the benefit of being able to trigger automations mapped to remote A with remote B, but also means that up to 90 Event entities are "lost", when remotes are paired to the same device.
 
 ## Actions
 
