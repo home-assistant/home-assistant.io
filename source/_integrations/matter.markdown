@@ -144,12 +144,12 @@ Make sure you have all these components ready before trying to add a Matter devi
 #### Prepare Android or iPhone
 
 - Have either an Android or iPhone ready and Bluetooth enabled. For information why Bluetooth is required, refer to the section on [Bluetooth used during commissioning](#bluetooth-used-during-commissioning):
-  - Android:
+  - **Android**:
     - At a minimum, have Android version 8.1. Recommended is version 12 or higher.
     - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
     - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the OpenThread Border Router add-on) present in your home network.
       - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
-  - iPhone
+  - **iPhone**
     - Have the iOS version 16 or higher
     - Have the latest version of the Home Assistant Companion app installed.
     - If you are using {% term Thread %}: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K or Home Assistant with the OpenThread Border Router add-on) present in your home network.
@@ -421,6 +421,26 @@ If you don't see the button in the Companion app:
 ### When trying to commission using Android, I get an error "Matter is unavailable"
 
 Refer to the steps under [Troubleshooting the installation](#troubleshooting-the-installation).
+
+### Android: stuck at "Checking network connectivity"
+
+#### Symptom
+
+You are trying to {% term commissioning commission %} a Matter device using an Android phone. During that process, you see the "Checking network connectivity" message and never get past that.
+
+#### Remedy
+
+1. Make sure the requirements listed in the [prerequisites](#prerequisites) are met.
+2. This includes meeting the minimum system requirements for **Android**:
+
+   - Minimum version is 8.1. Recommended is version 12 or higher.
+     - More issues have been reported by people using older Android versions.
+     - Use a regular, Google-account Android setup. No alternative Android versions.
+     - Make sure the Google Play Services are all up to date.
+3. If you are adding a {% term Thread %}-based Matter device, make sure the phone is in close range of the border router and your device.
+4. If you are adding a Wi-Fi-based Matter device:
+   - Matter devices often use the 2.4&nbsp;GHz frequency for Wi-Fi.
+   - Make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 
 ### Error "this device requires a border router"
 
