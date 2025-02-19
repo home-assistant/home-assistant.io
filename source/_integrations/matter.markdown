@@ -438,7 +438,7 @@ Set up a {% term "Thread border router" %} and synchronize the credentials from 
 
 #### Symptom
 
-You are trying to update a Matter device via Thread and see the error "Target node did not process the update file".
+You are trying to update a Matter over Thread device via Home Assistant and see the error "Target node did not process the update file".
 
 #### Cause
 
