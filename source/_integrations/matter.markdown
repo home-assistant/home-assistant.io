@@ -145,7 +145,7 @@ Make sure you have all these components ready before trying to add a Matter devi
 
 - Have either an Android or iPhone ready and Bluetooth enabled. For information why Bluetooth is required, refer to the section on [Bluetooth used during commissioning](#bluetooth-used-during-commissioning):
   - Android:
-    - Have the Android version 8.1 or higher.
+    - At a minimum, have Android version 8.1. Recommended is version 12 or higher.
     - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
     - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the OpenThread Border Router add-on) present in your home network.
       - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
@@ -220,7 +220,8 @@ This could mean that not all required Matter modules that are needed by the Home
 1. Wait up to 24 hours for the Google Play Services to download the necessary Matter modules.
 2. Make sure the requirements listed in the [prerequisites](#prerequisites) are met. This includes meeting the minimum system requirements:
    - **Android**:
-     - Minimum version is 8.1. Ideally, update to the latest version.
+     - Minimum version is 8.1. Recommended is version 12 or higher.
+       - More issues have been reported by people using older Android versions.
      - Use a regular, Google-account Android setup. No alternative Android versions.
      - Make sure the Google Play Services are all up to date.
    - **iPhone**:
@@ -405,7 +406,8 @@ This button only exists in the Home Assistant Companion App. It is not available
 Make sure the requirements listed in the [prerequisites](#prerequisites) are met. This includes meeting the minimum system requirements:
 
 - **Android**:
-  - Minimum version is 8.1. Ideally, update to the latest version.
+  - Minimum version is 8.1. Recommended is version 12 or higher.
+    - More issues have been reported by people using older Android versions.
     - Use a regular, Google-account Android setup. No alternative Android versions.
     - Make sure the Google Play Services are all up to date.
 - **iPhone**:
