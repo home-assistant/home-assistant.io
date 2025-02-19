@@ -53,7 +53,7 @@ The **Bang & Olufsen** integration uses the [Mozart API](https://bang-olufsen.gi
 
 ## Supported features
 
-Currently, a single device with a `media_player` and `event` entities if available, is created for each added physical device.
+Currently, for each added physical device, a single device is created that includes a `media_player` entity and, if available, `event` entities.
 
 ### Media player
 
