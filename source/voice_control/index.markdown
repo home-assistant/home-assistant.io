@@ -21,7 +21,7 @@ Assist allows you to control Home Assistant using natural language. It is built 
 
 Assist is available to use on most platforms that can interface with Home Assistant. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'>
 
-The simplest way to try out Assist is side our companion app. We have dedicated pages to guide you on both [Android](/voice_control/android/) and [iOS](/voice_control/apple/).
+The simplest way to try out Assist is inside our companion app. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'> at the top right of your dashboard.
 
 The simplest way to get started with Assist is with our recommended voice assistant hardware, the [Home Assistant Voice Preview Edition](/voice-pe/).
 
