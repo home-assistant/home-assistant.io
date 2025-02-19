@@ -419,6 +419,20 @@ Refer to the steps under [Troubleshooting the installation](#troubleshooting-the
 
 ### Unable to commission devices, it keeps giving errors or stops working randomly
 
-The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices that use Wi-Fi (including Thread border routers) must be on the same LAN/VLAN as Home Assistant. Matter devices that only use {% term Thread %} must be joined to {% term Thread %} networks for which there is at least one border router connected to the Home Assistant LAN.
+#### Symptom
 
-If you experience any issues with discovering devices (for example, if the initial {% term commissioning %} keeps failing or if devices become unavailable randomly), investigate your network topology. For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and may not integrate well with enterprise networking solutions like VLANs, Multicast filtering, and (malfunctioning) IGMP snooping. To avoid issues, try to keep your network topology as simple and flat as possible.
+The initial {% term commissioning %} keeps failing, you experience issues with discovering devices, or devices become unavailable randomly.
+
+#### Cause
+
+- The Matter protocol relies on (local) IPv6 and <abbr title="multicast Domain Name System">mDNS</abbr> (multicast traffic) traveling freely in your network.
+- Matter is designed for regular residential network setups and may not integrate well with enterprise networking solutions like <abbr title="virtual local area networks">VLANs</abbr>, Multicast filtering, and (malfunctioning) <abbr title="Internet Group Management Protocol i">IGMP</abbr> snooping.
+
+#### Remedy
+
+1. Make sure that Matter devices that use Wi-Fi (including Thread border routers) are on the same <abbr title="local area networks">VLANs</abbr>/<abbr title="virtual local area networks">VLAN</abbr> as Home Assistant.
+2. Make sure that Matter devices that only use {% term Thread %} are joined to Thread networks for which there is at least one border router connected to the Home Assistant LAN.
+3. Investigate your network topology.
+   - For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices.
+   - To avoid issues, try to keep your network topology as simple and flat as possible.
+
