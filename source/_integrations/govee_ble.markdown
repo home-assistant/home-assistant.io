@@ -31,7 +31,7 @@ The Govee BLE integration will automatically discover devices once the [Bluetoot
 - H5052 Hygrometer Thermometer
 - H5071 Hygrometer Thermometer
 - H5072 Hygrometer Thermometer
-- H5074 Hygrometer Thermometer
+- H5074 Hygrometer Thermometer (Active scans required)
 - [H5075 Bluetooth Hygrometer Thermometer](https://us.govee.com/collections/thermo-hydrometer/products/govee-bluetooth-hygrometer-thermometer-h5075)
 - [H5100 Hygrometer Thermometer](https://us.govee.com/collections/thermo-hydrometer/products/govee-h5100-mini-hygrometer-thermometer-sensors)
 - H5101 Hygrometer Thermometer

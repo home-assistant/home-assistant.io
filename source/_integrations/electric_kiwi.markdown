@@ -24,3 +24,53 @@ This integration uses the official [Electric Kiwi API](https://developer.electri
 {% note %}
 The configuration uses `client_id` and `client_secret` provided to Home Assistant, so all you need to do is install the integration and authenticate using your account credentials. 
 {% endnote %}
+
+
+## Supported functionality
+
+The integration provides `sensor` entities with account balances, billing, and hour of free power start and end time. It also provides a `select` entity to change the hour of free power.
+
+## Use cases
+
+This integration can be used as part of an automation, for example, to turn on/off appliances automatically.
+
+## Example automations
+
+{% details "Run the heat pump during the hour of free power" %}
+
+{% raw %}
+
+```yaml
+alias: "Turn on expensive heat pump"
+description: "Turn on the heat pump when the hour of free power starts"
+triggers:
+  - at: sensor.hour_of_free_power_start
+    trigger: time
+actions:
+  - action: climate.turn_on
+    target:
+      entity_id: climate.heat_pump
+    data: {}
+```
+
+```yaml
+alias: "Turn off expensive heat pump"
+description: "Turn off the heat pump when the hour of free power ends"
+triggers:
+  - at: sensor.hour_of_free_power_end
+    trigger: time
+actions:
+  - action: climate.turn_off
+    target:
+      entity_id: climate.heat_pump
+    data: {}
+```
+
+{% endraw %}
+{% enddetails %}
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

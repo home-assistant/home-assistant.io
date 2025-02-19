@@ -46,6 +46,7 @@ You must have:
 - A [Developer Application](https://developer.tesla.com/en_US/dashboard)
 - A web domain and host that you can serve your public key file from. Some free options include:
   - [FleetKey.cc](https://fleetkey.cc)
+  - [MyTeslamate.com](https://app.myteslamate.com/fleet)
   - [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
   - [Cloudflare Pages](https://pages.cloudflare.com/)
   - [Firebase Hosting](https://firebase.google.com/docs/hosting)
