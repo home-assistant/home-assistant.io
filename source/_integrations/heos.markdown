@@ -82,7 +82,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Actions
 
-The HEOS integration makes available the following actions in addition to the standard [Media Player actions](/integrations/media_player#actions).
+In addition to the standard [Media Player actions](/integrations/media_player#actions), the HEOS integration provides the following {% term actions %}:
 
 ### Action `media_player.group_volume_set`
 
@@ -90,7 +90,7 @@ Sets the group's volume while preserving member volume ratios. This action can b
 
 | Data attribute | Optional | Description                                      |
 |------------------------|----------|------------------------------------------------------------------|
-| `entity_id`            |      yes | A media player entity that is joined to a group                  |
+| `entity_id`            |      yes | A media player entity that is joined to a group.                  |
 | `volume_level`         |       no | The volume level, where 0 is inaudible, 1 is the maximum volume. |
 
 ## Examples
