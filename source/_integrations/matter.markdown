@@ -222,7 +222,7 @@ This could mean that not all required Matter modules that are needed by the Home
    - **Android**:
      - Minimum version is 8.1.
        - If issues persist, use Android 12 or later.
-       - More issues have been been reported by people using older Android versions.
+       - More issues have been reported by people using older Android versions.
      - Use a regular, Google-account Android setup. No alternative Android versions.
      - Make sure the Google Play Services are all up to date.
    - **iPhone**:
@@ -409,7 +409,7 @@ Make sure the requirements listed in the [prerequisites](#prerequisites) are met
 - **Android**:
   - Minimum version is 8.1.
     - If issues persist, use Android 12 or later.
-      - More issues have been been reported by people using older Android versions.
+      - More issues have been reported by people using older Android versions.
     - Use a regular, Google-account Android setup. No alternative Android versions.
     - Make sure the Google Play Services are all up to date.
 - **iPhone**:
