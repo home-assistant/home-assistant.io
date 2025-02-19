@@ -425,7 +425,7 @@ While trying to add a Matter device with your Home Assistant Companion app, you 
 
 #### Cause
 
-To add a Matter device which is based on the {% term Thread %} radio protocol, you need a {% term "Thread border router" %} near the device and your phone needs to know the credentials of your newly created Thread network.
+To add a Matter device which is based on the {% term Thread %} radio protocol, you need a {% term "Thread border router" %} near the device and your phone needs to know the credentials of your (newly created) Thread network.
 
 #### Remedy
 
