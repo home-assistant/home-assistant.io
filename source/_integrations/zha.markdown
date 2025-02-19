@@ -95,7 +95,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 
 - Silicon Labs EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
   - [Home Assistant Connect ZBT-1](/connectzbt1/) (EFR32MG21-based USB dongle)
-  - [Home Assistant Yellow](/yellow/) with integrated EFR32MG21 radio
+  - [Home Assistant Yellow](/yellow/) with integrated MGM210P radio, which is based on the EFR32MG21
   - [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)
   - [SMLIGHT SLZB-07](https://smlight.tech/product/slzb-07/) (EFR32MG21-based USB dongle)
 - Texas Instruments based radios (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
