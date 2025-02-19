@@ -218,9 +218,26 @@ While trying to add the Matter device, I get an error stating that *Matter is cu
 This could mean that not all required Matter modules that are needed by the Home Assistant Companion App have been downloaded yet. Try the following steps:
 
 1. Wait up to 24 hours for the Google Play services to download the necessary Matter modules.
-2. If this did not work, try reinstalling the Home Assistant Companion app.
-3. If this did not work, try installing the Google Home app. Technically this is not required, but it might trigger another installation attempt of the Matter modules.
-4. Refer to this [Troubleshooting Guide from Google](https://developers.home.google.com/matter/verify-services).
+2. Make sure the requirements listed in the [prerequisites](#prerequisites) are met. This includes meeting the minimum system requirements:
+   - **Android**:
+     - Minimum version is 8.1. Ideally, update to the latest version.
+     - Use a regular, Google-account Android setup. No alternative Android versions.
+     - Make sure the play services are all up to date.
+   - **iPhone**:
+     - Have the iOS version 16 or higher
+3. Home Assistant Companion app:
+   - Make sure you installed the (full) version, downloaded from the Play Store.
+   - Make sure it is the latest version.
+   - If you only just installed or updated the Home Assistant Companion app:
+     - Wait.
+     - It can take a while before the required components are installed in the background.
+     - Try again after 1 hour to ensure the installation is complete.
+4. Verify your device meets all requirements to support Matter:
+   - On your Android device, go to **Settings** > **Google** > **Devices & Sharing**.
+     - There should be an entry there for **Matter devices**.
+5. Reinstalling the Home Assistant Companion app.
+6. Try (re-)installing the Google Home app. Technically, this is not required, but it might trigger another installation attempt of the Matter modules.
+7. Refer to this [Troubleshooting Guide from Google](https://developers.home.google.com/matter/verify-services).
 
 ## Sharing a device from another platform with Home Assistant
 
@@ -390,20 +407,7 @@ This button will only be visible within the Home Assistant Companion App (so not
 
 ### When trying to commission using Android, I get an error "Matter is unavailable"
 
-1. For Android, minimum version is 8.1. Ideally, update to the latest version.
-2. Use a regular, Google-account Android setup. No alternative Android versions.
-3. Home Assistant Companion app:
-   - Make sure to install the (full) version, downloaded from the Play Store.
-   - Make sure it is the latest version.
-4. To verify your device meets all requirements to support Matter, on your Android device, go to **Settings** > **Google** > **Devices & Sharing**.
-   - There should be an entry there for **Matter devices**.
-5. Make sure the play services are all up to date.
-6. If you only just installed or updated the Home Assistant Companion app:
-   - Wait.
-   - It can take a while before the required components are installed in the background. - Try again after 1 hour to ensure the installation is complete.
-7. If the error persists, reinstall the Home Assistant Companion app.
-8. Some users have reported that reinstalling the Google Home app fixed this issue for them.
-9. For more information, refer to the [extended troubleshooting guide](https://developers.home.google.com/matter/verify-services) from Google.
+Refer to the steps under [Troubleshooting the installation](#troubleshooting-the-installation).
 
 ### Unable to commission devices, it keeps giving errors or stops working randomly
 
