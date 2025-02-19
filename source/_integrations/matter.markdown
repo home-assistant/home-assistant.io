@@ -401,17 +401,22 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 ### I do not see the button _Commission using the Companion app_
 
-This button only exists in the Home Assistant Companion App. It is not available in the browser.
+The **Commission using the Companion app** button only exists in the Home Assistant Companion App. It is not available in the browser.
 
-Make sure the requirements listed in the [prerequisites](#prerequisites) are met. This includes meeting the minimum system requirements:
+#### Remedy
 
-- **Android**:
-  - Minimum version is 8.1. Recommended is version 12 or higher.
-    - More issues have been reported by people using older Android versions.
-    - Use a regular, Google-account Android setup. No alternative Android versions.
-    - Make sure the Google Play Services are all up to date.
-- **iPhone**:
-  - Have the iOS version 16 or higher
+If you don't see the button in the Companion app:
+
+1. Make sure the requirements listed in the [prerequisites](#prerequisites) are met.
+2. This includes meeting the minimum system requirements:
+
+   - **Android**:
+     - Minimum version is 8.1. Recommended is version 12 or higher.
+       - More issues have been reported by people using older Android versions.
+       - Use a regular, Google-account Android setup. No alternative Android versions.
+       - Make sure the Google Play Services are all up to date.
+   - **iPhone**:
+     - Have the iOS version 16 or higher
 
 ### When trying to commission using Android, I get an error "Matter is unavailable"
 
