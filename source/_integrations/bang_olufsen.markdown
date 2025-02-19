@@ -75,6 +75,7 @@ A number of features are available through the media player entity:
 
 Event entities are created for each of the physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
 Available event entities:
+
 - Bluetooth
 - Microphone
 - Next
@@ -87,6 +88,7 @@ Available event entities:
 - Volume
 
 All of these event entities support the following event types:
+
 - Release of short press
 - Long press
 - Release of long press
