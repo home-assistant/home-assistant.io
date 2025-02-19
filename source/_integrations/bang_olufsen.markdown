@@ -77,6 +77,7 @@ A number of features are available through the media player entity:
 #### Device controls
 
 Event entities are created for each of the physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
+
 Available event entities:
 
 - Bluetooth
