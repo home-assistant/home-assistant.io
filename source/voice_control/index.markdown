@@ -32,12 +32,7 @@ As for the rest of Home Assistant core functionalities, Assist can be personaliz
 
 ## Getting Started
 
-Most of the recent voice assistant hardware compatible with Home Assistant will automatically guide you thought their configuration by utilizing a wizard.
-
-![Screenshot of Home Assistant's voice wizard](/images/assist/voice-wizard.png)
-
-All you need to do is integrate the device into your Home Assistant installation, and follow the steps displayed on the screen.
-The wizard will help you get stated with your hardware based on your system.
+When you configure voice assistant hardware made for Home Assistant, it will use a wizard to help you configure your system and get started to use voice.
 
 Our recommended voice assistant hardware is the [Home Assistant Voice Preview Edition](/voice-pe/).
 
