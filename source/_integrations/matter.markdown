@@ -388,12 +388,22 @@ This button will only be visible within the Home Assistant Companion App (so not
 - For iOS, minimum version is iOS 16 (minimal 16.3 is preferred) and the most recent version of the HA companion app.
 - For Android, minimum version is 8.1 and the most recent version of the (full) HA Companion app, downloaded from the Play Store.
 
-### When I'm trying to commission using the Android app, I get an error stating "Matter is currently unavailable"
+### When trying to commission using Android, I get an error "Matter is unavailable"
 
-See above, make sure your device meets all requirements to support Matter. Update Android to the latest version and the Home Assistant Companion app. To quickly verify if your device meets all requirements to support Matter, on your Android device, go to **Settings** > **Google** > **Devices & Sharing**. There should be an entry there for **Matter devices**.
-
-Some users have reported that uninstalling and reinstalling the Google Home app fixed this issue for them.
-Also see this [extended troubleshooting guide](https://developers.home.google.com/matter/verify-services) from Google.
+1. For Android, minimum version is 8.1. Ideally, update to the latest version.
+2. Use a regular, Google-account Android setup. No alternative Android versions.
+3. Home Assistant Companion app:
+   - Make sure to install the (full) version, downloaded from the Play Store.
+   - Make sure it is the latest version.
+4. To verify your device meets all requirements to support Matter, on your Android device, go to **Settings** > **Google** > **Devices & Sharing**.
+   - There should be an entry there for **Matter devices**.
+5. Make sure the play services are all up to date.
+6. If you only just installed or updated the Home Assistant Companion app:
+   - Wait.
+   - It can take a while before the required components are installed in the background. - Try again after 1 hour to ensure the installation is complete.
+7. If the error persists, reinstall the Home Assistant Companion app.
+8. Some users have reported that reinstalling the Google Home app fixed this issue for them.
+9. For more information, refer to the [extended troubleshooting guide](https://developers.home.google.com/matter/verify-services) from Google.
 
 ### Unable to commission devices, it keeps giving errors or stops working randomly
 

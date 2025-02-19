@@ -1475,10 +1475,6 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
 {% endnote %}
 
-{% important %}
-You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
-{% endimportant %}
-
 ```yaml
 topic: homeassistant/light/1/command
 payload: on
