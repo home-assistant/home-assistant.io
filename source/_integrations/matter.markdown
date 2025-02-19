@@ -220,7 +220,9 @@ This could mean that not all required Matter modules that are needed by the Home
 1. Wait up to 24 hours for the Google Play Services to download the necessary Matter modules.
 2. Make sure the requirements listed in the [prerequisites](#prerequisites) are met. This includes meeting the minimum system requirements:
    - **Android**:
-     - Minimum version is 8.1. Ideally, update to the latest version.
+     - Minimum version is 8.1.
+       - If issues persist, use Android 12 or later.
+       - More issues have been been reported by people using older Android versions.
      - Use a regular, Google-account Android setup. No alternative Android versions.
      - Make sure the Google Play Services are all up to date.
    - **iPhone**:
@@ -405,7 +407,9 @@ This button only exists in the Home Assistant Companion App. It is not available
 Make sure the requirements listed in the [prerequisites](#prerequisites) are met. This includes meeting the minimum system requirements:
 
 - **Android**:
-  - Minimum version is 8.1. Ideally, update to the latest version.
+  - Minimum version is 8.1.
+    - If issues persist, use Android 12 or later.
+      - More issues have been been reported by people using older Android versions.
     - Use a regular, Google-account Android setup. No alternative Android versions.
     - Make sure the Google Play Services are all up to date.
 - **iPhone**:
