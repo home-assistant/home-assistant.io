@@ -85,7 +85,7 @@ Integration is communicating directly with the device; cloud connection is not n
 
 ## Bluetooth Support
 
-Shelly generation 2+ devices not battery-powered can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
+Shelly generation 2+ devices that are not battery-powered can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
 
 {% include integrations/option_flow.md %}
 

@@ -454,6 +454,7 @@ actions:
         message_tag: "example_tag"
         disable_notification: True
         disable_web_page_preview: True
+        message_thread_id: 123
 ```
 
 {% configuration %}
@@ -468,10 +469,15 @@ disable_notification:
   type: boolean
 disable_web_page_preview:
   description: True/false to display a webpage preview.
+  required: false
   default: false
   type: boolean
 message_tag:
   description: Tag for sent message.
   required: false
   type: string
+message_thread_id:
+  description: Send the message to a specific topic or thread.
+  required: false
+  type: integer
 {% endconfiguration %}

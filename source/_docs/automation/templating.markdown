@@ -25,6 +25,7 @@ Triggers from all platforms will include the following data.
 
 | Template variable | Data |
 | ---- | ---- |
+| `trigger.alias` | Alias of the trigger.
 | `trigger.id` | The [`id` of the trigger](/docs/automation/trigger/#trigger-id).
 | `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
 
