@@ -447,7 +447,7 @@ Over-the-air (OTA) updates of Matter devices from Home Assistant are not support
 #### Remedy
 
 - If you only have a {% term "Thread border router" %} from Apple, you cannot update the device from Home Assistant.
-  - If you want to be able to use OTA updates on these device, you could add another border router, for example by [turning Home Assistant into a Thread border router](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+  - If you want to be able to use OTA updates on these devices, you could add another border router, for example by [turning Home Assistant into a Thread border router](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
 
 - If you have a mixture of Apple and other {% term "Thread border routers" %} such as the Home Assistant [OpenThread border router](/integrations/thread#openthread-border-routers), follow these steps:
   1. Power down all the Apple {% term "Thread border routers" %}.
