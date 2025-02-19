@@ -5,7 +5,7 @@ ha_release: 2025.03
 ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
-ha_domain: lorem_ipsum
+ha_domain: my_integration
 ha_integration_type: integration
 related:
   - url: https://developers.home-assistant.io/docs/documenting/standards
