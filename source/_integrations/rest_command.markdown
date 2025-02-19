@@ -71,6 +71,11 @@ service_name:
       required: false
       type: boolean
       default: true
+    insecure_cipher:
+      description: Allow insecure ciphers for the request. This is useful for older servers/devices that do not support modern ciphers.
+      required: false
+      type: boolean
+      default: false
 {% endconfiguration %}
 
 ## Examples
