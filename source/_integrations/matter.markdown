@@ -459,6 +459,26 @@ Set up a {% term "Thread border router" %} and synchronize the credentials from 
 1. Follow the steps on [Turning Home Assistant into a Thread border router](https://www.home-assistant.io/integrations/thread#turning-home-assistant-into-a-thread-border-router).
 2. Make sure to Sync the Thread credentials as described in step 3.
 
+### Error "Target node did not process the update file"
+
+#### Symptom
+
+You are trying to update a Matter over Thread device via Home Assistant and see the error "Target node did not process the update file".
+
+#### Cause
+
+Over-the-air (OTA) updates of Matter devices from Home Assistant are not supported with an Apple {% term "Thread border router" %}.
+
+#### Remedy
+
+- If you only have a {% term "Thread border router" %} from Apple, you cannot update the device from Home Assistant.
+  - If you want to be able to use OTA updates on these devices, you could add another border router, for example by [turning Home Assistant into a Thread border router](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+
+- If you have a mixture of Apple and other {% term "Thread border routers" %} such as the Home Assistant [OpenThread border router](/integrations/thread#openthread-border-routers), follow these steps:
+  1. Power down all the Apple {% term "Thread border routers" %}.
+  2. Wait at least 30 minutes.
+  3. Try again to update the devices from Home Assistant.
+
 ### Unable to commission devices, it keeps giving errors or stops working randomly
 
 #### Symptom
