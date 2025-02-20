@@ -41,6 +41,7 @@ There is currently support for the following **Qbus** products within Home Assis
 ## Available entities
 
 - **Switch**: toggles on/off outputs.
+- **Light**: controls dimmer lights, allowing both on/off functionality and brightness adjustment.
 
 ## Removing the integration
 

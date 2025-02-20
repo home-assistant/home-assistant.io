@@ -560,6 +560,27 @@ type:
   type: string
 {% endconfiguration %}
 
+## Toggle
+
+Widget that displays a button to toggle a [switch](/integrations/switch) or [input boolean](/integrations/input_boolean) entity on or off.
+
+<p class='img'>
+  <img src='/images/dashboards/features/toggle.png' alt='Screenshot of the tile card with the toggle feature'>
+  Screenshot of the tile card with the toggle feature
+</p>
+
+```yaml
+features:
+  - type: "toggle"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`toggle`"
+  type: string
+{% endconfiguration %}
+
 ## Update actions
 
 Widget that displays actions to install or skip an [update](/integrations/update).
