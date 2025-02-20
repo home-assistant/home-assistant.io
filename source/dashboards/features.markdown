@@ -162,6 +162,35 @@ preset_modes:
   type: list
 {% endconfiguration %}
 
+## Counter actions
+
+Widget that displays buttons to increment, decrement and reset a [counter](/integrations/counter).
+
+<p class='img'>
+  <img src='/images/dashboards/features/counter_actions.png' alt='Screenshot of the tile card with counter actions feature'>
+  Screenshot of the tile card with counter actions feature
+</p>
+
+```yaml
+features:
+  - type: "counter-actions"
+    actions:
+      - increment
+      - decrement
+      - reset
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`counter-actions`"
+  type: string
+actions:
+  required: true
+  description: List of actions to show on the card. The list can contain `increment`, `decrement`, and `reset`.
+  type: list
+{% endconfiguration %}
+
 ## Cover open/close
 
 Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
