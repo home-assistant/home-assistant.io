@@ -48,8 +48,8 @@ transporter_toslink:
       target:
         entity_id: media_player.transporter
       data:
-        media_content_id: "source:toslink"
-        media_content_type: "music"
+        media_content_id: 'source:toslink'
+        media_content_type: 'music'
 ```
 
 {% include integrations/option_flow.md %}
@@ -60,6 +60,85 @@ Browse limit:
 Volume step:  
  description: Amount to adjust the volume when turning volume up or down.  
 {% endconfiguration_basic %}
+
+## Announce
+
+The Squeezebox media player entity supports the "announce" parameter in the `media_player.play_media` action. When media is played with announce:true, the current state of the media player is saved, the media is then played, and when playing is finished, the original state is restored. For example, if the media player is on and playing a track, once the announcement is finished, the track will resume playing at the same point it was paused by the announcement. If the media player was off, it will be turned off again after playing the announcement.
+
+### Extra Keys
+
+The following extra keys are available to modify the announcement
+
+| Data attribute     | Optional | Description                                                                                                                                                              |
+| ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `announce_volume`  | yes      | Specifies the volume at which the announcement should play. The value must be between 0 and 1, where 0.1 represents 10% of the player's volume, 0.2 represents 20%, etc. |
+| `announce_timeout` | yes      | Specify the maximum length of the announcement in seconds after which the original media will be resumed.                                                                |
+
+These extra keys are optional. If announce_volume is unspecified, the announcement will play at the current volume of the player. If announce_timeout is unspecified, the announcement will play until completion.
+
+### Examples
+
+Playing a local file as an announcement:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.squeezebox
+data:
+  media_content_type: music
+  media_content_id: media-source://media_source/local/doorbell.mp3
+  announce: true
+```
+
+Playing a local file as an announcement with volume of 20 and timeout of 60 seconds:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.squeezebox
+data:
+  media_content_type: music
+  media_content_id: media-source://media_source/local/doorbell.mp3
+  announce: true
+  extra:
+    announce_volume: 0.2
+    announce_timeout: 60
+```
+
+### Announcements and Text to Speech (TTS)
+
+When using the "Text-to-speech (TTS): Speak" action, Home Assistant automatically sets the announce parameter as true, and the announcement features, such as pausing current playback, will be used.
+
+However, the "Text-to-speech (TTS): Speak" action doesn't support the extra keys described above. If you wish to use announce_volume and/or announce_timeout with TTS, you need to use media-source://tts/(tts_provider) to construct media_content_id as shown below.
+
+#### Example
+
+Play announcement using Text-to-speech (TTS) action
+
+```yaml
+action: tts.speak
+data:
+  media_player_entity_id: media_player.squeezebox
+  message: There's someone at the door
+  cache: false
+target:
+  entity_id: tts.google_translate_en_co_uk
+```
+
+Play announcement using TTS media-source with announce_volume and announce_timeout
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.squeezebox
+data:
+  media_content_type: music
+  media_content_id: media-source://tts/tts.google_translate_en_co_uk?message="There's someone at the door"
+  announce: true
+  extra:
+    announce_volume: 0.2
+    announce_timeout: 60
+```
 
 ## Entities
 

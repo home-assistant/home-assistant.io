@@ -482,6 +482,7 @@ source/_integrations/lidarr.markdown @tkdrob
 source/_integrations/lifx.markdown @Djelibeybi
 source/_integrations/light.markdown @home-assistant/core
 source/_integrations/light.template.markdown @home-assistant/core
+source/_integrations/linak.markdown @abmantis
 source/_integrations/linear_garage_door.markdown @IceBotYT
 source/_integrations/linux_battery.markdown @fabaff
 source/_integrations/litejet.markdown @joncar
