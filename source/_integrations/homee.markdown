@@ -13,7 +13,6 @@ ha_platforms:
   - button
   - cover
   - sensor
-  - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -25,7 +24,6 @@ There is currently support for the following device types in Home Assistant:
 - button
 - cover
 - sensor
-- switch
 
 ## Prerequisites
 
