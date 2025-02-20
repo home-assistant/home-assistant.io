@@ -17,6 +17,7 @@ ha_codeowners:
   - '@lellky'
   - '@piotrbulinski'
 ha_config_flow: true
+ha_quality_scale: silver
 ---
 
 Integrates [Flexit](https://www.flexit.no/en/) Nordic series air handling unit into Home Assistant.
