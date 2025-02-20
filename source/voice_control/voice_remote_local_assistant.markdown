@@ -57,7 +57,7 @@ There are currently two options to run speech-to-text locally: **Speech-to-Phras
 - Supports [various languages](https://github.com/openai/whisper#available-models-and-languages).
 - Whisper is only a great option in the following case: 
     1. You have powerful hardware at home.
-    2.  You plan to extend your voice set-up beyond simple home control.  For example by pairing your assistant with a LLM-based agent.
+    2. You plan to extend your voice set-up beyond simple home control. For example, by pairing your assistant with an LLM-based agent.
 
 ### Text-to-speech engine
 
