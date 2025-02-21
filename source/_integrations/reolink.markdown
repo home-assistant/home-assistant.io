@@ -376,7 +376,9 @@ The following battery-powered models have been tested and confirmed to work thro
 
 - [Argus 3 Pro](https://reolink.com/product/argus-3-pro/)
 - [Argus 4 Pro](https://reolink.com/product/argus-4-pro/)
+- [Argus Eco](https://reolink.com/product/argus-eco/)
 - [Argus Eco Ultra](https://reolink.com/product/argus-eco-ultra/)
+- [Argus PT](https://reolink.com/product/argus-pt/)
 - [Argus Track](https://reolink.com/product/argus-track/)
 - [Reolink Doorbell Battery](https://reolink.com/roadmap/)
 
