@@ -32,29 +32,31 @@ The ThermoPro integration will automatically discover devices once the [Bluetoot
 
 {% include integrations/config_flow.md %}
 
-## Actions
+## Buttons
 
 These {% term actions %} allow one to set the time on supported devices(TP358, TP393) via Home Assistant.
 
-### Action `set_datetime`
+### Button `Set Date&Time`
 
-Sets the date & time on target devices.
+Sets the date & time on target devices to the system time in 24 hour notation.
+The device is capable of showing 12 hour notation(AM/PM) but setting this is currently not implemented.
 
-| Data attribute         | Optional | Description                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------ |
-| `datetime`             | Yes      | Set a custom date time instead of using system time          |
-
-For example, the following action in an automation and set the datetime of the thermometer.
+For example, the following action in an automation and set the datetime of the thermometer each day.
 
 {% raw %}
 
 ```yaml
+mode: single
+triggers:
+  - trigger: time
+    at: "03:03:03"
+conditions: []
 actions:
   - variables:
-      entity_id: sensor.tp358_8e50_1_humidity # Store the camera entity_id in a variable for reuse
-  - action: image.snapshot
+      entity_id: button.tp_358_xxxx_your_device_set_date_time
+  - action: button.press
     target:
-      entity_id: '{{ entity_id }}'
+      entity_id: "{{ entity_id }}"
     data: {}
 ```
 
