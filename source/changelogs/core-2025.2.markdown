@@ -1612,6 +1612,91 @@ For a summary in a more readable format:
 [@shaiu]: https://github.com/shaiu
 [@thecode]: https://github.com/thecode
 
+## Release 2025.2.5 - February 21
+
+- Adjust Tuya Water Detector to support 1 as an alarm state ([@petacz] - [#135933])
+- Fix bug in set_preset_mode_with_end_datetime (wrong typo of frost_guard) ([@pectum83] - [#138402])
+- Bump pyhive-integration to 1.0.2 ([@KJonline] - [#138569])
+- Bump tesla-fleet-api to v0.9.10 ([@Bre77] - [#138575])
+- Bump pysmarty2 to 0.10.2 ([@lucab-91] - [#138625])
+- Rename "returned" state to "alert" ([@shaiu] - [#138676])
+- Bump pyvesync for vesync ([@cdnninja] - [#138681])
+- Opower: Fix unavailable "start date" and "end date" sensors ([@SaswatPadhi] - [#138694])
+- Correct backup filename on delete or download of cloud backup ([@emontnemery] - [#138704])
+- Correct invalid automatic backup settings when loading from store ([@emontnemery] - [#138716])
+- Bump airgradient to 0.9.2 ([@joostlek] - [#138725])
+- Clean up translations for mocked integrations inbetween tests ([@emontnemery] - [#138732])
+- Bump pyrympro from 0.0.8 to 0.0.9 ([@nivstein] - [#138753])
+- Don't allow setting backup retention to 0 days or copies ([@emontnemery] - [#138771])
+- Fix TV input source option for Sonos Arc Ultra ([@PeteRager] - [#138778])
+- Add assistant filter to expose entities list command ([@synesthesiam] - [#138817])
+- Fix playback for encrypted Reolink files ([@starkillerOG] - [#138852])
+- Correct backup date when reading a backup created by supervisor ([@emontnemery] - [#138860])
+- Bump pyfritzhome to 0.6.15 ([@mib1185] - [#138879])
+- Validate hassio backup settings ([@emontnemery] - [#138880])
+- Catch zeep fault as well on GetSystemDateAndTime call. ([@DmitryKuzmenko] - [#138916])
+- Fix Reolink callback id collision ([@starkillerOG] - [#138918])
+- Fix handling of min/max temperature presets in AVM Fritz!SmartHome ([@mib1185] - [#138954])
+- Bump pyprosegur to 0.0.13 ([@dgomes] - [#138960])
+- Bump reolink-aio to 0.12.0 ([@starkillerOG] - [#138985])
+- Bump deebot-client to 12.2.0 ([@edenhaus] - [#138986])
+- Omit unknown hue effects ([@joostlek] - [#138992])
+- Update frontend to 20250221.0 ([@bramkragten] - [#139006])
+
+[#135933]: https://github.com/home-assistant/core/pull/135933
+[#137448]: https://github.com/home-assistant/core/pull/137448
+[#137688]: https://github.com/home-assistant/core/pull/137688
+[#138231]: https://github.com/home-assistant/core/pull/138231
+[#138402]: https://github.com/home-assistant/core/pull/138402
+[#138408]: https://github.com/home-assistant/core/pull/138408
+[#138530]: https://github.com/home-assistant/core/pull/138530
+[#138569]: https://github.com/home-assistant/core/pull/138569
+[#138575]: https://github.com/home-assistant/core/pull/138575
+[#138625]: https://github.com/home-assistant/core/pull/138625
+[#138676]: https://github.com/home-assistant/core/pull/138676
+[#138681]: https://github.com/home-assistant/core/pull/138681
+[#138694]: https://github.com/home-assistant/core/pull/138694
+[#138704]: https://github.com/home-assistant/core/pull/138704
+[#138716]: https://github.com/home-assistant/core/pull/138716
+[#138725]: https://github.com/home-assistant/core/pull/138725
+[#138732]: https://github.com/home-assistant/core/pull/138732
+[#138753]: https://github.com/home-assistant/core/pull/138753
+[#138771]: https://github.com/home-assistant/core/pull/138771
+[#138778]: https://github.com/home-assistant/core/pull/138778
+[#138817]: https://github.com/home-assistant/core/pull/138817
+[#138852]: https://github.com/home-assistant/core/pull/138852
+[#138860]: https://github.com/home-assistant/core/pull/138860
+[#138879]: https://github.com/home-assistant/core/pull/138879
+[#138880]: https://github.com/home-assistant/core/pull/138880
+[#138916]: https://github.com/home-assistant/core/pull/138916
+[#138918]: https://github.com/home-assistant/core/pull/138918
+[#138954]: https://github.com/home-assistant/core/pull/138954
+[#138960]: https://github.com/home-assistant/core/pull/138960
+[#138985]: https://github.com/home-assistant/core/pull/138985
+[#138986]: https://github.com/home-assistant/core/pull/138986
+[#138992]: https://github.com/home-assistant/core/pull/138992
+[#139006]: https://github.com/home-assistant/core/pull/139006
+[@Bre77]: https://github.com/Bre77
+[@DmitryKuzmenko]: https://github.com/DmitryKuzmenko
+[@KJonline]: https://github.com/KJonline
+[@PeteRager]: https://github.com/PeteRager
+[@SaswatPadhi]: https://github.com/SaswatPadhi
+[@bramkragten]: https://github.com/bramkragten
+[@cdnninja]: https://github.com/cdnninja
+[@dgomes]: https://github.com/dgomes
+[@edenhaus]: https://github.com/edenhaus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@lucab-91]: https://github.com/lucab-91
+[@mib1185]: https://github.com/mib1185
+[@nivstein]: https://github.com/nivstein
+[@pectum83]: https://github.com/pectum83
+[@petacz]: https://github.com/petacz
+[@shaiu]: https://github.com/shaiu
+[@starkillerOG]: https://github.com/starkillerOG
+[@synesthesiam]: https://github.com/synesthesiam
+
 [#112047]: https://github.com/home-assistant/core/pull/112047
 [#121522]: https://github.com/home-assistant/core/pull/121522
 [#121548]: https://github.com/home-assistant/core/pull/121548
