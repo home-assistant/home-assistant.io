@@ -118,6 +118,29 @@ Set the mode for the climate device as defined by Viessmann (see [set_hvac_mode]
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use the `all` keyword instead of entity_id. |
 | `vicare_mode` | no | New value of ViCare mode. For supported values, see the `vicare_modes` attribute of the climate {% term entity %}. |
 
+### Action `vicare.set_dhw_circulation_pump_schedule`
+
+Set the schedule for the domestic hot water circulation pump as defined by Viessmann
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of climate devices to control. To target all entities, use the `all` keyword instead of entity_id. |
+| `schedule` | no | New schedule as json-string. See example below. |
+
+Example schedule:
+
+```json
+{
+  "mon": [{"start": "08:00", "end": "22:00", "mode": "on", "position": 0}],
+  "tue": [{"start": "08:00", "end": "22:00", "mode": "on", "position": 0}],
+  "wed": [{"start": "08:00", "end": "22:00", "mode": "on", "position": 0}],
+  "thu": [{"start": "08:00", "end": "22:00", "mode": "on", "position": 0}],
+  "fri": [{"start": "08:00", "end": "22:00", "mode": "on", "position": 0}],
+  "sat": [{"start": "07:30", "end": "22:00", "mode": "on", "position": 0}],
+  "sun": [{"start": "07:30", "end": "22:00", "mode": "on", "position": 0}]
+}
+```
+
 ### Action `climate.set_temperature`
 
 Sets the target temperature to the given temperature.
