@@ -42,131 +42,37 @@ For the binary sensor, check the [type/class](/integrations/binary_sensor/) list
 
 ## Configuration
 
-A `satel_integra` section must be present in the {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-satel_integra:
-  host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: The IP address of the Satel Integra ETHM module on your home network, if using socket type.
-  required: true
-  default: localhost
-  type: string
-port:
+{% configuration_basic %}
+Host:
+  description: The IP address of the Satel Integra ETHM module.
+Port:
   description: The port on which the ETHM module listens for clients using integration protocol.
-  required: false
-  default: 7094
-  type: integer
-code:
-  description: User password, it's needed for making use of the switchable_outputs. It's recommended not to use admin password.
-  required: false
-  type: string
-partitions:
-  description: List of the partitions to operate on.
-  required: false
-  type: [integer, list]
-  keys:
-    name:
-      description: Name of the partition.
-      required: true
-      type: string    
-    arm_home_mode:
-      description: The mode in which the partition is armed when 'arm home' is used. Possible options are `1`,`2` or `3`. For more information on what the differences are between them, please refer to Satel Integra manual.
-      required: false
-      default: 1
-      type: integer
-zones:
-  description: "This parameter lists the zones (or inputs) that will be visible by Home Assistant. For each zone, a proper ID must be given as well as its name. The name is arbitrary and does not need to match the one specified in Satel Integra alarm configuration."
-  required: false
-  type: [integer, list]
-  keys:
-    name:
-      description: Name of the zone.
-      required: true
-      type: string
-    type:
-      description: The zone type.
-      required: false
-      default: motion
-      type: string
-outputs:
-  description: "Very similar to zones, but with outputs. Satel Integra uses outputs to inform external systems about different events. For example power failure, or that alarm started counting for exit or some other user-defined condition. They may be used for simple alarm-based automation. For more information please refer to Satel homepage and forums."
-  required: false
-  type: [integer, list]
-  keys:
-    name:
-      description: Name of the output.
-      required: true
-      type: string
-    type:
-      description: The type of the device - just for presentation.
-      required: false
-      default: motion
-      type: string
-switchable_outputs:
-  description: "Switchable outputs. These will show up as switches within Home Assistant."
-  required: false
-  type: [integer, list]
-  keys:
-    name:
-      description: Name of the output.
-      required: true
-      type: string
-{% endconfiguration %}
+Code:
+  description: Optional code that will be used to toggle switchable outputs.
+{% endconfiguration_basic %}
 
-## Full examples
+## Settings
 
-```yaml
-# Example configuration.yaml entry
-satel_integra:
-  host: 192.168.1.100
-  port: 7094
-  partitions:
-    01:
-      name: "House"
-      arm_home_mode: 2
-    02:
-      name: "Garage"
-  zones:
-    01:
-      name: "Bedroom"
-      type: "motion"
-    02:
-      name: "Hall"
-      type: "motion"
-    30:
-      name: "Kitchen - smoke"
-      type: "smoke"
-    113:
-      name: "Entry door"
-      type: "opening"
-  outputs:
-    05:
-      name: "Garden lights trigger"
-      type: "light"
-    09:
-      name: "Gate opening trigger"
-      type: "opening"
-    30:
-      name: "Alarm triggered"
-      type: "safety"
-    32:
-      name: "Alarm power problem"
-      type: "safety"
-  switchable_outputs:
-    05:
-      name: "Gate open"
-    06:
-      name: "Gate close"    
-    14:
-      name: "Garden light"
-      
-```
+After setting up the connection details, partitions, zones and outputs can be configured using the <i>Options</i> on the <i>Satel Integra</i> card on the {% my integrations title="Settings > Devices & services" %} page.
+
+### Partitions, Zones and Outputs
+
+Partitions, Zones and outputs can be added, edited, and removed through the option forms.
+
+Each partition will have it's own alarm panel, each zone and output will have a binary sensor and each switchable output will have a switch created.
+
+To get started, select which entry type you want to manage:
+
+![image](https://github.com/user-attachments/assets/c788689b-9f58-46c4-9e51-d6cce5431763)
+
+Then select the partition/zone/output number you want to manage and the corresponding action. The first action will always be to Add (unless a previous YAML configuration was imported)
+
+![image](https://github.com/user-attachments/assets/eba00284-c9fb-4678-9f46-1e67bd806ab3)
+
+Afterwards fill in the required fields for each entry type. Saving the options form should automatically generate and/or update the {%term entities %}.
+Deleting an entry removes the corresponding entry from the configuration, but the entity will still exist, you will manually have to remove this from the list afterwards.
 
 Having configured the zones and the outputs, you can use them for automation, such as to react on the movement in your bedroom.
 For example:
@@ -182,3 +88,4 @@ For example:
       target:
         entity_id: input_boolean.movement_detected
 ```
+
