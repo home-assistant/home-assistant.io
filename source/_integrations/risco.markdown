@@ -90,9 +90,24 @@ And in the reverse direction:
 | Arm Away | Arm |
 | Arm Home | Partial Arm |
 
-## Supported platforms:
+## Supported platforms
 
 - [Alarm control panel](/integrations/alarm_control_panel/)
 - [Binary sensor](/integrations/binary_sensor/)
 - [Sensor](/integrations/sensor/)
 - [Switch](/integrations/switch/)
+
+## Actions
+
+### Set time
+
+This service enables you to set the time of a panel on a location connection.
+
+{% configuration %}
+config_entry_id:
+  description: The config entry ID of the panel.
+  type: string
+time:
+  description: The time to send to the panel. Omit the time parameter to use the current system time.
+  type: datetime
+{% endconfiguration %}
