@@ -103,11 +103,7 @@ And in the reverse direction:
 
 This service enables you to set the time of a panel on a location connection.
 
-{% configuration %}
-config_entry_id:
-  description: The config entry ID of the panel.
-  type: string
-time:
-  description: The time to send to the panel. Omit the time parameter to use the current system time.
-  type: datetime
-{% endconfiguration %}
+| Data attribute    | Required | Description                                                                        |
+| ----------------- | -------- | ---------------------------------------------------------------------------------- |
+| `config_entry_id` | yes      | The config entry ID of the panel.                                                  |
+| `time`            | no       | The time to send to the panel. Omit this parameter to use the current system time. |
