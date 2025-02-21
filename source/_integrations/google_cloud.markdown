@@ -108,8 +108,8 @@ text_type:
   required: false
   type: string
   default: "text"
-tts_timeout:
-   description: "Time in seconds to wait for the TTS response generation. The default timeout of 10 seconds is sufficient for most text (up to 600-800 characters). For longer text, increase this value to allow more time for audio file generation."
+timeout:
+   description: "Time in seconds to wait for the SST/TTS response generation. The default timeout of 10 seconds is sufficient in most of the cases."
    required: false
    type: integer
    default: 10
