@@ -109,7 +109,7 @@ text_type:
   type: string
   default: "text"
 timeout:
-   description: "Time in seconds to wait for the SST/TTS response generation. The default timeout of 10 seconds is sufficient in most of the cases."
+   description: "Time in seconds to wait for the STT/TTS response generation. The default timeout of 10 seconds is sufficient in most of the cases."
    required: false
    type: integer
    default: 10
