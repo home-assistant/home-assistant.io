@@ -14,7 +14,7 @@ ha_platforms:
   - diagnostics
   - media_player
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The HEOS {% term integration %} is used to connect a [HEOS](https://www.denon.com/en-gb/category/heos/) System to Home Assistant. HEOS is a wireless audio ecosystem
