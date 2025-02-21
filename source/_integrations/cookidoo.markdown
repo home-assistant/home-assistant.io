@@ -11,6 +11,9 @@ ha_codeowners:
 ha_domain: cookidoo
 ha_integration_type: service
 ha_platforms:
+  - button
+  - diagnostics
+  - sensor
   - todo
 related:
   - docs: /integrations/todo
@@ -23,6 +26,7 @@ related:
     title: Cookidoo the official Thermomix recipe platform
   - url: https://www.vorwerk.com/
     title: Vorwerk GmbH
+ha_quality_scale: silver
 ---
 
 The **Cookidoo** {% term integration %} allows you to interact with your shopping lists of [Cookidoo the official Thermomix recipe platform](https://cookidoo.international/) within Home Assistant.
@@ -61,6 +65,39 @@ In contrast, in your "Additional purchases" list, you can freely add items like 
 The _clear shopping list_ button entity allows you to clear both the shopping list and additional purchases list, mirroring the functionality available in the Cookidoo app. When triggered, this button will remove all items from both lists.
 
 This button entity will appear automatically in your Home Assistant instance after adding the integration. You can use it in automations or add it to your dashboard using the Button card.
+
+## Sensor entities
+
+### Diagnostics
+
+1. **Subscription**
+   - State: `premium`, `trial`, or `free`
+   - Description: Indicates the current subscription type
+     - `premium`: Yearly subscription with full recipe access
+     - `trial`: Time-limited premium access (available during account creation or new device linking)
+     - `free`: Limited recipe access with full shopping list features
+
+2. **Subscription expiration date**
+   - State: ISO 8601 timestamp or `unknown`
+   - Description: Shows when the current subscription expires
+     - For `premium` and `trial` subscriptions: Timestamp of expiration date
+     - For `free` subscriptions: Returns `unknown` state
+
+These sensor entities will appear automatically in your Home Assistant instance after adding the integration.
+
+{% details "Example state attributes" %}
+
+```yaml
+subscription:
+  state: premium
+  icon: mdi:account-star
+
+subscription_expiration_date:
+  state: "2025-01-15T23:59:59+00:00"
+  icon: mdi:clock-reactivate
+```
+
+{% enddetails %}
 
 ## Known Limitations
 

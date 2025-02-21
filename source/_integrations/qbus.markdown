@@ -9,10 +9,11 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@Qbus-iot'
   - '@thomasddn'
-ha_release: 2025.1
+ha_release: 2025.2
 ha_domain: qbus
-ha_integration_type: device
+ha_integration_type: hub
 ha_config_flow: true
+ha_quality_scale: bronze
 ---
 
 The **Qbus** {% term integration %} allows you to integrate your [Qbus Control](https://www.qbus.be) into Home Assistant. **Qbus** is a Belgian manufacturer of Home Automation systems.
@@ -40,6 +41,7 @@ There is currently support for the following **Qbus** products within Home Assis
 ## Available entities
 
 - **Switch**: toggles on/off outputs.
+- **Light**: controls dimmer lights, allowing both on/off functionality and brightness adjustment.
 
 ## Removing the integration
 

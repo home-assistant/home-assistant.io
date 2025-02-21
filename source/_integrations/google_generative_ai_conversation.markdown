@@ -41,7 +41,7 @@ The Google Generative AI API key is used to authenticate requests to the Google 
 - Visit the [API Keys page](https://aistudio.google.com/app/apikey) to retrieve the API key you'll use to configure the integration.
 
 On the same page, you can see your plan: *free of charge* if the associated Google Cloud project doesn't have billing, or *pay-as-you-go* if the associated Google Cloud project has billing enabled.
-Comparison of the plans is available [at this pricing page](https://ai.google.dev/pricing). The major differences include: the free of charge plan is rate limited, free prompts/responses are used for product improvement, and the free plan is not available in all [regions](https://ai.google.dev/gemini-api/docs/available-regions).
+Comparison of the plans is available [at this pricing page](https://ai.google.dev/pricing). The major differences include: the free of charge plan is rate limited, and free prompts/responses are used for product improvement.
 
 {% include integrations/option_flow.md %}
 
@@ -73,7 +73,7 @@ Safety settings:
 
 ## Talking to Super Mario
 
-You can use an OpenAI Conversation integration to [talk to Super Mario and, if you want, have him control devices in your home](/voice_control/assist_create_open_ai_personality/).
+You can use this integration to [talk to Super Mario and, if you want, have him control devices in your home](/voice_control/assist_create_open_ai_personality/).
 
 The tutorial is using OpenAI, but this could also be done with the Google Generative AI integration.
 
@@ -125,3 +125,9 @@ data:
 response_variable: generated_content
 ```
 {% endraw %}
+
+### Video tutorial
+
+This video tutorial explains how Google Generative AI can be set up, how you can send an AI-generated message to your smart speaker when you arrive home, and how you can analyze an image taken from your doorbell camera as soon as someone rings the doorbell.
+
+<lite-youtube videoid="ivoYNd2vMR0" videotitle="AI in Home Assistant - A Complete Guide!" posterquality="maxresdefault"></lite-youtube>

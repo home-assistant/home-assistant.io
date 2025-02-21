@@ -19,6 +19,10 @@ The **P1 Monitor** {% term integration %} allows you to gather data from your [P
 
 P1 Monitor is a piece of software that can be installed on a Raspberry Pi or other Linux-based system. It reads the data from your smart meter via the serial port (P1), such as your energy consumption, but also that of gas or a water meter.
 
+{% note %}
+If you’re not using **P1 Monitor** software, you’re likely looking for the [DSMR Smart Meter](/integrations/dsmr/) integration, which connects directly to DSMR-compatible smart meters.
+{% endnote %}
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}

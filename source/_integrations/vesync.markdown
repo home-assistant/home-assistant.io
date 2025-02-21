@@ -14,8 +14,10 @@ ha_codeowners:
   - '@webdjoe'
   - '@thegardenmonkey'
   - '@cdnninja'
+  - '@iprak'
 ha_domain: vesync
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - fan
   - humidifier
@@ -32,6 +34,7 @@ The devices must be added to the VeSync App before this {% term integration %} c
 
 The following platforms are supported:
 
+- **binary sensor**
 - **fan**
 - **humidifier**
 - **light**
@@ -71,6 +74,7 @@ This {% term integration %} supports devices controllable by the VeSync App.  Th
 - Vital 100S Smart True HEPA Air Purifier (LAP-V102S-WUS) 
 - Vital 200S Smart True HEPA Air Purifier (LAP-V201S-WUS)
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
+- LEVOIT Smart Tower Fan (LTF-F422S-WUS)
 
 ### Humidifiers
 
@@ -138,7 +142,18 @@ Sensors and settings exposed by VeSync humidifiers.
 
 | Number                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
-| `mist_level`            | Mist level intensity (Range: 1-9, Step: 1)                                         | 1         |
+| `mist_level`            | Mist level intensity (Range: 1-9, Step: 1). Only available in manual mode.         | 1         |
+
+| Select                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `night_light_level`| Night light brightness level (Values: off, dim, bright).             | off         |
+
+## Binary Sensors
+
+| Binary Sensor           | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `water_lacks`           | Indicates whether the device needs a water refill                                  | false     |
+| `water_tank_lifted`     | Water tank is lifted                                                               | false     |
 
 ## Extracting attribute data
 

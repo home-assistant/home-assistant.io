@@ -2,13 +2,13 @@
 title: IronOS
 description: Instructions on how to integrate IronOS-based Pinecil V2 devices with Home Assistant.
 ha_category:
-  - Number
-  - Sensor
-  - Update
   - Binary sensor
-  - Select
   - Button
+  - Number
+  - Select
+  - Sensor
   - Switch
+  - Update
 ha_iot_class: Local Polling
 ha_release: 2024.8
 ha_config_flow: true
@@ -17,13 +17,14 @@ ha_codeowners:
 ha_domain: iron_os
 ha_integration_type: integration
 ha_platforms:
-  - number
-  - sensor
-  - update
   - binary_sensor
-  - select
   - button
+  - diagnostics
+  - number
+  - select
+  - sensor
   - switch
+  - update
 ---
 
 The **IronOS** {% term integration %} seamlessly connects Home Assistant with PINE64's Pinecil V2 soldering irons, allowing for remote monitoring and control. This integration provides real-time updates on temperature, power, and various other settings and diagnostic information.
@@ -212,6 +213,8 @@ This integration maintains an active Bluetooth connection while the device is po
       sdkconfig_options:
         CONFIG_BT_GATTC_MAX_CACHE_CHAR: "100"
   ```
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (_download of debug log file will start automatically_). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
 ## Removing the integration
 
