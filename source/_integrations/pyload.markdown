@@ -89,7 +89,7 @@ Password:
 
 ## Automations
 
-Get startet with these example {% term automations %}.
+Get started with these example {% term automations %}.
 
 ### Pause downloads when disk space is low
 
