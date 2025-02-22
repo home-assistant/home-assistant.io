@@ -3,6 +3,7 @@ title: Home Connect
 description: Instructions on how to set up the Home Connect integration within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Hub
   - Light
   - Number
@@ -19,6 +20,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - light
   - number
