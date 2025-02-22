@@ -52,11 +52,9 @@ triggers:
     at: "03:03:03"
 conditions: []
 actions:
-  - variables:
-      entity_id: button.tp_358_xxxx_your_device_set_date_time
   - action: button.press
     target:
-      entity_id: "{{ entity_id }}"
+      entity_id: button.tp_358_xxxx_your_device_set_date_time
     data: {}
 ```
 
