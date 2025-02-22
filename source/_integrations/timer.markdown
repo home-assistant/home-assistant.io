@@ -103,6 +103,24 @@ Change an active timer. This changes the duration of the timer with the duration
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
 | `duration`             |      no  | Duration in seconds or `00:00:00` to add or subtract from the running timer. |
 
+### Action `timer.atleast`
+
+Increases the remaining time on a timer. If the timer is already active with more time remaining than the requested duration then this action does nothing. If the timer is currently paused then this increases the remaining time (if necessary), but does not restart the timer. In all other scenarios, this action behaves the same as `timer.start`.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
+| `duration`             |      no  | Duration in seconds or `00:00:00` that the remaining time should be increased to (if necessary). |
+
+### Action `timer.atmost`
+
+Decreases the remaining time on a timer. If the timer is already active with less time remaining than the requested duration then this action does nothing. Similarly, if the timer is currently idle then this action does nothing. In all other scenarios, this action behaves the same as `timer.start`. Note that this means that this action will always restart a paused timer (because a paused timer could stay paused for longer than the requested duration).
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
+| `duration`             |      no  | Duration in seconds or `00:00:00` that the remaining time should be decreased to (if necessary). |
+
 ### Action `timer.pause`
 
 Pause a running timer. This will retain the remaining duration for later continuation. To resume a timer use the `timer.start` action without passing a duration. You can also use `entity_id: all` and all active timers will be paused. 
