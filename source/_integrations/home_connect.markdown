@@ -49,6 +49,10 @@ The integration will add one Home Assistant device for each connected home appli
 - Binary sensors that show binary states of the appliance.
 
 {% note %}
+Some appliances don't report data while they are turned off so corresponding entities will not appear in the Home Connect integration after loading until the appliances are turned on.
+{% endnote %}
+
+{% note %}
 Note that it depends on the appliance and on API permissions which of the features are supported.
 {% endnote %}
 
@@ -72,7 +76,6 @@ Some devices only have the state `on` and turn off is not supported by the appli
 
 {% important %}
 
-- **Power on** all your appliances during the integration configuration process; otherwise, appliance programs list will be empty.
 - To update the appliance programs list, you can reload the Home Connect integration when an appliance is turned on. If the re-initialization process is not triggered by reload, restart the Home Assistant when an appliance is turned on.
 - After performing the steps above, [log out](https://developer.home-connect.com/user/logout) of your Home Connect Developer account. If you don't do this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
 - The provided Home Connect User Account email address **must** be all lowercase; otherwise, it will result in authentication failures.
@@ -100,29 +103,50 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 ## Actions
 
 The Home Connect integration makes various actions available.
-Available actions: `set_option_active`, `set_option_selected`, `pause_program`, `resume_program`, `select_program`, `start_program` and `change_setting`
+Available actions: `set_program_and_options`, `pause_program`, `resume_program`, and `change_setting`
 
-### Action `home_connect.set_option_active`
+### Action `home_connect.set_program_and_options`
 
-Sets an option for the active program.
-
-| Data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
-| `key` | no | Key of the option. |
-| `value` | no | Value of the option. |
-| `unit` | yes | Unit for the option. |
-
-### Action `home_connect.set_option_selected`
-
-Sets an option for the selected program.
+Starts or selects a program. If the `program` attribute is not set, this action sets the options for the active or the selected program.
 
 | Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
-| `key` | no | Key of the option. |
-| `value` | no | Value of the option. |
-| `unit` | yes | Unit for the option. |
+| `device_id` | no | ID of the device. |
+| `affects_to` | no | Selects if the program affected by the action should be the active or the selected program. |
+| `program` | yes | Program to select. If set, it will start or select a program depending on `affects_to`. |
+| `consumer_products_cleaning_robot_option_reference_map_id` | yes | Defines which reference map is to be used. |
+| `consumer_products_cleaning_robot_option_cleaning_mode` | yes | Defines the favoured cleaning mode. |
+| `consumer_products_coffee_maker_option_bean_amount` | yes | Describes the amount of coffee beans used in a coffee machine program. |
+| `consumer_products_coffee_maker_option_fill_quantity` | yes | Describes the amount of water (in ml) used in a coffee machine program. |
+| `consumer_products_coffee_maker_option_coffee_temperature` | yes | Describes the coffee temperature used in a coffee machine program. |
+| `consumer_products_coffee_maker_option_bean_container` | yes | Defines the preferred bean container. |
+| `consumer_products_coffee_maker_option_flow_rate` | yes | Defines the water-coffee contact time. The duration extends to coffee intensity. |
+| `consumer_products_coffee_maker_option_multiple_beverages` | yes | Defines if double dispensing is enabled. |
+| `consumer_products_coffee_maker_option_coffee_milk_ratio` | yes | Defines the amount of milk. |
+| `consumer_products_coffee_maker_option_hot_water_temperature` | yes | Defines the temperature suitable for the type of tea. |
+| `b_s_h_common_option_start_in_relative` | yes | Defines when the program should start, in seconds from now. For example: a value of 9000 means in 2 h 30 min. |
+| `dishcare_dishwasher_option_intensiv_zone` | yes | Defines if the cleaning is done with higher spray pressure on the lower basket for very dirty pots and pans. |
+| `dishcare_dishwasher_option_brilliance_dry` | yes | Defines if the program sequence is optimized with a special drying cycle to ensure more shine on glasses and plastic items. |
+| `dishcare_dishwasher_option_vario_speed_plus` | yes | Defines if the program duration is shortened dynamically (up to 66% less run time) with the usual optimum cleaning and drying. |
+| `dishcare_dishwasher_option_silence_on_demand` | yes | Defines if the extra silent mode is activated for a selected period of time. |
+| `dishcare_dishwasher_option_half_load` | yes | Defines if economical cleaning is enabled for smaller loads. This reduces energy and water consumption and also saves time. The utensils can be placed in the upper and lower baskets. |
+| `dishcare_dishwasher_option_extra_dry` | yes | Defines if improved drying for glasses and plasticware is enabled. |
+| `dishcare_dishwasher_option_hygiene_plus` | yes | Defines if the cleaning is done with increased temperatures. This ensures maximum hygienic cleanliness for regular use. |
+| `dishcare_dishwasher_option_eco_dry` | yes | Defines if the door is opened automatically for extra energy efficient and effective drying. |
+| `dishcare_dishwasher_option_zeolite_dry` | yes | Defines if the program sequence is optimized with special drying cycle ensures improved drying for glasses, plates and plasticware. |
+| `laundry_care_dryer_option_drying_target` | yes | Describes the drying target for a dryer program. For example: Iron Dry, Cupboard Dry, Extra Dry. |
+| `cooking_hood_option_venting_level` | yes | Defines the required fan setting. |
+| `cooking_hood_option_intensive_level` | yes | Defines the intensive setting. |
+| `cooking_oven_option_setpoint_temperature` | yes | Defines the target cavity temperature, which will be hold by the oven. |
+| `b_s_h_common_option_duration` | yes | Defines the run-time of the program. Afterwards, the appliance is stopped. |
+| `cooking_oven_option_fast_pre_heat` | yes | Defines if the cooking compartment is heated up quickly. Please note that the setpoint temperature has to be equal to or higher than 100 °C or 212 °F. Otherwise, the fast pre-heat option is not activated. |
+| `cooking_oven_option_warming_level` | yes | Defines the level of the warming drawer. |
+| `laundry_care_washer_option_temperature` | yes | Defines the temperature of the washing program. |
+| `laundry_care_washer_option_spin_speed` | yes | Defines the spin speed of a washer program. |
+| `b_s_h_common_option_finish_in_relative` | yes | Defines when the program should end, in seconds from now. For example: a value of 9000 means in 2 h 30 min. |
+| `laundry_care_washer_option_i_dos1_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 1) |
+| `laundry_care_washer_option_i_dos2_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 2) |
+| `laundry_care_washer_option_vario_perfect` | yes | Defines if a cycle saves energy (Eco Perfect) or time (Speed Perfect). |
 
 ### Action `home_connect.pause_program`
 
@@ -139,30 +163,6 @@ Resumes a paused program.
 | Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
-
-### Action `home_connect.select_program`
-
-Selects a program without starting it.
-
-| Data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
-| `program` | no | Program to select. |
-| `key` | yes | Key of the option. |
-| `value` | yes | Value of the option. |
-| `unit` | yes | Unit for the option. |
-
-### Action `home_connect.start_program`
-
-Selects a program and starts it.
-
-| Data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
-| `program` | no | Program to select. |
-| `key` | yes | Key of the option. |
-| `value` | yes | Value of the option. |
-| `unit` | yes | Unit for the option. |
 
 ### Action `home_connect.change_setting`
 

@@ -49,6 +49,7 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Button**:
   - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
   - `Relocate`: Button entity to trigger manual relocation.
+  - `Station actions`: For each supported station action, a button entity will be created.
 - **Event**:
   - `Last job`: Provides the stop reason as event_type
 - **Image**:
@@ -70,6 +71,7 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Cleaning cycle`:
     - `Area`: The cleaned area
     - `Time`: The cleaned time
+  - `Station state`: Station state enum sensor. See options to see all possible states
   - `Total statistics`: Updated after each cleaning cycle:
     - `Area`: Total cleaned area
     - `Cleanings`: The number of cleanings

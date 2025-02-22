@@ -3,9 +3,11 @@ title: IronOS
 description: Instructions on how to integrate IronOS-based Pinecil V2 devices with Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Number
   - Select
   - Sensor
+  - Switch
   - Update
 ha_iot_class: Local Polling
 ha_release: 2024.8
@@ -16,9 +18,12 @@ ha_domain: iron_os
 ha_integration_type: integration
 ha_platforms:
   - binary_sensor
+  - button
+  - diagnostics
   - number
   - select
   - sensor
+  - switch
   - update
 ---
 
@@ -104,6 +109,12 @@ The following controls allow you to customize the settings and options for your 
 - **Temperature display unit:** Sets the unit for displaying temperature as Celsius (C°) or Fahrenheit (F°).
 - **Animation speed:** Adjusts the pace of icon animations in the menu, with options for off, slow, medium, or fast.
 - **Boot logo duration:** Sets the duration for the boot logo, with options for off, 1–5 seconds, or loop.
+- **Animation loop:** Controls whether menu animations should loop continuously. This setting is applicable only when animation speed is enabled.
+- **Detailed idle screen:** Enables a more detailed view on the idle screen, showing text with additional information compared to the default icon-based view.
+- **Detailed solder screen:** Enables a more detailed view on the soldering screen in a text-based format, reducing the use of graphical visuals.
+- **Invert screen:** Inverts the OLED screen colors.
+- **Swap +/- buttons:** Reverses the button assignment for incrementing and decrementing temperature on adjustment screens.
+- **Cool down screen flashing:** Enables the idle screen to blink the tip temperature when it exceeds 50°C, serving as a tip is still hot warning.
 
 ### Power management
 
@@ -115,6 +126,7 @@ The following controls allow you to customize the settings and options for your 
 - **Power Delivery timeout:** Defines how long the firmware will attempt to negotiate USB-PD before switching to Quick Charge. Lower values are recommended for faster PD negotiation.
 - **Power limit:** Sets a custom wattage cap for the device to maintain the **average** power below this value. Note: Peak power cannot be controlled. When using USB-PD, the limit will be the lower of this setting and the power supply's advertised wattage.
 - **Quick Charge voltage:** Adjusts the maximum voltage for Quick Charge negotiation. Does not affect USB-PD. Ensure the setting aligns with the current rating of your power supply for safety.
+- **Power Delivery 3.1 EPR (Extended Power Range):** Enables EPR mode, allowing input voltages up to 28V with a [compatible USB-C power supply](https://wiki.pine64.org/wiki/Pinecil_Power_Supplies#EPR_PD3.1,_140W_Chargers)
 
 ### Advanced settings
 
@@ -122,6 +134,13 @@ These settings are intended for technically experienced users and require carefu
 
 - **Voltage divider:** Fine-tunes the measured voltage to account for variations in the voltage sense resistors between units.
 - **Calibration offset:** Adjusts the calibration of the thermocouple measurements, which determine the temperature displayed for the tip.
+- **Calibrate CJC (Cold Junction Compensation):** Initiates thermocouple calibration at the next boot to improve temperature accuracy. Only needed if temperature readings are consistently inaccurate. Ensure the device is at room temperature before calibrating. For more details, see the [documentation](https://ralim.github.io/IronOS/Settings/#setting-calibrate-cjc-at-next-boot).
+
+### Save & restore
+
+- **Save settings:** Saves the current configuration to apply it permanently. Use this after making changes to ensure they persist across device reboots.
+- **Restore default settings:** Resets all configuration options to their factory defaults. Note: This action cannot be undone, and all custom settings will be lost. To preserve custom settings, create a {% term scene %} before restoring defaults.
+
 ## Automations
 
 Get started with this automation example for IronOS with a ready-to-use blueprint!
@@ -194,6 +213,8 @@ This integration maintains an active Bluetooth connection while the device is po
       sdkconfig_options:
         CONFIG_BT_GATTC_MAX_CACHE_CHAR: "100"
   ```
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (_download of debug log file will start automatically_). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
 ## Removing the integration
 
