@@ -34,7 +34,7 @@ This integration requires an API key to use, [which you can generate here](https
 
 {% include integrations/config_flow.md %}
 
-### Generate an API Key
+## Generate an API Key
 
 The Google Generative AI API key is used to authenticate requests to the Google Generative AI API. To generate an API key take the following steps:
 
@@ -126,8 +126,19 @@ response_variable: generated_content
 ```
 {% endraw %}
 
-### Video tutorial
+## Video tutorial
 
 This video tutorial explains how Google Generative AI can be set up, how you can send an AI-generated message to your smart speaker when you arrive home, and how you can analyze an image taken from your doorbell camera as soon as someone rings the doorbell.
 
 <lite-youtube videoid="ivoYNd2vMR0" videotitle="AI in Home Assistant - A Complete Guide!" posterquality="maxresdefault"></lite-youtube>
+
+## Troubleshooting
+
+- To aid in diagnosing issues it may help to turn up verbose logging by adding these to your {% term "`configuration.yaml`" %}:
+
+```yaml
+logger:
+  logs:
+    homeassistant.components.conversation: debug
+    homeassistant.components.google_generative_ai_conversation: debug
+```
