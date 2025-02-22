@@ -283,6 +283,29 @@ target:
   entity_id: remote.living_room_tv
 ```
 
+### `androidtv_remote.send_text`
+
+The `androidtv_remote.send_text` action allows you to send text to your Android TV device.
+
+{% note %}
+It requires the on screen keyboard to be closed first.
+{% endnote %}
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `entity_id`    |       no | Name(s) of Android TV remote entities.
+| `text`         |       no | Text to 'type'
+
+Example:
+
+```yaml
+action: androidtv_remote.send_text
+data:
+  text: "hello world"
+target:
+  entity_id: remote.living_room_tv
+```
+
 ### Dashboard example
 
 You have to manually create buttons in Lovelace to send commands to the Android TV device or launch apps on it.
