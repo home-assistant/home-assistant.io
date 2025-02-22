@@ -47,6 +47,7 @@ The integration will add one Home Assistant device for each connected home appli
 - Time for alarm clock for cooktops and ovens.
 - Multiple sensors that report the different states and events reported by the appliance.
 - Binary sensors that show binary states of the appliance.
+- Buttons to pause, resume, and stop the running program, as well as to open the door either completely or partially.
 
 {% note %}
 Some appliances don't report data while they are turned off so corresponding entities will not appear in the Home Connect integration after loading until the appliances are turned on.
