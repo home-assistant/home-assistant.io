@@ -103,7 +103,7 @@ And in the reverse direction:
 
 This service enables you to set the time of a panel on a location connection.
 
-| Data attribute    | Required | Description                                                                        |
-| ----------------- | -------- | ---------------------------------------------------------------------------------- |
-| `config_entry_id` | yes      | The config entry ID of the panel.                                                  |
-| `time`            | no       | The time to send to the panel. Omit this parameter to use the current system time. |
+| Data attribute    | Required | Description                                                                                |
+| ----------------- | -------- | ------------------------------------------------------------------------------------------ |
+| `config_entry_id` | yes      | The config entry ID of the alarm panel.                                                    |
+| `time`            | no       | The time to send to the alarm panel. Leave it empty to use the Home Assistant system time. |
