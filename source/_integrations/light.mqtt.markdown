@@ -1237,7 +1237,7 @@ mqtt:
 
 {% endraw %}
 
-### CCT light (brightnes and temperature)
+### CCT light (brightness and temperature)
 
 This example comes from a configuration of Shelly RGBW Bulb working in White mode.
 `max_mireds` and `min_mireds` set color temperature boundaries to 3000K - 6500K. Notice the same limits are applied in `command_on_template`, but in kelvin units this time. It's due to conversion from mired to kelvin which causes exceeding boundary values accepted by the device.

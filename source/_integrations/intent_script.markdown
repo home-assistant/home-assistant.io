@@ -105,7 +105,7 @@ available in the `action_response` variable.
 conversation:
   intents:
     EventCountToday:
-      - "How many meetings do I have today?"
+      - "How many meetings do I have today"
 
 intent_script:
   EventCountToday:
