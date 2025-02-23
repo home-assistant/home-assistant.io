@@ -53,9 +53,9 @@ The following entities can be grouped:
 - [event (events)](/integrations/event/)
 - [media player (media players)](/integrations/media_player/)
 - [notify (notifications)](/integrations/notify/)
-- [sensor](/integrations/sensor/)
-- [number](/integrations/number/)
-- [input_number](/integrations/input_number/)
+- [sensor (sensors)](/integrations/sensor/)
+- [number (numbers)](/integrations/number/)
+- [input_number (input_numbers)](/integrations/input_number/)
 
 {% include integrations/config_flow.md %}
 
