@@ -108,11 +108,13 @@ Newer coordinators generally support Zigbee 3.0 firmware, but it is up to the ma
 
 ### Other supported but not recommended Zigbee radio adapters or modules
 
-The following hardware is no longer recommended. Specific models and details are noted where available in each section.
-
-{% details "List of hardware that is no longer recommended" %}
+{% details "List of hardware that is not recommended" %}
 
 {% warning %}
+
+The following hardware is supported, but _not recommended_. Specific models and details are noted where available in each section.
+
+{% endwarning %}
 
 **Silicon Labs EmberZNet based radios using legacy hardware using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)**
 
@@ -159,9 +161,9 @@ The following hardware is no longer recommended. Specific models and details are
 - [ZiGate-Ethernet (Ethernet gateway board for PiZiGate)](https://zigate.fr/produit/zigate-ethernet/)
 - [ZiGate + WiFi Pack](https://zigate.fr/produit/zigatev2-pack-wifi/)
 
-{% endwarning %}
-
 {% enddetails %}
+
+If you find an opportunity to improve this information, refer to the section on how to [add support for new and unsupported devices](#how-to-add-support-for-new-and-unsupported-devices).
 
 #### Warning about using Zigbee Coordinator over Wi-Fi/WAN/VPN
 
@@ -549,7 +551,7 @@ ZHA does not currently support devices that can only use the ZSE ("Zigbee Smart 
 ### Knowing which devices are supported
 
 Home Assistant's ZHA {% term integration %} supports all standard Zigbee device types. It should be compatible with most Zigbee devices as long as they fully conform to the official ZCL (Zigbee Cluster Library) specifications defined by the [CSA (Connectivity Standards Alliance, formerly the Zigbee Alliance)](https://csa-iot.org/all-solutions/zigbee/). There is therefore no official compatibility list of devices that will work out-of-the-box with the ZHA {% term integration %}
-Not all hardware manufacturers always fully comply with the standard specifications. Sometimes, they may also implement unique features. For this reason, some Zigbee devices pair/join fine with ZHA but then only show none or only a few entities in the {% term integration %}. Developers can work around most such interoperability issues by adding conversion/translation code in custom device handlers. For more information, refer to the section below on _How to add support for new and unsupported devices_.
+Not all hardware manufacturers always fully comply with the standard specifications. Sometimes, they may also implement unique features. For this reason, some Zigbee devices pair/join fine with ZHA but then only show none or only a few entities in the {% term integration %}. Developers can work around most such interoperability issues by adding conversion/translation code in custom device handlers. For more information, refer to the section below on [How to add support for new and unsupported devices](#how-to-add-support-for-new-and-unsupported-devices).
 
 For clarification, normally only devices that do not fully conform to CSA's ZCL specifications that will not present all standard attributes as entities for configuration in the ZHA {% term integration %}. Zigbee devices that only use the standard clusters and attributes that are Zigbee specifications set by the Connectivity Standards Alliance should not need custom device handlers.
 
