@@ -43,7 +43,7 @@ Password:
   required: true
   type: string
 Private Key File:
-  description: Location to private key file to authenticate with. File can be uploaded to Home Assistant `/config` folder. If file name provided here does not start with `/` (to designate full path to private key file), `/config` is automatically prepended to file name. Provide this or password.
+  description: Location to the private key file to authenticate with. File must be uploaded to the Home Assistant `/config` folder. If file name provided here does not start with `/` (to designate full path to private key file), `/config` is automatically prepended to file name. Provide this or password.
   required: true
   type: string
 Remote path:
