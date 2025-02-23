@@ -107,6 +107,8 @@ Change an active timer. This changes the duration of the timer with the duration
 
 Increases the remaining time on a timer. If the timer is already active with more time remaining than the requested duration then this action does nothing. If the timer is currently paused then this increases the remaining time (if necessary), but does not restart the timer. In all other scenarios, this action behaves the same as `timer.start`.
 
+You can also use `entity_id: all` to apply the action to all timers.
+
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
@@ -115,6 +117,8 @@ Increases the remaining time on a timer. If the timer is already active with mor
 ### Action `timer.atmost`
 
 Decreases the remaining time on a timer. If the timer is already active with less time remaining than the requested duration then this action does nothing. Similarly, if the timer is currently idle then this action does nothing. In all other scenarios, this action behaves the same as `timer.start`. Note that this means that this action will always restart a paused timer (because a paused timer could stay paused for longer than the requested duration).
+
+You can also use `entity_id: all` to apply the action to all timers.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -192,6 +196,24 @@ timer:
   - action: notify.nma
     data:
       message: "Timer stop"
+
+# At 9am, set all timers to at least 1 hour, 15 seconds, and 50 milliseconds.
+- alias: "TimersAtLeast"
+  id: "TimersAtLeast"
+  triggers:
+  - trigger: time
+    at: "09:00:00"
+  actions:
+  - action: timer.atleast
+    target:
+      entity_id: all
+    data:
+      duration:
+        hours: 1
+        minutes: 0
+        seconds: 15
+        milliseconds: 50
+        days: 0
 ```
 
 ### Control a timer manually
