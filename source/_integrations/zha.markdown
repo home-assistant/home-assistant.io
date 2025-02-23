@@ -192,14 +192,14 @@ If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path c
 
 ### Discovery via USB or Zeroconf
 
-Some devices can be auto-discovered, which can simplify the ZHA setup process. The following devices have been tested with discovery and offer a quick setup experience:
+Some devices can be auto-discovered, which can simplify the ZHA setup process. The following devices have been tested with discovery and offer a quick setup experience.
 
-{% details "USB Discovery" %}
+{% details "USB Discovery Devices" %}
 
 - **Bitron**
   - [Bitron Video/SMaBiT BV AV2010/10](https://manuals.smabit.eu/len/av2010_10.html)
     - Identifier: `10C4:8B34`
-- **Conbee**
+- **ConBee**
   - [ConBee II](https://phoscon.de/conbee2)
     - Identifier: `1CF1:0030`
   - [ConBee III](https://phoscon.de/conbee3)
@@ -229,7 +229,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 
 {% enddetails %}
 
-{% details "Zeroconf Discovery" %}
+{% details "Zeroconf Discovery Devices" %}
 
 - **cod.m**
   - [cod.m Zigbee Coordinator](https://docs.codm.de/zigbee/coordinator/)
