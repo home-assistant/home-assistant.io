@@ -81,6 +81,25 @@ The integration provides the following sensors, which are updated every 5 minute
 A drive that is in **Drive state** `Exceeded` will be automatically frozen (meaning you can't upload any more backups & files), until you clear up enough storage.
 {% endnote %}
 
+## Actions
+
+This integration provides the following actions:
+
+### Action `onedrive.upload`
+
+You can use the `onedrive.upload` action to upload files from Home Assistant
+to OneDrive, e.g. to upload `camera` snapshots.
+
+{% details "Upload action details" %}
+
+| Data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `filename` | no | Path to the file to upload. | /media/image.jpg |
+| `destination_folder` | no | Folder inside your `Apps/Home Assistant` app folder, that is the destination for the uploaded content. Will be created if it does not exist. Supports subfolders. | Snapshots/2025 |
+| `config_entry_id` | no | The ID of the Google Photos config entry. | a1bee602deade2b09bc522749bbce48e |
+
+{% enddetails %}
+
 ## Automations
 
 Get started with these automation examples.
