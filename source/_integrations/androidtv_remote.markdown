@@ -294,7 +294,7 @@ It requires the on screen keyboard to be closed first.
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
 | `entity_id`    |       no | Name(s) of Android TV remote entities.
-| `text`         |       no | Text to 'type'
+| `text`         |       no | Text to send as input to device.
 
 Example:
 
