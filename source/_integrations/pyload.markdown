@@ -21,7 +21,7 @@ The [**pyLoad**](https://pyload.net/) {% term integration %} enables monitoring 
 
 ## About pyLoad
 
-**pyLoad** is an open-source download manager, fully developed in Python, designed for always-on devices like home servers, NAS systems, and routers. It supports various file hosts, container formats, and web standards, enabling fully automated, unattended downloads. With its web interface, pyLoad allows for easy remote management from any device.
+**pyLoad** is an open-source download manager designed for always-on devices like home servers, NAS systems, and routers. It supports various file hosts, container formats, and web standards, enabling fully automated, unattended downloads. With its web interface, pyLoad allows for easy remote management from any device.
 
 ## How you can use this integration
 
@@ -31,7 +31,7 @@ The **pyLoad** integration allows you to monitor and control your downloads dire
 - **Free space alerts** – Set up an automation to alert you when disk space is low, ensuring downloads don’t fail due to storage issues.
 - **Pause downloads** – Automatically pause downloads when streaming or gaming to avoid bandwidth congestion, then resume them later.
 
-## Prerequisites for pyLoad integration
+## Prerequisites
 
 To set up the pyLoad integration, you must have a running pyLoad instance on your home server, NAS, or any other device. An always-on device is recommended. Ensure that pyLoad's web interface is accessible for Home Assistant.
 
@@ -105,7 +105,7 @@ description: "Pause new downloads when the disk space is low."
 triggers:
   - trigger: numeric_state
     entity_id: sensor.pyload_free_space
-    below:  5000000000  # Trigger when free space drops below 5 GB (in bytes)
+    below: 5000000000  # Trigger when free space drops below 5 GB (in bytes)
 actions:
   - action: switch.turn_off
     target:
@@ -160,8 +160,8 @@ This integration {% term polling polls %} your **pyLoad** instance every 20 seco
 
 ## Known limitations
 
-- **Paused downloads:** When the download queue is paused, active downloads will continue, but new downloads in the queue will not start until the queue is resumed.
-- **Halt all downloads:** To completely halt downloading, use the `Abort all running downloads` action. The `Restart failed files/packages` action will also resume any aborted downloads.
+- **Paused downloads**: When the download queue is paused, active downloads will continue, but new downloads in the queue will not start until the queue is resumed.
+- **Halt all downloads**: To completely halt downloading, use the `Abort all running downloads` action. The `Restart failed files/packages` action will also resume any aborted downloads.
 
 ## Troubleshooting
 
