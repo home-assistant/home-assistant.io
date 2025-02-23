@@ -43,7 +43,7 @@ Password:
   required: true
   type: string
 Private Key File:
-  description: Location to private key file to authenticate with. File must be uploaded to Home Assistant `/config` folder. Provide this or password.
+  description: Location to private key file to authenticate with. File can be uploaded to Home Assistant `/config` folder. If file name provided here does not start with `/` (to designate full path to private key file), `/config` is automatically prepended to file name. Provide this or password.
   required: true
   type: string
 Remote path:
@@ -51,3 +51,13 @@ Remote path:
   required: true
   type: string
 {% endconfiguration_basic %}
+
+If both `Password` and `Private Key File` are provided, service will try to login with private key first, then fallback to password-based authentication if private key authentication fails.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+- If you remove the integration, all previous Home Assistant backups that were previously stored on remote server are not automatically deleted. You have to manually delete them from remote filesystem.
