@@ -106,7 +106,7 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 ## Actions
 
 The Home Connect integration makes various actions available.
-Available actions: `set_program_and_options`, `pause_program`, `resume_program`, and `change_setting`
+Available actions: `set_program_and_options`, and `change_setting`
 
 ### Action `home_connect.set_program_and_options`
 
@@ -150,22 +150,6 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `laundry_care_washer_option_i_dos1_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 1) |
 | `laundry_care_washer_option_i_dos2_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 2) |
 | `laundry_care_washer_option_vario_perfect` | yes | Defines if a cycle saves energy (Eco Perfect) or time (Speed Perfect). |
-
-### Action `home_connect.pause_program`
-
-Pauses the current running program.
-
-| Data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
-
-### Action `home_connect.resume_program`
-
-Resumes a paused program.
-
-| Data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
 
 ### Action `home_connect.change_setting`
 
