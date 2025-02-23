@@ -36,6 +36,12 @@ Folder name:
   description: "The name of the instance specific [backup folder](#backup-folder)."
 
 {% endconfiguration_basic %}
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Delete files permanently:
+  description: By default, files are put into the Recycle Bin when deleted, where they remain available for another 30 days. If you enable this option, files will be deleted immediately when they are cleaned up by the backup system.
+{% endconfiguration_basic %}
 
 ## Backup folder
 

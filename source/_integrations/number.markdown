@@ -87,6 +87,7 @@ The following device classes are supported for numbers:
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
+- **wind_direction**: Wind direction in °
 - **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph
  
 ## Actions
