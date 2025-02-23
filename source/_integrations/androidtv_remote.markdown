@@ -288,13 +288,13 @@ target:
 The `androidtv_remote.send_text` action allows you to send text to your Android TV device.
 
 {% note %}
-It requires the on screen keyboard to be closed first.
+It requires the on-screen keyboard to be closed first.
 {% endnote %}
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
-| `entity_id`    |       no | Name(s) of Android TV remote entities.
-| `text`         |       no | Text to send as input to device.
+| `entity_id`    |       no | Name(s) of Android TV remote entities. |
+| `text`         |       no | Text to send as input to device. |
 
 Example:
 
