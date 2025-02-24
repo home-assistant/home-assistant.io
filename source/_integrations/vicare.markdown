@@ -120,7 +120,7 @@ Set the mode for the climate device as defined by Viessmann (see [set_hvac_mode]
 
 ### Action `vicare.set_dhw_circulation_pump_schedule`
 
-Set the schedule for the domestic hot water circulation pump as defined by Viessmann
+Set the schedule for the domestic hot water circulation pump as defined by Viessmann.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
