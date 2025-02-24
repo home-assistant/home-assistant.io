@@ -16,12 +16,13 @@ ha_integration_type: integration
 
 Integrate Meross devices into Home Assistant.
 
+{% include integrations/config_flow.md %}
+
 ## Prerequisites
 
 - Devices need to be connected to the local network first.
 - You need to know the IP address of the device.
 - The host of the Home Assistant is not using port 9989.
-{% include integrations/config_flow.md %}
 
 ## Supported device models
 
