@@ -151,7 +151,7 @@ green:
       url: https://www.wifishop.ro/en/homeassistant/home-assistant-green.html
       logo: /images/distributors/wifishop.webp
     - name: Inet.se
-      ship_from: Sweeden
+      ship_from: Sweden
       ship_to: Europe
       url: https://www.inet.se/produkt/8310063/home-assistant-green
       logo: /images/distributors/inet.webp
@@ -355,7 +355,7 @@ zbt-1:
       url: https://www.wifishop.ro/en/homeassistant/home-assistant-skyconnect.html
       logo: /images/distributors/wifishop.webp
     - name: Inet.se
-      ship_from: Sweeden
+      ship_from: Sweden
       ship_to: Europe
       url: https://www.inet.se/produkt/8310064/home-assistant-connect-zbt-1
       logo: /images/distributors/inet.webp
@@ -467,7 +467,7 @@ voice-pe:
       url: https://shop.pimoroni.com/products/home-assistant-voice
       logo: /images/distributors/pimoroni.webp
     - name: Inet.se
-      ship_from: Sweeden
+      ship_from: Sweden
       ship_to: Europe
       url: https://www.inet.se/produkt/8310094/home-assistant-voice-preview-edition
       logo: /images/distributors/inet.webp
