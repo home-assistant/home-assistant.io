@@ -39,7 +39,7 @@ If you haven't set up pyLoad yet, an easy way to get it up and running is by ins
 
 - During the setup process in Home Assistant, you will need:
   - pyLoad account credentials – A valid *username* and *password* to authenticate with pyLoad.
-  - The full URL of your pyLoad web interface, including the protocol (http or https), hostname or IP address, port (pyLoad uses 8000 by default), and any path prefix if applicable.
+  - The full URL of your pyLoad web interface, including the protocol (HTTP or HTTPS), hostname or IP address, port (pyLoad uses 8000 by default), and any path prefix if applicable.
 
 {% note %}
 
@@ -53,7 +53,7 @@ The account used for integration must either be an admin account or one with at 
 
 {% configuration_basic %}
 URL:
-  description: "The the full URL of the pyLoad web interface, including the protocol (http or https), hostname or IP address, port, and any path prefix if applicable. Example: `https://example.com:8000/path`"
+  description: "The the full URL of the pyLoad web interface, including the protocol (HTTP or HTTPS), hostname or IP address, port, and any path prefix if applicable. Example: `https://example.com:8000/path`"
 Verify SSL certificate:
   description: "If checked, the SSL certificate will be validated to ensure a secure connection."
 Username:
