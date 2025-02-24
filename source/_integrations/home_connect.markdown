@@ -168,3 +168,72 @@ Changes a setting.
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the setting. |
 | `value` | no | Value of the setting. |
+
+## Automation examples
+
+Get started with these automation examples
+
+### Send a notification when the appliance ends the program
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: "Notify when program ends"
+triggers:
+  - trigger: state
+    entity_id:
+      - sensor.appliance_operation_state
+    to: finished
+actions:
+  - service: notify.notify
+    data:
+      message: "The appliance has finished the program."
+```
+
+{% endraw %}
+{% enddetails %}
+
+### Start a program when electricity is cheap
+
+Because cheap princes usually are at night, this automation will add an active the silence option when starting the program.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: "Start program when electricity is cheap"
+triggers:
+  - trigger: state
+    entity_id: sensor.electricity_price
+    to: "0.10"
+conditions:
+  - condition: state
+    entity_id: sensor.diswasher_door
+    state: closed
+actions:
+  - if:
+      - condition: time
+        after: '22:00:00'
+        before: '06:00:00'
+    then:
+      - service: home_connect.set_program_and_options
+        data:
+          device_id: "your_device_id"
+          affects_to: "active_program"
+          program: "dishcare_dishwasher_program_eco_50"
+          options:
+            - key: "dishcare_dishwasher_option_silence_on_demand"
+              value: true
+    else:
+      - service: home_connect.set_program_and_options
+        data:
+          device_id: "your_device_id"
+          affects_to: "active_program"
+          program: "dishcare_dishwasher_program_eco_50"
+```
+
+{% endraw %}
+{% enddetails %}
