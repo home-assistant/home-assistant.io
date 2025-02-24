@@ -96,7 +96,7 @@ If you want to receive these notifications, you must use a dedicated account, as
 | `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types).                             |
 | `item`                 |      yes | Required for `urgent_message`. Item to include in the message. For example: *Attention! Attention! - We still urgently need: Cilantro*. |
 
-### Available notification types
+#### Available notification types
 
 | Notification type   | Name of notification                                           |
 | ------------------- | -------------------------------------------------------------- |
@@ -116,7 +116,9 @@ The notification that list members receive differs from the label shown in the B
 
 {% endnote %}
 
-### Sending a going shopping notification
+{% details "Example YAML configuration" %}
+
+#### Sending a going shopping notification
 
 ```yaml
 ...
@@ -128,7 +130,7 @@ actions:
       message: going_shopping 
 ```
 
-### Sending an urgent message notification
+#### Sending an urgent message notification
 
 Note that for the notification type `urgent_message` the attribute `item` is **required**.
 
@@ -142,6 +144,40 @@ actions:
       message: urgent_message
       item: Cilantro
 ```
+
+{% enddetails %}
+
+### Action: Send reaction
+
+Reactions in **Bring!** let users quickly acknowledge shopping list updates with emojis. The action `bring.send_reaction` in Home Assistant allows sending reactions like 👍 or ❤️ to the latest event from the [Activities entity](#events).
+
+| Data attribute         | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `target`               |       no | Target the Bring! Activities entity, which holds the most recent activity for which a reaction will be sent. |
+| `reaction`             |       no | Reaction to send in response to an activity by a list member.                                                |
+
+#### Available reactions
+
+| Reaction   | Emoji |
+|------------|-------|
+| `THUMBS_UP`| 👍🏼    |
+| `MONOCLE`  | 🧐    |
+| `DROOLING` | 🤤    |
+| `HEART`    | ❤️     |
+
+{% details "Example YAML configuration" %}
+
+```yaml
+...
+actions:
+  - action: bring.send_reaction
+    data:
+      reaction: HEART
+    target:
+      entity_id: event.shoppinglist_activities
+```
+
+{% enddetails %}
 
 ## Automations
 
