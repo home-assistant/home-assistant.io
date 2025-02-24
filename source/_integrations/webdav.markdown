@@ -27,12 +27,11 @@ URL:
 Username:
   description: "Username for the WebDAV server."
 Password:
-    description: "Password for the WebDAV server."
+  description: "Password for the WebDAV server."
 Backup path:
   description: "Path to the folder where the backups should be stored. The path is relative to the root of the WebDAV server."
 Verify SSL:
-    description: "Verify the SSL certificate of the WebDAV server."
-    default: true
+  description: "Verify the SSL certificate of the WebDAV server."
 {% endconfiguration_basic %}
 
 ### Common WebDAV URLs
