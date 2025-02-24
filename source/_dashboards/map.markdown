@@ -58,7 +58,7 @@ type:
   type: string
 entities:
   required: false
-  description: List of entity IDs or `entity` objects (see [below](#options-for-entities)). Either this, `show_all` or the `geo_location_sources` configuration option is required.
+  description: List of entity IDs or `entity` objects (see [below](#options-for-entities)). Either this, `show_all`, or the `geo_location_sources` configuration option is required.
   type: list
 geo_location_sources:
   required: false
