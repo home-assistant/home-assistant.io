@@ -1,4 +1,4 @@
- ---
+---
 title: Meross
 description: Integrate Meross devices
 ha_category:
