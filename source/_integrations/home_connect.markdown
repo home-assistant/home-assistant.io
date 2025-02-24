@@ -103,10 +103,18 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, go to [your applications at the Home Connect Developer portal](https://developer.home-connect.com/applications), find the application that you were using for Home Assistant, click on details and click on "Delete Application".
+
 ## Actions
 
 The Home Connect integration makes various actions available.
-Available actions: `set_program_and_options`, `pause_program`, `resume_program`, and `change_setting`
+Available actions: `set_program_and_options`, and `change_setting`
 
 ### Action `home_connect.set_program_and_options`
 
@@ -150,22 +158,6 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `laundry_care_washer_option_i_dos1_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 1) |
 | `laundry_care_washer_option_i_dos2_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 2) |
 | `laundry_care_washer_option_vario_perfect` | yes | Defines if a cycle saves energy (Eco Perfect) or time (Speed Perfect). |
-
-### Action `home_connect.pause_program`
-
-Pauses the current running program.
-
-| Data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
-
-### Action `home_connect.resume_program`
-
-Resumes a paused program.
-
-| Data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
 
 ### Action `home_connect.change_setting`
 

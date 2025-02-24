@@ -22,7 +22,7 @@ ha_integration_type: integration
 ## Prerequisites
 
 - Minecraft Java Edition servers must be version 1.7 or newer, since older versions don't expose any information.
-- The `enable-status` and `enable-query` must be set to `true` in the Minecraft `server.properties`.
+- The configuration parameter `enable-status` must be set to `true` in the server configuration file (`server.properties`).
 
 {% include integrations/config_flow.md %}
 

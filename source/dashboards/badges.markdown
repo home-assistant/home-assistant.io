@@ -27,7 +27,8 @@ Badges are widgets that sit at the top of a panel, above all the cards.
 
    ![Screenshot showing how to configure a badge](/images/dashboards/badge_configure.png)
 7. Under **Interactions**, you can define the tap behavior.
-8. If you want this badge to be visible only to specific users or under a certain condition, open the **Visibility** tab to [define those conditions](/dashboards/cards/#showing-or-hiding-a-card-conditionally).
+8. If you want this badge to be visible only to specific users or under a certain condition, open the **Visibility** tab to [define those conditions](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally).
+   - The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
 9. Select **Save**.
 
 <p class="img">

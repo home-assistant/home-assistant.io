@@ -53,6 +53,9 @@ The following entities can be grouped:
 - [event (events)](/integrations/event/)
 - [media player (media players)](/integrations/media_player/)
 - [notify (notifications)](/integrations/notify/)
+- [sensor (sensors)](/integrations/sensor/)
+- [number (numbers)](/integrations/number/)
+- [input_number (input_numbers)](/integrations/input_number/)
 
 {% include integrations/config_flow.md %}
 
@@ -136,7 +139,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - Otherwise, the group state is `on` if at least one group member is not `off`, `unavailable` or `unknown`.
 - Otherwise, the group state is `off`.
 
-### Sensor groups
+### Sensor, number, and input_number groups
 
 - The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), mean, median, range, product, standard deviation, or sum of the collected states.
 - Members can be any `sensor`, `number` or `input_number` holding numeric states.
