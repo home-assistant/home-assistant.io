@@ -112,7 +112,7 @@ This integration provides the following actions:
 ### Action `onedrive.upload`
 
 You can use the `onedrive.upload` action to upload files from Home Assistant
-to OneDrive, e.g. to upload `camera` snapshots.
+to OneDrive. For example, to upload `camera` snapshots.
 
 {% details "Upload action details" %}
 
