@@ -16,6 +16,7 @@ ha_platforms:
   - number
   - sensor
   - switch
+  - valve
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -30,6 +31,7 @@ There is currently support for the following device types in Home Assistant:
 - number
 - sensor
 - switch
+- valve
 
 ## Prerequisites
 
