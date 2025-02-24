@@ -67,7 +67,7 @@ footer:
 collection_key:
   required: false
   description: If using `period: energy_date_selection`, you can set a custom key to match the optional key of an `energy-date-selection` card. This is not typically required, but can be useful if multiple date selection cards are used on the same view. See [energy documentation](/dashboards/energy/#using-multiple-collections).
-  type: string    
+  type: string
 {% endconfiguration %}
 
 ## Example
