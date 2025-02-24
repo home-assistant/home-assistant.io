@@ -31,6 +31,14 @@ ha_integration_type: integration
 
 The Home Connect integration allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
 
+## Use cases
+
+- Monitor the multiple sensors of the appliance and trigger automations based on these sensors.
+- Start programs on your appliances from your dashboard.
+- Monitor the program status of the appliances.
+- Control the light of your appliances.
+- Adjust the appliance settings.
+
 The integration will add one Home Assistant device for each connected home appliance which will have the following entities:
 
 - A power switch
