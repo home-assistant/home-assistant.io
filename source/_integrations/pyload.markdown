@@ -69,23 +69,23 @@ Password:
 
 ## Sensors
 
-- **Speed:** Monitors the current download speed.
-- **Active downloads:** Indicates the number of files pyLoad is actively downloading
-- **Downloads in queue:** Shows the number of downloads currently in the queue.
-- **Finished downloads:** Indicates the number of completed downloads.
-- **Free space:** Shows the available disk space in the download directory.
+- **Speed**: Monitors the current download speed.
+- **Active downloads**: Indicates the number of files pyLoad is actively downloading
+- **Downloads in queue**: Shows the number of downloads currently in the queue.
+- **Finished downloads**: Indicates the number of completed downloads.
+- **Free space**: Shows the available disk space in the download directory.
 
 ## Buttons
 
-- **Abort all running downloads:** Aborts all currently running downloads.
-- **Delete finished files/packages:** Deletes all finished files and packages.
-- **Restart all failed files/packages:** Restarts all failed downloads.
+- **Abort all running downloads**: Aborts all currently running downloads.
+- **Delete finished files/packages**: Deletes all finished files and packages.
+- **Restart all failed files/packages**: Restarts all failed downloads.
 - **Restart pyLoad core**: Restarts the pyLoad core.
 
 ## Switches
 
-- **Pause/Resume Queue:** Pauses or resumes the download queue. When paused, active downloads will continue, but new downloads in the queue will not start.
-- **Auto-reconnect:** If configured, enables pyLoad to automatically reconnect the internet connection.
+- **Pause/Resume Queue**: Pauses or resumes the download queue. When paused, active downloads will continue, but new downloads in the queue will not start.
+- **Auto-reconnect**: If configured, enables pyLoad to automatically reconnect the internet connection.
 
 ## Automations
 
