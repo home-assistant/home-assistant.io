@@ -240,7 +240,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Availability**: All the appliances with programs
 
 <details>
-<summary>These entities can use the following options:</summary>
+<summary>These entities can use the following options: (click to view)</summary>
 
 - **Clean all**: `consumer_products_cleaning_robot_program_cleaning_clean_all`
 - **Clean map**: `consumer_products_cleaning_robot_program_cleaning_clean_map`
@@ -405,7 +405,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Represents the currently selected map of the cleaning robot.
   - **Availability**: Cleaning robot
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Temporary map**: `consumer_products_cleaning_robot_option_reference_map_id_temp_map`
     - **Map 1**:`consumer_products_cleaning_robot_option_reference_map_id_map_1`
@@ -417,7 +417,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Represents the color temperature of the functional light.
   - **Availability**: Hood
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Custom**: `cooking_hood_enum_type_color_temperature_custom`
     - **Warm**: `cooking_hood_enum_type_color_temperature_warm`
@@ -431,7 +431,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Represents the color of the ambient light.
   - **Availability**: Hood, Dishwasher
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Custom**: `b_s_h_common_enum_type_ambient_light_color_custom_color`
     - **1**: `b_s_h_common_enum_type_ambient_light_color_color_1`
@@ -446,7 +446,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Defines which reference map is to be used..
   - **Availability**: Cleaning robot
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Temporary map**: `consumer_products_cleaning_robot_option_reference_map_id_temp_map`
     - **Map 1**:`consumer_products_cleaning_robot_option_reference_map_id_map_1`
@@ -458,7 +458,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Defines the favoured cleaning mode.
   - **Availability**: Cleaning robot
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Silent**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_silent`
     - **Standard**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_standard`
@@ -469,7 +469,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Represents the amount of coffee beans used in a coffee machine program.
   - **Availability**: Coffee maker
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Very mild**: `consumer_products_coffee_maker_enum_type_bean_amount_very_mild`
     - **Mild**: `consumer_products_coffee_maker_enum_type_bean_amount_mild`
@@ -493,7 +493,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Represents the coffee temperature used in a coffee machine program.
   - **Availability**: Coffee maker
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **88ºC**: `consumer_products_coffee_maker_enum_type_coffee_temperature_88_c`
     - **90ºC**: `consumer_products_coffee_maker_enum_type_coffee_temperature_90_c`
@@ -507,7 +507,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Defines the preferred bean container.
   - **Availability**: Coffee maker
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Left**: `consumer_products_coffee_maker_enum_type_bean_container_selection_right`
     - **Right**: `consumer_products_coffee_maker_enum_type_bean_container_selection_left`
@@ -517,7 +517,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Defines the water-coffee contact time. The duration extends to coffee intensity.
   - **Availability**: Coffee maker
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Normal**: `consumer_products_coffee_maker_enum_type_flow_rate_normal`
     - **Intense**: `consumer_products_coffee_maker_enum_type_flow_rate_intense`
@@ -528,7 +528,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Defines the amount of milk.
   - **Availability**: Coffee maker
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **10%**: `consumer_products_coffee_maker_enum_type_coffee_milk_ratio_10_percent`
     - **20%**: `consumer_products_coffee_maker_enum_type_coffee_milk_ratio_20_percent`
@@ -551,7 +551,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Defines the temperature suitable for the type of tea.
   - **Availability**: Coffee maker
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **White tea**: `consumer_products_coffee_maker_enum_type_hot_water_temperature_white_tea`
     - **Green tea**: `consumer_products_coffee_maker_enum_type_hot_water_temperature_green_tea`
@@ -584,7 +584,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Describes the drying target for a dryer program.
   - **Availability**: Dryer
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Iron dry**: `laundry_care_dryer_enum_type_drying_target_iron_dry`
     - **Gentle dry**: `laundry_care_dryer_enum_type_drying_target_gentle_dry`
@@ -597,7 +597,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Defines the required fan setting.
   - **Availability**: Hood
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Fan off** `cooking_hood_enum_type_stage_fan_off`
     - **Fan stage 1** `cooking_hood_enum_type_stage_fan_stage01`
@@ -611,7 +611,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Defines the intensive setting.
   - **Availability**: Hood
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
   
     - **Intensive stage off**: `cooking_hood_enum_type_intensive_stage_intensive_stage_off`
     - **Intensive stage 1**: `cooking_hood_enum_type_intensive_stage_intensive_stage1`
@@ -622,7 +622,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Defines the level of the warming drawer.
   - **Availability**: Oven
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Low**: `cooking_oven_enum_type_warming_level_low`
     - **Medium**: `cooking_oven_enum_type_warming_level_medium`
@@ -633,7 +633,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Defines the temperature of the washing program.
   - **Availability**: Washer, Washer dryer
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Cold**: `laundry_care_washer_enum_type_temperature_cold`
     - **20ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c20`
@@ -654,7 +654,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Defines the spin speed of a washer program.
   - **Availability**: Washer, Washer dryer
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Off**: `laundry_care_washer_enum_type_spin_speed_off`
     - **400 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m400`
@@ -674,7 +674,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Defines if a cycle saves energy (Eco Perfect) or time (Speed Perfect).
   - **Availability**: Washer
   - <details>
-    <summary><b>Options</b></summary>
+    <summary><b>Options: (click to view)</b></summary>
 
     - **Off**: `laundry_care_common_enum_type_vario_perfect_off`
     - **Eco perfect**: `laundry_care_common_enum_type_vario_perfect_eco_perfect`
