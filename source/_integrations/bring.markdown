@@ -37,10 +37,10 @@ Available as a mobile app on [Google Play for Android](https://play.google.com/s
 
 ## How you can use this integration
 
-- **Automated notifications:** Receive alerts on your phone when essential items are added to your list or when the quantity of items reaches a set value.
-- **List updates based on events:** Automatically add items to your shopping list when appliances are low on supplies, like dishwasher salt, or need routine maintenance, such as tub cleaner for the washer.
-- **Voice control:** Use voice assistants connected to Home Assistant to add items to your **Bring!** list.
-- **Geofencing:** Receive reminders when you are near a specific store and need to pick up items, based on your location.
+- **Automated notifications**: Receive alerts on your phone when essential items are added to your list or when the quantity of items reaches a set value.
+- **List updates based on events**: Automatically add items to your shopping list when appliances are low on supplies, like dishwasher salt, or need routine maintenance, such as tub cleaner for the washer.
+- **Voice control**: Use voice assistants connected to Home Assistant to add items to your **Bring!** list.
+- **Geofencing**: Receive reminders when you are near a specific store and need to pick up items, based on your location.
 
 ## Prerequisites
 
@@ -66,10 +66,10 @@ Password:
 
 ## Sensors
 
-- **Urgent:** Shows the number of items tagged with the **Urgent** badge on the shopping list. Completed items are excluded.
-- **On occasion:** Displays the count of items marked with the **If convenient** badge.
-- **Discount only:** Indicates the number of items tagged with the **Offer** badge.
-- **Region & Language:** The sensor can be used for diagnostics. If everything is set correctly, it will display the selected region for the shopping list. If it shows **Unknown**, the region has not been set properly in the **Bring!** app.
+- **Urgent**: Shows the number of items tagged with the **Urgent** badge on the shopping list. Completed items are excluded.
+- **On occasion**: Displays the count of items marked with the **If convenient** badge.
+- **Discount only**: Indicates the number of items tagged with the **Offer** badge.
+- **Region & Language**: The sensor can be used for diagnostics. If everything is set correctly, it will display the selected region for the shopping list. If it shows **Unknown**, the region has not been set properly in the **Bring!** app.
 - **List access**: Indicates whether the shopping list is **personal** (private) or **shared** (accessible to others).
 
 ## Events
@@ -85,7 +85,9 @@ You can use the actions from the [to-do list](/integrations/todo/) to create, up
 The **Bring!** integration offers an action to send push notifications to the Bring! mobile apps of other members of a shared shopping list. The Bring! mobile app has 4 predefined notification types.
 
 {% note %}
+
 If you want to receive these notifications, you must use a dedicated account, as outlined in the [known limitations](#known-limitations).
+
 {% endnote %}
 
 | Data attribute         | Optional | Description                                                                                                                             |
@@ -94,23 +96,24 @@ If you want to receive these notifications, you must use a dedicated account, as
 | `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types).                             |
 | `item`                 |      yes | Required for `urgent_message`. Item to include in the message. For example: *Attention! Attention! - We still urgently need: Cilantro*. |
 
-
 ### Available notification types
 
-| Notification type | Name of notification                                           |
-| ----------------- | -------------------------------------------------------------- |
-| going_shopping    | I'm going shopping! - Last chance for adjustments              |
-| changed_list      | I changed the list! - Take a look at the items                 |
-| shopping_done     | The shopping is done! - The fridge is well stocked             |
-| urgent_message    | Attention! Attention! - We still urgently need: `[Items]`      |
+| Notification type   | Name of notification                                           |
+| ------------------- | -------------------------------------------------------------- |
+| `going_shopping`    | I'm going shopping! - Last chance for adjustments              |
+| `changed_list`      | I changed the list! - Take a look at the items                 |
+| `shopping_done`     | The shopping is done! - The fridge is well stocked             |
+| `urgent_message`    | Attention! Attention! - We still urgently need: `[Items]`      |
 
 {% note %}
+
 The notification that list members receive differs from the label shown in the Bring! app. This variation depends not only on the recipient’s language settings but also on the sender's profile name. Additionally, notifications may change with new app updates. Here are some example notifications:
 
 - `name` is going shopping for "`shopping list name`"! Last chance to make changes
 - `name` went shopping for "`shopping list name`"! The fridge is well stocked
 - `name` updated the list "`shopping list name`"! Take a look at the articles
 - Attention, something's missing! Please buy `item` urgently
+
 {% endnote %}
 
 ### Sending a going shopping notification
@@ -212,7 +215,7 @@ The **Bring!** integration relies on an active internet connection to communicat
 
 - A **502 - Bad Gateway** error (`aiohttp.client_exceptions.ClientResponseError: 502, message='Bad Gateway'`) is known to occur occasionally (1–2 times per day) but is usually temporary. The integration will retry automatically after 90 seconds, so there’s no need to take action.
 
-In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically_). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
 ## Remove integration
 
