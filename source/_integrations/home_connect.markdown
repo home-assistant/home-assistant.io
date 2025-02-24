@@ -197,7 +197,7 @@ actions:
 
 ### Start a program when electricity is cheap
 
-Because cheap princes usually are at night, this automation will add an active the silence option when starting the program.
+Because electricity is typically cheaper at night, this automation will activate the silent mode when starting the program at night.
 
 {% details "Example YAML configuration" %}
 
