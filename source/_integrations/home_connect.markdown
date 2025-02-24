@@ -85,7 +85,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 After deleting the integration, go to [your applications at the Home Connect Developer portal](https://developer.home-connect.com/applications), find the application that you were using for Home Assistant, click on details and click on "Delete Application".
 
-## Available platforms and entities
+## Supported functionality
 
 {% note %}
 
