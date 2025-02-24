@@ -53,7 +53,7 @@ The account used for integration must either be an admin account or one with at 
 
 {% configuration_basic %}
 URL:
-  description: "The the full URL of the pyLoad web interface, including the protocol (HTTP or HTTPS), hostname or IP address, port, and any path prefix if applicable. Example: `https://example.com:8000/path`"
+  description: "The full URL of the pyLoad web interface, including the protocol (HTTP or HTTPS), hostname or IP address, port, and any path prefix if applicable. Example: `https://example.com:8000/path`"
 Verify SSL certificate:
   description: "If checked, the SSL certificate will be validated to ensure a secure connection."
 Username:
