@@ -79,7 +79,7 @@ Before installing the ZHA integration in Home Assistant, you need to connect a Z
 
 Once ZHA has been set up with a Zigbee Coordinator it will automatically create a Zigbee network and you will be able to join/pair any Zigbee Router devices and Zigbee End Devices. With only a few [limitations](#limitations), most devices will join/pair directly regardless of brand and manufacturer. Technically almost all devices that are compliant with the official Zigbee specifications should offer interoperability, though a newer Zigbee Coordinator with support for later firmware often offers better compatibility with both new and older devices. Still, be aware that [all functionality might not always be supported or exposed for every device out-of-the-box](#knowing-which-devices-are-supported) as some devices that use manufacturer-specific extensions to add non-standard functions and features could sometimes need [device-specific code to fully work with ZHA](#how-to-add-support-for-new-and-unsupported-devices).
 
-Note that because Zigbee relies on "mesh networking" technology it depends heavily on having [Zigbee Router devices](#using-router-devices-to-add-more-devices) to expand the network coverage and extend its size. These are always mains-powered devices that route messages to other devices that are located close to them within the Zigbee network mesh to improve the range and increase the total amount of devices you can add.  You should therefore make sure that you add many Zigbee Router devices and not just Zigbee End Devices or else its network mesh connection routes will be limited due to the short range and poor wall penetration of Zigbee radio signals. It is highly recommended that you read and follow all the general tips below about [Zigbee interference avoidance and network range/coverage optimization)](#zigbee-interference-avoidance-and-network-rangecoverage-optimization).
+Note that because Zigbee relies on "mesh networking" technology it depends heavily on having [Zigbee Router devices](#using-router-devices-to-add-more-devices) to expand the network coverage and extend its size. These are always mains-powered devices that route messages to other devices that are located close to them within the Zigbee network mesh to improve the range and increase the total amount of devices you can add.  You should therefore make sure that you add many Zigbee Router devices and not just Zigbee End Devices or else its network mesh connection routes will be limited due to the short range and poor wall penetration of Zigbee radio signals. It is highly recommended that you read and follow all the general tips below about [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization).
 
 ## Compatible hardware
 
@@ -88,8 +88,6 @@ ZHA {% term integration %} uses a hardware independent Zigbee stack implementati
 Note! Zigbee 3.0 support or not in zigpy, depends primarily on your Zigbee coordinator hardware and its firmware. Some Zigbee coordinator hardware supports Zigbee 3.0 but might be shipped with an older firmware which does not. In such a case you may want to upgrade the firmware manually yourself.
 
 Some other Zigbee coordinator hardware may not support a firmware that is capable of Zigbee 3.0 at all but can still be fully functional and feature-complete for your needs. This is very common as many, if not most, Zigbee devices do not yet Zigbee 3.0. As a general rule, newer Zigbee coordinator hardware generally supports Zigbee 3.0 firmware and it is up to its manufacturer to make such firmware available for them.
-
-### Known working Zigbee radio modules
 
 ### Recommended Zigbee radio adapters and modules
 
@@ -220,7 +218,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 | [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                              | Zeroconf         | tube_zb_gw_cc2652p2_poe.local. |
 | [Tube's EFR32 Based Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                                       | Zeroconf         | tube_zb_gw_efr32.local.        |
 
-Additional devices in the [Known working Zigbee radio modules](#known-working-zigbee-radio-modules) list may be discoverable, however, only devices that have been confirmed discoverable are listed above.
+Additional devices in the [Compatible hardware](#compatible-hardware) section may be discoverable, however, only devices that have been confirmed discoverable are listed above.
 
 ### OTA updates of Zigbee device firmware
 
@@ -229,6 +227,7 @@ The ZHA integration has the ability to perform OTA (over-the-air) firmware updat
 To see OTA updates for a device, it must support OTA updates and firmware images for the device must be publicly provided by the manufacturer. ZHA currently only includes OTA providers for a few manufacturers that provide these updates publicly.
 
 **Included manufacturers:**
+
 - IKEA
 - Inovelli
 - Ledvacnce/OSRAM
@@ -283,7 +282,7 @@ Refer to the [zigpy documentation for OTA configuration](https://github.com/zigp
 
 #### Defining Zigbee channel to use
 
-Tip! Before considering to change to an other Zigbee channel on an existing Zigbee network, it is highly recommended that you read through the two segments under the [troubleshooting](#troubleshooting) section below about "*Best practices to avoid pairing/connection difficulties*" and "*Zigbee interference avoidance and network range/coverage optimization*". These sections provide prerequisite information and advice on how to achieve the best possible Zigbee network in your environment.
+Tip! Before considering to change to an other Zigbee channel on an existing Zigbee network, it is highly recommended that you read through the two segments under the [troubleshooting](#troubleshooting) section below about _Best practices to avoid pairing/connection difficulties_ and _Zigbee interference avoidance and network range/coverage optimization_. These sections provide prerequisite information and advice on how to achieve the best possible Zigbee network in your environment.
 
 ZHA prefers to use Zigbee channel 15 by default. You can change this using YAML configuration, but this only works
 if there's no existing network. To change the channel for an existing network, radio has to be factory reset and a new network to be formed. This requires re-pairing of all the devices.
@@ -296,9 +295,13 @@ zha:
       channels: [15, 20, 25]  # Channel mask
 ```
 
-Note! The best practice is to not change the Zigbee channel from the ZHA default. Also, the related troubleshooting segments mentioned in the tip above will, among other things, inform that if you have issues with overlapping frequencies between Wi-Fi and Zigbee, then it is usually better to first only try changing and setting a static Wi-Fi channel on your Wi-Fi router or all your Wi-Fi access points (instead of just changing to another Zigbee channel).
+{% note %}
+The best practice is to not change the Zigbee channel from the ZHA default.
+{% endnote %}
 
-MetaGeek Support has a good reference article about channel selection for [Zigbee and WiFi coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
+The related troubleshooting segments mentioned above will, among other things, inform that if you have issues with overlapping frequencies between Wi-Fi and Zigbee, then it is usually better to first only try changing and setting a static Wi-Fi channel on your Wi-Fi router or all your Wi-Fi access points (instead of just changing to another Zigbee channel).
+
+MetaGeek Support has a good reference article about channel selection for [Zigbee and WiFi coexistence](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
 
 The Zigbee specification standards divide the 2.4&nbsp;GHz ISM radio band into 16 Zigbee channels (i.e. distinct radio frequencies for Zigbee). For all Zigbee devices to be able to communicate, they must support the same Zigbee channel (i.e. Zigbee radio frequency) that is set on the Zigbee Coordinator as the channel to use for its Zigbee network. Not all Zigbee devices support all Zigbee channels. Channel support usually depends on the age of the hardware and firmware, as well as on the device's power ratings.
 
@@ -343,11 +346,10 @@ from the same group:
 
 {% note %}
   Currently `qr_code` supports QR Install Codes from:
-
-  - Aqara
-  - Bosch
-  - Consciot
-  - Embrighten
+    - Aqara
+    - Bosch
+    - Consciot
+    - Embrighten
 {% endnote %}
 
 ### Action `zha.remove`
@@ -393,7 +395,7 @@ This action disables a lock code on a Zigbee lock.
 
 ## Adding devices
 
-Tip! It is highly recommended that you read through the two segments under the troubleshooting section below about "*Best practices to avoid pairing/connection difficulties*" and "*Zigbee interference avoidance and network range/coverage optimization*" for general prerequisite knowledge and advice on how to achieve the best possible Zigbee network in your environment.
+Tip! It is highly recommended that you read through the two segments under the troubleshooting section below about _Best practices to avoid pairing/connection difficulties_ and _Zigbee interference avoidance and network range/coverage optimization_ for general prerequisite knowledge and advice on how to achieve the best possible Zigbee network in your environment.
 
 **To add a new Zigbee device:**
 
@@ -447,51 +449,66 @@ For example, binding a "target destination" Zigbee device like a remote to a Zig
 
 Note that not all devices support binding. By default, ZHA binds remotes to the coordinator, so click events are forwarded to HA. As some remotes can only be bound to a single destination, you might need to unbind the remote from the coordinator before binding it to another device or group.
 
-## Zigbee backup and restore in ZHA
+## Backups and migration
 
-Zigbee Home Automation (ZHA) {% term integration %} now features Zigbee network backup, restore/recovery, and migrating between Zigbee coordinators. Backups are taken automatically. However, a single backup to a file for easy download can also be manually created from the configuration page under Network Settings.
+The ZHA {% term integration %} performs automatic backups of your Zigbee network allowing you to restore/recover the network from a backup or migrate to a different Zigbee Coordinator (radio adapter).
 
-After restoring a Home Assistant backup, you can re-configure ZHA and migrate to a new Zigbee Coordinator adapter without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio adapter type and model comes out that you may want to migrate to.
+After restoring a Home Assistant backup, you can reconfigure ZHA or migrate to a new Zigbee Coordinator without any loss of your settings or devices that were connected. This can be helpful if your current radio fails or a new radio adapter type/model comes out that you want to migrate to.
 
-Within ZHA it is possible to use this backup and restore feature to migrate between some different radio types, if the respective radio library supports it. Currently, ZHA supports migrating the Zigbee network between different Zigbee Coordinator adapters based on chips from Silicon Labs, Texas Instruments, or ConBee/RaspBee if the backup was made from inside ZHA.
+Manual backups can also be created from the configuration page under **Network Settings**.
 
-## Migrating to a new Zigbee coordinator adapter inside ZHA
+### Migrating to a new Zigbee Coordinator adapter inside ZHA
 
-Follow this guide if you have a Zigbee Home Assistant (ZHA) network running and want to migrate from one Zigbee coordinator radio adapter to another Zigbee coordinator radio adapter.
+ZHA supports migrating the Zigbee network between different Zigbee Coordinators based on chips from Silicon Labs, Texas Instruments, or ConBee/RaspBee if the backup was made from inside ZHA.
 
-### Prerequisites
+#### Prerequisites
 
-- Your old Zigbee Coordinator radio adapter is used in the ZHA {% term integration %} (not in deCONZ or MQTT).
-- It is of radio type ezsp (Silicon Labs EmberZnet), znp (Texas Instruments Z-Stack ZNP), or deCONZ (ConBee/RaspBee from dresden elektronik).
-  - If your old Zigbee coordinator is a deCONZ (ConBee/RaspBee) radio adapter, make sure it is running [firmware 0x26700700 (from 2021-08-18)](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Firmware-Changelog) or later.
+To migrate your Zigbee network from one Zigbee Coordinator to another, confirm you meet the following requirements before proceeding with the migration process:
 
-### To migrate to a new Zigbee coordinator radio inside ZHA
+- The previous Zigbee Coordinator is used in the ZHA {% term integration %} and _not_ in deCONZ or MQTT.
+- The radio type is one of the following:
+  - ezsp (Silicon Labs EmberZnet)
+  - znp (Texas Instruments Z-Stack ZNP)
+  - deCONZ (ConBee/RaspBee from dresden elektronik)
+    - For deCONZ (ConBee/RaspBee) radio adapters, make sure it is running [firmware 0x26700700 (from 2021-08-18)](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Firmware-Changelog) or later.
+
+#### To migrate to a new Zigbee coordinator radio inside ZHA
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}** and select the ZHA {% term integration %}. Then select **Configure**.
 2. Under **Network settings**, select **Migrate radio**.
 3. Reconfiguration of ZHA will start. Select **Submit**.
 4. Under **Migrate or re-configure**, select **Migrate to a new radio**.
-5. **Migrate to a new radio** will inform you that an automatic backup will be performed and that your old Zigbee coordinator radio will then be reset before the backup is automatically restored.
-    - Select **Submit**.
-6. **Unplug your old radio** will inform you that your old Zigbee coordinator radio has been reset and that you can now plug in your new Zigbee coordinator radio adapter.
-    - To avoid interference, use a USB extension cable.
-    - Use a USB 2.0 port or a powered USB 2.0 hub and keep the Zigbee stick away from USB 3.0 devices.
-    - You may now also choose to either unplug your old Zigbee coordinator radio adapter or keep your old radio plugged in.
-    - If that radio was a combined Z-Wave and Zigbee radio, like the HUSBZB-1 adapter, then only the Zigbee radio part of it was reset. Confirm that the Zigbee Coordinator radio adapter is properly connected and select **Submit**.
-7. You now need to start the backup restore process.
-    - Select your new Zigbee radio from the list of serial ports and select **Next**.
-    - If your new radio does not appear or you need to reboot after plugging in new hardware, you can resume the migration after a reboot: under **Network Settings**, select **Re-configure the current radio** and choose your new radio.
+5. Select **Submit** to begin.
+    - An automatic backup will be performed, the Zigbee Coordinator radio will be reset, and the backup will be automatically restored.
+    - For combined Z-Wave and Zigbee radios, like the HUSBZB-1 adapter, only the Zigbee radio portion is reset.
+    - You may now unplug the old adapter, or you may leave the old radio adapter plugged in (for example, if the adapter is a combined Z-Wave adapter).
+6. Plug in the new Zigbee Coordinator radio adapter.
+    - Select **Submit** after confirming the new Zigbee Coordinator radio adapter is properly connected.
+    - To minimize interference:
+      - Use a USB extension cable,
+      - Use a USB 2.0 port or a powered USB 2.0 hub,
+      - Keep the Zigbee stick away from USB 3.0 devices.
+7. Start the backup restore process:
+    - Select the new Zigbee radio from the list of serial ports and select **Next**.
+    - A migration can be resumed if a reboot is required, such as when troubleshooting or if new hardware is plugged in.
+      - To resume, go to **Network Settings**, select **Re-configure the current radio**, choose the new radio and proceed.
 8. Under **Network Formation**, select **Restore an automatic backup**.
 9. Under **Restore Automation Backup**, choose the latest automatic backup and select **Submit**.
-10. If your radio requires overwriting the IEEE address, you will see a screen titled **Overwrite Radio IEEE Address**. Check the **Permanently replace the radio IEEE address** box and click **Submit**. Overwriting the IEEE address may take a while.
-    - Your old Zigbee Coordinator radio and your new stick will now have the same Zigbee IEEE address (unique MAC address for the Zigbee device).
-    - Selecting this option is required for the migration process to complete successfully.
-    - From this point onwards, you should not operate the old stick in the same area unless you change the Zigbee IEEE address on it.
-    - If you do not migrate the Zigbee IEEE address from your old Zigbee Coordinator radio, then you will have to re-join/re-pair many of your devices in order to keep them working.
+10. If the new radio requires overwriting the IEEE address (the unique MAC address), you will see the prompt for **Overwrite Radio IEEE Address**.
+    - Check the **Permanently replace the radio IEEE address** box and click **Submit**.
+      - Selecting this option is required for the migration process to complete successfully.
+      - Overwriting the IEEE address may take a while.
+    - Both the old and new Zigbee Coordinators will now have the same Zigbee IEEE address.
+    - You should not operate the old adapter in the same area unless you change its Zigbee IEEE address.
+    - If you do not migrate the Zigbee IEEE address from the old Zigbee Coordinator radio, you will have to reconnect many of your devices to keep them working.
 11. Finally, a **Success!** message should pop up with information that all options were successfully saved.
     - Select **Finish** to confirm.
 
-The migration process is complete. However, be aware that you will not be able to control your existing Zigbee devices until the new coordinator fully joins the network. This process can take a few minutes. If some existing devices do not function after some time, try power-cycling them to allow them to re-join the network.
+{% important %}
+You will not be able to control your existing Zigbee devices until the new coordinator fully joins the network after the migration. **This can take a few minutes.**
+
+If some existing devices do not resume normal functions after some time, try power-cycling them to attempt rejoining to the network.
+{% endimportant %}
 
 ## Troubleshooting
 
@@ -540,8 +557,8 @@ If you do not want to develop such a "quirk" Python script yourself, you can sub
 
 1. Sign in to GitHub.
 2. Select **New issue** and follow the instructions.
-  - New device support requests require the device signature + diagnostic information.
-  - You may also need to actively help in further testing or provide additional information to the volunteering developers.
+    - New device support requests require the device signature + diagnostic information.
+    - You may also need to actively help in further testing or provide additional information to the volunteering developers.
 
 Note that submitting a new "device support request" does not guarantee that someone else will develop a custom "quirk" for ZHA. The project relies on volunteering developers. However, without "device support requests", the developers may not be aware that your specific Zigbee device is not working correctly in ZHA.
 
@@ -552,15 +569,15 @@ If you experience problems pairing a device, verify that you follow best practic
 - Check that your setup and environment are optimized to avoid interference.
   - As interference avoidance is an extremely important topic on its own, please read and follow the tips in the separate section below about Zigbee interference avoidance and network range/coverage optimization.
 - Check that you have enough Zigbee router devices (also known as Zigbee signal repeaters or range extenders) and if you do not have any, invest and add some mains-powered devices that will work as Zigbee routers.
-    - Aim to start out with mains-powered devices before adding battery-operated devices as a "weak" Zigbee network mesh (e.g., the device is too far from the Zigbee coordinator or a Zigbee router) may prevent some devices from being paired. Zigbee router devices are also needed to increase the maximum of devices that can be connected to your Zigbee mesh network.
-    - Note that some Zigbee devices are not fully compatible with all brands of Zigbee router devices. Xiaomi/Aqara devices are for example known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM, LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios.
+  - Aim to start out with mains-powered devices before adding battery-operated devices as a "weak" Zigbee network mesh (e.g., the device is too far from the Zigbee coordinator or a Zigbee router) may prevent some devices from being paired. Zigbee router devices are also needed to increase the maximum of devices that can be connected to your Zigbee mesh network.
+  - Note that some Zigbee devices are not fully compatible with all brands of Zigbee router devices. Xiaomi/Aqara devices are for example known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM, LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios.
 - If possible try to pair your Zigbee devices in their intended final location, (and not pair it next to the Zigbee coordinator and then need to move it after).
   - Pairing a Zigbee device next to the Zigbee coordinator and then moving it later can result in dropped/lost connections or other issues.
     - If the device you want to add is not brand new and as such never paired before then you always have to make sure to first manually reset the device to its factory default settings before you will be able to add/pair it.
 - Some battery-operated Zigbee devices are known to have problems with pairing if they have Low battery voltage.
-    - Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues.
+  - Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues.
 - Be patient as the pairing of some Zigbee devices may require multiple attempts and you may sometimes need to try again and again.
-    - Some devices, like example those from Xiaomi/Aqara, are known to not be 100% compliant with the standard Zigbee specifications and may therefore require many paring attempts over 10-20 minutes or longer.
+  - Some devices, like example those from Xiaomi/Aqara, are known to not be 100% compliant with the standard Zigbee specifications and may therefore require many paring attempts over 10-20 minutes or longer.
 
 ### Zigbee interference avoidance and network range/coverage optimization
 
@@ -629,6 +646,7 @@ Missing links between Zigbee end devices (often battery-powered devices) in the 
 Some end devices (for example, Xiaomi door sensors) sleep for an extended period, causing the parent Zigbee Router to remove them from its child table via a feature called router child aging. Since using child aging and removing them from the child table is a Zigbee 3.0 feature, this does not always occur because not all Zigbee router devices use child aging.
 
 This is what causes devices to show a missing link. Even though the device is no longer in the child table, the end device can still communicate via the parent Zigbee router.
+
 #### How to interpret RSSI and LQI values
 
 Interpreting RSSI and LQI values can be complex, as metrics of network health and communication quality are provided by the devices themselves, and each device could get to its results in different ways. Unless you are a Zigbee specialist yourself or are guided by one, please ignore those values. They can be misleading. If you delve into this, it is important to understand not to judge RSSI or LQI values on their own. When troubleshooting Zigbee messages that are being dropped, you must interpret the combination of both RSSI and LQI.
@@ -655,7 +673,7 @@ When reporting potential bugs related to the ZHA integration on the issues track
 1. Debug logs for the issue, see [debug logging](#debug-logging).
 2. Exact model and firmware of the Zigbee radio (Zigbee Coordinator adapter) being used.
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
-  - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & services**" %}. Select the **Zigbee Home Automation** integration. Then, select **Configure** > **Devices** (pick your device). Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
+     - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & services**" %}. Select the **Zigbee Home Automation** integration. Then, select **Configure** > **Devices** (pick your device). Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
 
 Note: Please also make sure you give it your best effort to follow the recommended best practices for avoiding both [pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties) and [Zigbee interference](#zigbee-interference-avoidance-and-network-rangecoverage-optimization), (which helps free up time for developers).
 
