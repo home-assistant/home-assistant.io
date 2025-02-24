@@ -447,51 +447,66 @@ For example, binding a "target destination" Zigbee device like a remote to a Zig
 
 Note that not all devices support binding. By default, ZHA binds remotes to the coordinator, so click events are forwarded to HA. As some remotes can only be bound to a single destination, you might need to unbind the remote from the coordinator before binding it to another device or group.
 
-## Zigbee backup and restore in ZHA
+## Backups and migration
 
-Zigbee Home Automation (ZHA) {% term integration %} now features Zigbee network backup, restore/recovery, and migrating between Zigbee coordinators. Backups are taken automatically. However, a single backup to a file for easy download can also be manually created from the configuration page under Network Settings.
+The ZHA {% term integration %} performs automatic backups of your Zigbee network allowing you to restore/recover the network from a backup or migrate to a different Zigbee Coordinator (radio adapter).
 
-After restoring a Home Assistant backup, you can re-configure ZHA and migrate to a new Zigbee Coordinator adapter without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio adapter type and model comes out that you may want to migrate to.
+After restoring a Home Assistant backup, you can reconfigure ZHA or migrate to a new Zigbee Coordinator without any loss of your settings or devices that were connected. This can be helpful if your current radio fails or a new radio adapter type/model comes out that you want to migrate to.
 
-Within ZHA it is possible to use this backup and restore feature to migrate between some different radio types, if the respective radio library supports it. Currently, ZHA supports migrating the Zigbee network between different Zigbee Coordinator adapters based on chips from Silicon Labs, Texas Instruments, or ConBee/RaspBee if the backup was made from inside ZHA.
+Manual backups can also be created from the configuration page under **Network Settings**.
 
-## Migrating to a new Zigbee coordinator adapter inside ZHA
+### Migrating to a new Zigbee Coordinator adapter inside ZHA
 
-Follow this guide if you have a Zigbee Home Assistant (ZHA) network running and want to migrate from one Zigbee coordinator radio adapter to another Zigbee coordinator radio adapter.
+ZHA supports migrating the Zigbee network between different Zigbee Coordinators based on chips from Silicon Labs, Texas Instruments, or ConBee/RaspBee if the backup was made from inside ZHA.
 
-### Prerequisites
+#### Prerequisites
 
-- Your old Zigbee Coordinator radio adapter is used in the ZHA {% term integration %} (not in deCONZ or MQTT).
-- It is of radio type ezsp (Silicon Labs EmberZnet), znp (Texas Instruments Z-Stack ZNP), or deCONZ (ConBee/RaspBee from dresden elektronik).
-  - If your old Zigbee coordinator is a deCONZ (ConBee/RaspBee) radio adapter, make sure it is running [firmware 0x26700700 (from 2021-08-18)](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Firmware-Changelog) or later.
+To migrate your Zigbee network from one Zigbee Coordinator to another, confirm you meet the following requirements before proceeding with the migration process:
 
-### To migrate to a new Zigbee coordinator radio inside ZHA
+- The previous Zigbee Coordinator is used in the ZHA {% term integration %} and _not_ in deCONZ or MQTT.
+- The radio type is one of the following:
+  - ezsp (Silicon Labs EmberZnet)
+  - znp (Texas Instruments Z-Stack ZNP)
+  - deCONZ (ConBee/RaspBee from dresden elektronik)
+    - For deCONZ (ConBee/RaspBee) radio adapters, make sure it is running [firmware 0x26700700 (from 2021-08-18)](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Firmware-Changelog) or later.
+
+#### To migrate to a new Zigbee coordinator radio inside ZHA
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}** and select the ZHA {% term integration %}. Then select **Configure**.
 2. Under **Network settings**, select **Migrate radio**.
 3. Reconfiguration of ZHA will start. Select **Submit**.
 4. Under **Migrate or re-configure**, select **Migrate to a new radio**.
-5. **Migrate to a new radio** will inform you that an automatic backup will be performed and that your old Zigbee coordinator radio will then be reset before the backup is automatically restored.
-    - Select **Submit**.
-6. **Unplug your old radio** will inform you that your old Zigbee coordinator radio has been reset and that you can now plug in your new Zigbee coordinator radio adapter.
-    - To avoid interference, use a USB extension cable.
-    - Use a USB 2.0 port or a powered USB 2.0 hub and keep the Zigbee stick away from USB 3.0 devices.
-    - You may now also choose to either unplug your old Zigbee coordinator radio adapter or keep your old radio plugged in.
-    - If that radio was a combined Z-Wave and Zigbee radio, like the HUSBZB-1 adapter, then only the Zigbee radio part of it was reset. Confirm that the Zigbee Coordinator radio adapter is properly connected and select **Submit**.
-7. You now need to start the backup restore process.
-    - Select your new Zigbee radio from the list of serial ports and select **Next**.
-    - If your new radio does not appear or you need to reboot after plugging in new hardware, you can resume the migration after a reboot: under **Network Settings**, select **Re-configure the current radio** and choose your new radio.
+5. Select **Submit** to begin.
+    - An automatic backup will be performed, the Zigbee Coordinator radio will be reset, and the backup will be automatically restored.
+    - For combined Z-Wave and Zigbee radios, like the HUSBZB-1 adapter, only the Zigbee radio portion is reset.
+    - You may now unplug the old adapter, or you may leave the old radio adapter plugged in (for example, if the adapter is a combined Z-Wave adapter).
+6. Plug in the new Zigbee Coordinator radio adapter.
+    - Select **Submit** after confirming the new Zigbee Coordinator radio adapter is properly connected.
+    - To minimize interference:
+      - Use a USB extension cable,
+      - Use a USB 2.0 port or a powered USB 2.0 hub,
+      - Keep the Zigbee stick away from USB 3.0 devices.
+7. Start the backup restore process:
+    - Select the new Zigbee radio from the list of serial ports and select **Next**.
+    - A migration can be resumed if a reboot is required, such as when troubleshooting or if new hardware is plugged in.
+      - To resume, go to **Network Settings**, select **Re-configure the current radio**, choose the new radio and proceed.
 8. Under **Network Formation**, select **Restore an automatic backup**.
 9. Under **Restore Automation Backup**, choose the latest automatic backup and select **Submit**.
-10. If your radio requires overwriting the IEEE address, you will see a screen titled **Overwrite Radio IEEE Address**. Check the **Permanently replace the radio IEEE address** box and click **Submit**. Overwriting the IEEE address may take a while.
-    - Your old Zigbee Coordinator radio and your new stick will now have the same Zigbee IEEE address (unique MAC address for the Zigbee device).
-    - Selecting this option is required for the migration process to complete successfully.
-    - From this point onwards, you should not operate the old stick in the same area unless you change the Zigbee IEEE address on it.
-    - If you do not migrate the Zigbee IEEE address from your old Zigbee Coordinator radio, then you will have to re-join/re-pair many of your devices in order to keep them working.
+10. If the new radio requires overwriting the IEEE address (the unique MAC address), you will see the prompt for **Overwrite Radio IEEE Address**.
+    - Check the **Permanently replace the radio IEEE address** box and click **Submit**.
+      - Selecting this option is required for the migration process to complete successfully.
+      - Overwriting the IEEE address may take a while.
+    - Both the old and new Zigbee Coordinators will now have the same Zigbee IEEE address.
+    - You should not operate the old adapter in the same area unless you change its Zigbee IEEE address.
+    - If you do not migrate the Zigbee IEEE address from the old Zigbee Coordinator radio, you will have to reconnect many of your devices to keep them working.
 11. Finally, a **Success!** message should pop up with information that all options were successfully saved.
     - Select **Finish** to confirm.
 
-The migration process is complete. However, be aware that you will not be able to control your existing Zigbee devices until the new coordinator fully joins the network. This process can take a few minutes. If some existing devices do not function after some time, try power-cycling them to allow them to re-join the network.
+{% important %}
+You will not be able to control your existing Zigbee devices until the new coordinator fully joins the network after the migration. **This can take a few minutes.**
+
+If some existing devices do not resume normal functions after some time, try power-cycling them to attempt rejoining to the network.
+{% endimportant %}
 
 ## Troubleshooting
 
