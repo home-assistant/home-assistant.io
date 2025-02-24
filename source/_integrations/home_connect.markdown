@@ -176,3 +176,9 @@ Changes a setting.
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the setting. |
 | `value` | no | Value of the setting. |
+
+## Data updates
+
+This integration uses server-sent events from the Home Connect API to receive live updates from the appliances.
+When the configuration entry is loaded or after a streaming error (e.g. disconnection), the integration will request all data (such as appliance info, available commands, programs, settings, and status) for all appliances.
+If a new appliance is added to the account, the integration will request data for the new appliance and expose the related entities automatically.
