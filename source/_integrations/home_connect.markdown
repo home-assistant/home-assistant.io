@@ -687,16 +687,20 @@ After deleting the integration, go to [your applications at the Home Connect Dev
 - **Finish time**:
   - **Description**: Represents the time when the program will end.
   - **Availability**: Coffee maker, Hood, Oven, Dishwasher, Dryer, Washer, Washer dryer
-  {%note%}
-  This sensor will be available if the program is running
-  {%endnote%}
+
+{% note %}
+This sensor will be available only if the program is running
+{% endnote %}
+
 - **Program progress**:
   - **Description**: Represents the progress of the program.
   - **Availability**: Coffee maker, Hood, Oven, Warming drawer, Dishwasher, Dryer, Washer, Washer dryer
-  {%note%}
-  This sensor will be available if the program is running
-  {%endnote%}
-- **Operation state**;
+
+{% note %}
+This sensor will be available only if the program is running
+{% endnote %}
+
+- **Operation state**:
   - **Description**: Represents the current operation state of the device.
   - **Availability**: All the appliances with programs
 - **Door state**:
@@ -772,9 +776,9 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Turns on and turns off or sets the standby mode of the device.
   - **Availability**: All the appliances
 
-  {% note %}
-  Some devices only have the state `on` and turn off is not supported by the appliance, check [power state availability at Home Connect API documentation](https://api-docs.home-connect.com/settings/#power-state) for more information.
-  {% endnote %}
+{% note %}
+Some devices only have the state `on` and turn off is not supported by the appliance, check [power state availability at Home Connect API documentation](https://api-docs.home-connect.com/settings/#power-state) for more information.
+{% endnote %}
 
 - **Child lock**:
   - **Description**: Represents the state of the child lock.
