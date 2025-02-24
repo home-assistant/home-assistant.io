@@ -107,7 +107,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
 - **Local control**:
   - **Description**: Indicates whether the home appliance is currently physically controlled by the user.
   - **Availability**: Coffee maker, Cooktop, Hood, Oven, Warming Drawer, Washer, Dryer, Washer Dryer
-- **Bootle cooler door**:
+- **Bottle cooler door**:
   - **Description**: Indicates if the bottle cooler door is open.
   - **Availability**: Fridge freezer, Refrigerator
 - **Chiller door**:
@@ -179,7 +179,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
 - **Freezer setpoint temperature**:
   - **Description**: Sets the freezer temperature.
   - **Availability**: Freezer, Fridge freezer
-- **Bootle cooler setpoint temperature**:
+- **Bottle cooler setpoint temperature**:
   - **Description**: Sets the bottle cooler temperature.
   - **Availability**: Fridge freezer, Refrigerator
 - **Chiller setpoint temperature**:
