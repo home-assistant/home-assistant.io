@@ -239,8 +239,8 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Represents the selected program of the appliance and selecting an option will select the program.
   - **Availability**: All the appliances with programs
 
-<details>
-<summary>These entities can use the following options: (click to view)</summary>
+{% details "Program options" %}
+Both entities can use these options, but the availability of these will depend on the appliance.
 
 - **Clean all**: `consumer_products_cleaning_robot_program_cleaning_clean_all`
 - **Clean map**: `consumer_products_cleaning_robot_program_cleaning_clean_map`
@@ -397,7 +397,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
 - **Wash and dry (60 min)**: `laundry_care_washer_dryer_program_wash_and_dry_60`
 - **Wash and dry (90 min)**: `laundry_care_washer_dryer_program_wash_and_dry_90`
 
-</details>
+{% enddetails" %}
 
 #### Settings
 
