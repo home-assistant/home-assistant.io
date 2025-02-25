@@ -721,9 +721,9 @@ Newer Philips Hue bulbs you can reset via Bluetooth. The official Android app ca
 4. Release the dimmer buttons after the bulb has completed the blinked sequence.
 5. The device is now factory reset and ready for pairing.
 
-{% tip %}
+{% note %}
 A green light on the top left of the dimmer remote indicates that your bulb has been successfully reset to factory default settings.
-{% endtip %}
+{% endnote %}
 
 Note: If you are unable to reset the bulb, remove it from the Hue Bridge and retry the procedure.
 
