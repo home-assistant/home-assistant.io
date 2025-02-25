@@ -148,7 +148,7 @@ state_not:
 entity:
   required: false
   description: An optional entity ID to be used for testing the state condition. If not provided, the state of the entity being displayed is tested.
-  type: string  
+  type: string
 {% endconfiguration %}
 
 *one is required (`state` or `state_not`)
