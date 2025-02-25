@@ -203,7 +203,7 @@ To solve the above issue, follow these steps:
 
     ![Application credential list](/images/integrations/application_credentials/application-credentials.png)
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu from the application credentials you created for the Home Connect integration and select **Delete**.
-4. Add again the Home Connect integration at {% my integrations title="**Settings** > **Devices & services**" %}
+4. Add the Home Connect integration again under {% my integrations title="**Settings** > **Devices & services**" %}
 
 ### Unavailable entities for a device
 
@@ -224,9 +224,9 @@ Also, when downloading the diagnostics data from the device entry, the following
 
 ##### Description
 
-The root of the problem can be two:
+Unavailable entities can have multiple causes:
 
-- The appliance is turned off and when it is turned off, the appliance gets disconnected so the API does not retrieve information about the appliance.
+- The appliance is turned off. When it is turned off, the appliance is disconnected and the API does not retrieve information about the appliance.
 - The appliance is experiencing a network issue.
 - The Home Connect API is experiencing issues.
 
@@ -237,13 +237,13 @@ To try to solve the above issues, follow these steps:
 1. Turn on the appliance and reload the Home Connect integration.
 2. If the appliance is turned on and the issue persists, check the network connection of the appliance and perform a soft reset on the appliance.
 3. If the issue persists, check the connection of the appliance with the Home Connect API by checking it in the Home Connect app.
-   1. Open the Home Connect app
-   2. Go to the appliance that is experiencing the issue
-   3. Open the settings menu in the bottom of the screen
-   4. Go to the "Network" section
-   5. Verify if the appliance is connected with the cloud
-      - If the line between the appliance and the cloud is red and with a red warning icon {% icon "mdi:alert-outline" %}, the appliance is not connected to the Home Connect API
-      - If the line between the appliance and the cloud is green, the appliance is connected with the cloud
-4. If everything is correct and the issue persists, contact the Home Connect support
+   1. Open the Home Connect app.
+   2. Go to the appliance that is experiencing the issue.
+   3. At the bottom of the screen, open the settings menu.
+   4. Go to the **Network** section.
+   5. Verify if the appliance is connected to the cloud:
+      - If the line between the appliance and the cloud is red and with a red warning icon {% icon "mdi:alert-outline" %}, the appliance is not connected to the Home Connect API.
+      - If the line between the appliance and the cloud is green, the appliance is connected to the cloud.
+4. If everything is correct and the issue persists, contact Home Connect support.
    - [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
    - [Home Connect developer Help & Support](https://developer.home-connect.com/support)
