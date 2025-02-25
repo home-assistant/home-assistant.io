@@ -103,7 +103,7 @@ All devices except the [Beoconnect Core](https://www.bang-olufsen.com/en/dk/acce
 
 #### Beoremote One
 
-A Home Assistant device is created for each paired Beoremote One, via their paired Mozart device. Event entities, that are disabled by default, are created for each of the compatible keys on the remote.
+A Home Assistant device is created for each paired Beoremote One via their paired Mozart device. Event entities are created for each of the compatible keys on the remote. These event entities are disabled by default.
 
 Beoremote One devices are automatically added as they are detected.
 
@@ -127,18 +127,18 @@ Each of these triggers have two different event states:
 
 In total, this amounts to 90 different remote key Event entities per remote.
 
-##### Configuring Light / Control functions
+##### Configuring light and control functions
 
-A number of functions are available on the Beoremote One. These are available as `function` 1-17 for the Light submenu and 1-27 for the Control submenu.
+A number of functions are available on the Beoremote One. These are available as `function` 1-17 for the **Light** submenu and 1-27 for the **Control** submenu.
 
-Only a subset of these functions are enabled by default. Change settings for the `Control` and `Light` submenus following these steps:
+Only a subset of these functions are enabled by default. Change settings for the **Control** and **Light** submenus following these steps:
 
-- Press up and select the name of currently selected paired device. This will show a list of the paired devices.
-- Select `Beovision`
-- Navigate to `Settings` → `Advanced` → `Light menu` / `Control menu`
-  - Use the `Show` setting to change which functions are visible
-  - Use the `Rename` setting to rename the visible functions
-  - Use the `Move` setting to reorder the visible functions
+- Press up and select the name of the currently selected paired device. This will show a list of the paired devices.
+- Select **Beovision**
+- Navigate to **Settings** > **Advanced** > **Light menu** / **Control menu**.
+  - Use the **Show** setting to change which functions are visible.
+  - Use the **Rename** setting to rename the visible functions.
+  - Use the **Move** setting to reorder the visible functions.
 
 The function names are not available to the Mozart device, so enable [debug logging](#diagnostics-and-troubleshooting) and trigger functions to see what function IDs are associated with which functions on the remote.
 
