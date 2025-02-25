@@ -74,7 +74,7 @@ A number of features are available through the media player entity:
 
 ### Events
 
-#### Device controls
+#### Mozart device controls
 
 Event entities are created for each of the physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
 
@@ -118,14 +118,14 @@ There are 4 different types of key events:
 
 Functions can be accessed by pressing the `Right` key while either `Control` or `Light` are highlighted and can be triggered by pressing `Select`.
 
-Keys can be triggered by pressing the `Select` key while either `Control` or `Light` are highlighted and then pressing one of the compatible keys. The `Select` press can also be skipped, by simply pressing one of the compatible keys while the desired submenu is highlighted.
+Keys can be triggered by pressing the `Select` key while either `Control` or `Light` are highlighted, and then pressing one of the compatible keys. The `Select` press can also be skipped, by simply pressing one of the compatible keys while the desired submenu is highlighted.
 
 Each of these triggers have two different event states:
 
 - key_press
 - key_release
 
-In total this amounts to 90 different remote key Event entities per remote.
+In total, this amounts to 90 different remote key Event entities per remote.
 
 ##### Configuring Light / Control functions
 
@@ -160,7 +160,7 @@ And more advanced app-centric features such as:
 
 ### Beoremote One
 
-Several remote controls can be paired to the same Mozart device and are still created as Home Assistant devices and Event entities. These remote controls will trigger the same WebSocket notification, meaning that a press on remote A will also trigger Remote B's associated Event entity. 
+Several remote controls can be paired to the same Mozart device and are still created as Home Assistant devices and Event entities. These remote controls will trigger the same WebSocket notification, meaning that a press on remote A will also trigger Remote B's associated Event entity.
 
 This has the benefit of being able to trigger automations mapped to remote A with remote B, but also means that each Mozart device _only_ supports the 90 Event entities that a single remote provides.
 
