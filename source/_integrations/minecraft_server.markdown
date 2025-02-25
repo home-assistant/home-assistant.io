@@ -69,3 +69,9 @@ For Bedrock Edition servers following sensors are provided additionally:
 {% note %}
 Player names are only available on Java Edition servers. Depending on the server, the player names list may not be shown completely. Some servers and plugins limit or completely hide this list or even replace the player names with fake ones to show some custom messages there.
 {% endnote %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
