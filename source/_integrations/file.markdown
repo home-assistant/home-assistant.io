@@ -86,9 +86,7 @@ Reads a file and returns the data in a response.
 
 > **Note:** The file paths should be relative to the Home Assistant configuration directory.
 
-{% important %}
-
-File paths must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs) in your `configuration.yaml`.
+> **Note:** File paths must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs) in your `configuration.yaml`.
 
 The action returns a dictionary with a data element containing the parsed content from the file.
 
