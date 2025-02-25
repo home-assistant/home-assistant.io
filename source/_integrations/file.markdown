@@ -82,7 +82,7 @@ Reads a file and returns the data in a response.
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
 | `file_name`    | No       | The path of the file and name to read. Files should be utf-8 encoded. Example: `config/www/myfile.yaml` |
-| `file_encoding`| No       | The content type of the file (`json` or `yaml`). Example: `yaml` |
+| `file_encoding`| No       | The content type of the file (`JSON` or `YAML`). Example: `YAML` |
 
 > **Note:** The file paths should be relative to the Home Assistant configuration directory.
 
@@ -98,11 +98,12 @@ Example, read a JSON file out of the `www` directory.
   - action: file.read_file
     data:
       file_name: config/www/myfile.json
-      file_encoding: json
+      file_encoding: JSON
     response_variable: file_content
 ```
-
+<!-- textlint-disable -->
 Contents of myfile.json
+<!-- textlint-enable -->
 
 ```json
 {
