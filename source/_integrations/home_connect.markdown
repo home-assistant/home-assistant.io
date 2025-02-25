@@ -95,6 +95,8 @@ After deleting the integration, go to [your applications at the Home Connect Dev
 
 ### Binary sensor
 
+{% details "List of binary sensors" %}
+
 - **Connectivity**:
   - **Description**: Shows the connectivity status of the appliance.
   - **Availability**: All appliances
@@ -132,7 +134,11 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Indicates if the appliance is connected or disconnected.
   - **Availability**: Cleaning robot
 
+{% enddetails %}
+
 ### Button
+
+{% details "List of buttons" %}
 
 - **Stop program**:
   - **Description**: Stops the active program.
@@ -150,7 +156,11 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Opens the door of the appliance partially.
   - **Availability**: Oven
 
+{% enddetails %}
+
 ### Light
+
+{% details "List of light entities" %}
 
 - **Internal light**:
   - **Description**: Controls the internal light of cooling appliances.
@@ -169,7 +179,11 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Availability**: Hood, Dishwasher
   - **Controls**: On/off, brightness, HSV, RGB
 
+{% enddetails %}
+
 ### Number
+
+{% details "List of number entities" %}
 
 #### Settings
 
@@ -228,7 +242,11 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Defines the target cavity temperature, which will be held by the oven.
   - **Availability**: Oven
 
+{% enddetails %}
+
 ### Select
+
+{% details "List of select entities" %}
 
 #### Programs
 
@@ -397,7 +415,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Wash and dry (60 min)**: `laundry_care_washer_dryer_program_wash_and_dry_60`
 - **Wash and dry (90 min)**: `laundry_care_washer_dryer_program_wash_and_dry_90`
 
-{% enddetails" %}
+{% enddetails %}
 
 #### Settings
 
@@ -682,7 +700,11 @@ Both entities can use these options, but the availability of these will depend o
 
     </details>
 
+{% enddetails %}
+
 ### Sensor
+
+{% details "List of binary sensors" %}
 
 - **Finish time**:
   - **Description**: Represents the time when the program will end.
@@ -822,7 +844,11 @@ All the event sensors will have the following possible values:
   - **Description**: Indicates whether the rinse aid is nearly empty.
   - **Availability**: Dishwasher
 
+{% enddetails %}
+
 ### Switch
+
+{% details "List of switch entities" %}
 
 - **Power**:
   - **Description**: Turns on and turns off or sets the standby mode of the device.
@@ -866,11 +892,17 @@ Some devices only have the state `on` and turn off is not supported by the appli
   - **Description**: Enables/Disables the automatic door opening for the refrigerator/freezer compartment
   - **Availability**: Fridge freezer, Refrigerator
 
+{% enddetails %}
+
 ### Time
+
+{% details "List of time entities" %}
 
 - **Alarm clock**
   - **Description**: Sets the alarm clock.
   - **Availability**: Cooktop, Oven
+
+{% enddetails %}
 
 ## Actions
 
