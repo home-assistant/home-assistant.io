@@ -56,6 +56,10 @@ Note that it depends on the appliance and on API permissions which of the featur
 Some devices only have the state `on` and turn off is not supported by the appliance, check [power state availability at Home Connect API documentation](https://api-docs.home-connect.com/settings/#power-state) for more information.
 {% endnote %}
 
+## Supported devices
+
+You can find information about supported devices on the [Home Connect website](https://www.home-connect.com/global/smart-home-appliances).
+
 ## Prerequisites
 
 1. Visit [https://developer.home-connect.com](https://developer.home-connect.com) and sign up for a developer account.
@@ -247,3 +251,9 @@ To try to solve the above issues, follow these steps:
 4. If everything is correct and the issue persists, contact Home Connect support.
    - [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
    - [Home Connect developer Help & Support](https://developer.home-connect.com/support)
+
+## Known limitations
+
+- The Home Connect API does not fully match the Home Connect app. Some programs, options, or settings available in the app may not be accessible or usable via the API.
+- This integration supports only one integration entry, as the Home Connect API does not allow for the unique identification of an account.
+

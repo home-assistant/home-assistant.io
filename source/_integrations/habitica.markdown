@@ -114,8 +114,8 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 
 ## Calendars
 
-- **To-Do calendar:** Lists the due dates for all active to-do tasks. Each event on this calendar represents a to-do item that has a set due date, making it easy to track upcoming deadlines and plan accordingly.
-- **Dailies calendar:** Displays all daily tasks that are scheduled for today and are still active. It also shows all tasks scheduled for future dates, helping you stay organized and track upcoming routines. The calendar sensor will be active if there are unfinished tasks for today and display the next due daily (based on sort order if there are multiple tasks due for that day).
+- **To-Do calendar**: Lists the due dates for all active to-do tasks. Each event on this calendar represents a to-do item that has a set due date, making it easy to track upcoming deadlines and plan accordingly.
+- **Dailies calendar**: Displays all daily tasks that are scheduled for today and are still active. It also shows all tasks scheduled for future dates, helping you stay organized and track upcoming routines. The calendar sensor will be active if there are unfinished tasks for today and display the next due daily (based on sort order if there are multiple tasks due for that day).
 - **To-Do reminders calendar**: Lists events for reminders associated with your to-dos in Habitica, helping you track when notifications for specific to-dos are expected.
 - **Dailies reminders calendar**: Shows events for reminders linked to your Habitica dailies, ensuring you know when notifications for your dailies will occur.
 
@@ -134,13 +134,13 @@ If you've unlocked the class system, button controls for casting player and part
 
 - **Ethereal surge**: You sacrifice Mana so the rest of your party, except for other mages, gains MP. (based on: INT)
 - **Earthquake**: Your mental power shakes the earth and buffs your party's intelligence. (based on: unbuffed INT)
-- **Chilling frost:** With one cast, ice freezes all your streaks so they won't reset to zero tomorrow.
+- **Chilling frost**: With one cast, ice freezes all your streaks so they won't reset to zero tomorrow.
 
 ### Warrior
 
 - **Defensive stance**: You crouch low and gain a buff to constitution. (based on: unbuffed CON)
 - **Valorous presence**: Your boldness buffs your whole party's strength. (based on: unbuffed STR)
-- **Intimidating gaze:** Your fierce stare buffs your whole Party's constitution. (based on: unbuffed CON)
+- **Intimidating gaze**: Your fierce stare buffs your whole Party's constitution. (based on: unbuffed CON)
 
 ### Rogue
 
@@ -172,9 +172,9 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 
 #### Available skills
 
-- **Rogue:** `pickpocket`, `backstab`
-- **Warrior:** `smash`
-- **Mage:** `fireball`
+- **Rogue**: `pickpocket`, `backstab`
+- **Warrior**: `smash`
+- **Mage**: `fireball`
 
 To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
@@ -211,7 +211,9 @@ Terminate your party's ongoing quest. All progress will be lost, and the quest r
 | `config_entry` | no       | Config entry of the character to abort the quest.              |
 
 {% note %}
+
 Actions marked with 🔒 have usage restrictions. See action descriptions for details.
+
 {% endnote %}
 
 ### Action `habitica.start_quest` 🔒
@@ -264,20 +266,20 @@ Use a transformation item from your Habitica character's inventory on a member o
 - **Snowball**: `snowball` (transforms into a snowfriend)
 - **Spooky sparkles**: `spooky_sparkles` (transforms into a ghost)
 - **Seafoam**: `seafoam` (transforms into a starfish)
-- **Shiny seed** `shiny_seed` (transforms into flower)
+- **Shiny seed**: `shiny_seed` (transforms into flower)
 
 ### Action `habitica.get_tasks`
 
 Fetch tasks from your Habitica account, with optional filters to narrow down the results for more precise task retrieval.
 
-| Data attribute | Optional | Description                                                                                              |
-| -------------- | -------- | -------------------------------------------------------------------------------------------------------- |
-| config_entry   | no       | Choose the Habitica character to retrieve tasks from.                                                    |
-| type           | yes      | Filter tasks by type.  Valid types: "habits", "dailies", "todos", "rewards".                                                                                     |
-| priority       | yes      | Filter tasks by difficulty. Valid values: "trivial", "easy", "medium", "hard".                                                                              |
-| task           | yes      | Select specific tasks by matching their name (or task ID).                                               |
-| tag            | yes      | Filter tasks that have one or more of the selected tags.                                                 |
-| keyword        | yes      | Filter tasks by keyword, searching across titles, notes, and checklists.                                 |
+| Data attribute   | Optional | Description                                                                                              |
+| ---------------- | -------- | -------------------------------------------------------------------------------------------------------- |
+| `config_entry`   | no       | Choose the Habitica character to retrieve tasks from.                                                    |
+| `type`           | yes      | Filter tasks by type. Valid types: `habits`, `dailies`, `todos`, `rewards`.                              |
+| `priority`       | yes      | Filter tasks by difficulty. Valid values: `trivial`, `easy`, `medium`, `hard`.                           |
+| `task`           | yes      | Select specific tasks by matching their name (or task ID).                                               |
+| `tag`            | yes      | Filter tasks that have one or more of the selected tags.                                                 |
+| `keyword`        | yes      | Filter tasks by keyword, searching across titles, notes, and checklists.                                 |
 
 ## Automations
 
@@ -419,7 +421,7 @@ Please keep these limits in mind to avoid exceeding Habitica's request allowance
 
 The Habitica integration relies on an active internet connection to communicate with **Habitica**. If you encounter issues, verify that your network connection is stable. Additionally, the Habitica service itself may experience downtime, whether unexpected or due to scheduled maintenance. In these trying times of uncertainty and challenge, when fate tests your resolve, seek guidance from the [Habitica Outage Instructions](https://habitica.fandom.com/wiki/Outage_Instructions) on the community-maintained Habitica wiki — wisdom shared by adventurers who have faced such trials before.
 
-In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
 ## Remove integration
 
