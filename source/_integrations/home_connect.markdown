@@ -722,7 +722,7 @@ This sensor will be available only if the program is running
   - **Description**: Represents the number of hot milk cups dispensed.
   - **Availability**: Coffee maker
 - **Frothy milk counter**:
-  - **Description**: Represents the number of forty milk cups dispensed.
+  - **Description**: Represents the number of frothy milk cups dispensed.
   - **Availability**: Coffee maker
 - **Milk counter**:
   - **Description**: Represents the number of milk cups dispensed.
