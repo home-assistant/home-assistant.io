@@ -90,7 +90,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
 {% note %}
 
 - The entities availability depends on the appliance type, but the appliance might not support all the entities for its type.
-- Some appliances don't report data while they are turned off so corresponding entities will not appear in the Home Connect integration after loading until the appliances are turned on.
+- Some appliances don't report data while they are turned off, so corresponding entities will not appear in the Home Connect integration after loading until the appliances are turned on.
 {% endnote %}
 
 ### Binary sensor
@@ -233,10 +233,10 @@ After deleting the integration, go to [your applications at the Home Connect Dev
 #### Programs
 
 - **Active program**:
-  - **Description**: Represents the active program of the appliance and selecting an option will start the program.
+  - **Description**: Represents the active program of the appliance, and selecting an option will start the program.
   - **Availability**: All the appliances with programs
 - **Selected program**:
-  - **Description**: Represents the selected program of the appliance and selecting an option will select the program.
+  - **Description**: Represents the selected program of the appliance, and selecting an option will select the program.
   - **Availability**: All the appliances with programs
 
 {% details "Program options" %}
@@ -443,7 +443,7 @@ Both entities can use these options, but the availability of these will depend o
 #### Program options
 
 - **Reference map ID**:
-  - **Description**: Defines which reference map is to be used..
+  - **Description**: Defines which reference map is to be used.
   - **Availability**: Cleaning robot
   - <details>
     <summary><b>Options:</b> (click to view)</summary>
@@ -796,7 +796,7 @@ Some devices only have the state `on` and turn off is not supported by the appli
   - **Description**: Enables/Disables the eco-friendly mode.
   - **Availability**: Freezer, Fridge freezer, Refrigerator
 - **Sabbath mode**:
-  - **Description**: Enables/Disables the Sabbath mode, which disables various functions (e.g. lighting, acoustic signals) to ensure that practising Jews are also able to use the appliance on the Sabbath.
+  - **Description**: Enables/Disables the Sabbath mode, which disables various functions (e.g. lighting, acoustic signals) to ensure that practising Jews can use the appliance on the Sabbath.
   - **Availability**: Oven, Freezer, Fridge freezer, Refrigerator, Wine cooler
 - **Vacation mode**:
   - **Description**: Enables/Disables the vacation mode, which reduces the energy consumption of the appliance by switching the refrigerator temperature to +14ºC. The temperature in the freezer is maintained according to the setting.
