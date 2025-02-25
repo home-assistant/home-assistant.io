@@ -812,7 +812,7 @@ This sensor will be available only if the program is running
   - **Availability**: Oven
 
 {% important %}
-It is not recommended to not use the **Current cavity temperature** sensor because the temperature might not provide the necessary accuracy.
+It is not recommended to use the **Current cavity temperature** sensor because the temperature might not provide the necessary accuracy.
 {% endimportant %}
 
 #### Event sensors
