@@ -103,7 +103,7 @@ All devices except the [Beoconnect Core](https://www.bang-olufsen.com/en/dk/acce
 
 #### Beoremote One
 
-A Home Assistant device is created for each of any paired Beoremote One, via their paired Mozart device. Event entities, that are disabled by default, are created for each of the compatible keys on the remote.
+A Home Assistant device is created for each paired Beoremote One, via their paired Mozart device. Event entities, that are disabled by default, are created for each of the compatible keys on the remote.
 
 Beoremote One devices are automatically added as they are detected.
 
@@ -133,7 +133,7 @@ A number of functions are available on the Beoremote One. These are available as
 
 Only a subset of these functions are enabled by default. Change settings for the `Control` and `Light` submenus following these steps:
 
-- Press up and select the name of currently selected paired device. This will show a list the paired devices.
+- Press up and select the name of currently selected paired device. This will show a list of the paired devices.
 - Select `Beovision`
 - Navigate to `Settings` → `Advanced` → `Light menu` / `Control menu`
   - Use the `Show` setting to change which functions are visible
@@ -160,7 +160,9 @@ And more advanced app-centric features such as:
 
 ### Beoremote One
 
-Remote controls paired to the same device are created as Home Assistant devices and Event entities. These remote controls will trigger the same WebSocket notification, meaning that a press on remote A will also trigger Remote B's associated Event entity. This has the benefit of being able to trigger automations mapped to remote A with remote B, but also means that up to 90 Event entities are "lost", when remotes are paired to the same device.
+Several remote controls can be paired to the same Mozart device and are still created as Home Assistant devices and Event entities. These remote controls will trigger the same WebSocket notification, meaning that a press on remote A will also trigger Remote B's associated Event entity. 
+
+This has the benefit of being able to trigger automations mapped to remote A with remote B, but also means that each Mozart device _only_ supports the 90 Event entities that a single remote provides.
 
 ## Actions
 
