@@ -703,7 +703,7 @@ logger:
 
 Philips Hue bulbs that have previously been paired/added to another bridge/gateway will not show up during search in ZHA to add a Zigbee device. You must first manually restore your bulbs back to their factory default settings.
 
-{% important }
+{% important %}
 Only "removing" them from your old bridge/gateway is not sufficient. **You must factory-reset the device.**
 {% endimportant %}
 
