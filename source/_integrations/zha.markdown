@@ -701,17 +701,29 @@ logger:
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 
-Philips Hue bulbs that have previously been paired/added to another bridge/gateway will not show up during search in ZHA to add a Zigbee device. You must first manually restore your bulbs back to their factory default settings.
+Philips Hue bulbs that have previously been paired to another bridge/gateway will not show up during search in ZHA to add a Zigbee device. Bulbs must be restored back to their factory default settings; the following factory-reset methods can be used depending on the bulb version:
+
+- Use a _Philips Hue Dimmer Switch_ or _Lutron Connected Bulb Remote_ to factory-reset a bulb.
+  - The remote does not have to be paired with your previous bridge.
+- Newer Philips Hue bulbs can reset via Bluetooth using the official Android app.
+  - You can connect to the bulb to reset it through the app even if it is already paired to a bridge.
+- More advanced users can also use a third-party tool called _Hue Thief_.
+  - This method requires an EZSP-based Zigbee USB stick.
+  - Information about _Hue Thief_ can be found at [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/).
 
 {% important %}
-Only "removing" them from your old bridge/gateway is not sufficient. **You must factory-reset the device.**
+**You must factory-reset the device.**
+
+- Simply "removing" them from your old bridge/gateway is not sufficient.
+- Be sure there are no other Hue bulbs nearby that have just been powered-on when using this method or you will risk resetting them in this process.
+
 {% endimportant %}
 
-You can use a Philips Hue Dimmer Switch or Lutron Connected Bulb Remote to factory-reset your bulbs. For this to work, the remote does not have to be paired with your previous bridge. Be sure there are no other Hue bulbs nearby that have just been turned on when using this method or you may risk resetting them in this process.
-
-Newer Philips Hue bulbs you can reset via Bluetooth. The official Android app can connect to one of these bulbs even if it is already paired to a bridge. Then, you can reset the bulb in the app.
-
 #### Philips Hue Dimmer Switch
+
+You can use a Philips Hue Dimmer Switch to factory-reset a bulb. Icons or button names may vary between generations of Philips Hue remotes.
+
+{% details "To reset using a Philips Hue Dimmer Switch: %}
 
 1. Turn on your Hue bulb you want to reset. **It is important that the bulb has just been powered on.**
 2. Hold the Philips Hue Dimmer Switch near your bulb, closer than 10cm (about 4 inches).
@@ -720,23 +732,26 @@ Newer Philips Hue bulbs you can reset via Bluetooth. The official Android app ca
    - The bulb will blink, then turn off, then turn on.
 4. Release the dimmer buttons after the bulb has completed the blinked sequence.
 5. The device is now factory reset and ready for pairing.
+   - If you are unable to reset the bulb, remove it from the Hue Bridge and retry the procedure.
 
 {% tip %}
 A green light on the top left of the dimmer remote indicates that your bulb has been successfully reset to factory default settings.
 {% endtip %}
 
-Note: If you are unable to reset the bulb, remove it from the Hue Bridge and retry the procedure.
+{% enddetails %}
 
 #### Lutron Connected Bulb Remote
+
+You can use a Lutron Connected Bulb Remote to perform the factory reset of a Philips Hue bulb. Like the Philips Hue Dimmer Switch remote, it does not have to be paired with your previous bridge.
+
+{% details "To reset using a Lutron Connected Bulb Remote: %}
 
 1. Turn on your Hue bulb/light you want to reset. (It is important that the bulb has just been turned).
 2. Hold the Dimmer Switch near your bulb (closer than 10 centimeters / 4 inches)
 3. Press and hold the 2nd (up arrow) and 4th (light off) buttons on the Lutron Connected Bulb Remote simultaneously for about 10 seconds continuously until your bulb starts to blink and the green LED on the remote should also start blink slowly.
 4. Continue to hold both buttons on the remote until the green LED on it stops blinking. Your bulb should also have stopped blinking and eventually turn on again indicating that your bulb has been successfully reset to factory default settings.
 
-#### hue-thief
-
-Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/) (EZSP-based Zigbee USB stick required)
+{% enddetails %}
 
 ### ZHA Start up issue with Home Assistant or Home Assistant Container
 
