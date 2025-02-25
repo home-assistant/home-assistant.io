@@ -703,13 +703,15 @@ logger:
 
 Philips Hue bulbs that have previously been paired to another bridge/gateway will not show up during search in ZHA to add a Zigbee device. Bulbs must be restored back to their factory default settings; the following factory-reset methods can be used depending on the bulb version:
 
-- Use a _Philips Hue Dimmer Switch_ or _Lutron Connected Bulb Remote_ to factory-reset a bulb.
+- **Zigbee remote:**
+  - Steps are outlined below for either the _Philips Hue Dimmer Switch_ or _Lutron Connected Bulb Remote_.
   - The remote does not have to be paired with your previous bridge.
-- Newer Philips Hue bulbs can reset via Bluetooth using the official Android app.
-  - You can connect to the bulb to reset it through the app even if it is already paired to a bridge.
-- More advanced users can also use a third-party tool called _Hue Thief_.
-  - This method requires an EZSP-based Zigbee USB stick.
-  - Information about _Hue Thief_ can be found at [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/).
+- **Bluetooth via Android app:**
+  - Newer Philips Hue bulbs can reset via Bluetooth using the official Android app.
+  - This is an option even if the bulb is already paired to a bridge.
+- **Hue Thief command-line tool**:
+  - Advanced users can use a third-party tool called [Hue Thief](https://github.com/vanviegen/hue-thief/).
+  - This requires an EZSP-based Zigbee USB stick.
 
 {% important %}
 **You must factory-reset the device.**
@@ -721,7 +723,7 @@ Philips Hue bulbs that have previously been paired to another bridge/gateway wil
 
 #### Philips Hue Dimmer Switch
 
-You can use a Philips Hue Dimmer Switch to factory-reset a bulb. Icons or button names may vary between generations of Philips Hue remotes.
+Note: Icons or button names may vary between generations of Philips Hue remotes.
 
 {% details "To reset using a Philips Hue Dimmer Switch:" %}
 
@@ -742,7 +744,7 @@ A green light on the top left of the dimmer remote indicates that your bulb has 
 
 #### Lutron Connected Bulb Remote
 
-You can use a Lutron Connected Bulb Remote to perform the factory reset of a Philips Hue bulb. Like the Philips Hue Dimmer Switch remote, it does not have to be paired with your previous bridge.
+Note: Like the Philips Hue Dimmer Switch remote, this remote does not have to be paired with your previous bridge.
 
 {% details "To reset using a Lutron Connected Bulb Remote:" %}
 
