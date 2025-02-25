@@ -723,7 +723,7 @@ Philips Hue bulbs that have previously been paired to another bridge/gateway wil
 
 You can use a Philips Hue Dimmer Switch to factory-reset a bulb. Icons or button names may vary between generations of Philips Hue remotes.
 
-{% details "To reset using a Philips Hue Dimmer Switch: %}
+{% details "To reset using a Philips Hue Dimmer Switch:" %}
 
 1. Turn on your Hue bulb you want to reset. **It is important that the bulb has just been powered on.**
 2. Hold the Philips Hue Dimmer Switch near your bulb, closer than 10cm (about 4 inches).
@@ -744,7 +744,7 @@ A green light on the top left of the dimmer remote indicates that your bulb has 
 
 You can use a Lutron Connected Bulb Remote to perform the factory reset of a Philips Hue bulb. Like the Philips Hue Dimmer Switch remote, it does not have to be paired with your previous bridge.
 
-{% details "To reset using a Lutron Connected Bulb Remote: %}
+{% details "To reset using a Lutron Connected Bulb Remote:" %}
 
 1. Turn on your Hue bulb/light you want to reset. (It is important that the bulb has just been turned).
 2. Hold the Dimmer Switch near your bulb (closer than 10 centimeters / 4 inches)
