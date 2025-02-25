@@ -703,6 +703,14 @@ logger:
 
 Philips Hue bulbs that have previously been paired to another bridge/gateway will not show up during search in ZHA to add a Zigbee device. **Bulbs must be restored back to their factory default settings**.
 
+{% important %}
+**You must factory-reset the device.**
+
+- Simply "removing" them from your old bridge/gateway is not sufficient.
+- Be sure there are no other Hue bulbs nearby that have just been powered-on when using this method or you will risk resetting them in this process.
+
+{% endimportant %}
+
 The following reset methods can be used (depending on the bulb version):
 
 - **Zigbee remote:**
@@ -717,25 +725,26 @@ The following reset methods can be used (depending on the bulb version):
 
 #### Factory-reset using a Zigbee remote
 
-Icons or button names may vary between generations of Philips Hue remotes. The remote used for resetting does not have to be paired with your previous bridge.
+Icons or button names may vary between generations of remotes. The remote used for resetting does not have to be paired with your previous bridge.
 
 {% details "To reset using a remote:" %}
 
-1. Identify which remote buttons are needed to perform the reset based on the brand of your remote (buttons will be used in a later step):
-   - **Philips Hue Dimmer Switch**: use the **(I)/(ON)** and **(O)/(OFF)** buttons.
+1. Identify which buttons will be used later to perform the reset (based on the brand of remote):
+   - **Philips Hue Dimmer Switch**:
+     - Use the **(I)/(ON)** and **(O)/(OFF)** buttons.
      - Button labels or icons may vary based on the generation of Hue remote.
-   - **Lutron Connected Bulb Remote:** use the **2nd (up arrow)** and **4th (light off)** buttons.
+   - **Lutron Connected Bulb Remote:**
+     - Use the **2nd (up arrow)** and **4th (light off)** buttons.
 2. Turn on the Hue bulb you want to reset.
    - **It is important that the bulb has _just_ been powered on.**
 3. Hold the remote near your bulb, closer than 10cm (about 4 inches).
-4. Press-and-hold both buttons identified in first step and continue holding them once the bulb begins to blink.
-   - Expect to hold down the buttons for about another 10 seconds while the bulb blinks.
+4. Press-and-hold both buttons identified in the first step and continue holding them once the bulb begins to blink.
+   - Expect to hold the buttons for about another 10 seconds while the bulb blinks.
    - **Lutron Connected Bulb Remote:** The green LED on the remote should also begin to blink slowly.
 5. Release both buttons once the bulb turns off.
    - **Lutron Connected Bulb Remote:** You can release the buttons after the green LED stops flashing on the remote.
-6. The bulb will turn back on immediately after to indicate that the factory-reset is complete.
-   - The bulb is now ready for pairing to ZHA following normal steps for [Adding devices](#adding-devices).
-   - If you are unable to reset the bulb, remove it from the Hue Bridge and retry the procedure.
+6. The bulb will turn back on immediately after to indicate the factory-reset is complete.
+   - The bulb is now ready for pairing to ZHA following normal steps for [adding devices](#adding-devices).
 
 {% tip %}
 A green light on the top left of the Philips Hue Dimmer Switch remote indicates that your bulb has been successfully reset to factory default settings.
@@ -743,13 +752,7 @@ A green light on the top left of the Philips Hue Dimmer Switch remote indicates 
 
 {% enddetails %}
 
-{% important %}
-**You must factory-reset the device.**
-
-- Simply "removing" them from your old bridge/gateway is not sufficient.
-- Be sure there are no other Hue bulbs nearby that have just been powered-on when using this method or you will risk resetting them in this process.
-
-{% endimportant %}
+If you are unable to reset the bulb using a method above, remove it from the Hue Bridge (if it was re-discovered by the Hue Bridge) and try the procedure again.
 
 ### ZHA Start up issue with Home Assistant or Home Assistant Container
 
