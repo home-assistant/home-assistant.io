@@ -288,7 +288,7 @@ Updates a specific reward for the selected Habitica character.
 | `config_entry` | no       | Select the Habitica account to update a reward.                                              |
 | `task`         | no       | The name (or task ID) of the reward you want to update.                                      |
 | `rename`       | yes      | The new title for the Habitica reward.                                                       |
-| `description`  | yes      | The new description for the Habitica reward.                                                 |
+| `notes`        | yes      | The new notes for the Habitica reward.                                                       |
 | `cost`         | yes      | Update the cost of a reward.                                                                 |
 | `tag`          | yes      | Add tags to the Habitica reward. If a tag does not already exist, a new one will be created. |
 | `remove_tag`   | yes      | Remove tags from the Habitica reward.                                                        |
