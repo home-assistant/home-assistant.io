@@ -74,3 +74,49 @@ This would require the following settings to extract the temperature:
 - File path: `/home/user/.homeassistant/sensor.csv`
 - Value template: {% raw %}`'{{ value.split(",")[1] }}'`{% endraw %}
 - Unit of measurement: `"°C"`
+
+## Action `file.read_file`
+
+Reads a file and returns the data in a response.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `file_name`    | No       | The path of the file and name to read. Files should be utf-8 encoded. Example: `config/www/myfile.yaml` |
+| `file_encoding`| No       | The content type of the file (`json` or `yaml`). Example: `yaml` |
+
+> **Note:** The file paths should be relative to the Home Assistant configuration directory.
+
+{% important %}
+
+File paths must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs) in your `configuration.yaml`.
+
+The action returns a dictionary with a data element containing the parsed content from the file.
+
+Example, read a JSON file out of the `www` directory.
+
+```yaml
+  - action: file.read_file
+    data:
+      file_name: config/www/myfile.json
+      file_encoding: json
+    response_variable: file_content
+```
+
+Contents of myfile.json
+
+```json
+{
+  "latitude": 32.87336,
+  "longitude": -117.22743,
+  "gps_accuracy": 1.2
+ }
+```
+
+Response:
+
+```yaml
+data:
+  latitude: 32.87336
+  longitude: -117.22743
+  gps_accuracy: 1.2
+```
