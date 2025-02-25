@@ -26,15 +26,7 @@ ha_integration_type: integration
 
 {% include integrations/config_flow.md %}
 
-During setup you will be prompted to enter the **name** and the **address** of the server.
-
-### Server name
-
-The **server name** can be chosen freely.
-
-{% note %}
-Default is `Minecraft Server`.
-{% endnote %}
+During setup you will be prompted to enter the **address** of the server.
 
 ### Server address
 

@@ -169,6 +169,7 @@ Changes a setting.
 | `key` | no | Key of the setting. |
 | `value` | no | Value of the setting. |
 
+
 ## Automation examples
 
 Get started with these automation examples
@@ -237,3 +238,10 @@ actions:
 
 {% endraw %}
 {% enddetails %}
+
+## Data updates
+
+This integration uses server-sent events from the Home Connect API to receive live updates from the appliances.
+When the configuration entry is loaded or after a streaming error (for example after disconnection), the integration will request all data (such as appliance info, available commands, programs, settings, and status) for all appliances.
+If a new appliance is added to the account, the integration will request data for the new appliance and expose the related entities automatically.
+
