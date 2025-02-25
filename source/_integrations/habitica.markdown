@@ -294,6 +294,19 @@ Updates a specific reward for the selected Habitica character.
 | `remove_tag`   | yes      | Remove tags from the Habitica reward.                                                        |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
+### Action `habitica.create_reward`
+
+Creates a reward for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to create a reward.                                              |
+| `name`         | no       | The title for the Habitica reward.                                                           |
+| `notes`        | yes      | The notes for the Habitica reward.                                                           |
+| `cost`         | no       | The cost of the reward.                                                                      |
+| `tag`          | yes      | Add tags to the Habitica reward. If a tag does not already exist, a new one will be created. |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
