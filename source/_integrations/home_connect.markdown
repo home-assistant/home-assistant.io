@@ -225,7 +225,7 @@ After deleting the integration, go to [your applications at the Home Connect Dev
   - **Description**: Describes the amount of water (in ml) used in a coffee machine program.
   - **Availability**: Coffee maker
 - **Setpoint temperature**:
-  - **Description**: Defines the target cavity temperature, which will be hold by the oven.
+  - **Description**: Defines the target cavity temperature, which will be held by the oven.
   - **Availability**: Oven
 
 ### Select
@@ -719,7 +719,7 @@ This sensor will be available only if the program is running
     </details>
 - **Door state**:
   - **Description**: Represents the current state of the door.
-  - **Availability**: Oven, Dishwasher, Dryer, Washer, Washer dryer, Freezer, Fridge freezer, refrigerator, Wine cooler
+  - **Availability**: Oven, Dishwasher, Dryer, Washer, Washer dryer, Freezer, Fridge freezer, Refrigerator, Wine cooler
   - <details>
     <summary><b>Options:</b> (click to view)</summary>
 
@@ -796,7 +796,6 @@ All the event sensors will have the following possible values:
 - **Off**: `off`
 
 {% enddetails %}
-
 
 - **Freezer door alarm**:
   - **Description**: Represents the alarm state of the freezer door.
