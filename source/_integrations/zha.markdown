@@ -701,7 +701,9 @@ logger:
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 
-Philips Hue bulbs that have previously been paired to another bridge/gateway will not show up during search in ZHA to add a Zigbee device. Bulbs must be restored back to their factory default settings; the following factory-reset methods can be used depending on the bulb version:
+Philips Hue bulbs that have previously been paired to another bridge/gateway will not show up during search in ZHA to add a Zigbee device. **Bulbs must be restored back to their factory default settings**.
+
+The following reset methods can be used (depending on the bulb version):
 
 - **Zigbee remote:**
   - Steps are outlined below for either the _Philips Hue Dimmer Switch_ or _Lutron Connected Bulb Remote_.
@@ -712,14 +714,6 @@ Philips Hue bulbs that have previously been paired to another bridge/gateway wil
 - **Hue Thief command-line tool**:
   - Advanced users can use a third-party tool called [Hue Thief](https://github.com/vanviegen/hue-thief/).
   - This requires an EZSP-based Zigbee USB stick.
-
-{% important %}
-**You must factory-reset the device.**
-
-- Simply "removing" them from your old bridge/gateway is not sufficient.
-- Be sure there are no other Hue bulbs nearby that have just been powered-on when using this method or you will risk resetting them in this process.
-
-{% endimportant %}
 
 #### Factory-reset using a Zigbee remote
 
@@ -748,6 +742,14 @@ A green light on the top left of the Philips Hue Dimmer Switch remote indicates 
 {% endtip %}
 
 {% enddetails %}
+
+{% important %}
+**You must factory-reset the device.**
+
+- Simply "removing" them from your old bridge/gateway is not sufficient.
+- Be sure there are no other Hue bulbs nearby that have just been powered-on when using this method or you will risk resetting them in this process.
+
+{% endimportant %}
 
 ### ZHA Start up issue with Home Assistant or Home Assistant Container
 
