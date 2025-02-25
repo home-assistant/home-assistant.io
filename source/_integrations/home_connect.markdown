@@ -821,6 +821,7 @@ All the event sensors will have the following possible values:
 - **Rinse aid nearly empty**:
   - **Description**: Indicates whether the rinse aid is nearly empty.
   - **Availability**: Dishwasher
+
 ### Switch
 
 - **Power**:
