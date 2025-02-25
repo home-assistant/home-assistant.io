@@ -31,6 +31,14 @@ ha_integration_type: integration
 
 The Home Connect integration allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
 
+## Use cases
+
+- Monitor the multiple sensors of the appliance and trigger automations based on these sensors.
+- Start programs on your appliances from your dashboard.
+- Monitor the program status of the appliances.
+- Control the light of your appliances.
+- Adjust the appliance settings.
+
 The integration will add one Home Assistant device for each connected home appliance which will have the following entities:
 
 - A power switch
@@ -185,3 +193,75 @@ Changes a setting.
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the setting. |
 | `value` | no | Value of the setting. |
+
+## Troubleshooting
+
+### I could not configure the Home Connect integration
+
+#### Symptom: I tried to configure the Home Connect integration, but it failed with the message `Error while obtaining access token.`
+
+##### Description
+
+This problem might occur when the application credentials are not correctly configured.
+
+##### Solution
+
+To solve the above issue, follow these steps:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Application credentials**.
+
+    ![Devices and services overflow menu](/images/integrations/application_credentials/devices-and-services-menu.png)
+
+    ![Application credential list](/images/integrations/application_credentials/application-credentials.png)
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu from the application credentials you created for the Home Connect integration and select **Delete**.
+4. Add the Home Connect integration again under {% my integrations title="**Settings** > **Devices & services**" %}
+
+### Unavailable entities for a device
+
+#### Symptom: "The entities related to an appliance were available but no longer are"
+
+After reloading the Home Connect integration, the entities related to an appliance that used to be available are no longer available.
+Also, when downloading the diagnostics data from the device entry, the following data is obtained:
+
+```json
+{
+  "data": {
+    "connected": false,
+    "status": {},
+    "programs": null
+  }
+}
+```
+
+##### Description
+
+Unavailable entities can have multiple causes:
+
+- The appliance is turned off. When it is turned off, the appliance is disconnected and the API does not retrieve information about the appliance.
+- The appliance is experiencing a network issue.
+- The Home Connect API is experiencing issues.
+
+##### Solution
+
+To try to solve the above issues, follow these steps:
+
+1. Turn on the appliance and reload the Home Connect integration.
+2. If the appliance is turned on and the issue persists, check the network connection of the appliance and perform a soft reset on the appliance.
+3. If the issue persists, check the connection of the appliance with the Home Connect API by checking it in the Home Connect app.
+   1. Open the Home Connect app.
+   2. Go to the appliance that is experiencing the issue.
+   3. At the bottom of the screen, open the settings menu.
+   4. Go to the **Network** section.
+   5. Verify if the appliance is connected to the cloud:
+      - If the line between the appliance and the cloud is red and with a red warning icon {% icon "mdi:alert-outline" %}, the appliance is not connected to the Home Connect API.
+      - If the line between the appliance and the cloud is green, the appliance is connected to the cloud.
+4. If everything is correct and the issue persists, contact Home Connect support.
+   - [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
+   - [Home Connect developer Help & Support](https://developer.home-connect.com/support)
+
+## Known limitations
+
+- The Home Connect API does not fully match the Home Connect app. Some programs, options, or settings available in the app may not be accessible or usable via the API.
+- This integration supports only one integration entry, as the Home Connect API does not allow for the unique identification of an account.
+
