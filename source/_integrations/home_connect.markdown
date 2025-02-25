@@ -703,9 +703,31 @@ This sensor will be available only if the program is running
 - **Operation state**:
   - **Description**: Represents the current operation state of the device.
   - **Availability**: All the appliances with programs
+  - <details>
+    <summary><b>Options:</b> (click to view)</summary>
+
+    - **Inactive**: `inactive`
+    - **Ready**: `ready`
+    - **Delayed start**: `delayedstart`
+    - **Run**: `run`
+    - **Pause**: `pause`
+    - **Action required**: `actionrequired`
+    - **Finished**: `finished`
+    - **Error**: `error`
+    - **Aborting**: `aborting`
+
+    </details>
 - **Door state**:
   - **Description**: Represents the current state of the door.
   - **Availability**: Oven, Dishwasher, Dryer, Washer, Washer dryer, Freezer, Fridge freezer, refrigerator, Wine cooler
+  - <details>
+    <summary><b>Options:</b> (click to view)</summary>
+
+    - **Closed**: `closed`
+    - **Locked**: `locked`
+    - **Open**: `open`
+
+    </details>
 - **Coffee counter**:
   - **Description**: Represents the number of coffees made.
   - **Availability**: Coffee maker
@@ -739,11 +761,42 @@ This sensor will be available only if the program is running
 - **Camera state**:
   - **Description**: Represents the state of the camera.
   - **Availability**: Cleaning robot
+  - <details>
+    <summary><b>Options:</b> (click to view)</summary>
+
+    - **Disabled**: `disabled`
+    - **Sleeping**: `sleeping`
+    - **Ready**: `ready`
+    - **Streaming local**: `streaminglocal`
+    - **Streaming cloud**: `streamingcloud`
+    - **Streaming local and cloud**: `streaminglocalancloud`
+    - **Error**: `error`
+
+    </details>
 - **Last selected map**:
   - **Description**: Represents the last selected map of the cleaning robot.
   - **Availability**: Cleaning robot
+  - <details>
+    <summary><b>Options:</b> (click to view)</summary>
+
+    - **Temporary map**: `tempmap`
+    - **Map 1**: `map1`
+    - **Map 2**: `map2`
+    - **Map 3**: `map3`
+
+    </details>
 
 #### Event sensors
+
+{% details "Event sensor options" %}
+All the event sensors will have the following possible values:
+
+- **Confirmed**: `confirmed`
+- **Present**: `present`
+- **Off**: `off`
+
+{% enddetails %}
+
 
 - **Freezer door alarm**:
   - **Description**: Represents the alarm state of the freezer door.
@@ -769,7 +822,6 @@ This sensor will be available only if the program is running
 - **Rinse aid nearly empty**:
   - **Description**: Indicates whether the rinse aid is nearly empty.
   - **Availability**: Dishwasher
-
 ### Switch
 
 - **Power**:
