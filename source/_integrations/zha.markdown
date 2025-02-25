@@ -194,29 +194,68 @@ If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path c
 
 ### Discovery via USB or Zeroconf
 
-Some devices can be auto-discovered, which can simplify the ZHA setup process. The following devices have been tested with discovery and offer a quick setup experience:
+Some devices can be auto-discovered, which can simplify the ZHA setup process. The following devices have been tested with discovery and offer a quick setup experience.
 
-| Device                                                                                                                                      | Discovery Method | Identifier                     |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------ |
-| [ITead SONOFF Zigbee 3.0 USB Dongle Plus V2 Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)        | USB              | 1A86:55D4                      |
-| [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-P" (CC2652P variant)](https://itead.cc/product/sonoff-zigbee-3-0-usb-dongle-plus/) | USB              | 10C4:EA60                      |
-| [Bitron Video/SMaBiT BV AV2010/10](https://manuals.smabit.eu/len/av2010_10.html)                                                            | USB              | 10C4:8B34                      |
-| [ConBee II](https://phoscon.de/conbee2)                                                                                                     | USB              | 1CF1:0030                      |
-| [ConBee III](https://phoscon.de/conbee3)                                                                                                    | USB              | 0403:6015                      |
-| [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/)                                         | USB              | 10C4:8A2A                      |
-| [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/)                                                                      | USB              | 10C4:EA60                      |
-| [SMLIGHT SLZB-07](https://smlight.tech/product/slzb-07/)                                                                                    | USB              | 10C4:EA60                      |
-| [ZigStar Stick (CC2652 + CH340B variant)](https://zig-star.com/projects/zigbee-stick-v4/)                                                   | USB              | 1A86:7523                      |
-| [Tube’s EFR32 Pro Ethernet/Serial Coordinator](https://www.tubeszb.com/)                                                                    | USB              | 10C4:EA60                      |
-| [ZigStar Coordinators](https://zig-star.com/)                                                                                               | USB              | 1A86:7523                      |
-| [XZG - Universal Firmware for Zigbee Gateway](https://xzg.xyzroe.cc/)                                                                       | Zeroconf         | xzg.local.                     |
-| [SMLIGHT SLZB-06 POE Zigbee LAN WiFi USB Adapter](https://smlight.tech/product/slzb-06/)                                                    | Zeroconf         | slzb-06.local.                 |
-| [ZigStar UZG Universal Zigbee Gateway (UZG-01)](https://uzg.zig-star.com)                                                                   | Zeroconf         | uzg-01._tcp.local.             |
-| [cod.m Zigbee Coordinator](https://docs.codm.de/zigbee/coordinator/)                                                                        | Zeroconf         | czc._tcp.local.                |
-| [ZigStar LAN/POE Coordinators](https://zig-star.com/projects/zigbee-gw-lan/)                                                                | Zeroconf         | zigstargw.local.               |
-| [Tube's CC2652P2 USB-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                              | Zeroconf         | tube_zb_gw_cc2652p2.local.     |
-| [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                              | Zeroconf         | tube_zb_gw_cc2652p2_poe.local. |
-| [Tube's EFR32 Based Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                                       | Zeroconf         | tube_zb_gw_efr32.local.        |
+{% details "USB discovery devices" %}
+
+- **Bitron**
+  - [Bitron Video/SMaBiT BV AV2010/10](https://manuals.smabit.eu/len/av2010_10.html)
+    - Identifier: `10C4:8B34`
+- **ConBee**
+  - [ConBee II](https://phoscon.de/conbee2)
+    - Identifier: `1CF1:0030`
+  - [ConBee III](https://phoscon.de/conbee3)
+    - Identifier: `0403:6015`
+- **ITead**
+  - [ITead SONOFF Zigbee 3.0 USB Dongle Plus V2 Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)
+    - Identifier: `1A86:55D4`
+  - [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-P" (CC2652P variant)](https://itead.cc/product/sonoff-zigbee-3-0-usb-dongle-plus)
+    - Identifier: `10C4:EA60`
+- **Nortek**
+  - [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/)
+    - Identifier: `10C4:8A2A`
+- **slae.sh**
+  - [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/)
+    - Identifier: `10C4:EA60`
+- **SMLIGHT**
+  - [SMLIGHT SLZB-07](https://smlight.tech/product/slzb-07/)
+    - Identifier: `10C4:EA60`
+- **Tube**
+  - [Tube’s EFR32 Pro Ethernet/Serial Coordinator](https://www.tubeszb.com/)
+    - Identifier: `10C4:EA60`
+- **ZigStar**
+  - [ZigStar Stick (CC2652 + CH340B variant)](https://zig-star.com/projects/zigbee-stick-v4/)
+    - Identifier: `1A86:7523`
+  - [ZigStar Coordinators](https://zig-star.com/)
+    - Identifier: `1A86:7523`
+
+{% enddetails %}
+
+{% details "Zeroconf discovery devices" %}
+
+- **cod.m**
+  - [cod.m Zigbee Coordinator](https://docs.codm.de/zigbee/coordinator/)
+    - Identifier: `czc._tcp.local.`
+- **SMLIGHT**
+  - [SMLIGHT SLZB-06 POE Zigbee LAN WiFi USB Adapter](https://smlight.tech/product/slzb-06/)
+    - Identifier: `slzb-06.local.`
+- **Tube**
+  - [Tube's CC2652P2 USB-powered Zigbee to Ethernet Serial Coordinator](https://www.tubeszb.com/)
+    - Identifier: `tube_zb_gw_cc2652p2.local.`
+  - [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator](https://www.tubeszb.com/)
+    - Identifier: `tube_zb_gw_cc2652p2_poe.local.`
+  - [Tube's EFR32 Based Zigbee to Ethernet Serial Coordinator](https://www.tubeszb.com/)
+    - Identifier: `tube_zb_gw_efr32.local.`
+- **XZG**
+  - [XZG - Universal Firmware for Zigbee Gateway](https://xzg.xyzroe.cc/)
+    - Identifier: `xzg.local.`
+- **ZigStar**
+  - [ZigStar UZG Universal Zigbee Gateway (UZG-01)](https://uzg.zig-star.com)
+    - Identifier: `uzg-01._tcp.local.`
+  - [ZigStar LAN/POE Coordinators](https://zig-star.com/projects/zigbee-gw-lan/)
+    - Identifier: `zigstargw.local.`
+
+{% enddetails %}
 
 Additional devices in the [Compatible hardware](#compatible-hardware) section may be discoverable, however, only devices that have been confirmed discoverable are listed above.
 
