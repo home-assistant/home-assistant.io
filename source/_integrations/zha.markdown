@@ -735,12 +735,12 @@ Icons or button names may vary between generations of Philips Hue remotes. The r
    - **It is important that the bulb has _just_ been powered on.**
 3. Hold the remote near your bulb, closer than 10cm (about 4 inches).
 4. Press-and-hold both buttons identified in first step and continue holding them once the bulb begins to blink.
-   - After about 10-20 seconds, the bulb will begin blinking, then it will turn off and turn back on.
+   - Expect to hold down the buttons for about another 10 seconds while the bulb blinks.
    - **Lutron Connected Bulb Remote:** The green LED on the remote should also begin to blink slowly.
-5. Continue holding down both buttons simultaneously while bulb continues to blink:
-   - Expect to hold down the buttons for an additional 10-20 seconds.
+5. Release both buttons once the bulb turns off.
    - **Lutron Connected Bulb Remote:** You can release the buttons after the green LED stops flashing on the remote.
-6. The device is now factory reset and ready for pairing.
+6. The bulb will turn back on immediately after to indicate that the factory-reset is complete.
+   - The bulb is now ready for pairing to ZHA following normal steps for [Adding devices](#adding-devices).
    - If you are unable to reset the bulb, remove it from the Hue Bridge and retry the procedure.
 
 {% tip %}
