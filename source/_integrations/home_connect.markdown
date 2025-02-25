@@ -857,7 +857,7 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `laundry_care_dryer_option_drying_target` | yes | Describes the drying target for a dryer program. For example: Iron Dry, Cupboard Dry, Extra Dry. |
 | `cooking_hood_option_venting_level` | yes | Defines the required fan setting. |
 | `cooking_hood_option_intensive_level` | yes | Defines the intensive setting. |
-| `cooking_oven_option_setpoint_temperature` | yes | Defines the target cavity temperature, which will be hold by the oven. |
+| `cooking_oven_option_setpoint_temperature` | yes | Defines the target cavity temperature, which will be held by the oven. |
 | `b_s_h_common_option_duration` | yes | Defines the run-time of the program. Afterwards, the appliance is stopped. |
 | `cooking_oven_option_fast_pre_heat` | yes | Defines if the cooking compartment is heated up quickly. Please note that the setpoint temperature has to be equal to or higher than 100 °C or 212 °F. Otherwise, the fast pre-heat option is not activated. |
 | `cooking_oven_option_warming_level` | yes | Defines the level of the warming drawer. |
