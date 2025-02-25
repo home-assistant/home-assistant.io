@@ -240,11 +240,11 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
   - [SMLIGHT SLZB-06 POE Zigbee LAN WiFi USB Adapter](https://smlight.tech/product/slzb-06/)
     - Identifier: `slzb-06.local.`
 - **Tube**
-  - [Tube's CC2652P2 USB-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)
+  - [Tube's CC2652P2 USB-powered Zigbee to Ethernet Serial Coordinator](https://www.tubeszb.com/)
     - Identifier: `tube_zb_gw_cc2652p2.local.`
-  - [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)
+  - [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator](https://www.tubeszb.com/)
     - Identifier: `tube_zb_gw_cc2652p2_poe.local.`
-  - [Tube's EFR32 Based Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)
+  - [Tube's EFR32 Based Zigbee to Ethernet Serial Coordinator](https://www.tubeszb.com/)
     - Identifier: `tube_zb_gw_efr32.local.`
 - **XZG**
   - [XZG - Universal Firmware for Zigbee Gateway](https://xzg.xyzroe.cc/)
