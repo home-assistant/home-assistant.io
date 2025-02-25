@@ -186,7 +186,7 @@ Changes a setting.
 | `key` | no | Key of the setting. |
 | `value` | no | Value of the setting. |
 
-### Known limitations
+## Known limitations
 
 - The Home Connect API does not fully match the Home Connect app. Some programs, options, or settings available in the app may not be accessible or usable via the API.
-- This integration supports only one configuration entry, as the Home Connect API does not allow to uniquely identify an account.
+- This integration supports only one integration entry, as the Home Connect API does not allow for the unique identification of an account.
