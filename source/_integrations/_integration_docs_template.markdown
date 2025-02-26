@@ -18,11 +18,9 @@ related:
     title: My link
 ---
 
-The integration documentation template provides a documentation structure as well as some example content per section. The example content is meant for inspiration, it may not apply for your integration or will at least have to be adapted.
+<!--- The integration documentation template provides a documentation structure as well as some example content per section. The example content is meant for inspiration, it may not apply for your integration or will at least have to be adapted. -->
 
-Use this template together with the developer documentation, under [Documentation standard](https://developers.home-assistant.io/docs/documenting/standards) and the documentation rules of the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/).
-
-### Example integration documentation text below
+<!--- Use this template together with the developer documentation, under [Documentation standard](https://developers.home-assistant.io/docs/documenting/standards) and the documentation rules of the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/). -->
 
 The **my integration** {% term integration %} is used to integrate with the devices of [MyCompany](https://www.mycompany.com). MyCompany creates various smart home appliances and devices and are known for their MyProduct.
 Use case: When you combine it with their other device you can do x.
@@ -52,9 +50,9 @@ The following devices are not supported by the integration:
 
 {% include integrations/config_flow.md %}
 
-The next section is about documenting configuration variables. For details, refer to the [documentation standard on configuration variables](/docs/documenting/standards#configuration-variables).
+<!--- The next section is about documenting configuration variables. For details, refer to the [documentation standard on configuration variables](/docs/documenting/standards#configuration-variables). -->
 
-In case your integration is used via a config flow:
+<!--- In case your integration is used via a config flow: -->
 
 {% configuration_basic %}
 Host:
@@ -63,7 +61,7 @@ Local access token:
     description: "The local access token for your bridge. You can find it in the Integration app under **Bridge Settings** > **Local API**."
 {% endconfiguration_basic %}
 
-In case an integration is set up via YAML in the {% term "`configuration.yaml`" %}:
+<!--- In case an integration is set up via YAML in the {% term "`configuration.yaml`" %}: -->
 
 {% configuration %}
 Host:
