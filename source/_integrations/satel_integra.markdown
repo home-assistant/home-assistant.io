@@ -63,11 +63,11 @@ Each partition will have it's own alarm panel, each zone and output will have a 
 
 To get started, select which entry type you want to manage:
 
-![image](https://github.com/user-attachments/assets/c788689b-9f58-46c4-9e51-d6cce5431763)
+![Start options flow](/images/integrations/satel_integra/satel_integra_options_flow.png)
 
 Then select the partition/zone/output number you want to manage and the corresponding action. The first action will always be to Add (unless a previous YAML configuration was imported)
 
-![image](https://github.com/user-attachments/assets/eba00284-c9fb-4678-9f46-1e67bd806ab3)
+![Configure partitions](/images/integrations/satel_integra/satel_integra_partition_configuration.png)
 
 Afterwards fill in the required fields for each entry type. Saving the options form should automatically generate and/or update the {%term entities %}.
 Deleting an entry removes the corresponding entry from the configuration, but the entity will still exist, you will manually have to remove this from the list afterwards.
