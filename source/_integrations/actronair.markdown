@@ -8,7 +8,7 @@ ha_release: 0.0.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@jagadish.dhanamjayam'
+  - '@JagadishDhanamjayam'
 ha_domain: actronair
 ha_platforms:
   - climate
