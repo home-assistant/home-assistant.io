@@ -569,6 +569,17 @@ to set a custom polling interval.
 
 {% enddetails %}
 
+{% details "Technove" %}
+
+The status sensor state high_charge_period was renamed to high_tariff_period.
+
+([@Moustachauve] - [#139314]) ([documentation](/integrations/technove))
+
+[@Moustachauve]: https://github.com/Moustachauve
+[#139314]: https://github.com/home-assistant/core/pull/139314
+
+{% enddetails %}
+
 If you are a custom integration developer and want to learn about changes and
 new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following changes are the most notable for this release:
