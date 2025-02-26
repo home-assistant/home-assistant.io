@@ -313,7 +313,7 @@ changes to existing integrations:
 - UniFi version 9 introduced zone based rules. These are now supported in the
   [Unifi integration]. Thanks, [@Samywamy10]!
 - [@Galorhallen] has added support for effects in [Govee lights]. Nice!
-- [@joostlek] completely rewrote the [SmartThings] integration! It should work much better now, but check the breaking changes for updates.
+- [@joostlek] completely rewrote the [SmartThings] integration! In december, SmartThings shut down the authentication method that we used to use to connect with their platform. During the last 2 months we collaborated with SmartThings to get the integration up and running again. No more need to request a personal access token! You can just sign in using your Samsung account (like how you are used to with for example OneDrive). Another improvement we have done is that to get push updates, you don't need to expose your instance to the internet anymore!
 
 [@awahlig]: https://github.com/awahlig
 [@bdraco]: https://github.com/bdraco
@@ -529,12 +529,29 @@ switch. They rarely worked because there were no energy or power
 capabilities available to get data from. If you do have the capabilities,
 it will still work for you.
 
-More to come, a lot of renames of states, they are all translatable now!
+- Set options for dishwasher job state sensor in SmartThings ([@joostlek] - [#139349])
+- Add translatable states to SmartThings media source input ([@joostlek] - [#139353])
+- Add translatable states to SmartThings media playback ([@joostlek] - [#139354])
+- Add translatable states to oven mode in SmartThings ([@joostlek] - [#139356])
+- Add translatable states to oven job state in SmartThings ([@joostlek] - [#139361])
+- Add translatable states to robot cleaner movement in SmartThings ([@joostlek] - [#139363])
+- Add translatable states to robot cleaner turbo mode in SmartThings ([@joostlek] - [#139364])
+- Add translatable states to washer job state in SmartThings ([@joostlek] - [#139368])
+- Add translatable states to dryer job state in SmartThings ([@joostlek] - [#139370])
 
 ([@joostlek] - [#138313]) ([documentation](/integrations/smartthings))
 
 [@joostlek]: https://github.com/joostlek
 [#138313]: https://github.com/home-assistant/core/pull/138313
+[#139349]: https://github.com/home-assistant/core/pull/139349
+[#139353]: https://github.com/home-assistant/core/pull/139353
+[#139354]: https://github.com/home-assistant/core/pull/139354
+[#139356]: https://github.com/home-assistant/core/pull/139356
+[#139361]: https://github.com/home-assistant/core/pull/139361
+[#139363]: https://github.com/home-assistant/core/pull/139363
+[#139364]: https://github.com/home-assistant/core/pull/139364
+[#139368]: https://github.com/home-assistant/core/pull/139368
+[#139370]: https://github.com/home-assistant/core/pull/139370
 
 {% enddetails %}
 
