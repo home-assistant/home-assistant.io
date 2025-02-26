@@ -23,7 +23,7 @@ Enabling a wake word consists of 2 steps:
 1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
 2. **Start** the add-on.
 3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-   - Under **Discovered**, you should now see the **openWakeWord** integration.
+   - Under **Discovered**, you should now see the **openWakeWord** component of the **Wyoming** integration.
    - Select **Configure** and **Submit**.
    - **Result**: You have successfully installed the openWakeWord add-on and Wyoming integration.
 
@@ -39,7 +39,7 @@ Enabling a wake word consists of 2 steps:
    - Set up [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist pipeline](/voice_control/voice_remote_local_assistant).
 5. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
 6. To define the wake word engine, in the top-right corner of the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Add streaming wake word**.
-   - **Troubleshooting**: If you don't see the three dots {% icon "mdi:dots-vertical" %} menu, go to {% my integrations title="**Settings** > **Devices & Services**" %} and make sure the **openWakeWord** integration is added.
+   - **Troubleshooting**: If you don't see the three dots {% icon "mdi:dots-vertical" %} menu, go to {% my integrations title="**Settings** > **Devices & Services**" %} and make sure the **openWakeWord** component of the **Wyoming** integration is added.
    - **Result**: on the bottom of the page, you now see a new section **Streaming wake word engine**.
    - Select **openwakeword**, then select **ok nabu**.
    - If you created a new assistant, select **Create**.
