@@ -150,6 +150,11 @@ green:
       ship_to: Europe
       url: https://www.wifishop.ro/en/homeassistant/home-assistant-green.html
       logo: /images/distributors/wifishop.webp
+    - name: Inet.se
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://www.inet.se/produkt/8310063/home-assistant-green
+      logo: /images/distributors/inet.webp
 yellow:
   name: "<strong>Home Assistant Yellow</strong>"
   distributors:
@@ -175,6 +180,12 @@ yellow:
       ship_to: Asia
       url: https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html
       logo: /images/distributors/seeed-studio.webp
+      # Australia
+    - name: Smart Guys
+      ship_from: Australia
+      ship_to: Australia
+      url: https://smartguys.com.au/product/home-assistant-yellow-smart-hub/
+      logo: /images/distributors/smart-guys.webp
       # Europe
     - name: Botland
       ship_from: Poland
@@ -343,6 +354,11 @@ zbt-1:
       ship_to: Europe
       url: https://www.wifishop.ro/en/homeassistant/home-assistant-skyconnect.html
       logo: /images/distributors/wifishop.webp
+    - name: Inet.se
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://www.inet.se/produkt/8310064/home-assistant-connect-zbt-1
+      logo: /images/distributors/inet.webp
 voice-pe:
   name: "<strong>Home Assistant Voice</strong> Preview Edition"
   distributors:
@@ -450,3 +466,13 @@ voice-pe:
       ship_to: Europe
       url: https://shop.pimoroni.com/products/home-assistant-voice
       logo: /images/distributors/pimoroni.webp
+    - name: Inet.se
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://www.inet.se/produkt/8310094/home-assistant-voice-preview-edition
+      logo: /images/distributors/inet.webp
+    - name: Pi-Shop.ch
+      ship_from: Switzerland
+      ship_to: Europe
+      url: https://www.pi-shop.ch/home-assistant-voice-preview-edition
+      logo: /images/distributors/pi-shop.webp

@@ -52,7 +52,7 @@ sensors:
 
 ## Configuration
 
-### Prayer calcuation method
+### Prayer calculation method
 
 Default: Islamic Society of North America
 
@@ -72,4 +72,4 @@ Default: Standard (mid sunset to sunrise)
 
 Default: Shafi
 
-Method for adjusting Asr time calcuation, if not specified, it defaults to Shafi.
+Method for adjusting Asr time calculation, if not specified, it defaults to Shafi.

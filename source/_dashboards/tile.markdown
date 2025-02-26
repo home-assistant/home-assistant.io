@@ -91,6 +91,12 @@ features:
   required: false
   description: Additional widgets to control your entity. See [available features](/dashboards/features).
   type: list
+features_position:
+  required: false
+  description: Position of the features on the tile card. Can be `bottom` or `inline`. Only the first feature will be displayed when the option is set to `inline`. `inline` is not compatible with the `vertical` option.
+  type: string
+  default: bottom
+
 {% endconfiguration %}
 
 ## Examples
