@@ -84,7 +84,7 @@ Enjoy the (beta) release!
     - [Counter actions](#counter-actions)
   - [Tiny interaction improvements](#tiny-interaction-improvements)
   - [Editor improvements](#editor-improvements)
-- [Assist now has streaming responses](#assist-now-has-streaming-responses)
+- [Assist chat now has streaming responses](#assist-chat-now-has-streaming-responses)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -208,7 +208,7 @@ the tile card.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-03/temp-tile-card-editor.png" />
 
-## Assist now has streaming responses
+## Assist chat now has streaming responses
 
 If you have hooked up an LLM, like ChatGPT, as an LLM to your Assist as
 a conversation agent, it will now live stream the responses to you when
@@ -305,18 +305,32 @@ changes to existing integrations:
   Helpful!
 - The [OpenAI conversation integration] now supports the `o1`, `o1-preview`,
   `o1-mini`, and `o3-mini` reasoning models. Thanks, [@Shulyaka]!
+- The [Shelly integration] now support th 4th generation of the Shelly Flood
+  sensor and support for Shelly script events entities. Thanks, [@chemelli74]
+  and [@wjtje]!
+- Support for the [Switchbot Remote] has been added to the
+  [Switchbot integration]. Thanks, [@awahlig]!
+- UniFi version 9 introduced zone based rules. These are now supported in the
+  [Unifi integration]. Thanks, [@Samywamy10]!
+- [@Galorhallen] has added support for effects in [Govee lights]. Nice!
 
-- Add support for Shelly Flood gen4 ([@chemelli74] - [#136981])
-- Add Shelly script events entities ([@wjtje] - [#135979])
-- Add support for Switchbot Remote ([@awahlig] - [#137443])
-- Unifi zone based rules ([@Samywamy10] - [#138974])
-- Add support for effects in Govee lights ([@Galorhallen] - [#137846]) govee_light_local
-
-[ESPhome]: /integrations/esphome
+[@awahlig]: https://github.com/awahlig
 [@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
 [@Diegorro98]: https://github.com/Diegorro98
+[@Galorhallen]: https://github.com/Galorhallen
 [@MartinHjelmare]: https://github.com/MartinHjelmare
+[@Samywamy10]: https://github.com/Samywamy10
+[@Shulyaka]: https://github.com/Shulyaka
+[@wjtje]: https://github.com/wjtje
+[ESPhome]: /integrations/esphome
+[Govee lights]: /integrations/govee_light_local
 [Home Connect integration]: /integrations/home_connect
+[OpenAI conversation integration]: /integrations/openai_conversation
+[Switchbot integration]: /integrations/switchbot
+[Switchbot Remote]: https://eu.switch-bot.com/products/switchbot-Remote
+[UniFi integration]: /integrations/unifi
+[Shelly integration]: /integrations/shelly
 
 ## Other noteworthy changes
 
@@ -350,6 +364,7 @@ noteworthy changes this release:
 [@jschlyter]: https://github.com/jschlyter
 [@PeteRager]: https:/github.com/PeteRager
 [@piitaya]: https://github.com/piitaya
+[@rikroe]: https://github.com/rikroe
 [browse media as an action with a response]: /integrations/media_player#action-media_playerbrowse_media
 [retrieve the configuration of a schedule helper]: /integrations/schedule#action-scheduleget_schedule
 
