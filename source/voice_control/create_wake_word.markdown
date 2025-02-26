@@ -56,8 +56,10 @@ Enabling a wake word consists of 2 steps:
    - If the **Text-to-speech** and **Speech-to-text** sections do not provide language selectors, this means you do not have an Assist pipeline set up.
    - Set up [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist pipeline](/voice_control/voice_remote_local_assistant).
 5. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
-6. To define the wake word engine, under **Wake word**, select **openwakeword**.
-   - Then, select **ok nabu**.
+6. To define the wake word engine, in the top-right corner of the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Add streaming wake work**.
+   - **Troubleshooting**: If you don't see the three dots {% icon "mdi:dots-vertical" %} menu, go to {% my integrations title="**Settings** > **Devices & Services**" %} and make sure the **openWakeWord** integration is added.
+   - **Result**: on the bottom of the page, you now see a new section **Streaming wake word engine**.
+   - Select **openwakeword**, then select **ok nabu**.
    - If you created a new assistant, select **Create**.
    - If you edited an existing assistant, select **Update**.
    - **Result**: You now have a voice assistant that listens to a wake word.
