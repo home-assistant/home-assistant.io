@@ -101,7 +101,7 @@ And in the reverse direction:
 
 ### Set time
 
-This service enables you to set the time of a panel on a location connection.
+The `risco.set_time` action enables you to set the time of a panel on a location connection.
 
 | Data attribute    | Required | Description                                                                                |
 | ----------------- | -------- | ------------------------------------------------------------------------------------------ |
