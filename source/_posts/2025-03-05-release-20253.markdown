@@ -210,8 +210,8 @@ the tile card.
 
 ## Assist chat now has streaming responses
 
-If you have hooked up an LLM, like ChatGPT, as an LLM to your Assist as
-a conversation agent, it will now live stream the responses to you when
+If you have hooked up an LLM, like ChatGPT, to your Assist as
+a conversation agent, it will now livestream the responses to you when
 you are chatting with it!
 
 When experimenting with larger models, or on slower hardware, LLM’s can feel
@@ -337,24 +337,24 @@ changes to existing integrations:
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- Every upgraded Home Assistant and needed to do a hard refresh in your
+- Ever upgraded Home Assistant and needed to do a hard refresh in your
   browser to make it work again? That is now a thing of the past! Every
-  time your browser connects to Home Assistant, it will ensure you browser's
+  time your browser connects to Home Assistant, it will ensure your browser's
   cache is up-to-date. Thanks, [@bramkragten]!
-- [@balloob] make a small change with a big impact. When you set up an
+- [@balloob] made a small change with a big impact. When you set up an
   new integration for a new device, Home Assistant will now redirect you
   to the device page after setting it up. Nice!
-- There is now an option, to add extra margin to the top of a section view.
+- There is now an option to add an extra margin to the top of a section view.
   Thanks, [@piitaya]!
 - The add/edit area dialog has been improved and compacted. They are
-  much more plesant to use now. Thanks, [@jpbede]!
+  much more pleasant to use now. Thanks, [@jpbede]!
 - We now have a device class for the wind speed sensors! Thanks, [@edenhaus]!
 - [@jschlyter] has added the energy distance device class for sensors,
   which supports the following units: `kWh/100mi`, `kWh/100km`, `mi/kWh`,
   including conversion between them. Awesome!
-- Media player entities supporting browing media, now have an new action
+- Media player entities which support browsing media now have a new action
   available to [browse media as an action with a response]. Thanks, [@PeteRager]!
-- [@rikroe] ha added a action to [retrieve the configuration of a schedule
+- [@rikroe] has added an action to [retrieve the configuration of a schedule
   helper]. Thanks!
 
 [@balloob]: https://github.com/balloob
@@ -370,22 +370,22 @@ noteworthy changes this release:
 
 ## Iterating on the legends of graphs
 
-Last release, we made quite a big change to the charts, by replacing the
+Last release, we made quite a big change to the charts by replacing the
 software we use to make these graphs in Home Assistant. Things changed,
-but or aim was to make it look and feel similar.
+but our aim was to make it look and feel similar.
 
-However, we received a lot of feedback from the community about the legends
-shown on the new graphs, being suboptimal. Our UX and frontend teams have
-been hard at work to improve this situation, and make it look more similar
+However, we received a lot of feedback from the community that the legends
+shown on the new graphs were suboptimal. Our UX and frontend teams have
+been hard at work to improve this situation and make it look more similar
 to the old graphs legends.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-03/temp-graph-legend.png" />
 
-By default, we show the legend below the graph, and show as many data points
-as possible. If there are to many, they will be displayed on demand using the
-little elipsis button.
+By default, we show the legend below the graph and show as many data points
+as possible. If there are too many, they will be displayed on demand using the
+little ellipsis button.
 
-When using these cards on the dashboard, and you prefer them to always we
+When using these cards on the dashboard, and you prefer them to always be
 displayed, you can, of course, configure them to always display in the newly
 provided option.
 
