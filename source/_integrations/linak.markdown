@@ -8,7 +8,7 @@ ha_iot_class: Local Push
 ha_integration_type: virtual
 ha_supporting_domain: idasen_desk
 ha_supporting_integration: IKEA Idåsen Desk
-ha_release: '2025.03'
+ha_release: '2025.3'
 ha_codeowners:
   - '@abmantis'
 ha_config_flow: true
