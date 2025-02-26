@@ -204,6 +204,7 @@ If required, you can manually trigger an update via **Developer tools** > **Acti
 - Ensure you have enabled **Tapo Lab** > **Third-Party Compatibility** in the Tapo app. You may need to factory reset and re-add to the Tapo app after this step.
 - Disable or remove any custom integrations that interact with TPLink devices supported by this integration.
 - Ensure stable network connectivity between Home Assistant and the device.
+- Unplug existing TP-Link/Tapo devices on your network before onboarding a new device. The TP-Link Simple Setup (TSS) protocol, which shares credentials from existing devices, can break authentication. If issues persist, factory reset the new device and re-add it without other TP-Link devices active.
 - Check the [reported connection solutions](#reported-connection-solutions) section below.
 - Check the [supported device list](#supported-devices) to see if the device is tested to work with the integration. 
 - Try running the [kasa tool](https://github.com/python-kasa/python-kasa) to connect to the device. An easy way to do this is to [install uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx --from python-kasa kasa --username <tplink cloud username> --password <tplink cloud password>`
