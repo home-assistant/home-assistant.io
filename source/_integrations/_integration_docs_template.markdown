@@ -1,5 +1,5 @@
 ---
-title: Integration documentation template
+title: My Integration
 description: Example document structure and text blocks for integration documentation.
 ha_release: 2025.03
 ha_iot_class: Local Push
