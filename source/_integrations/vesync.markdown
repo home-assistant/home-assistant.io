@@ -23,6 +23,7 @@ ha_platforms:
   - humidifier
   - light
   - number
+  - select
   - sensor
   - switch
 ha_integration_type: integration

@@ -1,5 +1,5 @@
 ---
-title: Microsoft OneDrive
+title: OneDrive
 description: Instructions on how to setup OneDrive to be used with backups.
 ha_release: 2025.2
 ha_category:
@@ -13,7 +13,9 @@ ha_integration_type: service
 related:
   - docs: /common-tasks/general/#backups
     title: Backups
-ha_quality_scale: bronze
+ha_quality_scale: platinum
+ha_platforms:
+  - sensor
 ---
 
 This integration allows you to use [Microsoft OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).

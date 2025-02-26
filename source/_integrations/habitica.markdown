@@ -31,6 +31,7 @@ related:
     title: To-do list card
   - url: https://habitica.com/
     title: Habitica
+ha_quality_scale: platinum
 ---
 
 The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats from [Habitica](https://habitica.com/) in Home Assistant and seamlessly integrates your to-do's, daily tasks, and many more things.

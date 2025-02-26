@@ -7,13 +7,12 @@ ha_category:
   - Hub
   - Presence detection
   - Sensor
+  - Switch
   - Water heater
   - Weather
-  - Switch
 ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@chiefdragon'
   - '@erwindouna'
 ha_domain: tado
 ha_config_flow: true
@@ -23,6 +22,7 @@ ha_platforms:
   - climate
   - device_tracker
   - sensor
+  - switch
   - water_heater
 ha_dhcp: true
 ha_integration_type: integration

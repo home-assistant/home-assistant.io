@@ -3,15 +3,16 @@ title: PG LAB Electronics
 description: Instructions on how to integrate PG LAB Electronics with Home Assistant.
 ha_category:
   - Switch
-ha_release: "2025.3"
+ha_release: '2025.3'
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - "@pglab-electronics"
+  - '@pglab-electronics'
 ha_domain: pglab
 ha_platforms:
   - switch
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The **PG LAB Electronics** {% term integrations %} allows you to control [PG LAB Electronics](https://www.pglab.dev/) devices in Home Assistant.

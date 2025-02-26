@@ -4,6 +4,7 @@ description: Instructions on how to integrate your Qbus installation with Home A
 ha_category:
   - Switch
 ha_platforms:
+  - light
   - switch
 ha_iot_class: Local Push
 ha_codeowners:

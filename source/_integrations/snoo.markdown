@@ -1,5 +1,5 @@
 ---
-title: Snoo
+title: Happiest Baby Snoo
 description: Instructions on how to integrate Snoo into Home Assistant
 ha_category:
   - Sensor
@@ -12,6 +12,7 @@ ha_domain: snoo
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The [Snoo](https://www.happiestbaby.com/products/snoo-smart-bassinet) is a smart bassinet made by [Happiest Baby](https://www.happiestbaby.com/) that helps get your baby to sleep and helps keep them asleep.

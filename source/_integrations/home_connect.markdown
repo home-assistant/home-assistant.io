@@ -17,6 +17,7 @@ ha_domain: home_connect
 ha_codeowners:
   - '@DavidMStraub'
   - '@Diegorro98'
+  - '@MartinHjelmare'
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
@@ -1140,4 +1141,3 @@ To try to solve the above issues, follow these steps:
 
 - The Home Connect API does not fully match the Home Connect app. Some programs, options, or settings available in the app may not be accessible or usable via the API.
 - This integration supports only one integration entry, as the Home Connect API does not allow for the unique identification of an account.
-

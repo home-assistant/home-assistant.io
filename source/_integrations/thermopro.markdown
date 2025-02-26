@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: thermopro
 ha_config_flow: true
 ha_platforms:
+  - button
   - sensor
 ha_integration_type: integration
 ---
