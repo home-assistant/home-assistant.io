@@ -313,6 +313,7 @@ changes to existing integrations:
 - UniFi version 9 introduced zone based rules. These are now supported in the
   [Unifi integration]. Thanks, [@Samywamy10]!
 - [@Galorhallen] has added support for effects in [Govee lights]. Nice!
+- [@joostlek] completely rewrote the [SmartThings] integration! It should work much better now, but check the breaking changes for updates.
 
 [@awahlig]: https://github.com/awahlig
 [@bdraco]: https://github.com/bdraco
@@ -323,6 +324,7 @@ changes to existing integrations:
 [@Samywamy10]: https://github.com/Samywamy10
 [@Shulyaka]: https://github.com/Shulyaka
 [@wjtje]: https://github.com/wjtje
+[@joostlek]: https://github.com/joostlek
 [ESPhome]: /integrations/esphome
 [Govee lights]: /integrations/govee_light_local
 [Home Connect integration]: /integrations/home_connect
@@ -331,6 +333,7 @@ changes to existing integrations:
 [Switchbot Remote]: https://eu.switch-bot.com/products/switchbot-Remote
 [UniFi integration]: /integrations/unifi
 [Shelly integration]: /integrations/shelly
+[SmartThings]: /integrations/smartthings
 
 ## Other noteworthy changes
 
@@ -388,6 +391,8 @@ little ellipsis button.
 When using these cards on the dashboard, and you prefer them to always be
 displayed, you can, of course, configure them to always display in the newly
 provided option.
+
+You can now also zoom in and out, by double clicking on a graph. If you want more control over the range you want to view in your graph, you can press the ctrl/cmd key and then select the range on the graph you want to zoom in on.
 
 ## Grouping / clustering of trackables on the maps
 
@@ -523,6 +528,8 @@ The energy and power sensors have been removed for every device that has a
 switch. They rarely worked because there were no energy or power
 capabilities available to get data from. If you do have the capabilities,
 it will still work for you.
+
+More to come, a lot of renames of states, they are all translatable now!
 
 ([@joostlek] - [#138313]) ([documentation](/integrations/smartthings))
 
