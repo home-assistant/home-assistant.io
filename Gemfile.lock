@@ -130,7 +130,7 @@ GEM
       rubocop-ast (>= 1.38.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.38.0)
+    rubocop-ast (1.38.1)
       parser (>= 3.3.1.0)
     ruby-lsp (0.23.11)
       language_server-protocol (~> 3.17.0)
