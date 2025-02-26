@@ -309,6 +309,25 @@ Creates a reward for the selected Habitica character.
 | `tag`          | yes      | Add tags to the Habitica reward. If a tag does not already exist, a new one will be created. |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
+### Action `habitica.update_habit`
+
+Updates a specific habit for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to update a habit.                                               |
+| `task`         | no       | The name (or task ID) of the habit you want to update.                                       |
+| `rename`       | yes      | The new title for the Habitica habit.                                                        |
+| `notes`        | yes      | The new notes for the Habitica habit.                                                        |
+| `up_down`      | yes      | Update if the habit is good and rewarding (positive), bad and penalizing (negative) or both. Valid values: `up`, `down`, or `[up, down]` |
+| `priority`     | yes      | Update the difficulty of a habit. Valid values: `trivial`, `easy`, `medium`, `hard`          |
+| `frequency`    | yes      | Update when a habit's counter resets. Valid values: `daily`, `weekly`, `monthly`             |
+| `tag`          | yes      | Add tags to the Habitica habit. If a tag does not already exist, a new one will be created.  |
+| `remove_tag`   | yes      | Remove tags from the Habitica habit.                                                         |
+| `counter_up`   | yes      | Update the up counter of a positive habit.                                                   |
+| `counter_down` | yes      | Update the down counter of a negative habit.                                                 |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
