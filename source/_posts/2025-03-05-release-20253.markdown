@@ -446,9 +446,9 @@ sensor Home Assistant 2024.9. The deprecated attributes have now been removed.
 
 {% details "Home Connect" %}
 
-Some programs at program switches (which are being deprecated) and program
+Some programs and program switches (which are being deprecated) and program
 select entities may not be exposed anymore by the integration as they are
-missing at `aiohomeconnect` program key enumeration ([file](https://github.com/MartinHjelmare/aiohomeconnect/blob/ccfbf802884aa781eef481da92e6bccd2e6de733/src/aiohomeconnect/model/program.py#L213C1-L507C6)).
+missing a `aiohomeconnect` program key enumeration ([file](https://github.com/MartinHjelmare/aiohomeconnect/blob/ccfbf802884aa781eef481da92e6bccd2e6de733/src/aiohomeconnect/model/program.py#L213C1-L507C6)).
 You can get the diagnostics from configuration entry or the device and open an
 issue or submit a PR with the generated diagnostics file on the
 [`aiohomeconnect` repository](https://github.com/MartinHjelmare/aiohomeconnect)
@@ -461,7 +461,7 @@ to suggest the missing program(s).
 
 ---
 
-Using program and option keys that aren't at the API documentation, will no
+Using program and option keys that aren't in the API documentation will no
 longer work. To be able to use them, open an issue or submit a pull request
 with the required keys at [MartinHjelmare/aiohomeconnect](https://github.com/MartinHjelmare/aiohomeconnect).
 
@@ -474,7 +474,7 @@ with the required keys at [MartinHjelmare/aiohomeconnect](https://github.com/Mar
 
 Multiple Home Connect config entries will not be allowed to be configured. For
 regular users where all appliances in the home are connected to the same Home
-Connect account there should not be any reason to have more than one config
+Connect account, there should not be any reason to have more than one config
 entry since all appliances in the home will be connected to the same account
 and config entry.
 
@@ -490,11 +490,11 @@ and config entry.
  Legacy `color_mode` support for MQTT JSON lights has been removed. The support
  was deprecated in HA Core 2024.4.
 
-Users with a YAML setup have been instructed to update there configuration in
+Users with a YAML setup have been instructed to update their configuration in
 `configuration.yaml` via repair issue flow. Deprecation issues with MQTT JSON
 lights that were set up through discovery were communicated via warnings in
-the logs. Use of the removed parameters in discovery wil no break
-the configuration, but will still log warning.
+the logs. Use of the removed parameters in discovery will not break
+the configuration, but will still log a warning.
 
 ([@jbouwh] - [#136996]) ([documentation](/integrations/mqtt))
 
@@ -520,8 +520,8 @@ accordingly in your existing automations.
 {% details "SmartThings" %}
 
 The energy and power sensors have been removed for every device that has a
-switch, since they never really worked, because there were no energy or power
-capabilities available to get data from. If you have the capabilities,
+switch. They rarely worked because there were no energy or power
+capabilities available to get data from. If you do have the capabilities,
 it will still work for you.
 
 ([@joostlek] - [#138313]) ([documentation](/integrations/smartthings))
@@ -547,7 +547,7 @@ to set a custom polling interval.
 
 If you are a custom integration developer and want to learn about changes and
 new features available for your integration: Be sure to follow our
-[developer blog][devblog]. The following are the most notable for this release:
+[developer blog][devblog]. The following changes are the most notable for this release:
 
 - [Backup agents](https://developers.home-assistant.io/blog/2025/02/17/backup-agents)
 - [Changed config entry state transitions](https://developers.home-assistant.io/blog/2025/02/19/new-config-entry-states)
@@ -559,5 +559,5 @@ new features available for your integration: Be sure to follow our
 
 ## All changes
 
-Of course, there is a lot more in this release. You can find a list of
+Of course there is a lot more in this release. You can find a list of
 all changes made here: [Full changelog for Home Assistant Core 2025.3](/changelogs/core-2025.3)
