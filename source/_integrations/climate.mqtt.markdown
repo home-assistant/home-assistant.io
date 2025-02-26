@@ -311,27 +311,6 @@ retain:
   required: false
   type: boolean
   default: false
-swing_mode_command_template:
-  description: A template to render the value sent to the `swing_mode_command_topic` with.
-  required: false
-  type: template
-swing_mode_command_topic:
-  description: The MQTT topic to publish commands to change the swing mode.
-  required: false
-  type: string
-swing_mode_state_template:
-  description: A template to render the value received on the `swing_mode_state_topic` with.
-  required: false
-  type: template
-swing_mode_state_topic:
-  description: The MQTT topic to subscribe for changes of the HVAC swing mode. If this is not set, the swing mode works in optimistic mode (see below).
-  required: false
-  type: string
-swing_modes:
-  description: A list of supported swing modes.
-  required: false
-  default: ['on', 'off']
-  type: list
 swing_horizontal_mode_command_template:
   description: A template to render the value sent to the `swing_horizontal_mode_command_topic` with.
   required: false
@@ -350,6 +329,27 @@ swing_horizontal_mode_state_topic:
   type: string
 swing_horizontal_modes:
   description: A list of supported swing horizontal modes.
+  required: false
+  default: ['on', 'off']
+  type: list  
+swing_mode_command_template:
+  description: A template to render the value sent to the `swing_mode_command_topic` with.
+  required: false
+  type: template
+swing_mode_command_topic:
+  description: The MQTT topic to publish commands to change the swing mode.
+  required: false
+  type: string
+swing_mode_state_template:
+  description: A template to render the value received on the `swing_mode_state_topic` with.
+  required: false
+  type: template
+swing_mode_state_topic:
+  description: The MQTT topic to subscribe for changes of the HVAC swing mode. If this is not set, the swing mode works in optimistic mode (see below).
+  required: false
+  type: string
+swing_modes:
+  description: A list of supported swing modes.
   required: false
   default: ['on', 'off']
   type: list
@@ -482,10 +482,10 @@ mqtt:
         - "off"
         - "cool"
         - "fan_only"
-      swing_modes:
+      swing_horizontal_modes:
         - "on"
         - "off"
-      swing_horizontal_modes:
+      swing_modes:
         - "on"
         - "off"
       fan_modes:
@@ -502,8 +502,8 @@ mqtt:
       mode_command_template: "{{ value if value=="off" else "on" }}"
       temperature_command_topic: "study/ac/temperature/set"
       fan_mode_command_topic: "study/ac/fan/set"
-      swing_mode_command_topic: "study/ac/swing/set"
       swing_horizontal_mode_command_topic: "study/ac/swingH/set"
+      swing_mode_command_topic: "study/ac/swing/set"
       precision: 1.0
 ```
 
