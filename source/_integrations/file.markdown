@@ -91,7 +91,6 @@ Reads a file and returns the data in a response.
 The action returns a dictionary with a data element containing the parsed content from the file.
 
 Example, read a JSON file out of the `www` directory.
-
 ```yaml
   - action: file.read_file
     data:
@@ -102,7 +101,6 @@ Example, read a JSON file out of the `www` directory.
 <!-- textlint-disable -->
 Contents of myfile.json
 <!-- textlint-enable -->
-
 ```json
 {
   "latitude": 32.87336,
@@ -110,9 +108,7 @@ Contents of myfile.json
   "gps_accuracy": 1.2
  }
 ```
-
 Response:
-
 ```yaml
 data:
   latitude: 32.87336
