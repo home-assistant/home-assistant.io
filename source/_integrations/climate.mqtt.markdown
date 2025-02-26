@@ -332,6 +332,27 @@ swing_modes:
   required: false
   default: ['on', 'off']
   type: list
+swing_horizontal_mode_command_template:
+  description: A template to render the value sent to the `swing_horizontal_mode_command_topic` with.
+  required: false
+  type: template
+swing_horizontal_mode_command_topic:
+  description: The MQTT topic to publish commands to change the swing horizontal mode.
+  required: false
+  type: string
+swing_horizontal_mode_state_template:
+  description: A template to render the value received on the `swing_horizontal_mode_state_topic` with.
+  required: false
+  type: template
+swing_horizontal_mode_state_topic:
+  description: The MQTT topic to subscribe for changes of the HVAC swing horizontal mode. If this is not set, the swing horizontal mode works in optimistic mode (see below).
+  required: false
+  type: string
+swing_horizontal_modes:
+  description: A list of supported swing horizontal modes.
+  required: false
+  default: ['on', 'off']
+  type: list
 target_humidity_command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `target_humidity_command_topic`.
   required: false
@@ -464,6 +485,9 @@ mqtt:
       swing_modes:
         - "on"
         - "off"
+      swing_horizontal_modes:
+        - "on"
+        - "off"
       fan_modes:
         - "high"
         - "medium"
@@ -479,6 +503,7 @@ mqtt:
       temperature_command_topic: "study/ac/temperature/set"
       fan_mode_command_topic: "study/ac/fan/set"
       swing_mode_command_topic: "study/ac/swing/set"
+      swing_horizontal_mode_command_topic: "study/ac/swingH/set"
       precision: 1.0
 ```
 
