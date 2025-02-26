@@ -119,7 +119,7 @@ and we have made it even better!
 ### Knowing which tile card can be controlled
 
 Tile cards are awesome! It is arguably the best and most versatile dashboard
-card Home Assistant current has. But ever since its creation, it had a little
+card Home Assistant currently has. But ever since its creation, it had a little
 flaw that you might have ran into yourself a few time...
 
 How would you know if tapping a tile card would trigger an action or when
@@ -128,24 +128,24 @@ these things in this release!
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-03/temp-tile-card-shapes.png" />
 
-When there is no action (or only a more info attached), we don't show the circle
-when it does have an actions, it will show the circle, meaning you can tap that
+When there is no action (or only a more info attached), we don't show the circle.
+When it does have an action, it will show the circle, meaning you can tap that
 little button.
 
 ### Position tile card features
 
 Ever since we added support for resizing cards, we gained the ability to make
 very wide tile cards. These cards would have a lot of empty space surrounding
-it, which, well at times could be helpful I guess.
+them, which, well, at times could be helpful, I guess.
 
-But what if we could do something useful with that space? Now you can!
-All features of a tile card, can now be positioned in-line in the tile card!
+But what if you could do something useful with that space? Now you can!
+All features of a tile card can now be positioned in-line in the tile card!
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-03/temp-tile-card-inline-feature.png" />
 
-This brings a completely new look and feel option to the tile car, of which we
-are sure, you are going to love! From the setting perspective, you can thus
-set the position of the feature to be either vertically or on the right side.
+This brings a completely new look and feel which we
+are sure you are going to love! From the setting perspective, you can
+set the feature to be positioned either vertically or on the right side.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-03/temp-tile-card-inline-settings.png" />
 
@@ -154,15 +154,15 @@ be positioned below the tile card.
 
 ### New tile card features
 
-This release also ships with two new tile card features, that can be
-added to your entities to provide new controls. These have been, contributed by
+This release also ships with two new tile card features that can be
+added to your entities to provide new controls. These have been contributed by
 [@jpbede], so a big shout out to him!
 
 [@jpbede]: https://github.com/jpbede
 
 #### Switch toggle
 
-The first addition, is one that is just surprising we didn't have it before.
+The first addition is one that is just surprising we didn't have it before.
 A switch toggle! This allows you to toggle a switch entity directly from the
 tile card.
 
@@ -170,7 +170,7 @@ tile card.
 
 #### Counter actions
 
-The second addition, is a counter toggle. This allows you to increase or
+The second addition is a counter toggle. This allows you to increase or
 decrease a counter entity directly from the tile card.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-03/temp-tile-card-counter-actions.png" />
@@ -180,7 +180,7 @@ decrease a counter entity directly from the tile card.
 More tweaks to the tile card have been made to improve the interaction
 experience with them.
 
-For example, we now have nice tiny little animations when you however over
+For example, we now have nice tiny little animations when you hover over
 the tile card, making it more clear that it is interactive; but also when
 you tap the tile card, it will now show a little animation to indicate that
 the tap was registered.
@@ -190,8 +190,8 @@ the tap was registered.
   Your browser does not support the video tag.
 </video>
 
-Another nice addition, is that the tile card can now be interacted with
-using your keyboard as well!
+Another nice addition is that the tile card can now be interacted with
+by using your keyboard as well!
 
 <video controls>
   <source src="/images/blog/2025-03/temp-tile-card-keyboard-navigation.mp4" type="video/mp4">
