@@ -89,7 +89,7 @@ Timeframe:
 
 ### Entities
 
-The XY integration provides the following entities.
+The My integration provides the following entities.
 
 #### Buttons
 
