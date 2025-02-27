@@ -37,6 +37,8 @@ There is currently support for the following device types within Home Assistant:
  - [Termometer](#146-Thermometer)
  - [Input](#147-Input)
 
+{% include integrations/config_flow.md %}
+
 ## 1. Important Integration Information
 
 ### 1.1 How to Use the ID
