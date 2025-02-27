@@ -1,5 +1,5 @@
 ---
-title: My Integration
+title: My integration
 description: Example document structure and text blocks for integration documentation.
 ha_release: 2025.3
 ha_iot_class: Local Push
@@ -22,7 +22,7 @@ related:
 
 <!--- Use this template together with the developer documentation, under [Documentation standard](https://developers.home-assistant.io/docs/documenting/standards) and the documentation rules of the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/). -->
 
-The **my integration** {% term integration %} is used to integrate with the devices of [MyCompany](https://www.mycompany.com). MyCompany creates various smart home appliances and devices and are known for their MyProduct.
+The **My integration** {% term integration %} is used to integrate with the devices of [MyCompany](https://www.mycompany.com). MyCompany creates various smart home appliances and devices and are known for their MyProduct.
 Use case: When you combine it with their other device you can do x.
 
 ## Supported devices
@@ -89,7 +89,7 @@ Timeframe:
 
 ### Entities
 
-The My integration provides the following entities.
+The **My integration** integration provides the following entities.
 
 #### Buttons
 
