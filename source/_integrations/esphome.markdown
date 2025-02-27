@@ -98,9 +98,7 @@ The entity will be named `Temperature` and will default to having an entity_id o
 
 ## Obtaining logs from the device
 
-{% include integrations/option_flow.md %}
-
-By enabling `Subscribe to logs from the device` in the options flow, the device will send logs to Home Assistant, which are logged under the `home assistant.components.esphome` logger at the equivalent level.
+By enabling `Subscribe to logs from the device` in the [options flow](#options)], the device will send logs to Home Assistant, which are logged under the `home assistant.components.esphome` logger at the equivalent level.
 
 To adjust the logging level, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), or use the Developer Tools to call the [`logging.set_level`](/integrations/logger/) action to specify the desired level:
 
