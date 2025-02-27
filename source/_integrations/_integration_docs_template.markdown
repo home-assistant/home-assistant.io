@@ -138,7 +138,7 @@ The integration provides the following actions.
 
 ### Action: Get schedule
 
-The `my_integration.get_schedule` service is used to fetch a schedule from the integration.
+The `my_integration.get_schedule` action is used to fetch a schedule from the integration.
 
 | Data attribute    | Optional | Description                                          |
 | ----------------- | -------- | ---------------------------------------------------- |
