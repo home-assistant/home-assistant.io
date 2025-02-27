@@ -126,7 +126,9 @@ The My integration provides the following entities.
 - **Steam level**
   - **Description**: The level your steam boiler should run at.
   - **Options**: 1, 2, 3
-  - **Available for machines**: Linea Micra#### Updates
+  - **Available for machines**: Linea Micra
+
+#### Updates
 
 - **Gateway firmware**
   - **Description**: Firmware status of the gateway.
