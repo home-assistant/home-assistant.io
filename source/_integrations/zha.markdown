@@ -108,13 +108,21 @@ Newer coordinators generally support Zigbee 3.0 firmware, but it is up to the ma
 
 ### Other supported but not recommended Zigbee radio adapters or modules
 
-{% details "List of hardware that is not recommended" %}
-
-{% warning %}
-
 The following hardware is supported, but _not recommended_. Specific models and details are noted where available in each section.
 
-{% endwarning %}
+{% details "List of hardware that is not recommended" %}
+
+{% caution %}
+
+- It is **not recommended** to run a coordinator via **Serial-Proxy-Server** _(also called Serial-to-IP bridge or Ser2Net remote adapter)_ over:
+  
+  - **Wi-Fi**,
+  - **WAN**, or
+  - **VPN**
+
+- The coordinator requires a stable, local connection to its serial port interface without drops in communication with the Zigbee gateway application running on the host computer.
+- Serial protocols used by the coordinator do not have enough robustness, resilience, or fault tolerance to handle packet loss and latency delays that can occur over unstable connections.
+{% endcaution %}
 
 **Silicon Labs EmberZNet based radios using legacy hardware using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)**
 
@@ -164,18 +172,6 @@ The following hardware is supported, but _not recommended_. Specific models and 
 {% enddetails %}
 
 If you find an opportunity to improve this information, refer to the section on how to [add support for new and unsupported devices](#how-to-add-support-for-new-and-unsupported-devices).
-
-{% caution %}
-
-- It is **not recommended** to run a coordinator via **Serial-Proxy-Server** _(also called Serial-to-IP bridge or Ser2Net remote adapter)_ over:
-  
-  - **Wi-Fi**,
-  - **WAN**, or
-  - **VPN**
-
-- The coordinator requires a stable, local connection to its serial port interface without drops in communication with the Zigbee gateway application running on the host computer.
-- Serial protocols used by the coordinator do not have enough robustness, resilience, or fault tolerance to handle packet loss and latency delays that can occur over unstable connections.
-{% endcaution %}
 
 ## Configuration requirements
 
