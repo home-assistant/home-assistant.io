@@ -1,7 +1,7 @@
 ---
 title: My Integration
 description: Example document structure and text blocks for integration documentation.
-ha_release: 2025.03
+ha_release: 2025.3
 ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
