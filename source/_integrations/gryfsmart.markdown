@@ -23,9 +23,9 @@ ha_codeowners:
 ha_integration_type: hub
 ---
 
-## The[GryfSmart](https://gryfsmart.pl)integration for home assistant allows you to connect to GryfSmart devices
+## The[GryfSmart](https://gryfsmart.pl)integration for Home Assistant allows you to connect to GryfSmart devices
 
-This document describes how to configure and use the GryfSmart integration. The integration support Config Flow (UI-based setup), and requires RS232 interface.
+This document describes how to configure and use the GryfSmart integration. The integration supports Config Flow (UI-based setup), and requires an RS232 interface.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -71,7 +71,7 @@ The module count is the number of modules in the network.
 - **Input (I)**
 - **PWM**
 - **Temperature Input (T)**
-- **Cover Output(S)**
+- **Cover Output**
 
 {% endnote %}
 
@@ -139,8 +139,6 @@ window, smoke, sound, power
 - **Extra information:**  
   If the input is a short press and release, the sensor state is 2;
 if it is a long press, the state is 3.
-
-
 
 ## 2. Configuration via Config Flow
 
