@@ -61,16 +61,19 @@ Partitions, zones, and outputs can be added, edited, and removed through the opt
 
 Each partition will have its own alarm panel. Each zone and output will have a binary sensor, and a switch will be created for each switchable output.
 
-To get started, select which entry type you want to manage:
+1. To get started, select which entry type you want to manage:
 
-![Start options flow](/images/integrations/satel_integra/satel_integra_options_flow.png)
+   ![Start options flow](/images/integrations/satel_integra/satel_integra_options_flow.png)
 
-Then select the partition/zone/output number you want to manage and the corresponding action. The first action will always be to Add (unless a previous YAML configuration was imported)
+2. Then, select the partition/zone/output number you want to manage and the corresponding action. 
+    - The first action will always be to **Add** (unless a previous YAML configuration was imported).
 
-![Configure partitions](/images/integrations/satel_integra/satel_integra_partition_configuration.png)
+    ![Configure partitions](/images/integrations/satel_integra/satel_integra_partition_configuration.png)
 
-Afterwards fill in the required fields for each entry type. Saving the options form should automatically generate and/or update the {%term entities %}.
-Deleting an entry removes the corresponding entry from the configuration, but the entity will still exist, you will manually have to remove this from the list afterwards.
+3. Afterwards, fill in the required fields for each entry type. 
+    - Saving the options form should automatically generate and/or update the {%term entities %}.
+4. Deleting an entry removes the corresponding entry from the configuration, but the entity will still exist. 
+    -You will manually have to remove this entity from the list afterward.
 
 Having configured the zones and the outputs, you can use them for automation, such as to react on the movement in your bedroom.
 For example:
