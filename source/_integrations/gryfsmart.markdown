@@ -30,6 +30,12 @@ This document describes how to configure and use the GryfSmart integration. The 
 There is currently support for the following device types within Home Assistant:
 
  - [Light](#141-Light)
+ - [Switch](#142-Switch)
+ - [Thermostat](#143-Thermostat)
+ - [Binary Input](#144-Binary-Input)
+ - [PWM](#145-PWM)
+ - [Termometer](#146-Thermometer)
+ - [Input](#147-Input)
 
 ## 1. Important Integration Information
 
