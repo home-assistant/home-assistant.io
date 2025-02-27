@@ -73,7 +73,7 @@ Each partition will have its own alarm panel. Each zone and output will have a b
 3. Afterwards, fill in the required fields for each entry type. 
     - Saving the options form should automatically generate and/or update the {%term entities %}.
 4. Deleting an entry removes the corresponding entry from the configuration, but the entity will still exist. 
-    -You will manually have to remove this entity from the list afterward.
+    - You will manually have to remove this entity from the list afterward.
 
 Having configured the zones and the outputs, you can use them for automation, such as to react on the movement in your bedroom.
 For example:
