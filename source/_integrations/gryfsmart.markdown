@@ -29,7 +29,7 @@ This document describes how to configure and use the GryfSmart integration. The 
 
 There is currently support for the following device types within Home Assistant:
 
- - [Light](#1.4.1-Light)
+ - [Light](#141-Light)
 
 ## 1. Important Integration Information
 
