@@ -59,7 +59,7 @@ After setting up the connection details, partitions, zones, and outputs can be c
 
 Partitions, zones, and outputs can be added, edited, and removed through the option forms.
 
-Each partition will have its own alarm panel, each zone and output will have a binary sensor, and a switch will be created for each switchable output.
+Each partition will have its own alarm panel. Each zone and output will have a binary sensor, and a switch will be created for each switchable output.
 
 To get started, select which entry type you want to manage:
 
