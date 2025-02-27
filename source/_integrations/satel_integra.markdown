@@ -53,13 +53,13 @@ Code:
 
 ## Settings
 
-After setting up the connection details, partitions, zones and outputs can be configured using the <i>Options</i> on the <i>Satel Integra</i> card on the {% my integrations title="Settings > Devices & services" %} page.
+After setting up the connection details, partitions, zones, and outputs can be configured using the **Options** on the **Satel Integra** card on the {% my integrations title="**Settings** > **Devices & services**" %} page.
 
-### Partitions, Zones and Outputs
+### Partitions, zones, and outputs
 
-Partitions, Zones and outputs can be added, edited, and removed through the option forms.
+Partitions, zones, and outputs can be added, edited, and removed through the option forms.
 
-Each partition will have it's own alarm panel, each zone and output will have a binary sensor and each switchable output will have a switch created.
+Each partition will have its own alarm panel, each zone and output will have a binary sensor, and a switch will be created for each switchable output.
 
 To get started, select which entry type you want to manage:
 
