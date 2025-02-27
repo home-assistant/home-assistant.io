@@ -199,9 +199,6 @@ If they are not, check the device's power and network connection.
 
 Make sure you turned off the device's power-saving mode.
 
-## Community notes
-
-Note that some users have reported issues creating Home Assistant containers on ARM QNAP systems (for example, TS-233) with Container Station 3. A possible workaround is the "Docker compose" approach based on a YAML file (see section "Docker compose").
 
 ## Removing the integration
 
