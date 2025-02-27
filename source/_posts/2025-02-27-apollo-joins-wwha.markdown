@@ -17,6 +17,7 @@ og_image: /images/blog/2025-02-apollo/art.jpg
 Notably, these are the first [ESPHome](https://esphome.io/index.html)-based devices to receive Works with Home Assistant certification. Apollo is one of the first movers in an important trend that we're very excited about: Home Assistant community members turning their open projects into viable businesses that support a thriving Open Home ecosystem.
 
 <!--more-->
+
 ## Background
 
 Apollo Automation is a growing family-run business rooted in the Home Assistant and ESPHome communities. And yes, they're named after their German Shepherd, Apollo 🐕.
@@ -28,7 +29,7 @@ Apollo Automation is a growing family-run business rooted in the Home Assistant 
 
 Two years ago, they started sharing their designs for a new impressively small ESPHome-powered multisensor with the community. Getting feedback, sharing iterations, and working collaboratively, they turned that sensor into a full-fledged product, which was built to work with Home Assistant. They have continued this open, community-first approach and have now built several even more refined multisensors.
 
-<p class='img'><img src='/images/blog/2025-02-apollo/multisensor.jpg' style='border: 0;box-shadow: none;' alt="Apollo multisensor">
+<p class='img'><img src='/images/blog/2025-02-apollo/multisensor.jpg' style='border: 0;box-shadow: none;' alt="Apollo MSR-2 multisensor">
 A multisensor for ants? 🐜</p>
 
 Home Assistant is the [only true smart home platform](https://newsletter.openhomefoundation.org/true-platforms-let-you-create/) because it gives everyone full control to build and create. [ESPHome](/integrations/esphome/) is the ultimate smart device platform, and it is fostering an entirely new ecosystem of Open Home projects. ESPHome works fully locally, and it's a modder's paradise, allowing users to build DIY smart home devices (check out the [getting started with ESPHome guide](https://esphome.io/guides/getting_started_hassio.html)).
@@ -38,9 +39,6 @@ Creators can also use it to build pre-built, plug-and-play products that give us
 ESPHome and Home Assistant allows anyone to turn their passion for building cool things into a career, and the things they build help support a more vibrant Open Home. Apollo is an exciting new partner for the Works with Home Assistant program and should serve as an inspiration to all aspiring makers in our community.
 
 ## Devices
-
-<img src='/images/blog/2025-02-apollo/wwha-local.png' style='border: 0;box-shadow: none;' alt="wwha local badge">
-
 Works with Home Assistant differs from other certification programs as products are rigorously tested in-house to ensure they work seamlessly out of the box. Any company joining also commits to providing long-term support and firmware updates, while being a positive force in the Home Assistant community. Works with Home Assistant is operated by the [Open Home Foundation](https://www.openhomefoundation.org/), and it is the support of [Home Assistant Cloud](/cloud/) subscribers that funds this work.
 
 Apollo has chosen first to certify three products, which include:
