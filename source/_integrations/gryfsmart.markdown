@@ -23,7 +23,7 @@ ha_codeowners:
 ha_integration_type: hub
 ---
 
-## The [GryfSmart](https://gryfsmart.pl) integration for home assistant allows you to connect to GryfSmart devices
+## The[GryfSmart](https://gryfsmart.pl)integration for home assistant allows you to connect to GryfSmart devices
 
 This document describes how to configure and use the GryfSmart integration. The integration support Config Flow (UI-based setup), and requires RS232 interface.
 
