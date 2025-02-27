@@ -77,7 +77,7 @@ The Ohme integration provides the following entities.
 #### Sensors
 
 - **Status**
-  - **Description**: Current status of the charger. Possible states: `Unplugged`, `Pending approval`, `Plugged in`, `Charging`.
+  - **Description**: Current status of the charger. Possible states: `Unplugged`, `Pending approval`, `Plugged in`, `Charging`, `Finished charging`.
   - **Available for devices**: all
 - **Power**
   - **Description**: Power draw from the charger in kW.
