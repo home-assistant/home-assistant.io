@@ -6,8 +6,8 @@ ha_category:
 ha_domain: linak
 ha_integration_type: virtual
 ha_supporting_domain: idasen_desk
-ha_supporting_integration: IKEA Idasen Desk
-ha_release: '2023.10'
+ha_supporting_integration: IKEA Idåsen Desk
+ha_release: '2025.3'
 ha_codeowners:
   - '@abmantis'
 ha_config_flow: true
