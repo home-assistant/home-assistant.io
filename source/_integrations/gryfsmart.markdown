@@ -23,19 +23,19 @@ ha_codeowners:
 ha_integration_type: hub
 ---
 
-# The [GryfSmart](https://gryfsmart.pl) integration for home assistant allows you to connect to GryfSmart devices
+## The [GryfSmart](https://gryfsmart.pl) integration for home assistant allows you to connect to GryfSmart devices
 
 This document describes how to configure and use the GryfSmart integration. The integration support Config Flow (UI-based setup), and requires RS232 interface.
 
 There is currently support for the following device types within Home Assistant:
 
- - [Light](#141-Light)
- - [Switch](#142-Switch)
- - [Thermostat](#143-Thermostat)
- - [Binary Input](#144-Binary-Input)
- - [PWM](#145-PWM)
- - [Termometer](#146-Thermometer)
- - [Input](#147-Input)
+ - Light
+ - Switch
+ - Thermostat
+ - Binary Input
+ - PWM
+ - Termometer
+ - Input
 
 {% include integrations/config_flow.md %}
 
@@ -63,6 +63,8 @@ The module count is the number of modules in the network.
 
 ### 1.4 Entities
 
+{% note %}
+
 **gryfsmart driver supports 5 types of functions:**
 
 - **Relay Output (O)**
@@ -70,6 +72,8 @@ The module count is the number of modules in the network.
 - **PWM**
 - **Temperature Input (T)**
 - **Cover Output(S)**
+
+{% endnote %}
 
 #### 1.4.1 Light
 
