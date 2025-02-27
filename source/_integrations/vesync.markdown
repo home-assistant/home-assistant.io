@@ -80,6 +80,7 @@ This {% term integration %} supports devices controllable by the VeSync App.  Th
 
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
+- Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
 ## Prerequisite
 
@@ -142,7 +143,11 @@ Sensors and settings exposed by VeSync humidifiers.
 
 | Number                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
-| `mist_level`            | Mist level intensity (Range: 1-9, Step: 1)                                         | 1         |
+| `mist_level`            | Mist level intensity (Range: 1-9, Step: 1). Only available in manual mode.         | 1         |
+
+| Select                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `night_light_level`| Night light brightness level (Values: off, dim, bright).             | off         |
 
 ## Binary Sensors
 

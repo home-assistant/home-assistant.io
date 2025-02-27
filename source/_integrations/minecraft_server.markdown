@@ -22,19 +22,11 @@ ha_integration_type: integration
 ## Prerequisites
 
 - Minecraft Java Edition servers must be version 1.7 or newer, since older versions don't expose any information.
-- The `enable-status` and `enable-query` must be set to `true` in the Minecraft `server.properties`.
+- The configuration parameter `enable-status` must be set to `true` in the server configuration file (`server.properties`).
 
 {% include integrations/config_flow.md %}
 
-During setup you will be prompted to enter the **name** and the **address** of the server.
-
-### Server name
-
-The **server name** can be chosen freely.
-
-{% note %}
-Default is `Minecraft Server`.
-{% endnote %}
+During setup you will be prompted to enter the **address** of the server.
 
 ### Server address
 
@@ -77,3 +69,9 @@ For Bedrock Edition servers following sensors are provided additionally:
 {% note %}
 Player names are only available on Java Edition servers. Depending on the server, the player names list may not be shown completely. Some servers and plugins limit or completely hide this list or even replace the player names with fake ones to show some custom messages there.
 {% endnote %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

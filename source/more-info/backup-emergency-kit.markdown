@@ -23,7 +23,9 @@ Encryption is a method of converting data into a coded format so that it can onl
     ![Screenshot showing the encryption key in the download dialog for the backup emergency kit](/images/more-info/backup_emergency_kit_01.png)
 
 3. Store the kit somewhere safe, outside the Home Assistant system.
-   - Without the encryption key, there is no way to [restore an encrypted backup](/common-tasks/general/#restoring-a-backup).
+   - Home Assistant keeps track of the current encryption key. If you download from Home Assistant, it can decrypt your backup.
+   - But if you have changed the encryption key in the meantime, you still need the old key that matches old backups.
+   Without the encryption key, there is no way to [restore an encrypted backup](/common-tasks/general/#restoring-a-backup).
 
 ## Changing your encryption key
 
@@ -33,9 +35,12 @@ When you set up your [backups](/common-tasks/general/#backups), an encryption ke
 2. Select **Configure automatic backups** and under **Encryption key**, select **Change**.
 3. If you haven't downloaded the old emergency kit yet, do it now.
    - As the new encryption key won't work for the backups you've taken until now, keep it somewhere safe and make a note of which backups it applies to.
-4. To generate a new encryption key, select **Change encryption key**.
+4. To generate a new encryption key, select **Next**, then select **Change encryption key**.
 5. Download the new encryption key and store it in a safe place.
 
 ## I lost my backup encryption key - how can I retrieve it?
 
-If you still have access to your Home Assistant instance you can download the encryption key again from the backup settings. If you have lost the encryption key, and have no access to your Home Assistant instance, there is no way to restore the backup.
+If you still have access to your Home Assistant instance you can download the encryption key again from the backup settings.
+
+- **If you have not changed the encryption key**: Home Assistant still has it. If you download the backup from the Home Assistant Backup page, it decrypts the backup on the fly.
+- **If you have changed the encryption key**: Home Assistant can not decrypt it on the fly. You need the encryption key that is related to that backup. If you have lost the encryption key, and have no access to your Home Assistant instance, there is no way to restore the backup.

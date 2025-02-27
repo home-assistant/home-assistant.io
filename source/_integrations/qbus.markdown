@@ -34,13 +34,14 @@ Once the Qbus controller is connected to the MQTT server, you need to set up an 
 
 There is currently support for the following **Qbus** products within Home Assistant:
 
-- **CTD 3.0**: main controller.
-- **CTD 3.5**: main controller.
+- **CTD01E to CTD03E (CTD 3.0)**: main controllers (yellow).
+- **CTD10 to CTDMax (CTD 3.5)**: main controllers (black).
 - **Toggle**: toggle outputs on controllers.
 
 ## Available entities
 
 - **Switch**: toggles on/off outputs.
+- **Light**: controls dimmer lights, allowing both on/off functionality and brightness adjustment.
 
 ## Removing the integration
 
