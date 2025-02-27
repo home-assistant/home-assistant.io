@@ -1,6 +1,6 @@
 ---
-title: Gryfsmart
-description: Instructions on how to integrate GryfSmart within Home Assistant.
+title: GRYFSMART
+description: Instructions on how to integrate GryfSmart components with Home Assistant.
 ha_release: 2025.1
 ha_category:
     - Binary sensor
@@ -23,9 +23,13 @@ ha_codeowners:
 ha_integration_type: hub
 ---
 
-# The GryfSmart integration for home assistant allows you to connect to GryfSmart devices
+# The [GryfSmart](https://gryfsmart.pl) integration for home assistant allows you to connect to GryfSmart devices
 
 This document describes how to configure and use the GryfSmart integration. The integration support Config Flow (UI-based setup), and requires RS232 interface.
+
+There is currently support for the following device types within Home Assistant:
+
+ - [Light](#1.4.1 Light)
 
 ## 1. Important Integration Information
 
