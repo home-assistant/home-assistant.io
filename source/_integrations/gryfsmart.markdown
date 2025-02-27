@@ -23,11 +23,10 @@ ha_codeowners:
 ha_integration_type: hub
 ---
 
-## gryfsmart Integration for Home Assistant
+# GryfSmart
+## The GryfSmart integration for home assistant allows you to connect to GryfSmart devices
 
-This document describes how to configure and use the gryfsmart integration with
-Home Assistant. The integration supports both YAML configuration and Config
-Flow (UI-based setup).
+This document describes how to configure and use the GryfSmart integration. The integration support Config Flow (UI-based setup), and requires RS232 interface.
 
 ## 1. Important Integration Information
 
@@ -59,7 +58,7 @@ The module count is the number of modules in the network.
 - **Input (I)**
 - **PWM**
 - **Temperature Input (T)**
-- **Cover Output**
+- **Cover Output(S)**
 
 #### 1.4.1 Light
 
