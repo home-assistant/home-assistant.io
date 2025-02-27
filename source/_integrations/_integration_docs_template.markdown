@@ -142,9 +142,9 @@ The integration provides the following actions.
 
 The `my_integration.get_schedule` action is used to fetch a schedule from the integration.
 
-| Data attribute    | Optional | Description                                          |
-| ----------------- | -------- | ---------------------------------------------------- |
-| `config_entry_id` | No       | The ID of the config entry to get the schedule from. |
+- **Data attribute**: `config_entry_id`
+  - **Description**: The ID of the config entry to get the schedule from.
+  - **Optional**: No
 
 ## Examples
 
@@ -198,7 +198,6 @@ If they are not, check the device's power and network connection.
 ### The device goes unavailable after a day
 
 Make sure you turned off the device's power-saving mode.
-
 
 ## Removing the integration
 
