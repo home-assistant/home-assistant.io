@@ -142,8 +142,8 @@ House consumption data requires an Envoy Metered equipped and configured with at
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Current power consumption**: Current power consumption in W.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime energy consumption**: Lifetime energy consumption in Wh, default display scaled to MWh.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy production last seven days**: Energy consumption in previous 7 days, not including today's, in Wh, display scaled to kWh. This entity is not logged in statistics.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy consumption today**: Energy consumption since midnight in Wh, default display scaled to kWh.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy consumption last seven days**: Energy consumption in previous 7 days, not including today's, in Wh, display scaled to kWh. (See known limitations [Energy Incorrect](#energy-incorrect)) This entity is not logged in statistics.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy consumption today**: Energy consumption since midnight in Wh, default display scaled to kWh. (See known limitations [Energy Incorrect](#energy-incorrect))
 
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_consumption.png" alt="consumption entities">
@@ -683,8 +683,8 @@ When using Envoy Metered with <abbr title="current transformers">CT</abbr>, not 
 
 When using Envoy Metered with <abbr title="current transformers">CT</abbr>
 
-- not all firmware versions report `Energy production today` correctly. Zero data and unexpected spikes have been reported. In this case, best use a utility meter with the `Lifetime energy production` entity for daily reporting.
-- not all firmware versions report `Energy production last seven days` correctly. Zero and unexpected values have been reported.
+- not all firmware versions report `Energy production today` and/or `Energy consumption today`correctly. Zero data and unexpected spikes have been reported. In this case, best use a utility meter with the `Lifetime energy production` entity for daily reporting.
+- not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported.
 
 ### Lifetime reset
 
