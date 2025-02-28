@@ -1,5 +1,5 @@
 ---
-title: GRYFSMART
+title: GryfSmart
 description: Instructions on how to integrate GryfSmart components with Home Assistant.
 ha_release: 2025.1
 ha_category:
@@ -23,9 +23,9 @@ ha_codeowners:
 ha_integration_type: hub
 ---
 
-## The[GryfSmart](https://gryfsmart.pl)integration for Home Assistant allows you to connect to GryfSmart devices
+## The [GryfSmart](https://gryfsmart.pl) integration for Home Assistant allows you to connect to GryfSmart devices
 
-This document describes how to configure and use the GryfSmart integration. The integration supports Config Flow (UI-based setup), and requires an RS232 interface.
+This document describes how to configure and use the GryfSmart integration. The integration supports Config Flow (UI-based setup), and requires an RS-232 interface.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -65,7 +65,7 @@ The module count is the number of modules in the network.
 
 {% note %}
 
-**gryfsmart driver supports 5 types of functions:**
+**GryfSmart driver supports 5 types of functions:**
 
 - **Relay Output (O)**
 - **Input (I)**
