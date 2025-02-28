@@ -60,7 +60,7 @@ is "/dev/ttyS0" for a physical RS-232 port, or "/dev/ttyUSB0" for a converter.
 
 The module count is the number of modules in the network.
 
-Example: If there are three modules in the network, the module count is `3`. 
+Example: If there are three modules in the network, the module count is `3`.
 This value is used to determine communication limits and resource allocation.
 
 ### 1.4 Entities
@@ -142,14 +142,15 @@ window, smoke, sound, power
   If it is a long press, the state is `3`.  
   For **on**, the state is `1`; for **off**, the state is `2`.  
 
-Example:  
+Example:
+
 - A short press (`2`) might be used to toggle a light on or off.  
 - A long press (`3`) could trigger a scene or activate a different function,  
   such as dimming a light or opening a garage door.  
 
 ## 2. Configuration via Config Flow
 
-The "extra" parameter corresponds to the device_class if it exists. In the case
+The "extra" parameter corresponds to the device_class, if it exists. In the case
 of a thermostat, the "extra" parameter maps to **t_id** instead. Otherwise, this
 parameter is not required. Additionally, the integration supports editing of
 individual devices and configuration. Please note that after making changes,
