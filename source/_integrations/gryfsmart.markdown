@@ -25,6 +25,7 @@ ha_integration_type: hub
 
 ## The [GryfSmart](https://gryfsmart.pl) integration for Home Assistant allows you to connect to GryfSmart devices
 
+
 This document describes how to configure and use the GryfSmart integration. The integration supports Config Flow (UI-based setup), and requires an RS-232 interface.
 
 There is currently support for the following device types within Home Assistant:
@@ -43,17 +44,16 @@ There is currently support for the following device types within Home Assistant:
 
 ### 1.1 How to Use the ID
 
-The ID is a combination of the driver ID and the cell number (for outputs,
-inputs, etc.).
+The ID is a combination of the driver ID and the cell number (for outputs, inputs, etc.).
 
-17
+Example: `17`
 
-- 1 is the driver ID
-- 7 is the cell number
+- `1` is the driver ID
+- `7` is the cell number
 
 ### 1.2 Communication
 
-To connect gryfsmart, you can use either a Physical RS-232 connection or a
+To connect GryfSmart, you can use either a Physical RS-232 connection or a
 USB/RS-232 converter. You need to know the address of the device. Typically, it
 is "/dev/ttyS0" for a physical RS-232 port, or "/dev/ttyUSB0" for a converter.
 
@@ -153,4 +153,5 @@ you must reload the integration for the changes to take effect.
 Additionally, the configuration automatically generates two entities—**gryf_in**
 and **gryf_out**. The **gryf_in** entity receives incoming messages, and the
 **gryf_out** entity handles outgoing messages. However, if you are not an
-experienced GRYF SMART installer, you may ignore these details.
+experienced GryfSmart installer, you may ignore these details.
+ 
