@@ -36,8 +36,8 @@ Verify SSL:
 
 ### Common WebDAV URLs
 
-- [Nextcloud](https://nextcloud.com/): `https://<your-nextcloud-domain>/remote.php/dav/files/<your-username>/`
-- [Owncloud](https://owncloud.com/): `https://<your-owncloud-domain>/remote.php/dav/files/<your-username>/`
+- [Nextcloud](https://nextcloud.com/): `https://<your-nextcloud-domain>/remote.php/webdav/`
+- [Owncloud](https://owncloud.com/): `https://<your-owncloud-domain>/remote.php/webdav/`
 - [Hetzner Storage Box](https://www.hetzner.com/storage/storage-box): `https://<username>.your-storagebox.de`
 - [Strato HiDrive](https://www.strato.de/): `https://webdav.hidrive.strato.com`
 
