@@ -14,6 +14,7 @@ ha_platforms:
   - cover
   - light
   - number
+  - select
   - sensor
   - switch
   - valve
@@ -30,6 +31,7 @@ There is currently support for the following device types in Home Assistant:
 - light
 - number
 - sensor
+- select
 - switch
 - valve
 
