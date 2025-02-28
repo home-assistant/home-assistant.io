@@ -25,7 +25,6 @@ ha_integration_type: hub
 
 ## The [GryfSmart](https://gryfsmart.pl) integration for Home Assistant allows you to connect to GryfSmart devices
 
-
 This document describes how to configure and use the GryfSmart integration. The integration supports Config Flow (UI-based setup), and requires an RS-232 interface.
 
 There is currently support for the following device types within Home Assistant:
@@ -60,6 +59,9 @@ is "/dev/ttyS0" for a physical RS-232 port, or "/dev/ttyUSB0" for a converter.
 ### 1.3 Module Count
 
 The module count is the number of modules in the network.
+
+Example: If there are three modules in the network, the module count is `3`. 
+This value is used to determine communication limits and resource allocation.
 
 ### 1.4 Entities
 
@@ -107,7 +109,6 @@ and the o_id into the "id" parameter.
 
 - **Type of function:** Input
 - **Services:** None
-- **Icon:** Specific for the chosen device class
 - **Entity type:** binary_sensor
 - **Device class:** door, garage_door, heat, light, motion,
 window, smoke, sound, power
@@ -131,14 +132,20 @@ window, smoke, sound, power
 
 #### 1.4.7 Input
 
-- **Type of function:** Input
-- **Services:** None
-- **Icon:** switch
-- **Entity type:** sensor
-- **Device class:** None
+- **Type of function:** Input  
+- **Services:** None  
+- **Icon:** `switch`  
+- **Entity type:** `sensor`  
+- **Device class:** None  
 - **Extra information:**  
-  If the input is a short press and release, the sensor state is 2;
-if it is a long press, the state is 3.
+  If the input is a short press and release, the sensor state is `2`.  
+  If it is a long press, the state is `3`.  
+  For **on**, the state is `1`; for **off**, the state is `2`.  
+
+Example:  
+- A short press (`2`) might be used to toggle a light on or off.  
+- A long press (`3`) could trigger a scene or activate a different function,  
+  such as dimming a light or opening a garage door.  
 
 ## 2. Configuration via Config Flow
 
@@ -154,4 +161,3 @@ Additionally, the configuration automatically generates two entities—**gryf_in
 and **gryf_out**. The **gryf_in** entity receives incoming messages, and the
 **gryf_out** entity handles outgoing messages. However, if you are not an
 experienced GryfSmart installer, you may ignore these details.
- 
