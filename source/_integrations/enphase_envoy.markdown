@@ -683,7 +683,7 @@ When using Envoy Metered with <abbr title="current transformers">CT</abbr>, not 
 
 When using Envoy Metered with <abbr title="current transformers">CT</abbr>
 
-- not all firmware versions report `Energy production today` and/or `Energy consumption today`correctly. Zero data and unexpected spikes have been reported. In this case, best use a utility meter with the `Lifetime energy production` entity for daily reporting.
+- not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data and unexpected spikes have been reported. In this case, best use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
 - not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported.
 
 ### Lifetime reset
