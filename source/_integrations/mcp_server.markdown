@@ -55,7 +55,7 @@ The Home Assistant Model Context Protocol Server integration implements the
 [Server-Sent Events (SSE) transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse)
 allowing streaming client-to-server communication. Most MCP clients today only support
 [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
-and directly run an MCP server as a local command line tool. You can 
+and directly run an MCP server as a local command line tool. You can
 use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
 to act as a gateway to the Home Assistant MCP SSE server.
 
@@ -65,58 +65,136 @@ The Model Context Protocol specification does not yet define standards
 for authentication and connecting to remote servers. These are a *work in progress*
 and this configuration will likely change in the near future.
 
-### Access control
+This guide focuses on two popular MCP clients:
 
-For now, we can use
-[Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to control access to the API.
+- [Claude for Desktop](https://claude.ai/download) - A desktop application for interacting with Claude
+- [Cursor Editor](https://cursor.sh/) - A code editor with AI capabilities
+
+The following instructions will walk you through the setup process for these clients, but similar steps can be applied to other MCP-compatible applications.
+
+### 1. Obtain an access token
+
+First, you need to generate a long-lived access token from Home Assistant:
 
 1. Visit your account profile settings, under the **Security** tab. {% my profile badge %}.
-
-2. Create a **Long-lived access token**
-
+2. Create a **Long-lived access token**.
 3. Copy the access token to use when configuring the MCP client LLM application.
 
 For more information about Authentication in Home Assistant, refer to the [Authentication documentation](https://www.home-assistant.io/docs/authentication/#your-account-profile).
 
-### Example: Claude for Desktop
+### 2. Verify server accessibility
 
-See [MCP Quickstart: For Claude Desktop Users](https://modelcontextprotocol.io/quickstart/user#for-claude-desktop-users)
-for a detailed guide on using Claude for Desktop with an MCP server. It is recommended
-to get the example server working first before using the Home Assistant MCP Server.
+Before proceeding, verify that your Home Assistant instance is accessible and the MCP Server integration is properly configured:
 
-Claude for Desktop currently only supports local MCP servers using the [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio)
-transport, run as a local command line tool. You can use a local MCP proxy server
-to allow Claude for Desktop to access Home Assistant using the SSE transport.
+```bash
+curl http://homeassistant.local:8123/mcp_server/sse
+```
 
-1. Download [Claude for Desktop](https://claude.ai/download). 
-2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
-   For example, `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`.
-3. Open the configuration file. Visit **Settings…** and on the **Developer** tab, select **Edit Config**.
-   which will edit `claude_desktop_config.json`. The full file location depends on your
-   operating system (macOS or Windows).
-4. Add a new MCP server to the JSON file. You need to set the `SSE_URL` to the URL you use to
-   connect to Home Assistant with the path `/mcp_server/sse`. You will also need to set `API_ACCESS_TOKEN`
-   to the long live access token created above in the [access control instructions](#access-control)
-    ```json
-    {
-      "mcpServers": {
-        "Home Assistant": {
-          "command": "mcp-proxy",
-          "env": {
-            "SSE_URL": "http://localhost:8123/mcp_server/sse",
-            "API_ACCESS_TOKEN": "<your_access_token_here>"
-          }
-        }
-      }
-    }
-    ```
-5. Restart Claude.
-6. You will see a connection icon {% icon "mdi:connection" %} if things are set up correctly. Clicking the connection icon will show enabled MCP servers such as *Home Assistant*.
-7. Select the prompt provided by Home Assistant.
-8. You can then use Claude to control Home Assistant similar to how you control Home Assistant through the Voice Assistant. Claude wil ask you for permission before calling any tools.
+This should return `401: Unauthorized`, which confirms that the server is accessible and the MCP Server integration is installed.
 
-  ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
+### 3. Install the MCP proxy
 
+The MCP proxy acts as a bridge between your LLM client and Home Assistant:
+
+1. Install the MCP proxy:
+   ```bash
+   uv tool install git+https://github.com/sparfenyuk/mcp-proxy
+   ```
+
+2. Verify the installation and locate the absolute path:
+   ```bash
+   which mcp-proxy
+   ```
+   Note this absolute path for later configuration steps.
+
+3. Test your configuration before setting it up in Cursor or Claude:
+   ```bash
+   export API_ACCESS_TOKEN=<YOUR TOKEN>
+   mcp-proxy http://homeassistant.local:8123/mcp_server/sse
+   ```
+
+   If the command runs without crashing, your setup is working correctly.
+
+### 4. Configure your client
+
+Depending on which client you're using, follow the appropriate configuration instructions:
+
+#### Claude for Desktop
+
+Claude for Desktop uses a JSON configuration file to set up MCP servers:
+
+1. Download and install [Claude for Desktop](https://claude.ai/download).
+2. Open the configuration file: Visit **Settings…** > **Developer** tab > **Edit Config**, which will open `claude_desktop_config.json`.
+3. Add a new MCP server to the JSON file:
+   ```json
+   {
+     "mcpServers": {
+       "Home Assistant": {
+         "command": "mcp-proxy",
+         "env": {
+           "API_ACCESS_TOKEN": "<YOUR KEY>"
+         },
+         "args": ["http://homeassistant.local:8123/mcp_server/sse"]
+       }
+     }
+   }
+   ```
+4. Restart Claude.
+5. You will see a connection icon {% icon "mdi:connection" %} if things are set up correctly. Clicking the icon will show enabled MCP servers including "Home Assistant".
+6. Select the prompt provided by Home Assistant and start interacting with your home.
+
+![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
+
+#### Cursor Editor in the UI
+
+Cursor's UI provides a simple way to set up the MCP connection:
+
+1. From the MCP tab in your settings panel
+2. Click "Add new MCP server"
+3. Select "command" under Type
+4. Under "Command" input:
+   ```
+   env API_ACCESS_TOKEN=<YOUR TOKEN> /absolute/path/to/mcp-proxy http://homeassistant.local:8123/mcp_server/sse
+   ```
+
+> Cursor handles relative paths to `mcp-proxy`, while Claude requires absolute paths.
+
+#### Shared configuration using `.cursor/mcp.json`
+
+If you want to use both Claude and Cursor with the same configuration, you can create a shared configuration file:
+
+1. Create or edit `.cursor/mcp.json` in your workspace
+2. Create a symlink from `.cursor/mcp.json` to Claude's configuration path
+3. Use this configuration format which works in both Cursor and Claude:
+
+> Cursor does not support the `env` configuration key, so we need to pass the `API_ACCESS_TOKEN` in the `args` array.
+
+```json
+"homeassistant": {
+  "command": "env",
+  "args": [
+    "API_ACCESS_TOKEN=<YOUR KEY>",
+    "/absolute/path/to/mcp-proxy",
+    "http://homeassistant.local:8123/mcp_server/sse"
+  ]
+}
+```
+
+> Use the absolute path to `mcp-proxy` that you found earlier with the `which mcp-proxy` command.
+
+#### Claude-only configuration using `.cursor/mcp.json`
+
+If you only need to use Claude, you can use the `env` configuration key which is not supported by Cursor:
+
+```json
+"homeassistant": {
+  "command": "/absolute/path/to/mcp-proxy",
+  "args": ["http://homeassistant.local:8123/mcp_server/sse"],
+  "env": {
+    "API_ACCESS_TOKEN": "<YOUR KEY>"
+  }
+}
+```
 
 ## Supported functionality
 
@@ -173,7 +251,7 @@ This means that the local MCP server `mcp-proxy` could not start.
 Verify the command line arguments in the `claude_desktop_config.json` are correct. You may try to run
 the command manually to verify that the command can be found.
 
-#### Symptom: “MCP server Home Assistant disconnected” or "Could not attach to MCP server Home Assistant"
+#### Symptom: "MCP server Home Assistant disconnected" or "Could not attach to MCP server Home Assistant"
 
 When trying to configure a client like Claude Desktop to talk to Home Assistant, the app shows a
 message like "MCP server Home Assistant disconnected" or "Could not attach to MCP server Home Assistant".
