@@ -148,7 +148,7 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 - For some utilities, there are no sensors added by this integration.
 - For some utilities, the sensors might disappear or become unavailable at the beginning of your bill period.
 - Sensors for typical monthly usage and cost are not populated for accounts younger than a year.
-- Many utilities provide granular usage (e.g. daily or hourly) but not cost. They only provide cost for billing periods (e.g. month). This results to showing 0 for cost.
+- Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, month). This results in showing 0 for cost.
 
 ## Troubleshooting
 
