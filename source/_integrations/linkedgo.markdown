@@ -1,0 +1,50 @@
+---
+title: LinkedGo
+description: Integrate LinkedGo devices
+ha_category:
+  - Binary sensor
+  - Climate
+  - Cover
+  - Energy
+  - Event
+  - Light
+  - Number
+  - Select
+  - Sensor
+  - Switch
+  - Text
+  - Update
+  - Valve
+ha_release: 2025.4
+ha_codeowners:
+  - '@balloob'
+  - '@bieniu'
+  - '@thecode'
+  - '@chemelli74'
+  - '@bdraco'
+ha_iot_class: Local Push
+ha_domain: linkedgo
+ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - binary_sensor
+  - button
+  - climate
+  - cover
+  - diagnostics
+  - event
+  - light
+  - number
+  - select
+  - sensor
+  - switch
+  - text
+  - update
+  - valve
+ha_integration_type: virtual
+ha_supporting_domain: shelly
+ha_supporting_integration: Shelly
+---
+
+
+{% include integrations/supported_brand.md %}
