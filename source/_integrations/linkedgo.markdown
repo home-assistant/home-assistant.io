@@ -46,5 +46,4 @@ ha_supporting_domain: shelly
 ha_supporting_integration: Shelly
 ---
 
-
 {% include integrations/supported_brand.md %}
