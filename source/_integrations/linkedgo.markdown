@@ -1,6 +1,6 @@
 ---
 title: LinkedGo
-description: Integrate LinkedGo devices
+description: Integrate LinkedGo (Powered by Shelly) devices
 ha_category:
   - Binary sensor
   - Climate
