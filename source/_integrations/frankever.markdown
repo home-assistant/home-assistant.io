@@ -15,7 +15,7 @@ ha_category:
   - Text
   - Update
   - Valve
-ha_release: 2025.4
+ha_release: '0.115'
 ha_codeowners:
   - '@balloob'
   - '@bieniu'
