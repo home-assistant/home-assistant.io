@@ -3,7 +3,7 @@ title: EnergyID
 description: Instructions on how to integrate EnergyID into Home Assistant.
 ha_category:
   - Energy
-  - Hub
+  - Sensor
 ha_iot_class: Cloud Push
 ha_domain: energyid
 ha_integration_type: integration
@@ -11,6 +11,7 @@ ha_release: 2023.6
 ha_config_flow: true
 ha_codeowners:
     - '@JrtPec'
+    - '@Molier'
 ---
 
 The `Energyid` integration makes it possible to transfer measurements collected with Home Assistant to [EnergyID](https://www.energyid.eu/), a cloud based energy management platform.
