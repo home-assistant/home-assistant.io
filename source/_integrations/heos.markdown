@@ -224,6 +224,7 @@ HEOS pushes data to Home Assistant via the local network when data and entity st
 - AVR receiver features, such as zone selection/control and power on/off, cannot be controlled through this integration. Use the [Universal Media Player](/integrations/universal/#denon-avr--heos) to combine AVR receiver functionality with this integration.
 - {% term TTS %} is not supported.
 - The maximum length of a URL that can be used in the `play_media` action is 255 characters due to a limitation in the HEOS firmware.
+- Note that clearing playlists using the 'clear_playlist' action may generate an error if the HEOS playlist for a device is already empty. If using this action in an automation, you will need to set [continue_on_error: true](/docs/scripts/#continuing-on-error) in the automation action or else the automation will not continue running.
 
 ## Logging and diagnostics
 
