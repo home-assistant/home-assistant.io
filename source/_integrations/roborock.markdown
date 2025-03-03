@@ -57,6 +57,8 @@ Mop intensity - How hard you would like your vacuum to mop.
 
 ### Binary sensor
 
+Charging - States if the vacuum is currently charging or not.
+
 Cleaning - States if the vacuum has a clean currently active. This is on when the robot is actively moving around or when the robot returns to the dock when the battery is low but a clean is still active and will resume later.
 
 Mop attached - States if the mop is currently attached.
