@@ -205,7 +205,8 @@ data:
 The HEOS integration makes available the standard [Media Player actions](/integrations/media_player#actions).
 
 {% note %}
-Any of these actions may generate an error. If using HEOS actions in an automation, you may need to set [continue_on_error: true](/docs/scripts/#continuing-on-error) in the automation action or else the automation may not finish running.
+
+Actions may fail if they cannot be processed by the HEOS device. For example, attempting to call `media_player.clear_playlist` when the queue is empty will result in an error. To prevent this from halting a script or automation, set [`continue_on_error: true`](/docs/scripts/#continuing-on-error) in the action call.
 {% endnote %}
 
 ## Supported devices
