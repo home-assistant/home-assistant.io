@@ -196,12 +196,7 @@ The SmartThings Scene platform lets you activate scenes defined in SmartThings w
 
 ### Switch
 
-The SmartThings Switch platform lets you control devices that have the [`switch`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switch) capability that are not already represented by a more specific platform. The following optional capabilities will provide energy and power utilization information:
-
-| Capability                                                                                                      | Switch Features                                         |
-|-----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
-| [`energyMeter`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#energyMeter) | energy consumption (`today_energy_kwh` state attribute) |
-| [`powerMeter`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#powerMeter)   | power consumption (`current_power_w` state attribute)   |
+The SmartThings Switch platform lets you control devices that have the [`switch`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switch) capability that are not already represented by a more specific platform.
 
 ## Debugging
 
