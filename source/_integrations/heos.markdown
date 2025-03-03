@@ -204,6 +204,10 @@ data:
 
 The HEOS integration makes available the standard [Media Player actions](/integrations/media_player#actions).
 
+{% note %}
+Any of these actions may generate an error. If using HEOS actions in an automation, you may need to set [continue_on_error: true](/docs/scripts/#continuing-on-error) in the automation action or else the automation may not finish running.
+{% endnote %}
+
 ## Supported devices
 
 Denon and Marantz do not currently publish an inventory of HEOS-enabled devices, however, many receiver and hi-fi products began including HEOS since 2013. Consult your product model to confirm support:
@@ -224,7 +228,6 @@ HEOS pushes data to Home Assistant via the local network when data and entity st
 - AVR receiver features, such as zone selection/control and power on/off, cannot be controlled through this integration. Use the [Universal Media Player](/integrations/universal/#denon-avr--heos) to combine AVR receiver functionality with this integration.
 - {% term TTS %} is not supported.
 - The maximum length of a URL that can be used in the `play_media` action is 255 characters due to a limitation in the HEOS firmware.
-- Note that clearing playlists using the 'clear_playlist' action may generate an error if the HEOS playlist for a device is already empty. If using this action in an automation, you will need to set [continue_on_error: true](/docs/scripts/#continuing-on-error) in the automation action or else the automation will not continue running.
 
 ## Logging and diagnostics
 
