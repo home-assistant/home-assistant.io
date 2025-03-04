@@ -31,13 +31,13 @@ ha_dhcp: true
 ha_integration_type: integration
 ---
 
-[SmartThings](https://www.samsung.com/smartthings/) is a home automation platform, that can be used to connect with Samsung or third party devices.
+[SmartThings](https://www.samsung.com/smartthings/) is a home automation platform for connecting with Samsung or third-party devices.
 
 {% include integrations/config_flow.md %}
 
 ## Platforms
 
-SmartThings represents devices as a set of [capabilities](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference) and the SmartThings integration maps those to entities in Home Assistant. A single device may be represented by one or more entities.
+SmartThings represents devices as a set of [capabilities](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference). The SmartThings integration maps those capabilities to entities in Home Assistant. A single device may be represented by one or more entities.
 
 - [Binary sensor](#binary-sensor)
 - [Climate](#climate)
@@ -51,9 +51,9 @@ SmartThings represents devices as a set of [capabilities](https://developer.smar
 
 ### Binary sensor
 
-A binary sensor entity will be created for each of the following capabilities if the device has those.
+In Home Assistant, a binary sensor entity will be created for each of the following SmartThings capabilities:
 
-| Capability                                                                                                                    |
+| SmartThings capability                                                                                                                    |
 |-------------------------------------------------------------------------------------------------------------------------------|
 | [`accelerationSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#accelerationSensor) |
 | [`contactSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#contactSensor)           |
@@ -101,7 +101,7 @@ The SmartThings Cover platform lets you control devices that have open/close rel
 | Capability                                                                                                                 | Cover Features                    |
 |----------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
 | [`doorControl`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#doorControl) (set a)    | `open` and `close`                |
-| [`garageDoorControl`](https://developer.smartthings.com/docs/devices/capabilities/deprecated#garageDoorControl) (seb a)    | `open` and `close`                |
+| [`garageDoorControl`](https://developer.smartthings.com/docs/devices/capabilities/deprecated#garageDoorControl) (set a)    | `open` and `close`                |
 | [`windowShade`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#windowShade) (set a)    | `open` and `close`                |
 | [`switchLevel`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switchLevel)            | `position`                        |
 | [`windowShadeLevel`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference/#windowShadeLevel) | `position`                        |
@@ -111,7 +111,7 @@ The SmartThings Cover platform lets you control devices that have open/close rel
 
 The SmartThings Fan platform lets you control devices that have fan-related capabilities. For a SmartThings device to be represented by the fan platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
 
-| Capability                                                                                                | Fan Features                                 |
+| SmartThings capability                                                                                                | Related fan features in Home Assistant                                |
 |-----------------------------------------------------------------------------------------------------------|----------------------------------------------|
 | [`fanSpeed`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#fanSpeed) | `speed` (`off`, `low`, `medium`, and `high`) |
 
@@ -119,7 +119,7 @@ The SmartThings Fan platform lets you control devices that have fan-related capa
 
 The SmartThings Light platform lets you control devices that have light-related capabilities. For a SmartThings device to be represented by the light platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
 
-| Capability                                                                                                                | Light Features                |
+| SmartThings capability                                                                                                                | Related light features in Home Assistant                |
 |---------------------------------------------------------------------------------------------------------------------------|-------------------------------|
 | [`switchLevel`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switchLevel)           | `brightness` and `transition` |
 | [`colorControl`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#colorControl)         | `color`                       |
@@ -133,7 +133,7 @@ The SmartThings Lock platform lets you control devices that have the [`lock`](ht
 
 The SmartThings Sensor platform lets your view devices that have sensor-related capabilities. A Sensor entity is created for each attribute (below) supported by the device.
 
-| Capability                                                                                                                                                    | Attributes                                                     |
+| SmartThings capability                                                                                                                                                    | Related attributes in Home Assistant                                                     |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
 | [`activityLightingMode`](https://developer.smartthings.com/docs/devices/capabilities/proposed#activityLightingMode)                                           | `lightingMode`                                                 |
 | [`airConditionerMode`](https://developer.smartthings.com/docs/devices/capabilities/proposed#airConditionerMode)                                               | `airConditionerMode`                                           |
@@ -200,21 +200,20 @@ The SmartThings Switch platform lets you control devices that have the [`switch`
 
 ## Debugging
 
-By enabling debug logging, the integration will show all the received events in the logs.
+If debug logging is enabled, the integration shows all the received events in the logs.
 
 By downloading the device diagnostics (by going to a device page, selecting the 3 dots and downloading diagnostics) it will capture events for that device for 5 seconds, after which it will return a JSON file with the state of the device and the events.
 This can be helpful for diagnosing state updates, for example by selecting the button and then turning on the device physically.
 
 ## Troubleshooting
 
-### Setting up the integration
 
 #### What Client ID and Secret do I have to fill in?
 
 Please make sure you have the `cloud` integration enabled, it will handle that automatically.
 
-## Removal instructions
+## Removing the integration
 
-This integration can be removed from Home Assistant using the following instructions. Afterward, you can open the SmartThings app and delete the Home Assistant application.
 
 {% include integrations/remove_device_service.md %}
+4. Open the SmartThings app and delete the Home Assistant application from SmartThings.
