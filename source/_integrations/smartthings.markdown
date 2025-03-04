@@ -208,7 +208,7 @@ This can be helpful for diagnosing state updates, for example by selecting the b
 ## Troubleshooting
 
 
-#### What Client ID and Secret do I have to fill in?
+### What Client ID and Secret do I have to fill in?
 
 Please make sure you have the `cloud` integration enabled, it will handle that automatically.
 
