@@ -62,20 +62,16 @@ integrations.
 
 - **Tilt Hydrometer temperature**
   - **Description**: Current temperature of the Tilt Hydrometer.
-  - **Entity name**: `tilt_<tilt-pi-color>_gravity`
+  - **Entity name**: `tilt_<tilt-pi-color>_temperature`
 
 - **Tilt Hydrometer gravity**
   - **Description**: Current specific gravity of the Tilt Hydrometer.
-  - **Entity name**: `tilt_<tilt-pi-color>_temperature`
+  - **Entity name**: `tilt_<tilt-pi-color>_gravity`
 
 ## Data updates
 
 The Tilt Pi integration {% term polling polls %} the Tilt Pi for data every 60 seconds. This
 interval is currently not configurable.
-
-## Known limitations
-
-The integration does not provide the ability to add multiple Tilt Pi devices.
 
 ## Supported devices
 
@@ -89,6 +85,3 @@ This integration follows standard integration removal. No extra steps are
 required.
 
 {% include integrations/remove_device_service.md %}
-
-After deleting the integration, go to the app of the manufacturer and remove the
-Home Assistant integration from there as well.
