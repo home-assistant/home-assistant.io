@@ -1,7 +1,7 @@
 ---
 title: "Victron Venus OS Integration"
 description: "Documentation for the Victron Venus integration"
-ha_release: "2025.2"
+ha_release: "2025.3"
 ha_category: Energy
 ha_iot_class: "Local Push"
 ha_config_flow: true
