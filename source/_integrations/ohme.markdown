@@ -73,6 +73,9 @@ The Ohme integration provides the following entities.
 - **Charger mode**
   - **Description**: Sets the mode of the charger. Possible options: `Smart charge`, `Max charge`, `Paused`. This is only available with a vehicle plugged in.
   - **Available for devices**: all
+- **Vehicle**
+  - **Description**: Select the vehicle to charge. This will show vehicles configured in the Ohme app.
+  - **Available for devices**: all
 
 #### Sensors
 
