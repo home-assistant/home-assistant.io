@@ -11,26 +11,42 @@ Triggers are what starts the processing of an {% term automation %} rule. When _
 An {% term automation %} can be triggered by an {% term event %}, a certain {% term entity %} {% term state %}, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
 
 - [Trigger ID](#trigger-id)
+  - [Video tutorial](#video-tutorial)
 - [Trigger variables](#trigger-variables)
 - [Event trigger](#event-trigger)
 - [Home Assistant trigger](#home-assistant-trigger)
 - [MQTT trigger](#mqtt-trigger)
 - [Numeric state trigger](#numeric-state-trigger)
 - [State trigger](#state-trigger)
+  - [Examples](#examples)
+  - [Triggering on attribute changes](#triggering-on-attribute-changes)
+  - [Holding a state or attribute](#holding-a-state-or-attribute)
 - [Sun trigger](#sun-trigger)
+  - [Sunset / Sunrise trigger](#sunset--sunrise-trigger)
+  - [Sun elevation trigger](#sun-elevation-trigger)
 - [Tag trigger](#tag-trigger)
 - [Template trigger](#template-trigger)
 - [Time trigger](#time-trigger)
+  - [Time string](#time-string)
+  - [Input datetime](#input-datetime)
+  - [Sensors of datetime device class](#sensors-of-datetime-device-class)
+  - [Sensors of datetime device class with offsets](#sensors-of-datetime-device-class-with-offsets)
+  - [Multiple times](#multiple-times)
+  - [Limited templates](#limited-templates)
 - [Time pattern trigger](#time-pattern-trigger)
 - [Persistent notification trigger](#persistent-notification-trigger)
 - [Webhook trigger](#webhook-trigger)
+  - [Webhook data](#webhook-data)
+  - [Webhook security](#webhook-security)
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
 - [Calendar trigger](#calendar-trigger)
 - [Sentence trigger](#sentence-trigger)
+  - [Related topic](#related-topic)
+  - [Sentence wildcards](#sentence-wildcards)
 - [Multiple triggers](#multiple-triggers)
-- [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
+- [Multiple entity IDs for the same trigger](#multiple-entity-ids-for-the-same-trigger)
 - [Disabling a trigger](#disabling-a-trigger)
 - [Merging lists of triggers](#merging-lists-of-triggers)
 
@@ -797,6 +813,8 @@ automation:
 
 It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) for times.
 
+{% raw %}
+
 ```yaml
 blueprint:
   input:
@@ -820,6 +838,8 @@ blueprint:
       - "sensor.{{ my_alarm | slugify }}_time"
       - "{{ my_hour }}:30:00"
 ```
+
+{% endraw %}
 
 ## Time pattern trigger
 
