@@ -57,6 +57,7 @@ Alternatively, the IRK of an Android phone and/or secondary device can be obtain
 9. Reverse the value displayed. For example, if it is `763af6c7f7d94ad6c262158e2320544e`, the IRK to use would be: `4e5420238e1562c2d64ad9f7c7f63a76`.
 
 ### On Windows - for any devices that will connect to a computer
+
 1. Get the PsExec tool from Microsoft. It's available in the [Sysinternals Suite](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec). Download and extract the PsExec.exe or PsExec64.exe.
 2. Open Command Prompt as Administrator: Press the Windows key, type "cmd," right-click on Command Prompt, and select "Run as administrator."
 3. Run PsExec: Navigate to the folder where PsExec is located and run "psexec -i -s cmd" or "psexec64 -i -s cmd". This command will open a new command prompt window with SYSTEM rights.
