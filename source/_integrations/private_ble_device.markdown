@@ -56,13 +56,13 @@ Alternatively, the IRK of an Android phone and/or secondary device can be obtain
 8. Select one of the frames and expand the "Bluetooth Security Manager Protocol." The hex dump will show either the sending or receiving device IRK.
 9. Reverse the value displayed. For example, if it is `763af6c7f7d94ad6c262158e2320544e`, the IRK to use would be: `4e5420238e1562c2d64ad9f7c7f63a76`.
 
-### On Windows - for any devices that will connect to a computer:
-1. Get the PsExec tool from Microsoft, it's available in the SysinternalsSuite or here: https://learn.microsoft.com/en-us/sysinternals/downloads/psexec download and extract the PsExec.exe or PsExec64.exe
+### On Windows - for any devices that will connect to a computer
+1. Get the PsExec tool from Microsoft. It's available in the [Sysinternals Suite](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec). Download and extract the PsExec.exe or PsExec64.exe.
 2. Open Command Prompt as Administrator: Press the Windows key, type "cmd," right-click on Command Prompt, and select "Run as administrator."
 3. Run PsExec: Navigate to the folder where PsExec is located and run "psexec -i -s cmd" or "psexec64 -i -s cmd". This command will open a new command prompt window with SYSTEM rights.
 4. Verify SYSTEM Rights: In the new command prompt window, type whoami to confirm that you have SYSTEM rights.
 5. Open Registry Editor with SYSTEM Rights: In the new command prompt window, type regedit to open the Registry Editor with SYSTEM rights.
-6. Locate the IRK: Navigate to HKLM\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys. There is one subfolder that probably holds the computers bluetooth radio's mac address, look inside it for the folder corresponding to the MAC address of your Bluetooth device. Within this folder, you will find entries labeled IRK, which contain the Identity Resolving Key.
+6. Locate the IRK: Navigate to HKLM\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys. There is one subfolder that probably holds the computer's Bluetooth radio's MAC address, look inside it for the folder corresponding to the MAC address of your Bluetooth device.
 7. Right-click the key(folder) and select export. Save the .reg file somewhere.
 8. Open the .reg file in notepad, Press Ctrl+H to open replace. Find what: "," and Replace with "". Press Replace All. This removes all commas from the hex value.
 9. Copy the IRK value (only the part after "hex:") and it can be used as-is. No reversing of byte order needs to be done.
