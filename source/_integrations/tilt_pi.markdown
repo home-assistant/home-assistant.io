@@ -3,19 +3,21 @@ title: Tilt Pi
 description: Instructions on how to configure a Tilt Pi.
 ha_category:
   - Sensor
-ha_release: '2025.3'
+ha_release: '2025.4'
 ha_iot_class: Local Polling
 ha_quality_scale: Bronze
 ha_config_flow: true
 ha_codeowners:
   - '@michaelheyman'
 ha_domain: tilt_pi
+ha_platforms:
+   - sensor
 related:
   - url: https://tilthydrometer.com/collections/tilt-pi
     title: Tilt Pi product page
 ---
 
-This integration allows you to connect a Tilt Pi to Home Assistant, which will
+The **Tilt Pi** {% term integration %} allows you to connect a Tilt Pi to Home Assistant to
 automatically discover Tilt Hydrometer devices.
 
 The Tilt Pi is a Raspberry Pi-based device that can read data from Tilt
