@@ -4,13 +4,14 @@ description: Connect and control your Apollo Automation ESPHome devices using th
 ha_release: '2025.3'
 ha_iot_class: Local Push
 ha_category:
-  - Lock
+  - Sensor
+  - Presence detection
 ha_domain: apollo_automation
 ha_integration_type: brand
 ha_supporting_domain: esphome
 ha_supporting_integration: ESPHome
 ha_platforms:
-  - lock
+  - sensor
 ---
 
 [Apollo automation](https://apolloautomation.com/) is a member of the Made for ESPHome program.
