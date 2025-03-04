@@ -41,17 +41,10 @@ using the [Tilt Hydrometer integration](/integrations/tilt_ble).
 {% configuration_basic %}
 Name:
     description: "The friendly name for the Tilt Pi."
-    required: true
-    type: string
 Host:
     description: "The hostname or IP address of the Tilt Pi."
-    required: true
-    type: string
 Port:
-    description: "The port of the Tilt Pi."
-    required: false
-    type: int
-    default: 1880
+    description: "The port of the Tilt Pi. The default port is 1880."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -69,15 +62,15 @@ integrations.
 
 - **Tilt Hydrometer temperature**
   - **Description**: Current temperature of the Tilt Hydrometer.
-  - **Entity Name**: `tilt_<tilt-pi-color>_gravity`
+  - **Entity name**: `tilt_<tilt-pi-color>_gravity`
 
 - **Tilt Hydrometer gravity**
   - **Description**: Current specific gravity of the Tilt Hydrometer.
-  - **Entity Name**: `tilt_<tilt-pi-color>_temperature`
+  - **Entity name**: `tilt_<tilt-pi-color>_temperature`
 
-## Data Updates
+## Data updates
 
-The Tilt Pi integration will poll the Tilt Pi for data every 60 seconds. This
+The Tilt Pi integration {% term polling polls %} the Tilt Pi for data every 60 seconds. This
 interval is currently not configurable.
 
 ## Known limitations
