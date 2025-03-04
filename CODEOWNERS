@@ -887,6 +887,7 @@ source/_integrations/thread.markdown @home-assistant/core
 source/_integrations/tibber.markdown @danielhiversen
 source/_integrations/tile.markdown @bachya
 source/_integrations/tilt_ble.markdown @apt-itude
+source/_integrations/tilt_pi.markdown @michaelheyman
 source/_integrations/time.markdown @home-assistant/core
 source/_integrations/time_date.markdown @fabaff
 source/_integrations/tmb.markdown @alemuro
