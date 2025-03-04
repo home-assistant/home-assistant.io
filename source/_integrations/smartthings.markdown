@@ -53,7 +53,7 @@ SmartThings represents devices as a set of [capabilities](https://developer.smar
 
 In Home Assistant, a binary sensor entity will be created for each of the following SmartThings capabilities:
 
-| SmartThings capability                                                                                                                    |
+| SmartThings capability                                                                                                        |
 |-------------------------------------------------------------------------------------------------------------------------------|
 | [`accelerationSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#accelerationSensor) |
 | [`contactSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#contactSensor)           |
@@ -72,7 +72,7 @@ The SmartThings Climate platform lets you control devices that have air conditio
 
 For a SmartThings Air Conditioner to be represented by the climate platform, it must have all of the following required capabilities:
 
-| Capability                                                                                                                                             | Climate Features                                                                                                                                                 |
+| SmartThings capability                                                                                                                                 | Climate Features                                                                                                                                                 |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [`airConditionerMode`](https://developer.smartthings.com/docs/devices/capabilities/proposed#airConditionerMode) (required)                             | `hvac mode`, `hvac action`                                                                                                                                       |
 | [`airConditionerFanMode`](https://developer.smartthings.com/docs/devices/capabilities/proposed#airConditionerFanMode) (required)                       | `fan mode`                                                                                                                                                       |
@@ -84,7 +84,7 @@ For a SmartThings Air Conditioner to be represented by the climate platform, it 
 
 For a SmartThings thermostat to be represented by the climate platform, it must have all the capabilities from either "set a" _or_ "set b":
 
-| Capability                                                                                                                                          | Climate Features                                                                 |
+| SmartThings capability                                                                                                                              | Climate Features                                                                 |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 | [`thermostat`](https://developer.smartthings.com/docs/devices/capabilities/deprecated#thermostat) (set a)                                           | `hvac mode`, `hvac action`, `target temp high`, `target temp low` and `fan mode` |
 | [`thermostatMode`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatMode) (set b)                       | `hvac mode`                                                                      |
@@ -98,7 +98,7 @@ For a SmartThings thermostat to be represented by the climate platform, it must 
 
 The SmartThings Cover platform lets you control devices that have open/close related capabilities. For a device to be represented by the cover platform, it must have one of the capabilities from "set a" below.
 
-| Capability                                                                                                                 | Cover Features                    |
+| SmartThings capability                                                                                                     | Cover Features                    |
 |----------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
 | [`doorControl`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#doorControl) (set a)    | `open` and `close`                |
 | [`garageDoorControl`](https://developer.smartthings.com/docs/devices/capabilities/deprecated#garageDoorControl) (set a)    | `open` and `close`                |
@@ -111,7 +111,7 @@ The SmartThings Cover platform lets you control devices that have open/close rel
 
 The SmartThings Fan platform lets you control devices that have fan-related capabilities. For a SmartThings device to be represented by the fan platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
 
-| SmartThings capability                                                                                                | Related fan features in Home Assistant                                |
+| SmartThings capability                                                                                    | Related fan features in Home Assistant       |
 |-----------------------------------------------------------------------------------------------------------|----------------------------------------------|
 | [`fanSpeed`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#fanSpeed) | `speed` (`off`, `low`, `medium`, and `high`) |
 
@@ -119,11 +119,11 @@ The SmartThings Fan platform lets you control devices that have fan-related capa
 
 The SmartThings Light platform lets you control devices that have light-related capabilities. For a SmartThings device to be represented by the light platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
 
-| SmartThings capability                                                                                                                | Related light features in Home Assistant                |
-|---------------------------------------------------------------------------------------------------------------------------|-------------------------------|
-| [`switchLevel`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switchLevel)           | `brightness` and `transition` |
-| [`colorControl`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#colorControl)         | `color`                       |
-| [`colorTemperature`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#colorTemperature) | `color_temp`                  |
+| SmartThings capability                                                                                                    | Related light features in Home Assistant |
+|---------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
+| [`switchLevel`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switchLevel)           | `brightness` and `transition`            |
+| [`colorControl`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#colorControl)         | `color`                                  |
+| [`colorTemperature`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#colorTemperature) | `color_temp`                             |
 
 ### Lock
 
@@ -133,7 +133,7 @@ The SmartThings Lock platform lets you control devices that have the [`lock`](ht
 
 The SmartThings Sensor platform lets your view devices that have sensor-related capabilities. A Sensor entity is created for each attribute (below) supported by the device.
 
-| SmartThings capability                                                                                                                                                    | Related attributes in Home Assistant                                                     |
+| SmartThings capability                                                                                                                                        | Related attributes in Home Assistant                           |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
 | [`activityLightingMode`](https://developer.smartthings.com/docs/devices/capabilities/proposed#activityLightingMode)                                           | `lightingMode`                                                 |
 | [`airConditionerMode`](https://developer.smartthings.com/docs/devices/capabilities/proposed#airConditionerMode)                                               | `airConditionerMode`                                           |
