@@ -96,7 +96,7 @@ For a SmartThings thermostat to be represented by the climate platform, it must 
 
 ### Cover
 
-The SmartThings Cover platform lets you control devices that have open/close related capabilities. For a device to be represented by the cover platform, it must have one of the capabilities from "set a" below.
+The SmartThings Cover platform lets you control devices that have open/close related capabilities. For a device to be represented by the cover platform, it must either have the `doorControl` or `windowShade` capability.
 
 | SmartThings capability                                                                                                     | Cover Features                    |
 |----------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
