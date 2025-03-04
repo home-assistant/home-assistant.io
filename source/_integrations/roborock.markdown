@@ -16,6 +16,7 @@ ha_release: 2023.5
 ha_config_flow: true
 ha_codeowners:
   - '@Lash-L'
+  - '@allenporter'
 ha_domain: roborock
 ha_platforms:
   - binary_sensor
@@ -33,7 +34,7 @@ ha_integration_type: integration
 
 The Roborock integration allows you to control your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) vacuum while using the Roborock app.
 
-This integration requires a continuous cloud connection while using the device. However, excluding map data, communication between the integration and the device is conducted locally.
+This integration requires a continuous cloud connection while using the device. However, excluding map data and scenes, communication between the integration and the device is conducted locally.
 
 Once you log in with your Roborock account, the integration will automatically discover your Roborock devices and get the needed information to communicate locally with them. Please ensure your Home Assistant instance can communicate with the local IP of your device. We recommend setting a static IP for your Roborock Vacuum to help prevent future issues. The device communicates on port 58867. Depending on your firewall, you may need to allow communication from Home Assistant to your vacuum on that port.
 
@@ -55,6 +56,8 @@ Mop mode - Describes how to mop the floor. On some firmware, it is called 'mop r
 Mop intensity - How hard you would like your vacuum to mop.
 
 ### Binary sensor
+
+Charging - States if the vacuum is currently charging or not.
 
 Cleaning - States if the vacuum has a clean currently active. This is on when the robot is actively moving around or when the robot returns to the dock when the battery is low but a clean is still active and will resume later.
 
@@ -95,6 +98,8 @@ Total cleaning time - The lifetime cleaning duration of your vacuum.
 
 Total cleaning area - The lifetime cleaning area of your vacuum.
 
+Total cleaning count - The lifetime cleaning count of your vacuum.
+
 Vacuum error - The current error with your vacuum, if there is one.
 
 ### Time
@@ -126,6 +131,51 @@ Reset side brush consumable - The side brush is expected to be replaced every 20
 Reset main brush consumable - The main brush/ roller is expected to be replaced every 300 hours.
 
 Reset air filter - The air filter is expected to be replaced every 150 hours.
+
+### Scene
+
+For every scene/routine/program you define for your vacuum, a scene entity will be created to activate it.
+
+### Actions
+
+#### Action `roborock.set_vacuum_goto_position`
+
+Go the specified coordinates.
+
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+- **Data attribute**: `x_coord`
+  - **Description**: X-coordinate, integer value. The dock is located at x-coordinate 25500.
+  - **Optional**: No.
+- **Data attribute**: `y_coord`
+  - **Description**: Y-coordinate, integer value. The dock is located at y-coordinate 25500.
+  - **Optional**: No.
+
+#### Action `roborock.get_vacuum_current_position`
+
+Get the current position of the vacuum. This is a cloud call and should only be used for diagnostics. This is not meant to be used for automations. Frequent requests can lead to rate limiting. 
+
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+
+Example:
+
+```yaml
+action: roborock.get_vacuum_current_position
+target:
+  entity_id: vacuum.roborock_s7
+data: {}
+```
+
+- **Result**: You will get a response like this:
+
+  ```yaml
+  vacuum.roborock_s7:
+    x: 28081
+    y: 25168
+  ```
 
 ### Image
 

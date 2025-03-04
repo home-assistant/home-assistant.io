@@ -10,6 +10,7 @@ ha_domain: trafikverket_weatherstation
 ha_codeowners:
   - '@gjohansson-ST'
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---

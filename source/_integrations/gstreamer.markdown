@@ -43,7 +43,7 @@ Only the `music` media type is supported.
 
 And then install the following system dependencies:
 
-Debian/Ubuntu/Rasbian:
+Debian/Ubuntu/Raspberry Pi OS (formerly Raspbian):
 
 ```bash
 sudo apt-get install python3-gst-1.0 \
@@ -52,7 +52,7 @@ sudo apt-get install python3-gst-1.0 \
     gstreamer1.0-tools
 ```
 
-Red Hat/Centos/Fedora:
+Red Hat/CentOS/Fedora:
 
 ```bash
 sudo yum install -y python-gstreamer1 gstreamer1-plugins-good \

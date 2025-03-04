@@ -22,6 +22,7 @@ ha_platforms:
   - button
   - climate
   - cover
+  - event
   - light
   - lock
   - sensor

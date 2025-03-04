@@ -282,8 +282,8 @@ The following remote adapters are supported:
   - Single active connection: ESPHome ESP32 device with firmware 2022.9.3 or later
   - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
 - [Shelly](/integrations/shelly/)
-  - Bluetooth advertisement listening: Shelly v2 device with firmware 12.0 or later
-  - Bluetooth advertisement bundling: Shelly v2 device with firmware 12.0 or later
+  - Bluetooth advertisement listening: Shelly Gen2+ device
+  - Bluetooth advertisement bundling: Shelly Gen2+ device
   - Single active connection: not supported
   - Multiple active connections: not supported
 
@@ -293,7 +293,13 @@ Bluetooth advertisement bundling reduces traffic between Home Assistant and the 
 
 ### Improving connection times
 
-The connection time and performance vary greatly based on the Bluetooth adapter and interference. The below adapters are listed from best-performing to worst-performing:
+Connection time and performance vary greatly depending on the Bluetooth adapter and interference. 
+
+{% warning %}
+When switching to an adapter with better performance, disable the old, less performant adapters. The best signal and available connection slots are considered when making connections, and performance will be limited to the worst-performing adapter with the best signal to reach the remote device.
+{% endwarning %}
+
+The below adapters are listed from best-performing to worst-performing:
 
 - [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
 - [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#passive-scanning)

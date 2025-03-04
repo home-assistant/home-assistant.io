@@ -96,3 +96,157 @@ The Weather entity provides data only in English. Home Assistant automatically t
 | `wind_speed`             | Wind speed, meter/sec.                                                                                                            |
 
 Details about the API are available in the [OpenWeatherMap documentation](https://openweathermap.org/api).
+
+## Action `openweathermap.get_minute_forecast`
+
+This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
+with a mapping of minute-by-minute precipitation forecasts (rain or snow) for the next hour.
+
+**Note:** Minute forecast is available only when the OWM integration mode is set to `v3.0`. The action will fail if the mode is set to `current`, `forecast`, or `v2.5`.
+
+```yaml
+action: openweathermap.get_minute_forecast
+target:
+  entity_id:
+    - weather.openweathermap
+response_variable: weather_forecast
+```
+
+The response data field is a mapping of `forecast` fields.
+`forecast` is a list of 60 forecasted precipitation levels; one for each minute of the next hour:
+
+| Response data | Description | Example |
+| ---------------------- | ----------- | -------- |
+| `datetime` | The time of the forecasted conditions. | 2024-10-19T18:59:00+00:00 |
+| `precipitation` | The precipitation amount in mm/h. | 1.25 |
+
+## Examples
+
+{% details "Example action response" %}
+
+```yaml
+weather.openweathermap:
+  forecast:
+    - datetime: "2024-10-19T18:59:00+00:00"
+      precipitation: 5.46
+    - datetime: "2024-10-19T19:00:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:01:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:02:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:03:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:04:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:05:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:06:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:07:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:08:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:09:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:10:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:11:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:12:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:13:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:14:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:15:00+00:00"
+      precipitation: 5.62
+    - datetime: "2024-10-19T19:16:00+00:00"
+      precipitation: 5.79
+    - datetime: "2024-10-19T19:17:00+00:00"
+      precipitation: 5.96
+    - datetime: "2024-10-19T19:18:00+00:00"
+      precipitation: 6.14
+    - datetime: "2024-10-19T19:19:00+00:00"
+      precipitation: 6.31
+    - datetime: "2024-10-19T19:20:00+00:00"
+      precipitation: 6.48
+    - datetime: "2024-10-19T19:21:00+00:00"
+      precipitation: 6.68
+    - datetime: "2024-10-19T19:22:00+00:00"
+      precipitation: 6.89
+    - datetime: "2024-10-19T19:23:00+00:00"
+      precipitation: 7.09
+    - datetime: "2024-10-19T19:24:00+00:00"
+      precipitation: 7.29
+    - datetime: "2024-10-19T19:25:00+00:00"
+      precipitation: 7.49
+    - datetime: "2024-10-19T19:26:00+00:00"
+      precipitation: 7.72
+    - datetime: "2024-10-19T19:27:00+00:00"
+      precipitation: 7.95
+    - datetime: "2024-10-19T19:28:00+00:00"
+      precipitation: 8.18
+    - datetime: "2024-10-19T19:29:00+00:00"
+      precipitation: 8.42
+    - datetime: "2024-10-19T19:30:00+00:00"
+      precipitation: 8.65
+    - datetime: "2024-10-19T19:31:00+00:00"
+      precipitation: 8.65
+    - datetime: "2024-10-19T19:32:00+00:00"
+      precipitation: 8.65
+    - datetime: "2024-10-19T19:33:00+00:00"
+      precipitation: 8.65
+    - datetime: "2024-10-19T19:34:00+00:00"
+      precipitation: 8.65
+    - datetime: "2024-10-19T19:35:00+00:00"
+      precipitation: 8.65
+    - datetime: "2024-10-19T19:36:00+00:00"
+      precipitation: 8.91
+    - datetime: "2024-10-19T19:37:00+00:00"
+      precipitation: 9.18
+    - datetime: "2024-10-19T19:38:00+00:00"
+      precipitation: 9.45
+    - datetime: "2024-10-19T19:39:00+00:00"
+      precipitation: 9.72
+    - datetime: "2024-10-19T19:40:00+00:00"
+      precipitation: 9.98
+    - datetime: "2024-10-19T19:41:00+00:00"
+      precipitation: 10.29
+    - datetime: "2024-10-19T19:42:00+00:00"
+      precipitation: 10.6
+    - datetime: "2024-10-19T19:43:00+00:00"
+      precipitation: 10.91
+    - datetime: "2024-10-19T19:44:00+00:00"
+      precipitation: 11.22
+    - datetime: "2024-10-19T19:45:00+00:00"
+      precipitation: 11.53
+    - datetime: "2024-10-19T19:46:00+00:00"
+      precipitation: 11.89
+    - datetime: "2024-10-19T19:47:00+00:00"
+      precipitation: 12.24
+    - datetime: "2024-10-19T19:48:00+00:00"
+      precipitation: 12.6
+    - datetime: "2024-10-19T19:49:00+00:00"
+      precipitation: 12.96
+    - datetime: "2024-10-19T19:50:00+00:00"
+      precipitation: 13.31
+    - datetime: "2024-10-19T19:51:00+00:00"
+      precipitation: 13.31
+    - datetime: "2024-10-19T19:52:00+00:00"
+      precipitation: 13.31
+    - datetime: "2024-10-19T19:53:00+00:00"
+      precipitation: 13.31
+    - datetime: "2024-10-19T19:54:00+00:00"
+      precipitation: 13.31
+    - datetime: "2024-10-19T19:55:00+00:00"
+      precipitation: 13.31
+    - datetime: "2024-10-19T19:56:00+00:00"
+      precipitation: 13.73
+    - datetime: "2024-10-19T19:57:00+00:00"
+      precipitation: 14.14
+    - datetime: "2024-10-19T19:58:00+00:00"
+      precipitation: 14.55
+```
+
+{% enddetails %}
