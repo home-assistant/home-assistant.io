@@ -18,7 +18,7 @@ works_with:
 
 [Apollo automation](https://apolloautomation.com/) is a member of the Made for ESPHome program.
 
-Apollo Automation devices work locally and integrate seamlessly with the ESPHome integration in Home Assistant. As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.
+Apollo Automation devices work locally and integrate seamlessly with the [ESPHome](/integrations/esphome/) {% term integration %} in Home Assistant. As all connectivity is done locally, status updates and device control from Home Assistant happen instantly.
 
 {% include integrations/supported_brand.md %}
 
