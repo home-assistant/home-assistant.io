@@ -28,8 +28,9 @@ Over the past several months, [Music Assistant](https://www.music-assistant.io/)
 
 ### "Say My Name"
 <h4 style="margin-top: -1em; opacity: .67;">Optimized for Assist</h4>
+<p class="img"><img src='/images/blog/2025-03-music-assistant/voice_ma.jpg' alt="audiobooks page"/>We should have called it Hi-Fi edition</p>
 
-The most recent release has some great advancements for [Assist](https://www.home-assistant.io/voice_control/) devices, like the [Home Assistant Voice Preview Edition](https://www.home-assistant.io/voice-pe/). We've been working closely with the [ESPHome](https://esphome.io/) team to ensure the most optimal audio streaming experience, which has helped make Assist devices into very capable media players. The community has even added some great functionality to fully [control your media player with your voice](https://github.com/music-assistant/voice-support), including choosing songs, artists, and more. Voice Preview Edition has a high-quality DAC that provides very clean audio playback from its 3.5mm jack, allowing you to stream lossless audio to connected speakers (this $59 device puts some of my expensive Hi-Fi gear to shame!).
+The most recent release has some great advancements for [Assist](/voice_control/) devices, like the [Home Assistant Voice Preview Edition](/voice-pe/). We've been working closely with the [ESPHome](https://esphome.io/) team to ensure the most optimal audio streaming experience, which has helped make Assist devices into very capable media players. The community has even added some great functionality to fully [control your media player with your voice](https://github.com/music-assistant/voice-support), including choosing songs, artists, and more. Voice Preview Edition has a high-quality DAC that provides very clean audio playback from its 3.5mm jack, allowing you to stream lossless audio to connected speakers (this $59 device puts some of my expensive Hi-Fi gear to shame!).
 
 ### "Across the Universe"
 <h4 style="margin-top: -1em; opacity: .67;">External audio & Spotify Connect</h4>
@@ -62,7 +63,7 @@ When we released 2.0 there were basic bass and treble controls for devices, but 
 ### "Master of Puppets"
 <h4 style="margin-top: -1em; opacity: .67;">Home Assistant improvements</h4>
 
-Home Assistant was always designed to work seamlessly with Music Assistant, and it's only getting better. In the [Home Assistant 2024.12 release](https://www.home-assistant.io/blog/2024/12/04/release-202412/#new-integrations), we gave the community a Christmas present--Music Assistant moved from HACS to being a native integration ([please migrate if you haven't yet](https://www.music-assistant.io/integration/migrate/)).
+Home Assistant was always designed to work seamlessly with Music Assistant, and it's only getting better. In the [Home Assistant 2024.12 release](/blog/2024/12/04/release-202412/#new-integrations), we gave the community a Christmas present--Music Assistant moved from HACS to being a native integration ([please migrate if you haven't yet](https://www.music-assistant.io/integration/migrate/)).
 
 Many people now add all their players to Music Assistant first and then integrate Music Assistant with Home Assistant, eliminating the need to add each device separately. The most recent release added the ability to outsource any player control, including volume or turning it on/off, to a Home Assistant entity. There are other benefits to using them together, like Music Assistant [resuming audio playback](https://www.music-assistant.io/integration/announcements/) after an announcement or using Assist to find and play a song ([with or without LLMs](https://github.com/music-assistant/voice-support)).
 
