@@ -33,8 +33,9 @@ Go to your profile, select "Edit Profile", "Privacy Settings".
 You need a [free API key](https://steamcommunity.com/dev/apikey) to use the platform.
 
 To find an account's 64-bit SteamID:
+
 1. Open Steam
-2. Open the dropdown menu labeled with your username 
+2. Open the dropdown menu labeled with your username
 3. Select **Account details**
 4. Your **Steam ID** will be below the text says **Your-Account-Name Account**
 
