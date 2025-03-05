@@ -292,6 +292,8 @@ entities:
 > - Create a new script in 'CREATE SCRIPT' using the code below, then select the script in the 'Action' field.
 > - This conditional wait is scheduled to be implemented in core 2025.4.
 
+{% raw %}
+
 ```yaml
 alias: LG ThinQ climate
 description: "Action turn_on, set_hvac_mode, set_temperature"
@@ -375,11 +377,15 @@ sequence:
               device_id: "{{ input_device }}"
 ```
 
+{% endraw %}
+
 #### 2) Notification, error event
 
 > - Guide: [Automating on event](https://www.home-assistant.io/integrations/event/#automating-on-a-button-press)
 > - Important: guide's step 3, 4
 > - You can select the state change you want to act as trigger in step 4
+
+{% raw %}
 
 ```yaml
 alias: lack of water example
@@ -398,6 +404,8 @@ actions:
     entity_id: xxxxxxxx
     domain: switch
 ```
+
+{% endraw %}
 
 ## Troubleshooting
 
