@@ -325,11 +325,9 @@ The LG ThinQ integration will work properly after some time.
 
 ## Debugging / Issue report
 The LG ThinQ integration will show additional information by enabling log configuration.
-1. Enable debug logging:
-   - Navigate to **Integrations** -> **LG ThinQ**
-   - **Enable Debug logging**
+1. [Enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
    - If you change **Enable** to **Disable**, the log will be saved to the download folder.
 2. When reporting an issue:
-   - Provide screenshots of your device configuration (including device name, type, and entities)
-   - Include the debug logs
-   - Describe the expected behavior and what's not working
+   - Provide screenshots of your device configuration (including device name, type, and entities).
+   - Include the debug logs.
+   - Describe the expected behavior and what's not working.
