@@ -37,7 +37,7 @@ To find an account's 64-bit SteamID:
 1. Open Steam
 2. Open the dropdown menu labeled with your username
 3. Select **Account details**
-4. Your **Steam ID** will be below the text says **Your-Account-Name Account**
+4. Your **Steam ID** is displayed just below the label **Your-Account-Name Account**
 
 ## Examples
 
