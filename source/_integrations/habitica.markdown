@@ -344,6 +344,30 @@ Creates a habit for the selected Habitica character.
 | `tag`          | yes      | Add tags to the Habitica habit. If a tag does not already exist, a new one will be created.  |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
+### Action `habitica.update_todo`
+
+Updates a specific to-do for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to update a to-do.                                               |
+| `task`         | no       | The name (or task ID) of the to-do you want to update.                                       |
+| `rename`       | yes      | The new title for the Habitica to-do.                                                        |
+| `notes`        | yes      | The new notes for the Habitica to-do.                                                        |
+| `add_checklist_item`     | yes | The items to add to the to-do's checklist.                                              |
+| `remove_checklist_item`  | yes | Remove items from a to-do's checklist.                                                  |
+| `score_checklist_item`   | yes | Mark items from a to-do's checklist as completed.                                       |
+| `unscore_checklist_item` | yes | Undo completion of items of a to-do's checklist.                                        |
+| `priority`     | yes      | Update the difficulty of a to-do. Valid values: `trivial`, `easy`, `medium`, `hard`          |
+| `date`         | yes      | The to-do's due date.                                                                        |
+| `clear_date`   | yes      | Remove the due date from a to-do.                                                            |
+| `reminder`     | yes      | Add reminders to a Habitica to-do.                                                           |
+| `remove_reminder` | yes   | Remove specific reminders from a Habitica to-do.                                             |
+| `clear_reminder`  | yes   | RRemove all reminders from a Habitica to-do.                                                 |
+| `tag`          | yes      | Add tags to the Habitica habit. If a tag does not already exist, a new one will be created.  |
+| `remove_tag`   | yes      | Remove tags from the Habitica habit.                                                         |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
