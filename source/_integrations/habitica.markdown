@@ -363,9 +363,9 @@ Updates a specific to-do for the selected Habitica character.
 | `clear_date`   | yes      | Remove the due date from a to-do.                                                            |
 | `reminder`     | yes      | Add reminders to a Habitica to-do.                                                           |
 | `remove_reminder` | yes   | Remove specific reminders from a Habitica to-do.                                             |
-| `clear_reminder`  | yes   | RRemove all reminders from a Habitica to-do.                                                 |
-| `tag`          | yes      | Add tags to the Habitica habit. If a tag does not already exist, a new one will be created.  |
-| `remove_tag`   | yes      | Remove tags from the Habitica habit.                                                         |
+| `clear_reminder`  | yes   | Remove all reminders from a Habitica to-do.                                                  |
+| `tag`          | yes      | Add tags to the Habitica to-do. If a tag does not already exist, a new one will be created.  |
+| `remove_tag`   | yes      | Remove tags from the Habitica to-do.                                                         |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
 ## Automations
