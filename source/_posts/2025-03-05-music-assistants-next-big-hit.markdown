@@ -70,7 +70,7 @@ Many people now add all their players to Music Assistant first and then integrat
 ### "D-D-Don't Don't Stop the Beat"
 <h4 style="margin-top: -1em; opacity: .67;">More stable streaming</h4>
 
-One of the biggest goals for every release is to improve streaming stability across all providers and players. With every release, we've been improving stability, and since our last post, we've had a big influx of users who have been finding and helping squash bugs. There have been nice improvements to almost every provider helping with stability, speed, and quality. Just in the recent patch release 2.4.3, we've improved streaming performance on slower network connections. The goal is that the music never stops.
+One of the biggest goals for every release is to improve streaming stability across all providers and players. With every release, we've been improving stability, and since our last post, we've had a big influx of users who have been finding and helping squash bugs. There have been nice improvements to almost every provider helping with stability, speed, and quality. Just in the next patch release 2.4.3, we've improved streaming performance on slower network connections. The goal is that the music never stops.
 
 ## "Praise You" - 🙏
 
