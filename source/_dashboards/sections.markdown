@@ -52,6 +52,7 @@ Once you have created a sections view, you can populate it sections and cards. Y
 1. To add a title, select the **Add title** button. The title supports [Markdown](https://commonmark.org/help/) and [templating](/docs/configuration/templating/).
 2. To add badges, elect the **Add badge** button. Follow [steps on adding badges](/dashboards/badges) to see the different possible options.
 3. To change the title and badges disposition, select the edit {% icon "mdi:edit" %} button to access header settings.
+
 ![Edit view heading section button](/images/dashboards/sections_view_header_editor.png)
 
 ## Adding sections and cards to a sections view
