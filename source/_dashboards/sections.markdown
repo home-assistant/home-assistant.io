@@ -130,7 +130,7 @@ type:
 {% configuration %}
 layout:
   required: false
-  description: Layout of the different elements. Can be `start`, `center` or `responsive`. `responsive` will be the same as `start` on mobile device and will place badges and title side by side on desktop.
+  description: Layout of the different elements. Can be `start`, `center`, or `responsive`. `responsive` is the same as `start` on mobile devices. It places badges and title side by side on desktop.
   type: string
   default: center
 badges_position:
@@ -140,6 +140,6 @@ badges_position:
   default: bottom
 card:
   required: true
-  description: Card to be used as title. If you are configuring the view using the visual editor, it will use the configuration of the [Markdown card](/dashboards/markdown).
+  description: Card to be used as title. If you are configuring the view using the visual editor, the configuration of the [Markdown card](/dashboards/markdown) is used.
   type: map
 {% endconfiguration %}
