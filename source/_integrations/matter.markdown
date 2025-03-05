@@ -16,6 +16,7 @@ ha_category:
   - Update
   - Vacuum
   - Valve
+featured: true
 ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
