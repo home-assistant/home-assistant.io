@@ -139,6 +139,6 @@ badges_position:
   default: bottom
 card:
   required: true
-  description: Card to be used as title. If you are configuring the view using the visual editor, it will use the configuration of the [markdown card](/dashboards/markdown).
+  description: Card to be used as title. If you are configuring the view using the visual editor, it will use the configuration of the [Markdown card](/dashboards/markdown).
   type: map
 {% endconfiguration %}
