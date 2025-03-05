@@ -35,8 +35,8 @@ ha_integration_type: integration
 
 ## Prerequisites
 
-- You need a Samsung account and account credentials
-- To connect devices, you need the SmartThings app installed on your phone
+- You need a Samsung account and account credentials.
+- To connect devices, you need the SmartThings app installed on your phone.
 {% include integrations/config_flow.md %}
 
 ## Platforms
@@ -59,7 +59,7 @@ In Home Assistant, a binary sensor entity will be created for each of the follow
 
 | SmartThings capability                                                                                                        |
 |-------------------------------------------------------------------------------------------------------------------------------|
-| [`accelerationSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#accelerationSensor) |
+| `accelerationSensor`|
 | [`contactSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#contactSensor)           |
 | [`filterStatus`](https://developer.smartthings.com/docs/devices/capabilities/proposed#filterStatus)                           |
 | [`motionSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#motionSensor)             |
