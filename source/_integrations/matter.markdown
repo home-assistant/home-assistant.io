@@ -1,5 +1,5 @@
 ---
-title: Matter (BETA)
+title: Matter
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary sensor
@@ -53,10 +53,6 @@ ha_zeroconf: true
 The Matter integration allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
 
 For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" as add-on. This Matter Server add-on runs the controller software as a separate process and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
-
-{% warning %}
-The integration is marked BETA: Both the Matter standard itself and its implementation within Home Assistant are in an early stage. You may run into compatibility issues and/or other bugs.
-{% endwarning %}
 
 # Introduction - What is Matter?
 
@@ -125,7 +121,7 @@ Make sure you have all these components ready before trying to add a Matter devi
 - Make sure you have the latest version of Home Assistant [installed](/installation/).
 - In Home Assistant, have the Matter integration installed.
   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-  - Add the **Matter (BETA)** integration.
+  - Add the **Matter** integration.
   - When prompted to **Select the connection method**:
     - If you run Home Assistant OS in a regular setup: select **Submit**.
       - This will install the official Matter server add-on.
@@ -250,7 +246,7 @@ Use one of these methods if your Matter device was added to Apple Home or Google
 - Have the Matter device integrated to Apple Home or Google Home respectively
 - In Home Assistant, have the Matter integration installed.
   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-  - Add the **Matter (BETA)** integration.
+  - Add the **Matter** integration.
   - When prompted to **Select the connection method**:
     - If you run Home Assistant OS in a regular setup: select **Submit**.
       - This will install the official Matter server add-on.
@@ -297,7 +293,7 @@ In some cases, bridging devices into Home Assistant via Matter might not bring y
 
 Follow these steps if you have added a Matter device to Home Assistant and you want to make it available in an other platform, such as Google Home or Apple Home.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
 2. From the list of devices, select the device you want to share.
 3. Select **Share device**, then in the dialog, select **Share device** again.
    - There is no need to press a hardware button on the device to set it to commissioning mode.
@@ -312,7 +308,7 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
 
 Follow these steps if you want to remove a device from a particular Matter controller.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
 2. From the list of devices, select the device you want to remove from a controller.
 3. In the **Device info** section, next to **Share device**, select the three-dot menu. Then, select **Manage fabrics**.
 4. From the list, remove the controller of interest.
@@ -324,7 +320,7 @@ Follow these steps if you want to remove a device from a particular Matter contr
 
 The device information section provides some diagnostic information of a device.
 
-1. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+1. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
 2. From the list of devices, select the device you want to look at.
 
 <p class='img'>
