@@ -67,7 +67,7 @@ Depending on the model/installation, states for the Indoor Unit states are avail
 
 ## Data updates
 
-The integration uses {% term polling %} to retrieve data logs every 120 seconds for a single heat pump. This interval increases proportionally with the number of heat pumps, for example, to 240 seconds for two heat pumps. Additionally, energy logs are retrieved from the cloud every 1800 seconds.
+The integration uses {% term polling %} to retrieve data every 120 seconds for a single heat pump. This interval increases proportionally with the number of heat pumps, for example, to 240 seconds for two heat pumps. Additionally, energy data is retrieved from the cloud every 1800 seconds.
 
 ## Actions
 
