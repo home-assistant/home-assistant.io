@@ -132,9 +132,7 @@ Reset main brush consumable - The main brush/ roller is expected to be replaced 
 
 Reset air filter - The air filter is expected to be replaced every 150 hours.
 
-### Scene
-
-For every scene/routine/program you define for your vacuum, a scene entity will be created to activate it.
+In addition, for every scene/routine/program you define for your vacuum, a button entity will be created to start it.
 
 ### Actions
 
