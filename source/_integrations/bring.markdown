@@ -153,7 +153,7 @@ Reactions in **Bring!** let users quickly acknowledge shopping list updates with
 
 | Data attribute         | Optional | Description                                                                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `target`               |       no | Target the Bring! Activities entity, which holds the most recent activity for which a reaction will be sent. |
+| `entity_id`            |       no | The Bring! Activities entity to react to its latest activity. For example, event.shopping_list_activities.   |
 | `reaction`             |       no | Reaction to send in response to an activity by a list member.                                                |
 
 #### Available reactions
