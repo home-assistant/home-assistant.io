@@ -97,40 +97,27 @@ Enjoy the (beta) release!
 
 ## Dashboard view headers
 
-This release brings the ability to add headers to your dashboards. This allows
-you to add a title and a welcoming text (using Markdown and even templates)
-to your dashboards. Additionally, badges can be added to the header.
+This release brings a whole new look with the ability to add headers to your dashboards. This allows you to add a title and welcoming text to your dashboards, using Markdown and even templates. Additionally, this gives you a lot of space for badges next to the header.
 
-The nice thing about the header is that it can be aligned in different ways.
-It comes with a responsive layout by default, but you can also set it to
-always left align or always center align.
+As always, we’ve baked in a lot of customization, with the ability to align the header in multiple different ways. It comes with a responsive layout by default, but you can also set it to always be left-aligned or center-aligned.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-03/temp-view-header.png" />
 
-As for the badges, they can be positioned as well, either below the text
-(default) or above the text.
+The badges can also be positioned below the text (default) or above the text. A great visual menu makes it easy to choose how you want to organize your header.
 
 ## Tile cards
 
-A lot of touches and improvements have been made to the tile cards in this
-release. The tile card is one of the most versatile cards in Home Assistant,
-and we have made it even better!
+A lot of improvements and fine touches have been made to the tile card this release. The tile card is one of the most versatile cards in Home Assistant, and we have made it even better!
 
 ### Knowing which tile card can be controlled
 
-Tile cards are awesome! It is arguably the best and most versatile dashboard
-card Home Assistant currently has. But ever since its creation, it had a little
-flaw that you might have ran into yourself a few time...
+There is no doubt the tile card can do a lot, but ever since its creation, it has had a little flaw that you might have run into yourself…
 
-How would you know if tapping a tile card would trigger an action or when
-it would just display the current state value of a sensor? We have subtly fixed
-these things in this release!
+How would you know if tapping a tile card would trigger an action or whether it would just display more information about a sensor? We have addressed this with some subtle visual language in this release!
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-03/temp-tile-card-shapes.png" />
 
-When there is no action (or only a more info attached), we don't show the circle.
-When it does have an action, it will show the circle, meaning you can tap that
-little button.
+When there is no action (or only a “more info” tap behavior), we don’t show the circle around the icon. When it does have an action, it will show the circle, meaning you can tap that little button.
 
 ### Position tile card features
 
@@ -143,14 +130,11 @@ All features of a tile card can now be positioned in-line in the tile card!
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-03/temp-tile-card-inline-feature.png" />
 
-This brings a completely new look and feel which we
-are sure you are going to love! From the setting perspective, you can
-set the feature to be positioned either vertically or on the right side.
+This brings a completely new look and feel which we are sure you are going to love! From the settings you can add a feature, like a brightness slider, and position it either below (bottom) or to the right side of the icon (inline).
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-03/temp-tile-card-inline-settings.png" />
 
-Note, that only the first feature can be positioned in-line, the rest will
-be positioned below the tile card.
+Note that only the first feature can be positioned inline; the rest will be positioned below the icon in the tile card.
 
 ### New tile card features
 
@@ -170,18 +154,15 @@ tile card.
 
 #### Counter actions
 
-The second addition is a counter toggle. This allows you to increase or
-decrease a counter entity directly from the tile card.
+The second addition is a counter toggle. This allows you to add a button to increase, decrease, or reset a counter entity directly from the tile card.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-03/temp-tile-card-counter-actions.png" />
 
 ### Tiny interaction improvements
 
 More tweaks to the tile card have been made to improve the interaction
-experience with them.
-
-For example, we now have nice tiny little animations when you hover over
-the tile card, making it more clear that it is interactive; but also when
+experience with them. For example, we now have nice tiny little animations when you hover over
+the tile card, making it clearer that it is interactive; but also when
 you tap the tile card, it will now show a little animation to indicate that
 the tap was registered.
 
@@ -191,7 +172,7 @@ the tap was registered.
 </video>
 
 Another nice addition is that the tile card can now be interacted with
-by using your keyboard as well!
+by using your keyboard as well! Tab and shift-tab your way across the screen like the keyboard warrior you are.
 
 <video controls>
   <source src="/images/blog/2025-03/temp-tile-card-keyboard-navigation.mp4" type="video/mp4">
@@ -201,7 +182,7 @@ by using your keyboard as well!
 ### Editor improvements
 
 Not just the tile card itself has been improved, but also the editor for
-the tile card has been improved. It is now more clear and easier to use. 
+the tile card has been improved. It is now clearer and easier to use. 
 
 The new control give you a better overview of what the option will do for
 the tile card.
@@ -212,14 +193,14 @@ the tile card.
 
 If you have hooked up an LLM, like ChatGPT, to your Assist as
 a conversation agent, it will now livestream the responses to you when
-you are chatting with it!
+you are text chatting with it!
 
 When experimenting with larger models, or on slower hardware, LLM’s can feel
 sluggish. They only respond once the entire reply is generated, which can take
 frustratingly long for lengthy responses (you’ll be waiting a while if you ask
 it to tell you an epic fairy tale).
 
-We've added support for LLMs to stream their response to the chat, allowing you
+We've added support for LLMs to stream their response to the text chat, allowing you
 to start reading while the response is being generated. A bonus side effect is
 that commands are now also faster: they will be executed as soon as they come
 in, without waiting for the rest of the message to be complete.
@@ -298,22 +279,22 @@ It is not just new {% term integrations %} that have been added; existing
 integrations are also being constantly improved. Here are some of the noteworthy
 changes to existing integrations:
 
-- [@MartinHjelmare] and [@Diegorro98] have been making great effort in bring
+- [@MartinHjelmare] and [@Diegorro98] have been putting in a lot of effort to bring
   the [Home Connect integration] to the next level. Nice!
 - Got an [ESPHome] device that is acting up? [@bdraco] has added a new option
   to the integration to let Home Assistant shadowlog the logs of the device.
   Helpful!
 - The [OpenAI conversation integration] now supports the `o1`, `o1-preview`,
   `o1-mini`, and `o3-mini` reasoning models. Thanks, [@Shulyaka]!
-- The [Shelly integration] now support th 4th generation of the Shelly Flood
-  sensor and support for Shelly script events entities. Thanks, [@chemelli74]
+- The [Shelly integration] now supports the 4th generation of the Shelly Flood
+  sensors and added support for Shelly script events entities. Thanks, [@chemelli74]
   and [@wjtje]!
 - Support for the [Switchbot Remote] has been added to the
   [Switchbot integration]. Thanks, [@awahlig]!
-- UniFi version 9 introduced zone based rules. These are now supported in the
+- UniFi version 9 introduced zone-based rules. These are now supported in the
   [Unifi integration]. Thanks, [@Samywamy10]!
 - [@Galorhallen] has added support for effects in [Govee lights]. Nice!
-- [@joostlek] completely rewrote the [SmartThings] integration! In december, SmartThings shut down the authentication method that we used to use to connect with their platform. During the last 2 months we collaborated with SmartThings to get the integration up and running again. No more need to request a personal access token! You can just sign in using your Samsung account (like how you are used to with for example OneDrive). Another improvement we have done is that to get push updates, you don't need to expose your instance to the internet anymore!
+- [@joostlek] completely rewrote the [SmartThings] integration! In december, SmartThings shut down the authentication method that we used to use to connect with their platform. During the last 2 months, we collaborated with SmartThings to get the integration up and running again. No more need to request a personal access token! You can just sign in using your Samsung account (like how you are used to with, for example, OneDrive). Another improvement we have made is that to get push updates, you don't need to expose your instance to the internet anymore!
 
 [@awahlig]: https://github.com/awahlig
 [@bdraco]: https://github.com/bdraco
@@ -373,14 +354,9 @@ noteworthy changes this release:
 
 ## Iterating on the legends of graphs
 
-Last release, we made quite a big change to the charts by replacing the
-software we use to make these graphs in Home Assistant. Things changed,
-but our aim was to make it look and feel similar.
+Last release, we made quite a big change to the charts by replacing the software we use to make these graphs in Home Assistant. Things changed behind the scenes, but our aim to start was to make it look and feel similar.
 
-However, we received a lot of feedback from the community that the legends
-shown on the new graphs were suboptimal. Our UX and frontend teams have
-been hard at work to improve this situation and make it look more similar
-to the old graphs legends.
+However, we received a lot of feedback from the community that the legends shown on the new graphs were suboptimal. Our UX and frontend teams have been hard at work to improve this situation and make it look more similar to the old graph legends.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-03/temp-graph-legend.png" />
 
@@ -388,9 +364,7 @@ By default, we show the legend below the graph and show as many data points
 as possible. If there are too many, they will be displayed on demand using the
 little ellipsis button.
 
-When using these cards on the dashboard, and you prefer them to always be
-displayed, you can, of course, configure them to always display in the newly
-provided option.
+When using these cards on your dashboard, if you want to always show the full legend, a new option will allow you to keep it fully visible.
 
 You can now also zoom in and out, by double clicking on a graph. If you want more control over the range you want to view in your graph, you can press the ctrl/cmd key and then select the range on the graph you want to zoom in on.
 
