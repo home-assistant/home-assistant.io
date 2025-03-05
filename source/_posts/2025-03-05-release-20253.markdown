@@ -128,8 +128,7 @@ it either below (bottom) or to the right side of the icon (inline).
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-03/temp-tile-card-inline-settings.png" />
 
 {% note %}
-Only the first feature can be positioned inline; the rest will be placed below
-the icon in the tile card.
+Only the first feature can be positioned inline; the rest will not be displayed.
 {% endnote %}
 
 ### New tile card features
