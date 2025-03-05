@@ -691,7 +691,7 @@ When using Envoy Metered with <abbr title="current transformers">CT</abbr>
 
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_production_non_zero_reset.png" alt="envoy today non zero reset">
-  <figcaption>Envoy Todays energy production value daily reset to an ever increasing non-zero value.</figcaption>
+  <figcaption>Envoy Today's energy production value exhibits a daily reset to an ever increasing non-zero value.</figcaption>
 </figure>
 
 <figure>
