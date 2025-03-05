@@ -200,7 +200,9 @@ The SmartThings Scene platform lets you activate scenes defined in SmartThings w
 
 The SmartThings Switch platform lets you control devices that have the [`switch`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switch) capability that are not already represented by a more specific platform.
 
-## Debugging
+## Troubleshooting
+
+### Debugging
 
 If debug logging is enabled, the integration shows all the received events in the logs.
 
