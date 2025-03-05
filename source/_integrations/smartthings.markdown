@@ -33,6 +33,10 @@ ha_integration_type: integration
 
 [SmartThings](https://www.samsung.com/smartthings/) is a home automation platform for connecting with Samsung or third-party devices.
 
+## Prerequisites
+
+- You need a Samsung account and account credentials
+- To connect devices, you need the SmartThings app installed on your phone
 {% include integrations/config_flow.md %}
 
 ## Platforms
@@ -200,8 +204,10 @@ The SmartThings Switch platform lets you control devices that have the [`switch`
 
 If debug logging is enabled, the integration shows all the received events in the logs.
 
-By downloading the device diagnostics (by going to a device page, selecting the 3 dots and downloading diagnostics) it will capture events for that device for 5 seconds, after which it will return a JSON file with the state of the device and the events.
+It will capture events for that device for 5 seconds, after which it will return a JSON file with the state of the device and the events.
 This can be helpful for diagnosing state updates, for example by selecting the button and then turning on the device physically.
+
+- Follow these steps to [enable debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics)
 
 ## Removing the integration
 
