@@ -34,6 +34,7 @@ The most recent release has some great advancements for [Assist](/voice_control/
 
 ### "Across the Universe"
 <h4 style="margin-top: -1em; opacity: .67;">External audio & Spotify Connect</h4>
+<p class="img"><img src='/images/blog/2025-03-music-assistant/spotify_connect.jpg' alt="Spotify Connect on a Voice PE"/>Spotify Connect on Voice Preview Edition</p>
 
 Another feature in the latest release is support for "external audio sources", which can be provided either by players themselves (source control) or with plugins. The first plugin to deliver this functionality is Spotify Connect. It's the easiest way to use Spotify with Music Assistant, and can be enabled on any player. This makes any Music Assistant supported device a Spotify Connect supported device (can confirm, Voice Preview Edition is great for this). [To get started](https://www.music-assistant.io/plugins/spotify-connect/) go to Music Assistant's settings, add the Spotify Connect Plugin, choose the devices you would like it to use, and within Spotify you will see the device as a player. Just note, Spotify Connect requires a Premium account to work.
 
@@ -44,7 +45,7 @@ We've got our sights set on adding even more plugins like this down the line (Ai
 
 <p class="img"><img src='/images/blog/2025-03-music-assistant/audiobooks.png' alt="audiobooks page"/>The full book's progress is tracked, and chapters are clearly shown</p>
 
-Your library just got a whole lot bigger! Music Assistant now has native support for podcasts and audiobooks. For podcasts, several providers have been added, including [Subsonic](https://www.music-assistant.io/music-providers/subsonic/), [YouTube](https://www.music-assistant.io/music-providers/youtube-music/), and [RSS feeds](https://www.music-assistant.io/music-providers/podcastfeed/). Audiobooks can be added via two brand new providers: [Audible](https://www.music-assistant.io/music-providers/audible/) and [Audiobookshelf](https://www.music-assistant.io/music-providers/audiobookshelf/). Audiobook playback presents the entire book as a single bar with dots showing each chapter (even if the book is separated into multiple files), allowing you to really track your progress. The entire core has been adjusted to better keep track of your progress through any media, so you will always resume where you left off.
+Your library just got a whole lot bigger! Music Assistant now has native support for podcasts and audiobooks. For podcasts, several providers have been added, including [Subsonic](https://www.music-assistant.io/music-providers/subsonic/), [YouTube](https://www.music-assistant.io/music-providers/youtube-music/), and [RSS feeds](https://www.music-assistant.io/music-providers/podcastfeed/). Audiobooks can be added via two brand new providers: [Audible](https://www.music-assistant.io/music-providers/audible/) and [Audiobookshelf](https://www.music-assistant.io/music-providers/audiobookshelf/), or imported directly from your local files. Audiobook playback presents the entire book as a single bar with dots showing each chapter (even if the book is separated into multiple files), allowing you to really track your progress. The entire core has been adjusted to better keep track of your progress through any media, so you will always resume where you left off.
 
 <p class="img"><img src='/images/blog/2025-03-music-assistant/continue.png' alt="Continue listening section"/>The "Continue listening" section on the home page takes you back to where you left off</p>
 
@@ -58,7 +59,11 @@ Shortly after our last blog post, we added support for [Apple Music](https://www
 
 <p class="img"><img src='/images/blog/2025-03-music-assistant/eq.png' alt="PEQ page"/>Make your own EQ settings or import pre-made settings for your speaker</p>
 
-When we released 2.0 there were basic bass and treble controls for devices, but with our new [configurable DSP](https://www.music-assistant.io/audiopipeline/) (Digital Signal Processor) you can now fine-tune your audio like never before. This includes input and output gain, along with a powerful [parametric equalizer](https://www.music-assistant.io/dsp/parametriceq/) that can be applied per player 📈. Another useful feature added was a "[Don't stop the music](https://www.music-assistant.io/usage/#:~:text=Don%27t%20Stop%20The%20Music%20(DSTM))" mode that keeps music playing even once your queue finishes, playing similar songs from your library.
+When we released 2.0 there were basic bass and treble controls for devices, but with our new [configurable DSP](https://www.music-assistant.io/audiopipeline/) (Digital Signal Processor) you can now fine-tune your audio like never before. This includes input and output gain, along with a powerful [parametric equalizer](https://www.music-assistant.io/dsp/parametriceq/) that can be applied per player 📈. You can conveniently view the entire audio pipeline by clicking the quality indicator icon.
+
+<p><img src='/images/blog/2025-03-music-assistant/audio_path.png' alt="Music Assistants next big hit" class='no-shadow' /></p>
+
+Another useful feature added was a "[Don't stop the music](https://www.music-assistant.io/usage/#:~:text=Don%27t%20Stop%20The%20Music%20(DSTM))" mode that keeps music playing even once your queue finishes, playing similar songs from your library. Another way to keep the music playing is through lock screens and widget controls built into many popular operating systems, which can now control Music Assistant.
 
 ### "Master of Puppets"
 <h4 style="margin-top: -1em; opacity: .67;">Home Assistant improvements</h4>
