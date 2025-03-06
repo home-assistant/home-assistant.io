@@ -16,7 +16,7 @@ The tile card gives you a quick overview of your {% term entity %}. The card all
 
 <p class='img'>
   <img src='/images/dashboards/tile_card_tap_action.webp' alt='Screenshot of tile cards'>
-  The circular background behind an icon indicates that there is a tap action.   
+  The circular background behind an icon indicates that there is a tap action.
   The "Downstairs" and "Upstairs" climate entities have a badge and a feature that is bottom-aligned.
 </p>
 
@@ -152,15 +152,4 @@ features:
 
 You want to colorize the tile card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
 
-## Reordering features
 
-Some features of the tile card, such as the presets or the HVAC modes of a
-thermostat, can show many buttons. While you can limit the buttons you’d
-like to see, they may not be in the desired order.
-
-For your thermostat, that means you can reorder the HVAC modes or presets.
-
-<p class='img'>
-    <img src="/images/blog/2024-05/tile-card-reorder-features.gif" alt=" Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card."/>
-    You can now reorder the features of the tile card.
-</p>
