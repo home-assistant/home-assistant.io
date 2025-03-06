@@ -22,9 +22,12 @@ A calendar entity has a state and attributes that represent the next upcoming ev
 
 {% include integrations/config_flow.md %}
 
+Please provide the following information to the config flow.
+
 {% configuration_basic %}
 Calendar Name:
-    description: "A name for your calender, you can choose a name you want. Example: Home Assistant Events"
+    description: "A name for your calender, you can choose a name you want.
+    Example: `Home Assistant Events`"
 Calendar URL:
     description: "The URL of the remote calender. Example: `https://calendar.google.com/calendar/ical/p07n98go11onamd08d0kmq6jhs%40group.calendar.google.com/public/basic.ics`"
 {% endconfiguration_basic %}
