@@ -119,7 +119,6 @@ Assist aims to support more languages than other voice assistants, but this is s
 			<option value="mr-IN">Marathi</option>
 			<option value="mn-MN">Mongolian</option>
 			<option value="ne-NP">Nepali</option>
-			<option value="no-NO">Norwegian</option>
 			<option value="nb-NO">Norwegian Bokmål</option>
 			<option value="ps-AF">Pashto</option>
 			<option value="fa-IR">Persian</option>
