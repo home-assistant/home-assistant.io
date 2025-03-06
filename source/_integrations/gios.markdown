@@ -23,5 +23,5 @@ The `gios` integration uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current
 Measuring station:
   description: "Select a measuring station from the list."
 Name:
-  description: "Service name in Home Assistant, by default, this is the name of your Home Assistant instance e.g. Home."
+  description: "Service name in Home Assistant, by default, this is the name of your Home Assistant instance. For example `Home`."
 {% endconfiguration_basic %}
