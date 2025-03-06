@@ -64,14 +64,7 @@ With this method, it is assumed that the [NGINX Home Assistant SSL proxy Add-on]
 3. Run this command to **create and associate a public key** with it: `openssl ec -in private-key.pem -pubout -out public-key.pem`
 4. **Backup both these files** somewhere safe and private for access later.
 5. **Copy the public key** file `public-key.pem` to `/share/tesla/.well-known/appspecific/com.tesla.3p.public-key.pem`. It needs to be exactly this location for Tesla's API to partner with your account correctly.
-6. Create a **NGINX configuration file** `nginx_proxy_default_tesla.conf` in `/share` with:
-
-```shell
-echo 'location /.well-known/appspecific/com.tesla.3p.public-key.pem {
-  root /share/tesla;
-}' >> /share/nginx_proxy_default_tesla.conf
-```
-
+6. Create a **NGINX configuration file** `nginx_proxy_default_tesla.conf` in `/share` with: `echo 'location /.well-known/appspecific/com.tesla.3p.public-key.pem {\n  root /share/tesla;\n}' > /share/nginx_proxy_default_tesla.conf`
 7. Close the Terminal and go to Settings->Add-Ons->**NGINX Home Assistant SSL proxy**->Configuration page. Change the `customize.active` option from the default `false` to `true`. Leave the `config.default` option at its default value: `nginx_proxy_default*.conf`.
 8. **Restart the NGINX Home Assistant SSL proxy Add-on** on the Settings->Add-Ons->NGINX Home Assistant SSL proxy->Info page and test if the public key file is accessible at `https://my.domain.com/.well-known/appspecific/com.tesla.3p.public-key.pem`
 
