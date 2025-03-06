@@ -42,8 +42,6 @@ The Home Connect integration allows users to integrate their home appliances sup
 - Control the light of your appliances.
 - Adjust the appliance settings.
 
-The integration will add one Home Assistant device for each connected home appliance which will have the following entities:
-
 {% note %}
 Note that it depends on the appliance and on API permissions which of the features are supported.
 {% endnote %}
