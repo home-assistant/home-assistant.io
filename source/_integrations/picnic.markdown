@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@corneyl'
+  - '@codesalatdev'
 ha_domain: picnic
 ha_platforms:
   - sensor

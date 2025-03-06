@@ -11,8 +11,8 @@ ha_domain: mill
 ha_config_flow: true
 ha_platforms:
   - climate
-  - sensor
   - number
+  - sensor
 ha_integration_type: integration
 ---
 

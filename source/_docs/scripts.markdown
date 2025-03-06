@@ -94,7 +94,7 @@ Variables can be templated.
 
 ### Scope of variables
 
-Variables have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
+Variables defined by the `variables` {% term action %} have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
 
 Inside the `if` sequence the `variables` {% term action %} will only alter the `people` variable for that sequence.
 
@@ -858,6 +858,8 @@ Some of the caveats of running {% term actions %} in parallel:
   they too have finished or errored.
 - Variables created/modified in one parallelized {% term action %} are not available
   in another parallelized {% term action %}. Each step in a parallelized has its own scope.
+- The response data of a parallelized {% term action %} is however also available outside of its
+  own scope. This is especially useful for parallelizing execution of long-running {% term actions %}. 
 
 ## Stopping a script sequence
 

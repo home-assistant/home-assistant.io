@@ -42,6 +42,7 @@ ha_platforms:
   - tts
   - update
   - vacuum
+  - valve
   - water_heater
   - weather
 ha_integration_type: integration
@@ -81,6 +82,7 @@ Available demo platforms:
 - [Text-to-speech](/integrations/tts/) (`tts`)
 - [Update](/integrations/update/) (`update`)
 - [Vacuum](/integrations/vacuum/) (`vacuum`)
+- [Valve](/integrations/valve/) (`valve`)
 - [Water heater](/integrations/water_heater/) (`water_heater`)
 - [Weather](/integrations/weather/) (`weather`)
 
