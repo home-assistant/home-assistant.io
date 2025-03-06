@@ -7,12 +7,12 @@ ha_category:
   - Hub
   - Presence detection
   - Sensor
+  - Switch
   - Water heater
   - Weather
 ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@chiefdragon'
   - '@erwindouna'
 ha_domain: tado
 ha_config_flow: true
@@ -22,6 +22,7 @@ ha_platforms:
   - climate
   - device_tracker
   - sensor
+  - switch
   - water_heater
 ha_dhcp: true
 ha_integration_type: integration
@@ -37,6 +38,7 @@ There is currently support for the following device types within Home Assistant:
 - [Presence detection](#presence-detection)
 - Sensor - for some additional information of the zones.
 - Weather - for information about the current weather at the location of your Tado home.
+- Switch - for controlling child lock on supported devices
 
 ## Unsupported device types
 

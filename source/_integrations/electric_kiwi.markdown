@@ -13,6 +13,7 @@ ha_platforms:
   - select
   - sensor
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 [Electric Kiwi](https://www.electrickiwi.co.nz/) is an independent power and broadband company in New Zealand, offering variable rates for peak, shoulder, and off-peak pricing with a selectable hour of free power. 

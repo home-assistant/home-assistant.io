@@ -685,6 +685,20 @@ When using Envoy Metered with <abbr title="current transformers">CT</abbr>
 
 - not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data and unexpected spikes have been reported. In this case, best use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
 - not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported.
+- `Energy production today` has been reported not to reset to zero at the start of the day. Instead, it resets to a non-zero value that gradually increases over time. This issue has also been reported as starting suddenly overnight. For daily reporting, it is recommended to use a utility meter with the `Lifetime energy production` entity.
+
+{% details "History examples for Today's energy production value not resetting to zero" %}
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_production_non_zero_reset.png" alt="envoy today non zero reset">
+  <figcaption>Envoy Today's energy production value exhibits a daily reset to an ever increasing non-zero value.</figcaption>
+</figure>
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_production_non_zero_reset_step_change.png" alt="envoy today step change">
+  <figcaption>Envoy Today's energy production value exhibits a sudden onset of non-zero resets.</figcaption>
+</figure>
+{% enddetails %}
 
 ### Lifetime reset
 

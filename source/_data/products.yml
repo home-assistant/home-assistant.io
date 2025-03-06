@@ -17,6 +17,11 @@ green:
       ship_to: America
       url: https://cloudfree.shop/product/home-assistant-green/
       logo: /images/distributors/cloudfree.webp
+    - name: Seeed Studio
+      ship_from: US
+      ship_to: America
+      url: https://www.seeedstudio.com/Home-Assistant-Green-p-5792.html
+      logo: /images/distributors/seeed-studio.webp
       # Asia
     - name: Seeed Studio
       ship_from: China

@@ -28,9 +28,11 @@ Volume Resolution:
   description: Number of steps it takes for the receiver to go from the lowest to the highest possible volume. Possible values are 50, 80, 100, 200. For older Onkyo receivers, this typically is 80; newer Onkyo receivers use 200.
 Input sources:
   description: List of input sources supported by the receiver.
+Listening modes:
+  description: List of listening modes supported by the receiver.
 {% endconfiguration_basic %}
 
-The above settings can also be adjusted later. To do this, click the three-dot menu on the integration entry and select **Reconfigure**.
+The above settings can also be adjusted later. To change **Host** or **Volume Resolution**, select the three-dot menu on the integration entry and select **Reconfigure**.
 
 {% include integrations/option_flow.md %}
 
@@ -39,6 +41,8 @@ Max Volume:
   description: Maximum volume limit as a percentage. Often the maximum volume of the receiver is far too loud. Setting this will set Home Assistant's 100% volume to be this setting on the amp, i.e., if you set this to 50%, when you set Home Assistant to be 100%, then your receiver will be set to 50% of its maximum volume.
 Input sources:
   description: Mappings of input sources to their names.
+Listening modes:
+  description: Mappings of listening modes to their names.
 {% endconfiguration_basic %}
 
 ## Zones

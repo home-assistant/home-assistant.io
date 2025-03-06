@@ -24,6 +24,7 @@ ha_platforms:
   - diagnostics
   - image
   - number
+  - scene
   - select
   - sensor
   - switch

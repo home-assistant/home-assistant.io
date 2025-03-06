@@ -11,6 +11,7 @@ ha_codeowners:
   - '@bdraco'
   - '@ollo69'
   - '@pestevez'
+  - '@tdfountain'
 ha_zeroconf: true
 ha_platforms:
   - diagnostics
