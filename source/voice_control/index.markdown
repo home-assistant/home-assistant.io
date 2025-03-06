@@ -119,7 +119,6 @@ Assist aims to support more languages than other voice assistants, but this is s
 			<option value="nb-NO">Norwegian Bokmål</option>
 			<option value="ne-NP">Nepali</option>
 			<option value="nl-BE">Dutch</option>
-			<option value="no-NO">Norwegian</option>
 			<option value="pl-PL">Polish</option>
 			<option value="ps-AF">Pashto</option>
 			<option value="pt-BR">Portuguese</option>
@@ -464,7 +463,6 @@ function updateLanguageSupports(locale = null) {
 		"nb-NO": [0, 3],
 		"ne-NP": [0, 0],
 		"nl-BE": [0, 3],
-		"no-NO": [0, 0],
 		"pl-PL": [0, 3],
 		"ps-AF": [0, 0],
 		"pt-BR": [3, 3],
