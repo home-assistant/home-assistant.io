@@ -132,7 +132,7 @@ Reset main brush consumable - The main brush/ roller is expected to be replaced 
 
 Reset air filter - The air filter is expected to be replaced every 150 hours.
 
-In addition, for every routine you define for your vacuum in the Roborock app, a button entity will be created to start it.
+In addition, some vacuums allow routines to be set up in the app. A button entity will be created for each routine created.
 
 ### Actions
 
