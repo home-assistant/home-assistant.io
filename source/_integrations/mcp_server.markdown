@@ -109,8 +109,7 @@ The MCP proxy acts as a bridge between your LLM client and Home Assistant:
 
 3. Test your configuration before setting it up in Cursor or Claude:
    ```bash
-   export API_ACCESS_TOKEN=<YOUR TOKEN>
-   mcp-proxy http://homeassistant.local:8123/mcp_server/sse
+   env API_ACCESS_TOKEN=<YOUR TOKEN> /absolute/path/to/mcp-proxy http://homeassistant.local:8123/mcp_server/sse
    ```
 
    If the command runs without crashing, your setup is working correctly.
@@ -153,7 +152,7 @@ Cursor's UI provides a simple way to set up the MCP connection:
 2. Click "Add new MCP server"
 3. Select "command" under Type
 4. Under "Command" input:
-   ```
+   ```shell
    env API_ACCESS_TOKEN=<YOUR TOKEN> /absolute/path/to/mcp-proxy http://homeassistant.local:8123/mcp_server/sse
    ```
 
