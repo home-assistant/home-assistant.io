@@ -57,7 +57,7 @@ You must have:
 {% details "Hosting a Public/Private Key Pair with the NGINX Home Assistant SSL proxy Add-on" %}
 
 While the [Tesla Fleet API documentation Step 3](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-3-generate-a-public-private-key-pair) mentions this as a later step, it is recommended that you do this first to ensure key reachability before the rest of the integration.
-With this method it is assumed that the [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) is running as a reverse proxy for external access to your Home Assistant installation.
+With this method, it is assumed that the [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) is running as a reverse proxy for external access to your Home Assistant installation.
 
 1. **Open an SSH Terminal** on your Home Assistant installation using the [Terminal & SSH Add-on](https://www.home-assistant.io/common-tasks/os#installing-and-using-the-ssh-add-on).
 2. Run this command to **create a private key**: `openssl ecparam -name prime256v1 -genkey -noout -out private-key.pem`
@@ -65,14 +65,16 @@ With this method it is assumed that the [NGINX Home Assistant SSL proxy Add-on](
 4. **Backup both these files** somewhere safe and private for access later.
 5. **Copy the public key** file `public-key.pem` to `/share/tesla/.well-known/appspecific/com.tesla.3p.public-key.pem`. It needs to be exactly this location for Tesla's API to partner with your account correctly.
 6. Create a **NGINX configuration file** `nginx_proxy_default_tesla.conf` in `/share` with:
+
 ```shell
 echo 'location /.well-known/appspecific/com.tesla.3p.public-key.pem {
   root /share/tesla;
 }' >> /share/nginx_proxy_default_tesla.conf
 ```
+
 7. Close the Terminal and go to Settings->Add-Ons->**NGINX Home Assistant SSL proxy**->Configuration page. Change the `customize.active` option from the default `false` to `true`. Leave the `config.default` option at its default value: `nginx_proxy_default*.conf`.
 8. **Restart the NGINX Home Assistant SSL proxy Add-on** on the Settings->Add-Ons->NGINX Home Assistant SSL proxy->Info page and test if the public key file is accessible at `https://my.domain.com/.well-known/appspecific/com.tesla.3p.public-key.pem`
-   
+
 {% enddetails %}
 
 {% details "Hosting a Public/Private Key Pair" %}
