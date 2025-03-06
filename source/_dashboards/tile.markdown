@@ -12,11 +12,12 @@ related:
     title: Dashboard cards
 ---
 
-The tile card gives you a quick overview of your {% term entity %}. The card allows you to toggle the {% term entity %} and show the more info dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
+The tile card gives you a quick overview of your {% term entity %}. The card allows you to add tap actions, and features to control the entity. You can also select the {% term entity %} to open the more info dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
 
 <p class='img'>
-  <img src='/images/dashboards/tile_card.png' alt='Screenshot of tile cards'>
-  Screenshot of tile cards.
+  <img src='/images/dashboards/tile_card_tap_action.webp' alt='Screenshot of tile cards'>
+  The circular background behind an icon indicates that there is a tap action.   
+  The "Downstairs" and "Upstairs" climate entities have a badge and a feature that is bottom-aligned.
 </p>
 
 {% include dashboard/edit_dashboard.md %}
