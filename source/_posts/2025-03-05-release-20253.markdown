@@ -309,7 +309,7 @@ changes to existing integrations:
 The [SmartThings] integration has been completely rewritten! 🎉 In December,
 SmartThings shut down the old authentication method, but thanks to
 SmartThings' hard work and close collaboration with us, [@joostlek] was able to
-bring back the integration is back—better than ever.
+bring back the integration—better than ever.
 
 No more setting up routing, exposing ports, or creating developer accounts with
 access tokens—**just log in with your Samsung account**, and you’re good to go!
