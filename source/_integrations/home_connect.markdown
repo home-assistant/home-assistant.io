@@ -976,7 +976,6 @@ Changes a setting.
 | `key` | no | Key of the setting. |
 | `value` | no | Value of the setting. |
 
-
 ## Automation examples
 
 Get started with these automation examples
