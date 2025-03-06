@@ -44,27 +44,8 @@ The Home Connect integration allows users to integrate their home appliances sup
 
 The integration will add one Home Assistant device for each connected home appliance which will have the following entities:
 
-- A power switch
-- If the device has programs:
-  - Two select entities that will allow you to select and start a program between the available ones.
-  - A timestamp sensor for remaining time and a numeric sensor for the progress percentage.
-- Light:
-  - Hoods:
-    - Functional light: on/off and brightness
-    - Ambient light: on/off, brightness, HSV and RGB
-  - Dishwasher: on/off, brightness, HS and RGB
-  - Cooling appliances: Both, external and internal lights, on/off and brightness
-- Numbers that set the temperature of cooling appliances.
-- Time for alarm clock for cooktops and ovens.
-- Multiple sensors that report the different states and events reported by the appliance.
-- Binary sensors that show binary states of the appliance.
-
 {% note %}
 Note that it depends on the appliance and on API permissions which of the features are supported.
-{% endnote %}
-
-{% note %}
-Some devices only have the state `on` and turn off is not supported by the appliance, check [power state availability at Home Connect API documentation](https://api-docs.home-connect.com/settings/#power-state) for more information.
 {% endnote %}
 
 ## Supported devices
