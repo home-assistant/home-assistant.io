@@ -29,7 +29,7 @@ Calendar Name:
     description: "A name for your calendar, you can choose a name you want.
     Example: `Home Assistant Events`"
 Calendar URL:
-    description: "The URL of the remote calender. Example: `https://calendar.google.com/calendar/ical/p07n98go11onamd08d0kmq6jhs%40group.calendar.google.com/public/basic.ics`"
+    description: "The URL of the remote calendar. Example: `https://calendar.google.com/calendar/ical/p07n98go11onamd08d0kmq6jhs%40group.calendar.google.com/public/basic.ics`"
 {% endconfiguration_basic %}
 
 ## Update interval
