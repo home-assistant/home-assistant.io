@@ -92,14 +92,6 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
-After deleting the integration, go to [your applications at the Home Connect Developer portal](https://developer.home-connect.com/applications), find the application that you were using for Home Assistant, click on details and click on "Delete Application".
-
 ## Supported functionality
 
 {% note %}
@@ -1059,6 +1051,12 @@ actions:
 This integration uses server-sent events from the Home Connect API to receive live updates from the appliances.
 When the configuration entry is loaded or after a streaming error (for example after disconnection), the integration will request all data (such as appliance info, available commands, programs, settings, and status) for all appliances.
 If a new appliance is added to the account, the integration will request data for the new appliance and expose the related entities automatically.
+
+## Known limitations
+
+- The Home Connect API does not fully match the Home Connect app. Some programs, options, or settings available in the app may not be accessible or usable via the API.
+- This integration supports only one integration entry, as the Home Connect API does not allow for the unique identification of an account.
+
 ## Troubleshooting
 
 ### I could not configure the Home Connect integration
@@ -1125,7 +1123,10 @@ To try to solve the above issues, follow these steps:
    - [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
    - [Home Connect developer Help & Support](https://developer.home-connect.com/support)
 
-## Known limitations
+## Removing the integration
 
-- The Home Connect API does not fully match the Home Connect app. Some programs, options, or settings available in the app may not be accessible or usable via the API.
-- This integration supports only one integration entry, as the Home Connect API does not allow for the unique identification of an account.
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, go to [your applications at the Home Connect Developer portal](https://developer.home-connect.com/applications), find the application that you were using for Home Assistant, click on details and click on "Delete Application".
