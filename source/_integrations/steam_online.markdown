@@ -34,10 +34,10 @@ You need a [free API key](https://steamcommunity.com/dev/apikey) to use the plat
 
 To find an account's 64-bit SteamID:
 
-1. Open Steam
-2. Open the dropdown menu labeled with your username
-3. Select **Account details**
-4. Your **Steam ID** is displayed just below the label **Your-Account-Name Account**
+1. Open Steam.
+2. Open the dropdown menu labeled with your username.
+3. Select **Account details**.
+   - Your **Steam ID** is displayed just below the label **Your-Account-Name Account**.
 
 ## Examples
 
