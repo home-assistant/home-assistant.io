@@ -1189,7 +1189,7 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 
 Our template engine contains a filter and function shuffle a list.
 
-Shuffling can happen randomly or predictably using a seed. When using a seed
+Shuffling can happen randomly or reproducible using a seed. When using a seed
 it will always return the same shuffled list for the same seed.
 
 Some examples:
@@ -1200,10 +1200,10 @@ Some examples:
 - `{{ shuffle([1, 2, 3]) }}` - renders as `[3, 1, 2]` (_random_)
 - `{{ shuffle(1, 2, 3) }}` - renders as `[3, 1, 2]` (_random_)
 
-- `{{ [1, 2, 3] | shuffle("random seed") }}` - renders as `[2, 3, 1] (_predictable_)
-- `{{ shuffle([1, 2, 3], seed="random seed") }}` - renders as `[2, 3, 1] (_predictable_)
-- `{{ shuffle([1, 2, 3], "random seed") }}`- renders as `[2, 3, 1] (_predictable_)
-- `{{ shuffle(1, 2, 3, seed="random seed") }}` - renders as `[2, 3, 1] (_predictable_)
+- `{{ [1, 2, 3] | shuffle("random seed") }}` - renders as `[2, 3, 1] (_reproducible_)
+- `{{ shuffle([1, 2, 3], seed="random seed") }}` - renders as `[2, 3, 1] (_reproducible_)
+- `{{ shuffle([1, 2, 3], "random seed") }}`- renders as `[2, 3, 1] (_reproducible_)
+- `{{ shuffle(1, 2, 3, seed="random seed") }}` - renders as `[2, 3, 1] (_reproducible_)
 
 {% endraw %}
 
