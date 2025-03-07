@@ -313,6 +313,11 @@ tilt_status_topic:
   description: The MQTT topic subscribed to receive tilt status update values.
   required: false
   type: string
+payload_stop_tilt:
+  description: The command payload that stops the tilt.
+  required: false
+  type: string
+  default: payload_stop
 unique_id:
   description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
