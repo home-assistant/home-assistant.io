@@ -1162,6 +1162,87 @@ For a summary in a more readable format:
 - Bump intents to 2025.3.5 ([@synesthesiam] - [#139851])
 - Fix no disabled capabilities in SmartThings ([@joostlek] - [#139860])
 
+## Release 2025.3.1 - March 7
+
+- Check support for demand load control in SmartThings AC ([@Ishima] - [#139616])
+- Fix Unit of Measurement for Squeezebox duration sensor entity on LMS service ([@peteS-UK] - [#139861])
+- Trim the Schema allowed keys to match the Public Gemini API docs. ([@IvanLH] - [#139876])
+- Bump thermobeacon-ble to 0.8.1 ([@bdraco] - [#139919])
+- Deduplicate climate modes in SmartThings ([@joostlek] - [#139930])
+- Check if the unit of measurement is valid before creating the entity ([@jbouwh] - [#139932])
+- Bump pysmartthings to 2.6.1 ([@joostlek] - [#139936])
+- Bump aiowebdav2 to 0.4.0 ([@jpbede] - [#139938])
+- Add config entry level diagnostics to SmartThings ([@joostlek] - [#139939])
+- Set content length when uploading files to WebDAV ([@jpbede] - [#139950])
+- Bump to python-snoo 0.6.1 ([@Lash-L] - [#139954])
+- Fix SmartThings fan ([@joostlek] - [#139962])
+- Update frontend to 20250306.0 ([@bramkragten] - [#139965])
+- Fix SmartThings dust sensor UoM ([@joostlek] - [#139977])
+- Bump nexia to 2.2.2 ([@bdraco] - [#139986])
+- Bump aiowebdav2 to 0.4.1 ([@jpbede] - [#139988])
+- Correctly retrieve only loaded Google Generative AI config_entries ([@IvanLH] - [#139999])
+- Fix regression to evohome debug logging ([@zxdavb] - [#140000])
+- Check operation state on Home Connect program sensor update ([@Diegorro98] - [#140011])
+- Bump aiohomeconnect to 0.16.3 ([@MartinHjelmare] - [#140014])
+- Fix powerwall 0% in Tessie and Tesla Fleet ([@Bre77] - [#140017])
+- Fix shift state default in Teslemetry and Tessie ([@Bre77] - [#140018])
+- Add description for HomematicIP HCU1 in homematicip_cloud setup config flow ([@hahn-th] - [#140025])
+- Fix evohome to gracefully handle null schedules ([@zxdavb] - [#140036])
+- Fix SmartThings disabling working capabilities ([@joostlek] - [#140039])
+- Fix SmartThings thermostat climate check ([@joostlek] - [#140046])
+- Bump pysmartthings to 2.7.0 ([@joostlek] - [#140047])
+- Only keep valid powerConsumptionReports in SmartThings ([@joostlek] - [#140049])
+- Bump py-synologydsm-api to 2.7.1 ([@mib1185] - [#140052])
+- Restore SmartThings button event ([@joostlek] - [#140044])
+
+[#139616]: https://github.com/home-assistant/core/pull/139616
+[#139859]: https://github.com/home-assistant/core/pull/139859
+[#139861]: https://github.com/home-assistant/core/pull/139861
+[#139876]: https://github.com/home-assistant/core/pull/139876
+[#139919]: https://github.com/home-assistant/core/pull/139919
+[#139930]: https://github.com/home-assistant/core/pull/139930
+[#139932]: https://github.com/home-assistant/core/pull/139932
+[#139936]: https://github.com/home-assistant/core/pull/139936
+[#139938]: https://github.com/home-assistant/core/pull/139938
+[#139939]: https://github.com/home-assistant/core/pull/139939
+[#139950]: https://github.com/home-assistant/core/pull/139950
+[#139954]: https://github.com/home-assistant/core/pull/139954
+[#139962]: https://github.com/home-assistant/core/pull/139962
+[#139965]: https://github.com/home-assistant/core/pull/139965
+[#139977]: https://github.com/home-assistant/core/pull/139977
+[#139986]: https://github.com/home-assistant/core/pull/139986
+[#139988]: https://github.com/home-assistant/core/pull/139988
+[#139999]: https://github.com/home-assistant/core/pull/139999
+[#140000]: https://github.com/home-assistant/core/pull/140000
+[#140011]: https://github.com/home-assistant/core/pull/140011
+[#140014]: https://github.com/home-assistant/core/pull/140014
+[#140017]: https://github.com/home-assistant/core/pull/140017
+[#140018]: https://github.com/home-assistant/core/pull/140018
+[#140025]: https://github.com/home-assistant/core/pull/140025
+[#140036]: https://github.com/home-assistant/core/pull/140036
+[#140039]: https://github.com/home-assistant/core/pull/140039
+[#140044]: https://github.com/home-assistant/core/pull/140044
+[#140046]: https://github.com/home-assistant/core/pull/140046
+[#140047]: https://github.com/home-assistant/core/pull/140047
+[#140049]: https://github.com/home-assistant/core/pull/140049
+[#140052]: https://github.com/home-assistant/core/pull/140052
+[@Bre77]: https://github.com/Bre77
+[@Diegorro98]: https://github.com/Diegorro98
+[@Ishima]: https://github.com/Ishima
+[@IvanLH]: https://github.com/IvanLH
+[@Lash-L]: https://github.com/Lash-L
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@frenck]: https://github.com/frenck
+[@hahn-th]: https://github.com/hahn-th
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@mib1185]: https://github.com/mib1185
+[@peteS-UK]: https://github.com/peteS-UK
+[@zxdavb]: https://github.com/zxdavb
+
 [#109725]: https://github.com/home-assistant/core/pull/109725
 [#116024]: https://github.com/home-assistant/core/pull/116024
 [#116452]: https://github.com/home-assistant/core/pull/116452
