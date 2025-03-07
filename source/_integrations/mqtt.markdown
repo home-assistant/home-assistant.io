@@ -1408,6 +1408,22 @@ If you have a large number of manually configured items, you might want to consi
 Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
 {% endnote %}
 
+## Entity state updates
+
+Entities receive state updates via MQTT subscriptions. The payloads received on the state topics are processed to determine whether there is a significant change. If a change is detected, the entity will be updated.
+
+Note that MQTT device payloads often contain information for updating multiple entities that subscribe to the same topics. For example, a light status update might include information about link quality. This data can update a link quality sensor but is not used to update the light itself. MQTT filters out entity state updates when there are no changes
+
+This filtering will cause the `last_reported` flag from being updated.
+
+For sensors, users can set `force_update` to enforce state updates, or they can create an MQTT sensor to measure the last update.
+
+### The last reported state attribute
+
+While having the `last_reported` attribute is nice, there are many power sensors (mostly from Zigbee2MQTT) on the market that flood the state machine with data. This could effectively force users to buy better hardware or switch to a different solution.
+
+MQTT state updates are often repeated frequently, even when there are no actual changes. It is up to the MQTT subscriber to determine whether a status update was received. If the latest update was missed, it might take some time before the next one arrives. If a retained payload exists at the broker, that value will be replayed first, but it will be an update of a previous last state. As a result, MQTT devices often continuously generate numerous state updates.
+
 ## Using Templates
 
 The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/configuration/templating/#using-templates-with-the-mqtt-integration).
