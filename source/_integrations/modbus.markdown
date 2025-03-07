@@ -661,6 +661,11 @@ climates:
           description: "Address of HVAC action register."
           required: true
           type: integer
+        input_type:
+          description: "Type of register, either `holding` or `input`"
+          required: false
+          default: holding
+          type: string
         values:
           description: "Mapping between the register values and HVAC actions"
           required: true
