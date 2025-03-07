@@ -1416,9 +1416,9 @@ Note that MQTT device payloads often contain information for updating multiple e
 
 ### The last reported state attribute
 
-While having the `last_reported` attribute is nice, there are many power sensors (mostly from Zigbee2MQTT) on the market that flood the state machine with data. This could effectively force users to buy better hardware or switch to a different solution.
+Because MQTT state updates are often repeated frequently, even when no actual changes exist, it is up to the MQTT subscriber to determine whether a status update was received. If the latest update is missed, it might take some time before the next one arrives. If a retained payload exists at the broker, that value will be replayed first, but it will be an update of a previous last state. 
 
-MQTT state updates are often repeated frequently, even when there are no actual changes. It is up to the MQTT subscriber to determine whether a status update was received. If the latest update was missed, it might take some time before the next one arrives. If a retained payload exists at the broker, that value will be replayed first, but it will be an update of a previous last state. As a result, MQTT devices often continuously generate numerous state updates.
+MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
 
 ## Using Templates
 
