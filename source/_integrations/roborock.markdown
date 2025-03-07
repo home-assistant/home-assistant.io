@@ -132,7 +132,7 @@ Reset main brush consumable - The main brush/ roller is expected to be replaced 
 
 Reset air filter - The air filter is expected to be replaced every 150 hours.
 
-In addition, some vacuums allow routines to be set up in the app. A button entity will be created for each routine created.
+In addition, some vacuums allow routines to be set up in the app. For each of those routines, a button entity will be created, allowing you to trigger it.
 
 ### Actions
 
