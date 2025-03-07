@@ -1412,11 +1412,7 @@ Documentation on the MQTT components that support YAML [can be found here](/inte
 
 Entities receive state updates via MQTT subscriptions. The payloads received on the state topics are processed to determine whether there is a significant change. If a change is detected, the entity will be updated.
 
-Note that MQTT device payloads often contain information for updating multiple entities that subscribe to the same topics. For example, a light status update might include information about link quality. This data can update a link quality sensor but is not used to update the light itself. MQTT filters out entity state updates when there are no changes
-
-This filtering will cause the `last_reported` flag from being updated.
-
-For sensors, users can set `force_update` to enforce state updates, or they can create an MQTT sensor to measure the last update.
+Note that MQTT device payloads often contain information for updating multiple entities that subscribe to the same topics. For example, a light status update might include information about link quality. This data can update a link quality sensor but is not used to update the light itself. MQTT filters out entity state updates when there are no changes.
 
 ### The last reported state attribute
 
