@@ -55,6 +55,7 @@ device_tracker:
   - platform: netgear
     host: IP_ADDRESS
     username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     interval_seconds: 10
     consider_home: 180
     new_device_defaults:
