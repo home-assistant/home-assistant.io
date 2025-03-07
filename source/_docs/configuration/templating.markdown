@@ -1185,6 +1185,28 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.
 
+### Shuffling
+
+Our template engine contains a filter and function shuffle a list.
+
+Shuffling can happen randomly or predictably using a seed. When using a seed
+it will always return the same shuffled list for the same seed.
+
+Some examples:
+
+{% raw %}
+
+- `{{ [1, 2, 3] | shuffle }}` - renders as `[3, 1, 2]` (_random_)
+- `{{ shuffle([1, 2, 3]) }}` - renders as `[3, 1, 2]` (_random_)
+- `{{ shuffle(1, 2, 3) }}` - renders as `[3, 1, 2]` (_random_)
+
+- `{{ [1, 2, 3] | shuffle("random seed") }}` - renders as `[2, 3, 1] (_predictable_)
+- `{{ shuffle([1, 2, 3], seed="random seed") }}` - renders as `[2, 3, 1] (_predictable_)
+- `{{ shuffle([1, 2, 3], "random seed") }}`- renders as `[2, 3, 1] (_predictable_)
+- `{{ shuffle(1, 2, 3, seed="random seed") }}` - renders as `[2, 3, 1] (_predictable_)
+
+{% endraw %}
+
 ## Merge action responses
 
 Using action responses we can collect information from various entities at the same time.
