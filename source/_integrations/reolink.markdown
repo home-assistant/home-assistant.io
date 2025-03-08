@@ -139,11 +139,11 @@ Depending on the supported features of the camera, number entities are added for
 - Auto track disappear time
 - Auto track stop time
 - Day night switch threshold*
-- Image brightness* (default 128)
-- Image contrast* (default 128)
-- Image saturation* (default 128)
-- Image sharpness* (default 128)
-- Image hue* (default 128)
+- Image brightness*+ (default 128)
+- Image contrast*+ (default 128)
+- Image saturation*+ (default 128)
+- Image sharpness*+ (default 128)
+- Image hue*+ (default 128)
 
 **Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
@@ -189,7 +189,7 @@ Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at di
 Depending on the supported features of the camera, select entities are added for:
 
 - Floodlight mode (Off, Auto, Schedule)
-- Day night mode (Auto, Color, Black&White)
+- Day night mode+ (Auto, Color, Black&White)
 - <abbr title="pan, tilt, and zoom">PTZ</abbr> preset
 - Play quick reply message
 - Auto quick reply message
@@ -310,6 +310,7 @@ The following models have been tested and confirmed to work with a direct link t
 - C2 Pro*
 - [CX410](https://reolink.com/product/cx410/)
 - [CX810](https://reolink.com/product/cx810/)
+- [E1 Pro](https://reolink.com/product/e1-pro/) (only hardware version IPC_NT1NA45MP)
 - [E1 Zoom](https://reolink.com/product/e1-zoom/)
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
@@ -375,7 +376,9 @@ The following battery-powered models have been tested and confirmed to work thro
 
 - [Argus 3 Pro](https://reolink.com/product/argus-3-pro/)
 - [Argus 4 Pro](https://reolink.com/product/argus-4-pro/)
+- [Argus Eco](https://reolink.com/product/argus-eco/)
 - [Argus Eco Ultra](https://reolink.com/product/argus-eco-ultra/)
+- [Argus PT](https://reolink.com/product/argus-pt/)
 - [Argus Track](https://reolink.com/product/argus-track/)
 - [Reolink Doorbell Battery](https://reolink.com/roadmap/)
 
@@ -386,7 +389,7 @@ Reolink provides [this larger list of battery camera models](https://support.reo
 The following models are lacking the HTTP web server API and can, therefore, not work directly with this integration.
 However, these cameras can work with this integration through an NVR or Home Hub in which the NVR/Home Hub is connected to Home Assistant.
 
-- E1 Pro
+- E1 Pro (The IPC_NT1NA45MP hardware version also works with a direct connection)
 - E1
 - Reolink Lumus
 - B400*

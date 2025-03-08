@@ -14,7 +14,7 @@ ha_platforms:
   - diagnostics
   - media_player
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The HEOS {% term integration %} is used to connect a [HEOS](https://www.denon.com/en-gb/category/heos/) System to Home Assistant. HEOS is a wireless audio ecosystem
@@ -83,6 +83,8 @@ This integration follows standard integration removal. No extra steps are requir
 ## Actions
 
 In addition to the standard [Media Player actions](/integrations/media_player#actions), the HEOS integration provides the following {% term actions %}:
+
+Group volume actions: `media_player.group_volume_set`, `media_player.group_volume_down`, and `media_player.group_volume_up` for entities joined to a group.
 
 ### Action `media_player.group_volume_set`
 
@@ -215,6 +217,11 @@ data:
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | yes      | Remove this media player from any player groups. |
 
+
+{% note %}
+
+Actions may fail if they cannot be processed by the HEOS device. For example, attempting to call `media_player.clear_playlist` when the queue is empty will result in an error. To prevent this from halting a script or automation, set [`continue_on_error: true`](/docs/scripts/#continuing-on-error) in the action call.
+{% endnote %}
 
 ## Supported devices
 

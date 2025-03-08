@@ -57,13 +57,18 @@ type:
   description: "`map`"
   type: string
 entities:
-  required: true
-  description: List of entity IDs or `entity` objects (see [below](#options-for-entities)). Either this or the `geo_location_sources` configuration option is required.
+  required: false
+  description: List of entity IDs or `entity` objects (see [below](#options-for-entities)). Either this, `show_all`, or the `geo_location_sources` configuration option is required.
   type: list
 geo_location_sources:
-  required: true
-  description: List of geolocation sources or `source` objects (see [below](#options-for-geolocation-sources)). All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this or the `entities` configuration option is required.
+  required: false
+  description: List of geolocation sources or `source` objects (see [below](#options-for-geolocation-sources)). All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this, `show_all`, or the `entities` configuration option is required.
   type: list
+show_all:
+  required: false
+  description: Automatically add all entities with coordinates to the map card. (Default behavior of Map panel)
+  type: boolean
+  default: false
 auto_fit:
   required: false
   description: The map will follow moving `entities` by adjusting the viewport of the map each time an entity is updated.

@@ -142,3 +142,16 @@ Your **Configure gas consumption** should now look like this:
 With the above changes your (**{% my config_energy title="Settings > Dashboards > Energy" %}**) page should now look like this:
 
 ![Screenshot Energy Configuration](/images/integrations/opower/energy_config.png)
+
+## Known limitations
+
+- There is a delay, often for up to a few days, for sensors and statistics to have up-to-date data.
+- For some utilities, there are no sensors added by this integration.
+- For some utilities, the sensors might disappear or become unavailable at the beginning of your bill period.
+- Sensors for typical monthly usage and cost are not populated for accounts younger than a year.
+- Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, month). This results in showing 0 for cost.
+
+## Troubleshooting
+
+- Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
+- In your energy dashboard in Home Assistant, make sure you use the statistics and not the sensors.
