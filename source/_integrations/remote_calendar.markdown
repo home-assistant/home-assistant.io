@@ -36,9 +36,9 @@ Calendar URL:
     description: "The URL of the remote calender. Example: `https://calendar.google.com/calendar/ical/p07n98go11onamd08d0kmq6jhs%40group.calendar.google.com/public/basic.ics`"
 {% endconfiguration_basic %}
 
-## Update interval
+## Data updates
 
-The update interval of the calendar is every 24h.
+At the start of the integration we fetch data from the remote. If the update fails the integration tries again to fetcvh the data. After that the update interval of the calendar is every 24 hours.
 
 ### Defining a custom polling interval
 
