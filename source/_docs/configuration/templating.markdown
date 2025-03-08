@@ -1554,21 +1554,21 @@ Some examples:
 
 {% raw %}
 
-- `{{ typeof(42) }}` - renders as `'int'`
-- `{{ typeof(42.0) }}` - renders as `'float'`
-- `{{ typeof("42") }}` - renders as `'str'`
-- `{{ typeof([1, 2, 3]) }}` - renders as `'list'`
-- `{{ typeof({"key": "value"}) }}` - renders as `'dict'`
-- `{{ typeof(True) }}` - renders as `'bool'`
-- `{{ typeof(None) }}` - renders as `'NoneType'`
+- `{{ typeof(42) }}` - renders as `int`
+- `{{ typeof(42.0) }}` - renders as `float`
+- `{{ typeof("42") }}` - renders as `str`
+- `{{ typeof([1, 2, 3]) }}` - renders as `list`
+- `{{ typeof({"key": "value"}) }}` - renders as `dict`
+- `{{ typeof(True) }}` - renders as `bool`
+- `{{ typeof(None) }}` - renders as `NoneType`
 
-- `{{ 42 | typeof }}` - renders as `'int'`
-- `{{ 42.0 | typeof }}` - renders as `'float'`
-- `{{ "42" | typeof }}` - renders as `'str'`
-- `{{ [1, 2, 3] | typeof }}` - renders as `'list'`
-- `{{ {"key": "value"} | typeof }}` - renders as `'dict'`
-- `{{ True | typeof }}` - renders as `'bool'`
-- `{{ None | typeof }}` - renders as `'NoneType'`
+- `{{ 42 | typeof }}` - renders as `int`
+- `{{ 42.0 | typeof }}` - renders as `float`
+- `{{ "42" | typeof }}` - renders as `str`
+- `{{ [1, 2, 3] | typeof }}` - renders as `list`
+- `{{ {"key": "value"} | typeof }}` - renders as `dict`
+- `{{ True | typeof }}` - renders as `bool`
+- `{{ None | typeof }}` - renders as `NoneType`
 
 - `{{ some_variable | typeof }}` - renders the type of `some_variable`
 - `{{ states("sensor.living_room") | typeof }}` - renders the type of the result of `states()` function
