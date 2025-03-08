@@ -1207,6 +1207,30 @@ Some examples:
 
 {% endraw %}
 
+### Flatten a list of lists
+
+The template engine provides a filter to flatten a list of lists: `flatten`.
+
+It will take a list of lists and return a single list with all the elements.
+The depth of the flattening can be controlled using the `levels` parameter.
+The flattening process is recursive, so it will flatten all nested lists, until
+the number of levels (if specified) is reached.
+
+Some examples:
+
+{% raw %}
+
+- `{{ flatten([1, [2, [3]], 4, [5 , 6]]) }}` - renders as `[1, 2, 3, 4, 5, 6]`
+- `{{ [1, [2, [3]], 4, [5 , 6]] | flatten }}` - renders as `[1, 2, 3, 4, 5, 6]`
+
+- `{{ flatten([1, [2, [3]]], levels=1) }}` - renders as `[1, 2, [3]]`
+- `{{ [1, [2, [3]]], flatten(levels=1) }}` - renders as `[1, 2, [3]]`
+
+- `{{ flatten([1, [2, [3]]], 1) }}` - renders as `[1, 2, [3]]`
+- `{{ [1, [2, [3]]], flatten(1) }}` - renders as `[1, 2, [3]]`
+
+{% endraw %}
+
 ## Merge action responses
 
 Using action responses we can collect information from various entities at the same time.
