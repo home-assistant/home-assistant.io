@@ -929,6 +929,19 @@ it encounters an error; it will continue to the next {% term action %}.
 Please note that `continue_on_error` will not suppress/ignore misconfiguration
 or errors that Home Assistant does not handle.
 
+Some errors are not properly raised as `HomeAssistantError`, meaning `continue_on_error` **will not catch them**.  
+Because not all integrations handle errors correctly, unexpected issues (e.g., network failures, API errors, or timeout exceptions) can still stop script execution.  
+
+To prevent this, you can use `force_continue_on_error: true`, which allows scripts to continue running even when non-HA exceptions occur.
+
+However, `force_continue_on_error` will still raise the following errors:
+- `vol.Invalid`
+- `exceptions.TemplateError`
+- `exceptions.ServiceNotFound`
+- `exceptions.InvalidEntityFormatError`
+- `exceptions.NoEntitySpecifiedError`
+- `exceptions.ConditionError`
+
 ## Disabling an action
 
 Every individual {% term action %} in a sequence can be disabled, without removing it.
