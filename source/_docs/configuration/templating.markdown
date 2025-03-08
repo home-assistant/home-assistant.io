@@ -1537,6 +1537,44 @@ When a command template renders to a valid `bytes` literal, then MQTT will publi
 - Template {% raw %}`{{ 16 }}`{% endraw %} renders to payload encoded string `"16"`.
 - Template {% raw %}`{{ pack(0x10, ">B") }}`{% endraw %} renders to a raw 1 byte payload `0x10`.
 
+### Determining types
+
+When working with templates, it can be useful to determine the type of
+returned value from a method or the type of a variable at times.
+
+For this, Home Assistant provides the `typeof()` template function and filter,
+is inspired by the [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+`typeof` operator. It reveals the type of the given value.
+
+This is mostly useful when you are debugging or playing with templates in
+the developer tools of Home Assistant. However, it might be useful in some
+other cases as well.
+
+Some examples:
+
+{% raw %}
+
+- `{{ typeof(42) }}` - renders as `'int'`
+- `{{ typeof(42.0) }}` - renders as `'float'`
+- `{{ typeof("42") }}` - renders as `'str'`
+- `{{ typeof([1, 2, 3]) }}` - renders as `'list'`
+- `{{ typeof({"key": "value"}) }}` - renders as `'dict'`
+- `{{ typeof(True) }}` - renders as `'bool'`
+- `{{ typeof(None) }}` - renders as `'NoneType'`
+
+- `{{ 42 | typeof }}` - renders as `'int'`
+- `{{ 42.0 | typeof }}` - renders as `'float'`
+- `{{ "42" | typeof }}` - renders as `'str'`
+- `{{ [1, 2, 3] | typeof }}` - renders as `'list'`
+- `{{ {"key": "value"} | typeof }}` - renders as `'dict'`
+- `{{ True | typeof }}` - renders as `'bool'`
+- `{{ None | typeof }}` - renders as `'NoneType'`
+
+- `{{ some_variable | typeof }}` - renders the type of `some_variable`
+- `{{ states("sensor.living_room") | typeof }}` - renders the type of the result of `states()` function
+
+{% endraw %}
+
 ## Some more things to keep in mind
 
 ### `entity_id` that begins with a number
