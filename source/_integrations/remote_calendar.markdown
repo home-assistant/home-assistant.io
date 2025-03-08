@@ -16,8 +16,6 @@ ha_integration_type: service
 
 The **Remote calendar** {% term integration %} allows you to read a calendar in Home Assistant for powering automations.
 
-A calendar entity has a state and attributes that represent the next upcoming event (only). A calendar trigger is a much more flexible way to power automations with fewer limitations than using the entity state.
-
 ## Known limitations
 
 The integration does not provide the ability to connect to an resource that requires authentication or special headers.
@@ -43,6 +41,10 @@ At the start of the integration we fetch data from the remote. If the update fai
 ### Defining a custom polling interval
 
 {% include common-tasks/define_custom_polling.md %}
+
+## Supported functionality
+
+The integration only supports reading a calendar. A calendar entity has a state and attributes that represent the next upcoming event (only). All the events of the calendar can be displayed in the Calendar dashboard.
 
 ## Calendar Event Automations
 
