@@ -33,7 +33,7 @@ Settings:
 
 ## Creating an API key
 
-To add this integration, you need a (free) Purple Air API Key. A new account currently comes with 1 million free points. After that, you need to buy additional points to continue to use the API. The current plugin uses ~30K points/day. The 1 million points last about a month. A lack of points will trigger API errors until you buy more points.
+To add this integration, you need a (free) Purple Air API Key. A new account currently comes with 1 million free points. After that, you need to buy additional points to continue to use the API. The current plugin uses ~30K points/day. The 1 million points last about a month. A lack of points will trigger API errors until you buy more points. PurpleAir sensor owners can access data for their [own sensors free of charge](https://community.purpleair.com/t/api-points-for-sensor-owners/7525).
 
 Detailed instructions can be found [here](https://community.purpleair.com/t/creating-api-keys/3951) but in summary you:
 
@@ -43,8 +43,7 @@ Detailed instructions can be found [here](https://community.purpleair.com/t/crea
 - Go back to the ['keys'](https://develop.purpleair.com/keys) page and copy the API key.  It will be a value like XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX.
 - Paste that API key into the **API Key** field when creating the integration in Home Assistant.
 
-Note that if you are using your own sensor, it will need to be set to **Public** to be visible.
-
+*Note*: If your sensor visibility is set to *Private* it will not show up on the search map, but it can be added from the *Options* menu by using the *Index* and *Read Key* you received in email during sensor registration.
 
 ## Creating an AQI Rating from Raw Particulate Data
 
