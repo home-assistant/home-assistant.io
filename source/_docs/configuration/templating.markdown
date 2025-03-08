@@ -1187,9 +1187,9 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 
 ### Shuffling
 
-Our template engine contains a filter and function shuffle a list.
+The template engine contains a filter and function to shuffle a list.
 
-Shuffling can happen randomly or reproducible using a seed. When using a seed
+Shuffling can happen randomly or reproducibly using a seed. When using a seed
 it will always return the same shuffled list for the same seed.
 
 Some examples:
