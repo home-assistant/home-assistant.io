@@ -18,6 +18,10 @@ The **Remote calendar** {% term integration %} allows you to read a calendar in 
 
 A calendar entity has a state and attributes that represent the next upcoming event (only). A calendar trigger is a much more flexible way to power automations with fewer limitations than using the entity state.
 
+## Known limitations
+
+The integration does not provide the ability to connect to an resource that requires authentication or special headers.
+
 ## Installation instructions
 
 {% include integrations/config_flow.md %}
