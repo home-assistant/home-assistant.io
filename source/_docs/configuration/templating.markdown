@@ -1540,10 +1540,10 @@ When a command template renders to a valid `bytes` literal, then MQTT will publi
 ### Determining types
 
 When working with templates, it can be useful to determine the type of
-returned value from a method or the type of a variable at times.
+the returned value from a method or the type of a variable at times.
 
 For this, Home Assistant provides the `typeof()` template function and filter,
-is inspired by the [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+which is inspired by the [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 `typeof` operator. It reveals the type of the given value.
 
 This is mostly useful when you are debugging or playing with templates in
