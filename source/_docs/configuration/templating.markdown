@@ -1174,6 +1174,31 @@ Some examples:
 
 </div>
 
+### Hashing
+
+The template engine contains a few filters and functions to hash a string of
+data. A few very common hashing algorithms are supported: `md5`, `sha1`,
+`sha256`, and `sha512`.
+
+Some examples:
+
+{% raw %}
+
+- `{{ md5("Home Assistant") }}` - renders as `f3f2b8b3b40084aa87e92b7ffb02ed13885fea2d07`
+- `{{ "Home Assistant" | md5 }}` - renders as `f3f2b8b3b40084aa87e92b7ffb02ed13885fea2d07`
+
+- `{{ sha1("Home Assistant") }}` - renders as `14bffd017c73917bfda2372aaf287570597b8e82`
+- `{{ "Home Assistant" | sha1 }}` - renders as `14bffd017c73917bfda2372aaf287570597b8e82`
+
+- `{{ sha256("Home Assistant") }}` - renders as `a18f473c9d3ed968a598f996dcf0b9de84de4ee04c950d041b61297a25bcea49`
+- `{{ "Home Assistant" | sha256 }}` - renders as `a18f473c9d3ed968a598f996dcf0b9de84de4ee04c950d041b61297a25bcea49`
+
+- `{{ sha512("Home Assistant") }}` - renders as `f251e06eb7d3439e1a86d6497d6a4531c3e8c809f538be62f89babf147d7d63aca4e77ae475b94c654fd38d8f543f778ce80007d6afef379d8a0e5d3ddf7349d`
+- `{{ "Home Assistant" | sha512 }}` - renders as `f251e06eb7d3439e1a86d6497d6a4531c3e8c809f538be62f89babf147d7d63aca4e77ae475b94c654fd38d8f543f778ce80007d6afef379d8a0e5d3ddf7349d`
+
+{% endraw %}
+
+
 ### Regular expressions
 
 For more information on regular expressions
