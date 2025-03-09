@@ -41,6 +41,7 @@ Verify SSL:
 - [Owncloud](https://owncloud.com/): `https://<your-owncloud-domain>/remote.php/webdav/`
 - [Hetzner Storage Box](https://www.hetzner.com/storage/storage-box): `https://<username>.your-storagebox.de`
 - [Strato HiDrive](https://www.strato.de/): `https://webdav.hidrive.strato.com`
+- [Beeline Cloud](https://cloudbeeline.ru/): `https://webdav.cloudbeeline.ru` – free 10GB (forever), to enable WebDAV you need to go to Profile -> Security and enable it there (screenshots and [detailed explanation here](https://t.me/another_mvp/49)).
 
 ## Removing the integration
 
