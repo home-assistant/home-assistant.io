@@ -2,6 +2,7 @@
 title: Monzo
 description: Instructions on how to integrate Monzo integration into Home Assistant.
 ha_category:
+  - Finance
   - Sensor
 ha_release: 2024.6
 ha_iot_class: Cloud Polling

@@ -20,6 +20,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell in Home Assistant.
@@ -291,8 +292,8 @@ elements:
       right: 25px
       bottom: 50px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: up
@@ -303,8 +304,8 @@ elements:
       right: 25px
       bottom: 0px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: down
@@ -315,8 +316,8 @@ elements:
       right: 50px
       bottom: 25px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: left
@@ -327,8 +328,8 @@ elements:
       right: 0px
       bottom: 25px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: right
@@ -339,8 +340,8 @@ elements:
       right: 50px
       bottom: 50px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: left_up
@@ -351,8 +352,8 @@ elements:
       right: 0px
       bottom: 50px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: right_up
@@ -363,8 +364,8 @@ elements:
       right: 50px
       bottom: 0px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: left_down
@@ -375,8 +376,8 @@ elements:
       right: 0px
       bottom: 0px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: right_down
@@ -387,14 +388,14 @@ elements:
       bottom: 25px
       right: 25px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: zoom_in
     hold_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       data:
         entity_id: camera.lakehouse
         movement: zoom_out

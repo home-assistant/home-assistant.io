@@ -13,7 +13,9 @@ ha_codeowners:
   - '@synesthesiam'
 ha_config_flow: true
 ha_platforms:
+  - assist_satellite
   - binary_sensor
+  - conversation
   - number
   - select
   - stt

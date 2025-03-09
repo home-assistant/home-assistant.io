@@ -15,7 +15,6 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.66
 ha_config_flow: true
-ha_quality_scale: silver
 ha_domain: homematicip_cloud
 ha_platforms:
   - alarm_control_panel
@@ -23,6 +22,7 @@ ha_platforms:
   - button
   - climate
   - cover
+  - event
   - light
   - lock
   - sensor
@@ -176,6 +176,7 @@ Within this delay the device registration should be completed in the App, otherw
   - Passage Sensor with Direction Recognition (*HmIP-SPDR*) (delta counter)
   - Alpha IP Wall Thermostat Display (*ALPHA-IP-RBG*)
   - Alpha IP Wall Thermostat Display analog (*ALPHA-IP-RBGa*)
+  - Floor Heating Actuator – 12x channels, motorized - Valve positions (*HmIP-FALMOT-C12*)
 
 - homematicip_cloud.switch
   - Pluggable Switch (*HmIP-PS*)

@@ -46,7 +46,7 @@ intent:
       description: List of domains that the entity supports.
       required: false
       type: list
-    actions:
+    action:
       description: Defines an action to run to intents.
       required: false
       type: action
@@ -105,11 +105,11 @@ available in the `action_response` variable.
 conversation:
   intents:
     EventCountToday:
-      - "How many meetings do I have today?"
+      - "How many meetings do I have today"
 
 intent_script:
   EventCountToday:
-    actions:
+    action:
       - action: calendar.get_events
         target:
           entity_id: calendar.my_calendar

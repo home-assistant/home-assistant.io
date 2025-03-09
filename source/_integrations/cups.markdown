@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `cups` sensor platform uses the open source printing system [CUPS](https://www.cups.org/) to show details about your printers, including the ink levels. It can obtain the information using a CUPS server or by communicating directly with the printer with the Internet Printing Protocol.

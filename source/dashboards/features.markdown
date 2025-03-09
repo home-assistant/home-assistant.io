@@ -162,6 +162,35 @@ preset_modes:
   type: list
 {% endconfiguration %}
 
+## Counter actions
+
+Widget that displays buttons to increment, decrement, and reset a [counter](/integrations/counter).
+
+<p class='img'>
+  <img src='/images/dashboards/features/counter_actions.png' alt='Screenshot of the tile card with counter actions feature'>
+  Screenshot of the tile card with counter actions feature
+</p>
+
+```yaml
+features:
+  - type: "counter-actions"
+    actions:
+      - increment
+      - decrement
+      - reset
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`counter-actions`"
+  type: string
+actions:
+  required: true
+  description: List of actions to show on the card. The list can contain `increment`, `decrement`, and `reset`.
+  type: list
+{% endconfiguration %}
+
 ## Cover open/close
 
 Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
@@ -470,6 +499,27 @@ type:
   type: string
 {% endconfiguration %}
 
+## Media player volume slider
+
+Widget that displays a slider to control the volume for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_volume_slider.png' alt='Screenshot of the tile card with media player volume slider feature'>
+  Screenshot of the tile card with media player volume slider feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-volume-slider"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-volume-slider`"
+  type: string
+{% endconfiguration %}
+
 ## Numeric input
 
 Widget that displays a slider or buttons to set the value for a [number](/integrations/number) or [input number](/integrations/input_number).
@@ -536,6 +586,27 @@ features:
 type:
   required: true
   description: "`target-temperature`"
+  type: string
+{% endconfiguration %}
+
+## Toggle
+
+Widget that displays a button to toggle a [switch](/integrations/switch) or [input boolean](/integrations/input_boolean) entity on or off.
+
+<p class='img'>
+  <img src='/images/dashboards/features/toggle.png' alt='Screenshot of the tile card with the toggle feature'>
+  Screenshot of the tile card with the toggle feature
+</p>
+
+```yaml
+features:
+  - type: "toggle"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`toggle`"
   type: string
 {% endconfiguration %}
 

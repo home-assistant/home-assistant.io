@@ -24,7 +24,6 @@ scene:
       media_player.sony_bravia_tv:
         state: "on"
         source: HDMI 1
-        state: "on"
 ```
 
 ## How to configure your scene
@@ -35,10 +34,6 @@ all required parameters as listed below.
 {% configuration %}
 name: 
   description: Friendly name of the scene.
-  required: true
-  type: string
-description:
-  description: Description of the scene.
   required: true
   type: string
 entities:

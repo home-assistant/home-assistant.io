@@ -106,6 +106,10 @@ Extensions allow templates to access all of the Home Assistant specific states a
 
 Templates for some [triggers](/docs/automation/trigger/) as well as `trigger_variables` only support a subset of the Home Assistant template extensions. This subset is referred to as "Limited Templates".
 
+### This
+
+State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. See more details and examples in the [Template integration documentation](/integrations/template).
+
 ### States
 
 Not supported in [limited templates](#limited-templates).
@@ -318,7 +322,7 @@ List of lights that are on with a brightness of 255:
 {% raw %}
 
 ```text
-{{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
+{{ ['light.kitchen', 'light.dining_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
 ```
 
 {% endraw %}
@@ -469,6 +473,7 @@ The same thing can also be expressed as a test:
 - `floor_id(lookup_value)` returns the floor ID for a given device ID, entity ID, area ID, or area name. Can also be used as a filter.
 - `floor_name(lookup_value)` returns the floor name for a given device ID, entity ID, area ID, or floor ID. Can also be used as a filter.
 - `floor_areas(floor_name_or_id)` returns the list of area IDs tied to a given floor ID or name. Can also be used as a filter.
+- `floor_entities(floor_name_or_id)` returns the list of entity IDs tied to a given floor ID or name. Can also be used as a filter.
 
 #### Floors examples
 
@@ -714,10 +719,10 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
 ### Time
 
-`now()`, `relative_time()`, `today_at()`, and `utcnow()` are not supported in [limited templates](#limited-templates).
+`now()`, `time_since()`, `time_until()`, `today_at()`, and `utcnow()` are not supported in [limited templates](#limited-templates).
 
 - `now()` returns a datetime object that represents the current time in your time zone.
-  - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3.8/library/datetime.html#datetime.datetime) attributes and functions.
+  - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime) attributes and functions.
   - Using `now()` will cause templates to be refreshed at the start of every new minute.
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
@@ -738,7 +743,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 - `as_datetime(value, default)` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error. When the input is already a datetime object it will be returned as is. in case the input is a datetime.date object, midnight will be added as time. This function can also be used as a filter.
 - `as_timestamp(value, default)` converts a datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts a datetime object to local time. This function can also be used as a filter.
-- `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3.10/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
+- `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
 - `time_since(datetime, precision)` converts a datetime object into its human-readable time string. The time string can be in seconds, minutes, hours, days, months, and years. `precision` takes an integer (full number) and indicates the number of units returned.  The last unit is rounded. For example: `precision = 1` could return "2 years" while `precision = 2` could return "1 year 11 months". This function can also be used as a filter.
 If the datetime is in the future, returns 0 seconds.
 A precision of 0 returns all available units, default is 1.
@@ -1176,9 +1181,55 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 
 - Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
 - Test `string is search(find, ignorecase=False)` will match the find expression anywhere in the string using regex.
-- Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
+- Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex. Access to the matched groups in `replace` is possible with `'\\1'`, `'\\2'`, etc.
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.
+
+### Shuffling
+
+The template engine contains a filter and function to shuffle a list.
+
+Shuffling can happen randomly or reproducibly using a seed. When using a seed
+it will always return the same shuffled list for the same seed.
+
+Some examples:
+
+{% raw %}
+
+- `{{ [1, 2, 3] | shuffle }}` - renders as `[3, 1, 2]` (_random_)
+- `{{ shuffle([1, 2, 3]) }}` - renders as `[3, 1, 2]` (_random_)
+- `{{ shuffle(1, 2, 3) }}` - renders as `[3, 1, 2]` (_random_)
+
+- `{{ [1, 2, 3] | shuffle("random seed") }}` - renders as `[2, 3, 1] (_reproducible_)
+- `{{ shuffle([1, 2, 3], seed="random seed") }}` - renders as `[2, 3, 1] (_reproducible_)
+- `{{ shuffle([1, 2, 3], "random seed") }}`- renders as `[2, 3, 1] (_reproducible_)
+- `{{ shuffle(1, 2, 3, seed="random seed") }}` - renders as `[2, 3, 1] (_reproducible_)
+
+{% endraw %}
+
+### Flatten a list of lists
+
+The template engine provides a filter to flatten a list of lists: `flatten`.
+
+It will take a list of lists and return a single list with all the elements.
+The depth of the flattening can be controlled using the `levels` parameter.
+The flattening process is recursive, so it will flatten all nested lists, until
+the number of levels (if specified) is reached.
+
+Some examples:
+
+{% raw %}
+
+- `{{ flatten([1, [2, [3]], 4, [5 , 6]]) }}` - renders as `[1, 2, 3, 4, 5, 6]`
+- `{{ [1, [2, [3]], 4, [5 , 6]] | flatten }}` - renders as `[1, 2, 3, 4, 5, 6]`
+
+- `{{ flatten([1, [2, [3]]], levels=1) }}` - renders as `[1, 2, [3]]`
+- `{{ [1, [2, [3]]], flatten(levels=1) }}` - renders as `[1, 2, [3]]`
+
+- `{{ flatten([1, [2, [3]]], 1) }}` - renders as `[1, 2, [3]]`
+- `{{ [1, [2, [3]]], flatten(1) }}` - renders as `[1, 2, [3]]`
+
+{% endraw %}
 
 ## Merge action responses
 
@@ -1459,12 +1510,14 @@ To evaluate a response, go to **{% my developer_template title="Developer Tools 
 
 ### Using templates with the MQTT integration
 
-The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to status updates or incoming actions (command templates) to payloads that configure the MQTT device.
+The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to state updates or incoming actions (command templates) to payloads that configure the MQTT device.
 
 #### Using value templates with MQTT
 
-For incoming data a value template translates incoming JSON or raw data to a valid payload.
-Incoming payloads are rendered with possible JSON values, so when rendering the `value_json` can be used access the attributes in a JSON based payload.
+Value templates translate received MQTT payload to a valid state or attribute.
+The received MQTT is available in the `value` template variable, and in the `value_json` template variable if the received MQTT payload is valid JSON.
+
+In addition, the template variables `entity_id`, `name` and `this` are available for MQTT entity value templates. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 {% note %}
 
@@ -1478,13 +1531,13 @@ With given payload:
 
 Template {% raw %}`{{ value_json.temperature | round(1) }}`{% endraw %} renders to `21.9`.
 
-Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
-
 {% endnote %}
 
 #### Using command templates with MQTT
 
-For actions, command templates are defined to format the outgoing MQTT payload to the device. When an action is executed, `value` can be used to generate the correct payload to the device.
+For actions, command templates are defined to format the outgoing MQTT payload to a format supported by the remote device. When an action is executed, the template variable `value` has the action data in most cases unless otherwise specified in the documentation.
+
+In addition, the template variables `entity_id`, `name` and `this` are available for MQTT entity command templates. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 {% note %}
 
@@ -1498,8 +1551,6 @@ With given value `21.9` template {% raw %}`{"temperature": {{ value }} }`{% endr
 }
 ```
 
-Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
-
 {% endnote %}
 
 **Example command template with raw data:**
@@ -1509,6 +1560,44 @@ When a command template renders to a valid `bytes` literal, then MQTT will publi
 - Template {% raw %}`{{ "16" }}`{% endraw %} renders to payload encoded string `"16"`.
 - Template {% raw %}`{{ 16 }}`{% endraw %} renders to payload encoded string `"16"`.
 - Template {% raw %}`{{ pack(0x10, ">B") }}`{% endraw %} renders to a raw 1 byte payload `0x10`.
+
+### Determining types
+
+When working with templates, it can be useful to determine the type of
+the returned value from a method or the type of a variable at times.
+
+For this, Home Assistant provides the `typeof()` template function and filter,
+which is inspired by the [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+`typeof` operator. It reveals the type of the given value.
+
+This is mostly useful when you are debugging or playing with templates in
+the developer tools of Home Assistant. However, it might be useful in some
+other cases as well.
+
+Some examples:
+
+{% raw %}
+
+- `{{ typeof(42) }}` - renders as `int`
+- `{{ typeof(42.0) }}` - renders as `float`
+- `{{ typeof("42") }}` - renders as `str`
+- `{{ typeof([1, 2, 3]) }}` - renders as `list`
+- `{{ typeof({"key": "value"}) }}` - renders as `dict`
+- `{{ typeof(True) }}` - renders as `bool`
+- `{{ typeof(None) }}` - renders as `NoneType`
+
+- `{{ 42 | typeof }}` - renders as `int`
+- `{{ 42.0 | typeof }}` - renders as `float`
+- `{{ "42" | typeof }}` - renders as `str`
+- `{{ [1, 2, 3] | typeof }}` - renders as `list`
+- `{{ {"key": "value"} | typeof }}` - renders as `dict`
+- `{{ True | typeof }}` - renders as `bool`
+- `{{ None | typeof }}` - renders as `NoneType`
+
+- `{{ some_variable | typeof }}` - renders the type of `some_variable`
+- `{{ states("sensor.living_room") | typeof }}` - renders the type of the result of `states()` function
+
+{% endraw %}
 
 ## Some more things to keep in mind
 

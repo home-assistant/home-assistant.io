@@ -2,9 +2,9 @@
 title: "Create a personality with AI"
 related:
   - docs: /voice_control/voice_remote_cloud_assistant/
-    title: Cloud assistant pipeline
+    title: Cloud Assistant pipeline
   - docs: /voice_control/voice_remote_local_assistant/
-    title: Local assistant pipeline
+    title: Local Assistant pipeline
   - url: https://www.nabucasa.com
     title: Home Assistant Cloud
   - docs: /integrations/google_generative_ai_conversation/
@@ -16,63 +16,59 @@ related:
     
 ---
 
-You can give your voice assistant personality by using an AI conversation agent. Currently, this works with the **OpenAI Conversation** or the **Google Generative AI** integration.
+You can give your voice assistant personality by using an AI conversation agent.
 
-For this tutorial, we will work with OpenAI. This requires an OpenAI account. For what we do here, the free trial option is sufficient.
+## What can I do in Assist with AI exactly?
 
-## Demos
+- Pick the LLM provider of your choice, either local or cloud, as long as it has a conversational agent.
+- Select a personality based on a prompt.
+- Get replies with the character's personality you defined.
+- Perform Home Assistant intents (turn on-off lights, etc), as long as Assist is correctly configured as per our [best practices](/voice_control/best_practices).
 
-### Interview with an AI Mario personality
-
-<lite-youtube videoid="eLx8_NAqptk" videotitle="Give your voice assistant personality using the OpenAI integration"></lite-youtube>
-
-### Using Assist with AI to control your smart home
-
-An 1-minute clip showing how Assist is using AI to control a smart home.
+Check this 1-minute clip showing how Assist is using AI to control a smart home.
 
 <lite-youtube videoid="KXoIpwKsekY" videotitle="Demo of using Assist with an AI to control your smart home!"></lite-youtube>
 
+## What LLM providers are available?
+
+LLM-based agents are evolving constantly, and Home Assistant supports most of them. If you'd like to get a deeper knowledge on how to pick the best choice for your setup, [here](https://github.com/allenporter/home-assistant-datasets/tree/main/reports) is a comparison study you can check.
+
+There are cloud agents provided by [Open AI](/integrations/openai_conversation/) or [Anthropic](/integrations/anthropic/) and local ones provided by [Ollama](/integrations/ollama), and both cases are supported by Home Assistant.
+
 ## Prerequisites
 
-This tutorial assumes you have a few things set up already:
+- Home Assistant and Assist is configured following our [best practices](/voice_control/best_practices).
+- An account in the conversational agent of the LLM provider of your choice. If you want to test the process, you can create a free account on Open AI.
+- In case of a local LLM solution, you need to have the model installed.
 
-- [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/integrations/assist_pipeline)
+### Creating a voice assistant personality with an LLM-based conversation agent
 
-### Creating an OpenAI voice assistant personality
+1. Go to {% my integrations title="**Settings** > **Devices & Services**" %} **Add Integration**, find your LLM provider and set it up with your API key. 
+   - In case of a provider of local agents like Ollama, you need to configure the local URL where the agent is installed. Follow the specific [integration recommendations](/integrations/ollama) in this case. 
+2. Go to **Settings > Voice Assistants > Add Assistant**. Give it a name and pick a conversation agent from your AI's option. In this example we are using Antropic and the agent picked is Claude.
 
-Using OpenAI requires an OpenAI account. For this tutorial, the free trial option is sufficient. No need to leave your credit card information.
+    ![Add Claude agent to Assist](/images/assist/add-claude-to-assist.png)
 
-1. [Set up an OpenAI account and install the OpenAI conversation](/integrations/openai_conversation/) integration.
-2. Create a Mario personality.
-   - Once you installed the **OpenAI Conversation** integration, go to {% my integrations title="**Settings** > **Devices & Services**" %}. In the **OpenAI Conversation integration**, select **Configure**.
+3. Be mindful of your Text-to-speech and Speech-to-text configurations. These are not handled by the AI and should stay as you want them configured for Assist.
+4. Configure the agent (gear icon next to the agent's name).
   
-      ![Configure the OpenAI integration](/images/assist/assistant-openai-mario-config.png)
-   - In the **Prompt template** field, enter the following text:
-  
+   - In the **Prompt template** field, enter a text that will prompt the AI to become the character. For example::
        `You are Super Mario from Mario Bros. Be funny.`
-
-   - Define if the OpenAI voice assistant is allowed to control the devices in your home.
-     - **No control**: you can talk to Mario, but it cannot control devices.
-     - **Assist**: you can talk to it and it can control devices. For example, it could turn on the lights.
+   - Define if the voice assistant is allowed to control the devices in your home.
+     - **No control**: you can talk to the agent, but it cannot control devices.
+     - **Assist**: you can talk to the agent and it can control devices. For example, it could turn on the lights.
        - Assist can only control {% term entities %} that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
-   - Define the **Model**:
-     - If you have a paid OpenAI subscription that supports GPT4.0, you can select **Submit**.
-     - If you use the free trial version, deselect the **Recommended model settings** checkbox and select **Submit**.
-     - Then, under **Model**, enter `gpt-3.5-turbo` and select **Submit**.
-  
-      ![Add prompt for Mario personality](/images/assist/assistant-openai-mario-09.png)
-  
-3. Give your personality a name:
-   - Select **Rename** and change the name to `OpenAI Mario`.
-  
-      ![Give your Mario personality a name](/images/assist/mario_rename.png)
-4. Create a Mario assistant:
-   - Under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, select **Add assistant**.
-   - Give it a name, select a language, and under **Conversation agent**, select the Mario OpenAI Conversation integration.
-   ![Add a new assistant](/images/assist/assistant-openai-mario-04.png)
-   - Leave the other settings unchanged and select **Create**.
-5. You can repeat this with other OpenAI personalities. You can add as many OpenAI Conversation integrations as you would like.
-   - To add a new personality, you need to create a new API key. Then, add a new OpenAI Conversation integration with that API key.
+             ![Agent with recommended model settings](/images/assist/agent-recommended-model-settings.png)
+
+   - Once your Assist agent has been created, you can go to **Voice assistants** and the three dots menu of your personality, and define if you want Home Assistant's model to be the priority response, and therefore Assist would prefer to handling commands locally .
+             ![Fallback toggle](/images/assist/fallback-assist-toggle.png)
+
+      - If you keep this option selected, if the intent can be answered by Home Assistant it will. It will not have the personality, but the response will be fast and efficient (since it doesn't require to go through the LLM). This is recommended in cases where you can accept not having the AI character reply sometimes and would rather your lights are turned on faster.
+      - If you deselect the option, all the intents will go through the agent. This is recommended when efficiency is not an issue and you need the agent never to break character (for example if your Assist personality is Santa Claus).
+5. You can uncheck Recommended model settings, hit Submit and it will unblock extra customization. In the specific example of OpenAI, [here](/integrations/openai_conversation/#model) a brief summary of the other settings.
+6. You can test the agent directly from the Voice assistants panel, selecting Start a conversation from the agent's menu. It will control your Home Assistant and reply exactly as it will do with any voice hardware.
+
+7. In case you need troubleshooting with your LLM provider, check any specifics from your AI in our [integrations documentation](/integrations)
 
 ## Tutorial: Setting up Assist with OpenAI
 
@@ -88,3 +84,9 @@ To learn how to use the AI assistant with your devices, refer to one of the foll
 - [$13 voice assistant using ATOM Echo](/voice_control/thirteen-usd-voice-remote/)
 - [Assist on Android](/voice_control/android/)
 - [Assist on Apple](/voice_control/apple/)
+
+## Demos
+
+Check this interview with an AI Mario personality
+
+<lite-youtube videoid="eLx8_NAqptk" videotitle="Give your voice assistant personality using the OpenAI integration"></lite-youtube>

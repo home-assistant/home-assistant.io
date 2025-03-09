@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `microsoft` text-to-speech {% term integration %} uses the [TTS engine of the Microsoft Speech Service](https://learn.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) to read a text with natural sounding voices. This integration uses an API that is part of the Cognitive Services offering and is known as the Microsoft Speech API. For this integration to work, you need a free API key. You can use your [Azure subscription](https://azure.microsoft.com) to create an [Azure Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
@@ -64,7 +65,7 @@ pitch:
   type: string
   default: "`default`"
 contour:
-  description: "Change the contour of the output in percentages. This overrides the pitch setting. See the [W3 SSML specification](https://www.w3.org/TR/speech-synthesis/#pitch_contour) for what it does. Example value: `(0,0) (100,100)`."
+  description: "Change the contour of the output in percentages. This overrides the pitch setting. See the [W3 SSML specification](https://www.w3.org/TR/speech-synthesis/#pitch_contour) for what it does. Example value: `(0%, -1st) (100%, +10st)`."
   required: false
   type: string
 region:
@@ -99,6 +100,6 @@ tts:
     rate: 20
     volume: -50
     pitch: high
-    contour: (0, 0) (100, 100)
+    contour: (0%, -1st) (100%, +10st)
     region: eastus
 ```

@@ -5,7 +5,6 @@ ha_category:
   - Environment
 ha_iot_class: Calculated
 ha_release: 0.116
-ha_quality_scale: silver
 ha_codeowners:
   - '@JulienTant'
 ha_domain: zodiac

@@ -25,6 +25,7 @@ Triggers from all platforms will include the following data.
 
 | Template variable | Data |
 | ---- | ---- |
+| `trigger.alias` | Alias of the trigger.
 | `trigger.id` | The [`id` of the trigger](/docs/automation/trigger/#trigger-id).
 | `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
 
@@ -102,6 +103,7 @@ These are the properties available for a [Sentence trigger](/docs/automation/tri
 | `trigger.sentence` | Text of the sentence that was matched
 | `trigger.slots`    | Object with matched slot values
 | `trigger.details` | Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains: <ul><li>`name` - name of the slot</li><li>`text` - matched text</li><li>`value` - output value (see [lists](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#lists))</li></ul>
+| `trigger.device_id` | The device ID that captured the command, if any.
 
 ### State
 

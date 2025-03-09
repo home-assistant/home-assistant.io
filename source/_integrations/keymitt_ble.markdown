@@ -53,9 +53,10 @@ The integration will automatically discover devices once the [Bluetooth](/integr
 
 Due to the device going into deep sleep after extended periods of no activity, the response time can be up to a minute in extreme cases. On average it will be much quicker.
 
-{% configuration_basic %}
-"Failed to pair":
-  description: Make sure your devices are powered on, in range, and in pairing mode. Pressing the button on the MicroBot Push to take it out of deep sleep may also be beneficial.
-"No unconfigured devices found":
-  description: Make sure your devices are powered on, in range, and in pairing mode. Pressing the button on the MicroBot Push to take it out of deep sleep may also be beneficial.
-{% endconfiguration_basic %}
+{% details "Failed to pair" %}
+Make sure your devices are powered on, in range, and in pairing mode. Pressing the button on the MicroBot Push to take it out of deep sleep may also be beneficial.
+{% enddetails %}
+
+{% details "No unconfigured devices found" %}
+Make sure your devices are powered on, in range, and in pairing mode. Pressing the button on the MicroBot Push to take it out of deep sleep may also be beneficial.
+{% enddetails %}

@@ -23,7 +23,7 @@ heading: Living room
 icon: mdi:sofa
 badges:
   - type: entity
-    entity_id: sensor.living_room_sensor_temperature
+    entity: sensor.living_room_sensor_temperature
     color: red
   - type: entity
     entity: sensor.living_room_sensor_humidity

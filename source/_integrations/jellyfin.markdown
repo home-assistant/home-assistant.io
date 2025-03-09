@@ -9,7 +9,7 @@ ha_category:
 ha_release: '2021.12'
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@j-stienstra'
+  - '@RunC0deRun'
   - '@ctalkington'
 ha_config_flow: true
 ha_domain: jellyfin
@@ -64,5 +64,4 @@ Password:
 {% configuration_basic %}
 Audio Codec:
   description: Sets the audio encoding codec to a Jellyfin API supported codec (aac, mp3, vorbis, wma)
-  required: false
 {% endconfiguration_basic %}

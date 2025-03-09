@@ -241,6 +241,11 @@ automation:
 
 {% endraw %}
 
+{% note %}
+Listing above and below together means the numeric_state has to be between the two values.
+In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (above 17 and below 25). It will only fire again, once it has left the defined range and enters it again.
+{% endnote %}
+
 When the `attribute` option is specified the trigger is compared to the given `attribute` instead of the state of the entity.
 
 {% raw %}
@@ -287,11 +292,6 @@ automation:
 ```
 
 {% endraw %}
-
-{% note %}
-Listing above and below together means the numeric_state has to be between the two values.
-In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (above 17 and below 25). It will only fire again, once it has left the defined range and enters it again.
-{% endnote %}
 
 Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities
 that contain a numeric value, can be used in the `above` and `below` thresholds.
@@ -793,6 +793,34 @@ automation:
           offset: "-00:10:00"
 ```
 
+### Limited templates
+
+It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) for times.
+
+```yaml
+blueprint:
+  input:
+    alarm:
+      name: Alarm
+      selector: 
+        text:
+    hour:
+      name: Hour
+      selector:
+        number:
+          min: 0
+          max: 24
+
+  trigger_variables:
+    my_alarm: !input alarm
+    my_hour: !input hour
+  trigger:
+    - platform: time
+      at:
+      - "sensor.{{ my_alarm | slugify }}_time"
+      - "{{ my_hour }}:30:00"
+```
+
 ## Time pattern trigger
 
 With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value (when using the web interface this is required, the fields cannot be left empty).
@@ -1080,7 +1108,7 @@ blueprint:
 ## Merging lists of triggers
 
 {% caution %}
-This feature requires Home Assistant version 2024.10 or later. If using this in a blueprint, set the `min_version` for the blueprint to at least this version.
+This feature requires Home Assistant version 2024.10 or later. If using this in a blueprint, set the `min_version` for the blueprint to at least this version. See the [blueprint schema documentation](/docs/blueprint/schema/#min_version) for more details.
 {% endcaution %}
 
 In some advanced cases (like for blueprints with trigger selectors), it may be necessary to insert a second list of triggers into the main trigger list. This can be done by adding a dictionary in the main trigger list with the sole key `triggers`, and the value for that key contains a second list of triggers. These will then be flattened into a single list of triggers. For example:

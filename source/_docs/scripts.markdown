@@ -94,7 +94,7 @@ Variables can be templated.
 
 ### Scope of variables
 
-Variables have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
+Variables defined by the `variables` {% term action %} have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
 
 Inside the `if` sequence the `variables` {% term action %} will only alter the `people` variable for that sequence.
 
@@ -281,9 +281,9 @@ After each time a wait completes, either because the condition was met, the even
 
 | Variable         | Description                                                                                                                                                                                                                             |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `wait.completed` | Exists only after `wait_template`. `true` if the condition was met, `false` otherwise                                                                                                                                                   |
-| `wait.trigger`   | Exists only after `wait_for_trigger`. Contains information about which trigger fired. (See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).) Will be `none` if no trigger happened before timeout expired |
+| `wait.completed` | `true` if the condition was met, `false` otherwise                                                                                                                                                                                      |
 | `wait.remaining` | Timeout remaining, or `none` if a timeout was not specified                                                                                                                                                                             |
+| `wait.trigger`   | Exists only after `wait_for_trigger`. Contains information about which trigger fired. (See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).) Will be `none` if no trigger happened before timeout expired |
 
 This can be used to take different actions based on whether or not the condition was met, or to use more than one wait sequentially while implementing a single timeout overall.
 
@@ -576,9 +576,8 @@ It contains the following fields:
 
 ## If-then
 
-This {% term action %} allow you to conditionally (`if`) run a sequence of actions (`then`)
-and optionally supports running other sequence when the condition didn't
-pass (`else`).
+This {% term action %} allows you to conditionally (`if`), based on or more [conditions](/docs/scripts/conditions/) (which are `and` combined),
+run a sequence of actions (`then`) and optionally supports running other sequence when the condition didn't pass (`else`).
 
 ```yaml
 script:
@@ -859,6 +858,8 @@ Some of the caveats of running {% term actions %} in parallel:
   they too have finished or errored.
 - Variables created/modified in one parallelized {% term action %} are not available
   in another parallelized {% term action %}. Each step in a parallelized has its own scope.
+- The response data of a parallelized {% term action %} is however also available outside of its
+  own scope. This is especially useful for parallelizing execution of long-running {% term actions %}. 
 
 ## Stopping a script sequence
 

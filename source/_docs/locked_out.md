@@ -31,7 +31,7 @@ You are the **owner** of the Home Assistant server and you cannot login because 
      - [to access the console from Linux or macOS](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/).
    - If you are using another system, connect keyboard and monitor. The procedure might be similar the one used for Green.
    - If you are using a Home Assistant OVA (virtualization image):
-     - Access the system console by opening the terminal through your virtualization platform's interface (for example, Proxmox, VMware, VirtualBox). 
+     - Access the system console by opening the terminal through your virtualization platform's interface (for example, Proxmox, VMware, VirtualBox).
      - Follow the platform-specific steps to interact with the virtual machine's console.
 3. In the terminal, enter the `auth list` command.
    - This command lists all users that are registered on your Home Assistant.
@@ -81,7 +81,7 @@ Use this procedure only if the following conditions are met:
 3. Once you have opened the Home Assistant command line, enter the following command:
    - Note: `existing_user` is a placeholder. Replace it with your username.
    - Note: `new_password` is a placeholder. Replace it with your new password.
-   - **Command**: `auth reset --username existing_user --password new_password`
+   - **Command**: `auth reset --username 'existing_user' --password 'new_password'`
      ![Screencast showing how to enter the ha auth reset command](/images/docs/troubleshooting/home-assistant-cli.webp)
    - **Troubleshooting**: If you see the message `zsh: command not found: auth`, you likely did not enter the command in the serial console connected to the device itself, but in the terminal within Home Assistant.
 4. You can now log in to Home Assistant using this new password.
@@ -89,7 +89,7 @@ Use this procedure only if the following conditions are met:
 #### To reset a user's password, via the container command line
 
 If you are running Home Assistant in a container, you can use the command line in the container with the `hass` command to change your password. The steps below refer to a Home Assistant container in Docker named `homeassistant`. Note that while working in the container, commands will take a few moments to execute.
-  
+
 1. `docker exec -it homeassistant bash` to open to the container command line
 2. `hass` to create a default user, if this is your first time using the tool
 3. `hass --script auth --config /config change_password existing_user new_password` to change the password
