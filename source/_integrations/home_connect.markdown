@@ -683,6 +683,7 @@ Both entities can use these options, but the availability of these will depend o
     - **400 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m400`
     - **600 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m600`
     - **800 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m800`
+    - **900 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m900`
     - **1000 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m1000`
     - **1200 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m1200`
     - **1400 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m1400`
