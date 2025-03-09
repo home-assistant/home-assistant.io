@@ -73,7 +73,7 @@ Entities (sensors, binary sensors, buttons, images, numbers, switches, and selec
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template binary sensors, buttons, images, numbers, selects, switches and sensors
+### State-based template binary sensors, buttons, images, numbers, selects, sensors and switches
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -96,7 +96,7 @@ template:
 {% endraw %}
 
 
-### Trigger-based template binary sensors, buttons, images, numbers, selects and sensors
+### Trigger-based template binary sensors, buttons, images, numbers, selects, sensors and switches
 
 If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
