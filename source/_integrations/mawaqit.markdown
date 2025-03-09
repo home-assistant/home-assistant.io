@@ -45,3 +45,25 @@ For every prayer, you get an iqama sensor.
 ### Set up your account
 
 This component allows you to integrate the data of your mawaqit mosque into Home Assistant. To do this, a Mawaqit account from https://mawaqit.net is required.
+
+### Installation Instructions
+
+1. Open **Home Assistant** and navigate to **Settings > Devices & Services**.
+2. Click on **+ ADD INTEGRATION**.
+3. In the search bar, type **Mawaqit** and select it from the results.
+4. Enter your **Mawaqit account credentials** if prompted.
+5. Once connected, you will have two options to find your mosque:
+   - **Search by nearest mosques**: Uses the location specified in Home Assistant.
+   - **Search by keyword**: Allows you to manually search for a mosque by name.
+6. Click **Submit**.
+   - If searching by location, select your mosque from the list and confirm.
+   - If searching by keyword, enter the desired keyword, find your mosque in the results, select it, and submit.
+7. Once completed, your Mawaqit integration will be added to Home Assistant.
+
+### Removal Instructions
+
+1. Open **Home Assistant** and navigate to **Settings > Devices & Services**.
+2. Locate the **Mawaqit** integration in the list.
+3. Click on it, then select the **three-dot menu** (⋮) on the top right.
+4. Click **Delete**.
+5. A confirmation prompt will appear. Click **DELETE** to confirm and remove the integration.```
