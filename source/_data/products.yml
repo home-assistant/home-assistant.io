@@ -7,7 +7,7 @@ green:
       ship_to: America
       url: https://www.amazon.com/dp/B0CXVKSG19?maas=maas_adg_BB51722E249D328CABB2F6DF1F8976CC_afap_abs&ref_=aa_maas&tag=maas
       logo: /images/distributors/amazon.webp
-    - name: AmeriDroid
+    - name: ameriDroid
       ship_from: US
       ship_to: America
       url: https://ameridroid.com/products/home-assistant-green
@@ -70,7 +70,7 @@ green:
       ship_to: Europe
       url: https://shop.everythingsmart.io/products/home-assistant-green
       logo: /images/distributors/est.webp
-    - name: EWeLink device store
+    - name: eWeLink device store
       ship_from: Hungary
       ship_to: Europe
       url: https://ewelinkstore.com/product/home-assistant-green-hub/
@@ -95,12 +95,12 @@ green:
       ship_to: Europe
       url: https://mauser.pt/catalog/product_info.php?products_id=095-3152
       logo: /images/distributors/mauser.png
-    - name: Mediarath
+    - name: mediarath
       ship_from: Germany
       ship_to: Europe
       url: https://mediarath.de/products/home-assistant-green-smart-home-hub-2x-usb-gigabit-lan-hmdi-microsd-slot
       logo: /images/distributors/mediarath.de.webp
-    - name: M.nu
+    - name: m.nu
       ship_from: Sweden
       ship_to: Europe
       url: https://en.m.nu/controllers-smart-hubs/home-assistant-green
@@ -164,7 +164,7 @@ yellow:
   name: "<strong>Home Assistant Yellow</strong>"
   distributors:
       # America
-    - name: AmeriDroid
+    - name: ameriDroid
       ship_from: US
       ship_to: America
       url: https://ameridroid.com/products/home-assistant-yellow
@@ -226,7 +226,7 @@ zbt-1:
   name: "<strong>Home Assistant Connect ZBT-1</strong>"
   distributors:
       # America
-    - name: AmeriDroid
+    - name: ameriDroid
       ship_from: US
       ship_to: America
       url: https://ameridroid.com/products/skyconnect
@@ -279,7 +279,7 @@ zbt-1:
       ship_to: Europe
       url: https://shop.everythingsmart.io/products/home-assistant-skyconnect
       logo: /images/distributors/est.webp
-    - name: EWeLink device store
+    - name: eWeLink device store
       ship_from: Hungary
       ship_to: Europe
       url: https://ewelinkstore.com/product/home-assistant-connect-zbt-1-a-zigbee-thread-matter-usb-stick/
@@ -299,12 +299,12 @@ zbt-1:
       ship_to: Europe
       url: https://mauser.pt/catalog/product_info.php?products_id=095-1222
       logo: /images/distributors/mauser.png
-    - name: Mediarath
+    - name: mediarath
       ship_from: Germany
       ship_to: Europe
       url: https://mediarath.de/products/home-assistant-connect-zbt-1-zigbee-thread-matter-usb-stick-fur-home-assistant-skyconnect
       logo: /images/distributors/mediarath.de.webp
-    - name: M.nu
+    - name: m.nu
       ship_from: Sweden
       ship_to: Europe
       url: https://en.m.nu/zigbee/controllers-zigbee/home-assistant-skyconnect-zigbee-matter-thread
@@ -368,7 +368,7 @@ voice-pe:
   name: "<strong>Home Assistant Voice</strong> Preview Edition"
   distributors:
       # America
-    - name: AmeriDroid
+    - name: ameriDroid
       ship_from: US
       ship_to: America
       url: https://ameridroid.com/products/home-assistant-voice-preview-edition/
