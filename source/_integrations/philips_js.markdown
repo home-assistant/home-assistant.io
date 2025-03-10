@@ -25,14 +25,18 @@ ha_integration_type: integration
 The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.
 
 
-## Differences between Android TVs and non-Android TVs 
+## Differences between TVs 
 
-1. Android TVs use `https://`, non-Android TV use `http://`.
-2. Android TVs primarily use port 1926, non-Android TVs use port 1925 only.
-   
-If you have a non-Android TV, check if your TV responds to `http://IP_ADDRESS_OF_TV:1925/system`. 
+1. Some TVs use `https://`, other TVs use `http://`.
+2. Some TVs primarily use port 1926, other TVs use port 1925 only.
 
-If you have an Android TV, check if your TV responds to `https://IP_ADDRESS_OF_TV:1926/system`.
+## Check if this intergration can be used   
+Check if your TV responds to one of the following combinations:
+
+- `http://IP_ADDRESS_OF_TV:1925/system`
+- `https://IP_ADDRESS_OF_TV:1925/system`
+- `http://IP_ADDRESS_OF_TV:1926/system`
+- `https://IP_ADDRESS_OF_TV:1926/system`
 
 If you get a response, then this integration can be used. In the response, you should also be able to see the version of the API the TV uses (`"api_version":{"Major":6...`).
 For older TVs follow instructions on how to activate the API and if your model is supported [here](http://jointspace.sourceforge.net/download.html). Note that not all listed, jointSPACE-enabled devices will have JSON-interface running on port 1925. This is true at least for some models before year 2011.
