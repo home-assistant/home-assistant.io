@@ -19,7 +19,7 @@ related:
 The map card allows you to display your home zone, entities, and other predefined zones on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
 <p class='img'>
-<img src='/images/dashboards/map_card.png' alt='Screenshot of the map card'>
+<img src='/images/dashboards/map_card.webp' alt='Screenshot of the map card'>
 Screenshot of the map card.
 </p>
 
