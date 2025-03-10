@@ -124,11 +124,11 @@ module Jekyll
         end
       end
     end
-  end
 
-  def case_insensitive_sort(input, key)
-    return input unless input.is_a?(Array)
-    input.sort_by { |item| item[key].to_s.downcase }
+    def case_insensitive_sort(input, key)
+      return input unless input.is_a?(Array)
+      input.sort_by { |item| item[key].to_s.downcase }
+    end
   end
 end
 
