@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Matter server gets certified"
+title: "Home Assistant officially Matters"
 description: "Home Assistant gains certification, but also a powerful tool for any open source project"
 date: 2025-03-10 00:00:01
 date_formatted: "March 10, 2025"
