@@ -416,7 +416,7 @@ voice-pe:
       ship_to: Europe
       url: https://www.domadoo.fr/fr/box-domotique/7558-nabu-casa-home-assistant-voice-preview-edition-0860011789727.html
       logo: /images/distributors/domadoo.jpg
-    - name: Mediarath
+    - name: mediarath
       ship_from: Germany
       ship_to: Europe
       url: https://mediarath.de/products/home-assistant-voice-preview-edition-open-source-privacy-focused-voice-assistant-with-esphome
