@@ -284,10 +284,109 @@ entities:
 ```
 
 ### 2. Automation
-**- Notification, Error event**
+
+#### 1) Air conditioner, climate
+
+> - Currently the Climate's set_hvac_mode, set_temperature service is not working properly. Each control must operate sequentially, but conditional wait for this has not yet been implemented in ThinQ integration.
+> - We provide a script that can do turn_on, set_hvac_mode, and set_temperature at once, so please use it for automation.
+> - Create a new script in 'CREATE SCRIPT' using the code below, then select the script in the 'Action' field.
+> - This conditional wait is scheduled to be implemented in core 2025.4.
+
+{% raw %}
+
+```yaml
+alias: LG ThinQ climate
+description: "Action turn_on, set_hvac_mode, set_temperature"
+fields:
+  input_device:
+    selector:
+      device:
+        filter:
+          - integration: lg_thinq
+    name: Device
+    required: true
+  input_entity:
+    selector:
+      entity:
+        filter:
+          - integration: lg_thinq
+            domain: climate
+    name: Entity
+    required: true
+  input_hvac:
+    selector:
+      select:
+        options:
+          - label: Off
+            value: off
+          - label: Auto
+            value: auto
+          - label: Cool
+            value: cool
+          - label: Dry
+            value: dry
+          - label: Fan only
+            value: fan_only
+          - label: Heat/cool
+            value: heat_cool
+          - label: Heat
+            value: heat
+    name: HVAC mode
+    required: true
+    default: cool
+  input_temperature:
+    selector:
+      number:
+        min: 1
+        max: 100
+    name: Target temperature
+    required: true
+    default: 18
+sequence:
+  - sequence:
+      - variables:
+          entity_name: "{{ input_entity.split('.')[1] }}"
+      - if:
+          - condition: template
+            value_template: >-
+              {{ input_hvac != 'off' and states('climate.'+ entity_name) == 'off' }}
+        then:
+          - action: climate.turn_on
+            target:
+              device_id: "{{ input_device }}"
+            data: {}
+          - wait_template: "{{ states('climate.'+ entity_name) != 'off' }}"
+      - if:
+          - condition: template
+            value_template: "{{ states('climate.'+ entity_name) != input_hvac }}"
+        then:
+          - action: climate.set_hvac_mode
+            data:
+              hvac_mode: "{{ input_hvac }}"
+            target:
+              device_id: "{{ input_device }}"
+          - wait_template: "{{ states('climate.'+ entity_name) == input_hvac }}"
+      - if:
+          - condition: template
+            value_template: "{{ input_hvac != 'off' }}"
+        then:
+          - action: climate.set_temperature
+            data:
+              temperature: "{{ input_temperature }}"
+            target:
+              device_id: "{{ input_device }}"
+```
+
+{% endraw %}
+
+#### 2) Notification, error event
+
 > - Guide: [Automating on event](https://www.home-assistant.io/integrations/event/#automating-on-a-button-press)
 > - Important: guide's step 3, 4
 > - You can select the state change you want to act as trigger in step 4
+
+{% raw %}
+
 ```yaml
 alias: lack of water example
 description: Toggle switch when air purifier's lack_of_water
@@ -305,6 +404,8 @@ actions:
     entity_id: xxxxxxxx
     domain: switch
 ```
+
+{% endraw %}
 
 ## Troubleshooting
 
