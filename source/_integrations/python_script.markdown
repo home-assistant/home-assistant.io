@@ -29,7 +29,7 @@ Other imports like `min`, `max` are available as builtins. See the [python_scrip
 
 {% note %}
  - It is not possible to use Python imports with this integration. If you want to do more advanced scripts, you can take a look at [AppDaemon](https://appdaemon.readthedocs.io/en/latest/) or [pyscript](https://github.com/custom-components/pyscript)
- - It is not possible to include your script as a button on the dashboard. A work around is to create a [helper button](https://www.home-assistant.io/integrations/input_button/) and create an automation to run your script when the button state changes.
+ - It is not possible to include your script as a button on the dashboard. A workaround is to create a [helper button](/integrations/input_button/) and create automation to run your script when the button state changes.
 {% endnote %}
 
 ## Writing your first script, reading input and logging the activity
