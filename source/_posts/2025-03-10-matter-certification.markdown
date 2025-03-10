@@ -32,7 +32,7 @@ If you're not familiar with Matter, I'm not surprised. Though its adoption is gr
 
 More and more Matter devices are entering the market, and if you're buying new smart devices, it will just be a matter of time 😉 before you own one. To this point, Matter devices are even a part of our [Works With Home Assistant](https://partner.home-assistant.io/) program. [Aqara was the first](/blog/2024/09/03/aqara-joins-works-with-home-assistant/) to join our program with Matter devices, and we tested these devices ourselves to ensure they give the best experience possible in Home Assistant. This year, we expect many more Matter devices to join the program, and we should have more updates soon.
 
-From a technical perspective, Matter is really interesting---it can work with different smart home systems at the same time. It also keeps the way devices connect and communicate separate, allowing it to connect to devices over Wi-Fi, Ethernet, and [Thread](/integrations/thread/) (the successor to Zigbee). Read our [State of Matter blog](/blog/2024/01/25/matter-livestream-blog/) or watch Paulus' appearance on [the Vergecast Matter Holiday Spec-Tacular](https://youtu.be/0Y75XEXAXfY?si=nSDpP6THkWhkARuc&t=3493) for a deeper dive into the standard.
+From a technical perspective, Matter is really interesting---it can work with different smart home systems at the same time. It also keeps the way devices connect and communicate separate, allowing it to connect to devices over Wi-Fi, Ethernet, and [Thread](/integrations/thread/) (a new mesh network technology for smart devices). Read our [State of Matter blog](/blog/2024/01/25/matter-livestream-blog/) or watch Paulus' appearance on [the Vergecast Matter Holiday Spec-Tacular](https://youtu.be/0Y75XEXAXfY?si=nSDpP6THkWhkARuc&t=3493) for a deeper dive into the standard.
 
 ## What certification brings
 
@@ -74,5 +74,5 @@ Some might call Matter the smart home standard to replace all others, but we bel
 
 As Home Assistant grows and takes important steps like certification, the more credibility we gain in the industry---it's a virtuous circle that helps us and Open Home projects continuously improve. Thanks for your support and helping us make this possible 🙏.
 
-**Try the Open Home Foundation Matter Server in Home Assistant today:**
-[<img src='https://my.home-assistant.io/badges/supervisor_addon.svg' style='border: 0;box-shadow: none;' alt="!Open your Home Assistant instance and show the dashboard of an add-on.">](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_matter_server)
+**Try the Matter in Home Assistant today:**
+[<img src='https://my.home-assistant.io/badges/config_flow_start.svg' style='border: 0;box-shadow: none;' alt="!Open your Home Assistant instance and show the dashboard of an add-on.">](https://my.home-assistant.io/redirect/config_flow_start?domain=matter)
