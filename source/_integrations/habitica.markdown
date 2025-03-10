@@ -368,6 +368,22 @@ Updates a specific to-do for the selected Habitica character.
 | `remove_tag`   | yes      | Remove tags from the Habitica to-do.                                                         |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
+### Action `habitica.create_todo`
+
+Creates a to-do for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to create a to-do.                                               |
+| `name`         | no       | The title for the Habitica to-do.                                                            |
+| `notes`        | yes      | The notes for the Habitica to-do.                                                            |
+| `add_checklist_item`     | yes | The items to add to the to-do's checklist.                                              |
+| `priority`     | yes      | The difficulty of the to-do. Valid values: `trivial`, `easy`, `medium`, `hard`               |
+| `date`         | yes      | The to-do's due date.                                                                        |
+| `reminder`     | yes      | Add reminders to a Habitica to-do.                                                           |
+| `tag`          | yes      | Add tags to the Habitica to-do. If a tag does not already exist, a new one will be created.  |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
