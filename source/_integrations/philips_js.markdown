@@ -25,7 +25,7 @@ ha_integration_type: integration
 The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.
 
 
-**Differences between Android TVs and non-Android TVs**: 
+## Differences between Android TVs and non-Android TVs 
 
 1. Android TVs use `https://`, non-Android TV use `http://`.
 2. Android TVs primarily use port 1926, non-Android TVs use port 1925 only.
