@@ -29,7 +29,7 @@
             <div class="ha-buy-dialog-tab-content-wrapper">
                 {% for distributor_region in distributor_regions %}
                 <div class="ha-buy-dialog-tab-content {% if forloop.first %}active{% endif %}" id="{{ distributor_region.name | slugify }}">
-                    {% assign az_ship_distributors = distributor_region.items | sort: 'name' | sort: 'ship_from'%}
+                    {% assign az_ship_distributors = distributor_region.items | case_insensitive_sort: 'name' | sort: 'ship_from'%}
                     <div class="ha-buy-dialog-distributor-items">
                         {% for distributor in az_ship_distributors %}
                         <a href="{{ distributor.url }}" target="_blank" rel="noreferrer" class="ha-buy-dialog-distributor-item">
