@@ -186,14 +186,14 @@
 </li>
 
 <li>
-  {% icon "mdi:update" %} {% active_link /common-tasks/os/ Common tasks %}
+  {% icon "mdi:update" %} {% active_link /common-tasks/general/ Common tasks %}
   {% if root == 'common-tasks' or include.docs_index %}
   <ul>
+    <li>{% active_link /common-tasks/general/ Installation independent %}</li>
     <li>{% active_link /common-tasks/os/ Home Assistant Operating System %}</li>
     <li>{% active_link /common-tasks/container/ Home Assistant Container %}</li>
     <li>{% active_link /common-tasks/core/ Home Assistant Core %}</li>
     <li>{% active_link /common-tasks/supervised/ Home Assistant Supervised %}</li>
-    <li>{% active_link /common-tasks/general/ Installation independent %}</li>
     <li>{% active_link /docs/troubleshooting_general/ General troubleshooting %}</li>
   </ul>
   {% endif %}
@@ -279,5 +279,6 @@
     <li><a href="https://green.home-assistant.io/">Home Assistant Green {% icon "tabler:external-link" %}</a></li>
     <li><a href="https://yellow.home-assistant.io/">Home Assistant Yellow {% icon "tabler:external-link" %}</a></li>
     <li><a href="https://connectzbt1.home-assistant.io/">Home Assistant Connect ZBT-1 {% icon "tabler:external-link" %}</a></li>
+    <li><a href="https://voice-pe.home-assistant.io/">Home Assistant Voice Preview Edition {% icon "tabler:external-link" %}</a></li>
   </ul>
 </li>

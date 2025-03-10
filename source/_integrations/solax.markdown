@@ -8,6 +8,7 @@ ha_release: 0.94
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@squishykid'
+  - '@Darsstar'
 ha_domain: solax
 ha_platforms:
   - sensor
@@ -46,16 +47,3 @@ There are generally at least 3 sensors from your inverter that you need to confi
 - The consumption sensor (in kWh) for the **Grid Consumption**.
 - The feed-in sensor (in kWh) for the **Return to grid**, for example, the solar panel energy you do not consume and return to the grid instead.
 - The on-grid yield sensor (in kWh) for the **Solar production**.
-
-### Note
-
-Inverter models with newer firmware (and also those using devices like PocketWifi) no longer expose an API when connected to your wireless network, they do however continue to expose it on their own broadcasted SSID. To use this sensor in this case it is necessary to set up a reverse proxy with something like NGINX and use a Raspberry Pi (or similar) with two network connections (one being Wi-Fi that connects to the inverters SSID).
-
-
-Example NGINX configuration
-
-```text
-location / {
-  proxy_pass http://5.8.8.8;
-}
-```

@@ -17,14 +17,14 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Linear integration lets you control Linear garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Linear mobile app.
-
 {% warning %}
-Nice North America has begun informing users of the new Nice G.O. app, and dropping support for the Linear app in the coming weeks. Support for the new app will be added as a new integration.
-Migrating now will cut off access to the old app and the integration will cease functioning for you.
+This integration is now deprecated and will be removed in 2025.8.0.
+Please use the new [Nice G.O.](/integrations/nice_go) integration instead to avoid disruption.
 
 For more information, refer to the [Nice G.O. migration documentation](https://na.niceforyou.com/features/nice-go-app/#migration).
 {% endwarning %}
+
+The Linear integration lets you control Linear garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Linear mobile app.
 
 ## Prerequisites
 

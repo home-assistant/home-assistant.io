@@ -4,6 +4,7 @@ description: Instructions on how to integrate Peblar Rocksolid EV Charger with H
 ha_category:
   - Car
   - Energy
+  - Update
 ha_release: 2025.1
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -11,12 +12,17 @@ ha_codeowners:
   - '@frenck'
 ha_domain: peblar
 ha_platforms:
+  - binary_sensor
+  - button
+  - diagnostics
+  - number
   - select
   - sensor
+  - switch
   - update
 ha_integration_type: device
 ha_zeroconf: true
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The Peblar {% term integration %} integrates your [Peblar Rocksolid EV Charger]
@@ -90,7 +96,7 @@ web interface for more information about the error or warning.
 
 {% important %}
 These binary sensors are disabled by default. If you want to use them, you need
-to enable first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
+to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
 documentation for information on how to do this.
 {% endimportant %}
 
@@ -107,13 +113,13 @@ the charger. The following buttons are available:
 
 {% important %}
 These buttons are disabled by default. If you want to use them, you need
-to enable first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
+to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
 documentation for information on how to do this.
 {% endimportant %}
 
 ### Numbers
 
-This integration provides a singles number entity: **Charge limit**.
+This integration provides a single number entity: **Charge limit**.
 
 Using this entity, you can set the maximum current the charger can provide to
 your electric vehicle. The value of this entity is in amperes (A).
@@ -250,22 +256,28 @@ as a device.
 
 {% important %}
 The sensors marked with \*\* are disabled by default. If you want to use them,
-you need to enable first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
+you need to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
 documentation for information on how to do this.
 {% endimportant %}
 
 ### Switches
 
-This integration provides a single switch entity: **Force single phase**.
+This integration provides two switch entities:
 
-This switch can be used to force the charger to use a single phase for charging
-your electric vehicle. This can be useful if you want to limit your current
-draw from the charger to a single phase, for example, to prevent overloading
-your electrical installation.
+- **Charge**: This switch allows you to start or stop/pause the charging of
+  your electric vehicle. This can be helpful if you want to temporarily stop
+  charging your electric vehicle, for example, to avoid charging during
+  expensive peak hours.
+- **Force single phase**: This switch can be used to force the charger to use a
+  single phase for charging your electric vehicle. This can be useful if you
+  want to limit your current draw from the charger to a single phase, for
+  example, to prevent overloading your electrical installation.
 
-Note that this switch is only available if your charger is connected to multiple
-phases. If your charger is connected to a single-phase power source, this switch
-will not be created.
+{% note %}
+The **Force single phase** switch is only available if your charger is
+connected to multiple phases. If your charger is connected to a single-phase
+power source, this switch will not be created.
+{% endnote %}
 
 ### Updates
 
@@ -323,7 +335,7 @@ automation:
   - alias: "Peblar software update available"
     triggers:
       - trigger: state
-        entity_id: sensor.peblar_firmware
+        entity_id: update.peblar_firmware
         from: "off"
         to: "on"
 
@@ -344,7 +356,7 @@ detects an error or raises a warning.
 
 ```yaml
 automation:
-  - alias: "Peblar software update available"
+  - alias: "Peblar issue detected"
     triggers:
       - trigger: state
         entity_id:
@@ -372,15 +384,15 @@ automation:
 Not all functionality of the Peblar charger is available through this
 integration. The following limitations are known:
 
-- The Peblar APIs currently aren't communicating the charger is awaiting
+- The Peblar APIs currently aren't communicating that the charger is awaiting
   authentication (for example, using an RFID card) before it can start
-  charging. As a result, you will see an suspended charging status in Home
+  charging. As a result, you will see a suspended charging status in Home
   Assistant, while the charger is awaiting authentication.
 - Home Assistant uses and manages the charger's REST API. This means that
   the use of this integration will enable the REST API on the charger
   automatically. It is possible to use the REST API directly in parallel
   with this integration.
-- Peblar is also sold as white-label products, like the [CoolBlue BlueBuilt](https://www.coolblue.nl/en/charging-stations/our-charging-stations).
+- Peblar is also sold as white-label products, like the [CoolBlue BlueBuilt](https://www.coolblue.nl/en/charging-stations/our-charging-stations), [Eneco Connectric®](https://www.eneco.nl/campagnes/laadpalen/) or [Shell Recharge](https://www.shell.nl/b2b-business/shell-fleet-solutions/electric-charging/at-home-ev-charging.html#thuisladers).
   This integration is tested with the Peblar branded products, and it is unknown
   if it works with white-label products.
 

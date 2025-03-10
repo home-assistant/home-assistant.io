@@ -168,8 +168,6 @@ Currently only supported on [Denon AVR](/integrations/denonavr/) and  [Songpal](
 
 #### Action `media_player.shuffle_set`
 
-Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Roon](/integrations/roon), [OwnTone](/integrations/forked_daapd), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
-
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. For example `media_player.spotify`|
@@ -196,6 +194,91 @@ Allows to group media players together for synchronous playback. Only works on s
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Unjoin this media player from any player groups.     |
+
+#### Action `media_player.browse_media`
+
+Provides access to browsing the media tree provided by the integration. Similar in functionality to browsing media through the media player UI. Common use cases include automations that need to navigate media libraries and find media by specific categories.
+
+| Data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `media_content_type`   |      yes | The type of media to browse such as music, playlist, and video. Integration specific.  |
+| `media_content_id`   |      yes | The content ID to browse. Integration specific. An empty content ID returns the top-level of the browse tree. |
+
+The action returns a media tree object that can be stored in a response variable for use in subsequent automation steps. The response includes:
+
+| Field | Description |
+|-------|-------------|
+| `title` | Display name of the current level |
+| `media_class` | Type of the current item (for example, directory, music, video) |
+| `media_content_type` | Content type identifier |
+| `media_content_id` | Integration specific content ID |
+| `children_media_class` | Types of items in the children array |
+| `children` | Array of child items with similar properties |
+
+Browse the root of the tree.
+
+Note: The following example shows a response from a Sonos device. The structure and content types may vary between different media player integrations. Media content IDs are often URL-encoded.
+
+```yaml
+  # Get the top of the browse tree
+  - action: media_player.browse_media
+    target:
+      entity_id: media_player.living_room
+    response_variable: top_level
+```
+
+```yaml
+# abbreviated Example response
+media_player.living_room:
+  title: Sonos
+  media_class: directory
+  media_content_type: root
+  media_content_id: ""
+  # children_media_class indicates that all items in the children array are directories  
+  children_media_class: directory
+  children:
+    - title: Favorites
+      media_class: directory
+      media_content_type: favorites
+      media_content_id: ""
+    - title: Music Library
+      media_class: directory
+      media_content_type: library
+      media_content_id: ""
+```
+
+Example of browsing a specific artist with the Sonos Integration:
+
+Note: This example demonstrates browsing an artist's albums. The format of `media_content_id` (`A:ALBUMARTIST/artist_name`) is specific to Sonos. Notice how special characters in album names are URL-encoded in the response (for example, `%20` for spaces).
+
+```yaml
+  - action: media_player.browse_media
+    target:
+      entity_id: media_player.living_room
+    data:
+      media_content_id: A:ALBUMARTIST/Beatles
+      media_content_type: album
+    response_variable: albums
+```
+
+```yaml
+# Abbreviated Example response
+media_player.living_room:
+  title: Beatles
+  media_class: album
+  media_content_type: album
+  media_content_id: A:ALBUMARTIST/Beatles
+  children_media_class: directory
+  children:
+    - title: A Hard Day's Night
+      media_class: album
+      media_content_type: album
+      media_content_id: A:ALBUMARTIST/Beatles/A%20Hard%20Day's%20Night
+    - title: Abbey Road
+      media_class: album
+      media_content_type: album
+      media_content_id: A:ALBUMARTIST/Beatles/Abbey%20Road
+```
 
 ## Device class
 

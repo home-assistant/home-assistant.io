@@ -57,7 +57,7 @@ If you choose to not use the recommended settings, you can configure the followi
 
 {% configuration_basic %}
 Model:
-  description: The GPT language model is used for text generation. You can find more details on the available models in the [OpenAI GPT-3.5 Turbo Documentation](https://platform.openai.com/docs/models/gpt-3-5-turbo), [OpenAI GPT-4 Turbo and GPT-4 Documentation](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4), or [GPT-4o Documentation](https://platform.openai.com/docs/models/gpt-4o). The default is "gpt-4o".
+  description: The GPT language model is used for text generation. You can find more details on the available models in the [GPT-4o Documentation](https://platform.openai.com/docs/models/gpt-4o). The default is "gpt-4o-mini".
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate in its completion of the prompt. For more information, see the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction).
 Temperature:
@@ -133,7 +133,7 @@ automation:
           config_entry: abce6b8696a15e107b4bd843de722249
           size: "1024x1024"
           prompt: >-
-            New York when the weather is {{ states("weather.home") }}"
+            New York when the weather is {{ states("weather.home") }}
 
       - alias: "Send out a manual event to update the image entity"
         event: new_weather_image
@@ -141,13 +141,13 @@ automation:
           url: '{{ generated_image.url }}'
 
 template:
-  - triggers:
+  - trigger:
       - alias: "Update image when a new weather image is generated"
         trigger: event
         event_type: new_weather_image
     image:
-      name: "AI generated image of New York"
-      url: "{{ trigger.event.data.url }}"
+      - name: "AI generated image of New York"
+        url: "{{ trigger.event.data.url }}"
 ```
 
 {% endraw %}

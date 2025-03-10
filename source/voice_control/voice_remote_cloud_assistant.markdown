@@ -1,16 +1,16 @@
 ---
 title: "Getting Started - Home Assistant Cloud"
 related:
-  - docs: /voice_control/install_wake_word_add_on/
-    title: Enabling a wake word
-  - docs: /voice_control/create_wake_word/
-    title: Create your own wake word
+  - docs: /voice_control/best_practices/
+    title: Best practices with Assist
+  - docs: /voice_control/expanding_assist/
+    title: Expanding Assist
   - docs: /voice_control/voice_remote_local_assistant/
     title: Creating a local assistant
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing devices to Assist
-  - docs: /voice_control/best_practices/
-    title: Best practices with Assist
+  - url: https://voice-pe.home-assistant.io/documentation/
+    title: Voice Preview Edition - Documentation
 ---
 
 Before being able to use Assist, you need to configure it.
@@ -48,4 +48,8 @@ To have the fastest processing voice assistant experience, follow these steps:
 
 6. That's it. You can now speak to your device, and the device can answer in the language you defined.
 
-Once Assist is configured, now can now start using it. Check this page to learn how:
+
+## Next steps
+Once Assist is configured, now can now start using it. You can now talk through your device ([Android](/voice_control/android/), [iOS](/voice_control/apple/) or [Voice Preview edition](https://voice-pe.home-assistant.io/getting-started/)).
+
+To get the best out of the voice interaction, don't forget to check the [best practices](/voice_control/best_practices/).

@@ -67,7 +67,7 @@ regenerate: false
                     {%- assign category_name = cat -%}
                   {%- endif -%}
                 {%- endfor -%}
-              {%- endif -%} 
+              {%- endif -%}
               {%- assign components_count = components_count | plus: 1 -%}
             {%- endif -%}
           {%- endfor -%}
@@ -98,7 +98,7 @@ regenerate: false
                       {%- assign category_name = cat -%}
                     {%- endif -%}
                   {%- endfor -%}
-                {%- endif -%} 
+                {%- endif -%}
                 {%- assign components_count = components_count | plus: 1 -%}
               {%- endif -%}
             {%- endfor -%}
@@ -208,7 +208,7 @@ allComponents.pop(); // remove placeholder element at the end
         if (hash.indexOf(SEARCH_PREFIX) === 0) {
           // search through title and category
           search = decodeURIComponent(hash).substring(SEARCH_PREFIX.length).toLowerCase();
-          filter = comp => 
+          filter = comp =>
             comp.search.indexOf(search) !== -1 ||
             comp.cat.find((c) => c.includes("#")) != undefined;
 
@@ -309,17 +309,19 @@ allComponents.pop(); // remove placeholder element at the end
     };
 
     // update view by search text
+    let lastSearchText = '';
     searchInputEl.addEventListener('keyup', debounce(() => {
       const text = searchInputEl.value
         // sanitize input
         .replace(/[(\?|\&\{\}\(\))]/gi, '')
         .trim();
-      
-      let newHash = typeof text === "string" && text.length >= 1
-        ? SEARCH_PREFIX + text
-        : '#all';
-      // Only apply filter if hash has changed
-      if (newHash !== window.location.hash) {
+
+      // Only apply filter if value has changed
+      if (lastSearchText !== text) {
+        lastSearchText = text;
+        const newHash = typeof text === "string" && text.length >= 1
+          ? SEARCH_PREFIX + text
+          : '#all';
         history.pushState('', '', newHash);
         applyFilter();
       }
