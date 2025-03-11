@@ -42,7 +42,6 @@ There is currently support for the following device types within Home Assistant:
 The following binary sensors are added for each thermostat:
 
 - Blower Active
-- Emergency heat active
 
 ### Sensor
 
