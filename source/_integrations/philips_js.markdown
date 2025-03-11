@@ -29,8 +29,7 @@ The `philips_js` platform allows you to control Philips TVs which expose the [jo
 
 Before adding the integration, it is worth checking if this integration works for you. As there are differences between TVs, you may need to try different addresses:
 
-- Some TVs use `https://`, other TVs use `http://`.
-- Some TVs primarily use port 1926, other TVs use port 1925 only.
+- Some TVs use `https://` and port 1926, other TVs use `http://` and port 1925.
 
 ### Check if this integration can be used
 
