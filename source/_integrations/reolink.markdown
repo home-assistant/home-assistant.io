@@ -127,12 +127,21 @@ Depending on the supported features of the camera, number entities are added for
 - AI package sensitivity
 - AI pet sensitivity
 - AI animal sensitivity
+- AI crossline sensitivity+ (up to 3 lines)
+- AI intrusion sensitivity+ (up to 3 zones)
+- AI linger sensitivity+ (up to 3 zones)
+- AI item forgotten sensitivity+ (up to 3 zones)
+- AI item taken sensitivity+ (up to 3 zones)
 - AI face delay*
 - AI person delay*
 - AI vehicle delay*
 - AI package delay*
 - AI pet delay*
 - AI animal delay*
+- AI intrusion delay+ (up to 3 zones)
+- AI linger delay+ (up to 3 zones)
+- AI item forgotten delay+ (up to 3 zones)
+- AI item taken delay+ (up to 3 zones)
 - Auto quick reply time
 - Auto track limit left
 - Auto track limit right
