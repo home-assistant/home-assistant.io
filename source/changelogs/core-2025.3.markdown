@@ -1243,6 +1243,109 @@ For a summary in a more readable format:
 [@peteS-UK]: https://github.com/peteS-UK
 [@zxdavb]: https://github.com/zxdavb
 
+## Release 2025.3.2 - March 11
+
+- Don't allow creating backups if Home Assistant is not running ([@emontnemery] - [#139499])
+- Bump govee_ble to 0.43.1 ([@moosilauke18] - [#139862])
+- Label emergency heat switch ([@jrhillery] - [#139872])
+- Bump sense-energy lib to 0.13.7 ([@kbickar] - [#140068])
+- Update jinja to 3.1.6 ([@frenck] - [#140069])
+- Update evohome-async to 1.0.3 ([@zxdavb] - [#140083])
+- Fix HEOS discovery error when previously ignored ([@andrewsayre] - [#140091])
+- Map prewash job state in SmartThings ([@joostlek] - [#140097])
+- Check support for thermostat operating state in SmartThings ([@joostlek] - [#140103])
+- Handle None options in SmartThings ([@joostlek] - [#140110])
+- Fix MQTT JSON light not reporting color temp status if color is not supported ([@jbouwh] - [#140113])
+- Fix HEOS user initiated setup when discovery is waiting confirmation ([@andrewsayre] - [#140119])
+- Support null supported Thermostat modes in SmartThings ([@joostlek] - [#140101])
+- Set device class for Oven Completion time in SmartThings ([@joostlek] - [#140139])
+- Revert "Check if the unit of measurement is valid before creating the entity" ([@jbouwh] - [#140155])
+- Fix the order of the group members attribute of the Music Assistant integration ([@msm595] - [#140204])
+- Fix events without user in Bring integration ([@tr4nt0r] - [#140213])
+- Log broad exception in Electricity Maps config flow ([@jpbede] - [#140219])
+- Bump evohome-async to 1.0.4 to fix #140194 ([@zxdavb] - [#140230])
+- Refresh Home Connect token during config entry setup ([@Diegorro98] - [#140233])
+- Add 900 RPM option to washer spin speed options at Home Connect ([@Diegorro98] - [#140234])
+- Fix todo tool broken with Gemini 2.0 models. ([@Lash-L] - [#140246])
+- Fix version not always available in onewire ([@epenet] - [#140260])
+- Fix `client_id` not generated when connecting to the MQTT broker ([@jbouwh] - [#140264])
+- Bump velbusaio to 2025.3.0 ([@cereal2nd] - [#140267])
+- Fix dryer operating state in SmartThings ([@joostlek] - [#140277])
+- FGLair : Upgrade to ayla-iot-unofficial 1.4.7 ([@crevetor] - [#140296])
+- Bump pyheos to v1.0.3 ([@andrewsayre] - [#140310])
+- Bump ZHA to 0.0.52 ([@puddly] - [#140325])
+- Bump pydrawise to 2025.3.0 ([@dknowles2] - [#140330])
+- Bump teslemetry-stream ([@Bre77] - [#140335])
+- Fix no temperature unit in SmartThings ([@joostlek] - [#140363])
+- Fix double space quoting in WebDAV ([@jpbede] - [#140364])
+- Bump python-roborock to 2.12.2 ([@Lash-L] - [#140368])
+- Handle incomplete power consumption reports in SmartThings ([@joostlek] - [#140370])
+- Fix browsing Audible Favorites in Sonos ([@PeteRager] - [#140378])
+- Make sure SmartThings light can deal with unknown states ([@joostlek] - [#140190])
+- Delete subscription on shutdown of SmartThings ([@joostlek] - [#140135])
+
+[#139499]: https://github.com/home-assistant/core/pull/139499
+[#139859]: https://github.com/home-assistant/core/pull/139859
+[#139862]: https://github.com/home-assistant/core/pull/139862
+[#139872]: https://github.com/home-assistant/core/pull/139872
+[#140061]: https://github.com/home-assistant/core/pull/140061
+[#140068]: https://github.com/home-assistant/core/pull/140068
+[#140069]: https://github.com/home-assistant/core/pull/140069
+[#140083]: https://github.com/home-assistant/core/pull/140083
+[#140091]: https://github.com/home-assistant/core/pull/140091
+[#140097]: https://github.com/home-assistant/core/pull/140097
+[#140101]: https://github.com/home-assistant/core/pull/140101
+[#140103]: https://github.com/home-assistant/core/pull/140103
+[#140110]: https://github.com/home-assistant/core/pull/140110
+[#140113]: https://github.com/home-assistant/core/pull/140113
+[#140119]: https://github.com/home-assistant/core/pull/140119
+[#140135]: https://github.com/home-assistant/core/pull/140135
+[#140139]: https://github.com/home-assistant/core/pull/140139
+[#140155]: https://github.com/home-assistant/core/pull/140155
+[#140190]: https://github.com/home-assistant/core/pull/140190
+[#140204]: https://github.com/home-assistant/core/pull/140204
+[#140213]: https://github.com/home-assistant/core/pull/140213
+[#140219]: https://github.com/home-assistant/core/pull/140219
+[#140230]: https://github.com/home-assistant/core/pull/140230
+[#140233]: https://github.com/home-assistant/core/pull/140233
+[#140234]: https://github.com/home-assistant/core/pull/140234
+[#140246]: https://github.com/home-assistant/core/pull/140246
+[#140260]: https://github.com/home-assistant/core/pull/140260
+[#140264]: https://github.com/home-assistant/core/pull/140264
+[#140267]: https://github.com/home-assistant/core/pull/140267
+[#140277]: https://github.com/home-assistant/core/pull/140277
+[#140296]: https://github.com/home-assistant/core/pull/140296
+[#140310]: https://github.com/home-assistant/core/pull/140310
+[#140325]: https://github.com/home-assistant/core/pull/140325
+[#140330]: https://github.com/home-assistant/core/pull/140330
+[#140335]: https://github.com/home-assistant/core/pull/140335
+[#140363]: https://github.com/home-assistant/core/pull/140363
+[#140364]: https://github.com/home-assistant/core/pull/140364
+[#140368]: https://github.com/home-assistant/core/pull/140368
+[#140370]: https://github.com/home-assistant/core/pull/140370
+[#140378]: https://github.com/home-assistant/core/pull/140378
+[@Bre77]: https://github.com/Bre77
+[@Diegorro98]: https://github.com/Diegorro98
+[@Lash-L]: https://github.com/Lash-L
+[@PeteRager]: https://github.com/PeteRager
+[@andrewsayre]: https://github.com/andrewsayre
+[@cereal2nd]: https://github.com/cereal2nd
+[@crevetor]: https://github.com/crevetor
+[@dknowles2]: https://github.com/dknowles2
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@jrhillery]: https://github.com/jrhillery
+[@kbickar]: https://github.com/kbickar
+[@moosilauke18]: https://github.com/moosilauke18
+[@msm595]: https://github.com/msm595
+[@puddly]: https://github.com/puddly
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@zxdavb]: https://github.com/zxdavb
+
 [#109725]: https://github.com/home-assistant/core/pull/109725
 [#116024]: https://github.com/home-assistant/core/pull/116024
 [#116452]: https://github.com/home-assistant/core/pull/116452
