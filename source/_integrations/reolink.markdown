@@ -100,12 +100,24 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI face detection++
 - AI package detection++
 - AI baby crying detection+ (sound detection)
+- AI crossline person+ (up to 3 lines)
+- AI crossline vehicle+ (up to 3 lines)
+- AI crossline animal+ (up to 3 lines)
+- AI intrusion person+ (up to 3 zones)
+- AI intrusion vehicle+ (up to 3 zones)
+- AI intrusion animal+ (up to 3 zones)
+- AI linger person+ (up to 3 zones)
+- AI linger vehicle+ (up to 3 zones)
+- AI item forgotten+ (up to 3 zones)
+- AI item taken+ (up to 3 zones)
 - Sleep status+
 
 \++ These sensors receive events using the following 4 methods (in order): TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for TCP push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
+
+For the **crossline**, **intrusion**, **linger**, **item forgotten** and, **item taken** entities, you first need to configure the lines/zones in the Reolink app (**Settings** > **Detection alarm** > **Smart event detection**). In the Reolink app you can add up to 3 zones/lines and for each zone/line you can enable/disable the person/vehicle/animal detection. Within 60 seconds after making a change in the Reolink app, the corresponding entities will automatically show up in Home Assistant.
 
 ### Number entities
 
