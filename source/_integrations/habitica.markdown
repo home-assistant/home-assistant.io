@@ -401,9 +401,9 @@ Updates a specific daily for the selected Habitica character.
 | `priority`     | yes      | Update the difficulty of a daily. Valid values: `trivial`, `easy`, `medium`, `hard`          |
 | `start_date`   | yes      | Defines when the daily task becomes active and specifies the exact weekday or day of the month it repeats on. |
 | `frequency`    | yes      | The repetition interval of a daily. Valid values: `daily`, `weekly`, `monthly`, `yearly`.    |
-| `every_x`      | yes      | The number of intervals (`days`, `weeks`, `months`, or `years`) after which the daily repeats, based on the chosen repetition interval. A value of 0 makes the daily inactive (a *Grey Daily*). |
-| `repeat`       | yes      | The days of the week the daily repeats. Appplicable when the repetition interval is set to weekly. |
-| `repeat_monthly` | yes    | Whether a monthly recurring task repeats on the same calendar day each month (`day_of_month`), or on the same weekday and week of the month (`day_of_week`), based on the start date. Appplicable when the repetition interval is set to monthly. |
+| `every_x`      | yes      | The number of intervals (`days`, `weeks`, `months`, or `years`) after which the daily repeats, based on the chosen repetition interval. A value of 0 makes the daily inactive (a *Gray Daily*). |
+| `repeat`       | yes      | The days of the week the daily repeats. Applicable when the repetition interval is set to weekly. |
+| `repeat_monthly` | yes    | Whether a monthly recurring task repeats on the same calendar day each month (`day_of_month`), or on the same weekday and week of the month (`day_of_week`), based on the start date. Applicable when the repetition interval is set to monthly. |
 | `reminder`     | yes      | Add reminders to a Habitica daily.                                                           |
 | `remove_reminder` | yes   | Remove specific reminders from a Habitica daily.                                             |
 | `clear_reminder`  | yes   | Remove all reminders from a Habitica daily.                                                  |
