@@ -40,12 +40,12 @@ Add this integration to automate playback and group configuration of HEOS-capabl
 {% include integrations/config_flow.md %}
 
 {% note %}
-Only a single instance of the integration is needed to access the entire HEOS system on the network. It will only connect to a single {% term host %}.
+A single instance of the integration adds all devices in the HEOS system to Home Assistant. When setup through discovery, it will automatically select the best {% term host %}. The integration will automatically reconnect and fail over to other hosts in the HEOS system if the configured host goes offline.
 {% endnote %}
 
 {% configuration_basic %}
 Host:
-    description: "The host name or IP address (e.g., \"192.168.1.2\") of your HEOS-capable product. If you have more than one device, select, or enter a host, that is connected to the LAN via wire or has the strongest wireless signal."
+    description: "The host name or IP address (e.g., \"192.168.1.2\") of your HEOS-capable product. If you have more than one device, enter a host that is connected to the LAN via wire and is always powered on."
 {% endconfiguration_basic %}
 
 ## Configuration options
