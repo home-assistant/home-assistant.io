@@ -671,35 +671,35 @@ climates:
           required: true
           type: map
           keys:
-            state_off:
+            action_off:
               description: "Value corresponding to HVAC Off action."
               required: false
               type: [integer, list]
-            state_cooling:
+            action_cooling:
               description: "Value corresponding to HVAC Cooling action."
               required: false
               type: [integer, list]
-            state_defrosting:
+            action_defrosting:
               description: "Value corresponding to HVAC Defrosting action."
               required: false
               type: [integer, list]
-            state_drying:
+            action_drying:
               description: "Value corresponding to HVAC Drying action."
               required: false
               type: [integer, list]
-            state_fan:
+            action_fan:
               description: "Value corresponding to HVAC Fan action."
               required: false
               type: [integer, list]
-            state_heating:
+            action_heating:
               description: "Value corresponding to HVAC Heating action."
               required: false
               type: [integer, list]
-            state_idle:
+            action_idle:
               description: "Value corresponding to HVAC Idle action."
               required: false
               type: [integer, list]
-            state_preheating:
+            action_preheating:
               description: "Value corresponding to HVAC Preheating action."
               required: false
               type: [integer, list]
