@@ -42,6 +42,7 @@ There is currently support for the following device types within Home Assistant:
 The following binary sensors are added for each thermostat:
 
 - Blower Active
+- Emergency heat active
 
 ### Sensor
 
@@ -82,7 +83,13 @@ The scene platform lets you activate a nexia automation.
 
 ### Switch
 
-The switch platform lets you enable or disable hold mode for each thermostat.
+The following enable/disable switches are added for each thermostat:
+
+- Emergency heat
+
+The following enable/disable switches are added for each thermostat zone:
+
+- Hold mode
 
 ### Action `nexia.set_aircleaner_mode`
 
