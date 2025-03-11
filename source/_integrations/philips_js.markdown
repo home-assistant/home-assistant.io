@@ -36,8 +36,6 @@ Before adding the integration, it is worth checking if this integration works fo
 
 1. Check if your TV responds to one of the following combinations:
     - `http://IP_ADDRESS_OF_TV:1925/system`
-    - `https://IP_ADDRESS_OF_TV:1925/system`
-    - `http://IP_ADDRESS_OF_TV:1926/system`
     - `https://IP_ADDRESS_OF_TV:1926/system`
 2. If you get a response, then this integration can be used. 
    - In the response, you should also be able to see the version of the API the TV uses (`"api_version":{"Major":6...`).
