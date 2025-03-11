@@ -25,20 +25,22 @@ ha_integration_type: integration
 The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.
 
 
-## Differences between TVs 
+## Prerequisites
 
-1. Some TVs use `https://`, other TVs use `http://`.
-2. Some TVs primarily use port 1926, other TVs use port 1925 only.
+Before adding the integration, it is worth checking if this integration works for you. As there are differences between TVs, you may need to try different addresses:
 
-## Check if this integration can be used
-Check if your TV responds to one of the following combinations:
+- Some TVs use `https://`, other TVs use `http://`.
+- Some TVs primarily use port 1926, other TVs use port 1925 only.
 
-- `http://IP_ADDRESS_OF_TV:1925/system`
-- `https://IP_ADDRESS_OF_TV:1925/system`
-- `http://IP_ADDRESS_OF_TV:1926/system`
-- `https://IP_ADDRESS_OF_TV:1926/system`
+### Check if this integration can be used
 
-If you get a response, then this integration can be used. In the response, you should also be able to see the version of the API the TV uses (`"api_version":{"Major":6...`).
+1. Check if your TV responds to one of the following combinations:
+    - `http://IP_ADDRESS_OF_TV:1925/system`
+    - `https://IP_ADDRESS_OF_TV:1925/system`
+    - `http://IP_ADDRESS_OF_TV:1926/system`
+    - `https://IP_ADDRESS_OF_TV:1926/system`
+2. If you get a response, then this integration can be used. 
+   - In the response, you should also be able to see the version of the API the TV uses (`"api_version":{"Major":6...`).
 For older TVs follow instructions on how to activate the API and if your model is supported [here](http://jointspace.sourceforge.net/download.html). Note that not all listed, jointSPACE-enabled devices will have JSON-interface running on port 1925. This is true at least for some models before year 2011.
 
 Also, note that version 6 of the API needs to be authenticated by a PIN code displayed on your TV.
