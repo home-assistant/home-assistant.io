@@ -108,6 +108,7 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI intrusion animal+ (up to 3 zones)
 - AI linger person+ (up to 3 zones)
 - AI linger vehicle+ (up to 3 zones)
+- AI linger animal+ (up to 3 zones)
 - AI item forgotten+ (up to 3 zones)
 - AI item taken+ (up to 3 zones)
 - Sleep status+
