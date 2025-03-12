@@ -118,7 +118,7 @@ The latency for receiving the events is the best for TCP push and the worst for 
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
 
-For the **crossline**, **intrusion**, **linger**, **item forgotten** and, **item taken** entities, you first need to configure the lines/zones in the Reolink app (**Settings** > **Detection alarm** > **Smart event detection**). In the Reolink app you can add up to 3 zones/lines and for each zone/line you can enable/disable the person/vehicle/animal detection. Within 60 seconds after making a change in the Reolink app, the corresponding entities will automatically show up in Home Assistant.
+For the **crossline**, **intrusion**, **linger**, **item forgotten**, and **item taken** entities, you first need to configure the lines/zones in the Reolink app (**Settings** > **Detection alarm** > **Smart event detection**). In the Reolink app, you can add up to 3 zones/lines, and for each zone/line, you can enable/disable the person/vehicle/animal detection. Within 60 seconds after making a change in the Reolink app, the corresponding entities will automatically show up in Home Assistant.
 
 ### Number entities
 
