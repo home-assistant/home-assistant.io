@@ -61,3 +61,9 @@ The following entities are supported:
 - Requesting CO2 calibration
 - Requesting LED bar test
 - Toggling sharing metrics with AirGradient
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
