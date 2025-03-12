@@ -34,7 +34,7 @@ In order for the device to be set up or discovered by Home Assistant, the [firmw
 
 {% configuration_basic %}
 Host:
-description: "The IP address or hostname for your AirGradient device."
+  description: "The IP address or hostname for your AirGradient device."
 {% endconfiguration_basic %}
 
 ## Available sensors
