@@ -465,14 +465,16 @@ This action disables a lock code on a Zigbee lock.
 
 ## Adding devices
 
-Tip! It is highly recommended that you read through the two segments under the troubleshooting section below about _Best practices to avoid pairing/connection difficulties_ and _Zigbee interference avoidance and network range/coverage optimization_ for general prerequisite knowledge and advice on how to achieve the best possible Zigbee network in your environment.
+Tip! Before starting the pairing/joining process is generally recommended to reset the Zigbee device you wish to pair/join to its "factory default" settings according to the device instructions provided by the manufacturer. It is also highly recommended that you read through the two segments under the troubleshooting section below about _Best practices to avoid pairing/connection difficulties_ and _Zigbee interference avoidance and network range/coverage optimization_ for more general tips and prerequisite knowledge and advice on how to achieve the best possible Zigbee network in your environment.
+
+Note! While this ZHA integration documentation has information on how to put the Zigbee Coordinator for ZHA into pairing-mode (a.k.a. joining-mode), please understand that it can not cover how to put your specific devices into pairing-mode because the is no single standard way to do so for Zigbee devices. This means that you need to be aware that manufacturers have implemented many various ways to put their Zigbee devices into pairing-mode, and in a few cases devices manufacturers have not standardized the method for enabling device pairing-mode within the same product brand or even within the same model series. As such it is always best to start by finding and reading the device user manual for each of your specific Zigbee devices to figure out the manufacturer's recommended procesure for putting each device into pairing-mode.
 
 **To add a new Zigbee device:**
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+1. To put the Zigbee Coordinator for ZHA into pairing-mode (a.k.a. joining-mode), go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Zigbee Home Automation** {% term integration %}. Then, select **Configure**.
 3. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
-4. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
+4. Put your Zigbee device into pairing-mode (a.k.a. joining-mode) according to the specific instructions for that product provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin, etc.). It might take a few seconds for the devices to appear after the device is in pairing-mode. You can click on **Show logs** for more verbose output.
 5. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
 ### Using router devices to add more devices
