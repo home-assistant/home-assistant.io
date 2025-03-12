@@ -84,7 +84,7 @@ The scene platform lets you activate a nexia automation.
 
 The following enable/disable switches are added for each thermostat:
 
-- Emergency heat
+- Emergency heat (if the device supports it)
 
 The following enable/disable switches are added for each thermostat zone:
 
