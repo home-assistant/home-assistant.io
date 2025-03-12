@@ -22,7 +22,7 @@ Header and footer can be used on the following cards:
 
 - [Entity](/dashboards/entity/)
 - [Entities](/dashboards/entities/)
-- [Statistics](/dashboards/statistics/)
+- [Statistic](/dashboards/statistic/)
 
 ## Picture header & footer
 

@@ -797,6 +797,8 @@ automation:
 
 It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) for times.
 
+{% raw %}
+
 ```yaml
 blueprint:
   input:
@@ -820,6 +822,8 @@ blueprint:
       - "sensor.{{ my_alarm | slugify }}_time"
       - "{{ my_hour }}:30:00"
 ```
+
+{% endraw %}
 
 ## Time pattern trigger
 

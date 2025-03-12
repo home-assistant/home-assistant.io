@@ -21,7 +21,7 @@ After Home Assistant has been [installed](/installation/) on your device, there 
         ![Home Assistant preparation](/images/getting-started/onboarding_preparing_02.png)
      - Enter a name, username, and password.
        - Make sure the username is lowercase and contains no whitespace.
-       - {% icon "mdi:info" %} **Info**: The **Name** is the name of the person the is shown in the UI. The username is used for login.
+       - {% icon "mdi:info" %} **Info**: The **Name** is the name of the person that is shown in the UI. The username is used for login.
 
         ![Set your username and password.](/images/getting-started/onboarding_username.png)
      - Store the name, username, and password somewhere safe. There is no way to recover the owner credentials.

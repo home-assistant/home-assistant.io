@@ -30,9 +30,37 @@ In Home Assistant, the Assist pipelines are made up of various components that t
 
 ## Some options for speech-to-text and text-to-speech
 
-There is a speech-to-text and text-to-speech option that runs entirely local. No data is sent to external servers for processing.
+There are speech-to-text and text-to-speech options that run entirely local. No data is sent to external servers for processing.
 
-The speech-to-text option is [Whisper](https://github.com/openai/whisper). It’s an open source AI model that supports [various languages](https://github.com/openai/whisper#available-models-and-languages). We use a forked version called [faster-whisper](https://github.com/SYSTRAN/faster-whisper). On a Raspberry Pi 4, it takes around 8 seconds to process incoming voice commands. On an Intel NUC, it is done in under a second.
+### Speech-to-text engines
+
+There are currently two options to run speech-to-text locally: **Speech-to-Phrase** and **Whisper**.
+
+#### Speech-to-Phrase
+[Speech-to-Phrase](https://github.com/OHF-voice/speech-to-phrase) is a close-ended speech model. 
+
+- It transcribes what it knows.
+- Extremely fast transcription even on a Home Assistant Green or Raspberry Pi 4 (under one second).
+- Only supports a subset of Assist’s voice commands.
+   - More open-ended items such as shopping lists, naming a timer, and broadcasts are *not* usable out of the box.
+- Speech-to-Phrase supports [various languages](https://github.com/OHF-voice/speech-to-phrase?tab=readme-ov-file#supported-languages).
+- These qualities make it a great option for Home control!
+
+#### Whisper
+
+[Whisper](https://github.com/openai/whisper) is an open-ended speech model.
+
+- It will try to transcribe everything.
+- The cost is slower processing speed: 
+    - On a Raspberry Pi 4, it takes around 8 seconds to process incoming voice commands. 
+    - On an Intel NUC, it is done in under a second.
+- Supports [various languages](https://github.com/openai/whisper#available-models-and-languages).
+- Whisper is only a great option in the following case: 
+    1. You have powerful hardware at home.
+    2. You plan to extend your voice set-up beyond simple home control. For example, by pairing your assistant with an LLM-based agent.
+
+### Text-to-speech engine
+
 For text-to-speech, we have developed [Piper](https://github.com/rhasspy/piper). Piper is a fast, local neural text-to-speech system that sounds great and is optimized for the Raspberry Pi 4. It supports [many languages](https://rhasspy.github.io/piper-samples/). On a Raspberry Pi, using medium quality models, it can generate 1.6s of voice in a second.
 
 Please be sure to check how either option will work in your language, since quality can change quite a bit.
@@ -42,20 +70,15 @@ Please be sure to check how either option will work in your language, since qual
 For the quickest way to get your local Assist pipeline started, follow these steps:
 
 1. Install the add-ons to convert text into speech and vice versa.
-   - Install the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} and the {% my supervisor_addon addon="core_piper" title="**Piper**" %} add-ons.
-     ![Install the Whisper and Piper add-ons](/images/assist/piper-whisper-install-01.png)
-   - If you want to use a wake word, also install the {% my supervisor_addon addon="core_openwakeword" title="**openWakeWord**" %} add-on.
+   - Install the speech-to-text add-on of your choice, either {% my supervisor_addon addon="core_speech-to-phrase" title="**Speech-to-Phrase**" %} or {% my supervisor_addon addon="core_whisper" title="**Whisper**" %}.
+   - Install {% my supervisor_addon addon="core_piper" title="**Piper**" %} for text-to-speech.
    - Start the add-ons.
    - Once the add-ons are started, head over to the integrations under {% my integrations title="**Settings** > **Devices & Services**" %}.
-     - You should now see Piper and Whisper being discovered by the [Wyoming integration](/integrations/wyoming/).
+     - You should now see both services being discovered by the [Wyoming integration](/integrations/wyoming/).
        ![Whisper and Piper integrations](/images/assist/piper-whisper-install-new-02.png)
    - For each integration, select **Add**.
-     - Once the setup is complete, you should see both Piper and Whisper (and, optionally, also openWakeword) in one integration.
-   
-       ![Whisper and Piper integration](/images/assist/piper-whisper-install-new-03.png)
-       - **Whisper** converts speech into text.
-       - **Piper** converts text into speech.
-       - **Wyoming** is the protocol they are both using to communicate.
+   - You now have integrated a local speech-to-text engine of your choice (either {% my supervisor_addon addon="core_speech-to-phrase" title="**Speech-to-Phrase**" %} or {% my supervisor_addon addon="core_whisper" title="**Whisper**" %}) and a text-to-speech engine ({% my supervisor_addon addon="core_piper" title="**Piper**" %}).
+
 2. Setup your assistant.
 
    - Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
@@ -71,13 +94,9 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Enter a name. You can pick any name that is meaningful to you.
    - Select the language that you want to speak.
    - Under **Conversation agent**, select **Home Assistant**.
-   - Under **Speech-to-text**, select **faster-whisper**. Select the language.
-   - Under **Text-to-speech**, select **piper**. Select the language.
+   - Under **Speech-to-text**, select the speech-to-text engine you choose in the previous step (either **Whisper** or **Speech-to-Phrase**). Select the language.
+   - Under **Text-to-speech**, select **Piper**. Select the language.
      - Depending on your language, you may be able to select different language variants.
-   - If you like, pick one of the predefined wake words.
-     ![Select wake word](/images/assist/assist_predefined_wakeword.png)
-     - You can even [define your own wake word](/voice_control/create_wake_word/). This is not difficult to do, but you will need to set aside a bit of time for this.
-     - Once you defined your own wake word, it will show in this pick list.
 
 3. That's it. You ensured your voice commands can be processed locally on your device.
 4. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
@@ -93,6 +112,12 @@ View some of the options in the video below. Explained by Mike Hansen, creator o
 The options are also documented in the add-on itself. Go to the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} or the {% my supervisor_addon addon="core_piper" title="**Piper**" %} add-on and open the **Documentation** page.
 
 Also be sure to check the specific tutorial for [using Piper in Automations](voice_control/using_tts_in_automation/)
+
+## Learning more about Speech-to-Phrase
+
+You can check out [Voice Chapter 9](/blog/2025/02/13/voice-chapter-9-speech-to-phrase/) to learn more about why we introduced Speech-to-Phrase, and why it's a great option for home control.
+
+<lite-youtube videoid="k6VvzDSI8RU" videotitle="Voice Chapter 9"></lite-youtube>
 
 ## Next steps
 Once Assist is configured, now can now start using it. You can now talk through your device ([Android](/voice_control/android/), [iOS](/voice_control/apple/) or [Voice Preview edition](https://voice-pe.home-assistant.io/getting-started/)).

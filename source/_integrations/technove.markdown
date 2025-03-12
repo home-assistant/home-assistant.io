@@ -54,7 +54,12 @@ The {% term integration %} adds the following sensors:
 - Last session energy usage
 - Wi-Fi signal strength
 - Wi-Fi network name
-- Status
+- Status, one of the following values:
+  - Unplugged
+  - Plugged, waiting
+  - Plugged, charging
+  - Out of activation period
+  - High tariff period
 
 ## Switch
 
