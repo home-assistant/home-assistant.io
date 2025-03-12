@@ -25,6 +25,7 @@ ha_zeroconf: true
 ---
 
 The AirGradient integration will fetch data from your [AirGradient devices](https://www.airgradient.com/).
+AirGradient creates open-source air monitors that measure a wide variety of metrics.
 
 {% important %}
 In order for the device to be set up or discovered by Home Assistant, the [firmware](https://www.airgradient.com/documentation/firmwares) version should be at least 3.1.1.
