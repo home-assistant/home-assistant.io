@@ -32,6 +32,11 @@ In order for the device to be set up or discovered by Home Assistant, the [firmw
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The IP address or hostname for your AirGradient device."
+{% endconfiguration_basic %}
+
 ## Available sensors
 
 The integration will fetch data from each device. The following sensors are supported:
