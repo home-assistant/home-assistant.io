@@ -19,11 +19,14 @@ The **Airios** {% term integration %} allows you to control and monitor ventilat
 
 **Airios** develops and produces components for residential ventilation systems that final manufacturers use to build their products upon, from controller boards to remote controls or sensors. These components communicate over a proprietary RF protocol from Honeywell called Ramses II in the 868Mhz band.
 
+
+This {% term integration %} has been tested with the following manufacturers.
+
+## Prerequisites
+
 An RF bridge is needed for Home Assistant to access the RF network. There are two bridge models with different interfaces. The **Airios** BRDG-02R13 has a RS485 serial interface (Modbus-RTU) and the BRDG-02EM23 is an Ethernet device (Modbus-TCP).
 
-{% warning %}
-Only the RS485 serial bridge is supported by this {% term integration %}.
-{% endwarning %}
+- Before you can use this integration, make sure you have the **Airios** BRDG-02R13 with the RS485 serial bridge. The BRDG-02EM23 Ethernet device is not supported.
 
 This {% term integration %} has been tested with the following manufacturers.
 
