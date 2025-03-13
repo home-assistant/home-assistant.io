@@ -13,6 +13,7 @@ ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
+  - '@Petro31'
   - '@PhracturedBlue'
   - '@home-assistant/core'
 ha_domain: template
@@ -49,11 +50,13 @@ For other types, please see the specific pages:
 - [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
-- [Light](/integrations/light.template/)
 - [Lock](/integrations/lock.template/)
 - [Switch](/integrations/switch.template/)
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
+
+For Legacy types, please see the specific pages:
+- [Light](/integrations/light.template/)
 
 {% include integrations/config_flow.md %}
 
@@ -73,7 +76,7 @@ Entities (sensors, binary sensors, buttons, images, numbers, and selections) are
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template binary sensors, buttons, images, numbers, selects and sensors
+### State-based template binary sensors, buttons, images, lights, numbers, selects and sensors
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -96,7 +99,7 @@ template:
 {% endraw %}
 
 
-### Trigger-based template binary sensors, buttons, images, numbers, selects and sensors
+### Trigger-based template binary sensors, buttons, images, lights, numbers, selects and sensors
 
 If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
@@ -303,6 +306,102 @@ image:
       required: false
       type: boolean
       default: true
+light:
+  description: List of your lights.
+  required: true
+  type: map
+  keys:
+    level:
+      description: Defines a template to get the brightness of the light.
+      required: false
+      type: template
+      default: optimistic
+    temperature:
+      description: Defines a template to get the color temperature of the light.
+      required: false
+      type: template
+      default: optimistic
+    hs:
+      description: Defines a template to get the HS color of the light. Must render   tuple (hue, saturation).
+      required: false
+      type: template
+      default: optimistic
+    rgb:
+      description: Defines a template to get the RGB color of the light. Must render   tuple or a list (red, green, blue).
+      required: false
+      type: template
+      default: optimistic
+    rgbw:
+      description: Defines a template to get the RGBW color of the light. Must render   tuple or a list (red, green, blue, white).
+      required: false
+      type: template
+      default: optimistic
+    rgbww:
+      description: Defines a template to get the RGBWW color of the light. Must render a tuple or a list (red, green, blue, cold white, warm white).
+      required: false
+      type: template
+      default: optimistic
+    supports_transition:
+      description: Defines a template to get if light supports transition. Should  return boolean value (True/False). If this value is `True` transition parameter  in a turn on or turn off call will be passed as a named parameter `transition` t  either of the scripts.
+      required: false
+      type: template
+      default: false
+    effect_list:
+      description: Defines a template to get the list of supported effects. Must render  a list
+      required: inclusive
+      type: template
+      default: optimistic
+    effect:
+      description: Defines a template to get the effect of the light.
+      required: inclusive
+      type: template
+      default: optimistic
+    min_mireds:
+      description: Defines a template to get the min mireds value of the light.
+      required: false
+      type: template
+      default: optimistic
+    max_mireds:
+      description: Defines a template to get the max mireds value of the light.
+      required: false
+      type: template
+      default: optimistic
+    turn_on:
+      description: Defines an action to run when the light is turned on. May receive  variables `brightness` and/or `transition`.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action to run when the light is turned off. May receive  variable `transition`.
+      required: true
+      type: action
+    set_level:
+      description: Defines an action to run when the light is given a brightness command. The script will only be called if the `turn_on` call only ha  brightness, and optionally transition. Receives variables `brightness` an  optionally `transition`.
+      required: false
+      type: action
+    set_temperature:
+      description: Defines an action to run when the light is given a color temperature  command. Receives variable `color_temp`. May also receive variables `brightness`  and/or `transition`.
+      required: false
+      type: action
+    set_hs:
+      description: "Defines an action to run when the light is given a hs colo  command. Available variables: `hs` as a tuple, `h` and `s`"
+      required: false
+      type: action
+    set_rgb:
+      description: "Defines an action to run when the light is given an RGB colo  command. Available variables: `rgb` as a tuple, `r`, `g` and `b`."
+      required: false
+      type: action
+    set_rgbw:
+      description: "Defines an action to run when the light is given an RGBW colo  command. Available variables: `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b`  and `w`."
+      required: false
+      type: action
+    set_rgbww:
+      description: "Defines an action to run when the light is given an RGBWW colo  command. Available variables: `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`  `b`, `cw` and `ww`."
+      required: false
+      type: action
+    set_effect:
+      description: Defines an action to run when the light is given an effect command  Receives variable `effect`. May also receive variables `brightness` and/o  `transition`.
+      required: inclusive
+      type: action
 weather:
   description: List of weather entities
   required: true
@@ -388,8 +487,8 @@ weather:
       description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-"[all sensor, binary sensor, button, image, number, select, weather entities]":
-  description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
+"[all sensor, binary sensor, button, image, light, number, select, weather entities]":
+  description: Fields that can be used above for sensors, binary sensors, buttons, images, lights, numbers, selects, and weather entities.
   required: false
   type: map
   keys:
