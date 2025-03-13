@@ -56,6 +56,16 @@ To change the settings, go to {% my integrations title="**Settings** > **Devices
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
 
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+## Data updates
+
+This integration fetches data from the device every 5 minutes by default.
+
 ## Additional info
 
 ### Device tracker
