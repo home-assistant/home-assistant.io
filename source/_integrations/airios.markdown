@@ -28,7 +28,6 @@ An RF bridge is needed for Home Assistant to access the RF network. There are tw
 
 - Before you can use this integration, make sure you have the **Airios** BRDG-02R13 with the RS485 serial bridge. The BRDG-02EM23 Ethernet device is not supported.
 
-
 {% include integrations/config_flow.md %}
 
 ## Platforms
