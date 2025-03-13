@@ -34,6 +34,21 @@ There is support for the following platform types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+{% configuration %}
+  host:
+    required: true
+    description: The IP address of the Vodafone Station router.
+    type: string
+  username:
+    required: true
+    description: The username of the Vodafone Station router.
+    type: string
+  password:
+    required: true
+    description: The password of the Vodafone Station router.
+    type: string
+{% endconfiguration %}
+
 ## Integration options
 
 It is possible to change some behaviors through the {% term integration %} options.
