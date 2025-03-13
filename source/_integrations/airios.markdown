@@ -30,7 +30,7 @@ An RF bridge is needed for Home Assistant to access the RF network. There are tw
 
 {% include integrations/config_flow.md %}
 
-## Platforms
+## Supported functionality
 
 ### Fan
 
