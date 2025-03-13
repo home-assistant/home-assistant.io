@@ -64,7 +64,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Data updates
 
-This integration fetches data from the device every 5 minutes by default.
+This integration fetches data from the device every 30 seconds by default.
 
 ## Additional info
 
