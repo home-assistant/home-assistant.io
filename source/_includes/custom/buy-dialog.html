@@ -116,9 +116,6 @@
         let tabContents = dialog.querySelectorAll('.ha-buy-dialog-tab-content');
         let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         let region = timezone.split('/')[0].toLowerCase();
-        let locale = Intl.DateTimeFormat().resolvedOptions().locale;
-        let countryCode = locale.split('-')[1].toLowerCase();
-
         
         let defaultTab = dialog.querySelector(`.ha-buy-dialog-sidebar-tab[data-tab="#${region}"]`);
         if (defaultTab) {
@@ -128,11 +125,6 @@
             defaultTab.classList.add('active');
             let tabContent = document.querySelector(defaultTab.getAttribute('data-tab'));
             tabContent.classList.add('active');
-
-            let country = tabContent.querySelector(`.ha-buy-dialog-distributor-country[data-code="${countryCode}"]`);
-            if (country) {
-                country.scrollIntoView({ behavior: 'instant', block: 'center' });
-            }
         }
     }
 </script>

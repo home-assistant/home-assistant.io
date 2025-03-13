@@ -185,7 +185,7 @@ The time in seconds between sending keep alive messages for this client. The def
 
 #### Broker certificate validation
 
-To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose `Auto`. This will allow validation against certificate CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM-encoded CA certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
+To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose `Auto`. This will allow validation against certificate CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM- or DER-encoded CA certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
 If the server certificate does not match the hostname then validation will fail. To allow a connection without the verification of the hostname, turn the `Ignore broker certificate validation` switch on.
 
 #### MQTT Protocol
@@ -194,7 +194,7 @@ The MQTT protocol setting defaults to version `3.1.1`. If your MQTT broker suppo
 
 #### Securing the connection
 
-With a secure broker connection it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to show the controls to upload the files. Only a PEM encoded client certificates together with a PEM encoded private key can be uploaded. Make sure the private key has no password set.
+With a secure broker connection, it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to reveal file upload controls. A client certificate and the corresponding private key must be uploaded together. Both client certificate and private key must be either PEM- or DER-encoded. If the private key is encrypted with a password, ensure you supply the correct password when uploading the client certificate and key files.
 
 #### Using WebSockets as transport
 
@@ -1466,7 +1466,7 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 | Data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `topic`                | no       | Topic to publish payload to.                                 |
-| `payload`              | no       | Payload to publish.                                          |
+| `payload`              | yes      | Payload to publish. Will publish an empty payload when `payload` is omitted.               |
 | `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
@@ -1474,10 +1474,6 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 {% note %}
 When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
 {% endnote %}
-
-{% important %}
-You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
-{% endimportant %}
 
 ```yaml
 topic: homeassistant/light/1/command

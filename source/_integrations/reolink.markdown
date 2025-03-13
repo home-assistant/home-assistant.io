@@ -139,11 +139,11 @@ Depending on the supported features of the camera, number entities are added for
 - Auto track disappear time
 - Auto track stop time
 - Day night switch threshold*
-- Image brightness* (default 128)
-- Image contrast* (default 128)
-- Image saturation* (default 128)
-- Image sharpness* (default 128)
-- Image hue* (default 128)
+- Image brightness*+ (default 128)
+- Image contrast*+ (default 128)
+- Image saturation*+ (default 128)
+- Image sharpness*+ (default 128)
+- Image hue*+ (default 128)
 
 **Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
@@ -189,7 +189,7 @@ Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at di
 Depending on the supported features of the camera, select entities are added for:
 
 - Floodlight mode (Off, Auto, Schedule)
-- Day night mode (Auto, Color, Black&White)
+- Day night mode+ (Auto, Color, Black&White)
 - <abbr title="pan, tilt, and zoom">PTZ</abbr> preset
 - Play quick reply message
 - Auto quick reply message
@@ -310,6 +310,7 @@ The following models have been tested and confirmed to work with a direct link t
 - C2 Pro*
 - [CX410](https://reolink.com/product/cx410/)
 - [CX810](https://reolink.com/product/cx810/)
+- [E1 Pro](https://reolink.com/product/e1-pro/) (only hardware version IPC_NT1NA45MP)
 - [E1 Zoom](https://reolink.com/product/e1-zoom/)
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
@@ -375,7 +376,9 @@ The following battery-powered models have been tested and confirmed to work thro
 
 - [Argus 3 Pro](https://reolink.com/product/argus-3-pro/)
 - [Argus 4 Pro](https://reolink.com/product/argus-4-pro/)
+- [Argus Eco](https://reolink.com/product/argus-eco/)
 - [Argus Eco Ultra](https://reolink.com/product/argus-eco-ultra/)
+- [Argus PT](https://reolink.com/product/argus-pt/)
 - [Argus Track](https://reolink.com/product/argus-track/)
 - [Reolink Doorbell Battery](https://reolink.com/roadmap/)
 
@@ -386,7 +389,7 @@ Reolink provides [this larger list of battery camera models](https://support.reo
 The following models are lacking the HTTP web server API and can, therefore, not work directly with this integration.
 However, these cameras can work with this integration through an NVR or Home Hub in which the NVR/Home Hub is connected to Home Assistant.
 
-- E1 Pro
+- E1 Pro (The IPC_NT1NA45MP hardware version also works with a direct connection)
 - E1
 - Reolink Lumus
 - B400*
@@ -735,6 +738,10 @@ Prerequisites:
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.
 - Reolink cameras can support a limited amount of simultaneous connections. Therefore using third-party software like Frigate, Blue Iris, or Scrypted, or using the ONVIF integration at the same time can cause the camera to drop connections. This results in short unavailabilities of the Reolink entities in Home Assistant. Especially when the connections are coming from the same device (IP) where Home Assistant is running, the Reolink cameras can get confused, dropping one connection in favor of the other originating from the same host IP. If you experience disconnections/unavailabilities of the entities, please first temporarily shut down the other connections (like Frigate) to diagnose if that is the problem. If that is indeed the problem, you could try moving the third-party software to a different host (IP address) since that is known to solve the problem most of the time. You could also try switching the protocol to FLV on Home Assistant and/or the third-party software, as that is known to be less resource-intensive on the camera.
 - If the Reolink entities go to unavailable for short periods, the camera may be overloaded with requests resulting in short connection drops. To resolve this, first, check if the integration is using `ONVIF push` instead of `ONVIF long polling` (resource intensive) or `Fast polling` (very resource intensive), see the [Reducing latency of motion events](#reducing-latency-of-motion-events) section. Moreover, try switching to the <abbr title="flash video">FLV</abbr> streaming protocol which is the least resource-intensive for the camera, see the [options](#options) section.
+
+### Streams or recordings not playing
+
+- Most Reolink cameras use h265 encoding for the high resolution recording and clear stream to save storage space and bandwidth. Playback of this h265 encoding is not supported by all browsers or apps. Therefore, the high-resolution recording and/or clear stream may not function on all your devices from which you acces Home Assistant. To see if a Reolink camera is using h264 or h265 encoding, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"encoding main": "h265"\"h264"` in the txt file. The low-resolution recording and fluent stream always use h264 encoding and, therefore, do not suffer from this issue.
 
 ### Reducing latency of motion events
 

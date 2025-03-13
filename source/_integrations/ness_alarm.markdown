@@ -124,7 +124,7 @@ Trigger an aux output.  This requires PCB version 7.8 or higher.
 
 | Data attribute | Optional | Description                                                                                                                                                         |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `output_id`            | No       | The aux output you wish to change.  A number from 1-4.                                                                                                              |
+| `output_id`            | No       | The aux output you wish to change.  A number from 1-8.                                                                                                              |
 | `state`                | Yes      | The On/Off State, represented as true/false. Default is true.  If P14xE 8E is enabled then a value of true will pulse output x for the time specified in P14(x+4)E. |
 
 ### Action `panic`
