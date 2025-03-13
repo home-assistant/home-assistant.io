@@ -103,6 +103,9 @@ The Ohme integration provides the following entities.
 
 #### Switches
 
+- **Price cap**
+  - **Description**: Only charge when electricity costs are below this amount. ***Not available with some energy providers and tarrifs.***
+  - **Available for devices**: all
 - **Lock buttons**
   - **Description**: Disable the controls on the device.
   - **Available for devices**: all
@@ -131,6 +134,14 @@ The `ohme.list_charge_slots` action is used to fetch a list of charge slots from
 |------------------------|----------|--------------------------------------------------------------|
 | `config_entry`         | No       | The config entry of the account to get the charge list from. |
 
+### Action: Set price cap
+
+The `ohme.set_price_cap` action is used to set the price cap amount. Charge slots will only be returned if a charge is in progress.
+
+| Data attribute         | Optional | Description                                                       |
+|------------------------|----------|-------------------------------------------------------------------|
+| `config_entry`         | No       | The config entry of the account to get the charge list from.      |
+| `price_cap`            | No       | The price cap amount. This is in 1/100ths of your local currency. |
 
 ## Removing the integration
 
