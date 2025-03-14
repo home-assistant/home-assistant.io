@@ -73,13 +73,15 @@ The ZHA integration is a hardware-independent Zigbee gateway implementation that
 
 ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/zigpy), so any coordinator that is compatible with zigpy can be used with ZHA. Review [compatible hardware](#compatible-hardware) recommendations before purchasing Zigbee devices.
 
-### ZHA terminology
+### Zigbee terminology
 
 - **Zigbee network**: A mesh-network of devices with low-power digital radios using a low-bandwidth communication protocol.
 - **Zigbee coordinator**: A hardware radio adapter (typically a USB dongle) that plugs directly into the same computer running your Home Assistant installation.
 - **Zigbee router device**: A hardware device that is always mains-powered (AC) such as outlets or fans.
 - **Zigbee end device**: A hardware device that is typically battery-powered (DC) such as remotes or motion sensors.
 - **Zigbee group**: A collection of two or more Zigbee devices of the same type, different from Home Assistant's [Groups](/integrations/group/).
+
+### Zigbee concepts
 
 - A Zigbee network can have **only one** Zigbee coordinator,
 - The Zigbee coordinator can have multiple **Zigbee router** or **Zigbee end devices** connected,
