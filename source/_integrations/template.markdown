@@ -322,17 +322,17 @@ light:
       type: template
       default: optimistic
     hs:
-      description: Defines a template to get the HS color of the light. Must render   tuple (hue, saturation).
+      description: Defines a template to get the HS color of the light. Must render a tuple (hue, saturation).
       required: false
       type: template
       default: optimistic
     rgb:
-      description: Defines a template to get the RGB color of the light. Must render   tuple or a list (red, green, blue).
+      description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
       required: false
       type: template
       default: optimistic
     rgbw:
-      description: Defines a template to get the RGBW color of the light. Must render   tuple or a list (red, green, blue, white).
+      description: Defines a template to get the RGBW color of the light. Must render a tuple or a list (red, green, blue, white).
       required: false
       type: template
       default: optimistic
@@ -342,12 +342,12 @@ light:
       type: template
       default: optimistic
     supports_transition:
-      description: Defines a template to get if light supports transition. Should  return boolean value (True/False). If this value is `True` transition parameter  in a turn on or turn off call will be passed as a named parameter `transition` t  either of the scripts.
+      description: Defines a template to get if the light supports transition. Should return a boolean value (True/False). If this value is `True`, the transition parameter in a `turn on` or `turn off` call will be passed as a named parameter `transition` in either of the scripts.
       required: false
       type: template
       default: false
     effect_list:
-      description: Defines a template to get the list of supported effects. Must render  a list
+      description: Defines a template to get the list of supported effects. Must render a list.
       required: inclusive
       type: template
       default: optimistic
@@ -357,49 +357,49 @@ light:
       type: template
       default: optimistic
     min_mireds:
-      description: Defines a template to get the min mireds value of the light.
+      description: Defines a template to get the minimum mired value of the light.
       required: false
       type: template
       default: optimistic
     max_mireds:
-      description: Defines a template to get the max mireds value of the light.
+      description: Defines a template to get the maximum mired value of the light.
       required: false
       type: template
       default: optimistic
     turn_on:
-      description: Defines an action to run when the light is turned on. May receive  variables `brightness` and/or `transition`.
+      description: Defines an action to run when the light is turned on. May receive the variables `brightness` and/or `transition`.
       required: true
       type: action
     turn_off:
-      description: Defines an action to run when the light is turned off. May receive  variable `transition`.
+      description: Defines an action to run when the light is turned off. May receive the variable `transition`.
       required: true
       type: action
     set_level:
-      description: Defines an action to run when the light is given a brightness command. The script will only be called if the `turn_on` call only ha  brightness, and optionally transition. Receives variables `brightness` an  optionally `transition`.
+      description: Defines an action to run when the light is given a brightness command. The script will only be called if the `turn_on` call only ha brightness, and optionally transition. Receives variables `brightness` and, optionally, `transition`.
       required: false
       type: action
     set_temperature:
-      description: Defines an action to run when the light is given a color temperature  command. Receives variable `color_temp`. May also receive variables `brightness`  and/or `transition`.
+      description: Defines an action to run when the light is given a color temperature command. Receives variable `color_temp`. May also receive variables `brightness`  and/or `transition`.
       required: false
       type: action
     set_hs:
-      description: "Defines an action to run when the light is given a hs colo  command. Available variables: `hs` as a tuple, `h` and `s`"
+      description: "Defines an action to run when the light is given a hs color command. Available variables: `hs` as a tuple, `h` and `s`"
       required: false
       type: action
     set_rgb:
-      description: "Defines an action to run when the light is given an RGB colo  command. Available variables: `rgb` as a tuple, `r`, `g` and `b`."
+      description: "Defines an action to run when the light is given an RGB color command. Available variables: `rgb` as a tuple, `r`, `g` and `b`."
       required: false
       type: action
     set_rgbw:
-      description: "Defines an action to run when the light is given an RGBW colo  command. Available variables: `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b`  and `w`."
+      description: "Defines an action to run when the light is given an RGBW color command. Available variables: `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b`  and `w`."
       required: false
       type: action
     set_rgbww:
-      description: "Defines an action to run when the light is given an RGBWW colo  command. Available variables: `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`  `b`, `cw` and `ww`."
+      description: "Defines an action to run when the light is given an RGBWW color command. Available variables: `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`  `b`, `cw` and `ww`."
       required: false
       type: action
     set_effect:
-      description: Defines an action to run when the light is given an effect command  Receives variable `effect`. May also receive variables `brightness` and/o  `transition`.
+      description: Defines an action to run when the light is given an effect command. Receives the variable `effect`. May also receive the variables `brightness`, and/or  `transition`.
       required: inclusive
       type: action
 weather:
