@@ -254,7 +254,7 @@ This action allows you to search the LMS music library for albums, artists, genr
 | `command`       | no       | Items to search on the Lyrion Music Server. This must be one of albums, artists, genres, tracks, playlists, favorites or players. |
 | `return_items`  | no       | The maximum numbers of items to return.                                                                                           |
 | `search_string` | yes      | Limit the search to those items matching the search string.                                                                       |
-| `tags`          | yes      | Specify tags you wish the search to return, overriding the default tag list                                                       |
+| `tags`          | yes      | Specify tags you wish the search to return, overriding the default tag list.                                                       |
 
 This action can be used to integrate a Squeezebox query into an automation. For example, in a Python script, you can get a list of the first 20 albums containing the word "classic" like this:
 `hass.services.call("squeezebox", "search", { "entity_id": "media_player.kitchen", "command": "albums", "return_items": "20", "search_string":"classic"] })`
