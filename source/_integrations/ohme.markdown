@@ -17,7 +17,7 @@ ha_platforms:
   - sensor
   - switch
   - time
-ha_quality_scale: silver
+ha_quality_scale: gold
 ha_integration_type: device
 ---
 
@@ -131,6 +131,44 @@ The `ohme.list_charge_slots` action is used to fetch a list of charge slots from
 |------------------------|----------|--------------------------------------------------------------|
 | `config_entry`         | No       | The config entry of the account to get the charge list from. |
 
+## Use cases
+
+This integration can be used to show charger status on your dashboards. It can also be used as part of automations for solar and battery storage.
+
+
+## Examples
+
+### Send a notification when a vehicle is plugged in:
+{% raw %}
+```yaml
+# Example automation
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - sensor.ohme_home_pro_status
+    from: unplugged
+conditions: []
+actions:
+  - action: notify.mobile_app_iphone
+    data:
+      message: Vehicle plugged in
+
+```
+{% endraw %}
+
+
+## Troubleshooting
+
+### The device is unavailable
+You may need to power cycle your charger. Please see the [manufactuer's guidance](https://ohme-ev.com/support/my-charger-is-offline/) for the procedure.
+
+## Data updates
+
+This integration fetches most data every 30 seconds. Device settings are fetched every 30 minutes.
+
+## Known limitations
+The integration does not provide the ability to manage vehicles or routines, which can instead be managed on the manufacturer's app.
 
 ## Removing the integration
 
