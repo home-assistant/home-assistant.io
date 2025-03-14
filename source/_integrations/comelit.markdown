@@ -37,29 +37,21 @@ There is support for the following platform types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-{% configuration %}
+{% configuration_basic %}
   host:
-    required: true
     description: The IP address of the Comelit SmartHome device.
-    type: string
   port:
-    required: true
     description: The TCP port of the Comelit SmartHome device.
-    type: string
   pin:
-    required: false
     description: The PIN of the Comelit SmartHome device.
-    type: integer
   type:
-    required: true
     description: The type the Comelit SmartHome device.
-    type: list
     keys:
       bridge:
         description: Comelit Serial Bridge.
       vedo:
         description: Comelit VEDO System.
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 ## Removing the integration
 
