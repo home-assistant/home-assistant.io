@@ -53,11 +53,6 @@ There is support for the following platform types within Home Assistant:
         description: Comelit VEDO System.
 {% endconfiguration_basic %}
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
 
 ## Data updates
 
@@ -66,3 +61,10 @@ This integration fetches data from the device every 5 seconds by default.
 ## Alarm control panel
 
 The integration will create an alarm entity for each area. Additionally, it will create a sensor and a presence detection binary sensor for each zone, enhancing monitoring capabilities.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
