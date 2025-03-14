@@ -25,6 +25,7 @@ ha_zeroconf: true
 ---
 
 The AirGradient integration will fetch data from your [AirGradient devices](https://www.airgradient.com/).
+AirGradient creates indoor and outdoor air quality monitors that enable you know if the air quality is healthy or not. They measure metrics such as PM2.5, CO2, TVOCs, and NOx. Both the software and hardware are open-source, allowing you to customize or extend the device functionality. 
 
 {% important %}
 In order for the device to be set up or discovered by Home Assistant, the [firmware](https://www.airgradient.com/documentation/firmwares) version should be at least 3.1.1.
