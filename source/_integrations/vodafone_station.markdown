@@ -22,15 +22,17 @@ ha_integration_type: hub
 
 The **Vodafone Station** {% term integration %} allows you to control your [Vodafone Station](https://www.vodafone.it/privati/area-supporto/assistenza-dispositivi/vodafone-station.html) based router.
 
-{% note %}
+## Supported devices
+
 The integration supports only Sercomm models so far.
-{% endnote %}
 
-There is support for the following platform types within Home Assistant:
+### Tested models
 
-- **Device tracker** - presence detection by looking at connected devices.
-- **Sensor** - external IP address, uptime, firmware, resources and network monitors.
-- **Button** - restart router, dsl/fiber/internet key connections.
+This {% term integration %} was tested against the following models from Sercomm:
+
+- Vodafone Power Station (SHG3000)
+- Vodafone WiFi 6 Station (RHG3006)
+- Vodafone Gigabox (SHG3000) - supplied by [Vodafone Ireland](https://deviceguides.vodafone.ie/vodafone/gigabox-windows-10/)
 
 {% include integrations/config_flow.md %}
 
@@ -50,6 +52,14 @@ To change the settings, go to {% my integrations title="**Settings** > **Devices
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
 
+## Supported functionality
+
+There is support for the following platform types within Home Assistant:
+
+- **Device tracker** - presence detection by looking at connected devices.
+- **Sensor** - external IP address, uptime, firmware, resources and network monitors.
+- **Button** - restart router, dsl/fiber/internet key connections.
+
 ## Data updates
 
 This integration {% term polling polls %} data from the device every 30 seconds by default.
@@ -59,14 +69,6 @@ This integration {% term polling polls %} data from the device every 30 seconds 
 ### Device tracker
 
 **Note**: If you don't want to automatically track newly detected devices, disable the {% term integration %} system option `Enable new added entities`.
-
-### Tested models
-
-This {% term integration %} was tested against the following models from Sercomm:
-
-- Vodafone Power Station (SHG3000)
-- Vodafone WiFi 6 Station (RHG3006)
-- Vodafone Gigabox (SHG3000) - supplied by [Vodafone Ireland](https://deviceguides.vodafone.ie/vodafone/gigabox-windows-10/)
 
 ## Removing the integration
 
