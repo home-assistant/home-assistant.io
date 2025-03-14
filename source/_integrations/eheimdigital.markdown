@@ -3,8 +3,8 @@ title: EHEIM Digital
 description: Instructions on how to set up EHEIM Digital with Home Assistant.
 ha_category:
   - Climate
-  - Fan
   - Light
+  - Sensor
 ha_release: 2025.1
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -14,8 +14,8 @@ ha_domain: eheimdigital
 ha_integration_type: hub
 ha_platforms:
   - climate
-  - fan
   - light
+  - sensor
 ha_quality_scale: bronze
 ha_zeroconf: true
 ---
@@ -51,10 +51,11 @@ Currently, the following devices and entities are supported:
 
 ### [EHEIM classicVARIO+e](https://eheim.com/en_GB/aquatics/technology/external-filters/classicvario-e-250/classicvario-e-250)
 
-#### Fan
+#### Sensor
 
-- **Pump speed**: Controlling the manual pump speed of the aquarium filter, which also switches to the Manual mode
-- **Presets / Filter mode**: Switching to the Bio and Pulse modes
+- **Current pump speed**: Displays the current pump speed
+- **Remaining hours until service**: Displays the remaining time until the filter needs to be serviced
+- **Error code**: Displays the current error code of the device (No error, Rotor stuck, air in filter)
 
 Support for additional EHEIM Digital devices and entities will be added in future updates.
 
