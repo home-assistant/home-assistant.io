@@ -188,10 +188,10 @@ When specifying additional parameters in the Visual Editor, each parameter must 
 
 For example, to create an automation to mute playback, use the command `mixer` and the parameter `muting`:
 
-| Row | Parameter | Description |
-| --- | --------  | ----------- |
-|  1  | - muting  | Toggle muting on / off |
-|  2  |           |             |
+| Row | Parameter | Description            |
+| --- | --------- | ---------------------- |
+| 1   | - muting  | Toggle muting on / off |
+| 2   |           |                        |
 
 resulting in the YAML:
 
@@ -209,10 +209,10 @@ Where a parameter is an increment or decrement, it is necessary to place the val
 
 For example, to increase the playback volume, use the command `mixer` and the parameters `volume` and the amount to increment:
 
-| Row | Parameter | Description |
-| --- | --------  | ----------- |
-|  1  | - volume  | Parameter to change |
-|  2  | - "+5"    | Increment volume by 5 percent |
+| Row | Parameter | Description                   |
+| --- | --------- | ----------------------------- |
+| 1   | - volume  | Parameter to change           |
+| 2   | - "+5"    | Increment volume by 5 percent |
 
 resulting in the YAML:
 
@@ -224,7 +224,7 @@ data:
   command: mixer
   parameters:
     - volume
-    - "+5"
+    - '+5'
 ```
 
 ### Action `call_query`
@@ -254,10 +254,10 @@ This action allows you to search the LMS music library for albums, artists, genr
 | `command`       | no       | Items to search on the Lyrion Music Server. This must be one of albums, artists, genres, tracks, playlists, favorites or players. |
 | `return_items`  | no       | The maximum numbers of items to return.                                                                                           |
 | `search_string` | yes      | Limit the search to those items matching the search string.                                                                       |
-| `tags`          | yes      | Specify tags you wish the search to return, overriding the default tag list.                                                       |
+| `tags`          | yes      | Specify tags you wish the search to return, overriding the default tag list.                                                      |
 
 This action can be used to integrate a Squeezebox query into an automation. For example, in a Python script, you can get a list of the first 20 albums containing the word "classic" like this:
-`hass.services.call("squeezebox", "search", { "entity_id": "media_player.kitchen", "command": "albums", "return_items": "20", "search_string":"classic"] })`
+`hass.services.call("squeezebox", "search", { "entity_id": "media_player.kitchen", "command": "albums", "return_items": "20", "search_string":"classic" })`
 To work with the results:
 `result = hass.states.get("media_player.kitchen").attributes['query_result']`
 
