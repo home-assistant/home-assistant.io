@@ -1188,6 +1188,26 @@ lights:
       required: false
       default: 0x00
       type: integer
+    brightness: 
+      description: "Address to read/write color brightness."
+      required: false
+      default: None
+      type: integer
+    color_temp:
+      description: "Address to read/write color temperature."
+      required: false
+      default: None
+      type: integer
+    min_temp:
+      description: "Minimal level of color temperature in Kelvin."
+      required: false
+      default: 2000
+      type: integer
+    max_temp:
+      description: "Maximal level of color temperature in Kelvin."
+      required: false
+      default: 7000
+      type: integer
     write_type:
       description: "Type of write request."
       required: false
@@ -1262,6 +1282,22 @@ modbus:
         slave: 2
         address: 14
         write_type: coil
+        brightness: 1006
+        verify:
+      - name: "light3"
+        slave: 2
+        address: 14
+        write_type: coil
+        brightness: 1006
+        color_temp: 2006
+      - name: "light4"
+        slave: 2
+        address: 14
+        write_type: coil
+        brightness: 1006
+        color_temp: 2006
+        min_temp: 2500
+        max_temp: 5500
         verify:
       - name: "Register1"
         address: 11
