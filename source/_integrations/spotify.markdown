@@ -157,17 +157,3 @@ The `media_content_id` value can be obtained from the Spotify desktop app by cli
 ## Unsupported devices
 
 - **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API. One workaround to use Sonos players with Spotify is through [Music Assistant](https://www.music-assistant.io/) using the action `music_assistant.play_media`. Music Assistant creates another media_player entity named after the original media_player, which you can use to play from Spotify.
-
-```yaml
-# Example script to play playlist using Music Assistant
-script:
-  play_jazz_guitar:
-    sequence:
-      - action: music_assistant.play_media
-        target:
-          entity_id: media_player.living_room_player
-        data:
-          media_id: "https://open.spotify.com/playlist/5xddIVAtLrZKtt4YGLM1SQ?si=YcvRqaKNTxOi043Qn4LYkg"
-          media_type: playlist
-```
-
