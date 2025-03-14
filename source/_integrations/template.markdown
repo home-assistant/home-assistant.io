@@ -73,7 +73,7 @@ Entities (sensors, binary sensors, buttons, images, numbers, and selections) are
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template binary sensors, buttons, images, numbers, selects and sensors
+### State-based template binary sensors, buttons, images, numbers, selects, sensors, and weathers
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -95,8 +95,7 @@ template:
 
 {% endraw %}
 
-
-### Trigger-based template binary sensors, buttons, images, numbers, selects and sensors
+### Trigger-based template binary sensors, images, numbers, selects, sensors, and weathers
 
 If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
@@ -105,6 +104,10 @@ Whenever the trigger fires, all related entities will re-render and it will have
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [state trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
 The state, including attributes, of trigger-based sensors and binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
+
+{% note %}
+Buttons do not support using `trigger` or `action` options.
+{% endnote %}
 
 {% raw %}
 
@@ -137,15 +140,15 @@ unique_id:
   required: false
   type: string
 condition:
-  description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed. Optional. [See condition documentation](/docs/automation/condition).
+  description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed (for trigger-based entities only). Optional. [See condition documentation](/docs/automation/condition).
   required: false
   type: list
 action:
-  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  description: Define actions to be executed when the trigger fires (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
   required: false
   type: list
 variables:
-  description: Key-value pairs of variable definitions which can be referenced and used in the templates below. Mostly used by blueprints.
+  description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints.
   required: false
   type: map
   keys:
@@ -156,7 +159,7 @@ variables:
 sensor:
   description: List of sensors
   required: true
-  type: map
+  type: list
   keys:
     state:
       description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
@@ -180,7 +183,7 @@ sensor:
 binary_sensor:
   description: List of binary sensors
   required: true
-  type: map
+  type: list
   keys:
     state:
       description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor’s device_class value

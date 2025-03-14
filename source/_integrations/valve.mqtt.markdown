@@ -155,7 +155,7 @@ device:
       required: false
       type: string
 device_class:
-  description: Sets the [class of the device](/integrations/valve/), changing the device state and icon that is displayed on the frontend. The `device_class` can be `null`.
+  description: Sets the [class of the device](/integrations/valve/#device_class), changing the device state and icon that is displayed on the frontend. The `device_class` can be `null`.
   required: false
   type: string
 enabled_by_default:

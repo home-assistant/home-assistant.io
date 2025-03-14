@@ -10,6 +10,7 @@ ha_codeowners:
   - '@dotvav'
 ha_domain: palazzetti
 ha_platforms:
+  - button
   - climate
   - diagnostics
   - number
@@ -18,16 +19,17 @@ ha_integration_type: device
 ha_dhcp: true
 ---
 
-## Prerequisites
-
-- You need the Connection Box bridge to be added to a network accessible to Home Assistant.
-- You either need to:
-  - know the IP address or hostname of the Connection Box on the network.
-  - or configure the Connection Box with DHCP on the same network as Home Assistant.
-
 The **Palazzetti** {% term integration %} integrates the [Palazzetti](https://palazzettigroup.com/)
 stoves equipped with a [Connection Box](https://palazzettigroup.com/research-and-development/app/).
-It is accessing the device's local API.
+It is accessing the device's local API. [WPalaControl](https://github.com/Domochip/WPalaControl)
+devices have a compatible API and are supported by this integration too.
+
+## Prerequisites
+
+- You need the Connection Box bridge or WPalaControl to be added to a network accessible to Home Assistant.
+- You either need to:
+  - know the IP address or hostname of the Connection Box or WPalaControl on the network.
+  - or configure the Connection Box or WPalaControl with DHCP on the same network as Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -53,14 +55,20 @@ This integration supports the following actions (see [Climate](/integrations/cli
   - `heat` for heating mode
   - `off` to turn the stove off
 - [`set_fan_mode`](/integrations/climate/#action-climateset_fan_mode)
-  - `Silent` let the stove run in silent mode
-  - `1` to `5` increasing fan speeds
+  - `0` to `5` increasing fan speeds
   - `High` the highest available fan speed
   - `Auto` let the stove set the optimal fan speed
 
+## Buttons
+
+For the stoves that support it, this integration provides a Silent button to trigger the silent mode.
+
 ## Numbers
 
-The Palazzetti integration offers control over the combustion power of the stove on a scale from `1` to `5`.
+When the appliance supports it, the Palazzetti integration offers control over the following elements:
+
+- The combustion power of the stove on a scale from `1` to `5`.
+- The speed of the Left and Right fans.
 
 ## Sensors
 
@@ -168,3 +176,8 @@ only when the status of the stove is in one of the following states: `off`, `off
 `clean_fire`, `cooling`, `ecomode`, `firewood_finished`.
 {% enddetails %}
 
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

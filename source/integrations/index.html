@@ -764,7 +764,8 @@ integrations.pop(); // remove placeholder element at the end
     };
 
     // update view by search text
-    searchInputEl.addEventListener('keyup', debounce(() => {
+    let lastSearchText = '';
+    searchInputEl.addEventListener('input', debounce(() => {
       let value = searchInputEl.value.toLowerCase();
       // sanitize input
       value = value.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
@@ -773,6 +774,10 @@ integrations.pop(); // remove placeholder element at the end
           resetAllFilters();
           searchInputDirty = true;
         }
+
+        if (value === lastSearchText) return;
+
+        lastSearchText = value;
 
         setQueryURL('search', value);
         applyFilter();

@@ -29,11 +29,10 @@ Remember to ensure you're using an [appropriate power supply](https://www.raspbe
 
 This guide shows how to install the {% term "Home Assistant Operating System" %} onto your Raspberry Pi using Raspberry Pi Imager.
 
-If Raspberry Pi Imager is not supported by your platform, you can [download the Home Assistant image](#downloading-the-home-assistant-image) and use another imaging tool.
-
 ### Write the image to your SD card
 
 1. Download and install the Raspberry Pi Imager on your computer as described under [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/).
+   - **Troubleshooting**: If Raspberry Pi Imager is not supported by your platform, you can [download the Home Assistant image](#downloading-the-home-assistant-image) and use another imaging tool, such as Balena Etcher.
 2. Open the Raspberry Pi Imager and select your Raspberry Pi device.
     ![Open Raspberry Pi Imager](/images/installation/rpi_imager_start.png)
 3. Choose the operating system:

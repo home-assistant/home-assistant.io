@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_domain: onvif
 ha_codeowners:
   - '@hunterjm'
+  - '@jterrace'
 ha_config_flow: true
 ha_platforms:
   - binary_sensor

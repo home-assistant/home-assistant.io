@@ -3,6 +3,7 @@ title: Habitica
 description: Instructions on enabling Habitica support for your Home Assistant
 ha_category:
   - Calendar
+  - Image
   - Sensor
   - To-do list
 ha_release: 0.78
@@ -13,6 +14,7 @@ ha_platforms:
   - button
   - calendar
   - diagnostics
+  - image
   - sensor
   - switch
   - todo
@@ -29,6 +31,7 @@ related:
     title: To-do list card
   - url: https://habitica.com/
     title: Habitica
+ha_quality_scale: platinum
 ---
 
 The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats from [Habitica](https://habitica.com/) in Home Assistant and seamlessly integrates your to-do's, daily tasks, and many more things.
@@ -86,16 +89,23 @@ Verify SSL certificate:
 - **Mana**: Displays the current mana points of your character (for example, "61 MP").
 - **Max. mana**: Indicates the maximum mana points your character can have at the current level (for example, "70 MP").
 - **Next level**: Indicates the remaining experience points needed to reach the next level (for example, "440 XP").
-- **Habits**: Shows the number of habits being tracked (for example, "4 tasks").
-- **Rewards**: Displays the rewards that can be redeemed (for example, "1 task")
 - **Gems**: Shows the total number of gems currently owned by your Habitica character, used for purchasing items and customizations.
 - **Mystic hourglasses**: Displays the number of mystic hourglasses earned as a subscriber, which can be redeemed for exclusive items from past events.
 - **Strength, intelligence, constitution, perception**: Display your character's attribute points (stats). The sensors' attributes provide a breakdown of contributions from level, battle gear, class equip bonus, allocation, and buffs.
+- **Eggs**: Shows the total number of eggs in your inventory. The sensor's attributes provide a detailed list of each egg type and quantity.
+- **Pet food**: Displays the total amount of food available. The sensor's attributes list each food type and its quantity. Feed it to your pets and they may grow into a sturdy steed.
+- **Saddles**: Indicates the number of saddles owned, used for instantly raising pets to mounts.
+- **Hatching potions**: Shows the total count of available hatching potions. The sensor's attributes detail each potion type and quantity. Pour them on an egg to hatch a pet.
+- **Quest scrolls**: Displays the total number of quest scrolls in your inventory. A list of each quest scroll and its quantity is provided in the sensor's attributes.
 
 ## Binary sensors
 
 - **Pending quest invitation**: Indicates if you have an invitation to a quest awaiting your response.
   
+## Image
+
+- **Avatar**: Displays your character's current avatar (note: animated avatars are currently not supported and will be displayed as static images).
+
 ## To-do lists
 
 The following Habitica tasks are available as to-do lists in Home Assistant. You can add, delete, edit and check-off completed tasks
@@ -105,8 +115,8 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 
 ## Calendars
 
-- **To-Do calendar:** Lists the due dates for all active to-do tasks. Each event on this calendar represents a to-do item that has a set due date, making it easy to track upcoming deadlines and plan accordingly.
-- **Dailies calendar:** Displays all daily tasks that are scheduled for today and are still active. It also shows all tasks scheduled for future dates, helping you stay organized and track upcoming routines. The calendar sensor will be active if there are unfinished tasks for today and display the next due daily (based on sort order if there are multiple tasks due for that day).
+- **To-Do calendar**: Lists the due dates for all active to-do tasks. Each event on this calendar represents a to-do item that has a set due date, making it easy to track upcoming deadlines and plan accordingly.
+- **Dailies calendar**: Displays all daily tasks that are scheduled for today and are still active. It also shows all tasks scheduled for future dates, helping you stay organized and track upcoming routines. The calendar sensor will be active if there are unfinished tasks for today and display the next due daily (based on sort order if there are multiple tasks due for that day).
 - **To-Do reminders calendar**: Lists events for reminders associated with your to-dos in Habitica, helping you track when notifications for specific to-dos are expected.
 - **Dailies reminders calendar**: Shows events for reminders linked to your Habitica dailies, ensuring you know when notifications for your dailies will occur.
 
@@ -125,13 +135,13 @@ If you've unlocked the class system, button controls for casting player and part
 
 - **Ethereal surge**: You sacrifice Mana so the rest of your party, except for other mages, gains MP. (based on: INT)
 - **Earthquake**: Your mental power shakes the earth and buffs your party's intelligence. (based on: unbuffed INT)
-- **Chilling frost:** With one cast, ice freezes all your streaks so they won't reset to zero tomorrow.
+- **Chilling frost**: With one cast, ice freezes all your streaks so they won't reset to zero tomorrow.
 
 ### Warrior
 
 - **Defensive stance**: You crouch low and gain a buff to constitution. (based on: unbuffed CON)
 - **Valorous presence**: Your boldness buffs your whole party's strength. (based on: unbuffed STR)
-- **Intimidating gaze:** Your fierce stare buffs your whole Party's constitution. (based on: unbuffed CON)
+- **Intimidating gaze**: Your fierce stare buffs your whole Party's constitution. (based on: unbuffed CON)
 
 ### Rogue
 
@@ -163,9 +173,9 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 
 #### Available skills
 
-- **Rogue:** `pickpocket`, `backstab`
-- **Warrior:** `smash`
-- **Mage:** `fireball`
+- **Rogue**: `pickpocket`, `backstab`
+- **Warrior**: `smash`
+- **Mage**: `fireball`
 
 To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
@@ -202,7 +212,9 @@ Terminate your party's ongoing quest. All progress will be lost, and the quest r
 | `config_entry` | no       | Config entry of the character to abort the quest.              |
 
 {% note %}
+
 Actions marked with 🔒 have usage restrictions. See action descriptions for details.
+
 {% endnote %}
 
 ### Action `habitica.start_quest` 🔒
@@ -255,7 +267,35 @@ Use a transformation item from your Habitica character's inventory on a member o
 - **Snowball**: `snowball` (transforms into a snowfriend)
 - **Spooky sparkles**: `spooky_sparkles` (transforms into a ghost)
 - **Seafoam**: `seafoam` (transforms into a starfish)
-- **Shiny seed** `shiny_seed` (transforms into flower)
+- **Shiny seed**: `shiny_seed` (transforms into flower)
+
+### Action `habitica.get_tasks`
+
+Fetch tasks from your Habitica account, with optional filters to narrow down the results for more precise task retrieval.
+
+| Data attribute   | Optional | Description                                                                                              |
+| ---------------- | -------- | -------------------------------------------------------------------------------------------------------- |
+| `config_entry`   | no       | Choose the Habitica character to retrieve tasks from.                                                    |
+| `type`           | yes      | Filter tasks by type. Valid types: `habits`, `dailies`, `todos`, `rewards`.                              |
+| `priority`       | yes      | Filter tasks by difficulty. Valid values: `trivial`, `easy`, `medium`, `hard`.                           |
+| `task`           | yes      | Select specific tasks by matching their name (or task ID).                                               |
+| `tag`            | yes      | Filter tasks that have one or more of the selected tags.                                                 |
+| `keyword`        | yes      | Filter tasks by keyword, searching across titles, notes, and checklists.                                 |
+
+### Action `habitica.update_reward`
+
+Updates a specific reward for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to update a reward.                                              |
+| `task`         | no       | The name (or task ID) of the reward you want to update.                                      |
+| `rename`       | yes      | The new title for the Habitica reward.                                                       |
+| `notes`        | yes      | The new notes for the Habitica reward.                                                       |
+| `cost`         | yes      | Update the cost of a reward.                                                                 |
+| `tag`          | yes      | Add tags to the Habitica reward. If a tag does not already exist, a new one will be created. |
+| `remove_tag`   | yes      | Remove tags from the Habitica reward.                                                        |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
 ## Automations
 
@@ -377,22 +417,6 @@ actions:
 
 {% enddetails %}
 
-## Templating
-
-`sensor.habitica_USER_habits` and `sensor.habitica_USER_rewards` have state attributes listing the user's respective tasks. For example, you can see this information in **{% my developer_states title="Developer Tools > States" %}** under `sensor.habitica_USER_habits` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
-
-{% raw %}
-
-```jinja
-{% for key, value in states.sensor.habitica_USER_habits.attributes.items() %}
-  {% if 'text' in value | string %}
-    {{ loop.index }}. {{ value.text }}
-  {% endif %}
-{% endfor %}
-```
-
-{% endraw %}
-
 ## Data updates
 
 This integration retrieves data from Habitica every 60 seconds to ensure timely updates.
@@ -408,6 +432,12 @@ This integration performs the following requests:
 - 1 additional request 5 seconds after an action to sync the data with Habitica.
 
 Please keep these limits in mind to avoid exceeding Habitica's request allowance. Efforts are ongoing to optimize the integration and reduce the number of requests it makes.
+
+## Troubleshooting
+
+The Habitica integration relies on an active internet connection to communicate with **Habitica**. If you encounter issues, verify that your network connection is stable. Additionally, the Habitica service itself may experience downtime, whether unexpected or due to scheduled maintenance. In these trying times of uncertainty and challenge, when fate tests your resolve, seek guidance from the [Habitica Outage Instructions](https://habitica.fandom.com/wiki/Outage_Instructions) on the community-maintained Habitica wiki — wisdom shared by adventurers who have faced such trials before.
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
 ## Remove integration
 

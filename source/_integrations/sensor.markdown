@@ -63,6 +63,7 @@ The following device classes are supported for sensors:
 - **distance**: Generic distance in km, m, cm, mm, mi, nmi, yd, or in
 - **duration**: Duration in d, h, min, s, or ms
 - **energy**: Energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
+- **energy_distance**: Energy per distance in kWh/100km, mi/kWh or km/kWh.
 - **energy_storage**: Stored energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
 - **enum**: Has a limited set of (non-numeric) states
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
@@ -94,10 +95,11 @@ The following device classes are supported for sensors:
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
 - **volatile_organic_compounds_parts**: Ratio of volatile organic compounds in ppm or ppb
-- **voltage**: Voltage in V, mV, µV
+- **voltage**: Voltage in V, mV, µV, kV, MV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **volume_flow_rate**: Volume flow rate in m³/h, ft³/min, L/min, gal/min, or mL/s
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
+- **wind_direction**: Wind direction in °
 - **wind_speed**: Wind speed in Beaufort, ft/s, km/h, kn, m/s, or mph

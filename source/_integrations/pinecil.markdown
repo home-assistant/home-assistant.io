@@ -3,9 +3,11 @@ title: Pinecil
 description: Connect and control your Pinecil devices using the IronOS integration
 ha_category:
   - Binary sensor
+  - Button
   - Number
   - Select
   - Sensor
+  - Switch
   - Update
 ha_release: 2024.8
 ha_domain: pinecil
@@ -17,9 +19,12 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
+  - diagnostics
   - number
   - select
   - sensor
+  - switch
   - update
 ha_iot_class: Local Polling
 ---

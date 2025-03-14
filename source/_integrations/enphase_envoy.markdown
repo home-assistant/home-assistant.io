@@ -42,7 +42,7 @@ This integration does not work with:
 ## Prerequisites
 
 - The <abbr title="IQ Gateway">Envoy</abbr> must be configured and commissioned.
-- The <abbr title="IQ Gateway">Envoy</abbr> must be on your local network with IPV4 connectivity from Home Assistant. (Also See troubleshooting, [single network](#single-network))
+- The <abbr title="IQ Gateway">Envoy</abbr> must be on your local network with IPV4 connectivity from Home Assistant. (Also See troubleshooting, [periodic network connection issues](#periodic-network-connection-issues))
 - <abbr title="IQ Gateway">Envoy</abbr> firmware version 3.9 or newer.
 - With <abbr title="IQ Gateway">Envoy</abbr> firmware 7 and greater:
   - an Enlighten cloud username and password.
@@ -142,8 +142,8 @@ House consumption data requires an Envoy Metered equipped and configured with at
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Current power consumption**: Current power consumption in W.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime energy consumption**: Lifetime energy consumption in Wh, default display scaled to MWh.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy production last seven days**: Energy consumption in previous 7 days, not including today's, in Wh, display scaled to kWh. This entity is not logged in statistics.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy consumption today**: Energy consumption since midnight in Wh, default display scaled to kWh.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy consumption last seven days**: Energy consumption in previous 7 days, not including today's, in Wh, display scaled to kWh. (See known limitations [Energy Incorrect](#energy-incorrect)) This entity is not logged in statistics.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Energy consumption today**: Energy consumption since midnight in Wh, default display scaled to kWh. (See known limitations [Energy Incorrect](#energy-incorrect))
 
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_consumption.png" alt="consumption entities">
@@ -193,7 +193,7 @@ CT measure multiple properties of the energy exchange which are available as Env
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Production CT current**: Current in A.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor production CT**: Powerfactor, ratio of active to apparent power.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status production CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active production CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non-zero.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active production CT**: Count of CT status flags active. See troubleshooting [CT Active flag count is non-zero](#ct-active-flag-count-is-non-zero) when non-zero.
 
 ##### Net-consumption CT sensor entities
 
@@ -202,7 +202,7 @@ CT measure multiple properties of the energy exchange which are available as Env
 - **Envoy <abbr title="Envoy serial number">SN</abbr> net consumption CT current**: Current in A.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor net consumption CT**: Power factor, ratio of active to apparent power.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status net consumption CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active net consumption CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non-zero.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active net consumption CT**: Count of CT status flags active. See troubleshooting [CT Active flag count is non-zero](#ct-active-flag-count-is-non-zero) when non-zero.
 
 ##### Storage CT sensor entities
 
@@ -211,7 +211,7 @@ CT measure multiple properties of the energy exchange which are available as Env
 - **Envoy <abbr title="Envoy serial number">SN</abbr> storage CT current**: Current in A.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor storage CT**: Power factor, ratio of active to apparent power.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status storage CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active storage CT**: Count of CT status flags active. See troubleshooting [CT Active flag count](#ct-active-flag-count) when non-zero.
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active storage CT**: Count of CT status flags active. See troubleshooting [CT Active flag count is non-zero](#ct-active-flag-count-is-non-zero) when non-zero.
 
 For storage CT energy entities refer to [battery sensor](#aggregated-iq-battery-sensor-entities) description.
 
@@ -398,6 +398,28 @@ The integration collects data for all entities by default every 60 seconds. To c
 Envoy installations without installed <abbr title="current transformers">CT</abbr>, collect individual solar inverter data every 5 minutes. This collection does not occur for each inverter at the same time in the 5-minute period. Shortening the collection interval will at best show updates for individual inverters quicker, but not yield more granular data.
 
 With installed <abbr title="current transformers">CT</abbr>, data granularity increases and shortening the collection interval can provide more details. The Envoy, however, has no unlimited resources and shortening the collection interval may result in dropped connections, Envoy freeze or restarts. It will require some step-wise tuning for each individual situation.
+
+## Credentials or device IP address update
+
+This integration supports updating the Envoy configuration through a `reconfigure` menu option. The reconfiguration allows for changing the Envoy IP address, username, and/or password. Use this menu option if your Enlighten credentials or the device's IP address has changed and needs to be manually updated. The latter is typically automatically detected and updated.
+
+Use this menu option also when an Envoy firmware upgrade requires a switch from local Envoy username/password to token-based authentication with Enlighten username/password (refer to [required manual input](#required-manual-input)).
+
+## Firmware updates
+
+The firmware version is read from the envoy when the configuration entry is loaded. The firmware version is then used in the process of determining capabilities and required authorization methods. The firmware version is available as the `sw_version` attribute of the configuration entry and shown on the device view of the envoy.
+
+Every 4 hours, the actual firmware version in the Envoy is compared to the known one. If the actual version differs, the configuration entry is reloaded to effect any needed configuration changes. If the moment of the firmware update is known, a manual reload on the envoy configuration entry can be done to achieve the same.
+
+The firmware version is not available as an entity, but rather as an attribute of the envoy. To use the firmware in automation, scripts or templates, use below example with any envoy entity.
+
+{% raw %}
+
+```yaml
+{{device_attr(device_id('sensor.envoy_SN_current_power_production'),'sw_version')}}
+```
+
+{% endraw %}
 
 ## Energy dashboard
 
@@ -661,8 +683,22 @@ When using Envoy Metered with <abbr title="current transformers">CT</abbr>, not 
 
 When using Envoy Metered with <abbr title="current transformers">CT</abbr>
 
-- not all firmware versions report `Energy production today` correctly. Zero data and unexpected spikes have been reported. In this case, best use a utility meter with the `Lifetime energy production` entity for daily reporting.
-- not all firmware versions report `Energy production last seven days` correctly. Zero and unexpected values have been reported.
+- not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data and unexpected spikes have been reported. In this case, best use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
+- not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported.
+- `Energy production today` has been reported not to reset to zero at the start of the day. Instead, it resets to a non-zero value that gradually increases over time. This issue has also been reported as starting suddenly overnight. For daily reporting, it is recommended to use a utility meter with the `Lifetime energy production` entity.
+
+{% details "History examples for Today's energy production value not resetting to zero" %}
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_production_non_zero_reset.png" alt="envoy today non zero reset">
+  <figcaption>Envoy Today's energy production value exhibits a daily reset to an ever increasing non-zero value.</figcaption>
+</figure>
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_production_non_zero_reset_step_change.png" alt="envoy today step change">
+  <figcaption>Envoy Today's energy production value exhibits a sudden onset of non-zero resets.</figcaption>
+</figure>
+{% enddetails %}
 
 ### Lifetime reset
 

@@ -133,7 +133,7 @@ automation:
           config_entry: abce6b8696a15e107b4bd843de722249
           size: "1024x1024"
           prompt: >-
-            New York when the weather is {{ states("weather.home") }}"
+            New York when the weather is {{ states("weather.home") }}
 
       - alias: "Send out a manual event to update the image entity"
         event: new_weather_image
@@ -141,13 +141,13 @@ automation:
           url: '{{ generated_image.url }}'
 
 template:
-  - triggers:
+  - trigger:
       - alias: "Update image when a new weather image is generated"
         trigger: event
         event_type: new_weather_image
     image:
-      name: "AI generated image of New York"
-      url: "{{ trigger.event.data.url }}"
+      - name: "AI generated image of New York"
+        url: "{{ trigger.event.data.url }}"
 ```
 
 {% endraw %}

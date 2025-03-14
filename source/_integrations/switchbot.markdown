@@ -69,6 +69,7 @@ Some SwitchBot devices need to be configured within the app before being control
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 - [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
+- [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
 
 ## SwitchBot Entity
 

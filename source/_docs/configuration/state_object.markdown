@@ -32,7 +32,7 @@ The `state` prefix indicates that this information is part of the state object (
 
 ### About the state
 
-The screenshot shows three lights in different states (the `state.state`): `on`, `off`, and `unavailable`. Each light comes with its own entity state attributes such as `supported_color_modes`, `supported_features`. These attributes have their own state: the state of `supported_color_modes` is `color_temp` and `hs`, the state of the `supported_features` attribute is `4`.
+The screenshot shows three lights in different states (the `state.state`): `on`, `off`, and `unavailable`. Each light comes with its own entity state attributes such as `supported_color_modes`, `supported_features`. These attributes have their own state: the state of the `supported_color_modes` attribute is `color_temp` and `hs`, the state of the `supported_features` attribute is `4`.
 
 <p class='img'>
   <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with different states: `on`, `off`, or `unavailable`'>

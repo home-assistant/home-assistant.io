@@ -104,12 +104,12 @@ For example, the following action in an automation would take a recording from "
 ```yaml
 actions:
   - variables:
-      entity_id: camera.yourcamera  # Store the camera entity_id in a variable for reuse
+      my_camera_id: camera.yourcamera  # Store the camera entity_id in a variable for reuse
   - action: camera.record
     target:
-      entity_id: '{{ entity_id }}'
+      entity_id: '{{ my_camera_id }}'
     data:
-      filename: '/tmp/{{ entity_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      filename: '/tmp/{{ my_camera_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
 ```
 
 {% endraw %}
@@ -132,12 +132,12 @@ For example, the following action in an automation would take a snapshot from "y
 ```yaml
 actions:
   - variables:
-      entity_id: camera.yourcamera  # Store the camera entity_id in a variable for reuse
+      my_camera_id: camera.yourcamera  # Store the camera entity_id in a variable for reuse
   - action: camera.snapshot
     target:
-      entity_id: '{{ entity_id }}'
+      entity_id: '{{ my_camera_id }}'
     data:
-      filename: '/tmp/{{ entity_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
+      filename: '/tmp/{{ my_camera_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
 
 {% endraw %}

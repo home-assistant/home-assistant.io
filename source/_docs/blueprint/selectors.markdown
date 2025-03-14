@@ -1539,3 +1539,19 @@ The output of this selector is a list of triggers. For example:
   entity_id: "sensor.outside_temperature"
   below: 20
 ```
+
+### Example - Merging with existing triggers
+
+If the trigger(s) should exist within a blueprint that already has some default triggers defined, and an additional customizable trigger should be merged, you need to use the `- triggers` syntax in the blueprint.
+
+```yaml
+# Example trigger selector
+input:
+  my_trigger_input:
+    selector:
+      trigger:
+triggers:
+  - triggers: !input my_trigger_input
+  - platform: numeric_state
+  [...]
+```

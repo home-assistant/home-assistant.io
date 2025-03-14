@@ -98,6 +98,8 @@
       width: 100%;
       margin-bottom: 15px;
       text-align-last: center;
+      font-size: 16px;
+      line-height: 24px;
       border: 2px solid $primary-color;
       border-top-right-radius: 0px;
       border-top-left-radius: 0px;
@@ -140,6 +142,7 @@
     font-size: 14px;
     letter-spacing: 0.5px;
     text-transform: capitalize;
+    line-height: 18px;
 
     span {
       display: flex;

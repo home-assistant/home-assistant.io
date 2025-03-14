@@ -26,12 +26,12 @@ ha_codeowners:
 
 The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
 
-- Control LG appliances as Home Assistant entities through the [LG ThinQ Connect API](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/overview/).
+- Control LG appliances as Home Assistant entities through the LG ThinQ Connect API.
 
 ## Prerequisites
 
 - This feature works via LG ThinQ cloud. Therefore, an internet connection is required.
-- A [personal access token](https://connect-pat.lgthinq.com) to use the [LG ThinQ Connect API](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/overview/).
+- A [personal access token](https://connect-pat.lgthinq.com) to use the LG ThinQ Connect API.
 
 ### Personal Access Token (PAT)
 
@@ -59,39 +59,39 @@ The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assi
 
 Support LG Appliances as follows:
 
-- [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/)
-- [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/)
-- [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/)
-- [Ceiling Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/ceiling-fan/)
-- [Cooktop](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/cooktop/)
-- [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/)
-- [Dishwasher](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/)
-- [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dryer/)
-- [Home Brew](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/home-brew/)
-- [Hood](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/hood/)
-- [Humidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/humidifier/)
-- [Kimchi Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/kimchi-refrigerator/)
-- [Microwave Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/microwave-oven/)
-- [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/oven/)
-- [Plant Cultivator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/plant-cultivator/)
-- [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/)
-- [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/)
-- [Stick Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Stick-Cleaner/)
-- [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/)
-- [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/system-boiler/)
-- [Washcombo Main](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Main-WashCombo/)
-- [Washcombo Mini](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Mini-WashCombo/)
-- [Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/)
-- [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)
-- [Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/)
-- [Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/)
-- [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-heater/)
-- [Water Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-purifier/)
-- [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/wine-cellar/)
+- Air Conditioner
+- Air Purifier
+- Air Purifier Fan
+- Ceiling Fan
+- Cooktop
+- Dehumidifier
+- Dishwasher
+- Dryer
+- Home Brew
+- Hood
+- Humidifier
+- Kimchi Refrigerator
+- Microwave Oven
+- Oven
+- Plant Cultivator
+- Refrigerator
+- Robot Cleaner
+- Stick Cleaner
+- Styler
+- System Boiler
+- Washcombo Main
+- Washcombo Mini
+- Washer
+- Washtower
+- Washtower Dryer
+- Washtower Washer
+- Water Heater
+- Water Purifier
+- Wine Cellar
 
 ## Platforms
 
-LG ThinQ represents devices as a set of [profiles](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/). And these are mapped to entities in Home Assistant.
+LG ThinQ represents devices as a set of properties. And these are mapped to entities in Home Assistant.
 
 A list of all Entity Platforms provided by LG ThinQ Integration:
 
@@ -111,18 +111,15 @@ A read-only property which has only two states that can be toggled is represente
 
 | Device | Property |
 | ------ | -------- |
-| [Cooktop](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Cooktop/)<br> | Remote start |
-| [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Chime sound<br>Clean indicator light<br>Door<br>Machine clean reminder<br>Remote start<br>Rinse refill needed |
-| [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/)<br> | Remote start |
-| [Hood](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Hood/) | Power |
-| [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) | Remote start |
-| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Door<br>Eco friendly<br>Power saving mode<br>Sabbath |
-| [Kimchi Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Kimchi-Refrigerator/) | Fresh air filter |
-| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Remote start |
-| [Washcombo Main](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Main-WashCombo/)<br>[Washcombo Mini](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Mini-WashCombo/)<br>[Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/) | Remote start |
-| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)<br>[Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/)<br>[Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Remote start |
-| [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Power |
-| [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Sabbath |
+| Cooktop | Remote start |
+| Dish Washer | Chime sound<br>Clean indicator light<br>Door<br>Machine clean reminder<br>Remote start<br>Rinse refill needed | 
+| Hood | Power |
+| Oven | Remote start |
+| Refrigerator | Door<br>Eco friendly<br>Power saving mode<br>Sabbath |
+| Kimchi Refrigerator | Fresh air filter |
+| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Remote start |
+| Water Heater | Power |
+| Wine Cellar | Sabbath |
 
 ### Climate
 
@@ -130,32 +127,30 @@ The properties for controlling both the temperature and wind strength of the app
 
 | Device | Property |
 | ------ | -------- |
-| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Current temperature<br>Fan mode<br>HVAC mode<br>Preset mode<br>Temperature<br>Temperature cool<br>Temperature heat<br>Unit |
-| [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/System-Boiler/) | Current temperature<br>HVAC mode<br>Temperature<br>Temperature cool<br>Temperature heat<br>Unit |
+| Air Conditioner | Current temperature<br>Fan mode<br>Swing mode<br>Swing horizontal mode<br>HVAC mode<br>Preset mode<br>Temperature<br>Temperature cool<br>Temperature heat<br>Unit |
+| System Boiler | Current temperature<br>HVAC mode<br>Temperature<br>Temperature cool<br>Temperature heat<br>Unit |
 
 ### Event
 
-A notification message pushed from the server is represented as an event platform.
+A notification message pushed from the server is represented as an event platform. The **Notification codes** shows the full support range, and you can check the range of your device through the developer tools.
 
-| Device | Property |
-| ------ | -------- |
-| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Notification |
-| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | Notification |
-| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Notification |
-| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Notification |
-| [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Error<br>Notification |
-| [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/) | Error<br>Notification |
-| [Humidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/humidifier/) | Notification |
-| [Kimchi Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Kimchi-Refrigerator/) | Notification |
-| [Microwave Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Microwave-Oven/) | Notification |
-| [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) | Notification |
-| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Notification |
-| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Error<br>Notification |
-| [Stick Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Stick-Cleaner/) | Notification |
-| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Error<br>Notification |
-| [Washcombo Main](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Main-WashCombo/)<br>[Washcombo Mini](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Mini-WashCombo/)<br>[Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/) | Error<br>Notification |
-| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)<br>[Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/)<br>[Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Error<br>Notification |
-| [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Notification |
+| Device | Property | Notification codes |
+| ------ | -------- | ---------- |
+| Air Conditioner | Notification | water_is_full |
+| Air Purifier| Notification | lack_of_water, time_to_clean_filter, pollution_is_high, time_to_change_filter |
+| Air Purifier Fan | Notification | time_to_change_filter |
+| Dehumidifier | Notification | water_is_full |
+| Dish Washer | Error<br>Notification | cleaning_is_complete, error_during_cleaning, water_leak_has_occurred, rinse_is_not_enough, salt_refill_is_needed |
+| Humidifier | Notification | time_to_change_filter, lack_of_water |
+| Kimchi Refrigerator | Notification | door_is_open |
+| Microwave Oven | Notification | none |
+| Oven | Notification | preheating_is_complete, cooking_is_complete, time_to_clean, error_has_occurred |
+| Refrigerator | Notification | time_to_change_filter, time_to_change_water_filter, frozen_is_complete, door_is_open |
+| Robot Cleaner | Error<br>Notification | - |
+| Stick Cleaner | Notification | charging_is_complete, time_to_clean_filter |
+| Washer<br>Dryer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Error<br>Notification | washing_is_complete, error_during_washing, drying_is_complete, drying_failed |
+| Styler | Error<br>Notification | styling_is_complete, error_has_occurred |
+| Wine Cellar | Notification | door_is_open |
 
 ### Fan
 
@@ -163,27 +158,24 @@ The properties for controlling the wind strength of the appliance are represente
 
 | Device | Property |
 | ------ | -------- |
-| [Ceiling Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/ceiling-fan/) | Power<br>Speed |
+| Ceiling Fan | Power<br>Speed |
 
 ### Number
 
-A read-write property which has numeric value is represented as a number platform.
+A read-write property which has a numeric value is represented as a number platform.
 
 | Device | Property |
 | ------ | -------- |
-| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Schedule turn-off<br>Schedule turn-on<br>Sleep timer |
-| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Sleep timer<br>Wind temperature |
-| [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/) | Delay ends in<br>Delay starts in |
-| [Hood](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Hood/) | Fan<br>Light |
-| [Humidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/humidifier/) | Sleep timer<br>Target humidity |
-| [Microwave Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Microwave-Oven/) | Fan<br>Light |
-| [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) | Temperature |
-| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Temperature |
-| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Delay ends in |
-| [Washcombo Main](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Main-WashCombo/)<br>[Washcombo Mini](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Mini-WashCombo/)<br>[Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/) | Delay ends in<br>Delay starts in |
-| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)<br>[Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/)<br>[Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Delay ends in<br>Delay starts in |
-| [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Temperature |
-| [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Light<br>Temperature |
+| Air Conditioner | Schedule turn-off<br>Schedule turn-on<br>Sleep timer |
+| Air Purifier Fan | Sleep timer<br>Wind temperature |
+| Hood | Fan<br>Light |
+| Humidifier | Sleep timer<br>Target humidity |
+| Microwave Oven | Fan<br>Light |
+| Oven | Temperature |
+| Refrigerator | Temperature |
+| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Delayed start/end |
+| Water Heater | Temperature |
+| Wine Cellar | Light<br>Temperature |
 
 ### Select
 
@@ -191,48 +183,17 @@ A writable property which has a list of selectable values is represented as a se
 
 | Device |Property |
 | ------ |-------- |
-| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Air purify<br>Air quality sensor |
-| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | Operating mode<br>Speed |
-| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Display brightness<br>Operating mode<br>Rotation<br>Speed |
-| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Speed |
-| [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Operation |
-| [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/) | Operation |
-| [Humidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/humidifier/) | Display brightness<br>Drying mode<br>Operating mode<br>Speed |
-| [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) | Cook mode<br>Operation<br> |
-| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Fresh air filter |
-| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Operation |
-| [Washcombo Main](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Main-WashCombo/)<br>[Washcombo Mini](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Mini-WashCombo/)<br>[Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/) | Operation |
-| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)<br>[Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/)<br>[Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Operation |
-| [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Operating mode |
-| [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Light<br>Operating mode |
-
-### Sensor
-
-A read-only property which has states is represented as a sensor platform.
-
-| Device | Property |
-| ------ | -------- |
-| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Filter remaining<br>Humidity<br>Odor<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Schedule turn-off<br>Schedule turn-on<br>Sleep timer |
-| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | Air quality sensor<br>Humidity<br>Odor<br>Operating mode<br>Overall air quality<br>Personal mode<br>PM1<br>PM10<br>PM2.5 |
-| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Air quality sensor<br>Humidity<br>Odor<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Sleep timer<br>Temperature |
-| [Cooktop](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Cooktop/) | Current status<br>Power level<br>Remaining time |
-| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Humidity<br>Operating mode |
-| [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Current cycle<br>Current status<br>Delay starts in<br>Remaining time<br>Rinse aid dispenser level<br>Softening level<br>Total time |
-| [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/) | Current status<br>Delay ends in<br>Delay starts in<br>Remaining time<br>Total time |
-| [Home Brew](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Home-Brew/)| Brewing duration<br>Brewing period<br>Current status<br>Flavor<br>Homebrew recipe<br>Hops<br>Recipe progress<br>Wort<br>Yeast |
-| [Humidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/humidifier/) | Air quality sensor<br>Humidity<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Schedule turn-off<br>Schedule turn-on<br>Sleep timer<br>Temperature |
-| [Kimchi Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Kimchi-Refrigerator/) | Fresh air filter<br>Temperature |
-| [Microwave Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Microwave-Oven/) | Current status<br>Remaining time |
-| [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) | Cook time<br>Current status<br>Remaining time<br>Temperature |
-| [Plant Cultivator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Plant-Cultivator/) | Current status<br>Day growth temperature<br>Lighting duration<br>Lighting intensity<br>Lights on time<br>Mode<br>Night growth temperature<br>Temperature<br>Wind speed |
-| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Fresh air filter<br>Water filter used |
-| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Current status<br>Operating mode<br>Running time |
-| [Stick Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Stick-Cleaner/) | Battery<br>Current status<br>Operating mode |
-| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Current status<br>Delay ends in<br>Delay starts in<br>Remaining time<br>Total time |
-| [Washcombo Main](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Main-WashCombo/)<br>[Washcombo Mini](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Mini-WashCombo/)<br>[Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/) | Current status<br>Delay ends in<br>Delay starts in<br>Remaining time<br>Total time |
-| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)<br>[Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/)<br>[Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Current status<br>Delay ends in<br>Delay starts in<br>Remaining time<br>Total time |
-| [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Temperature |
-| [Water Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-purifier/) | High-temp sterilization<br>Type<br>UVnano|
+| Air Conditioner | Air purify<br>Air quality sensor |
+| Air Purifier| Operating mode<br>Speed |
+| Air Purifier Fan | Display brightness<br>Operating mode<br>Rotation<br>Speed |
+| Dehumidifier | Speed |
+| Dish Washer | Operation |
+| Humidifier | Display brightness<br>Drying mode<br>Operating mode<br>Speed |
+| Oven | Cook mode<br>Operation<br> |
+| Refrigerator | Fresh air filter |
+| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Operation |
+| Water Heater | Operating mode |
+| Wine Cellar | Light<br>Operating mode |
 
 ### Switch
 
@@ -240,14 +201,14 @@ A read-write property which has only two states that can be toggled is represent
 
 | Device | Property |
 | ------ | -------- |
-| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Energy saving |
-| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | Power |
-| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Heating<br>Power<br>UVnano |
-| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Power |
-| [Humidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/humidifier/) | Auto mode<br>Heating<br>Mood light<br>Power<br>Sleep mode |
-| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Ice plus<br>Quick freeze |
-| [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/System-Boiler/) | Hot water |
-| [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Ventilation |
+| Air Conditioner | Power<br>Lighting<br>Energy saving |
+| Air Purifier | Power |
+| Air Purifier Fan | Heating<br>Power<br>UVnano |
+| Dehumidifier | Power |
+| Humidifier | Auto mode<br>Heating<br>Mood light<br>Power<br>Sleep mode |
+| Refrigerator | Express mode<br>Express cool<br>Quick freeze |
+| System Boiler | Power<br>Hot water |
+| Wine Cellar | Ventilation |
 
 ### Vacuum
 
@@ -255,7 +216,196 @@ The properties for controlling the clean operations of the appliance are represe
 
 | Device | Property |
 | ------ | -------- |
-| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Battery<br>Current status<br>Operation |
+| Robot Cleaner | Battery<br>Current status<br>Operation |
+
+### Water heater
+
+The properties for controlling the operating mode and temperature are represented as a water_heater platform.
+
+| Device | Property |
+| ------ | -------- |
+| Water heater | Mode<br>Current temperature<br>Temperature |
+
+### Sensor
+
+A read-only property which has states is represented as a sensor platform.
+
+| Device | Property |
+| ------ | -------- |
+| Air Conditioner | Filter remaining<br>Humidity<br>Odor<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Schedule turn-off<br>Schedule turn-on<br>Sleep timer |
+| Air Purifier| Air quality sensor<br>Humidity<br>Odor<br>Operating mode<br>Overall air quality<br>Personal mode<br>PM1<br>PM10<br>PM2.5<br>Filter remaining<br>Schedule turn-off<br>Schedule turn-on |
+| Air Purifier Fan | Air quality sensor<br>Humidity<br>Odor<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Sleep timer<br>Temperature<br>Schedule turn-off<br>Schedule turn-on |
+| Cooktop | Current status<br>Power level |
+| Dehumidifier | Humidity<br>Operating mode |
+| Dish Washer | Current cycle<br>Current status<br>Rinse aid dispenser level<br>Softening level<br>Delayed start<br>Remaining time<br>Total time |
+| Home Brew| Brewing duration<br>Brewing period<br>Current status<br>First flavor<br>Second flavor<br>Homebrew recipe<br>First hop<br>Second hop<br>Recipe progress<br>Wort<br>Yeast |
+| Humidifier | Air quality sensor<br>Humidity<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Schedule turn-off<br>Schedule turn-on<br>Sleep timer<br>Temperature |
+| Kimchi Refrigerator | Fresh air filter<br>Temperature |
+| Microwave Oven | Current status |
+| Oven | Current status<br>Temperature |
+| Plant Cultivator | Current status<br>Day growth temperature<br>Lighting duration<br>Lighting intensity<br>Lights on time<br>Mode<br>Night growth temperature<br>Temperature<br>Wind speed |
+| Refrigerator | Fresh air filter<br>Water filter used |
+| Robot Cleaner | Current status<br>Operating mode<br>Running time |
+| Stick Cleaner | Battery<br>Current status<br>Operating mode |
+| System Boiler | Indoor temperature<br>Inlet temperature<br>Outlet temperature |
+| Water Purifier | High-temp sterilization<br>Type<br>UVnano|
+| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Current status<br>Delayed start/end<br>Remaining time<br>Total time<br>Cycles |
+
+## User guide
+### 1. Custom card configuration (HACS)
+
+**- Timer Bar Card**
+> - Supported devices: Washer, Dryer, Styler, Dish washer
+> - Used entities: sensor.washer_**current_status**, sensor.washer_**remaining_time**, sensor.washer_**total_time**
+
+```yaml
+type: custom:timer-bar-card
+entities:
+  - entity: sensor.washer_current_status
+    name: Washer
+    active_state:
+      - running
+      - rinsing
+      - spinning
+      - drying
+      - cooling
+      - reserved
+      - presteam
+      - steam
+    pause_state: pause
+    icon: mdi:tumble-dryer-off
+    active_icon: mdi:tumble-dryer
+    end_time:
+      entity: sensor.washer_remaining_time
+    duration:
+      entity: sensor.washer_total_time
+      units: minutes
+    invert: true
+```
+
+### 2. Automation
+
+#### 1) Air conditioner, climate
+
+> - Currently the Climate's set_hvac_mode, set_temperature service is not working properly. Each control must operate sequentially, but conditional wait for this has not yet been implemented in ThinQ integration.
+> - We provide a script that can do turn_on, set_hvac_mode, and set_temperature at once, so please use it for automation.
+> - Create a new script in 'CREATE SCRIPT' using the code below, then select the script in the 'Action' field.
+> - This conditional wait is scheduled to be implemented in core 2025.4.
+
+{% raw %}
+
+```yaml
+alias: LG ThinQ climate
+description: "Action turn_on, set_hvac_mode, set_temperature"
+fields:
+  input_device:
+    selector:
+      device:
+        filter:
+          - integration: lg_thinq
+    name: Device
+    required: true
+  input_entity:
+    selector:
+      entity:
+        filter:
+          - integration: lg_thinq
+            domain: climate
+    name: Entity
+    required: true
+  input_hvac:
+    selector:
+      select:
+        options:
+          - label: Off
+            value: off
+          - label: Auto
+            value: auto
+          - label: Cool
+            value: cool
+          - label: Dry
+            value: dry
+          - label: Fan only
+            value: fan_only
+          - label: Heat/cool
+            value: heat_cool
+          - label: Heat
+            value: heat
+    name: HVAC mode
+    required: true
+    default: cool
+  input_temperature:
+    selector:
+      number:
+        min: 1
+        max: 100
+    name: Target temperature
+    required: true
+    default: 18
+sequence:
+  - sequence:
+      - variables:
+          entity_name: "{{ input_entity.split('.')[1] }}"
+      - if:
+          - condition: template
+            value_template: >-
+              {{ input_hvac != 'off' and states('climate.'+ entity_name) == 'off' }}
+        then:
+          - action: climate.turn_on
+            target:
+              device_id: "{{ input_device }}"
+            data: {}
+          - wait_template: "{{ states('climate.'+ entity_name) != 'off' }}"
+      - if:
+          - condition: template
+            value_template: "{{ states('climate.'+ entity_name) != input_hvac }}"
+        then:
+          - action: climate.set_hvac_mode
+            data:
+              hvac_mode: "{{ input_hvac }}"
+            target:
+              device_id: "{{ input_device }}"
+          - wait_template: "{{ states('climate.'+ entity_name) == input_hvac }}"
+      - if:
+          - condition: template
+            value_template: "{{ input_hvac != 'off' }}"
+        then:
+          - action: climate.set_temperature
+            data:
+              temperature: "{{ input_temperature }}"
+            target:
+              device_id: "{{ input_device }}"
+```
+
+{% endraw %}
+
+#### 2) Notification, error event
+
+> - Guide: [Automating on event](https://www.home-assistant.io/integrations/event/#automating-on-a-button-press)
+> - Important: guide's step 3, 4
+> - You can select the state change you want to act as trigger in step 4
+
+{% raw %}
+
+```yaml
+alias: lack of water example
+description: Toggle switch when air purifier's lack_of_water
+triggers:
+  - trigger: state
+    entity_id:
+      - event.purifier_notification
+actions:
+  - condition: state
+    entity_id: event.purifier_notification
+    attribute: event_type
+    state: lack_of_water
+  - type: toggle
+    device_id: xxxxxxxx
+    entity_id: xxxxxxxx
+    domain: switch
+```
+
+{% endraw %}
 
 ## Troubleshooting
 
@@ -274,14 +424,11 @@ Check your PAT's valid country in the **Choose the region / Country** section.
 This error occurs when there's an abnormal number of API calls made using the PAT.
 The LG ThinQ integration will work properly after some time.
 
-## Debugging
-
-The LG ThinQ integration will show additional information by enabling log configuration. Add the line to your {% term "`configuration.yaml`" %}:
-Don't forget to remove the line again once you are done debugging.
-
-```yaml
-logger:
-  default: info
-  logs:
-    homeassistant.components.lg_thinq: debug
-```
+## Debugging / Issue report
+The LG ThinQ integration will show additional information by enabling log configuration.
+1. [Enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
+   - If you change **Enable** to **Disable**, the log will be saved to the download folder.
+2. When reporting an issue:
+   - Provide screenshots of your device configuration (including device name, type, and entities).
+   - Include the debug logs.
+   - Describe the expected behavior and what's not working.
