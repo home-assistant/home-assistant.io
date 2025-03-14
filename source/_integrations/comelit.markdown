@@ -41,7 +41,7 @@ There is support for the following platform types within Home Assistant:
   host:
     description: The IP address of the Comelit SmartHome device.
   port:
-    description: The TCP port of the Comelit SmartHome device.
+    description: The TCP port of the Comelit SmartHome device. The default is port 80 (standard for HTTP).
   pin:
     description: The PIN of the Comelit SmartHome device.
   type:
