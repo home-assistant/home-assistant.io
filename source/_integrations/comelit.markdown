@@ -53,7 +53,6 @@ There is support for the following platform types within Home Assistant:
         description: Comelit VEDO System.
 {% endconfiguration_basic %}
 
-
 ## Data updates
 
 This integration {% term polling polls %} data from the device every 5 seconds by default.
@@ -67,4 +66,3 @@ The integration will create an alarm entity for each area. Additionally, it will
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-
