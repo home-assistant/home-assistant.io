@@ -48,9 +48,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The ZHA (Zigbee Home Automation) {% term integration %} allows you to wirelessly connect many off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of the many available Zigbee coordinators.
-
-ZHA uses an open-source Python library implementing a hardware-independent Zigbee stack called [zigpy](https://github.com/zigpy/zigpy). All coordinators compatible with zigpy can be used with ZHA.
+The Zigbee Home Automation (ZHA) {% term integration %} allows you to wirelessly connect many off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called _Zigbee coordinators_.
 
 This {% term integration %} currently supports the following device types within Home Assistant:
 
@@ -69,17 +67,28 @@ This {% term integration %} currently supports the following device types within
 - [Switch](/integrations/switch/)
 - [Update](/integrations/update/)
 
-In addition, it has support for "Zigbee groups" that enable native on-device grouping of multiple Zigbee lights, switches, and fans that enable controlling all entities for those devices in those groups with one command. At least two entities must be added to a Zigbee group inside the ZHA {% term integration %} before a group entity is created. There is also support for native on-device binding. Refer to the [Zigbee groups and binding devices](#zigbee-groups-and-binding-devices) section for more information.
-
 ## Introduction
 
-This ZHA integration is a hardware-independent Zigbee gateway implementation that can replace most proprietary Zigbee gateways/bridges/hubs/controllers. Zigbee is a low-bandwidth communication protocol that relies on using small low-power digital radios to connect compatible devices to local Zigbee wireless private area networks. ZHA will create a single Zigbee network to which you can then pair/join most Zigbee-based devices that are made for home automation and lighting.
+The ZHA integration is a hardware-independent Zigbee gateway implementation that can replace most proprietary Zigbee gateways (or bridges, hubs, or controllers). ZHA creates a single Zigbee network to which you can add most Zigbee-based devices.
 
-Before installing the ZHA integration in Home Assistant, you need to connect a Zigbee Coordinator radio adapter that will connect to your Zigbee network. Those normally come in the form of a USB dongle that plugs directly into the same computer that is running your Home Assistant installation. The ZHA integration is compatible with many different "Zigbee Coordinator" adapters from various manufacturers. Be sure to [note the recommendations in the respective sections below before buying a Zigbee Coordinator](#compatible-hardware). A Zigbee network always needs to have one Zigbee Coordinator (it can never have more than one), and Zigbee devices can never be connected to more than a single Zigbee network, however, a Zigbee network can have multiple "Zigbee Router" devices and "Zigbee End Device" products.
+ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/zigpy), so any coordinator that is compatible with zigpy can be used with ZHA. Review [compatible hardware](#compatible-hardware) recommendations before purchasing Zigbee devices.
 
-Once ZHA has been set up with a Zigbee Coordinator it will automatically create a Zigbee network and you will be able to join/pair any Zigbee Router devices and Zigbee End Devices. With only a few [limitations](#limitations), most devices will join/pair directly regardless of brand and manufacturer. Technically almost all devices that are compliant with the official Zigbee specifications should offer interoperability, though a newer Zigbee Coordinator with support for later firmware often offers better compatibility with both new and older devices. Still, be aware that [all functionality might not always be supported or exposed for every device out-of-the-box](#knowing-which-devices-are-supported) as some devices that use manufacturer-specific extensions to add non-standard functions and features could sometimes need [device-specific code to fully work with ZHA](#how-to-add-support-for-new-and-unsupported-devices).
+### Zigbee terminology
 
-Note that because Zigbee relies on "mesh networking" technology it depends heavily on having [Zigbee Router devices](#using-router-devices-to-add-more-devices) to expand the network coverage and extend its size. These are always mains-powered devices that route messages to other devices that are located close to them within the Zigbee network mesh to improve the range and increase the total amount of devices you can add.  You should therefore make sure that you add many Zigbee Router devices and not just Zigbee End Devices or else its network mesh connection routes will be limited due to the short range and poor wall penetration of Zigbee radio signals. It is highly recommended that you read and follow all the general tips below about [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization).
+- **Zigbee network**: A mesh-network of devices with low-power digital radios using a low-bandwidth communication protocol.
+- **Zigbee coordinator**: A hardware radio adapter (typically a USB dongle) that plugs directly into the same computer running your Home Assistant installation.
+- **Zigbee router device**: A hardware device that is always mains-powered (AC) such as outlets or fans.
+- **Zigbee end device**: A hardware device that is typically battery-powered (DC) such as remotes or motion sensors.
+- **Zigbee group**: A collection of two or more Zigbee devices of the same type, different from Home Assistant's [Groups](/integrations/group/).
+
+### Zigbee concepts
+
+- A Zigbee network can have **only one** Zigbee coordinator,
+- The Zigbee coordinator can have multiple **Zigbee router** or **Zigbee end devices** connected,
+- Each Zigbee router device can have multiple **Zigbee end devices** connected to it,
+- A Zigbee device can only be connected to a single Zigbee network,
+- Zigbee networks depend heavily on having multiple [Zigbee Router devices](#using-router-devices-to-add-more-devices) to expand coverage and increase device capacity.
+- Router devices help pass messages to other nearby devices in the Zigbee network and therefore can improve range and increase the number of devices you can add.
 
 ## Compatible hardware
 
@@ -176,6 +185,10 @@ If you find an opportunity to improve this information, refer to the section on 
 ## Configuration requirements
 
 Be sure to connect a compatible radio module and restart Home Assistant before proceeding with configuration.
+
+ZHA will automatically create a Zigbee network once it is configured with a Zigbee coordinator; you can then add compatible devices.
+
+It is highly recommended to review the guidance for [Zigbee interference avoidance and network range/coverage optimization)](#zigbee-interference-avoidance-and-network-rangecoverage-optimization).
 
 {% include integrations/config_flow.md %}
 

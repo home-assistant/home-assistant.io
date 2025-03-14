@@ -1346,6 +1346,51 @@ For a summary in a more readable format:
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@zxdavb]: https://github.com/zxdavb
 
+## Release 2025.3.3 - March 14
+
+- Fix bug with all Roborock maps being set to the wrong map when empty ([@Lash-L] - [#138493])
+- Bump pysuezV2 to 2.0.4 ([@jb101010-2] - [#139824])
+- Bump upb-lib to 0.6.1 ([@gwww] - [#140212])
+- Use only IPv4 for zeroconf in bluesound integration ([@LouisChrist] - [#140226])
+- Only do WebDAV path migration when path differs ([@jpbede] - [#140402])
+- Bump velbusaio to 2025.3.1 ([@cereal2nd] - [#140443])
+- Mark value in number.set_value action as required ([@joostlek] - [#140445])
+- Bump Tesla Fleet API to 0.9.13 ([@Bre77] - [#140485])
+- Update xknxproject to 3.8.2 ([@farmio] - [#140499])
+- Fix Shelly diagnostics for devices without WebSocket Outbound support ([@bieniu] - [#140501])
+- Fix windowShadeLevel capability in SmartThings ([@joostlek] - [#140552])
+- Set unit of measurement for SmartThings oven setpoint ([@joostlek] - [#140560])
+- Fix missing UnitOfPower.MILLIWATT in sensor and number allowed units ([@ashionky] - [#140567])
+
+[#138493]: https://github.com/home-assistant/core/pull/138493
+[#139824]: https://github.com/home-assistant/core/pull/139824
+[#139859]: https://github.com/home-assistant/core/pull/139859
+[#140061]: https://github.com/home-assistant/core/pull/140061
+[#140212]: https://github.com/home-assistant/core/pull/140212
+[#140226]: https://github.com/home-assistant/core/pull/140226
+[#140392]: https://github.com/home-assistant/core/pull/140392
+[#140402]: https://github.com/home-assistant/core/pull/140402
+[#140443]: https://github.com/home-assistant/core/pull/140443
+[#140445]: https://github.com/home-assistant/core/pull/140445
+[#140485]: https://github.com/home-assistant/core/pull/140485
+[#140499]: https://github.com/home-assistant/core/pull/140499
+[#140501]: https://github.com/home-assistant/core/pull/140501
+[#140552]: https://github.com/home-assistant/core/pull/140552
+[#140560]: https://github.com/home-assistant/core/pull/140560
+[#140567]: https://github.com/home-assistant/core/pull/140567
+[@Bre77]: https://github.com/Bre77
+[@Lash-L]: https://github.com/Lash-L
+[@LouisChrist]: https://github.com/LouisChrist
+[@ashionky]: https://github.com/ashionky
+[@bieniu]: https://github.com/bieniu
+[@cereal2nd]: https://github.com/cereal2nd
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gwww]: https://github.com/gwww
+[@jb101010-2]: https://github.com/jb101010-2
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+
 [#109725]: https://github.com/home-assistant/core/pull/109725
 [#116024]: https://github.com/home-assistant/core/pull/116024
 [#116452]: https://github.com/home-assistant/core/pull/116452
