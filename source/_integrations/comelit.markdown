@@ -45,7 +45,7 @@ There is support for the following platform types within Home Assistant:
   pin:
     description: The PIN of the Comelit SmartHome device.
   type:
-    description: The type the Comelit SmartHome device.
+    description: The type of Comelit SmartHome device.
     keys:
       bridge:
         description: Comelit Serial Bridge.
