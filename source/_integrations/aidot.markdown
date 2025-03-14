@@ -31,6 +31,7 @@ Username:
   description: "Your username you use to log into the AiDot app."
 Password:
   description: "Password you use to log into the AiDot app."
+{% endconfiguration_basic %}
 
 ## Data updates
 - After successful login, the device list will be pulled from AiDot Cloud first
