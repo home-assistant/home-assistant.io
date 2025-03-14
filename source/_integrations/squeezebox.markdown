@@ -188,10 +188,9 @@ When specifying additional parameters in the Visual Editor, each parameter must 
 
 For example, to create an automation to mute playback, use the command `mixer` and the parameter `muting`:
 
-| Row | Parameter | Description |
-| --- | --------  | ----------- |
-|  1  | - muting  | Toggle muting on / off |
-|  2  |           |             |
+| Row | Parameter | Description            |
+| --- | --------- | ---------------------- |
+| 1   | - muting  | Toggle muting on / off |
 
 resulting in the YAML:
 
@@ -209,10 +208,10 @@ Where a parameter is an increment or decrement, it is necessary to place the val
 
 For example, to increase the playback volume, use the command `mixer` and the parameters `volume` and the amount to increment:
 
-| Row | Parameter | Description |
-| --- | --------  | ----------- |
-|  1  | - volume  | Parameter to change |
-|  2  | - "+5"    | Increment volume by 5 percent |
+| Row | Parameter | Description                   |
+| --- | --------- | ----------------------------- |
+| 1   | - volume  | Parameter to change           |
+| 2   | - "+5"    | Increment volume by 5 percent |
 
 resulting in the YAML:
 
@@ -226,7 +225,6 @@ data:
     - volume
     - "+5"
 ```
-
 
 ### Action `call_query`
 
@@ -244,3 +242,12 @@ This action can be used to integrate a Squeezebox query into an automation. For 
 `hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`
 To work with the results:
 `result = hass.states.get("media_player.kitchen").attributes['query_result']`
+
+### Action `button`
+
+This simple action allows you to mimic "pressing" a button on a hardware Squeezebox player, such as a Squeezebox Radio. A number of standard buttons, such as Preset 0 and Brightness Up, are available in the dropdown, or you can enter your own button name. Further information can be found at `https://lyrion.org/reference/cli/players/#button`
+
+| Data attribute | Optional | Description                                                     |
+| -------------- | -------- | --------------------------------------------------------------- |
+| `entity_id`    | no       | Name(s) of the Squeezebox entities where to run the API method. |
+| `button`       | no       | The name of the button to be "pressed".                         |
