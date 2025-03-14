@@ -188,10 +188,10 @@ When specifying additional parameters in the Visual Editor, each parameter must 
 
 For example, to create an automation to mute playback, use the command `mixer` and the parameter `muting`:
 
-| Row | Parameter | Description |
-| --- | --------  | ----------- |
-|  1  | - muting  | Toggle muting on / off |
-|  2  |           |             |
+| Row | Parameter | Description            |
+| --- | --------- | ---------------------- |
+| 1   | - muting  | Toggle muting on / off |
+| 2   |           |                        |
 
 resulting in the YAML:
 
@@ -209,10 +209,10 @@ Where a parameter is an increment or decrement, it is necessary to place the val
 
 For example, to increase the playback volume, use the command `mixer` and the parameters `volume` and the amount to increment:
 
-| Row | Parameter | Description |
-| --- | --------  | ----------- |
-|  1  | - volume  | Parameter to change |
-|  2  | - "+5"    | Increment volume by 5 percent |
+| Row | Parameter | Description                   |
+| --- | --------- | ----------------------------- |
+| 1   | - volume  | Parameter to change           |
+| 2   | - "+5"    | Increment volume by 5 percent |
 
 resulting in the YAML:
 
@@ -226,7 +226,6 @@ data:
     - volume
     - "+5"
 ```
-
 
 ### Action `call_query`
 
@@ -244,3 +243,35 @@ This action can be used to integrate a Squeezebox query into an automation. For 
 `hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`
 To work with the results:
 `result = hass.states.get("media_player.kitchen").attributes['query_result']`
+
+### Action `search`
+
+This action allows you to search the LMS music library for albums, artists, genres, tracks, and playlists. You can also search for favorites and players. The result of the search will be stored in the 'query_result' attribute of the player.
+
+| Data attribute  | Optional | Description                                                                                                                       |
+| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`     | no       | Name(s) of the Squeezebox entities where to run the search.                                                                       |
+| `command`       | no       | Items to search on the Lyrion Music Server. This must be one of albums, artists, genres, tracks, playlists, favorites or players. |
+| `return_items`  | no       | The maximum numbers of items to return.                                                                                           |
+| `search_string` | yes      | Limit the search to those items matching the search string.                                                                       |
+| `tags`          | yes      | Specify tags you wish the search to return, overriding the default tag list                                                       |
+
+This action can be used to integrate a Squeezebox query into an automation. For example, in a Python script, you can get a list of the first 20 albums containing the word "classic" like this:
+`hass.services.call("squeezebox", "search", { "entity_id": "media_player.kitchen", "command": "albums", "return_items": "20", "search_string":"classic"] })`
+To work with the results:
+`result = hass.states.get("media_player.kitchen").attributes['query_result']`
+
+### Action `play`
+
+This action allows you to play music from the LMS music library. You can play an album, artist, genre, track, playlist or favorite. It has two forms. You can either search for an item by name, or you can specify the item_id, which is most likely retrieved previously using the search action. If you search by name, your search string must be detailed enough to return only a single result, which will be played or added to the current playlist. If you cannot specify a search string that will generate a unique result, then you should first use the 'search' action to find the item_id of the item you want to play and then play the item by ID rather than by name. If you enter a search string that generates no results or more than one result, the action will return an error.
+
+| Data attribute    | Optional | Description                                                                                                                                                                                                     |
+| ----------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`       | no       | Name(s) of the Squeezebox entity on which to play the item.                                                                                                                                                     |
+| `command`         | no       | Items to play on the Lyrion Music Server. This must be one of album, artist, genre, track, playlist, or favorite.                                                                                               |
+| `search_type`     | no       | Either "text" or "item", to specify whether the contents of search_string is an item_id or a text search string.                                                                                                |
+| `search_string`   | no       | Either text to search to find the item to play, or an item_id of the item, depending on search_type.                                                                                                            |
+| `playlist_action` | no       | Either play, add, or next. Play will replace the current playlist and play the item. Add will add the item to the end of the current playlist. Next will add the item as the next item in the current playlist. |
+
+This action can be used to integrate a Squeezebox action into an automation. For example, in a Python script, you can play the favorite "Classics" on media_player.kitchen as follows
+`hass.services.call("squeezebox", "play", { "entity_id": "media_player.kitchen", "command": "album", "search_type": "text", "search_string": "classic", "playlist_action": "play" })`
