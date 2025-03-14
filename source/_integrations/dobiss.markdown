@@ -1,43 +1,52 @@
-# Dobiss Home Assistant Integration
+---
+title: "Dobiss Integration"
+description: "Home Assistant integration for communication with a Dobiss NXT server."
+ha_release: "0.1"
+ha_category: Integration
+ha_iot_class: "Local Polling"
+ha_quality_scale: silver
+ha_config_flow: true
+ha_codeowners:
+  - '@kobedemetser'
+ha_domain: dobiss
+related:
+  - docs: /integrations/dobiss
+    title: Dobiss Integration Overview
+---
 
-**Version:** [Latest Release](https://github.com/koen-fermax/hass-dobiss-plugin/releases)  
-**Activity:** [Commit History](https://github.com/koen-fermax/hass-dobiss-plugin/commits/main)  
-**License:** [MIT License](https://github.com/koen-fermax/hass-dobiss-plugin/blob/main/LICENSE)  
+# Dobiss Integration
 
-**Original Author:** [kesteraernoudt](https://github.com/kesteraernoudt)  
-**Maintainer:** [kobedemetser](https://github.com/kobedemetser)
-
-**Community & Support:**  
-- [Discord](https://discord.gg/Qa5fW2R)  
-- [Home Assistant Forum](https://community.home-assistant.io/)  
+**Community & Support:**
+- [Discord](https://discord.gg/Qa5fW2R)
+- [Home Assistant Forum](https://community.home-assistant.io/)
 
 ## About
 
-**This component will set up the following platforms coming from a [Dobiss](https://www.dobiss.com/en) NXT server.**
+The Dobiss integration enables Home Assistant to communicate with a [Dobiss](https://www.dobiss.com/en) NXT server and supports the following platforms:
 
-| Platform        | Description                                                      |
-| --------------- | ---------------------------------------------------------------- |
-| `binary_sensor` | Dobiss contacts - can be open or closed.                         |
-| `sensor`        | Dobiss sensors: temperature and light sensors.                   |
-| `switch`        | Dobiss switches - can be relais outputs, flags, scenario's, etc. |
-| `light`         | Dobiss lights - dimmable or not.                                 |
-| `climate`       | Dobiss climate control - if you have temperature zones.         |
-| `cover`         | Dobiss covers - screens etc.                                     |
-
+| Platform        | Description                                                       |
+| --------------- | ----------------------------------------------------------------- |
+| `binary_sensor` | Represents Dobiss contacts, which can be open or closed.          |
+| `sensor`        | Monitors temperature and light levels.                             |
+| `switch`        | Controls relay outputs, flags, and scenarios.                     |
+| `light`         | Manages dimmable and non-dimmable lights.                         |
+| `climate`       | Manages temperature zones for climate control.                    |
+| `cover`         | Controls covers and similar devices.                              |
 
 ## Installation
 
-1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Dobiss".
+1. In the Home Assistant UI, go to **Settings** > **Devices & Services**.
+2. Click the **Add Integration** button.
+3. Search for "Dobiss" and follow the on-screen instructions to complete the installation.
 
+## Configuration
 
-## Configuration is done in the UI
+Configuration is handled via the Home Assistant UI. No manual YAML configuration is required.
 
 ## Dependencies
 
-This integration will use the [pydobiss](https://pypi.org/project/pydobiss/) Python library, which uses the native [Dobiss NXT API](http://support.dobiss.com/books/nl-dobiss-nxt/page/developer-api).
+This integration uses the [`pydobiss`](https://pypi.org/project/pydobiss/) Python library, which communicates with the native [Dobiss NXT API](http://support.dobiss.com/books/nl-dobiss-nxt/page/developer-api).
 
 ## Credits
 
-This project was generated from [@oncleben31](https://github.com/oncleben31)'s [Home Assistant Custom Component Cookiecutter](https://github.com/oncleben31/cookiecutter-homeassistant-custom-component) template.
-
-Code template was mainly taken from [@Ludeeus](https://github.com/ludeeus)'s [integration_blueprint](https://github.com/custom-components/integration_blueprint) template.
+This integration is based on the work of [@kesteraernoudt](https://github.com/kesteraernoudt) and uses templates from [@oncleben31](https://github.com/oncleben31) and [@Ludeeus](https://github.com/ludeeus).
