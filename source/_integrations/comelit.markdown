@@ -56,7 +56,7 @@ There is support for the following platform types within Home Assistant:
 
 ## Data updates
 
-This integration fetches data from the device every 5 seconds by default.
+This integration {% term polling polls %} data from the device every 5 seconds by default.
 
 ## Alarm control panel
 
