@@ -50,12 +50,6 @@ To change the settings, go to {% my integrations title="**Settings** > **Devices
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
 ## Data updates
 
 This integration {% term polling polls %} data from the device every 30 seconds by default.
@@ -73,3 +67,9 @@ This {% term integration %} was tested against the following models from Sercomm
 - Vodafone Power Station (SHG3000)
 - Vodafone WiFi 6 Station (RHG3006)
 - Vodafone Gigabox (SHG3000) - supplied by [Vodafone Ireland](https://deviceguides.vodafone.ie/vodafone/gigabox-windows-10/)
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
