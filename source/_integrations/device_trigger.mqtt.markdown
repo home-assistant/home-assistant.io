@@ -14,7 +14,7 @@ An MQTT device trigger is a better option than a [binary sensor](/integrations/b
 
 ## Configuration
 
-MQTT device triggers are only supported through [MQTT discovery](/integrations/mqtt/#mqtt-discovery), manual setup through `configuration.yaml` is not supported.
+MQTT device triggers are only supported through [MQTT discovery](/integrations/mqtt/#mqtt-discovery), manual setup through {% term "`configuration.yaml`" %} is not supported.
 The discovery topic needs to be: `<discovery_prefix>/device_automation/[<node_id>/]<object_id>/config`. Note that only one trigger may be defined per unique discovery topic. Also note that the combination of `type` and `subtype` should be unique for a device.
 
 {% configuration %}
@@ -25,6 +25,10 @@ automation_type:
 payload:
   description: Optional payload to match the payload being sent over the topic.
   required: false
+  type: string
+platform:
+  description: Must be `device_automation`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
   type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
@@ -66,6 +70,10 @@ device:
       type: string
     model:
       description: The model of the device.
+      required: false
+      type: string
+    model_id:
+      description: The model identifier of the device.
       required: false
       type: string
     name:

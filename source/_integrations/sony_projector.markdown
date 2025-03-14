@@ -9,13 +9,14 @@ ha_domain: sony_projector
 ha_platforms:
   - switch
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `sony_projector` switch platform allows you to control the state of SDCP compatible network-connected projectors from [Sony](https://www.sony.com/).
 
 ## Configuration
 
-To use your Sony Projector in your installation, add the following to your `configuration.yaml` file:
+To use your Sony Projector in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

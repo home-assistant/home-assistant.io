@@ -15,8 +15,8 @@ ha_iot_class: Local Polling
 ha_release: 2023.5
 ha_config_flow: true
 ha_codeowners:
-  - '@humbertogontijo'
   - '@Lash-L'
+  - '@allenporter'
 ha_domain: roborock
 ha_platforms:
   - binary_sensor
@@ -24,6 +24,7 @@ ha_platforms:
   - diagnostics
   - image
   - number
+  - scene
   - select
   - sensor
   - switch
@@ -34,14 +35,14 @@ ha_integration_type: integration
 
 The Roborock integration allows you to control your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) vacuum while using the Roborock app.
 
-This integration requires a continuous cloud connection while using the device. However, excluding map data, communication between the integration and the device is conducted locally.
+This integration requires a continuous cloud connection while using the device. However, excluding map data and routines, communication between the integration and the device is conducted locally.
 
 Once you log in with your Roborock account, the integration will automatically discover your Roborock devices and get the needed information to communicate locally with them. Please ensure your Home Assistant instance can communicate with the local IP of your device. We recommend setting a static IP for your Roborock Vacuum to help prevent future issues. The device communicates on port 58867. Depending on your firewall, you may need to allow communication from Home Assistant to your vacuum on that port.
 
 {% include integrations/config_flow.md %}
 
 
-## Entities
+## Robovac entities
 
 Roborock devices have a variety of features that are supported on some devices but not on others. Only entities that your device supports will be added to your integration.
 
@@ -56,6 +57,8 @@ Mop mode - Describes how to mop the floor. On some firmware, it is called 'mop r
 Mop intensity - How hard you would like your vacuum to mop.
 
 ### Binary sensor
+
+Charging - States if the vacuum is currently charging or not.
 
 Cleaning - States if the vacuum has a clean currently active. This is on when the robot is actively moving around or when the robot returns to the dock when the battery is low but a clean is still active and will resume later.
 
@@ -96,6 +99,8 @@ Total cleaning time - The lifetime cleaning duration of your vacuum.
 
 Total cleaning area - The lifetime cleaning area of your vacuum.
 
+Total cleaning count - The lifetime cleaning count of your vacuum.
+
 Vacuum error - The current error with your vacuum, if there is one.
 
 ### Time
@@ -128,10 +133,86 @@ Reset main brush consumable - The main brush/ roller is expected to be replaced 
 
 Reset air filter - The air filter is expected to be replaced every 150 hours.
 
+In addition, some vacuums allow routines to be set up in the app. For each of those routines, a button entity will be created, allowing you to trigger it.
+
+### Actions
+
+#### Action `roborock.set_vacuum_goto_position`
+
+Go the specified coordinates.
+
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+- **Data attribute**: `x_coord`
+  - **Description**: X-coordinate, integer value. The dock is located at x-coordinate 25500.
+  - **Optional**: No.
+- **Data attribute**: `y_coord`
+  - **Description**: Y-coordinate, integer value. The dock is located at y-coordinate 25500.
+  - **Optional**: No.
+
+#### Action `roborock.get_vacuum_current_position`
+
+Get the current position of the vacuum. This is a cloud call and should only be used for diagnostics. This is not meant to be used for automations. Frequent requests can lead to rate limiting. 
+
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+
+Example:
+
+```yaml
+action: roborock.get_vacuum_current_position
+target:
+  entity_id: vacuum.roborock_s7
+data: {}
+```
+
+- **Result**: You will get a response like this:
+
+  ```yaml
+  vacuum.roborock_s7:
+    x: 28081
+    y: 25168
+  ```
+
 ### Image
 
 You can see all the maps within your Roborock account. Keep in mind that they are device-specific. The maps require the cloud API to communicate as the maps are seemingly stored on the cloud. If someone can figure out a way around this - contributions are always welcome.
 
+
+## Dyad entities
+
+Roborock wet/dry vacuums currently expose some entities through an MQTT connection - it is currently cloud dependent.
+
+### Sensor
+
+Status - The current status of your vacuum. This typically describes the action that is currently being run. For example, 'drying' or 'charging'.
+
+Battery - The current charge of your device.
+
+Filter time left - how long until Roborock recommends cleaning/replacing your filter.
+
+Brush time left - how long until Roborock recommends cleaning/replacing your brush.
+
+Error - the current error of the device - if one exists - "None" otherwise.
+
+Total cleaning time - how long you have cleaned with your wet/dry vacuum.
+
+
+## Zeo Entities
+
+Roborock Zeo One currently exposes some entities through an MQTT connection - it is currently cloud dependent.
+
+### Sensor
+
+State - The current state of your washing machine. For example, 'washing' or 'rinsing'.
+
+Countdown - Countdown for how long until the machine starts.
+
+Washing left - The amount of time until your machine is done washing.
+
+Error - The current error of the Zeo, if one exists.
 
 ## FAQ
 
@@ -156,22 +237,34 @@ We are working on adding a lot of features to the core integration. We have reve
 ### How can I clean a specific room?
 We plan to make the process simpler in the future, but for now, it is a multi-step process.
 1. Make sure to first name the rooms in the Roborock app; otherwise, they won't appear in the debug log.
-2. Go to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Roborock: Get maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map. If you don't see the rooms you expect, you should select the other map through your app or through the `load_multi_map` service.
-You will get a response like this:
-```json
-vacuum.s7_roborock:
-  maps:
-    - flag: 0
-      name: Downstairs
-      rooms:
-        "16": Kitchen
-        "17": Living room
-```
-3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
+2. Go to {% my developer_call_service service="roborock.get_maps" title="**Developer Tools** > **Actions** > **Roborock: Get Maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map.
+
+   - **Request**: Your request should look like:
+
+      ```yaml
+      action: roborock.get_maps
+      target:
+        entity_id: vacuum.s7_roborock
+      ```
+
+   - **Result**: You will get a response like this:
+
+      ```json
+      vacuum.s7_roborock:
+        maps:
+          - flag: 0
+            name: Downstairs
+            rooms:
+              "16": Kitchen
+              "17": Living room
+      ```
+
+3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Actions** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 
 Example:
+
 ```yaml
-service: vacuum.send_command
+action: vacuum.send_command
 data:
   command: app_segment_clean
   params:
@@ -183,3 +276,20 @@ target:
   entity_id: vacuum.s7_roborock
 
 ```
+
+## Troubleshooting
+
+### I get a invalid or no user agreement error - but nothing shows up in my app
+
+Roborock servers require accepting a user agreement before using the API, which may block Home Assistant during setup. Additionally, the Roborock may ask you to re-enter the user agreement, even if you have entered it before.  To allow Home Assistant to use the Roborock API, you need to take the following steps:
+1. Open your Roborock app.
+2. Open **Profile** > **About Us** > **User Agreement & Privacy Policy**.
+3. Hit **Revoke authorization**.
+4. Log back in and accept the policy.
+5. Reload the Roborock integration!
+
+### The integration tells me it cannot reach my vacuum and is using the cloud API and that this is not supported
+
+This integration has the capability to control your devices through the cloud API and the local API. If the local API is not reachable, it will just use the cloud API. We recommend only using the local API as it helps prevent any kind of rate-limiting.
+
+The steps needed to fix this issue are specific to your networking setup. Make sure your Home Assistant instance can communicate on port 58867 with the IP address of your vacuum. This may require changing firewall settings, VLAN configuration, etc.

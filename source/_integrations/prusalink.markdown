@@ -8,10 +8,10 @@ ha_release: '2022.9'
 ha_config_flow: true
 ha_codeowners:
   - '@balloob'
-  - '@Skaronator'
 ha_domain: prusalink
 ha_integration_type: integration
 ha_platforms:
+  - binary_sensor
   - button
   - camera
   - sensor

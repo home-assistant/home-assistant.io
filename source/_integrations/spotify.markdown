@@ -6,13 +6,13 @@ ha_category:
 ha_release: 0.43
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_quality_scale: silver
 ha_codeowners:
   - '@frenck'
   - '@joostlek'
 ha_domain: spotify
 ha_zeroconf: true
 ha_platforms:
+  - diagnostics
   - media_player
 ha_integration_type: service
 ---
@@ -101,6 +101,11 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% include integrations/config_flow.md %}
 
+## Data updates
+
+The integration polls at least every 30 seconds.
+If the track that is playing ends in less than 30 seconds, the integration will poll again after the track has ended to update the state again.
+
 ## Using multiple Spotify accounts
 
 This integration supports multiple Spotify accounts at once. You don't need to
@@ -120,7 +125,7 @@ To play media Spotify first needs a device selected for audio output known as th
 
 ```yaml
 # Example code to select an AV receiver as the output device
-service: media_player.select_source
+action: media_player.select_source
 target:
   entity_id: media_player.spotify
 data:
@@ -132,14 +137,14 @@ The Spotify API cannot initiate playback to a device not already known to the Sp
 ## Playing Spotify playlists
 
 You can send playlists to Spotify using the `"media_content_type": "playlist"`, which is part of the
-[media_player.play_media](/integrations/media_player/#service-media_playerplay_media) service, for example:
+[media_player.play_media](/integrations/media_player/#action-media_playerplay_media) action, for example:
 
 ```yaml
 # Example script to play playlist
 script:
   play_jazz_guitar:
     sequence:
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.spotify
         data:

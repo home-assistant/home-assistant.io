@@ -17,11 +17,9 @@ ha_integration_type: integration
 
 `Traccar` uses GPS for tracking and has support for over 1500 different types of devices. You can use the [Traccar Client](https://www.traccar.org/client/) app on a smartphone via `webhook`.
 
-<div class="note">
-
-  Looking for documentation on how to communicate with a Traccar Server? See the [Traccar Server](/integrations/traccar_server/) integration documentation.
-
-</div>
+{% tip %}
+Looking for documentation on how to communicate with a Traccar Server? See the [Traccar Server](/integrations/traccar_server/) integration documentation.
+{% endtip %}
 
 To configure Traccar Client, you must set it up via the integrations panel in the configuration screen. This will give you the webhook URL to use during mobile device configuration. This URL has to be set in the Traccar app.
 

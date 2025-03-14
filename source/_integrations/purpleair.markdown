@@ -52,11 +52,11 @@ The PurpleAir API does not provide AQI data; therefore, the integration does not
 an AQI sensor automatically. However, sensors providing raw particulate data can be used
 to create a human-friendly AQI rating sensor.
 
-<div class='note warning'>
+{% warning %}
 The guidelines within this documentation constitute estimates and are intended to help
 informed decision making. They should not replace analysis, advice or diagnosis from a
 trained medical professional.
-</div>
+{% endwarning %}
 
 ### Understanding EPA Guidelines
 
@@ -75,10 +75,10 @@ With the EPA guidelines in hand, the next step is to create
 [`statistics`](/integrations/statistics/) sensors for each particulate sensor you are
 interested. This example uses PM2.5 and PM10.0 over a 24-hour period:
 
-<div class='note info'>
+{% note %}
 The entity IDs provided below are simulated; make sure that you use entity IDs that
 actually exist in your Home Assistant instance.
-</div>
+{% endnote %}
 
 ```yaml
 sensor:
@@ -103,10 +103,10 @@ The [`statistics`](/integrations/statistics/) sensors can then be combined into 
 sensor. Note that this example takes a conservative approach: the "worse" of the two
 values (PM2.5 or PM10.0) is used to determine the overall rating.
 
-<div class='note info'>
+{% tip %}
 Reminder that the breakpoints used below can be determined from the aforementioned EPA
 guidelines.
-</div>
+{% endtip %}
 
 {% raw %}
 

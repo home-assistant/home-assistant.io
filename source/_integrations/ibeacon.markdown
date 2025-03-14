@@ -14,8 +14,6 @@ ha_platforms:
 ha_bluetooth: true
 ha_config_flow: true
 ha_integration_type: integration
-ha_codeowners:
-  - '@bdraco'
 ---
 
 {% include integrations/config_flow.md %}
@@ -70,15 +68,15 @@ To get the Estimated distance sensor to work, in most cases, it has to be calibr
 - [Blue Charm Beacons BC-U1-USB-Powered-MultiBeacon](https://bluecharmbeacons.com/product/bluetooth-ble-ibeacon-bc-u1-multibeacon-usb-powered/)
 - [Blue Charm Beacons BC011-MultiBeacon](https://bluecharmbeacons.com/product/bluetooth-ble-multi-beacon-bc011/)
 - [Blue Charm Beacons BC021-MultiBeacon](https://bluecharmbeacons.com/product/bluetooth-ble-ibeacon-bc021-multibeacon-with-button-trigger-and-motion-sensor/)
-- [Blue Charm Beacons BC037G-GeoPattern-iBeacon](https://bluecharmbeacons.com/product/blue-charm-bc037-ibeacon/)
-- [Blue Charm Beacons BC037S-SmoothPattern-iBeacon](https://bluecharmbeacons.com/product/bluetooth-ble-ibeacon-bc037s-ibeacon/)
-- [Blue Charm Beacons BC08-MultiBeacon](https://bluecharmbeacons.com/product/blue-charm-beacons-bluetooth-ble-ibeacon-bc08-multibeacon-w-motion-sensor-and-button-trigger-ble-5-0/)
 - Blue Charm Beacons BC037G-GeoPattern-iBeacon (discontinued)
 - Blue Charm Beacons BC037S-SmoothPattern-iBeacon (discontinued)
-- [Chipolo ONE Spot](https://chipolo.net/de/products/chipolo-one-spot)
-- [Blue SLIM ID](https://elainnovation.com/en/product/blue-slim-id-en/)
+- Blue Charm Beacons BC08-MultiBeacon (discontinued)
+- Blue Charm Beacons BC037G-GeoPattern-iBeacon (discontinued)
+- Blue Charm Beacons BC037S-SmoothPattern-iBeacon (discontinued)
+- [Blue SLIM ID](https://elainnovation.com/en/catalogue/blue-slim-id-en/)
 - [Feasycom FSC-BP103B](https://www.feasycom.com/bluetooth-ibeacon-da14531)
 - [Feasycom FSC-BP104D](https://www.feasycom.com/dialog-da14531-bluetooth-low-energy-beacon)
+- [Feasycom FSC-BP106](https://www.feasycom.com/fsc-bp106)
 - [Feasycom FSC-BP108](https://www.feasycom.com/bluetooth-5-1-waterproof-bluetooth-beacon)
 - [MikroTik TG-BT5-IN](https://mikrotik.com/product/tg_bt5_in) (Additional sensors such as angle or impact are not compatible)
 - [NRF51822 iBeacon](https://www.aliexpress.com/item/32826502025.html)
@@ -91,24 +89,23 @@ To get the Estimated distance sensor to work, in most cases, it has to be calibr
 
 ```yaml
 alias: "The black trash can has left the building"
-mode: single
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: sensor.black_trash_bin_estimated_distance
     to: "unavailable"
     for:
       hours: 0
       minutes: 5
       seconds: 0
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id: sensor.black_trash_bin_estimated_distance
     for:
       hours: 0
       minutes: 5
       seconds: 0
     above: 20
-action:
-  - service: notify.notify
+actions:
+  - action: notify.notify
     data:
       message: "The black trash can has left the building"
       title: "The black trash can has left the building"

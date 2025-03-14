@@ -12,7 +12,7 @@ The `ffmpeg` platform allows you to use any video feed as a camera in Home Assis
 
 ## Configuration
 
-To enable your FFmpeg feed in your installation you must first configure the [FFmpeg integration](/integrations/ffmpeg/), then add the following to your `configuration.yaml` file:
+To enable your FFmpeg feed in your installation you must first configure the [FFmpeg integration](/integrations/ffmpeg/), then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

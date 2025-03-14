@@ -20,7 +20,7 @@ The stream integration provides a way to proxy live streams through Home Assista
 
 ## Configuration
 
-The `stream` integration is automatically loaded by `default_config` and enabled by the `camera` platforms that support it. If `default_config` is used, no separate `configuration.yaml` entry is necessary. However, there are some extra options you can configure.
+The `stream` integration is automatically loaded by `default_config` and enabled by the `camera` platforms that support it. If `default_config` is used, no separate {% term "`configuration.yaml`" %} entry is necessary. However, there are some extra options you can configure.
 
 {% configuration %}
 ll_hls:
@@ -44,7 +44,7 @@ part_duration:
 
 LL-HLS reduces the start time and delay for a stream, but it has strict timing and network requirements and opens additional browser connections. To avoid running into browser limits it is strongly recommended to use an HTTP/2 proxy (e.g., NGINX or haproxy) to take advantage of request pipelining. LL-HLS is enabled by default, but when not using HTTP/2, the Home Assistant frontend will revert back to regular HLS if too many streams are open.
 
-You can further adjust LL-HLS settings in `configuration.yaml` as it may perform better or worse with different values depending on your network setup, cameras, or whether or not they are local or cloud.
+You can further adjust LL-HLS settings in {% term "`configuration.yaml`" %} as it may perform better or worse with different values depending on your network setup, cameras, or whether or not they are local or cloud.
 
 Example configuration:
 

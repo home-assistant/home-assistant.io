@@ -11,6 +11,7 @@ ha_domain: mill
 ha_config_flow: true
 ha_platforms:
   - climate
+  - number
   - sensor
 ha_integration_type: integration
 ---
@@ -20,15 +21,17 @@ Integrates Mill heater into Home Assistant.
 {% include integrations/config_flow.md %}
 
 You can configure it for cloud access or local access.
-Local access requires Generation 3 heaters (Sold from Autumn 2021)
+Local access requires Generation 3 heaters (Sold from Autumn 2021).
+A number entity can configure the maximum power of the heaters.
 
-## Integration services
 
-This cloud integration supports a service to set the temperature for the room connected to heater in the Mill app:
+## Actions
+
+This cloud integration supports an action to set the temperature for the room connected to heater in the Mill app:
 
 `mill.set_room_temperature`
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `room_name` | no | String with room name.
 | `away_temp` | yes | Integer with temperature

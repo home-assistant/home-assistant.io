@@ -37,6 +37,7 @@ There is currently support for the following DROP products within Home Assistant
 - **Pump Controller**: smart replacement for an FSG pressure switch.
 - **RO Filter**: reverse osmosis drinking water filtration.
 - **Salt Sensor**: alerts when the salt level in the softener brine tank is low.
+- **Alert**: monitors both the water level in a sump pit and electrical power to the sump pump.
 
 ### Prerequisites
 
@@ -55,13 +56,11 @@ Assistant.
 {% details "Manual configuration steps" %}
 
 - Browse to your Home Assistant instance.
-- Go to **{% my integrations title="Settings > Devices & Services" %}**.
+- Go to **{% my integrations title="Settings > Devices & services" %}**.
 - Set up the new discovered devices.
 
 {% enddetails %}
 
-<div class="note">
-
+{% important %}
 The MQTT broker address and port used for the DROP Hub must be the same as configured for the Home Assistant MQTT integration.
-
-</div>
+{% endimportant %}

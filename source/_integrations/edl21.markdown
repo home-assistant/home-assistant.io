@@ -20,7 +20,6 @@ Compatible transceivers:
 
 - [DIY](https://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-rs232-ausgang)
 - [Weidmann Elektronik Schreib-/Lesekopf USB](https://shop.weidmann-elektronik.de/index.php?page=product&info=24)
-- [USB IR Lesekopf EHZ Lese-Schreib-Kopf Volkszähler Hichi Smartmeter](https://www.ebay.de/itm/313884760667)
 
 Tested smart meters:
 
@@ -44,7 +43,7 @@ For the efr SGM-C4 it is:
 - entering pin using quicker flashes, wait for 3 seconds for next digit
 - pin accepted
 - flashing 7 times to get to InF=OFF
-- 5-second flash to switch to InF=OFF
+- 5-second flash to switch to InF=ON
 
 You will now get more readings like current Power, Voltage, and phase angle. Some meters don´t have this, in that case only an overall reading is provided.
 
@@ -55,3 +54,17 @@ To use this integration with a remote transceiver you could use [ser2net](https:
 Example `ser2net.conf` configuration file:
 
 > 2001:raw:0:/dev/ttyUSB0:9600 8DATABITS NONE 1STOPBIT
+
+Example `ser2net.yaml` (`ser2net` version 4.3.3) configuration entry:
+
+```yaml
+connection: &con2001
+  enable: on
+  accepter: tcp,2001
+  options:
+    telnet-brk-on-sync: false
+    kickolduser: true
+  connector: serialdev,/dev/ttyUSB0,9600n81,local
+```
+
+Use `socket://<ip-of-host>:2001` when adding the Smart Meter and asked for a "USB device path".

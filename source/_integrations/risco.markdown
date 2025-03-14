@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@OnFreund'
 ha_domain: risco
-ha_quality_scale: platinum
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
@@ -27,13 +26,13 @@ This integration connects with Risco Alarms, in one of two ways:
 The integration will connect with your alarm over [Risco Cloud](https://riscocloud.com/).
 This is easiest to configure, and is widely supported, but is cloud based, and requires polling. 
 
-<div class='note'>
+{% important %}
 As of January 2021, Risco have implemented charges for use of their Cloud Features.
-</div>
+{% endimportant %}
 
-<div class='note warning'>
+{% tip %}
 It is recommended to use a regular (non-owner) account with the Risco app/website, and use a different regular account with the integration. Risco has restrictions on concurrent uses by different users, especially if they have different permission levels.
-</div>
+{% endtip %}
 
 4 sensors will be created to store events, depending on the category (Status, Alarm, Trouble and Other). Each sensor
 has the event timestamp as the state, and other event information in attributes.

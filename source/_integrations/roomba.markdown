@@ -5,12 +5,10 @@ ha_category:
   - Vacuum
 ha_iot_class: Local Push
 ha_release: 0.51
-ha_conflig_flow: true
 ha_codeowners:
   - '@pschmitt'
   - '@cyr-ius'
   - '@shenxn'
-  - '@Xitee1'
   - '@Orhideous'
 ha_domain: roomba
 ha_config_flow: true
@@ -29,19 +27,15 @@ The **Roomba** {% term integrations %} allows you to control your [iRobot Roomba
 <img src='/images/screenshots/more-info-dialog-roomba.png' />
 </p>
 
-<div class='note'>
-  
+{% note %}
 This {% term integrations %}  has been tested and confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 960, Roomba 890, and Braava jet m6 models, but should also work fine with any Wi-Fi enabled Roomba or Braava like the 690. For auto-discovery, you will need to initiate a Roomba reboot. For example, by holding the clean button for up to 20 seconds on an i7 or 980. [More information about rebooting your robot](https://homesupport.irobot.com/s/article/9087).
-
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-
-The Roomba's MQTT server only allows a single connection. Enabling continuous mode will force the App to connect via the cloud to your Roomba. For more information, refer to the [Roomba 980 repository](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes).
-
-</div>
+{% warning %}
+The Roomba's MQTT server only allows a single connection. Continuous mode is enabled by default, which will force the App to connect via the cloud to your Roomba. Continuous mode can be disabled in the configuration options for the integration after it is added. For more information, refer to the [Roomba 980 repository](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes).
+{% endwarning %}
 
 ## Integration entities
 
@@ -75,11 +69,9 @@ For Home Assistant Container, the following command retrieves the BLID (username
 docker exec -it CONTAINER_NAME_OR_ID python -c 'import roombapy.entry_points; roombapy.entry_points.password()' ROOMBA_IP
 ```
 
-<div class='note'>
-  
+{% note %}
 The command to retrieve the credentials does not need any additional software to be installed because it uses the built-in [roombapy](https://github.com/pschmitt/roombapy) package and [password](https://github.com/pschmitt/roombapy/blob/1.6.1/roomba/entry_points.py#L20) function deployed with Home Assistant.
-
-</div>
+{% endnote %}
 
 #### Retrieving credentials from the cloud with dorita980
 
@@ -95,3 +87,9 @@ Use this credentials in dorita980 lib :)
 ```
 
 Copy the password (everything between `=>` and `<=`, not including leading and trailing whitespace) into the Home Assistant password dialog.
+
+## Troubleshooting
+
+- **Integration wizard shows "Failed to connect" after submitting the password**: Before attempting a factory reset (which can be a cumbersome process), attempt submitting the password in the integration wizard while the Roomba is actively running (i.e. cleaning). Avoid opening the app to start a manual job to help with this. Instead, push the physical clean button on the device directly to start the manual job. This appears to resolve the issue on some models because they answer queries only while actively running.
+
+  If this still does not resolve the issue, factory reset the model.

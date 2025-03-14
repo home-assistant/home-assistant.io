@@ -76,11 +76,11 @@ If you're comfortable with YAML, this code could be used:
 
 ```yaml
 alias: "Heat Meter manual update"
-trigger:
-  - platform: time
+triggers:
+  - trigger: time
     at: "23:30:00"
-action:
-  - service: homeassistant.update_entity
+actions:
+  - action: homeassistant.update_entity
     target:
       entity_id: sensor.heat_meter_heat_usage_gj
 ```

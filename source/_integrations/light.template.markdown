@@ -3,18 +3,27 @@ title: "Template Light"
 description: "Instructions on how to integrate Template Lights into Home Assistant."
 ha_category:
   - Light
+  - Helper
 ha_release: 0.46
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - light
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` platform creates lights that combine integrations and provides the
-ability to run scripts or invoke services for each of the on, off, and
+ability to run scripts or invoke actions for each of the on, off, and
 brightness commands of a light.
 
 To enable Template Lights in your installation, add the following to your
-`configuration.yaml` file:
+{% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -31,28 +40,28 @@ light:
         hs_template: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list_template: "{{ state_attr('light.led_strip', 'effect_list') }}"
         turn_on:
-          service: script.theater_lights_on
+          action: script.theater_lights_on
         turn_off:
-          service: script.theater_lights_off
+          action: script.theater_lights_off
         set_level:
-          service: script.theater_lights_level
+          action: script.theater_lights_level
           data:
             brightness: "{{ brightness }}"
         set_temperature:
-          service: input_number.set_value
+          action: input_number.set_value
           data:
             value: "{{ color_temp }}"
             entity_id: input_number.temperature_input
         set_hs:
-          - service: input_number.set_value
+          - action: input_number.set_value
             data:
               value: "{{ h }}"
               entity_id: input_number.h_input
-          - service: input_number.set_value
+          - action: input_number.set_value
             data:
               value: "{{ s }}"
               entity_id: input_number.s_input
-          - service: light.turn_on
+          - action: light.turn_on
             data:
               entity_id:
                 - light.led_strip
@@ -61,7 +70,7 @@ light:
                 - "{{ hs[0] }}"
                 - "{{ hs[1] }}"
         set_effect:
-          - service: light.turn_on
+          - action: light.turn_on
             data:
               entity_id:
                 - light.led_strip
@@ -209,7 +218,7 @@ result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 Transition doesn't have its own script, it will instead be passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts.
 Brightness will be passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts if the corresponding parameter is also in the call. In this case, the brightness script (`set_level`) will not be called.
-If only brightness is passed to `light.turn_on` service call then `set_level` script is called.
+If only brightness is passed to `light.turn_on` action, then `set_level` script is called.
 
 ## Examples
 
@@ -242,19 +251,19 @@ light:
             off
           {% endif %}
         turn_on:
-          service: media_player.volume_mute
+          action: media_player.volume_mute
           target:
             entity_id: media_player.receiver
           data:
             is_volume_muted: false
         turn_off:
-          service: media_player.volume_mute
+          action: media_player.volume_mute
           target:
             entity_id: media_player.receiver
           data:
             is_volume_muted: true
         set_level:
-          service: media_player.volume_set
+          action: media_player.volume_set
           target:
             entity_id: media_player.receiver
           data:
@@ -302,13 +311,13 @@ light:
             mdi:lightbulb-off
           {% endif %}
         turn_on:
-          service: media_player.volume_mute
+          action: media_player.volume_mute
           target:
             entity_id: media_player.receiver
           data:
             is_volume_muted: false
         turn_off:
-          service: media_player.volume_mute
+          action: media_player.volume_mute
           target:
             entity_id: media_player.receiver
           data:
@@ -350,13 +359,13 @@ light:
             /local/lightbulb-off.png
           {% endif %}
         turn_on:
-          service: media_player.volume_mute
+          action: media_player.volume_mute
           target:
             entity_id: media_player.receiver
           data:
             is_volume_muted: false
         turn_off:
-          service: media_player.volume_mute
+          action: media_player.volume_mute
           target:
             entity_id: media_player.receiver
           data:
@@ -391,18 +400,18 @@ light:
         availability_template: "{{ not is_state('light.wled_master', 'unknown') }}"
 
         turn_on:
-          service: light.turn_on
+          action: light.turn_on
           entity_id: light.wled_segment_0, light.wled_segment_1, light.wled_master
         turn_off:
-          service: light.turn_off
+          action: light.turn_off
           entity_id: light.wled_master
         set_level:
-          service: light.turn_on
+          action: light.turn_on
           entity_id: light.wled_master
           data:
             brightness: "{{ brightness }}"
         set_rgbw:
-          service: light.turn_on
+          action: light.turn_on
           entity_id: light.wled_segment_0, light.wled_segment_1
           data:
             rgbw_color:
@@ -412,7 +421,7 @@ light:
               - "{{ w }}"
             effect: "Solid"
         set_effect:
-          service: light.turn_on
+          action: light.turn_on
           entity_id: light.wled_segment_0, light.wled_segment_1
           data:
             effect: "{{ effect }}"

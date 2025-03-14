@@ -47,8 +47,6 @@ Device tracker entity:
 | `warning_<x>_parameters` | *(list)* A list of additional warning parameters. More information can be found [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/warning_codes_pdf.pdf?__blob=publicationFile&v=5). |
 | `warning_<x>_color` | *(str)* The DWD color of the warning encoded as `#rrggbb`. |
 
-<div class="note">
-
+{% note %}
 In the attribute name `x` is the counter of the warning starting from `1`.
-
-</div>
+{% endnote %}

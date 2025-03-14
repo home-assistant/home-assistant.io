@@ -7,6 +7,10 @@ ha_iot_class: Local Push
 ha_release: 0.45
 ha_domain: datadog
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **Datadog** {% term integration %} sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](https://docs.datadoghq.com/guides/basic_agent_usage/).
@@ -31,7 +35,8 @@ In the [Datadog Agent configuration](https://github.com/DataDog/datadog-agent/bl
 
 ## Configuration
 
-To use the `datadog` integration in your installation, add the following to your `configuration.yaml` file:
+To use the `datadog` integration in your installation, add the following to your  {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

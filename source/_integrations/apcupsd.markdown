@@ -16,10 +16,9 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: integration
-ha_quality_scale: silver
 ---
 
-[apcupsd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) on the APC device.
+[apcupsd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) is configured on the APC device.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -34,11 +33,11 @@ After installation, follow the instructions on the GitHub page to configure the 
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
+{% note %}
 
-If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, ensure the [apcupsd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses [NISIP 0.0.0.0](http://www.apcupsd.org/manual/manual.html#configuration-directives-used-by-the-network-information-server), else non-local addresses will not connect.
+If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, ensure the [apcupsd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses NISIP 0.0.0.0, else non-local addresses will not connect.
 
-</div>
+{% endnote %}
 
 
 ## Binary sensor
@@ -51,11 +50,11 @@ This integration provides a binary sensor for the following information from apc
 
 This integration provides sensors for the following information from apcupsd based on their availability. Each sensor is listed here along with their corresponding resource name obtained from `apcaccess`. 
 
-<div class='note'>
+{% note %}
 
 Some sensors are disabled by default, since they provide information that is only useful for advanced users. You can manually enable them in **{% my entities title="Settings -> Devices & Services -> Entities" %}** -> the sensor entity you want to enable -> Advanced settings -> Enabled.
 
-</div>
+{% endnote %}
 
 - UPS Alarm Delay (ALARMDEL)
 - UPS Ambient Temperature (AMBTEMP)

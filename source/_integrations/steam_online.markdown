@@ -18,13 +18,11 @@ The Steam integration will allow you to track the online status of public [Steam
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-
+{% important %}
 Steam has a friends list privacy feature that interferes with easily adding sensors to track friends' activities. Setting the friends list to Public during initial setup will allow the integration to see them for easy adding. It is **not** necessary to keep the friends list Public.
 
 Go to your profile, select "Edit Profile", "Privacy Settings".
-
-</div>
+{% endimportant %}
 
 <p class='img'>
   <img src='/images/screenshots/steam_privacy_settings.png' />
@@ -34,7 +32,12 @@ Go to your profile, select "Edit Profile", "Privacy Settings".
 
 You need a [free API key](https://steamcommunity.com/dev/apikey) to use the platform.
 
-To find an account's 64-bit SteamID on profiles without a custom URL you can check the URL of the profile page, the long string of numbers at the end is the 64-bit SteamID. If the profile has a custom URL you will have to copy the URL into [STEAMID I/O](https://steamid.io/) to find the 64-bit SteamID.
+To find an account's 64-bit SteamID:
+
+1. Open Steam.
+2. Open the dropdown menu labeled with your username.
+3. Select **Account details**.
+   - Your **Steam ID** is displayed just below the label **Your-Account-Name Account**.
 
 ## Examples
 

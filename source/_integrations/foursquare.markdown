@@ -7,9 +7,16 @@ ha_release: 0.26
 ha_iot_class: Cloud Push
 ha_domain: foursquare
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `foursquare` integration accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and a service to check users in on Swarm.
+The `foursquare` {% term integration %} accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and an action to check users in on Swarm.
+
+To enable Foursquare, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -41,7 +48,7 @@ https://foursquare.com/oauth2/authenticate?client_id=CLIENT_ID&response_type=tok
 
 and change the `CLIENT_ID` and `YOUR_REGISTERED_REDIRECT_URL` to your actual values.
 You will receive an OAuth request landing page, asking you if you want to connect your Foursquare account to your newly created app. Say "Yes".
-After that, you will get redirected to your `REDIRECT_URL` with the `access_token` as an HTTP GET variable. Copy everything after the = and paste it in your `configuration.yaml` as the `access_token`.
+After that, you will get redirected to your `REDIRECT_URL` with the `access_token` as an HTTP GET variable. Copy everything after the = and paste it in your {% term "`configuration.yaml`" %} as the `access_token`.
 
 ### Real-Time API
 
@@ -52,18 +59,18 @@ Foursquare check-in events can be used out of the box to trigger automation acti
 ```yaml
 automation:
   - alias: "Trigger action when you check into a venue."
-    trigger:
-      platform: event
-      event_type: foursquare.push
-    action:
-      service: script.turn_on
-      target:
-        entity_id: script.my_action
+    triggers:
+      - trigger: event
+        event_type: foursquare.push
+    actions:
+      - action: script.turn_on
+        target:
+          entity_id: script.my_action
 ```
 
 ### Check ins
 
-To check a user in, use the `foursquare/checkin` service.
+To check a user in, use the `foursquare/checkin` action.
 
 Parameters:
 

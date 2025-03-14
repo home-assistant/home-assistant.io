@@ -5,11 +5,14 @@ ha_category:
   - Voice
 ha_release: "0.10"
 ha_domain: alexa
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 ## I want to build custom commands to use with Echo
 
-The built-in Alexa integration allows you to integrate Home Assistant into Alexa/Amazon Echo. This integration will allow you to query information and call services within Home Assistant by using your voice. Home Assistant offers no built-in sentences but offers a framework for you to define your own.
+The built-in Alexa integration allows you to integrate Home Assistant into Alexa/Amazon Echo. This integration will allow you to query information and perform actions within Home Assistant by using your voice. Home Assistant offers no built-in sentences but offers a framework for you to define your own.
 
 <lite-youtube videoid="1Ke3mtWd_cQ" videotitle="Home Assistant integration for Amazon Echo" posterquality="maxresdefault"></lite-youtube>
 
@@ -159,7 +162,8 @@ This means that we can now ask Alexa things like:
 
 When activated, the Alexa integration will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/integrations/intent_script) integration.
 
-To enable Alexa, add the following entry to your `configuration.yaml` file:
+To enable Alexa, add the following entry to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 alexa:
@@ -216,7 +220,7 @@ Then add the intent to your `intent_script` section in your HA configuration fil
 intent_script:
   ActivateSceneIntent:
     action:
-      service: scene.turn_on
+      action: scene.turn_on
       target:
         entity_id: scene.{{ Scene | replace(" ", "_") }}
       data:
@@ -270,7 +274,7 @@ Then add the intent to your intent_script section in your HA configuration file:
 intent_script:
   RunScriptIntent:
     action:
-      service: script.turn_on
+      action: script.turn_on
       target:
         entity_id: script.{{ Script | replace(" ", "_") }}
     speech:
@@ -300,7 +304,7 @@ The configuration is the same as an intent with the exception being you will use
 intent_script:
   amzn1.ask.skill.08888888-7777-6666-5555-444444444444:
     action:
-      service: script.turn_on
+      action: script.turn_on
       target:
         entity_id: script.red_alert
     speech:
@@ -333,7 +337,7 @@ intent_script:
     speech:
       text: Done. Good night!
     action:
-      service: switch.turn_off
+      action: switch.turn_off
       target:
         entity_id:
           - switch.room1
@@ -343,7 +347,7 @@ intent_script:
       text: Alright
   amzn1.ask.skill.08888888-7777-6666-5555-444444444444.SessionEndedRequest:
     action:
-      service: switch.turn_off
+      action: switch.turn_off
       target:
         entity_id:
           - switch.room1

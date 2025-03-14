@@ -1,0 +1,284 @@
+<li>
+  <iconify-icon icon="mdi:robot-happy"></iconify-icon> {% active_link /docs/automation/ Automations %}
+  {% if doc == 'automation' or doc == 'blueprint' or doc == 'scripts' or doc == 'scene' or include.docs_index %}
+  <ul>
+    <li>
+      {% icon "mdi:robot-happy" %} {% active_link /docs/automation/basics/ Basic automations %}
+      {% if doc == 'automation' or include.docs_index %}
+      <ul>
+        <li>{% active_link /docs/automation/using_blueprints/ Using automation blueprints %}</li>
+        <li>{% active_link /docs/automation/editor/ Editor %}</li>
+        <li>{% active_link /docs/automation/trigger/ Triggers %}</li>
+        <li>{% active_link /docs/automation/condition/ Conditions %}</li>
+        <li>{% active_link /docs/automation/action/ Actions %}</li>
+        <li>{% active_link /docs/automation/modes/ Run modes %}</li>
+        <li>{% active_link /docs/automation/services/ Automation actions %}</li>
+        <li>{% active_link /docs/automation/templating/ Templates %}</li>
+        <li>{% active_link /docs/automation/yaml/ YAML %}</li>
+        <li>{% active_link /docs/automation/troubleshooting/ Troubleshooting automation %}</li>
+      </ul>
+      {% endif %}
+    </li>
+    <li>
+      {% icon "mdi:palette" %} {% active_link /docs/scene/ Scenes %}
+      {% if doc == 'scene' or include.docs_index %}
+      <ul>
+        <li>{% active_link /docs/scene/editor/ Editor %}</li>
+      </ul>
+      {% endif %}
+    </li>
+    <li>
+      {% icon "mdi:palette-swatch" %} {% active_link /docs/blueprint/ Blueprints %}
+      {% if doc == 'blueprint' or include.docs_index %}
+      <ul>
+        <li>{% active_link /docs/blueprint/tutorial/ Tutorial %}</li>
+        <li>{% active_link /docs/blueprint/schema/ Blueprint schema %}</li>
+        <li>{% active_link /docs/blueprint/selectors/ Selectors %}</li>
+      </ul>
+      {% endif %}
+    </li>
+    <li>
+      {% icon "mdi:script-text" %} {% active_link /docs/scripts/ Scripts %}
+      {% if doc == 'scripts' or include.docs_index %}
+      <ul>
+        <li>{% active_link /docs/scripts/perform-actions/ Actions %}</li>
+        <li>{% active_link /docs/scripts/conditions/ Conditions %}</li>
+      </ul>
+      {% endif %}
+    </li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "mdi:gauge" %} {% active_link /dashboards Dashboards %}
+  {% if root == 'dashboards' or include.docs_index %}
+  <ul>
+    {% assign elements = site.dashboards | sort_natural: 'title' %}
+
+    <li>
+      <iconify-icon icon="mdi:about-circle"></iconify-icon> Dashboard basics
+      <ul>
+        <li>{% active_link /dashboards/ Introduction %}</li>
+        <li>{% active_link /dashboards/dashboards/ Multiple dashboards %}</li>
+        <li>{% active_link /dashboards/views/ Views %}</li>
+        <li>{% active_link /dashboards/cards/ Cards %}</li>
+        <li>{% active_link /dashboards/badges/ Badges %}</li>
+      </ul>
+    </li>
+  
+    <li>
+      <iconify-icon icon="mdi:view-dashboard"></iconify-icon> View types
+      <ul>
+        {% for element in elements %}
+          {% if element.type == "view" %}
+            <li>{% active_link {{element.url}} {{element.sidebar_label}} %}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </li>
+  
+    <li>
+      {% icon "mdi:card-multiple" %} Card types
+      <ul>
+        {% for element in elements %}
+          {% if element.type == "card" %}
+            <li>{% active_link {{element.url}} {{element.sidebar_label}} %}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </li>
+  
+    <li>
+      {% icon "mdi:cog" %} Advanced
+      <ul>
+        <li>{% active_link /dashboards/features/ Features %}</li>
+        <li>{% active_link /dashboards/header-footer/ Headers & footers %}</li>
+        <li>{% active_link /dashboards/actions/ Actions %}</li>
+        <li><a
+            class="external-link" 
+            href="https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card/"
+            >Developing custom cards
+            {% icon "tabler:external-link" %}
+          </a></li>
+      </ul>
+    </li>
+
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "mdi:microphone" %} {% active_link /voice_control/ Voice assistants %}
+  {% if root == 'voice_control' or include.docs_index %}
+  <ul>
+    <li>{% icon "mdi:comment-processing-outline" %} {% active_link /voice_control/ Assist up and running %}
+      <ul>
+        <li>{% active_link /voice_control/voice_remote_local_assistant/ Getting started - Local %}</li>
+        <li>{% active_link /voice_control/voice_remote_cloud_assistant/ Getting started - Home Assistant Cloud %}</li>
+      </ul>
+    </li>
+    <li>{% icon "mdi:comment-processing-outline" %} {% active_link /voice_control/best_practices Best practices %}
+      <ul>
+        <li>{% active_link /voice_control/voice_remote_expose_devices/ Exposing entities to Assist %}</li>
+        <li>{% active_link /voice_control/assign_areas_floors/ Assigning devices to areas and areas to floors %}</li>
+        <li>{% active_link /voice_control/aliases/ Aliases for entities, areas and floors %}</li> 
+        <li>{% active_link /voice_control/builtin_sentences/ Talking to Assist - Sentences starter pack %}</li>
+      </ul>
+    </li>
+    <li>{% icon "mdi:comment-processing-outline" %} {% active_link /voice_control/expanding_assist Expanding Assist %}
+      <ul>
+        <li>{% active_link /voice_control/assist_create_open_ai_personality/ Creating a personality with AI %}</li>
+        <li>{% active_link /voice_control/custom_sentences/ Custom sentences %}</li>
+        <li>{% active_link /voice_control/android/ Assist for Android %}</li>
+        <li>{% active_link /voice_control/apple/ Assist for Apple %}</li>
+      </ul>
+    </li>
+    <li>{% icon "mdi:checkbox-marked" %} Experiment with Assist setups
+      <ul>
+        <li>{% active_link /voice_control/about_wake_word/ The Home Assistant Approach to Wake Words %}</li>
+        <li>{% active_link /voice_control/create_wake_word/ Wake words for Assist %}</li>
+        <li>{% active_link /voice_control/s3_box_voice_assistant/ Tutorial: ESP32-S3-BOX voice assistant %}</li>
+        <li>{% active_link /voice_control/s3-box-customize/ Tutorial: Customize the S3-BOX %}</li>
+        <li>{% active_link /voice_control/thirteen-usd-voice-remote/ Tutorial: $13 voice assistant %}</li>
+        <li>{% active_link /voice_control/worlds-most-private-voice-assistant/ Tutorial: World's most private voice assistant %}</li>
+        <li>{% active_link /voice_control/assist_daily_summary/ Tutorial: Your daily summary by Assist %}</li>
+        <li>{% active_link /voice_control/start_assist_from_dashboard/ Starting Assist from your dashboard %}</li>
+        <li>{% active_link /voice_control/contribute-voice/ Contribute to the Voice initiative %}</li>
+      </ul>
+    </li>
+    <li>{% icon "mdi:account-help" %} Troubleshooting
+      <ul>
+        <li>{% active_link /voice_control/troubleshooting/ Troubleshooting Assist %}</li>
+        <li>{% active_link /voice_control/troubleshooting_the_s3_box/ Troubleshooting the ESP32-S3-BOX %}</li>
+        <li>{% active_link /voice_control/using_tts_in_automation/ Using Piper TTS in automations %}</li>
+      </ul>
+    </li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "mdi:category" %} {% active_link /docs/organizing/ Organization %}
+  {% if doc == 'organizing' or include.docs_index %}
+  <ul>
+    <li>{% active_link /docs/organizing/ Grouping your assets %}</li>
+    <li>{% active_link /docs/organizing/tables Working with tables %}</li>
+    <li>{% active_link /docs/organizing/areas/ Areas %}</li>
+    <li>{% active_link /docs/organizing/floors/ Floors %}</li>
+    <li>{% active_link /docs/organizing/labels/ Labels %}</li>
+    <li>{% active_link /docs/organizing/categories/ Categories %}</li>
+    <li>{% active_link /docs/frontend/icons/ Icons %}</li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "mdi:solar-power-variant" %} {% active_link /docs/energy/ Home energy management %}
+  {% if doc == 'energy' or include.docs_index %}
+  <ul>
+    <li>{% active_link /docs/energy/electricity-grid/ Electricity grid %}</li>
+    <li>{% active_link /docs/energy/solar-panels/ Solar panels %}</li>
+    <li>{% active_link /docs/energy/individual-devices/ Individual devices %}</li>
+    <li>{% active_link /docs/energy/faq/ FAQ %}</li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "mdi:update" %} {% active_link /common-tasks/general/ Common tasks %}
+  {% if root == 'common-tasks' or include.docs_index %}
+  <ul>
+    <li>{% active_link /common-tasks/general/ Installation independent %}</li>
+    <li>{% active_link /common-tasks/os/ Home Assistant Operating System %}</li>
+    <li>{% active_link /common-tasks/container/ Home Assistant Container %}</li>
+    <li>{% active_link /common-tasks/core/ Home Assistant Core %}</li>
+    <li>{% active_link /common-tasks/supervised/ Home Assistant Supervised %}</li>
+    <li>{% active_link /docs/troubleshooting_general/ General troubleshooting %}</li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "mdi:cogs" %} {% active_link /docs/configuration/ Advanced configuration %}
+  {% if doc == 'configuration' or include.docs_index %}
+  <ul>
+    <li>{% active_link /docs/configuration/yaml/ YAML syntax %}</li>
+    <li>{% active_link /docs/configuration/basic/ Basic information %}</li>
+    <li>{% active_link /docs/configuration/customizing-devices/ Customizing entities %}</li>
+    <li>{% active_link /docs/configuration/troubleshooting/ Troubleshooting configuration %}</li>
+    <li>{% active_link /docs/configuration/securing/ Security check points %}</li>
+    <li>{% active_link /docs/configuration/remote/ Remote access %}</li>
+    <li>{% active_link /docs/configuration/splitting_configuration/ Splitting up the configuration %}</li>
+    <li>{% active_link /docs/configuration/packages/ Packages %}</li>
+    <li>{% active_link /docs/configuration/secrets/ Storing secrets %}</li>
+    <li>{% active_link /docs/configuration/events/ Events %}</li>
+    <li>{% active_link /docs/configuration/state_object/ State and state object %}</li>
+    <li>{% active_link /docs/configuration/entities_domains/ Entities and domains %}</li>
+    <li>{% active_link /docs/configuration/templating/ Templating %}</li>
+    <li>{% active_link /docs/configuration/platform_options/ Entity component platform options %}</li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "mdi:account-security" %} {% active_link /docs/authentication/ Authentication %}
+  {% if doc == 'authentication' or include.docs_index %}
+  <ul>
+    <li>{% active_link /docs/authentication/providers/ Auth providers %}</li>
+    <li>{% active_link /docs/authentication/multi-factor-auth/ Multi-factor authentication %}</li>
+    <li>{% active_link /docs/locked_out/ I'm locked out %}</li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "mdi:database" %} {% active_link /docs/backend/ Backend %}
+  {% if doc == 'backend' or include.docs_index %}
+  <ul>
+    <li>{% active_link /docs/frontend/ User interface %}</li>
+    <li>{% active_link /docs/backend/database/ Database %}</li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "mdi:palette" %} {% active_link /docs/tools/ Tools and helpers %}
+  {% if doc == 'tools' or include.docs_index %}
+  <ul>
+    <li>{% active_link /docs/tools/dev-tools/ Developer tools %}</li>
+    <li>{% active_link /docs/tools/quick-bar/ Quick bar %}</li>
+    <li>{% active_link /docs/tools/hass/ hass %}</li>
+    <li>{% active_link /docs/tools/check_config/ check_config %}</li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "mdi:cellphone" %} <a href="https://companion.home-assistant.io/docs">iOS and Android apps {% icon "tabler:external-link" %}</a>
+</li>
+
+<li>
+  {% icon "simple-icons:mqtt" %} {% active_link /integrations/mqtt MQTT %}
+  {% if doc == 'mqtt' or include.docs_index %}
+  <ul>
+    <li>{% active_link /integrations/mqtt/#broker-configuration Broker %}</li>
+    <li>{% active_link /integrations/mqtt/#advanced-broker-configuration Certificate %}</li>
+    <li>{% active_link /integrations/mqtt/#mqtt-discovery Discovery %}</li>
+    <li>{% active_link /integrations/mqtt/#publish--dump-actions Publish action %}</li>
+    <li>{% active_link /integrations/mqtt/#birth-and-last-will-messages Birth and last will messages %}</li>
+    <li>{% active_link /integrations/mqtt/#testing-your-setup Testing your setup %}</li>
+    <li>{% active_link /integrations/mqtt/#logging Logging %}</li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "bitcoin-icons:node-hardware-filled" %} Official hardware
+  <ul>
+    <li><a href="https://green.home-assistant.io/">Home Assistant Green {% icon "tabler:external-link" %}</a></li>
+    <li><a href="https://yellow.home-assistant.io/">Home Assistant Yellow {% icon "tabler:external-link" %}</a></li>
+    <li><a href="https://connectzbt1.home-assistant.io/">Home Assistant Connect ZBT-1 {% icon "tabler:external-link" %}</a></li>
+    <li><a href="https://voice-pe.home-assistant.io/">Home Assistant Voice Preview Edition {% icon "tabler:external-link" %}</a></li>
+  </ul>
+</li>

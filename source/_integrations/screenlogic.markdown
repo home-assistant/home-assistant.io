@@ -32,17 +32,17 @@ The Pentair ScreenLogic integration allows you to integrate your Pentair Intelli
 
 ## Options
 
-ScreenLogic options are set via **Settings** -> **Devices & Services** -> **Pentair ScreenLogic** -> **Options**.
+ScreenLogic options are set via **Settings** > **Devices & services** > **Pentair ScreenLogic** > **Options**.
 
 -= Seconds between scans - How many seconds between each polling of the ScreenLogic gateway.
 
-## Services
+## Actions
 
 ### `screenlogic.set_color_mode`
 
 Sets the operation of any connected color-capable lights.
 
-| Service data attribute | Optional | Description                                                                         |
+| Data attribute | Optional | Description                                                                         |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------- |
 | `config_entry`         | no       | Integration entry_id of the ScreenLogic instance you wish to set the color mode on. |
 | `color_mode`           | no       | The color mode to set. Valid values are listed below.                               |
@@ -51,7 +51,7 @@ Sets the operation of any connected color-capable lights.
 
 Begins super chlorination, running for the specified period or 24 hours if none is specified.
 
-| Service data attribute | Optional | Description                                                                               |
+| Data attribute | Optional | Description                                                                               |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------- |
 | `config_entry`         | no       | Integration entry_id of the ScreenLogic instance you wish to start super chlorination on. |
 | `runtime`              | yes      | Number of hours to run super chlorination for. Defaults to 24 hours.                      |
@@ -60,7 +60,7 @@ Begins super chlorination, running for the specified period or 24 hours if none 
 
 Stops super chlorination.
 
-| Service data attribute | Optional | Description                                                                              |
+| Data attribute | Optional | Description                                                                              |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------- |
 | `config_entry`         | no       | Integration entry_id of the ScreenLogic instance you wish to stop super chlorination on. |
 

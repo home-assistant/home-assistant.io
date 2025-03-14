@@ -16,7 +16,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@Bre77'
 ha_domain: advantage_air
-ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - climate
@@ -59,7 +58,7 @@ With MyPlace, any blinds and/or garage doors will be created as cover entities.
 The integration will create sensor entities for a variety of aspects:
 
 - The air filter sensor shows if it needs to be replaced.
-- Two sensor entities will be created for the 'time to on' and 'time to off' features. Use the `advantage_air.set_time_to` service to change these.
+- Two sensor entities will be created for the 'time to on' and 'time to off' features. Use the `advantage_air.set_time_to` action to change these.
 - Each zone that is temperature-controlled will have a sensor to show the temperature (disabled by default), and how open the damper is.
 - Each zone with a wireless temperature or motion sensor will have a sensor that reports its wireless RSSI.
 
@@ -69,7 +68,7 @@ The integration will create a binary sensor for each zone that has a motion sens
 
 ### Switch
 
-The integration will create switch entities to toggle the MyFan/ezFan setting, and to toggle air conditioning fresh air mode, if they are supported by your hardware.
+The integration will create switch entities to toggle the MyFan/ezFan setting, to toggle air conditioning fresh air mode, and to toggle MySleep$aver, if they are supported by your hardware.
 
 With MyPlace, any relays will be created as switch entities.
 
@@ -85,13 +84,13 @@ The update platform shows if the controller app requires an update.
 
 With MyLights or MyPlace, light entities will be created for each light.
 
-## Services
+## Actions
 
-### Service `advantage_air.set_time_to`
+### Action `advantage_air.set_time_to`
 
 Set the On/Off Timer using the relevant sensor entity.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | `sensor.[name]_time_to_on` or `sensor.[name]_time_to_off`
 | `minutes` | no | Number of minutes between `0` and `720`.

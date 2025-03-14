@@ -6,11 +6,11 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.106
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@exxamalte'
 ha_domain: gdacs
 ha_platforms:
+  - diagnostics
   - geo_location
   - sensor
 ha_integration_type: service
@@ -28,13 +28,13 @@ Entities are generated, updated and removed automatically with each update from 
 
 The data is updated every 5 minutes.
 
-<div class='note'>
+{% note %}
 
 The material used by this integration is provided by the [Global Disaster Alert and Coordination System (GDACS)](https://www.gdacs.org/) - a cooperation framework between the United Nations and the European Commission - under the [Creative Commons Attribution 4.0 International (CC BY 4.0) license](https://creativecommons.org/licenses/by/4.0/).
 It has only been modified for the purpose of presenting the material in Home Assistant.
 Please refer to the [creator's disclaimer and terms of use notice](https://www.gdacs.org/About/termofuse.aspx) for more information.
 
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -83,16 +83,3 @@ from the feed.
 | created                | Number of entities that were created during last update (optional).  |
 | updated                | Number of entities that were updated during last update (optional).  |
 | removed                | Number of entities that were removed during last update (optional).  |
-
-## Full configuration
-
-```yaml
-# Example configuration.yaml entry
-gdacs:
-  categories:
-    - Drought
-    - Earthquake
-  radius: 1000
-  latitude: -41.2
-  longitude: 174.7
-```

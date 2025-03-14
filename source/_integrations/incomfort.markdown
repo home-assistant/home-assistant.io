@@ -1,6 +1,6 @@
 ---
-title: Intergas InComfort/Intouch Lan2RF gateway
-description: Instructions on how to integrate an Intergas Lan2RF gateway with Home Assistant.
+title: Intergas gateway
+description: Instructions on how to integrate an Intergas gateway with Home Assistant.
 ha_category:
   - Binary sensor
   - Climate
@@ -9,19 +9,25 @@ ha_category:
 ha_release: 0.93
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@zxdavb'
+  - '@jbouwh'
 ha_domain: incomfort
 ha_platforms:
   - binary_sensor
   - climate
+  - diagnostics
   - sensor
   - water_heater
 ha_integration_type: integration
+ha_config_flow: true
+ha_dhcp: true
 ---
 
-The `incomfort` integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
+This integration links Home Assistant with your Intergas gateway, including the boiler and any room thermostats attached to it.
+The integration uses the [incomfort-client](https://pypi.org/project/incomfort-client/) library.
 
-It uses the [incomfort](https://pypi.org/project/incomfort-client/) client library.
+### Supported devices
+
+The Intergas Gateway connects thermostats based on the OpenTherm standard. An example of such a thermostat is the [Comfort Touch Thermostat](https://www.intergas-verwarming.nl/en/consumer/products/comfort-touch-thermostat/). The thermostats and LAN2RF gateway are often sold as a set. The gateway is suitable for use with Intergas Kombi Kompakt HRE and HReco appliances from year of manufacture 2014. If the Comfort Touch thermostat is used together with the gateway, then this will work in combination with Intergas Kombi Kompakt HRE, HReco, or Xtreme devices from year of manufacture 2017.
 
 ### Boiler
 
@@ -29,54 +35,68 @@ The boiler is represented as a **Water heater** device. It will report the boile
 
 Note that the `current_temperature` will switch between the CV (circulating volume) and Tap temperatures according to the current operating mode of the boiler.  If the boiler is neither pumping nor tapping, it will be reported as the higher of the two.
 
-In addition, there is a **Sensor** for each of CV pressure, CV temperature, and Tap temperature, and a **Binary sensor** that will be `on` if there is a fault with the boiler (the fault code will be a state attribute).
-
 ### Rooms
 
-Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's `temperature` (setpoint, target temperature) and `current_temperature` and the setpoint can be changed.
+Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's target `temperature` and `current_temperature` and the target temperature can be changed. This is similar to changing the target temperature override using the Comfort Touch App that comes with the thermostat/gateway. Note that any override will be reset when a new set point is reached on the thermostat's schedule.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To set up this integration, add one of the following to your `configuration.yaml` file:
+{% configuration_basic %}
+host:
+    description: "Hostname or IP-address of the Intergas gateway."
+    required: true
+    type: string
+username:
+    description: "The username to log into the gateway. This is `admin` in most cases."
+    required: false
+    type: string
+password:
+    description: "The password to log into the gateway, is printed at the bottom of the gateway or is `intergas` for some older devices."
+    required: false
+    type: string
+{% endconfiguration_basic %}
 
 The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
 
-### Older gateways
+The above configuration can also be adjusted later via
+{% my integrations title="**Settings** > **Devices & services**" %},
+select "Intergas gateway" and click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
 
-Older gateways do not require user authentication:
+{% important %}
 
-```yaml
-# Example configuration.yaml entry, older firmware with no user credentials
-incomfort:
-  host: IP_ADDRESS
-```
+Some older room thermostats might report the wrong setpoint when the setpoint is manually changed on the room thermostat. If you encounter this behavior, you can enable the `Legacy setpoint handling` option.
 
-### Newer gateways
+{% endimportant %}
 
-Alternatively, if a **username** & **password** is printed on the back of the gateway:
+{% include integrations/option_flow.md %}
 
-```yaml
-# Example configuration.yaml entry, newer firmware with user credentials
-incomfort:
-  host: IP_ADDRESS
-  username: USERNAME
-  password: PASSWORD
-```
+### Sensors for diagnostics
 
-{% configuration %}
-host:
-  description: The hostname/IP address of the Lan2RF gateway.
-  required: true
-  type: string
-username:
-  description: "The username of the Lan2RF gateway, if any. Most likely: `admin`."
-  required: inclusive
-  type: string
-password:
-  description: "The password of the Lan2RF gateway, if any. Most likely: `intergas`."
-  required: inclusive
-  type: string
-{% endconfiguration %}
+Note that **all** sensors are disabled by default.
+
+- **Sensors**
+  - Boiler Pressure: Indicates the boilers pressure.
+  - Boiler Temperature: Indicates the central heating temperature.
+  - Boiler Tap temperature: Indicates the tap water temperature.
+- **Binary sensors**
+  - Boiler Burner: Indicates if the burner is on.
+  - Boiler Fault: Indicates if there is a problem. The fault code is set as an attribute.
+  - Boiler Hot water tap: Indicates if the hot water tap is running.
+  - Boiler Pump: Indicate the pump is running for cental heating.
+
+## Troubleshooting
+
+In case setting up an older gateway type fails, then try to leave `username` and `password` fields empty.
+
+## Data updates
+
+The Intergas gateway will fetch state data from the gateway every 30 seconds. When the target temperature on the thermostat is changed, it might take some time for the set point to be updated on the Home Assistant climate {% term entity %}.
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Automation
 
@@ -86,17 +106,17 @@ To send an alert if the CV pressure is too low or too high, consider the followi
 
 ```yaml
 - alias: "Low CV Pressure Alert"
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.cv_pressure
-    below: 1.0
-  action:
-  - service: notify.pushbullet_notifier
-    data:
-      title: "Warning: Low CH Pressure"
-      message: >-
-        {{ trigger.to_state.attributes.friendly_name }}
-        is low, {{ trigger.to_state.state }} bar.
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.boiler_pressure
+      below: 1.0
+  actions:
+    - action: notify.pushbullet_notifier
+      data:
+        title: "Warning: Low CH Pressure"
+        message: >-
+          {{ trigger.to_state.attributes.friendly_name }}
+          is low, {{ trigger.to_state.state }} bar.
 ```
 
 {% endraw %}

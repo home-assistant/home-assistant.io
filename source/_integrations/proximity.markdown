@@ -28,9 +28,9 @@ Some examples of its use include:
 
 {% include integrations/config_flow.md %}
 
-<div class="note">
-When adding the **Proximity** integration, you are prompted to define the **Tolerance distance**. The tolerance distance is used to calculate the direction of travel in meters (m) to filter out small GPS coordinate changes.
-</div>
+{% note %}
+When adding the **Proximity** integration, you are prompted to define the **Tolerance distance**. The tolerance distance must be provided in meters (m) and is used to filter out small GPS coordinate changes (_due to inaccuracies of GPS_) to calculate the direction of travel.
+{% endnote %}
 
 ## Sensors
 
@@ -38,7 +38,7 @@ The following sensor entities will be created.
 
 ### Distance
 
-For each tracked [device](/integrations/device_tracker/) or [person](/integrations/person/), a sensor is created showing the distance from the monitored zone in a unit depending on your [Home Assistant Unit System](/docs/configuration/basic) selection. When a tracked person or device enters the monitored zone, the distance is set to 0.
+For each tracked [device](/integrations/device_tracker/) or [person](/integrations/person/), a sensor is created showing the distance from the edge of monitored zone in a unit depending on your [Home Assistant Unit System](/docs/configuration/basic) selection. When a tracked person or device enters the monitored zone, the distance is set to 0.
 
 ### Direction of travel
 
@@ -50,9 +50,9 @@ For each tracked device or person, a sensor is created showing the direction of 
 - `towards`
 - `unknown`
 
-<div class="note">
+{% important %}
 To calculate the distance and the direction of travel for a tracked device or person, they must specify a geo-location.
-</div>
+{% endimportant %}
 
 ### Nearest device
 

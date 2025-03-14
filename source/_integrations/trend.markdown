@@ -24,6 +24,7 @@ Thus it can take some time to show an accurate state. It can be useful
 as part of automations, where you want to base an action on a trend.
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 Name:
   description: The name the sensor should have. You can change it again later.
@@ -38,7 +39,7 @@ Invert the result:
 ### YAML Configuration
 
 To enable Trend binary sensors in your installation,
-add the following to your `configuration.yaml` file:
+add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

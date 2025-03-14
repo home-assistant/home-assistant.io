@@ -9,13 +9,18 @@ ha_domain: rocketchat
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `rocketchat` notify platform allows you to send messages to your [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.
+The `rocketchat` notify {% term integration %} allows you to send messages to your [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.
 
 ## Configuration
 
-To add Rocket.Chat to your installation, add the following to your `configuration.yaml` file:
+To add Rocket.Chat to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -28,7 +33,7 @@ notify:
     room: YOUR_ROOM_NAME
 ```
 
-- `name` (*Optional*): Name displayed in the frontend. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+- `name` (*Optional*): Name displayed in the frontend. The notifier will bind to the `notify.NOTIFIER_NAME` action.
 - `url` (*Required*): The URL of your Rocket.Chat instance.
 - `username` (*Required*): The Rocket.Chat username.
 - `password` (*Required*): The Rocker.Chat password.
@@ -39,7 +44,7 @@ notify:
 ```yaml
 rocketchat_notification:
   sequence:
-  - service: notify.NOTIFIER_NAME
+  - action: notify.NOTIFIER_NAME
     data:
       message: "Message to Rocket.Chat from Home Assistant!"
       data:

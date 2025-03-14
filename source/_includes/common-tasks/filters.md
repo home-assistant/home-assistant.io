@@ -32,4 +32,4 @@ Filters are applied as follows:
 The following characters can be used in entity globs:
 
 `*` - The asterisk represents zero, one, or multiple characters
-`?` - The question mark represents a single character
+`?` - The question mark represents zero or one character

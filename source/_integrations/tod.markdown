@@ -17,6 +17,7 @@ ha_integration_type: helper
 The Times of the Day integration provides a binary sensor that gets its values by checking if the current time is within defined time ranges.
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 Name:
   description: The name the binary sensor should have. This can be changed later.
@@ -35,7 +36,7 @@ The time ranges can be provided as absolute local time or using the `sunrise` or
 In addition for sun position based ranges, the negative or positive offset can be configured.
 
 To enable the Times of Day binary sensor in your installation, add the
-following to your `configuration.yaml` file:
+following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

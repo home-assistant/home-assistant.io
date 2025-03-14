@@ -14,6 +14,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The **Danfoss Air** {% term integration %} allows you to access information from your Danfoss Air HRV unit.
@@ -25,6 +26,9 @@ There is currently support for the following device types within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
+
+To enable Danfoss Air, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

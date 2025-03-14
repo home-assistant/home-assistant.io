@@ -86,32 +86,6 @@ window.addEventListener(
     false
 );
 
-const buyDialog = document.getElementById("buy-dialog");
-const buyFabs = document.querySelectorAll(".buy");
-
-buyFabs.forEach(btn => btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    showBuyDialog();
-}));
-
-function showBuyDialog() {
-    buyDialog.style.display = "flex";
-}
-
-function closeDialog() {
-    buyDialog.style.display = "none";
-}
-
-window.onclick = function (event) {
-    if (event.target === buyDialog) {
-        closeDialog();
-    }
-};
-
-if (document.location.search === "?order") {
-    showBuyDialog();
-}
-
 const menuMobileBtn = document.getElementById("open-mobile-menu");
 const mobileMenu = document.querySelector(".w-nav-overlay");
 const mobileMenuLinks = document.querySelectorAll(".w-nav-overlay a");

@@ -10,9 +10,12 @@ ha_release: pre 0.7
 ha_quality_scale: internal
 ha_domain: device_sun_light_trigger
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-Home Assistant has a built-in integration called `device_sun_light_trigger` to help you automate your lights. The integration will:
+Home Assistant has a built-in {% term integration %} called `device_sun_light_trigger` to help you automate your lights. The integration will:
 
 - Fade in the lights when the sun is setting and there are people home
 - Turn on the lights when people get home after the sun has set
@@ -20,7 +23,8 @@ Home Assistant has a built-in integration called `device_sun_light_trigger` to h
 
 This integration requires the integrations [sun](/integrations/sun/), [device_tracker](/integrations/device_tracker/), [person](/integrations/person/) and [light](/integrations/light/) to be enabled.
 
-To enable this integration, add the following lines to your `configuration.yaml` file:
+To enable this integration, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

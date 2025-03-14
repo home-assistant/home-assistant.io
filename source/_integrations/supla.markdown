@@ -13,6 +13,7 @@ ha_platforms:
   - cover
   - switch
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The SUPLA integration allows you to use [SUPLA](https://supla.org/) devices in Home Assistant.
@@ -27,7 +28,7 @@ For more complete Home Assistant support based on MQTT autodiscovery, consider s
 
 ## Configuration
 
-To use SUPLA devices in your installation, add the following to your `configuration.yaml`:
+To use SUPLA devices in your installation, add the following to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 supla:

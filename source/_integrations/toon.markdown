@@ -56,7 +56,7 @@ In order to be able to use this integration, you'll need to sign up for a free T
 4. Click on "Create App" to complete the creation process.
 5. Open the "[My Apps](https://developer.toon.eu/user/me/apps)" page again and click on the app that you've just created.
 6. You need the codes now shown: "Consumer Key" and "Consumer Secret".
-7. Add the following Toon configuration to your `configuration.yaml` and restart Home Assistant.
+7. Add the following Toon configuration to your {% term "`configuration.yaml`" %} and restart Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry

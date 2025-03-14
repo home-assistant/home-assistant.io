@@ -7,6 +7,7 @@ ha_release: 0.21
 ha_iot_class: Local Push
 ha_domain: lirc
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 [LIRC](https://www.lirc.org/) integration for Home Assistant allows you to receive signals from an infrared remote control and control actions based on the buttons you press. You can use them to set scenes or trigger any other [automation](/docs/automation/).
@@ -21,7 +22,7 @@ To allow Home Assistant to talk to your IR receiver, you need to first make sure
 sudo apt-get install lirc liblircclient-dev
 ```
 
-<div class='note'>
+{% note %}
 
 If you are configuring on a Raspberry Pi, there are excellent instructions with GPIO schematics and driver configurations [here](http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/). Take notice, the instructions in this blog are valid for Raspian Jesse where lirc 0.9.0 was included in the Debian package. In Raspian Stretch lirc 0.9.4 is included in the Debian package.
 The configuration is slightly different :
@@ -32,7 +33,7 @@ The configuration is slightly different :
 
 For more information have a look at `/usr/share/doc/lirc/README.Debian.gz` where the update process is explained when you have updated from jessie to stretch.
 
-</div>
+{% endnote %}
 
 ## Configuring LIRC
 
@@ -84,15 +85,15 @@ The LIRC integration fires `ir_command_received` events on the bus. You can capt
 # Example configuration.yaml automation entry
 automation:
   - alias: "Off on Remote"
-    trigger:
-      platform: event
-      event_type: ir_command_received
-      event_data:
-        button_name: KEY_0
-    action:
-      service: homeassistant.turn_off
-      target:
-        entity_id: group.a_lights
+    triggers:
+      - trigger: event
+        event_type: ir_command_received
+        event_data:
+          button_name: KEY_0
+    actions:
+      - action: homeassistant.turn_off
+        target:
+          entity_id: group.a_lights
 ```
 
 The `button_name` data values (e.g., `KEY_0`) are set by you in the `.lircrc` file.

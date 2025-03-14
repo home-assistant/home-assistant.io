@@ -3,10 +3,19 @@ title: "Template Weather Provider"
 description: "Instructions on how to integrate Template Weather provider into Home Assistant."
 ha_category: 
   - Weather
+  - Helper
 ha_release: 2021.3
 ha_iot_class: "Local Push"
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - weather
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` integrations creates weather provider that combines integrations and an existing weather provider into a fused weather provider.
@@ -19,7 +28,7 @@ Output will be converted according to the user's unit system or {% term entity %
 
 ## Configuration
 
-To enable a Template Weather provider in your installation, add the following to your `configuration.yaml` file:
+To enable a Template Weather provider in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 (Note, be sure to update my_region in the condition and forecast templates to an appropriate value for your setup).
 
