@@ -52,13 +52,13 @@ sensors:
 
 ## Configuration
 
-### Prayer calcuation method
+### Prayer calculation method
 
 Default: Islamic Society of North America
 
 A prayer times calculation method. Methods identify various schools of thought about how to compute the timings. If not specified, it defaults to Islamic Society of North America.
 
-### Latatude Adjustment Method
+### Latitude Adjustment Method
 
 Default: Middle of the night 
 
@@ -72,4 +72,4 @@ Default: Standard (mid sunset to sunrise)
 
 Default: Shafi
 
-Method for adjusting Asr time calcuation, if not specified, it defaults to Shafi.
+Method for adjusting Asr time calculation, if not specified, it defaults to Shafi.

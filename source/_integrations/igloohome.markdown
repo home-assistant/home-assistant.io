@@ -15,9 +15,10 @@ ha_integration_type: integration
 ha_quality_scale: bronze
 ---
 
-The **igloohome** {% term integration %} grants Home Assistant access to paired [smart access device\(s\)](https://www.igloohome.co/#products). The features of this integration includes:
+The **igloohome** {% term integration %} grants Home Assistant access to paired [smart access device\(s\)](https://www.igloohome.co/#products) via the [igloodeveloper API](https://igloocompany.stoplight.io/docs/igloohome-api/1w1cuv56ge5xq-overview). The features of this integration include:
 
 - For [Bridge](https://www.igloohome.co/products/bridge) owners:
+  - Lock/Unlock/Open locks that are linked to a bridge.
   - Regular updates of all linked devices' battery level.
 
 - For non-bridge owners:
@@ -76,3 +77,11 @@ Some generic troubleshooting steps:
 
 - Verify that your [API credentials](https://access.igloocompany.co/api-access) are correctly filled in.
 - Ensure your API credentials have not expired or been revoked.
+
+### Unable to lock/unlock/open lock
+
+- Verify that the bridge is:
+  - powered on
+  - has an active internet connection
+  - and is within Bluetooth range of the lock
+- If you've changed the link between the bridge and the lock, reload the config entry.

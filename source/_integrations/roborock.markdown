@@ -24,6 +24,7 @@ ha_platforms:
   - diagnostics
   - image
   - number
+  - scene
   - select
   - sensor
   - switch
@@ -34,7 +35,7 @@ ha_integration_type: integration
 
 The Roborock integration allows you to control your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) vacuum while using the Roborock app.
 
-This integration requires a continuous cloud connection while using the device. However, excluding map data, communication between the integration and the device is conducted locally.
+This integration requires a continuous cloud connection while using the device. However, excluding map data and routines, communication between the integration and the device is conducted locally.
 
 Once you log in with your Roborock account, the integration will automatically discover your Roborock devices and get the needed information to communicate locally with them. Please ensure your Home Assistant instance can communicate with the local IP of your device. We recommend setting a static IP for your Roborock Vacuum to help prevent future issues. The device communicates on port 58867. Depending on your firewall, you may need to allow communication from Home Assistant to your vacuum on that port.
 
@@ -56,6 +57,8 @@ Mop mode - Describes how to mop the floor. On some firmware, it is called 'mop r
 Mop intensity - How hard you would like your vacuum to mop.
 
 ### Binary sensor
+
+Charging - States if the vacuum is currently charging or not.
 
 Cleaning - States if the vacuum has a clean currently active. This is on when the robot is actively moving around or when the robot returns to the dock when the battery is low but a clean is still active and will resume later.
 
@@ -129,6 +132,8 @@ Reset side brush consumable - The side brush is expected to be replaced every 20
 Reset main brush consumable - The main brush/ roller is expected to be replaced every 300 hours.
 
 Reset air filter - The air filter is expected to be replaced every 150 hours.
+
+In addition, some vacuums allow routines to be set up in the app. For each of those routines, a button entity will be created, allowing you to trigger it.
 
 ### Actions
 

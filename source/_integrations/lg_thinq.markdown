@@ -127,29 +127,30 @@ The properties for controlling both the temperature and wind strength of the app
 
 | Device | Property |
 | ------ | -------- |
-| Air Conditioner | Current temperature<br>Fan mode<br>HVAC mode<br>Preset mode<br>Temperature<br>Temperature cool<br>Temperature heat<br>Unit |
+| Air Conditioner | Current temperature<br>Fan mode<br>Swing mode<br>Swing horizontal mode<br>HVAC mode<br>Preset mode<br>Temperature<br>Temperature cool<br>Temperature heat<br>Unit |
 | System Boiler | Current temperature<br>HVAC mode<br>Temperature<br>Temperature cool<br>Temperature heat<br>Unit |
 
 ### Event
 
-A notification message pushed from the server is represented as an event platform.
+A notification message pushed from the server is represented as an event platform. The **Notification codes** shows the full support range, and you can check the range of your device through the developer tools.
 
-| Device | Property |
-| ------ | -------- |
-| Air Conditioner | Notification |
-| Air Purifier| Notification |
-| Air Purifier Fan | Notification |
-| Dehumidifier | Notification |
-| Dish Washer | Error<br>Notification |
-| Humidifier | Notification |
-| Kimchi Refrigerator | Notification |
-| Microwave Oven | Notification |
-| Oven | Notification |
-| Refrigerator | Notification |
-| Robot Cleaner | Error<br>Notification |
-| Stick Cleaner | Notification |
-| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Error<br>Notification |
-| Wine Cellar | Notification |
+| Device | Property | Notification codes |
+| ------ | -------- | ---------- |
+| Air Conditioner | Notification | water_is_full |
+| Air Purifier| Notification | lack_of_water, time_to_clean_filter, pollution_is_high, time_to_change_filter |
+| Air Purifier Fan | Notification | time_to_change_filter |
+| Dehumidifier | Notification | water_is_full |
+| Dish Washer | Error<br>Notification | cleaning_is_complete, error_during_cleaning, water_leak_has_occurred, rinse_is_not_enough, salt_refill_is_needed |
+| Humidifier | Notification | time_to_change_filter, lack_of_water |
+| Kimchi Refrigerator | Notification | door_is_open |
+| Microwave Oven | Notification | none |
+| Oven | Notification | preheating_is_complete, cooking_is_complete, time_to_clean, error_has_occurred |
+| Refrigerator | Notification | time_to_change_filter, time_to_change_water_filter, frozen_is_complete, door_is_open |
+| Robot Cleaner | Error<br>Notification | - |
+| Stick Cleaner | Notification | charging_is_complete, time_to_clean_filter |
+| Washer<br>Dryer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Error<br>Notification | washing_is_complete, error_during_washing, drying_is_complete, drying_failed |
+| Styler | Error<br>Notification | styling_is_complete, error_has_occurred |
+| Wine Cellar | Notification | door_is_open |
 
 ### Fan
 
@@ -172,7 +173,7 @@ A read-write property which has a numeric value is represented as a number platf
 | Microwave Oven | Fan<br>Light |
 | Oven | Temperature |
 | Refrigerator | Temperature |
-| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Delay ends in |
+| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Delayed start/end |
 | Water Heater | Temperature |
 | Wine Cellar | Light<br>Temperature |
 
@@ -200,13 +201,13 @@ A read-write property which has only two states that can be toggled is represent
 
 | Device | Property |
 | ------ | -------- |
-| Air Conditioner | Energy saving |
+| Air Conditioner | Power<br>Lighting<br>Energy saving |
 | Air Purifier | Power |
 | Air Purifier Fan | Heating<br>Power<br>UVnano |
 | Dehumidifier | Power |
 | Humidifier | Auto mode<br>Heating<br>Mood light<br>Power<br>Sleep mode |
-| Refrigerator | Ice plus<br>Quick freeze |
-| System Boiler | Hot water |
+| Refrigerator | Express mode<br>Express cool<br>Quick freeze |
+| System Boiler | Power<br>Hot water |
 | Wine Cellar | Ventilation |
 
 ### Vacuum
@@ -216,6 +217,14 @@ The properties for controlling the clean operations of the appliance are represe
 | Device | Property |
 | ------ | -------- |
 | Robot Cleaner | Battery<br>Current status<br>Operation |
+
+### Water heater
+
+The properties for controlling the operating mode and temperature are represented as a water_heater platform.
+
+| Device | Property |
+| ------ | -------- |
+| Water heater | Mode<br>Current temperature<br>Temperature |
 
 ### Sensor
 
@@ -228,8 +237,8 @@ A read-only property which has states is represented as a sensor platform.
 | Air Purifier Fan | Air quality sensor<br>Humidity<br>Odor<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Sleep timer<br>Temperature<br>Schedule turn-off<br>Schedule turn-on |
 | Cooktop | Current status<br>Power level |
 | Dehumidifier | Humidity<br>Operating mode |
-| Dish Washer | Current cycle<br>Current status<br>Rinse aid dispenser level<br>Softening level<br>Delay in<br>Remaining time<br>Total time |
-| Home Brew| Brewing duration<br>Brewing period<br>Current status<br>Flavor<br>Homebrew recipe<br>Hops<br>Recipe progress<br>Wort<br>Yeast |
+| Dish Washer | Current cycle<br>Current status<br>Rinse aid dispenser level<br>Softening level<br>Delayed start<br>Remaining time<br>Total time |
+| Home Brew| Brewing duration<br>Brewing period<br>Current status<br>First flavor<br>Second flavor<br>Homebrew recipe<br>First hop<br>Second hop<br>Recipe progress<br>Wort<br>Yeast |
 | Humidifier | Air quality sensor<br>Humidity<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Schedule turn-off<br>Schedule turn-on<br>Sleep timer<br>Temperature |
 | Kimchi Refrigerator | Fresh air filter<br>Temperature |
 | Microwave Oven | Current status |
@@ -238,16 +247,16 @@ A read-only property which has states is represented as a sensor platform.
 | Refrigerator | Fresh air filter<br>Water filter used |
 | Robot Cleaner | Current status<br>Operating mode<br>Running time |
 | Stick Cleaner | Battery<br>Current status<br>Operating mode |
-| Water Heater | Temperature |
+| System Boiler | Indoor temperature<br>Inlet temperature<br>Outlet temperature |
 | Water Purifier | High-temp sterilization<br>Type<br>UVnano|
-| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Current status<br>Delay in<br>Remaining time<br>Total time |
+| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Current status<br>Delayed start/end<br>Remaining time<br>Total time<br>Cycles |
 
-### Custom card configuration
+## User guide
+### 1. Custom card configuration (HACS)
 
-#### Timer Bar Card
-
-- Supported devices: Washer, Dryer, Styler, Dish washer
-- Entities: sensor.washer_current_status, sensor.washer_remaining_time, sensor.washer_total_time
+**- Timer Bar Card**
+> - Supported devices: Washer, Dryer, Styler, Dish washer
+> - Used entities: sensor.washer_**current_status**, sensor.washer_**remaining_time**, sensor.washer_**total_time**
 
 ```yaml
 type: custom:timer-bar-card
@@ -274,6 +283,29 @@ entities:
     invert: true
 ```
 
+### 2. Automation
+**- Notification, Error event**
+> - Guide: [Automating on event](https://www.home-assistant.io/integrations/event/#automating-on-a-button-press)
+> - Important: guide's step 3, 4
+> - You can select the state change you want to act as trigger in step 4
+```yaml
+alias: lack of water example
+description: Toggle switch when air purifier's lack_of_water
+triggers:
+  - trigger: state
+    entity_id:
+      - event.purifier_notification
+actions:
+  - condition: state
+    entity_id: event.purifier_notification
+    attribute: event_type
+    state: lack_of_water
+  - type: toggle
+    device_id: xxxxxxxx
+    entity_id: xxxxxxxx
+    domain: switch
+```
+
 ## Troubleshooting
 
 ### Setup
@@ -293,5 +325,9 @@ The LG ThinQ integration will work properly after some time.
 
 ## Debugging / Issue report
 The LG ThinQ integration will show additional information by enabling log configuration.
-1. Enable debug logging in /config/integrations/integration/lg_thinq,
-2. Please report your device info (screenshot including name, device type, entities) and logs.
+1. [Enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
+   - If you change **Enable** to **Disable**, the log will be saved to the download folder.
+2. When reporting an issue:
+   - Provide screenshots of your device configuration (including device name, type, and entities).
+   - Include the debug logs.
+   - Describe the expected behavior and what's not working.
