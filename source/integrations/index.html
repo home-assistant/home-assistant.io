@@ -23,65 +23,67 @@ regenerate: false
 {%- assign components = site.integrations | sort: 'title' -%}
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
 {%- assign categories = components | map: 'ha_category' | join: ',' | downcase | split: ',' | uniq | sort -%}
-{%- assign iot_classes = "Local Push,Local Polling,Cloud Push,Cloud Polling,Assumed State,Calculated,Configurable" | join: ',' | join: ',' | split: ',' -%}
+{%- assign iot_classes = "Local Push,Local Polling,Cloud Push,Cloud Polling,Assumed State,Calculated,Configurable" |
+join: ',' | join: ',' | split: ',' -%}
 {% assign quality_scales =
-  "icon:🏆,name:platinum|icon:🥇,name:gold|icon:🥈,name:silver|icon:🥉,name:bronze|icon:🏠,name:internal|icon:💾,name:legacy" | split: "|"
+"icon:🏆,name:platinum|icon:🥇,name:gold|icon:🥈,name:silver|icon:🥉,name:bronze|icon:🏠,name:internal|icon:💾,name:legacy"
+| split: "|"
 %}
 
 <div class="grid">
 
-    <div class="grid__item six-sixths lap-one-whole palm-one-whole">
-      <fieldset class="integration-filter integration-filter-radio">
-        <div class="filter-button">
-          <input type="radio" id="brandsAll" name="brands" value="all" data-id="brands" checked="checked" />
-          <label for="brandsAll">All</label>
-        </div>
-        <div class="filter-button">
-          <input type="radio" id="brandsFeatured" name="brands" value="featured" data-id="brands" />
-          <label for="brandsFeatured">Featured</label>
-        </div>
-        <div class="filter-button">
-          <input type="radio" id="brandsPartners" name="brands" value="partners" data-id="brands" />
-          <label for="brandsPartners">Partners</label>
-        </div>
-      </fieldset>
-    </div>
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
+    <fieldset class="integration-filter integration-filter-radio">
+      <div class="filter-button">
+        <input type="radio" id="brandsAll" name="brands" value="all" data-id="brands" checked="checked" />
+        <label for="brandsAll">All</label>
+      </div>
+      <div class="filter-button">
+        <input type="radio" id="brandsFeatured" name="brands" value="featured" data-id="brands" />
+        <label for="brandsFeatured">Featured</label>
+      </div>
+      <div class="filter-button">
+        <input type="radio" id="brandsPartners" name="brands" value="partners" data-id="brands" />
+        <label for="brandsPartners">Partners</label>
+      </div>
+    </fieldset>
+  </div>
 
   <div class="grid-filters">
     <div class="grid__item one-quarter lap-one-whole palm-one-whole">
-        <div class="integration-filter integration-filter-select">
-          <h3 class="filter-title">Category</h3>
-          <select class="ha_category" name="category" data-id="cat">
-            <option value="#">All</option>
-             {%- for category in categories -%}
+      <div class="integration-filter integration-filter-select">
+        <h3 class="filter-title">Category</h3>
+        <select class="ha_category" name="category" data-id="cat">
+          <option value="#">All</option>
+          {%- for category in categories -%}
           {%- assign category_name = "" -%}
           {%- assign components_count = 0 -%}
           {%- for comp in components -%}
-            {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
-            {%- if comp_categories contains category -%}
-              {%- if category_name == "" -%}
-                {%- for cat in comp.ha_category -%}
-                  {%- assign lower_cat = cat | downcase -%}
-                  {%- if lower_cat == category -%}
-                    {%- assign category_name = cat -%}
-                  {%- endif -%}
-                {%- endfor -%}
-              {%- endif -%}
-              {%- assign components_count = components_count | plus: 1 -%}
-            {%- endif -%}
+          {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
+          {%- if comp_categories contains category -%}
+          {%- if category_name == "" -%}
+          {%- for cat in comp.ha_category -%}
+          {%- assign lower_cat = cat | downcase -%}
+          {%- if lower_cat == category -%}
+          {%- assign category_name = cat -%}
+          {%- endif -%}
+          {%- endfor -%}
+          {%- endif -%}
+          {%- assign components_count = components_count | plus: 1 -%}
+          {%- endif -%}
           {%- endfor -%}
           {%- if category != 'other' and components_count != 0 -%}
-            {%- if category_name == "" -%}
-              {%- assign category_name = category | capitalize -%}
-            {%- endif -%}
-            <option value='{{ category | slugify }}'>{{ category_name }}</option>
+          {%- if category_name == "" -%}
+          {%- assign category_name = category | capitalize -%}
           {%- endif -%}
-        {%- endfor -%}
+          <option value='{{ category | slugify }}'>{{ category_name }}</option>
+          {%- endif -%}
+          {%- endfor -%}
 
-            <option value='other'>Other</option>
+          <option value='other'>Other</option>
 
-          </select>
-        </div>
+        </select>
+      </div>
     </div>
 
     <div class="grid__item one-quarter lap-one-whole palm-one-whole">
@@ -108,7 +110,7 @@ regenerate: false
           {%- for iot_class in iot_classes -%}
             {%- assign iot_class_count = components | where: 'ha_iot_class', iot_class | size -%}
             {%- if iot_class_count != 0 -%}
-            <option value="{{ iot_class | slugify }}">{{ iot_class }}</option>
+              <option value="{{ iot_class | slugify }}">{{ iot_class }}</option>
             {%- endif -%}
           {%- endfor -%}
         </select>
@@ -126,7 +128,7 @@ regenerate: false
             {% assign quality_name = quality_scale_data[1] | split: ":" | last %}
             {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_name | size -%}
             {%- if quality_scale_count != 0 -%}
-            <option value="{{ quality_name | slugify }}">{{quality_icon}} {{ quality_name | capitalize }}</option>
+              <option value="{{ quality_name | slugify }}">{{quality_icon}} {{ quality_name | capitalize }}</option>
             {%- endif -%}
           {%- endfor -%}
         </select>
@@ -137,7 +139,8 @@ regenerate: false
   <div class="grid__item six-sixths lap-one-whole palm-one-whole">
     <div class="component-search">
       <form onsubmit="event.preventDefault(); return false">
-        <input type="text" name="search" id="search" data-id="search" class="search text-input" placeholder="Search integrations..." autofocus />
+        <input type="text" name="search" id="search" data-id="search" class="search text-input"
+          placeholder="Search integrations..." autofocus />
       </form>
     </div>
   </div>
@@ -149,36 +152,36 @@ regenerate: false
 </div>
 
 <script type="text/javascript">
-// This object contains all components we have
-const integrations = [
-  {%- for component in components -%}
-    {%- if component.ha_category -%}
-      {%- assign sliced_version = component.ha_release | split: '.' -%}
-      {%- assign minor_version = sliced_version[1]|plus: 0 -%}
-      {%- assign major_version = sliced_version[0]|plus: 0 -%}
-      {% assign categories = "" | split: ',' %}
-      {%- for ha_category in component.ha_category -%}
-        {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
-        {% assign categories = categories | push: category %}
-      {%- endfor -%}
-      {
-        url:"{{ component.url }}",
-        title:"{{component.title}}",
-        cat: [{{categories|join: ","}}],
-        featured: {{ component.featured }},
-        version: "{{major_version}}.{{minor_version}}",
-        logo: "{{component.logo}}",
-        domain: "{{component.ha_domain}}",
-        ha_brand: "{{component.ha_brand}}",
-        wwha: {% if component.works_with %}true{% else %}false{% endif %},
-        iot_class: "{{component.ha_iot_class | slugify }}",
-        quality_scale: "{{component.ha_quality_scale}}"
-      },
-    {% endif -%}
-  {%- endfor -%}
-  false
-];
-integrations.pop(); // remove placeholder element at the end
+  // This object contains all components we have
+  const integrations = [
+    {% - for component in components -%}
+      {% - if component.ha_category -%}
+        {% - assign sliced_version = component.ha_release | split: '.' -%}
+        {% - assign minor_version = sliced_version[1] | plus: 0 -%}
+        {% - assign major_version = sliced_version[0] | plus: 0 -%}
+        {% assign categories = "" | split: ',' %}
+        {% - for ha_category in component.ha_category -%}
+          {% capture category %} "{{ ha_category | slugify | downcase }}"{% endcapture %}
+          {% assign categories = categories | push: category %}
+        {% - endfor -%}
+        {
+          url: "{{ component.url }}",
+          title: "{{component.title}}",
+          cat: [{{ categories| join: ","}}],
+          featured: { { component.featured } },
+          version: "{{major_version}}.{{minor_version}}",
+          logo: "{{component.logo}}",
+          domain: "{{component.ha_domain}}",
+          ha_brand: "{{component.ha_brand}}",
+          wwha: {% if component.works_with %} true{% else %} false{% endif %},
+          iot_class: "{{component.ha_iot_class | slugify }}",
+          quality_scale: "{{component.ha_quality_scale}}"
+        },
+      {% endif -%}
+    {% - endfor -%}
+    false
+  ];
+  integrations.pop(); // remove placeholder element at the end
 </script>
 
 <script type="text/javascript">
@@ -279,7 +282,7 @@ integrations.pop(); // remove placeholder element at the end
         queryFilter.brands = query;
       }
 
-       if (hash.startsWith('#works-with-home-assistant') || queryParams.get('brands') === 'partners') {
+      if (hash.startsWith('#works-with-home-assistant') || queryParams.get('brands') === 'partners') {
         // only show those with partners = true
         let query = getQueryValue('brands');
         queryFilter.brands = query;
@@ -300,16 +303,16 @@ integrations.pop(); // remove placeholder element at the end
       }
 
       if (
-          // check for old # categories urls
-          (hash.startsWith('#') || queryParams.has("cat"))
-          && !(hash.startsWith('#all'))
-          && !(hash.startsWith('#featured'))
-          && !(hash.startsWith('#works-with-home-assistant'))
-          && !(hash.startsWith('#search'))
-          && !(hash.startsWith('#version'))
-          && !(hash.startsWith('#iot_class'))
-          && !(hash.startsWith('#quality_scale'))
-        ) {
+        // check for old # categories urls
+        (hash.startsWith('#') || queryParams.has("cat"))
+        && !(hash.startsWith('#all'))
+        && !(hash.startsWith('#featured'))
+        && !(hash.startsWith('#works-with-home-assistant'))
+        && !(hash.startsWith('#search'))
+        && !(hash.startsWith('#version'))
+        && !(hash.startsWith('#iot_class'))
+        && !(hash.startsWith('#quality_scale'))
+      ) {
         // regular filter categories
         let query = getQueryValue('cat');
         queryFilter.cat = query;
@@ -374,7 +377,7 @@ integrations.pop(); // remove placeholder element at the end
 
           // check for matching featured brands in integration
           if (key === 'brands' && query[key] === 'featured') {
-            if (!(integration['featured'] ) ) return false;
+            if (!(integration['featured'])) return false;
           }
 
           // check for matching partner brands in integration
@@ -439,9 +442,9 @@ integrations.pop(); // remove placeholder element at the end
       newURL = `?${queryParams.toString()}`;
 
       if ('pushState' in history) {
-            history.pushState('', '', newURL);
-        } else {
-            location.search = newURL;
+        history.pushState('', '', newURL);
+      } else {
+        location.search = newURL;
       }
 
       //make sure search input keeps text after url is adjusted
@@ -554,7 +557,7 @@ integrations.pop(); // remove placeholder element at the end
     function updateFilterElements(queryFilter) {
 
       let filterElements = [...document.querySelectorAll('.integration-filter select, input.search, .integration-filter input')];
-      let activeFilterElements = filterElements.filter(el => !(el.value === '#' || el.value === '' || (el.id !== 'search' && el.checked === false) ));
+      let activeFilterElements = filterElements.filter(el => !(el.value === '#' || el.value === '' || (el.id !== 'search' && el.checked === false)));
 
       if (queryFilter === null) {
         // resetFilterElements will match elements to query string filter in url
@@ -567,7 +570,7 @@ integrations.pop(); // remove placeholder element at the end
         // filter out filter elements that don't match query object
         let filtersToReset = activeFilterElements.filter(el => {
           for (key in queryFilter) {
-             if (el.getAttribute('data-id') === key) return false;
+            if (el.getAttribute('data-id') === key) return false;
           }
           return true;
         });
@@ -575,8 +578,8 @@ integrations.pop(); // remove placeholder element at the end
         // set filter elements to default 'All' value
         resetFilterElements(filtersToReset);
       } else {
-         // update new filters
-         if (Object.keys(queryFilter).length) {
+        // update new filters
+        if (Object.keys(queryFilter).length) {
           for (key in queryFilter) {
             matchFilterElementToQuery(key, queryFilter[key]);
           }
@@ -605,7 +608,7 @@ integrations.pop(); // remove placeholder element at the end
     // filter button name cleanup. used in updateFilterButtons()
     function getButtonText(id, key) {
       let category;
-      switch(id) {
+      switch (id) {
         case 'cat':
           category = 'Category';
           break;
@@ -653,7 +656,7 @@ integrations.pop(); // remove placeholder element at the end
 
       // remove buttons that don't match current filter
       if (currentFilterButtons.length >= Object.keys(queryFilter).length) {
-      // filter out buttons that don't match query obj
+        // filter out buttons that don't match query obj
         removeFilterButtons(currentFilterButtons, queryFilter)
       }
     }
@@ -676,36 +679,36 @@ integrations.pop(); // remove placeholder element at the end
     // create a filter button if it's missing from current applied filter // used in updateFilterButtons
     function createFilterButtons(buttonParent, query) {
       for (key in query) {
-          if (document.querySelector(`.component-search .active-filter[data-id="${key}"]`) === null) {
-            let button = document.createElement('button');
-            button.innerHTML = `<span>${getButtonText(key, query[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
-            button.classList.add('active-filter');
-            button.dataset.id = key;
-            button.dataset.filter = query[key]
-            // add click listener to button to remove filter
-            button.addEventListener('click', function() {
-              removeQueryFromURL(this.dataset.id);
-              applyFilter();
-              // remove event listener after click
-            }, {once:true});
+        if (document.querySelector(`.component-search .active-filter[data-id="${key}"]`) === null) {
+          let button = document.createElement('button');
+          button.innerHTML = `<span>${getButtonText(key, query[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
+          button.classList.add('active-filter');
+          button.dataset.id = key;
+          button.dataset.filter = query[key]
+          // add click listener to button to remove filter
+          button.addEventListener('click', function () {
+            removeQueryFromURL(this.dataset.id);
+            applyFilter();
+            // remove event listener after click
+          }, { once: true });
 
-            //add button to the dom
-            buttonParent.appendChild(button);
-          }
+          //add button to the dom
+          buttonParent.appendChild(button);
         }
+      }
     }
 
     // remove buttons that don't match current filter // used in updateFilterButtons
     function removeFilterButtons(buttons, query) {
       let buttonsToRemove = buttons.filter(button => {
-          for (key in query) {
-            if (button.dataset.id === key) {
-              return false;
-            }
+        for (key in query) {
+          if (button.dataset.id === key) {
+            return false;
           }
-          return true;
-        });
-        buttonsToRemove.forEach(button => button.remove());
+        }
+        return true;
+      });
+      buttonsToRemove.forEach(button => button.remove());
     }
 
     function buildImageEl(component) {
@@ -743,7 +746,7 @@ integrations.pop(); // remove placeholder element at the end
 
       if (radioInput.checked && value !== 'all') {
         //clear all current filters, append new brand filter selection
-        applyFilter({'brands': value});
+        applyFilter({ 'brands': value });
       } else if (radioInput.checked && value === 'all') {
         // clear current filter
         removeQueryFromURL(id);
