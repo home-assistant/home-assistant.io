@@ -209,9 +209,6 @@ join: ',' | split: ',' -%}
         integrations[i].titleLC = title;
         integrations[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain} ${iot_class} ${quality_scale}`;
       }
-        integrations[i].titleLC = title;
-        integrations[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain} ${iot_class} ${quality_scale}`;
-      }
 
       // sort the components alphabetically
       integrations.sort(function (a, b) {
