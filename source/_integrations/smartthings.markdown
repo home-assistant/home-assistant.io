@@ -59,12 +59,13 @@ SmartThings represents devices as a set of [capabilities](https://developer.smar
 In Home Assistant, a binary sensor entity will be created for each of the following SmartThings capabilities:
 
 | SmartThings capability                                                                                                |
-| --------------------------------------------------------------------------------------------------------------------- |
+|-----------------------------------------------------------------------------------------------------------------------|
 | `accelerationSensor`                                                                                                  |
 | [`contactSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#contactSensor)   |
 | [`filterStatus`](https://developer.smartthings.com/docs/devices/capabilities/proposed#filterStatus)                   |
 | [`motionSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#motionSensor)     |
 | [`presenceSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#presenceSensor) |
+| `samsungce.kidsLock`                                                                                                  |
 | [`tamperAlert`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#tamperAlert)       |
 | [`valve`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#valve)                   |
 | [`waterSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#waterSensor)       |
