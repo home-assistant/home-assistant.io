@@ -354,6 +354,66 @@ Minimum recommended assignments:
     14. Select the name of your new VM and select the capacity number for your disk. Here, you can expand the disk to whatever your needs are. The default is 32&nbsp;GB.
     15. Select the icon of your new VM and select **start with console (VNC)**.
 
+- title: ProxmoxVE
+  content: |
+    1. Download the **.qcow2** image above to a local folder storage and decompress it in the shell of the ProxmoxVE host.
+
+         ```bash
+         cd <PATH-TO-LOCAL-STORAGE>
+         wget <URL>
+         xz -d <COMPRESSED-IMAGE>
+         ```
+
+         Example:
+
+         ```bash
+         cd /var/lib/vz
+         wget https://github.com/home-assistant/operating-system/releases/download/14.2/haos_ova-14.2.qcow2.xz
+         xz -d haos_ova-14.2.qcow2.xz
+         ```
+
+    2. Create a new VM (*make sure to use a free `<VMID>`*) and adjust the `cores` and `memory` based on your needs.
+
+         ```bash
+         qm create --cores <CPU-CORES> --memory <MEMORY-IN-MB> --ostype l26 --scsihw virtio-scsi-pci --bios ovmf --boot 'order=scsi0' --name <VM-NAME> <VMID>
+         ```
+
+         Example:
+
+         ```bash
+         qm create --cores 2 --memory 4096 --ostype l26 --scsihw virtio-scsi-pci --bios ovmf --boot 'order=scsi0' --name haos 500
+         ```
+
+    3. Import the downloaded and decompressed HAOS image into the VM storage of your choice and deleted the downloaded image afterwards.
+
+         ```bash
+         qm importdisk <VMID> <DECOMPRESSED-IMAGE> <STORAGE-NAME>
+         rm <DECOMPRESSED-IMAGE>
+         ```
+
+         Example:
+
+         ```bash
+         qm importdisk 500 haos_ova-14.2.qcow2 local-lvm
+         rm haos_ova-14.2.qcow2
+         ```
+
+    4. Activate the imported image in the WebUI:
+       1. Select the newly created VM
+       2. Navigate to the **Hardware** options
+       3. Double-click on the **Unused Disk 0** and click on **Add** (*if your storage is SSD based, then enable the **SSD emulation** under the advanced settings*)
+       4. The image is now attached as **Hard Disk (scsi0)** to the VM
+    5. Add a network device:
+       1. Select the newly created VM
+       2. Navigate to the **Hardware** options, then **Add** > **Network Device**
+       3. Select the correct **Bridge** and choose **VirtIO (paravirtualized)** as **Model**
+       4. The network device is no attached as **Network Device (net0)** to the VM
+    6. (optional) Select USB-devices that you want to pass through to Home Assistant, such as Zigbee- or Z-Wave controllers
+       1. Select the newly created VM
+       2. Navigate to the **Hardware** options, then **Add** > **USB Device**
+       3. Switch to **Use USB Vendor/Device ID** and select the USB device from the drop-down menu that you want to pass through to Home Assistant
+       4. Repeat these steps for each USB device that you want to pass through to Home Assistant
+
 - title: KVM (virt-manager)
   content: |
     1. Create a new virtual machine in `virt-manager`.
