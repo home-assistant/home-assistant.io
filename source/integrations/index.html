@@ -56,28 +56,28 @@ join: ',' | join: ',' | split: ',' -%}
         <select class="ha_category" name="category" data-id="cat">
           <option value="#">All</option>
           {%- for category in categories -%}
-          {%- assign category_name = "" -%}
-          {%- assign components_count = 0 -%}
-          {%- for comp in components -%}
-          {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
-          {%- if comp_categories contains category -%}
-          {%- if category_name == "" -%}
-          {%- for cat in comp.ha_category -%}
-          {%- assign lower_cat = cat | downcase -%}
-          {%- if lower_cat == category -%}
-          {%- assign category_name = cat -%}
-          {%- endif -%}
-          {%- endfor -%}
-          {%- endif -%}
-          {%- assign components_count = components_count | plus: 1 -%}
-          {%- endif -%}
-          {%- endfor -%}
-          {%- if category != 'other' and components_count != 0 -%}
-          {%- if category_name == "" -%}
-          {%- assign category_name = category | capitalize -%}
-          {%- endif -%}
-          <option value='{{ category | slugify }}'>{{ category_name }}</option>
-          {%- endif -%}
+            {%- assign category_name = "" -%}
+            {%- assign components_count = 0 -%}
+              {%- for comp in components -%}
+              {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
+              {%- if comp_categories contains category -%}
+                {%- if category_name == "" -%}
+                  {%- for cat in comp.ha_category -%}
+                    {%- assign lower_cat = cat | downcase -%}
+                    {%- if lower_cat == category -%}
+                      {%- assign category_name = cat -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endif -%}
+                {%- assign components_count = components_count | plus: 1 -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if category != 'other' and components_count != 0 -%}
+              {%- if category_name == "" -%}
+                {%- assign category_name = category | capitalize -%}
+              {%- endif -%}
+              <option value='{{ category | slugify }}'>{{ category_name }}</option>
+            {%- endif -%}
           {%- endfor -%}
 
           <option value='other'>Other</option>
@@ -94,7 +94,7 @@ join: ',' | join: ',' | split: ',' -%}
           {%- for group in components_by_version -%}
           <optgroup label="{{ group.label }} ({{group.new_components_count}})">
             {%- for version in group.versions -%}
-            <option value="{{ version.label }}">{{ version.label }}</option>
+              <option value="{{ version.label }}">{{ version.label }}</option>
             {%- endfor -%}
           </optgroup>
           {%- endfor -%}
@@ -769,21 +769,23 @@ join: ',' | join: ',' | split: ',' -%}
     // update view by search text
     let lastSearchText = '';
     searchInputEl.addEventListener('input', debounce(() => {
-      let value = searchInputEl.value.toLowerCase();
-      // sanitize input
-      value = value.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
+      let value = searchInputEl.value
+        .toLowerCase()
+        // sanitize input
+        .replace(/[(\?|\&\{\}\(\))]/gi, '')
+        .trim();
       if (typeof value === "string" && value.length >= 1) {
         if (!searchInputDirty) {
           resetAllFilters();
           searchInputDirty = true;
         }
 
-        if (value === lastSearchText) return;
+        if (value !== lastSearchText) {
+          lastSearchText = value;
 
-        lastSearchText = value;
-
-        setQueryURL('search', value);
-        applyFilter();
+          setQueryURL('search', value);
+          applyFilter();
+        }
       }
       else {
         removeQueryFromURL('search');
@@ -796,9 +798,9 @@ join: ',' | join: ',' | split: ',' -%}
 <noscript>
   <ul>
     {%- for component in components -%}
-    {%- if component.ha_category -%}
-    <li><a href='{{ component.url }}'>{{ component.title }}</a></li>
-    {%- endif -%}
+      {%- if component.ha_category -%}
+        <li><a href='{{ component.url }}'>{{ component.title }}</a></li>
+      {%- endif -%}
     {%- endfor -%}
   </ul>
 </noscript>
