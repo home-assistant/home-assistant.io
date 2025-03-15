@@ -134,6 +134,10 @@ VeSync air purifiers will expose the following details depending on the features
 | `night_light`           | The current status of the night light (Core200S/Core400s)                         | off             |
 | `child_lock`            | The current status of the child lock (Core200S/300s/400s)                         | off             |
 
+| Select                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `night_light_level`     | Night light brightness level (Values: off, dim, on).                               | off       |
+
 ## Humidifier
 
 Sensors and settings exposed by VeSync humidifiers.
@@ -148,7 +152,7 @@ Sensors and settings exposed by VeSync humidifiers.
 
 | Select                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
-| `night_light_level`| Night light brightness level (Values: off, dim, bright).             | off         |
+| `night_light_level`     | Night light brightness level (Values: off, dim, bright).                           | off       |
 
 ## Binary Sensors
 
