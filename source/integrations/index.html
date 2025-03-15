@@ -197,15 +197,18 @@ join: ',' | join: ',' | split: ',' -%}
     function init() {
       let queryParams = new URLSearchParams(document.location.search);
       // do the lowerCase transformation once
-      for (i = 0; i < integrations.length; i++) {
-        title = integrations[i].title.toLowerCase();
-        domain = integrations[i].domain;
-        iot_class = integrations[i].iot_class;
-        quality_scale = integrations[i].quality_scale;
-        title_normalized = title.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        title_dedashed = title.replace(/[-_]/g, " ");
-        title_normalized_dedashed = title_normalized.replace(/[-_]/g, " ");
+      for (let i = 0; i < integrations.length; i++) {
+        const title = integrations[i].title.toLowerCase();
+        const domain = integrations[i].domain;
+        const iot_class = integrations[i].iot_class;
+        const quality_scale = integrations[i].quality_scale;
+        const title_normalized = title.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        const title_dedashed = title.replace(/[-_]/g, " ");
+        const title_normalized_dedashed = title_normalized.replace(/[-_]/g, " ");
 
+        integrations[i].titleLC = title;
+        integrations[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain} ${iot_class} ${quality_scale}`;
+      }
         integrations[i].titleLC = title;
         integrations[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain} ${iot_class} ${quality_scale}`;
       }
