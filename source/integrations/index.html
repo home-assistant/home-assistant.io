@@ -58,7 +58,7 @@ join: ',' | join: ',' | split: ',' -%}
           {%- for category in categories -%}
             {%- assign category_name = "" -%}
             {%- assign components_count = 0 -%}
-              {%- for comp in components -%}
+            {%- for comp in components -%}
               {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
               {%- if comp_categories contains category -%}
                 {%- if category_name == "" -%}
@@ -94,7 +94,7 @@ join: ',' | join: ',' | split: ',' -%}
           {%- for group in components_by_version -%}
           <optgroup label="{{ group.label }} ({{group.new_components_count}})">
             {%- for version in group.versions -%}
-              <option value="{{ version.label }}">{{ version.label }}</option>
+            <option value="{{ version.label }}">{{ version.label }}</option>
             {%- endfor -%}
           </optgroup>
           {%- endfor -%}
@@ -154,16 +154,16 @@ join: ',' | join: ',' | split: ',' -%}
 <script type="text/javascript">
   // This object contains all components we have
   const integrations = [
-    {% - for component in components -%}
-      {% - if component.ha_category -%}
-        {% - assign sliced_version = component.ha_release | split: '.' -%}
-        {% - assign minor_version = sliced_version[1] | plus: 0 -%}
-        {% - assign major_version = sliced_version[0] | plus: 0 -%}
-        {% assign categories = "" | split: ',' %}
-        {% - for ha_category in component.ha_category -%}
+    {%- for component in components -%}
+      {%- if component.ha_category -%}
+        {%- assign sliced_version = component.ha_release | split: '.' -%}
+        {%- assign minor_version = sliced_version[1] | plus: 0 -%}
+        {%- assign major_version = sliced_version[0] | plus: 0 -%}
+        {%- assign categories = "" | split: ',' -%}
+        {%- for ha_category in component.ha_category -%}
           {% capture category %} "{{ ha_category | slugify | downcase }}"{% endcapture %}
           {% assign categories = categories | push: category %}
-        {% - endfor -%}
+        {%- endfor -%}
         {
           url: "{{ component.url }}",
           title: "{{component.title}}",
@@ -178,7 +178,7 @@ join: ',' | join: ',' | split: ',' -%}
           quality_scale: "{{component.ha_quality_scale}}"
         },
       {% endif -%}
-    {% - endfor -%}
+    {%- endfor -%}
     false
   ];
   integrations.pop(); // remove placeholder element at the end
@@ -798,9 +798,9 @@ join: ',' | join: ',' | split: ',' -%}
 <noscript>
   <ul>
     {%- for component in components -%}
-      {%- if component.ha_category -%}
-        <li><a href='{{ component.url }}'>{{ component.title }}</a></li>
-      {%- endif -%}
+    {%- if component.ha_category -%}
+    <li><a href='{{ component.url }}'>{{ component.title }}</a></li>
+    {%- endif -%}
     {%- endfor -%}
   </ul>
 </noscript>
