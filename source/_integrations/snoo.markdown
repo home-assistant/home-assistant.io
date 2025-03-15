@@ -49,11 +49,11 @@ This describes how long until the Snoo will change levels or it is Unknown if it
 This allows you to set the soothing level of your Snoo.
 
 1. Baseline - This is the basic state the snoo starts with. It has not detected the need to do any further soothing.
-2. Level 1 - This is the lowest level of soothing
+2. Level 1 - This is the lowest level of soothing.
 3. Level 2
 4. Level 3
 5. Level 4
-6. Stop - The snoo is no longer running
+6. Stop - The snoo is no longer running.
 
 ## Removing the integration
 
