@@ -168,7 +168,7 @@ join: ',' | join: ',' | split: ',' -%}
           url: "{{ component.url }}",
           title: "{{component.title}}",
           cat: [{{ categories| join: ","}}],
-          featured: { { component.featured } },
+          featured: {{ component.featured }},
           version: "{{major_version}}.{{minor_version}}",
           logo: "{{component.logo}}",
           domain: "{{component.ha_domain}}",
