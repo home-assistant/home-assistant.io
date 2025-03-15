@@ -738,7 +738,7 @@ Result:
 
 ```
 
-In the Developer tools - actions, automation or script UI, this action shows as: _Enphase Envoy: Tariff details_.
+In the Developer tools - actions, automation or script UI, this action shows as: _Enphase Envoy: Get tariff details_.
 
 {% endraw %}
 
