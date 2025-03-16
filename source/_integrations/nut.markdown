@@ -233,7 +233,7 @@ The possible diagnostic sensors are:
 | ups_realpower             | W    | Current value of real power              |
 | ups_realpower_nominal     | W    | Nominal value of real power              |
 | ups_shutdown              |      | Enable or disable UPS shutdown ability   |
-| ups_start_auto            |      | UPS starts when mains is applied or re-applied |
+| ups_start_auto            |      | UPS starts when power is applied or re-applied |
 | ups_start_battery         |      | Allow to start UPS from battery          |
 | ups_start_reboot          |      | UPS coldstarts from battery              |
 | ups_temperature           | °C  |  UPS temperature                          |
