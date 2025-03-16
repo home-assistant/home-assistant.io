@@ -357,10 +357,10 @@ an example Configuration for the add-on's users list:
 ```yaml
 - username: my_user
   password: [PASSWORD]
-    instcmds:
-      - all
-    actions:
-      - set
+  instcmds:
+    - all
+  actions:
+    - set
 ```
 
 If you are configuring NUT server directly, below is the example
