@@ -244,6 +244,8 @@ The possible diagnostic sensors are:
 | ups_type                  |      | UPS type (opaque by mfg)                 |
 | ups_watchdog_status       |      | UPS watchdog status                      |
 
+### Device actions
+
 {% important %}
 The username and password configured for the device must be granted
 `instcmds` permissions on the NUT server. No actions will be available if
