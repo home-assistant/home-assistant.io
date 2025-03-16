@@ -52,7 +52,7 @@ Setting up the integration requires the following information:
 
 {% configuration_basic %}
 Host:
-  description: "The IP address or hostname of your NUT server.
+  description: "The IP address or hostname of your NUT server."
 Port:
   description: "The network port of your NUT server. The NUT server's default port is '3493'."
 Username:
