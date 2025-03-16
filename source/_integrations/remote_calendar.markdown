@@ -36,12 +36,11 @@ Calendar URL:
 
 ## Data updates
 
-At the start of the integration we fetch data from the remote. If the update fails the integration tries again to fetcvh the data. After that the update interval of the calendar is every 24 hours.
+At the start of the integration, we fetch data from the remote. If the update fails, the integration tries again to fetch the data. After that, the update interval of the calendar is set to every 24 hours.
 
 ### Defining a custom polling interval
 
 {% include common-tasks/define_custom_polling.md %}
-
 ## Supported functionality
 
 The integration only supports reading a calendar. A calendar entity has a state and attributes that represent the next upcoming event (only). All the events of the calendar can be displayed in the Calendar dashboard.
