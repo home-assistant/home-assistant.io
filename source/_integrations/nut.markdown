@@ -30,7 +30,7 @@ username and password on the NUT server.
 ## Supported devices
 
 This integration supports hardware devices compatible with
-NUT. NUT's hardware compatability list is available from the [Network
+NUT. NUT's hardware compatibility list is available from the [Network
 UPS Tools](https://networkupstools.org/) website.
 
 ## Setting up a NUT Server
@@ -42,7 +42,6 @@ installing and configuring NUT.
 You will need to configure at least one NUT username and password for
 this integration to connect to the NUT server. You will also need to
 grant `instcmds` permissions in the NUT server to use device actions.
-{% enddetails %}
 
 {% include integrations/config_flow.md %}
 
@@ -54,9 +53,9 @@ Host:
 Port:
   description: "The network port of your NUT server. The NUT server's default port is '3493'."
 Username:
-  description: "The username to log into the NUT server. This is configured in NUT or the NUT add-on."
+  description: "The username to log into the NUT server. This is configured in NUT."
 Password:
-  description: "The password associated with the username to log into the NUT server. This is configured in NUT or the NUT add-on."
+  description: "The password associated with the username to log into the NUT server. This is configured in NUT."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
@@ -108,8 +107,8 @@ Some sensor values are described as being "opaque by mfg". This means the
 return result will vary by manufacturer.
 {% endnote %}
 
-An additional virtual sensor `ups.status.display` is available to
-translate the UPS status value retrieved from `ups.status` into a
+An additional virtual sensor `ups_status_display` is available to
+translate the UPS status value retrieved from `ups_status` into a
 human-readable format.
 
 Additional information about these sensors can be found in the Network
@@ -212,7 +211,7 @@ The possible diagnostic sensors are:
 | output_l3_power_percent   | %    | Output L3 percentage of apparent power relative to maximum load |
 | output_l3_realpower       | W    | Output L3 real power                     |
 | output_phases             |      | Output phases                            |
-| output_power              | VA   | Otuput apparent power                    |
+| output_power              | VA   | Output apparent power                    |
 | output_power_nominal      | VA   |                                          |
 | output_realpower          | W    | Output real power                        |
 | output_realpower_nominal  | W    |                                          |
@@ -269,7 +268,7 @@ allowing you to interact with your power source.
 
 Home Assistant automations can be created to monitor and take actions
 on power sources monitored by a NUT server. The following example
-shows how to use this integration in a Home Assistant automations.
+shows how to use this integration in a Home Assistant automation.
 
 This example is just a starting point, and you can use it as
 inspiration to create your own automations.
@@ -307,8 +306,8 @@ automation:
 
 ## Known limitations
 
-Not all NUT functionality is available through thi sintegration. The
-following limitations are known:
+Not all NUT functionality is available through this integration. The
+following are known limitations of this integration:
 
 - This NUT integration supports a subset of NUT "variables" and
 "commands".
@@ -320,10 +319,8 @@ It is also important to know:
 - This integration does not manage any power sourcing devices
   directly. Instead, it calls a NUT server using the NUT protocol.
 - The NUT integration does not install NUT on Home Assistant server or
-provide any NUT services directly. Instead, it retreives data from a
-NUT server. The NUT server may be running in an add-on container or
-another system. The NUT integration therefore cannot be "updated" to
-include a new version of the NUT server.
+provide any NUT services directly. The NUT integration therefore
+cannot be "updated" to include a new version of the NUT server.
 
 ## Troubleshooting
 
@@ -349,8 +346,8 @@ server configuration instructions for additional information.
 Below are example configuration files that create the username
 `my_user` with a PASSWORD and permission to execute all commands.
 
-If you are using the NUT add-on, below is the an example Configuration for
-the add-on's users list:
+If you are using the Home Assistant Community NUT add-on, below is the
+an example Configuration for the add-on's users list:
 
 ```yaml
 - username: my_user
@@ -374,15 +371,14 @@ If you are configuring NUT server directly, below is the example
 ### Using NUT to list all variables
 
 {% important %}
-The recommended configuration does not install NUT directly on Home
-Assistant. The NUT commands are therefore not available from the Home
-Assistant command line. These instructions apply to users running a
-separate NUT server or who are performing [advanced
-troubleshooting](#Advanced troubleshooting).
+The NUT package is not installed on Home Assistant. NUT commands are
+therefore not available from the Home Assistant command line. These
+instructions apply to users running a separate NUT server or who are
+performing [advanced troubleshooting](#Advanced troubleshooting).
 {% endimportant %}
 
 The NUT server provides "variables" regarding your power source
-device. If you have command line access to the system running NUT
+device. If you have command line access to the system running your NUT
 server, you can query NUT directly using the `upsc` command.
 
 Below is an example where NUT is configured with a device named `my_ups`:
@@ -433,17 +429,17 @@ provide a human-readable form of `ups.status`.
 ### Using NUT to list all commands
 
 {% important %}
-As noted above, the recommended configuration does not install NUT
-directly on Home Assistant. The NUT commands are therefore not
-available from the Home Assistant command line. These instructions
-apply to users running a separate NUT server or who are performing
-[advanced troubleshooting](#Advanced troubleshooting).
+As noted above, NOT is not installed on Home Assistant. NUT commands
+are therefore not available from the Home Assistant command
+line. These instructions apply to users running a separate NUT server
+or who are performing [advanced troubleshooting](#Advanced
+troubleshooting).
 {% endimportant %}
 
 The NUT server provides commands for controlling your power source
-device. If you have command line access to the system running NUT
-server, you can query NUT directly for the available using the `upscmd
--l` command.
+device. If you have command line access to the system running your NUT
+server, you can query NUT directly for the available commands using
+the `upscmd -l` command.
 
 Below is an example where NUT is configured with a device named `my_ups`:
 
@@ -463,10 +459,10 @@ test.battery.stop - Stop the battery test
 Only advanced users should perform these operations.
 {% endwarning %}
 
-For users of the NUT add-on, it is sometimes necessary to access the
-NUT Docker container directly to execute commands on the command line.
-This may be useful for running `upsc` or upscmd`. Enter the
-following command at the Home Assistant command line:
+For users running the Home Assistant Community NUT add-on, it may be
+necessary to execute command line instructions within the NUT Docker
+container.  This may be useful for running `upsc` or upscmd`. Enter
+the following command at the Home Assistant command line:
 
 
 ```bash
