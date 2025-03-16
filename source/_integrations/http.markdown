@@ -166,13 +166,13 @@ After a ban is added a Persistent Notification is populated to the Home Assistan
 
 Hackers often shift their IP address slightly after failed login attempts to subvert individual IP blocking.
 
-If you want to ban a range of IP addresses to reduce this, list the networks in `banned_networks`. To block `1.2.3.[0-255]` use the entry `1.2.3.0/24`. To block `1.2.[0-255].[0-255]` use `1.2.0.0\16`.
+If you want to ban a range of IP addresses to reduce this, list the networks in `banned_networks`. To block `1.2.3.[0-255]` use the entry `1.2.3.0/24`. To block `1.2.[0-255].[0-255]` use `1.2.0.0/16`.
 
-If you edit the banned networks list you will need to restart Home Assistant for it to take affect
+If you edit the banned networks list, you will need to restart Home Assistant for it to take effect
 
-By default, logging failed attempts to the log file and showing as Persistent Notifications are enabled. To disable either of these use the `log_banned_networks` and `notify_banned_networks` flags.
+By default, logging failed attempts to the log file and showing as Persistent Notifications are enabled. To disable either of these, use the `log_banned_networks` and `notify_banned_networks` flags.
 
-Banned IP log entries are `info` messages so to see them the logger default or for this integration must be at `info` or lower. See the [logger](https://www.home-assistant.io/integrations/logger/) integration for more information.
+Banned IP log entries are `info` messages, so to see them the logger default, or for this integration, must be at `info` or lower. See the [logger](https://www.home-assistant.io/integrations/logger/) integration for more information.
 
 ```yaml
 logger:
