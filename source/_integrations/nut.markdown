@@ -97,7 +97,7 @@ The possible sensors are:
 | watts                     | W    |                                          |
 
 {% note %}
-The NUT integration uses the NUT protocol to retreive "variables" from
+The NUT integration uses the NUT protocol to retrieve "variables" from
 the NUT server. The NUT integration only adds sensors for variables
 returned by the NUT server.
 {% endnote %}
