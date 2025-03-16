@@ -79,6 +79,20 @@ login_attempts_threshold:
   required: false
   type: integer
   default: -1
+banned_networks:
+  description: "List of banned networks consisting of IP networks. If `ip_ban_enabled` is true (the default), requests from IP addresses in any of the supplied list of banned networks will be refused. `ip_ban_enabled` must be enabled (the default) for this list to be used."
+  required: false
+  type: [string, list]
+log_banned_networks:
+  description: "Flag indicating if access attempts from an IP address in a banned network should be logged"
+  required: false
+  type: boolean
+  default: true
+notify_banned_networks:
+  description: "Flag indicating if access attempts from an IP address in a banned network should be shown as Persistent Notifications in the front end"
+  required: false
+  type: boolean
+  default: true
 ssl_profile:
   description: The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Only lower if you are experiencing integrations causing SSL handshake errors.
   required: false
@@ -103,6 +117,12 @@ http:
     - 172.30.33.0/24
   ip_ban_enabled: true
   login_attempts_threshold: 5
+  banned_networks:
+    - 111.7.0.0/16
+    - 45.0.0.0/8
+  log_banned_networks: true
+  notify_banned_networks: true
+
 ```
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
@@ -143,6 +163,23 @@ If you want to apply additional IP filtering, and automatically ban brute force 
 ```
 
 After a ban is added a Persistent Notification is populated to the Home Assistant frontend.
+
+Hackers often shift their IP address slightly after failed login attempts to subvert individual IP blocking.
+
+If you want to ban a range of IP addresses to reduce this, list the networks in `banned_networks`. To block `1.2.3.[0-255]` use the entry `1.2.3.0/24`. To block `1.2.[0-255].[0-255]` use `1.2.0.0\16`.
+
+If you edit the banned networks list you will need to restart Home Assistant for it to take affect
+
+By default, logging failed attempts to the log file and showing as Persistent Notifications are enabled. To disable either of these use the `log_banned_networks` and `notify_banned_networks` flags.
+
+Banned IP log entries are `info` messages so to see them the logger default or for this integration must be at `info` or lower. See the [logger](https://www.home-assistant.io/integrations/logger/) integration for more information.
+
+```yaml
+logger:
+  default: critical
+  logs:
+    homeassistant.components.http: info
+```
 
 ## Hosting files
 
