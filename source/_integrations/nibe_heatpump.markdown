@@ -31,6 +31,7 @@ Supported devices:
 - F1355/F1355
 - S2125
 - S320/S325
+- S330/S332
 - F370
 - F470
 - F730
