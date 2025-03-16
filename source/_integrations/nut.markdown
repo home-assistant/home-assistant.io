@@ -335,9 +335,10 @@ Some users install a third-party Home Assistant Community add-on to
 provide their NUT server. These add-ons are not maintained or
 supported by Home Assistant.
 
-The add-on option is available for users running {% term "Home
-Assistant Operating System" %} or {% term "Home Assistant Supervised"
-%}. Please see the Home Assistant Community [Network UPS Tools (NUT)
+The add-on option is available for users running 
+{% term "Home Assistant Operating System" %} or 
+{% term "Home Assistant Supervised" %}. Please see the Home Assistant 
+Community [Network UPS Tools (NUT) 
 add-on](https://github.com/hassio-addons/addon-nut) for installation
 and configuration information, including the required hostname.
 
