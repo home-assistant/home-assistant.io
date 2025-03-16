@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **Network UPS Tools (NUT)** {% term integration %} allows you to monitor and manage Uninterruptible Power Supplies (UPSes for battery backup), Power Distribution Units (PDUs), or other similar electrical power sources using a [NUT](https://networkupstools.org/) server. It lets you view the status, receive notifications about important events, and execute commands as device actions for one or more such devices.
+The **Network UPS Tools (NUT)** {% term integration %} allows you to monitor and manage an Uninterruptible Power Supply (UPS) for battery backup, a Power Distribution Unit (PDUs), or other similar electrical power source using a [NUT](https://networkupstools.org/) server. It lets you view the status, receive notifications about important events, and execute commands as device actions for one or more such devices.
 
 ## Prerequisites
 
@@ -323,9 +323,8 @@ It is also important to know:
 
 - This integration does not manage any power sourcing devices
   directly. Instead, it calls a NUT server using the NUT protocol.
-- The NUT integration does not install NUT on Home Assistant server or
-provide any NUT services directly. The NUT integration therefore
-cannot be "updated" to include a new version of the NUT server.
+- This integration does not install NUT on Home Assistant server. This
+  project is thereofre unable to update to a new version of NUT.
 
 ## Troubleshooting
 
@@ -335,12 +334,11 @@ Some users install a third-party Home Assistant Community add-on to
 provide their NUT server. These add-ons are not maintained or
 supported by Home Assistant.
 
-The add-on option is available for users running 
-{% term "Home Assistant Operating System" %} or 
-{% term "Home Assistant Supervised" %}. Please see the Home Assistant 
-Community [Network UPS Tools (NUT) 
-add-on](https://github.com/hassio-addons/addon-nut) for installation
-and configuration information, including the required hostname.
+The add-on option is available for users running {% term "Home Assistant Operating System" %}
+or {% term "Home Assistant Supervised" %}. Please see the Home Assistant 
+Community [Network UPS Tools (NUT) add-on](https://github.com/hassio-addons/addon-nut)
+for installation and configuration information, including the required
+hostname.
 
 ### Issues with user credentials and permissions
 
