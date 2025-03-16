@@ -58,7 +58,7 @@ The integration polls devices periodically to update their status. Ensure that y
 
 If you encounter issues:
 
-- Go to [Discord](https://discord.gg/nmDwHeSpNX)
+- Go to [Discord URL](https://discord.gg/nmDwHeSpNX)
 
 ## Resources
 
