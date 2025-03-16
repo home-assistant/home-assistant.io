@@ -266,9 +266,10 @@ allowing you to interact with your power source.
 
 ## Automation Examples
 
-Home Assistant automations can be created to monitor and take actions
-on power sources monitored by a NUT server. The following example
-shows how to use this integration in a Home Assistant automation.
+Home Assistant {% term automations %} can be created to monitor and
+take actions on power sources monitored by a NUT server. The following
+example shows how to use this integration in a Home Assistant
+automation.
 
 This example is just a starting point, and you can use it as
 inspiration to create your own automations.
