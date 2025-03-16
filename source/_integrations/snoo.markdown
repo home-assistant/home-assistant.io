@@ -27,7 +27,7 @@ This integration follows standard integration installation. No extra steps are r
 
 ## Binary Sensors
 
-### Left and Right Safety Clips
+### Left and right safety clips
 
 States if the left or right safety clip is connected to the baby's swaddle.
 
