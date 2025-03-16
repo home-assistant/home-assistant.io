@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **Network UPS Tools (NUT)** {% term integration %} allows you to monitor and manage an Uninterruptible Power Supply (UPS) for battery backup, a Power Distribution Unit (PDUs), or other similar electrical power source using a [NUT](https://networkupstools.org/) server. It lets you view the status, receive notifications about important events, and execute commands as device actions for one or more such devices.
+The **Network UPS Tools (NUT)** {% term integration %} allows you to monitor and manage an Uninterruptible Power Supply (UPS) for battery backup, a Power Distribution Unit (PDU), or other similar electrical power source using a [NUT](https://networkupstools.org/) server. It lets you view the status, receive notifications about important events, and execute commands as device actions for one or more such devices.
 
 ## Prerequisites
 
@@ -71,8 +71,8 @@ Scan Interval (seconds):
 ## Data updates
 
 The integration uses {% term polling %} to retrieve data from the NUT
-server. The frequency of updates is a configurable option. The
-default is to retrieve data every 60 seconds.
+server. The frequency of updates is a configurable option with a
+default of polling once every 60 seconds.
 
 ## Supported functionality
 
@@ -464,7 +464,7 @@ Only advanced users should perform these operations.
 
 For users running the Home Assistant Community NUT add-on, it may be
 necessary to execute command line instructions within the NUT Docker
-container.  This may be useful for running `upsc` or upscmd`. Enter
+container.  This may be useful for running `upsc` or `upscmd`. Enter
 the following command at the Home Assistant command line:
 
 ```bash
