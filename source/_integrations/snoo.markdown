@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Sensor
   - Select
+  - Switch
 ha_iot_class: Cloud Push
 ha_release: 2025.3
 ha_config_flow: true
@@ -15,6 +16,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - select
+  - switch
 ha_integration_type: integration
 ha_quality_scale: bronze
 ---
@@ -62,6 +64,16 @@ This allows you to set the soothing level of your Snoo.
 4. Level 3
 5. Level 4
 6. Stop - The snoo is no longer running.
+
+## Switch
+
+### Hold
+
+This will force the snoo to stay at the current level and not automatically adjust.
+
+### Sticky white noise
+
+This allows you to have white noise on regardless of the soothing level.
 
 ## Removing the integration
 
