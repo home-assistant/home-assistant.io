@@ -67,13 +67,13 @@ This allows you to set the soothing level of your Snoo.
 
 ## Switch
 
-### Hold
+### Level lock
 
-This will force the snoo to stay at the current level and not automatically adjust.
+Keep SNOO’s rhythms locked on your baby’s favorite level (Baseline, Level 1, or Level 2).
 
-### Sticky white noise
+### Sleepytime sounds
 
-This allows you to have white noise on regardless of the soothing level.
+Allows you to turn on SNOO’s soothing sounds before you put your baby in SNOO or after you took your baby out of SNOO for a diaper change or feeding.
 
 ## Removing the integration
 
