@@ -233,7 +233,7 @@ The possible diagnostic sensors are:
 | ups_realpower             | W    | Current value of real power              |
 | ups_realpower_nominal     | W    | Nominal value of real power              |
 | ups_shutdown              |      | Enable or disable UPS shutdown ability   |
-| ups_start_auto            |      | UPS starts when mains is re(applied)     |
+| ups_start_auto            |      | UPS starts when mains is applied or re-applied) |
 | ups_start_battery         |      | Allow to start UPS from battery          |
 | ups_start_reboot          |      | UPS coldstarts from battery              |
 | ups_temperature           | °C  |  UPS temperature                          |
@@ -323,8 +323,8 @@ It is also important to know:
 
 - This integration does not manage any power sourcing devices
   directly. Instead, it calls a NUT server using the NUT protocol.
-- This integration does not install NUT on Home Assistant server. This
-  project is thereofre unable to update to a new version of NUT.
+- This integration does not install NUT on the Home Assistant server. This
+  project is therefore unable to update to a new version of NUT.
 
 ## Troubleshooting
 
@@ -334,11 +334,12 @@ Some users install a third-party Home Assistant Community add-on to
 provide their NUT server. These add-ons are not maintained or
 supported by Home Assistant.
 
-The add-on option is available for users running {% term "Home Assistant Operating System" %}
-or {% term "Home Assistant Supervised" %}. Please see the Home Assistant 
-Community [Network UPS Tools (NUT) add-on](https://github.com/hassio-addons/addon-nut)
-for installation and configuration information, including the required
-hostname.
+The add-on option is available for users running
+{% term "Home Assistant Operating System" %} or
+{% term "Home Assistant Supervised" %}. Please see the Home Assistant
+Community [Network UPS Tools (NUT)
+add-on](https://github.com/hassio-addons/addon-nut) for installation and
+configuration information, including the required hostname.
 
 ### Issues with user credentials and permissions
 
@@ -347,10 +348,10 @@ The username and password configured for the device must be granted
 no user credentials are specified for a given device. See the NUT
 server configuration instructions for additional information.
 
-Below are example configuration files that create the username
-`my_user` with a PASSWORD and permission to execute all commands.
+Below are example configurations that create the username `my_user`
+with a PASSWORD and permission to execute all commands.
 
-If you are using the Home Assistant Community NUT add-on, below is 
+If you are using the Home Assistant Community NUT add-on, below is
 an example Configuration for the add-on's users list:
 
 ```yaml
@@ -445,7 +446,6 @@ server, you can query NUT directly for the available commands using
 the `upscmd -l` command.
 
 Below is an example where NUT is configured with a device named `my_ups`:
-
 
 ```bash
 $ upscmd -l my_ups
