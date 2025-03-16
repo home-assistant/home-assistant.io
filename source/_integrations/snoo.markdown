@@ -2,6 +2,7 @@
 title: Happiest Baby Snoo
 description: Instructions on how to integrate Snoo into Home Assistant
 ha_category:
+  - Binary Sensor
   - Sensor
   - Select
 ha_iot_class: Cloud Push
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@Lash-L'
 ha_domain: snoo
 ha_platforms:
+  - binary_sensor
   - sensor
   - select
 ha_integration_type: integration
@@ -24,6 +26,12 @@ The [Snoo](https://www.happiestbaby.com/products/snoo-smart-bassinet) is a smart
 This integration follows standard integration installation. No extra steps are required.
 
 {% include integrations/config_flow.md %}
+
+## Binary Sensors
+
+### Left and right safety clips
+
+States if the left or right safety clip is connected to the baby's swaddle.
 
 ## Sensors
 
