@@ -25,7 +25,7 @@ The **Network UPS Tools (NUT)** {% term integration %} allows you to monitor and
 
 You must have a NUT server configured to monitor one or more
 supported power source devices. You will need at least one configured
-username and password on the NUT server.
+`username` and `password` configured on the NUT server.
 
 ## Supported devices
 
