@@ -356,10 +356,10 @@ Minimum recommended assignments:
 
 - title: ProxmoxVE
   content: |
-    1. Download the **.qcow2** image above to a local folder storage and decompress it in the shell of the ProxmoxVE host.
+    1. Download the **.qcow2** image above to a local folder and decompress it in the shell of the ProxmoxVE host.
 
          ```bash
-         cd <PATH-TO-LOCAL-STORAGE>
+         cd <PATH-TO-LOCAL-FOLDER>
          wget <URL>
          xz -d <COMPRESSED-IMAGE>
          ```
@@ -384,7 +384,7 @@ Minimum recommended assignments:
          qm create --cores 2 --memory 4096 --ostype l26 --scsihw virtio-scsi-pci --bios ovmf --boot 'order=scsi0' --name haos 500
          ```
 
-    3. Import the downloaded and decompressed HAOS image into the VM storage of your choice and deleted the downloaded image afterwards.
+    3. Import the downloaded and decompressed HAOS image into the VM storage of your choice and delete the downloaded image afterwards.
 
          ```bash
          qm importdisk <VMID> <DECOMPRESSED-IMAGE> <STORAGE-NAME>
@@ -401,13 +401,13 @@ Minimum recommended assignments:
     4. Activate the imported image in the WebUI:
        1. Select the newly created VM
        2. Navigate to the **Hardware** options
-       3. Double-click on the **Unused Disk 0** and click on **Add** (*if your storage is SSD based, then enable the **SSD emulation** under the advanced settings*)
+       3. Double-click on the **Unused Disk 0** and click on **Add** (*if your storage is SSD-based, then enable the **SSD emulation** under the advanced settings*)
        4. The image is now attached as **Hard Disk (scsi0)** to the VM
     5. Add a network device:
        1. Select the newly created VM
        2. Navigate to the **Hardware** options, then **Add** > **Network Device**
        3. Select the correct **Bridge** and choose **VirtIO (paravirtualized)** as **Model**
-       4. The network device is no attached as **Network Device (net0)** to the VM
+       4. The network device is now attached as **Network Device (net0)** to the VM
     6. (optional) Select USB-devices that you want to pass through to Home Assistant, such as Zigbee- or Z-Wave controllers
        1. Select the newly created VM
        2. Navigate to the **Hardware** options, then **Add** > **USB Device**
