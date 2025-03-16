@@ -85,18 +85,18 @@ The possible sensors are:
 
 | name                      | Unit | Description                              |
 |---------------------------|------|:-----------------------------------------|
+| alarms                    |      | UPS alarms                               |
 | battery_charge            | %    | Battery charge                           |
 | charging_status           |      | Status of the battery charger            |
 | input_current             | A    | Input current                            |
 | input_load                | %    | Load on (ePDU) input                     |
 | input_voltage             | V    | Input voltage                            |
+| load                      | %    | Load on UPS                              |
 | outlet_voltage            | V    | Total output voltage                     |
 | output_phases             |      | Output phases                            |
 | output_voltage            | V    | Output voltage                           |
-| alarms                    |      | UPS alarms                               |
-| load                      | %    | Load on UPS                              |
+| status                    |      | Human-readable version of ups_status (see below) |
 | status_data               |      | UPS status                               |
-| status             |      | Human-readable version of ups_status (see below) |
 | watts                     | W    |                                          |
 
 {% note %}
@@ -138,26 +138,21 @@ The possible diagnostic sensors are:
 | ambient_humidity_status * |      | Ambient humidity status relative to the thresholds |
 | ambient_temperature *     | °C   | Ambient temperature                      |
 | ambient_temperature_status|      | Ambient temperature status relative to the thresholds |
+| apparent_power            | VA   | Current value of apparent power          |
 | battery_alarm_threshold * |      | Battery alarm threshold                  |
 | battery_capacity          | Ah   | Battery capacity                         |
-| low_battery_setpoint      | %    | Remaining battery level when UPS switches to LB |
-| minimum_battery_to_start  | %    | Minimum battery level for UPS restart after power-off |
-| warning_battery_setpoint    | %    | Battery level when UPS switches to "Warning" state |
+| battery_chemistry         |      | Battery chemistry (opaque by mfg)        |
 | battery_current           | A    | Battery current                          |
-| total_battery_current     | A    | Total battery current                    |
 | battery_date              |      | Battery installation or last change date (opaque by mfg) |
 | battery_manuf_date        |      | Battery manufacturing date (opaque by mfg) |
-| number_of_batteries       |      | Number of internal battery packs         |
-| number_of_bad_batteries   |      | Number of bad battery packs              |
 | battery_runtime           | secs | Battery runtime                          |
-| low_battery_runtime       | secs | Remaining battery runtime when UPS switches to LB |
-| minimum_battery_runtime_to_start | secs | Minimum battery runtime for UPS restart after power-off |
 | battery_temperature       | °C   | Battery temperature                      |
-| battery_chemistry         |      | Battery chemistry (opaque by mfg)        |
 | battery_voltage           | V    | Battery voltage                          |
+| beeper_status             |      | UPS beeper status                        |
+| efficiency                | %    | Efficiency of the UPS (ratio of output to input current) |
+| external_contacts         |      | UPS external contact sensors (opaque by mfg) |
 | high_battery_voltage      | V    | Maximum battery voltage (100% charge)    |
-| low_battery_voltage       | V    | Minimum battery voltage, that triggers FSD status |
-| nominal_battery_voltage   | V    | Nominal battery voltage                  |
+| high_voltage_transfer     | V    | High voltage transfer point              |
 | input_bypass_current      | A    | Input bypass current                     |
 | input_bypass_frequency    | Hz   | Input bypass line frequency              |
 | input_bypass_l1_current   | A    | Input bypass L1 current                  |
@@ -174,7 +169,6 @@ The possible diagnostic sensors are:
 | input_bypass_voltage      | V    | Input bypass voltage                     |
 | input_current_status      |      | Current status relative to the thresholds |
 | input_frequency           | Hz   | Input line frequency                     |
-| input_nominal_frequency   | Hz   | Nominal input line frequency             |
 | input_frequency_status    | Hz   | Frequency status                         |
 | input_l1_current          | A    | Input L1 current                         |
 | input_l1_line_frequency   | Hz   | Input L1 line frequency                  |
@@ -188,19 +182,36 @@ The possible diagnostic sensors are:
 | input_l3_line_frequency   | Hz   | Input L3 line frequency                  |
 | input_l3_n_voltage        | V    | Input L3-N voltage                       |
 | input_l3_real_power       | W    | Input L3 current sum value of all (ePDU) phases real power |
+| input_nominal_frequency   | Hz   | Nominal input line frequency             |
 | input_phases              |      | Input line phases                        |
 | input_power               |      | Current sum value of all (ePDU) phases apparent power |
-| input_real_power          | W    | Current sum value of all (ePDU) phases real power |
 | input_power_sensitivity   |      | Input power sensitivity                  |
-| high_voltage_transfer     | V    | High voltage transfer point              |
-| low_voltage_transfer      | V    | Low voltage transfer point               |
-| voltage_transfer_reason   |      | Reason for last transfer to battery (opaque by mfg) |
-| nominal_input_voltage     | V    | Nominal input voltage                    |
+| input_real_power          | W    | Current sum value of all (ePDU) phases real power |
 | input_voltage_status      |      | Status relative to the thresholds        |
-| output_current            | A    | Output current                           |
+| load_reboot_timer         | secs | Time before the load will be rebooted    |
+| load_restart_delay        | secs | Interval to wait before restarting the load |
+| load_shutdown_timer       | secs | Time before the load will be shutdown    |
+| load_start_timer          | secs | Time before the load will be started     |
+| low_battery_runtime       | secs | Remaining battery runtime when UPS switches to LB |
+| low_battery_setpoint      | %    | Remaining battery level when UPS switches to LB |
+| low_battery_voltage       | V    | Minimum battery voltage, that triggers FSD status |
+| low_voltage_transfer      | V    | Low voltage transfer point               |
+| minimum_battery_runtime_to_start | secs | Minimum battery runtime for UPS restart after power-off |
+| minimum_battery_to_start  | %    | Minimum battery level for UPS restart after power-off |
+| nominal_battery_voltage   | V    | Nominal battery voltage                  |
+| nominal_input_voltage     | V    | Nominal input voltage                    |
 | nominal_output_current    | A    | Nominal output current                   |
-| output_frequency          | Hz   | Output frequency                         |
 | nominal_output_frequency  | Hz   | Nominal output frequency                 |
+| nominal_output_power      | VA   |                                          |
+| nominal_output_real_power | W    |                                          |
+| nominal_output_voltage    | V    | Nominal output voltage                   |
+| nominal_power             | VA   | Nominal value of apparent power          |
+| nominal_real_power        | W    | Nominal value of real power              |
+| number_of_bad_batteries   |      | Number of bad battery packs              |
+| number_of_batteries       |      | Number of internal battery packs         |
+| output_apparent_power     | VA   | Output apparent power                    |
+| output_current            | A    | Output current                           |
+| output_frequency          | Hz   | Output frequency                         |
 | output_l1_current         | A    | Output L1 current                        |
 | output_l1_n_voltage       | V    | Output L1-N voltage                      |
 | output_l1_power_percent   | %    | Output L1 percentage of apparent power relative to maximum load |
@@ -214,36 +225,25 @@ The possible diagnostic sensors are:
 | output_l3_power_percent   | %    | Output L3 percentage of apparent power relative to maximum load |
 | output_l3_real_power      | W    | Output L3 real power                     |
 | output_phases             |      | Output phases                            |
-| output_apparent_power     | VA   | Output apparent power                    |
-| nominal_output_power      | VA   |                                          |
 | output_real_power         | W    | Output real power                        |
-| nominal_output_real_power | W    |                                          |
-| nominal_output_voltage    | V    | Nominal output voltage                   |
-| beeper_status             |      | UPS beeper status                        |
-| external_contacts         |      | UPS external contact sensors (opaque by mfg) |
-| ups_reboot_delay          | secs | Interval to wait before rebooting the UPS |
-| ups_shutdown_delay        | secs | Interval to wait after shutdown with delay command |
-| load_restart_delay        | secs | Interval to wait before restarting the load |
-| ups_display_language      |      | Language to use on front panel (opaque by mfg) |
-| efficiency                | %    | Efficiency of the UPS (ratio of output to input current) |
-| system_identifier         |      | UPS system identifier (opaque by mfg)    |
 | overload_setting          | %    | Load when UPS switches to overload condition |
-| apparent_power            | VA   | Current value of apparent power          |
-| nominal_power             | VA   | Nominal value of apparent power          |
 | real_power                | W    | Current value of real power              |
-| nominal_real_power        | W    | Nominal value of real power              |
-| shutdown_ability          |      | Enable or disable UPS shutdown ability   |
-| start_on_ac               |      | UPS starts when power is applied or re-applied |
-| start_on_battery          |      | Allow to start UPS from battery          |
 | reboot_on_battery         |      | UPS coldstarts from battery              |
-| ups_temperature           | °C  |  UPS temperature                          |
 | self_test_date            |      | Date of last self test (opaque by mfg)   |
 | self_test_interval        | secs | Interval between self tests              |
 | self_test_result          |      | Results of last self test (opaque by mfg) |
-| load_reboot_timer         | secs | Time before the load will be rebooted    |
-| load_shutdown_timer       | secs | Time before the load will be shutdown    |
-| load_start_timer          | secs | Time before the load will be started     |
+| shutdown_ability          |      | Enable or disable UPS shutdown ability   |
+| start_on_ac               |      | UPS starts when power is applied or re-applied |
+| start_on_battery          |      | Allow to start UPS from battery          |
+| system_identifier         |      | UPS system identifier (opaque by mfg)    |
+| total_battery_current     | A    | Total battery current                    |
+| ups_display_language      |      | Language to use on front panel (opaque by mfg) |
+| ups_reboot_delay          | secs | Interval to wait before rebooting the UPS |
+| ups_shutdown_delay        | secs | Interval to wait after shutdown with delay command |
+| ups_temperature           | °C  |  UPS temperature                          |
 | ups_type                  |      | UPS type (opaque by mfg)                 |
+| voltage_transfer_reason   |      | Reason for last transfer to battery (opaque by mfg) |
+| warning_battery_setpoint  | %    | Battery level when UPS switches to "Warning" state |
 | watchdog_status           |      | UPS watchdog status                      |
 
 ### Device actions
