@@ -104,7 +104,7 @@ The Ohme integration provides the following entities.
 #### Switches
 
 - **Price cap**
-  - **Description**: Prevents charging when the electricity price exceeds a defined threshold. The threshold can be set by the service `ohme.set_price_cap`. ***Not available with some energy providers and tarrifs.***
+  - **Description**: Prevents charging when the electricity price exceeds a defined threshold. The threshold can be set by the service `ohme.set_price_cap`. ***Not available with some energy providers and tariffs.***
   - **Available for devices**: all
 - **Lock buttons**
   - **Description**: Disable the controls on the device.
