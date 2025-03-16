@@ -202,8 +202,8 @@ The possible diagnostic sensors are:
 | nominal_input_voltage     | V    | Nominal input voltage                    |
 | nominal_output_current    | A    | Nominal output current                   |
 | nominal_output_frequency  | Hz   | Nominal output frequency                 |
-| nominal_output_power      | VA   |                                          |
-| nominal_output_real_power | W    |                                          |
+| nominal_output_power      | VA   | Nominal output apparent power            |
+| nominal_output_real_power | W    | Nominal output real power                |
 | nominal_output_voltage    | V    | Nominal output voltage                   |
 | nominal_power             | VA   | Nominal value of apparent power          |
 | nominal_real_power        | W    | Nominal value of real power              |
