@@ -41,11 +41,14 @@ installing and configuring NUT.
 
 You will need to configure at least one NUT username and password for
 this integration to connect to the NUT server. You will also need to
-grant `instcmds` permissions in the NUT server to use device actions.
+grant `instcmds` permissions in the NUT server to use device
+actions. Please see [NUT
+upsd.users](https://networkupstools.org/docs/man/upsd.users.html) for
+more information.
 
 {% include integrations/config_flow.md %}
 
-To setup the integration you need the following information:
+Setting up the integration requires the following information:
 
 {% configuration_basic %}
 Host:
@@ -67,7 +70,7 @@ Scan Interval (seconds):
 
 ## Data updates
 
-The integration uses {% term polling %} to retrieves data from the NUT
+The integration uses {% term polling %} to retrieve data from the NUT
 server. The frequency of updates is a configurable option. The
 default is to retrieve data every 60 seconds.
 
@@ -103,8 +106,8 @@ returned by the NUT server.
 {% endnote %}
 
 {% note %}
-Some sensor values are described as being "opaque by mfg". This means the
-return result will vary by manufacturer.
+Some sensor values are described as "opaque by mfg," meaning the
+returned results may vary by manufacturer.
 {% endnote %}
 
 An additional virtual sensor `ups_status_display` is available to
@@ -274,7 +277,8 @@ automation.
 This example is just a starting point, and you can use it as
 inspiration to create your own automations.
 
-Feel free to contribute more examples to this documentation ❤️.
+Contributions of additional examples to enhance this documentation are
+welcome ❤️.
 
 ### UPS Power Failure Notification
 
@@ -298,7 +302,7 @@ automation:
 
    conditions: []
 
-   actions
+   actions:
      - action: notify.notify
        data:
           title: UPS Power Failure
@@ -347,7 +351,7 @@ server configuration instructions for additional information.
 Below are example configuration files that create the username
 `my_user` with a PASSWORD and permission to execute all commands.
 
-If you are using the Home Assistant Community NUT add-on, below is the
+If you are using the Home Assistant Community NUT add-on, below is 
 an example Configuration for the add-on's users list:
 
 ```yaml
@@ -383,7 +387,6 @@ device. If you have command line access to the system running your NUT
 server, you can query NUT directly using the `upsc` command.
 
 Below is an example where NUT is configured with a device named `my_ups`:
-
 
 ```bash
 $ upsc my_ups
@@ -430,7 +433,7 @@ provide a human-readable form of `ups.status`.
 ### Using NUT to list all commands
 
 {% important %}
-As noted above, NOT is not installed on Home Assistant. NUT commands
+As noted above, NUT is not installed on Home Assistant. NUT commands
 are therefore not available from the Home Assistant command
 line. These instructions apply to users running a separate NUT server
 or who are performing [advanced troubleshooting](#Advanced
@@ -464,7 +467,6 @@ For users running the Home Assistant Community NUT add-on, it may be
 necessary to execute command line instructions within the NUT Docker
 container.  This may be useful for running `upsc` or upscmd`. Enter
 the following command at the Home Assistant command line:
-
 
 ```bash
 docker exec -it $(docker ps -f name=nut -q) bash
