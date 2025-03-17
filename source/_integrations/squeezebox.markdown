@@ -198,7 +198,6 @@ For example, to create an automation to mute playback, use the command `mixer` a
 | Row | Parameter | Description            |
 | --- | --------- | ---------------------- |
 | 1   | - muting  | Toggle muting on / off |
-| 2   |           |                        |
 
 resulting in the YAML:
 
@@ -228,10 +227,10 @@ resulting in the YAML:
 action: squeezebox.call_method
 metadata: {}
 data:
-  command: mixer
+  command: mixerremove b
   parameters:
     - volume
-    - "+5"
+    - '+5'
 ```
 
 ### Action `call_query`
