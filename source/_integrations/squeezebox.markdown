@@ -150,7 +150,7 @@ data:
 ### Buttons
 
 - **Preset 1 ... Preset 6**: Play media stored in Preset 1 to Preset 6 on Squeezebox.
-- **Brightness Up, Brightness Down**: Adjust the brightness on Logitech Squeezebox players with built in screen, such as Radio and Boom.
+- **Brightness Up, Brightness Down**: Adjust the brightness on Logitech Squeezebox players with built-in screen, such as Radio and Boom.
 - **Bass Up, Bass Down**: Adjust the bass on Logitech Squeezebox players, such as Radio and Boom.
 - **Treble Up, Treble Down**: Adjust the treble on Logitech Squeezebox players, such as Radio and Boom.
 
@@ -227,10 +227,10 @@ resulting in the YAML:
 action: squeezebox.call_method
 metadata: {}
 data:
-  command: mixerremove b
+  command: mixer
   parameters:
     - volume
-    - '+5'
+    - "+5"
 ```
 
 ### Action `call_query`
