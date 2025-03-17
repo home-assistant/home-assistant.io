@@ -66,87 +66,86 @@ Assist aims to support more languages than other voice assistants, but this is s
 	<div class="input-wrapper">
 		<select id="language-select">
 			<option data-display="Select">Choose your language</option>
-			<option value="en-US">English</option>
-			<option value="es-ES">Spanish</option>
-			<option value="pt-BR">Portuguese</option>
-			<option value="de-DE">German</option>
-			<option value="it-IT">Italian</option>
-			<option value="ru-RU">Russian</option>
-			<option value="ja-JP">Japanese</option>
-			<option value="tr-TR">Turkish</option>
-			<option value="ko-KR">Korean</option>
-			<option value="fr-FR">French</option>
+			<option value="af-ZA">Afrikaans</option>
+			<option value="sq-AL">Albanian</option>
+			<option value="am-ET">Amharic</option>
+			<option value="ar-JO">Arabic</option>
+			<option value="hy-AM">Armenian</option>
+			<option value="az-AZ">Azerbaijani</option>
+			<option value="eu-ES">Basque</option>
+			<option value="bn-IN">Bengali</option>
+			<option value="bs-BA">Bosnian</option>
+			<option value="bg-BG">Bulgarian</option>
+			<option value="my-MM">Burmese</option>
+			<option value="yue-CN">Cantonese</option>
 			<option value="ca-ES">Catalan</option>
-			<option value="pl-PL">Polish</option>
-			<option value="nl-BE">Dutch</option>
-			<option value="id-ID">Indonesian</option>
 			<option value="zh-HK">Chinese (Cantonese)</option>
 			<option value="zh-CN">Chinese (Mandarin)</option>
-			<option value="ms-MY">Malay</option>
-			<option value="sv-SE">Swedish</option>
-			<option value="uk-UA">Ukrainian</option>
-			<option value="th-TH">Thai</option>
-			<option value="vi-VN">Vietnamese</option>
-			<option value="fi-FI">Finnish</option>
-			<option value="no-NO">Norwegian</option>
-			<option value="gl-ES">Galician</option>
-			<option value="ar-JO">Arabic</option>
-			<option value="ur-IN">Urdu</option>
-			<option value="el-GR">Greek</option>
-			<option value="ro-RO">Romanian</option>
-			<option value="da-DK">Danish</option>
-			<option value="ta-IN">Tamil</option>
 			<option value="hr-HR">Croatian</option>
-			<option value="mk-MK">Macedonian</option>
-			<option value="sk-SK">Slovak</option>
-			<option value="he-IL">Hebrew</option>
-			<option value="sr-RS">Serbian</option>
-			<option value="hu-HU">Hungarian</option>
-			<option value="bg-BG">Bulgarian</option>
 			<option value="cs-CZ">Czech</option>
-			<option value="bs-BA">Bosnian</option>
-			<option value="sl-SI">Slovenian</option>
-			<option value="az-AZ">Azerbaijani</option>
+			<option value="da-DK">Danish</option>
+			<option value="nl-BE">Dutch</option>
+			<option value="en-US">English</option>
 			<option value="et-EE">Estonian</option>
-			<option value="lv-LV">Latvian</option>
-			<option value="af-ZA">Afrikaans</option>
-			<option value="cy-GB">Welsh</option>
-			<option value="fa-IR">Persian</option>
-			<option value="lt-LT">Lithuanian</option>
+			<option value="fil-PH">Filipino</option>
+			<option value="fi-FI">Finnish</option>
+			<option value="fr-FR">French</option>
+			<option value="gl-ES">Galician</option>
+			<option value="ka-GE">Georgian</option>
+			<option value="de-DE">German</option>
+			<option value="el-GR">Greek</option>
+			<option value="gu-IN">Gujarati</option>
+			<option value="he-IL">Hebrew</option>
+			<option value="hi-IN">Hindi</option>
+			<option value="hu-HU">Hungarian</option>
+			<option value="is-IS">Icelandic</option>
+			<option value="id-ID">Indonesian</option>
+			<option value="ga-IE">Irish</option>
+			<option value="it-IT">Italian</option>
+			<option value="ja-JP">Japanese</option>
 			<option value="jv-ID">Javanese</option>
+			<option value="kn-IN">Kannada</option>
+			<option value="kk-KZ">Kazakh</option>
+			<option value="km-KH">Khmer</option>
+			<option value="ko-KR">Korean</option>
+			<option value="lo-LA">Lao</option>
+			<option value="lv-LV">Latvian</option>
+			<option value="lt-LT">Lithuanian</option>
+			<option value="lb-LU">Luxembourgish</option>
+			<option value="mk-MK">Macedonian</option>
+			<option value="ms-MY">Malay</option>
+			<option value="ml-IN">Malayalam</option>
+			<option value="mt-MT">Maltese</option>
+			<option value="mr-IN">Marathi</option>
+			<option value="mn-MN">Mongolian</option>
+			<option value="ne-NP">Nepali</option>
+			<option value="nb-NO">Norwegian Bokmål</option>
+			<option value="ps-AF">Pashto</option>
+			<option value="fa-IR">Persian</option>
+			<option value="pl-PL">Polish</option>
+			<option value="pt-BR">Portuguese</option>
+			<option value="ro-RO">Romanian</option>
+			<option value="ru-RU">Russian</option>
+			<option value="sr-RS">Serbian</option>
+			<option value="wuu-CN">Shanghainese</option>
+			<option value="si-LK">Sinhala</option>
+			<option value="sk-SK">Slovak</option>
+			<option value="sl-SI">Slovenian</option>
+			<option value="so-SO">Somali</option>
+			<option value="es-ES">Spanish</option>
+			<option value="su-ID">Sundanese</option>
 			<option value="sw-KE">Swahili</option>
 			<option value="sw-TZ">Swahili</option>
-			<option value="is-IS">Icelandic</option>
-			<option value="mt-MT">Maltese</option>
-			<option value="ps-AF">Pashto</option>
-			<option value="mr-IN">Marathi</option>
-			<option value="bn-IN">Bengali</option>
-			<option value="lb-LU">Luxembourgish</option>
-			<option value="hi-IN">Hindi</option>
-			<option value="gu-IN">Gujarati</option>
-			<option value="km-KH">Khmer</option>
-			<option value="ne-NP">Nepali</option>
-			<option value="lo-LA">Lao</option>
+			<option value="sv-SE">Swedish</option>
+			<option value="ta-IN">Tamil</option>
 			<option value="te-IN">Telugu</option>
-			<option value="kn-IN">Kannada</option>
-			<option value="ml-IN">Malayalam</option>
-			<option value="kk-KZ">Kazakh</option>
-			<option value="so-SO">Somali</option>
+			<option value="th-TH">Thai</option>
+			<option value="tr-TR">Turkish</option>
+			<option value="uk-UA">Ukrainian</option>
+			<option value="ur-IN">Urdu</option>
 			<option value="uz-UZ">Uzbek</option>
-			<option value="ka-GE">Georgian</option>
-			<option value="my-MM">Burmese</option>
-			<option value="mn-MN">Mongolian</option>
-			<option value="hy-AM">Armenian</option>
-			<option value="am-ET">Amharic</option>
-			<option value="nb-NO">Norwegian Bokmål</option>
-			<option value="eu-ES">Basque</option>
-			<option value="fil-PH">Filipino</option>
-			<option value="ga-IE">Irish</option>
-			<option value="si-LK">Sinhala</option>
-			<option value="sq-AL">Albanian</option>
-			<option value="su-ID">Sundanese</option>
-			<option value="wuu-CN">Shanghainese</option>
-			<option value="yue-CN">Cantonese</option>
+			<option value="vi-VN">Vietnamese</option>
+			<option value="cy-GB">Welsh</option>
 			<option value="zu-ZA">Zulu</option>
 		</select>
 	</div>
@@ -411,87 +410,86 @@ function registerLanguageSelectChange() {
 
 function updateLanguageSupports(locale = null) {
 	let data = {
+		"af-ZA": [0, 0],
+		"am-ET": [0, 0],
+		"ar-JO": [0, 2],
+		"az-AZ": [0, 0],
+		"bg-BG": [0, 2],
+		"bn-IN": [0, 0],
+		"bs-BA": [0, 0],
+		"ca-ES": [0, 3],
+		"cs-CZ": [0, 1],
+		"cy-GB": [0, 0],
+		"da-DK": [0, 2],
+		"de-DE": [3, 3],
+		"el-GR": [0, 1],
 		"en-US": [3, 3],
 		"es-ES": [3, 3],
-		"pt-BR": [3, 3],
-		"de-DE": [3, 3],
-		"it-IT": [2, 2],
-		"ru-RU": [2, 2],
-		"ja-JP": [0, 0],
-		"tr-TR": [0, 1],
-		"ko-KR": [0, 1],
-		"fr-FR": [0, 3],
-		"ca-ES": [0, 3],
-		"pl-PL": [0, 3],
-		"nl-BE": [0, 3],
-		"id-ID": [0, 1],
-		"zh-HK": [0, 2],
-		"zh-CN": [0, 1],
-		"ms-MY": [0, 1],
-		"sv-SE": [0, 2],
-		"uk-UA": [0, 2],
-		"th-TH": [0, 1],
-		"vi-VN": [0, 1],
-		"fi-FI": [0, 3],
-		"no-NO": [0, 0],
-		"gl-ES": [0, 2],
-		"ar-JO": [0, 2],
-		"ur-IN": [0, 0],
-		"el-GR": [0, 1],
-		"ro-RO": [0, 3],
-		"da-DK": [0, 2],
-		"ta-IN": [0, 0],
-		"hr-HR": [0, 3],
-		"mk-MK": [0, 0],
-		"sk-SK": [0, 1],
-		"he-IL": [0, 2],
-		"sr-RS": [0, 1],
-		"hu-HU": [0, 3],
-		"bg-BG": [0, 2],
-		"cs-CZ": [0, 1],
-		"bs-BA": [0, 0],
-		"sl-SI": [0, 2],
-		"az-AZ": [0, 0],
 		"et-EE": [0, 1],
-		"lv-LV": [0, 1],
-		"af-ZA": [0, 0],
-		"cy-GB": [0, 0],
+		"eu-ES": [0, 1],
 		"fa-IR": [0, 1],
-		"lt-LT": [0, 1],
+		"fi-FI": [0, 3],
+		"fil-PH": [0, 0],
+		"fr-FR": [0, 3],
+		"ga-IE": [0, 0],
+		"gl-ES": [0, 2],
+		"gu-IN": [0, 0],
+		"he-IL": [0, 2],
+		"hi-IN": [0, 0],
+		"hr-HR": [0, 3],
+		"hu-HU": [0, 3],
+		"hy-AM": [0, 0],
+		"id-ID": [0, 1],
+		"is-IS": [0, 1],
+		"it-IT": [2, 2],
+		"ja-JP": [0, 0],
 		"jv-ID": [0, 0],
+		"ka-GE": [0, 1],
+		"kk-KZ": [0, 0],
+		"km-KH": [0, 0],
+		"kn-IN": [0, 0],
+		"ko-KR": [0, 1],
+		"lb-LU": [0, 0],
+		"lo-LA": [0, 0],
+		"lt-LT": [0, 1],
+		"lv-LV": [0, 1],
+		"mk-MK": [0, 0],
+		"ml-IN": [0, 1],
+		"mn-MN": [0, 0],
+		"mr-IN": [0, 0],
+		"ms-MY": [0, 1],
+		"mt-MT": [0, 0],
+		"my-MM": [0, 0],
+		"nb-NO": [0, 3],
+		"ne-NP": [0, 0],
+		"nl-BE": [0, 3],
+		"pl-PL": [0, 3],
+		"ps-AF": [0, 0],
+		"pt-BR": [3, 3],
+		"ro-RO": [0, 3],
+		"ru-RU": [2, 2],
+		"si-LK": [0, 0],
+		"sk-SK": [0, 1],
+		"sl-SI": [0, 2],
+		"so-SO": [0, 0],
+		"sq-AL": [0, 0],
+		"sr-RS": [0, 1],
+		"su-ID": [0, 0],
+		"sv-SE": [0, 2],
 		"sw-KE": [0, 0],
 		"sw-TZ": [0, 0],
-		"is-IS": [0, 1],
-		"mt-MT": [0, 0],
-		"ps-AF": [0, 0],
-		"mr-IN": [0, 0],
-		"bn-IN": [0, 0],
-		"lb-LU": [0, 0],
-		"hi-IN": [0, 0],
-		"gu-IN": [0, 0],
-		"km-KH": [0, 0],
-		"ne-NP": [0, 0],
-		"lo-LA": [0, 0],
+		"ta-IN": [0, 0],
 		"te-IN": [0, 1],
-		"kn-IN": [0, 0],
-		"ml-IN": [0, 1],
-		"kk-KZ": [0, 0],
-		"so-SO": [0, 0],
+		"th-TH": [0, 1],
+		"tr-TR": [0, 1],
+		"uk-UA": [0, 2],
+		"ur-IN": [0, 0],
 		"uz-UZ": [0, 0],
-		"ka-GE": [0, 1],
-		"my-MM": [0, 0],
-		"mn-MN": [0, 0],
-		"hy-AM": [0, 0],
-		"am-ET": [0, 0],
-		"nb-NO": [0, 3],
-		"eu-ES": [0, 1],
-		"fil-PH": [0, 0],
-		"ga-IE": [0, 0],
-		"si-LK": [0, 0],
-		"sq-AL": [0, 0],
-		"su-ID": [0, 0],
+		"vi-VN": [0, 1],
 		"wuu-CN": [0, 0],
 		"yue-CN": [0, 0],
+		"zh-CN": [0, 1],
+		"zh-HK": [0, 2],
 		"zu-ZA": [0, 0]
 	};
 

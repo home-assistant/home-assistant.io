@@ -63,6 +63,7 @@ The following device classes are supported for sensors:
 - **distance**: Generic distance in km, m, cm, mm, mi, nmi, yd, or in
 - **duration**: Duration in d, h, min, s, or ms
 - **energy**: Energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
+- **energy_distance**: Energy per distance in kWh/100km, mi/kWh or km/kWh.
 - **energy_storage**: Stored energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
 - **enum**: Has a limited set of (non-numeric) states
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
@@ -100,4 +101,5 @@ The following device classes are supported for sensors:
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
+- **wind_direction**: Wind direction in °
 - **wind_speed**: Wind speed in Beaufort, ft/s, km/h, kn, m/s, or mph

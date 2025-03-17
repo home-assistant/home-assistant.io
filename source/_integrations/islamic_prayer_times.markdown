@@ -58,7 +58,7 @@ Default: Islamic Society of North America
 
 A prayer times calculation method. Methods identify various schools of thought about how to compute the timings. If not specified, it defaults to Islamic Society of North America.
 
-### Latatude Adjustment Method
+### Latitude Adjustment Method
 
 Default: Middle of the night 
 

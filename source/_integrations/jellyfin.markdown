@@ -9,7 +9,7 @@ ha_category:
 ha_release: '2021.12'
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@j-stienstra'
+  - '@RunC0deRun'
   - '@ctalkington'
 ha_config_flow: true
 ha_domain: jellyfin

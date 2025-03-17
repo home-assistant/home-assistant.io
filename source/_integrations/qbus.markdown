@@ -4,6 +4,7 @@ description: Instructions on how to integrate your Qbus installation with Home A
 ha_category:
   - Switch
 ha_platforms:
+  - light
   - switch
 ha_iot_class: Local Push
 ha_codeowners:
@@ -41,6 +42,7 @@ There is currently support for the following **Qbus** products within Home Assis
 ## Available entities
 
 - **Switch**: toggles on/off outputs.
+- **Light**: controls dimmer lights, allowing both on/off functionality and brightness adjustment.
 
 ## Removing the integration
 

@@ -65,7 +65,7 @@ pitch:
   type: string
   default: "`default`"
 contour:
-  description: "Change the contour of the output in percentages. This overrides the pitch setting. See the [W3 SSML specification](https://www.w3.org/TR/speech-synthesis/#pitch_contour) for what it does. Example value: `(0,0) (100,100)`."
+  description: "Change the contour of the output in percentages. This overrides the pitch setting. See the [W3 SSML specification](https://www.w3.org/TR/speech-synthesis/#pitch_contour) for what it does. Example value: `(0%, -1st) (100%, +10st)`."
   required: false
   type: string
 region:
@@ -100,6 +100,6 @@ tts:
     rate: 20
     volume: -50
     pitch: high
-    contour: (0, 0) (100, 100)
+    contour: (0%, -1st) (100%, +10st)
     region: eastus
 ```

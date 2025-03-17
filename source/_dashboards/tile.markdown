@@ -12,11 +12,12 @@ related:
     title: Dashboard cards
 ---
 
-The tile card gives you a quick overview of your {% term entity %}. The card allows you to toggle the {% term entity %} and show the more info dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
+The tile card gives you a quick overview of your {% term entity %}. The card allows you to add tap actions, and features to control the entity. You can also select the {% term entity %} to open the more info dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
 
 <p class='img'>
-  <img src='/images/dashboards/tile_card.png' alt='Screenshot of tile cards'>
-  Screenshot of tile cards.
+  <img src='/images/dashboards/tile_card_tap_action.webp' alt='Screenshot of tile cards'>
+  The circular background behind an icon indicates that there is a tap action.
+  The "Downstairs" and "Upstairs" climate entities have a badge and a feature that is bottom-aligned.
 </p>
 
 {% include dashboard/edit_dashboard.md %}
@@ -91,6 +92,12 @@ features:
   required: false
   description: Additional widgets to control your entity. See [available features](/dashboards/features).
   type: list
+features_position:
+  required: false
+  description: Position of the features on the tile card. Can be `bottom` or `inline`. Only the first feature will be displayed when the option is set to `inline`. `inline` is not compatible with the `vertical` option.
+  type: string
+  default: bottom
+
 {% endconfiguration %}
 
 ## Examples
@@ -145,15 +152,4 @@ features:
 
 You want to colorize the tile card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
 
-## Reordering features
 
-Some features of the tile card, such as the presets or the HVAC modes of a
-thermostat, can show many buttons. While you can limit the buttons you’d
-like to see, they may not be in the desired order.
-
-For your thermostat, that means you can reorder the HVAC modes or presets.
-
-<p class='img'>
-    <img src="/images/blog/2024-05/tile-card-reorder-features.gif" alt=" Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card."/>
-    You can now reorder the features of the tile card.
-</p>
