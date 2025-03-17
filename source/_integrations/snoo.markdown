@@ -2,7 +2,10 @@
 title: Happiest Baby Snoo
 description: Instructions on how to integrate Snoo into Home Assistant
 ha_category:
+  - Binary Sensor
   - Sensor
+  - Select
+  - Switch
 ha_iot_class: Cloud Push
 ha_release: 2025.3
 ha_config_flow: true
@@ -10,7 +13,10 @@ ha_codeowners:
   - '@Lash-L'
 ha_domain: snoo
 ha_platforms:
+  - binary_sensor
   - sensor
+  - select
+  - switch
 ha_integration_type: integration
 ha_quality_scale: bronze
 ---
@@ -22,6 +28,12 @@ The [Snoo](https://www.happiestbaby.com/products/snoo-smart-bassinet) is a smart
 This integration follows standard integration installation. No extra steps are required.
 
 {% include integrations/config_flow.md %}
+
+## Binary Sensors
+
+### Left and right safety clips
+
+States if the left or right safety clip is connected to the baby's swaddle.
 
 ## Sensors
 
@@ -39,6 +51,29 @@ The Snoo can have one of 8 states
 
 ## Time left
 This describes how long until the Snoo will change levels or it is Unknown if it is not currently planning to change levels.
+
+## Select
+
+### Intensity
+
+This allows you to set the soothing level of your Snoo.
+
+1. Baseline - This is the basic state the snoo starts with. It has not detected the need to do any further soothing.
+2. Level 1 - This is the lowest level of soothing.
+3. Level 2
+4. Level 3
+5. Level 4
+6. Stop - The snoo is no longer running.
+
+## Switch
+
+### Level lock
+
+Keep SNOO’s rhythms locked on your baby’s favorite level (Baseline, Level 1, or Level 2).
+
+### Sleepytime sounds
+
+Allows you to turn on SNOO’s soothing sounds before you put your baby in SNOO or after you took your baby out of SNOO for a diaper change or feeding.
 
 ## Removing the integration
 

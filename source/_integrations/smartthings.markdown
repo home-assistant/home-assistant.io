@@ -13,6 +13,7 @@ ha_category:
   - Scene
   - Sensor
   - Switch
+  - Valve
 ha_release: 0.87
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -27,6 +28,7 @@ ha_platforms:
   - scene
   - sensor
   - switch
+  - valve
 ha_dhcp: true
 ha_integration_type: integration
 ---
@@ -53,6 +55,7 @@ SmartThings represents devices as a set of [capabilities](https://developer.smar
 - [Sensor](#sensor)
 - [Scene](#scene)
 - [Switch](#switch)
+- [Valve](#valve)
 
 ### Binary sensor
 
@@ -200,6 +203,10 @@ The SmartThings Scene lets you activate scenes defined in SmartThings. A scene e
 ### Switch
 
 The SmartThings Switch lets you control devices that have the [`switch`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switch) capability that are not already represented by a more specific platform.
+
+### Valve
+
+The SmartThings Valve platform lets you control devices that have the [`valve`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#valve) capability, showing the valve status and opening and closing.
 
 ## Troubleshooting
 

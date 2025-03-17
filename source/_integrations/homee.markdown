@@ -10,6 +10,7 @@ ha_codeowners:
   - '@Taraman17'
 ha_domain: homee
 ha_platforms:
+  - binary_sensor
   - button
   - cover
   - light
@@ -26,6 +27,7 @@ ha_quality_scale: bronze
 
 There is currently support for the following device types in Home Assistant:
 
+- binary sensor
 - button
 - cover
 - light
