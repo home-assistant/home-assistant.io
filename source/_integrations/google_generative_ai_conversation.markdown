@@ -130,6 +130,33 @@ response_variable: generated_content
 
 {% endraw %}
 
+### Generate image
+
+{% tip %}
+This action isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` action.
+{% endtip %}
+
+Allows you to ask Gemini 2.0 Flash to generate one image from a prompt consisting of text and optionally attachments (eg, an image to edit or include).
+The image will be saved to the Home Assistant filesystem.
+This action also populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the generated text, if any.
+
+| Data attribute    | Optional | Description                                     | Example             |
+| ------------------| -------- | ----------------------------------------------- | ------------------- |
+| `prompt`          | no       | The prompt for generating the content.          | Draw a car          |
+| `output_filename` | no       | File name to save the generated image to.       | config/www/car.jpg  |
+| `filenames`       | yes      | File names for attachments to include in the prompt. | /tmp/image.jpg |
+
+{% raw %}
+
+```yaml
+action: google_generative_ai_conversation.generate_image
+data:
+  prompt: Draw a cat announcing that the weather is {{ states('weather.home') }}
+  output_filename: config/www/weather-cat.jpg
+```
+
+{% endraw %}
+
 ## Video tutorial
 
 This video tutorial explains how Google Generative AI can be set up, how you can send an AI-generated message to your smart speaker when you arrive home, and how you can analyze an image taken from your doorbell camera as soon as someone rings the doorbell.
