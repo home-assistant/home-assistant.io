@@ -68,6 +68,7 @@ The integration provides a few entities to configure the device settings. The fo
 - Pre-Amp
 - Early update
 - Audio output (Speaker select)
+- Control Bus mode
 
 ## Playing media
 
