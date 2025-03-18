@@ -14,6 +14,7 @@ ha_platforms:
   - button
   - cover
   - light
+  - lock
   - number
   - select
   - sensor
@@ -31,6 +32,7 @@ There is currently support for the following device types in Home Assistant:
 - button
 - cover
 - light
+- lock
 - number
 - sensor
 - select
