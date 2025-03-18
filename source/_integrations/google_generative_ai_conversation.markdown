@@ -133,10 +133,10 @@ response_variable: generated_content
 ### Generate image
 
 {% tip %}
-This action isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` action.
+This action isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options.
 {% endtip %}
 
-Allows you to ask Gemini 2.0 Flash to generate one image from a prompt consisting of text and optionally attachments (eg, an image to edit or include).
+Allows you to ask [Gemini 2.0 Flash to generate one image](https://developers.googleblog.com/en/experiment-with-gemini-20-flash-native-image-generation/) from a prompt consisting of text and optionally attachments (eg, an image to edit or include).
 The image will be saved to the Home Assistant filesystem.
 This action also populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the generated text, if any.
 
