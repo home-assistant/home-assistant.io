@@ -138,7 +138,7 @@ This action isn't tied to any integration entry, so it won't use the model, prom
 
 Allows you to ask [Gemini 2.0 Flash to generate one image](https://developers.googleblog.com/en/experiment-with-gemini-20-flash-native-image-generation/) from a prompt consisting of text and optionally attachments (eg, an image to edit or include).
 The image will be saved to the Home Assistant filesystem.
-This action also populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the generated text, if any.
+If your prompt also generates a textual response (eg, if you also ask it to describe the image), it will be returned in the `.text` field of the [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data), like the above service.
 
 | Data attribute    | Optional | Description                                     | Example             |
 | ------------------| -------- | ----------------------------------------------- | ------------------- |
