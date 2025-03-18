@@ -226,7 +226,7 @@ Depending on the supported features of the camera, select entities are added for
 
 **Play quick reply messages**/**Auto quick reply messages** can be recorded in the Reolink phone app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
 
-**Hub scene modes** can be set in the Reolink app/client, the names of the scenes will be loaded into Home Assistant at the start of the integration. When adding new custom scenes, please restart the Reolink integration.
+**Hub scene modes** can be set in the Reolink app/client. The scene names are loaded into Home Assistant at the start of the integration. After adding new custom scenes, restart the Reolink integration.
 
 #### Action reolink.play_chime
 
