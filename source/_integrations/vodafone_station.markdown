@@ -47,8 +47,7 @@ This {% term integration %} was tested against the following models from Sercomm
 
 ## Integration options
 
-It is possible to change some behaviors through the {% term integration %} options.
-To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. On the **Vodafone Station** integration, select the cogwheel. Then select **Configure**.
+{% include integrations/option_flow.md %}
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
 
