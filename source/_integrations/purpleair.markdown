@@ -33,18 +33,17 @@ Settings:
 
 ## Creating an API key
 
-To add this integration, you need a (free) Purple Air API Key. A new account currently comes with 1 million free points. After that, you need to buy additional points to continue to use the API. The current plugin uses ~30K points/day. The 1 million points last about a month. A lack of points will trigger API errors until you buy more points.
+To add this integration, you need a (free) Purple Air API Key. A new account currently comes with 1 million free points. After that, you need to buy additional points to continue to use the API. The current plugin uses ~30K points/day. The 1 million points last about a month. A lack of points will trigger API errors until you buy more points. PurpleAir sensor owners can access data for their [own sensors free of charge](https://community.purpleair.com/t/api-points-for-sensor-owners/7525).
 
 Detailed instructions can be found [here](https://community.purpleair.com/t/creating-api-keys/3951) but in summary you:
 
-- Create an account at https://develop.purpleair.com/ (which uses Single Sign-On through a Google account).
-- On the ['keys'](https://develop.purpleair.com/keys) page press the "plus" button to create an API key.  Leave the defaults of **Read** and **Enabled**.
+- Create an account at [https://develop.purpleair.com/](https://develop.purpleair.com/) (which uses Single Sign-On through a Google account).
+- On the ['keys'](https://develop.purpleair.com/keys) page press the "plus" button to create an API key. Leave the defaults of **Read** and **Enabled**.
 - Go to the ['projects'](https://develop.purpleair.com/projects) page and select the edit (pencil) button on the listed Project.  Add points (for example 1,000,000), then select **Update**.
-- Go back to the ['keys'](https://develop.purpleair.com/keys) page and copy the API key.  It will be a value like XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX.
+- Go back to the ['keys'](https://develop.purpleair.com/keys) page and copy the API key. It will be a value like `XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX`.
 - Paste that API key into the **API Key** field when creating the integration in Home Assistant.
-
-Note that if you are using your own sensor, it will need to be set to **Public** to be visible.
-
+- New sensors can be created by selecting sensors from a map location, or by manually entering the sensor "Index" and "Read Key".
+- Private sensors can only be added by manually entering the sensor information, where the "Read Key" was sent via email by PurpleAir during the sensor registration process. It will be a value like `XXXXXXXXXXXXXXXX`.
 
 ## Creating an AQI Rating from Raw Particulate Data
 
