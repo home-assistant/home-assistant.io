@@ -7,7 +7,7 @@ related:
     title: Creating a local assistant
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Creating an assistant personality with AI
-  - url: https://amzn.to/40k7mRa
+  - url: https://www.amazon.com/dp/B06XW1BQHC
     title: Grandstream HT801
   - url: https://www.nabucasa.com
     title: Home Assistant Cloud
