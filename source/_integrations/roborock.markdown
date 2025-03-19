@@ -79,6 +79,8 @@ Cleaning time - How long the vacuum has been cleaning for. If the vacuum is not 
 
 Cleaning progress - Only available on some newer devices - what percent of the current cleaning is completed.
 
+Current room - This is the room the vacuum currently is in. It utilizes the currently selected map, so if the map is incorrect, the room will be incorrect as well.
+
 Dock error - Only available on the non-basic docks - The current error of the vacuum or 'Ok' if none exist
 
 Main brush time left - How much time is left before Roborock recommends you replace your main brush.
