@@ -142,7 +142,7 @@ $ curl -X POST -H "Authorization: Bearer <ACCESS TOKEN>" \
 
 {% important %}
 Playing TTS media will prioritize the local Home Assistant URL which can be configured by navigating to **{% my network title="Settings > System > Network" %}**.
-It is highly recommended to set the local Home Assistant URL to automatic, in which case the generated URL will be `http://<local_ip>`.
+It is highly recommended to set the local Home Assistant URL to automatic, in which case the generated URL will be `http://<local_ip>:<local_port>`.
 {% endimportant %}
 
 The following sections describe some of the problems encountered with media devices.
@@ -157,7 +157,7 @@ The `tts` action will send an `https://` URL to the media device, which will che
 
 Google cast devices (Google Home, Chromecast, etc.) require the host in media URLs to be resolvable using Google's public DNS servers, and if the the URL is specifying the `https` protocol, the certificate must be valid and not self-signed.
 
-These requirements present the following problems, all of which create problems if the local Home Assistant URL is not `http://<local_ip>`:
+These requirements present the following problems, all of which create problems if the local Home Assistant URL is not `http://<local_ip>:<local_port>`:
 
 - They [reject self-signed certificates](#self-signed-certificates).
 
