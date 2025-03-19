@@ -45,11 +45,12 @@ This {% term integration %} was tested against the following models from Sercomm
     description: The password of the Vodafone Station router.
 {% endconfiguration_basic %}
 
-## Integration options
-
 {% include integrations/option_flow.md %}
 
-- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
+{% configuration_basic %}
+  consider home:
+    description: Number of seconds that must elapse before considering a disconnected device "not at home".
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
