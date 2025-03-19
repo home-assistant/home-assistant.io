@@ -31,8 +31,10 @@ The integration supports only Sercomm models so far.
 This {% term integration %} was tested against the following models from Sercomm:
 
 - Vodafone Power Station (SHG3000)
+- Vodafone Power Station WiFi 6 (SHG3060)
 - Vodafone WiFi 6 Station (RHG3006)
 - Vodafone Gigabox (SHG3000) - supplied by [Vodafone Ireland](https://deviceguides.vodafone.ie/vodafone/gigabox-windows-10/)
+- Vodafone H300S
 
 {% include integrations/config_flow.md %}
 
