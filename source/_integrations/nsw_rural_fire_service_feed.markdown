@@ -51,7 +51,7 @@ radius:
   type: float
   default: 20.0
 categories:
-  description: List of incident category names found in the feed. Only incidents from the feed that match any of these categories are included. Valid categories are 'Emergency Warning', 'Watch and Act', 'Advice', 'Not Applicable'.
+  description: List of incident category names found in the feed. Only incidents from the feed that match any of these categories are included. Valid categories are 'Emergency Warning', 'Watch and Act', 'Advice', 'Planned Burn', 'Not Applicable'.
   required: false
   type: list
   default: None. Any incident regardless of its category will be included.
@@ -72,12 +72,12 @@ longitude:
 The following state attributes are available for each entity in addition to the standard ones:
 
 | Attribute          | Description                                                                                     |
-| ------------------ | ----------------------------------------------------------------------------------------------- |
+| ------------------ |-------------------------------------------------------------------------------------------------|
 | latitude           | Latitude of the incident.                                                                       |
 | longitude          | Longitude of the incident.                                                                      |
 | source             | `nsw_rural_fire_service_feed` to be used in conjunction with `geo_location` automation trigger. |
 | external_id        | The external ID used in the feed to identify the incident in the feed.                          |
-| category           | One of 'Emergency Warning', 'Watch and Act', 'Advice', 'Not Applicable'.                        |
+| category           | One of 'Emergency Warning', 'Watch and Act', 'Advice', 'Planned Burn', 'Not Applicable'.        |
 | location           | Location details of where the incident takes place.                                             |
 | publication_date   | Date and time when this incident was last updated.                                              |
 | council_area       | Council area in which this incident takes place.                                                |
