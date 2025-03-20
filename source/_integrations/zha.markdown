@@ -324,7 +324,7 @@ To see OTA updates for a device, it must support OTA updates and firmware images
 
 - IKEA
 - Inovelli
-- Ledvacnce/OSRAM
+- Ledvance/OSRAM
 - SALUS/Computime
 - Sonoff/iTead
 - Third Reality
