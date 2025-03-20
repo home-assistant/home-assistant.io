@@ -70,7 +70,7 @@ If you would like to manually curate the sensors provided by **wsdot**, you can 
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 Figuring out which Travel Time ID (`id`) is associated with your routes is a bit of a challenge. If you visit
-`https://wsdot.com/Traffic/api/TravelTimes/TravelTimesREST.svc/GetTravelTimesAsJson?AccessCode=[your_api_key_here]`
+<https://wsdot.com/Traffic/api/TravelTimes/TravelTimesREST.svc/GetTravelTimesAsJson?AccessCode=[your_api_key_here]>
 substituting your `api_key`, you will get a list of all available routes.
 Search through it and then find the key `TravelTimeID`.
 That tells you the number you need.
@@ -91,23 +91,23 @@ When trying to set up the integration, the form shows the message "Invalid API K
 
 ##### Description
 
-This means that the API Key entered in the configuration was denied access to https://wsdot.wa.gov.
+This means that the API Key entered in the configuration was denied access to <https://wsdot.wa.gov>.
 
 ##### Resolution
 
 To resolve this issue, try the following steps:
 
 1. Double check that you input your API key correctly
-   - A correct API Key is a series of eight, four, four, four, twelve hexadecimal (`0,1,2,3,4,5,,6,7,8,9,a,b,c,d,e,f`) components
+   - A correct API Key is a series of eight, four, four, four, twelve hexadecimal (`0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f`) components
    - Example: `0123456a-789b-012c-345d-6789012345ef`
    - Make sure that you included the dashes, and no extra spaces or newlines
 2. Test your API Key
-   - Test your API Key directly against WSDOT by entering it into the following URL in your browser https://wsdot.wa.gov/Traffic/api/TravelTimes/TravelTimesREST.svc/GetTravelTimesAsJson?AccessCode=[your-api-key-here]
+   - Test your API Key directly against WSDOT by entering it into the following URL in your browser <https://wsdot.wa.gov/Traffic/api/TravelTimes/TravelTimesREST.svc/GetTravelTimesAsJson?AccessCode=[your-api-key-here]>
    - If this returns a "Request Error" page saying "Invalid Access Code", you will need to check your key, or obtain a new one
    - If this returns a page of raw JSON data, your API Key is valid
 3. Obtain a new API Key
    - If you have not yet obtained an API Key, or you lost or mistyped an earlier API Key, you can get a new one
-   - Navigate to https://wsdot.wa.gov/traffic/api/, enter your email and hit the <kbd>Submit</kbd> button. The new API Key will immidiatly be diaplayed below the input box.
+   - Navigate to <https://wsdot.wa.gov/traffic/api/>, enter your email and hit the <kbd>Submit</kbd> button. The new API Key will immediately be displayed below the input box.
 
 ### No data displayed
 
