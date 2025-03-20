@@ -23,6 +23,25 @@ The **NOAA Tides** {% term integration %} uses details from [NOAA Tides and Curr
 
 This {% term integration %} requires the use of a NOAA station ID. Search [NOAA Tide Predictions](https://tidesandcurrents.noaa.gov/tide_predictions.html) to find a location. Use the ID from the search results in your configuration. Alternatively, you can determine a station ID from a URL. For example, `8721164` in the following URL: `https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8721164`
 
-{% note %}
-Local Standard Time and Local Daylight Time means the time local to the requested station.
-{% endnote %}
+{% configuration_basic  %}
+Station ID:
+  description: ID of the station you'd like to track from <https://tidesandcurrents.noaa.gov/tide_predictions.html>.
+Time Zone:
+  description: User-selected timezone.
+  default: Local Standard Time/Local Daylight Time.
+  keys:
+    GMT:
+      description: Greenwich Mean Time.
+    Local Standard Time:
+      description: Local Standard Time, not corrected for Daylight Saving Time, local to the requested station.
+    Local Standard Time / Local Daylight Time:
+      description: Local Standard Time, corrected for Daylight Saving Time when appropriate, local to the requested station.
+Unit System:
+  description: User-selected unit system.
+  default: Defaults to `metric` or `imperial` based on the Home Assistant configuration.
+  keys:
+    Metric:
+      description: Metric units (Celsius, meters, cm/s appropriate for the data)
+    English:
+      description: English units (fahrenheit, feet, knots appropriate for the data)
+{% endconfiguration_basic  %}
