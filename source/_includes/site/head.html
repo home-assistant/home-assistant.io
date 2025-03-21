@@ -13,6 +13,10 @@
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="{{ page.url | canonical_url }}">
 
+    <!-- Enable View Transition in supported browsers for single-page app feel -->
+    <meta name="view-transition" content="same-origin" />
+    <style>@view-transition { navigation: auto; }</style>
+
     <meta property="fb:app_id" content="{{ site.social.facebook.app_id }}">
     <meta property="og:title" content="{% if post.title %}{{ post.title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
     <meta property="og:site_name" content="{{ site.title }}">
