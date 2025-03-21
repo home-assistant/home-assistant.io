@@ -838,6 +838,7 @@ support_url:
     'pl_rst_pct':          'payload_reset_percentage',
     'pl_rst_pr_mode':      'payload_reset_preset_mode',
     'pl_stop':             'payload_stop',
+    'pl_stop_tilt':        'payload_stop_tilt',
     'pl_stpa':             'payload_start_pause',
     'pl_strt':             'payload_start',
     'pl_toff':             'payload_turn_off',

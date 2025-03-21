@@ -1256,6 +1256,26 @@ Some examples:
 
 {% endraw %}
 
+### Combining dictionaries
+
+The template engine provides a function and filter to merge multiple dictionaries: `combine`.
+
+It will take multiple dictionaries and merge them into a single dictionary. When used as a filter,
+the filter value is used as the first dictionary. The optional `recursive` parameter determines
+whether nested dictionaries should be merged (defaults to `False`).
+
+Some examples:
+
+{% raw %}
+
+- `{{ {'a': 1, 'b': 2} | combine({'b': 3, 'c': 4}) }}` - renders as `{'a': 1, 'b': 3, 'c': 4}`
+- `{{ combine({'a': 1, 'b': 2}, {'b': 3, 'c': 4}) }}` - renders as `{'a': 1, 'b': 3, 'c': 4}`
+
+- `{{ combine({'a': 1, 'b': {'x': 1}}, {'b': {'y': 2}, 'c': 4}, recursive=True) }}` - renders as `{'a': 1, 'b': {'x': 1, 'y': 2}, 'c': 4}`
+- `{{ combine({'a': 1, 'b': {'x': 1}}, {'b': {'y': 2}, 'c': 4}) }}` - renders as `{'a': 1, 'b': {'y': 2}, 'c': 4}`
+
+{% endraw %}
+
 ## Merge action responses
 
 Using action responses we can collect information from various entities at the same time.
