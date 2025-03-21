@@ -235,7 +235,7 @@ data:
   command: mixer
   parameters:
     - volume
-    - '+5'
+    - "+5"
 ```
 
 ### Action `call_query`
