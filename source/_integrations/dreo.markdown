@@ -10,7 +10,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Dreo** {% term integration %} enables you to control smart switches connected to the [Dreo App](https://m.dreo.com/en).
+The **Dreo** {% term integration %} enables you to control smart products connected to the [Dreo App](https://m.dreo.com/en).
 
 The devices must be added to the Dreo App before this integration can discover them.
 
@@ -51,7 +51,6 @@ Dreo App. Once registration is complete, you can add the Dreo integration in Hom
 {% include integrations/config_flow.md %}
 
 {% include integrations/remove_device_service.md %}
-
 
 ## Fan exposed attributes
 
