@@ -6,6 +6,7 @@ ha_category:
   - Binary sensor
   - Climate
   - Cover
+  - Event
   - Fan
   - Hub
   - Light
@@ -22,6 +23,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - cover
+  - event
   - fan
   - light
   - lock
@@ -114,6 +116,10 @@ The SmartThings Cover platform lets you control devices that have open/close rel
 | [`switchLevel`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switchLevel)            | `position`                               |
 | [`windowShadeLevel`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference/#windowShadeLevel) | `position`                               |
 | [`battery`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#battery)                    | `battery_level` (state attribute)        |
+
+### Event
+
+The SmartThings Event platform will create entities for every button. It will show any button presses and allows you to automate on these events.
 
 ### Fan
 
