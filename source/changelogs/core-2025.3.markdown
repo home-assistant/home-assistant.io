@@ -1416,9 +1416,11 @@ For a summary in a more readable format:
 - Bump ZHA to 0.0.53 ([@puddly] - [#141025])
 - Bump Python-Snoo to 0.6.3 ([@Lash-L] - [#140628])
 - Bump python-snoo to 0.6.4 ([@Lash-L] - [#141030])
+- Improve Home Connect appliances test fixture ([@MartinHjelmare] - [#139787])
 
 [#139379]: https://github.com/home-assistant/core/pull/139379
 [#139384]: https://github.com/home-assistant/core/pull/139384
+[#139787]: https://github.com/home-assistant/core/pull/139787
 [#139859]: https://github.com/home-assistant/core/pull/139859
 [#140061]: https://github.com/home-assistant/core/pull/140061
 [#140392]: https://github.com/home-assistant/core/pull/140392
@@ -1447,6 +1449,7 @@ For a summary in a more readable format:
 [@Diegorro98]: https://github.com/Diegorro98
 [@IvanLH]: https://github.com/IvanLH
 [@Lash-L]: https://github.com/Lash-L
+[@MartinHjelmare]: https://github.com/MartinHjelmare
 [@PeteRager]: https://github.com/PeteRager
 [@adamfeldman]: https://github.com/adamfeldman
 [@bdraco]: https://github.com/bdraco
