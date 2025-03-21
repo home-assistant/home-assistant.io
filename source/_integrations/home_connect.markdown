@@ -1078,6 +1078,35 @@ To solve the above issue, follow these steps:
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu from the application credentials you created for the Home Connect integration and select **Delete**.
 4. Add the Home Connect integration again under {% my integrations title="**Settings** > **Devices & services**" %}
 
+### Missing options at the "active program" and "selected program" entities
+
+#### Symptom: "Although I have options, some programs that are available on the app are not in the list of options at the "active program" and "selected program" entities"
+
+Some programs that are available to select on the app, on the physical device or in the diagnostics file from the device are missing at the "active program" and "selected program" entities.
+
+##### Description
+
+If you see programs in the app or the physical device that are missing in the integration, first check if they are available in the [diagnostics file](https://www.home-assistant.io/docs/configuration/troubleshooting/#download-diagnostics). If they are in the diagnostics file, it means the API can send them to the integration, but the integration can't recognize them.
+
+##### Resolution
+
+The program key needs to be added to the integration. To help with that, you can open an issue at [aiohomeconnect](https://github.com/MartinHjelmare/aiohomeconnect) about the missing program key.
+
+### Symptom: "No programs available at the "active program" and "selected program" entities nor in the diagnostics file"
+
+There are no programs available to select at the "active program" and "selected program" entities, and the downloaded device diagnostics file does not list any programs.
+
+#### Description
+
+The Home Connect API is not sending any programs to the integration.
+
+#### Resolution
+
+There's no solution for this issue. The only thing that can be done is reporting the issue to Home Connect through these channels:
+
+- [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
+- [Home Connect developer Help & Support](https://developer.home-connect.com/support)
+
 ### Unavailable entities for a device
 
 #### Symptom: "The entities related to an appliance were available but no longer are"

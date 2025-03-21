@@ -265,7 +265,18 @@ custom_quirks_path:
 
 #### Defining Zigbee channel to use
 
-Tip! Before considering to change to an other Zigbee channel on an existing Zigbee network, it is highly recommended that you read through the two segments under the [troubleshooting](#troubleshooting) section below about _Best practices to avoid pairing/connection difficulties_ and _Zigbee interference avoidance and network range/coverage optimization_. These sections provide prerequisite information and advice on how to achieve the best possible Zigbee network in your environment.
+{% important %}
+The best practice is to **not change the Zigbee channel** from the ZHA default.
+{% endimportant %}
+
+{% note %}
+**Before changing the Zigbee channel on an existing network**, review the following sections on this page:
+
+- [Best practices to avoid pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties)
+- [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization)
+
+These sections both provide helpful advice on improving your Zigbee network performance.
+{% endnote %}
 
 ZHA prefers to use Zigbee channel 15 by default. You can change this using YAML configuration, but this only works
 if there's no existing network. To change the channel for an existing network, radio has to be factory reset and a new network to be formed. This requires re-pairing of all the devices.
@@ -278,9 +289,7 @@ zha:
       channels: [15, 20, 25]  # Channel mask
 ```
 
-{% note %}
-The best practice is to not change the Zigbee channel from the ZHA default.
-{% endnote %}
+
 
 The related troubleshooting segments mentioned above will, among other things, inform that if you have issues with overlapping frequencies between Wi-Fi and Zigbee, then it is usually better to first only try changing and setting a static Wi-Fi channel on your Wi-Fi router or all your Wi-Fi access points (instead of just changing to another Zigbee channel).
 
@@ -315,7 +324,7 @@ To see OTA updates for a device, it must support OTA updates and firmware images
 
 - IKEA
 - Inovelli
-- Ledvacnce/OSRAM
+- Ledvance/OSRAM
 - SALUS/Computime
 - Sonoff/iTead
 - Third Reality
@@ -332,7 +341,14 @@ Refer to the [zigpy documentation for OTA configuration](https://github.com/zigp
 
 ## Adding devices
 
-Tip! It is highly recommended that you read through the two segments under the troubleshooting section below about _Best practices to avoid pairing/connection difficulties_ and _Zigbee interference avoidance and network range/coverage optimization_ for general prerequisite knowledge and advice on how to achieve the best possible Zigbee network in your environment.
+{% tip %}
+When adding devices, review the following sections on this page:
+
+- [Best practices to avoid pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties)
+- [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization)
+
+These sections both provide helpful advice on improving your Zigbee network performance.
+{% endtip %}
 
 **To add a new Zigbee device:**
 
@@ -614,34 +630,70 @@ If some existing devices do not resume normal functions after some time, try pow
 
 ## Troubleshooting
 
-Please note the current limitations and follow the instructions in this troubleshooting section.
-
 {% note %}
 To help resolve any kinks or compatibility problems, report bugs as issues with debug logs.
 {% endnote %}
 
 ### Limitations
 
-ZHA only supports connecting a single dedicated Zigbee Coordinator radio adapter or module with a single Zigbee network. The Zigbee Coordinator cannot already be connected or used by any other application. Devices currently or previously connected to another Zigbee implementation will need to be reset to their factory default settings before they can be paired/joined to ZHA. Refer to each device manufacturer's documentation for reset steps.
+The list of ZHA limitations may not be exhaustive.
 
-Any Zigbee device can only be connected to a single Zigbee Coordinator (only one Zigbee gateway). This is a limitation in the Zigbee protocol specifications, governed by the [CSA (Connectivity Standards Alliance)](https://csa-iot.org/all-solutions/zigbee/), applying to all Zigbee implementations and not just the ZHA implementation.
+{% details "List of ZHA limitations:" %}
 
-Support for commissioning Zigbee 3.0 devices via "Install Code" or "QR Code" via the `zha.permit` action has so far only been implemented for 'ezsp' (Silicon Labs EmberZNet) or 'znp' (Texas Instruments) radio type in ZHA. Other radio types are missing support in their respective [radio libraries for zigpy](https://github.com/zigpy/) or manufacturer's firmware commands/APIs.
+**ZHA only supports connecting a single dedicated Zigbee coordinator with a single Zigbee network:**
 
-ZHA currently does not support devices that can only use the ZGP ("Zigbee Green Power") profile which is used in a few batteryless self-powered or energy harvesting devices, (such as for example; Philips Hue Click, Philips Hue Tap, and some "Friends of Hue" partnership switches).
+- The Zigbee Coordinator cannot already be connected or used by any other application.
+- Devices currently or previously connected to another Zigbee implementation will need to be reset to their factory default settings before they can be paired/joined to ZHA.
+- Refer to each device manufacturer's documentation for reset steps.
 
-ZHA does not currently support devices that can only use the ZSE ("Zigbee Smart Energy") profile, that is however due to the "Zigbee SE" specification not being part of the standard Zigbee 3.0 specification and thus not implemented in most of the Zigbee protocol stacks that are commonly available Zigbee Coordinator radio adapters and modules.
+**A Zigbee device can only be connected to a single Zigbee Coordinator (only one Zigbee gateway):**
+
+- This is a limitation in the Zigbee protocol specifications, governed by the [CSA (Connectivity Standards Alliance)](https://csa-iot.org/all-solutions/zigbee/), applying to all Zigbee implementations and not just the ZHA implementation.
+
+**Support for commissioning Zigbee 3.0 devices via "Install Code" or "QR Code" via the `zha.permit` action:**
+
+- This has so far only been implemented for 'ezsp' (Silicon Labs EmberZNet) or 'znp' (Texas Instruments) radio type in ZHA.
+- Other radio types are missing support in their respective [radio libraries for zigpy](https://github.com/zigpy/) or manufacturer's firmware commands/APIs.
+
+**ZHA does _not_ currently support devices that can only use:**
+
+- The ZGP ("Zigbee Green Power") profile:
+  - This is used in a few batteryless self-powered or energy harvesting devices, (such as Philips Hue Click, Philips Hue Tap, and some "Friends of Hue" partnership switches).
+- The ZSE ("Zigbee Smart Energy") profile:
+  - This is due to the "Zigbee SE" specification not being part of the standard Zigbee 3.0 specification and thus not implemented in most of the Zigbee protocol stacks that are commonly available Zigbee Coordinator radio adapters and modules.
+
+{% enddetails %}
 
 ### Knowing which devices are supported
 
-Home Assistant's ZHA {% term integration %} supports all standard Zigbee device types. It should be compatible with most Zigbee devices as long as they fully conform to the official ZCL (Zigbee Cluster Library) specifications defined by the [CSA (Connectivity Standards Alliance, formerly the Zigbee Alliance)](https://csa-iot.org/all-solutions/zigbee/). There is therefore no official compatibility list of devices that will work out-of-the-box with the ZHA {% term integration %}
-Not all hardware manufacturers always fully comply with the standard specifications. Sometimes, they may also implement unique features. For this reason, some Zigbee devices pair/join fine with ZHA but then only show none or only a few entities in the {% term integration %}. Developers can work around most such interoperability issues by adding conversion/translation code in custom device handlers. For more information, refer to the section below on [How to add support for new and unsupported devices](#how-to-add-support-for-new-and-unsupported-devices).
+Home Assistant's ZHA {% term integration %} supports all standard Zigbee device types as defined by the [CSA (Connectivity Standards Alliance, formerly the Zigbee Alliance)](https://csa-iot.org/all-solutions/zigbee/).
 
-For clarification, normally only devices that do not fully conform to CSA's ZCL specifications that will not present all standard attributes as entities for configuration in the ZHA {% term integration %}. Zigbee devices that only use the standard clusters and attributes that are Zigbee specifications set by the Connectivity Standards Alliance should not need custom device handlers.
+**There is therefore no official compatibility list of devices that will work out-of-the-box with the ZHA {% term integration %}.**
 
-Before continuing with this section: If a device does not join/pair at all, read the troubleshooting sections about how to avoid pairing/connection difficulties, interference avoidance, and network range/coverage optimization.
+{% tip %}
+Check out [blakadder's unofficial Zigbee Device Compatibility Repository](https://zigbee.blakadder.com).
 
-Tip to new Zigbee users: Checkout [blakadder's unofficial Zigbee Device Compatibility Repository](https://zigbee.blakadder.com). Anyone can help maintain the site by submitting device compatibility information to it. The repository contains independent community member's reports or device-specific pairing tips for several home automation gateway/bridge/hub software, including open-source Zigbee implementations, such as ZHA, Zigbee2MQTT, and Tasmota (Zigbee2Tasmota).
+This unofficial list contains independent community members' reports _(or device-specific pairing tips)_ for several home automation gateway/bridge/hub software (including open-source Zigbee implementations such as ZHA, Zigbee2MQTT, and Tasmota/Zigbee2Tasmota).
+
+Anyone can help maintain the site by submitting device compatibility information to it.
+{% endtip %}
+
+Not all hardware manufacturers fully comply with the standard. This can include:
+
+- Implementing unique (but non-standard) features,
+- Not showing all expected entities within the Home Assistant {% term integration %} overview.
+- Showing no entities within Home Assistant at all.
+
+Developers (or even advanced users) might be able to work around such interoperability issues by adding conversion/translation code in custom device handlers. For more information, refer to [How to add support for new and unsupported devices](#how-to-add-support-for-new-and-unsupported-devices).
+
+{% note %}
+**If a device will not join/pair** at all, review the following sections on this page:
+
+- [Best practices to avoid pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties)
+- [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization)
+
+These sections both provide helpful advice on improving your Zigbee network performance.
+{% endnote %}
 
 ### How to add support for new and unsupported devices
 
@@ -777,7 +829,12 @@ When reporting potential bugs related to the ZHA integration on the issues track
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
      - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & services**" %}. Select the **Zigbee Home Automation** integration. Then, select **Configure** > **Devices** (pick your device). Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
 
-Note: Please also make sure you give it your best effort to follow the recommended best practices for avoiding both [pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties) and [Zigbee interference](#zigbee-interference-avoidance-and-network-rangecoverage-optimization), (which helps free up time for developers).
+{% tip %}
+For troubleshooting, read the following sections on this page. They provide information on improving your Zigbee network performance.
+
+- [Best practices to avoid pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties)
+- [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization)
+{% endtip %}
 
 ### Debug logging
 

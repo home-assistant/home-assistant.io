@@ -18,6 +18,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **Vodafone Station** {% term integration %} allows you to control your [Vodafone Station](https://www.vodafone.it/privati/area-supporto/assistenza-dispositivi/vodafone-station.html) based router.
@@ -31,8 +32,10 @@ The integration supports only Sercomm models so far.
 This {% term integration %} was tested against the following models from Sercomm:
 
 - Vodafone Power Station (SHG3000)
+- Vodafone Power Station WiFi 6 (SHG3060)
 - Vodafone WiFi 6 Station (RHG3006)
 - Vodafone Gigabox (SHG3000) - supplied by [Vodafone Ireland](https://deviceguides.vodafone.ie/vodafone/gigabox-windows-10/)
+- Vodafone H300S
 
 {% include integrations/config_flow.md %}
 
@@ -45,12 +48,12 @@ This {% term integration %} was tested against the following models from Sercomm
     description: The password of the Vodafone Station router.
 {% endconfiguration_basic %}
 
-## Integration options
+{% include integrations/option_flow.md %}
 
-It is possible to change some behaviors through the {% term integration %} options.
-To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. On the **Vodafone Station** integration, select the cogwheel. Then select **Configure**.
-
-- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
+{% configuration_basic %}
+  consider home:
+    description: Number of seconds that must elapse before considering a disconnected device "not at home".
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
