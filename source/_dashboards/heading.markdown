@@ -108,4 +108,12 @@ tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will do nothing.
   type: map
+hold_action:
+  required: false
+  description: Action taken on card hold. See [action documentation](/dashboards/actions/#hold-action). By default, it will do nothing.
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action). By default, it will do nothing.
+  type: map
 {% endconfiguration %}
