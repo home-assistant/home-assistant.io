@@ -6,6 +6,7 @@ ha_category:
   - Binary sensor
   - Climate
   - Cover
+  - Event
   - Fan
   - Hub
   - Light
@@ -13,6 +14,7 @@ ha_category:
   - Scene
   - Sensor
   - Switch
+  - Update
   - Valve
 ha_release: 0.87
 ha_iot_class: Cloud Push
@@ -22,12 +24,14 @@ ha_platforms:
   - binary_sensor
   - climate
   - cover
+  - event
   - fan
   - light
   - lock
   - scene
   - sensor
   - switch
+  - update
   - valve
 ha_dhcp: true
 ha_integration_type: integration
@@ -68,6 +72,7 @@ In Home Assistant, a binary sensor entity will be created for each of the follow
 | [`filterStatus`](https://developer.smartthings.com/docs/devices/capabilities/proposed#filterStatus)                             |
 | [`motionSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#motionSensor)               |
 | [`presenceSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#presenceSensor)           |
+| `samsungce.kidsLock`                                                                                                            |
 | [`remoteControlStatus`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#remoteControlStatus) |
 | [`tamperAlert`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#tamperAlert)                 |
 | [`valve`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#valve)                             |
@@ -114,6 +119,10 @@ The SmartThings Cover platform lets you control devices that have open/close rel
 | [`switchLevel`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switchLevel)            | `position`                               |
 | [`windowShadeLevel`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference/#windowShadeLevel) | `position`                               |
 | [`battery`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#battery)                    | `battery_level` (state attribute)        |
+
+### Event
+
+The SmartThings Event platform will create entities for every button. It will show any button presses and allows you to automate on these events.
 
 ### Fan
 
@@ -193,6 +202,7 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`tvChannel`](https://developer.smartthings.com/docs/devices/capabilities/proposed#tvChannel)                                                                 | TV channel<br/>TV channel name                                           |
 | [`tvocMeasurement`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#tvocMeasurement)                                       | Volatile organic compounds                                               |
 | [`ultravioletIndex`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#ultravioletIndex)                                     | UV index                                                                 |
+| [`veryFineDustSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#veryFineDustSensor)                                 | PM1.0                                                                    |
 | [`voltageMeasurement`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#voltageMeasurement)                                 | Voltage                                                                  |
 | [`washerMode`](https://developer.smartthings.com/docs/devices/capabilities/proposed#washerMode)                                                               | Washer mode                                                              |
 | [`washerOperatingState`](https://developer.smartthings.com/docs/devices/capabilities/proposed#washerOperatingState)                                           | Machine state<br/>Job state<br/>Completion time                          |
@@ -204,6 +214,10 @@ The SmartThings Scene lets you activate scenes defined in SmartThings. A scene e
 ### Switch
 
 The SmartThings Switch lets you control devices that have the [`switch`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switch) capability that are not already represented by a more specific platform.
+
+### Update
+
+The SmartThings update platform lets you update the firmware of devices that have the [`firmwareUpdate`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#firmwareUpdate) capability.
 
 ### Valve
 
