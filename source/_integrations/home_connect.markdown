@@ -682,6 +682,7 @@ Both entities can use these options, but the availability of these will depend o
     - **Off**: `laundry_care_washer_enum_type_spin_speed_off`
     - **400 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_400`
     - **600 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_600`
+    - **700 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_700`
     - **800 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_800`
     - **900 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_900`
     - **1000 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_1000`
@@ -1088,19 +1089,19 @@ Some programs that are available to select on the app, on the physical device or
 
 If you see programs in the app or the physical device that are missing in the integration, first check if they are available in the [diagnostics file](https://www.home-assistant.io/docs/configuration/troubleshooting/#download-diagnostics). If they are in the diagnostics file, it means the API can send them to the integration, but the integration can't recognize them.
 
-##### Resolution
+##### Solution
 
 The program key needs to be added to the integration. To help with that, you can open an issue at [aiohomeconnect](https://github.com/MartinHjelmare/aiohomeconnect) about the missing program key.
 
-### Symptom: "No programs available at the "active program" and "selected program" entities nor in the diagnostics file"
+#### Symptom: "No programs available at the "active program" and "selected program" entities nor in the diagnostics file"
 
 There are no programs available to select at the "active program" and "selected program" entities, and the downloaded device diagnostics file does not list any programs.
 
-#### Description
+##### Description
 
 The Home Connect API is not sending any programs to the integration.
 
-#### Resolution
+##### Solution
 
 There's no solution for this issue. The only thing that can be done is reporting the issue to Home Connect through these channels:
 
