@@ -215,6 +215,13 @@ The SmartThings Scene lets you activate scenes defined in SmartThings. A scene e
 
 The SmartThings Switch lets you control devices that have the [`switch`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switch) capability that are not already represented by a more specific platform.
 
+It will also create switches for the following capabilities:
+
+| SmartThings capability       |
+|------------------------------|
+| `custom.dryerWrinklePrevent` |
+
+
 ### Update
 
 The SmartThings update platform lets you update the firmware of devices that have the [`firmwareUpdate`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#firmwareUpdate) capability.
