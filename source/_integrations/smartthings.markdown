@@ -12,6 +12,7 @@ ha_category:
   - Light
   - Lock
   - Scene
+  - Select
   - Sensor
   - Switch
   - Update
@@ -29,6 +30,7 @@ ha_platforms:
   - light
   - lock
   - scene
+  - select
   - sensor
   - switch
   - update
@@ -56,6 +58,7 @@ SmartThings represents devices as a set of [capabilities](https://developer.smar
 - [Fan](#fan)
 - [Light](#light)
 - [Lock](#lock)
+- [Select](#select)
 - [Sensor](#sensor)
 - [Scene](#scene)
 - [Switch](#switch)
@@ -145,6 +148,10 @@ The SmartThings Light lets you control devices that have light-related capabilit
 ### Lock
 
 The SmartThings Lock platform lets you control devices that have the [`lock`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#lock) capability, showing current lock status and supporting lock and unlock commands.
+
+### Select
+
+The SmartThings Select platform can be used to remotely turn on a dryer and washer. Be aware that for them to work, the Remote control has to be turned on.
 
 ### Sensor
 
