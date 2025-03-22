@@ -2,6 +2,7 @@
 title: Network UPS Tools (NUT)
 description: Instructions on how to set up NUT sensors within Home Assistant.
 ha_category:
+  - Buttons
   - System monitor
 ha_iot_class: Local Polling
 ha_release: 0.34
@@ -14,6 +15,7 @@ ha_codeowners:
   - '@tdfountain'
 ha_zeroconf: true
 ha_platforms:
+  - buttons
   - diagnostics
   - sensor
 ha_integration_type: device
@@ -22,6 +24,26 @@ ha_integration_type: device
 The Network UPS Tools (NUT) integration allows you to monitor and manage a UPS (battery backup) using a [NUT](https://networkupstools.org/) server. It lets you view their status, receives notifications about important events, and execute commands as device actions.
 
 {% include integrations/config_flow.md %}
+
+## Supported functionality
+
+### Buttons
+
+{% important %}
+The username and password configured for the device must be granted
+`instcmds` permissions on the NUT server to use buttons. Buttons will
+not be available if user credentials are not specified. See the
+[NUT server documentation](https://networkupstools.org/documentation.html)
+for configuration information.
+
+This NUT integration will add buttons for NUT server commands
+available for your device.
+
+The following buttons are available for each switchable outlet:
+
+| name                      | Description                                     |
+|---------------------------|:------------------------------------------------|
+| Power cycle outlet `name` | Power cycle the named outlet                    |
 
 ## Example Resources
 
