@@ -222,6 +222,11 @@ yellow:
       ship_to: Europe
       url: https://thepihut.com/products/home-assistant-yellow
       logo: /images/distributors/pi-hut.webp
+    - name: Domadoo
+      ship_from: France
+      ship_to: Europe
+      url: https://www.domadoo.fr/en/smart-home-hub/7113-nabu-casa-home-assistant-yellow-kit-with-power-supply.html
+      logo: /images/distributors/domadoo.jpg
 zbt-1:
   name: "<strong>Home Assistant Connect ZBT-1</strong>"
   distributors:

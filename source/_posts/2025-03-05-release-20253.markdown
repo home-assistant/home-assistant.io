@@ -71,6 +71,7 @@ Enjoy the release!
   - [2025.3.1 - March 7](#202531---march-7)
   - [2025.3.2 - March 11](#202532---march-11)
   - [2025.3.3 - March 14](#202533---march-14)
+  - [2025.3.4 - March 21](#202534---march-21)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -645,6 +646,77 @@ release every Friday.
 [@jb101010-2]: https://github.com/jb101010-2
 [@joostlek]: https://github.com/joostlek
 [@jpbede]: https://github.com/jpbede
+
+### 2025.3.4 - March 21
+
+- Fix initial fetch of Home Connect appliance data to handle API rate limit errors ([@Diegorro98] - [#139379])
+- Handle API rate limit error on Home Connect entities fetch ([@Diegorro98] - [#139384])
+- Album art not available for Sonos media library favorites ([@PeteRager] - [#140557])
+- Change max ICP value to fixed value for Wallbox Integration ([@hesselonline] - [#140592])
+- Add 700 RPM option to washer spin speed options at Home Connect ([@Diegorro98] - [#140607])
+- Handle non documented options at Home Connect select entities ([@Diegorro98] - [#140608])
+- Fix optional password in Velbus config flow ([@cereal2nd] - [#140615])
+- Make Oven setpoint follow temperature UoM in SmartThings ([@joostlek] - [#140666])
+- Fix Elk-M1 missing TLS 1.2 check ([@gwww] - [#140672])
+- Bump PySwitchBot to 0.57.1 ([@bdraco] - [#140681])
+- Check Celsius in SmartThings oven setpoint ([@joostlek] - [#140687])
+- Fix broken core integration Smart Meter Texas by switching it to use HA's SSL Context ([@adamfeldman] - [#140694])
+- Don't reload onedrive on options flow ([@zweckj] - [#140712])
+- Bump pySmartThings to 2.7.4 ([@joostlek] - [#140720])
+- Fix SmartThings ACs without supported AC modes ([@joostlek] - [#140744])
+- Bump pylamarzocco to 1.4.9 ([@zweckj] - [#140916])
+- Log SmartThings subscription error on exception ([@joostlek] - [#140939])
+- Ensure file is correctly uploaded by the GenAI SDK ([@IvanLH] - [#140969])
+- Reolink fix playback headers ([@starkillerOG] - [#141015])
+- Fix some Home Connect options keys ([@Diegorro98] - [#141023])
+- Bump ZHA to 0.0.53 ([@puddly] - [#141025])
+- Bump Python-Snoo to 0.6.3 ([@Lash-L] - [#140628])
+- Bump python-snoo to 0.6.4 ([@Lash-L] - [#141030])
+- Improve Home Connect appliances test fixture ([@MartinHjelmare] - [#139787])
+
+[#139379]: https://github.com/home-assistant/core/pull/139379
+[#139384]: https://github.com/home-assistant/core/pull/139384
+[#139787]: https://github.com/home-assistant/core/pull/139787
+[#139859]: https://github.com/home-assistant/core/pull/139859
+[#140061]: https://github.com/home-assistant/core/pull/140061
+[#140392]: https://github.com/home-assistant/core/pull/140392
+[#140557]: https://github.com/home-assistant/core/pull/140557
+[#140583]: https://github.com/home-assistant/core/pull/140583
+[#140592]: https://github.com/home-assistant/core/pull/140592
+[#140607]: https://github.com/home-assistant/core/pull/140607
+[#140608]: https://github.com/home-assistant/core/pull/140608
+[#140615]: https://github.com/home-assistant/core/pull/140615
+[#140628]: https://github.com/home-assistant/core/pull/140628
+[#140666]: https://github.com/home-assistant/core/pull/140666
+[#140672]: https://github.com/home-assistant/core/pull/140672
+[#140681]: https://github.com/home-assistant/core/pull/140681
+[#140687]: https://github.com/home-assistant/core/pull/140687
+[#140694]: https://github.com/home-assistant/core/pull/140694
+[#140712]: https://github.com/home-assistant/core/pull/140712
+[#140720]: https://github.com/home-assistant/core/pull/140720
+[#140744]: https://github.com/home-assistant/core/pull/140744
+[#140916]: https://github.com/home-assistant/core/pull/140916
+[#140939]: https://github.com/home-assistant/core/pull/140939
+[#140969]: https://github.com/home-assistant/core/pull/140969
+[#141015]: https://github.com/home-assistant/core/pull/141015
+[#141023]: https://github.com/home-assistant/core/pull/141023
+[#141025]: https://github.com/home-assistant/core/pull/141025
+[#141030]: https://github.com/home-assistant/core/pull/141030
+[@Diegorro98]: https://github.com/Diegorro98
+[@IvanLH]: https://github.com/IvanLH
+[@Lash-L]: https://github.com/Lash-L
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@PeteRager]: https://github.com/PeteRager
+[@adamfeldman]: https://github.com/adamfeldman
+[@bdraco]: https://github.com/bdraco
+[@cereal2nd]: https://github.com/cereal2nd
+[@frenck]: https://github.com/frenck
+[@gwww]: https://github.com/gwww
+[@hesselonline]: https://github.com/hesselonline
+[@joostlek]: https://github.com/joostlek
+[@puddly]: https://github.com/puddly
+[@starkillerOG]: https://github.com/starkillerOG
+[@zweckj]: https://github.com/zweckj
 
 ## Need help? Join the community!
 

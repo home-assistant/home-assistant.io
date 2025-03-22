@@ -47,8 +47,6 @@ To get started with the general settings in YAML, follow these steps:
       currency: USD
       country: US
       time_zone: "America/Los_Angeles"
-      external_url: "https://www.example.com"
-      internal_url: "http://homeassistant.local:8123"
       allowlist_external_dirs:
         - "/usr/var/dumping-ground"
         - "/tmp"
@@ -101,11 +99,11 @@ currency:
   type: string
   default: "EUR"
 external_url:
-  description: "The URL that Home Assistant is available on from the internet. For example: `https://example.duckdns.org:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
+  description: "The URL that Home Assistant is available on from the internet. For example: `https://example.duckdns.org:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported. This can also be configured by navigating to **{% my network title="Settings > System > Network" %}**."
   required: false
   type: string
 internal_url:
-  description: "The URL that Home Assistant is available on from your local network. For example: `http://homeassistant.local:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
+  description: "The URL that Home Assistant is available on from your local network. For example: `http://192.168.0.10:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported. This can also be configured by navigating to **{% my network title="Settings > System > Network" %}**."
   required: false
   type: string
 customize:
