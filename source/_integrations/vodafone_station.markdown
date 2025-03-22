@@ -73,6 +73,22 @@ This integration {% term polling polls %} data from the device every 30 seconds 
 
 **Note**: If you don't want to automatically track newly detected devices, disable the {% term integration %} system option `Enable new added entities`.
 
+## Troubleshooting
+
+### Can’t setup the device
+
+#### Symptom: “User already logged-in”
+
+When trying to setup the integration, the form shows the message ““User already logged-in”.
+
+##### Description
+
+This means that there is already a logged session to the Vodafone Station router.
+
+##### Resolution
+
+To resolve this issue, logout from all logged session or if abruptly closed wait for the router timeout ( usually 60s ).
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
