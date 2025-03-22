@@ -63,6 +63,52 @@ There is support for the following platform types within Home Assistant:
 - **Sensor** - external IP address, uptime, firmware, resources and network monitors.
 - **Button** - restart router, dsl/fiber/internet key connections.
 
+## Examples
+
+### Automation: reconnect / get new IP every night
+
+```yaml
+automation:
+- alias: "Reconnect Vodafone Station (Fiber)"
+  triggers:
+    - trigger: time
+      at: "05:00:00"
+  actions:
+    - action: button.press
+      target:
+        entity_id: button.vodafone_station_xxxx_reconnect_fiber
+```
+
+### Automation: notify connected device not home
+
+```yaml
+automation:
+- alias: "Apple TV disconnect"
+  triggers:
+    - platform: state
+      entity_id: device_tracker.appletv
+      to: "not_home"
+  actions:
+    -  action: notify.mobile_app_phone
+       data:
+         message: "TV lost network connection"
+```
+
+### Automation: notify router CPU usage too high
+
+```yaml
+automation:
+- alias: "Vodafone STation CPU high cpu usage"
+  triggers:
+    - platform:  numeric_state
+      entity_id: sensor.vodafone_station_xxxx_cpu_usage
+      above: 80
+  actions:
+    - action: notify.mobile_app_phone
+       data:
+         message: "Router CPU above 80%."
+```
+
 ## Data updates
 
 This integration {% term polling polls %} data from the device every 30 seconds by default.
