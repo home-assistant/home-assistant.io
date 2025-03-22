@@ -23,6 +23,19 @@ The Network UPS Tools (NUT) integration allows you to monitor and manage a UPS (
 
 {% include integrations/config_flow.md %}
 
+Setting up the integration requires the following information:
+
+{% configuration_basic %}
+Host:
+  description: "The IP address or hostname of your NUT server."
+Port:
+  description: "The network port of your NUT server. The NUT server's default port is '3493'."
+Username:
+  description: "The username to log into the NUT server. This is configured in NUT."
+Password:
+  description: "The password associated with the username to log into the NUT server. This is configured in NUT."
+{% endconfiguration_basic %}
+
 ## Example Resources
 
 Given the following example output from NUT (your variables may differ):
