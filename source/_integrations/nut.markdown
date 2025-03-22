@@ -35,6 +35,7 @@ The username and password configured for the device must be granted
 not be available if user credentials are not specified. See the
 [NUT server documentation](https://networkupstools.org/documentation.html)
 for configuration information.
+{% endimportant %}
 
 This NUT integration will add buttons for NUT server commands
 available for your device.
