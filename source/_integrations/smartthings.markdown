@@ -4,6 +4,7 @@ description: Instructions on setting up SmartThings within Home Assistant.
 featured: true
 ha_category:
   - Binary sensor
+  - Button
   - Climate
   - Cover
   - Event
@@ -22,6 +23,7 @@ ha_config_flow: true
 ha_domain: smartthings
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - event
@@ -51,6 +53,7 @@ ha_integration_type: integration
 SmartThings represents devices as a set of [capabilities](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference). The SmartThings integration maps those capabilities to entities in Home Assistant. A single device may be represented by one or more entities.
 
 - [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Climate](#climate)
 - [Cover](#cover)
 - [Fan](#fan)
@@ -77,6 +80,10 @@ In Home Assistant, a binary sensor entity will be created for each of the follow
 | [`tamperAlert`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#tamperAlert)                 |
 | [`valve`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#valve)                             |
 | [`waterSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#waterSensor)                 |
+
+### Button
+
+The SmartThings Button platform provides stop buttons for devices with the `ovenOperatingState` capability.
 
 ### Climate
 
