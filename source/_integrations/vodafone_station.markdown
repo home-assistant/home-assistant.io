@@ -23,6 +23,8 @@ ha_quality_scale: silver
 
 The **Vodafone Station** {% term integration %} allows you to control your [Vodafone Station](https://www.vodafone.it/privati/area-supporto/assistenza-dispositivi/vodafone-station.html) based router.
 
+The integration provides information about your internet connection and the connected devices.
+
 ## Supported devices
 
 The integration supports only Sercomm models so far.
