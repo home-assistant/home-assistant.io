@@ -106,15 +106,15 @@ To resolve this issue, try the following steps:
    - Make sure the app of the manufacturer can see and operate the device.
 3. Make sure the network firewall settings are not blocking the local communication on port 15914.
 
-### I deleted my device from the manufacturer's app and added it again. After this, my device in Home Assistant appears offline or unavailable.
+### I deleted my device from the manufacturer's app and added it again. After this, my device in Home Assistant appears offline or unavailable
 
 Reconfigure the device.
 
-### The device is not getting auto discovered.
+### The device is not getting auto-discovered
 
 Make sure the network firewall settings are not blocking the default mDNS port.
 
-### The device is appearing offline or unavailable.
+### The device is appearing offline or unavailable
 
 Make sure the device is visible and controllable via the manufacturer's app.
 If it is not, check the device's power and network connection.
