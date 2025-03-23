@@ -25,6 +25,8 @@ related:
 
 This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with Home Assistant Backups. When you set up this integration, your Google Drive will have a new folder called Home Assistant where all the backups will be stored. You can rename this folder to whatever you like in Google Drive at any point in time. If you delete the folder, it will automatically be re-created as long as you have the {% term integration %} enabled.
 
+For a video walkthrough see this video starting at 13:50
+<lite-youtube videoid="pZlYu9bN72U" videotitle="Automate Your Home Assistant Backups Like A Pro!" posterquality="maxresdefault"></lite-youtube>
 
 ## Prerequisites
 
