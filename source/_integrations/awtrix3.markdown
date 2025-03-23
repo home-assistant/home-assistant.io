@@ -91,7 +91,7 @@ data:
   target:
     description: Awtrix3 device name.
     required: true
-    type: string or list[string]
+    type: string
 
   message: 
     description: Just a text message
