@@ -98,9 +98,9 @@ automation:
 
 ```yaml
 automation:
-- alias: "Vodafone STation CPU high cpu usage"
+- alias: "Vodafone Station CPU high cpu usage"
   triggers:
-    - platform:  numeric_state
+    - platform: numeric_state
       entity_id: sensor.vodafone_station_xxxx_cpu_usage
       above: 80
   actions:
