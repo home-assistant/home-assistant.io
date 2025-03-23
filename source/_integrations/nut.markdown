@@ -40,7 +40,7 @@ Password:
 
 {% configuration_basic %}
 Scan Interval (seconds):
-  description: "Frequency of requesting updates from NUT server. The default frequency is to poll for data every 60 seconds."
+  description: "Frequency of requesting updates from the NUT server. The scan interval cannot be less than 10 seconds or greater than 300 seconds. The default frequency is to poll for data every 60 seconds."
 {% endconfiguration_basic %}
 
 ## Example Resources
