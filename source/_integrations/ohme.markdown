@@ -103,6 +103,9 @@ The Ohme integration provides the following entities.
 
 #### Switches
 
+- **Price cap**
+  - **Description**: Prevents charging when the electricity price exceeds a defined threshold. The threshold can be set by the service `ohme.set_price_cap`. ***Not available with some energy providers and tariffs.***
+  - **Available for devices**: all
 - **Lock buttons**
   - **Description**: Disable the controls on the device.
   - **Available for devices**: all
@@ -131,6 +134,14 @@ The `ohme.list_charge_slots` action is used to fetch a list of charge slots from
 |------------------------|----------|--------------------------------------------------------------|
 | `config_entry`         | No       | The config entry of the account to get the charge list from. |
 
+### Action: Set price cap
+
+The `ohme.set_price_cap` action is used to set the price cap threshold. This can be toggled by the switch **Price cap**.
+
+| Data attribute         | Optional | Description                                                 |
+|------------------------|----------|-------------------------------------------------------------|
+| `config_entry`         | No       | The config entry of the account to apply the price cap to.  |
+| `price_cap`            | No       | Threshold in 1/100ths of your local currency.               |
 
 ## Removing the integration
 

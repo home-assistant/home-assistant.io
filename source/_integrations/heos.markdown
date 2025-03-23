@@ -29,6 +29,7 @@ Add this integration to automate playback and group configuration of HEOS-capabl
 - Controlling play mode (e.g., play/pause), volume, mute, and shuffle
 - Playing HEOS favorites, playlists, quick selects, URLs
 - Setting the source to physical inputs (e.g., `AUX1`)
+- Browsing HEOS music services (for example, **Tidal**) and sources (such as **Favorites**)
 - Grouping and ungrouping HEOS devices
 - Clearing playlists
 
