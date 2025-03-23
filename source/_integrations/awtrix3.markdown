@@ -60,7 +60,7 @@ device_id:
 {% endconfiguration %}
 
 ## Example
-```
+```yaml
 action: awtrix3.push_app_data
 data:
   name: Test
