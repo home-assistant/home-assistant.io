@@ -26,7 +26,7 @@ ha_config_flow: true
 zeroconf: true
 ---
 
-[Awtrix3 light](https://github.com/Blueforcer/awtrix3) is a smart DYI clock that can be used to access applications, listen to rtttl songs and display notifications.
+[Awtrix3 light](https://github.com/Blueforcer/awtrix3) is a smart DIY clock that can be used to access applications, listen to rtttl songs and display notifications.
 
 {% include integrations/config_flow.md %}
 
