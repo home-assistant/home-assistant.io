@@ -144,5 +144,6 @@ This video tutorial explains how Google Generative AI can be set up, how you can
 logger:
   logs:
     homeassistant.components.conversation: debug
+    homeassistant.components.conversation.chat_log: debug
     homeassistant.components.google_generative_ai_conversation: debug
 ```
