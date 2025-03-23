@@ -133,35 +133,35 @@ The following diagnostic sensors may be available:
 | External contacts         |      | UPS external contact sensors (opaque by mfg) |
 | High battery voltage      | V    | Maximum battery voltage (100% charge)    |
 | High voltage transfer     | V    | High voltage transfer point              |
+| Input L1 current          | A    | Input L1 current                         |
+| Input L1 line frequency   | Hz   | Input L1 line frequency                  |
+| Input L1 real power       | W    | Input L1 current sum value of all (ePDU) phases real power |
+| Input L1-N voltage        | V    | Input L1-N voltage                       |
+| Input L2 current          | A    | Input L2 current                         |
+| Input L2 line frequency   | Hz   | Input L2 line frequency                  |
+| Input L2 real power       | W    | Input L2 current sum value of all (ePDU) phases real power |
+| Input L2-N voltage        | V    | Input L2-N voltage                       |
+| Input L3 current          | A    | Input L3 current                         |
+| Input L3 line frequency   | Hz   | Input L3 line frequency                  |
+| Input L3 n voltage        | V    | Input L3-N voltage                       |
+| Input L3 real power       | W    | Input L3 current sum value of all (ePDU) phases real power |
+| Input bypass L1 current   | A    | Input bypass L1 current                  |
+| Input bypass L1 real power| W    | Input bypass L1 value of real power      |
+| Input bypass L1-N voltage | V    | Input bypass L1-N voltage                |
+| Input bypass L2 current   | A    | Input bypass L2 current                  |
+| Input bypass L2 real power| W    | Input bypass L2 value of real power      |
+| Input bypass L2-N voltage | V    | Input bypass L2-N voltage                |
+| Input bypass L3 current   | A    | Input bypass L3 current                  |
+| Input bypass L3 real power| W    | Input bypass L3 value of real power      |
+| Input bypass L3-N voltage | V    | Input bypass L3-N voltage                |
 | Input bypass current      | A    | Input bypass current                     |
 | Input bypass frequency    | Hz   | Input bypass line frequency              |
-| Input bypass l1 current   | A    | Input bypass L1 current                  |
-| Input bypass l1 n voltage | V    | Input bypass L1-N voltage                |
-| Input bypass l1 real power| W    | Input bypass L1 value of real power      |
-| Input bypass l2 current   | A    | Input bypass L2 current                  |
-| Input bypass l2 n voltage | V    | Input bypass L2-N voltage                |
-| Input bypass l2 real power| W    | Input bypass L2 value of real power      |
-| Input bypass l3 current   | A    | Input bypass L3 current                  |
-| Input bypass l3 n voltage | V    | Input bypass L3-N voltage                |
-| Input bypass l3 real power| W    | Input bypass L3 value of real power      |
 | Input bypass phases       |      | Input bypass line phases                 |
 | Input bypass real power   | W    | Input bypass value of real power         |
 | Input bypass voltage      | V    | Input bypass voltage                     |
 | Input current status      |      | Current status relative to the thresholds|
 | Input frequency           | Hz   | Input line frequency                     |
 | Input frequency status    | Hz   | Frequency status                         |
-| Input l1 current          | A    | Input L1 current                         |
-| Input l1 line frequency   | Hz   | Input L1 line frequency                  |
-| Input l1 n voltage        | V    | Input L1-N voltage                       |
-| Input l1 real power       | W    | Input L1 current sum value of all (ePDU) phases real power |
-| Input l2 current          | A    | Input L2 current                         |
-| Input l2 line frequency   | Hz   | Input L2 line frequency                  |
-| Input l2 n voltage        | V    | Input L2-N voltage                       |
-| Input l2 real power       | W    | Input L2 current sum value of all (ePDU) phases real power |
-| Input l3 current          | A    | Input L3 current                         |
-| Input l3 line frequency   | Hz   | Input L3 line frequency                  |
-| Input l3 n voltage        | V    | Input L3-N voltage                       |
-| Input l3 real power       | W    | Input L3 current sum value of all (ePDU) phases real power |
 | Input nominal frequency   | Hz   | Nominal input line frequency             |
 | Input phases              |      | Input line phases                        |
 | Input power               |      | Current sum value of all (ePDU) phases apparent power |
@@ -190,21 +190,21 @@ The following diagnostic sensors may be available:
 | Nominal real power        | W    | Nominal value of real power              |
 | Number of bad batteries   |      | Number of bad battery packs              |
 | Number of batteries       |      | Number of internal battery packs         |
+| Output L1 current         | A    | Output L1 current                        |
+| Output L1 power percent   | %    | Output L1 percentage of apparent power relative to maximum load |
+| Output L1 real power      | W    | Output L1 real power                     |
+| Output L1-N voltage       | V    | Output L1-N voltage                      |
+| Output L2 current         | A    | Output L2 current                        |
+| Output L2 power percent   | %    | Output L2 percentage of apparent power relative to maximum load |
+| Output L2 real power      | W    | Output L2 real power                     |
+| Output L2-N voltage       | V    | Output L2-N voltage                      |
+| Output L3 current         | A    | Output L3 current                        |
+| Output L3 power percent   | %    | Output L3 percentage of apparent power relative to maximum load |
+| Output L3 real power      | W    | Output L3 real power                     |
+| Output L3-N voltage       | V    | Output L3-N voltage                      |
 | Output apparent power     | VA   | Output apparent power                    |
 | Output current            | A    | Output current                           |
 | Output frequency          | Hz   | Output frequency                         |
-| Output l1 current         | A    | Output L1 current                        |
-| Output l1 n voltage       | V    | Output L1-N voltage                      |
-| Output l1 power percent   | %    | Output L1 percentage of apparent power relative to maximum load |
-| Output l1 real power      | W    | Output L1 real power                     |
-| Output l2 current         | A    | Output L2 current                        |
-| Output l2 n voltage       | V    | Output L2-N voltage                      |
-| Output l2 power percent   | %    | Output L2 percentage of apparent power relative to maximum load |
-| Output l2 real power      | W    | Output L2 real power                     |
-| Output l3 current         | A    | Output L3 current                        |
-| Output l3 n voltage       | V    | Output L3-N voltage                      |
-| Output l3 power percent   | %    | Output L3 percentage of apparent power relative to maximum load |
-| Output l3 real power      | W    | Output L3 real power                     |
 | Output phases             |      | Output phases                            |
 | Output real power         | W    | Output real power                        |
 | Overload setting          | %    | Load when UPS switches to overload condition |
