@@ -37,7 +37,7 @@ change. You should therefore configure the NUT server with a static
 IP address, assign a fixed IP address reservation with DHCP, or use
 DNS as appropriate for your network.
 
-In addition, you will need a `username` and `password` for
+In addition, you will need a username and password for
 this integration to log into the NUT server if authentication is
 required.
 
