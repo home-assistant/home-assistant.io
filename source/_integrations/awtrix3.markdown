@@ -52,7 +52,11 @@ name:
 data:
   description: Specific data for application. If empty - app will be removed
   required: false
-  type: any
+  type: map
+  keys:
+    PARAMETER_NAME:
+      description: The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable.
+      type: any
 device_id:
   description: The ID of the device to create application.
   required: true
@@ -92,7 +96,6 @@ data:
     description: Awtrix3 device name.
     required: true
     type: [list, string]
-
   message: 
     description: Just a text message
     required: false
@@ -101,6 +104,10 @@ data:
     description: specific data for message
     required: false
     type: map	
+    keys:
+      PARAMETER_NAME:
+        description: The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable.
+        type: any
 {% endconfiguration %}
 
 ## Example
