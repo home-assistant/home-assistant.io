@@ -91,7 +91,7 @@ data:
   target:
     description: Awtrix3 device name.
     required: true
-    type: string
+    type: [list, string]
 
   message: 
     description: Just a text message
@@ -100,7 +100,7 @@ data:
   data: 
     description: specific data for message
     required: false
-    type: any	
+    type: map	
 {% endconfiguration %}
 
 ## Example
