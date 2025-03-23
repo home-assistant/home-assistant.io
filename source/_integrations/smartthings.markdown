@@ -4,16 +4,20 @@ description: Instructions on setting up SmartThings within Home Assistant.
 featured: true
 ha_category:
   - Binary sensor
+  - Button
   - Climate
   - Cover
+  - Event
   - Fan
   - Hub
   - Light
   - Lock
   - Number
   - Scene
+  - Select
   - Sensor
   - Switch
+  - Update
   - Valve
 ha_release: 0.87
 ha_iot_class: Cloud Push
@@ -21,15 +25,19 @@ ha_config_flow: true
 ha_domain: smartthings
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
+  - event
   - fan
   - light
   - lock
   - number
   - scene
+  - select
   - sensor
   - switch
+  - update
   - valve
 ha_dhcp: true
 ha_integration_type: integration
@@ -49,12 +57,14 @@ ha_integration_type: integration
 SmartThings represents devices as a set of [capabilities](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference). The SmartThings integration maps those capabilities to entities in Home Assistant. A single device may be represented by one or more entities.
 
 - [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Climate](#climate)
 - [Cover](#cover)
 - [Fan](#fan)
 - [Light](#light)
 - [Lock](#lock)
 - [Number](#number)
+- [Select](#select)
 - [Sensor](#sensor)
 - [Scene](#scene)
 - [Switch](#switch)
@@ -71,10 +81,16 @@ In Home Assistant, a binary sensor entity will be created for each of the follow
 | [`filterStatus`](https://developer.smartthings.com/docs/devices/capabilities/proposed#filterStatus)                             |
 | [`motionSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#motionSensor)               |
 | [`presenceSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#presenceSensor)           |
+| `samsungce.kidsLock`                                                                                                            |
+| `switch` (only for dryers and washers)                                                                                          |
 | [`remoteControlStatus`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#remoteControlStatus) |
 | [`tamperAlert`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#tamperAlert)                 |
 | [`valve`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#valve)                             |
 | [`waterSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#waterSensor)                 |
+
+### Button
+
+The SmartThings Button platform provides stop buttons for devices with the `ovenOperatingState` capability.
 
 ### Climate
 
@@ -118,6 +134,10 @@ The SmartThings Cover platform lets you control devices that have open/close rel
 | [`windowShadeLevel`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference/#windowShadeLevel) | `position`                               |
 | [`battery`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#battery)                    | `battery_level` (state attribute)        |
 
+### Event
+
+The SmartThings Event platform will create entities for every button. It will show any button presses and allows you to automate on these events.
+
 ### Fan
 
 The SmartThings Fan lets you control devices that have fan-related capabilities. For a SmartThings device to be represented by the fan entity, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
@@ -143,6 +163,10 @@ The SmartThings Lock platform lets you control devices that have the [`lock`](ht
 ### Number
 
 The SmartThings number platform lets you control the amount of washer rinse cycles.
+
+### Select
+
+The SmartThings Select platform can be used to remotely turn on a dryer and washer. Be aware that for them to work, the Remote control has to be turned on.
 
 ### Sensor
 
@@ -200,6 +224,7 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`tvChannel`](https://developer.smartthings.com/docs/devices/capabilities/proposed#tvChannel)                                                                 | TV channel<br/>TV channel name                                           |
 | [`tvocMeasurement`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#tvocMeasurement)                                       | Volatile organic compounds                                               |
 | [`ultravioletIndex`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#ultravioletIndex)                                     | UV index                                                                 |
+| [`veryFineDustSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#veryFineDustSensor)                                 | PM1.0                                                                    |
 | [`voltageMeasurement`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#voltageMeasurement)                                 | Voltage                                                                  |
 | [`washerMode`](https://developer.smartthings.com/docs/devices/capabilities/proposed#washerMode)                                                               | Washer mode                                                              |
 | [`washerOperatingState`](https://developer.smartthings.com/docs/devices/capabilities/proposed#washerOperatingState)                                           | Machine state<br/>Job state<br/>Completion time                          |
@@ -211,6 +236,17 @@ The SmartThings Scene lets you activate scenes defined in SmartThings. A scene e
 ### Switch
 
 The SmartThings Switch lets you control devices that have the [`switch`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switch) capability that are not already represented by a more specific platform.
+
+It will also create switches for the following capabilities:
+
+| SmartThings capability       |
+|------------------------------|
+| `custom.dryerWrinklePrevent` |
+
+
+### Update
+
+The SmartThings update platform lets you update the firmware of devices that have the [`firmwareUpdate`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#firmwareUpdate) capability.
 
 ### Valve
 
