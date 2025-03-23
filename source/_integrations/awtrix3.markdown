@@ -88,7 +88,7 @@ following, additional, optional parameters:
 {% configuration "notification" %}
 action: notify.awtrix
 data:
-  target: platform specific
+  target:
     description: Awtrix3 device name.
     required: true
     type: string or list[string]
@@ -101,7 +101,6 @@ data:
     description: specific data for message
     required: false
     type: any	
-
 {% endconfiguration %}
 
 ## Example
