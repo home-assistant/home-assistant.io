@@ -99,9 +99,9 @@ be found in the Network UPS Tools repository documentation on
 Diagnostic sensors provide additional information about a NUT device.
 
 This integration's diagnostic sensors are generally disabled by
-default to reduce storage overhead. The sensors below marked with an
-asterisk (*) are enabled by default. To use a disabled diagnostic
-sensor, you must [enable the
+default to reduce storage overhead. Only the diagnostic sensors below
+marked with an asterisk (*) are enabled by default. To use a disabled
+diagnostic sensor, you must [enable the
 entity](/common-tasks/general/#enabling-entities) first.
 
 {% note %}
@@ -117,9 +117,9 @@ The following diagnostic sensors may be available:
 | Ambient humidity *        | %    | Ambient relative humidity                |
 | Ambient humidity status * |      | Ambient humidity status relative to the thresholds |
 | Ambient temperature *     | °C   | Ambient temperature                      |
-| Ambient temperature status|      | Ambient temperature status relative to the thresholds |
+| Ambient temperature status *|      | Ambient temperature status relative to the thresholds |
 | Apparent power            | VA   | Current value of apparent power          |
-| Battery alarm threshold * |      | Battery alarm threshold                  |
+| Battery alarm threshold   |      | Battery alarm threshold                  |
 | Battery capacity          | Ah   | Battery capacity                         |
 | Battery chemistry         |      | Battery chemistry (opaque by mfg)        |
 | Battery current           | A    | Battery current                          |
