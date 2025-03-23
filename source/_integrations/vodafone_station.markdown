@@ -75,11 +75,11 @@ This integration {% term polling polls %} data from the device every 30 seconds 
 
 ## Troubleshooting
 
-### Can’t setup the device
+### Can’t set up the device
 
-#### Symptom: “User already logged-in”
+#### Symptom: "User already logged-in"
 
-When trying to setup the integration, the form shows the message ““User already logged-in”.
+When trying to set up the integration, the form shows the message "User already logged-in".
 
 ##### Description
 
@@ -87,7 +87,7 @@ This means that there is already a logged session to the Vodafone Station router
 
 ##### Resolution
 
-To resolve this issue, logout from all logged session or if abruptly closed wait for the router timeout ( usually 60s ).
+To resolve this issue, log out from all active sessions, or, if the session was abruptly closed, wait for the router timeout (usually 60 seconds).
 
 ## Removing the integration
 
