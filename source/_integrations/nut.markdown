@@ -36,6 +36,13 @@ Password:
   description: "The password associated with the username to log into the NUT server. This is configured in NUT."
 {% endconfiguration_basic %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Scan Interval (seconds):
+  description: "Frequency of requesting updates from NUT server. The default frequency is to poll for data every 60 seconds."
+{% endconfiguration_basic %}
+
 ## Example Resources
 
 Given the following example output from NUT (your variables may differ):
