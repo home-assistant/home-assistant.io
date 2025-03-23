@@ -19,7 +19,7 @@ ha_quality_scale: bronze
 
 {% include integrations/config_flow.md %}
 
-During setup you will be prompted to enter the **host** and the **client API key** of the server.
+During setup, you will be prompted to enter the **host** and the **client API key** of the server.
 
 {% configuration_basic %}
 Host:
@@ -47,7 +47,7 @@ Pterodactyl has two different types of API keys: Client (also known as Account) 
 
 This integration provides a binary sensor with the following information for each game server of your Pterodactyl server:
 
-- Status
+- Status: Running or stopped
 
 ## Removing the integration
 
