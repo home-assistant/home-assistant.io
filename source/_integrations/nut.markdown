@@ -42,6 +42,11 @@ Password:
   description: "The password associated with the username to log into the NUT server. This is configured in NUT."
 {% endconfiguration_basic %}
 
+## Data updates
+
+The integration uses {% term polling %} to retrieve data from the NUT
+server. The default polling interval is once every 60 seconds.
+
 ## Example Resources
 
 Given the following example output from NUT (your variables may differ):
