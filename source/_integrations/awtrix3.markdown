@@ -103,10 +103,9 @@ data:
   required: false
   type: map	
   keys:
-    text:
-      description: The message to send to the Awtrix3 device.
-      required: false
-      type: string
+    PARAMETER_NAME:
+      description: The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable.
+      type: any
 {% endconfiguration %}
 
 ## Example
