@@ -3,10 +3,10 @@ title: Awtrix3
 description: Instructions on how to integrate Awtrix3 light with Home Assistant.
 ha_category:
   - Button
+  - Binary sensor
   - Light
   - Notifications
   - Sensor
-  - Binary sensor
   - Switch
 ha_iot_class: Local Polling
 ha_release: 2023.9
@@ -15,11 +15,11 @@ ha_codeowners:
 ha_domain: awtrix3
 ha_platforms:
   - button
-  - light
+  - binary_sensor
   - diagnostics
+  - light
   - notify
   - sensor
-  - binary_sensor
   - switch
 ha_integration_type: device
 ha_config_flow: true
