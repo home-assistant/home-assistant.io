@@ -19,13 +19,13 @@ ha_quality_scale: bronze
 
 {% include integrations/config_flow.md %}
 
-During setup, you will be prompted to enter the **host** and the **client API key** of the server.
+During setup, you will be prompted to enter the **URL** and the **client API key** of the server.
 
 {% configuration_basic %}
-Host:
+URL:
     description: "The IP address or hostname of your Pterodactyl server, starting with either `http://` or `https://`, optionally including the port at the end. Example: `http://192.168.0.123:8080`"
 Client API key:
-    description: "The local access token for your Pterodactyl server. Follow the steps below to create one."
+    description: "The client (account) API key for accessing your Pterodactyl server. Follow the steps below to create one."
 {% endconfiguration_basic %}
 
 ### Creating a client API key
@@ -47,7 +47,7 @@ Pterodactyl has two different types of API keys: Client (also known as Account) 
 
 This integration provides a binary sensor with the following information for each game server of your Pterodactyl server:
 
-- Status: Running or stopped
+- Status: `Running` or `Not running`
 
 ## Removing the integration
 
