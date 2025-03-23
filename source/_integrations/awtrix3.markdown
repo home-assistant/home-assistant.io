@@ -9,10 +9,10 @@ ha_category:
   - Binary sensor
   - Switch
 ha_iot_class: Local Polling
-ha_release: 0.49
+ha_release: 2023.9
 ha_codeowners:
   - '@10der'
-ha_domain: Awtrix3
+ha_domain: awtrix3
 ha_platforms:
   - button
   - light
