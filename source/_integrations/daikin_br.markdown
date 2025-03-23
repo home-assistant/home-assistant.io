@@ -44,7 +44,7 @@ Device IP Address:
 Device Name:
     description: "The name of your Daikin smart AC device."
 Device Key:
-    description: "The api key of your Daikin smart AC device. To get this key, open the Daikin Smart AC mobile app, navigate to **Menu -> Integrations -> Home Assistant**, enter or select the SSID, and press **Submit**."
+    description: "The API key of your Daikin smart AC device. To get this key, open the Daikin Smart AC mobile app, navigate to **Menu -> Integrations -> Home Assistant**, enter or select the SSID, and press **Submit**."
 {% endconfiguration_basic %}
 
 {% note %}
@@ -107,12 +107,15 @@ To resolve this issue, try the following steps:
 3. Make sure the network firewall settings are not blocking the local communication on port 15914.
 
 ### I deleted my device from the manufacturer's app and added it again. After this, my device in Home Assistant appears offline or unavailable.
+
 Reconfigure the device.
 
 ### The device is not getting auto discovered.
+
 Make sure the network firewall settings are not blocking the default mDNS port.
 
 ### The device is appearing offline or unavailable.
+
 Make sure the device is visible and controllable via the manufacturer's app.
 If it is not, check the device's power and network connection.
 
