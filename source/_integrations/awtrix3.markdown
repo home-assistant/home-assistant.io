@@ -90,24 +90,23 @@ The notification performed action against an Awtrix3 device can take the
 following, additional, optional parameters:
 
 {% configuration "notification" %}
-action: notify.awtrix
-data:
-  target:
-    description: Awtrix3 device name.
-    required: true
-    type: [list, string]
-  message: 
-    description: Just a text message
-    required: false
-    type: string
-  data: 
-    description: specific data for message
-    required: false
-    type: map	
-    keys:
-      PARAMETER_NAME:
-        description: The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable.
-        type: any
+target:
+  description: Awtrix3 device name.
+  required: true
+  type: [list, string]
+message: 
+  description: Just a text message
+  required: false
+  type: string
+data: 
+  description: specific data for message
+  required: false
+  type: map	
+  keys:
+    text:
+      description: The message to send to the Awtrix3 device.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Example
