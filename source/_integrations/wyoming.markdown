@@ -3,6 +3,8 @@ title: Wyoming Protocol
 description: Connect remote voice services to Home Assistant.
 ha_category:
   - Voice
+  - Speech-to-text
+  - Text-to-speech
 ha_iot_class: Local Push
 ha_release: '2023.5'
 ha_codeowners:
