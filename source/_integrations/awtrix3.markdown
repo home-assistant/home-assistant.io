@@ -121,7 +121,7 @@ Send notification
   actions:
     - action: notify.awtrix
       data:
-        message: "Alarm air raid siren! russians pidar's bomb us again!"
+        message: "Hello world!"
         target: awtrix-bedroom
         data:
           color: "#FF0000"
