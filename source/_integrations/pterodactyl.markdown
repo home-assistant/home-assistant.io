@@ -1,7 +1,7 @@
 ---
 title: Pterodactyl
 description: Instructions on how to integrate a Pterodactyl server into Home Assistant.
-ha_release: 2025.04
+ha_release: 2025.4
 ha_category:
   - Binary sensor
 ha_iot_class: Local Polling
