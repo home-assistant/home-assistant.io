@@ -34,7 +34,7 @@ To create a new client API key, follow these steps:
 
 - Access your Pterodactyl Panel and log in with your user account.
 - From the main dashboard, click your username or profile icon in the top-right corner, then select **API Credentials** from the dropdown menu.
-- Enter a **Description** to identify the key (for example "Home Assistant").
+- Enter a **Description** to identify the key (for example, "Home Assistant").
 - Optionally, specify **Allowed IPs** to restrict where the key can be used (leave blank to allow all IPs).
 - Click **Create**. The panel will generate and display your new client API key.
 - Copy the key immediately and store it securely. You won’t be able to view it again after leaving the page.
