@@ -30,7 +30,6 @@ This Home Assistant integration supports the **Brazilian** version of Daikin Sma
 
 - [Android](https://play.google.com/store/apps/details?id=in.co.iotalabs.dmb.smartac)
 
-
 ## Prerequisites
   
 - The Daikin air conditioning device must already be added to your account using the Daikin Smart AC mobile app.
@@ -75,13 +74,12 @@ The `Daikin Smart AC` climate platform integrates Daikin air conditioning system
 - [**swing mode**](/integrations/climate#action-climateset_swing_mode)
 - [**set_preset_mode**](/integrations/climate#action-climateset_preset_mode) (eco, boost)
 
-Current ambient temperature is also displayed.
+The current ambient temperature is also displayed.
 
 ## Data updates
 
-The integration fetches data from the device every 10 seconds by default. 
+The integration fetches data from the device every 10 seconds by default.
 It is recommended not to reduce the polling time below 10 seconds. For users who want to set their own custom polling interval, they can [configure a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval).
-
 
 ## Known limitations
 
@@ -89,11 +87,11 @@ Preset mode `Coanda` is currently not supported.
 
 ## Troubleshooting
 
-### Can’t setup the device
+### Can’t set up the device
 
 #### Symptom: “Failed to connect”
 
-When trying to setup the integration, the form shows the message “Failed to connect”.
+When trying to set up the integration, the form shows the message “Failed to connect”.
 
 ##### Description
 
@@ -106,13 +104,13 @@ To resolve this issue, try the following steps:
 1. Make sure your device is powered up.
 2. Make sure your device is connected to the network:
    - Make sure the app of the manufacturer can see and operate the device.
-3. Make sure the netork firewall settings are not blocking the local communication on port 15914.
+3. Make sure the network firewall settings are not blocking the local communication on port 15914.
 
 ### I deleted my device from the manufacturer's app and added it again. After this, my device in Home Assistant appears offline or unavailable.
 Reconfigure the device.
 
 ### The device is not getting auto discovered.
-Make sure the network firewall settings are not blocking default mDNS port.
+Make sure the network firewall settings are not blocking the default mDNS port.
 
 ### The device is appearing offline or unavailable.
 Make sure the device is visible and controllable via the manufacturer's app.
