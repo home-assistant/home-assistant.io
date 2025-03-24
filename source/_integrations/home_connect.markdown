@@ -841,7 +841,7 @@ All the event sensors will have the following possible values:
 {% enddetails %}
 
 - **Program aborted**:
-  - **Description**: Event triggered each time a program is successfully cancelled.
+  - **Description**: Event triggered each time a program is successfully canceled.
   - **Availability**: Cook processor, Cleaning robot, Dishwasher
 - **Program finished**:
   - **Description**: Event triggered each time a program run is successfully finished.
@@ -934,10 +934,10 @@ All the event sensors will have the following possible values:
   - **Description**: Event triggered when the freezer temperature is too high.
   - **Availability**: Freezer, Fridge freezer
 - **Empty dust box and clean filter**:
-  - **Description**: Event triggered when when the user has to empty the dust box and clean the filter.
+  - **Description**: Event triggered when the user has to empty the dust box and clean the filter.
   - **Availability**: Cleaning robot
 - **Cleaning robot is stuck**:
-  - **Description**: Event triggered when the cleaning robot is stuck and isn't able to continue its run..
+  - **Description**: Event triggered when the cleaning robot is stuck and isn't able to continue its run.
   - **Availability**: Cleaning robot
 - **Docking station not found**:
   - **Description**: Event triggered when the cleaning robot wasn't able to find the charging station.
@@ -948,9 +948,6 @@ All the event sensors will have the following possible values:
 - **Poor i-Dos 2 fill level**:
   - **Description**: Event triggered when i-Dos content 2 is poor.
   - **Availability**: Washer
-- **Grease filter max saturation nearly reached**:
-  - **Description**: Event triggered when the grease filters need to be cleaned soon
-  - **Availability**: Hood
 - **Grease filter max saturation nearly reached**:
   - **Description**: Event triggered when the grease filters need to be cleaned soon
   - **Availability**: Hood
