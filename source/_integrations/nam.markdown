@@ -21,6 +21,7 @@ The Nettigo Air Monitor integration allows you to read temperature, humidity, pr
 
 The integration currently has support for the following sensors:
 
+- BH1750
 - BME280
 - BMP180
 - BMP280
