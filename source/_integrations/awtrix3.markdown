@@ -108,10 +108,9 @@ data:
       type: any
 {% endconfiguration %}
 
-## Example
+## Notification Example
 
 Send notification
-
 ```yaml
 - alias: "Send notification on Air raid"
   triggers:
