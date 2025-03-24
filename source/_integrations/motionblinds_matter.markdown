@@ -25,3 +25,26 @@ Motionblinds Matter devices work locally and integrate seamlessly with the Matte
 {% my add_matter_device badge domain=page.ha_domain %}
 
 [Learn more about Matter in Home Assistant.](/integrations/matter/)
+
+## Supported devices
+
+The following devices are known to be supported by the integration:
+- CMD-02
+- CMD-02-P
+- CMD-03
+- CM-03
+- CM-04
+- CM-05
+- CM-06
+- CM-07
+- CM-07V2
+- CM-08
+- CM-09
+- CM-10
+- CM-34
+- CM-35
+- CM-36
+- CM-40
+- CM-45
+- CM-52
+- CM-57
