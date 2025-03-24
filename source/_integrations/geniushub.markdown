@@ -26,6 +26,17 @@ The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW sys
 
 It uses the [geniushub](https://pypi.org/project/geniushub-client/) client library, which provides data compatible with the v1 API that _may not_ exactly match that of the official Web App.
 
+## Prerequisites
+
+You can configure the integration either via the cloud API or the local API.
+
+- **Cloud API**: requires a **hub token** obtained from [my.geniushub.co.uk](https://my.geniushub.co.uk/).
+- **Local API**: requires your **username** and **password** as used with [geniushub.co.uk/app](https://www.geniushub.co.uk/).
+
+The local API is unofficial, but is faster and has more features, while the cloud API is slower.
+
+{% include integrations/config_flow.md %}
+
 ### Zones
 
 Each zone controlled by your Genius Hub will be exposed as either a:
@@ -91,17 +102,17 @@ Each such entity has a state attribute that will contain a list of any such issu
 
 ```yaml
 - alias: "GeniusHub Error Alerts"
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.geniushub_errors
-    above: 0
-  action:
-  - action: notify.pushbullet_notifier
-    data:
-      title: "Genius Hub has errors"
-      message: >-
-        Genius Hub has the following {{ states('sensor.geniushub_errors') }} errors:
-        {{ state_attr('sensor.geniushub_errors', 'error_list') }}
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.geniushub_errors
+      above: 0
+  actions:
+    - action: notify.pushbullet_notifier
+      data:
+        title: "Genius Hub has errors"
+        message: >-
+          Genius Hub has the following {{ states('sensor.geniushub_errors') }} errors:
+          {{ state_attr('sensor.geniushub_errors', 'error_list') }}
 ```
 
 {% endraw %}
@@ -112,16 +123,16 @@ This alert may be useful to see if the CH is being turned on whilst you're on a 
 
 ```yaml
 - alias: "GeniusHub CH State Change Alert"
-  trigger:
-    platform: state
-    entity_id: binary_sensor.dual_channel_receiver_2_1
-  action:
-  - action: notify.pushbullet_notifier
-    data:
-      title: "Warning: CH State Change!"
-      message: >-
-        {{ trigger.to_state.attributes.friendly_name }} has changed
-        from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}.
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.dual_channel_receiver_2_1
+  actions:
+    - action: notify.pushbullet_notifier
+      data:
+        title: "Warning: CH State Change!"
+        message: >-
+          {{ trigger.to_state.attributes.friendly_name }} has changed
+          from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}.
 ```
 
 {% endraw %}
@@ -177,71 +188,3 @@ value_template: "{{ state_attr('climate.genius_zone_12', 'status').occupied }}"
 ```
 
 {% endraw %}
-
-## Configuration
-
-To set up this integration, add one of the following to your{% term "`configuration.yaml`" %}on.yaml`" %} file.
-
-If required, you can switch between one Option and the other and, as the `unique_id` remains consistent, state history will be preserved. This assumes that the correct MAC address is provided for Option 2, below. If a wrong MAC address was provided for Option 1, then the MAC address can be overridden for Option 1 to maintain these links within the entity registry.
-
-### Option 1: hub hostname/address with user credentials
-
-This is the recommended option.
-
-- Requires your **username** & **password**, as used with [geniushub.co.uk/app](https://www.geniushub.co.uk/app).
-- Uses the v3 API - unofficial, but there are additional features (e.g., battery levels).
-- Polls the hub directly (so is faster, say ~1s response time).
-- You have the option of specifying a MAC address (not recommended, see above).
-
-The hub does not have to be in the same subnet as your Home Assistant instance.
-
-### Option 2: hub token only
-
-This option is recommended only if Option 1 does not work. The MAC address should match that written on the back of the Hub.
-
-- Requires a **hub token** obtained from [my.geniushub.co.uk](https://my.geniushub.co.uk/).
-- Uses the v1 API - which is well-documented.
-- Polls Heat Genius' own servers (so is slower, say ~5-10s response time).
-- You should use the Hub's MAC address (although any valid MAC will do).
-
-```yaml
-# Example configuration.yaml entry, using a Hub Token
-geniushub:
-  token: GENIUS_HUB_TOKEN
-  mac: GENIUS_HUB_MAC
-```
-
-```yaml
-# Example configuration.yaml entry, directly polling the Hub
-geniushub:
-  host: IP_ADDRESS
-  username: GENIUS_HUB_USERNAME
-  password: GENIUS_HUB_PASSWORD
-```
-
-{% configuration %}
-token:
-  description: The Hub Token of the Genius Hub.
-  required: true
-  type: string
-mac:
-  description: The MAC address of the Hub's ethernet port.
-  required: false
-  type: string
-host:
-  description: The hostname/IP address of the Genius Hub.
-  required: true
-  type: string
-username:
-  description: Your Genius Hub username.
-  required: false
-  type: string
-password:
-  description: Your Genius Hub password.
-  required: false
-  type: string
-{% endconfiguration %}
-
-Note: `username` and `password` are only required when `host` is used (instead of `token`).
-
-Note: `mac` is required if `token` is used (instead of `host`) and is optional otherwise.

@@ -226,7 +226,7 @@ media_player:
       volume_level: media_player.kodi|volume_level
 
   - platform: kodi
-    name: Kodi
+    name: "Kodi"
     host: 192.168.1.10
     turn_on_action:
       - action: input_boolean.turn_on
@@ -240,6 +240,7 @@ media_player:
           addonid: script.json-cec
           params:
             command: activate
+
     turn_off_action:
       - action: input_boolean.turn_off
         target:
@@ -257,24 +258,25 @@ media_player:
             command: standby
 
 automation:
-  - alias: Turn on the TV when Kodi is activated
-    trigger:
-      platform: state
-      entity_id: media_player.kodi_tv
-      from: "off"
-      to: playing
-    action:
+  - alias: "Turn on the TV when Kodi is activated"
+    triggers:
+      - trigger: state
+        entity_id: media_player.kodi_tv
+        from: "off"
+        to: "playing"
+    actions:
       - action: media_player.turn_on
         target:
           entity_id: media_player.kodi_tv
-  - alias: Turn off the TV when Kodi is in idle > 15 min
-    trigger:
-      platform: state
-      entity_id: media_player.kodi_tv
-      to: idle
-      for:
-        minutes: 15
-    action:
+
+  - alias: "Turn off the TV when Kodi is in idle > 15 min"
+    triggers:
+      - trigger: state
+        entity_id: media_player.kodi_tv
+        to: "idle"
+        for:
+          minutes: 15
+    actions:
       - action: media_player.turn_off
         target:
           entity_id: media_player.kodi_tv

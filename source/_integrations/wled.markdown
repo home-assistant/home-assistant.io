@@ -9,7 +9,6 @@ ha_category:
 ha_release: 0.102
 ha_iot_class: Local Push
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@frenck'
 ha_domain: wled
@@ -113,7 +112,7 @@ Can be configured on the WLED itself under
 
 Toggles the synchronization between multiple WLED devices.
 Can be configured on the WLED itself under 
-**Ssettings** > **Sync Interfaces** > **WLED Broadcast**.
+**Settings** > **Sync Interfaces** > **WLED Broadcast**.
 
 [WLED Sync documentation](https://kno.wled.ge/interfaces/udp-realtime/)
 
@@ -151,6 +150,22 @@ target:
   entity_id: light.wled
 data:
   effect: "{{ state_attr('light.wled', 'effect_list') | random }}"
+```
+
+{% endraw %}
+
+It is recommended to select an effect that matches the capabilities of your WLED device (e.g., 1D, 2D, or Sound Reactive). You can refer to the [WLED effect list](https://kno.wled.ge/features/effects/) to explore available options. Once you identify compatible effects, you can randomize them based on their IDs.
+
+Below is an example of how to select a random effect with an ID between 1 and 117, excluding retired effects:
+
+{% raw %}
+
+```yaml
+action: light.turn_on
+target:
+  entity_id: light.wled
+data:
+  effect: "{{ state_attr('light.wled', 'effect_list')[1:118] | reject('equalto', 'RSVD') | list | random }}"
 ```
 
 {% endraw %}
@@ -202,11 +217,11 @@ Here is an example of all of these put together into an automation:
 
 ```yaml
 - alias: "Turn on WLED rain effect when weather changes to rainy"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.weather_condition
       to: "rainy"
-  action:
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.wled

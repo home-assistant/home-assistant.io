@@ -34,7 +34,6 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: integration
-ha_quality_scale: platinum
 ---
 
 The Tessie integration exposes various commands and sensors from the Tesla vehicles and energy products connected to your [Tessie](https://tessie.com/) subscription.
@@ -92,7 +91,7 @@ The integration will create binary sensor entities for a variety of metrics rela
 The integration will create button entities to control various aspects of the vehicle:
 
 - Flash lights
-- Homelink
+- HomeLink
 - Honk horn
 - Keyless driving
 - Play fart
@@ -227,6 +226,7 @@ The integration will show vehicle software updates and their installation progre
 - Backup capable
 - Grid services enabled
 - Grid services active
+- Storm watch active
 
 ### Number
 

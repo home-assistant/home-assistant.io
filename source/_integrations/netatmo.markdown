@@ -3,6 +3,7 @@ title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Camera
   - Climate
   - Cover
@@ -23,6 +24,7 @@ ha_domain: netatmo
 ha_homekit: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
   - climate
   - cover
@@ -40,6 +42,7 @@ The Netatmo integration platform is the main integration to integrate all Netatm
 There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Camera](#camera)
 - [Climate](#climate)
 - [Cover](#cover)
@@ -62,6 +65,11 @@ To edit an existing area, enter its name and follow the dialog.
 ## Binary sensor
 
 The `netatmo` binary sensor platform is showing the connectivity for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
+
+## Button
+
+The `netatmo` button sensor platform provides support for moving compatible shutters to a preferred position.
+Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are disabled by default.
 
 ## Camera
 
@@ -204,14 +212,12 @@ Example:
 # Example automation for webhooks based Netatmo events
 - alias: "Netatmo event example"
   description: "Count all events pushed by the Netatmo API"
-  trigger:
-    - event_data: {}
+  triggers:
+    - trigger: event
       event_type: netatmo_event
-      platform: event
-  action:
-    - data: {}
+  actions:
+    - action: counter.increment
       entity_id: counter.event_counter
-      action: counter.increment
 ```
 
 Example:
@@ -222,18 +228,18 @@ Example:
 # Example automation for Netatmo Welcome
 - alias: "Motion at home"
   description: "Motion detected at home"
-  trigger:
-    - event_type: netatmo_event
-      platform: event
+  triggers:
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: movement
-  action:
-    - data:
+  actions:
+    - action: persistent_notification.create
+      data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
-        title: Netatmo event
-      action: persistent_notification.create
+        title: "Netatmo event"
 ```
 
 {% endraw %}
@@ -246,18 +252,18 @@ Example:
 # Example automation for Netatmo Presence
 - alias: "Motion at home"
   description: "Motion detected at home"
-  trigger:
-    - event_type: netatmo_event
-      platform: event
+  triggers:
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: human # other possible types: animal, vehicle
-  action:
-    - data:
+  actions:
+    - action: persistent_notification.create
+      data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
         title: Netatmo event
-      action: persistent_notification.create
 ```
 
 {% endraw %}
@@ -270,25 +276,25 @@ Example:
 # Example automation
 - alias: "Door or window open or movement"
   description: "Notifies which door or window is open or was moved"
-  trigger:
-    - event_type: netatmo_event
-      platform: event
+  triggers:
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: tag_open
-    - event_type: netatmo_event
-      platform: event
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: tag_big_move
-    - event_type: netatmo_event
-      platform: event
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: tag_small_move
-  action:
-    - data:
+  actions:
+    - action: persistent_notification.create
+      data:
         message: >
           {{ trigger.event.data["data"]["message"] }}
-        title: Netatmo event
-      action: persistent_notification.create
+        title: "Netatmo event"
 ```
 
 {% endraw %}

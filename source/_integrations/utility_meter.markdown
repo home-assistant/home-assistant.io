@@ -65,7 +65,7 @@ Sensor always available:
     You need to understand that with this option activated, when the source entity becomes unavailable, the utility meter sensor will have the last totalized value and will not change until the source entity returns to a valid state.
 {% endconfiguration_basic %}
 
-If the meter reset cycle and reset offsets are to limited for your use case,
+If the meter reset cycle and reset offsets are too limited for your use case,
 consider using the YAML configuration below, which support CRON-style patterns
 that provide a greater flexibility.
 
@@ -212,16 +212,16 @@ a time based automation can be used:
 
 ```yaml
 automation:
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: "09:00:00"
       variables:
         tariff: "peak"
-    - platform: time
+    - trigger: time
       at: "21:00:00"
       variables:
         tariff: "offpeak"
-  action:
+  actions:
     - action: select.select_option
       target:
         entity_id: select.daily_energy

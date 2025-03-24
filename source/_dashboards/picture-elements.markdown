@@ -407,15 +407,6 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-## Options for exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: User ID that can see the view tab.
-  type: string
-{% endconfiguration %}
-
 ## Notes on element attributes
 
 ### How to use the style object

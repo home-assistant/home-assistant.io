@@ -9,7 +9,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@bieniu'
 ha_domain: gios
-ha_quality_scale: platinum
 ha_platforms:
   - diagnostics
   - sensor
@@ -18,8 +17,11 @@ ha_integration_type: service
 
 The `gios` integration uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current) web service as a source for air quality data for your location.
 
-## Setup
-
-To obtain ID of the measuring station, go to [GIOŚ](http://powietrze.gios.gov.pl/pjp/current) page, select the measuring station on the map and click the "More Info" link. The address of the opened page will look like this: `http://powietrze.gios.gov.pl/pjp/current/station_details/chart/291` and `291` will be ID of the measuring station.
-
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Measuring station:
+  description: "Select a measuring station from the list."
+Name:
+  description: "Service name in Home Assistant, by default, this is the name of your Home Assistant instance. For example `Home`."
+{% endconfiguration_basic %}

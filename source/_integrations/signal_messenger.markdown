@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `signal_messenger` {% term integration %} uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
@@ -80,13 +81,13 @@ A few examples on how to use this integration to send notifications from automat
 
 ```yaml
 ...
-action:
-  action: notify.NOTIFIER_NAME
-  data:
-    message: "That's an example that sends a simple text message to the recipients specified in the configuration.yaml. If text mode is 'styled', you can use *italic*, **bold** or ~strikethrough~ ."
-    ## Optional
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      text_mode: styled
+      message: "That's an example that sends a simple text message to the recipients specified in the configuration.yaml. If text mode is 'styled', you can use *italic*, **bold** or ~strikethrough~ ."
+      ## Optional
+      data:
+        text_mode: styled
 ```
 
 | Attribute   | Optional | Default |Description                                                                                                                                                                                          |
@@ -99,14 +100,14 @@ This example assumes you have an image stored in the default `www`-folder in Hom
 
 ```yaml
 ...
-action:
-  action: notify.NOTIFIER_NAME
-  data:
-    message: "Alarm in the living room!"
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      attachments:
-        - "/config/www/surveillance_camera.jpg"
-      text_mode: styled
+      message: "Alarm in the living room!"
+      data:
+        attachments:
+          - "/config/www/surveillance_camera.jpg"
+        text_mode: styled
 ```
 
 | Data attribute   | Optional | Default |Description                                                                                                                                                                                          |
@@ -118,15 +119,15 @@ action:
 
 ```yaml
 ...
-action:
-  action: notify.NOTIFIER_NAME
-  data:
-    message: "Person detected on Front Camera!"
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      verify_ssl: false
-      urls:
-        - "http://homeassistant.local/api/frigate/notifications/<event-id>/thumbnail.jpg"
-      text_mode: styled
+      message: "Person detected on Front Camera!"
+      data:
+        verify_ssl: false
+        urls:
+          - "http://homeassistant.local/api/frigate/notifications/<event-id>/thumbnail.jpg"
+        text_mode: styled
 ```
 
 | Data attribute   | Optional | Default |Description                                                                                                                                                                                          |
@@ -163,14 +164,31 @@ You can create an automation as follows:
 
 ```yaml
 ...
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id:
       - sensor.signal_message_received
     attribute: source
     to: "<yournumber>"
-action:
+actions:
   - action: notify.signal
     data:
       message: "Message received!"
+```
+
+**NOTE** If the parameter `mode` is set to `json-rpc`, then you can use [signal-api-receiver](https://github.com/kalbasit/signal-api-receiver) to receive from Signal as follows:
+
+```yaml
+- resource: "http://127.0.0.1:8105/receive/pop"
+  sensor:
+    - name: "Signal message received"
+      value_template: >
+        {{ value_json['envelope']['dataMessage']['message'] }}
+      json_attributes_path: envelope
+      json_attributes:
+        - source
+        - sourceNumber
+        - sourceUuid
+        - sourceDevice
+        - timestamp
 ```

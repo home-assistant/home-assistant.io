@@ -27,7 +27,6 @@ ha_integration_type: device
 ha_config_flow: true
 ha_ssdp: true
 ha_dhcp: true
-ha_quality_scale: platinum
 ---
 
 [LaMetric TIME](https://lametric.com/) is a smart clock that can be used to access applications, listen to web radio and display notifications.
@@ -94,7 +93,7 @@ message:
   required: true
   type: string
 icon:
-  description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
+  description: "The ID of an icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
   required: false
   type: string
 cycles:
@@ -133,7 +132,7 @@ following, additional, optional parameters:
 
 {% configuration "notification" %}
 icon:
-  description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
+  description: "The ID of an icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
   required: false
   type: string
 cycles:
@@ -164,21 +163,21 @@ To add a notification sound, icon, cycles, or priority override,
 
 ```yaml
 - alias: "Send notification on arrival at school"
-  trigger:
-    platform: state
-    entity_id: device_tracker.tom_mobile
-    from: "not_home"
-    to: "school"
-  action:
-    action: notify.my_lametric
-    data:
-      message: "Tom has arrived at school!"
+  triggers:
+    - trigger: state
+      entity_id: device_tracker.tom_mobile
+      from: "not_home"
+      to: "school"
+  actions:
+    - action: notify.my_lametric
       data:
-        sound: "notification"
-        icon: "51"
-        cycles: 0
-        priority: "critical"
-        icon_type: "info"
+        message: "Tom has arrived at school!"
+        data:
+          sound: "notification"
+          icon: "51"
+          cycles: 0
+          priority: "critical"
+          icon_type: "info"
 ```
 
 ## List of notification sounds
@@ -273,3 +272,10 @@ authentication process.
 Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
 
 {% enddetails %}
+
+## Troubleshooting
+
+### The brightness doesn't go to 100%
+
+When the LaMetric is powered by a USB port on a computer, the brightness is limited.
+To get the full brightness, use a proper USB charger.

@@ -77,19 +77,19 @@ In addition to the item count, the last added media item (movie, album, or episo
 
 Example automation to use the `last_added_item` attribute on library sensors to notify when new media has been added:
 ```yaml
-alias: Plex - New media added
-trigger:
-  - platform: state
+alias: "Plex - New media added"
+triggers:
+  - trigger: state
     entity_id: sensor.plex_library_movies
     id: movie
-  - platform: state
+  - trigger: state
     entity_id: sensor.plex_library_music
     id: album
-  - platform: state
+  - trigger: state
     entity_id: sensor.plex_library_tv_shows
     id: episode
 
-action:
+actions:
   - action: notify.mobile_app_phone
     data:
       title: "New {{ trigger.id }} added"
@@ -117,7 +117,7 @@ play_plex_on_tv:
       data:
         source: "Plex"
     - wait_for_trigger:
-        - platform: state
+        - trigger: state
           entity_id: media_player.smart_tv
           to: "on"
       timeout:
@@ -160,6 +160,7 @@ Required fields within the `media_content_id` payloads are marked as such, other
 - `resume`: Resumes playback at the last partially watched position if available, otherwise plays at the beginning.
 - `offset`: The desired playback start position in seconds.
 - `allow_multiple`: A search must find one specific item to succeed. This parameter accepts multiple matches in a search and enqueues all found items for playback. Accepts `1` or `true` to enable.
+- `username`: A username for a local Plex user account. This is only required if the Plex server has multiple users and you wish to play media for a specific user.
 
 Simplified examples are provided for [music](#music), [TV episodes](#tv-episode), and [movies](#movie). See [advanced searches](#advanced-searches) for complex/smart search capabilities.
 

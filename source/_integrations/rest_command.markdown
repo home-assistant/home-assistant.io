@@ -71,6 +71,11 @@ service_name:
       required: false
       type: boolean
       default: true
+    insecure_cipher:
+      description: Allow insecure ciphers for the request. This is useful for older servers/devices that do not support modern ciphers.
+      required: false
+      type: boolean
+      default: false
 {% endconfiguration %}
 
 ## Examples
@@ -105,9 +110,9 @@ The following example shows how the REST command response may be used in automat
 # Create a ToDo notification based on file contents
 automation:
   - alias: "Check API response"
-    trigger:
+    triggers:
       - ...
-    action:
+    actions:
       - action: rest_command.traefik_get_rawdata
         response_variable: traefik_response
       - if: "{{ traefik_response['status'] == 200 }}"
@@ -183,12 +188,12 @@ Call the new action from [developer tools](/docs/tools/dev-tools/) in the sideba
 ```yaml
 automation:
 - alias: "Arrive at Work"
-  trigger:
-    platform: zone
-    entity_id: device_tracker.my_device
-    zone: zone.work
-    event: enter
-  action:
+  triggers:
+    - trigger: zone
+      entity_id: device_tracker.my_device
+      zone: zone.work
+      event: enter
+  actions:
     - action: rest_command.my_request
       data:
         status: "At Work"

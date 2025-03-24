@@ -108,7 +108,7 @@ intent_script:
   TurnLights:
     speech:
       text: Turning {{ Room }} lights {{ OnOff }}
-    action:
+    actions:
       - action: notify.pushbullet
         data:
           message: Someone asked via apiai to turn {{ Room }} lights {{ OnOff }}

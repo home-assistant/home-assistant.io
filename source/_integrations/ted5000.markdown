@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `ted 5000` monitors electricity consumption/production by connecting to the [TED](https://www.theenergydetective.com/) gateway, itself connected to one or several Measuring Transmitting Units (MTU). The platform creates up to two sensors per MTU, one for Wattage the other for Voltage.

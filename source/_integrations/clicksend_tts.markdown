@@ -9,6 +9,7 @@ ha_domain: clicksend_tts
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `clicksend_tts` platform uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
@@ -61,10 +62,10 @@ ClickSend is a notify platform and thus can be controlled by calling the notify 
 
 ```yaml
 alias: "The sun has set"
-trigger:
-  - platform: sun
+triggers:
+  - trigger: sun
     event: sunset
-action:
+actions:
   - action: notify.clicksend_tts
     data:
       message: "The sun has set"

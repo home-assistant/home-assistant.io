@@ -38,10 +38,10 @@ wake_on_lan: # enables `wake_on_lan` integration
 
 automation:
   - alias: "Turn On Living Room TV with WakeOnLan"
-    trigger:
-      - platform: samsungtv.turn_on
+    triggers:
+      - trigger: samsungtv.turn_on
         entity_id: media_player.samsung_smart_tv
-    action:
+    actions:
       - action: wake_on_lan.send_magic_packet
         data:
           mac: aa:bb:cc:dd:ee:ff
@@ -157,6 +157,7 @@ KEY_LEFT|NavigationLeft
 KEY_RIGHT|NavigationRight
 KEY_RETURN|NavigationReturn/Back
 KEY_ENTER|NavigationEnter
+KEY_EXIT|NavigationExit
 ____________
 
 **Media Keys**

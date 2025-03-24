@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `telegram` {% term integration %} uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
@@ -176,15 +177,15 @@ To use notifications, please see the [getting started with automation page](/get
 
 ```yaml
 ...
-action:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: "*Send a message*"
-    message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      inline_keyboard:
-        - 'Task 1:/command1, Task 2:/command2'
-        - 'Task 3:/command3, Task 4:/command4'
+      title: "*Send a message*"
+      message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
+      data:
+        inline_keyboard:
+          - 'Task 1:/command1, Task 2:/command2'
+          - 'Task 3:/command3, Task 4:/command4'
 ```
 
 {% configuration %}
@@ -210,20 +211,20 @@ inline_keyboard:
 
 ```yaml
 ...
-action:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: Send an images
-    message: "That's an example that sends an image."
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      photo:
-        - url: http://192.168.1.28/camera.jpg
-          username: admin
-          password: secret
-        - file: /tmp/picture.jpg
-          caption: Picture Title xy
-        - url: http://somebla.ie/video.png
-          caption: i.e., for a Title
+      title: "Send an images"
+      message: "That's an example that sends an image."
+      data:
+        photo:
+          - url: http://192.168.1.28/camera.jpg
+            username: "admin"
+            password: "secret"
+          - file: /tmp/picture.jpg
+            caption: "Picture Title xy"
+          - url: http://somebla.ie/video.png
+            caption: "i.e., for a Title"
 ```
 
 {% configuration %}
@@ -286,20 +287,20 @@ homeassistant:
 
 ```yaml
 ...
-action:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: Send a video
-    message: "That's an example that sends a video."
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      video:
-        - url: http://192.168.1.28/camera.mp4
-          username: admin
-          password: secret
-        - file: /tmp/video.mp4
-          caption: Video Title xy
-        - url: http://somebla.ie/video.mp4
-          caption: i.e., for a Title
+      title: "Send a video"
+      message: "That's an example that sends a video."
+      data:
+        video:
+          - url: http://192.168.1.28/camera.mp4
+            username: "admin"
+            password: "secret"
+          - file: /tmp/video.mp4
+            caption: "Video Title xy"
+          - url: http://somebla.ie/video.mp4
+            caption: "i.e., for a Title"
 ```
 
 {% configuration %}
@@ -347,18 +348,18 @@ inline_keyboard:
 
 ```yaml
 ...
-action:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: Send a document
-    message: "That's an example that sends a document and a custom keyboard."
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      document:
-        file: /tmp/whatever.odf
-        caption: Document Title xy
-      keyboard:
-        - '/command1, /command2'
-        - '/command3, /command4'
+      title: "Send a document"
+      message: "That's an example that sends a document and a custom keyboard."
+      data:
+        document:
+          file: /tmp/whatever.odf
+          caption: "Document Title xy"
+        keyboard:
+          - '/command1, /command2'
+          - '/command3, /command4'
 ```
 
 {% configuration %}
@@ -407,15 +408,15 @@ inline_keyboard:
 ```yaml
 ...
 
-action:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: Send location
-    message: Location updated.
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      location:
-        latitude: 32.87336
-        longitude: 117.22743
+      title: "Send location"
+      message: "Location updated."
+      data:
+        location:
+          latitude: 32.87336
+          longitude: 117.22743
 ```
 
 {% configuration %}
@@ -441,18 +442,19 @@ inline_keyboard:
 
 ```yaml
 ...
-action:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: "*Send a message*"
-    message: |-
-      That's an example that sends a message with message_tag, disable_notification and disable_web_page_preview.
-      <a href="https://www.home-assistant.io/">HA site</a>
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      parse_mode: html
-      message_tag: "example_tag"
-      disable_notification: True
-      disable_web_page_preview: True
+      title: "*Send a message*"
+      message: |-
+        That's an example that sends a message with message_tag, disable_notification and disable_web_page_preview.
+        <a href="https://www.home-assistant.io/">HA site</a>
+      data:
+        parse_mode: html
+        message_tag: "example_tag"
+        disable_notification: True
+        disable_web_page_preview: True
+        message_thread_id: 123
 ```
 
 {% configuration %}
@@ -467,10 +469,15 @@ disable_notification:
   type: boolean
 disable_web_page_preview:
   description: True/false to display a webpage preview.
+  required: false
   default: false
   type: boolean
 message_tag:
   description: Tag for sent message.
   required: false
   type: string
+message_thread_id:
+  description: Send the message to a specific topic or thread.
+  required: false
+  type: integer
 {% endconfiguration %}

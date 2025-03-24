@@ -79,7 +79,6 @@ content: >
 
 The `seventeentrack.get_packages` action allows you to query the 17track API for the latest package data.
 
-
 | Data attribute | Optional | Description                                 |
 |------------------------|----------|---------------------------------------------|
 | `config_entry_id`      | No       | The ID of the 17Track service config entry. |
@@ -91,4 +90,21 @@ The `seventeentrack.get_packages` action allows you to query the 17track API for
   data:
     config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
     package_state: ["Delivered", "In transit"]
+```
+
+### Action `seventeentrack.archive_package`
+
+The `seventeentrack.archive_package` action allows you to archive a package using the 17track API.
+
+| Data attribute            | Optional | Description                                 |
+|---------------------------|----------|---------------------------------------------|
+| `config_entry_id`         | No       | The ID of the 17Track service config entry. |
+| `package_tracking_number` | No       | The package tracking number.                |
+
+```yaml
+# Example automation action to archive a package with a tracking number
+- action: seventeentrack.archive_package
+  data:
+    config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
+    package_tracking_number: RU0103445624A
 ```

@@ -24,7 +24,7 @@ The Linn / OpenHome integration allows you to connect an [Openhome Compliant Ren
 ### Example local audio playback action
 
 ```yaml
-action:
+actions:
   - action: media_player.play_media
     target:
       entity_id: media_player.linn_bedroom

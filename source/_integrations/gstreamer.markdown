@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `gstreamer` {% term integration %} allows you to play audio via a [gstreamer](https://gstreamer.freedesktop.org/) pipeline. Practically, this means you can play audio directly on the computer running Home Assistant. It is particularly suited for playing TTS. Advanced users can specify a pipeline to transform the audio stream and/or redirect it elsewhere.
@@ -42,7 +43,7 @@ Only the `music` media type is supported.
 
 And then install the following system dependencies:
 
-Debian/Ubuntu/Rasbian:
+Debian/Ubuntu/Raspberry Pi OS (formerly Raspbian):
 
 ```bash
 sudo apt-get install python3-gst-1.0 \
@@ -51,7 +52,7 @@ sudo apt-get install python3-gst-1.0 \
     gstreamer1.0-tools
 ```
 
-Red Hat/Centos/Fedora:
+Red Hat/CentOS/Fedora:
 
 ```bash
 sudo yum install -y python-gstreamer1 gstreamer1-plugins-good \

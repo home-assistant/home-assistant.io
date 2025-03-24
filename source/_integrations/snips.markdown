@@ -7,6 +7,7 @@ ha_release: 0.48
 ha_domain: snips
 ha_iot_class: Local Push
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 {% warning %}
@@ -247,8 +248,8 @@ Here is a more complex example. The automation is triggered if the garage door i
 ```yaml
 automation:
   garage_door_has_been_open:
-    trigger:
-     - platform: state
+    triggers:
+     - trigger: state
         entity_id: binary_sensor.my_garage_door_sensor
         from: "off"
         to: "on"
@@ -267,7 +268,7 @@ intent_script:
     speech:
       type: plain
       text: "OK, closing the garage door"
-    action:
+    actions:
       - action: script.garage_door_close
 ```
 

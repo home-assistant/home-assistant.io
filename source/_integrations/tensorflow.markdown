@@ -10,6 +10,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The TensorFlow image processing {% term integration %} allows you to detect and recognize objects in a camera image using [TensorFlow](https://www.tensorflow.org/). The state of the entity is the number of objects detected, and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
@@ -209,11 +210,11 @@ image_processing:
 ```yaml
 # Example advanced automations.yaml entry
 - alias: "TensorFlow scanning"
-  trigger:
-     - platform: state
+  triggers:
+     - trigger: state
        entity_id:
          - binary_sensor.driveway
-  action:
+  actions:
     - action: image_processing.scan
       target:
         entity_id: camera.driveway

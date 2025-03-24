@@ -176,20 +176,20 @@ Start a scene blinking.
 ```yaml
 #automation:
 
-- alias: "'Specific scene activated'"
+- alias: "Specific scene activated"
   description: "Trigger when scene 9 on network 42 is activated"
-  trigger:
-    platform: event
-    event_type: upb.scene_changed
-    event_data:
-      command: activated
-      address: "42_9"
-  action:
-    action: persistent_notification.create
-    data:
-      title: "Scene Activated"
-      message: >
-        Activated scene 9 on network 42: {{trigger.event.data.command}}, {{trigger.event.data.address}}
+  triggers:
+    - trigger: event
+      event_type: upb.scene_changed
+      event_data:
+        command: activated
+        address: "42_9"
+  actions:
+    - action: persistent_notification.create
+      data:
+        title: "Scene Activated"
+        message: >
+          Activated scene 9 on network 42: {{trigger.event.data.command}}, {{trigger.event.data.address}}
 
 ```
 

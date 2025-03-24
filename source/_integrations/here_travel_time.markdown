@@ -20,7 +20,9 @@ The `here_travel_time` sensor provides travel time from the [HERE Routing API](h
 
 You need to register for an API key by following the instructions in the [API Developer Guide](https://www.here.com/docs/bundle/routing-api-developer-guide-v8/page/topics/send-request.html).
 
-HERE offers a Limited Plan which includes 1000 free transactions per day. If you are not [updating sensors on demand](#updating-sensors-on-demand-using-automation), you can track 3 routes without exceeding the limit. You can provide payment details to increase this to 5000 free transactions per day. More information can be found [on the pricing page](https://www.here.com/get-started/pricing)
+HERE offers a Limited Plan which includes 1000 free transactions per day. If you are not [updating sensors on demand](#updating-sensors-on-demand-using-automation), you can track 3 routes without exceeding the limit.
+
+You can provide payment details if you want to pay for unlimited transactions. Be aware that the amount of transactions included for free in the paid plan might be _less_ than the 1000 transactions per day in the free plan. More information can be found [on the pricing page](https://www.here.com/get-started/pricing)
 
 {% include integrations/config_flow.md %}
 
@@ -68,13 +70,12 @@ You can also use the `homeassistant.update_entity` action to update the sensor o
 
 ```yaml
 automation:
-- id: update_morning_commute_sensor
-  alias: "Commute - Update morning commute sensor"
+- alias: "Commute - Update morning commute sensor"
   initial_state: "on"
-  trigger:
-    - platform: time_pattern
+  triggers:
+    - trigger: time_pattern
       minutes: "/2"
-  condition:
+  conditions:
     - condition: time
       after: "08:00:00"
       before: "11:00:00"
@@ -85,7 +86,7 @@ automation:
         - wed
         - thu
         - fri
-  action:
+  actions:
     - action: homeassistant.update_entity
       target:
         entity_id: sensor.morning_commute

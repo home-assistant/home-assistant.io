@@ -15,6 +15,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Home Assistant has support to integrate your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) alarm panel and any connected motion, door, smoke and technical sensors.
@@ -59,10 +60,10 @@ The `changed_by` attribute enables one to be able to take different actions depe
 ```yaml
 automation:
   - alias: "Alarm status changed"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: alarm_control_panel.alarm_1
-    action:
+    actions:
       - action: notify.notify
         data:
           message: >

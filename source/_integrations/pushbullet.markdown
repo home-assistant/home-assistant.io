@@ -85,13 +85,13 @@ To use notifications, please see the [getting started with automation page](/get
 ### URL support
 
 ```yaml
-action:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: Send URL
-    message: This is an url
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      url: google.com
+      title: "Send URL"
+      message: "This is an url"
+      data:
+        url: "google.com"
 ```
 
 - `url` (*Required*): Page URL to send with Pushbullet.
@@ -99,13 +99,13 @@ action:
 ### File support
 
 ```yaml
-action:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: Send file
-    message: This is a file
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      file: /path/to/my/file
+      title: "Send file"
+      message: "This is a file"
+      data:
+        file: /path/to/my/file
 ```
 
 - `file` (*Required*): File to send with Pushbullet.
@@ -113,13 +113,13 @@ action:
 ### File URL support
 
 ```yaml
-action:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: Send file
-    message: This is a file URL
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
-      file_url:  https://cdn.pixabay.com/photo/2014/06/03/19/38/test-361512_960_720.jpg
+      title: "Send file"
+      message: "This is a file URL"
+      data:
+        file_url:  https://cdn.pixabay.com/photo/2014/06/03/19/38/test-361512_960_720.jpg
 ```
 
 - `file_url` (*Required*): File to send with Pushbullet.
@@ -127,8 +127,8 @@ action:
 ### Single target
 
 ```yaml
-  action:
-    action: notify.NOTIFIER_NAME
+actions:
+  - action: notify.NOTIFIER_NAME
     data:
       title: "Send to one device"
       message: "This only goes to one specific device"

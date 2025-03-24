@@ -7,6 +7,7 @@ ha_release: 0.21
 ha_iot_class: Local Push
 ha_domain: lirc
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 [LIRC](https://www.lirc.org/) integration for Home Assistant allows you to receive signals from an infrared remote control and control actions based on the buttons you press. You can use them to set scenes or trigger any other [automation](/docs/automation/).
@@ -84,15 +85,15 @@ The LIRC integration fires `ir_command_received` events on the bus. You can capt
 # Example configuration.yaml automation entry
 automation:
   - alias: "Off on Remote"
-    trigger:
-      platform: event
-      event_type: ir_command_received
-      event_data:
-        button_name: KEY_0
-    action:
-      action: homeassistant.turn_off
-      target:
-        entity_id: group.a_lights
+    triggers:
+      - trigger: event
+        event_type: ir_command_received
+        event_data:
+          button_name: KEY_0
+    actions:
+      - action: homeassistant.turn_off
+        target:
+          entity_id: group.a_lights
 ```
 
 The `button_name` data values (e.g., `KEY_0`) are set by you in the `.lircrc` file.

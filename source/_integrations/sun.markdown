@@ -63,8 +63,8 @@ an offset.
 The sun trigger need to have the type 'sun', which event (sunset or sunrise) and an optional offset.
 
 ```yaml
-trigger:
-  - platform: sun
+triggers:
+  - trigger: sun
     event: sunrise
     offset: "-01:00:01"
 ```

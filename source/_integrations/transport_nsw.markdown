@@ -9,6 +9,7 @@ ha_domain: transport_nsw
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `transport_nsw` sensor will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.

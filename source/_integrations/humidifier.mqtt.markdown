@@ -59,7 +59,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -68,7 +68,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -84,7 +84,7 @@ current_humidity_topic:
   required: false
   type: string
 command_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `command_topic`.
+  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `command_topic`.
   required: false
   type: template
 command_topic:
@@ -145,7 +145,7 @@ device:
       required: false
       type: string
 device_class:
-  description: The device class of the MQTT device. Must be either `humidifier`, `dehumidifier` or `null`.
+  description: The [device class](/integrations/humidifier/#device-class) of the MQTT device. Must be either `humidifier`, `dehumidifier` or `null`.
   required: false
   type: string
   default: humidifier
@@ -163,12 +163,16 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -230,7 +234,7 @@ payload_reset_mode:
   type: string
   default: '"None"'
 target_humidity_command_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `target_humidity_command_topic`.
+  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `target_humidity_command_topic`.
   required: false
   type: template
 target_humidity_command_topic:
@@ -242,11 +246,11 @@ target_humidity_state_topic:
   required: false
   type: string
 target_humidity_state_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value for the humidifier `target_humidity` state.
+  description: Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract a value for the humidifier `target_humidity` state.
   required: false
   type: template
 mode_command_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `mode_command_topic`.
+  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `mode_command_topic`.
   required: false
   type: template
 mode_command_topic:
@@ -258,7 +262,7 @@ mode_state_topic:
   required: false
   type: string
 mode_state_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value for the humidifier `mode` state.
+  description: Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract a value for the humidifier `mode` state.
   required: false
   type: template
 modes:
@@ -266,6 +270,10 @@ modes:
   required: false
   type: [list]
   default: []
+platform:
+  description: Must be `humidifier`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -277,15 +285,15 @@ retain:
   type: boolean
   default: true
 state_topic:
-  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored. Valid state payloads are `OFF` and `ON`. Custom `OFF` and `ON` values can be set with the `payload_off` and `payload_on` config options.
   required: false
   type: string
 state_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value from the state."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract a value from the state."
   required: false
   type: template
 unique_id:
-  description: An ID that uniquely identifies this humidifier. If two humidifiers have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this humidifier. If two humidifiers have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 {% endconfiguration %}

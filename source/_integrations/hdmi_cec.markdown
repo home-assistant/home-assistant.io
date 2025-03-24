@@ -12,6 +12,7 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@inytar'
+ha_quality_scale: legacy
 ---
 
 The `hdmi_cec` integration provides actions that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entities for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as sound-bars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
@@ -170,8 +171,8 @@ Use the `hdmi_cec.select_device` action with the name of the device from configu
 So an Automation action using the example above would look something like this.
 
 ```yaml
-action:
-  action: hdmi_cec.select_device
+actions:
+  - action: hdmi_cec.select_device
     data:
       device: Chromecast
 ```
@@ -183,8 +184,8 @@ Use the `hdmi_cec.power_on` action (no arguments) to power on any devices that s
 An Automation action using the example above would look something like this.
 
 ```yaml
-action:
-  action: hdmi_cec.power_on
+actions:
+  - action: hdmi_cec.power_on
 ```
 
 ### Standby
@@ -194,8 +195,8 @@ Use the `hdmi_cec.standby` action (no arguments) to place in standby any devices
 An Automation action using the example above would look something like this.
 
 ```yaml
-action:
-  action: hdmi_cec.standby
+actions:
+  - action: hdmi_cec.standby
 ```
 
 ### Change volume level

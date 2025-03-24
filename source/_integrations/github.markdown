@@ -128,10 +128,10 @@ This example uses the [Latest release](#latest-release) entity provided by this 
 {% raw %}
 
 ```yaml
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: sensor.awesome_repository_latest_release
-action:
+actions:
   - action: notify.notify
     data:
       title: "New github/repository release"
@@ -150,10 +150,10 @@ This example uses the [Stars](#diagnostic-entities) diagnostic entity provided b
 {% raw %}
 
 ```yaml
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: sensor.awesome_repository_stars
-action:
+actions:
   - action: notify.notify
     data:
       title: "New github/repository new star"

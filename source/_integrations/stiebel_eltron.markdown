@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `stiebel_eltron` {% term integration %} lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
@@ -29,6 +30,7 @@ It requires the following components:
 By now, the following units are tested:
 
 - LWZ 504e
+- LWZ 404eco
 - LWZ 304
 - LWZ 304 Trend
 

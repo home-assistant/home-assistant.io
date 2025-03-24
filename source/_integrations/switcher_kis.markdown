@@ -10,16 +10,17 @@ ha_release: 0.93
 ha_iot_class: Local Push
 ha_codeowners:
   - '@thecode'
+  - '@YogevBokobza'
 ha_domain: switcher_kis
 ha_platforms:
   - button
   - climate
   - cover
   - diagnostics
+  - light
   - sensor
   - switch
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 
@@ -32,10 +33,43 @@ Supported devices:
 - Switcher V2 (Espressif chipset - from firmware 3.21)
 - Switcher V2 (Qualcomm chipset - from firmware 72.32)
 - Switcher V4
+- Switcher Mini
 - Switcher Breeze
 - Switcher Runner
+- Switcher Runner S11
+- Switcher Runner S12
+- Switcher Light SL01
+- Switcher Light SL01 Mini
+- Switcher Light SL02
+- Switcher Light SL02 Mini
+- Switcher Light SL03
+
+Devices that require a token:
+
+- Switcher Runner S11
+- Switcher Runner S12
+- Switcher Light SL01
+- Switcher Light SL01 Mini
+- Switcher Light SL02
+- Switcher Light SL02 Mini
+- Switcher Light SL03
 
 If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
+
+## Prerequisites
+
+Before the integration can find a device, you need to connect it to your network using the Switcher app.
+
+To enhance security, certain Switcher devices require a token for operation. In order to integrate your token-based Switcher devices with Home Assistant, you'll need the following information:
+
+- **The username of your Switcher Account**: To find the username, open the Switcher app.
+- **Local control key token**: To find the local control key token, browse to the
+  [Switcher GetKey API][token], enter your Switcher account username (which is an email address), and press
+  **Send Me The Code**.
+
+  The token will be sent to you by email. It will look something like this: `zvVvd7JxtN7CgvkD1Psujw==`
+
+[token]: https://switcher.co.il/GetKey/
 
 {% include integrations/config_flow.md %}
 
@@ -47,6 +81,14 @@ For Switcher Breeze the integration provides the following buttons:
 
 - For devices which do not support swing status for the vertical swing, the integration provides separate `Vertical swing on` & `Vertical swing off` buttons.
 
+## Covers
+
+For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switcher Runner S12) the integration allows you to control its covers open/close state, set specific covers position and get information about the cover direction (UP/DOWN/STOP).
+
+## Lights
+
+For Switcher light control devices (Switcher Runner S11, Switcher Runner S12, and Switcher Lights), the integration allows you to control its lights on/off state.
+  
 ## Sensors
 
 For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
@@ -58,7 +100,16 @@ For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switche
 | `Power Consumption` | The power consumption in watts                         | 2756 W            |
 
 *Currently not supported for Switcher Power Plug
-  
+
+For Switcher Breeze the integration provides the following sensor:
+| Sensor Name           | Description                                            | Example           |
+| --------------------- | ------------------------------------------------------ | ----------------- |
+| `Current temperature` | The current temperature in celsius                     | 25.0 °C           |
+
+## Switches
+
+For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switcher Runner S12), the integration allows you to control its child lock state; ON means locked, and OFF means unlocked.
+
 ## Actions
 
 For Switcher power control devices (Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
@@ -87,5 +138,5 @@ Note: This does not affect the auto off timer.
 
 ## Notes
 
-Make sure that Home Assistant host's firewall allows incoming traffic on UDP ports 10002, 20002 & 20003 and outgoing connections to Switcher device(s) on TCP ports 9957 & 10000.
+Make sure that Home Assistant host's firewall allows incoming traffic on UDP ports 10002, 10003, 20002 & 20003 and outgoing connections to Switcher device(s) on TCP ports 9957 & 10000.
 If Home Assistant and the Switcher device(s) are not on the same network, you will also need to have their traffic properly forwarded between the two networks.

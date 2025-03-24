@@ -396,30 +396,29 @@ Removes an item from the queue.
 ```yaml
 # Example automation to remove just played song from queue
 alias: "Remove last played song from queue"
-id: Remove last played song from queue
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: media_player.kitchen
-  - platform: state
+  - trigger: state
     entity_id: media_player.bathroom
-  - platform: state
+  - trigger: state
     entity_id: media_player.move
-condition:
-  condition: and
-  conditions:
-    # Coordinator
-    - condition: template
-      value_template: >
-        {{ state_attr( trigger.entity_id , 'group_members')[0] ==  trigger.entity_id }}
-    # Going from queue to queue
-    - condition: template
-      value_template: >
-        {{ 'queue_position' in trigger.from_state.attributes and 'queue_position' in trigger.to_state.attributes }}
-    # Moving forward
-    - condition: template
-      value_template: >
-        {{ trigger.from_state.attributes.queue_position < trigger.to_state.attributes.queue_position }}
-action:
+conditions:
+  - condition: and
+    conditions:
+      # Coordinator
+      - condition: template
+        value_template: >
+          {{ state_attr( trigger.entity_id , 'group_members')[0] ==  trigger.entity_id }}
+      # Going from queue to queue
+      - condition: template
+        value_template: >
+          {{ 'queue_position' in trigger.from_state.attributes and 'queue_position' in trigger.to_state.attributes }}
+      # Moving forward
+      - condition: template
+        value_template: >
+          {{ trigger.from_state.attributes.queue_position < trigger.to_state.attributes.queue_position }}
+actions:
   - action: sonos.remove_from_queue
     target:
       entity_id: >

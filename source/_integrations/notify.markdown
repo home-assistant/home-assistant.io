@@ -69,7 +69,7 @@ Notifications can also be sent using [Notify groups](https://www.home-assistant.
 
 ### Test if it works
 
-After you setup a [notifier](/integrations/#notifications), a simple way to test if you have set up your notify platform correctly is to open {% my developer_services title="**Developer tools** > **Actions**" %}** tab from the sidebar. Choose your action from the **Action** dropdown menu depending on the integration you want to test, such as **Notifications: Send a persistent notification** or **Notifications: Send a notification via mobile_app_your_phone_name**. Enter your message into the **message** field, and select the **Perform action** button.
+After you set up a [notifier](/integrations/#notifications), a simple way to test if you have set up your notify platform correctly is to open {% my developer_services title="**Developer tools** > **Actions**" %} tab from the sidebar. Choose your action from the **Action** dropdown menu depending on the integration you want to test, such as **Notifications: Send a persistent notification** or **Notifications: Send a notification via mobile_app_your_phone_name**. Enter your message into the **message** field, and select the **Perform action** button.
 
 To test the entity platform action, select the `notify.send_message` action, and select one or more of `entity`, `device`, `area`, or `label`. Then, supply a `message`.
 
@@ -96,7 +96,7 @@ The notify integration supports specifying [templates](/docs/configuration/templ
 {% raw %}
 
 ```yaml
-action:
+actions:
   action: notify.send_message
   data:
     entity_id: notify.my_direct_message_notifier
@@ -109,7 +109,7 @@ action:
 
 In the **Developer Tools**, on the **Action** tab, select the **Notifications: Send a persistent notification** action. Enter a message and test sending it.
 
-If you switch to view the YAML data under **Developer Tools**, it will appear as below. The same {% term action %} can be chosen in {% term automation %} actions %, whose YAML will appear the same:
+If you switch to view the YAML data under **Developer Tools**, it will appear as below. The same {% term action %} can be chosen in {% term automation %} actions, whose YAML will appear the same:
 
 {% raw %}
 
@@ -126,10 +126,10 @@ The notify integration supports specifying [templates](/docs/configuration/templ
 {% raw %}
 
 ```yaml
-action:
-  action: notify.persistent_notification
-  data:
-    message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
 ```
 
 {% endraw %}
@@ -137,10 +137,10 @@ action:
 {% raw %}
 
 ```yaml
-action:
-  action: notify.persistent_notification
-  data:
-    message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
 ```
 
 {% endraw %}

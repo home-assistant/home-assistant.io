@@ -57,7 +57,7 @@ description:
 domain:
   description: >
     The domain in which this blueprint is used. Currently, only
-    [`automation`](/docs/automation/yaml/) and `script` are supported.
+    [`automation`](/docs/automation/yaml/), `script` and [`template`](/integrations/template/#using-blueprints) are supported.
   type: string
   required: true
 author:
@@ -157,7 +157,7 @@ by their name; not by section and name.
 A section is differentiated from an input by the presence of an additional `input` key within that section. 
 
 {% caution %}
-Input sections are a new feature in version 2024.6.0. Set the `min_version` for the blueprint to at least this version if using input sections. Otherwise, the blueprint will generate errors on older versions.
+Input sections are a new feature in version 2024.6.0. Set the `min_version` for the blueprint to at least this version if using input sections. Otherwise, the blueprint will generate errors on older versions. See [this section](/docs/blueprint/schema/#min_version) for more details.
 {% endcaution %}
 
 The full configuration for a section is below:
@@ -267,20 +267,20 @@ blueprint:
 mode: restart
 max_exceeded: silent
 
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: !input motion_entity
     from: "off"
     to: "on"
 
-action:
+actions:
   - action: light.turn_on
     target: !input light_target
   - wait_for_trigger:
-      platform: state
-      entity_id: !input motion_entity
-      from: "on"
-      to: "off"
+      - trigger: state
+        entity_id: !input motion_entity
+        from: "on"
+        to: "off"
   - delay: !input no_motion_wait
   - action: light.turn_off
     target: !input light_target

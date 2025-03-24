@@ -99,6 +99,7 @@ The integration is tested and verified for the following devices from YoLink:
 - YS5007-UC (FlowSmart Meter)
 - YS5008-UC (FlowSmart All-in-One)
 - YS8017-UC (Thermometer)
+- YS8008-UC (Float Thermometer)
 
 ## Actions
 
@@ -110,9 +111,9 @@ Data attribute | Optional | Description
 -|-|-
 `target_device` | no| SpeakerHub device ID for audio playback.
 `message` | no| Text for speech conversion.
-`tone` | no| Tone before playing audio.
-`volume` | no| Speaker volume during playback.
-`repeat` | no| The number of times the text will be repeated.
+`tone` | yes| Tone before playing audio.
+`volume` | yes| Override the speaker volume during playback of this message only.
+`repeat` | yes| The number of times the text will be repeated.
 
 ## Community notes
 

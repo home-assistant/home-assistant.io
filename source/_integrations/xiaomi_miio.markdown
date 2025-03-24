@@ -82,17 +82,44 @@ The most common problems are:
 
 The `xiaomi_miio` gateway {% term integration %} allows you to control the gateway and its connected subdevices.
 
-### Supported Xiaomi gateway models:
+### Supported Xiaomi gateway models
 
-| Gateway name       | Zigbee id           | model                    | supported                      |
-| ------------------ | ------------------- | ------------------------ | ------------------------------ |
-| Chinese version    | lumi.gateway.v3     | DGNWG02LM                | yes                            |
-| European version   | lumi.gateway.mieu01 | ZHWG11LM-763 / DGNWQ05LM | yes (cloud credentials needed) |
-| Aqara hub          | lumi.gateway.aqhm01 | ZHWG11LM                 | yes                            |
-| Mijia Zigbee 3.0   | lumi.gateway.mgl03  | ZNDMWG03LM               | yes                            |
-| Aqara AC Companion | lumi.acpartner.v1   | KTBL01LM                 | untested                       |
-| Mi AC Companion    | lumi.acpartner.v2   | KTBL02LM                 | untested                       |
-| Aqara AC Companion | lumi.acpartner.v3   | KTBL11LM                 | yes                            |
+The following list shows the Gateway name, the model number, the Zigbee ID, and whether the model is supported or not in Home Assistant.
+
+- **Chinese version**
+  - Model: DGNWG02LM
+  - Zigbee ID: lumi.gateway.v3
+  - Supported: Yes
+
+- **European version**
+  - Model: ZHWG11LM-763 / DGNWQ05LM
+  - Zigbee ID: lumi.gateway.mieu01
+  - Supported: Yes (cloud credentials needed)
+
+- **Aqara hub**
+  - Model: ZHWG11LM
+  - Zigbee ID: lumi.gateway.aqhm01
+  - Supported: Yes
+
+- **Mijia Zigbee 3.0**
+  - Model: ZNDMWG03LM
+  - Zigbee ID: lumi.gateway.mgl03
+  - Supported: Yes
+
+- **Aqara AC Companion**
+  - Model: KTBL01LM
+  - Zigbee ID: lumi.acpartner.v1
+  - Supported: Untested
+
+- **Mi AC Companion**
+  - Model: KTBL02LM
+  - Zigbee ID: lumi.acpartner.v2
+  - Supported: Untested
+
+- **Aqara AC Companion**
+  - Model: KTBL11LM
+  - Zigbee ID: lumi.acpartner.v3
+  - Supported: Yes
 
 Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevices locally. For those gateways, cloud credentials can be specified during the config flow and the "Use cloud to get connected subdevices" can be enabled in the options flow (after setting up the {% term integration %}, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Miio Gateway {% term integration %}). The connected subdevices will then be retrieved from the Xiaomi Miio cloud (internet), control and status updates of those subdevices will then further take place over local network connection. A re-authentication flow may be triggered when no cloud credentials are provided yet and are needed for that particular gateway model.
 
@@ -111,65 +138,107 @@ Not yet implemented features (but possible):
 
 These subdevices are fully implemented in HomeAssistant:
 
-| Subdevice name                   | Zigbee id             | model      | features                                         |
-| -------------------------------- | --------------------- | ---------- | ------------------------------------------------ |
-| Weather sensor                   | lumi.sensor_ht        | WSDCGQ01LM | readout `temperature` and `humidity`             |
-| Weather sensor                   | lumi.weather.v1       | WSDCGQ11LM | readout `temperature`, `humidity` and `pressure` |
-| Wall switch single               | lumi.ctrl_ln1         | QBKG11LM   | load_power, status, turn_on, turn_off, toggle    |
-| Wall switch single               | lumi.ctrl_ln1.aq1     | QBKG11LM   | load_power, status, turn_on, turn_off, toggle    |
-| Wall switch no neutral           | lumi.ctrl_neutral1.v1 | QBKG04LM   | status, turn_on, turn_off, toggle                |
-| Wall switch double               | lumi.ctrl_ln2         | QBKG12LM   | load_power, status, turn_on, turn_off, toggle    |
-| Wall switch double               | lumi.ctrl_ln2.aq1     | QBKG12LM   | load_power, status, turn_on, turn_off, toggle    |
-| Wall switch double no neutral    | lumi.ctrl_neutral2    | QBKG03LM   | status, turn_on, turn_off, toggle                |
-| D1 wall switch triple            | lumi.switch.n3acn3    | QBKG26LM   | load_power, status, turn_on, turn_off, toggle    |
-| D1 wall switch triple no neutral | lumi.switch.l3acn3    | QBKG25LM   | load_power, status, turn_on, turn_off, toggle    |
-| Wall outlet                      | lumi.ctrl_86plug.v1   | QBCZ11LM   | status, turn_on, turn_off, toggle                |
-| Wall outlet                      | lumi.ctrl_86plug.aq1  | QBCZ11LM   | load_power, status, turn_on, turn_off, toggle    |
-| Plug                             | lumi.plug             | ZNCZ02LM   | load_power, status, turn_on, turn_off, toggle    |
-| Relay                            | lumi.relay.c2acn01    | LLKZMK11LM | load_power, status, turn_on, turn_off, toggle    |
-| Smart bulb E27                   | lumi.light.aqcn02     | ZNLDP12LM  | on/off, brightness, color temperature            |
-| IKEA smart bulb E27 white        | ikea.light.led1545g12 | LED1545G12 | on/off, brightness, color temperature            |
-| IKEA smart bulb E27 white        | ikea.light.led1546g12 | LED1546G12 | on/off, brightness, color temperature            |
-| IKEA smart bulb E12 white        | ikea.light.led1536g5  | LED1536G5  | on/off, brightness, color temperature            |
-| IKEA smart bulb GU10 white       | ikea.light.led1537r6  | LED1537R6  | on/off, brightness, color temperature            |
-| IKEA smart bulb E27 white        | ikea.light.led1623g12 | LED1623G12 | on/off, brightness, color temperature            |
-| IKEA smart bulb GU10 white       | ikea.light.led1650r5  | LED1650R5  | on/off, brightness, color temperature            |
-| IKEA smart bulb E12 white        | ikea.light.led1649c5  | LED1649C5  | on/off, brightness, color temperature            |
+- **Weather sensor (WSDCGQ01LM)**
+  - Zigbee ID: `lumi.sensor_ht`
+  - Features: readout `temperature` and `humidity`
+- **Weather sensor (WSDCGQ11LM)**
+  - Zigbee ID: `lumi.weather.v1`
+  - Features: readout `temperature`, `humidity` and `pressure`
+- **Wall switch single (QBKG11LM)**
+  - Zigbee ID: `lumi.ctrl_ln1`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Wall switch single (QBKG11LM)**
+  - Zigbee ID: `lumi.ctrl_ln1.aq1`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Wall switch no neutral (QBKG04LM)**
+  - Zigbee ID: `lumi.ctrl_neutral1.v1`
+  - Features: status, turn_on, turn_off, toggle
+- **Wall switch double (QBKG12LM)**
+  - Zigbee ID: `lumi.ctrl_ln2`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Wall switch double (QBKG12LM)**
+  - Zigbee ID: `lumi.ctrl_ln2.aq1`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Wall switch double no neutral (QBKG03LM)**
+  - Zigbee ID: `lumi.ctrl_neutral2`
+  - Features: status, turn_on, turn_off, toggle
+- **D1 wall switch triple (QBKG26LM)**
+  - Zigbee ID: `lumi.switch.n3acn3`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **D1 wall switch triple no neutral (QBKG25LM)**
+  - Zigbee ID: `lumi.switch.l3acn3`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Wall outlet (QBCZ11LM)**
+  - Zigbee ID: `lumi.ctrl_86plug.v1`
+  - Features: status, turn_on, turn_off, toggle
+- **Wall outlet (QBCZ11LM)**
+  - Zigbee ID: `lumi.ctrl_86plug.aq1`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Plug (ZNCZ02LM)**
+  - Zigbee ID: `lumi.plug`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Relay (LLKZMK11LM)**
+  - Zigbee ID: `lumi.relay.c2acn01`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Smart bulb E27 (ZNLDP12LM)**
+  - Zigbee ID: `lumi.light.aqcn02`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb E27 white (LED1545G12)**
+  - Zigbee ID: `ikea.light.led1545g12`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb E27 white (LED1546G12)**
+  - Zigbee ID: `ikea.light.led1546g12`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb E12 white (LED1536G5)**
+  - Zigbee ID: `ikea.light.led1536g5`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb GU10 white (LED1537R6)**
+  - Zigbee ID: `ikea.light.led1537r6`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb E27 white (LED1623G12)**
+  - Zigbee ID: `ikea.light.led1623g12`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb GU10 white (LED1650R5)**
+  - Zigbee ID: `ikea.light.led1650r5`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb E12 white (LED1649C5)**
+  - Zigbee ID: `ikea.light.led1649c5`
+  - Features: on/off, brightness, color temperature
 
 ### Recognized subdevices (not yet implemented)
 
 These subdevices are recognized by the python-miio code but are still being worked on (not yet implemented).
 
-| Subdevice name                 | Zigbee id               | model           |
-| ------------------------------ | ----------------------- | --------------- |
-| Button                         | lumi.sensor_switch      | WXKG01LM        |
-| Button                         | lumi.sensor_switch.aq2  | WXKG11LM 2015   |
-| Button                         | lumi.sensor_switch.aq3  | WXKG12LM        |
-| Button                         | lumi.remote.b1acn01     | WXKG11LM 2018   |
-| Cube                           | lumi.sensor_cube.v1     | MFKZQ01LM       |
-| Cube                           | lumi.sensor_cube.aqgl01 | MFKZQ01LM       |
-| Motion sensor                  | lumi.sensor_motion      | RTCGQ01LM       |
-| Motion sensor                  | lumi.sensor_motion.aq2  | RTCGQ11LM       |
-| Door sensor                    | lumi.sensor_magnet      | MCCGQ01LM       |
-| Door sensor                    | lumi.sensor_magnet.aq2  | MCCGQ11LM       |
-| Vibration sensor               | lumi.vibration.aq1      | DJT11LM         |
-| Honeywell smoke detector       | lumi.sensor_smoke       | JTYJ-GD-01LM/BW |
-| Honeywell natural gas detector | lumi.sensor_natgas      | JTQJ-BF-01LM/BW |
-| Water leak sensor              | lumi.sensor_wleak.aq1   | SJCGQ11LM       |
-| Remote switch single           | lumi.sensor_86sw1.v1    | WXKG03LM 2016   |
-| Remote switch single           | lumi.remote.b186acn01   | WXKG03LM 2018   |
-| D1 remote switch single        | lumi.remote.b186acn02   | WXKG06LM        |
-| Remote switch double           | lumi.sensor_86sw2.v1    | WXKG02LM 2016   |
-| Remote switch double           | lumi.remote.b286acn01   | WXKG02LM 2018   |
-| D1 remote switch double        | lumi.remote.b286acn02   | WXKG07LM        |
-| Curtain                        | lumi.curtain            | ZNCLDJ11LM      |
-| Curtain                        | lumi.curtain.aq2        | ZNGZDJ11LM      |
-| Curtain B1                     | lumi.curtain.hagl04     | ZNCLDJ12LM      |
-| Door lock S1                   | lumi.lock.aq1           | ZNMS11LM        |
-| Door lock S2                   | lumi.lock.acn02         | ZNMS12LM        |
-| Door lock S2 pro               | lumi.lock.acn03         | ZNMS13LM        |
-| Vima cylinder lock             | lumi.lock.v1            | A6121           |
-| Thermostat S2                  | lumi.airrtc.tcpecn02    | KTWKQ03ES       |
+The list shows the device name, the model number, and the Zigbee ID.
+
+- **Button** (WXKG01LM): `lumi.sensor_switch`
+- **Button** (WXKG11LM 2015): `lumi.sensor_switch.aq2`
+- **Button** (WXKG12LM): `lumi.sensor_switch.aq3`
+- **Button** (WXKG11LM 2018): `lumi.remote.b1acn01`
+- **Cube** (MFKZQ01LM): `lumi.sensor_cube.v1`
+- **Cube** (MFKZQ01LM): `lumi.sensor_cube.aqgl01`
+- **Motion sensor** (RTCGQ01LM): `lumi.sensor_motion`
+- **Motion sensor** (RTCGQ11LM): `lumi.sensor_motion.aq2`
+- **Door sensor** (MCCGQ01LM): `lumi.sensor_magnet`
+- **Door sensor** (MCCGQ11LM): `lumi.sensor_magnet.aq2`
+- **Vibration sensor** (DJT11LM): `lumi.vibration.aq1`
+- **Honeywell smoke detector** (JTYJ-GD-01LM/BW): `lumi.sensor_smoke`
+- **Honeywell natural gas detector** (JTQJ-BF-01LM/BW): `lumi.sensor_natgas`
+- **Water leak sensor** (SJCGQ11LM): `lumi.sensor_wleak.aq1`
+- **Remote switch single** (WXKG03LM 2016): `lumi.sensor_86sw1.v1`
+- **Remote switch single** (WXKG03LM 2018): `lumi.remote.b186acn01`
+- **D1 remote switch single** (WXKG06LM): `lumi.remote.b186acn02`
+- **Remote switch double** (WXKG02LM 2016): `lumi.sensor_86sw2.v1`
+- **Remote switch double** (WXKG02LM 2018): `lumi.remote.b286acn01`
+- **D1 remote switch double** (WXKG07LM): `lumi.remote.b286acn02`
+- **Curtain** (ZNCLDJ11LM): `lumi.curtain`
+- **Curtain** (ZNGZDJ11LM): `lumi.curtain.aq2`
+- **Curtain B1** (ZNCLDJ12LM): `lumi.curtain.hagl04`
+- **Door lock S1** (ZNMS11LM): `lumi.lock.aq1`
+- **Door lock S2** (ZNMS12LM): `lumi.lock.acn02`
+- **Door lock S2 pro** (ZNMS13LM): `lumi.lock.acn03`
+- **Vima cylinder lock** (A6121): `lumi.lock.v1`
+- **Thermostat S2** (KTWKQ03ES): `lumi.airrtc.tcpecn02`
 
 ## Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)
 
@@ -203,56 +272,54 @@ The Air Purifiers, Air Humidifiers and Standing Fans use multiple platforms to a
 
 Supported devices:
 
-| Name                   | Model                   | Model no.    |
-| ---------------------- | ----------------------- | ------------ |
-| Air Purifier           | zhimi.airpurifier.v1    |              |
-| Air Purifier 2         | zhimi.airpurifier.v2    | FJY4006CN    |
-| Air Purifier V3        | zhimi.airpurifier.v3    |              |
-| Air Purifier V5        | zhimi.airpurifier.v5    |              |
-| Air Purifier Pro       | zhimi.airpurifier.v6    |              |
-| Air Purifier Pro V7    | zhimi.airpurifier.v7    |              |
-| Air Purifier 2 (mini)  | zhimi.airpurifier.m1    |              |
-| Air Purifier (mini)    | zhimi.airpurifier.m2    |              |
-| Air Purifier MA1       | zhimi.airpurifier.ma1   |              |
-| Air Purifier MA2       | zhimi.airpurifier.ma2   |              |
-| Air Purifier 2S        | zhimi.airpurifier.mc1   |              |
-| Air Purifier Super     | zhimi.airpurifier.sa1   |              |
-| Air Purifier Super 2   | zhimi.airpurifier.sa2   |              |
-| Air Purifier 3 (2019)  | zhimi.airpurifier.ma4   | AC-M6-SC     |
-| Air Purifier 3H (2019) | zhimi.airpurifier.mb3   |              |
-| Air Purifier Pro H     | zhimi.airpurifier.va1   |              |
-| Air Purifier Pro H EU  | zhimi.airpurifier.vb2   |              |
-| Air Purifier 3C        | zhimi.airpurifier.mb4   |              |
-| Air Purifier ZA1       | zhimi.airpurifier.za1   |              |
-| Air Purifier 4         | zhimi.airp.mb5          | AC-M16-SC    |
-| Air Purifier 4 PRO     | zhimi.airp.vb4          | AC-M15-SC    |
-| Air Fresh A1           | dmaker.airfresh.a1      | MJXFJ-150-A1 |
-| Air Fresh VA2          | zhimi.airfresh.va2      |              |
-| Air Fresh VA4          | zhimi.airfresh.va4      |              |
-| Air Fresh T2017        | dmaker.airfresh.t2017   | MJXFJ-300-G1 |
-| Air Humidifier         | zhimi.humidifier.v1     |              |
-| Air Humidifier CA1     | zhimi.humidifier.ca1    |              |
-| Air Humidifier CA4     | zhimi.humidifier.ca4    |              |
-| Air Humidifier CB1     | zhimi.humidifier.cb1    |              |
-| Air Humidifier JSQ     | deerma.humidifier.jsq   |              |
-| Air Humidifier JSQ1    | deerma.humidifier.jsq1  |              |
-| Air Humidifier MJJSQ   | deerma.humidifier.mjjsq |              |
-| Standing Fan 1X        | dmaker.fan.p5           |              |
-| Inverter Pedestal Fan  | zhimi.fan.za1           |              |
-| Standing Fan 2         | zhimi.fan.za3           |              |
-| Standing Fan 2S        | zhimi.fan.za4           |              |
-| Standing Fan           | zhimi.fan.sa1           |              |
-| DC Pedestal Fan        | zhimi.fan.v2            |              |
-| DC Pedestal Fan        | zhimi.fan.v3            |              |
-| Standing Fan 1C        | dmaker.fan.1c           |              |
-| Tower Fan              | dmaker.fan.p9           |              |
-| Standing Fan 2         | dmaker.fan.p10          |              |
-| Standing Fan Pro       | dmaker.fan.p11          |              |
-| Standing Fan 3         | zhimi.fan.za5           |              |
+The list includes device name, model number (if available), and model.
 
-### Features
-
-### Air Purifier 2 (zhimi.airpurifier.v2)
+- **Air Purifier**: `zhimi.airpurifier.v1`
+- **Air Purifier 2** (FJY4006CN): `zhimi.airpurifier.v2`
+- **Air Purifier V3**: `zhimi.airpurifier.v3`
+- **Air Purifier V5**: `zhimi.airpurifier.v5`
+- **Air Purifier Pro**: `zhimi.airpurifier.v6`
+- **Air Purifier Pro V7**: `zhimi.airpurifier.v7`
+- **Air Purifier 2 (mini)**: `zhimi.airpurifier.m1`
+- **Air Purifier (mini)**: `zhimi.airpurifier.m2`
+- **Air Purifier MA1**: `zhimi.airpurifier.ma1`
+- **Air Purifier MA2**: `zhimi.airpurifier.ma2`
+- **Air Purifier 2S**: `zhimi.airpurifier.mc1`
+- **Air Purifier Super**: `zhimi.airpurifier.sa1`
+- **Air Purifier Super 2**: `zhimi.airpurifier.sa2`
+- **Air Purifier 3 (2019) (AC-M6-SC)**: `zhimi.airpurifier.ma4`
+- **Air Purifier 3H (2019)**: `zhimi.airpurifier.mb3`
+- **Air Purifier Pro H**: `zhimi.airpurifier.va1`
+- **Air Purifier Pro H EU**: `zhimi.airpurifier.vb2`
+- **Air Purifier 3C**: `zhimi.airpurifier.mb4`
+- **Air Purifier 3C**: `zhimi.airp.mb4a`
+- **Air Purifier ZA1**: `zhimi.airpurifier.za1`
+- **Air Purifier 4 (AC-M16-SC)**: `zhimi.airp.mb5`
+- **Air Purifier 4 PRO (AC-M15-SC)**: `zhimi.airp.vb4`
+- **Air Fresh A1 (MJXFJ-150-A1)**: `dmaker.airfresh.a1`
+- **Air Fresh VA2**: `zhimi.airfresh.va2`
+- **Air Fresh VA4**: `zhimi.airfresh.va4`
+- **Air Fresh T2017 (MJXFJ-300-G1)**: `dmaker.airfresh.t2017`
+- **Air Humidifier**: `zhimi.humidifier.v1`
+- **Air Humidifier CA1**: `zhimi.humidifier.ca1`
+- **Air Humidifier CA4**: `zhimi.humidifier.ca4`
+- **Air Humidifier CB1**: `zhimi.humidifier.cb1`
+- **Air Humidifier JSQ**: `deerma.humidifier.jsq`
+- **Air Humidifier JSQ1**: `deerma.humidifier.jsq1`
+- **Air Humidifier MJJSQ**: `deerma.humidifier.mjjsq`
+- **Standing Fan 1X**: `dmaker.fan.p5`
+- **Inverter Pedestal Fan**: `zhimi.fan.za1`
+- **Standing Fan 2**: `zhimi.fan.za3`
+- **Standing Fan 2S**: `zhimi.fan.za4`
+- **Standing Fan**: `zhimi.fan.sa1`
+- **DC Pedestal Fan**: `zhimi.fan.v2`
+- **DC Pedestal Fan**: `zhimi.fan.v3`
+- **Standing Fan 1C**: `dmaker.fan.1c`
+- **Tower Fan**: `dmaker.fan.p9`
+- **Standing Fan 2**: `dmaker.fan.p10`
+- **Standing Fan Pro**: `dmaker.fan.p11`
+- **Standing Fan 2**: `dmaker.fan.p18`
+- **Standing Fan 3**: `zhimi.fan.za5`
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Idle)
@@ -274,16 +341,14 @@ Supported devices:
 
 - Sensor entities
 
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining life of the filter                              | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Humidity                  | The current humidity measured                                 | True               |
-| Motor Speed               | The current motor speed measured in rpm                       | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Purify Volume             | The volume of purified air in qubic meter                     | False              |
-| Temperature               | The current temperature measured                              | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+- **Filter Lifetime Remaining**: The remaining life of the filter. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -314,19 +379,16 @@ Supported devices:
 | Volume         | Set the volume         |
 
 - Sensor entities
-
-| Sensor                | Description                                                   | Enabled by default |
-| --------------------- | ------------------------------------------------------------- | ------------------ |
-| Filter Life Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use            | Filter usage time in hours                                    | True               |
-| Humidity              | The current humidity measured                                 | True               |
-| Illuminance           | The current illuminance measured                              | True               |
-| Motor Speed           | The current motor speed measured in rpm                       | True               |
-| PM2.5                 | The current particulate matter 2.5 measured                   | True               |
-| Purify Volume         | The volume of purified air in qubic meter                     | False              |
-| Second Motor Speed    | The current second motor speed measured in rpm                | True               |
-| Temperature           | The current temperature measured                              | True               |
-| Use Time              | The accumulative number of seconds the device has been in use | False              |
+  - **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Illuminance**: The current illuminance measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+  - **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -352,18 +414,15 @@ Supported devices:
 | Volume         | Set the volume         |
 
 - Sensor entities
-
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Humidity                  | The current humidity measured                                 | True               |
-| Illuminance               | The current illuminance measured                              | True               |
-| Motor Speed               | The current motor speed measured in rpm                       | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Second Motor Speed        | The current second motor speed measured in rpm                | True               |
-| Temperature               | The current temperature measured                              | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Illuminance**: The current illuminance measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -395,17 +454,14 @@ Supported devices:
 | Favorite Level | Set the favorite level |
 
 - Sensor entities
-
-| Sensor                    | Description                                                     | Enabled by default |
-| ------------------------- | --------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                            | True               |
-| Filter Use                | Filter usage time in hours                                      | True               |
-| Humidity                  | The current humidity measured                                   | True               |
-| Motor Speed               | The current motor speed measured in rpm                         | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                     | True               |
-| Temperature               | The current temperature measured                                | True               |
-| Illuminance               | The current illuminance meassured on top of the device 0-200lux | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use   | False              |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Illuminance**: The current illuminance measured on top of the device (0-200 lux). Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -431,16 +487,13 @@ Supported devices:
 | Favorite Level | Set the favorite level |
 
 - Sensor entities
-
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Humidity                  | The current humidity measured                                 | True               |
-| Motor Speed               | The current motor speed measured in rpm                       | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Temperature               | The current temperature measured                              | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -451,7 +504,7 @@ Supported devices:
 | Learn Mode | Turn on/off the learn mode |
 | LED        | Turn on/off the LED        |
 
-### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4/zhimi.airpurifier.mb3)
+### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4, zhimi.airpurifier.mb3)
 
 This model uses newer MiOT communication protocol.
 
@@ -473,17 +526,14 @@ This model uses newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Humidity                  | The current humidity measured                                 | True               |
-| Motor Speed               | The current motor speed measured in rpm                       | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Purify Volume             | The volume of purified air in qubic meter                     | False              |
-| Temperature               | The current temperature measured                              | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -492,7 +542,7 @@ This model uses newer MiOT communication protocol.
 | Buzzer     | Turn on/off the buzzer     |
 | Child Lock | Turn on/off the child lock |
 
-### Air Purifier Pro H/Pro H EU (zhimi.airpurifier.va1/zhimi.airpurifier.vb2)
+### Air Purifier Pro H, Pro H EU (zhimi.airpurifier.va1, zhimi.airpurifier.vb2)
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Fan)
@@ -512,17 +562,14 @@ This model uses newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Humidity                  | The current humidity measured                                 | True               |
-| Motor Speed               | The current motor speed measured in rpm                       | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Purify Volume             | The volume of purified air in qubic meter                     | False              |
-| Temperature               | The current temperature measured                              | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -531,7 +578,7 @@ This model uses newer MiOT communication protocol.
 | Buzzer     | Turn on/off the buzzer     |
 | Child Lock | Turn on/off the child lock |
 
-### Air Purifier 3C (zhimi.airpurifier.mb4)
+### Air Purifier 3C (zhimi.airpurifier.mb4, zhimi.airp.mb4a)
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
@@ -543,13 +590,10 @@ This model uses newer MiOT communication protocol.
 | LED Brightness       | Set the LED brightness       |
 
 - Sensor entities
-
-| Sensor                    | Description                                 | Enabled by default |
-| ------------------------- | ------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter        | True               |
-| Filter Use                | Filter usage time in hours                  | True               |
-| Motor Speed               | The current motor speed measured in rpm     | True               |
-| PM2.5                     | The current particulate matter 2.5 measured | True               |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
 
 - Switch entities
 
@@ -569,16 +613,13 @@ This model uses newer MiOT communication protocol.
 | Favorite Level | Set the favorite level |
 
 - Sensor entities
-
-| Sensor                    | Description                                                    | Enabled by default |
-| ------------------------- | -------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                           | True               |
-| Filter Use                | Filter usage time in hours                                     | True               |
-| Motor Speed               | The current motor speed measured in rpm                        | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                    | True               |
-| Humidity                  | The current humidity measured                                  | True               |
-| Temperature               | The current temperature measured                               | True               |
-| TVOC                      | The current concentration of Total Organic Volatile Components | True               |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **TVOC**: The current concentration of Total Organic Volatile Components. Enabled by default.
 
 - Switch entities
 
@@ -603,18 +644,16 @@ This model uses newer MiOT communication protocol.
   - `extra_features`
   - `use_time`
   - `button_pressed`
-- Sensor entities
 
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Illuminance               | The current illuminance measured                              | True               |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Motor Speed               | The current motor speed measured in rpm                       | True               |
-| Second Motor Speed        | The current second motor speed measured in rpm                | True               |
-| Purify Volume             | The volume of purified air in qubic meter                     | False              |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+- Sensor entities
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Illuminance**: The current illuminance measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+  - **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -624,7 +663,7 @@ This model uses newer MiOT communication protocol.
 | Child Lock | Turn on/off the child lock |
 | LED        | Turn on/off the LED        |
 
-### Air Purifier 4/4 PRO (zhimi.airp.mb5/zhimi.airp.vb4)
+### Air Purifier 4/4 PRO (zhimi.airp.mb5, zhimi.airp.vb4)
 
 These models use newer MiOT communication protocol.
 
@@ -645,18 +684,15 @@ These models use newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the Display (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor                    | Description                                            | Enabled by default |
-| ------------------------- | ------------------------------------------------------ | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter in %              | True               |
-| Filter Time Left          | The remaining lifetime of the filter in days           | True               |
-| Filter Use                | Filter usage time in hours                             | True               |
-| Humidity                  | The current humidity measured                          | True               |
-| Motor Speed               | The current motor speed measured in rpm                | True               |
-| PM2.5                     | The current particulate matter 2.5 measured            | True               |
-| PM10                      | The current particulate matter 10 measured(4 PRO only) | True               |
-| Purify Volume             | The volume of purified air in qubic meter              | False              |
-| Temperature               | The current temperature measured                       | True               |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter in %. Enabled by default.
+  - **Filter Time Left**: The remaining lifetime of the filter in days. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **PM10**: The current particulate matter 10 measured (4 PRO only). Enabled by default.
+  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
 
 - Switch entities
 
@@ -710,17 +746,14 @@ These models use newer MiOT communication protocol.
 - Attributes (fan platform)
   - `use_time`
   - `extra_features`
-- Sensor entities
-
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| Carbon Dioxide            | The current carbon dioxide measured in ppm                    | True               |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Humidity                  | The current humidity measured                                 | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Temperature               | The current temperature measured                              | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+- Sensor entities|
+  - **Carbon Dioxide**: The current carbon dioxide measured in ppm. Enabled by default.
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Select entities
 
@@ -775,38 +808,26 @@ These models use newer MiOT communication protocol.
 - Power (on, off)
 - Operation modes (Auto, Sleep, Favorite)
 - Binary sensor entities
-
-| Binary sensor         | Description                            |
-| --------------------- | -------------------------------------- |
-| Auxiliary Heat Status | Indicates if the heater is actually on |
+  - **Auxiliary Heat Status**: Indicates if the heater is actually on
 
 - Button entities
-
-| Button             | Description                                          |
-| ------------------ | ---------------------------------------------------- |
-| Reset Dust Filter  | Resets filter lifetime and usage of the dust filter  |
-| Reset Upper Filter | Resets filter lifetime and usage of the upper filter |
+  - **Reset Dust Filter**: Resets filter lifetime and usage of the dust filter
+  - **Reset Upper Filter**: Resets filter lifetime and usage of the upper filter
 
 - Select entities
-
-| Select               | Description                                                    |
-| -------------------- | -------------------------------------------------------------- |
-| Auxiliary Heat Level | Controls the level of the heater (Low, Medium, High)           |
-| Display Orientation  | Controls the orientation of the display (Forward, Left, Right) |
+  - **Auxiliary Heat Level**: Controls the level of the heater (Low, Medium, High)
+  - **Display Orientation**: Controls the orientation of the display (Forward, Left, Right)
 
 - Sensor entities
-
-| Sensor                               | Description                                        |
-| ------------------------------------ | -------------------------------------------------- |
-| Carbon Dioxide                       | The current carbon dioxide in ppm                  |
-| Dust filter lifetime remaining       | The remaining lifetime of the dust filter          |
-| Dust filter lifetime remaining days  | The remaining lifetime of the dust filter in days  |
-| Upper filter lifetime remaining      | The remaining lifetime of the upper filter         |
-| Upper filter lifetime remaining days | The remaining lifetime of the upper filter in days |
-| PM2.5                                | The current particulate matter 2.5                 |
-| Temperature                          | The current outside temperature                    |
-| Control Speed                        | The current motor speed in rpm                     |
-| Favorite Speed                       | The favorite motor speed in rpm                    |
+  - **Carbon Dioxide**: The current carbon dioxide in ppm
+  - **Dust filter lifetime remaining**: The remaining lifetime of the dust filter
+  - **Dust filter lifetime remaining days**: The remaining lifetime of the dust filter in days
+  - **Upper filter lifetime remaining**: The remaining lifetime of the upper filter
+  - **Upper filter lifetime remaining days**: The remaining lifetime of the upper filter in days
+  - **PM2.5**: The current particulate matter 2.5
+  - **Temperature**: The current outside temperature
+  - **Control Speed**: The current motor speed in rpm
+  - **Favorite Speed**: The favorite motor speed in rpm
 
 - Switch entities
 
@@ -845,13 +866,10 @@ These models use newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor      | Description                                                   | Enabled by default |
-| ----------- | ------------------------------------------------------------- | ------------------ |
-| Humidity    | The current humidity measured                                 | True               |
-| Temperature | The current temperature measured                              | True               |
-| Use Time    | The accumulative number of seconds the device has been in use | False              |
-| Water Level | The current water level percentage measured                   | True               |
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+  - **Water Level**: The current water level percentage measured. Enabled by default.
 
 - Switch entities
 
@@ -888,13 +906,10 @@ These models use newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor      | Description                                                   | Enabled by default |
-| ----------- | ------------------------------------------------------------- | ------------------ |
-| Humidity    | The current humidity measured                                 | True               |
-| Temperature | The current temperature measured                              | True               |
-| Use Time    | The accumulative number of seconds the device has been in use | False              |
-| Water Level | The current water level percentage measured                   | True               |
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+  - **Water Level**: The current water level percentage measured. Enabled by default.
 
 - Switch entities
 
@@ -938,14 +953,11 @@ These models use newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor       | Description                                                   | Enabled by default |
-| ------------ | ------------------------------------------------------------- | ------------------ |
-| Actual Speed | The current motor speed measured in rpm                       | True               |
-| Humidity     | The current humidity measured                                 | True               |
-| Temperature  | The current temperature measured                              | True               |
-| Use Time     | The accumulative number of seconds the device has been in use | False              |
-| Water Level  | The current water level percentage measured                   | True               |
+  - **Actual Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+  - **Water Level**: The current water level percentage measured. Enabled by default.
 
 - Switch entities
 
@@ -988,13 +1000,10 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor      | Description                                                   | Enabled by default |
-| ----------- | ------------------------------------------------------------- | ------------------ |
-| Humidity    | The current humidity measured                                 | True               |
-| Temperature | The current temperature measured                              | True               |
-| Use Time    | The accumulative number of seconds the device has been in use | False              |
-| Water Level | The current water level percentage measured                   | True               |
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+  - **Water Level**: The current water level percentage measured. Enabled by default.
 
 - Switch entities
 
@@ -1004,7 +1013,7 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | Child Lock | Turn on/off the child lock |
 | Dry Mode   | Turn on/off the dry mode   |
 
-### Air Humidifier JSQ/JSQ1/MJJSQ (deerma.humidifier.jsq/deerma.humidifier.jsq1/deerma.humidifier.mjjsq)
+### Air Humidifier JSQ/JSQ1/MJJSQ (deerma.humidifier.jsq, deerma.humidifier.jsq1, deerma.humidifier.mjjsq)
 
 - On, Off
 - Operation modes (low, medium, high, humidity)
@@ -1026,13 +1035,10 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | Water Tank       | Indicates whether the water tank is connected or not |
 | Water Tank Empty | Indicates whether the water tank is empty or not     |
 
-- Sensor entities
-
-| Sensor      | Description                                                   | Enabled by default |
-| ----------- | ------------------------------------------------------------- | ------------------ |
-| Humidity    | The current humidity measured                                 | True               |
-| Temperature | The current temperature measured                              | True               |
-| Use Time    | The accumulative number of seconds the device has been in use | False              |
+- Sensor entities|
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -1138,7 +1144,7 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | Child Lock | Turn on/off the Child Lock |
 | LED        | Turn on/off the LED        |
 
-### Tower Fan/Standing Fan 2/Standing Fan Pro (dmaker.fan.p9/dmaker.fan.p10/dmaker.fan.p11)
+### Tower Fan/Standing Fan 2/Standing Fan Pro (dmaker.fan.p9, dmaker.fan.p10, dmaker.fan.p11, dmaker.fan.p18)
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
@@ -1485,11 +1491,17 @@ In addition to all of the actions provided by the `vacuum` {% term integration %
 
 Start the cleaning operation in the areas selected for the number of repeats indicated.
 
-| Data attribute | Optional | Description                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific robot                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `zone`                 | no       | List of zones. Each zone is an array of four integer values. These values represent two sets of x- and y-axis coordinates that describe the beginning and ending points of a square or rectangle cleaning zone. For example, `[[23510,25311,25110,26361]]` creates a box that starts in one corner at the 23510, 25311 (x- and y-axis) coordinates and then is expanded diagonally to the 25110, 26361 coordinates to create a rectangular cleaning zone. |
-| `repeats`              | no       | Number of cleaning repeats for each zone between 1 and 3.                                                                                                                                                                                                                                                                                                                                                                                                 |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+
+- **Data attribute**: `zone`
+  - **Description**: List of zones. Each zone is an array of four integer values. These values represent two sets of x- and y-axis coordinates that describe the beginning and ending points of a square or rectangle cleaning zone. For example, `[[23510,25311,25110,26361]]` creates a box that starts in one corner at the 23510, 25311 (x- and y-axis) coordinates and then is expanded diagonally to the 25110, 26361 coordinates to create a rectangular cleaning zone.
+  - **Optional**: No.
+
+- **Data attribute**: `repeats`
+  - **Description**: Number of cleaning repeats for each zone between 1 and 3.
+  - **Optional**: No.
 
 Example of `xiaomi_miio.vacuum_clean_zone` use:
 
@@ -1499,11 +1511,10 @@ Inline array:
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
-    trigger:
-      - event: start
-        platform: homeassistant
-    condition: []
-    action:
+    triggers:
+      - trigger: homeassistant
+        event: start
+    actions:
       - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1520,11 +1531,10 @@ Array with inline zone:
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
-    trigger:
-      - event: start
-        platform: homeassistant
-    condition: []
-    action:
+    triggers:
+      - trigger: homeassistant
+        event: start
+    actions:
       - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1542,11 +1552,10 @@ Array mode:
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
-    trigger:
-      - event: start
-        platform: homeassistant
-    condition: []
-    action:
+    triggers:
+      - trigger: homeassistant
+        event: start
+    actions:
       - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1567,10 +1576,12 @@ automation:
 
 Clean the specified segment/room. A room is identified by a number. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving-room-numbers).
 
-| Data attribute | Optional | Description                                           |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific robot                          |
-| `segments`             | no       | List of segment numbers or one single segment number. |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+- **Data attribute**: `segments`
+  - **Description**: List of segment numbers or one single segment number.
+  - **Optional**: No.
 
 Example of `xiaomi_miio.vacuum_clean_segment` use:
 
@@ -1579,11 +1590,10 @@ Multiple segments:
 ```yaml
 automation:
   - alias: "Vacuum kitchen and living room"
-    trigger:
-      - event: start
-        platform: homeassistant
-    condition: []
-    action:
+    triggers:
+      - trigger: homeassistant
+        event: start
+    actions:
       - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1596,11 +1606,10 @@ Single segment:
 ```yaml
 automation:
   - alias: "Vacuum kitchen"
-    trigger:
-      - event: start
-        platform: homeassistant
-    condition: []
-    action:
+    triggers:
+      - trigger: homeassistant
+        event: start
+    actions:
       - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1613,10 +1622,10 @@ The original app for Xiaomi vacuum has a nice feature of room cleaning with repe
 ```yaml
 automation:
   - alias: "Vacuum kitchen"
-    trigger:
-      - event: start
-        platform: homeassistant
-    action:
+    triggers:
+      - trigger: homeassistant
+        event: start
+    actions:
       - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1628,11 +1637,15 @@ automation:
 
 Go the specified coordinates.
 
-| Data attribute | Optional | Description                                                             |
-| ---------------------- | -------- | ----------------------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific robot                                            |
-| `x_coord`              | no       | X-coordinate, integer value. The dock is located at x-coordinate 25500. |
-| `y_coord`              | no       | Y-coordinate, integer value. The dock is located at y-coordinate 25500. |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+- **Data attribute**: `x_coord`
+  - **Description**: X-coordinate, integer value. The dock is located at x-coordinate 25500.
+  - **Optional**: No.
+- **Data attribute**: `y_coord`
+  - **Description**: Y-coordinate, integer value. The dock is located at y-coordinate 25500.
+  - **Optional**: No.
 
 Note: If your vacuum is in motion and does not respond to the `xiaomi_miio.vacuum_goto` command, call the `vacuum.pause` or `vacuum.stop` action first.
 
@@ -1652,27 +1665,23 @@ Exit the remote control mode of the robot.
 | ---------------------- | -------- | ---------------------------- |
 | `entity_id`            | no       | Only act on a specific robot |
 
-### Action `xiaomi_miio.vacuum_remote_control_move`
+### Action `xiaomi_miio.vacuuNm_remote_control_move`
 
 Remote control the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
 
-| Data attribute | Optional | Description                                               |
-| ---------------------- | -------- | --------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific robot                              |
-| `velocity`             | no       | Speed: between -0.29 and 0.29                             |
-| `rotation`             | no       | Rotation: between -179 degrees and 179 degrees            |
-| `duration`             | no       | The number of milliseconds that the robot should move for |
+- `entity_id`: Only act on a specific robot. Not optional.
+- `velocity`: Speed: between -0.29 and 0.29. Not optional.
+- `rotation`: Rotation: between -179 degrees and 179 degrees. Not optional.
+- `duration`: The number of milliseconds that the robot should move for. Not optional.
 
 ### Action `xiaomi_miio.vacuum_remote_control_move_step`
 
 Enter remote control mode, make one move, stop, and exit remote control mode.
 
-| Data attribute | Optional | Description                                               |
-| ---------------------- | -------- | --------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific robot                              |
-| `velocity`             | no       | Speed: between -0.29 and 0.29                             |
-| `rotation`             | no       | Rotation: between -179 degrees and 179 degrees            |
-| `duration`             | no       | The number of milliseconds that the robot should move for |
+- **entity_id**: Only act on a specific robot. Not optional.
+- **velocity**: Speed: between -0.29 and 0.29. Not optional.
+- **rotation**: Rotation: between -179 degrees and 179 degrees. Not optional.
+- **duration**: The number of milliseconds that the robot should move for. Not optional.
 
 ### Buttons
 
@@ -1686,7 +1695,6 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 ### Sensors
 
 {% configuration_basic %}
-
 DnD Start*:
   description: The timestamp when the next DnD (Do not disturb) period will start
 DnD End*:
@@ -1723,7 +1731,6 @@ Water Box Attached**:
   description: If the watter box is attached
 Water Shortage\*\*:
   description: If the water box is low on water
-
 {% endconfiguration_basic %}
 
 {% note %}

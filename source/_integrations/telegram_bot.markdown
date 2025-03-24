@@ -7,6 +7,7 @@ ha_release: 0.42
 ha_iot_class: Cloud Push
 ha_domain: telegram_bot
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
@@ -18,6 +19,8 @@ If you don't need to receive messages, you can use the [broadcast](/integrations
 ## Notification actions
 
 Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `edit_message`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message` and `leave_chat`.
+
+Actions that send contents (`send_*`) will return a list of `message_id`/`chat_id` for messages delivered (in a property called `chats`). This will populate [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) that you can further utilize in your automations to edit/delete the message later based on the `message_id`. See the example later on this page for usage instructions.
 
 ### Action `telegram_bot.send_message`
 
@@ -287,7 +290,7 @@ Remove the bot from the chat group where it was added.
 
 ## Telegram notification platform
 
-The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag` and `disable_web_page_preview` are also supported.
+The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents, and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag`, `disable_web_page_preview`, and `message_thread_id` are also supported.
 
 The required YAML configuration now reduces to:
 
@@ -313,6 +316,7 @@ user_id: "<id of the sender>"
 chat_id: "<origin chat id>"
 chat: "<chat info>"
 date: "<message timestamp>"
+message_thread_id: "<message thread id>"
 ```
 
 Any other message not starting with `/` will be processed as simple text, firing a `telegram_text` event on the event bus with the following `event_data`:
@@ -325,6 +329,7 @@ user_id: "<id of the sender>"
 chat_id: "<origin chat id>"
 chat: "<chat info>"
 date: "<message timestamp>"
+message_thread_id: "<message thread id>"
 ```
 
 If the message is sent from a [press from an inline button](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), for example, a callback query is received, and Home Assistant will fire a `telegram_callback` event with:
@@ -345,13 +350,13 @@ chat_id: "<origin chat id>"
 Simple ping pong example.
 
 ```yaml
-alias: 'Telegram bot that reply pong to ping'
-trigger:
-  platform: event
-  event_type: telegram_command
-  event_data:
-    command: "/ping"
-action:
+alias: "Telegram bot that reply pong to ping"
+triggers:
+  - trigger: event
+    event_type: telegram_command
+    event_data:
+      command: "/ping"
+actions:
   - action: notify.notify
     data:
       message: "pong"
@@ -360,12 +365,12 @@ action:
 An example that shows keyboard interaction with `notify.telegram`
 
 ```yaml
-trigger:
-  platform: event
-  event_type: telegram_command
-  event_data:
-    command: "/start"
-action:
+triggers:
+  - trigger: event
+    event_type: telegram_command
+    event_data:
+      command: "/start"
+actions:
   - action: notify.telegram
     data:
       message: "commands"
@@ -378,12 +383,12 @@ action:
 and an automation to trigger a related command "/siren".
 
 ```yaml
-trigger:
-  platform: event
-  event_type: telegram_command
-  event_data:
-    command: "/siren"
-action:
+triggers:
+  - trigger: event
+    event_type: telegram_command
+    event_data:
+      command: "/siren"
+actions:
   - action: homeassistant.turn_on
     target:
       entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
@@ -399,13 +404,13 @@ An example to show the use of event_data in action:
 {% raw %}
 
 ```yaml
-- alias: 'Kitchen Telegram Speak'
-  trigger:
-    platform: event
-    event_type: telegram_command
-    event_data:
-      command: "/speak"
-  action:
+- alias: "Kitchen Telegram Speak"
+  triggers:
+    - trigger: event
+      event_type: telegram_command
+      event_data:
+        command: "/speak"
+  actions:
     - action: notify.kitchen_echo
       data:
         message: >
@@ -427,11 +432,11 @@ Text repeater:
 {% raw %}
 
 ```yaml
-- alias: 'Telegram bot that repeats text'
-  trigger:
-    platform: event
-    event_type: telegram_text
-  action:
+- alias: "Telegram bot that repeats text"
+  triggers:
+    - trigger: event
+      event_type: telegram_text
+  actions:
     - action: telegram_bot.send_message
       data:
         title: "*Dumb automation*"
@@ -450,13 +455,13 @@ Message editor:
 {% raw %}
 
 ```yaml
-- alias: 'Telegram bot that edits the last sent message'
-  trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      command: "/edit_msg"
-  action:
+- alias: "Telegram bot that edits the last sent message"
+  triggers:
+    - trigger: event
+      event_type: telegram_callback
+      event_data:
+        command: "/edit_msg"
+  actions:
     - action: telegram_bot.answer_callback_query
       data:
         callback_query_id: "{{ trigger.event.data.id }}"
@@ -483,13 +488,13 @@ Keyboard editor:
 {% raw %}
 
 ```yaml
-- alias: 'Telegram bot that edits the keyboard'
-  trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      command: "/remove_button"
-  action:
+- alias: "Telegram bot that edits the keyboard"
+  triggers:
+    - trigger: event
+      event_type: telegram_callback
+      event_data:
+        command: "/remove_button"
+  actions:
     - action: telegram_bot.answer_callback_query
       data:
         callback_query_id: "{{ trigger.event.data.id }}"
@@ -509,13 +514,13 @@ Only acknowledges the 'NO' answer:
 {% raw %}
 
 ```yaml
-- alias: 'Telegram bot that simply acknowledges'
-  trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      command: "/do_nothing"
-  action:
+- alias: "Telegram bot that simply acknowledges"
+  triggers:
+    - trigger: event
+      event_type: telegram_callback
+      event_data:
+        command: "/do_nothing"
+  actions:
     - action: telegram_bot.answer_callback_query
       data:
         callback_query_id: "{{ trigger.event.data.id }}"
@@ -529,13 +534,13 @@ Telegram callbacks also support arguments and commands the same way as normal me
 {% raw %}
 
 ```yaml
-- alias: 'Telegram bot repeats arguments on callback query'
-  trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      command: "/repeat"
-  action:
+- alias: "Telegram bot repeats arguments on callback query"
+  triggers:
+    - trigger: event
+      event_type: telegram_callback
+      event_data:
+        command: "/repeat"
+  actions:
     - action: telegram_bot.answer_callback_query
       data:
         show_alert: true
@@ -553,12 +558,12 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
 
 ```yaml
 - alias: 'Notifications about messages sent by Telegram bot'
-  trigger:
-    platform: event
-    event_type: telegram_sent
-    event_data:
-      message_tag: "msg_start"
-  action:
+  triggers:
+    - trigger: event
+      event_type: telegram_sent
+      event_data:
+        message_tag: "msg_start"
+  actions:
     - action: input_number.set_value
       data_template:
         entity_id: input_number.chat_id
@@ -574,7 +579,7 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
 ## Example: send_message with formatted Text
 
 ```yaml
-action:
+actions:
 - action: notify.telegrambot
   data:
     title: Example Message
@@ -584,7 +589,7 @@ action:
 ## Example: send_message with message tag
 
 ```yaml
-action:
+actions:
 - action: notify.telegrambot
   data:
     title: Example Message
@@ -593,10 +598,10 @@ action:
       message_tag: "example_tag"
 ```
 
-## Example: send_message with disabled webpage preview:
+## Example: send_message with disabled webpage preview
 
 ```yaml
-action:
+actions:
 - action: notify.telegram
   data:
     message: >-
@@ -605,3 +610,38 @@ action:
       parse_mode: html
       disable_web_page_preview: true
 ```
+
+## Example: send_message to a topic within a group
+
+```yaml
+actions:
+- action: notify.telegram
+  data:
+    message: "Message to a topic"
+    data:
+      message_thread_id: 123
+```
+
+## Example: automation to send a message and delete after a delay
+
+{% raw %}
+
+```yaml
+alias: telegram send message and delete
+sequence:
+  - action: telegram_bot.send_message
+    data:
+      message: testing
+    response_variable: response
+  - delay:
+      seconds: 5
+  - repeat:
+      sequence:
+        - action: telegram_bot.delete_message
+          data:
+            message_id: "{{ repeat.item.message_id }}"
+            chat_id: "{{ repeat.item.chat_id }}"
+      for_each: "{{ response.chats }}"
+```
+
+{% endraw %}

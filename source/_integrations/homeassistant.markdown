@@ -42,12 +42,11 @@ To get started with the general settings in YAML, follow these steps:
       latitude: 32.87336
       longitude: 117.22743
       elevation: 430
+      radius: 100
       unit_system: metric
       currency: USD
       country: US
       time_zone: "America/Los_Angeles"
-      external_url: "https://www.example.com"
-      internal_url: "http://homeassistant.local:8123"
       allowlist_external_dirs:
         - "/usr/var/dumping-ground"
         - "/tmp"
@@ -78,6 +77,10 @@ elevation:
   description: Altitude above sea level in meters. Impacts sunrise data.
   required: false
   type: integer
+radius:
+  description: Radius in meters defining your locations area. Impacts location awareness.
+  required: false
+  type: integer
 unit_system:
   description: "`metric` for Metric, `us_customary` for US Customary. This also sets temperature_unit, Celsius for Metric and Fahrenheit for US Customary"
   required: false
@@ -96,11 +99,11 @@ currency:
   type: string
   default: "EUR"
 external_url:
-  description: "The URL that Home Assistant is available on from the internet. For example: `https://example.duckdns.org:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
+  description: "The URL that Home Assistant is available on from the internet. For example: `https://example.duckdns.org:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported. This can also be configured by navigating to **{% my network title="Settings > System > Network" %}**."
   required: false
   type: string
 internal_url:
-  description: "The URL that Home Assistant is available on from your local network. For example: `http://homeassistant.local:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
+  description: "The URL that Home Assistant is available on from your local network. For example: `http://192.168.0.10:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported. This can also be configured by navigating to **{% my network title="Settings > System > Network" %}**."
   required: false
   type: string
 customize:
@@ -141,6 +144,10 @@ debug:
   required: false
   type: boolean
   default: false
+webrtc:
+  description: A [custom list of STUN and TURN servers for WebRTC video streaming](#custom-stun-and-turn-servers).
+  required: false
+  type: map
 {% endconfiguration %}
 
 ## Editing entity settings in YAML
@@ -251,6 +258,54 @@ homeassistant:
       icon: mdi:other
 ```
 
+## Custom STUN and TURN servers
+
+It's possible to override the default list of STUN and TURN servers which are used to initiate WebRTC streaming.
+Each STUN or TURN server can be configured as described in the table below.
+
+{% configuration webrtc %}
+ice_servers:
+  description: List of STUN and TURN server configurations
+  required: true
+  type: list
+  keys:
+    url:
+      description: STUN or TURN server URLs. This can either be a single URL or a list of URLs.
+      required: true
+      type: string
+    username:
+      description: Username for TURN server authentication
+      required: false
+      type: string
+    credential:
+      description: Credential for TURN server authentication
+      required: false
+      type: string
+{% endconfiguration %}
+
+### WebRTC configuration example
+
+{% important %}
+If you implement `webrtc` in your {% term "`configuration.yaml`" %} file, you must make sure it is done inside of `homeassistant:` or it will fail.
+{% endimportant %}
+
+```yaml
+homeassistant:
+  name: Home
+  unit_system: metric
+  # etc
+
+  webrtc:
+    ice_servers:
+    # Add an entry for each STUN or TURN server
+    - url:
+      - "stun:stun.example.com:19302"
+      - "stun:stun2.example.com:12345"
+    - url: "turn:turn.domain.com"
+      username: "username"
+      credential: "abc123"
+```
+
 ## Actions
 
 The `homeassistant` integration provides actions for controlling Home Assistant itself, as well as generic controls for any entity.
@@ -313,12 +368,12 @@ Update the location of the Home Assistant default zone (usually "Home").
 #### Example
 
 ```yaml
-action:
-  action: homeassistant.set_location
-  data:
-    latitude: 32.87336
-    longitude: 117.22743
-    elevation: 120
+actions:
+  - action: homeassistant.set_location
+    data:
+      latitude: 32.87336
+      longitude: 117.22743
+      elevation: 120
 ```
 
 ### Action `homeassistant.toggle`
@@ -335,12 +390,12 @@ for example, a light and a switch can be toggled in a single action.
 #### Example
 
 ```yaml
-action:
-  action: homeassistant.toggle
-  target:
-    entity_id: 
-      - light.living_room
-      - switch.tv
+actions:
+  - action: homeassistant.toggle
+    target:
+      entity_id: 
+        - light.living_room
+        - switch.tv
 ```
 
 ### Action `homeassistant.turn_on`
@@ -357,12 +412,12 @@ for example, a light and a switch can be turned on in a single action.
 #### Example
 
 ```yaml
-action:
-  action: homeassistant.turn_on
-  target:
-    entity_id:
-      - light.living_room
-      - switch.tv
+actions:
+  - action: homeassistant.turn_on
+    target:
+      entity_id:
+        - light.living_room
+        - switch.tv
 ```
 
 ### Action `homeassistant.turn_off` 
@@ -379,12 +434,12 @@ for example, a light and a switch can be turned off in a single action.
 #### Example
 
 ```yaml
-action:
-  action: homeassistant.turn_off
-  target:
-    entity_id:
-      - light.living_room
-      - switch.tv
+actions:
+  - action: homeassistant.turn_off
+    target:
+      entity_id:
+        - light.living_room
+        - switch.tv
 ```
 
 ### Action `homeassistant.update_entity`
@@ -398,12 +453,12 @@ Force one or more entities to update its data rather than wait for the next sche
 #### Example
 
 ```yaml
-action:
-  action: homeassistant.update_entity
-  target:
-    entity_id:
-    - light.living_room
-    - switch.coffe_pot
+actions:
+  - action: homeassistant.update_entity
+    target:
+      entity_id:
+      - light.living_room
+      - switch.coffe_pot
 ```
 
 ### Action `homeassistant.save_persistent_states`

@@ -76,13 +76,13 @@ In this autimation you can use Home Assistant actions to provide `volume_up` and
 Here is an example automation using an IR blaster to control `media_player_study`
 
 ```yaml
-alias: Roon Study Volume
-description: ""
-trigger:
-  - platform: state
+alias: "Roon Study Volume"
+mode: queued
+triggers:
+  - trigger: state
     entity_id:
       - event.study_roon_volume
-action:
+actions:
   - choose:
       - conditions:
           - condition: state
@@ -114,6 +114,4 @@ action:
               command: volume_down
             target:
               entity_id: remote.ir_blaster
-mode: queued
-
 ```

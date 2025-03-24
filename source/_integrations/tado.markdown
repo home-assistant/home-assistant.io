@@ -7,12 +7,12 @@ ha_category:
   - Hub
   - Presence detection
   - Sensor
+  - Switch
   - Water heater
   - Weather
 ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@chiefdragon'
   - '@erwindouna'
 ha_domain: tado
 ha_config_flow: true
@@ -22,6 +22,7 @@ ha_platforms:
   - climate
   - device_tracker
   - sensor
+  - switch
   - water_heater
 ha_dhcp: true
 ha_integration_type: integration
@@ -37,6 +38,11 @@ There is currently support for the following device types within Home Assistant:
 - [Presence detection](#presence-detection)
 - Sensor - for some additional information of the zones.
 - Weather - for information about the current weather at the location of your Tado home.
+- Switch - for controlling child lock on supported devices
+
+## Unsupported device types
+
+New Tado X devices are not supported by this integration, they have to be used through the [Matter integration](/integrations/matter).
 
 {% include integrations/config_flow.md %}
 
@@ -115,14 +121,14 @@ script:
 # Example automation to set temperature offset based on another thermostat value
 automation:
     # Trigger if the state of either thermostat changes
-    trigger:
-    - platform: state
+    triggers:
+    - trigger: state
       entity_id:
         - sensor.temp_sensor_room
         - sensor.tado_temperature
     
     # Check if the room temp is more than 0.5 away from the tado thermostat reading condition. The sensors default to room temperature (20) when the reading is in error:
-    condition:
+    conditions:
     - condition: template
       value_template: >
         {% set tado_temp = states('sensor.tado_temperature')|float(20) %}
@@ -130,7 +136,7 @@ automation:
         {{ (tado_temp - room_temp) | abs > 0.5 }}
     
     # Work out what the new offset should be (tado temp less the room temp but add the current offset value) and turn that to a negative value for setting as the new offset
-    action:
+    actions:
     - action: tado.set_climate_temperature_offset
       target:
         entity_id: climate.tado
@@ -159,14 +165,14 @@ Examples:
 # Example automation add meter readings on a daily basis.
 automation:
     # Trigger on specified time.
-    trigger:
-      - platform: time
+    triggers:
+      - trigger: time
         at: "00:00:00"
 
     # Add meter readings from `sensor.gas_consumption` to Tado.
     # Retrieve your `config_entry` id by setting this automation up in UI mode.
     # Notice that you may have to convert the reading to integer.
-    action:
+    actions:
       - action: tado.add_meter_reading
         data:
           config_entry: ef2e84b3dfc0aee85ed44ac8e8038ccf

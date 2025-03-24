@@ -19,7 +19,8 @@ Perform the action `homeassistant.turn_on` on the {% term entity %} `group.livin
 
 ```yaml
 action: homeassistant.turn_on
-entity_id: group.living_room
+target:
+  entity_id: group.living_room
 ```
 
 ### Targeting areas and devices
@@ -51,7 +52,8 @@ You can also specify other parameters beside the entity to target. For example, 
 
 ```yaml
 action: light.turn_on
-entity_id: group.living_room
+target:
+  entity_id: group.living_room
 data:
   brightness: 120
   rgb_color: [255, 0, 0]

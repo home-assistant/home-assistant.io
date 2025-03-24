@@ -22,7 +22,25 @@ Autarco is a Dutch company that provides solar panels, inverters and batteries. 
 
 {% include integrations/config_flow.md %}
 
-## Sensors
+### Configuration parameters
+
+{% configuration_basic %}
+Email:
+  description: The email address of your Autarco account.
+Password:
+  description: The password of your Autarco account.
+{% endconfiguration_basic %}
+
+## Data updates
+
+The integration will update its information by polling Autarco every
+5 minutes. This ensures the data in Home Assistant is up to date.
+
+## Actions
+
+This integration does not provide additional actions.
+
+## Supported functionality
 
 The Autarco platform mainly provides sensors that you can use in your [energy dashboard](/energy).
 
@@ -41,3 +59,30 @@ Gain insight into how much energy an inverter produces. The integration will cre
 
 - AC output power (W)
 - AC output energy total (kWh)
+
+### Battery
+
+If you have a battery connected to your system, you can monitor the battery status and see how much energy it charges or discharges.
+
+- Power flow (W) - Positive values indicate charging, negative values indicate discharging
+- State of charge (%)
+- Discharged energy today (kWh)
+- Discharged energy this month (kWh)
+- Discharged energy total (kWh)
+- Charged energy today (kWh)
+- Charged energy this month (kWh)
+- Charged energy total (kWh)
+
+## Known limitations
+
+The integration does not show data about your self-sufficiency or CO2 savings.
+
+## Troubleshooting
+
+There are no commonly known issues with this integration.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

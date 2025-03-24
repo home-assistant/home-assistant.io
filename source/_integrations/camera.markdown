@@ -74,12 +74,12 @@ Play a live stream from a camera to selected media player(s). Requires [`stream`
 For example, the following action in an automation would send an `hls` live stream to your chromecast.
 
 ```yaml
-action:
-  action: camera.play_stream
-  target:
-    entity_id: camera.yourcamera
-  data:
-    media_player: media_player.chromecast
+actions:
+  - action: camera.play_stream
+    target:
+      entity_id: camera.yourcamera
+    data:
+      media_player: media_player.chromecast
 ```
 
 ### Action `record`
@@ -91,7 +91,7 @@ Both `duration` and `lookback` options are suggestions, but should be consistent
 | Data attribute | Optional | Description                                                                                                                                    |
 | -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`    | no       | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`.                                                              |
-| `filename`     | no       | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/{{ entity_id.name }}.mp4`{% endraw %}.                                  |
+| `filename`     | no       | Recording file name.                                                                                                                           |
 | `duration`     | yes      | Target recording length (in seconds). Default: 30                                                                                              |
 | `lookback`     | yes      | Target lookback period (in seconds) to include in addition to duration.  Only available if there is currently an active HLS stream. Default: 0 |
 
@@ -102,12 +102,14 @@ For example, the following action in an automation would take a recording from "
 {% raw %}
 
 ```yaml
-action:
-  action: camera.record
-  target:
-    entity_id: camera.yourcamera
-  data:
-    filename: '/tmp/{{ entity_id.name }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+actions:
+  - variables:
+      my_camera_id: camera.yourcamera  # Store the camera entity_id in a variable for reuse
+  - action: camera.record
+    target:
+      entity_id: '{{ my_camera_id }}'
+    data:
+      filename: '/tmp/{{ my_camera_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
 ```
 
 {% endraw %}
@@ -119,7 +121,7 @@ Take a snapshot from a camera.
 | Data attribute | Optional | Description                                                                                                        |
 | -------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`    | no       | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`.                                  |
-| `filename`     | no       | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id.name }}`{% endraw %}. |
+| `filename`     | no       | Snapshot file name.                                                                                                |
 
 The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/integrations/homeassistant/) section of your {% term "`configuration.yaml`" %} file.
 
@@ -128,12 +130,14 @@ For example, the following action in an automation would take a snapshot from "y
 {% raw %}
 
 ```yaml
-action:
-  action: camera.snapshot
-  target:
-    entity_id: camera.yourcamera
-  data:
-    filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
+actions:
+  - variables:
+      my_camera_id: camera.yourcamera  # Store the camera entity_id in a variable for reuse
+  - action: camera.snapshot
+    target:
+      entity_id: '{{ my_camera_id }}'
+    data:
+      filename: '/tmp/{{ my_camera_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
 
 {% endraw %}

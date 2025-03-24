@@ -21,14 +21,14 @@ ha_integration_type: integration
 Support for mDNS discovery in your local network is mandatory for automatic discovery. Make sure that your router has this feature enabled. If mDNS does not work in your network, the IP addresses of the Cast devices can be manually entered in the configuration as mentioned below.
 
 {% include integrations/option_flow.md %}
+
 {% configuration_basic %}
 Known hosts:
   description: "A comma-separated list of hostnames or IP-addresses of cast devices, use if mDNS discovery is not working"
 Allowed UUIDs:
   description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`. This option is only visible if advanced mode is enabled in your user profile.
 Ignore CEC:
-  description: A comma-separated list of Chromecasts that should ignore CEC data for determining the
-        active input. [See the upstream documentation for more information](https://github.com/home-assistant-libs/pychromecast#ignoring-cec-data). This option is only visible if advanced mode is enabled in your user profile.
+  description: A comma-separated list of Chromecasts that should ignore CEC data for determining the active input. [See the upstream documentation for more information](https://github.com/home-assistant-libs/pychromecast#ignoring-cec-data). This option is only visible if advanced mode is enabled in your user profile.
 {% endconfiguration_basic %}
 
 ## Home Assistant Cast
@@ -39,11 +39,11 @@ Home Assistant has its own Cast application to show the Home Assistant UI on any
 cast_downstairs_on_kitchen:
   alias: "Show Downstairs on kitchen"
   sequence:
-    - data:
+    - action: cast.show_lovelace_view
+      data:
         dashboard_path: lovelace-cast
         entity_id: media_player.kitchen
         view_path: downstairs
-      action: cast.show_lovelace_view
 ```
 
 {% important %}
@@ -54,9 +54,11 @@ Home Assistant Cast requires your Home Assistant installation to be accessible v
 
 {% note %}
 
-Chromecasts generally ignore DNS servers from DHCP and will instead use Google's DNS servers, 8.8.8.8 and 8.8.4.4. This means media URLs must either be specifying the IP-address of the server directly, e.g. `http://192.168.1.1:8123/movie.mp4`, or be publicly resolvable, e.g. `http://homeassistant.internal.mydomain.com:8123/movie.mp4` where `homeassistant.internal.mydomain.com` resolves to `192.168.1.1`. A hostname which can't be publicly resolved, e.g. `http://homeassistant.local:8123/movie.mp4` will fail to play.
+Chromecasts generally don't resolve hosts through mDNS and also ignore DNS servers from DHCP, they instead use Google's public DNS servers, 8.8.8.8 and 8.8.4.4.
 
-This is important when casting TTS or local media sources; the cast integration will cast such media from the `external_url` if [configured](/integrations/homeassistant/#editing-the-general-settings-in-yaml), otherwise from the Home Assistant Cloud if configured, otherwise from the [`internal_url`](/integrations/homeassistant/#editing-the-general-settings-in-yaml). Note that the Home Assistant Cloud will not be used if an `external_url` is configured.
+This means media URLs must either be specifying the IP-address of the server directly, e.g. `http://192.168.1.1:8123/movie.mp4`, or be publicly resolvable, e.g. `http://homeassistant.internal.mydomain.com:8123/movie.mp4` where `homeassistant.internal.mydomain.com` resolves to `192.168.1.1` using Google's DNS servers. A hostname which can't be publicly resolved, e.g. `http://homeassistant.local:8123/movie.mp4` will fail to play.
+
+This is important when casting TTS or local media sources; the cast integration will cast such media from the local Home Assistant URL, which can be configured by navigating to **{% my network title="Settings > System > Network" %}** or by configuring an [`internal_url`](/integrations/homeassistant/#editing-the-general-settings-in-yaml).
 
 {% endnote %}
 
@@ -242,7 +244,8 @@ Optional:
 'cast_bubbleupnp_to_my_chromecast':
   alias: "Cast a video to My Chromecast using BubbleUPNP"
   sequence:
-    - target:
+    - action: media_player.play_media
+      target:
         entity_id: media_player.my_chromecast
       data:
         media_content_type: cast
@@ -252,7 +255,6 @@ Optional:
             "media_id": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
             "media_type": "video/mp4"
           }'
-      action: media_player.play_media
 ```
 
 ### [NRK Radio](https://radio.nrk.no)
@@ -277,7 +279,8 @@ Example values to cast the item at <https://radio.nrk.no/podkast/tazte_priv/l_84
 'cast_nrkradio_to_chromecast':
   alias: "Cast NRK Radio to Chromecast"
   sequence:
-    - target:
+    - action: media_player.play_media
+      target:
         entity_id: media_player.chromecast
       data:
         media_content_type: cast
@@ -286,7 +289,6 @@ Example values to cast the item at <https://radio.nrk.no/podkast/tazte_priv/l_84
             "app_name": "nrkradio",
             "media_id": "l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314"
           }'
-      action: media_player.play_media
 ```
 
 ### [NRK TV](https://tv.nrk.no)
@@ -309,7 +311,8 @@ Example values to cast the item at <https://tv.nrk.no/serie/uti-vaar-hage/sesong
 'cast_nrktv_to_chromecast':
   alias: "Cast NRK TV to Chromecast"
   sequence:
-    - target:
+    - action: media_player.play_media
+      target:
         entity_id: media_player.chromecast
       data:
         media_content_type: cast
@@ -318,7 +321,6 @@ Example values to cast the item at <https://tv.nrk.no/serie/uti-vaar-hage/sesong
             "app_name": "nrktv",
             "media_id": "OUHA43000207"
           }'
-      action: media_player.play_media
 ```
 
 ### Plex
@@ -367,7 +369,8 @@ Example values to cast the item at <https://www.supla.fi/audio/3601824>
 'cast_supla_to_my_chromecast':
   alias: "Cast supla to My Chromecast"
   sequence:
-    - target:
+    - action: media_player.play_media
+      target:
         entity_id: media_player.my_chromecast
       data:
         media_content_type: cast
@@ -376,7 +379,6 @@ Example values to cast the item at <https://www.supla.fi/audio/3601824>
             "app_name": "supla",
             "media_id": "3601824"
           }'
-      action: media_player.play_media
 ```
 
 ### YouTube
@@ -399,7 +401,8 @@ Optional:
 'cast_youtube_to_my_chromecast':
   alias: "Cast YouTube to My Chromecast"
   sequence:
-    - target:
+    - action: media_player.play_media
+      target:
         entity_id: media_player.my_chromecast
       data:
         media_content_type: cast
@@ -408,7 +411,6 @@ Optional:
             "app_name": "youtube",
             "media_id": "dQw4w9WgXcQ"
           }'
-      action: media_player.play_media
 ```
 
 ## Troubleshooting automatic discovery

@@ -17,7 +17,6 @@ ha_platforms:
   - light
 ha_homekit: true
 ha_dhcp: true
-ha_quality_scale: platinum
 ha_zeroconf: true
 ha_integration_type: integration
 ---

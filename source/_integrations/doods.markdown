@@ -10,6 +10,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `doods` image processing {% term integration %} allows you to detect and recognize objects in a camera image using [DOODS](https://github.com/snowzach/doods/). The state of the entity is the number of objects detected and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
@@ -215,11 +216,11 @@ image_processing:
 ```yaml
 # Example advanced automations.yaml entry
 - alias: "Doods scanning"
-  trigger:
-     - platform: state
+  triggers:
+     - trigger: state
        entity_id:
          - binary_sensor.driveway
-  action:
+  actions:
     - action: image_processing.scan
       target:
         entity_id: image_processing.doods_camera_driveway

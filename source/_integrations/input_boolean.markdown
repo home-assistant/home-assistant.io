@@ -46,7 +46,7 @@ Input booleans can also be configured via {% term "`configuration.yaml`" %} file
         description: Initial value when Home Assistant starts.
         required: false
         type: boolean
-        default: false
+        default: a previous value is restored if available
       icon:
         description: Icon to display in front of the input element in the frontend.
         required: false
@@ -78,7 +78,7 @@ Home Assistant itself.
 
 If you set a valid value for `initial` this integration will start with the state
 set to that value. Otherwise, it will restore the state it had prior to
-Home Assistant stopping.
+Home Assistant stopping; if there is no state to restore - an `off` value is set. 
 
 ## Automation examples
 
@@ -88,15 +88,15 @@ will only occur if the `input_boolean` is on.
 ```yaml
 automation:
   alias: "Arriving home"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.motion_garage
       to: "on"
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.notify_home
       state: "on"
-  action:
+  actions:
     - action: notify.pushbullet
       data:
         title: ""

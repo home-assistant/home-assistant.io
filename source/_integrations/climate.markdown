@@ -33,7 +33,7 @@ An HVAC entity can have the following states, depending on the specific climate 
 
 ### Climate control actions
 
-Available actions: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_hvac_mode`, `climate.set_swing_mode`, `climate.turn_on`, `climate.turn_off`, `climate.toggle`
+Available actions: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_hvac_mode`, `climate.set_swing_mode`, `climate.set_swing_horizontal_mode`, `climate.turn_on`, `climate.turn_off`, `climate.toggle`
 
 {% tip %}
 Not all climate {% term actions %}  may be available for your platform. You can check which climate action are available under **Developer Tools** -> **Actions**.
@@ -52,10 +52,10 @@ Turn auxiliary heater on/off for climate device
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_aux_heat
       target:
         entity_id: climate.kitchen
@@ -78,10 +78,10 @@ reflecting a situation where the climate device is set to save energy. For examp
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_preset_mode
       target:
         entity_id: climate.kitchen
@@ -106,10 +106,10 @@ Set target temperature of climate device
 ```yaml
 ### Set temperature to 24 in heat mode
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_temperature
       target:
         entity_id: climate.kitchen
@@ -121,10 +121,10 @@ automation:
 ```yaml
 ### Set temperature range to 20 to 24 in heat_cool mode
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_temperature
       target:
         entity_id: climate.kitchen
@@ -147,10 +147,10 @@ Set target humidity of climate device
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_humidity
       target:
         entity_id: climate.kitchen
@@ -171,10 +171,10 @@ Set fan operation for climate device
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_fan_mode
       target:
         entity_id: climate.kitchen
@@ -195,10 +195,10 @@ Set climate device's HVAC mode
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_hvac_mode
       target:
         entity_id: climate.kitchen
@@ -219,15 +219,39 @@ Set swing operation mode for climate device
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_swing_mode
       target:
         entity_id: climate.kitchen
       data:
         swing_mode: 1
+```
+
+### Action `climate.set_swing_horizontal_mode`
+
+Set horizontal swing operation mode for climate device
+
+| Data attribute          | Optional | Description                                                                                                                       |
+| ----------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`             | yes      | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`. |
+| `swing_horizontal_mode` | no       | New value of horizontal swing mode.                                                                                               |
+
+#### Automation example
+
+```yaml
+automation:
+  trigger:
+    platform: time
+    at: "07:15:00"
+  action:
+    - action: climate.set_swing_horizontal_mode
+      target:
+        entity_id: climate.kitchen
+      data:
+        swing_horizontal_mode: on
 ```
 
 ### Action `climate.turn_on`

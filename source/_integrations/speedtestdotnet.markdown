@@ -50,17 +50,17 @@ In this section you will find some real-life examples of how to use this integra
 # Example configuration.yaml entry
 automation:
   - alias: "Internet Speed Glow Connect Great"
-    trigger:
-      - platform: template
+    triggers:
+      - trigger: template
         value_template: "{{ states('sensor.speedtest_download')|float >= 10 }}"
-    action:
+    actions:
       - action: shell_command.green
 
   - alias: "Internet Speed Glow Connect Poor"
-    trigger:
-      - platform: template
+    triggers:
+      - trigger: template
         value_template: "{{ states('sensor.speedtest_download')|float < 10 }}"
-    action:
+    actions:
       - action: shell_command.red
 ```
 

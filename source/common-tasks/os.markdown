@@ -9,7 +9,20 @@ related:
 This section will provide guides to some common tasks and information which you will need in order to run, maintain, and edit your Home Assistant OS system. For further details on any particular subject, make sure to refer to the documentation for specific add-ons or topics listed here.
 
 {% include common-tasks/file_access.md %}
-{% include common-tasks/backups.md %}
+
+## Backup
+
+To learn how to back up the system or how to restore a system from a backup, refer to the backup documentation under [common tasks](/common-tasks/general/#backups).
+
+### Alternative: Creating a backup using the Home Assistant Command Line Interface
+
+In general, to create or restore from a backup, follow the steps described under [common tasks](/common-tasks/general/#backups). However, If you have the {% term "Home Assistant Operating System" %} installed, you can also create a backup from the command line. Follow these steps:
+
+1. `ha backups list` - lists backups and their slugnames
+2. `ha backups restore slugname` - restores a specific backup
+3. `ha backups new --name nameofbackup` - create a backup
+
+For additional information about command line usage, use the `ha help` command or refer to the [Home Assistant Command Line documentation](/common-tasks/os/#home-assistant-via-the-command-line).
 
 ## Updating Home Assistant
 
@@ -26,9 +39,9 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
 #### Prerequisites
 
-- [Backup](/common-tasks/os/#backups) your installation.
+- [Backup](/common-tasks/general/#backups) your installation.
   - Make sure the backup is downloaded and stored outside of the system.
-  - So that you can restore from that backup in case there is an issue with the system.
+  - So that you can [restore from that backup](/common-tasks/general/#restoring-a-backup) in case there is an issue with the system.
 
 #### To update the Home Assistant Operating System
 
