@@ -15,6 +15,10 @@ ha_integration_type: integration
 ha_quality_scale: bronze
 ---
 
+The `pterodactyl` {% term integration %} allows you to monitor your game servers of your Pterodactyl server within Home Assistant.
+
+## About Pterodactyl
+
 [Pterodactyl](https://www.pterodactyl.io) is a game server management panel designed to simplify the administration of game servers. It offers a user-friendly interface  which allows users to manage multiple game servers from a single dashboard, supporting popular games like Minecraft. Its key features include an intuitive web-based control panel, automated server installation, real-time server monitoring, scheduled backups and more. Each game server runs in an isolated Docker container, ensuring security and stability.
 
 {% include integrations/config_flow.md %}
@@ -32,12 +36,12 @@ Client API key:
 
 To create a new client API key, follow these steps:
 
-- Access your Pterodactyl Panel and log in with your user account.
-- From the main dashboard, click your username or profile icon in the top-right corner, then select **API Credentials** from the dropdown menu.
+- Access your **Pterodactyl Panel** and log in with your user account.
+- From the main dashboard, click your **username** or **profile icon** in the top-right corner, then select **API Credentials**.
 - Enter a **Description** to identify the key (for example, "Home Assistant").
 - Optionally, specify **Allowed IPs** to restrict where the key can be used (leave blank to allow all IPs).
 - Click **Create**. The panel will generate and display your new client API key.
-- Copy the key immediately and store it securely. You won’t be able to view it again after leaving the page.
+- Copy the **client API key** immediately and store it securely. You won’t be able to view it again after leaving the page.
 
 {% important %}
 Pterodactyl has two different types of API keys: Client (also known as Account) and Application. Application API keys are not supported, a client API key as described above is required instead.
