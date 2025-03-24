@@ -1047,7 +1047,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_topic:
@@ -1060,7 +1060,7 @@ availability_mode:
    type: string
    default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 payload_available:
@@ -1416,6 +1416,18 @@ If you have a large number of manually configured items, you might want to consi
 Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
 {% endnote %}
 
+## Entity state updates
+
+Entities receive state updates via MQTT subscriptions. The payloads received on the state topics are processed to determine whether there is a significant change. If a change is detected, the entity will be updated.
+
+Note that MQTT device payloads often contain information for updating multiple entities that subscribe to the same topics. For example, a light status update might include information about link quality. This data can update a link quality sensor but is not used to update the light itself. MQTT filters out entity state updates when there are no changes.
+
+### The last reported state attribute
+
+Because MQTT state updates are often repeated frequently, even when no actual changes exist, it is up to the MQTT subscriber to determine whether a status update was received. If the latest update is missed, it might take some time before the next one arrives. If a retained payload exists at the broker, that value will be replayed first, but it will be an update of a previous last state. 
+
+MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
+
 ## Using Templates
 
 The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/configuration/templating/#using-templates-with-the-mqtt-integration).
@@ -1480,7 +1492,7 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
 {% note %}
-When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
+When `payload` is rendered from [template](/docs/configuration/templating/#using-value-templates-with-mqtt) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
 {% endnote %}
 
 ```yaml

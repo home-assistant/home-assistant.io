@@ -39,8 +39,10 @@ You can group cards without using horizontal or vertical stack cards.
 5. When you are done, select **Save**.
    - You are now presented with a new, empty view.
    - If you chose a background image, the page is filled with that image.
-
-Once you have created a sections view, you can populate it sections and cards. You can also add a header with a title and badges.
+6. Once you have created a sections view, you can start curating it:
+   - [Add sections and cards](#adding-sections-and-cards-to-a-sections-view).
+   - [Rearrange](#rearranging-sections-and-cards) and [show or hide sections conditionally](#show-or-hide-section-conditionally).
+   - [Add a dashboard header with a title and badges](#editing-the-header).
 
 ## Editing the header
 

@@ -48,7 +48,7 @@ Devices must have a Yale Access module installed to function with this {% term i
 
 These devices do not send updates, but can be locked and unlocked.
 
-- MD-04I (Yale Conexis L1, Yale Conexis L2)
+- MD-04I (Yale Conexis L1 (requires yale access module), Yale Conexis L2)
 - YRCB-490 (Yale Smart Cabinet Lock)
 
 ## Troubleshooting
