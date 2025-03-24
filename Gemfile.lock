@@ -114,7 +114,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rbs (3.9.0)
+    rbs (3.9.1)
       logger
     regexp_parser (2.10.0)
     rexml (3.4.1)
