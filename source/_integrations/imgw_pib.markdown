@@ -24,15 +24,15 @@ Hydrological station:
     description: "Select a hydrological station from the list of available stations."
 {% endconfiguration_basic %}
 
-## Removing the integration
-
-This integration follows standard integration removal, no extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
 ## Sensors
 
 Sensor entities added to Home Assistant:
 
 - Water level
 - Water temperature (if a given hydrological station supports it)
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
