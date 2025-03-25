@@ -10,7 +10,6 @@ ha_category:
   - Select
   - Sensor
   - Switch
-  - Time
 ha_iot_class: Cloud Push
 ha_release: '0.110'
 ha_domain: home_connect
@@ -28,7 +27,6 @@ ha_platforms:
   - select
   - sensor
   - switch
-  - time
 ha_integration_type: integration
 ---
 
@@ -201,6 +199,9 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 
 #### Settings
 
+- **Alarm clock**
+  - **Description**: Sets the alarm clock.
+  - **Availability**: Cooktop, Oven
 - **Refrigerator setpoint temperature**:
   - **Description**: Sets the refrigerator temperature.
   - **Availability**: Fridge freezer, Refrigerator
@@ -1004,16 +1005,6 @@ Some devices only have the state `on` and turn off is not supported by the appli
 - **Fridge door assistant**:
   - **Description**: Enables/Disables the automatic door opening for the refrigerator/freezer compartment
   - **Availability**: Fridge freezer, Refrigerator
-
-{% enddetails %}
-
-### Time
-
-{% details "List of time entities" %}
-
-- **Alarm clock**
-  - **Description**: Sets the alarm clock.
-  - **Availability**: Cooktop, Oven
 
 {% enddetails %}
 
