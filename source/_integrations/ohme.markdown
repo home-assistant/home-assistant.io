@@ -17,7 +17,7 @@ ha_platforms:
   - sensor
   - switch
   - time
-ha_quality_scale: gold
+ha_quality_scale: silver
 ha_integration_type: device
 ---
 
@@ -146,43 +146,54 @@ The `ohme.set_price_cap` action is used to set the price cap threshold. This can
 
 ## Use cases
 
-This integration can be used to show charger status on your dashboards. It can also be used as part of automations for solar and battery storage.
+This integration enables several use cases to optimise efficiency of a solar and/or battery storage system.
 
+### Solar charging
+Use the charger mode to maximize solar consumption:
+- Set the charger to "Paused" when solar production is low
+- Switch to "Max charge" during peak solar hours
+
+### Battery storage
+If you have a home battery system:
+- Charge your EV when the battery is above certain capacity
+- Pause EV charging when the battery needs replenishing
 
 ## Examples
 
-### Send a notification when a vehicle is plugged in:
+### Send a notification on status change
+
+To be notified when the status of the charger changes, for example when a vehicle is plugged in, you can use an automation.
+
 {% raw %}
 ```yaml
 # Example automation
-mode: single
 triggers:
   - trigger: state
     entity_id:
       - sensor.ohme_home_pro_status
     from: unplugged
-conditions: []
 actions:
   - action: notify.mobile_app_iphone
     data:
-      message: Vehicle plugged in
-
+      message: "Vehicle plugged in"
 ```
 {% endraw %}
 
 
 ## Troubleshooting
 
-### The device is unavailable
+### Entities are shown as unavailable
 You may need to power cycle your charger. Please see the [manufactuer's guidance](https://ohme-ev.com/support/my-charger-is-offline/) for the procedure.
 
 ## Data updates
 
-This integration fetches most data every 30 seconds. Device settings are fetched every 30 minutes.
+This integration fetches data every 30 seconds with the following exceptions:
+* CT readings are fetched every minute.
+* Device settings are fetched every 30 minutes.
 
 ## Known limitations
-The integration does not provide the ability to manage vehicles or routines, which can instead be managed on the manufacturer's app.
 
+The integration does not provide the ability to manage vehicles or routines, which can instead be managed on the manufacturer's app.
 
 ## Removing the integration
 
