@@ -761,7 +761,7 @@ A precision of 0 returns all available units, default is 1.
 
   {% endraw %}
 
-- `as_timedelta(string)` converts a string to a timedelta object, which represents a duration (an amount of time between two datetimes). Expects data in the format `DD HH:MM:SS.uuuuuu`, `DD HH:MM:SS,uuuuuu`, or as specified by ISO 8601 (e.g. `P4DT1H15M20S` which is equivalent to `4 1:15:20`) or PostgreSQL’s day-time interval format (e.g. `3 days 04:05:06`). This function can also be used as a filter.
+- `as_timedelta(string)` converts a string to a timedelta object, which represents a duration (an amount of time between two datetimes). Expects data in the format `DD HH:MM:SS.uuuuuu`, `DD HH:MM:SS,uuuuuu`, or as specified by ISO 8601 (e.g. `P4DT1H15M20S` which is equivalent to `4 1:15:20`) or PostgreSQL's day-time interval format (e.g. `3 days 04:05:06`). This function can also be used as a filter.
 
   {% raw %}
 
@@ -1255,6 +1255,55 @@ Some examples:
 - `{{ [1, [2, [3]]], flatten(1) }}` - renders as `[1, 2, [3]]`
 
 {% endraw %}
+
+### Find common elements between lists
+
+The template engine provides a filter to find common elements between two lists: `intersect`.
+
+This function returns a list containing all elements that are present in both input lists.
+
+Examples:
+
+- `{{ intersect([1, 2, 5, 3, 4, 10], [1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[1, 2, 3, 4, 5]`
+- `{{ [1, 2, 5, 3, 4, 10] | intersect([1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[1, 2, 3, 4, 5]`
+- `{{ intersect(['a', 'b', 'c'], ['b', 'c', 'd']) }}` - renders as `['b', 'c']`
+- `{{ ['a', 'b', 'c'] | intersect(['b', 'c', 'd']) }}` - renders as `['b', 'c']`
+
+### Find elements in first list not in second list
+
+The template engine provides a filter to find elements that are in the first list but not in the second list: `difference`.
+This function returns a list containing all elements that are present in the first list but absent from the second list.
+
+Examples:
+
+- `{{ difference([1, 2, 5, 3, 4, 10], [1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[10]`
+- `{{ [1, 2, 5, 3, 4, 10] | difference([1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[10]`
+- `{{ difference(['a', 'b', 'c'], ['b', 'c', 'd']) }}` - renders as `['a']`
+- `{{ ['a', 'b', 'c'] | difference(['b', 'c', 'd']) }}` - renders as `['a']`
+
+### Find elements that are in either list but not in both
+
+The template engine provides a filter to find elements that are in either of the input lists but not in both: `symmetric_difference`.
+This function returns a list containing all elements that are present in either the first list or the second list, but not in both.
+
+Examples:
+
+- `{{ symmetric_difference([1, 2, 5, 3, 4, 10], [1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[10, 11, 99]`
+- `{{ [1, 2, 5, 3, 4, 10] | symmetric_difference([1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[10, 11, 99]`
+- `{{ symmetric_difference(['a', 'b', 'c'], ['b', 'c', 'd']) }}` - renders as `['a', 'd']`
+- `{{ ['a', 'b', 'c'] | symmetric_difference(['b', 'c', 'd']) }}` - renders as `['a', 'd']`
+
+### Combine all unique elements from two lists
+
+The template engine provides a filter to combine all unique elements from two lists: `union`.
+This function returns a list containing all unique elements that are present in either the first list or the second list.
+
+Examples:
+
+- `{{ union([1, 2, 5, 3, 4, 10], [1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[1, 2, 3, 4, 5, 10, 11, 99]`
+- `{{ [1, 2, 5, 3, 4, 10] | union([1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[1, 2, 3, 4, 5, 10, 11, 99]`
+- `{{ union(['a', 'b', 'c'], ['b', 'c', 'd']) }}` - renders as `['a', 'b', 'c', 'd']`
+- `{{ ['a', 'b', 'c'] | union(['b', 'c', 'd']) }}` - renders as `['a', 'b', 'c', 'd']`
 
 ### Combining dictionaries
 
