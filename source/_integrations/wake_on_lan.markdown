@@ -46,7 +46,12 @@ Turn off:
 
 Available services: `send_magic_packet`.
 
-To only use this service, configure the integration in the UI and disable the button entity.
+To only use this service, add the following to your {% term "`configuration.yaml`" %} file
+
+```yaml
+# Example configuration.yaml entry
+wake_on_lan:
+```
 
 ### Actions
 
