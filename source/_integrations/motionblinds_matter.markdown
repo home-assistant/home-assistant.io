@@ -19,6 +19,7 @@ ha_iot_standard:
   - matter
 ---
 
+[Motionblinds](https://motionblinds.com) is a member of the Works with Home Assistant partner program for their Matter products. Motionblinds is committed to making sure their products are up-to-date and ready to use in Home Assistant.
 
 Motionblinds Matter devices work locally and integrate seamlessly with the Matter integration in Home Assistant. As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.
 
