@@ -148,6 +148,7 @@ The integration will create the following sensors:
 - Battery level
 - Cutting blade usage time (if available)
 - Error. For example: *Mower tilted*, *outside geofence*.
+- Downtime (if available)
 - Restricted reason. For example: *Week schedule*, *frost*, or *daily limit*.
 - Mode
 - Next start
@@ -158,6 +159,7 @@ The integration will create the following sensors:
 - Total drive distance
 - Total running time
 - Total searching time
+- Uptime (if available)
 - Work area (if available). For example: *My lawn*, *Front lawn*, *Back lawn*
 
 For each work area with activated systematic mowing these sensors are created:

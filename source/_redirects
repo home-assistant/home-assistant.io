@@ -648,6 +648,7 @@ layout: null
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
+/integrations/zengge /integrations/led_ble
 /components/zwave /integrations/zwave_js
 
 # Lovelace images

@@ -150,6 +150,12 @@ device:
         the set model.
       type: string
       required: false
+    model_id:
+      description: >
+        When set, the list of areas is limited to areas with devices that have
+        the set model ID.
+      type: string
+      required: false      
 entity:
   description: >
     When entity options are provided, the list of areas is filtered by areas
@@ -485,7 +491,7 @@ devices based on the selector configuration. The value of the input will contain
 the device ID or a list of device IDs, based on if `multiple` is set to `true`.
 
 A device selector can filter the list of devices, based on things like the
-manufacturer or model of the device, the entities the device provides or based
+manufacturer, model, or model ID of the device, the entities the device provides or based
 on the domain that provided the device.
 
 ![Screenshot of a device selector](/images/blueprints/selector-device.png)
@@ -561,6 +567,11 @@ filter:
         When set, it limits the list of devices to devices that have the set model.
       type: string
       required: false
+    model_id:
+      description: >
+        When set, the list of devices is limited to devices that have the set model ID.
+      type: string
+      required: false      
 multiple:
   description: >
     Allows selecting multiple devices. If set to `true`, the resulting value of
@@ -792,6 +803,12 @@ device:
         the set model.
       type: string
       required: false
+    model_id:
+      description: >
+        When set, the list only includes floors with devices that have
+        the set model ID.
+      type: string
+      required: false      
 entity:
   description: >
     When entity options are provided, the list only includes floors
@@ -1342,6 +1359,10 @@ device:
       description: When set, it limits the targets to devices by the set model.
       type: string
       required: false
+    model_id:
+      description: When set, the targets are limited to devices that have the set model ID.
+      type: string
+      required: false      
 entity:
   description: >
     When entity options are provided, the targets are limited by entities

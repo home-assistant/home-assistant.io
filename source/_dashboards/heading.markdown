@@ -60,7 +60,7 @@ badges:
 
 ## Heading badges
 
-In addition to the heading text, each heading card can show small badges. They are smaller than regular [badges](/dashboards/badges/) and don't have a background. The heading badges can display sensor information in a compact and minimal style.
+In addition to the heading text, each heading card can show small badges. They are smaller than regular [badges](/dashboards/badges/) and don't have a background. The heading badges can display sensor information in a compact and minimal style. Heading badges also support [actions](/dashboards/actions/).
 
 ```yaml
 type: entity
@@ -107,5 +107,13 @@ state_content:
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will do nothing.
+  type: map
+hold_action:
+  required: false
+  description: Action taken on card hold. See [action documentation](/dashboards/actions/#hold-action). By default, it will do nothing.
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action). By default, it will do nothing.
   type: map
 {% endconfiguration %}

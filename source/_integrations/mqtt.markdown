@@ -51,19 +51,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 {% include integrations/config_flow.md %}
 
-### Removing the MQTT integration
-
-The MQTT integration and its entities can be removed by following these steps:
-
-1. Navigate to **Settings** > **Devices & Services**
-2. Find the MQTT integration and click on it
-3. Click the delete button to remove the MQTT config entry
-
-Note: This action does not remove the [MQTT broker](#setting-up-a-broker) or its data. If you want to completely remove MQTT:
-
-1. Check your `configuration.yaml` and other YAML files for MQTT-related configurations and remove them
-2. Review your automations and scripts for any MQTT dependencies
-3. Consider backing up your configuration before making these changes
+MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discovery) or [added manually](#manual-configured-mqtt-items) via YAML or subentries.
 
 <a name="configuration-via-mqtt-discovery"></a>
 {% details "Configuration of MQTT components via MQTT discovery" %}
@@ -131,6 +119,21 @@ Note: This action does not remove the [MQTT broker](#setting-up-a-broker) or its
 
 {% enddetails %}
 
+<a name="configuration-via-subentries"></a>
+{% details "Configuration of MQTT components via Subentries" %}
+
+- [Notify](/integrations/notify.mqtt/)
+
+To add an MQTT device via a Subentry, follow these steps:
+
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
+2. Select the MQTT integration.
+3. Add a subentry via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Add MQTT device**.
+
+A device context and one or more entities can be added to the subentry.
+
+{% enddetails %}
+
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
 The easiest option is to install the official Mosquitto Broker add-on. You can choose to set up and configure this add-on automatically when you set up the MQTT integration. Home Assistant will automatically generate and assign a safe username and password, and no further attention is required. This also works if you have already set up this add-on yourself in advance.
@@ -163,6 +166,8 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 2. Select the MQTT integration.
 3. Reconfigure the MQTT broker settings via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
 
+MQTT subentries can also be reconfigured. Additional entities can be added, or an entity can bve removed from the sub entry. Each MQTT subentry holds one MQTT device. The MQTT device must have at least one entity.
+
 {% important %}
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
 {% endimportant %}
@@ -185,7 +190,7 @@ The time in seconds between sending keep alive messages for this client. The def
 
 #### Broker certificate validation
 
-To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose `Auto`. This will allow validation against certificate CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM-encoded CA certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
+To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose `Auto`. This will allow validation against certificate CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM- or DER-encoded CA certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
 If the server certificate does not match the hostname then validation will fail. To allow a connection without the verification of the hostname, turn the `Ignore broker certificate validation` switch on.
 
 #### MQTT Protocol
@@ -194,7 +199,7 @@ The MQTT protocol setting defaults to version `3.1.1`. If your MQTT broker suppo
 
 #### Securing the connection
 
-With a secure broker connection it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to show the controls to upload the files. Only a PEM encoded client certificates together with a PEM encoded private key can be uploaded. Make sure the private key has no password set.
+With a secure broker connection, it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to reveal file upload controls. A client certificate and the corresponding private key must be uploaded together. Both client certificate and private key must be either PEM- or DER-encoded. If the private key is encrypted with a password, ensure you supply the correct password when uploading the client certificate and key files.
 
 #### Using WebSockets as transport
 
@@ -833,6 +838,7 @@ support_url:
     'pl_rst_pct':          'payload_reset_percentage',
     'pl_rst_pr_mode':      'payload_reset_preset_mode',
     'pl_stop':             'payload_stop',
+    'pl_stop_tilt':        'payload_stop_tilt',
     'pl_stpa':             'payload_start_pause',
     'pl_strt':             'payload_start',
     'pl_toff':             'payload_turn_off',
@@ -1371,6 +1377,8 @@ Compatibility and features will vary, and not all devices may work.
 
 ## Manual configured MQTT items
 
+Support to add manual items is added for the MQTT Notify entities, other platforms will follow later.
+
 For most integrations, it is also possible to manually set up MQTT items in {% term "`configuration.yaml`" %}. Read more [about configuration in YAML](/docs/configuration/yaml).
 
 MQTT supports two styles for configuring items in YAML. All configuration items are placed directly under the `mqtt` integration key. Note that you cannot mix these styles. Use the *YAML configuration listed per item* style when in doubt.
@@ -1590,3 +1598,13 @@ logger:
 Event `event_mqtt_reloaded` is fired when Manually configured MQTT entities have been reloaded and entities thus might have changed.
 
 This event has no additional data.
+
+## Removing the integration
+
+{% include integrations/remove_device_service_steps.md %}
+
+Note: This action does not remove the [MQTT broker](#setting-up-a-broker) or its data. If you want to completely remove MQTT:
+
+1. Check your {% term "`configuration.yaml`" %} and other YAML files for MQTT-related configurations and remove them
+2. Review your automations and scripts for any MQTT dependencies
+3. Consider backing up your configuration before making these changes

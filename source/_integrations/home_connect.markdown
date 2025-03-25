@@ -117,8 +117,17 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 - **Bottle cooler door**:
   - **Description**: Indicates if the bottle cooler door is open.
   - **Availability**: Fridge freezer, Refrigerator
+- **Common chiller door**:
+  - **Description**: Indicates if the common chiller door is open.
+  - **Availability**: Fridge freezer, Refrigerator
 - **Chiller door**:
   - **Description**: Indicates if the chiller door is open.
+  - **Availability**: Fridge freezer, Refrigerator
+- **Left chiller door**:
+  - **Description**: Indicates if the left chiller door is open.
+  - **Availability**: Fridge freezer, Refrigerator
+- **Right chiller door**:
+  - **Description**: Indicates if the right chiller door is open.
   - **Availability**: Fridge freezer, Refrigerator
 - **Flex compartment door**:
   - **Description**: Indicates if the flex compartment door is open.

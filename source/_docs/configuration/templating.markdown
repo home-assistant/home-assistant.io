@@ -473,6 +473,7 @@ The same thing can also be expressed as a test:
 - `floor_id(lookup_value)` returns the floor ID for a given device ID, entity ID, area ID, or area name. Can also be used as a filter.
 - `floor_name(lookup_value)` returns the floor name for a given device ID, entity ID, area ID, or floor ID. Can also be used as a filter.
 - `floor_areas(floor_name_or_id)` returns the list of area IDs tied to a given floor ID or name. Can also be used as a filter.
+- `floor_entities(floor_name_or_id)` returns the list of entity IDs tied to a given floor ID or name. Can also be used as a filter.
 
 #### Floors examples
 
@@ -1173,6 +1174,31 @@ Some examples:
 
 </div>
 
+### Hashing
+
+The template engine contains a few filters and functions to hash a string of
+data. A few very common hashing algorithms are supported: `md5`, `sha1`,
+`sha256`, and `sha512`.
+
+Some examples:
+
+{% raw %}
+
+- `{{ md5("Home Assistant") }}` - renders as `f3f2b8b3b40084aa87e92b7ffb02ed13885fea2d07`
+- `{{ "Home Assistant" | md5 }}` - renders as `f3f2b8b3b40084aa87e92b7ffb02ed13885fea2d07`
+
+- `{{ sha1("Home Assistant") }}` - renders as `14bffd017c73917bfda2372aaf287570597b8e82`
+- `{{ "Home Assistant" | sha1 }}` - renders as `14bffd017c73917bfda2372aaf287570597b8e82`
+
+- `{{ sha256("Home Assistant") }}` - renders as `a18f473c9d3ed968a598f996dcf0b9de84de4ee04c950d041b61297a25bcea49`
+- `{{ "Home Assistant" | sha256 }}` - renders as `a18f473c9d3ed968a598f996dcf0b9de84de4ee04c950d041b61297a25bcea49`
+
+- `{{ sha512("Home Assistant") }}` - renders as `f251e06eb7d3439e1a86d6497d6a4531c3e8c809f538be62f89babf147d7d63aca4e77ae475b94c654fd38d8f543f778ce80007d6afef379d8a0e5d3ddf7349d`
+- `{{ "Home Assistant" | sha512 }}` - renders as `f251e06eb7d3439e1a86d6497d6a4531c3e8c809f538be62f89babf147d7d63aca4e77ae475b94c654fd38d8f543f778ce80007d6afef379d8a0e5d3ddf7349d`
+
+{% endraw %}
+
+
 ### Regular expressions
 
 For more information on regular expressions
@@ -1183,6 +1209,72 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 - Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex. Access to the matched groups in `replace` is possible with `'\\1'`, `'\\2'`, etc.
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.
+
+### Shuffling
+
+The template engine contains a filter and function to shuffle a list.
+
+Shuffling can happen randomly or reproducibly using a seed. When using a seed
+it will always return the same shuffled list for the same seed.
+
+Some examples:
+
+{% raw %}
+
+- `{{ [1, 2, 3] | shuffle }}` - renders as `[3, 1, 2]` (_random_)
+- `{{ shuffle([1, 2, 3]) }}` - renders as `[3, 1, 2]` (_random_)
+- `{{ shuffle(1, 2, 3) }}` - renders as `[3, 1, 2]` (_random_)
+
+- `{{ [1, 2, 3] | shuffle("random seed") }}` - renders as `[2, 3, 1] (_reproducible_)
+- `{{ shuffle([1, 2, 3], seed="random seed") }}` - renders as `[2, 3, 1] (_reproducible_)
+- `{{ shuffle([1, 2, 3], "random seed") }}`- renders as `[2, 3, 1] (_reproducible_)
+- `{{ shuffle(1, 2, 3, seed="random seed") }}` - renders as `[2, 3, 1] (_reproducible_)
+
+{% endraw %}
+
+### Flatten a list of lists
+
+The template engine provides a filter to flatten a list of lists: `flatten`.
+
+It will take a list of lists and return a single list with all the elements.
+The depth of the flattening can be controlled using the `levels` parameter.
+The flattening process is recursive, so it will flatten all nested lists, until
+the number of levels (if specified) is reached.
+
+Some examples:
+
+{% raw %}
+
+- `{{ flatten([1, [2, [3]], 4, [5 , 6]]) }}` - renders as `[1, 2, 3, 4, 5, 6]`
+- `{{ [1, [2, [3]], 4, [5 , 6]] | flatten }}` - renders as `[1, 2, 3, 4, 5, 6]`
+
+- `{{ flatten([1, [2, [3]]], levels=1) }}` - renders as `[1, 2, [3]]`
+- `{{ [1, [2, [3]]], flatten(levels=1) }}` - renders as `[1, 2, [3]]`
+
+- `{{ flatten([1, [2, [3]]], 1) }}` - renders as `[1, 2, [3]]`
+- `{{ [1, [2, [3]]], flatten(1) }}` - renders as `[1, 2, [3]]`
+
+{% endraw %}
+
+### Combining dictionaries
+
+The template engine provides a function and filter to merge multiple dictionaries: `combine`.
+
+It will take multiple dictionaries and merge them into a single dictionary. When used as a filter,
+the filter value is used as the first dictionary. The optional `recursive` parameter determines
+whether nested dictionaries should be merged (defaults to `False`).
+
+Some examples:
+
+{% raw %}
+
+- `{{ {'a': 1, 'b': 2} | combine({'b': 3, 'c': 4}) }}` - renders as `{'a': 1, 'b': 3, 'c': 4}`
+- `{{ combine({'a': 1, 'b': 2}, {'b': 3, 'c': 4}) }}` - renders as `{'a': 1, 'b': 3, 'c': 4}`
+
+- `{{ combine({'a': 1, 'b': {'x': 1}}, {'b': {'y': 2}, 'c': 4}, recursive=True) }}` - renders as `{'a': 1, 'b': {'x': 1, 'y': 2}, 'c': 4}`
+- `{{ combine({'a': 1, 'b': {'x': 1}}, {'b': {'y': 2}, 'c': 4}) }}` - renders as `{'a': 1, 'b': {'y': 2}, 'c': 4}`
+
+{% endraw %}
 
 ## Merge action responses
 
@@ -1513,6 +1605,44 @@ When a command template renders to a valid `bytes` literal, then MQTT will publi
 - Template {% raw %}`{{ "16" }}`{% endraw %} renders to payload encoded string `"16"`.
 - Template {% raw %}`{{ 16 }}`{% endraw %} renders to payload encoded string `"16"`.
 - Template {% raw %}`{{ pack(0x10, ">B") }}`{% endraw %} renders to a raw 1 byte payload `0x10`.
+
+### Determining types
+
+When working with templates, it can be useful to determine the type of
+the returned value from a method or the type of a variable at times.
+
+For this, Home Assistant provides the `typeof()` template function and filter,
+which is inspired by the [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+`typeof` operator. It reveals the type of the given value.
+
+This is mostly useful when you are debugging or playing with templates in
+the developer tools of Home Assistant. However, it might be useful in some
+other cases as well.
+
+Some examples:
+
+{% raw %}
+
+- `{{ typeof(42) }}` - renders as `int`
+- `{{ typeof(42.0) }}` - renders as `float`
+- `{{ typeof("42") }}` - renders as `str`
+- `{{ typeof([1, 2, 3]) }}` - renders as `list`
+- `{{ typeof({"key": "value"}) }}` - renders as `dict`
+- `{{ typeof(True) }}` - renders as `bool`
+- `{{ typeof(None) }}` - renders as `NoneType`
+
+- `{{ 42 | typeof }}` - renders as `int`
+- `{{ 42.0 | typeof }}` - renders as `float`
+- `{{ "42" | typeof }}` - renders as `str`
+- `{{ [1, 2, 3] | typeof }}` - renders as `list`
+- `{{ {"key": "value"} | typeof }}` - renders as `dict`
+- `{{ True | typeof }}` - renders as `bool`
+- `{{ None | typeof }}` - renders as `NoneType`
+
+- `{{ some_variable | typeof }}` - renders the type of `some_variable`
+- `{{ states("sensor.living_room") | typeof }}` - renders the type of the result of `states()` function
+
+{% endraw %}
 
 ## Some more things to keep in mind
 

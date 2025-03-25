@@ -18,7 +18,7 @@ ha_platforms:
   - sensor
 ---
 
-This integration allows you to use [Microsoft OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
+This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups) as well as uploading generic files to your OneDrive.
 
 Backups will be created in a folder called `Home Assistant\backups_<id>` in the `App Folder` of your OneDrive by default.
 `id` is part of your Home Assistant instance's unique id to allow backups from multiple instances to the same OneDrive account.
@@ -84,6 +84,25 @@ The integration provides the following sensors, which are updated every 5 minute
 {% note %}
 A drive that is in **Drive state** `Exceeded` will be automatically frozen (meaning you can't upload any more backups & files), until you clear up enough storage.
 {% endnote %}
+
+## Actions
+
+This integration provides the following actions:
+
+### Action `onedrive.upload`
+
+You can use the `onedrive.upload` action to upload files from Home Assistant
+to OneDrive. For example, to upload `camera` snapshots.
+
+{% details "Upload action details" %}
+
+| Data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `filename` | no | Path to the file to upload. | /media/image.jpg |
+| `destination_folder` | no | Folder inside your `Apps/Home Assistant` app folder that is the destination for the uploaded content. Will be created if it does not exist. Supports subfolders. | Snapshots/2025 |
+| `config_entry_id` | no | The ID of the OneDrive config entry (the OneDrive you want to upload to). | a1bee602deade2b09bc522749bbce48e |
+
+{% enddetails %}
 
 ## Automations
 
