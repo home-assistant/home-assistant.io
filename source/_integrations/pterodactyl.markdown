@@ -15,37 +15,35 @@ ha_integration_type: integration
 ha_quality_scale: bronze
 ---
 
-The `pterodactyl` {% term integration %} allows you to monitor your game servers of your Pterodactyl server within Home Assistant.
-
-## About Pterodactyl
-
 [Pterodactyl](https://www.pterodactyl.io) is a game server management panel designed to simplify the administration of game servers. It offers a user-friendly interface  which allows users to manage multiple game servers from a single dashboard, supporting popular games like Minecraft. Its key features include an intuitive web-based control panel, automated server installation, real-time server monitoring, scheduled backups and more. Each game server runs in an isolated Docker container, ensuring security and stability.
 
-{% include integrations/config_flow.md %}
+The `pterodactyl` {% term integration %} allows you to monitor your game servers of your Pterodactyl server within Home Assistant.
 
-During setup, you will be prompted to enter the **URL** and the **client API key** of the server.
+## Prerequisites
 
-{% configuration_basic %}
-URL:
-    description: "The IP address or hostname of your Pterodactyl server, starting with either `http://` or `https://`, optionally including the port at the end. Example: `http://192.168.0.123:8080`"
-Client API key:
-    description: "The client (account) API key for accessing your Pterodactyl server. Follow the steps below to create one."
-{% endconfiguration_basic %}
-
-### Creating a client API key
-
-To create a new client API key, follow these steps:
+To access your Pterodactyl server, an account API key is required. Follow these steps to create a new one:
 
 - Access your **Pterodactyl Panel** and log in with your user account.
 - From the main dashboard, click your **username** or **profile icon** in the top-right corner, then select **API Credentials**.
 - Enter a **Description** to identify the key (for example, "Home Assistant").
 - Optionally, specify **Allowed IPs** to restrict where the key can be used (leave blank to allow all IPs).
-- Click **Create**. The panel will generate and display your new client API key.
-- Copy the **client API key** immediately and store it securely. You won’t be able to view it again after leaving the page.
+- Click **Create**. The panel will generate and display your new account API key.
+- Copy the **account API key** immediately and store it securely. You won’t be able to view it again after leaving the page.
 
 {% important %}
-Pterodactyl has two different types of API keys: Client (also known as Account) and Application. Application API keys are not supported, a client API key as described above is required instead.
+Pterodactyl has two different types of API keys: Account and Application. Application API keys are not supported, an account API key as described above is required instead.
 {% endimportant %}
+
+{% include integrations/config_flow.md %}
+
+During setup, you will be prompted to enter the **URL** and the **account API key** of the server.
+
+{% configuration_basic %}
+URL:
+    description: "The URL of your Pterodactyl server, including the protocol (`http://` or `https://`) and optionally the port number. Example: `http://192.168.0.123:8080`"
+Account API key:
+    description: "The account API key for accessing your Pterodactyl server (see prerequisites)."
+{% endconfiguration_basic %}
 
 ## Binary sensors
 
