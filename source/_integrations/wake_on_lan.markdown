@@ -95,9 +95,9 @@ The WOL switch can only turn on your computer and monitor the state. There is no
 
 It's required that the binary `ping` is in your `$PATH`.
 
-To get state updates for the switch enter the IP address of the host during configuration (or in the settings of the configuration entry click on configure). There you can also set a Turn off action for the switch.
+To get state updates for the switch, enter the IP address of the host during configuration (or click on "Configure" in the settings of the configuration entry). There, you can also set a turn‐off action for the switch.
 
-To enable this switch in your installation, enable the switch entity in the settings of the configuration entry.
+To activate the switch, enable its entity in the configuration entry settings.
 
 ### Examples
 
@@ -122,7 +122,7 @@ shell_command:
   turn_off_TARGET: "ssh hass@TARGET sudo pm-suspend"
 ```
 
-Then go to the settings of the Wake on Lan configuration entry and click on configure. There add the Turn off action.
+Then, open the settings of the Wake on LAN configuration entry, click on “Configure”, and add the turn‐off action.
 
 ## Helper button with automation
 
