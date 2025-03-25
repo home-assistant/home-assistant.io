@@ -56,7 +56,7 @@ Port:
     description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
 {% endconfiguration_basic %}
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 
