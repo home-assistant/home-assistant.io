@@ -37,7 +37,7 @@ Broadcast address:
 Broadcast port:
   description: The port to send the magic packet to.
 Host:
-  description: The ip of the host to wake up.
+  description: The IP of the host to wake up.
 Turn off:
   description: The actions to turn off the given host.
 {% endconfiguration_basic %}
@@ -95,7 +95,7 @@ The WOL switch can only turn on your computer and monitor the state. There is no
 
 It's required that the binary `ping` is in your `$PATH`.
 
-To get state updates for the switch enter the ip address of the host during configuration (or in the settings of the configuration entry click on configure). There you can also set a Turn off action for the switch.
+To get state updates for the switch enter the IP address of the host during configuration (or in the settings of the configuration entry click on configure). There you can also set a Turn off action for the switch.
 
 To enable this switch in your installation, enable the switch entity in the settings of the configuration entry.
 
