@@ -17,7 +17,7 @@ ha_quality_scale: bronze
 
 [Pterodactyl](https://www.pterodactyl.io) is a game server management panel designed to simplify the administration of game servers. It offers a user-friendly interface  which allows users to manage multiple game servers from a single dashboard, supporting popular games like Minecraft. Its key features include an intuitive web-based control panel, automated server installation, real-time server monitoring, scheduled backups and more. Each game server runs in an isolated Docker container, ensuring security and stability.
 
-The `pterodactyl` {% term integration %} allows you to monitor your game servers of your Pterodactyl server within Home Assistant.
+The Pterodactyl {% term integration %} allows you to monitor your game servers of your Pterodactyl server within Home Assistant.
 
 ## Prerequisites
 
