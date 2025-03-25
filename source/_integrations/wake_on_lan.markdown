@@ -90,7 +90,7 @@ The WOL switch can only turn on your computer and monitor the state. There is no
 
 It's required that the binary `ping` is in your `$PATH`.
 
-To get state updates for the switch enter the ip address of the host during configuration (or in the setting of the configuration entry click on configure). There you can also set a Turn off action for the switch.
+To get state updates for the switch enter the ip address of the host during configuration (or in the settings of the configuration entry click on configure). There you can also set a Turn off action for the switch.
 
 To enable this switch in your installation, enable the switch entity in the settings of the configuration entry.
 
