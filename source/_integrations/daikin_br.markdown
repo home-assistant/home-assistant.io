@@ -40,7 +40,7 @@ This Home Assistant integration supports the **Brazilian** version of Daikin Sma
 
 {% configuration_basic %}
 Device IP Address:
-  description: "The IP address of your Daikin Smart AC device. This is only required when automatic device discovery does not work."
+    description: "The IP address of your Daikin Smart AC device. This is only required when automatic device discovery does not work."
 Device Name:
     description: "The name of your Daikin smart AC device."
 Device Key:
@@ -67,12 +67,11 @@ If this applies to your setup, adjust your firewall settings to allow access to 
 
 The `Daikin Smart AC` climate platform integrates Daikin air conditioning systems with Home Assistant, allowing control over the following parameters:
 
-- [**set_hvac_mode**](/integrations/climate/#action-climateset_hvac_mode) (`off`, `heat`, `cool`, `dry`, `fan_only`)
-- [**target temperature**](/integrations/climate#action-climateset_temperature)
-- [**turn on/off**](/integrations/climate#action-climateturn_on)
-- [**fan mode**](/integrations/climate#action-climateset_fan_mode) (fan speed)
-- [**swing mode**](/integrations/climate#action-climateset_swing_mode)
-- [**set_preset_mode**](/integrations/climate#action-climateset_preset_mode) (eco, boost)
+- [**Set hvac mode**](/integrations/climate/#action-climateset_hvac_mode) (`off`, `heat`, `cool`, `dry`, `fan_only`)
+- [**Set target temperature**](/integrations/climate#action-climateset_temperature)
+- [**Set fan mode**](/integrations/climate#action-climateset_fan_mode) (fan speed)
+- [**Set swing mode**](/integrations/climate#action-climateset_swing_mode)
+- [**Set preset mode**](/integrations/climate#action-climateset_preset_mode) (eco, boost)
 
 The current ambient temperature is also displayed.
 
