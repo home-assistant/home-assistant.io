@@ -24,8 +24,8 @@ The **Wake on LAN** {% term integration %} enables the ability to send _magic pa
 
 There is currently support for the following device types within Home Assistant:
 
-- [Button](#button) enabled from the UI
-- [Switch](#switch) enabled from YAML configuration
+- [Button](#button)
+- [Switch](#switch)
 
 {% include integrations/config_flow.md %}
 
@@ -36,18 +36,17 @@ Broadcast address:
   description: The IP address of the host to send the magic packet to.
 Broadcast port:
   description: The port to send the magic packet to.
+Host:
+  description: The ip of the host to wake up.
+Turn off:
+  description: The actions to turn off the given host.
 {% endconfiguration_basic %}
 
 ### Integration services
 
 Available services: `send_magic_packet`.
 
-To only use this service, add the following to your {% term "`configuration.yaml`" %} file
-
-```yaml
-# Example configuration.yaml entry
-wake_on_lan:
-```
+To only use this service, configure the integration in the UI and disable the button entity.
 
 ### Actions
 
@@ -91,43 +90,9 @@ The WOL switch can only turn on your computer and monitor the state. There is no
 
 It's required that the binary `ping` is in your `$PATH`.
 
-To enable this switch in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To get state updates for the switch enter the ip address of the host during configuration (or in the setting of the configuration entry click on configure). There you can also set a Turn off action for the switch.
 
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: wake_on_lan
-    mac: MAC_ADDRESS
-```
-
-{% configuration %}
-mac:
-  description: "The MAC address to send the wake up command to, e.g, `00:01:02:03:04:05`."
-  required: true
-  type: string
-name:
-  description: The name of the switch.
-  required: false
-  default: Wake on LAN
-  type: string
-host:
-  description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
-  required: false
-  type: string
-turn_off:
-  description: Defines an [action](/getting-started/automation/) to run when the switch is turned off.
-  required: false
-  type: string
-broadcast_address:
-  description: The IP address of the host to send the magic packet to.
-  required: false
-  default: 255.255.255.255
-  type: string
-broadcast_port:
-  description: The port to send the magic packet to.
-  required: false
-  type: integer
-{% endconfiguration %}
+To enable this switch in your installation, enable the switch entity in the settings of the configuration entry.
 
 ### Examples
 
@@ -145,19 +110,14 @@ from Home Assistant running on another Linux computer (the **server**).
 5. On the **server**, verify that you can reach your target machine without password by `ssh TARGET`.
 6. On the **target**, we need to let the `hass` user execute the program needed to suspend/shut down the target computer. Here is it `pm-suspend`, use `poweroff` to turn off the computer. First, get the full path: `which pm-suspend`. On my system, this is `/usr/sbin/pm-suspend`.
 7. On the **target**, using an account with sudo access (typically your main account), `sudo visudo`. Add this line last in the file: `hass ALL=NOPASSWD:/usr/sbin/pm-suspend`, where you replace `hass` with the name of your user on the target, if different, and `/usr/sbin/pm-suspend` with the command of your choice, if different.
-8. On the **server**, add the following to your configuration, replacing TARGET with the target's name:
+8. On the **server**, add the following to your configuration:
 
 ```yaml
-switch:
-  - platform: wake_on_lan
-    name: "TARGET"
-    ...
-    turn_off:
-      action: shell_command.turn_off_TARGET
-
 shell_command:
   turn_off_TARGET: "ssh hass@TARGET sudo pm-suspend"
 ```
+
+Then go to the settings of the Wake on Lan configuration entry and click on configure. There add the Turn off action.
 
 ## Helper button with automation
 
