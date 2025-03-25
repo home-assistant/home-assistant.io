@@ -49,6 +49,19 @@ Integrate [Shelly devices](https://shelly.com) into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+    description: "The IP address/hostname of your Shelly device."
+Port:
+    description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
+{% endconfiguration_basic %}
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
 ## Shelly device generations
 
 There are four generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
