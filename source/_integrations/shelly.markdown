@@ -51,7 +51,7 @@ Integrate [Shelly devices](https://shelly.com) into Home Assistant.
 
 {% configuration_basic %}
 Host:
-    description: "The IP address/hostname of your Shelly device."
+    description: "The Hostname or IP address of your Shelly device. You can find it in your router."
 Port:
     description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
 {% endconfiguration_basic %}
