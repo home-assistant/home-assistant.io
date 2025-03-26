@@ -46,7 +46,7 @@ green:
       logo: /images/distributors/smarthome.webp
       # Europe
     - name: Alza.cz
-      ship_from: Czechia
+      ship_from: Czech Republic
       ship_to: Europe
       url: https://www.alza.cz/home-assistant-green-d7998187.htm
       logo: /images/distributors/alza-cz.webp
@@ -407,7 +407,7 @@ voice-pe:
       logo: /images/distributors/smart-guys.webp
       # Europe
     - name: Alza.cz
-      ship_from: Czechia
+      ship_from: Czech Republic
       ship_to: Europe
       url: https://www.alza.cz/home-assistant-voice-preview-edition-d12741248.htm
       logo: /images/distributors/alza-cz.webp
