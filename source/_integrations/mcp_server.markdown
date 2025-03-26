@@ -117,6 +117,32 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
 
   ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
 
+### Example: Cursor
+
+1. Download and install [Cursor](https://www.cursor.com/download).
+2. Open the main Cursor **Settings** and select MCP.
+3. Click **Add new global MCP server** and add the home assistant server configuration:
+   ```json
+    {
+      "mcpServers": {
+        "home-assistant": {
+          "command": "mcp-proxy",
+          "args": [
+            "http://localhost:8123/mcp_server/sse"
+          ],
+          "env": {
+            "SSE_URL": "http://localhost:8123/mcp_server/sse",
+            "API_ACCESS_TOKEN": "<your_access_token_here>"
+          }
+        }
+      }
+    }
+    ```
+4. Save your `mcp.json` file. You can also find this file in the `$HOME/.cursor/mcp.json` directory.
+5. Restart Cursor and return to the MCP settings. You should see the Home Assistant server in the list. The indicator should be green.
+6. In chat agent mode (Ctrl+I), ask it to control your home and the tool should be used.
+
+![Screenshot of Cursor controlling the office lights](/images/integrations/mcp_server/cursor-lights-control.png)
 
 ## Supported functionality
 
