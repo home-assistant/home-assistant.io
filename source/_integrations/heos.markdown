@@ -87,7 +87,7 @@ In addition to the standard [Media Player actions](/integrations/media_player#ac
 
 Group volume actions: `media_player.group_volume_set`, `media_player.group_volume_down`, and `media_player.group_volume_up` for entities joined to a group.
 
-Queue actions: `heos.get_queue` to manage a player's queue items.
+Queue actions: `heos.get_queue` and `heos.remove_from_queue` to manage a player's queue items.
 
 ### Action `media_player.group_volume_set`
 
@@ -128,6 +128,24 @@ media_player.office:
       media_id: "134788275"
       album_id: "134788273"
 ```
+
+### Action `heos.remove_from_queue`
+
+Removes one or more items from the target player(s) queue. The play queue can be enumerated by using the `heos.get_queue` service. Example action data payload:
+
+```yaml
+action: heos.remove_from_queue
+target:
+  entity_id: media_player.family_room_receiver
+data:
+  queue_ids:
+    - 1
+    - 3
+```
+
+| Data attribute | Optional | Description                                                     |
+| ---------------------- | -------- | ------------------------------------------------------- |
+| `queue_ids`            | no       | The IDs (indexes) of the items in the queue to remove.   |
 
 ## Examples
 
