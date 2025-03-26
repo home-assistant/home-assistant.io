@@ -31,6 +31,7 @@ ha_platforms:
   - time
   - vacuum
 ha_integration_type: integration
+ha_quality_scale: silver
 ---
 
 
