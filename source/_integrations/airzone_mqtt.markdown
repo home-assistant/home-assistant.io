@@ -39,3 +39,9 @@ For each Airzone Zone (thermostat), the following *sensors* are created:
 | hvac_setpoint_max   | Current zone HVAC max setpoint.    |
 | hvac_setpoint_min   | Current zone HVAC min setpoint.    |
 | temperature         | Current zone temperature.          |
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
