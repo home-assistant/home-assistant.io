@@ -67,7 +67,7 @@ The following device classes are supported for sensors:
 - **energy_storage**: Stored energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
 - **enum**: Has a limited set of (non-numeric) states
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
-- **gas**: Gasvolume in m³, ft³ or CCF
+- **gas**: Gas volume in L, m³, ft³ or CCF
 - **humidity**: Percentage of humidity in the air in %
 - **illuminance**: The current light level in lx
 - **irradiance**: Irradiance in W/m² or BTU/(h⋅ft²)

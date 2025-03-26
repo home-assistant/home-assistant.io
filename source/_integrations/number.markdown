@@ -56,7 +56,7 @@ The following device classes are supported for numbers:
 - **energy_distance**: Energy per distance in kWh/100km, mi/kWh or km/kWh.
 - **energy_storage**: Stored energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
-- **gas**: Gasvolume in m³, ft³ or CCF
+- **gas**: Gas volume in L, m³, ft³ or CCF
 - **humidity**: Percentage of humidity in the air in %
 - **illuminance**: The current light level in lx
 - **irradiance**: Irradiance in W/m² or BTU/(h⋅ft²)
@@ -91,7 +91,7 @@ The following device classes are supported for numbers:
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
 - **wind_direction**: Wind direction in °
 - **wind_speed**: Wind speed in Beaufort, ft/s, km/h, kn, m/s, or mph
- 
+
 ## Actions
 
 The Number entities registers the following actions:
