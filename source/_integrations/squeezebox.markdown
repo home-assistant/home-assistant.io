@@ -14,6 +14,7 @@ ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
+  - button
   - media_player
   - sensor
 ha_integration_type: integration

@@ -27,6 +27,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
 ha_integration_type: integration
 ---
 

@@ -15,6 +15,7 @@ related:
     title: Backups
 ha_quality_scale: platinum
 ha_platforms:
+  - diagnostics
   - sensor
 ---
 

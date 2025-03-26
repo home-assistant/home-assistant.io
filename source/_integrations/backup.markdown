@@ -11,8 +11,9 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_iot_class: Calculated
 ha_platforms:
+  - diagnostics
   - sensor
-ha_integration_type: system
+ha_integration_type: service
 related:
   - docs: /common-tasks/general/#backups
     title: Backups

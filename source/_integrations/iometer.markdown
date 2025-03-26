@@ -14,6 +14,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - sensor
 ---
 

@@ -1,0 +1,581 @@
+---
+layout: post
+title: "2025.4 Beta release notes"
+description: "Beta release notes for Home Assistant 2025.4"
+date: 2025-03-26 00:00:00
+date_formatted: "April 2, 2025"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2025-04/social.jpg
+---
+
+<lite-youtube videoid="-w9IBKg5RAw" videotitle="Home Assistant 2025.4 Release Party"></lite-youtube>
+
+{% note %}
+
+**Welcome to the beta release notes for Home Assistant 2025.4** 🎉
+
+<br />
+
+Please note that these release notes are a work in progress. 👷‍♀️ We will be
+completing them over the next couple of days. Not all features might be final
+yet, and some features _**may not** make it into the final release_.
+
+<br />
+
+**Want to help test the beta?** Awesome! ❤️ We have documented how you
+[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
+
+<br />
+
+While running the beta, we highly recommend joining our _#beta_ channel on
+the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
+testers are in this channel during the beta period to share experiences, ideas,
+and iterate over new features, fine-tuning them before the final release.
+It's a really fun place to hang out. 😎
+
+<br />
+
+**Reporting issues**: As this is a beta test, you might encounter unexpected
+behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
+You can find our issue trackers and the reported issues during beta here:
+
+<br />
+
+- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/130)
+- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/732)
+- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/137)
+
+🙏 When reporting issues, **make sure to mention the exact beta version you are
+running** in the issue description. This will help us identify and track the
+issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
+
+<br />
+
+Issues introduced in the beta are processed with priority. 🔝
+
+{% endnote %}
+
+{% tip %}
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=-w9IBKg5RAw)
+2 April 2025, at 20:00 GMT / 12:00 PT / 21:00 CEST!
+
+{% endtip %}
+
+Home Assistant 2025.4! 🎉
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [BETA Feedback! Automation \& script variable scopes](#beta-feedback-automation--script-variable-scopes)
+- [Introducing the areas dashboard (experimental)](#introducing-the-areas-dashboard-experimental)
+- [Time for a new card!](#time-for-a-new-card)
+- [Voice](#voice)
+  - [Improved Voice Wizard](#improved-voice-wizard)
+  - [Continued conversation with LLMs](#continued-conversation-with-llms)
+  - [Starting conversations](#starting-conversations)
+  - [Pre-announce sound](#pre-announce-sound)
+- [Restoring backup from Home Assistant Cloud during onboarding](#restoring-backup-from-home-assistant-cloud-during-onboarding)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [Templates](#templates)
+- [Device hierarchy for energy management](#device-hierarchy-for-energy-management)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+## BETA Feedback! Automation & script variable scopes
+
+{% note %}
+
+This one is not directly one that is ending up in the release notes as such
+but an important change we need feedback on during beta. Hence we've put
+it at the top here, for visibility. This chapter will be removed in the final
+release notes.
+
+{% endnote %}
+
+The use of variables in automations and scripts has been quite cumbersome and
+confusing to work with. If you have ever worked with logic blocks or loops in
+combination with variables, you might have encountered weirdness in their
+scoping. This release ships with a change to the way variables are scoped in
+automations and scripts to make it easier to work with and to fix mistakes made
+in the past.
+
+In this beta, the scope of variables has been changed to be more consistent and
+intuitive. Variables are now scoped "globally" in the automation or script
+run. This means that if you define a variable in one action, it will be
+accessible in all subsequent actions, regardless of their nesting level.
+
+From a programming perspective, this means a single automation or script run
+can be seen as a single function scope.
+
+Example:
+
+{% raw %}
+
+```yaml
+actions:
+  - variables:
+      x: 1
+      y: 1
+  - sequence:
+    - variables:
+        y: 2  # Updates y which exists in the outer scope
+        z: 2  # Since z is not defined yet, it is assigned in the top-level scope
+  - action: persistent_notification.create
+    data:
+      message: "{{ x }}, {{ y }}, {{ z }}" # x=1, y=2, z=2
+      # Note: previously it would be: x=1, y=1, z undefined
+```
+
+{% endraw %}
+
+**We need help testing this change!** Please test your automations and scripts
+that use variables and let us know if you encounter any issues or unexpected
+behavior, or if it just works just like before in our #beta channel on Discord.
+
+While the change is huge, we do expect the impact to be limited. We want
+to learn from your experiences if this assumption is correct.
+
+## Introducing the areas dashboard (experimental)
+
+This release we are introducing a new, _experimental_, automatically generated
+dashboard that is based on the areas in your Home!
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-04/temp-dashboard-areas.png" />
+
+The overview page of the dashboard shows the areas in your home with the
+most important information about them. Selecting the area header, will take
+you to a detailed view of the area, showing everything you have in that area.
+
+To use this dashboard today, select the "Areas" option from the list when
+you add a new dashboard. Please note, that this dashboard is currently marked
+as experimental, and we are looking for your feedback on it!
+
+Our goal is to iterate on this dashboard and keep improving it, until it
+potentially makes it to become the default dashboard in the future.
+
+## Time for a new card!
+
+It has been a while since we have introduced a new card, but this release we
+thought it might be _**time**_ to add a new one! Thanks to [@mrdarrengriffin]
+we now have a Clock card!
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-04/temp-card-clock.png" />
+
+Yeah, the card is "just" showing the current time, but it is a really nice
+addition to our card collection. It might be a great card for dashboards
+you are showing on things like a wall mounted tablet!
+
+It supports a few time formats, and of course, comes in a different sizes to
+match your needs.
+
+**TODO**: Link to documentation
+
+[@mrdarrengriffin]: https://github.com/mrdarrengriffin
+
+## Voice
+
+The year of the voice is long gone, but we are still working on improving
+the voice experience in Home Assistant. This release has a few improvements
+to the voice experience in Home Assistant!
+
+### Improved Voice Wizard
+
+If you set up a Home Assistant voice assistant compatible device,
+like the [Home Assistant Voice Preview Edition][pve],
+you will be guided through setting up your voice assistant, and this experience
+has been greatly improved in this release.
+
+As our voice experience is offering more choices, including local options
+like Speech-to-Phrase, we wanted to make sure you are able to make the right
+choices for your use case.
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-04/temp-voice-wizard.png" />
+
+The wizard will now help you making the right choice, based on the language
+you are using, the device you are setting up, and the capabilities of your
+device. This will help you to get the best experience out of your voice
+assistant.
+
+[pve]: /voice-pe/
+
+### Continued conversation with LLMs
+
+Ever tried to have a conversation with your voice assistant that is hooked up
+to an LLM like ChatGPT? It isn't fun, as before each sentence/answer you have
+to say _"Ok Nabu"_, in order to get the assistant to listen to you.
+
+This release introduces the ability to have a continued conversation with LLMs.
+If the LLM is returning a question, we will detect that and keep the
+conversation going, without the need for you to say _"Ok Nabu"_ again.
+
+<lite-youtube videoid="KyAuzYe4vAw" videotitle="Continued conversation demo"></lite-youtube>
+
+This is a great way to have a more natural conversation with your voice
+assistants, and it works with all LLMs that are supported by Home Assistant.
+
+### Starting conversations
+
+During [Voice chapter 9](https://www.youtube.com/watch?v=k6VvzDSI8RU&t=4750s),
+we added the ability for Home Assistant [to call analog phones to start a
+conversation](/blog/2025/02/13/voice-chapter-9-speech-to-phrase/#home-assistant-phones-home-analog-phones-are-back).
+
+As of this release, this feature is now available for ESPHome based voice
+assistant, like the [Home Assistant Voice Preview Edition][pve]!
+
+This is an amazing feature, as it allows you to build your own automations
+that will initiate interaction from a voice assistant, instead of you having
+to trigger the conversion by saying the wake work.
+
+_**TODO:**_ Add a demo video here.
+
+Imaging, for example, you have left the garage door open, and a few minutes
+later, your says: "Hey, I noticed you left the garage door open, do you want me
+to close it for you?" And you can just say "yes" or "no" to the assistant, and
+it will close the door for you... 🤯
+
+Or maybe you come home from a long day at work, and your assistant says:
+Welcome home Frenck! Hope you had a great day! Want to hear the news? Or
+maybe you are in the mood for some music?" and answering that?
+
+This is unbelievably powerful, and opens up a whole new world of possibilities
+for your voice assistant. This power is currently only available when using
+LLMs, but we are working on making this available for all other cases as well.
+
+[pve]: /voice-pe/
+
+### Pre-announce sound
+
+The above feature is great, but having something starting talking out of nowhere
+might be a bit scary for some people 🫣. To help with that, it is possible to
+add a pre-announce sound when starting a conversation or doing an announcement.
+
+Using this, you can play a little sounds before the assistant starts talking,
+preventing the "jump scare" effect.
+
+_**TODO:**_ Add a demo video here.
+
+Hmmm... this might be cool for different sound effects, depending on the
+situation. Like a doorbell when the doorbell is rang, or the the railroad
+announcement sounds to announce your train this morning is delayed (so you
+have a little more time to grab your coffee before you leave).
+
+## Restoring backup from Home Assistant Cloud during onboarding
+
+If you are a user of [Home Assistant Cloud by Nabu Casa][cloud], it means
+you can safely store a backup of your Home Assistant installation in the cloud
+as part of your subscription. A really convenient service that ensure you always
+have a secure and worry free backup of your Home Assistant installation, no
+matter what happens.
+
+Now, let's say something did happen, maybe a hardware failure, or maybe you
+are migrating to a new Home Assistant Green, as of this release, you can
+directly restore your backup from the Home Assistant Cloud during the
+onboarding process of your new Home Assistant installation.
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-04/temp-restore-from-cloud.png" />
+
+This means you can get up and running with your new Home Assistant
+installation in no time, with all your settings, automations, and
+integrations restored from your backup.
+
+[cloud]: https://www.nabucasa.com/
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Pterodactyl]**, added by [@elmurato]  
+  Control and monitor your [Pterodactyl game server management panel].
+- **[Remote calendar]**, added by [@Thomas55555]  
+  Add remote calendar URLs as a calendar to Home Assistant.
+- **[Bosh Alarm**], added by [@?]  
+  Control and monitor your Bosh alarm system.
+
+[@elmurato]: https://github.com/elmurato
+[@Thomas55555]: https://github.com/Thomas55555
+[Bosh Alarm]: /integrations/bosh_alarm
+[pterodactyl game server management panel]: https://pterodactyl.io/
+[Pterodactyl]: /integrations/pterodactyl
+[Remote calendar]: /integrations/remote_calendar
+
+This release also has new virtual integrations. Virtual integrations
+are stubs that are handled by other (existing) integrations to help with
+findability. This one is new:
+
+- **[FrankEver]**, provided by [Shelly], added by [@bieniu]
+- **[LinkedGo]**, provided by [Shelly], added by [@bieniu]
+- **[Ogemray]**, provided by [Shelly], added by [@bieniu]
+
+[@bieniu]: https://github.com/bieniu
+[FrankEver]: /integrations/frankever
+[LinkedGo]: /integrations/linkedgo
+[Ogemray]: /integrations/ogemray
+[Shelly]: /integrations/shelly
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing
+integrations are also being constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+- The [OpenAI conversation integration] has a new service to generate content,
+  thanks to [@timlaing], **and** it can now search the web! Nice [@Shulyaka]!
+- [@joostlek] has absolute been rocking the [SmartThings integration]! The list
+  of improvements is extremely long, but it includes support for firmware
+  updates through Home Assistant, support for event entities, PM0.1 sensors,
+  washer rinse cycle settings, TV and media player support, and improved device
+  handling. Awesome work there!
+- Not only SmartThings is receiving love, [@Diegorro98] has been constantly at
+  work improving and tuning the [Home Connect] integration. Thank you so much!
+- The [Roborock integration] has been extend to support dryer controls and button
+  entities to start routines. Thanks [@Lash-L] and [@regevbr]!
+- [Reolink] cannot be missing in this list. This release adds support for their
+  smart AI sensors, and adds a day/night state sensor. Nice work [@starkillerOG]!
+- [@tr4nt0r] extended the actions [Habitica integration] with lots of new
+  and improved actions to managed your habits, rewards and dailies. Thanks!
+- The [Microsoft OneDrive integration] has a new action that allows you to
+  upload files to OneDrive. Nice [@zweckj]!]
+- [@andrewsayre] extended [HEOS] with support for browsing media, allowing
+  your to browse things like TuneIn and play them on your HEOS devices.
+
+[@andrewsayre]: https://github.com/andrewsayre
+[@Diegorro98]: https://github.com/Diegorro98
+[@joostlek]: https://github.com/joostlek
+[@Lash-L]: https://github.com/Lash-L
+[@regevbr]: https://github.com/regevbr
+[@Shulyaka]: https://github.com/Shulyaka
+[@starkillerOG]: https://github.com/starkillerOG
+[@timlaing]: https://github.com/timlaing
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
+[Habitica integration]: /integrations/habitica
+[HEOS]: /integrations/heos
+[Home Connect]: /integrations/home_connect
+[Microsoft OneDrive integration]: /integrations/onedrive
+[OpenAI conversation integration]: /integrations/openai_conversation
+[Reolink]: /integrations/reolink
+[Roborock integration]: /integrations/roborock
+[SmartThings integration]: /integrations/smartthings
+
+- Bump azure_storage quality to platinum ([@zweckj] - [#139452]) ([azure_storage docs])
+- Update quality scale to platinum 🏆️ for pyLoad integration ([@tr4nt0r] - [#138891]) ([pyload docs])
+- Update quality scale to platinum 🏆️ for IronOS integration ([@tr4nt0r] - [#138217]) ([iron_os docs])
+- Add platinum quality scale to incomfort integration ([@jbouwh] - [#136387]) ([incomfort docs])
+- Move Vodafone Station to silver quality scale ([@chemelli74] - [#141106]) ([vodafone_station docs])
+- Bump roborock to silver ([@Lash-L] - [#141433]) ([roborock docs])
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- The [Home Assistant Yellow](/yellow) and [Home Assistant ZBT-1](/sky_connect)
+  can now be updated directly through Home Assistant update entities.
+  Nice [@puddly]!
+- When viewing the details of an entity in the entity dialog, we now provide
+  more context about where the entity is originating from. Like its device and
+  the area it is in. This is a first step in sprinkling more context throughout
+  our UI. Thanks, [@piitaya]!
+- We now provide sensors for about your [backups]! Providing your information
+  on things like when your last backup ran. Thanks [@mib1185]!
+- This one is interesting if you make Blueprints. The [device selector] now
+  supports filtering by model ID. Thanks, [@karwosts] for this one!
+- We now support turning on/off TVs in [HomeKit], nice one [@bdraco]!
+- Thanks to [@piitaya], we now support lawn mower devices in [Google Assistant]!
+- Variables in automations & scripts have been greatly simplified and fixed by
+  [@arturpragacz]. All variables are now accessible anywhere in the script or
+  automation, greatly simplifying the use of variables. Amazing!
+- We now have support for adding additional interactions to card! Hold and
+  double tap actions are now available through the UI. Thanks [@piitaya]!
+
+[@arturpragacz]: https://github.com/arturpragacz
+[@bdraco]: https://github.com/bdraco
+[@karwosts]: https://github.com/karwosts
+[@mib1185]: https://github.com/mib1185
+[@piitaya]: https://github.com/piitaya
+[@puddly]: https://github.com/puddly
+[backups]: /integrations/backup
+[device selector]: /docs/blueprint/selectors/#device-selector
+[Google Assistant]: /integrations/google_assistant
+[HomeKit]: /integrations/homekit_controller
+
+## Templates
+
+If you are a power user, you are probably using templates in your automations,
+scripts, or maybe even in your dashboard. This release has a few additions to
+our template engine that you might find useful.
+
+To start with the [template integration]. The light and switch templates have
+been migrated to support the new and modern YAML style. Thanks [@Petro31] for
+this one!
+
+More noteworthy are the addition of a series of new template function to make
+working with data a lot easier:
+
+- [`combine`](/docs/configuration/templating/#combining-dictionaries) - which can combine multiple dictionaries.
+- [`difference`](/docs/configuration/templating/#find-elements-in-first-list-not-in-second-list) - find elements that are in first list, but not in second list.
+- [`flatten`](/docs/configuration/templating/#flatten-a-list-of-lists) - is able to flatten a list of lists.
+- [`floor_entities`](/docs/configuration/templating/#floors) - returns a list of entities associated with a floor.
+- [`intersect`](/docs/configuration/templating/#find-common-elements-between-lists) - find common elements between lists.
+- [`md5`, `sha1`, `sha256`, `sha512`](/docs/configuration/templating/#hashing) - common hashing functions.
+- [`shuffle`](/docs/configuration/templating/#shuffling) - randomly shuffle a list of items.
+- [`symmetric_difference`](/docs/configuration/templating/#find-elements-that-are-in-either-list-but-not-in-both) - find elements that are in either list, but not in both.
+- [`typeof`](/docs/configuration/templating/#determining-types) - reveal the type of any variable or object for debugging.
+- [`union`](/docs/configuration/templating/#combine-all-unique-elements-from-two-lists) - combine all unique elements from two lists.
+
+[@Petro31]: https://github.com/Petro31
+[template integration]: /integrations/template
+
+## Device hierarchy for energy management
+
+This release, [@karwosts] has been on a missing to add a improvement to
+Home Assistant's energy management system, and this one, has been requested
+by quite a few users for a while now.
+
+This release introduces the ability to create a device hierarchy for energy
+management. This means you can now create a parent-child relationship between
+devices in your energy configuration.
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-04/temp-energy-management-device-hierarchy.png" />
+
+This is, for example, great if you have a breaker that is monitoring the energy
+consumption of a whole circuit, but also have individual devices on that
+circuit that are also monitored.
+
+Awesome addition there [@karwosts]!
+
+[@karwosts]: https://github.com/karwosts
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might
+unexpectedly impact your Home Assistant installation. Unfortunately, sometimes,
+it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Automation & script variable scopes" %}
+
+The `variables` action is no longer restricted to local scopes, it can now
+update the value of a variable also in outer scopes. If the variable was not
+previously defined, it will be created in the top-level (script run) scope.
+
+```yaml
+actions:
+  - variables:
+      x: 1
+      y: 1
+  - sequence:
+    - variables:
+        y: 2  # Updates y which exists in the outer scope
+        z: 2  # Since z is not defined yet, it is assigned in the top-level scope
+  - action: persistent_notification.create
+    data:
+      message: "{{ x }}, {{ y }}, {{ z }}" # x=1, y=2, z=2
+      # Note: previously it would be: x=1, y=1, z undefined
+```
+
+If you have automations or scripts which use the same variable name in
+different (previously isolated) scopes will need to update them: simply use
+distinct variable names to prevent any conflicts.
+
+([@arturpragacz] - [#141114])
+
+[@arturpragacz]: https://github.com/arturpragacz
+[#141114]: https://github.com/home-assistant/core/pull/141114
+
+{% enddetails %}
+
+{% details "Hue" %}
+
+The effect `None` for hue lights has been changed to `off`.
+
+If you rely on this value in your automation or script, you will need to
+adopt them to this change.
+
+([@joostlek] - [#138990]) ([documentation](/integrations/hue))
+
+[@joostlek]: https://github.com/joostlek
+[#138990]: https://github.com/home-assistant/core/pull/138990
+
+{% enddetails %}
+
+{% details "Persistent notifications" %}
+
+Persistent notifications with `notification_id` `config_entry_reconfigure` are
+no longer created when an integration fail to authenticate.
+Automations [triggering on such persistent notification](/integrations/persistent_notification/#automation)
+will thus no longer work.
+
+([@emontnemery] - [#140932]) ([documentation](/integrations/gpsd))
+
+[@emontnemery]: https://github.com/emontnemery
+[#140932]: https://github.com/home-assistant/core/pull/140932
+
+{% enddetails %}
+
+{% details "Reolink" %}
+
+The Reolink password is now limited to 31 characters. The latest versions of the
+Reolink app and desktop client also have this 31 password character limit. If
+you configured your Reolink password years ago, it is possible it is longer than
+31 characters. In that case you will get a reauthentication flow asking you to
+change the password. Passwords longer than 31 characters can cause issues in the
+latests Reolink API.
+
+([@starkillerOG] - [#140789]) ([documentation](/integrations/reolink))
+
+[@starkillerOG]: https://github.com/starkillerOG
+[#140789]: https://github.com/home-assistant/core/pull/140789
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following changes are the most notable for this release:
+
+- [Changes to ConfigSubentryFlow](https://developers.home-assistant.io/blog/2025/03/24/config-subentry-flow-changes)
+- [Media player toggle action changed](https://developers.home-assistant.io/blog/2025/03/14/media-player-toggle-adjusted/)
+- [UnitSystem dataclass is now frozen](https://developers.home-assistant.io/blog/2025/03/25/frozen-unit-system)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2025.4](/changelogs/core-2025.4)
