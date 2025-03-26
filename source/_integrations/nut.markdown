@@ -112,8 +112,8 @@ The following diagnostic sensors may be available:
 
 - **Ambient humidity (%)**\*: *Ambient relative humidity
 - **Ambient humidity status**\*: Ambient humidity status relative to the thresholds
-- **Ambient temperature (°C  )**\*: Ambient temperature
-- **Ambient temperature status*\*: AAmbient temperature status relative to t
+- **Ambient temperature (°C)**\*: Ambient temperature
+- **Ambient temperature status**\*: Ambient temperature status relative to t
 he thresholds
 - **Apparent power (VA)**: Current value of apparent power
 - **Battery alarm threshold**: Battery alarm threshold
@@ -123,7 +123,7 @@ he thresholds
 - **Battery date**: Battery installation or last change date (opaque by mfg)
 - **Battery manuf date**: Battery manufacturing date (opaque by mfg)
 - **Battery runtime (secs)**: Battery runtime
-- **Battery temperature (°C **: attery temperaturee
+- **Battery temperature (°C)**: Battery temperature
 - **Battery voltage (V)**: Battery voltage
 - **Beeper status**: UPS beeper status
 - **Efficiency (%)**: Efficiency of the UPS (ratio of output to input current)
@@ -217,7 +217,7 @@ he thresholds
 - **Total battery current (A)**: Total battery current
 - **UPS reboot delay (secs)**: Interval to wait before rebooting the UPS
 - **UPS shutdown delay (secs)**: Interval to wait after shutdown with delay command
-- **UPS temperature (°C **:U PS temperature
+- **UPS temperature (°C)**: UPS temperature
 - **UPS type**: UPS type (opaque by mfg)
 - **Voltage transfer reason**: Reason for last transfer to battery (opaque by mfg)
 - **Warning battery setpoint (%)**: Battery level when UPS switches to "Warning" state
