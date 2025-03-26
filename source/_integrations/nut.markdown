@@ -95,7 +95,7 @@ Diagnostic sensors provide additional information about a NUT device.
 
 {% important %}
 Most of this integration's diagnostic sensors are disabled by default
-to reduce storage overhead for Home Assistant.  The diganostic sensors
+to reduce storage overhead for Home Assistant. The diagnostic sensors
 marked with an asterisk \* are enabled by default. To use a disabled
 sensor, you need to enable them first. See the [enabling or disabling
 entities](/common-tasks/general/#enabling-or-disabling-entities)
@@ -113,8 +113,7 @@ The following diagnostic sensors may be available:
 - **Ambient humidity (%)**\*: *Ambient relative humidity
 - **Ambient humidity status**\*: Ambient humidity status relative to the thresholds
 - **Ambient temperature (°C)**\*: Ambient temperature
-- **Ambient temperature status**\*: Ambient temperature status relative to t
-he thresholds
+- **Ambient temperature status**\*: Ambient temperature status relative to the thresholds
 - **Apparent power (VA)**: Current value of apparent power
 - **Battery alarm threshold**: Battery alarm threshold
 - **Battery capacity (Ah)**: Battery capacity
@@ -172,7 +171,7 @@ he thresholds
 - **Load start timer (secs)**: Time before the load will be started
 - **Low battery runtime (secs)**: Remaining battery runtime when UPS switches to low battery (LB)
 - **Low battery setpoint (%)**: Remaining battery level when UPS switches to low battery (LB)
-- **Low battery voltage (V)**: Minimum battery voltage, that triggers FSD status
+- **Low battery voltage (V)**: Minimum battery voltage that triggers FSD status
 - **Low voltage transfer (V)**: Low voltage transfer point
 - **Minimum battery runtime to start (secs)**: Minimum battery runtime for UPS restart after power-off
 - **Minimum battery to start (%)**: Minimum battery level for UPS restart after power-off
