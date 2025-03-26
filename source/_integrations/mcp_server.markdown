@@ -120,7 +120,7 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
 ### Example: Cursor
 
 1. Download and install [Cursor](https://www.cursor.com).
-2. Open the main Cursor **Settings** and select MCP.
+2. Open the main Cursor Settings and select **MCP**.
 3. Click **Add new global MCP server** and add the Home Assistant server configuration:
    ```json
     {
