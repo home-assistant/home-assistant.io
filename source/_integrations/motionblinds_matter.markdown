@@ -73,4 +73,4 @@ Matter-based Motionblinds devices powered by Eve need a Thread Border Router to 
 
 To find where to buy these motors with custom made blinds, visit https://motionblinds.com/stores
 
-To know more about the motors and the technical information visit: https://motionblinds.com/smart-connectivity/home-assistant
+To know more about the motors and the technical information visit the [Motionblinds website](https://motionblinds.com/smart-connectivity/home-assistant).
