@@ -394,7 +394,7 @@ noteworthy changes this release:
   more context about where the entity is originating from. Like its device and
   the area it is in. This is a first step in sprinkling more context throughout
   our UI. Thanks, [@piitaya]!
-- We now provide sensors for about your [backups]! Providing your information
+- We now provide sensors about your [backups]! Providing you information
   on things like when your last backup ran. Thanks [@mib1185]!
 - This one is interesting if you make Blueprints. The [device selector] now
   supports filtering by model ID. Thanks, [@karwosts] for this one!
