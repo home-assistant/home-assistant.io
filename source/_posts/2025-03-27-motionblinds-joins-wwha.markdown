@@ -14,7 +14,7 @@ og_image: /images/blog/2025-03-motionblinds/art.jpg
 
 We're excited to announce the latest partner to join the [Works with Home Assistant](https://partner.home-assistant.io/) program is [Motionblinds](https://motionblinds.com/)! And if you're wondering what type of products they provide, the clue really is in the name!
 
-Motionblinds is the first Works with Home Assistant partner to certify smart window blinds, bringing us closer to a future where you can build a smart home exclusively with certified devices!  Smart blinds integrated with Home Assistant unlock powerful automations, such as blinds opening when you get home, or closing sun-facing blinds on warmer days to keep your home cool. <!--more-->
+Motionblinds is the first Works with Home Assistant partner to certify smart window blinds. This brings us closer to a future where you can build a smart home exclusively with certified devices that give the best possible experience with Home Assistant.  Smart blinds integrated with Home Assistant unlock powerful automations, such as blinds opening when you get home, or closing sun-facing blinds on warmer days to keep your home cool. <!--more-->
 
 ## Shades of innovation
 
@@ -26,7 +26,7 @@ Motionblinds is a brand from Coulisse, a company from the Netherlands, that has 
 
 Motionblinds are definitely a leader in the smart blinds space and have partnered with [Eve](https://www.evehome.com/en) Systems, a leading provider of smart home devices, headquartered in Germany and part of ABB. This partnership brings Matter-over-Thread to their motors. Together, we have tested and certified these Matter-certified Eve Motionblinds. It's easy to tell which are part of Works with Home Assistant, as they'll include the "powered by Eve" badge.
 
-Motionblinds that use Bluetooth and 433MHz technology will also be getting the 'Works With Home Assistant' treatment, as we're certifying motors that connect via the Motionblinds Matter Bridge (CM-55). This provides an excellent local way to connect this additional range of products to Home Assistant, allowing many more Motionblinds motors to give the best experience with Home Assistant. Check out our [Motionblinds integrations page](/integrations/motionblinds_matter/) for a full list of the different motors that are certified. Be aware that standalone, Bluetooth-integrated blinds aren't currently certified under the 'Works With' program.
+Motionblinds that use Bluetooth and 433MHz technology will also be getting the 'Works With Home Assistant' treatment, as we're certifying motors that connect via the Motionblinds Matter Bridge (CM-55). This provides an excellent local way to connect this additional range of products to Home Assistant, allowing many more Motionblinds motors to give the best experience with Home Assistant. Check out our [Motionblinds integrations page](/integrations/motionblinds_matter/) for a full list of the different motors that are certified. Be aware that standalone, Bluetooth-integrated blinds are not currently certified under the 'Works With' program.
 
 <p class='img'><img src='/images/blog/2025-03-motionblinds/matter-hub.jpg' style='border: 0;box-shadow: none;' alt="Motionblinds Matter Bridge">Motionblinds Matter Bridge (CM-55)</p>
 
