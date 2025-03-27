@@ -446,7 +446,7 @@ working with data a lot easier:
 
 ## Device hierarchy for energy management
 
-This release, [@karwosts] has been on a missing to add a improvement to
+This release, [@karwosts] has been on a mission to add an improvement to
 Home Assistant's energy management system, and this one, has been requested
 by quite a few users for a while now.
 
