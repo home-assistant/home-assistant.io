@@ -104,7 +104,7 @@ If you wish to make use of the `media-source://` URI for an action, and the medi
 
 1. Select **Media** in the sidebar.
 2. Navigate to the folder containing the media you wish to play.\
-  *In this example we will go **My media** > **NAS_Media**. This folder is a network share containing a collection of .mp3 files. One of which is named `my-music.mp3`.*
+  *In this example, we will go **My media** > **NAS_Media**. This folder is a network share containing a collection of .mp3 files. One of which is named `my-music.mp3`.*
 3. Copy the current URL from the URL bar.\
   *for example: `https://home-assistant.local/media-browser/browser/app%2Cmedia-source%3A%2F%2Fmedia_source/%2Cmedia-source%3A%2F%2Fmedia_source%2Flocal%2FNAS_Media`*
 4. Search for an online URL Decoder, paste in the copied text and decode.\
