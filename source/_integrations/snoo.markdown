@@ -54,6 +54,7 @@ They can be:
 - Power button pressed - The power button has been pressed.
 - Status requested - Either the integration or your mobile app has requested a status update.
 - Sleepytime sounds updated - The Sleepytime sounds were turned on or off.
+- Config change - A config has changed such as the motion limiter.
 
 ## Sensors
 
