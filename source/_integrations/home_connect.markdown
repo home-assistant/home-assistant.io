@@ -623,11 +623,11 @@ Both entities can use these options, but the availability of these will depend o
     <summary><b>Options:</b> (click to view)</summary>
 
     - **Fan off** `cooking_hood_enum_type_stage_fan_off`
-    - **Fan stage 1** `cooking_hood_enum_type_stage_fan_stage01`
-    - **Fan stage 2** `cooking_hood_enum_type_stage_fan_stage02`
-    - **Fan stage 3** `cooking_hood_enum_type_stage_fan_stage03`
-    - **Fan stage 4** `cooking_hood_enum_type_stage_fan_stage04`
-    - **Fan stage 5** `cooking_hood_enum_type_stage_fan_stage05`
+    - **Fan stage 1** `cooking_hood_enum_type_stage_fan_stage_01`
+    - **Fan stage 2** `cooking_hood_enum_type_stage_fan_stage_02`
+    - **Fan stage 3** `cooking_hood_enum_type_stage_fan_stage_03`
+    - **Fan stage 4** `cooking_hood_enum_type_stage_fan_stage_04`
+    - **Fan stage 5** `cooking_hood_enum_type_stage_fan_stage_05`
 
     </details>
 - **Intensive level**:
@@ -659,14 +659,14 @@ Both entities can use these options, but the availability of these will depend o
     <summary><b>Options:</b> (click to view)</summary>
 
     - **Cold**: `laundry_care_washer_enum_type_temperature_cold`
-    - **20ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c20`
-    - **30ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c30`
-    - **40ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c40`
-    - **50ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c50`
-    - **60ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c60`
-    - **70ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c70`
-    - **80ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c80`
-    - **90ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c90`
+    - **20ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_20`
+    - **30ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_30`
+    - **40ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_40`
+    - **50ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_50`
+    - **60ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_60`
+    - **70ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_70`
+    - **80ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_80`
+    - **90ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_90`
     - **Cold**: `laundry_care_washer_enum_type_temperature_ul_cold`
     - **Warm**: `laundry_care_washer_enum_type_temperature_ul_warm`
     - **Hot**: `laundry_care_washer_enum_type_temperature_ul_hot`
@@ -680,14 +680,15 @@ Both entities can use these options, but the availability of these will depend o
     <summary><b>Options:</b> (click to view)</summary>
 
     - **Off**: `laundry_care_washer_enum_type_spin_speed_off`
-    - **400 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m400`
-    - **600 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m600`
-    - **800 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m800`
-    - **900 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m900`
-    - **1000 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m1000`
-    - **1200 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m1200`
-    - **1400 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m1400`
-    - **1600 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m1600`
+    - **400 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_400`
+    - **600 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_600`
+    - **700 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_700`
+    - **800 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_800`
+    - **900 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_900`
+    - **1000 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_1000`
+    - **1200 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_1200`
+    - **1400 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_1400`
+    - **1600 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_1600`
     - **Off**: `laundry_care_washer_enum_type_spin_speed_ul_off`
     - **Low**: `laundry_care_washer_enum_type_spin_speed_ul_low`
     - **Medium**: `laundry_care_washer_enum_type_spin_speed_ul_medium`
@@ -1077,6 +1078,35 @@ To solve the above issue, follow these steps:
     ![Application credential list](/images/integrations/application_credentials/application-credentials.png)
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu from the application credentials you created for the Home Connect integration and select **Delete**.
 4. Add the Home Connect integration again under {% my integrations title="**Settings** > **Devices & services**" %}
+
+### Missing options at the "active program" and "selected program" entities
+
+#### Symptom: "Although I have options, some programs that are available on the app are not in the list of options at the "active program" and "selected program" entities"
+
+Some programs that are available to select on the app, on the physical device or in the diagnostics file from the device are missing at the "active program" and "selected program" entities.
+
+##### Description
+
+If you see programs in the app or the physical device that are missing in the integration, first check if they are available in the [diagnostics file](https://www.home-assistant.io/docs/configuration/troubleshooting/#download-diagnostics). If they are in the diagnostics file, it means the API can send them to the integration, but the integration can't recognize them.
+
+##### Solution
+
+The program key needs to be added to the integration. To help with that, you can open an issue at [aiohomeconnect](https://github.com/MartinHjelmare/aiohomeconnect) about the missing program key.
+
+#### Symptom: "No programs available at the "active program" and "selected program" entities nor in the diagnostics file"
+
+There are no programs available to select at the "active program" and "selected program" entities, and the downloaded device diagnostics file does not list any programs.
+
+##### Description
+
+The Home Connect API is not sending any programs to the integration.
+
+##### Solution
+
+There's no solution for this issue. The only thing that can be done is reporting the issue to Home Connect through these channels:
+
+- [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
+- [Home Connect developer Help & Support](https://developer.home-connect.com/support)
 
 ### Unavailable entities for a device
 

@@ -63,7 +63,7 @@ Protocol:
 
 ## Asterisk (*) next to entities listed in this documentation
 
-If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#enabling-entities) first.
+If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#to-enable-or-disable-a-single-entity) first.
 
 ## Data updates: plus (+) next to entities listed in this documentation
 
@@ -241,7 +241,7 @@ Depending on the supported features of the camera, switch entities are added for
 - PTZ patrol (start/stop)
 - Doorbell button sound
 - Record
-- Manual record
+- Manual record+
 - Privacy mode+
 - Push notifications
 - Hub ringtone on event
@@ -265,6 +265,8 @@ For NVRs, a global switch for **Record**, **Push**, **Hub ringtone on event**, *
 The Push-notification in the Reolink app is independent of the Home Assistant setting. It is also independent of the settings on other phones connected to the same camera. Reolink does this so you have an independent way of turning off push notifications per phone.
 
 The **PTZ patrol** positions first need to be configured using the Reolink [app](https://support.reolink.com/hc/en-us/articles/360008746833/)/[windows](https://support.reolink.com/hc/en-us/articles/900003738126/)/web client. When no positions are configured, the PTZ patrol entity will not be added. When adding patrol positions for the first time, you need to restart the Reolink integration.
+
+The **Manual record** switch will turn off automatically after 10 minutes. Therefore the recording will end as soon as the manual record switch is turned off, or 10 minutes have passed.
 
 ### Light entities
 
@@ -730,6 +732,7 @@ Prerequisites:
 - Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/) ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **top camera model box** > **Network Information** > **Advanced** (mobile) or **Settings** > **Network** > **Advanced** > **Port Settings** (PC). See [additional instructions](https://support.reolink.com/hc/en-us/articles/900000621783-How-to-Set-up-Reolink-Ports-Settings/) on the Reolink site.
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 - If the integration and the browser can't connect to the camera even after you enable the HTTP/HTTPS ports, try to create a new user on the camera; that fixes the problem in some cases.
+- Using a VLAN or other network restrictions between the Home Assistant device and the Reolink device is possible, but is also known to cause issues when not properly configured. Ensure HTTP (port 80), HTTPS (port 443), RTMP (port 1935), RTSP (port 554), ONVIF (port 8000) and TCP (port 9000) communication is not being blocked. When experiencing issues, please first test if moving the Reolink device to the same VLAN as the Home Assistant device and lifting all restrictions between them solves the issue.
 
 ### Entities intermittently become unavailable
 
@@ -738,6 +741,16 @@ Prerequisites:
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.
 - Reolink cameras can support a limited amount of simultaneous connections. Therefore using third-party software like Frigate, Blue Iris, or Scrypted, or using the ONVIF integration at the same time can cause the camera to drop connections. This results in short unavailabilities of the Reolink entities in Home Assistant. Especially when the connections are coming from the same device (IP) where Home Assistant is running, the Reolink cameras can get confused, dropping one connection in favor of the other originating from the same host IP. If you experience disconnections/unavailabilities of the entities, please first temporarily shut down the other connections (like Frigate) to diagnose if that is the problem. If that is indeed the problem, you could try moving the third-party software to a different host (IP address) since that is known to solve the problem most of the time. You could also try switching the protocol to FLV on Home Assistant and/or the third-party software, as that is known to be less resource-intensive on the camera.
 - If the Reolink entities go to unavailable for short periods, the camera may be overloaded with requests resulting in short connection drops. To resolve this, first, check if the integration is using `ONVIF push` instead of `ONVIF long polling` (resource intensive) or `Fast polling` (very resource intensive), see the [Reducing latency of motion events](#reducing-latency-of-motion-events) section. Moreover, try switching to the <abbr title="flash video">FLV</abbr> streaming protocol which is the least resource-intensive for the camera, see the [options](#options) section.
+
+### Battery drains fast
+
+The Reolink Home Assistant integration is supposed to only wake battery cameras once per hour for about 10 seconds, which should not have a big impact on battery life. You can check this using the **Sleep status** entity. However, there are several factors that can have significant impact on battery life:
+
+- Make sure the **Preload camera stream** option is turned off for all battery camera entities under {% my integrations title="**Settings** > **Devices & services**" %} > Reolink integration card > **x devices** > select the battery camera > select the camera stream (do this for all enabled streams) > Gear icon {% icon "mdi:cog-outline" %}. The Preload camera stream will keep a active stream open, keeping the camera awake. This will drain the battery.
+- Make sure the **Manual Record** switch is turned off. While this switch is on, the camera will be awake and recording. Excessive use of this entity will drain the battery.
+- **Automations** which use entities from a Reolink battery camera can wake up the camera. Changing settings or requesting a snapshot will wake the battery camera for 10-30 seconds. When automations trigger very often, this can cause excessive battery use.
+- Some **Custom cards** that can be used to view the camera in a dashboard are known to keep a battery camera constantly awake, draining its battery.
+- Viewing a **dashboard** with a picture-entity card of a Reolink battery camera, will wake that camera to show the latest snapshot and/or stream. Therefore, it is recommended to place the picture-entity cards in a separate dashboard/tab, which is only accessed when actually wanting to view the battery camera streams.
 
 ### Streams or recordings not playing
 
