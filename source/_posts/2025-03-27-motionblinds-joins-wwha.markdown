@@ -48,4 +48,4 @@ All these devices connect directly to Home Assistant via Matter, provided you pi
 
 ## Closing thoughts 🪟
 
-A big thanks to both Coulisse and Eve for putting their time and effort into bringing Motionblinds to the Works with Home Assistant program. This is really plugging a blind spot in our Works with program by covering new ground and opening up some exciting options for our community 😬.
+A big thanks to both Coulisse and Eve for putting their time and effort into bringing Motionblinds to the Works with Home Assistant program. This is really plugging a blind spot in our Works with program by covering new ground and opening up some exciting options for our community 😃.
