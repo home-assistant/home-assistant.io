@@ -32,7 +32,7 @@
                     {% assign az_ship_distributors = distributor_region.items | case_insensitive_sort: 'name' | sort: 'ship_from' %}
                     <div class="ha-buy-dialog-distributor-items">
                         {% for distributor in az_ship_distributors %}
-                        <a href="{{ distributor.url }}" target="_blank" rel="noreferrer" class="ha-buy-dialog-distributor-item">
+                        <a href="{{ distributor.url }}" target="_blank" class="ha-buy-dialog-distributor-item">
                             {% if distributor.logo %}
                             <img src="{{ distributor.logo }}" alt="{{ distributor.name }} logo" class="ha-buy-dialog-distributor-logo">
                             {% else %}

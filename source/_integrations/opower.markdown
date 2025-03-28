@@ -80,7 +80,7 @@ Alternatively, you can create a new TOTP secret for your account and use the "no
 
 When using Opower with any of the Exelon subsidiaries, such as BGE, ComEd, PECO, Pepco, etc., you need to actively disable two-factor authentication.
 Before proceeding, make sure you understand the security implications of disabling 2FA.
-Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, disable it.
+Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, you most likely cannot disable it, which unfortunately means you cannot use this integration.
 
 {% include integrations/config_flow.md %}
 
