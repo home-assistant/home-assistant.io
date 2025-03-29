@@ -25,7 +25,11 @@ sensor:
   - platform: comed_hourly_pricing
     monitored_feeds:
       - type: five_minute
+        # Adds an offset of 10
+        offset: 10.0
       - type: current_hour_average
+        # Adds an offset of 10
+        offset: 10.0
 ```
 
 {% configuration %}
