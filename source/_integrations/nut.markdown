@@ -17,15 +17,32 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: device
+related:
+  - url: https://www.networkupstools.org
+    title: Network UPS Tools
 ---
 
-The Network UPS Tools (NUT) integration allows you to monitor and manage a UPS (battery backup) using a [NUT](https://networkupstools.org/) server. It lets you view their status, receives notifications about important events, and execute commands as device actions.
+The **Network UPS Tools (NUT)** {% term integration %} allows you to monitor and manage an Uninterruptible Power Supply (UPS) for battery backup, a Power Distribution Unit (PDU), or other similar power device using a [NUT](https://networkupstools.org/) server. It lets you view the status, receive notifications about important events, and execute commands as device actions for one or more such devices.
 
 ## Supported devices
 
 This integration supports hardware devices compatible with
 NUT. NUT's hardware compatibility list is available from the [Network
 UPS Tools](https://networkupstools.org/) website.
+
+## Prerequisites
+
+You must have a NUT server configured to monitor one or more supported
+power device(s).
+
+It is not possible to automatically detect a NUT server IP address
+change. You should therefore configure the NUT server with a static
+IP address, assign a fixed IP address reservation with DHCP, or use
+DNS as appropriate for your network.
+
+In addition, you will need a username and password for
+this integration to log into the NUT server if authentication is
+required.
 
 {% include integrations/config_flow.md %}
 

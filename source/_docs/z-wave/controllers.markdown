@@ -59,7 +59,7 @@ Firmware can be upgraded using the below directions:
   - GoControl HUSBZB-1 stick
   - Sigma Designs UZB stick
   - Vision USB stick - Gen5
-  - Z-Wave.Me UZB1 stick
+  - Z-Wave.Me UZB1 stick (see Aeotec Z-Stick note below)
   - HomeSeer SmartStick+ G2
   - HomeSeer Z-NET G2
 
@@ -94,7 +94,9 @@ Z-Wave JS does not support Z-Wave Long Range yet.
 ### Aeotec Z-Stick
 
 {% note %}
-There are [known compatibility issues](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) with older hardware versions of the Aeotec stick not connecting when plugged directly on the Raspberry Pi 4, and requiring a USB Hub to work. Aeotec has released a 2020 hardware revision ZW090-A/B/C Gen5+ with Pi 4 compatibility. Both hardware revisions are still being sold, make informed purchasing decisions if using one paired with a Pi 4.
+
+The Aeotec Z-Stick and some of its variants (e.g. Z-Wave.Me UZB1) are known to have compatibility issues with the Linux kernel because of their [non-compliant behavior](https://forums.raspberrypi.com/viewtopic.php?f=28&t=245031#p1502030). Plugging these controllers through a USB hub can serve as a workaround that sometimes mitigates the issue.
+
 {% endnote %}
 
 It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system.
