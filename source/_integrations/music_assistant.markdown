@@ -39,15 +39,17 @@ These URIs can be obtained from, for example, the output of the `get_library` or
 
 Under normal circumstances, Home Assistant automatically discovers your running Music Assistant Server. If there is something special about the Home Assistant or MA setup (for example, the MA server is running as a remote Docker container) or discovery is not working, you can manually specify the URL to your Music Assistant server. If the Music Assistant Server is not installed, then follow these [installation instructions](https://music-assistant.io/installation/).
 
-## Media player entities
+## Supported functionality
 
-The Music Assistant integration creates media player entities for all players available in MA, including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. These entities will display media information, playback progress, and playback controls.
+### Media player entities
+
+The Music Assistant integration creates media player entities for all players and groups available in MA, including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. This full functionality includes transfer of the playing queue of music from one player to another, automatic pausing of playback during announcements and richer options for selecting the media for playback. These entities will display media information, playback progress, and playback controls.
 
 ## Actions
 
 ### Action `music_assistant.play_media`
 
-Play media on a Music Assistant player with more fine-grained control options.
+Play media on a Music Assistant player with more fine-grained control options. This action is more powerful than the [`media_player.play_media`](https://www.home-assistant.io/integrations/media_player/#action-media_playerplay_media) action because it allows multiple items to be added to the queue at once, it allows more specific control of the media item to be played (e.g. a track from a specific album can be specified) and Music Assistant's radio mode (where the queue is filled with similar tracks to that enqueued) can be enabled.
 
 - **Data attribute**: `media_id`
   - **Optional**: No.
@@ -81,7 +83,7 @@ Play media on a Music Assistant player with more fine-grained control options.
 
 ### Action `music_assistant.play_announcement`
 
-Play announcement on a Music Assistant player with more fine-grained control options.
+Play an announcement which is accessible via URL on a Music Assistant player. Home Assistant [TTS](https://www.home-assistant.io/integrations/tts/) actions are used for announcements provided as text.
 
 - **Data attribute**: `url`
   - **Optional**: No.
@@ -98,7 +100,7 @@ Play announcement on a Music Assistant player with more fine-grained control opt
 
 ### Action `music_assistant.transfer_queue`
 
-Transfer the player's queue to another player.
+Transfer the player's queue to another player. This could be combined with presence sensors to allow music to follow you around the house.
 
 - **Data attribute**: `source_player`
   - **Optional**: Yes.
@@ -111,7 +113,7 @@ Transfer the player's queue to another player.
 
 ### Action `music_assistant.search`
 
-Perform a global search on the Music Assistant library and all providers.
+Perform a global search on the Music Assistant library and all providers. This allows programmatic access to all of the music provider's catalogs and could be used to build a HA dashboard where any track could be found for playback.
 
 - **Data attribute**: `config_entry_id`
   - **Optional**: No.
@@ -144,7 +146,7 @@ Perform a global search on the Music Assistant library and all providers.
   
 ### Action `music_assistant.get_library`
 
-Perform a local search on the Music Assistant library.
+Perform a local search on the Music Assistant library. This provides programmatic access to concise information about the media item. This information (e.g. image URL) could be used to create a bespoke media dashboard.
 
 - **Data attribute**: `config_entry_id`
   - **Optional**: No.
@@ -185,16 +187,48 @@ Perform a local search on the Music Assistant library.
 
 ### Action `music_assistant.get_queue`
 
-Get the queue details of a Music Assistant player queue.
+Get the queue details of a Music Assistant player queue. This provides programmatic access to comprehensive information about the current and next media item in the queue. This information could be used to create a bespoke media dashboard.
 
 - **Data attribute**: `entity_id`
   - **Optional**: No.
   - **Description**: The entity_id of the player holding the queue to be retrieved.
   - **Example**: `media_player.kitchen_speaker`
 
+## Known limitations
+
+The `get_queue` action only returns the current and next item in the queue. This is because a large amount of data is returned and if this was done for potentially thousands of tracks this could have an adverse impact on HA performance or stability. 
+
+The data returned by the `get_queue` action will partially limited if the current or next item is not in the library (e.g. an item was selected for playback directly from Spotify). Metadata such as favorite status, explicit status, last played, played count and disc art URL are only available for items which are in the MA library. 
+
+Radio mode is only available with certain music providers and an error will be shown if attempting to enable radio mode on an item that isn't linked to one of those providers. Review the Music Assistant documentation to identify which providers support this functionality.
+
 ## Notes
 
 - Any Home Assistant players added to Music Assistant will appear duplicated as the MA version of the player is created. The original HA player can be hidden if desired.
+
+## Examples
+
+### Turning off the LEDs during the night
+The status LEDs on the device can be quite bright.
+To tackle this, you can use this blueprint to easily automate the LEDs turning off when the sun goes down.
+
+link to blueprint
+
+## Troubleshooting
+
+### Can’t set up the device
+
+#### Symptom: “This device can’t be reached”
+
+When trying to set up the integration, the form shows the message “This device can’t be reached”.
+
+##### Description
+
+This means the settings on the device are incorrect, since the device needs to be enabled for local communication.
+
+##### Resolution
+
+To resolve this issue, try the following steps:
 
 ## Removing the integration
 
