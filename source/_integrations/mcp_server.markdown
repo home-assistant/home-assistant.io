@@ -120,8 +120,10 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
 ### Example: Cursor
 
 1. Download and install [Cursor](https://www.cursor.com).
-2. Open the main Cursor Settings and select **MCP**.
-3. Click **Add new global MCP server** and add the Home Assistant server configuration:
+2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
+   For example, `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`.
+3. Open the main Cursor Settings and select **MCP**.
+4. Click **Add new global MCP server** and add the Home Assistant server configuration:
    ```json
     {
       "mcpServers": {
@@ -137,9 +139,9 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
       }
     }
     ```
-4. Save your `mcp.json` file. You can also find this file in the `$HOME/.cursor/mcp.json` directory.
-5. Restart Cursor and return to the MCP settings. You should see the Home Assistant server in the list. The indicator should be green.
-6. In chat agent mode (Ctrl+I), ask it to control your home and the tool should be used.
+5. Save your `mcp.json` file. You can also find this file in the `$HOME/.cursor/mcp.json` directory.
+6. Restart Cursor and return to the MCP settings. You should see the Home Assistant server in the list. The indicator should be green.
+7. In chat agent mode (Ctrl+I), ask it to control your home and the tool should be used.
 
 ![Screenshot of Cursor controlling the office lights](/images/integrations/mcp_server/cursor-lights-control.png)
 
