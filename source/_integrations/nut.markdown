@@ -135,10 +135,11 @@ human-readable version.
 
 The NUT server provides commands for controlling your power device. If
 you have command line access to the system running your NUT server,
-you can query NUT directly for the available commands using the
-`upscmd -l` command.
+you can query NUT directly for the available remote commands using
+`upscmd -l`.
 
-Below is an example where NUT is configured with a device named `my_ups`:
+Below is an example where the NUT server is configured with a device
+named `my_ups`:
 
 ```bash
 $ upscmd -l my_ups
