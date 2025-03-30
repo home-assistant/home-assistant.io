@@ -128,9 +128,9 @@ for the sensor may vary by manufacturer.
 The following diagnostic sensors may be available:
 
 - **Ambient humidity (%)**\*: *Ambient relative humidity
-- **Ambient humidity status**\*: Ambient humidity status relative to the thresholds
+- **Ambient humidity status**\*: Ambient humidity status relative to the thresholds, with the available states: `good`, `warning-low`, `critical-low`, `warning-high`, and `critical-high`
 - **Ambient temperature (°C)**\*: Ambient temperature
-- **Ambient temperature status**\*: Ambient temperature status relative to the thresholds
+- **Ambient temperature status**\*: Ambient temperature status relative to the thresholds, with the available states: `good`, `warning-low`, `critical-low`, `warning-high`, and `critical-high`
 - **Apparent power (VA)**: Current value of apparent power
 - **Battery alarm threshold**: Battery alarm threshold
 - **Battery capacity (Ah)**: Battery capacity
