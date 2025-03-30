@@ -111,13 +111,31 @@ Transfer the player's queue to another player. This could be combined with prese
   - **Description**: Start playing the queue on the target player. Omit to use the default behavior.
   - **Example**: `true`
 
+#### Example
+
+In this example the queue of the first player found playing will be transferred to the kitchen when a motion sensor is triggered in that room.
+
+```yaml
+automation:
+  - id: auto_queue_transfer_kitchen
+    alias: Automatically Transfer Queue to Kitchen
+    trigger:
+      platform: state
+      entity_id: binary_sensor.kitchen_motion_sensor_occupancy
+      to: 'on'
+    action:
+      service: music_assistant.transfer_queue
+      target:
+        entity_id: media_player.ma_kitchen_speaker
+```
+    
 ### Action `music_assistant.search`
 
 Perform a global search on the Music Assistant library and all providers. This allows programmatic access to all of the music provider's catalogs and could be used to build a HA dashboard where any track could be found for playback.
 
 - **Data attribute**: `config_entry_id`
   - **Optional**: No.
-  - **Description**: The Music Assistant instance that the search will be performed upon. Allows for multiple servers to be running.
+  - **Description**: The Music Assistant instance that the search will be performed upon. Allows for multiple servers to be running. This is obtained from a drop down in the GUI editor. Users of yaml can use the dev tools action tab and select from the drop down and then switch to yaml to get the actual value.
   - **Example**: `Music Assistant`
 - **Data attribute**: `name`
   - **Optional**: No.
@@ -146,7 +164,7 @@ Perform a global search on the Music Assistant library and all providers. This a
   
 ### Action `music_assistant.get_library`
 
-Perform a local search on the Music Assistant library. This provides programmatic access to concise information about the media item. This information (e.g. image URL) could be used to create a bespoke media dashboard.
+Perform a local search on the Music Assistant library. This provides programmatic access to concise information about the media item. This information could be used to create a queue of tracks for playback.
 
 - **Data attribute**: `config_entry_id`
   - **Optional**: No.
@@ -185,6 +203,33 @@ Perform a local search on the Music Assistant library. This provides programmati
   - **Description**: When `album` is the `media_type` then this option will restrict the result according to the selection of either album, single, compilation, EP or unknown.
   - **Example**: `album`
 
+#### Example
+
+This example will start playback of ten random tracks.
+
+```yaml
+script:
+  create_random_queue:
+    mode: single
+    sequence:
+      - service: music_assistant.get_library
+        data:
+          limit: 10
+          media_type: track
+          config_entry_id: 01JEXNDHT21V0BHJXM7A5SZANV
+          order_by: random
+        response_variable: random_tracks
+      - repeat:
+          count: "{{ random_tracks['items'] | length }}"
+          sequence:
+            - action: music_assistant.play_media
+              data:
+                media_id: "{{ random_tracks['items'][repeat.index - 1].uri }}"
+                media_type: track
+                enqueue: add
+              target:
+                entity_id: media_player.ma_kitchen_speaker
+```
 ### Action `music_assistant.get_queue`
 
 Get the queue details of a Music Assistant player queue. This provides programmatic access to comprehensive information about the current and next media item in the queue. This information could be used to create a bespoke media dashboard.
@@ -194,11 +239,30 @@ Get the queue details of a Music Assistant player queue. This provides programma
   - **Description**: The entity_id of the player holding the queue to be retrieved.
   - **Example**: `media_player.kitchen_speaker`
 
+#### Example
+
+This example sets the name of the currently playing track (with a maximum of 50 characters) in an [`input_text`](https://www.home-assistant.io/integrations/input_text/) which could then be used on a dashboard.
+
+```yaml
+script:
+  get_now_playing:
+    mode: queued
+    alias: "Get Now Playing Track Name"
+    sequence:
+      - action: music_assistant.get_queue
+        data:
+          entity_id: media_player.ma_kitchen_speaker
+        response_variable: queue_info
+      - service: input_text.set_value
+        data:
+          entity_id: input_text.now_playing
+          value: '{{ queue_info['media_player.ma_kitchen_speaker'].current_item.name[:50] }}'
+```          
 ## Known limitations
 
 The `get_queue` action only returns the current and next item in the queue. This is because a large amount of data is returned and if this was done for potentially thousands of tracks this could have an adverse impact on HA performance or stability. 
 
-The data returned by the `get_queue` action will partially limited if the current or next item is not in the library (e.g. an item was selected for playback directly from Spotify). Metadata such as favorite status, explicit status, last played, played count and disc art URL are only available for items which are in the MA library. 
+The data returned by the `get_queue` action will be partially limited if the item is not in the library (e.g. an item was selected for playback directly from Spotify). Metadata such as favorite status, explicit status, last played, played count and disc art URL are only available for items which are in the MA library. 
 
 Radio mode is only available with certain music providers and an error will be shown if attempting to enable radio mode on an item that isn't linked to one of those providers. Review the Music Assistant documentation to identify which providers support this functionality.
 
@@ -206,29 +270,21 @@ Radio mode is only available with certain music providers and an error will be s
 
 - Any Home Assistant players added to Music Assistant will appear duplicated as the MA version of the player is created. The original HA player can be hidden if desired.
 
-## Examples
-
-### Turning off the LEDs during the night
-The status LEDs on the device can be quite bright.
-To tackle this, you can use this blueprint to easily automate the LEDs turning off when the sun goes down.
-
-link to blueprint
-
 ## Troubleshooting
 
-### Can’t set up the device
+### Can’t find the MA actions
 
-#### Symptom: “This device can’t be reached”
+#### Symptom: No Music Assistant actions are shown in the editor
 
-When trying to set up the integration, the form shows the message “This device can’t be reached”.
+When trying to set up a script or automation via the GUI no MA actions can be found
 
 ##### Description
 
-This means the settings on the device are incorrect, since the device needs to be enabled for local communication.
+This means the addon may have been installed but the integration has not.
 
 ##### Resolution
 
-To resolve this issue, try the following steps:
+Go to the [Configuration section](https://www.home-assistant.io/integrations/music_assistant/#configuration) and install the integration.
 
 ## Removing the integration
 
