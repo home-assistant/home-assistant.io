@@ -131,7 +131,6 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
             "http://localhost:8123/mcp_server/sse"
           ],
           "env": {
-            "SSE_URL": "http://localhost:8123/mcp_server/sse",
             "API_ACCESS_TOKEN": "<your_access_token_here>"
           }
         }
