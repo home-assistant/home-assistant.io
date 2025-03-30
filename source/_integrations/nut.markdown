@@ -65,6 +65,7 @@ The integration uses {% term polling %} to retrieve data from the NUT
 server. The default polling interval is once every 60 seconds.
 
 ## Actions
+
 {% important %}
 The username and password configured for the device must be granted
 `instcmds` permissions on the NUT server to use buttons and
