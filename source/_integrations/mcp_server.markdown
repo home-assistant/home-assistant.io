@@ -125,7 +125,7 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
    ```json
     {
       "mcpServers": {
-        "home-assistant": {
+        "Home Assistant": {
           "command": "mcp-proxy",
           "args": [
             "http://localhost:8123/mcp_server/sse"
