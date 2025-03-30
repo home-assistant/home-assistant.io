@@ -95,7 +95,10 @@ The following switches are available for each switchable outlet:
 ## Data updates
 
 The integration uses {% term polling %} to retrieve data from the NUT
-server. The default polling interval is once every 60 seconds.
+server. The default polling interval is once every 60 seconds. You can
+also [define a custom polling
+interval](/common-tasks/general/#defining-a-custom-polling-interval)
+if needed.
 
 ## Example Resources
 
