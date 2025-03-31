@@ -61,14 +61,30 @@ to act as a gateway to the Home Assistant MCP SSE server.
 
 ## Client configuration
 
-The Model Context Protocol specification does not yet define standards
-for authentication and connecting to remote servers. These are a *work in progress*
-and this configuration will likely change in the near future.
+The Model Context Protocol specification has recently defined standards for
+authorization and connecting to remote servers. The standards are a *work in progress*
+and so some clients may not support the latest functionality, and the spec
+will likely continue to evaolve.
 
 ### Access control
 
-For now, we can use
-[Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to control access to the API.
+#### OAuth
+
+The Model Context Protocol supports OAuth for [Authorization](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/) and is fully supported by Home Assistants
+[Authentication API](https://developers.home-assistant.io/docs/auth_api/). MCP
+Clients that support OAuth can use this to allow you to give the client access
+to your Home Assistant MCP server.
+
+Home Assistant does not require you to pre-define an OAuth Client ID. Instead, the
+Client ID is simply the website of the application or the base of the redirect url.
+
+- *Client ID*: This is the URL prefix such as `https://www.my-application.io`
+- *Client Secret*: This is not used by Home Assistant and can be ignored or set to any value.
+
+#### Long Lived Access Tokens
+
+Some MCP clients may not support OAuth but may support access tokens. You may create a
+[Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access to the API.
 
 1. Visit your account profile settings, under the **Security** tab. {% my profile badge %}.
 
