@@ -70,13 +70,13 @@ will likely continue to evolve.
 
 #### OAuth
 
-The Model Context Protocol supports OAuth for [Authorization](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/) and is fully supported by Home Assistants
+The Model Context Protocol supports OAuth for [Authorization](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/) and is fully supported by Home Assistant's
 [Authentication API](https://developers.home-assistant.io/docs/auth_api/). MCP
 Clients that support OAuth can use this to allow you to give the client access
 to your Home Assistant MCP server.
 
 Home Assistant does not require you to pre-define an OAuth Client ID. Instead, the
-Client ID is simply the website of the application or the base of the redirect url.
+Client ID is simply the website of the application or the base of the redirect URL.
 
 - *Client ID*: This is the URL prefix such as `https://www.my-application.io`
 - *Client Secret*: This is not used by Home Assistant and can be ignored or set to any value.
