@@ -4,6 +4,7 @@ description: Instructions on how to integrate a Pterodactyl server into Home Ass
 ha_release: 2025.4
 ha_category:
   - Binary sensor
+  - Button
   - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: pterodactyl
 ha_platforms:
   - binary_sensor
+  - button
   - sensor
 ha_integration_type: integration
 ha_quality_scale: bronze
@@ -53,9 +55,25 @@ This integration provides a binary sensor with the following information for eac
 
 - Status: `Running` or `Not running`
 
+## Buttons
+
+This integration provides following {% term buttons %} for each game server of your Pterodactyl server:
+
+- Start server
+- Stop server
+- Restart server
+
+The following button is provided as well, but disabled by default:
+
+- Force stop server
+
+{% warning %}
+By using **force stop** the server is terminated immediately and might corrupt game server files.
+{% endwarning %}
+
 ## Sensors
 
-This integration provides sensors with the following information for each game server of your Pterodactyl server:
+This integration provides {% term sensors %} with the following information for each game server of your Pterodactyl server:
 
 - CPU utilization
 - Memory usage
