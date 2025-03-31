@@ -57,7 +57,7 @@ This integration provides a binary sensor with the following information for eac
 
 ## Buttons
 
-This integration provides following {% term buttons %} for each game server of your Pterodactyl server:
+This integration provides the following {% term buttons %} for each game server of your Pterodactyl server:
 
 - Start server
 - Stop server
@@ -68,12 +68,12 @@ The following button is provided as well, but disabled by default:
 - Force stop server
 
 {% warning %}
-By using **force stop** the server is terminated immediately and might corrupt game server files.
+Using **force stop** will terminate the server immediately and may lead to game server file corruption.
 {% endwarning %}
 
 ## Sensors
 
-This integration provides {% term sensors %} with the following information for each game server of your Pterodactyl server:
+This integration provides the following {% term sensors %} for each game server of your Pterodactyl server:
 
 - CPU utilization
 - Memory usage
