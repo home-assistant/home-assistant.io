@@ -63,8 +63,8 @@ to act as a gateway to the Home Assistant MCP SSE server.
 
 The Model Context Protocol specification has recently defined standards for
 authorization and connecting to remote servers. The standards are a *work in progress*
-and so some clients may not support the latest functionality, and the spec
-will likely continue to evaolve.
+and so some clients may not support the latest functionality, and the specification
+will likely continue to evolve.
 
 ### Access control
 
