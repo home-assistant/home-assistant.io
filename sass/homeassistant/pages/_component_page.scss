@@ -44,7 +44,7 @@
     width: fit-content;
     font-size: 1rem;
     box-shadow: none;
-    background-color: $blue;
+    background-color: $blueDark;
     color: white;
     border-radius: 24px;
 
@@ -63,7 +63,7 @@
       background-color: white;
 
       &:checked {
-        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22%231abcf2%22%20transform%3D%22rotate(90)%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%223%22%2F%3E%3C%2Fsvg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22%23007fa8%22%20transform%3D%22rotate(90)%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%223%22%2F%3E%3C%2Fsvg%3E");
       }
     }
 
@@ -100,7 +100,7 @@
       text-align-last: center;
       font-size: 16px;
       line-height: 24px;
-      border: 2px solid $primary-color;
+      border: 2px solid $blueDark;
       border-top-right-radius: 0px;
       border-top-left-radius: 0px;
       border-bottom-right-radius: 5px;
@@ -117,7 +117,7 @@
   }
 
   .filter-title {
-      background: $primary-color;
+      background: $blueDark;
       color: white;
       text-align: center;
       border-top-right-radius: 5px;
@@ -135,7 +135,7 @@
     margin: 10px 5px 0px 0px;
     padding: 5px 10px;
     min-width: 100px;
-    background-color: $primary-color;
+    background-color: $blueDark;
     border-radius: 28px;
     border: none;
     color: white;

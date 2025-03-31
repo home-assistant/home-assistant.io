@@ -23,53 +23,27 @@ There is currently support for the following Home Assistant Platforms:
 
 All of the Home Assistant [Media Player Control Actions](https://www.home-assistant.io/integrations/media_player/#media-control-actions) are supported.
 
+The `media_content_id` payload for `media_player.play_media` can be any of the following:
+
+- The name of a track, artist, or album. For example, `Queen`.
+- A track or album combined with the artist's name. For example, `Queen - Innuendo`.
+- A streaming provider URI. For example, `spotify://artist/12345`.
+
+The `media_content_id` payload for `media_player.browse_media` must be a URI of the form `library://artist/1`, `library://album/20`, or `spotify://album/5zj4Ej0FrlJQaSo0d6cttH`. The type of item that the URI refers to must be an album or artist.
+
+These URIs can be obtained from, for example, the output of the `get_library` or `search` actions described below or the `media_player.browse_media` action from Home Assistant. 
+
 {% include integrations/config_flow.md %}
 
 ### Manual configuration
 
-Under normal circumstances, Home Assistant automatically discovers your running Music Assistant Server. If there is something special about the HA or MA setup (for example, the MA server is running as a remote Docker container) or discovery is not working, you can manually specify the URL to your Music Assistant server. If the Music Assistant Server is not installed then follow these [installation instructions](https://music-assistant.io/installation/).
+Under normal circumstances, Home Assistant automatically discovers your running Music Assistant Server. If there is something special about the Home Assistant or MA setup (for example, the MA server is running as a remote Docker container) or discovery is not working, you can manually specify the URL to your Music Assistant server. If the Music Assistant Server is not installed, then follow these [installation instructions](https://music-assistant.io/installation/).
 
-## Media player
+## Media player entities
 
-The Music Assistant integration creates media player entities for all players available in MA including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. These entities will display media information, playback progress, and playback controls.
+The Music Assistant integration creates media player entities for all players available in MA, including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. These entities will display media information, playback progress, and playback controls.
 
-### Action `media_player.play_media`
-
-Play media hosted on a Music Assistant server on a Music Assistant player. The action configuration is as described in the [media player documentation](https://www.home-assistant.io/integrations/media_player/#action-media_playerplay_media)
-
-The `media_content_id` payload can be any of the following:
-
-- The name of a track, artist or album. (for example, "Queen")
-- A track or album combined with the artist name (for example, "Queen - Innuendo")
-- A streaming provider URI (for example, `spotify://artist/12345`)
-
-#### Examples
-
-Play Adele's album 25
-
-```yaml
-entity_id: media_player.music_assistant_player
-media_content_type: album
-media_content_id: 'Adele - 25'
-```
-
-Play all tracks from Stevie Wonder in random order
-
-```yaml
-entity_id: media_player.music_assistant_player
-media_content_type: artist
-media_content_id: 'Stevie Wonder'
-```
-
-Play the playlist The Best of Disco
-
-```yaml
-entity_id: media_player.music_assistant_player
-media_content_type: playlist
-media_content_id: 'The Best of Disco'
-```
-
-## Additional actions
+## Actions
 
 ### Action `music_assistant.play_media`
 
@@ -221,3 +195,11 @@ Get the queue details of a Music Assistant player queue.
 ## Notes
 
 - Any Home Assistant players added to Music Assistant will appear duplicated as the MA version of the player is created. The original HA player can be hidden if desired.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, go to the {% my supervisor_addon title="**Settings** > **Add-ons**" addon="music_assistant" %} and remove the **Music Assistant** add-on from there as well (if installed).
