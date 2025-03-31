@@ -306,8 +306,8 @@ We welcome the following new integrations in this release:
   Control and monitor your [Pterodactyl game server management panel].
 - **[Remote calendar]**, added by [@Thomas55555]  
   Add remote calendar URLs as a calendar to Home Assistant.
-- **[Bosh Alarm**], added by [@?]  
-  Control and monitor your Bosh alarm system.
+- **[Bosch Alarm]**, added by [@sanjay900]
+  Control and monitor your Bosch intrusion alarm systems / control panels.
 
 [@elmurato]: https://github.com/elmurato
 [@Thomas55555]: https://github.com/Thomas55555
