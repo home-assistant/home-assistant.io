@@ -75,10 +75,10 @@ The Model Context Protocol supports OAuth for [Authorization](https://spec.model
 Clients that support OAuth can use this to allow you to give the client access
 to your Home Assistant MCP server.
 
-Home Assistant does not require you to pre-define an OAuth Client ID. Instead, the
-Client ID is simply the website of the application or the base of the redirect URL.
+Home Assistant has adopted [IndieAuth](https://indieauth.spec.indieweb.org/) and does not require you to pre-define
+an OAuth Client ID. Instead, the Client ID is the base of the redirect URL.
 
-- *Client ID*: This is the URL prefix such as `https://www.my-application.io`
+- *Client ID*: If your redirect-uri is `https://www.example.com/mcp/redirect`, your client ID should be `https://www.example.com`.
 - *Client Secret*: This is not used by Home Assistant and can be ignored or set to any value.
 
 #### Long-Lived Access Tokens
