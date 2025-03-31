@@ -81,10 +81,10 @@ Client ID is simply the website of the application or the base of the redirect U
 - *Client ID*: This is the URL prefix such as `https://www.my-application.io`
 - *Client Secret*: This is not used by Home Assistant and can be ignored or set to any value.
 
-#### Long Lived Access Tokens
+#### Long-Lived Access Tokens
 
-Some MCP clients may not support OAuth but may support access tokens. You may create a
-[Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access to the API.
+Some MCP clients may not support OAuth, but may support access tokens. You may create a
+[Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access the API.
 
 1. Visit your account profile settings, under the **Security** tab. {% my profile badge %}.
 
