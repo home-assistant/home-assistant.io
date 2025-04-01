@@ -1,23 +1,21 @@
 ---
-title: Aidot
-description: Instructions on integrating Aiot home security with Home Assistant.
+title: AiDot
+description: Instructions on integrating AiDot home security with Home Assistant.
 ha_category:
   - Light
 ha_release: 2024.6
-ha_iot_class: local_polling
+ha_iot_class: cloud_polling
 ha_config_flow: true
 ha_codeowners:
   - '@s1eedz'
-ha_domain: Aidot
+ha_domain: aidot
 ha_homekit: true
 ha_platforms:
   - light
 ha_integration_type: integration
 ---
 
-The [Aidot](https://www.aidot.com/) {% term integration %} allows you to control the Wi-Fi lights with Home Assistant.
-
-{% include integrations/config_flow.md %}
+The [AiDot](https://www.aidot.com/) {% term integration %} allows you to control the Wi-Fi lights with Home Assistant.
 
 ## Prerequisites
 - To be able to configure your machine in Home Assistant, your machine needs to be added to your account using the official AiDot app first.
@@ -49,7 +47,5 @@ Password:
 There are no commonly known issues with this integration.
 
 ## Remove integration
-
-This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
