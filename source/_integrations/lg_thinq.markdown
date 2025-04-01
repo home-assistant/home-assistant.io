@@ -252,38 +252,8 @@ A read-only property which has states is represented as a sensor platform.
 | Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Current status<br>Delayed start/end<br>Remaining time<br>Total time<br>Cycles |
 
 ## User guide
-### 1. Custom card configuration (HACS)
 
-**- Timer Bar Card**
-> - Supported devices: Washer, Dryer, Styler, Dish washer
-> - Used entities: sensor.washer_**current_status**, sensor.washer_**remaining_time**, sensor.washer_**total_time**
-
-```yaml
-type: custom:timer-bar-card
-entities:
-  - entity: sensor.washer_current_status
-    name: Washer
-    active_state:
-      - running
-      - rinsing
-      - spinning
-      - drying
-      - cooling
-      - reserved
-      - presteam
-      - steam
-    pause_state: pause
-    icon: mdi:tumble-dryer-off
-    active_icon: mdi:tumble-dryer
-    end_time:
-      entity: sensor.washer_remaining_time
-    duration:
-      entity: sensor.washer_total_time
-      units: minutes
-    invert: true
-```
-
-### 2. Automation
+### 1. Automation
 
 #### 1) Air conditioner, climate
 
