@@ -11,7 +11,7 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Cloud Push
-ha_release: '2025.4'
+ha_release: '2025.5'
 ha_domain: balay
 ha_codeowners:
   - '@DavidMStraub'

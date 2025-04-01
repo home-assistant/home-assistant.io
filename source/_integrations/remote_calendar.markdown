@@ -4,7 +4,7 @@ description: Instructions on how to use remote calendars in Home Assistant.
 ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
-ha_release: 2025.04
+ha_release: 2025.4
 ha_config_flow: true
 ha_domain: remote_calendar
 ha_platforms:
