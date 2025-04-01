@@ -51,6 +51,8 @@ The following sensors are supported:
 - Core power status: Battery or USB-C power for the IOmeter Core
 - Signal strength WiFi: WiFi connection strength of the Bridge
 - Signal strength Core/Bridge: Sub-GHz connection strength between Core and Bridge
+- Core/Bridge connection status: If Core and Bridge are connected
+- Core attachment status: If the IOmeter Core is attached to the electricity meter
 
 ## Troubleshooting
 

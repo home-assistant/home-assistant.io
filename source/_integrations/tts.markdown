@@ -141,7 +141,8 @@ $ curl -X POST -H "Authorization: Bearer <ACCESS TOKEN>" \
 ## Troubleshooting
 
 {% important %}
-Depending on your setup, you might need to set an external URL (`external_url`) inside the [configuration](/integrations/homeassistant/#external_url).
+Playing TTS media will prioritize the local Home Assistant URL, which can be configured by navigating to **{% my network title="Settings > System > Network" %}**.
+It is highly recommended to set the local Home Assistant URL to automatic, in which case the generated URL will be `http://<local_ip>:<local_port>`.
 {% endimportant %}
 
 The following sections describe some of the problems encountered with media devices.
@@ -154,10 +155,14 @@ The `tts` action will send an `https://` URL to the media device, which will che
 
 ### Google cast devices
 
-The Google cast devices (Google Home, Chromecast, etc.) present the following problems:
+Google cast devices (Google Home, Chromecast, etc.) require the host in media URLs to be resolvable using Google's public DNS servers, and if the URL is specifying the `https` protocol, the certificate must be valid and not self-signed.
+
+These requirements present the following problems, all of which create problems if the local Home Assistant URL is not `http://<local_ip>:<local_port>`:
 
 - They [reject self-signed certificates](#self-signed-certificates).
 
-- They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` action creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). If you are _not_ using SSL then setting an internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
+- They use Google's public DNS servers to resolve names, not DNS servers provided via DHCP. Additionally, they do not resolve local names through mDNS. This means they do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha` (via local DNS) and `homeassistant.local` (via mDNS). All machines on your local network can access it as `ha` or `homeassistant.local`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` action creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). If you are _not_ using SSL, then setting an internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
 
 - If you are using SSL (e.g., `https://yourhost.example.org/...`) then you _must_ use the hostname in the certificate (e.g., `external_url: https://yourhost.example.org`). You cannot use an IP address since the certificate won't be valid for the IP address, and the cast device will refuse the connection.
+
+The recommended way to overcome these obstacles is to not manually configure a local Home Assistant URL.

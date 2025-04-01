@@ -137,3 +137,41 @@ The following is the list of holidays the sensor knows about with their selected
 | tisha_bav            | Tish'a B'Av                | תשעה באב              | FAST_DAY                  |
 | tu_bav               | Tu B'Av                    | ט"ו באב               | MINOR_HOLIDAY             |
 | rosh_chodesh         | Rosh Chodesh               | ראש חודש              | ROSH_CHODESH              |
+
+## Actions
+
+Available {% term actions %}:
+
+- `jewish_calendar.count_omer`
+
+### Action Count the Omer
+
+The `jewish_calendar.count_omer` action returns the phrase for counting the Omer for a given date.
+
+| Data attribute | Optional | Description                              |
+| -------------- | -------- | ---------------------------------------- |
+| `date`         | no       | Date for which to get the Omer blessing. |
+| `nusach`       | no       | Nusach (tradition) of the Omer blessing. |
+| `language`     | no       | Language to return. Defaults to Hebrew.  |
+
+If there's no Omer count on the given day, the message will be empty.
+Supported nusachim are: Ashkenaz, Sfarad, Adot Mizrah and Italian.
+
+#### Example
+
+```yaml
+action: jewish_calendar.count_omer
+data:
+  nusach: sfarad
+  language: en
+  date: "2025-05-20"
+```
+
+Will return the following:
+
+```yaml
+message: Today is the thirty-seventh day, which are five weeks and two days of the Omer
+weeks: 5
+days: 2
+total_days: 37
+```

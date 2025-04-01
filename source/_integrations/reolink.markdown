@@ -100,12 +100,25 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI face detection++
 - AI package detection++
 - AI baby crying detection+ (sound detection)
+- AI crossline person+ (up to 3 lines)
+- AI crossline vehicle+ (up to 3 lines)
+- AI crossline animal+ (up to 3 lines)
+- AI intrusion person+ (up to 3 zones)
+- AI intrusion vehicle+ (up to 3 zones)
+- AI intrusion animal+ (up to 3 zones)
+- AI linger person+ (up to 3 zones)
+- AI linger vehicle+ (up to 3 zones)
+- AI linger animal+ (up to 3 zones)
+- AI item forgotten+ (up to 3 zones)
+- AI item taken+ (up to 3 zones)
 - Sleep status+
 
 \++ These sensors receive events using the following 4 methods (in order): TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for TCP push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
+
+For the **crossline**, **intrusion**, **linger**, **item forgotten**, and **item taken** entities, you first need to configure the lines/zones in the Reolink app (**Settings** > **Detection alarm** > **Smart event detection**). In the Reolink app, you can add up to 3 zones/lines, and for each zone/line, you can enable/disable the person/vehicle/animal detection. Within 60 seconds after making a change in the Reolink app, the corresponding entities will automatically show up in Home Assistant.
 
 ### Number entities
 
@@ -127,12 +140,21 @@ Depending on the supported features of the camera, number entities are added for
 - AI package sensitivity
 - AI pet sensitivity
 - AI animal sensitivity
+- AI crossline sensitivity+ (up to 3 lines)
+- AI intrusion sensitivity+ (up to 3 zones)
+- AI linger sensitivity+ (up to 3 zones)
+- AI item forgotten sensitivity+ (up to 3 zones)
+- AI item taken sensitivity+ (up to 3 zones)
 - AI face delay*
 - AI person delay*
 - AI vehicle delay*
 - AI package delay*
 - AI pet delay*
 - AI animal delay*
+- AI intrusion delay+ (up to 3 zones)
+- AI linger delay+ (up to 3 zones)
+- AI item forgotten delay+ (up to 3 zones)
+- AI item taken delay+ (up to 3 zones)
 - Auto quick reply time
 - Auto track limit left
 - Auto track limit right
@@ -207,10 +229,13 @@ Depending on the supported features of the camera, select entities are added for
 - Chime visitor ringtone
 - Hub alarm ringtone
 - Hub visitor ringtone
+- Hub scene mode (Off, Disarmed, Home, Away)
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
 **Play quick reply messages**/**Auto quick reply messages** can be recorded in the Reolink phone app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
+
+**Hub scene modes** can be set in the Reolink app/client. The scene names are loaded into Home Assistant at the start of the integration. After adding new custom scenes, restart the Reolink integration.
 
 #### Action reolink.play_chime
 
@@ -241,7 +266,7 @@ Depending on the supported features of the camera, switch entities are added for
 - PTZ patrol (start/stop)
 - Doorbell button sound
 - Record
-- Manual record
+- Manual record+
 - Privacy mode+
 - Push notifications
 - Hub ringtone on event
@@ -266,6 +291,8 @@ The Push-notification in the Reolink app is independent of the Home Assistant se
 
 The **PTZ patrol** positions first need to be configured using the Reolink [app](https://support.reolink.com/hc/en-us/articles/360008746833/)/[windows](https://support.reolink.com/hc/en-us/articles/900003738126/)/web client. When no positions are configured, the PTZ patrol entity will not be added. When adding patrol positions for the first time, you need to restart the Reolink integration.
 
+The **Manual record** switch will turn off automatically after 10 minutes. Therefore the recording will end as soon as the manual record switch is turned off, or 10 minutes have passed.
+
 ### Light entities
 
 Depending on the supported features of the camera, light entities are added for:
@@ -281,6 +308,7 @@ Depending on the supported features of the camera, the following sensor entities
 
 - PTZ pan position
 - PTZ tilt position
+- Day night state+
 - Wi-Fi signal*
 - CPU usage*
 - HDD/SD storage*
@@ -730,6 +758,7 @@ Prerequisites:
 - Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/) ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **top camera model box** > **Network Information** > **Advanced** (mobile) or **Settings** > **Network** > **Advanced** > **Port Settings** (PC). See [additional instructions](https://support.reolink.com/hc/en-us/articles/900000621783-How-to-Set-up-Reolink-Ports-Settings/) on the Reolink site.
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 - If the integration and the browser can't connect to the camera even after you enable the HTTP/HTTPS ports, try to create a new user on the camera; that fixes the problem in some cases.
+- Using a VLAN or other network restrictions between the Home Assistant device and the Reolink device is possible, but is also known to cause issues when not properly configured. Ensure HTTP (port 80), HTTPS (port 443), RTMP (port 1935), RTSP (port 554), ONVIF (port 8000) and TCP (port 9000) communication is not being blocked. When experiencing issues, please first test if moving the Reolink device to the same VLAN as the Home Assistant device and lifting all restrictions between them solves the issue.
 
 ### Entities intermittently become unavailable
 
