@@ -76,14 +76,15 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [BETA Feedback! Automation \& script variable scopes](#beta-feedback-automation--script-variable-scopes)
-- [Introducing the areas dashboard (experimental)](#introducing-the-areas-dashboard-experimental)
+- [Smarter dashboards!](#smarter-dashboards)
+  - [A new experimental Areas dashboard](#a-new-experimental-areas-dashboard)
 - [Time for a new card!](#time-for-a-new-card)
 - [Voice](#voice)
   - [Improved Voice Wizard](#improved-voice-wizard)
   - [Continued conversation with LLMs](#continued-conversation-with-llms)
   - [Starting conversations](#starting-conversations)
   - [Pre-announce sound](#pre-announce-sound)
-- [Restoring backup from Home Assistant Cloud during onboarding](#restoring-backup-from-home-assistant-cloud-during-onboarding)
+- [Onboarding with a Home Assistant Cloud backup](#onboarding-with-a-home-assistant-cloud-backup)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -148,23 +149,31 @@ behavior, or if it just works just like before in our #beta channel on Discord.
 While the change is huge, we do expect the impact to be limited. We want
 to learn from your experiences if this assumption is correct.
 
-## Introducing the areas dashboard (experimental)
+## Smarter dashboards!
 
-This release we are introducing a new, _experimental_, automatically generated
-dashboard that is based on the areas in your Home!
+We’re making dashboards smarter—automagically!
+Dashboards allow users to monitor and control different aspects of their homes through smart home devices or external data. They are one of the main interfaces for interacting with Home Assistant, and a key contributor to what we call the Home Approval Factor—how useful and welcoming your smart home feels to everyone who lives in it.
+
+Over the past year, we have focused on making dashboards easier to create and customize with the introduction of the powerful drag-and-drop sections view and plenty of new tile card features. Now, we’re going a step further by delivering a dashboard that’s immediately relevant, saving users time and effort while still leaving room for personal touches.
+
+### A new experimental Areas dashboard
+
+Until now, our default dashboard has served as a simple starting point—a list of entities grouped by area or device domains. While helpful for early beginners, it quickly becomes too limited as a smart home grows. We've learned that while some users enjoy building their own dashboards, many simply want something that works for their household.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-04/temp-dashboard-areas.png" />
 
-The overview page of the dashboard shows the areas in your home with the
-most important information about them. Selecting the area header, will take
-you to a detailed view of the area, showing everything you have in that area.
+The new experimental Areas Dashboard will generate a ready-to-use dashboard based on the areas you've defined in your home. It  uses sections and tile cards to deliver a modern, clean, and intuitive look instantly. No more starting from a blank slate!
 
-To use this dashboard today, select the "Areas" option from the list when
-you add a new dashboard. Please note, that this dashboard is currently marked
-as experimental, and we are looking for your feedback on it!
+Each area in your home now has its own dedicated page, giving you a clear and organized view of the devices in that space. Entities are automatically grouped by domain, such as lights, covers, cameras, and more, so you can easily locate the entities you need. Want to tweak it? Yes, you can! You can rearrange, show, or hide entities to suit your preferences. Moreover, at the top of each area page, you'll find temperature and humidity badges that give you a quick glance at comfort levels in the room. You can configure which sensors to use in the area settings.
 
-Our goal is to iterate on this dashboard and keep improving it, until it
-potentially makes it to become the default dashboard in the future.
+On top of all that, the Overview page brings it all together, showing all your areas in one place. Each section corresponds to a room in your home, and just like with the area pages, you can rearrange, show, or hide areas to reflect your priorities.
+If you haven’t already, now’s the perfect time to start organizing your devices into areas - it’s the key to unlocking this new experience. To get started with the Areas dashboard, go to Settings > Dashboard, and select the “Areas (experimental)” option under the Add Dashboard dialog:
+
+<img class="no-shadow" alt="Add Dashboard dialog, including Areas dashboard" src="/images/blog/2025-04/areas-experimental-dialog.png" />
+
+The new experimental Areas Dashboard is a preview of what’s more to come. We’ve learned from our users that they organize their homes in different ways—by rooms, by function, by device, and more, and they often combine all of the above, and therefore, our upcoming default dashboard will accommodate all these methods of organization. Over time, this foundation will grow into a flexible system that adapts to your priorities, whether that’s keeping an eye on security, managing energy use, going through your family calendar and chores, learning about the weather, or simply watching your pets.
+
+Please note that this is experimental, meaning it is subject to change and may not always work as intended. If you do notice some aspects we can improve, we would love your feedback. It was the community’s dashboards shared over the years that helped us shape this design, and we would love to see how it works with a wide variety of your homes. Even if you have the perfect dashboards already built for your home, give it a try! **Use [this feedback form](https://forms.gle/gJ6HiNbE1GXDv5g18) to give us your thoughts!**
 
 ## Time for a new card!
 
@@ -178,7 +187,7 @@ Yeah, the card is "just" showing the current time, but it is a really nice
 addition to our card collection. It might be a great card for dashboards
 you are showing on things like a wall mounted tablet!
 
-It supports a few time formats, and of course, comes in a different sizes to
+It supports a few time formats, displaying different timezones, and of course, can be resized to
 match your needs.
 
 **TODO**: Link to documentation
@@ -204,27 +213,22 @@ choices for your use case.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-04/temp-voice-wizard.png" />
 
-The wizard will now help you making the right choice, based on the language
-you are using, the device you are setting up, and the capabilities of your
-device. This will help you to get the best experience out of your voice
-assistant.
+The wizard will now help you make a more informed decision based on your language, desired functionality, and device capabilities, ensuring you get the best experience with your voice assistant.
 
 [pve]: /voice-pe/
 
 ### Continued conversation with LLMs
 
-Ever tried to have a conversation with your voice assistant that is hooked up
-to an LLM like ChatGPT? It isn't fun, as before each sentence/answer you have
-to say _"Ok Nabu"_, in order to get the assistant to listen to you.
+Ever tried to have a conversation with your voice assistant that is hooked up to an LLM like ChatGPT? It’s good fun. However, having to say _"Ok Nabu"_, whenever you answer one of Assist’s questions can really slow things down.
 
 This release introduces the ability to have a continued conversation with LLMs.
-If the LLM is returning a question, we will detect that and keep the
+If the LLM returns with a question, we will detect that and keep the
 conversation going, without the need for you to say _"Ok Nabu"_ again.
 
 <lite-youtube videoid="KyAuzYe4vAw" videotitle="Continued conversation demo"></lite-youtube>
 
 This is a great way to have a more natural conversation with your voice
-assistants, and it works with all LLMs that are supported by Home Assistant.
+assistants, and it works with all LLMs supported by Home Assistant.
 
 ### Starting conversations
 
@@ -235,53 +239,46 @@ conversation](/blog/2025/02/13/voice-chapter-9-speech-to-phrase/#home-assistant-
 As of this release, this feature is now available for ESPHome based voice
 assistant, like the [Home Assistant Voice Preview Edition][pve]!
 
-This is an amazing feature, as it allows you to build your own automations
-that will initiate interaction from a voice assistant, instead of you having
-to trigger the conversion by saying the wake work.
+This is an amazing feature, as it allows you to build your own automations that can send out voice prompts from your voice assistant and listen for a response, instead of you having to trigger the conversation by saying the wake word.
 
 _**TODO:**_ Add a demo video here.
 
-Imaging, for example, you have left the garage door open, and a few minutes
-later, your says: "Hey, I noticed you left the garage door open, do you want me
+Imagine, for example, you have left the garage door open, and a few minutes
+later, your assistant says: "Hey, I noticed you left the garage door open, do you want me
 to close it for you?" And you can just say "yes" or "no" to the assistant, and
 it will close the door for you... 🤯
 
 Or maybe you come home from a long day at work, and your assistant says:
-Welcome home Frenck! Hope you had a great day! Want to hear the news? Or
+"Welcome home Frenck! Hope you had a great day! Want to hear the news? Or
 maybe you are in the mood for some music?" and answering that?
 
 This is unbelievably powerful, and opens up a whole new world of possibilities
 for your voice assistant. This power is currently only available when using
-LLMs, but we are working on making this available for all other cases as well.
+LLMs, but we are working on making this available in other places it would be useful.
 
 [pve]: /voice-pe/
 
 ### Pre-announce sound
 
-The above feature is great, but having something starting talking out of nowhere
-might be a bit scary for some people 🫣. To help with that, it is possible to
-add a pre-announce sound when starting a conversation or doing an announcement.
+Having your assistant start a conversation is great, but having it start talking out of nowhere might be a bit scary for some people 🫣. To help with that, it is possible to add a pre-announce sound when starting a conversation or making an announcement.
 
-Using this, you can play a little sounds before the assistant starts talking,
+Using this, you can play a little sound before the assistant starts talking,
 preventing the "jump scare" effect.
 
 _**TODO:**_ Add a demo video here.
 
-Hmmm... this might be cool for different sound effects, depending on the
-situation. Like a doorbell when the doorbell is rang, or the the railroad
-announcement sounds to announce your train this morning is delayed (so you
-have a little more time to grab your coffee before you leave).
+Hmmm… this might be cool for different sound effects, depending on the situation. Like a doorbell chime when the doorbell rings, or a train station-style announcement jingle when your morning commute is  delayed (so you have a little more time to grab your coffee before you leave ☕).
 
-## Restoring backup from Home Assistant Cloud during onboarding
+## Onboarding with a Home Assistant Cloud backup
 
 If you are a user of [Home Assistant Cloud by Nabu Casa][cloud], it means
 you can safely store a backup of your Home Assistant installation in the cloud
-as part of your subscription. A really convenient service that ensure you always
-have a secure and worry free backup of your Home Assistant installation, no
+as part of your subscription. A really convenient service that ensures you always
+have a secure and worry-free backup of your Home Assistant installation, no
 matter what happens.
 
 Now, let's say something did happen, maybe a hardware failure, or maybe you
-are migrating to a new Home Assistant Green, as of this release, you can
+are migrating to a new [Home Assistant Green](/green/), as of this release, you can
 directly restore your backup from the Home Assistant Cloud during the
 onboarding process of your new Home Assistant installation.
 
@@ -338,23 +335,23 @@ changes to existing integrations:
 
 - The [OpenAI conversation integration] has a new service to generate content,
   thanks to [@timlaing], **and** it can now search the web! Nice [@Shulyaka]!
-- [@joostlek] has absolute been rocking the [SmartThings integration]! The list
+- [@joostlek] has absolutely been rocking the [SmartThings integration]! The list
   of improvements is extremely long, but it includes support for firmware
   updates through Home Assistant, support for event entities, PM0.1 sensors,
   washer rinse cycle settings, TV and media player support, and improved device
   handling. Awesome work there!
 - Not only SmartThings is receiving love, [@Diegorro98] has been constantly at
   work improving and tuning the [Home Connect] integration. Thank you so much!
-- The [Roborock integration] has been extend to support dryer controls and button
+- The [Roborock integration] has been extended to support dryer controls and button
   entities to start routines. Thanks [@Lash-L] and [@regevbr]!
-- [Reolink] cannot be missing in this list. This release adds support for their
+- [Reolink] cannot be left out of this list. This release adds support for their
   smart AI sensors, and adds a day/night state sensor. Nice work [@starkillerOG]!
 - [@tr4nt0r] extended the actions [Habitica integration] with lots of new
-  and improved actions to managed your habits, rewards and dailies. Thanks!
+  and improved actions to manage your habits, rewards, and dailies. Thanks!
 - The [Microsoft OneDrive integration] has a new action that allows you to
   upload files to OneDrive. Nice [@zweckj]!]
 - [@andrewsayre] extended [HEOS] with support for browsing media, allowing
-  your to browse things like TuneIn and play them on your HEOS devices.
+  you to browse things like TuneIn and play them on your HEOS devices.
 
 [@andrewsayre]: https://github.com/andrewsayre
 [@Diegorro98]: https://github.com/Diegorro98
@@ -403,7 +400,7 @@ noteworthy changes this release:
 - Variables in automations & scripts have been greatly simplified and fixed by
   [@arturpragacz]. All variables are now accessible anywhere in the script or
   automation, greatly simplifying the use of variables. Amazing!
-- We now have support for adding additional interactions to card! Hold and
+- We now have support for adding additional interactions to cards! Hold and
   double tap actions are now available through the UI. Thanks [@piitaya]!
 
 [@arturpragacz]: https://github.com/arturpragacz
@@ -427,11 +424,11 @@ To start with the [template integration]. The light and switch templates have
 been migrated to support the new and modern YAML style. Thanks [@Petro31] for
 this one!
 
-More noteworthy are the addition of a series of new template function to make
+More noteworthy is the addition of a series of new template functions to make
 working with data a lot easier:
 
 - [`combine`](/docs/configuration/templating/#combining-dictionaries) - which can combine multiple dictionaries.
-- [`difference`](/docs/configuration/templating/#find-elements-in-first-list-not-in-second-list) - find elements that are in first list, but not in second list.
+- [`difference`](/docs/configuration/templating/#find-elements-in-first-list-not-in-second-list) - find elements that are in the first list, but not in the second list.
 - [`flatten`](/docs/configuration/templating/#flatten-a-list-of-lists) - is able to flatten a list of lists.
 - [`floor_entities`](/docs/configuration/templating/#floors) - returns a list of entities associated with a floor.
 - [`intersect`](/docs/configuration/templating/#find-common-elements-between-lists) - find common elements between lists.
@@ -456,7 +453,7 @@ devices in your energy configuration.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-04/temp-energy-management-device-hierarchy.png" />
 
-This is, for example, great if you have a breaker that is monitoring the energy
+This is great if, for example, you have a breaker that is monitoring the energy
 consumption of a whole circuit, but also have individual devices on that
 circuit that are also monitored.
 
@@ -510,8 +507,8 @@ actions:
       # Note: previously it would be: x=1, y=1, z undefined
 ```
 
-If you have automations or scripts which use the same variable name in
-different (previously isolated) scopes will need to update them: simply use
+If you have automations or scripts that use the same variable name in
+different (previously isolated) scopes, you will need to update them: simply use
 distinct variable names to prevent any conflicts.
 
 ([@arturpragacz] - [#141114])
@@ -538,7 +535,7 @@ adopt them to this change.
 {% details "Persistent notifications" %}
 
 Persistent notifications with `notification_id` `config_entry_reconfigure` are
-no longer created when an integration fail to authenticate.
+no longer created when an integration fails to authenticate.
 Automations [triggering on such persistent notification](/integrations/persistent_notification/#automation)
 will thus no longer work.
 
@@ -556,7 +553,7 @@ Reolink app and desktop client also have this 31 password character limit. If
 you configured your Reolink password years ago, it is possible it is longer than
 31 characters. In that case you will get a reauthentication flow asking you to
 change the password. Passwords longer than 31 characters can cause issues in the
-latests Reolink API.
+latest Reolink API.
 
 ([@starkillerOG] - [#140789]) ([documentation](/integrations/reolink))
 
