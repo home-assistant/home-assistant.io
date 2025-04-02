@@ -5,9 +5,9 @@ ha_release: 0.33
 ha_domain: calendar
 ha_quality_scale: internal
 ha_category:
-  - Calendar
+	- Calendar
 ha_codeowners:
-  - '@home-assistant/core'
+	- '@home-assistant/core'
 ha_integration_type: entity
 ---
 
@@ -63,14 +63,14 @@ An example of a calendar {% term trigger %} in YAML:
 
 ```yaml
 automation:
-  - triggers:
-    - trigger: calendar
-      # Possible values: start, end
-      event: start
-      # The calendar entity_id
-      entity_id: calendar.personal
-      # Optional time offset to fire a set time before or after event start/end
-      offset: -00:15:00
+	- triggers:
+		- trigger: calendar
+			# Possible values: start, end
+			event: start
+			# The calendar entity_id
+			entity_id: calendar.personal
+			# Optional time offset to fire a set time before or after event start/end
+			offset: -00:15:00
 ```
 
 Calendar triggers should not generally use automation mode `single` to ensure
@@ -98,17 +98,17 @@ This example automation consists of:
 {% raw %}
 ```yaml
 automation:
-  - alias: "Calendar notification"
-    triggers:
-      - trigger: calendar
-        event: start
-        entity_id: calendar.personal
-    actions:
-      - action: persistent_notification.create
-        data:
-          message: >-
-            Event {{ trigger.calendar_event.summary }} @
-            {{ trigger.calendar_event.start }}
+	- alias: "Calendar notification"
+		triggers:
+			- trigger: calendar
+				event: start
+				entity_id: calendar.personal
+		actions:
+			- action: persistent_notification.create
+				data:
+					message: >-
+						Event {{ trigger.calendar_event.summary }} @
+						{{ trigger.calendar_event.start }}
 ```
 {% endraw %}
 
@@ -125,28 +125,28 @@ This example consists of:
 {% raw %}
 ```yaml
 automation:
-  - alias: "Front Light Schedule"
-    triggers:
-      - trigger: calendar
-        event: start
-        entity_id: calendar.device_automation
-      - trigger: calendar
-        event: end
-        entity_id: calendar.device_automation
-    conditions:
-      - condition: template
-        value_template: "{{ 'Front Lights' in trigger.calendar_event.summary }}"
-    actions:
-      - if:
-          - "{{ trigger.event == 'start' }}"
-        then:
-          - action: light.turn_on
-            target:
-              entity_id: light.front
-        else:
-          - action: light.turn_off
-            target:
-              entity_id: light.front
+	- alias: "Front Light Schedule"
+		triggers:
+			- trigger: calendar
+				event: start
+				entity_id: calendar.device_automation
+			- trigger: calendar
+				event: end
+				entity_id: calendar.device_automation
+		conditions:
+			- condition: template
+				value_template: "{{ 'Front Lights' in trigger.calendar_event.summary }}"
+		actions:
+			- if:
+					- "{{ trigger.event == 'start' }}"
+				then:
+					- action: light.turn_on
+						target:
+							entity_id: light.front
+				else:
+					- action: light.turn_off
+						target:
+							entity_id: light.front
 ```
 {% endraw %}
 
@@ -182,11 +182,11 @@ This is a full example of an {% term action %} in YAML:
 ```yaml
 action: calendar.create_event
 target:
-  entity_id: calendar.device_automation_schedules
+	entity_id: calendar.device_automation_schedules
 data:
-  summary: "Example"
-  start_date: "2022-10-01"
-  end_date: "2022-10-02"
+	summary: "Example"
+	start_date: "2022-10-01"
+	end_date: "2022-10-02"
 ```
 
 Home Assistant Calendars do not allow zero duration Calendar events. The following would create a one minute long event starting "now". This could be used to record an external event in a Calendar.
@@ -195,11 +195,11 @@ Home Assistant Calendars do not allow zero duration Calendar events. The followi
 ```yaml
 action: calendar.create_event
 target:
-  entity_id: calendar.device_automation_schedules
+	entity_id: calendar.device_automation_schedules
 data:
-  summary: "Example"
-  start_date_time: "{{ now() }}"
-  end_date_time: "{{ now() + timedelta(minutes=1) }}"
+	summary: "Example"
+	start_date_time: "{{ now() }}"
+	end_date_time: "{{ now() + timedelta(minutes=1) }}"
 ```
 {% endraw %}
 
@@ -222,25 +222,26 @@ Use only one of `end_date_time` or `duration`.
 ```yaml
 action: calendar.get_events
 target:
-  entity_id:
-    - calendar.school
-    - calendar.work
+	entity_id:
+		- calendar.school
+		- calendar.work
 data:
-  duration:
-    hours: 24
+	duration:
+		hours: 24
 response_variable: agenda
 ```
 
 The response data contains a field for every calendar entity (e.g. `calendar.school` and `calendar.work` in this case).
 Every calendar entity has a field `events` containing a list of events with these fields:
 
-| Response data | Description                                       | Example             |
-| ------------- | ------------------------------------------------- | ------------------- |
-| `summary`     | The title of the event.                           | Bowling             |
-| `description` | The description of the event.                     | Birthday bowling    |
-| `start`       | The date or date time the event starts.           | 2019-03-10 20:00:00 |
-| `end`         | The date or date time the event ends (exclusive). | 2019-03-10 23:00:00 |
-| `location`    | The location of the event.                        | Bowling center      |
+| Response data | Description                                       | Example                              |
+| ------------- | ------------------------------------------------- | ------------------------------------ |
+| `uid`         | The id of the event.                              | de18513a-003c-499e-9b1d-c82b6d3d44ff |
+| `summary`     | The title of the event.                           | Bowling                              |
+| `description` | The description of the event.                     | Birthday bowling                     |
+| `start`       | The date or date time the event starts.           | 2019-03-10 20:00:00                  |
+| `end`         | The date or date time the event ends (exclusive). | 2019-03-10 23:00:00                  |
+| `location`    | The location of the event.                        | Bowling center                       |
 
 This example uses a template with response data in another action:
 
@@ -248,15 +249,36 @@ This example uses a template with response data in another action:
 ```yaml
 action: notify.nina
 data:
-  title: Daily agenda for {{ now().date() }}
-  message: >-
-    Your school calendar for today:
-    {% for event in agenda["calendar.school_calendar"]["events"] %}
-    {{ event.start}}: {{ event.summary }}<br>
-    {% endfor %}
-    Your work calendar for today:
-    {% for event in agenda["calendar.work_calendar"]["events"] %}
-    {{ event.start}}: {{ event.summary }}<br>
-    {% endfor %}
+	title: Daily agenda for {{ now().date() }}
+	message: >-
+		Your school calendar for today:
+		{% for event in agenda["calendar.school_calendar"]["events"] %}
+		{{ event.start}}: {{ event.summary }}<br>
+		{% endfor %}
+		Your work calendar for today:
+		{% for event in agenda["calendar.work_calendar"]["events"] %}
+		{{ event.start}}: {{ event.summary }}<br>
+		{% endfor %}
 ```
 {% endraw %}
+
+### Action `calendar.delete_event`
+
+Delete a calendar event. A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+
+| Data attribute     | Optional | Description                                          | Example                              |
+| ------------------ | -------- | ---------------------------------------------------- | ------------------------------------ |
+| `uid`              | no       | The id of the event.                                 | de18513a-003c-499e-9b1d-c82b6d3d44ff |
+| `recurrence_id`    | yes      | The recurrence id of a recurrent event.              | 20220322T200000Z                     |
+| `recurrence_range` | yes      | The recurrence range of a recurrent event.           | 20220322T200000Z/20220322T220000Z    |
+
+
+This is an example of a {% term action %} in YAML:
+
+```yaml
+action: calendar.delete_event
+target:
+  entity_id: calendar.device_automation_schedules
+data:
+  uid: de18513a-003c-499e-9b1d-c82b6d3d44ff
+```
