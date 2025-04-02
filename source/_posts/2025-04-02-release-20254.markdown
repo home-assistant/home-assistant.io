@@ -399,7 +399,7 @@ A big thank you to all the contributors involved! 👏
 [Azure Storage]: /integrations/azure_storage
 [Fronius]: /integrations/fronius
 [inComfort]: /integrations/incomfort
-[IronOS]: /integrations/ironos
+[IronOS]: /integrations/iron_os
 [Roborock]: /integrations/roborock
 [Vodafone Station]: /integrations/vodafone_station
 
