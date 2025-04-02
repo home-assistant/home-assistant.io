@@ -219,16 +219,13 @@ script:
           config_entry_id: 01JEXNDHT21V0BHJXM7A5SZANV
           order_by: random
         response_variable: random_tracks
-      - repeat:
-          count: "{{ random_tracks['items'] | length }}"
-          sequence:
-            - action: music_assistant.play_media
-              data:
-                media_id: "{{ random_tracks['items'][repeat.index-1].uri }}"
-                media_type: track
-                enqueue: add
-              target:
-                entity_id: media_player.ma_kitchen_speaker
+      - action: music_assistant.play_media
+        data:
+          media_id: "{{ random_tracks['items'] | map(attribute='uri') | list }}"
+          media_type: track
+          enqueue: replace
+        target:
+          entity_id: media_player.ma_kitchen_speaker
 ```
 
 ### Action `music_assistant.get_queue`
