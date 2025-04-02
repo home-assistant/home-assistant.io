@@ -29,6 +29,7 @@ Add this integration to automate playback and group configuration of HEOS-capabl
 - Controlling play mode (e.g., play/pause), volume, mute, and shuffle
 - Playing HEOS favorites, playlists, quick selects, URLs
 - Setting the source to physical inputs (e.g., `AUX1`)
+- Browsing HEOS music services (for example, **Tidal**) and sources (such as **Favorites**)
 - Grouping and ungrouping HEOS devices
 - Clearing playlists
 
@@ -40,12 +41,12 @@ Add this integration to automate playback and group configuration of HEOS-capabl
 {% include integrations/config_flow.md %}
 
 {% note %}
-Only a single instance of the integration is needed to access the entire HEOS system on the network. It will only connect to a single {% term host %}.
+A single instance of the integration adds all devices in the HEOS system to Home Assistant. When setup through discovery, it will automatically select the best {% term host %}. The integration will automatically reconnect and fail over to other hosts in the HEOS system if the configured host goes offline.
 {% endnote %}
 
 {% configuration_basic %}
 Host:
-    description: "The host name or IP address (e.g., \"192.168.1.2\") of your HEOS-capable product. If you have more than one device, select, or enter a host, that is connected to the LAN via wire or has the strongest wireless signal."
+    description: "The host name or IP address (e.g., \"192.168.1.2\") of your HEOS-capable product. If you have more than one device, enter a host that is connected to the LAN via wire and is always powered on."
 {% endconfiguration_basic %}
 
 ## Configuration options
@@ -86,6 +87,8 @@ In addition to the standard [Media Player actions](/integrations/media_player#ac
 
 Group volume actions: `heos.group_volume_set`, `heos.group_volume_down`, and `heos.group_volume_up` for entities joined to a group.
 
+Queue actions: `heos.get_queue` to manage a player's queue items.
+
 ### Action `heos.group_volume_set`
 
 Sets the group's volume while preserving member volume ratios. This action can be called on any entity in a group.
@@ -94,6 +97,37 @@ Sets the group's volume while preserving member volume ratios. This action can b
 |------------------------|----------|------------------------------------------------------------------|
 | `entity_id`            |      yes | A media player entity that is joined to a group.                  |
 | `volume_level`         |       no | The volume level, where 0 is inaudible, 1 is the maximum volume. |
+
+### Action `heos.get_queue`
+
+Returns the items in the player's queue. This can be used to inspect the current play queue of target players.
+
+| Data attribute | Optional | Description                                      |
+|------------------------|----------|------------------------------------------------------------------|
+| `entity_id`            | no      | `entity_id` of the player(s)                                     |
+
+Example response:
+
+```yaml
+media_player.office:
+  queue:
+    - queue_id: 1
+      song: Alone Again
+      album: After Hours
+      artist: The Weeknd
+      image_url: >-
+        http://resources.wimpmusic.com/images/22f72311/8e9e/461e/a100/d9cfd4ddc2fa/640x640.jpg
+      media_id: "134788274"
+      album_id: "134788273"
+    - queue_id: 2
+      song: Too Late
+      album: After Hours
+      artist: The Weeknd
+      image_url: >-
+        http://resources.wimpmusic.com/images/22f72311/8e9e/461e/a100/d9cfd4ddc2fa/640x640.jpg
+      media_id: "134788275"
+      album_id: "134788273"
+```
 
 ## Examples
 
@@ -176,6 +210,24 @@ data:
 | `entity_id`            | yes      | `entity_id` of the player(s) to play the URL     |
 | `media_content_type`   | no       | Set to the value `url`                           |
 | `media_content_id`     | no       | The full URL to the stream (max 255 characters)  |
+
+#### Play a queue item
+
+You can play/move to an item within the player's queue by using the `media_player.play_media` action. Set `media_content_type` to `queue` and `media_content_id` to the index (starting from 1) of an item in the play queue. The play queue can be enumerated by using the `heos.get_queue` action. Example action data payload:
+
+```yaml
+action: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: "queue"
+  media_content_id: "1"
+```
+
+| Data attribute | Optional | Description                   |
+| ---------------------- | -------- | ----------------------------- |
+| `entity_id`            | yes      | `entity_id` of the player(s)  |
+| `media_content_type`   | no       | Set to the value `queue`   |
+| `media_content_id`     | no       | The queue index (e.g. `1`) |
 
 ### Grouping players
 

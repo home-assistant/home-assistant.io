@@ -20,6 +20,7 @@ ha_platforms:
 ha_integration_type: integration
 ha_config_flow: true
 ha_dhcp: true
+ha_quality_scale: platinum
 ---
 
 This integration links Home Assistant with your Intergas gateway, including the boiler and any room thermostats attached to it.

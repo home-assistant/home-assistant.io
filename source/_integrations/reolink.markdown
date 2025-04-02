@@ -63,7 +63,7 @@ Protocol:
 
 ## Asterisk (*) next to entities listed in this documentation
 
-If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#to-enable-or-disable-a-single-entity) first.
+If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#enabling-entities) first.
 
 ## Data updates: plus (+) next to entities listed in this documentation
 
@@ -100,12 +100,25 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI face detection++
 - AI package detection++
 - AI baby crying detection+ (sound detection)
+- AI crossline person+ (up to 3 lines)
+- AI crossline vehicle+ (up to 3 lines)
+- AI crossline animal+ (up to 3 lines)
+- AI intrusion person+ (up to 3 zones)
+- AI intrusion vehicle+ (up to 3 zones)
+- AI intrusion animal+ (up to 3 zones)
+- AI linger person+ (up to 3 zones)
+- AI linger vehicle+ (up to 3 zones)
+- AI linger animal+ (up to 3 zones)
+- AI item forgotten+ (up to 3 zones)
+- AI item taken+ (up to 3 zones)
 - Sleep status+
 
 \++ These sensors receive events using the following 4 methods (in order): TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for TCP push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
+
+For the **crossline**, **intrusion**, **linger**, **item forgotten**, and **item taken** entities, you first need to configure the lines/zones in the Reolink app (**Settings** > **Detection alarm** > **Smart event detection**). In the Reolink app, you can add up to 3 zones/lines, and for each zone/line, you can enable/disable the person/vehicle/animal detection. Within 60 seconds after making a change in the Reolink app, the corresponding entities will automatically show up in Home Assistant.
 
 ### Number entities
 
@@ -127,12 +140,21 @@ Depending on the supported features of the camera, number entities are added for
 - AI package sensitivity
 - AI pet sensitivity
 - AI animal sensitivity
+- AI crossline sensitivity+ (up to 3 lines)
+- AI intrusion sensitivity+ (up to 3 zones)
+- AI linger sensitivity+ (up to 3 zones)
+- AI item forgotten sensitivity+ (up to 3 zones)
+- AI item taken sensitivity+ (up to 3 zones)
 - AI face delay*
 - AI person delay*
 - AI vehicle delay*
 - AI package delay*
 - AI pet delay*
 - AI animal delay*
+- AI intrusion delay+ (up to 3 zones)
+- AI linger delay+ (up to 3 zones)
+- AI item forgotten delay+ (up to 3 zones)
+- AI item taken delay+ (up to 3 zones)
 - Auto quick reply time
 - Auto track limit left
 - Auto track limit right
@@ -207,10 +229,13 @@ Depending on the supported features of the camera, select entities are added for
 - Chime visitor ringtone
 - Hub alarm ringtone
 - Hub visitor ringtone
+- Hub scene mode (Off, Disarmed, Home, Away)
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
 **Play quick reply messages**/**Auto quick reply messages** can be recorded in the Reolink phone app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
+
+**Hub scene modes** can be set in the Reolink app/client. The scene names are loaded into Home Assistant at the start of the integration. After adding new custom scenes, restart the Reolink integration.
 
 #### Action reolink.play_chime
 
@@ -283,6 +308,7 @@ Depending on the supported features of the camera, the following sensor entities
 
 - PTZ pan position
 - PTZ tilt position
+- Day night state+
 - Wi-Fi signal*
 - CPU usage*
 - HDD/SD storage*
