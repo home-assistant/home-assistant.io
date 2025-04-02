@@ -89,7 +89,7 @@ title: London 💂
 
 <p class='img'>
 <img src='/images/dashboards/clock_card_london.png' alt='Screenshot of a medium sized, 24 hour clock showing am/pm based in London along with a title'>
-Screenshot of a medium sized, 12 hour clock showing am/pm based in London along with a title
+Screenshot of a medium sized, 24 hour clock showing am/pm based in London along with a title
 </p>
 
 A medium-sized, 24 hour clock using the New York timezone with a title
