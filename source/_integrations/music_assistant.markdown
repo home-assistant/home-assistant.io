@@ -128,7 +128,7 @@ automation:
       target:
         entity_id: media_player.ma_kitchen_speaker
 ```
-    
+
 ### Action `music_assistant.search`
 
 Perform a global search on the Music Assistant library and all providers. This allows programmatic access to all of the music provider's catalogs and could be used to build a HA dashboard where any track could be found for playback.
