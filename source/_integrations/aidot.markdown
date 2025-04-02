@@ -18,8 +18,9 @@ ha_integration_type: integration
 The [AiDot](https://www.aidot.com/) {% term integration %} allows you to control the Wi-Fi lights with Home Assistant.
 
 ## Prerequisites
+
 - To be able to configure your machine in Home Assistant, your machine needs to be added to your account using the official AiDot app first.
-- Only login with username & password is supported. 
+- Only login with username & password is supported.
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -32,6 +33,7 @@ Password:
 {% endconfiguration_basic %}
 
 ## Data updates
+
 - After successful login, the device list will be pulled from AiDot Cloud first
 - After pulling the list, the integration will pull the latest list from the cloud every 6 hours and process additions and deletions
 - The integration will update its lights by polling the AiDot Bridge every five seconds for new values.
@@ -40,7 +42,6 @@ Password:
 
 - A19
 - BR30
-
 
 ## Troubleshooting
 
