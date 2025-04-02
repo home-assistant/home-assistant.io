@@ -51,7 +51,7 @@ The following device classes are supported for numbers:
 - **data_rate**: Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s or GiB/s
 - **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB or YiB
 - **distance**: Generic distance in km, m, cm, mm, mi, nmi, yd, or in
-- **duration**: Duration in d, h, min, s, or ms
+- **duration**: Duration in d, h, min, s, ms, or µs
 - **energy**: Energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
 - **energy_distance**: Energy per distance in kWh/100km, mi/kWh or km/kWh.
 - **energy_storage**: Stored energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal

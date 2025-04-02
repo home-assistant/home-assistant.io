@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@tronikos'
+  - '@ivanlh'
 ha_domain: google_generative_ai_conversation
 ha_integration_type: service
 ha_platforms:

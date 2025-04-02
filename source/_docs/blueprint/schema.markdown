@@ -134,6 +134,7 @@ The following example shows a minimal blueprint with a single input:
 blueprint:
   name: Example blueprint
   description: Example showing an input
+  domain: automation
   input:
     my_input:
       name: Example input

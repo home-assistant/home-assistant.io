@@ -41,6 +41,7 @@ Verify SSL:
 - [Owncloud](https://owncloud.com/): `https://<your-owncloud-domain>/remote.php/webdav/`
 - [Hetzner Storage Box](https://www.hetzner.com/storage/storage-box): `https://<username>.your-storagebox.de`
 - [Strato HiDrive](https://www.strato.de/): `https://webdav.hidrive.strato.com`
+- [Seafile](https://manual.seafile.com/13.0/extension/webdav/): `https://<your-seafile-domain>/seafdav` if you are running your Seafile behind a reverse proxy, make sure to add the relevant port, by default WebDAV serves at port 8080.
 
 ## Removing the integration
 

@@ -13,6 +13,7 @@ ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
+  - '@Petro31'
   - '@PhracturedBlue'
   - '@home-assistant/core'
 ha_domain: template
@@ -49,11 +50,13 @@ For other types, please see the specific pages:
 - [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
-- [Light](/integrations/light.template/)
 - [Lock](/integrations/lock.template/)
-- [Switch](/integrations/switch.template/)
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
+
+For Legacy types, please see the specific pages:
+- [Light](/integrations/light.template/)
+- [Switch](/integrations/switch.template/)
 
 {% include integrations/config_flow.md %}
 
@@ -73,7 +76,7 @@ Entities (sensors, binary sensors, buttons, images, numbers, and selections) are
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template binary sensors, buttons, images, numbers, selects, sensors, and weathers
+### State-based template binary sensors, buttons, images, lights, numbers, selects, sensors, switches, and weathers
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -186,7 +189,7 @@ binary_sensor:
   type: list
   keys:
     state:
-      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor’s device_class value
+      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
       required: true
       type: template
     delay_on:
@@ -257,7 +260,7 @@ number:
       type: template
       default: 100.0
     optimistic:
-      description: Flag that defines if number works in optimistic mode.
+      description: Flag that defines if number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -279,7 +282,7 @@ select:
       required: true
       type: template
     optimistic:
-      description: Flag that defines if select works in optimistic mode.
+      description: Flag that defines if select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -302,10 +305,129 @@ image:
       required: true
       type: template
     verify_ssl:
-      description: Enable or disable SSL certificate verification. Set to false to use an http-only URL, or you have a self-signed SSL certificate and haven’t installed the CA certificate to enable verification.
+      description: Enable or disable SSL certificate verification. Set to false to use an http-only URL, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
       required: false
       type: boolean
       default: true
+light:
+  description: List of your lights.
+  required: true
+  type: map
+  keys:
+    state:
+      description: Defines a template to set the state of the light. If not defined, the switch will optimistically assume all commands are successful.
+      required: false
+      type: template
+      default: optimistic
+    level:
+      description: Defines a template to get the brightness of the light.
+      required: false
+      type: template
+      default: optimistic
+    temperature:
+      description: Defines a template to get the color temperature of the light.
+      required: false
+      type: template
+      default: optimistic
+    hs:
+      description: Defines a template to get the HS color of the light. Must render a tuple (hue, saturation).
+      required: false
+      type: template
+      default: optimistic
+    rgb:
+      description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
+      required: false
+      type: template
+      default: optimistic
+    rgbw:
+      description: Defines a template to get the RGBW color of the light. Must render a tuple or a list (red, green, blue, white).
+      required: false
+      type: template
+      default: optimistic
+    rgbww:
+      description: Defines a template to get the RGBWW color of the light. Must render a tuple or a list (red, green, blue, cold white, warm white).
+      required: false
+      type: template
+      default: optimistic
+    supports_transition:
+      description: Defines a template to get if the light supports transition. Should return a boolean value (True/False). If this value is `True`, the transition parameter in a `turn on` or `turn off` call will be passed as a named parameter `transition` in either of the scripts.
+      required: false
+      type: template
+      default: false
+    effect_list:
+      description: Defines a template to get the list of supported effects. Must render a list.
+      required: inclusive
+      type: template
+      default: optimistic
+    effect:
+      description: Defines a template to get the effect of the light.
+      required: inclusive
+      type: template
+      default: optimistic
+    min_mireds:
+      description: Defines a template to get the minimum mired value of the light.
+      required: false
+      type: template
+      default: optimistic
+    max_mireds:
+      description: Defines a template to get the maximum mired value of the light.
+      required: false
+      type: template
+      default: optimistic
+    turn_on:
+      description: Defines an action to run when the light is turned on. May receive the variables `brightness` and/or `transition`.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action to run when the light is turned off. May receive the variable `transition`.
+      required: true
+      type: action
+    set_level:
+      description: Defines an action to run when the light is given a brightness command. The script will only be called if the `turn_on` call only ha brightness, and optionally transition. Receives variables `brightness` and, optionally, `transition`.
+      required: false
+      type: action
+    set_temperature:
+      description: Defines an action to run when the light is given a color temperature command. Receives variable `color_temp`. May also receive variables `brightness`  and/or `transition`.
+      required: false
+      type: action
+    set_hs:
+      description: "Defines an action to run when the light is given a hs color command. Available variables: `hs` as a tuple, `h` and `s`"
+      required: false
+      type: action
+    set_rgb:
+      description: "Defines an action to run when the light is given an RGB color command. Available variables: `rgb` as a tuple, `r`, `g` and `b`."
+      required: false
+      type: action
+    set_rgbw:
+      description: "Defines an action to run when the light is given an RGBW color command. Available variables: `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b`  and `w`."
+      required: false
+      type: action
+    set_rgbww:
+      description: "Defines an action to run when the light is given an RGBWW color command. Available variables: `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`  `b`, `cw` and `ww`."
+      required: false
+      type: action
+    set_effect:
+      description: Defines an action to run when the light is given an effect command. Receives the variable `effect`. May also receive the variables `brightness`, and/or  `transition`.
+      required: inclusive
+      type: action
+switch:
+  description: List of switches
+  required: true
+  type: map
+  keys:
+    state:
+      description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
+      required: false
+      type: template
+      default: optimistic
+    turn_on:
+      description: Defines an action or list of actions to run when the switch is turned on.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action or list of actions to run when the switch is turned off.
+      required: true
+      type: action
 weather:
   description: List of weather entities
   required: true
@@ -391,7 +513,7 @@ weather:
       description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-"[all sensor, binary sensor, button, image, number, select, weather entities]":
+"[all sensor, binary sensor, button, image, light, number, select, switch, weather entities]":
   description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map
@@ -451,6 +573,22 @@ State-based and trigger-based template entities have the special template variab
 {% note %}
 Self-referencing using `this` provides the state and attributes for the entity before rendering the templates to calculate a new state. To access the new state, use the `value` or `value_json` variable.
 {% endnote %}
+
+### Optimistic mode
+
+For template entities that support interactivity (like `number` and `select`), you can enable optimistic mode by setting the `optimistic` parameter to `true`. This affects how the entity's state updates when you interact with it:
+
+- **With optimistic mode disabled (default)**: When you interact with the entity (for example, selecting a new option in a dropdown or setting a new number value), the entity's state in Home Assistant will only update after the underlying template defined in the `state` parameter returns the new value.
+
+- **With optimistic mode enabled**: When you interact with the entity, the entity's state in Home Assistant immediately updates to reflect your change, without waiting for the `state` template to update. This provides a more responsive UI experience but may not reflect the actual state if the underlying action fails or takes time to complete.
+
+Optimistic mode is particularly useful when:
+
+- The underlying system doesn't provide immediate feedback
+- You want a more responsive UI experience
+- You're confident the action will succeed
+
+When optimistic mode is disabled (default), you get more accuracy but potentially a less responsive UI, as the entity only updates after confirmation from the underlying system.
 
 ### Rate limiting updates
 
@@ -972,7 +1110,7 @@ sensors:
           type: device_class
           default: None
         value_template:
-          description: The sensor is `on` if the template evaluates as `True` and `off` otherwise. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor’s device_class value
+          description: The sensor is `on` if the template evaluates as `True` and `off` otherwise. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
           required: true
           type: template
         availability_template:

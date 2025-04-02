@@ -3,13 +3,17 @@ title: Backup
 description: Allow creating backups of container and core installations.
 ha_category:
   - Other
+  - Sensor
 ha_release: 2022.4
 ha_quality_scale: internal
 ha_domain: backup
 ha_codeowners:
   - '@home-assistant/core'
 ha_iot_class: Calculated
-ha_integration_type: system
+ha_platforms:
+  - diagnostics
+  - sensor
+ha_integration_type: service
 related:
   - docs: /common-tasks/general/#backups
     title: Backups
@@ -80,3 +84,24 @@ automation:
 ## Restoring a backup
 
 To restore a backup, follow the steps described in [Restoring a backup](/common-tasks/general/#restoring-a-backup).
+
+## Sensors
+
+The **Backup** {% term integration %} provides several sensors.
+
+### Backup Manager State
+
+The current state of the backup system. Possible states are:
+
+- Idle
+- Creating a backup
+- Receiving a backup
+- Restoring a backup
+
+### Next scheduled automatic backup
+
+The timestamp of the next scheduled automatic backup.
+
+### Last successful automatic backup
+
+The timestamp of the last successful automatic backup.
