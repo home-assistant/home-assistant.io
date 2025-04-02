@@ -224,7 +224,7 @@ script:
           sequence:
             - action: music_assistant.play_media
               data:
-                media_id: "{{ random_tracks['items'][repeat.index - 1].uri }}"
+                media_id: "{{ random_tracks['items'][repeat.index-1].uri }}"
                 media_type: track
                 enqueue: add
               target:
