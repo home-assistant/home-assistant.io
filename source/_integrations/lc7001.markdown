@@ -1,0 +1,86 @@
+---
+title: Legrand Whole House Lighting
+description: Instructions on how to add the Legrand Whole House Lighting integration into Home 
+ha_release: 2025.3
+ha_iot_class: Local Push
+ha_codeowners:
+  - '@bas.tard'
+ha_config_flow: true
+ha_domain: lc7001
+ha_integration_type: integration
+ha_platforms:
+  - light
+related:
+  - url: https://developers.home-assistant.io/docs/documenting/standards
+    title: Documentation standard
+  - url: https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/
+    title: Integration Quality Scale - Rules
+  - docs: /docs/glossary/
+    title: Glossary
+  - docs: /docs/tools/quick-bar/#my-links
+    title: My link
+---
+
+The Legrand Whole House Lighting {% term integration %} is used to integrate with the devices of [[Legrand](https://www.legrand.ca/wiring-devices/electrical-accessories/miscellaneous/discontinued-whole-house-lighting-controller/p/lc7001)](https://www.mycompany.com). 
+
+You must have configured your system using the Legrand Whole House Lighting [iOS](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://apps.apple.com/ca/app/legrand-lighting-control/id1017835513&ved=2ahUKEwiux_ui37aMAxXqhIkEHdXYMRYQFnoECBsQAQ&usg=AOvVaw1hplo8PYnU9vZ-nLPRroRm) or [Android](https://play.google.com/store/apps/details?id=us.legrand.lighting&hl=en_CA) application.
+
+## Supported devices
+
+The following devices are known to be supported by the integration:
+
+- Lights
+
+## Prerequisites
+
+1. Open the app store and install the **Legrand Lighting Control** app.
+2. Set-up your system with the app.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: The host name or IP address of your controller. Defaults to LCM1.local.
+port:
+  description: The port of your controller. Defaults to 2112.
+Password:
+  description: the password you configured in your controller using the system setup with the mobile application.
+{% endconfiguration_basic %}
+
+## Supported functionality
+
+### Entities
+
+The Legrand Whole House Lighting integration provides the following entities.
+
+#### Lights
+
+The Legrand Whole House Lighting integration exposes the lights and dimmer of your system.
+
+## Troubleshooting
+
+### Can’t set up the device
+
+#### Symptom: “Failed to connect”
+
+When trying to set up the integration, the form shows the message “Failed to connect”.
+
+Verify the host name and port you entered are correct.
+
+If you are running Home Assistant as a container, it may be due to the default hostname (LCM1.local) not being found.
+In that case, find out its IP address and use it instead. You should make sure that your network assigns a static IP address to the LC7001 controller.
+
+#### Symptom: "Invalid authentication"
+
+When trying to set up the integration, the form shows the message "Invalid authentication”.
+
+Verify the password you entered is correct.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
+
