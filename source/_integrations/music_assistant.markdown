@@ -242,7 +242,7 @@ Get the queue details of a Music Assistant player queue. This provides programma
 
 #### Example
 
-This example sets the name of the currently playing track (with a maximum of 50 characters) in an [`input_text`](https://www.home-assistant.io/integrations/input_text/) which could then be used on a dashboard.
+This example sets the name of the currently playing track in an [`input_text`](https://www.home-assistant.io/integrations/input_text/) which could then be used on a dashboard.
 
 ```yaml
 script:
@@ -257,7 +257,7 @@ script:
       - service: input_text.set_value
         data:
           entity_id: input_text.now_playing
-          value: "{{ queue_info['media_player.ma_kitchen_speaker'].current_item.name[:50] }}"
+          value: "{{ queue_info['media_player.ma_kitchen_speaker'].current_item.name }}"
 ```
   
 ## Known limitations
