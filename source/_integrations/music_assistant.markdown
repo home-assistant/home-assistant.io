@@ -43,7 +43,7 @@ Under normal circumstances, Home Assistant automatically discovers your running 
 
 ### Media player entities
 
-The Music Assistant integration creates media player entities for all players and groups available in MA, including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. This full functionality includes transfer of the playing queue of music from one player to another, automatic pausing of playback during announcements and richer options for selecting the media for playback. These entities will display media information, playback progress, and playback controls.
+The Music Assistant integration creates media player entities for all players and groups available in MA, including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. This full functionality includes transfer of the playing queue of music from one player to another, automatic pausing of playback during announcements, and richer options for selecting the media for playback. These entities will display media information, playback progress, and playback controls.
 
 ## Actions
 
@@ -113,7 +113,7 @@ Transfer the player's queue to another player. This could be combined with prese
 
 #### Example
 
-In this example the queue of the first player found playing will be transferred to the kitchen when a motion sensor is triggered in that room.
+In this example, the queue of the first player found playing will be transferred to the kitchen when a motion sensor is triggered in that room.
 
 ```yaml
 automation:
@@ -230,6 +230,7 @@ script:
               target:
                 entity_id: media_player.ma_kitchen_speaker
 ```
+
 ### Action `music_assistant.get_queue`
 
 Get the queue details of a Music Assistant player queue. This provides programmatic access to comprehensive information about the current and next media item in the queue. This information could be used to create a bespoke media dashboard.
@@ -256,15 +257,16 @@ script:
       - service: input_text.set_value
         data:
           entity_id: input_text.now_playing
-          value: '{{ queue_info['media_player.ma_kitchen_speaker'].current_item.name[:50] }}'
-```          
+          value: "{{ queue_info['media_player.ma_kitchen_speaker'].current_item.name[:50] }}"
+```
+  
 ## Known limitations
 
 The `get_queue` action only returns the current and next item in the queue. This is because a large amount of data is returned and if this was done for potentially thousands of tracks this could have an adverse impact on HA performance or stability. 
 
 The data returned by the `get_queue` action will be partially limited if the item is not in the library (e.g. an item was selected for playback directly from Spotify). Metadata such as favorite status, explicit status, last played, played count and disc art URL are only available for items which are in the MA library. 
 
-Radio mode is only available with certain music providers and an error will be shown if attempting to enable radio mode on an item that isn't linked to one of those providers. Review the Music Assistant documentation to identify which providers support this functionality.
+Radio mode is only available with certain music providers, and an error will be shown if attempting to enable radio mode on an item that isn't linked to one of those providers. Review the Music Assistant documentation to identify which providers support this functionality.
 
 ## Notes
 
@@ -280,7 +282,7 @@ When trying to set up a script or automation via the GUI no MA actions can be fo
 
 ##### Description
 
-This means the addon may have been installed but the integration has not.
+This means the add-on may have been installed, but the integration has not.
 
 ##### Resolution
 
