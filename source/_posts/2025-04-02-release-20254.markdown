@@ -315,7 +315,7 @@ We welcome the following new integrations in this release:
 
 This release also has new virtual integrations. Virtual integrations
 are stubs that are handled by other (existing) integrations to help with
-findability. This one is new:
+findability. These ones are new:
 
 - **[FrankEver]**, provided by [Shelly], added by [@bieniu]
 - **[LinkedGo]**, provided by [Shelly], added by [@bieniu]
