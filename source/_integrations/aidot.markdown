@@ -34,7 +34,7 @@ Password:
 ## Data updates
 - After successful login, the device list will be pulled from AiDot Cloud first
 - After pulling the list, the integration will pull the latest list from the cloud every 6 hours and process additions and deletions
-- The integration will update its lights by polling the AiDot Bridge every one seconds for new values.
+- The integration will update its lights by polling the AiDot Bridge every five seconds for new values.
 
 ## Supported devices
 
