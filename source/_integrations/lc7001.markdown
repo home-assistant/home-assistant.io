@@ -21,7 +21,7 @@ related:
     title: My link
 ---
 
-The Legrand Whole House Lighting {% term integration %} is used to integrate with the devices of [[Legrand](https://www.legrand.ca/wiring-devices/electrical-accessories/miscellaneous/discontinued-whole-house-lighting-controller/p/lc7001)](https://www.mycompany.com). 
+The Legrand Whole House Lighting {% term integration %} is used to integrate with the devices of [Legrand](https://www.legrand.ca/wiring-devices/electrical-accessories/miscellaneous/discontinued-whole-house-lighting-controller/p/lc7001).
 
 You must have configured your system using the Legrand Whole House Lighting [iOS](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://apps.apple.com/ca/app/legrand-lighting-control/id1017835513&ved=2ahUKEwiux_ui37aMAxXqhIkEHdXYMRYQFnoECBsQAQ&usg=AOvVaw1hplo8PYnU9vZ-nLPRroRm) or [Android](https://play.google.com/store/apps/details?id=us.legrand.lighting&hl=en_CA) application.
 
@@ -34,7 +34,7 @@ The following devices are known to be supported by the integration:
 ## Prerequisites
 
 1. Open the app store and install the **Legrand Lighting Control** app.
-2. Set-up your system with the app.
+2. Set up your system with the app.
 
 {% include integrations/config_flow.md %}
 
@@ -83,4 +83,3 @@ This integration follows standard integration removal.
 {% include integrations/remove_device_service.md %}
 
 After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
-
