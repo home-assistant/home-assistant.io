@@ -3,6 +3,7 @@ title: Bosch Alarm
 description: Integrate Bosch Alarms.
 ha_category:
   - Alarm
+  - Lock
 ha_release: 2025.4
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: bosch_alarm
 ha_platforms:
   - alarm_control_panel
+  - lock
 ha_integration_type: integration
 ---
 
@@ -34,11 +36,16 @@ The **Bosch Alarm Panel** {% term integration %} allows you to connect your [Bos
 The following {% term entities %} are provided:
 
 - [Alarm Control Panel](#alarm-control-panel)
+- [Lock](#lock)
 
 ### Alarm Control Panel
 
 This integration adds an Alarm Control Panel device for each configured area, with the ability to issue arm/disarm commands.
 This entity reports state (_disarmed_, _armed_away_, etc.).
+ 
+## Lock
+
+A lock is added for each configured door on your panel  (_Solution 4000_, _B Series_ and _G Series_ panels only).
 
 ## Authentication
 
