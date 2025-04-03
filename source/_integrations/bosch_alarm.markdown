@@ -45,7 +45,7 @@ This entity reports state (_disarmed_, _armed_away_, etc.).
 
 ## Sensor
 
-Two sensors are added for the panel, one containing the history events from your panel, and another containing the current faults from it.
+A sensor is provided for the panel containing the current faults from it.
 Three additional sensors are added per area, one containing information on if the panel is ready to arm, another containing information about current points that are faulting for this area, and another containing a list of alarms that have fired for the area.
 
 ## Authentication
