@@ -47,6 +47,8 @@ This entity reports state (_disarmed_, _armed_away_, etc.).
 
 A switch is added for each output configured on the panel. Note that for some panels, only outputs with the type set to "remote output" can be controlled via _Mode 2_ API.
 
+A switch is also added for each configured door.
+
 ## Authentication
 
 The primary means of authentication for the _Mode 2_ API is the _Automation_ passcode. It needs to be at least 10 characters long, and it is different from the _User_ code -- a shorter numeric pin used to arm/disarm the panel.
