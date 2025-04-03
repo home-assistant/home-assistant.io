@@ -234,13 +234,14 @@ response_variable: agenda
 The response data contains a field for every calendar entity (e.g. `calendar.school` and `calendar.work` in this case).
 Every calendar entity has a field `events` containing a list of events with these fields:
 
-| Response data | Description                                       | Example             |
-| ------------- | ------------------------------------------------- | ------------------- |
-| `summary`     | The title of the event.                           | Bowling             |
-| `description` | The description of the event.                     | Birthday bowling    |
-| `start`       | The date or date time the event starts.           | 2019-03-10 20:00:00 |
-| `end`         | The date or date time the event ends (exclusive). | 2019-03-10 23:00:00 |
-| `location`    | The location of the event.                        | Bowling center      |
+| Response data | Description                                       | Example                              |
+| ------------- | ------------------------------------------------- | ------------------------------------ |
+| `uid`         | The id of the event.                              | de18513a-003c-499e-9b1d-c82b6d3d44ff |
+| `summary`     | The title of the event.                           | Bowling                              |
+| `description` | The description of the event.                     | Birthday bowling                     |
+| `start`       | The date or date time the event starts.           | 2019-03-10 20:00:00                  |
+| `end`         | The date or date time the event ends (exclusive). | 2019-03-10 23:00:00                  |
+| `location`    | The location of the event.                        | Bowling center                       |
 
 This example uses a template with response data in another action:
 
@@ -260,3 +261,24 @@ data:
     {% endfor %}
 ```
 {% endraw %}
+
+### Action `calendar.delete_event`
+
+Delete a calendar event. A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+
+| Data attribute     | Optional | Description                                          | Example                              |
+| ------------------ | -------- | ---------------------------------------------------- | ------------------------------------ |
+| `uid`              | no       | The id of the event.                                 | de18513a-003c-499e-9b1d-c82b6d3d44ff |
+| `recurrence_id`    | yes      | The recurrence id of a recurrent event.              | 20220322T200000Z                     |
+| `recurrence_range` | yes      | The recurrence range of a recurrent event.           | 20220322T200000Z/20220322T220000Z    |
+
+
+This is an example of a {% term action %} in YAML:
+
+```yaml
+action: calendar.delete_event
+target:
+  entity_id: calendar.device_automation_schedules
+data:
+  uid: de18513a-003c-499e-9b1d-c82b6d3d44ff
+```
