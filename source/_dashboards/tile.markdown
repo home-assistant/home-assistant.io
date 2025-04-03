@@ -6,7 +6,7 @@ description: "The tile card gives you a quick overview of your entity. The card 
 related:
   - docs: /dashboards/actions/
     title: Card actions
-  - docs:  /dashboards/features/
+  - docs: /dashboards/features/
     title: Card features
   - docs: /dashboards/cards/
     title: Dashboard cards
@@ -28,7 +28,7 @@ type:
   description: "`tile`"
   type: string
 entity:
-  required: true
+  required: false
   description: Entity ID.
   type: string
 name:
@@ -146,6 +146,15 @@ features:
     commands:
       - start_pause
       - return_home
+```
+
+```yaml
+type: tile
+name: Climate
+icon: mdi:thermostat
+tap_action:
+  action: navigate
+  navigation_path: /lovelace/climate
 ```
 
 ## Available colors
