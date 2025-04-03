@@ -63,6 +63,11 @@ Password:
   description: "The password associated with the username to log into the NUT server. This is configured in NUT."
 {% endconfiguration_basic %}
 
+NUT entries can be reconfigured after installation. To change these
+settings, reconfigure the NUT device via {% my integrations
+title="**Settings** > **Devices & services**" %}, click {% icon
+"mdi:dots-vertical" %} and select **Reconfigure**.
+
 ## Supported functionality
 
 {% important %}
