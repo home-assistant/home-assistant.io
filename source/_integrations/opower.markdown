@@ -55,7 +55,7 @@ This is typically the same information needed to access your utility's website.
 
 ## Utility Authentication Requirements
 
-For many utilities, only a username and password are required to access your accounts. Some utilities requires additional authentication information.
+For many utilities, only a username and password are required to access your accounts. Some utilities require additional authentication information.
 It might be necessary to configure your utility account with an authentication method that is compatible with the Opower integration.
 Utility-specific authentication requirements are listed below:
 
