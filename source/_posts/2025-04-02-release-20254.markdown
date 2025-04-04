@@ -523,6 +523,8 @@ release every Friday.
 - Bump pySmartThings to 3.0.2 ([@joostlek] - [#142257])
 - Update frontend to 20250404.0 ([@bramkragten] - [#142274])
 - Bump forecast-solar lib to v4.1.0 ([@klaasnicolaas] - [#142280])
+- Fix skyconnect tests ([@zweckj] - [#142262])
+- Fix empty actions ([@Petro31] - [#142292])
 
 [#141442]: https://github.com/home-assistant/core/pull/141442
 [#141505]: https://github.com/home-assistant/core/pull/141505
@@ -545,12 +547,15 @@ release every Friday.
 [#142201]: https://github.com/home-assistant/core/pull/142201
 [#142208]: https://github.com/home-assistant/core/pull/142208
 [#142257]: https://github.com/home-assistant/core/pull/142257
+[#142262]: https://github.com/home-assistant/core/pull/142262
 [#142274]: https://github.com/home-assistant/core/pull/142274
 [#142280]: https://github.com/home-assistant/core/pull/142280
+[#142292]: https://github.com/home-assistant/core/pull/142292
 [@Bre77]: https://github.com/Bre77
 [@Diegorro98]: https://github.com/Diegorro98
 [@IvanLH]: https://github.com/IvanLH
 [@NoRi2909]: https://github.com/NoRi2909
+[@Petro31]: https://github.com/Petro31
 [@bdraco]: https://github.com/bdraco
 [@bramkragten]: https://github.com/bramkragten
 [@catsmanac]: https://github.com/catsmanac
@@ -567,6 +572,7 @@ release every Friday.
 [@piitaya]: https://github.com/piitaya
 [@puddly]: https://github.com/puddly
 [@rappenze]: https://github.com/rappenze
+[@zweckj]: https://github.com/zweckj
 [@zxdavb]: https://github.com/zxdavb
 
 ## Need help? Join the community!
