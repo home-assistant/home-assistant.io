@@ -65,6 +65,12 @@ Password:
 
 ## Supported functionality
 
+{% note %}
+This NUT integration uses the NUT protocol to retrieve "variables"
+from the NUT server. Only sensors and diagnostic sensors available for
+your device are added to Home Assistant.
+{% endnote %}
+
 {% important %}
 The username and password configured for the device must be granted
 `instcmds` permissions on the NUT server to use buttons and
@@ -73,37 +79,6 @@ credentials are not specified. See the [NUT server
 documentation](https://networkupstools.org/documentation.html) for
 configuration information.
 {% endimportant %}
-
-### Buttons
-
-This NUT integration will add buttons for NUT server commands
-available for your device.
-
-The following buttons are available for each switchable outlet:
-
-- **Power cycle outlet NAME**: Power cycle the named outlet
-
-### Switches
-
-This NUT integration will add switches for NUT server commands
-available for your device.
-
-The following switches are available for each switchable outlet:
-
-- **Power outlet NAME**: Turn power on/off for named outlet
-
-## Data updates
-
-The integration uses {% term polling %} to retrieve data from the NUT
-server. The default polling interval is once every 60 seconds.
-
-## Supported functionality
-
-{% note %}
-This NUT integration uses the NUT protocol to retrieve "variables"
-from the NUT server. Only sensors and diagnostic sensors available for
-your device are added to Home Assistant.
-{% endnote %}
 
 ### Sensors
 
@@ -276,6 +251,29 @@ The following diagnostic sensors may be available for each
 individually monitored outlet:
 
 - **Outlet NAME current status**: Current status relative to the thresholds for the named outlet
+
+### Buttons
+
+This NUT integration will add buttons for NUT server commands
+available for your device.
+
+The following buttons are available for each switchable outlet:
+
+- **Power cycle outlet NAME**: Power cycle the named outlet
+
+### Switches
+
+This NUT integration will add switches for NUT server commands
+available for your device.
+
+The following switches are available for each switchable outlet:
+
+- **Power outlet NAME**: Turn power on/off for named outlet
+
+## Data updates
+
+The integration uses {% term polling %} to retrieve data from the NUT
+server. The default polling interval is once every 60 seconds.
 
 ## Example Resources
 
