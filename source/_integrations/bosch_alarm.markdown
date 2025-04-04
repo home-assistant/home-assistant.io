@@ -105,10 +105,12 @@ We have found that the Solution panels have a bug where they can get into a stat
 This can be resolved by restating the network modules, which can be done with the following steps.
 
 ##### Resetting network module 1
-Using the codepad, enter your master code, followed by the [9][4][1] and [#] keys.
+
+Using the codepad, enter your master code, followed by the `[9][4][1]` and `[#]` keys.
 
 ##### Resetting network module 2
-Using the codepad, enter your master code, followed by the [9][4][2] and [#] keys.
+
+Using the codepad, enter your master code, followed by the `[9][4][2]` and `[#]` keys.
 
 ### Issues with the Bosch B/G Series (B3512/B4512/B5512/B8512/B9512)
 
@@ -140,8 +142,7 @@ Some older firmwares for these panels use outdated certificates that are no long
 ## Known limitations
 
 The integration does not provide the ability to configure the panel, which can instead be done via the configuration utility for your panel.
-Some older panels rely on polling instead of push-based notifications and thus these panels will update slower.
-Some older firmwares for the Solution / AMAX series panels only support a single connection at a time. If you try to have a cloud connection and use the integration on these panels simultaneously, the panels network stack can lock up, and the integration will stop working.
+Some older firmwares for the Solution / AMAX series panels only support a single connection at a time. If you try to have a cloud connection and use the integration on these panels simultaneously, the panel's network stack can lock up, and the integration will stop working.
 
 ## Removing the integration
 
