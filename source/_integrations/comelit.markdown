@@ -30,6 +30,8 @@ ha_integration_type: hub
 
 The **Comelit SimpleHome** {% term integration %} allows you to control your [Comelit home automation devices](https://comelitgroup.it/installatore/offerta/home-building-automation/).
 
+The integration provides information on connected devices and enables control of the alarm system.
+
 ## Supported devices
 
 There is support for the following platform types within Home Assistant:
@@ -66,6 +68,22 @@ The **Comelit SimpleHome** {% term integration %} provides the following entitie
 ### Alarm control panel
 
 The integration will create an alarm entity for each area. Additionally, it will create a sensor and a presence detection binary sensor for each zone, enhancing monitoring capabilities.
+
+## Troubleshooting
+
+### Can’t set up the device
+
+#### Symptom: "Cannot connect"
+
+When trying to set up the integration, the form shows the message "Cannot connect".
+
+##### Description
+
+This means that the IP address or the port specified is wrong.
+
+##### Resolution
+
+To resolve this issue, verify the device’s IP address and port by navigating to them in a web browser.
 
 ## Removing the integration
 

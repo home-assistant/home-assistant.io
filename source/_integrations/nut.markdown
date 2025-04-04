@@ -58,9 +58,9 @@ Host:
 Port:
   description: "The network port of your NUT server. The NUT server's default port is '3493'."
 Username:
-  description: "The username to log into the NUT server. This is configured in NUT."
+  description: "The username to sign in to your NUT server. The username is optional."
 Password:
-  description: "The password associated with the username to log into the NUT server. This is configured in NUT."
+  description: "The password to sign in to your NUT server. The password is optional."
 {% endconfiguration_basic %}
 
 ## Supported functionality
