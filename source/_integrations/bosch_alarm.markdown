@@ -65,6 +65,33 @@ The integration will prompt for the required passcodes, which depend on the pane
 Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the regularly configured alarm pin: you will _not_ be prompted for a _User_ code when arming/disarming through the integration.
 {% endimportant %}
 
+## Examples
+
+### Turning on lights when walking into a room
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Turn on light when walking into room"
+    triggers:
+      - trigger: state
+        entity_id:
+          - binary_sensor.bosch_solution_3000_bedroom
+        to: "on"
+    conditions: []
+    actions:
+      - action: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.bedroom_light
+
+
+```
+
+{% endraw %}
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
