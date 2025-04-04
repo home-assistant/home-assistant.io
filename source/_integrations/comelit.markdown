@@ -77,7 +77,7 @@ When trying to set up the integration, the form shows the message "Cannot connec
 
 ##### Description
 
-This means that the IP address or the port specified are wrong.
+This means that the IP address or the port specified is wrong.
 
 ##### Resolution
 
