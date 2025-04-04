@@ -70,6 +70,10 @@ At the start of the integration we codecheck if your panel supports that, and fa
 
 Make sure your panel is on and connected to the network. Also validate that the "Automation passcode" is set to a code that at least 10 characters long, otherwise some panels don't enable the Mode 2 API.
 
+## Known limitations
+
+The integration does not provide the ability to configure the panel, which can instead be done via the configuration utility for your panel.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
