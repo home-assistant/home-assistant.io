@@ -7,8 +7,8 @@ ha_release: 2025.4
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@mag1024'
-  - '@sanjay900'
+  - "@mag1024"
+  - "@sanjay900"
 ha_domain: bosch_alarm
 ha_platforms:
   - alarm_control_panel
@@ -45,12 +45,12 @@ This entity reports state (_disarmed_, _armed_away_, etc.).
 The primary means of authentication for the _Mode 2_ API is the _Automation_ passcode. It needs to be at least 10 characters long, and it is different from the _User_ code -- a shorter numeric pin used to arm/disarm the panel.
 The integration will prompt for the required passcodes, which depend on the panel type.
 
-| Panel | Code |
-| --- | --- |
-| Solution | User [^2] |
+| Panel    | Code       |
+| -------- | ---------- |
+| Solution | User [^2]  |
 | B Series | Automation |
 | G Series | Automation |
-| AMAX | Both |
+| AMAX     | Both       |
 
 [^2]: The user needs to have the "master code functions" authority if you wish to interact with history events.
 
@@ -66,21 +66,71 @@ At the start of the integration we codecheck if your panel supports that, and fa
 
 ## Troubleshooting
 
-### Unable to connect to the panel
+### Issues with Bosch Solution 2000/3000/4000 panels
 
-Make sure your panel is on and connected to the network. Also validate that the "Automation passcode" is set to a code that at least 10 characters long, otherwise some panels don't enable the Mode 2 API.
+We have found that some panels end up with a configuration on them that is incompatible with the integration. The easiest way to solve this is to follow the full reset and restore procedure outline below.
 
-### Unable to connect to a B/G series panel
+#### Full Reset & Restore Procedure
 
-Some B/G series panels have out of date firmwares that use old TLS certificates. If you see any SSL or TLS errors in your error logs, make sure the firmware for your panel is up to date.
+1.  Update Firmware (Recommended)
+    - Download and install the latest firmware for the control panel and IP module from the Bosch Security website.
+2.  Backup the Existing Configuration
+    - Connect to the panel via A-Link Plus
+    - Perform an Upload of the panel configuration
+    - Save the configuration to your computer
+3.  Default the Control Panel
+    - Press the default/reset button on the panel
+    - Use installer code 1234
+    - Set:
+      - Location 0081 = 3 (Enables IP module mode)
+      - Location 4456 = 4 (Enables RSC+ communication)
+    - Set date and time using master code 25806#
+4.  Initial Home Assistant Test
+    - Wait 2 to 5 minutes after resetting the panel
+    - Connect Home Assistant to the panel using its IP address or Auto discovery
+    - Home Assistant should connect using default config and show panel status
+5.  Restore Your Original Configuration
+    - Reconnect to the panel using A-Link Plus
+    - Modify zones, outputs, and user codes to match original setup
+    - Save and Download the updated config to the panel
+    - Wait 2 to 5 minutes
+6.  Reconnect to Home Assistant
+    - Open Home Assistant
+    - The integration should now detect the updated configuration
+    - All relevant entities (zones, partitions, outputs) should appear automatically
 
-### Unable to maintain a solid connection to a Solution series panel
+### Issues with the Bosch B/G Series (B3512/B4512/B5512/B8512/B9512)
 
-The Solution series panels have issues with maintaining a solid connection when using the mode 2 API and cloud connections simultaneously. Make sure your panel is up to date as later firmware revisions for the Solution series panels resolve this problem. If you are unable to perform a firmware update, you may need to disable cloud connections on your panel.
+The following procedure can be used to configure the panel correctly so that it will work with the integration.
+
+#### Panel configuration procedure
+
+1. Update Firmware (Recommended)
+   - Use RPS to update the control panel and B426 (IP module if used) to the latest firmware
+   - Download firmware from the Bosch Security website
+2. Set IP Address
+   - Configure the panel’s IP settings using RPS or via the codepad
+   - Use DHCP for initial setup (optional), or assign a static IP
+3. Enable Automation Device Mode
+   - In RPS:
+     - Set Automation Device to Mode 2 (Bosch Standard Protocol)
+     - Set your automation passcode (used for Home Assistant authentication)
+4. Wait for Changes to Apply
+   - Wait 2 to 5 minutes for the panel to reboot and apply settings
+5. Connect to Home Assistant
+   - Use panel’s IP address or allow auto-discovery
+   - Enter the automation passcode in the Home Assistant configuration
+   - Home Assistant should connect and display panel status, zones, and partitions
+
+#### TLS issues
+
+Some older firmwares for these panels uses outdated certificates that are no longer trusted by Home Assistant. If you have issues connecting and see a TLS error in your logs, update the firmware on your panel. 
 
 ## Known limitations
 
 The integration does not provide the ability to configure the panel, which can instead be done via the configuration utility for your panel.
+Some older panels rely on polling instead of push based notifications and thus these panels will update slower.
+Some older firmwares for the Solution / AMAX series panels only support a single connection at a time. If you try to have a cloud connection and use the integration on these panels simultaneously, the panels network stack can lock up and the integration will stop working.
 
 ## Removing the integration
 
