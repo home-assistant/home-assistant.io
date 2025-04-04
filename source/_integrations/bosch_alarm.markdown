@@ -70,6 +70,14 @@ At the start of the integration we codecheck if your panel supports that, and fa
 
 Make sure your panel is on and connected to the network. Also validate that the "Automation passcode" is set to a code that at least 10 characters long, otherwise some panels don't enable the Mode 2 API.
 
+### Unable to connect to a B/G series panel
+
+Some B/G series panels have out of date firmwares that use old TLS certificates. If you see any SSL or TLS errors in your error logs, make sure the firmware for your panel is up to date.
+
+### Unable to maintain a solid connection to a Solution series panel
+
+The Solution series panels have issues with maintaining a solid connection when using the mode 2 API and cloud connections simultaneously. Make sure your panel is up to date as later firmware revisions for the Solution series panels resolve this problem. If you are unable to perform a firmware update, you may need to disable cloud connections on your panel.
+
 ## Known limitations
 
 The integration does not provide the ability to configure the panel, which can instead be done via the configuration utility for your panel.
