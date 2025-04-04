@@ -332,6 +332,28 @@ automation:
         message: "The UPS lost power and is now on battery"
 ```
 
+## Known limitations
+
+Not all NUT functionality is available through this integration. The
+following are known limitations:
+
+- This NUT integration supports only a subset of NUT "variables" and
+"commands".
+- This NUT integration does not support setting NUT "variables".
+- This NUT integration does not support NUT "commands" that require
+parameters.
+
+It is also important to know:
+
+- This integration does not directly retrieve information from, or
+take action on, a power device. Instead, this integration communicates
+with a NUT server using the NUT protocol. The NUT server interacts with
+the power device(s).
+- This integration does not install a NUT server on Home
+Assistant. Please see the [Network UPS
+Tools](https://networkupstools.org/) website for information on
+installing or upgrading your NUT server.
+
 ## Troubleshooting
 
 ### Using NUT to list all variables
