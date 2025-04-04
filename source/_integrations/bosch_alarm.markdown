@@ -72,32 +72,43 @@ We have found that some panels end up with a configuration on them that is incom
 
 #### Full Reset & Restore Procedure
 
-1.  Update Firmware (Recommended)
-    - Download and install the latest firmware for the control panel and IP module from the Bosch Security website.
-2.  Backup the Existing Configuration
-    - Connect to the panel via A-Link Plus
-    - Perform an Upload of the panel configuration
-    - Save the configuration to your computer
-3.  Default the Control Panel
-    - Press the default/reset button on the panel
-    - Use installer code 1234
-    - Set:
-      - Location 0081 = 3 (Enables IP module mode)
-      - Location 4456 = 4 (Enables RSC+ communication)
-    - Set date and time using master code 25806#
-4.  Initial Home Assistant Test
-    - Wait 2 to 5 minutes after resetting the panel
-    - Connect Home Assistant to the panel using its IP address or Auto discovery
-    - Home Assistant should connect using default config and show panel status
-5.  Restore Your Original Configuration
-    - Reconnect to the panel using A-Link Plus
-    - Modify zones, outputs, and user codes to match original setup
-    - Save and Download the updated config to the panel
-    - Wait 2 to 5 minutes
-6.  Reconnect to Home Assistant
-    - Open Home Assistant
-    - The integration should now detect the updated configuration
-    - All relevant entities (zones, partitions, outputs) should appear automatically
+1. Update Firmware (Recommended)
+   - Download and install the latest firmware for the control panel and IP module from the Bosch Security website.
+2. Back up the Existing Configuration
+   - Connect to the panel via A-Link Plus
+   - Perform an Upload of the panel configuration
+   - Save the configuration to your computer
+3. Default the Control Panel
+   - Press the default/reset button on the panel
+   - Use installer code 1234
+   - Set:
+     - Location 0081 = 3 (Enables IP module mode)
+     - Location 4456 = 4 (Enables RSC+ communication)
+   - Set date and time using master code 25806#
+4. Initial Home Assistant Test
+   - Wait 2 to 5 minutes after resetting the panel
+   - Connect Home Assistant to the panel using its IP address or Auto discovery
+   - Home Assistant should connect using default config and show panel status
+5. Restore Your Original Configuration
+   - Reconnect to the panel using A-Link Plus
+   - Modify zones, outputs, and user codes to match original setup
+   - Save and Download the updated config to the panel
+   - Wait 2 to 5 minutes
+6. Reconnect to Home Assistant
+   - Open Home Assistant
+   - The integration should now detect the updated configuration
+   - All relevant entities (zones, partitions, outputs) should appear automatically
+
+#### Restarting a panels network stack
+
+We have found that the Solution panels have a bug where they can get into a state where the network module stops letting us use the _Mode 2_ API.
+This can be resolved by restating the network modules, which can be done with the following steps.
+
+##### Resetting network module 1
+Using the codepad, enter your master code, followed by the [9][4][1] and [#] keys.
+
+##### Resetting network module 2
+Using the codepad, enter your master code, followed by the [9][4][2] and [#] keys.
 
 ### Issues with the Bosch B/G Series (B3512/B4512/B5512/B8512/B9512)
 
@@ -124,13 +135,13 @@ The following procedure can be used to configure the panel correctly so that it 
 
 #### TLS issues
 
-Some older firmwares for these panels uses outdated certificates that are no longer trusted by Home Assistant. If you have issues connecting and see a TLS error in your logs, update the firmware on your panel. 
+Some older firmwares for these panels use outdated certificates that are no longer trusted by Home Assistant. If you have issues connecting and see a TLS error in your logs, update the firmware on your panel.
 
 ## Known limitations
 
 The integration does not provide the ability to configure the panel, which can instead be done via the configuration utility for your panel.
-Some older panels rely on polling instead of push based notifications and thus these panels will update slower.
-Some older firmwares for the Solution / AMAX series panels only support a single connection at a time. If you try to have a cloud connection and use the integration on these panels simultaneously, the panels network stack can lock up and the integration will stop working.
+Some older panels rely on polling instead of push-based notifications and thus these panels will update slower.
+Some older firmwares for the Solution / AMAX series panels only support a single connection at a time. If you try to have a cloud connection and use the integration on these panels simultaneously, the panels network stack can lock up, and the integration will stop working.
 
 ## Removing the integration
 
