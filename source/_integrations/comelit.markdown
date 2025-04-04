@@ -30,7 +30,7 @@ ha_integration_type: hub
 
 The **Comelit SimpleHome** {% term integration %} allows you to control your [Comelit home automation devices](https://comelitgroup.it/installatore/offerta/home-building-automation/).
 
-The integration provides information and allows operations about connected devices and alarm system.
+The integration provides information on connected devices and enables control of the alarm system.
 
 ## Supported devices
 
