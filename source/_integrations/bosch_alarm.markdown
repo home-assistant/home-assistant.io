@@ -61,7 +61,7 @@ Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the r
 ## Data updates
 
 The Bosch Alarm Panel {% term integration %} fetches data from the device every 30 seconds.
-Newer devices have the possibility to {% term push %} data.
+Newer devices and firmware revisions have the possibility to push data instead of needing to rely on {% term polling %}.
 At the start of the integration we codecheck if your panel supports that, and fall back to {% term polling %} if it is unsupported.
 
 ## Troubleshooting
