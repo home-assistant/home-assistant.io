@@ -39,6 +39,17 @@ The following {% term entities %} are provided:
 
 This integration adds an Alarm Control Panel device for each configured area, with the ability to issue arm/disarm commands.
 This entity reports state (_disarmed_, _armed_away_, etc.).
+ 
+## Actions
+
+The integration provides the following actions.
+
+### Action: Set panel date and time
+ 
+| Data attribute         | Optional | Description                                                                       |
+|------------------------|----------|-----------------------------------------------------------------------------------|
+| `config_entry_id`      | No       | The ID of the panels config entry.                                                |
+| `datetime`             | Yes      | The date and time to set. Defaults to the current date and time if it is not set. |
 
 ## Authentication
 
