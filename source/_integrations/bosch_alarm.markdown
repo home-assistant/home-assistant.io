@@ -72,24 +72,24 @@ We have found that some panels end up with a configuration on them that is incom
 
 #### Full Reset & Restore Procedure
 
-1. Update Firmware (Recommended)
+1. Update firmware (Recommended)
    - Download and install the latest firmware for the control panel and IP module from the Bosch Security website.
-2. Back up the Existing Configuration
+2. Back up the existing configuration
    - Connect to the panel via A-Link Plus
    - Perform an Upload of the panel configuration
    - Save the configuration to your computer
-3. Default the Control Panel
+3. Default the control panel
    - Press the default/reset button on the panel
    - Use installer code 1234
    - Set:
      - Location 0081 = 3 (Enables IP module mode)
      - Location 4456 = 4 (Enables RSC+ communication)
    - Set date and time using master code 25806#
-4. Initial Home Assistant Test
+4. Initial Home Assistant test
    - Wait 2 to 5 minutes after resetting the panel
-   - Connect Home Assistant to the panel using its IP address or Auto discovery
+   - Connect Home Assistant to the panel using its IP address
    - Home Assistant should connect using default config and show panel status
-5. Restore Your Original Configuration
+5. Restore your original configuration
    - Reconnect to the panel using A-Link Plus
    - Modify zones, outputs, and user codes to match original setup
    - Save and Download the updated config to the panel
@@ -122,11 +122,11 @@ The following procedure can be used to configure the panel correctly so that it 
 2. Set IP Address
    - Configure the panel’s IP settings using RPS or via the codepad
    - Use DHCP for initial setup (optional), or assign a static IP
-3. Enable Automation Device Mode
+3. Configure the automation device
    - In RPS:
      - Set Automation Device to Mode 2 (Bosch Standard Protocol)
      - Set your automation passcode (used for Home Assistant authentication)
-4. Wait for Changes to Apply
+4. Wait for changes to apply
    - Wait 2 to 5 minutes for the panel to reboot and apply settings
 5. Connect to Home Assistant
    - Use panel’s IP address or allow auto-discovery
