@@ -73,15 +73,18 @@ The integration supports the `remote` platform. The remote allows you to send ke
 
 {% details "Full keycodes list" %}
 
-**Power Keys**
+#### Power Keys
+
 Key|Description
 ---|-----------
 KEY_POWEROFF|PowerOFF
 KEY_POWERON|PowerOn
 KEY_POWER|PowerToggle
+
 ____________
 
-**Input Keys**
+#### Input Keys
+
 Key|Description
 ---|-----------
 KEY_SOURCE|Source
@@ -101,9 +104,11 @@ KEY_TV|TV
 KEY_ANTENA|AnalogTV
 KEY_DTV|DigitalTV
 KEY_AMBIENT|AmbientMode
-_____________
 
-**Number Keys**
+____________
+
+#### Number Keys
+
 Key|Description
 ---|-----------
 KEY_1|Key1
@@ -116,9 +121,11 @@ KEY_7|Key7
 KEY_8|Key8
 KEY_9|Key9
 KEY_0|Key0
-___________
 
-**Misc Keys**
+____________
+
+#### Misc Keys
+
 Key|Description
 ---|-----------
 KEY_PANNEL_CHDOWN|3D
@@ -126,9 +133,11 @@ KEY_ANYNET|AnyNet+
 KEY_ESAVING|EnergySaving
 KEY_SLEEP|SleepTimer
 KEY_DTV_SIGNAL|DTVSignal
-______________
 
-**Channel Keys**
+____________
+
+#### Channel Keys
+
 Key|Description
 ---|-----------
 KEY_CHUP|ChannelUp
@@ -138,17 +147,21 @@ KEY_FAVCH|FavoriteChannels
 KEY_CH_LIST|ChannelList
 KEY_AUTO_PROGRAM|AutoProgram
 KEY_MAGIC_CHANNEL|MagicChannel
-_____________
 
-**Volume Keys**
+____________
+
+#### Volume Keys
+
 Key|Description
 ---|-----------
 KEY_VOLUP|VolumeUp
 KEY_VOLDOWN|VolumeDown
 KEY_MUTE|Mute
-________________
 
-**Direction Keys**
+____________
+
+#### Direction Keys
+
 Key|Description
 ---|-----------
 KEY_UP|NavigationUp
@@ -158,9 +171,11 @@ KEY_RIGHT|NavigationRight
 KEY_RETURN|NavigationReturn/Back
 KEY_ENTER|NavigationEnter
 KEY_EXIT|NavigationExit
+
 ____________
 
-**Media Keys**
+#### Media Keys
+
 Key|Description
 ---|-----------
 KEY_REWIND|Rewind
@@ -173,9 +188,11 @@ KEY_LIVE|Live
 KEY_QUICK_REPLAY|fnKEY_QUICK_REPLAY
 KEY_STILL_PICTURE|fnKEY_STILL_PICTURE
 KEY_INSTANT_REPLAY|fnKEY_INSTANT_REPLAY
-____________________
 
-**Picture in Picture**
+____________
+
+#### Picture in Picture
+
 Key|Description
 ---|-----------
 KEY_PIP_ONOFF|PIPOn/Off
@@ -188,9 +205,11 @@ KEY_AUTO_ARC_PIP_WIDE|PIPWide
 KEY_AUTO_ARC_PIP_RIGHT_BOTTOM|PIPBottomRight
 KEY_AUTO_ARC_PIP_SOURCE_CHANGE|PIPSourceChange
 KEY_PIP_SCAN|PIPScan
-_______
 
-**Modes**
+____________
+
+#### Modes
+
 Key|Description
 ---|-----------
 KEY_VCR_MODE|VCRMode
@@ -200,25 +219,31 @@ KEY_TV_MODE|TVMode
 KEY_DVD_MODE|DVDMode
 KEY_STB_MODE|STBMode
 KEY_PCMODE|PCMode
+
 ____________
 
-**Color Keys**
+#### Color Keys
+
 Key|Description
 ---|-----------
 KEY_GREEN|Green
 KEY_YELLOW|Yellow
 KEY_CYAN|Cyan
 KEY_RED|Red
-__________
 
-**Teletext**
+____________
+
+#### Teletext
+
 Key|Description
 ---|-----------
 KEY_TTX_MIX|TeletextMix
 KEY_TTX_SUBFACE|TeletextSubface
-______________
 
-**AspectRatio**
+____________
+
+#### AspectRatio
+
 Key|Description
 ---|-----------
 KEY_ASPECT|AspectRatio
@@ -227,9 +252,11 @@ KEY_4_3|AspectRatio4:3
 KEY_16_9|AspectRatio16:9
 KEY_EXT14|AspectRatio3:4(Alt)
 KEY_EXT15|AspectRatio16:9(Alt)
-______________
 
-**Picture Mode**
+____________
+
+#### Picture Mode
+
 Key|Description
 ---|-----------
 KEY_PMODE|PictureMode
@@ -241,9 +268,11 @@ KEY_GAME|PictureModeGame
 KEY_CUSTOM|PictureModeCustom
 KEY_EXT9|PictureModeMovie(Alt)
 KEY_EXT10|PictureModeStandard(Alt)
-_______
 
-**Menus**
+____________
+
+#### Menus
+
 Key|Description
 ---|-----------
 KEY_MENU|Menu
@@ -255,9 +284,11 @@ KEY_GUIDE|Guide
 KEY_DISC_MENU|DiscMenu
 KEY_DVR_MENU|DVRMenu
 KEY_HELP|Help
-_____
 
-**OSD**
+____________
+
+#### OSD
+
 Key|Description
 ---|-----------
 KEY_INFO|Info
@@ -265,9 +296,11 @@ KEY_CAPTION|Caption
 KEY_CLOCK_DISPLAY|ClockDisplay
 KEY_SETUP_CLOCK_TIMER|SetupClock
 KEY_SUB_TITLE|Subtitle
-______
 
-**Zoom**
+____________
+
+#### Zoom
+
 Key|Description
 ---|-----------
 KEY_ZOOM_MOVE|ZoomMove
@@ -275,9 +308,11 @@ KEY_ZOOM_IN|ZoomIn
 KEY_ZOOM_OUT|ZoomOut
 KEY_ZOOM1|Zoom1
 KEY_ZOOM2|Zoom2
+
 ____________
 
-**Other Keys**
+#### Other Keys
+
 Key|Description
 ---|-----------
 KEY_WHEEL_LEFT|WheelLeft
@@ -335,9 +370,11 @@ KEY_NINE_SEPERATE|
 KEY_AUTO_FORMAT|AutoFormat
 KEY_DNET|DNET
 KEY_MINUS|Minus
-_______________
 
-**Auto Arc Keys**
+____________
+
+#### Auto Arc Keys
+
 Key|Description
 ---|-----------
 KEY_AUTO_ARC_C_FORCE_AGING|
@@ -363,9 +400,11 @@ KEY_AUTO_ARC_CAPTION_KOR|
 KEY_AUTO_ARC_ANTENNA_AIR|
 KEY_AUTO_ARC_ANTENNA_CABLE|
 KEY_AUTO_ARC_ANTENNA_SATELLITE|
+
 ____________
 
-**Panel Keys**
+#### Panel Keys
+
 Key|Description
 ---|-----------
 KEY_PANNEL_POWER|
@@ -376,9 +415,11 @@ KEY_PANNEL_ENTER|
 KEY_PANNEL_MENU|
 KEY_PANNEL_SOURCE|
 KEY_PANNEL_ENTER|
-_______________
 
-**Extended Keys**
+____________
+
+#### Extended Keys
+
 Key|Description
 ---|-----------
 KEY_EXT1|
@@ -421,7 +462,7 @@ KEY_EXT41|
 
 Please note that some codes are different on the 2016+ TVs. For example, `KEY_POWEROFF` is `KEY_POWER` on the newer TVs.
 
-The code list has been extracted from: https://github.com/kdschlosser/samsungctl and https://github.com/jaruba/ha-samsungtv-tizen/blob/master/Key_codes.md
+The code list has been extracted from: <https://github.com/kdschlosser/samsungctl> and <https://github.com/jaruba/ha-samsungtv-tizen/blob/master/Key_codes.md>
 {% enddetails %}
 
 **Example to send sequence of commands:**
