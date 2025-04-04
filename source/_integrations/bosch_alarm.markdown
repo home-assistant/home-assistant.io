@@ -58,6 +58,18 @@ The integration will prompt for the required passcodes, which depend on the pane
 Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the regularly configured alarm pin: you will _not_ be prompted for a _User_ code when arming/disarming through the integration.
 {% endimportant %}
 
+## Data updates
+
+The Bosch Alarm Panel {% term integration %} fetches data from the device every 30 seconds.
+Newer devices have the possibility to {% term push %} data.
+At the start of the integration we codecheck if your panel supports that, and fall back to {% term polling %} if it is unsupported.
+
+## Troubleshooting
+
+### Unable to connect to the panel
+
+Make sure your panel is on and connected to the network. Also validate that the "Automation passcode" is set to a code that at least 10 characters long, otherwise some panels don't enable the Mode 2 API.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
