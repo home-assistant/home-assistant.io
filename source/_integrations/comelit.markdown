@@ -30,6 +30,8 @@ ha_integration_type: hub
 
 The **Comelit SimpleHome** {% term integration %} allows you to control your [Comelit home automation devices](https://comelitgroup.it/installatore/offerta/home-building-automation/).
 
+The integration provides information and allows operations about connected devices and alarm system.
+
 ## Supported devices
 
 There is support for the following platform types within Home Assistant:
