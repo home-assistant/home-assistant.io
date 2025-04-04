@@ -81,7 +81,7 @@ This means that the IP address or the port specified are wrong.
 
 ##### Resolution
 
-To resolve this issue, check with a browser what the correct information is used to connect to the device.
+To resolve this issue, verify the device’s IP address and port by navigating to them in a web browser.
 
 ## Removing the integration
 
