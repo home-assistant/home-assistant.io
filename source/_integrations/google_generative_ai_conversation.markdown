@@ -70,6 +70,8 @@ Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate.
 Safety settings:
   description: Thresholds for different [harmful categories](https://ai.google.dev/gemini-api/docs/safety-settings).
+Enable Google Search tool:
+  description: Enables the model to [query Google Search](https://ai.google.dev/gemini-api/docs/grounding), this can only be enabled when the AI is not allowed to interact with exposed entities by selecting "No control" in the Control Home Assistant setting.
 {% endconfiguration_basic %}
 
 ## Talking to Super Mario
