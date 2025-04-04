@@ -97,6 +97,42 @@ The following switches are available for each switchable outlet:
 The integration uses {% term polling %} to retrieve data from the NUT
 server. The default polling interval is once every 60 seconds.
 
+## Automation example
+
+Home Assistant {% term automations %} can be created to monitor and
+take actions on one or more power devices using NUT.
+
+The following example illustrates how to use this integration in a
+Home Assistant automation. This example is just a starting point, and
+you can use it as inspiration to create your own automations.
+
+### UPS Power Failure Notification
+
+The following example sends a notification to your mobile device when
+a monitored UPS loses power and begins using the battery. In this
+example, the user's mobile device is configured for notification, the
+NUT server is configured with a device named `ups` and the status
+sensor is named `ups_status`.
+
+```yaml
+# Send notification on UPS Power Failure
+automation:
+  alias: NUT Power Failure Notification
+  description: NUT Power Failure Notification
+    mode: single
+  triggers:
+    - trigger: state
+      entity_id:
+        - sensor.ups_status
+      to: On Battery Battery Discharging
+  conditions: []
+  actions:
+    - action: notify.notify
+      data:
+        title: UPS Power Failure
+        message: The UPS lost power and is now on battery
+```
+
 ## Example Resources
 
 Given the following example output from NUT (your variables may differ):
