@@ -25,6 +25,17 @@ The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+  host:
+    description: The IP address of the TV.
+  name:
+    description: The friendly name of the TV.
+{% endconfiguration_basic %}
+
+## Data updates
+
+The **SamsungTV** integration uses a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume etc.
+
 ### Turn on action
 
 If the integration knows the MAC address of the TV from discovery, it will attempt to wake it using wake on LAN when calling turn on. Wake on LAN must be enabled on the TV for this to work. If the TV is connected to a smart strip or requires a more complex turn-on process, a `turn_on` action can be provided that will take precedence over the built-in wake on LAN functionality.
@@ -456,3 +467,9 @@ Some televisions from the H and J series use an encrypted protocol and require m
 The default setting on newer televisions is to ask for permission on every connection attempt.
 To avoid this behavior, please ensure that you adjust this to `First time only` in the `Device connection manager > Access notification` settings of your television.
 It is also recommended to cleanup the previous attempts in `Device connection manager > Device list`
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
