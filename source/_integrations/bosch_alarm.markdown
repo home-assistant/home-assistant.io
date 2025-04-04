@@ -63,7 +63,7 @@ Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the r
 {% configuration_basic %}
 Arming code:
   description: You can specify a code that is required to arm or disarm the panel. This does not need to be the same code as your panels user code.
-{% end configuration_basic %}
+{% endconfiguration_basic %}
 
 ## Removing the integration
 
