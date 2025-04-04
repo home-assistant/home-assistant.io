@@ -65,7 +65,6 @@ Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the r
 Consider uploading [the diagnostics file](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) along with your issue report to allow faster triaging and pinpointing the issue.
 The information contained in the generated diagnostics file is redacted to avoid any sensitive information while still remaining useful for developers to fix the issue.
 
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
