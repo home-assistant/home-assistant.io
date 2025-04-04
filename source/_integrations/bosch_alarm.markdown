@@ -58,6 +58,13 @@ The integration will prompt for the required passcodes, which depend on the pane
 Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the regularly configured alarm pin: you will _not_ be prompted for a _User_ code when arming/disarming through the integration.
 {% endimportant %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Arming code:
+  description: You can specify a code that is required to arm or disarm the panel. This does not need to be the same code as your panels user code.
+{% end configuration_basic %}
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
