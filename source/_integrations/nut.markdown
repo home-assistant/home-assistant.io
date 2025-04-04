@@ -88,7 +88,7 @@ The following sensors may be available:
 
 - **Alarms**: UPS alarms
 - **Battery charge (%)**: Battery charge
-- **Charging status**: Status of the battery charger
+- **Charging status**: Status of the battery charger, with the available states: `charging`, `discharging`, `floating`, `resting`, `unknown`, `disabled`, and `off`
 - **Input current (A)**: Input current
 - **Input load (%)**: Load on (ePDU) input
 - **Input voltage (V)**: Input voltage
@@ -149,7 +149,7 @@ The following diagnostic sensors may be available:
 - **Battery runtime (secs)**: Battery runtime
 - **Battery temperature (°C)**: Battery temperature
 - **Battery voltage (V)**: Battery voltage
-- **Beeper status**: UPS beeper status
+- **Beeper status**: UPS beeper status, with the available states: `enabled`, `disabled`, and `muted`
 - **Efficiency (%)**: Efficiency of the UPS (ratio of output to input current)
 - **External contacts**: UPS external contact sensors (opaque by mfg)
 - **High battery voltage (V)**: Maximum battery voltage (100% charge)
@@ -180,9 +180,9 @@ The following diagnostic sensors may be available:
 - **Input bypass phases**: Input bypass line phases
 - **Input bypass real power (W)**: Input bypass value of real power
 - **Input bypass voltage (V)**: Input bypass voltage
-- **Input current status**: Current status relative to the thresholds
+- **Input current status**: Current status relative to the thresholds, with the available states: `good`, `warning-low`, `critical-low`, `warning-high`, and `critical-high`
 - **Input frequency (Hz)**: Input line frequency
-- **Input frequency status (Hz)**: Frequency status
+- **Input frequency status**: Frequency status, with the available states: `good` and `out-of-range`
 - **Input nominal frequency (Hz)**: Nominal input line frequency
 - **Input phases**: Input line phases
 - **Input power (VA)**: Current sum value of all (ePDU) phases apparent power
