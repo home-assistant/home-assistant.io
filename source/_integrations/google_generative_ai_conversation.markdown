@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@tronikos'
+  - '@ivanlh'
 ha_domain: google_generative_ai_conversation
 ha_integration_type: service
 ha_platforms:
@@ -69,6 +70,8 @@ Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate.
 Safety settings:
   description: Thresholds for different [harmful categories](https://ai.google.dev/gemini-api/docs/safety-settings).
+Enable Google Search tool:
+  description: Enables the model to [query Google Search](https://ai.google.dev/gemini-api/docs/grounding), this can only be enabled when the AI is not allowed to interact with exposed entities by selecting "No control" in the Control Home Assistant setting.
 {% endconfiguration_basic %}
 
 ## Talking to Super Mario
@@ -85,15 +88,16 @@ The tutorial is using OpenAI, but this could also be done with the Google Genera
 This action isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` action.
 {% endtip %}
 
-Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally images.
+Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally attachments (images, PDFs, etc.).
 This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the generated content.
 
 | Data attribute | Optional | Description                                     | Example             |
 | ---------------------- | -------- | ----------------------------------------------- | ------------------- |
 | `prompt`               | no       | The prompt for generating the content.          | Describe this image |
-| `image_filename`       | yes      | File names for images to include in the prompt. | /tmp/image.jpg      |
+| `filenames`            | yes      | File names for attachments to include in the prompt. | /tmp/image.jpg      |
 
 {% raw %}
+
 ```yaml
 action: google_generative_ai_conversation.generate_content
 data:
@@ -101,9 +105,10 @@ data:
     Very briefly describe what you see in this image from my doorbell camera.
     Your message needs to be short to fit in a phone notification. Don't
     describe stationary objects or buildings.
-  image_filename: /tmp/doorbell_snapshot.jpg
+  filenames: /tmp/doorbell_snapshot.jpg
 response_variable: generated_content
 ```
+
 {% endraw %}
 
 The response data field `text` will contain the generated content.
@@ -111,19 +116,21 @@ The response data field `text` will contain the generated content.
 Another example with multiple images:
 
 {% raw %}
+
 ```yaml
 action: google_generative_ai_conversation.generate_content
 data:
   prompt: >-
     Briefly describe what happened in the following sequence of images
     from my driveway camera.
-  image_filename:
+  filenames:
     - /tmp/driveway_snapshot1.jpg
     - /tmp/driveway_snapshot2.jpg
     - /tmp/driveway_snapshot3.jpg
     - /tmp/driveway_snapshot4.jpg
 response_variable: generated_content
 ```
+
 {% endraw %}
 
 ## Video tutorial
@@ -140,5 +147,6 @@ This video tutorial explains how Google Generative AI can be set up, how you can
 logger:
   logs:
     homeassistant.components.conversation: debug
+    homeassistant.components.conversation.chat_log: debug
     homeassistant.components.google_generative_ai_conversation: debug
 ```

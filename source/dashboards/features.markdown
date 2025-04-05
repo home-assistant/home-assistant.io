@@ -22,6 +22,25 @@ Features can be enabled on the following cards:
 - [Thermostat](/dashboards/thermostat/)
 - [Tile](/dashboards/tile/)
 
+## Customizing features
+
+1. Edit the card and open the **Features** section.
+2. To add an additional feature to your card, select **Add feature**.
+   - **Info**: The available options for a feature depend on the entity and type of feature.
+     - For example, not all entities have a [toggle](#toggle) or a [counter-action](#counter-actions).
+3. On tile cards, you can adjust the feature position.
+   - Under **Features** > **Feature position**, select **Bottom** or **Inline**:
+
+   ![Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.](/images/dashboards/features/tile-card-feature-position.png)
+
+4. Reordering features:
+   - Some features of the tile card, such as the presets or the HVAC modes of a thermostat, can show buttons.
+   - To reorder the buttons, enable **Customize** and drag and drop the buttons into position.
+   - If you don't like the buttons, you can replace them by a **Dropdown** instead.
+     - Under **Style**, select the **Dropdown** option.
+  
+    ![Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.](/images/blog/2024-05/tile-card-reorder-features.gif)
+
 ## Alarm modes
 
 Widget that displays buttons to arm and disarm an [alarm](/integrations/alarm_control_panel).
@@ -159,6 +178,35 @@ style:
 preset_modes:
   required: true
   description: List of preset modes to show on the card. The list can contain `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, and `activity` or any other custom preset mode.
+  type: list
+{% endconfiguration %}
+
+## Counter actions
+
+Widget that displays buttons to increment, decrement, and reset a [counter](/integrations/counter).
+
+<p class='img'>
+  <img src='/images/dashboards/features/counter_actions.png' alt='Screenshot of the tile card with counter actions feature'>
+  Screenshot of the tile card with counter actions feature
+</p>
+
+```yaml
+features:
+  - type: "counter-actions"
+    actions:
+      - increment
+      - decrement
+      - reset
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`counter-actions`"
+  type: string
+actions:
+  required: true
+  description: List of actions to show on the card. The list can contain `increment`, `decrement`, and `reset`.
   type: list
 {% endconfiguration %}
 
@@ -557,6 +605,27 @@ features:
 type:
   required: true
   description: "`target-temperature`"
+  type: string
+{% endconfiguration %}
+
+## Toggle
+
+Widget that displays a button to toggle a [switch](/integrations/switch) or [input boolean](/integrations/input_boolean) entity on or off.
+
+<p class='img'>
+  <img src='/images/dashboards/features/toggle.png' alt='Screenshot of the tile card with the toggle feature'>
+  Screenshot of the tile card with the toggle feature
+</p>
+
+```yaml
+features:
+  - type: "toggle"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`toggle`"
   type: string
 {% endconfiguration %}
 

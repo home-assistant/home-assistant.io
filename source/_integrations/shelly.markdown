@@ -49,6 +49,13 @@ Integrate [Shelly devices](https://shelly.com) into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+    description: "The Hostname or IP address of your Shelly device. You can find it in your router."
+Port:
+    description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
+{% endconfiguration_basic %}
+
 ## Shelly device generations
 
 There are four generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
@@ -153,6 +160,24 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
 ## Event entities (generation 2+)
 
 If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
+
+Each script which generates events using [Shelly.emitEvent()](https://shelly-api-docs.shelly.cloud/gen2/Scripts/ShellyScriptLanguageFeatures#shellyemitevent) also gets an corresponding event entity. This entity is disabled by default. After changing a script, it's required to manually reload the device before new event types show up.
+
+For example, the following script will emit an event every time an input (button or switch) on the device is changed.
+
+```javascript
+// Example shelly script
+function eventHandler(event, userdata) {
+  if (
+    typeof event.component === "string" &&
+    event.component.substring(0, 5) === "input"
+  ) {
+    let id = Number(event.component.substring(6));
+    Shelly.emitEvent("input_event", { id: id });
+  }
+}
+Shelly.addEventHandler(eventHandler);
+```
 
 ## Events
 
@@ -355,3 +380,9 @@ Please check from the device Web UI that the configured server is reachable.
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
 - Using the `homeassistant.update_entity` action for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

@@ -118,10 +118,12 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
 - Otherwise, the group state is `jammed` if at least one group member is `jammed`.
+- Otherwise, the group state is `opening` if at least one group member is `opening`.
 - Otherwise, the group state is `locking` if at least one group member is `locking`.
+- Otherwise, the group state is `open` if at least one group member is `open`.
 - Otherwise, the group state is `unlocking` if at least one group member is `unlocking`.
-- Otherwise, the group state is `unlocked` if at least one group member is `unlocked`.
-- Otherwise, the group state is `locked`.
+- Otherwise, the group state is `locked` if all group members are `locked`.
+- Otherwise, the group state is `unlocked`.
 
 ### Notify entity groups
 
@@ -485,7 +487,7 @@ These are the attributes available for an old-style group.
 
 ### Actions
 
-This integration provides the following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself.
+The following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself. These actions are only available for old-style groups. They cannot be used with the new-style groups described above.
 
 | Action   | Data              | Description                                                                   |
 | -------- | ----------------- | ----------------------------------------------------------------------------- |

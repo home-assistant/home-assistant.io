@@ -2,6 +2,8 @@
 title: Network UPS Tools (NUT)
 description: Instructions on how to set up NUT sensors within Home Assistant.
 ha_category:
+  - Button
+  - Switch
   - System monitor
 ha_iot_class: Local Polling
 ha_release: 0.34
@@ -11,16 +13,89 @@ ha_codeowners:
   - '@bdraco'
   - '@ollo69'
   - '@pestevez'
+  - '@tdfountain'
 ha_zeroconf: true
 ha_platforms:
+  - button
   - diagnostics
   - sensor
+  - switch
 ha_integration_type: device
+related:
+  - url: https://www.networkupstools.org
+    title: Network UPS Tools
 ---
 
-The Network UPS Tools (NUT) integration allows you to monitor and manage a UPS (battery backup) using a [NUT](https://networkupstools.org/) server. It lets you view their status, receives notifications about important events, and execute commands as device actions.
+The **Network UPS Tools (NUT)** {% term integration %} allows you to monitor and manage an Uninterruptible Power Supply (UPS) for battery backup, a Power Distribution Unit (PDU), or other similar power device using a [NUT](https://networkupstools.org/) server. It lets you view the status, receive notifications about important events, and execute commands as device actions for one or more such devices.
+
+## Supported devices
+
+This integration supports hardware devices compatible with
+NUT. NUT's hardware compatibility list is available from the [Network
+UPS Tools](https://networkupstools.org/) website.
+
+## Prerequisites
+
+You must have a NUT server configured to monitor one or more supported
+power device(s).
+
+It is not possible to automatically detect a NUT server IP address
+change. You should therefore configure the NUT server with a static
+IP address, assign a fixed IP address reservation with DHCP, or use
+DNS as appropriate for your network.
+
+In addition, you will need a username and password for
+this integration to log into the NUT server if authentication is
+required.
 
 {% include integrations/config_flow.md %}
+
+Setting up the integration requires the following information:
+
+{% configuration_basic %}
+Host:
+  description: "The IP address or hostname of your NUT server."
+Port:
+  description: "The network port of your NUT server. The NUT server's default port is '3493'."
+Username:
+  description: "The username to sign in to your NUT server. The username is optional."
+Password:
+  description: "The password to sign in to your NUT server. The password is optional."
+{% endconfiguration_basic %}
+
+## Supported functionality
+
+{% important %}
+The username and password configured for the device must be granted
+`instcmds` permissions on the NUT server to use buttons and
+switches. Buttons and switches will not be available if user
+credentials are not specified. See the [NUT server
+documentation](https://networkupstools.org/documentation.html) for
+configuration information.
+{% endimportant %}
+
+### Buttons
+
+This NUT integration will add buttons for NUT server commands
+available for your device.
+
+The following buttons are available for each switchable outlet:
+
+- **Power cycle outlet NAME**: Power cycle the named outlet
+
+### Switches
+
+This NUT integration will add switches for NUT server commands
+available for your device.
+
+The following switches are available for each switchable outlet:
+
+- **Power outlet NAME**: Turn power on/off for named outlet
+
+## Data updates
+
+The integration uses {% term polling %} to retrieve data from the NUT
+server. The default polling interval is once every 60 seconds.
 
 ## Example Resources
 
@@ -106,3 +181,10 @@ Ensure the user you specify has the required permissions to execute the desired 
 In this example, the user `my_user` has permission to execute all commands (`instcmds = ALL`).
 
 Please note that Home Assistant cannot determine whether a user can access a specific action without executing it. If you attempt to perform an action for which the user does not have permission, an exception will be thrown at runtime.
+
+## Remove integration
+
+This integration follows standard integration removal. No extra steps
+are required.
+
+{% include integrations/remove_device_service.md %}

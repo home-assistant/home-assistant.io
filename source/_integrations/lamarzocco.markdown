@@ -112,6 +112,7 @@ Use Bluetooth:
 | **Current steam temperature**| Current temperature of the steam boiler | `Linea Micra`, `GS3 AV`, `GS3 MP` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} {% icon "material-symbols:wifi" title="Local connection" %} | - |
 | **Total coffees made** | Counter for total coffees made| `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Total flushes made** | Counter for total flushes done | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| - |
+| **Coffee made Key `key`** | Counter for coffees per Key | `GS3 AV` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| Disabled by default |
 | **Shot timer** | Time the current brew is running | `all` | {% icon "material-symbols:wifi" title="Local connection" %} | Only available when the `Host` was set during component configuration. |
 | **Battery** | Battery level of the LM Acaia scale | `Linea Mini` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | Only available if you have the Acaia LM scale and configured it with your machine. |
 
