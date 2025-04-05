@@ -36,7 +36,7 @@ The Synology DSM integration provides access to various statistics from your [Sy
 {% warning %}
 This sensor will wake up your Synology NAS if it's in hibernation mode.
 
-You can change the scan interval within the configuration options (default is 15 min).
+The default polling interval is 15 minutes. You can also [define a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval) if needed.
 
 Having cameras or the Home mode toggle from [Surveillance Station](https://www.synology.com/en-us/surveillance) will fetch every 30 seconds. Disable those entities if you don't want your NAS to be fetched as frequently.
 {% endwarning %}
@@ -67,7 +67,7 @@ If you denied access to all locations and applications it is normal to receive a
 
 ## Backup location
 
-The NAS can also be used as a {% term backup %} location, without the need to add the NAS as a network drive to Home Assistant. For this you need to setup the correct permissions for the user (_see [Separate User Configuration](#separate-user-configuration) above_), afterwards, you will be able to select the shared folder and define a relative path to be used as a backup location in the integration options ({% my integrations title="**Settings** > **Devices & services**" %} > **Synology DSM** > _select the instance_ > **Configure**)
+The NAS can also be used as a {% term backup %} location, without the need to add the NAS as a network drive to Home Assistant (_this requires DSM 6.0 and higher_). For this you need to setup the correct permissions for the user (_see [Separate User Configuration](#separate-user-configuration) above_), afterwards, you will be able to select the shared folder and define a relative path to be used as a backup location in the integration options ({% my integrations title="**Settings** > **Devices & services**" %} > **Synology DSM** > _select the instance_ > **Configure**)
 
 {% important %}
 
@@ -170,3 +170,13 @@ This media browser supports multiple Synology Photos instances. `<unique_id>` is
 To find the `<album_id>` you need to go to the album in your photos instance, and the id will be in the URL ex: `https://192.168.0.100:5001/#/album/19`, where 19 is the album id. An `<album_id>` of 0 will contain all images.
 
 For performance reasons, a maximum of 1000 images will be shown in the Media Browser.
+
+## Troubleshooting
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+
+## Remove the integration
+
+{% include integrations/remove_device_service.md %}
+
+If you don't use the separate created user anymore (_see [Separate User Configuration](#separate-user-configuration) above_), then remove it from the NAS under to **Control Panel** > **User & Group** > **User**. Don't forget to backup any data from the users home directory, if you want to keep them (_eq. Home Assistant backups_)

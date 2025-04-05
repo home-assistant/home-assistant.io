@@ -26,6 +26,9 @@ ha_platforms:
   - update
 ha_ssdp: true
 ha_integration_type: integration
+related:
+  - docs: /common-tasks/general/#enabling-or-disabling-entities
+    title: Enabling or disabling entities
 ---
 
 The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://en.avm.de/products/fritzbox/) router and have presence detection for connected network devices.
@@ -98,6 +101,14 @@ Due to security reasons, AVM implemented the ability to enable/disable a port fo
 **Note 1**: On your FRITZ!Box under **Internet** > **Permit Access**, enable the setting `Permit independent port sharing for this device` for the device which runs HA.
 
 **Note 2**: Only works if you have a dedicated IPv4 address (_it won't work with DS-Lite_)
+
+### WiFi switches
+
+WiFi {% term switches %} are created for each SSID the FRITZ!Box is serving. With these switches, one can activate and deactivate each single SSID.
+
+**Note 1**: In a mesh setup, the WiFi settings are adopted by each mesh repeater (_**Home Network > Mesh > Mesh Settings > Automatically Adopting Settings from the Mesh**_)
+
+**Note 2**: For mesh repeaters, these switches are disabled by default, but can be enabled. When your mesh is based on a WiFi connection between the mesh master and the mesh repeater, the WiFi switches won't be created for the mesh repeater either.
 
 ## Example Automations and Scripts
 

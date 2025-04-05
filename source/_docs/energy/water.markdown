@@ -35,7 +35,7 @@ There are also products for water usage monitoring that are based on existing co
 
 - [Z-Wave](/integrations/zwave_js)
 - [Zigbee](/integrations/zha)
-- [Matter (BETA)](/integrations/matter)
+- [Matter](/integrations/matter)
 
 
 ## Community-made sensors

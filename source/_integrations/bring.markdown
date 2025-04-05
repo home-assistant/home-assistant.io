@@ -13,6 +13,7 @@ ha_domain: bring
 ha_integration_type: service
 ha_platforms:
   - diagnostics
+  - event
   - sensor
   - todo
 related:
@@ -24,6 +25,7 @@ related:
     title: To-do list card
   - url: https://www.getbring.com/
     title: Bring!
+ha_quality_scale: platinum
 ---
 
 The **Bring!** integration allows you to sync your [Bring!](https://www.getbring.com/) shopping lists with Home Assistant.
@@ -70,6 +72,10 @@ Password:
 - **Discount only**: Indicates the number of items tagged with the **Offer** badge.
 - **Region & Language**: The sensor can be used for diagnostics. If everything is set correctly, it will display the selected region for the shopping list. If it shows **Unknown**, the region has not been set properly in the **Bring!** app.
 - **List access**: Indicates whether the shopping list is **personal** (private) or **shared** (accessible to others).
+
+## Events
+
+- **Activities:** The event entity displays the most recent activity on a Bring! shopping list, including the activity type and the profile picture of the user who performed it. There are three types of activities: *Items added* (when a user adds items to the list), *Items removed* (when a user removes items), and *Items changed* (when a user modifies item details or quantity). The event attributes provide additional details, including the list of added, removed, or modified items, the user's name, and the exact time of the activity.
 
 ## Actions
 

@@ -159,6 +159,10 @@ Entities appear for each Traffic Rule. The switches can be identified from icon 
 
 Entities appear for each Policy-Based Routing Rule. The switches can be identified from icon {% icon "mdi:routes" %}.
 
+### Control Zone-Based Firewall Policies
+
+Entities appear for each Zone-Based Firewall Policy. The switches can be identified from icon {% icon "mdi:security-network" %}.
+
 ## Sensor
 
 ### Bandwidth sensor

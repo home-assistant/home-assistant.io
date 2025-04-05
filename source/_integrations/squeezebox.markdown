@@ -14,12 +14,13 @@ ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
+  - button
   - media_player
   - sensor
 ha_integration_type: integration
 ---
 
-The Squeezebox integration allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem.  Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
+The Squeezebox integration allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem. Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
 
 This integration connects to an existing <abbr title="Lyrion Music Server">LMS</abbr> server and provides both media players and sensors for monitoring server status.
 
@@ -48,16 +49,111 @@ transporter_toslink:
       target:
         entity_id: media_player.transporter
       data:
-        media_content_id: "source:toslink"
-        media_content_type: "music"
+        media_content_id: 'source:toslink'
+        media_content_type: 'music'
+```
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}  
+Browse limit:  
+ description: Maximum number of items to include when browsing media or in a playlist.
+Volume step:  
+ description: Amount to adjust the volume when turning volume up or down.  
+{% endconfiguration_basic %}
+
+## Announce
+
+The Squeezebox media player entity supports the "announce" parameter in the `media_player.play_media` action. When media is played with announce:true, the current state of the media player is saved, the media is then played, and when playing is finished, the original state is restored. For example, if the media player is on and playing a track, once the announcement is finished, the track will resume playing at the same point it was paused by the announcement. If the media player was off, it will be turned off again after playing the announcement.
+
+### Extra Keys
+
+The following extra keys are available to modify the announcement
+
+| Data attribute     | Optional | Description                                                                                                                                                              |
+| ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `announce_volume`  | yes      | Specifies the volume at which the announcement should play. The value must be between 0 and 1, where 0.1 represents 10% of the player's volume, 0.2 represents 20%, etc. |
+| `announce_timeout` | yes      | Specify the maximum length of the announcement in seconds after which the original media will be resumed.                                                                |
+
+These extra keys are optional. If announce_volume is unspecified, the announcement will play at the current volume of the player. If announce_timeout is unspecified, the announcement will play until completion.
+
+### Examples
+
+Playing a local file as an announcement:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.squeezebox
+data:
+  media_content_type: music
+  media_content_id: media-source://media_source/local/doorbell.mp3
+  announce: true
+```
+
+Playing a local file as an announcement with volume of 20 and timeout of 60 seconds:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.squeezebox
+data:
+  media_content_type: music
+  media_content_id: media-source://media_source/local/doorbell.mp3
+  announce: true
+  extra:
+    announce_volume: 0.2
+    announce_timeout: 60
+```
+
+### Announcements and Text to Speech (TTS)
+
+When using the "Text-to-speech (TTS): Speak" action, Home Assistant automatically sets the announce parameter as true, and the announcement features, such as pausing current playback, will be used.
+
+However, the "Text-to-speech (TTS): Speak" action doesn't support the extra keys described above. If you wish to use announce_volume and/or announce_timeout with TTS, you need to use media-source://tts/(tts_provider) to construct media_content_id as shown below.
+
+#### Example
+
+Play announcement using Text-to-speech (TTS) action
+
+```yaml
+action: tts.speak
+data:
+  media_player_entity_id: media_player.squeezebox
+  message: There's someone at the door
+  cache: false
+target:
+  entity_id: tts.google_translate_en_co_uk
+```
+
+Play announcement using TTS media-source with announce_volume and announce_timeout
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.squeezebox
+data:
+  media_content_type: music
+  media_content_id: media-source://tts/tts.google_translate_en_co_uk?message="There's someone at the door"
+  announce: true
+  extra:
+    announce_volume: 0.2
+    announce_timeout: 60
 ```
 
 ## Entities
 
 ### Binary sensors
 
-- **Needs restart**:  Server Service needs to be restarted (typically, this is needed to apply updates).
-- **Library rescan**:  The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
+- **Needs restart**: Server Service needs to be restarted (typically, this is needed to apply updates).
+- **Library rescan**: The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
+
+### Buttons
+
+- **Preset 1 ... Preset 6**: Play media stored in Preset 1 to Preset 6 on Squeezebox.
+- **Brightness Up, Brightness Down**: Adjust the brightness on Logitech Squeezebox players with built-in screen, such as Radio and Boom.
+- **Bass Up, Bass Down**: Adjust the bass on Logitech Squeezebox players, such as Radio and Boom.
+- **Treble Up, Treble Down**: Adjust the treble on Logitech Squeezebox players, such as Radio and Boom.
 
 ### Sensors
 
@@ -78,11 +174,11 @@ Call a custom Squeezebox JSON-RPC API.
 
 See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Lyrion Music Server.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Squeezebox entities where to run the API method.
-| `command` | no | Command to pass to Lyrion Music Server (p0 in the CLI documentation).
-| `parameters` | yes | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation).
+| Data attribute | Optional | Description                                                                                           |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------- |
+| `entity_id`    | no       | Name(s) of the Squeezebox entities where to run the API method.                                       |
+| `command`      | no       | Command to pass to Lyrion Music Server (p0 in the CLI documentation).                                 |
+| `parameters`   | yes      | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation). |
 
 This action can be used to integrate any Squeezebox action to an automation.
 
@@ -92,7 +188,7 @@ For example, to play an album from your collection, create an IFTTT applet like 
 
 - Trigger: Google Assistant, with sentence: `I want to listen to album $`
 - Action: JSON post query with such JSON body:
-`{ "entity_id": "media_player.squeezebox_radio", "command": "playlist", "parameters": ["loadtracks", "album.titlesearch={{TextField}}"] }`
+  `{ "entity_id": "media_player.squeezebox_radio", "command": "playlist", "parameters": ["loadtracks", "album.titlesearch={{TextField}}"] }`
 
 This can work with title search and basically any thing. The same wouldn't have worked by calling directly Squeezebox server as IFTTT cannot escape the text field.
 
@@ -100,10 +196,9 @@ When specifying additional parameters in the Visual Editor, each parameter must 
 
 For example, to create an automation to mute playback, use the command `mixer` and the parameter `muting`:
 
-| Row | Parameter | Description |
-| --- | --------  | ----------- |
-|  1  | - muting  | Toggle muting on / off |
-|  2  |           |             |
+| Row | Parameter | Description            |
+| --- | --------- | ---------------------- |
+| 1   | - muting  | Toggle muting on / off |
 
 resulting in the YAML:
 
@@ -121,10 +216,10 @@ Where a parameter is an increment or decrement, it is necessary to place the val
 
 For example, to increase the playback volume, use the command `mixer` and the parameters `volume` and the amount to increment:
 
-| Row | Parameter | Description |
-| --- | --------  | ----------- |
-|  1  | - volume  | Parameter to change |
-|  2  | - "+5"    | Increment volume by 5 percent |
+| Row | Parameter | Description                   |
+| --- | --------- | ----------------------------- |
+| 1   | - volume  | Parameter to change           |
+| 2   | - "+5"    | Increment volume by 5 percent |
 
 resulting in the YAML:
 
@@ -139,18 +234,17 @@ data:
     - "+5"
 ```
 
-
 ### Action `call_query`
 
 Call a custom Squeezebox JSON-RPC API. The result of the query will be stored in the 'query_result' attribute of the player.
 
 See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Lyrion Music Server.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Squeezebox entities where to run the API method.
-| `command` | no | Command to pass to Lyrion Music Server (p0 in the CLI documentation).
-| `parameters` | yes | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation).
+| Data attribute | Optional | Description                                                                                           |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------- |
+| `entity_id`    | no       | Name(s) of the Squeezebox entities where to run the API method.                                       |
+| `command`      | no       | Command to pass to Lyrion Music Server (p0 in the CLI documentation).                                 |
+| `parameters`   | yes      | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation). |
 
 This action can be used to integrate a Squeezebox query into an automation. For example, in a Python script, you can get a list of albums available by an artist like this:
 `hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`

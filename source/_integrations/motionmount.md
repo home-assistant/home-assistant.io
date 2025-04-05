@@ -83,6 +83,9 @@ The following devices are *not* supported:
   - **Description**: The error status of the MotionMount.
     - None: There is no error.
     - Motor: There is a problem communicating with the motor.
+    - HDMI CEC: There is a problem communicating with the TV. Check the HDMI cable.
+    - Obstruction: The MotionMount detected an obstacle and stopped moving.
+    - TV Width Constraint: The MotionMount detected that the TV moved too close to the wall and stopped moving.
     - Internal: There is an internal error. Refer to the MotionMount app for support.
 
 #### Numbers
