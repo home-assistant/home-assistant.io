@@ -1,6 +1,6 @@
 ---
-title: Actron Air
-description: Instructions on how to integrate Actron Air Neo A/C controller into Home Assistant.
+title: ActronAir
+description: Instructions on how to integrate ActronAir Neo A/C controller into Home Assistant.
 ha_category:
   - Climate
   - Select
@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Actron Air** {% term integration %} allows you to control [Actron Air Neo](https://actronair.com.au/products/residential/residential-controls/neo/) Air Conditioning controllers into Home Assistant.
+The **ActronAir** {% term integration %} allows you to control [ActronAir Neo](https://actronair.com.au/products/residential/residential-controls/neo/) Air Conditioning controllers into Home Assistant.
 
 ## Prerequisites
 
@@ -34,8 +34,8 @@ User has an option to choose from the list. The first system is chosen by defaul
 ### Climate
 
 The integration creats a climate entity for the master controller as well as each of the zones.
-Based on the zone capability such as temperature-controlled, controlls are enabled for each of the enabled zones.
+Based on the zone capability such as temperature-controlled, controls are enabled for each of the enabled zones.
 
 Master controller provides ability to change the AC Mode and Fan Speed besides master temperature set point.
-Zone controller provides ability to turn ON/OFF a zone. Depending on the availability of zone sensor/controller, option to change the temperature is provided.
+Zone controller provides ability to turn ON/OFF a zone. Depending on the availability of zone sensor/controller, option to change the set point temperature is provided.
 
