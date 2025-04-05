@@ -109,22 +109,24 @@ you can use it as inspiration to create your own automations.
 ### UPS Power Failure Notification
 
 The following example sends a notification to your mobile device when
-a monitored UPS loses power and begins using the battery. In this
-example, the user's mobile device is configured for notification, the
-NUT server is configured with a device named `ups` and the status
-sensor is named `ups_status`.
+a monitored UPS loses power and begins using the battery.
+
+To use this example, the NUT integration must be installed and
+configured, the user's mobile device must be configured for
+notification, the NUT server must be configured with a device named
+`ups` and the status sensor must be named `ups_status`.
 
 ```yaml
 # Send notification on UPS Power Failure
 automation:
   alias: NUT Power Failure Notification
   description: NUT Power Failure Notification
-    mode: single
+  mode: single
   triggers:
     - trigger: state
       entity_id:
         - sensor.ups_status
-      to: On Battery Battery Discharging
+      to: "On Battery Battery Discharging"
   conditions: []
   actions:
     - action: notify.notify
