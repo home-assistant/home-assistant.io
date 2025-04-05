@@ -28,6 +28,10 @@ related:
 
 The **Network UPS Tools (NUT)** {% term integration %} allows you to monitor and manage an Uninterruptible Power Supply (UPS) for battery backup, a Power Distribution Unit (PDU), or other similar power device using a [NUT](https://networkupstools.org/) server. It lets you view the status, receive notifications about important events, and execute commands as device actions for one or more such devices.
 
+This integration communicates with a NUT server using the NUT
+protocol. It does not directly retrieve information or take actions on
+a power device.
+
 ## Supported devices
 
 This integration supports hardware devices compatible with
@@ -345,12 +349,10 @@ parameters.
 
 It is also important to know:
 
-- This integration does not directly retrieve information from, or
-take action on, a power device. Instead, this integration communicates
-with a NUT server using the NUT protocol. The NUT server interacts with
-the power device(s).
-- This integration does not install a NUT server on Home
-Assistant. Please see the [Network UPS
+- This integration does not install a NUT server on Home Assistant
+because of the many installation methods available for Home
+Assistant. The NUT server should be installed on a separate system or
+in a separate container. Please see the [Network UPS
 Tools](https://networkupstools.org/) website for information on
 installing or upgrading your NUT server.
 
