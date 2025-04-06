@@ -81,6 +81,10 @@ Enable old discovery method:
   description: Needed on some scenarios like no mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
 {% endconfiguration_basic %}
 
+## Data updates
+
+This integration fetches the data every 30 seconds from the FRITZ!Box router.
+
 ## Actions
 
 Available {% term actions %}: `set_guest_wifi_password`
