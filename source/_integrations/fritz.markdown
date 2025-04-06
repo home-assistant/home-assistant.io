@@ -181,3 +181,9 @@ Check if one of the following cases applies:
 - You're using additional network equipment like a network switch or Wi-Fi access point other than an AVM Fritz!Repeater or other AVM components, but not configured as a [mesh](https://en.avm.de/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) in your home network.
 
 If one of the above cases applies to your setup, try [enabling the old discovery method](#enable-old-discovery-method) in the [integration options](#integration-options). This might resolve the issue.
+
+## Remove the integration
+
+{% include integrations/remove_device_service.md %}
+
+If you don't use the separate created FRITZ!Box user anymore, than remove it from the FRITZ!Box under to **System** > **FRITZ!Box Users** > **Users**.
