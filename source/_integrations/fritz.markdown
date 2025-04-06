@@ -54,7 +54,7 @@ Both the TR-064 (_Permit access for apps_) and UPnP (_Transmit status informatio
 It is recommended to create a separate user to connect Home Assistant to your FRITZ!Box. To create a user, in the FRITZ!Box go to **System** > **FRITZ!Box Users** > **Users** > **Add User**. Make sure the user has the **FRITZ!Box Settings** permission.
 
 {% note %}
-If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24, the default username was `admin`.
+If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Before FRITZ!OS 7.24, the default username was `admin`.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -78,7 +78,7 @@ Uses an SSL certificate:
 Consider home:
   description: Number of seconds that must elapse before considering a disconnected device "not at home".
 Enable old discovery method:
-  description: Needed on some scenarios like no mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
+  description: Required in scenarios such as networks without mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
 {% endconfiguration_basic %}
 
 ## Data updates
@@ -190,4 +190,4 @@ If one of the above cases applies to your setup, try [enabling the old discovery
 
 {% include integrations/remove_device_service.md %}
 
-If you don't use the separate created FRITZ!Box user anymore, than remove it from the FRITZ!Box under to **System** > **FRITZ!Box Users** > **Users**.
+If you don't use the separately created FRITZ!Box user anymore, then remove it from the FRITZ!Box under **System** > **FRITZ!Box Users** > **Users**.
