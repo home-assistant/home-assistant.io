@@ -43,19 +43,43 @@ There is support for the following platform types within Home Assistant:
 - **{% term Switch %}** - call deflection, port forward, parental control and Wi-Fi networks.
 - **{% term Update %}** - firmware status of the device.
 
-{% include integrations/config_flow.md %}
+## Prerequisites
 
 {% important %}
 Both the TR-064 (_Permit access for apps_) and UPnP (_Transmit status information over UPnP_) protocol needs to be enabled in the FRITZ!Box under **Home Network** > **Network** > **Network settings** > **Access Settings in the Home Network** for Home Assistant to login and read device info.
 {% endimportant %}
 
-## Username
+### Username
 
 It is recommended to create a separate user to connect Home Assistant to your FRITZ!Box. To create a user, in the FRITZ!Box go to **System** > **FRITZ!Box Users** > **Users** > **Add User**. Make sure the user has the **FRITZ!Box Settings** permission.
 
 {% note %}
 If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24, the default username was `admin`.
 {% endnote %}
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+    description: "The hostname or IP address of your FRITZ!Box router."
+Port:
+    description: "Leave it empty to use the default port."
+Username:
+    description: "The username which should be sued to connect to your FRITZ!Box router."
+Password:
+    description: "The password for the user above."
+Uses an SSL certificate:
+    description: "Weather to use SSL encryption for connecting to your FRITZ!Box router."
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Consider home:
+  description: Number of seconds that must elapse before considering a disconnected device "not at home".
+Enable old discovery method:
+  description: Needed on some scenarios like no mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
+{% endconfiguration_basic %}
 
 ## Actions
 
@@ -70,19 +94,6 @@ Set a new password for the guest wifi. The password Length must be between 8 and
 | `device_id` | yes | Only act on a specific router |
 | `password` | no | New password for the guest wifi (_will be auto-generated if not defined_) |
 | `length` | no | Length of the auto-generated password. (_default 12_) |
-
-## Integration options
-
-It is possible to change some behaviors through the integration options.
-To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. Select the **AVM FRITZ!Box Tools** integration, then select **Configure**.
-
-### Consider home
-
-Number of seconds that must elapse before considering a disconnected device "not at home".
-
-### Enable old discovery method
-
-Needed on some scenarios like no mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
 
 ## Additional information
 
