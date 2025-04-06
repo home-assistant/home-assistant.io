@@ -63,11 +63,11 @@ If you still want to use the predefined user, please note that as of FRITZ!OS 7.
 Host:
     description: "The hostname or IP address of your FRITZ!Box router."
 Port:
-    description: "Leave it empty to use the default port."
+    description: "The port used to connect to your FRITZ!Box router. Leave it empty to use the default port."
 Username:
-    description: "The username which should be sued to connect to your FRITZ!Box router."
+    description: "Name of the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)"
 Password:
-    description: "The password for the user above."
+    description: "Password for the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)"
 Uses an SSL certificate:
     description: "Weather to use SSL encryption for connecting to your FRITZ!Box router."
 {% endconfiguration_basic %}
