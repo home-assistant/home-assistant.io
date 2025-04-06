@@ -53,8 +53,8 @@ description: "If you have selected \"Password Protection\" in your LMS Advanced 
 Password:
 description: "If you have selected \"Password Protection\" in your LMS Advanced Security, enter your Password here."
 {% endconfiguration_basic %}
-Connect over https
-description: "The integration now supports Lyrion Music Servers behind an HTTPS reverse proxy. Please note that Lyrion Music Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the \"Connect over https\" option. If you have configured a reverse proxy, remember to update the port number."
+Connect over HTTPS
+description: "The integration now supports Lyrion Music Servers behind an HTTPS reverse proxy. Please note that Lyrion Music Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the \"Connect over HTTPS\" option. If you have configured a reverse proxy, remember to update the port number."
 
 The Logitech Transporter which have two digital inputs can be activated using a script. The following example turns on the Transporter and activates the toslink input interface:
 
@@ -257,7 +257,7 @@ data:
   command: mixer
   parameters:
     - volume
-    - "+5"
+    - '+5'
 ```
 
 ### Action `call_query`
