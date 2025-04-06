@@ -96,8 +96,10 @@ For each Airzone zone (thermostat), the following *sensors* are created:
 
 | Condition           | Description                        |
 | :------------------ | :--------------------------------- |
+| battery             | Current zone thermostat battery.   |
 | humidity            | Current zone relative humidity.    |
 | temperature         | Current zone temperature.          |
+| signal_percentage   | Current zone thermostat signal.    |
 
 ## Switch
 
