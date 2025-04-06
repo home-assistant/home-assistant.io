@@ -69,7 +69,7 @@ Username:
 Password:
     description: "Password for the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)"
 Uses an SSL certificate:
-    description: "Weather to use SSL encryption for connecting to your FRITZ!Box router."
+    description: "Whether to use SSL encryption for connecting to your FRITZ!Box router."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
