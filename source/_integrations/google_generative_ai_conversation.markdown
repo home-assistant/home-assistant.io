@@ -71,8 +71,60 @@ Maximum Tokens to Return in Response:
 Safety settings:
   description: Thresholds for different [harmful categories](https://ai.google.dev/gemini-api/docs/safety-settings).
 Enable Google Search tool:
-  description: Enables the model to [query Google Search](https://ai.google.dev/gemini-api/docs/grounding), this can only be enabled when the AI is not allowed to interact with exposed entities by selecting "No control" in the Control Home Assistant setting.
+  description: Enables the model to [query Google Search](https://ai.google.dev/gemini-api/docs/grounding). This can only be enabled when the "Control Home Assistant" setting is set to "No control". See below for a workaround using it with "Assist".
 {% endconfiguration_basic %}
+
+## Google Search
+
+Due to an API limitation we cannot have the [Google Search tool](https://ai.google.dev/gemini-api/docs/grounding) together with other tools. Request fails with `400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Tool use with function calling is unsupported', 'status': 'INVALID_ARGUMENT'}}`.
+But you can do the following workaround that exposes a script to voice assistants. The script calls a Google Generative AI Conversation that only has the Google Search tool enabled. 
+
+{% details "Workaround for Google Search tool" %}
+
+1. Add a second Google Generative AI service.
+2. Select **Configure**
+3. Select **No control** under **Control Home Assistant**
+4. Uncheck **Recommended model settings**
+5. Select **Submit**
+6. Check **Enable Google Search tool**
+7. Increase **Maximum tokens to return in response**
+8. Select **Submit**
+9. Create a script (**Settings** > **Automations & scenes** > **Scripts** > **Create script**)
+10. Select 3 dots > **Edit in YAML** and enter the following (edit the `conversation.google_generative_ai_2` to match the entity created from the 1st step):
+
+```yaml
+sequence:
+  - action: conversation.process
+    metadata: {}
+    data:
+      agent_id: conversation.google_generative_ai_2
+      text: "{{ query }}"
+    response_variable: result
+  - variables:
+      result:
+        response: "{{ result.response.speech.plain.speech }}"
+  - stop: ""
+    response_variable: result
+alias: "Assist: Search Google"
+description: >-
+  Makes a Google search to answer questions that are completely unrelated with
+  the smart home and are exclusively about current events or information in
+  real-time like the current president, results of last night's game, release
+  dates, etc.
+fields:
+  query:
+    selector:
+      text: null
+    name: Query
+    description: The query to search Google for
+    required: true
+```
+
+11. Select **Save script**
+12. Select 3 dots > **Settings** > **Voice assistants**
+13. Check **Expose** **Assist**
+
+{% enddetails %}
 
 ## Talking to Super Mario
 
