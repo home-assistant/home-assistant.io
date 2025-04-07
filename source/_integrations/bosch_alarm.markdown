@@ -85,8 +85,8 @@ The easiest way to solve this is to follow the full reset and restore procedure 
    1. Press the default/reset button on the panel.
    2. Use installer code 1234.
    3. Set:
-     1. Location 0081 = 3 (Enables IP module mode)
-     2. Location 4456 = 4 (Enables RSC+ communication)
+      1. Location 0081 = 3 (Enables IP module mode)
+      2. Location 4456 = 4 (Enables RSC+ communication)
    4. Set date and time using master code `25806#`.
 4. Initial Home Assistant test.
    1. Wait 2 to 5 minutes after resetting the panel.
