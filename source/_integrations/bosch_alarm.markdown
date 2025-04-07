@@ -130,8 +130,8 @@ The following procedure can be used to configure the panel correctly so that it 
    2. Use DHCP for initial setup (optional), or assign a static IP.
 3. Configure the automation device.
    1. In RPS:
-     1. Set **Automation Device** to **Mode 2** (Bosch Standard Protocol).
-     2. Set your automation passcode (used for Home Assistant authentication).
+      1. Set **Automation Device** to **Mode 2** (Bosch Standard Protocol).
+      2. Set your automation passcode (used for Home Assistant authentication).
 4. Wait for changes to apply.
    1. Wait 2 to 5 minutes for the panel to reboot and apply settings.
 5. Connect to Home Assistant.
