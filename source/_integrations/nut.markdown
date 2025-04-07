@@ -302,7 +302,7 @@ match your system.
 #### Example in YAML
 
 ```yaml
-# Send notification on UPS Power Failure
+# Send notification on UPS power failure
 automation:
   alias: "NUT Power failure notification"
   triggers:
