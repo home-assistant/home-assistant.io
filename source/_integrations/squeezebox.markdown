@@ -7,9 +7,9 @@ ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: squeezebox
 ha_codeowners:
-  - "@rajlaud"
-  - "@pssc"
-  - "@peteS-UK"
+  - '@rajlaud'
+  - '@pssc'
+  - '@peteS-UK'
 ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
@@ -69,8 +69,8 @@ transporter_toslink:
       target:
         entity_id: media_player.transporter
       data:
-        media_content_id: "source:toslink"
-        media_content_type: "music"
+        media_content_id: 'source:toslink'
+        media_content_type: 'music'
 ```
 
 {% include integrations/option_flow.md %}
