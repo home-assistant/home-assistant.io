@@ -305,7 +305,6 @@ notification.
 # Send notification on UPS Power Failure
 automation:
   alias: "NUT Power failure notification"
-  mode: single
   triggers:
     - trigger: state
       entity_id:
