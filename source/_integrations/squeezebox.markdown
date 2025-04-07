@@ -33,7 +33,7 @@ The Squeezebox music player ecosystem, which can be controlled through this inte
 
 ## Supported devices
 
-The integration supports any Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/) and both Lyrion Music Servers and Logitech Media Servers.
+The integration supports any [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/) and both Lyrion Music Servers and Logitech Media Servers.
 
 ## Data updates
 
@@ -89,7 +89,7 @@ Volume step:
 
 ## Known limitations
 
-The LMS API, which is used by this integration, does not currently provide the ability to override or control fade-in & cross fade settings.  This means that if you have enabled "Play or Resume fade-in duration" within the player's audio settings, this fade-in will be applied to any announcement played.  This could potentially lead to the start of an announcement being missed as it fades-in.  You should therefore consider a short "Play or Resume fade-in duration", or preferably disabling this feature if you make use of announcements.
+The LMS API, which is used by this integration, does not currently provide the ability to override or control fade-in & crossfade settings.  This means that if you have enabled "Play or Resume fade-in duration" within the player's audio settings, this fade-in will be applied to any announcement played.  This could potentially lead to the start of an announcement being missed as it fades-in.  You should therefore consider a short "Play or Resume fade-in duration", or preferably disabling this feature if you make use of announcements.
 
 ## Removing the integration
 
@@ -219,10 +219,10 @@ The integration provides the following entities.
   - **Description**: Number of players not on this service.
 
 - **Total albums**
-  - **Description**: Total number of albums currently available in the service.
+  - **Description**: Total number of albums currently available on the service.
 
 - **Total artists**
-  - **Description**: Total number of artists currently available in the service.
+  - **Description**: Total number of artists currently available on the service.
 
 - **Total duration**
   - **Description**: Duration of all tracks in service (HHHH:MM:SS).
