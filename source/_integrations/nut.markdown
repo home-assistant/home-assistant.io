@@ -299,7 +299,7 @@ notification.
 sensor named `ups_status`. You must change the YAML sensor name to
 match your system.
 
-#### Example
+#### Example in YAML
 
 ```yaml
 # Send notification on UPS Power Failure
