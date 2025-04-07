@@ -121,6 +121,8 @@ notification.
 `ups`.
 - The status sensor must be named `ups_status`.
 
+#### Example
+
 ```yaml
 # Send notification on UPS Power Failure
 automation:
