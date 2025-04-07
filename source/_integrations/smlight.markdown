@@ -60,6 +60,8 @@ Password:
 
 ## Integration entities
 
+The **SMLIGHT** {% term integration %} will {% term poll %} for sensor updates every 5 minutes, with the exception of the internet connectivity sensor which is checked every 15 minutes. Firmware updates for both core and Zigbee are checked once per day.
+
 ### Sensors
 
 The following sensors will be created:
@@ -95,6 +97,8 @@ The following switches will be created:
 - **Disable LEDs** - Disable all LEDs on the SLZB-06x device.
 - **LED night mode** - Enables night mode, which turns off the LEDs overnight, based on the times set in SLZB-06x web UI.
 - **Enable VPN** - Enable WireGuard VPN client (requires configuration via the SMLIGHT web UI).
+
+Switches update in real-time if the settings are changed from the SLZB device web interface.
 
 ### Updates
 
