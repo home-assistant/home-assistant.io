@@ -105,8 +105,8 @@ The easiest way to solve this is to follow the full reset and restore procedure 
 #### Restarting a panels network stack
 
 We have found that the Solution panels have a bug where they can get into a state where the network module stops letting us use the _Mode 2_ API.
-If your configuration information is correct but you are still unable to connect to your panel, than you are likley encountering this bug.
-This can be resolved by restating the network modules, which can be done with the following steps.
+If your configuration information is correct, but you are still unable to connect to your panel, then you are likely encountering this bug.
+This can be resolved by restarting the network modules, which can be done with the following steps.
 
 ##### Resetting network module 1
 
