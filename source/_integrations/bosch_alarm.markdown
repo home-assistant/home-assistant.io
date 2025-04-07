@@ -90,7 +90,7 @@ The easiest way to solve this is to follow the full reset and restore procedure 
    4. Set date and time using master code `25806#`.
 4. Initial Home Assistant test.
    1. Wait 2 to 5 minutes after resetting the panel.
-   2. Connect Home Assistant to the panel using its IP address.
+   2. Set up the integration on the panel using its IP address.
    3. Home Assistant should connect using default configuration and show panel status.
 5. Restore your original configuration.
    1. Reconnect to the panel using A-Link Plus.
@@ -135,7 +135,7 @@ The following procedure can be used to configure the panel correctly so that it 
 4. Wait for changes to apply.
    1. Wait 2 to 5 minutes for the panel to reboot and apply settings.
 5. Connect to Home Assistant.
-   1. Use panel’s IP address or allow auto-discovery.
+   1. Set up the integration using the panel’s IP address.
    2. Enter the automation passcode in the Home Assistant configuration.
    3. Home Assistant should connect and display panel status, zones, and partitions.
 
