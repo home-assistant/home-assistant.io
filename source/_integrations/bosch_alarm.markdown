@@ -62,7 +62,7 @@ If your authentication changes, the integration will automatically prompt you to
 
 ## Reconfiguration
 
-This integration supports reconfiguration, so it is possible to change the configuration such as the IP Address after it is configured. 
+This integration supports reconfiguration, so it is possible to change the configuration such as the IP Address after it is configured.
 
 ## Troubleshooting
 
