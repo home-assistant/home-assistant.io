@@ -313,7 +313,7 @@ automation:
   actions:
     - action: notify.notify
       data:
-        title: UPS Power Failure
+        title: "UPS power failure"
         message: "The UPS lost power and is now on battery"
 ```
 
