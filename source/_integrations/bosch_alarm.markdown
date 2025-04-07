@@ -46,7 +46,10 @@ This entity reports state (_disarmed_, _armed_away_, etc.).
 ## Sensor
 
 A sensor is provided for the panel to show the current error messages (faults).
-Three additional sensors are added per area, one containing information on if the panel is ready to arm, another containing information about current points that are faulting for this area, and another containing a list of alarms that have fired for the area.
+Three additional sensors are added per area:
+- If the panel is ready to arm.
+- A list of the current points that are faulting for this area.
+- A list of alarms that have fired for the area.
 
 ## Authentication
 
