@@ -94,7 +94,7 @@ The easiest way to solve this is to follow the full reset and restore procedure 
    3. Home Assistant should connect using default configuration and show panel status.
 5. Restore your original configuration.
    1. Reconnect to the panel using A-Link Plus.
-   2. Modify zones, outputs, and user codes to match original setup.
+   2. Modify zones, outputs, and user codes to match the original setup.
    3. Save and **download** the updated config to the panel.
    4. Wait 2 to 5 minutes.
 6. Reconnect to Home Assistant.
@@ -130,7 +130,7 @@ The following procedure can be used to configure the panel correctly so that it 
    2. Use DHCP for initial setup (optional), or assign a static IP.
 3. Configure the automation device.
    1. In RPS:
-     1. Set Automation Device to Mode 2 (Bosch Standard Protocol).
+     1. Set **Automation Device** to **Mode 2** (Bosch Standard Protocol).
      2. Set your automation passcode (used for Home Assistant authentication).
 4. Wait for changes to apply.
    1. Wait 2 to 5 minutes for the panel to reboot and apply settings.
