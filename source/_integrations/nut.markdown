@@ -111,6 +111,8 @@ you can use it as inspiration to create your own automations.
 The following example sends a notification to your mobile device when
 a monitored UPS loses power and begins using the battery.
 
+#### Prerequisites
+
 To use this example, the NUT integration must be installed and
 configured, the user's mobile device must be configured for
 notification, the NUT server must be configured with a device named
