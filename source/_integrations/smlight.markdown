@@ -60,7 +60,7 @@ Password:
 
 ## Integration entities
 
-The **SMLIGHT** {% term integration %} will {% term poll %} for sensor updates every 5 minutes, with the exception of the internet connectivity sensor which is checked every 15 minutes. Firmware updates for both core and Zigbee are checked once per day.
+The **SMLIGHT** {% term integration %} will poll for sensor updates every 5 minutes, except for the internet connectivity sensor which is checked every 15 minutes. Firmware updates for both core and Zigbee are checked once per day.
 
 ### Sensors
 
