@@ -314,7 +314,7 @@ automation:
     - action: notify.notify
       data:
         title: UPS Power Failure
-        message: The UPS lost power and is now on battery
+        message: "The UPS lost power and is now on battery"
 ```
 
 ## Example Resources
