@@ -31,11 +31,11 @@ The Squeezebox music player ecosystem, which can be controlled through this inte
 1. One or more [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/).
 2. One or more [Lyrion Music Servers or Logitech Media Servers (LMS)](https://lyrion.org/getting-started) with the Squeezebox players connected to these servers.
 
-{% include integrations/config_flow.md %}
+## Data updates
 
-{% note %}
-This platform uses the web interface of the Lyrion Music Server (LMS) to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
-{% endnote %}
+The integration uses {% term polling %} to receive updates from the LMS. It uses the web interface of the Lyrion Music Server (LMS) to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
+
+{% include integrations/config_flow.md %}
 
 {% note %}
 A single configuration entry for the integration adds all Squeezebox devices connected to one LMS to Home Assistant.
