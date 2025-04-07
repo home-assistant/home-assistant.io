@@ -295,9 +295,9 @@ a monitored UPS loses power and begins using the battery.
 configured.
 - Your mobile device must be configured for
 notification.
-- The NUT server must be configured with a device named
-`ups`.
-- The status sensor must be named `ups_status`.
+- In the example below, the NUT server device is `ups` with the status
+sensor named `ups_status`. You must change the YAML sensor name to
+match your system.
 
 #### Example
 
