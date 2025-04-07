@@ -77,15 +77,12 @@ If your authentication changes, the integration will automatically prompt you to
 automation:
   - alias: "Turn on light when walking into room"
     triggers:
-      - trigger: state
+      - platform: state
         entity_id:
           - binary_sensor.bosch_solution_3000_bedroom
         to: "on"
-    conditions: []
     actions:
       - action: light.turn_on
-        metadata: {}
-        data: {}
         target:
           entity_id: light.bedroom_light
 
