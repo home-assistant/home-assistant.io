@@ -58,13 +58,18 @@ The integration will prompt for the required passcodes, which depend on the pane
 Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the regularly configured alarm pin: you will _not_ be prompted for a _User_ code when arming/disarming through the integration.
 {% endimportant %}
 
+
 ## Reconfiguration
 
 This integration supports reconfiguration, so it is possible to change the configuration such as the IP Address after it is configured. 
 
+
 ## Discovery
 
 This integration supports DHCP discovery, so it should be discovered automatically. If thie IP Address of the panel changes when you are using discovery, the integration will update the address automatically.
+
+If your authentication changes, the integration will automatically prompt you to enter the new credentials.
+
 
 ## Troubleshooting
 
