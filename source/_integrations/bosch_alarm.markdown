@@ -79,7 +79,7 @@ The easiest way to solve this is to follow the full reset and restore procedure 
    1. Download and install the latest firmware for the control panel and IP module from the Bosch Security website.
 2. Back up the existing configuration.
    1. Connect to the panel via A-Link Plus.
-   2. Perform an Upload of the panel configuration.
+   2. Perform an **upload** of the panel configuration.
    3. Save the configuration to your computer.
 3. Default the control panel.
    1. Press the default/reset button on the panel.
@@ -95,7 +95,7 @@ The easiest way to solve this is to follow the full reset and restore procedure 
 5. Restore your original configuration.
    1. Reconnect to the panel using A-Link Plus.
    2. Modify zones, outputs, and user codes to match original setup.
-   3. Save and Download the updated config to the panel.
+   3. Save and **download** the updated config to the panel.
    4. Wait 2 to 5 minutes.
 6. Reconnect to Home Assistant.
    1. Open Home Assistant.
@@ -122,22 +122,22 @@ The following procedure can be used to configure the panel correctly so that it 
 
 #### Panel configuration procedure
 
-1. Update Firmware (Recommended)
-   - Use RPS to update the control panel and B426 (IP module if used) to the latest firmware
-   - Download firmware from the Bosch Security website
-2. Set IP Address
-   - Configure the panel’s IP settings using RPS or via the codepad
-   - Use DHCP for initial setup (optional), or assign a static IP
-3. Configure the automation device
-   - In RPS:
-     - Set Automation Device to Mode 2 (Bosch Standard Protocol)
-     - Set your automation passcode (used for Home Assistant authentication)
-4. Wait for changes to apply
-   - Wait 2 to 5 minutes for the panel to reboot and apply settings
-5. Connect to Home Assistant
-   - Use panel’s IP address or allow auto-discovery
-   - Enter the automation passcode in the Home Assistant configuration
-   - Home Assistant should connect and display panel status, zones, and partitions
+1. Update Firmware (Recommended).
+   1. Use RPS to update the control panel and B426 (IP module if used) to the latest firmware.
+   2. Download firmware from the Bosch Security website.
+2. Set IP Address.
+   1. Configure the panel’s IP settings using RPS or via the codepad.
+   2. Use DHCP for initial setup (optional), or assign a static IP.
+3. Configure the automation device.
+   1. In RPS:
+     1. Set Automation Device to Mode 2 (Bosch Standard Protocol).
+     2. Set your automation passcode (used for Home Assistant authentication).
+4. Wait for changes to apply.
+   1. Wait 2 to 5 minutes for the panel to reboot and apply settings.
+5. Connect to Home Assistant.
+   1. Use panel’s IP address or allow auto-discovery.
+   2. Enter the automation passcode in the Home Assistant configuration.
+   3. Home Assistant should connect and display panel status, zones, and partitions.
 
 #### TLS issues
 
