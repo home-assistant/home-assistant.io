@@ -7,9 +7,9 @@ ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: squeezebox
 ha_codeowners:
-  - '@rajlaud'
-  - '@pssc'
-  - '@peteS-UK'
+  - "@rajlaud"
+  - "@pssc"
+  - "@peteS-UK"
 ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
@@ -45,16 +45,16 @@ When the LMS cannot be discovered, it can be manually configured.
 
 {% configuration_basic %}
 Host:
-description: "The host name or IP address (e.g., \"192.168.1.2\") of your LMS."
+  description: "The host name or IP address (e.g., \"192.168.1.2\") of your LMS."
 Port:
-description: "The integration uses the web interface of the Lyrion Music Server (LMS) to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser."
+  description: "The integration uses the web interface of the Lyrion Music Server (LMS) to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser."
 Username:
-description: "If you have selected \"Password Protection\" in your LMS Advanced Security, enter your Username here."
+  description: "If you have selected \"Password Protection\" in your LMS Advanced Security, enter your Username here."
 Password:
-description: "If you have selected \"Password Protection\" in your LMS Advanced Security, enter your Password here."
-{% endconfiguration_basic %}
+  description: "If you have selected \"Password Protection\" in your LMS Advanced Security, enter your Password here."
 Connect over HTTPS
-description: "The integration now supports Lyrion Music Servers behind an HTTPS reverse proxy. Please note that Lyrion Music Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the \"Connect over HTTPS\" option. If you have configured a reverse proxy, remember to update the port number."
+  description: "The integration now supports Lyrion Music Servers behind an HTTPS reverse proxy. Please note that Lyrion Music Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the \"Connect over HTTPS\" option. If you have configured a reverse proxy, remember to update the port number."
+{% endconfiguration_basic %}
 
 The Logitech Transporter which have two digital inputs can be activated using a script. The following example turns on the Transporter and activates the toslink input interface:
 
@@ -69,8 +69,8 @@ transporter_toslink:
       target:
         entity_id: media_player.transporter
       data:
-        media_content_id: 'source:toslink'
-        media_content_type: 'music'
+        media_content_id: "source:toslink"
+        media_content_type: "music"
 ```
 
 {% include integrations/option_flow.md %}
@@ -257,7 +257,7 @@ data:
   command: mixer
   parameters:
     - volume
-    - "+5"
+    - '+5'
 ```
 
 ### Action `call_query`
