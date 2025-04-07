@@ -46,10 +46,15 @@ The integration provides the following actions.
 
 ### Action: Set panel date and time
 
-| Data attribute         | Optional | Description                                                                       |
-|------------------------|----------|-----------------------------------------------------------------------------------|
-| `config_entry_id`      | No       | The ID of the panels config entry.                                                |
-| `datetime`             | Yes      | The date and time to set. Defaults to the current date and time if it is not set. |
+The `bosch_alarm.set_date_time` action is used to update the date and time on the panel.
+
+- **Data attribute**: `config_entry_id`
+   - **Description**: The ID of the config entry to get the schedule from.
+   - **Optional**: No
+
+- **Data attribute**: `datetime`
+   - **Description**: The date and time to set. Defaults to the current date and time if it is not set.
+   - **Optional**: Yes
 
 ## Authentication
 
