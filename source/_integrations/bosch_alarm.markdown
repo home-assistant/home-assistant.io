@@ -79,7 +79,7 @@ The easiest way to solve this is to follow the full reset and restore procedure 
    1. Download and install the latest firmware for the control panel and IP module from the Bosch Security website.
 2. Back up the existing configuration.
    1. Connect to the panel via A-Link Plus.
-   2. Perform an **upload** of the panel configuration.
+   2. Perform an **Upload** of the panel configuration.
    3. Save the configuration to your computer.
 3. Default the control panel.
    1. Press the default/reset button on the panel.
@@ -95,7 +95,7 @@ The easiest way to solve this is to follow the full reset and restore procedure 
 5. Restore your original configuration.
    1. Reconnect to the panel using A-Link Plus.
    2. Modify zones, outputs, and user codes to match the original setup.
-   3. Save and **download** the updated config to the panel.
+   3. Save and **Download** the updated config to the panel.
    4. Wait 2 to 5 minutes.
 6. Reconnect to Home Assistant.
    1. Open Home Assistant.
