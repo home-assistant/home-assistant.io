@@ -58,6 +58,7 @@ The integration will prompt for the required passcodes, which depend on the pane
 Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the regularly configured alarm pin: you will _not_ be prompted for a _User_ code when arming/disarming through the integration.
 {% endimportant %}
 
+If your authentication changes, the integration will automatically prompt you to enter the new credentials.
 
 {% include integrations/option_flow.md %}
 
