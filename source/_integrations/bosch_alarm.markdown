@@ -70,7 +70,7 @@ At startup, the integration checks whether your panel supports push data updates
 
 We have found that some panels end up with a configuration on them that is incompatible with the integration. The easiest way to solve this is to follow the full reset and restore procedure outline below.
 
-#### Full Reset & Restore Procedure
+#### Resetting the configuration and restoring the integration
 
 1. Update firmware (Recommended)
    - Download and install the latest firmware for the control panel and IP module from the Bosch Security website.
