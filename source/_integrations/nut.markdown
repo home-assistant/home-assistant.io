@@ -66,7 +66,7 @@ Password:
 You can update these settings after installation. To do so,
 reconfigure the NUT device via
 {% my integrations title="**Settings** > **Devices & services**" %},
-click {% icon "mdi:dots-vertical" %} for the NUT device you wish to update,
+select {% icon "mdi:dots-vertical" %} for the NUT device you wish to update,
 and select **Reconfigure**.
 
 ## Supported functionality
