@@ -347,15 +347,6 @@ following are known limitations:
 - This NUT integration does not support NUT "commands" that require
 parameters.
 
-It is also important to know:
-
-- This integration does not install a NUT server on Home Assistant
-because of the many installation methods available for Home
-Assistant. The NUT server should be installed on a separate system or
-in a separate container. Please see the [Network UPS
-Tools](https://networkupstools.org/) website for information on
-installing or upgrading your NUT server.
-
 ## Troubleshooting
 
 ### Using NUT to list all variables
