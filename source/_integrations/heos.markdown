@@ -136,7 +136,7 @@ Move one or more items in the target player's queue, effectively reordering the 
 Example action data payload that moves the second item to the top of the play queue:
 
 ```yaml
-action: heos.remove_from_queue
+action: heos.move_queue_item
 target:
   entity_id: media_player.family_room_receiver
 data:
