@@ -23,6 +23,7 @@ ha_codeowners:
   - '@tl-sl'
 ha_integration_type: device
 ha_dhcp: true
+ha_quality_scale: silver
 ---
 
 The [SMLIGHT](https://smlight.tech) SLZB-06x Ethernet Zigbee coordinators
