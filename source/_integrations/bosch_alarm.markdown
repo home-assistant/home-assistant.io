@@ -45,7 +45,7 @@ This entity reports state (_disarmed_, _armed_away_, etc.).
  
 ## Switch
 
-A switch is added for each output configured on the panel. Note that for some panels, only outputs with the type set to "remote output" can be controlled via _Mode 2_ API.
+A switch is added for each output configured on the panel. Note that for some panels, only outputs with the type set to **remote output** can be controlled via _Mode 2_ API.
 
 A switch is also added for each configured door.
 
