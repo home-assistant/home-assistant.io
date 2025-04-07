@@ -304,8 +304,7 @@ notification.
 ```yaml
 # Send notification on UPS Power Failure
 automation:
-  alias: NUT Power Failure Notification
-  description: NUT Power Failure Notification
+  alias: "NUT Power failure notification"
   mode: single
   triggers:
     - trigger: state
