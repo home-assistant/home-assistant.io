@@ -1,6 +1,6 @@
 ---
 title: Squeezebox (Lyrion Music Server)
-description: Instructions on how to integrate Squeezebox players and a Lyrion Music Server (LMS)  into Home Assistant.
+description: Instructions on how to integrate Squeezebox players and a Lyrion Music Server (LMS) into Home Assistant.
 ha_category:
   - Media player
 ha_release: pre 0.7
@@ -26,6 +26,11 @@ This integration connects to an existing <abbr title="Lyrion Music Server">LMS</
 
 The Squeezebox music player ecosystem, which can be controlled through this integration, includes hardware audio players from Logitech, including [Squeezebox 3rd Generation, Squeezebox Boom, Squeezebox Receiver, Transporter, Squeezebox2, Squeezebox and SLIMP3](https://lms-community.github.io/players-and-controllers/hardware-comparison/), and many software emulators like [Squeezelite, SqueezeSlave, SoftSqueeze and SqueezePlay](https://sourceforge.net/projects/lmsclients/files/).
 
+## Prerequisites
+
+1. One or more [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/).
+2. One or more [Lyrion Music Servers or Logitech Media Servers (LMS)](https://lyrion.org/getting-started) with the Squeezebox players connected to these servers.
+
 {% include integrations/config_flow.md %}
 
 {% note %}
@@ -33,8 +38,23 @@ This platform uses the web interface of the Lyrion Music Server (LMS) to send co
 {% endnote %}
 
 {% note %}
-The integration now supports Lyrion Music Servers behind an HTTPS reverse proxy. Please note that Lyrion Music Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the `https` option. If you have configured a reverse proxy, remember to update the port number.
+A single configuration entry for the integration adds all Squeezebox devices connected to one LMS to Home Assistant.
 {% endnote %}
+
+When the LMS cannot be discovered, it can be manually configured.
+
+{% configuration_basic %}
+Host:
+  description: "The host name or IP address (e.g., \"192.168.1.2\") of your LMS."
+Port:
+  description: "The integration uses the web interface of the Lyrion Music Server (LMS) to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser."
+Username:
+  description: "If you have selected \"Password Protection\" in your LMS Advanced Security, enter your Username here."
+Password:
+  description: "If you have selected \"Password Protection\" in your LMS Advanced Security, enter your Password here."
+Connect over HTTPS:
+  description: "The integration now supports Lyrion Music Servers behind an HTTPS reverse proxy. Please note that Lyrion Music Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the \"Connect over HTTPS\" option. If you have configured a reverse proxy, remember to update the port number."
+{% endconfiguration_basic %}
 
 The Logitech Transporter which have two digital inputs can be activated using a script. The following example turns on the Transporter and activates the toslink input interface:
 
@@ -61,6 +81,12 @@ Browse limit:
 Volume step:  
  description: Amount to adjust the volume when turning volume up or down.  
 {% endconfiguration_basic %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Announce
 
@@ -231,7 +257,7 @@ data:
   command: mixer
   parameters:
     - volume
-    - "+5"
+    - '+5'
 ```
 
 ### Action `call_query`

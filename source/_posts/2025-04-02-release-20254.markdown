@@ -67,6 +67,8 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [Templates](#templates)
 - [Device hierarchy for energy management](#device-hierarchy-for-energy-management)
+- [Patch releases](#patch-releases)
+  - [2025.4.1 - April 4](#202541---april-4)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -408,7 +410,7 @@ A big thank you to all the contributors involved! 👏
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- The [Home Assistant Yellow](/yellow) and [Home Assistant ZBT-1](/sky_connect)
+- The [Home Assistant Yellow Zigbee/Thread chip](/yellow) and [Home Assistant ZBT-1](/connectzbt1)
   can now be updated directly through Home Assistant update entities.
   Nice [@puddly]!
 - When viewing the details of an entity in the entity dialog, we now provide
@@ -490,6 +492,88 @@ Home Assistant correctly shows the usage of each device.
 Awesome addition there [@karwosts]!
 
 [@karwosts]: https://github.com/karwosts
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2025.4 in April.
+These patch releases only contain bug fixes. Our goal is to release a patch
+release every Friday.
+
+### 2025.4.1 - April 4
+
+- Fix blocking event loop - daikin ([@fredrike] - [#141442])
+- Made Google Search enable dependent on Assist availability ([@IvanLH] - [#141712])
+- Fix humidifier platform for Comelit ([@chemelli74] - [#141854])
+- Bump evohome-async to 1.0.5 ([@zxdavb] - [#141871])
+- Replace "to log into" with "to log in to" in `incomfort` ([@NoRi2909] - [#142060])
+- Avoid unnecessary reload in apple_tv reauth flow ([@emontnemery] - [#142079])
+- Add translation for hassio update entity name ([@piitaya] - [#142090])
+- Bump pyenphase to 1.25.5 ([@catsmanac] - [#142107])
+- Hide broken ZBT-1 config entries on the hardware page ([@puddly] - [#142110])
+- Bump pysmhi to 1.0.1 ([@gjohansson-ST] - [#142111])
+- Avoid logging a warning when replacing an ignored config entry ([@bdraco] - [#142114])
+- Slow down polling in Tesla Fleet ([@Bre77] - [#142130])
+- Bump tesla-fleet-api to v1.0.17 ([@Bre77] - [#142131])
+- Tado bump to 0.18.11 ([@erwindouna] - [#142175])
+- Add preset mode to SmartThings climate ([@joostlek] - [#142180])
+- Do not create a HA mediaplayer for the builtin Music Assistant player ([@marcelveldt] - [#142192])
+- Do not fetch disconnected Home Connect appliances ([@Diegorro98] - [#142200])
+- Fix fibaro setup ([@rappenze] - [#142201])
+- Fix circular mean by always storing and using the weighted one ([@edenhaus] - [#142208])
+- Bump pySmartThings to 3.0.2 ([@joostlek] - [#142257])
+- Update frontend to 20250404.0 ([@bramkragten] - [#142274])
+- Bump forecast-solar lib to v4.1.0 ([@klaasnicolaas] - [#142280])
+- Fix skyconnect tests ([@zweckj] - [#142262])
+- Fix empty actions ([@Petro31] - [#142292])
+
+[#141442]: https://github.com/home-assistant/core/pull/141442
+[#141505]: https://github.com/home-assistant/core/pull/141505
+[#141712]: https://github.com/home-assistant/core/pull/141712
+[#141854]: https://github.com/home-assistant/core/pull/141854
+[#141871]: https://github.com/home-assistant/core/pull/141871
+[#142060]: https://github.com/home-assistant/core/pull/142060
+[#142079]: https://github.com/home-assistant/core/pull/142079
+[#142090]: https://github.com/home-assistant/core/pull/142090
+[#142107]: https://github.com/home-assistant/core/pull/142107
+[#142110]: https://github.com/home-assistant/core/pull/142110
+[#142111]: https://github.com/home-assistant/core/pull/142111
+[#142114]: https://github.com/home-assistant/core/pull/142114
+[#142130]: https://github.com/home-assistant/core/pull/142130
+[#142131]: https://github.com/home-assistant/core/pull/142131
+[#142175]: https://github.com/home-assistant/core/pull/142175
+[#142180]: https://github.com/home-assistant/core/pull/142180
+[#142192]: https://github.com/home-assistant/core/pull/142192
+[#142200]: https://github.com/home-assistant/core/pull/142200
+[#142201]: https://github.com/home-assistant/core/pull/142201
+[#142208]: https://github.com/home-assistant/core/pull/142208
+[#142257]: https://github.com/home-assistant/core/pull/142257
+[#142262]: https://github.com/home-assistant/core/pull/142262
+[#142274]: https://github.com/home-assistant/core/pull/142274
+[#142280]: https://github.com/home-assistant/core/pull/142280
+[#142292]: https://github.com/home-assistant/core/pull/142292
+[@Bre77]: https://github.com/Bre77
+[@Diegorro98]: https://github.com/Diegorro98
+[@IvanLH]: https://github.com/IvanLH
+[@NoRi2909]: https://github.com/NoRi2909
+[@Petro31]: https://github.com/Petro31
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@catsmanac]: https://github.com/catsmanac
+[@chemelli74]: https://github.com/chemelli74
+[@edenhaus]: https://github.com/edenhaus
+[@emontnemery]: https://github.com/emontnemery
+[@erwindouna]: https://github.com/erwindouna
+[@fredrike]: https://github.com/fredrike
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@marcelveldt]: https://github.com/marcelveldt
+[@piitaya]: https://github.com/piitaya
+[@puddly]: https://github.com/puddly
+[@rappenze]: https://github.com/rappenze
+[@zweckj]: https://github.com/zweckj
+[@zxdavb]: https://github.com/zxdavb
 
 ## Need help? Join the community!
 
