@@ -60,6 +60,10 @@ Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the r
 
 If your authentication changes, the integration will automatically prompt you to enter the new credentials.
 
+## Reconfiguration
+
+This integration supports reconfiguration, so it is possible to change the configuration such as the IP Address after it is configured. 
+
 ## Troubleshooting
 
 ### Diagnostics information
