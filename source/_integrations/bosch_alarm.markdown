@@ -91,7 +91,7 @@ The easiest way to solve this is to follow the full reset and restore procedure 
 4. Initial Home Assistant test.
    1. Wait 2 to 5 minutes after resetting the panel.
    2. Connect Home Assistant to the panel using its IP address.
-   3. Home Assistant should connect using default config and show panel status.
+   3. Home Assistant should connect using default configuration and show panel status.
 5. Restore your original configuration.
    1. Reconnect to the panel using A-Link Plus.
    2. Modify zones, outputs, and user codes to match original setup.
