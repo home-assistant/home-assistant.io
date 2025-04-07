@@ -49,6 +49,15 @@ Core firmware on your SLZB-06x device must be `v2.3.6` or newer. If you have an 
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "Hostname or IP address of your SLZB device"
+Username:
+  description: "Username for web login to your SLZB device"
+Password:
+  description: "Password for web login to your SLZB device"
+{% endconfiguration_basic %}
+
 ## Integration entities
 
 ### Sensors
