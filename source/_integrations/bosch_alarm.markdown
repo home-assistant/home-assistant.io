@@ -68,40 +68,44 @@ At startup, the integration checks whether your panel supports push data updates
 
 ### Issues with Bosch Solution 2000/3000/4000 panels
 
-We have found that some panels end up with a configuration on them that is incompatible with the integration. The easiest way to solve this is to follow the full reset and restore procedure outline below.
+We have found that some panels end up with a configuration on them that is incompatible with the integration. 
+When this happens, you will get a connection error when attempting to communicate with the panel, even if the credentials are correct.
+If you continue to have connection errors even after rebooting your panel, then you have an issue with your configuration.
+The easiest way to solve this is to follow the full reset and restore procedure outline below.
 
 #### Resetting the configuration and restoring the integration
 
-1. Update firmware (Recommended)
-   - Download and install the latest firmware for the control panel and IP module from the Bosch Security website.
-2. Back up the existing configuration
-   - Connect to the panel via A-Link Plus
-   - Perform an Upload of the panel configuration
-   - Save the configuration to your computer
-3. Default the control panel
-   - Press the default/reset button on the panel
-   - Use installer code 1234
-   - Set:
-     - Location 0081 = 3 (Enables IP module mode)
-     - Location 4456 = 4 (Enables RSC+ communication)
-   - Set date and time using master code 25806#
-4. Initial Home Assistant test
-   - Wait 2 to 5 minutes after resetting the panel
-   - Connect Home Assistant to the panel using its IP address
-   - Home Assistant should connect using default config and show panel status
-5. Restore your original configuration
-   - Reconnect to the panel using A-Link Plus
-   - Modify zones, outputs, and user codes to match original setup
-   - Save and Download the updated config to the panel
-   - Wait 2 to 5 minutes
-6. Reconnect to Home Assistant
-   - Open Home Assistant
-   - The integration should now detect the updated configuration
-   - All relevant entities (zones, partitions, outputs) should appear automatically
+1. Update firmware (Recommended).
+   1. Download and install the latest firmware for the control panel and IP module from the Bosch Security website.
+2. Back up the existing configuration.
+   1. Connect to the panel via A-Link Plus.
+   2. Perform an Upload of the panel configuration.
+   3. Save the configuration to your computer.
+3. Default the control panel.
+   1. Press the default/reset button on the panel.
+   2. Use installer code 1234.
+   3. Set:
+     1. Location 0081 = 3 (Enables IP module mode)
+     2. Location 4456 = 4 (Enables RSC+ communication)
+   4. Set date and time using master code `25806#`.
+4. Initial Home Assistant test.
+   1. Wait 2 to 5 minutes after resetting the panel.
+   2. Connect Home Assistant to the panel using its IP address.
+   3. Home Assistant should connect using default config and show panel status.
+5. Restore your original configuration.
+   1. Reconnect to the panel using A-Link Plus.
+   2. Modify zones, outputs, and user codes to match original setup.
+   3. Save and Download the updated config to the panel.
+   4. Wait 2 to 5 minutes.
+6. Reconnect to Home Assistant.
+   1. Open Home Assistant.
+   2. The integration should now detect the updated configuration.
+   3. All relevant entities (zones, partitions, outputs) should appear automatically.
 
 #### Restarting a panels network stack
 
 We have found that the Solution panels have a bug where they can get into a state where the network module stops letting us use the _Mode 2_ API.
+If your configuration information is correct but you are still unable to connect to your panel, than you are likley encountering this bug.
 This can be resolved by restating the network modules, which can be done with the following steps.
 
 ##### Resetting network module 1
