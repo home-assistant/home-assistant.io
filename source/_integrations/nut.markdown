@@ -113,10 +113,13 @@ a monitored UPS loses power and begins using the battery.
 
 #### Prerequisites
 
-To use this example, the NUT integration must be installed and
-configured, the user's mobile device must be configured for
-notification, the NUT server must be configured with a device named
-`ups` and the status sensor must be named `ups_status`.
+- The NUT integration must be installed and
+configured.
+- Your mobile device must be configured for
+notification.
+- The NUT server must be configured with a device named
+`ups`.
+- The status sensor must be named `ups_status`.
 
 ```yaml
 # Send notification on UPS Power Failure
