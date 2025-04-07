@@ -141,8 +141,8 @@ Some older firmwares for these panels use outdated certificates that are no long
 
 ## Known limitations
 
-The integration does not provide the ability to configure the panel, which can instead be done via the configuration utility for your panel.
-Some older firmwares for the Solution / AMAX series panels only support a single connection at a time. If you try to have a cloud connection and use the integration on these panels simultaneously, the panel's network stack can lock up, and the integration will stop working.
+- The integration does not allow you to configure the panel; you can instead do this via the panel's configuration utility.
+- Some older firmware versions for the Solution / AMAX series panels only support a single connection at a time. If you try to have a cloud connection and use the integration on these panels simultaneously, the panel's network stack can lock up, and the integration will stop working.
 
 ## Removing the integration
 
