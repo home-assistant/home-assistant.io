@@ -99,7 +99,7 @@ The following sensors may be available:
 - **Status**: Human-readable version of "Status data" (see below)
 - **Status data**: UPS status
 
-The **Status data* sensor is translated into a human-readable virtual
+The **Status data** sensor is translated into a human-readable virtual
 sensor named **Status**.
 
 Some power devices provide monitoring information about individual
