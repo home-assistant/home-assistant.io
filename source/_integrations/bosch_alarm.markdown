@@ -94,7 +94,7 @@ The easiest way to solve this is to follow the full reset and restore procedure 
    3. Home Assistant should connect using default configuration and show panel status.
 5. Restore your original configuration.
    1. Reconnect to the panel using A-Link Plus.
-   2. Modify zones, outputs, and user codes to match original setup.
+   2. Modify zones, outputs, and user codes to match the original setup.
    3. Save and Download the updated config to the panel.
    4. Wait 2 to 5 minutes.
 6. Reconnect to Home Assistant.
