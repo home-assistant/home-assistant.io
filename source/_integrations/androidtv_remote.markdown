@@ -293,7 +293,7 @@ It requires the on-screen keyboard to be closed first.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
-| `entity_id`    |       no | Name(s) of Android TV remote entities. |
+| `config_entry_id` |    no | The ID of the Android TV Remote config entry. |
 | `text`         |       no | Text to send as input to device. |
 
 Example:
@@ -301,9 +301,8 @@ Example:
 ```yaml
 action: androidtv_remote.send_text
 data:
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
   text: "hello world"
-target:
-  entity_id: remote.living_room_tv
 ```
 
 ### Dashboard example
