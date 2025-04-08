@@ -106,3 +106,9 @@ It is the intention and highly likely that this integration works with all devic
 [reported working with the underlying huawei-lte-api library](https://github.com/Salamek/huawei-lte-api#tested-on).
 
 It will not work on ones noted as not working in that list.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
