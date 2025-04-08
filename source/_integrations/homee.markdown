@@ -12,6 +12,7 @@ ha_domain: homee
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - cover
   - light
   - lock
@@ -25,19 +26,6 @@ ha_quality_scale: bronze
 ---
 
 [Homee](https://hom.ee) is a smart home system, able to integrate various protocols such as Z-Wave, Zigbee, EnOcean, and more. The Homee {% term integration %} will let you use the {% term devices %} from your Homee in Home Assistant.
-
-There is currently support for the following device types in Home Assistant:
-
-- binary sensor
-- button
-- cover
-- light
-- lock
-- number
-- sensor
-- select
-- switch
-- valve
 
 ## Prerequisites
 
