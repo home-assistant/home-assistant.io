@@ -285,7 +285,7 @@ target:
 
 ### `androidtv_remote.send_text`
 
-The `androidtv_remote.send_text` action allows you to send text to your Android TV device.
+The `androidtv_remote.send_text` action allows you to send text as input to your Android TV device. This allows you to fill text fields as if it was typed using the keyboard.
 
 {% note %}
 It requires the on-screen keyboard to be closed first.
