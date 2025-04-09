@@ -37,7 +37,7 @@ The integration supports any [Squeezebox compatible hardware or software players
 
 ## Data updates
 
-The integration uses {% term polling %} to receive updates from the LMS. It uses the web interface of the Lyrion Music Server (LMS) to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
+The integration uses {% term polling %} to receive updates from the Lyrion Music Server (LMS). It uses the web interface of the LMS to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
 
 {% include integrations/config_flow.md %}
 
@@ -195,17 +195,17 @@ The integration provides the following entities.
 - **Preset 1 ... Preset 6**
   - **Description**: Play media stored in Preset 1 to Preset 6 on Squeezebox.
 
-- **Brightness Up, Brightness Down**
+- **Brightness up, Brightness down**
   - **Description**: Adjust the brightness on Logitech Squeezebox players
-  - **Available On**: Logitech hardware players with built-in screen, such as Radio and Boom.
+  - **Available on**: Logitech hardware players with built-in screen, such as Radio and Boom.
   
-- **Bass Up, Bass Down**
+- **Bass up, Bass down**
   - **Description**: Adjust the bass on Logitech Squeezebox players, such as Radio and Boom.
-  - **Available On**: Logitech hardware players such as Radio, Duet and Boom.
+  - **Available on**: Logitech hardware players such as Radio, Duet and Boom.
 
-- **Treble Up, Treble Down**
+- **Treble up, Treble down**
   - **Description**: Adjust the treble on Logitech Squeezebox players, such as Radio and Boom.
-  - **Available On**: Logitech hardware players such as Radio, Duet and Boom.
+  - **Available on**: Logitech hardware players such as Radio, Duet, and Boom.
 
 #### Sensors
 
