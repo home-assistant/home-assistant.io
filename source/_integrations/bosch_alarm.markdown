@@ -50,7 +50,7 @@ This entity reports state (_disarmed_, _armed_away_, etc.).
 
 A binary sensor is added for each point configured on your alarm.
 
-A binary sensor is added for each area to indicate whether it can be armed away or armed home.
+Two binary sensors are added for each area to indicate whether it can be armed away or armed home.
 
 ## Sensor
 
