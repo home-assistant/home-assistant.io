@@ -103,7 +103,7 @@ Zones:
 
 This integration uses both local and cloud {% term polling %} and also receives
 cloud push events using MQTT. Local communication is preferred when possible.
-Map data and routines are always fetched through the cloud, and Dyad and Zeo devices are cloud only. 
+Map data and routines are always fetched through the cloud, and Dyad and Zeo devices are cloud only.
 
 The integration will automatically discover your Roborock devices using the cloud APIs and get
 the needed information to communicate locally with them, if supported. Please ensure your Home Assistant
