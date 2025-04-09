@@ -52,7 +52,7 @@ A sensor is provided for each of the following alarm types that displays the hea
 - Gas
 - Burglary
 
-The status can be one of the following:
+The state for the sensor can be one of the following:
 - No issues
 - Trouble
 
