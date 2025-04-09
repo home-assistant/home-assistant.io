@@ -26,18 +26,14 @@ This integration connects to an existing <abbr title="Lyrion Music Server">LMS</
 
 The Squeezebox music player ecosystem, which can be controlled through this integration, includes hardware audio players from Logitech, including [Squeezebox 3rd Generation, Squeezebox Boom, Squeezebox Receiver, Transporter, Squeezebox2, Squeezebox and SLIMP3](https://lms-community.github.io/players-and-controllers/hardware-comparison/), and many software emulators like [Squeezelite, SqueezeSlave, SoftSqueeze and SqueezePlay](https://sourceforge.net/projects/lmsclients/files/).
 
-## Prerequisites
-
-1. One or more [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/).
-2. One or more [Lyrion Music Servers or Logitech Media Servers (LMS)](https://lyrion.org/getting-started) with the Squeezebox players connected to these servers.
-
 ## Supported devices
 
 The integration supports any [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/) and both Lyrion Music Servers and Logitech Media Servers.
 
-## Data updates
+## Prerequisites
 
-The integration uses {% term polling %} to receive updates from the Lyrion Music Server (LMS). It uses the web interface of the LMS to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
+1. One or more [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/).
+2. One or more [Lyrion Music Servers or Logitech Media Servers (LMS)](https://lyrion.org/getting-started) with the Squeezebox players connected to these servers.
 
 {% include integrations/config_flow.md %}
 
@@ -86,16 +82,6 @@ Browse limit:
 Volume step:  
  description: Amount to adjust the volume when turning volume up or down.  
 {% endconfiguration_basic %}
-
-## Known limitations
-
-The LMS API, which is used by this integration, does not currently provide the ability to override or control fade-in & crossfade settings. This means that if you have enabled **Play or Resume fade-in duration** within the player's audio settings, this fade-in will be applied to any announcement played.  This could potentially lead to the start of an announcement being missed as it fades in.  You should, therefore, consider a short **Play or Resume fade-in duration** or preferably disabling this feature if you make use of announcements.
-
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
 
 ## Announce
 
@@ -319,3 +305,17 @@ This action can be used to integrate a Squeezebox query into an automation. For 
 `hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`
 To work with the results:
 `result = hass.states.get("media_player.kitchen").attributes['query_result']`
+
+## Data updates
+
+The integration uses {% term polling %} to receive updates from the Lyrion Music Server (LMS). It uses the web interface of the LMS to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
+
+## Known limitations
+
+The LMS API, which is used by this integration, does not currently provide the ability to override or control fade-in & crossfade settings. This means that if you have enabled **Play or Resume fade-in duration** within the player's audio settings, this fade-in will be applied to any announcement played.  This could potentially lead to the start of an announcement being missed as it fades in.  You should, therefore, consider a short **Play or Resume fade-in duration** or preferably disabling this feature if you make use of announcements.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
