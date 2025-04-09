@@ -47,6 +47,8 @@ This entity reports state (_disarmed_, _armed_away_, etc.).
 
 A binary sensor is added for each point configured on your alarm.
 
+A binary sensor is added for each area that lets you know if the area is currently able to be armed away or armed home.
+
 ## Authentication
 
 The primary means of authentication for the _Mode 2_ API is the _Automation_ passcode. It needs to be at least 10 characters long, and it is different from the _User_ code -- a shorter numeric pin used to arm/disarm the panel.
