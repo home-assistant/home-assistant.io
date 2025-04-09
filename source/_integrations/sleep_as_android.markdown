@@ -27,12 +27,11 @@ The Sleep as Android integration allows you to trigger sleep-related automations
 
 ## Prerequisites
 
-This integration uses Webhooks to receive events from Sleep as Android. By default, Webhook triggers can only be accessed from devices on the same network as Home Assistant. If you want to receive events while away from your home network you have to enable remote access, either by adding a [remote URL](/docs/configuration/remote/) or via [Nabu Casa Cloud](https://www.nabucasa.com/config/webhooks/).
+This integration uses Webhooks to receive events from Sleep as Android. By default, Webhook triggers can only be accessed from devices on the same network as Home Assistant. If you want to receive events while away from your home network, remote access must be enabled, either by adding a [remote URL](/docs/configuration/remote/) or via [Nabu Casa Cloud](https://www.nabucasa.com/config/webhooks/).
 
 Steps to set up the integration:
 
-1. Preferably, open Home Assistant on the device you want to connect to the Sleep as Android integration and initiate the setup. 
-
+1. Preferably, open Home Assistant on the device you want to connect to the Sleep as Android integration and initiate the setup.
 2. You will be presented a URL during the setup process. Mark the URL and copy it to the clipboard.
 3. Open the Sleep as Android app and navigate to *⚙️ Settings → Services → Automation → Webhooks*.
 4. Turn on the switch to enable Webhooks and paste the Webhook URL from your clipboard into the URL field.
@@ -51,7 +50,7 @@ If you scroll to the top and click on *Events* you can individually select and d
 "Webhook ID":
   description: "The Webhook ID for the Webhook URL."
 "Cloudhook":
-    description: "Wether a Nabu Casa Cloudhook is used."
+    description: "Whether a Nabu Casa Cloudhook is used."
 {% endconfiguration_basic %}
 
 ## Events
@@ -98,7 +97,7 @@ Events related to the Lullaby feature.
 
 | Event type            | Description                     |
 | --------------------- | ------------------------------- |
-| `lullaby_start`       | Lullbay started playing         |
+| `lullaby_start`       | Lullaby started playing         |
 | `lullaby_stop`        | Lullaby stopped playing         |
 | `lullaby_volume_down` | Lullaby started lowering volume |
 
@@ -114,7 +113,7 @@ Events when entering a new sleep phase.
 | ------------- | ----------- |
 | `awake`       | Woke up     |
 | `deep_sleep`  | Deep sleep  |
-| `light_sleep` | ight sleep  |
+| `light_sleep` | Light sleep  |
 | `not_awake`   | Fell asleep |
 | `rem`         | REM sleep   |
 
