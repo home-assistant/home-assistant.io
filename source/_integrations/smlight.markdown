@@ -40,14 +40,29 @@ You need a supported SLZB-06 adapter.
 
 - [SLZB-06](https://smlight.tech/product/slzb-06)
 - [SLZB-06M](https://smlight.tech/product/slzb-06m)
+- [SLZB-06Mg24](https://smlight.tech/product/slzb-06mg24)
 - [SLZB-06p7](https://smlight.tech/product/slzb-06p7)
 - [SLZB-06p10](https://smlight.tech/product/slzb-06p10/)
+- SLZB-MR1 - Additional entities will be created for the second Zigbee radio, including Zigbee firmware updates, temperature sensor, and firmware type. (Note: the Zigbee restart and flash mode buttons are shared between both radios.) Requires core firmware `v2.8.x` or later.
   
 Core firmware on your SLZB-06x device must be `v2.3.6` or newer. If you have an older `v2.x.x` version, you can update from within Home Assistant. If you have `v0.9.9`, update using the [SMLIGHT web flasher](https://smlight.tech/flasher/#SLZB-06) before installing this integration.
 
 {% include integrations/config_flow.md %}
 
-## Integration entities
+{% configuration_basic %}
+Host:
+  description: "Hostname or IP address of your SLZB device"
+Username:
+  description: "Username for web login to your SLZB device"
+Password:
+  description: "Password for web login to your SLZB device"
+{% endconfiguration_basic %}
+
+## Data Updates
+
+The **SMLIGHT** {% term integration %} will poll for sensor updates every 5 minutes, except for the internet connectivity sensor which is checked every 15 minutes. Firmware updates for both core and Zigbee are checked once per day.
+
+## Supported functionality
 
 ### Sensors
 
@@ -85,6 +100,8 @@ The following switches will be created:
 - **LED night mode** - Enables night mode, which turns off the LEDs overnight, based on the times set in SLZB-06x web UI.
 - **Enable VPN** - Enable WireGuard VPN client (requires configuration via the SMLIGHT web UI).
 
+Switches update in real-time if the settings are changed from the SLZB device web interface.
+
 ### Updates
 
 The following update entities will be created:
@@ -93,3 +110,9 @@ The following update entities will be created:
 - **Zigbee firmware** - Firmware updates of Zigbee chip
 
 The updates offered in Home Assistant will match your currently installed firmware. This is based on the firmware channel (dev, release) and for Zigbee also on the firmware type (coordinator, router, Thread). If you wish to switch channels, install the different firmware type in the SMLIGHT web UI. You will get notifications when new firmware updates are available to install.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

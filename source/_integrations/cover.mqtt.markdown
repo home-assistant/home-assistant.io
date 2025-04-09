@@ -203,6 +203,11 @@ payload_stop:
   required: false
   type: string
   default: STOP
+payload_stop_tilt:
+  description: The command payload that stops the tilt.
+  required: false
+  type: string
+  default: stop
 platform:
   description: Must be `cover`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
   required: true
