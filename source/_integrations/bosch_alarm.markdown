@@ -45,7 +45,7 @@ This entity reports state (_disarmed_, _armed_away_, etc.).
  
 ## Switch
 
-A switch is added for each output configured on the panel. Note that for some panels, only outputs with the type set to "remote output" can be controlled via _Mode 2_ API.
+A switch is added for each output configured on the panel. Note that for some panels, only outputs with the type set to **remote output** can be controlled via _Mode 2_ API.
 
 Three switches are added per door, that allow for locking, securing or cycling the door.
 
@@ -66,6 +66,13 @@ The integration will prompt for the required passcodes, which depend on the pane
 {% important %}
 Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the regularly configured alarm pin: you will _not_ be prompted for a _User_ code when arming/disarming through the integration.
 {% endimportant %}
+
+## Troubleshooting
+
+### Diagnostics information
+
+Consider uploading [the diagnostics file](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) along with your issue report to allow faster triaging and pinpointing the issue.
+The information contained in the generated diagnostics file is redacted to avoid any sensitive information while still remaining useful for developers to fix the issue.
 
 ## Removing the integration
 
