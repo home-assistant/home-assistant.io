@@ -4,6 +4,7 @@ description: Integrate Bosch Alarms.
 ha_category:
   - Alarm
   - Binary sensor
+  - Sensor
 ha_release: 2025.4
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_domain: bosch_alarm
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -37,6 +39,7 @@ The following {% term entities %} are provided:
 
 - [Alarm Control Panel](#alarm-control-panel)
 - [Binary Sensor](#binary-sensor)
+- [Sensor](#sensor)
 
 ### Alarm Control Panel
 
@@ -48,6 +51,10 @@ This entity reports state (_disarmed_, _armed_away_, etc.).
 A binary sensor is added for each point configured on your alarm.
 
 A binary sensor is added for each area that lets you know if the area is currently able to be armed away or armed home.
+
+## Sensor
+
+A sensor is provided per area that lists how many points are currently in a faulted state.
 
 ## Authentication
 
@@ -92,6 +99,10 @@ automation:
 ```
 
 {% endraw %}
+
+## Reconfiguration
+
+This integration supports reconfiguration, so it is possible to change the configuration such as the IP Address after it is configured.
 
 ## Troubleshooting
 

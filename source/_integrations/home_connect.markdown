@@ -834,6 +834,10 @@ It is not recommended to use the **Current cavity temperature** sensor because t
 
 #### Event sensors
 
+{% note %}
+The event sensors will not be provided by the integration until the appliance reports the event.
+{% endnote %}
+
 {% details "Event sensor options" %}
 All the event sensors will have the following possible values:
 
