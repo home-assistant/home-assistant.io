@@ -3,7 +3,7 @@ title: Bosch Alarm
 description: Integrate Bosch Alarms.
 ha_category:
   - Alarm
-  - Binary sensor
+  - Binary Sensor
   - Sensor
 ha_release: 2025.4
 ha_iot_class: Local Push
