@@ -48,15 +48,18 @@ This entity reports state (_disarmed_, _armed_away_, etc.).
 A sensor is provided per area that lists how many points are currently in a faulted state.
 
 A sensor is provided for each of the following alarm types that displays the health of that alarm
+
 - Fire
 - Gas
 - Burglary
 
 The state for the sensor can be one of the following:
+
 - No issues
 - Trouble
 
   These signals indicate a malfunction or failure within the system. These signals often point to something that, if left unresolved, could lead to a complete system failure. For example, a broken wire or a failed smoke detector could trigger a trouble signal. These signals generally require prompt action to ensure the system continues to work as intended.
+
 - Supervisory
 
   These signals relate to system components that require attention but are not in immediate danger of failing. They are typically non-urgent and indicate that something within the system needs maintenance or is functioning suboptimally. These signals might include a closed valve or a fire extinguisher that’s out of service.
