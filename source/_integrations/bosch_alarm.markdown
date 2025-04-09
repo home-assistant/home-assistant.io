@@ -4,6 +4,7 @@ description: Integrate Bosch Alarms.
 ha_category:
   - Alarm
   - Switch
+  - Sensor
 ha_release: 2025.4
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_domain: bosch_alarm
 ha_platforms:
   - alarm_control_panel
   - switch
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -37,6 +39,7 @@ The following {% term entities %} are provided:
 
 - [Alarm Control Panel](#alarm-control-panel)
 - [Switch](#switch)
+- [Sensor](#sensor)
 
 ### Alarm Control Panel
 
@@ -48,6 +51,10 @@ This entity reports state (_disarmed_, _armed_away_, etc.).
 A switch is added for each output configured on the panel. Note that for some panels, only outputs with the type set to **remote output** can be controlled via _Mode 2_ API.
 
 Three switches are added per door, that allow for locking, securing or cycling the door.
+
+## Sensor
+
+A sensor is provided per area that lists how many points are currently in a faulted state.
 
 ## Authentication
 
@@ -66,6 +73,12 @@ The integration will prompt for the required passcodes, which depend on the pane
 {% important %}
 Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the regularly configured alarm pin: you will _not_ be prompted for a _User_ code when arming/disarming through the integration.
 {% endimportant %}
+
+If your authentication changes, the integration will automatically prompt you to enter the new credentials.
+
+## Reconfiguration
+
+This integration supports reconfiguration, so it is possible to change the configuration such as the IP Address after it is configured.
 
 ## Troubleshooting
 
