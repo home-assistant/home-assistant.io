@@ -92,6 +92,8 @@ But you can do the following workaround that exposes a script to voice assistant
 9. Create a script (**Settings** > **Automations & scenes** > **Scripts** > **Create script**)
 10. Select 3 dots > **Edit in YAML** and enter the following (edit the `conversation.google_generative_ai_2` to match the entity created from the 1st step):
 
+{% raw %}
+
 ```yaml
 sequence:
   - action: conversation.process
@@ -119,6 +121,7 @@ fields:
     description: The query to search Google for
     required: true
 ```
+{% endraw %}
 
 11. Select **Save script**
 12. Select 3 dots > **Settings** > **Voice assistants**
