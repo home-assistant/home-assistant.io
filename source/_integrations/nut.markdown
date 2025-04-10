@@ -65,6 +65,12 @@ Password:
 
 ## Supported functionality
 
+{% note %}
+This NUT integration uses the NUT protocol to retrieve "variables"
+from the NUT server. Only sensors and diagnostic sensors available for
+your device are added to Home Assistant.
+{% endnote %}
+
 {% important %}
 The username and password configured for the device must be granted
 `instcmds` permissions on the NUT server to use buttons and
@@ -73,6 +79,178 @@ credentials are not specified. See the [NUT server
 documentation](https://networkupstools.org/documentation.html) for
 configuration information.
 {% endimportant %}
+
+### Sensors
+
+Sensors provide information about a NUT device.
+
+The following sensors may be available:
+
+- **Alarms**: UPS alarms
+- **Battery charge (%)**: Battery charge
+- **Charging status**: Status of the battery charger, with the available states: `charging`, `discharging`, `floating`, `resting`, `unknown`, `disabled`, and `off`
+- **Input current (A)**: Input current
+- **Input load (%)**: Load on (ePDU) input
+- **Input voltage (V)**: Input voltage
+- **Load (%)**: Load on UPS
+- **Outlet voltage (V)**: Total output voltage
+- **Output phases**: Output phases
+- **Output voltage (V)**: Output voltage
+- **Status**: Human-readable version of "Status data" (see below)
+- **Status data**: UPS status
+
+The **Status data** sensor is translated into a human-readable virtual
+sensor named **Status**.
+
+Some power devices provide monitoring information about individual
+outlets. The following sensors may be available for each such outlet:
+
+- **Outlet NAME current (A)**: Current of named outlet
+- **Outlet NAME description**: Description of named outlet
+- **Outlet NAME power (VA)**: Apparent power of named outlet
+- **Outlet NAME real power (W)**: Real power of named outlet
+
+Additional information about the values reported for these sensors can
+be found in the Network UPS Tools repository documentation on
+[variable names](https://github.com/networkupstools/nut/blob/master/docs/nut-names.txt).
+
+### Diagnostic sensors
+
+Diagnostic sensors provide additional information about a NUT device.
+
+{% important %}
+Most of this integration's diagnostic sensors are disabled by default
+to reduce storage overhead for Home Assistant. The diagnostic sensors
+marked with an asterisk \* are enabled by default. To use a disabled
+sensor, you need to enable them first. See the [enabling or disabling
+entities](/common-tasks/general/#enabling-or-disabling-entities)
+documentation for information on how to do this.
+{% endimportant %}
+
+{% note %}
+Certain diagnostic sensor values are described as "opaque by mfg" in
+the table below and NUT's documentation. This means the value returned
+for the sensor may vary by manufacturer.
+{% endnote %}
+
+The following diagnostic sensors may be available:
+
+- **Ambient humidity (%)**\*: *Ambient relative humidity
+- **Ambient humidity status**\*: Ambient humidity status relative to the thresholds, with the available states: `good`, `warning-low`, `critical-low`, `warning-high`, and `critical-high`
+- **Ambient temperature (°C)**\*: Ambient temperature
+- **Ambient temperature status**\*: Ambient temperature status relative to the thresholds, with the available states: `good`, `warning-low`, `critical-low`, `warning-high`, and `critical-high`
+- **Apparent power (VA)**: Current value of apparent power
+- **Battery alarm threshold**: Battery alarm threshold
+- **Battery capacity (Ah)**: Battery capacity
+- **Battery chemistry**: Battery chemistry (opaque by mfg)
+- **Battery current (A)**: Battery current
+- **Battery date**: Battery installation or last change date (opaque by mfg)
+- **Battery manuf date**: Battery manufacturing date (opaque by mfg)
+- **Battery runtime (secs)**: Battery runtime
+- **Battery temperature (°C)**: Battery temperature
+- **Battery voltage (V)**: Battery voltage
+- **Beeper status**: UPS beeper status, with the available states: `enabled`, `disabled`, and `muted`
+- **Efficiency (%)**: Efficiency of the UPS (ratio of output to input current)
+- **External contacts**: UPS external contact sensors (opaque by mfg)
+- **High battery voltage (V)**: Maximum battery voltage (100% charge)
+- **High voltage transfer (V)**: High voltage transfer point
+- **Input L1 current (A)**: Input L1 current
+- **Input L1 line frequency (Hz)**: Input L1 line frequency
+- **Input L1 real power (W)**: Input L1 current sum value of all (ePDU) phases real power
+- **Input L1-N voltage (V)**: Input L1-N voltage
+- **Input L2 current (A)**: Input L2 current
+- **Input L2 line frequency (Hz)**: Input L2 line frequency
+- **Input L2 real power (W)**: Input L2 current sum value of all (ePDU) phases real power
+- **Input L2-N voltage (V)**: Input L2-N voltage
+- **Input L3 current (A)**: Input L3 current
+- **Input L3 line frequency (Hz)**: Input L3 line frequency
+- **Input L3-N voltage (V)**: Input L3-N voltage
+- **Input L3 real power (W)**: Input L3 current sum value of all (ePDU) phases real power
+- **Input bypass L1 current (A)**: Input bypass L1 current
+- **Input bypass L1 real power (W)**: Input bypass L1 value of real power
+- **Input bypass L1-N voltage (V)**: Input bypass L1-N voltage
+- **Input bypass L2 current (A)**: Input bypass L2 current
+- **Input bypass L2 real power (W)**: Input bypass L2 value of real power
+- **Input bypass L2-N voltage (V)**: Input bypass L2-N voltage
+- **Input bypass L3 current (A)**: Input bypass L3 current
+- **Input bypass L3 real power (W)**: Input bypass L3 value of real power
+- **Input bypass L3-N voltage (V)**: Input bypass L3-N voltage
+- **Input bypass current (A)**: Input bypass current
+- **Input bypass frequency (Hz)**: Input bypass line frequency
+- **Input bypass phases**: Input bypass line phases
+- **Input bypass real power (W)**: Input bypass value of real power
+- **Input bypass voltage (V)**: Input bypass voltage
+- **Input current status**: Current status relative to the thresholds, with the available states: `good`, `warning-low`, `critical-low`, `warning-high`, and `critical-high`
+- **Input frequency (Hz)**: Input line frequency
+- **Input frequency status**: Frequency status, with the available states: `good` and `out-of-range`
+- **Input nominal frequency (Hz)**: Nominal input line frequency
+- **Input phases**: Input line phases
+- **Input power (VA)**: Current sum value of all (ePDU) phases apparent power
+- **Input power sensitivity**: Input power sensitivity
+- **Input real power (W)**: Current sum value of all (ePDU) phases real power
+- **Input voltage status**: Status relative to the thresholds
+- **Language**: Language to use on front panel (opaque by mfg)
+- **Load reboot timer (secs)**: Time before the load will be rebooted
+- **Load restart delay (secs)**: Interval to wait before restarting the load
+- **Load shutdown timer (secs)**: Time before the load will be shutdown
+- **Load start timer (secs)**: Time before the load will be started
+- **Low battery runtime (secs)**: Remaining battery runtime when UPS switches to low battery (LB)
+- **Low battery setpoint (%)**: Remaining battery level when UPS switches to low battery (LB)
+- **Low battery voltage (V)**: Minimum battery voltage that triggers FSD status
+- **Low voltage transfer (V)**: Low voltage transfer point
+- **Minimum battery runtime to start (secs)**: Minimum battery runtime for UPS restart after power-off
+- **Minimum battery to start (%)**: Minimum battery level for UPS restart after power-off
+- **Nominal battery voltage (V)**: Nominal battery voltage
+- **Nominal input voltage (V)**: Nominal input voltage
+- **Nominal output current (A)**: Nominal output current
+- **Nominal output frequency (Hz)**: Nominal output frequency
+- **Nominal output power (VA)**: Nominal output apparent power
+- **Nominal output real power (W)**: Nominal output real power
+- **Nominal output voltage (V)**: Nominal output voltage
+- **Nominal power (VA)**: Nominal value of apparent power
+- **Nominal real power (W)**: Nominal value of real power
+- **Number of bad batteries**: Number of bad battery packs
+- **Number of batteries**: Number of internal battery packs
+- **Output L1 current (A)**: Output L1 current
+- **Output L1 power percent (%)**: Output L1 percentage of apparent power relative to maximum load
+- **Output L1 real power (W)**: Output L1 real power
+- **Output L1-N voltage (V)**: Output L1-N voltage
+- **Output L2 current (A)**: Output L2 current
+- **Output L2 power percent (%)**: Output L2 percentage of apparent power relative to maximum load
+- **Output L2 real power (W)**: Output L2 real power
+- **Output L2-N voltage (V)**: Output L2-N voltage
+- **Output L3 current (A)**: Output L3 current
+- **Output L3 power percent (%)**: Output L3 percentage of apparent power relative to maximum load
+- **Output L3 real power (W)**: Output L3 real power
+- **Output L3-N voltage (V)**: Output L3-N voltage
+- **Output apparent power (VA)**: Output apparent power
+- **Output current (A)**: Output current
+- **Output frequency (Hz)**: Output frequency
+- **Output phases**: Output phases
+- **Output real power (W)**: Output real power
+- **Overload setting (%)**: Load when UPS switches to overload condition
+- **Real power (W)**: Current value of real power
+- **Reboot on battery**: UPS coldstarts from battery
+- **Self test date**: Date of last self test (opaque by mfg)
+- **Self test interval (secs)**: Interval between self tests
+- **Self test result**: Results of last self test (opaque by mfg)
+- **Shutdown ability**: Enable or disable UPS shutdown ability
+- **Start on ac**: UPS starts when power is applied or re-applied
+- **Start on battery**: Allow to start UPS from battery
+- **System identifier**: UPS system identifier (opaque by mfg)
+- **Total battery current (A)**: Total battery current
+- **UPS reboot delay (secs)**: Interval to wait before rebooting the UPS
+- **UPS shutdown delay (secs)**: Interval to wait after shutdown with delay command
+- **UPS temperature (°C)**: UPS temperature
+- **UPS type**: UPS type (opaque by mfg)
+- **Voltage transfer reason**: Reason for last transfer to battery (opaque by mfg)
+- **Warning battery setpoint (%)**: Battery level when UPS switches to "Warning" state
+- **Watchdog status**: UPS watchdog status
+
+The following diagnostic sensors may be available for each
+individually monitored outlet:
+
+- **Outlet NAME current status**: Current status relative to the thresholds for the named outlet
 
 ### Buttons
 
@@ -140,12 +318,6 @@ output.voltage.nominal: 120
 
 Use the values from the left hand column. Support is included for most
 values with `ups`, `battery`, `input` and `output` prefixes.
-
-## UPS Status - human-readable version
-
-An additional virtual sensor type `ups.status.display` is available
-translating the UPS status value retrieved from `ups.status` into a
-human-readable version.
 
 ## Device Actions
 

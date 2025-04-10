@@ -57,6 +57,47 @@ There is support for the following platform types within Home Assistant:
         description: Comelit VEDO System.
 {% endconfiguration_basic %}
 
+## Examples
+
+### Automation: Activate the alarm when you leave home
+
+```yaml
+automation:
+- alias: "Arm alarm away"
+  id: "arm_alarm_away"
+  triggers:
+    - platform: state
+      entity_id: person.simone
+      to: "not_home"
+  actions:
+    - action: alarm_control_panel.alarm_arm_away
+      target:
+        entity_id: alarm_control_panel.home
+      data:
+        code: "12345"
+```
+
+### Automation: Close the covers at sunset if you are not at home
+
+```yaml
+automation:
+- alias: Close covers at sunset
+  id: "covers_close_sunset"
+  trigger:
+   - platform: sun
+     event: sunset
+  condition:
+    conditions:
+      - alias: "condition alias (not home)"
+        condition: state
+        entity_id: group.person_family
+        state: "not_home"
+  action:
+    entity_id:
+      - cover.group_home_covers
+    service: cover.close_cover
+```
+
 ## Data updates
 
 This integration {% term polling polls %} data from the device every 5 seconds by default.
