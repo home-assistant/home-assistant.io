@@ -122,4 +122,14 @@ Certain advanced features are not supported directly within this integration and
 * Changing firmware modes (e.g., Zigbee coordinator, Zigbee router, or OpenThread).
 * Configuring security settings.
 * Adjusting network settings.
-* Setting up the WireGuard VPN client details.
+* Setting up the WireGuard VPN client.
+
+## Troubleshooting
+
+- In the unlikely event you encounter issues after a firmware update, you can always downgrade the firmware to a previously stable version using the device's web UI.
+
+- If you require access to the SLZB device over IPv6, this can be enabled in the web UI.
+
+For any problems with the integration, [open an issue on GitHub][1] and include the device diagnostics from the SMLIGHT integration page. Including diagnostics will help identify and address the issue more efficiently.
+
+[1]: https://github.com/home-assistant/core/issues/new?template=bug_report.yml
