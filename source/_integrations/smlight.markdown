@@ -128,7 +128,7 @@ Certain advanced features are not supported directly within this integration and
 
 - In the unlikely event you encounter issues after a firmware update, you can always downgrade the firmware to a previously stable version using the device's web UI.
 
-- If you require access to the SLZB device over IPv6, this can be enabled in the web UI.
+- If you require access to the SLZB device over IPv6, this can be enabled on the device's web UI.
 
 For any problems with the integration, [open an issue on GitHub][1] and include the device diagnostics from the SMLIGHT integration page. Including diagnostics will help identify and address the issue more efficiently.
 
