@@ -102,6 +102,8 @@ The following controls allow you to customize the settings and options for your 
 - **Button locking mode:** Configures whether buttons can be locked to prevent accidental presses, with options for disabled, full locking, or boost only.
 - **Display orientation mode:** Sets the display orientation with options for left-handed, right-handed, or automatic adjustment.
 - **Startup behavior:** Defines the mode the device enters on power-up: disabled, sleeping mode, idle mode (heat-off until moved), or soldering mode.
+- **Soldering tip type:** Select the type of soldering tip in use: TS100 long/Hakko T12, Pinecil short, or PTS200 short. The auto-sense option enables automatic detection of the tip type. This feature requires IronOS v2.23 or higher.
+- **Hall effect sleep timeout:** Specifies the duration of inactivity after which the device enters sleep mode when a hall effect sensor (if present) detects proximity to a magnet. This feature requires IronOS v2.23 or higher.
 
 ### User interface settings
 
@@ -126,7 +128,7 @@ The following controls allow you to customize the settings and options for your 
 - **Power Delivery timeout:** Defines how long the firmware will attempt to negotiate USB-PD before switching to Quick Charge. Lower values are recommended for faster PD negotiation.
 - **Power limit:** Sets a custom wattage cap for the device to maintain the **average** power below this value. Note: Peak power cannot be controlled. When using USB-PD, the limit will be the lower of this setting and the power supply's advertised wattage.
 - **Quick Charge voltage:** Adjusts the maximum voltage for Quick Charge negotiation. Does not affect USB-PD. Ensure the setting aligns with the current rating of your power supply for safety.
-- **Power Delivery 3.1 EPR (Extended Power Range):** Enables EPR mode, allowing input voltages up to 28V with a [compatible USB-C power supply](https://wiki.pine64.org/wiki/Pinecil_Power_Supplies#EPR_PD3.1,_140W_Chargers)
+- **Power Delivery 3.1 EPR (Extended Power Range):** Enables EPR mode, allowing input voltages up to 28V with a [compatible USB-C power supply](https://wiki.pine64.org/wiki/Pinecil_Power_Supplies#EPR_PD3.1,_140W_Chargers). Options are *on*, *off*, and *safe* (does not dynamically request more power). The *safe* option requires IronOS v2.23 or higher.
 
 ### Advanced settings
 
@@ -149,7 +151,7 @@ Get started with this automation example for IronOS with a ready-to-use blueprin
 
 Automatically activate the fume extractor when soldering begins and deactivate it when the soldering iron is idle.
 
-{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/ironos-soldering-fume-extractor-automation-pinecil-v2/802156" %}
+{% my blueprint_import badge blueprint_url="<https://community.home-assistant.io/t/ironos-soldering-fume-extractor-automation-pinecil-v2/802156>" %}
 
 {% details "Example YAML configuration" %}
 

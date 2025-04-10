@@ -10,6 +10,7 @@ ha_domain: azure_storage
 ha_codeowners:
   - '@zweckj'
 ha_integration_type: service
+ha_quality_scale: bronze
 ---
 
 This integration allows you to use [Azure storage accounts](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) for use with Home Assistant Backups.

@@ -9,6 +9,7 @@ ha_domain: wallbox
 ha_platforms:
   - lock
   - number
+  - select
   - sensor
   - switch
 ha_config_flow: true
@@ -53,6 +54,10 @@ The number {% term entity %} is only loaded if the supplied username has suffici
 ## Lock
 
 The {% term integration %} adds a lock {% term entity %}, allowing you to lock the charger. Please note, this only works with a user with admin rights.
+
+## Select
+
+The {% term integration %} adds a select {% term entity %} to control Solar Charging options, allowing you to choose between Eco Mode, Full Solar or disable Solar Charging.
 
 ## Switch
 

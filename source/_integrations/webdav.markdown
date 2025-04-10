@@ -36,8 +36,9 @@ Verify SSL:
 
 ### Common WebDAV URLs
 
-- [Nextcloud](https://nextcloud.com/): `https://<your-nextcloud-domain>/remote.php/dav/files/<your-username>/`
-- [Owncloud](https://owncloud.com/): `https://<your-owncloud-domain>/remote.php/dav/files/<your-username>/`
+- [Nextcloud](https://nextcloud.com/): `https://<your-nextcloud-domain>/remote.php/webdav/` alternatively this can be found in the interface of your Nextcloud instance. 
+  To do this, open the file overview and click on ‘Settings’ in the left-hand column.
+- [Owncloud](https://owncloud.com/): `https://<your-owncloud-domain>/remote.php/webdav/`
 - [Hetzner Storage Box](https://www.hetzner.com/storage/storage-box): `https://<username>.your-storagebox.de`
 - [Strato HiDrive](https://www.strato.de/): `https://webdav.hidrive.strato.com`
 
@@ -48,3 +49,14 @@ This integration follows standard integration removal. No extra steps are requir
 {% include integrations/remove_device_service.md %}
 
 - If you remove the integration, the backup folder is not automatically deleted. You have to manually delete it.
+
+## Known issues / limitations
+
+Due to the nature of WebDAV, it is required to have a fairly high file upload limit on the server.
+If you experience issues with the backup, please check the server configuration or with your WebDAV service provider.
+
+Following WebDAV services are known to have issues with Home Assistant backups:
+
+- Yandex Disk is not supported, as the speed is artificially slowed down when using WebDAV.
+- mail.ru Cloud is not supported due to the lack of support for WebDAV properties.
+- pCloud WebDAV implementation proved to be unstable and is not recommended for backups.

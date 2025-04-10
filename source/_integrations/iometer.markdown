@@ -3,17 +3,18 @@ title: IOmeter
 description: Instructions on how to integrate IOmeter within Home Assistant.
 ha_release: 2025.3
 ha_category:
-  - Sensor
   - Energy
+  - Sensor
 ha_codeowners:
   - '@MaestroOnICe'
-  - '@iometer-gmbh'
 ha_quality_scale: bronze
 ha_domain: iometer
-ha_integration_type: integration
+ha_integration_type: device
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_zeroconf: true
+ha_platforms:
+  - sensor
 ---
 
 The **IOmeter** {% term integration %} fetches data from your [IOmeter](https://iometer.de/produkt/) device, by using the local HTTP API.
@@ -50,6 +51,8 @@ The following sensors are supported:
 - Core power status: Battery or USB-C power for the IOmeter Core
 - Signal strength WiFi: WiFi connection strength of the Bridge
 - Signal strength Core/Bridge: Sub-GHz connection strength between Core and Bridge
+- Core/Bridge connection status: If Core and Bridge are connected
+- Core attachment status: If the IOmeter Core is attached to the electricity meter
 
 ## Troubleshooting
 

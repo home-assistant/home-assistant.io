@@ -31,6 +31,7 @@ related:
     title: To-do list card
   - url: https://habitica.com/
     title: Habitica
+ha_quality_scale: platinum
 ---
 
 The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats from [Habitica](https://habitica.com/) in Home Assistant and seamlessly integrates your to-do's, daily tasks, and many more things.
@@ -294,6 +295,141 @@ Updates a specific reward for the selected Habitica character.
 | `cost`         | yes      | Update the cost of a reward.                                                                 |
 | `tag`          | yes      | Add tags to the Habitica reward. If a tag does not already exist, a new one will be created. |
 | `remove_tag`   | yes      | Remove tags from the Habitica reward.                                                        |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
+### Action `habitica.create_reward`
+
+Creates a reward for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to create a reward.                                              |
+| `name`         | no       | The title for the Habitica reward.                                                           |
+| `notes`        | yes      | The notes for the Habitica reward.                                                           |
+| `cost`         | no       | The cost of the reward.                                                                      |
+| `tag`          | yes      | Add tags to the Habitica reward. If a tag does not already exist, a new one will be created. |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
+### Action `habitica.update_habit`
+
+Updates a specific habit for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to update a habit.                                               |
+| `task`         | no       | The name (or task ID) of the habit you want to update.                                       |
+| `rename`       | yes      | The new title for the Habitica habit.                                                        |
+| `notes`        | yes      | The new notes for the Habitica habit.                                                        |
+| `up_down`      | yes      | Update if the habit is good and rewarding (positive), bad and penalizing (negative) or both. Valid values: `up`, `down`, or `[up, down]` |
+| `priority`     | yes      | Update the difficulty of a habit. Valid values: `trivial`, `easy`, `medium`, `hard`          |
+| `frequency`    | yes      | Update when a habit's counter resets. Valid values: `daily`, `weekly`, `monthly`             |
+| `tag`          | yes      | Add tags to the Habitica habit. If a tag does not already exist, a new one will be created.  |
+| `remove_tag`   | yes      | Remove tags from the Habitica habit.                                                         |
+| `counter_up`   | yes      | Update the up counter of a positive habit.                                                   |
+| `counter_down` | yes      | Update the down counter of a negative habit.                                                 |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
+### Action `habitica.create_habit`
+
+Creates a habit for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to create a habit.                                               |
+| `name`         | no       | The title for the Habitica habit.                                                            |
+| `notes`        | yes      | The notes for the Habitica habit.                                                            |
+| `up_down`      | yes      | Defines if the habit is good and rewarding (positive), bad and penalizing (negative) or both. Valid values: `up`, `down`, or `[up, down]` |
+| `priority`     | yes      | Sets the difficulty of the habit. Valid values: `trivial`, `easy`, `medium`, `hard`. Default: `easy` |
+| `frequency`    | yes      | Defines when the habit's counter resets. Valid values: `daily`, `weekly`, `monthly`. Default: `daily` |
+| `tag`          | yes      | Add tags to the Habitica habit. If a tag does not already exist, a new one will be created.  |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
+### Action `habitica.update_todo`
+
+Updates a specific to-do for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to update a to-do.                                               |
+| `task`         | no       | The name (or task ID) of the to-do you want to update.                                       |
+| `rename`       | yes      | The new title for the Habitica to-do.                                                        |
+| `notes`        | yes      | The new notes for the Habitica to-do.                                                        |
+| `add_checklist_item`     | yes | The items to add to the to-do's checklist.                                              |
+| `remove_checklist_item`  | yes | Remove items from a to-do's checklist.                                                  |
+| `score_checklist_item`   | yes | Mark items from a to-do's checklist as completed.                                       |
+| `unscore_checklist_item` | yes | Undo completion of items of a to-do's checklist.                                        |
+| `priority`     | yes      | Update the difficulty of a to-do. Valid values: `trivial`, `easy`, `medium`, `hard`          |
+| `date`         | yes      | The to-do's due date.                                                                        |
+| `clear_date`   | yes      | Remove the due date from a to-do.                                                            |
+| `reminder`     | yes      | Add reminders to a Habitica to-do.                                                           |
+| `remove_reminder` | yes   | Remove specific reminders from a Habitica to-do.                                             |
+| `clear_reminder`  | yes   | Remove all reminders from a Habitica to-do.                                                  |
+| `tag`          | yes      | Add tags to the Habitica to-do. If a tag does not already exist, a new one will be created.  |
+| `remove_tag`   | yes      | Remove tags from the Habitica to-do.                                                         |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
+### Action `habitica.create_todo`
+
+Creates a to-do for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to create a to-do.                                               |
+| `name`         | no       | The title for the Habitica to-do.                                                            |
+| `notes`        | yes      | The notes for the Habitica to-do.                                                            |
+| `add_checklist_item`     | yes | The items to add to the to-do's checklist.                                              |
+| `priority`     | yes      | The difficulty of the to-do. Valid values: `trivial`, `easy`, `medium`, `hard`               |
+| `date`         | yes      | The to-do's due date.                                                                        |
+| `reminder`     | yes      | Add reminders to a Habitica to-do.                                                           |
+| `tag`          | yes      | Add tags to the Habitica to-do. If a tag does not already exist, a new one will be created.  |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
+### Action `habitica.update_daily`
+
+Updates a specific daily for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to update a daily.                                               |
+| `task`         | no       | The name (or task ID) of the daily you want to update.                                       |
+| `rename`       | yes      | The new title for the Habitica daily.                                                        |
+| `notes`        | yes      | The new notes for the Habitica daily.                                                        |
+| `add_checklist_item`     | yes | The items to add to the daily's checklist.                                              |
+| `remove_checklist_item`  | yes | Remove items from a daily's checklist.                                                  |
+| `score_checklist_item`   | yes | Mark items from a daily's checklist as completed.                                       |
+| `unscore_checklist_item` | yes | Undo completion of items of a daily's checklist.                                        |
+| `priority`     | yes      | Update the difficulty of a daily. Valid values: `trivial`, `easy`, `medium`, `hard`          |
+| `start_date`   | yes      | Defines when the daily task becomes active and specifies the exact weekday or day of the month it repeats on. |
+| `frequency`    | yes      | The repetition interval of a daily. Valid values: `daily`, `weekly`, `monthly`, `yearly`.    |
+| `every_x`      | yes      | The number of intervals (`days`, `weeks`, `months`, or `years`) after which the daily repeats, based on the chosen repetition interval. A value of 0 makes the daily inactive (a *Gray Daily*). |
+| `repeat`       | yes      | The days of the week the daily repeats. Applicable when the repetition interval is set to weekly. |
+| `repeat_monthly` | yes    | Whether a monthly recurring task repeats on the same calendar day each month (`day_of_month`), or on the same weekday and week of the month (`day_of_week`), based on the start date. Applicable when the repetition interval is set to monthly. |
+| `reminder`     | yes      | Add reminders to a Habitica daily.                                                           |
+| `remove_reminder` | yes   | Remove specific reminders from a Habitica daily.                                             |
+| `clear_reminder`  | yes   | Remove all reminders from a Habitica daily.                                                  |
+| `tag`          | yes      | Add tags to the Habitica daily. If a tag does not already exist, a new one will be created.  |
+| `remove_tag`   | yes      | Remove tags from the Habitica daily.                                                         |
+| `streak`       | yes      | Adjust or reset the streak counter of the daily.                                             |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
+### Action `habitica.create_daily`
+
+Creates a daily for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to create a daily.                                               |
+| `name`         | no       | The title for the Habitica daily.                                                            |
+| `notes`        | yes      | The new notes for the Habitica daily.                                                        |
+| `add_checklist_item` | yes | The items to add to the daily's checklist.                                                  |
+| `priority`     | yes      | The difficulty of a daily. Valid values: `trivial`, `easy`, `medium`, `hard`             |
+| `start_date`   | yes      | The date when the daily becomes active and specifies the exact weekday or day of the month it repeats on. |
+| `frequency`    | yes      | The repetition interval of a daily. Valid values: `daily`, `weekly`, `monthly`, `yearly`.    |
+| `every_x`      | yes      | The number of intervals (`days`, `weeks`, `months`, or `years`) after which the daily repeats, based on the chosen repetition interval. A value of 0 makes the daily inactive (a *Gray Daily*). |
+| `repeat`       | yes      | The days of the week the daily repeats. Applicable when the repetition interval is set to weekly. |
+| `repeat_monthly` | yes    | Whether a monthly recurring task repeats on the same calendar day each month (`day_of_month`), or on the same weekday and week of the month (`day_of_week`), based on the start date. Applicable when the repetition interval is set to monthly. |
+| `reminder`     | yes      | Add reminders to a Habitica daily.                                                           |
+| `tag`          | yes      | Add tags to the Habitica daily. If a tag does not already exist, a new one will be created.  |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
 ## Automations
