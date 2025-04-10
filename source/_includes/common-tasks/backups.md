@@ -126,12 +126,12 @@ There are two ways to download the backup from Home Assistant Cloud:
 
 - **Option 1**: From the backups page
   1. Got to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
-  2. Under **Stored files**, you can see the latest available backup file. Select the download button.
+  2. Select the backup from the list.
+  3. Under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 
 - **Option 2**: From your Home Assistant Cloud account
   1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
-  2. Select the backup from the list.
-  3. Under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
+  2. Under **Stored files**, you can see the latest available backup file. Select the download button.
 
 ### Deleting obsolete backups
 
@@ -139,12 +139,19 @@ If you defined an automatic backup and backup purge schedule, old backups are de
 
 To delete old backups, follow these steps:
 
-1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
-2. To delete one backup, on the list, select the backup of interest.
+1. In Home Assistant, under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
+2. To **delete one backup**: from the list, select the backup of interest.
    - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
-3. To delete multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
+3. To **delete multiple backups**: select the {% icon "mdi:order-checkbox-ascending" %} button.
    - From the list of backups, select all the ones you want to delete and select **Delete selected**.
    - {% icon "mdi:information-outline" %} Consider keeping at least one recent backup for recovery purposes.
+4. To **delete a backup that is stored on Home Assistant Cloud**, you have 2 options:
+   - **Option 1**: Trigger backup deletion from within Home Assistant
+     - Follow steps 1 and 2 from above.
+     - Even though you select **Delete** in Home Assistant, it will be deleted from Home Assistant Cloud storage.
+   - **Option 2**: Delete the backup from the Nabu Casa account page.
+     - Log in to your [Nabu Casa account](https://account.nabucasa.com/).
+     - Under **Backups**, delete the backup.
 
 ### Restoring a backup
 
