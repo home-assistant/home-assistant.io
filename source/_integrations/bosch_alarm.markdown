@@ -64,6 +64,10 @@ The state for the sensor can be one of the following:
 
   These signals relate to system components that require attention but are not in immediate danger of failing. They are typically non-urgent and indicate that something within the system needs maintenance or is functioning suboptimally. These signals might include a closed valve or a fire extinguisher that’s out of service.
 
+- Alarm
+
+  The alarm is currently triggered.
+
 ## Authentication
 
 The primary means of authentication for the _Mode 2_ API is the _Automation_ passcode. It needs to be at least 10 characters long, and it is different from the _User_ code -- a shorter numeric pin used to arm/disarm the panel.
