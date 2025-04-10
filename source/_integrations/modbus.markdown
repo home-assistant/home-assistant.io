@@ -1239,12 +1239,12 @@ lights:
       required: false
       default: 0x00
       type: integer
-    brightness: 
+    brightness_address: 
       description: "Address to read/write color brightness."
       required: false
       default: None
       type: integer
-    color_temp:
+    color_temp_address:
       description: "Address to read/write color temperature."
       required: false
       default: None
@@ -1333,20 +1333,20 @@ modbus:
         slave: 2
         address: 14
         write_type: coil
-        brightness: 1006
+        brightness_address: 1006
         verify:
       - name: "light3"
         slave: 2
         address: 14
         write_type: coil
-        brightness: 1006
-        color_temp: 2006
+        brightness_address: 1006
+        color_temp_address: 2006
       - name: "light4"
         slave: 2
         address: 14
         write_type: coil
-        brightness: 1006
-        color_temp: 2006
+        brightness_address: 1006
+        color_temp_address: 2006
         min_temp: 2500
         max_temp: 5500
         verify:
