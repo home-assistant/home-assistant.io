@@ -118,11 +118,11 @@ This integration follows standard integration removal. No extra steps are requir
 
 Certain advanced features are not supported directly within this integration and must be configured through the SLZB device's web UI:
 
-* Switching the firmware update channel (e.g., stable or development).
-* Changing firmware modes (e.g., Zigbee coordinator, Zigbee router, or OpenThread).
-* Configuring security settings.
-* Adjusting network settings.
-* Setting up the WireGuard VPN client.
+- Switching the firmware update channel (e.g., stable or development).
+- Changing firmware modes (e.g., Zigbee coordinator, Zigbee router, or OpenThread).
+- Configuring security settings.
+- Adjusting network settings.
+- Setting up the WireGuard VPN client.
 
 ## Troubleshooting
 
