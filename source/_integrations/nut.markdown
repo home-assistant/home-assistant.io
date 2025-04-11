@@ -361,7 +361,7 @@ test.battery.start.quick - Start a quick battery test
 test.battery.stop - Stop the battery test
 ```
 
-### User Credentials and permissions
+### User credentials and permissions
 
 To execute device actions through the NUT integration, you must specify user credentials in the configuration. These credentials are stored in the `upsd.users` file, part of the NUT server configuration. This file defines the usernames, passwords, and permissions for users accessing the UPS devices.
 
