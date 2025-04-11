@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: watergate
 ha_platforms:
   - sensor
+  - event
   - valve
 ha_quality_scale: bronze
 ha_integration_type: integration
@@ -24,6 +25,7 @@ With this integration, you are able to:
 - Control your valve
 - Monitor live telemetry (water flow, water pressure, water temperature)
 - Monitor water usage
+- Receive information when Sonic shuts off the valve due to potential leak
 
 ## Prerequisites
 
@@ -71,6 +73,16 @@ The Watergate integration provides the following entities.
 - **Water valve state**
   - **Description**: The current state of the water valve (open/closed).
   - **Remarks**: It is automatically updated when the valve state is changed.
+  
+#### Events
+
+- **Auto Shut-Off**
+  - **Description**: Event triggered when the valve automatically shuts off due to detected leak.
+  - **Event Type**: Either `volume_threshold` or `duration_threshold`
+  - **Event Data**:
+    - `volume`: The volume of water that triggered the shut-off
+    - `duration`: The duration of leak that triggered the shut-off
+  - **Remarks**: Historical events are not preserved across Home Assistant restarts.
 
 ## Data updates
 
@@ -79,7 +91,7 @@ Thanks to the webhook option, Sonic will provide live telemetry every second whe
 
 ## Known limitations
 
-The integration does not provide the ability to set auto shut-off thresholds and does not report any events regarding automatically closed valves.
+The integration does not provide the ability to set auto shut-off thresholds.
 
 {% include integrations/config_flow.md %}
 
@@ -87,12 +99,6 @@ The integration does not provide the ability to set auto shut-off thresholds and
 IP address:
     description: "The IP address of your Sonic device."
 {% endconfiguration_basic %}
-
-## Removing the integration
-
-This integration follows standard integration removal procedures. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
 
 ## Examples
 
@@ -107,3 +113,9 @@ The water meter volume entity can be added to the Energy Dashboard, allowing you
 - Send a notification when the water is too hot.
 - Send a notification when the water is too cold.
 - Send a notification when water is flowing for too long.
+
+## Removing the integration
+
+This integration follows standard integration removal procedures. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

@@ -29,6 +29,7 @@ Add this integration to automate playback and group configuration of HEOS-capabl
 - Controlling play mode (e.g., play/pause), volume, mute, and shuffle
 - Playing HEOS favorites, playlists, quick selects, URLs
 - Setting the source to physical inputs (e.g., `AUX1`)
+- Browsing HEOS music services (for example, **Tidal**) and sources (such as **Favorites**)
 - Grouping and ungrouping HEOS devices
 - Clearing playlists
 
@@ -84,9 +85,11 @@ This integration follows standard integration removal. No extra steps are requir
 
 In addition to the standard [Media Player actions](/integrations/media_player#actions), the HEOS integration provides the following {% term actions %}:
 
-Group volume actions: `media_player.group_volume_set`, `media_player.group_volume_down`, and `media_player.group_volume_up` for entities joined to a group.
+Group volume actions: `heos.group_volume_set`, `heos.group_volume_down`, and `heos.group_volume_up` for entities joined to a group.
 
-### Action `media_player.group_volume_set`
+Queue actions: `heos.get_queue`, `heos.move_queue_item`, and `heos.remove_from_queue` to manage a player's queue items.
+
+### Action `heos.group_volume_set`
 
 Sets the group's volume while preserving member volume ratios. This action can be called on any entity in a group.
 
@@ -94,6 +97,76 @@ Sets the group's volume while preserving member volume ratios. This action can b
 |------------------------|----------|------------------------------------------------------------------|
 | `entity_id`            |      yes | A media player entity that is joined to a group.                  |
 | `volume_level`         |       no | The volume level, where 0 is inaudible, 1 is the maximum volume. |
+
+### Action `heos.get_queue`
+
+Returns the items in the player's queue. This can be used to inspect the current play queue of target players.
+
+| Data attribute | Optional | Description                                      |
+|------------------------|----------|------------------------------------------------------------------|
+| `entity_id`            | no      | `entity_id` of the player(s)                                     |
+
+Example response:
+
+```yaml
+media_player.office:
+  queue:
+    - queue_id: 1
+      song: Alone Again
+      album: After Hours
+      artist: The Weeknd
+      image_url: >-
+        http://resources.wimpmusic.com/images/22f72311/8e9e/461e/a100/d9cfd4ddc2fa/640x640.jpg
+      media_id: "134788274"
+      album_id: "134788273"
+    - queue_id: 2
+      song: Too Late
+      album: After Hours
+      artist: The Weeknd
+      image_url: >-
+        http://resources.wimpmusic.com/images/22f72311/8e9e/461e/a100/d9cfd4ddc2fa/640x640.jpg
+      media_id: "134788275"
+      album_id: "134788273"
+```
+
+### Action `heos.move_queue_item`
+
+Move one or more items in the target player's queue, effectively reordering the play queue. The play queue can be enumerated by using the `heos.get_queue` service.
+
+Example action data payload that moves the second item to the top of the play queue:
+
+```yaml
+action: heos.move_queue_item
+target:
+  entity_id: media_player.family_room_receiver
+data:
+  queue_ids:
+    - 2
+  destination_position: 1
+```
+
+| Data attribute | Optional | Description                                                     |
+| ---------------------- | -------- | ------------------------------------------------------- |
+| `queue_ids`            | no       | The IDs (indexes) of the items in the queue to move.    |
+| `destination_position` | no       | The destination position in the queue (starting at 1).  |
+
+### Action `heos.remove_from_queue`
+
+Removes one or more items from the target player(s) queue. The play queue can be enumerated by using the `heos.get_queue` service. Example action data payload:
+
+```yaml
+action: heos.remove_from_queue
+target:
+  entity_id: media_player.family_room_receiver
+data:
+  queue_ids:
+    - 1
+    - 3
+```
+
+| Data attribute | Optional | Description                                                     |
+| ---------------------- | -------- | ------------------------------------------------------- |
+| `queue_ids`            | no       | The IDs (indexes) of the items in the queue to remove.   |
 
 ## Examples
 
@@ -176,6 +249,24 @@ data:
 | `entity_id`            | yes      | `entity_id` of the player(s) to play the URL     |
 | `media_content_type`   | no       | Set to the value `url`                           |
 | `media_content_id`     | no       | The full URL to the stream (max 255 characters)  |
+
+#### Play a queue item
+
+You can play/move to an item within the player's queue by using the `media_player.play_media` action. Set `media_content_type` to `queue` and `media_content_id` to the index (starting from 1) of an item in the play queue. The play queue can be enumerated by using the `heos.get_queue` action. Example action data payload:
+
+```yaml
+action: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: "queue"
+  media_content_id: "1"
+```
+
+| Data attribute | Optional | Description                   |
+| ---------------------- | -------- | ----------------------------- |
+| `entity_id`            | yes      | `entity_id` of the player(s)  |
+| `media_content_type`   | no       | Set to the value `queue`   |
+| `media_content_id`     | no       | The queue index (e.g. `1`) |
 
 ### Grouping players
 

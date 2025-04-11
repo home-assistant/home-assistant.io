@@ -54,8 +54,8 @@ Assuming that the log file contains multiple values formatted as JSON as shown b
 This would require the following settings to extract the temperature:
 
 - Name: `Temperature`
-- File path: `/home/user/.homeassistant/sensor.json`
-- Value template: {% raw %}`'{{ value_json.temperature }}'`{% endraw %}
+- File path: `/config/sensor.json`
+- Value template: {% raw %}`{{ value_json.temperature }}`{% endraw %}
 - Unit of measurement: `"°C"`
 
 #### Entries as CSV
@@ -71,6 +71,6 @@ timestamp,temperature,humidity
 This would require the following settings to extract the temperature:
 
 - Name: `Temperature`
-- File path: `/home/user/.homeassistant/sensor.csv`
-- Value template: {% raw %}`'{{ value.split(",")[1] }}'`{% endraw %}
+- File path: `/config/sensor.csv`
+- Value template: {% raw %}`{{ value.split(",")[1] }}`{% endraw %}
 - Unit of measurement: `"°C"`

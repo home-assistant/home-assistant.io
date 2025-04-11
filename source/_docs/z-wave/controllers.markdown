@@ -12,13 +12,14 @@ You need to have a compatible Z-Wave stick or module installed. The following de
 The firmwares of 700 and 800 series Z-Wave controllers have several bugs which impact the stability of the mesh and can cause the controller to become unresponsive. Because there is no known firmware version that is completely fixed, it is recommended to choose a firmware based on the following criteria:
 
 - 700 series:
-  - prefer SDK versions 7.17.2 to 7.18.x
+  - prefer SDK versions 7.17.2 to 7.18.x or 7.21.6 and newer
   - SDK versions 7.19.x are okay
   - avoid SDK versions before 7.17.2
-  - avoid SDK versions 7.20 to 7.21.3
+  - avoid SDK versions 7.20 to 7.21.5
 
 - 800 series
-  - prefer SDK versions 7.22.x
+  - prefer SDK versions 7.23.x and newer
+  - SDK versions 7.22.x are okay
   - SDK versions 7.17.2 to 7.19.x are okay
   - avoid SDK versions before 7.17.2
   - avoid SDK versions 7.20 to 7.21.3
@@ -58,7 +59,7 @@ Firmware can be upgraded using the below directions:
   - GoControl HUSBZB-1 stick
   - Sigma Designs UZB stick
   - Vision USB stick - Gen5
-  - Z-Wave.Me UZB1 stick
+  - Z-Wave.Me UZB1 stick (see Aeotec Z-Stick note below)
   - HomeSeer SmartStick+ G2
   - HomeSeer Z-NET G2
 
@@ -93,7 +94,9 @@ Z-Wave JS does not support Z-Wave Long Range yet.
 ### Aeotec Z-Stick
 
 {% note %}
-There are [known compatibility issues](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) with older hardware versions of the Aeotec stick not connecting when plugged directly on the Raspberry Pi 4, and requiring a USB Hub to work. Aeotec has released a 2020 hardware revision ZW090-A/B/C Gen5+ with Pi 4 compatibility. Both hardware revisions are still being sold, make informed purchasing decisions if using one paired with a Pi 4.
+
+The Aeotec Z-Stick and some of its variants (e.g. Z-Wave.Me UZB1) are known to have compatibility issues with the Linux kernel because of their [non-compliant behavior](https://forums.raspberrypi.com/viewtopic.php?f=28&t=245031#p1502030). Plugging these controllers through a USB hub can serve as a workaround that sometimes mitigates the issue.
+
 {% endnote %}
 
 It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system.

@@ -8,7 +8,7 @@ related:
     title: Restoring a backup
 ---
 
-[Backups](/common-tasks/general/#backups) stored on Home Assistant Cloud are always encrypted using [AES-128](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). For backups stored on other [backup locations](/common-tasks/general/#defining-backup-locations), you can choose whether or not to encrypt the backup. The backup emergency kit contains information needed to [restore the backup](/common-tasks/general/#restoring-a-backup), such as the encryption key and metadata about the related backup.
+[Backups](/common-tasks/general/#backups) stored on Home Assistant Cloud are always encrypted using [AES-128](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). For backups stored on [other backup locations](/common-tasks/general/#defining-backup-locations), you can choose whether to encrypt the backup. The backup emergency kit contains information needed to [restore the backup](/common-tasks/general/#restoring-a-backup), such as the encryption key and metadata about the related backup.
 
 ## What is encryption, and why are backups encrypted?
 

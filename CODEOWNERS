@@ -557,6 +557,7 @@ source/_integrations/moon.markdown @fabaff @frenck
 source/_integrations/mopeka.markdown @bdraco
 source/_integrations/motion_blinds.markdown @starkillerOG
 source/_integrations/motionblinds_ble.markdown @LennP @jerrybboy
+source/_integrations/motionblinds_matter.markdown @home-assistant/matter
 source/_integrations/motioneye.markdown @dermotduffy
 source/_integrations/mqtt.markdown @emontnemery @jbouwh @bdraco
 source/_integrations/msteams.markdown @peroyvind
@@ -847,7 +848,6 @@ source/_integrations/stt.markdown @home-assistant/core
 source/_integrations/subaru.markdown @G-Two
 source/_integrations/suez_water.markdown @ooii @jb101010-2
 source/_integrations/sun.markdown @Swamp-Ig
-source/_integrations/sunweg.markdown @rokam
 source/_integrations/supla.markdown @mwegrzynek
 source/_integrations/surepetcare.markdown @benleb @danielhiversen
 source/_integrations/swepco.markdown @tronikos

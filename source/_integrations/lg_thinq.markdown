@@ -20,8 +20,6 @@ ha_platforms:
   - switch
   - vacuum
 ha_integration_type: integration
-ha_codeowners:
-  - '@LG-ThinQ-Integration'
 ---
 
 The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
@@ -251,43 +249,16 @@ A read-only property which has states is represented as a sensor platform.
 | Water Purifier | High-temp sterilization<br>Type<br>UVnano|
 | Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Current status<br>Delayed start/end<br>Remaining time<br>Total time<br>Cycles |
 
-## User guide
-### 1. Custom card configuration (HACS)
+## Automation example
 
-**- Timer Bar Card**
-> - Supported devices: Washer, Dryer, Styler, Dish washer
-> - Used entities: sensor.washer_**current_status**, sensor.washer_**remaining_time**, sensor.washer_**total_time**
+### Notification, error event
 
-```yaml
-type: custom:timer-bar-card
-entities:
-  - entity: sensor.washer_current_status
-    name: Washer
-    active_state:
-      - running
-      - rinsing
-      - spinning
-      - drying
-      - cooling
-      - reserved
-      - presteam
-      - steam
-    pause_state: pause
-    icon: mdi:tumble-dryer-off
-    active_icon: mdi:tumble-dryer
-    end_time:
-      entity: sensor.washer_remaining_time
-    duration:
-      entity: sensor.washer_total_time
-      units: minutes
-    invert: true
-```
-
-### 2. Automation
-**- Notification, Error event**
 > - Guide: [Automating on event](https://www.home-assistant.io/integrations/event/#automating-on-a-button-press)
 > - Important: guide's step 3, 4
 > - You can select the state change you want to act as trigger in step 4
+
+{% raw %}
+
 ```yaml
 alias: lack of water example
 description: Toggle switch when air purifier's lack_of_water
@@ -305,6 +276,8 @@ actions:
     entity_id: xxxxxxxx
     domain: switch
 ```
+
+{% endraw %}
 
 ## Troubleshooting
 
