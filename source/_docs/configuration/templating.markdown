@@ -1636,10 +1636,12 @@ Example value template:
 With given payload:
 
 ```json
-{ "state": "ON", "temperature": 21.902 }
+{ "state": "ON", "temperature": 21.902, "humidity": null }
 ```
 
 Template {% raw %}`{{ value_json.temperature | round(1) }}`{% endraw %} renders to `21.9`.
+
+Template {% raw %}`{{ value_json.humidity }}`{% endraw %} renders to `None`.
 
 {% endnote %}
 
