@@ -1018,7 +1018,7 @@ For a summary in a more readable format:
 [@zweckj]: https://github.com/zweckj
 [@zxdavb]: https://github.com/zxdavb
 
-## Release 2025.4.2 - April 11
+## Release 2025.4.2 - April 12
 
 - Add error details in remote calendar flow ([@Thomas55555] - [#141753])
 - Update Roborock map more consistently on state change ([@Lash-L] - [#142228])
@@ -1064,9 +1064,12 @@ For a summary in a more readable format:
 - Fix SmartThings gas meter ([@joostlek] - [#142741])
 - Fix Anthropic bug parsing a streaming response with no json ([@allenporter] - [#142745])
 - Upgrade sharkiq depedency to 1.1.0 ([@JeffResc] - [#142746])
+- Bump ical to 9.1.0 ([@Thomas55555] - [#142197])
+- Add jaraco.itertools license exception as the classifier was removed but no SPDX expression was added ([@sanjay900] - [#142439])
 
 [#141505]: https://github.com/home-assistant/core/pull/141505
 [#141753]: https://github.com/home-assistant/core/pull/141753
+[#142197]: https://github.com/home-assistant/core/pull/142197
 [#142228]: https://github.com/home-assistant/core/pull/142228
 [#142299]: https://github.com/home-assistant/core/pull/142299
 [#142320]: https://github.com/home-assistant/core/pull/142320
@@ -1082,6 +1085,7 @@ For a summary in a more readable format:
 [#142406]: https://github.com/home-assistant/core/pull/142406
 [#142413]: https://github.com/home-assistant/core/pull/142413
 [#142430]: https://github.com/home-assistant/core/pull/142430
+[#142439]: https://github.com/home-assistant/core/pull/142439
 [#142443]: https://github.com/home-assistant/core/pull/142443
 [#142454]: https://github.com/home-assistant/core/pull/142454
 [#142456]: https://github.com/home-assistant/core/pull/142456
@@ -1134,6 +1138,7 @@ For a summary in a more readable format:
 [@marcelveldt]: https://github.com/marcelveldt
 [@mib1185]: https://github.com/mib1185
 [@puddly]: https://github.com/puddly
+[@sanjay900]: https://github.com/sanjay900
 [@starkillerOG]: https://github.com/starkillerOG
 [@thimo-seitz]: https://github.com/thimo-seitz
 [@tronikos]: https://github.com/tronikos
