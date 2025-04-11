@@ -75,8 +75,29 @@ entities varies by device model and firmware version.
 
 {% include integrations/config_flow.md %}
 
-Unauthenticated mode and default list of notification recipient phone
-numbers can be set using the integration's configuration options.
+{% configuration_basic %}
+URL:
+  description: Base URL to the API of the router. Typically, something like `http://192.168.X.1` where `X` is, for example, `1`, `8`, or `100`. This is the beginning of the location shown in a browser when accessing the router's web interface.
+Verify SSL certificate:
+  description: Whether to verify the SSL certificate of the router when accessing it. Applicable only if the router is accessed via HTTPS. For example, if the configured URL starts with `https://`.
+Username:
+  description: Username for accessing the router's API. Typically, either `admin`, or left empty (recommended if that works).
+Password:
+  description: Password for accessing the router's API.
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Notification service name:
+  description: Name of the notification service. Used to distinguish between notification services in case there are multiple Huawei LTE devices configured. The name here will be prefixed with `notify.`. For example, specifying `huawei_lte` will yield `notify.huawei_lte` as the complete service name.
+Notification recipients:
+  description: Comma separated list of default recipient SMS phone numbers for the notification service, used in case the notification sender does not specify any. Accepted formats may vary between device models and subscription types, but international [E.164](https://en.wikipedia.org/wiki/E.164) format including the `+` prefix and country code, numbers only, is a good first bet.
+Track wired network clients:
+  description: Whether the device tracker entities track also clients attached to the router's wired Ethernet network, in addition to wireless clients.
+Unauthenticated mode:
+  description: Whether to run in unauthenticated mode. See above for more information between authenticated and unauthenticated modes.
+{% endconfiguration_basic %}
 
 ## Actions
 
@@ -106,3 +127,9 @@ It is the intention and highly likely that this integration works with all devic
 [reported working with the underlying huawei-lte-api library](https://github.com/Salamek/huawei-lte-api#tested-on).
 
 It will not work on ones noted as not working in that list.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

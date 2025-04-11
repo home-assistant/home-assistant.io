@@ -275,7 +275,22 @@ The following switches are available for each switchable outlet:
 The integration uses {% term polling %} to retrieve data from the NUT
 server. The default polling interval is once every 60 seconds.
 
-## Example Resources
+## Actions
+
+{% important %}
+The username and password configured for the device must be granted
+`instcmds` permissions on the NUT server to use buttons and
+switches. Device {% term actions %} will not be available if user
+credentials are not specified. See the [NUT server
+documentation](https://networkupstools.org/documentation.html) for
+configuration information.
+{% endimportant %}
+
+An action is available for each parameterless NUT
+[command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html)
+supported.
+
+## Example resources
 
 Given the following example output from NUT (your variables may differ):
 
@@ -319,10 +334,23 @@ output.voltage.nominal: 120
 Use the values from the left hand column. Support is included for most
 values with `ups`, `battery`, `input` and `output` prefixes.
 
-## Device Actions
+## UPS Status - human-readable version
 
-A device action is available for each parameterless NUT [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html) supported by the device. To find the list of supported commands for 
-your specific UPS device, you can use the `upscmd -l` command followed by the UPS name:
+An additional virtual sensor type `ups.status.display` is available
+translating the UPS status value retrieved from `ups.status` into a
+human-readable version.
+
+## Troubleshooting
+
+### Using NUT to list all commands
+
+The NUT server provides commands for controlling your power device. If
+you have command line access to the system running your NUT server,
+you can query NUT directly for the available remote commands using
+`upscmd -l`.
+
+Below is an example where the NUT server is configured with a device
+named `my_ups`:
 
 ```bash
 $ upscmd -l my_ups
@@ -333,9 +361,7 @@ test.battery.start.quick - Start a quick battery test
 test.battery.stop - Stop the battery test
 ```
 
-These commands will be available as device actions in Home Assistant, allowing you to interact with your UPS.
-
-### User Credentials and Permissions
+### User credentials and permissions
 
 To execute device actions through the NUT integration, you must specify user credentials in the configuration. These credentials are stored in the `upsd.users` file, part of the NUT server configuration. This file defines the usernames, passwords, and permissions for users accessing the UPS devices.
 

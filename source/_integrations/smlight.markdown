@@ -25,12 +25,9 @@ ha_integration_type: device
 ha_dhcp: true
 ---
 
-The [SMLIGHT](https://smlight.tech) SLZB-06x Ethernet Zigbee coordinators
-provide a convenient way to add Zigbee to your smart home setup.
+The [SMLIGHT](https://smlight.tech) SLZB-06x ethernet Zigbee coordinators provide a reliable and convenient way to integrate Zigbee devices into your smart home setup. By placing the Zigbee gateway closer to your devices, you can improve connectivity and reduce interference, avoiding the limitations of gateways hidden in cupboards or distant locations.
 
-The **SMLIGHT SLZB** {% term integration %} allows users to monitor and manage their SLZB-06x devices
-directly from within Home Assistant and to directly access many of the
-features found in the SMLIGHT web UI. You can also use these in your automations.
+The **SMLIGHT SLZB** {% term integration %} allows you to monitor and manage your SLZB devices directly from Home Assistant. This integration provides direct access to many features available in the SLZB device's web UI, such as managing firmware updates, monitoring device health through diagnostic sensors, and controlling settings like LED modes or restarting the device. These features can also be incorporated into your automations for central control.
 
 ## Prerequisites
 
@@ -116,3 +113,23 @@ The updates offered in Home Assistant will match your currently installed firmwa
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
+## Known Limitations
+
+Certain advanced features are not supported directly within this integration and must be configured through the SLZB device's web UI:
+
+- Switching the firmware update channel (for example, stable or development).
+- Changing firmware modes (for example, Zigbee coordinator, Zigbee router, or OpenThread).
+- Configuring security settings.
+- Adjusting network settings.
+- Setting up the WireGuard VPN client.
+
+## Troubleshooting
+
+- In the unlikely event you encounter issues after a firmware update, you can always downgrade the firmware to a previously stable version using the device's web UI.
+
+- If you require access to the SLZB device over IPv6, this can be enabled on the device's web UI.
+
+For any problems with the integration, [open an issue on GitHub][1] and include the device diagnostics from the SMLIGHT integration page. Including diagnostics will help identify and address the issue more efficiently.
+
+[1]: https://github.com/home-assistant/core/issues/new?template=bug_report.yml
