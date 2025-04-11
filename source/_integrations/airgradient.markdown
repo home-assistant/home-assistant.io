@@ -50,7 +50,7 @@ The integration will fetch data from each device. The following sensors are supp
 - Temperature
 - Total volatile organic compounds index
 
-A number of configuration entities are available as sensors to automate with if you set up the device via AirGradient instead.
+A number of configuration entities are available as sensors to automate with if you set up the device via AirGradient Cloud instead of setting it up locally.
 - CO2 automatic baseline calibration days
 - NOx learning offset
 - Total volatile organic compounds learning offset
