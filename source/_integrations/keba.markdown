@@ -6,6 +6,7 @@ ha_category:
   - Lock
   - Notifications
   - Sensor
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:
@@ -16,6 +17,7 @@ ha_platforms:
   - lock
   - notify
   - sensor
+  - switch
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/
@@ -25,6 +27,8 @@ ha_quality_scale: legacy
 
 The `keba` integrates your Keba charging station/BMW Wallbox into your Home Assistant instance using the UDP Smart Home Interface ([manual](https://www.ifix-solar.shop/wp-content/uploads/shop/Dokumente/KEBA/KeContact_P20_P30_UDP_ProgrGuide_en.pdf)). The fetching interval to the charging station is set to 5 seconds, same as in the official mobile app. In order to use the integration, enable the UDP Smart Home Interface by adjusting the DIP switches within the charging station according to the [installation manual](https://www.keba.com/file/downloads/e-mobility/KeContact_KCP20_30_ih_en.pdf).
 
+If your Wallbox does not include an RFID reader, the lock is useless. You can only use authorise / deauthorise with the switch implementation. Without an RFID reader, you can remove the lock from Home Assistant using the `add_lock_to_homeassistant` configuration option.
+
 This {% term integration %} provides the following platforms:
 
 - Binary sensors: Online state, plug state, charging state and failsafe mode state.
@@ -32,6 +36,7 @@ This {% term integration %} provides the following platforms:
 - Sensors: current set by the user, target energy set by the user, charging power, charged energy of the current session and total energy charged.
 - Actions: authorize, deauthorize, set energy target, set the maximum allowed current and manually update the states. More details can be found in the [actions](#actions) section.
 - Notify: Show a text on chargers with a built-in LED display.
+- Switch: Authorize, deauthorize charging and shows also the status of the Wallbox
 
 ## Configuration
 
@@ -84,6 +89,11 @@ keba:
       required: false
       type: integer
       default: 5
+    add_lock_to_homeassistant:
+      description: Removes the lock from Home Assistant. This is useful if your Wallbox has no RFID reader.
+      required: false
+      type: boolean
+      default: true
 {% endconfiguration %}
 
 ## Actions
