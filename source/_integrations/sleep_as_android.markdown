@@ -3,7 +3,7 @@ title: Sleep as Android
 description: Instructions on how to integrate Sleep as Android with Home Assistant.
 ha_category:
   - Event
-ha_iot_class: Cloud push
+ha_iot_class: Local push
 ha_release: 2025.5
 ha_config_flow: true
 ha_codeowners:
@@ -27,14 +27,14 @@ The Sleep as Android integration allows you to trigger sleep-related automations
 
 ## Prerequisites
 
-This integration uses Webhooks to receive events from Sleep as Android. By default, Webhook triggers can only be accessed from devices on the same network as Home Assistant. If you want to receive events while away from your home network, remote access must be enabled, either by adding a [remote URL](/docs/configuration/remote/) or via [Nabu Casa Cloud](https://www.nabucasa.com/config/webhooks/).
+This integration uses webhooks to receive events from Sleep as Android. By default, webhook triggers can only be accessed from devices on the same network as Home Assistant. If you want to receive events while away from your home network, remote access must be enabled, either by adding a [remote URL](/docs/configuration/remote/) or via [Nabu Casa Cloud](https://www.nabucasa.com/config/webhooks/).
 
 Steps to set up the integration:
 
 1. Preferably, open Home Assistant on the device you want to connect to the Sleep as Android integration and initiate the setup.
 2. You will be presented a URL during the setup process. Mark the URL and copy it to the clipboard.
 3. Open the Sleep as Android app and navigate to *⚙️ Settings → Services → Automation → Webhooks*.
-4. Turn on the switch to enable Webhooks and paste the Webhook URL from your clipboard into the URL field.
+4. Turn on the switch to enable webhooks and paste the webhook URL from your clipboard into the URL field.
 
 {% tip %}
 
@@ -48,7 +48,7 @@ If you scroll to the top and click on *Events* you can individually select and d
 
 {% configuration_basic %}
 "Webhook ID":
-  description: "The Webhook ID for the Webhook URL."
+  description: "The ID for the webhook URL."
 "Cloudhook":
     description: "Whether a Nabu Casa Cloudhook is used."
 {% endconfiguration_basic %}
@@ -70,9 +70,9 @@ Events related to the alarm clock feature.
 | `alarm_rescheduled`       | Alarm rescheduled          |
 | `alarm_skip_next`         | Snoozing                   |
 | `alarm_wake_up_check`     | Wake-up check notification |
-| `before_smart_period`     | 45m before smart wakeup    |
+| `before_smart_period`     | 45min before smart wake-up |
 | `show_skip_next_alarm`    | 1h before alarm            |
-| `smart_period`            | Smart wakeup started       |
+| `smart_period`            | Smart wake-up started      |
 | `time_to_bed_alarm_alert` | Time to bed                |
 
 {% enddetails %}
@@ -113,7 +113,7 @@ Events when entering a new sleep phase.
 | ------------- | ----------- |
 | `awake`       | Woke up     |
 | `deep_sleep`  | Deep sleep  |
-| `light_sleep` | Light sleep  |
+| `light_sleep` | Light sleep |
 | `not_awake`   | Fell asleep |
 | `rem`         | REM sleep   |
 
