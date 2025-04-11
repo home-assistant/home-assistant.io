@@ -134,7 +134,7 @@ The close button will close the blinds to the closest closed position (either 0%
 
 The Roller Shade is exposed as a cover entity with control of the position only:
 
-| Tilt Position | Roller Shade State |
+| Tilt position | Roller Shade state |
 | ------------- | ------------------ |
 | <=20%         | Open               |
 | >20%          | Close              |
