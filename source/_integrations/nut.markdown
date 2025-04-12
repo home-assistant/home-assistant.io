@@ -135,7 +135,7 @@ for the sensor may vary by manufacturer.
 
 The following diagnostic sensors may be available:
 
-- **Ambient humidity (%)**\*: *Ambient relative humidity
+- **Ambient humidity (%)**\*: Ambient relative humidity
 - **Ambient humidity status**\*: Ambient humidity status relative to the thresholds, with the available states: `good`, `warning-low`, `critical-low`, `warning-high`, and `critical-high`
 - **Ambient temperature (°C)**\*: Ambient temperature
 - **Ambient temperature status**\*: Ambient temperature status relative to the thresholds, with the available states: `good`, `warning-low`, `critical-low`, `warning-high`, and `critical-high`
@@ -333,12 +333,6 @@ output.voltage.nominal: 120
 
 Use the values from the left hand column. Support is included for most
 values with `ups`, `battery`, `input` and `output` prefixes.
-
-## UPS Status - human-readable version
-
-An additional virtual sensor type `ups.status.display` is available
-translating the UPS status value retrieved from `ups.status` into a
-human-readable version.
 
 ## Troubleshooting
 
