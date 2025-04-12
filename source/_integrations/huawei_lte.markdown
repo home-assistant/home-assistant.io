@@ -79,7 +79,7 @@ entities varies by device model and firmware version.
 URL:
   description: Base URL to the API of the router. Typically, something like `http://192.168.X.1` where `X` is, for example, `1`, `8`, or `100`. This is the beginning of the location shown in a browser when accessing the router's web interface.
 Verify SSL certificate:
-  description: Whether to verify the SSL certificate of the router when accessing it. Applicable only if the router is accessed via HTTPS. For example, if the configured URL starts with `https://`.
+  description: Whether to verify the SSL certificate of the router when accessing it. Applicable only if the router is accessed via HTTPS. In other words, if the configured URL starts with `https://`.
 Username:
   description: Username for accessing the router's API. Typically, either `admin`, or left empty (recommended if that works).
 Password:
