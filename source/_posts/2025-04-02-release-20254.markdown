@@ -69,7 +69,7 @@ Enjoy the release!
 - [Device hierarchy for energy management](#device-hierarchy-for-energy-management)
 - [Patch releases](#patch-releases)
   - [2025.4.1 - April 4](#202541---april-4)
-  - [2025.4.2 - April 11](#202542---april-11)
+  - [2025.4.2 - April 12](#202542---april-12)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
