@@ -50,7 +50,7 @@ The ntfy integration can be used to send push notifications from automations and
 
 {% note %}
 
-Topics may not be password-protected, so choose a name that's not easy to guess.
+Topics may not be password-protected, so choose a name that's not easy to guess. If you are sending sensitive information consider reserving the topic and restricting access to it.
 
 {% endnote %}
 
@@ -69,7 +69,7 @@ Topics may not be password-protected, so choose a name that's not easy to guess.
 
 ## Notifiers
 
-The **ntfy** integration will add a {% term device %} with a notify {% term entity %} for each configured topic. To publish notifications, you can use the `notify.send_message` {% term action %}. To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+The **ntfy** integration will add a {% term device %} with an associated notify {% term entity %} for each configured topic. To publish notifications, you can use the `notify.send_message` {% term action %}. To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 {% details "Example YAML configuration" %}
 
