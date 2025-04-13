@@ -290,12 +290,20 @@ An action is available for each parameterless NUT
 [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html)
 supported.
 
-## Example resources
+## Troubleshooting
 
-Given the following example output from NUT (your variables may differ):
+### Using NUT to list all variables
+
+The NUT server provides "variables" about your power device. If you
+have command line access to the system running your NUT server, you
+can query NUT directly using the `upsc` command.
+
+Below is an example where the NUT server is configured with a device
+named `my_ups`:
+
 
 ```yaml
-$ upsc ups_name@192.168.11.5
+$ upsc my_ups
 ups.timer.reboot: 0
 battery.voltage: 27.0
 ups.firmware.aux: L3 -P
@@ -330,11 +338,6 @@ output.frequency: 60.20
 output.voltage: 121.50
 output.voltage.nominal: 120
 ```
-
-Use the values from the left hand column. Support is included for most
-values with `ups`, `battery`, `input` and `output` prefixes.
-
-## Troubleshooting
 
 ### Using NUT to list all commands
 
