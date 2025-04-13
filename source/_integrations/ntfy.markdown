@@ -58,6 +58,8 @@ Topics may not be password-protected, so choose a name that's not easy to guess.
 
 ## Configuration parameters
 
+### Service parameters
+
 {% configuration_basic %}
 "Service URL":
     description: "Address of the ntfy service. Defaults to `https://ntfy.sh`."
@@ -65,6 +67,13 @@ Topics may not be password-protected, so choose a name that's not easy to guess.
     description: "Username required to authenticate with protected ntfy topics."
 "Password (optional)":
     description: "Password corresponding to the provided username for authentication."
+{% endconfiguration_basic %}
+
+### Topic parameters
+
+{% configuration_basic %}
+"Topic":
+    description: "Name of the topic."
 {% endconfiguration_basic %}
 
 ## Notifiers
