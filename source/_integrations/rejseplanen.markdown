@@ -17,6 +17,10 @@ ha_quality_scale: legacy
 
 The `rejseplanen` {% term integration %} will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
 
+## Note
+This is based on the deprecated API 1.0. Need to be upgraded to API 2.0.
+Ref: https://labs.rejseplanen.dk/hc/da/articles/21554723926557-Om-API-2-0
+
 ## Configuration
 
 Add a sensor to your {% term "`configuration.yaml`" %} file.
