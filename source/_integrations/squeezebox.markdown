@@ -26,16 +26,16 @@ This integration connects to an existing <abbr title="Lyrion Music Server">LMS</
 
 The Squeezebox music player ecosystem, which can be controlled through this integration, includes hardware audio players from Logitech, including [Squeezebox 3rd Generation, Squeezebox Boom, Squeezebox Receiver, Transporter, Squeezebox2, Squeezebox and SLIMP3](https://lms-community.github.io/players-and-controllers/hardware-comparison/), and many software emulators like [Squeezelite, SqueezeSlave, SoftSqueeze and SqueezePlay](https://sourceforge.net/projects/lmsclients/files/).
 
+## Supported devices
+
+The integration supports any [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/) and both Lyrion Music Servers and Logitech Media Servers.
+
 ## Prerequisites
 
 1. One or more [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/).
 2. One or more [Lyrion Music Servers or Logitech Media Servers (LMS)](https://lyrion.org/getting-started) with the Squeezebox players connected to these servers.
 
 {% include integrations/config_flow.md %}
-
-{% note %}
-This platform uses the web interface of the Lyrion Music Server (LMS) to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
-{% endnote %}
 
 {% note %}
 A single configuration entry for the integration adds all Squeezebox devices connected to one LMS to Home Assistant.
@@ -55,6 +55,7 @@ Password:
 Connect over HTTPS:
   description: "The integration now supports Lyrion Music Servers behind an HTTPS reverse proxy. Please note that Lyrion Music Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the \"Connect over HTTPS\" option. If you have configured a reverse proxy, remember to update the port number."
 {% endconfiguration_basic %}
+
 
 The Logitech Transporter which have two digital inputs can be activated using a script. The following example turns on the Transporter and activates the toslink input interface:
 
@@ -81,12 +82,6 @@ Browse limit:
 Volume step:  
  description: Amount to adjust the volume when turning volume up or down.  
 {% endconfiguration_basic %}
-
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
 
 ## Announce
 
@@ -167,34 +162,68 @@ data:
     announce_timeout: 60
 ```
 
-## Entities
+## Supported functionality
 
-### Binary sensors
+### Entities
 
-- **Needs restart**: Server Service needs to be restarted (typically, this is needed to apply updates).
-- **Library rescan**: The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
+The integration provides the following entities.
 
-### Buttons
+#### Binary sensors
 
-- **Preset 1 ... Preset 6**: Play media stored in Preset 1 to Preset 6 on Squeezebox.
-- **Brightness Up, Brightness Down**: Adjust the brightness on Logitech Squeezebox players with built-in screen, such as Radio and Boom.
-- **Bass Up, Bass Down**: Adjust the bass on Logitech Squeezebox players, such as Radio and Boom.
-- **Treble Up, Treble Down**: Adjust the treble on Logitech Squeezebox players, such as Radio and Boom.
+- **Needs restart**
+  - **Description**: Server Service needs to be restarted (typically, this is needed to apply updates).
 
-### Sensors
+- **Library rescan**
+  - **Description**: The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
 
-- **Last scan**: Date of the last library scan.
-- **Player count**: Number of players on the service.
-- **Player count off service**: Number of players not on this service.
-- **Total albums**: Total number of albums currently available in the service.
-- **Total artists**: Total number of artists currently available in the service.
-- **Total duration**: Duration of all tracks in service (HHHH:MM:SS).
-- **Total genres**: Total number of genres used in current service.
-- **Total songs**: Total number of music files currently in service.
+#### Buttons
 
-## Actions
+- **Preset 1 ... Preset 6**
+  - **Description**: Play media stored in Preset 1 to Preset 6 on Squeezebox.
 
-### Action `call_method`
+- **Brightness up, Brightness down**
+  - **Description**: Adjust the brightness on Logitech Squeezebox players
+  - **Available on**: Logitech hardware players with built-in screen, such as Radio and Boom.
+  
+- **Bass up, Bass down**
+  - **Description**: Adjust the bass on Logitech Squeezebox players, such as Radio and Boom.
+  - **Available on**: Logitech hardware players such as Radio, Duet and Boom.
+
+- **Treble up, Treble down**
+  - **Description**: Adjust the treble on Logitech Squeezebox players, such as Radio and Boom.
+  - **Available on**: Logitech hardware players such as Radio, Duet, and Boom.
+
+#### Sensors
+
+- **Last scan**
+  - **Description**: Date of the last library scan.
+
+- **Player count**
+  - **Description**: Number of players on the service.
+
+- **Player count off service**
+  - **Description**: Number of players not on this service.
+
+- **Total albums**
+  - **Description**: Total number of albums currently available on the service.
+
+- **Total artists**
+  - **Description**: Total number of artists currently available on the service.
+
+- **Total duration**
+  - **Description**: Duration of all tracks in service (HHHH:MM:SS).
+
+- **Total genres**
+  - **Description**: Total number of genres used in current service.
+
+- **Total songs**
+  - **Description**: Total number of music files currently in service.
+
+### Actions
+
+The integration provides the following actions.
+
+#### Action `call_method`
 
 Call a custom Squeezebox JSON-RPC API.
 
@@ -260,7 +289,7 @@ data:
     - '+5'
 ```
 
-### Action `call_query`
+#### Action `call_query`
 
 Call a custom Squeezebox JSON-RPC API. The result of the query will be stored in the 'query_result' attribute of the player.
 
@@ -276,3 +305,17 @@ This action can be used to integrate a Squeezebox query into an automation. For 
 `hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`
 To work with the results:
 `result = hass.states.get("media_player.kitchen").attributes['query_result']`
+
+## Data updates
+
+The integration uses {% term polling %} to receive updates from the Lyrion Music Server (LMS). It uses the web interface of the LMS to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
+
+## Known limitations
+
+The LMS API, which is used by this integration, does not currently provide the ability to override or control fade-in & crossfade settings. This means that if you have enabled **Play or Resume fade-in duration** within the player's audio settings, this fade-in will be applied to any announcement played.  This could potentially lead to the start of an announcement being missed as it fades in.  You should, therefore, consider a short **Play or Resume fade-in duration** or preferably disabling this feature if you make use of announcements.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
