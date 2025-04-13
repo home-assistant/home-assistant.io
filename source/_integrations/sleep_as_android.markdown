@@ -33,7 +33,7 @@ Steps to set up the integration:
 
 1. Preferably, open Home Assistant on the device you want to connect to the Sleep as Android integration and initiate the setup.
 2. You will be presented a URL during the setup process. Mark the URL and copy it to the clipboard.
-3. Open the Sleep as Android app and navigate to *⚙️ Settings → Services → Automation → Webhooks*.
+3. Open the Sleep as Android app and navigate to *{% icon "mdi:cog" %} Settings → Services → Automation → Webhooks*.
 4. Turn on the switch to enable webhooks and paste the webhook URL from your clipboard into the URL field.
 
 {% tip %}
