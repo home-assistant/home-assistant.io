@@ -36,3 +36,7 @@ Integrates [INKBIRD](https://www.inkbird.com/) devices into Home Assistant.
 The INKBIRD integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
 {% include integrations/config_flow.md %}
+
+## Troubleshooting
+
+The IAM-T1 model only reports the temperature unit periodically and may display incorrect temperature readings until the **°C/°F** button (located under the cover) is pressed **twice**.
