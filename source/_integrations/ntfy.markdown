@@ -4,7 +4,7 @@ description: Instructions on how to integrate ntfy with Home Assistant.
 ha_category:
   - Notifications
 ha_iot_class: Cloud Push
-ha_release: 2025.2
+ha_release: 2025.5
 ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
@@ -39,7 +39,7 @@ The ntfy integration can be used to send push notifications from automations and
 
 3. **Adding a topic**
 
-    To set up topics for notifications select the three-dot {% icon "mdi:dots-vertical" %} menu next to the entry of the previously configured ntfy service, then click **{% icon "mdi:plus" %} Add topic**.
+    To set up topics for notifications, select the three-dot {% icon "mdi:dots-vertical" %} menu next to the entry of the previously configured ntfy service, then click **{% icon "mdi:plus" %} Add topic**.
 
     You can now choose one of the following options:
 
