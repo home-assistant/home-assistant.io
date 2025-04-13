@@ -32,13 +32,27 @@ The ntfy integration can be used to send push notifications from automations and
 
     - Use `https://ntfy.sh` for the official ntfy service.
     - Provide the URL of an alternative public ntfy service or your self-hosted instance (for example, `https://your-ntfy-instance.com`).
-2. **Topic name**
 
-    Determine the topic name you want to publish notifications to.
+2. **Authentication**
 
-    - Enter a **new topic name** to create a unique channel for notifications.
-    - Leave the topic field empty to allow the integration to generate a **random topic name** automatically.
-    - Use an **existing topic name** by retrieving it from the ntfy app or the ntfy service's website. Simply copy and paste the topic name into the configuration.
+    Depending on whether the server is configured to support access control, some topics may be read/write protected so that only users with the correct credentials can subscribe or publish to them. To publish/subscribe to protected topics, you can provide a username and password.
+
+3. **Adding a topic**
+
+    To set up topics for notifications select the three-dot {% icon "mdi:dots-vertical" %} menu next to the entry of the previously configured ntfy service, then click **{% icon "mdi:plus" %} Add topic**.
+
+    You can now choose one of the following options:
+
+    - Select **Enter topic** to add a new topic. Use an **existing topic name** by retrieving it from the ntfy app or the ntfy service's website. Simply copy and paste the topic name into the configuration.
+    - Select **Generate name** to allow the integration to generate a **random topic name** automatically.
+
+    Repeat these steps for each topic you want to add.
+
+{% note %}
+
+Topics may not be password-protected, so choose a name that's not easy to guess.
+
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -47,13 +61,15 @@ The ntfy integration can be used to send push notifications from automations and
 {% configuration_basic %}
 "Service URL":
     description: "Address of the ntfy service. Defaults to `https://ntfy.sh`."
-"Topic":
-    description: "Name of the topic you want to publish to."
+"Username (optional)":
+    description: "Username required to authenticate with protected ntfy topics."
+"Password (optional)":
+    description: "Password corresponding to the provided username for authentication."
 {% endconfiguration_basic %}
 
 ## Notifiers
 
-The **ntfy** integration will add a notify entity with the name of the topic. To publish notifications, you can use the `notify.send_message` action. To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+The **ntfy** integration will add a {% term device %} with a notify {% term entity %} for each configured topic. To publish notifications, you can use the `notify.send_message` {% term action %}. To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 {% details "Example YAML configuration" %}
 
@@ -65,6 +81,7 @@ data:
   message: "Reminder: Have you considered frogs?"
   entity_id: notify.mytopic
 ```
+
 {% endraw %}
 
 {% enddetails %}
