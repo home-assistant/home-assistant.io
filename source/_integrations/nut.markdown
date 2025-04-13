@@ -302,7 +302,7 @@ Below is an example where the NUT server is configured with a device
 named `my_ups`:
 
 
-```yaml
+```shell
 $ upsc my_ups
 ups.timer.reboot: 0
 battery.voltage: 27.0
