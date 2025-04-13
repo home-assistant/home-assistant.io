@@ -74,6 +74,8 @@ Topics may not be password-protected, so choose a name that's not easy to guess.
 {% configuration_basic %}
 "Topic":
     description: "Name of the topic."
+"Display name (optional)":
+    description: "An alternative name to display instead of the topic name. This helps identify topics with complex or hard-to-read names more easily."
 {% endconfiguration_basic %}
 
 ## Notifiers
