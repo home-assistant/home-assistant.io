@@ -301,7 +301,6 @@ can query NUT directly using the `upsc` command.
 Below is an example where the NUT server is configured with a device
 named `my_ups`:
 
-
 ```shell
 $ upsc my_ups
 ups.timer.reboot: 0
