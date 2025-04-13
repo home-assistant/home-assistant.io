@@ -50,7 +50,7 @@ The ntfy integration can be used to send push notifications from automations and
 
 {% note %}
 
-Topics may not be password-protected, so choose a name that's not easy to guess. If you are sending sensitive information consider reserving the topic and restricting access to it.
+Topics may not be password-protected, so choose a name that's not easy to guess. If you are sending sensitive information, consider reserving the topic and restricting access to it.
 
 {% endnote %}
 
