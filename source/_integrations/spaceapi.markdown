@@ -21,10 +21,9 @@ The `spaceapi` {% term integration %} allow Hackerspaces and Makerspaces to expo
 
 ## Configuration
 
-To configure connectivity and authentication to the API that this {% term integration %} exposes see the HTTP {% term integration %} documentation.
+To configure connectivity and authentication to the API that this {% term integration %} exposes, see the HTTP {% term integration %} documentation.
 To setup the `spaceapi` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
-
 
 ```yaml
 # Example configuration.yaml entry
@@ -152,7 +151,7 @@ contact:
       required: false
       type: string
 issue_report_channels:
-  description: "REMOVED.  V15 of Space API no longer supports this.  The reporting channel for issues. Valid values are `email`, `issue_mail`, `twitter` or `ml`"
+  description: "*Removed*. V15 of SpaceAPI no longer supports this. The reporting channel for issues. Valid values are `email`, `issue_mail`, `twitter` or `ml`"
   required: false
   type: list
 state:
@@ -161,7 +160,7 @@ state:
   type: list
   keys:
     entity_id:
-      description: "The `entity_id` of a binary sensor that represents whether the space is currently open or closed".  If the binary sensor is unavailable, the state provided will be false.
+      description: "The `entity_id` of a binary sensor that represents whether the space is currently open or closed". If the binary sensor is unavailable, the state provided will be false.
       required: true
       type: string
     icon_open:
@@ -230,7 +229,7 @@ feeds:
           required: true
           type: string
 cache:
-  description: REMOVED.  V15 of Space API no longer supports this.  Specifies options about caching of your SpaceAPI endpoint. Use this if you want to avoid hundreds/thousands of application instances crawling your status.
+  description: *Removed*. V15 of SpaceAPI no longer supports this. Specifies options about caching of your SpaceAPI endpoint. Use this if you want to avoid hundreds/thousands of application instances crawling your status.
   required: false
   type: map
   keys:
@@ -243,7 +242,7 @@ projects:
   required: false
   type: list
 radio_show:
-  description: A list of radio shows that your hackerspace might broadcast.
+  description: *Removed*. V15 of SpaceAPI no longer supports this. A list of radio shows that your hackerspace might broadcast.
   required: false
   type: list
   keys:
@@ -282,7 +281,7 @@ sensors:
       type: string
 {% endconfiguration %}
 
-Although Space API supports many other sensors, this {% term integration %} will only support temperature or humidity.
+Although SpaceAPI supports many other sensors, this {% term integration %} will only support temperature or humidity.
 
 ## Examples
 
