@@ -3,8 +3,6 @@ title: EnelGrid
 description: Integration for Enel Grid consumption data in Home Assistant
 iot_class: cloud_polling
 integration_type: service
-dependencies:
-  - recorder
 codeowners:
   - "@sathia-musso"
 ha_release: 2025.4
