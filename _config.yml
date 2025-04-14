@@ -248,8 +248,6 @@ installation:
           key: "rpi5-64"
         - name: "Raspberry Pi 4"
           key: "rpi4-64"
-        - name: "Raspberry Pi 3"
-          key: "rpi3-64"
 
     generic-x86-64:
       board: Generic x86-64
