@@ -17,11 +17,11 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `spaceapi` {% term integration %} allow Hackerspaces and Makerspaces to expose information to web apps or any other application with the [SpaceAPI](https://spaceapi.io/).  It does this by exposing an API on Home Assistant that hosts the JSON payload that SpaceAPI will consume.
+The `spaceapi` {% term integration %} allow Hackerspaces and Makerspaces to expose information to web apps or any other application with the [SpaceAPI](https://spaceapi.io/).  It does this by exposing an API on Home Assistant that hosts the JSON payload that SpaceAPI uses.
 
 ## Configuration
 
-To configure connectivity and authentication to the API that this {% term integration %} exposes, see the HTTP {% term integration %} documentation.
+To configure connectivity and authentication to the API that this {% term integration %} exposes, refer to the HTTP {% term integration %} documentation.
 To setup the `spaceapi` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
@@ -64,17 +64,17 @@ location:
       required: true
       type: string
 spacefed:
-  description: A flag indicating if the hackerspace uses SpaceFED, a federated login scheme so that visiting hackers can use the space WiFi with their home space credentials.
+  description: A flag indicating if the hackerspace uses SpaceFED, a federated login scheme so that visiting hackers can use the space Wi-Fi with their home space credentials.
   required: false
   type: map
   keys:
     spacenet:
-      description: Set to true or false depending on whether your space supports spacenet as described [here](https://spacefed.net/index.php/Category:Howto/Spacenet)
+      description: Set to true or false depending on whether your space supports [spacenet](https://spacefed.net/index.php/Category:Howto/Spacenet)
       required: true
       type: boolean
       default: false
     spacesaml:
-      description: Set to true or false depending on whether you space uses spacesaml as described [here](https://spacefed.net/index.php?title=Spacesaml)
+      description: Set to true or false depending on whether your space uses [SpaceSAML](https://spacefed.net/index.php?title=Spacesaml)
       required: true
       type: boolean
       default: false
@@ -283,7 +283,7 @@ sensors:
       type: string
 {% endconfiguration %}
 
-Although SpaceAPI supports many other sensors, this {% term integration %} will only support temperature or humidity.
+Although SpaceAPI supports many other sensors, this {% term integration %} only supports temperature or humidity.
 
 ## Examples
 
