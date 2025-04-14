@@ -8,11 +8,6 @@ dependencies:
   - recorder
 codeowners:
   - "@sathia-musso"
-documentation:
-  - config_flow
-  - has_entity_name
-  - entity_unique_id
-  - appropriate_polling
 ha_release: 2025.4
 ha_domain: enelgrid
 ha_integration_type: integration
