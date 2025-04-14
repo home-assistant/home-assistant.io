@@ -67,8 +67,3 @@ If everything is working correctly, your dashboard might look like this:
 
 - [Enel Portal](https://www.enel.it/)
 - [Home Assistant Integrations](https://www.home-assistant.io/integrations/)
-
-## 👤 Author
-
-Developed by [Sathia Francesco Musso](https://github.com/sathia-musso), Contributions welcome!
-
