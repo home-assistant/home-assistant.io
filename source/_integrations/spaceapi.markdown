@@ -229,7 +229,7 @@ feeds:
           required: true
           type: string
 cache:
-  description: *Removed*. V15 of SpaceAPI no longer supports this. Specifies options about caching of your SpaceAPI endpoint. Use this if you want to avoid hundreds/thousands of application instances crawling your status.
+  description: "*Removed*. V15 of SpaceAPI no longer supports this. Specifies options about caching of your SpaceAPI endpoint. Use this if you want to avoid hundreds/thousands of application instances crawling your status."
   required: false
   type: map
   keys:
@@ -242,7 +242,7 @@ projects:
   required: false
   type: list
 radio_show:
-  description: *Removed*. V15 of SpaceAPI no longer supports this. A list of radio shows that your hackerspace might broadcast.
+  description: "*Removed*. V15 of SpaceAPI no longer supports this. A list of radio shows that your hackerspace might broadcast."
   required: false
   type: list
   keys:
