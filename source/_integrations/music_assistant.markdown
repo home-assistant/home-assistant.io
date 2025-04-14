@@ -135,7 +135,7 @@ Perform a global search on the Music Assistant library and all providers. This a
 
 - **Data attribute**: `config_entry_id`
   - **Optional**: No.
-  - **Description**: The Music Assistant instance that the search will be performed upon. Allows for multiple servers to be running. This is obtained from a dropdown in the GUI editor. Users of yaml can use the dev tools action tab and select from the dropdown and then switch to yaml to get the actual value.
+  - **Description**: The Music Assistant instance that the search will be performed upon. Allows for multiple servers to be running. This is obtained from a dropdown in the GUI editor. Users of YAML can use the dev tools action tab and select from the dropdown and then switch to YAML to get the actual value.
   - **Example**: `Music Assistant`
 - **Data attribute**: `name`
   - **Optional**: No.
@@ -263,9 +263,9 @@ script:
 
 ## Known limitations
 
-The `get_queue` action only returns the current and next item in the queue. This is because a large amount of data is returned and if this was done for potentially thousands of tracks this could have an adverse impact on HA performance or stability.
+The `get_queue` action only returns the current and next item in the queue. This is because a large amount of data is returned, and if this was done for potentially thousands of tracks, this could have an adverse impact on Home Assistant's performance or stability.
 
-The data returned by the `get_queue` action will be partially limited if the item is not in the library (e.g. an item was selected for playback directly from Spotify). Metadata such as favorite status, explicit status, last played, played count and disc art URL are only available for items which are in the MA library.
+The data returned by the `get_queue` action will be partially limited if the item is not in the library (For example, if an item was selected for playback directly from Spotify). Metadata such as favorite status, explicit status, last played, played count, and disc art URL are only available for items that are in the MA library.
 
 Radio mode is only available with certain music providers, and an error will be shown if attempting to enable radio mode on an item that isn't linked to one of those providers. Review the Music Assistant documentation to identify which providers support this functionality.
 
