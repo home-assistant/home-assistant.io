@@ -10,7 +10,7 @@ ha_domain: enelgrid
 ha_integration_type: integration
 ---
 
-The **EnelGrid** integration connects Home Assistant with **Enel Italia**, allowing users to import and monitor their electricity consumption data.
+The **EnelGrid** {% term integrations %} connects Home Assistant with **Enel Italia**, allowing users to import and monitor their electricity consumption data.
 
 ## Features
 
