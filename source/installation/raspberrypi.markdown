@@ -78,7 +78,7 @@ Congratulations! You finished the Raspberry Pi setup!
 
 If Raspberry Pi Imager is not supported by your platform, you can download the Home Assistant image and use another imaging tool, such as Balena Etcher.
 
-To download the image to your computer, copy the correct URL for the Raspberry Pi 3, 4 or 5 (Note: there are 3 different links below!):
+To download the image to your computer, copy the correct URL for the Raspberry Pi 4 or 5 (Note: there are two different links below!):
 
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}
