@@ -537,8 +537,6 @@ Keep in mind, the US$5 registration fee is non-refundable.
 
 Migrating your cameras to the Google Home App converts cameras from RTSP to WebRTC, which results in the loss of snapshot functionality. Additionally, there is a known issue where media is not currently published for these events; this has been reported to the Nest SDM team and is an unexpected side effect of their migration.
 
-Additionally, there is a known issue where media is not currently published for these events. This has been reported to the Nest SDM team, and is an unexpected side effect of their migration.
-
 ### Temperature sensors partially supported
 
 Additional Nest Temperature Sensors are not supported by the SDM API. The Temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App. If multiple sensors are available, only the temperature from the active sensor will be displayed.
