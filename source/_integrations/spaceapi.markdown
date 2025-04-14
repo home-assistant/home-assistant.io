@@ -160,7 +160,7 @@ state:
   type: list
   keys:
     entity_id:
-      description: "The `entity_id` of a binary sensor that represents whether the space is currently open or closed". If the binary sensor is unavailable, the state provided will be false.
+      description: "The `entity_id` of a binary sensor that represents whether the space is currently open or closed. If the binary sensor is unavailable, the state provided will be false."
       required: true
       type: string
     icon_open:
