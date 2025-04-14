@@ -57,9 +57,3 @@ If everything is working correctly, your dashboard might look like this:
 | Automatic Daily Fetch              | ✅         |
 | Re-authentication Support          | ✅         |
 
-## Additional information
-
-- **Link to related core PR:** [home-assistant/core#142742](https://github.com/home-assistant/core/pull/142742)  
-- **Link to parent pull request in the Brands repository:** [home-assistant/brands#6873](https://github.com/home-assistant/brands/pull/6873)  
-- This PR fixes or closes issue: N/A
-
