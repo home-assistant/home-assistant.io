@@ -630,16 +630,32 @@ According to Google's [Partner Connections Manager Error Reference](https://deve
 
 Confirm that your Nest device is visible within the Google Home App and Nest App under the same Home. If it is missing within Google Home, create a new dummy home on the Nest app, which triggers the synchronization process. (This is the workaround recommended by the Google support team). The dummy entry can be deleted once the Nest device is visible within the Google Home app.
 
-#### Symptom: Error 403: access_denied
+#### Symptom: Error 403: access_denied or Access blocked: home-assistant.io has not completed Google's verification process
 
 ##### Description
 
-The error *Error 403: access_denied* means that the OAuth Consent screen may be misconfigured so that
-it does not allow access to your Google Account
+The error *Error 403: access_denied* means that the OAuth Consent screen may be misconfigured,
+either because it does not allow access to your google account or because you have entered
+extra information that triggered Google's verification process. Google will require
+verification when you add extra information to the branding page.
 
 #### Resolution
 
-Visit the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) and add your Google Account as a *Test User*.
+Visit the OAuth [Verification Center](https://console.cloud.google.com/auth/verification) and
+confirm the *Verification Status* is *Verification not required*. If verification
+is required:
+
+1. Navigate to the [Branding](https://console.cloud.google.com/auth/branding) page
+1. Remove additional fields that are not required and Save. See the set up instruction above and
+make sure not to enter extra fields.
+1. Go back to the Verification Center and confirm the status is correct.
+
+Additionally you need to make sure the Audience configuration is correct by following these steps:
+
+1. Visit the OAuth [Audience](https://console.cloud.google.com/auth/audience) page
+1. Make sure the account is set to *In production*.
+
+You may now repeat the integration setup and account linking steps.
 
 #### Symptom: Error: invalid_client no application name
 
