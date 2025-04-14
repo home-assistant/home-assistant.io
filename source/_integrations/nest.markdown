@@ -634,7 +634,7 @@ Confirm that your Nest device is visible within the Google Home App and Nest App
 ##### Description
 
 The error *Error 403: access_denied* means that the OAuth Consent screen may be misconfigured,
-either because it does not allow access to your google account or because you have entered
+either because it does not allow access to your Google Account or because you have entered
 extra information that triggered Google's verification process. Google will require
 verification when you add extra information to the branding page.
 
@@ -645,14 +645,14 @@ confirm the *Verification Status* is *Verification not required*. If verificatio
 is required:
 
 1. Navigate to the [Branding](https://console.cloud.google.com/auth/branding) page
-1. Remove additional fields that are not required and Save. See the set up instruction above and
+2. Remove additional fields that are not required and Save. See the set up instruction above and
 make sure not to enter extra fields.
-1. Go back to the Verification Center and confirm the status is correct.
+3. Go back to the Verification Center and confirm the status is correct.
 
 Additionally you need to make sure the Audience configuration is correct by following these steps:
 
 1. Visit the OAuth [Audience](https://console.cloud.google.com/auth/audience) page
-1. Make sure the account is set to *In production*.
+2. Make sure the account is set to *In production*.
 
 You may now repeat the integration setup and account linking steps.
 
