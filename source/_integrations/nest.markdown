@@ -778,3 +778,14 @@ logger:
     google_nest_sdm.google_nest_subscriber: debug
     google_nest_sdm.event: debug
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, you may also want to remove any unused information in
+your Google Account that was added during the set up process.  See the integration
+configuration instructions for how to find where OAuth credentials and Device Access projects
+are configured.
