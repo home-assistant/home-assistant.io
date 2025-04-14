@@ -685,7 +685,7 @@ There have been reports that Thermostats may not appear or are unavailable due t
 
 - Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
 - In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
-- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Devices & services**, click `...` next to *Nest* and choose **Reload**.
+- Reload the integration in Home Assistant:  Navigate to {% my integrations title="**Settings** > **Devices & services**" %}, select {% icon "mdi:dots-vertical" %} next to *Nest* and choose **Reload**.
 
 #### Symptom: Devices do not appear when the API is disabled
 
