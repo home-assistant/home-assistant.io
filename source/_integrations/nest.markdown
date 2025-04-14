@@ -527,6 +527,7 @@ This feature is enabled by the following permissions:
 There are limitations about which Google Accounts can use the SDM API. See the [Device Access Registration](https://developers.google.com/nest/device-access/registration) documentation for details.
 
 The primary limitations are:
+
 - Google Workspace accounts are not supported. Only consumer accounts (e.g. gmail.com) can be used.
 - Once a Google Account is associated with your Device Access Project it cannot be changed. Be sure you are signed in to the correct Google Account before continuing.
 
@@ -541,7 +542,7 @@ has been reported to the Nest SDM team and is an unexpected side effect of their
 
 ### Temperature sensors partially supported
 
-Additional Nest Temperature Sensors are not supported by the SDM API. The Temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App. If multiple sensors are available, only the temperature from the active sensor will be displayed
+Additional Nest Temperature Sensors are not supported by the SDM API. The Temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App. If multiple sensors are available, only the temperature from the active sensor will be displayed.
 
 ## Troubleshooting
 
@@ -551,7 +552,7 @@ Additional Nest Temperature Sensors are not supported by the SDM API. The Temper
 
 ##### Description
 
-The error *Can’t link to [Project Name* typically means that the *OAuth Client ID* used is
+The error *Can’t link to [Project Name]* typically means that the *OAuth Client ID* used is
 mismatched in Home Assistant [Application Credentials](/integrations/application_credentials/).
 
 ##### Resolution
@@ -571,8 +572,7 @@ that the *OAuth Client ID* used must be consistent across these three places:
 ##### Description
 
 The error *No access to partner information* or *Information could not be retrieved* shown
-during the account linking process means that the Google Account used is not able to
-access the Google Home.
+during the account linking process means that the Google Account used cannot access the Google Home.
 
 ##### Resolution
 
@@ -668,7 +668,7 @@ You can add or remove devices and permissions granted to Home Assistant in the N
 
 #### Symptom: Thermostats do not appear in Home Assistant or are unavailable
 
-There have been reports that Thermostats may not appear or are unavailable due to a bug in the SDM API. A common fix get the API to work again is to try these steps:
+There have been reports that Thermostats may not appear or are unavailable due to a bug in the SDM API. A common fix to get the API to work again is to try these steps:
 
 - Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
 - In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
@@ -690,7 +690,7 @@ Double-check that GCP is configured correctly and [Enable the API](https://devel
 
 ##### Description
 
-You may be asked to reauthenticate more often than you expect, such as every 7 days. This means an OAuth Consent Screen is misconfigured or your authentication token was revoked by Google for some other reason.
+You may be asked to reauthenticate more often than you expect, such as every 7 days. This means an OAuth Consent Screen is misconfigured, or your authentication token was revoked by Google for some other reason.
 
 ##### Resolution
 
@@ -740,11 +740,13 @@ Changes for things like sensors or thermostat temperature set points should be i
 
 ##### Resolution
 
-- Make sure to check the logs for any error messages.
+To learn more about how Google Pub/Sub works see the [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow). To investigate subscription related issues follow these steps:
 
-- You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all.
-
-- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your {% term "`configuration.yaml`" %} depending on where you are having trouble:
+- Check the logs for any relevant error messages.
+- View stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list). The stats include the number of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all.
+- Note that it is normal to see info messages such as *API error in streaming pull: 503 The service was unable to fulfill your request. Please try again* as part of the streaming pull flow. The pull requests are long
+running requests that will send an error after a few minutes and then are retried as needed. These are described in more detail in the [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow).
+- Enable verbose logging by adding some or all of these to your {% term "`configuration.yaml`" %} depending on where you are having trouble:
 
 ```yaml
 
