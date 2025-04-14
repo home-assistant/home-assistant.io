@@ -136,7 +136,7 @@ Make sure you have all these components ready before trying to add a Matter devi
 - On the device packaging, check for both the Matter logo and for either the Wi-Fi or the {% term Thread %} logo.
 - Check if the QR code or the numeric setup code is on the device.
   - If you reset your device you'll need the QR code *or* numeric setup code to {% term commission %} that device again! Without this information, commissioning won't be possible.
-  - If the QR code or the numeric setup code is only in accompanied documentation, it is good practice to snap a picture of the QR code and/or numeric setup code as a backup, ideally along with the device for reference, and store the code in a safe place.
+  - If the QR code or the numeric setup code is only in accompanied documentation, it is a good practice to snap a picture of the QR code and/or numeric setup code as a backup, ideally along with the device for reference, and store it in a safe place.
 
 #### Prepare Android or iPhone
 
