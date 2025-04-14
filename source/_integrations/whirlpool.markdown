@@ -68,7 +68,7 @@ The following actions are also available:
 
 ### Sensor
 
-The `whirlpool` sensor platform integrates Whirlpool Washer and Dryer systems into Home Assistant, allowing views of the machine state, time remaining and the "wash & go" tank fill status as sensors for each device.
+The `whirlpool` sensor platform integrates Whirlpool Washer and Dryer systems into Home Assistant, allowing views of the machine state, time remaining, and the "wash & go" tank fill status as sensors for each device.
 
 ## Removing the integration
 
