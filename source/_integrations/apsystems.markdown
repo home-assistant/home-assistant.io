@@ -54,7 +54,8 @@ The **APsystems** {% term integration %} allows you to read the data from your [
 
 
 ## Flash Endurance
-There has been a discussion about the inverter's lifetime being shortened when using the `output_limit` setting excessively. APsystems officially confirmed this to me, while also acknowledging that newer hardware version don't have this issue, while older ones should be updated at most every 300 seconds. Newer inverters have a serial number starting with `Ex701` and thus aren't at risk of flash wear when setting the `output_limit` moer frequently than every 300 seconds. APsystems have told [@mawoka-myblock](https://github.com/mawoka-myblock) this in a support ticket via email.
+
+There has been a discussion about the inverter's lifetime being shortened when using the `output_limit` setting excessively. APsystems officially confirmed this to me while also acknowledging that newer hardware versions don't have this issue, while older ones should be updated at most every 300 seconds. Newer inverters have a serial number starting with `Ex701` and thus aren't at risk of flash wear when setting the `output_limit` more frequently than every 300 seconds.
 
 
 ## Prerequisites
