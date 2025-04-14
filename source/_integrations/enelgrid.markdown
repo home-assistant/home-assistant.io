@@ -63,7 +63,3 @@ If everything is working correctly, your dashboard might look like this:
 - **Link to parent pull request in the Brands repository:** [home-assistant/brands#6873](https://github.com/home-assistant/brands/pull/6873)  
 - This PR fixes or closes issue: N/A
 
-## 🔗 External Links
-
-- [Enel Portal](https://www.enel.it/)
-- [Home Assistant Integrations](https://www.home-assistant.io/integrations/)
