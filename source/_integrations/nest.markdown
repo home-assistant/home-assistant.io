@@ -620,7 +620,7 @@ mixed up between accounts.
 
 Make sure the credential in the [Google Cloud Console](https://console.developers.google.com/apis/credentials) is a *Web Application* credential following the instructions above. If you have multiple Google accounts logged into the current browser session, Google may default to the first logged in account while switching between pages. To avoid this, log out of other accounts or use a private/incognito browser window with only the desired Google account logged in.
 
-#### Symptom: Something went wrong, please try again in a few minutes*
+#### Symptom: Something went wrong, please try again in a few minutes
 
 ##### Description
 
