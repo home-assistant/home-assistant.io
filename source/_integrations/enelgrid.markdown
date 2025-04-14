@@ -31,6 +31,7 @@ During setup, you’ll be prompted to enter:
 - **Price per kWh**: Estimated based on your billing rate (total cost ÷ total kWh consumed)
 
 All credentials are stored securely by Home Assistant’s configuration system.
+{% include integrations/config_flow.md %}
 
 ## Energy Dashboard Setup
 
