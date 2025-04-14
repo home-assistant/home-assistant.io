@@ -528,21 +528,20 @@ There are limitations about which Google Accounts can use the SDM API. See the [
 
 The primary limitations are:
 - Google Workspace accounts are not supported. Only consumer accounts (e.g. gmail.com) can be used.
-- Once a Google Account is associated with your Device Access Project it cannot be changed, be sure you are signed into the correct Google Account before continuing.
+- Once a Google Account is associated with your Device Access Project it cannot be changed. Be sure you are signed in to the correct Google Account before continuing.
 
 Keep in mind the US$5 registration fee is non-refundable.
 
 ### Google Home App Migration and Cameras
 
-Migrating your cameras to the Google Home App will convert the cameras from RTSP to WebRTC. This
-will remove the snapshot functionality.
+Migrating your cameras to the Google Home App converts cameras from RTSP to WebRTC, which results in the loss of snapshot functionality.
 
 Additionally, there is a known issue where media is not currently published for these events. This
 has been reported to the Nest SDM team and is an unexpected side effect of their migration.
 
 ### Temperature sensors partially supported
 
-Additional Nest Temperature Sensors are not supported by the SDM API.  The Temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App.
+Additional Nest Temperature Sensors are not supported by the SDM API. The Temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App. If multiple sensors are available, only the temperature from the active sensor will be displayed
 
 ## Troubleshooting
 
