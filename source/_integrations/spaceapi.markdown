@@ -72,10 +72,12 @@ spacefed:
       description: Set to true or false depending on whether your space supports spacenet as described [here](https://spacefed.net/index.php/Category:Howto/Spacenet)
       required: true
       type: boolean
+      default: false
     spacesaml:
       description: Set to true or false depending on whether you space uses spacesaml as described [here](https://spacefed.net/index.php?title=Spacesaml)
       required: true
       type: boolean
+      default: false
 contact:
   description: Contact information of the Hackerspace. At least one entry is mandatory.
   required: true
