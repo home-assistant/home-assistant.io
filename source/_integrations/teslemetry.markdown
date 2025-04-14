@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Button
   - Car
+  - Calendar
   - Climate
   - Cover
   - Device tracker
@@ -24,6 +25,7 @@ ha_domain: teslemetry
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
   - climate
   - cover
   - device_tracker
@@ -112,6 +114,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Button|Keyless driving|Yes|
 |Button|Play fart|Yes|
 |Button|Wake|Yes|
+|Calendar|Charging schedule|No|
+|Calendar|Precondition schedule|No|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
 |Cover|Charge port door|Yes|
@@ -195,6 +199,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Grid services active|Yes|
 |Binary sensor|Grid services enabled|Yes|
 |Binary sensor|Storm watch active|Yes|
+|Calendar|Buy tariff|Yes|
+|Calendar|Sell tariff|Yes|
 |Number|Backup reserve|Yes|
 |Number|Off grid reserve|Yes|
 |Select|Allow export|Yes|
