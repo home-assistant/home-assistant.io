@@ -20,7 +20,7 @@ The **EnelGrid** {% term integrations %} connects Home Assistant with **Enel Ita
 - Automatically updates daily
 - Supports secure re-authentication if needed
 
-## Configuration
+## Prerequisites
 
 During setup, you’ll be prompted to enter:
 
