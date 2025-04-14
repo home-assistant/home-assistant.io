@@ -18,3 +18,13 @@ Some battery vendors have an API to integrate the data into your Home Assistant 
 ### Using a CT clamp sensor
 
 {% include energy/ct_clamp.md %}
+
+Note: you have to create a 2 helpers to separate between "Energy going in to the battery" and "Energy coming out of the battery". This is best done by making template sensors with the following code (this one is for energy flowing in your battery):
+```
+{% if states('sensor.name_of_your_sensor')|float(0) >= 0 %}
+  {{ states('sensor.name_of_your_sensor') }}
+{% else %}
+  {{ 0 }}
+{% endif %}
+```
+For each of these helpers you'll create a additional sensor to calculate the sum. (use the integral function for this)
