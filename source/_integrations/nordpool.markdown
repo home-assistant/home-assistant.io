@@ -97,7 +97,7 @@ The block price sensors are not enabled by default.
 | Sensor                    | Type              | Description                                                                       |
 | ------------------------- | ----------------- | --------------------------------------------------------------------------------- |
 | Currency                  | [Currency]        | The configured currency.                                                          |
-| Exchange rate             | Integer           | The exchange rate between the configure currency and Euro's.                      |
+| Exchange rate             | Decimal           | The exchange rate between the configure currency and Euro's.                      |
 | Last updated              | Datetime          | The time when the market prices were last updated.                                |
 
 ## Actions
