@@ -40,7 +40,7 @@ It's recommended to add an API application per vehicle you want to add. There is
 API key:
     description: "Enter the API key obtained in the prerequisites steps."
 VIN:
-    description: "If you have more than one car under this account then you can select the Vehicle Identification Number of the vehicle you wish to add."
+    description: "If you have more than one car under this account, then you can select the Vehicle Identification Number of the vehicle you wish to add."
 {% endconfiguration_basic %}
 
 ## Configuration options
