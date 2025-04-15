@@ -123,3 +123,9 @@ Some sensors are disabled by default, since they provide information that is onl
 - UPS Transfer from Battery (XOFFBAT)
 - UPS Transfer from Battery (XOFFBATT)
 - UPS Transfer to Battery (XONBATT)
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
