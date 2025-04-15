@@ -30,22 +30,27 @@ Note that the feature availability depends on the appliance model.
 
 ## Supported devices
 
-You can find information about supported devices on the [Miele website](https://www.miele.com/developer/capabilities.html).
+You can find general information about supported devices on the [Miele website](https://www.miele.com/developer/capabilities.html).The integration supports any Miele appliance which is connected to a Miele user account. Miele WiFi Conn@ct appliances can be connected direct via a WiFi router, Miele Zigbee appliances must use the Miele@home Gateway XGW3000.
+
+The appliance must be connected to the Miele CloudService by using the Miele app.
+
+{% note %}
+New generation washer/dryers and new generation vacuum cleaners:
+Endpoints for the new generations are not yet available and will be released in the fall of 2025.
+{% endnote %}
 
 ## Prerequisites
 
-1. Visit [https://www.miele.com/developer](https://www.miele.com/f/com/en/register_api.aspx) and sign up for a developer account.
-2. Enter an arbitrary name for your connection and the email of your login for the original Miele app.
-3. On success, you will get an email with an activation link. Press the Activate button. Make note of the client ID and secret - you will need them for the next step.
-4. In Home Assistant, find the Miele integration and launch it. You will be prompted to create an [Application Credential](https://www.home-assistant.io/integrations/application_credentials). You will need to provide a name (it's arbitrary) in addition to the Client ID and Secret from the previous step. Then, follow the steps in the UI to complete setup.
+{% details "Manual entry of authentication credentials" %}
 
-{% important %}
-
-- The provided Miele User Account email address must be all lowercase; otherwise, it will result in authentication failures.
+- Visit [https://www.miele.com/developer](https://www.miele.com/f/com/en/register_api.aspx) and sign up for a developer account.
+- Enter an arbitrary name for your connection and the email of your login for the original Miele app.
+- On success, you will get an email with an activation link. Press the Activate button. Make note of the client ID and secret - you will need them for the next step.
+You may be prompted to create an [Application - The provided Miele User Account email address must be all lowercase; otherwise, it will result in authentication failures.
 - The password should not contain any special characters. Even though it works in the Miele app, it may not work with the API.
-- Allow a couple of minutes to get the activation email. All changes in the developer portal take a couple of minutes before the change is implemented.
+- Allow a couple of minutes to get the activation email. All changes in the developer portal take a couple of minutes before the change is implemented. Save your credentials as you will need them later.
 
-{% endimportant %}
+{% enddetails %}
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -62,7 +67,7 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% include integrations/config_flow.md %}
 
-The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
+The integration configuration may ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
 ## Supported functionality
 
@@ -150,6 +155,6 @@ To try to solve the above issues, follow these steps:
 
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required.
+This integration follows standard integration removal. If you have entered own credentials you will be asked if you want to keep them or to delete them. If you want to delete them later you can do that from the tree-dot menu in Settings->Device & services.
 
 {% include integrations/remove_device_service.md %}
