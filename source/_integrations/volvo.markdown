@@ -61,12 +61,12 @@ The **Volvo** integration provides the following entities.
 #### Sensors
 
 - **Car connection**: Connectivity of the car
-- **Distance to service**: Remaining distance till the next service maintenance
-- **Engine time to service**: Remaining engine-hours till the next service maintenance
+- **Distance to service**: Remaining distance until the next service maintenance
+- **Engine time to service**: Remaining engine-hours until the next service maintenance
 - **Odometer**: Odometer
 - **TA Avg. speed**: Average speed on the automatic trip meter
 - **TA Distance**: Total distance on the automatic trip meter
-- **Time to service**: Remaining time till the next service maintenance
+- **Time to service**: Remaining time until the next service maintenance
 - **TM Avg. speed**: Average speed on the manual trip meter
 - **TM Distance**: Total distance on the manual trip meter
 
@@ -136,7 +136,7 @@ The official Volvo app has access to a more feature-rich API. As a result, this 
 
 #### Symptoms
 
-The **Volvo** {% term integration %} does not show recharge entities or they are unavailable.
+The **Volvo** {% term integration %} does not show recharge entities, or they are unavailable.
 This happens because sometimes the Volvo recharge API does not respond properly.
 
 #### Resolution
