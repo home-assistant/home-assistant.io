@@ -129,6 +129,10 @@ Tomorrow's prices are typically released around 13:00 CET, and trying to get the
 
 {% endnote %}
 
+{% tip %}
+You can get your `config_entry` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the Nord Pool actions and viewing the YAML.
+{% endtip %}
+
 #### Example action with data
 
 {% raw %}
@@ -193,10 +197,14 @@ template:
 Using a trigger template, you can create a template sensor to calculate tomorrow's lowest price which also puts the list of all prices in the attributes of the sensor. All prices are returned in [Currency]/MWh.
 
 {% note %}
-You need to replace the `config_entry` with your own Nord Pool config entry id.
 
 Below example will convert the action call response to kWh prices in the selected currency and add all prices for tomorrow as a list in an attribute.
+
 {% endnote %}
+
+{% tip %}
+You can get your `config_entry` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the Nord Pool actions and viewing the YAML.
+{% endtip %}
 
 {% raw %}
 
