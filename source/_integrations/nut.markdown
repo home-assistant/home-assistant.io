@@ -290,6 +290,48 @@ An action is available for each parameterless NUT
 [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html)
 supported.
 
+## Automation example
+
+Home Assistant {% term automations %} can be created to monitor and
+take actions on one or more power devices using NUT.
+
+The following example illustrates how to use this integration in a
+Home Assistant automation. This example is just a starting point, and
+you can use it as inspiration to create your own automations.
+
+### UPS Power Failure Notification
+
+The following example sends a notification to your mobile device when
+a monitored UPS loses power and begins using the battery.
+
+#### Prerequisites
+
+- The NUT integration must be installed and
+configured.
+- Your mobile device must be configured for
+notification.
+- In the example below, the NUT server device is `ups` with the status
+sensor named `ups_status`. You must change the YAML sensor name to
+match your system.
+
+#### Example in YAML
+
+```yaml
+# Send notification on UPS power failure
+automation:
+  alias: "NUT Power failure notification"
+  triggers:
+    - trigger: state
+      entity_id:
+        - sensor.ups_status
+      to: "On Battery Battery Discharging"
+  actions:
+    - action: notify.notify
+      data:
+        title: "UPS power failure"
+        message: "The UPS lost power and is now on battery"
+```
+
 ## Troubleshooting
 
 ### Using NUT to list all variables
