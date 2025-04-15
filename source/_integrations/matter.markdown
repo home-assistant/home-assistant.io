@@ -364,17 +364,6 @@ The Home Assistant Matter updates currently do not work for Thread devices on a 
 
 You have a device that takes button presses as inputs (such as a Tuo Smart Button, VTM31SN dimmer by Inovelli, or the Matter Pushbutton Module by Innovation Matters) and now want to trigger an automation based on that button press. To learn how to create an automation triggered by a button press, refer to this [tutorial](/integrations/event/#automating-on-a-button-press).
 
-## Matter appliances modes
-
-A selector is used to choose the operating mode of a device.
-
-### Water heater mode
-
-There are 3 operating modes to choose from:
-- **Off mode**: While in this mode the device will not attempt to keep the water warm.
-- **Manual mode**: While in this mode the device will attempt to keep the water warm based on the Water heater selected temperature.
-- **Timed mode**: While in this mode the device will attempt to keep the water warm based on your own schedule (not supported)
-
 ## Experiment with Matter using a ESP32 dev board
 
 You do not yet have any Matter-compatible hardware but you do like to try it out or maybe create your own DIY Matter device? We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We recommend the M5 Stamp C3 device running the Lighting app.
