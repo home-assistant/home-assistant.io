@@ -150,8 +150,7 @@ have helped shape this design, and we would love to see how it works
 with a wide variety of your homes. Even if you already have the perfect
 dashboard built for your home, try it!
 
-**Use [this feedback form](https://forms.clickup.com/2533032/f/2d9n8-30491/9CJ7EPBGLB01LX6WOR) to let us know
-your thoughts!**
+**Update:** We had a feedback form in the release notes in this spot, but that's closed now. Thanks for your input!
 
 ### Time for a new card!
 
