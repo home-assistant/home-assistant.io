@@ -30,7 +30,7 @@ Note that the feature availability depends on the appliance model.
 
 ## Supported devices
 
-You can find general information about supported devices on the [Miele website](https://www.miele.com/developer/capabilities.html).The integration supports any Miele appliance which is connected to a Miele user account. Miele WiFi Conn@ct appliances can be connected direct via a WiFi router, Miele Zigbee appliances must use the Miele@home Gateway XGW3000.
+You can find general information about supported devices on the [Miele website](https://www.miele.com/developer/capabilities.html). The integration supports any Miele appliance connected to a Miele user account. Miele WiFiConn@ct appliances can be connected directly via a Wi-Fi router. Miele Zigbee appliances must use the Miele@home Gateway XGW3000.
 
 The appliance must be connected to the Miele CloudService by using the Miele app.
 
@@ -45,7 +45,7 @@ Endpoints for the new generations are not yet available and will be released in 
 
 - Visit [https://www.miele.com/developer](https://www.miele.com/f/com/en/register_api.aspx) and sign up for a developer account.
 - Enter an arbitrary name for your connection and the email of your login for the original Miele app.
-- On success, you will get an email with an activation link. Press the Activate button. Make note of the client ID and secret - you will need them for the next step.
+- On success, you will get an email with an activation link. Press the **Activate** button. Make note of the client ID and secret - you will need them for the next step.
 You may be prompted to create an [Application - The provided Miele User Account email address must be all lowercase; otherwise, it will result in authentication failures.
 - The password should not contain any special characters. Even though it works in the Miele app, it may not work with the API.
 - Allow a couple of minutes to get the activation email. All changes in the developer portal take a couple of minutes before the change is implemented. Save your credentials as you will need them later.
@@ -155,6 +155,6 @@ To try to solve the above issues, follow these steps:
 
 ## Removing the integration
 
-This integration follows standard integration removal. If you have entered own credentials you will be asked if you want to keep them or to delete them. If you want to delete them later you can do that from the tree-dot menu in Settings->Device & services.
+This integration follows standard integration removal. If you have entered your own credentials, you will be asked if you want to keep them or delete them. If you want to delete them later you can do that from the tree-dot menu in {% my integrations title="**Settings** > **Devices & services**" %}.
 
 {% include integrations/remove_device_service.md %}
