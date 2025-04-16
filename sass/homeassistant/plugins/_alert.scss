@@ -7,6 +7,10 @@ div.alert {
   margin-bottom: 24px;
   border-radius: 16px;
 
+  >*:last-of-type{
+    margin-bottom: 0;
+  }
+
   p {
     margin-bottom: 0px;
     &.alert-title {
