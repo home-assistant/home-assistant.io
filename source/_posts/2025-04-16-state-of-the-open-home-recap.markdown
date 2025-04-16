@@ -2,8 +2,8 @@
 layout: post
 title: "2 million homes strong - State of the Open Home 2025"
 description: "We celebrate the biggest moments of 2025, the community, and look forward to what’s next."
-date: 2025-04-15 00:00:01
-date_formatted: "April 15, 2025"
+date: 2025-04-16 00:00:01
+date_formatted: "April 16, 2025"
 author: Paulus Schoutsen
 comments: true
 categories: Announcements
@@ -15,7 +15,20 @@ The State of the Open Home 2025 has wrapped, and a big thanks to everyone who tu
 
 It was an over 2-hour event, and if you need a shorter summary than this blog, here's my best attempt 😅,
 
-<div class="alert"><b>Summary:</b> Home Assistant doubled its user base to 2M households, the community survey received 8,000+ responses, new partners are joining Works with Home Assistant, Roadmap 2025 sets out plans for a new device database, and Home Assistant Community Day is on May 24th. As for the Open Home Foundation, it is now tax-exempt, has taken on 39 full-time project staff, received a donation from Espressif, and Music Assistant & HACS are now official projects.</div>
+<div class="alert">
+<b>Summary:</b>
+<ul>
+  <li>Home Assistant doubled its user base to 2M households</li>
+  <li>Open Home Foundation is now tax-exempt</li>
+  <li>The Foundation has taken on 39 full-time project staff</li>
+  <li>Espressif has donated to the Foundation</li>
+  <li>Announced upcoming Works with Home Assistant partners</li>
+  <li>24 May will be Home Assistant Community Day with many meetups</li>
+  <li>Music Assistant and HACS are now Foundation projects</li>
+  <li>The Community Survey had 8k respondents and interesting results</li>
+  <li>Roadmap 2025 sets out plans for a new device database</li>
+</ul>
+</div>
 
 For all the juicy details, keep reading!<!--more-->
 
@@ -96,7 +109,7 @@ We want the Foundation projects to serve our community, and that's why we've put
 
 <p class="img"><img src='/images/blog/2025-04-SOTOH/ohf-survey.jpg' alt="Home Assistant Community Day will be on May 24th 2025"/>You love choice! but we're still learning what privacy and sustainability mean to you.</p>
 
-Our 2024 Community Survey  was a huge success, with over 8,600 responses! We learned so much about who uses Home Assistant. For instance, a big majority of the people who answered the survey are tech-curious, have been using HA for 3+ years, live in households of 2.8 people on average, and have somewhere between 11-100 devices 😎 ([watch the whole segment](https://www.youtube.com/live/o4Vctz1_KYE?si=W-QRbgOtwuIwddlX&t=4083), there are so many interesting results!). We also delved into their motivations and how deeply our values of Choice and Privacy resonate, even if the practical implementation of privacy remains a challenge for many. Annika's key message -- "User research helps remind us... We are not the users." -- we need to challenge our assumptions and personal biases.
+Our 2024 Community Survey was a huge success, with over 8,600 responses! We learned so much about who uses Home Assistant. For instance, a big majority of the people who answered the survey are tech-curious, have been using HA for 3+ years, live in households of 2.8 people on average, and have somewhere between 11-100 devices 😎 ([watch the whole segment](https://www.youtube.com/live/o4Vctz1_KYE?si=W-QRbgOtwuIwddlX&t=4083), there are so many interesting results!). We also delved into their motivations and how deeply our values of Choice and Privacy resonate, even if the practical implementation of privacy remains a challenge for many. Annika's key message -- "User research helps remind us... We are not the users." -- we need to challenge our assumptions and personal biases.
 
 ## Works with Home Assistant
 <p style="margin-top: -1.2em;"><a href="https://www.youtube.com/live/o4Vctz1_KYE?si=EeNgbeu5_8eiYsfR&t=5053">(01:24:13)</a></p>
@@ -136,4 +149,4 @@ The live Q&A session at the end was, as always, a highlight, [tackling great que
 
 It was an energizing day, reaffirming my belief in our mission and the incredible power of this community. We're building something unique and important together. Thank you to everyone who watched, participated, and continuously supports the Open Home. Your belief in this project makes it all possible.
 
-And, of course, a huge thank you to all our Home Assistant Cloud subscribers. Your financial support is the bedrock that allows the Open Home Foundation to thrive and continue driving innovation in the private, open smart home.
+And, of course, a huge thank you to all our [Home Assistant Cloud subscribers](/cloud/). Your financial support is the bedrock that allows the Open Home Foundation to thrive and continue driving innovation in the private, open smart home.
