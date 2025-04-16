@@ -17,4 +17,6 @@ This marks a full year since the founding of the [Open Home Foundation](https://
 
 We'll also be highlighting some of the big findings of our [2024 Home Assistant survey](/blog/2024/12/16/community-survey-2024/), where over 8,500 of you told us about yourself, your homes, and how you use Home Assistant. We'll also announce Home Assistant's 2025 [roadmap](/blog/categories/roadmap/), and how your feedback is shaping the future of the Open Home.
 
-**🔔 Be sure to [click to get notified](https://www.youtube.com/watch?v=o4Vctz1_KYE) when it starts (Saturday, April 12 - 18:00 GMT / 20:00 CEST / 14:00 EDT / 11:00 PDT), and we can't wait to see you in the comments!**
+🔔 Be sure to [click to get notified](https://www.youtube.com/watch?v=o4Vctz1_KYE) when it starts (Saturday, April 12 - 18:00 GMT / 20:00 CEST / 14:00 EDT / 11:00 PDT), and we can't wait to see you in the comments!
+
+**Update**: It happened and was great! [Read about the biggest highlights here.](/blog/2025/04/16/state-of-the-open-home-recap/)
