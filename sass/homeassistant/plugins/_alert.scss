@@ -5,7 +5,7 @@ div.alert {
   padding: 20px 24px 20px 24px;
   position: relative;
 
-  >*:last-of-type {
+  >:last-child {
     margin-bottom: 0;
   }
 
