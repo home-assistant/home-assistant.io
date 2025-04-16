@@ -27,10 +27,10 @@ The **Volvo** {% term integration %} is used to integrate your [Volvo](https://w
 
 ## Prerequisites
 
-1. Head over to [Volvo's developer portal](https://developer.volvocars.com/)
-2. Make an account
-3. Go to the [API applications page](https://developer.volvocars.com/account/#your-api-applications)
-4. Create an "API application" and give it a meaningful name
+1. Head over to [Volvo's developer portal](https://developer.volvocars.com/).
+2. Make an account.
+3. Go to the [API applications page](https://developer.volvocars.com/account/#your-api-applications).
+4. Create an **API application** and give it a meaningful name.
 
 It's recommended to add an API application per vehicle you want to add. There is a maximum on the number of requests that can be made per API key per day.
 
@@ -70,7 +70,7 @@ The **Volvo** integration provides the following entities.
 - **TM Avg. speed**: Average speed on the manual trip meter
 - **TM Distance**: Total distance on the manual trip meter
 
-### Battery only and Plug-in hybrid
+### Battery-only and plug-in hybrid
 
 #### Sensors
 
@@ -91,7 +91,7 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 - **Target battery charge level**: Target battery charge level configured in the car
 - **TM Avg. energy consumption**: Average energy consumption on the manual trip meter
 
-### Fuel only and Plug-in hybrid
+### Fuel-only and plug-in hybrid
 
 - **Distance to empty tank**: Fuel range
 - **Fuel amount**: Remaining fuel
