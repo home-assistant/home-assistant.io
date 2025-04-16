@@ -46,6 +46,19 @@ You are in control of the information and capabilities exposed to Home Assistant
 
 ## Configuration
 
+{% details "Important: Remove existing Google credentials first" %}
+
+If you have previously set up the Google integration or a Nest integration, you should remove any existing Google integration credentials before proceeding.
+
+To remove existing credentials:
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
+2. Select the three dots (⋮) menu in the upper right corner.
+3. Review the list for any previous Google or Nest integrations.
+4. Remove any existing Google/Nest integration by selecting it and choosing "Delete".
+
+This ensures that Home Assistant will use your latest Google integration configuration and prevents authentication conflicts.
+{% enddetails %}
+
 To add the **Nest** integration to your Home Assistant, use this My Button:
 {% my config_flow_start badge domain=page.ha_domain %}
 
