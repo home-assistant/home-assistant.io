@@ -13,8 +13,11 @@ ha_domain: fyta
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - image
   - sensor
 ha_integration_type: hub
+ha_quality_scale: platinum
+ha_dhcp: true
 ---
 
 The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta.de) to obtain the data from your plant sensors and integrate these into Home Assistant.
@@ -56,6 +59,10 @@ The following binary sensors are currently available per plant:
 - Productive plant
 - Repotted
 - Sensor update available
+
+### Image
+
+The picture created or chosen in the FYTA app is also exposed to Home Assistant.
 
 ### Sensors
 

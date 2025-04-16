@@ -12,7 +12,7 @@ ha_domain: energyzero
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **EnergyZero** {% term integration %} integrates the [EnergyZero](https://www.energyzero.nl/) API platform with Home Assistant.
@@ -151,10 +151,10 @@ To use the response data from the actions, you can create a template sensor that
 
 ```yaml
 template:
-  - triggers:
+  - trigger:
       - trigger: time_pattern
         hours: "*"
-    actions:
+    action:
       - action: energyzero.get_energy_prices
         response_variable: prices
         data:

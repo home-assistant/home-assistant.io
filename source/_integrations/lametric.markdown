@@ -93,7 +93,7 @@ message:
   required: true
   type: string
 icon:
-  description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
+  description: "The ID of an icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
   required: false
   type: string
 cycles:
@@ -132,7 +132,7 @@ following, additional, optional parameters:
 
 {% configuration "notification" %}
 icon:
-  description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
+  description: "The ID of an icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
   required: false
   type: string
 cycles:

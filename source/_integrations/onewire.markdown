@@ -17,6 +17,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
+ha_zeroconf: true
 ---
 
 The Onewire integration supports sensors that use the 1-wire bus for communication.
@@ -51,6 +52,7 @@ Each 1-wire component data sheet describes the different properties the componen
 | 10     | [DS18S20](https://www.maximintegrated.com/en/products/sensors/DS18S20.html)  | Temperature                     |
 | 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)            | Temperature and pressure when using TAI-8570 <sup>[1](#note_1)</sup> |
 | 1D     | [DS2423](https://datasheets.maximintegrated.com/en/ds/DS2423.pdf)            | Counter                         |
+| 20     | [DS2450](https://datasheets.maximintegrated.com/en/ds/DS2450.pdf) | 4 x Voltage         |
 | 22     | [DS1822](https://datasheets.maximintegrated.com/en/ds/DS1822.pdf)            |                                 |
 | 26     | [DS2438](https://datasheets.maximintegrated.com/en/ds/DS2438.pdf)            | Temperature, Voltage, Current (pressure when using B1-R1-A, illuminance when using S2-R1-A, humidity when using compatible Honeywell or Humirel sensor) <sup>[2](#note_2)</sup> |
 | 28     | [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)          | Temperature                     |

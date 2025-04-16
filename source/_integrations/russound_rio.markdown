@@ -7,11 +7,14 @@ ha_release: 0.49
 ha_iot_class: Local Push
 ha_domain: russound_rio
 ha_platforms:
+  - diagnostics
   - media_player
 ha_codeowners:
   - '@noahhusby'
 ha_config_flow: true
 ha_integration_type: integration
+ha_quality_scale: silver
+ha_zeroconf: true
 ---
 
 The Russound RIO {% term integration %} allows you to control Russound devices that make use of the RIO protocol.

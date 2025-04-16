@@ -16,8 +16,7 @@ ha_codeowners:
   - '@gjohansson-ST'
 ---
 
-The System monitor integration allows you to monitor disk usage,
-memory usage, CPU usage, and running processes. 
+The **System monitor** {% term integration %} allows you to monitor disk usage, memory usage, network usage, CPU usage, and running processes.
 
 {% include integrations/config_flow.md %}
 
@@ -25,7 +24,7 @@ memory usage, CPU usage, and running processes.
 
 {% note %}
 
-All entities are disabled by default, you need to enable the entities that you wish to use.
+All entities are disabled by default, you need to [enable the entities](/common-tasks/general/#enabling-or-disabling-entities) that you wish to use.
 
 All sensors are also marked as diagnostic and won't be automatically added to automatic dashboards.
 
@@ -33,20 +32,24 @@ All sensors are also marked as diagnostic and won't be automatically added to au
 
 ### Disks
 
-- Disk free - (One per disk/mount point)
-- Disk use - (One per disk/mount point)
-- Disk usage (percent) - (One per disk/mount point)
+One sensor per found disk/mount point will be created
+
+- Disk free
+- Disk use
+- Disk usage (percent)
 
 ### Network
 
-- IPv4 address - (One per network interface)
-- IPv6 address - (One per network interface)
-- Network in - (One per network interface)
-- Network out - (One per network interface)
-- Packets in - (One per network interface)
-- Packets out - (One per network interface)
-- Network throughput in - (One per network interface)
-- Network throughput out - (One per network interface)
+One sensor per found network interface will be created
+
+- IPv4 address
+- IPv6 address
+- Network in
+- Network out
+- Packets in
+- Packets out
+- Network throughput in
+- Network throughput out
 
 ### Other
 
@@ -65,23 +68,29 @@ All sensors are also marked as diagnostic and won't be automatically added to au
 
 ## Add `process` binary sensor
 
-The `process` binary sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & services" %}**, select the **System Monitor** integration and click **Configure** to select which `process` binary sensors should be created.
+The `process` binary sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & services" %}**, select the **System Monitor** integration and select **Configure**.
+
+You can select from the pre-populated list (current running processes) or manually enter the process name, to which a binary sensor will be created per selected `process`.
 
 ## Disk usage
 
 {% note %}
 
-The disk usage sensors do not support monitoring folder/directory sizes. Instead, it is only concerned with "disks" (more specifically mount points on Linux).
+The disk usage sensors do not support monitoring folder/directory sizes. Instead, it is only targeting "disks" (more specifically mount points on Linux).
 
 {% endnote %}
 
+**Example output from the Linux `df -H` command**
+
 ```bash
+
 $ df -H
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/root        29G   12G   16G  42% /
 devtmpfs        805M     0  805M   0% /dev
 tmpfs           934M     0  934M   0% /dev/shm
 /dev/mmcblk0p1  253M   54M  199M  22% /boot
+
 ```
 
 ## Processor temperature

@@ -58,6 +58,8 @@ If you completed the integration setup but are still unable to control the devic
 
 ## Prerequisites
 
+Before the integration can find a device, you need to connect it to your network using the Switcher app.
+
 To enhance security, certain Switcher devices require a token for operation. In order to integrate your token-based Switcher devices with Home Assistant, you'll need the following information:
 
 - **The username of your Switcher Account**: To find the username, open the Switcher app.

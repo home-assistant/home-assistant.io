@@ -14,17 +14,19 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-AquaCell is a water-softening device. The [AquaCell](https://www.aquacell-waterontharder.nl/) {% term integration %} allows you to monitor your AquaCell device in Home Assistant.
+AquaCell is a water-softening device made by [Culligan](https://culliganinternational.com). The [AquaCell](https://www.aquacell-waterontharder.nl/) {% term integration %} allows you to monitor your AquaCell device in Home Assistant.
 You will need your Aquacell account information as used in the **AquaCell** app.
 
-This integration also supports [Harvey](https://www.harveywatersofteners.co.uk/) softeners.
+This integration also supports other [Culligan brands](https://culliganinternational.com/brands) of water softener, such as [Harvey](https://www.harveywatersofteners.co.uk/) and [TwinTec](https://www.twintec.com/) (made by Harvey) softeners.
 
 ## Supported devices
 
-This integration only works for softener models which have an **i-Lid** and are configured through the 'Mijn AquaCell' or 'My Harvey' mobile app.
+This integration only works for softener models which have an **i-Lid** and are configured through the 'Mijn AquaCell' or 'myHarvey' mobile app.
 These models are also recognizable by the required curved salt blocks.
+
 - [AquaCell](https://www.aquacell-waterontharder.nl/aquacell)
 - [HarveyArc Water Softener](https://www.harveywatersofteners.co.uk/products/water-softeners/harveyarc-water-softener)
+- [TwinTec Cobalt](https://www.twintec.com/our-products/tt-cobalt/)
 
 ## Prerequisites
 

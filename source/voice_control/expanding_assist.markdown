@@ -7,6 +7,8 @@ related:
     title: Custom sentences with Assist
   - url: https://www.nabucasa.com/config/
     title: Home Assistant Cloud
+  - url: https://voice-pe.home-assistant.io/
+    title: Voice Preview Edition
 ---
 
 Once you have completed the steps in the [Best practices](/voice_control/best_practices/), you have your bases covered and are ready to use Assist. This section provides some ideas on how to expand your setup for more advanced use cases.

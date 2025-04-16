@@ -34,19 +34,19 @@ Device:
   description: "The Bluetooth device that is your scale."
 {% endconfiguration_basic %}
 
-# Available platforms & entities
+## Available platforms & entities
 
-## Binary sensors
+### Binary sensors
 
 - **Timer running**: Whether the timer is currently running on the scale
 
-## Buttons
+### Buttons
 
 - **Tare**: Tares the scale.
 - **Reset timer**: Resets the timer. If the timer is running, it will continue to run.
 - **Start/stop timer**: Starts or stops the timer, depending on whether the timer is currently running. Does not reset, but continue the timer.
 
-## Sensors
+### Sensors
 
 - **Battery**: Current battery level of the scale.
 - **Volume flow rate**: Calculates the current flow rate (in mL/s) while brewing.

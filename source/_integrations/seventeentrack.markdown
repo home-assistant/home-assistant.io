@@ -62,7 +62,7 @@ type: markdown
 title: Packages in transit
 content: >
   {% for package in
-  states.sensor['seventeentrack_in_transit'].attributes.packages %}
+  states.sensor['17track_in_transit'].attributes.packages %}
 
   >- **{{ package.friendly_name }} ({{ package.tracking_number }}):** {{
   package.info_text }}

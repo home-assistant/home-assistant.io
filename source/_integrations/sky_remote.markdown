@@ -22,7 +22,7 @@ The **Sky Remote** {% term integration %} lets you control a [Sky](https://www.s
 
 ## Supported models
 
-This integration is intended to control all Sky satellite receiver boxes with a LAN port. It will not control Sky stream pucks.
+This integration is intended to control Sky+ HD and Sky Q satellite receiver boxes with a LAN port. It will not control Sky stream pucks.
 
 {% include integrations/config_flow.md %}
 

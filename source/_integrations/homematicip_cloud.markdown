@@ -7,6 +7,7 @@ ha_category:
   - Button
   - Climate
   - Cover
+  - Event
   - Hub
   - Light
   - Lock
@@ -22,6 +23,7 @@ ha_platforms:
   - button
   - climate
   - cover
+  - event
   - light
   - lock
   - sensor
@@ -41,6 +43,7 @@ There is currently support for the following device types within Home Assistant:
 - Button
 - Climate
 - Cover
+- Event
 - Light
 - Lock
 - Sensor
@@ -148,6 +151,9 @@ Within this delay the device registration should be completed in the App, otherw
   - Garage door module for Tormatic (*HmIP-MOD_TM*)
   - Module for Hoermann drives (*HMIP-MOD-HO*)
   - Hunter Douglas & erfal window blinds (*HMIP-HDM1*)
+
+- homematicip_cloud.event
+  - Doorbell Event for devices *HmIP-DSD-PCB* and others where ChannelRole equals DOOR_BELL_INPUT 
 
 - homematicip_cloud.light
   - Switch actuator and meter for brand switches (*HmIP-BSM*)

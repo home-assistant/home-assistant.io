@@ -87,6 +87,11 @@ fit_y_data:
   description: If true, configured Y-axis bounds would automatically extend (but not shrink) to fit the data.
   type: boolean
   default: false
+expand_legend:
+  required: false
+  description: If true, the legend will show all items initially
+  type: boolean
+  default: false
 energy_date_selection:
   required: false
   description: If true, chart date range will follow the date selected on an `energy-date-selection` card on the same view, similar to energy cards.
@@ -95,7 +100,7 @@ energy_date_selection:
 collection_key:
   required: false
   description: If using `energy_date_selection`, you can set a custom key to match the optional key of an `energy-date-selection` card. This is not typically required, but can be useful if multiple date selection cards are used on the same view.  
-  type: string  
+  type: string
 {% endconfiguration %}
 
 ### Options for entities

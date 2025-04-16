@@ -21,14 +21,14 @@ After Home Assistant has been [installed](/installation/) on your device, there 
         ![Home Assistant preparation](/images/getting-started/onboarding_preparing_02.png)
      - Enter a name, username, and password.
        - Make sure the username is lowercase and contains no whitespace.
-       - {% icon "mdi:info" %} **Info**: The **Name** is the name of the person the is shown in the UI. The username is used for login.
+       - {% icon "mdi:info" %} **Info**: The **Name** is the name of the person that is shown in the UI. The username is used for login.
 
         ![Set your username and password.](/images/getting-started/onboarding_username.png)
      - Store the name, username, and password somewhere safe. There is no way to recover the owner credentials.
      - Select **Create account**.
 
    - **Option 2: restore from backup**: If you want to restore a backup of a previous installation, select **Restore from backup**.
-     - Ignore the rest of this procedure and continue with the procedure on [restoring from backup](/common-tasks/os/#restoring-a-backup).
+     - Ignore the rest of this procedure and continue with the procedure on [restoring from backup](/common-tasks/general/#restoring-a-backup).
        - If you have a Home Assistant Yellow, start with the [Yellow documentation on restoring from backup](https://yellow.home-assistant.io/guides/restore-backup/).
        - If you have a Home Assistant Green, start with the [Green documentation on restoring from backup](https://green.home-assistant.io/guides/restore-backup/).
 

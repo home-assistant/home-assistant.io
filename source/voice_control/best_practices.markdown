@@ -11,6 +11,8 @@ related:
     title: Sentences starter kit
   - url: https://www.nabucasa.com/config/
     title: Home Assistant Cloud
+  - url: https://voice-pe.home-assistant.io/
+    title: Voice Preview Edition
 ---
 There are a few things you should do to get the most out of the voice assistant experience.
 
@@ -58,7 +60,7 @@ English has pretty simple grammar rules, but there are languages where definite 
 
 Assist leverages domains to define the proper verbs for the action being taken (for example, turning on/off a `light`, or a `fan`, opening/closing a `cover` with a `door` `device_class`, opening/closing a `valve` or locking/unlocking a `lock`.).
 
-It might not bother anyone to have a `switch.main`_valve in the UI instead of a valve, but you can’t ask Assist to open the main valve if the main valve is a switch. If it was a `valve.main_valve`, then the former sentence would have worked without a hitch.
+It might not bother anyone to have a `switch.main_valve` in the UI instead of a valve, but you can’t ask Assist to open the main valve if the main valve is a switch. If it was a `valve.main_valve`, then the former sentence would have worked without a hitch.
 
 To prevent this, you can use either the [Change device type of a switch integration](/integrations/switch_as_x/) or create virtual entities using [template](/integrations/template/) entities or Generic X (e.g. [generic thermostat](/integrations/generic_thermostat/)).
 

@@ -11,8 +11,11 @@ ha_codeowners:
   - '@klaasnicolaas'
 ha_domain: powerfox
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
+ha_quality_scale: silver
+ha_zeroconf: true
 ---
 
 The **Powerfox** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) devices, by using their cloud API and fetch the data in Home Assistant.
@@ -37,7 +40,7 @@ Not all Poweropti devices are supported currently. Check the list below to see i
 | Device                | Type        | Supported  |
 | --------------------- | ----------- | ---------- |
 | PA 201901 / PA 201902 | Power meter | Yes        |
-| PB 202001             | Power meter | Not tested |
+| PB 202001             | Power meter | Yes        |
 | WA 201902             | Water meter | Yes        |
 | Powerfox FLOW         | Gas meter   | No         |
 | HA 201902             | Heat meter  | Yes        |

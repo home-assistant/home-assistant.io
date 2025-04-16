@@ -22,6 +22,7 @@ ha_platforms:
 ha_codeowners:
   - '@tl-sl'
 ha_integration_type: device
+ha_dhcp: true
 ---
 
 The [SMLIGHT](https://smlight.tech) SLZB-06x Ethernet Zigbee coordinators
@@ -39,8 +40,10 @@ You need a supported SLZB-06 adapter.
 
 - [SLZB-06](https://smlight.tech/product/slzb-06)
 - [SLZB-06M](https://smlight.tech/product/slzb-06m)
+- [SLZB-06Mg24](https://smlight.tech/product/slzb-06mg24)
 - [SLZB-06p7](https://smlight.tech/product/slzb-06p7)
 - [SLZB-06p10](https://smlight.tech/product/slzb-06p10/)
+- SLZB-MR1 - Additional entities will be created for the second Zigbee radio, including Zigbee firmware updates, temperature sensor, and firmware type. (Note: the Zigbee restart and flash mode buttons are shared between both radios.) Requires core firmware `v2.8.x` or later.
   
 Core firmware on your SLZB-06x device must be `v2.3.6` or newer. If you have an older `v2.x.x` version, you can update from within Home Assistant. If you have `v0.9.9`, update using the [SMLIGHT web flasher](https://smlight.tech/flasher/#SLZB-06) before installing this integration.
 

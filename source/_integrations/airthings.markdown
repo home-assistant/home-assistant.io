@@ -21,6 +21,8 @@ Integrates Airthings sensors into Home Assistant.
 
 [Airthings](https://www.airthings.com/) provide different sensors for measuring the air quality. The focus specially on Radon sensors.
 
+While this integration works without an Airthings SmartLink hub, using one will provide live updates to your sensor data. Without a hub, you'll need to rely on the Airthings mobile app to sync data over Bluetooth and upload it to the cloud.
+
 Requires Airthings hardware and a valid Airthings Dashboard login.
 
 ## Prerequisites
@@ -30,7 +32,7 @@ Airthings API setup (needed to acquire the required ID and Secret for the Home A
 1. Login [here](https://dashboard.airthings.com/integrations/api-integration) to find your credentials.
 2. Select [Integrations](https://dashboard.airthings.com/integrations/api-integration) from the left side-bar.
 3. Click on "Request API Client" in order to set up an API connection.
-4. Name your API connection ie. "Home Assistant Integration".
+4. Name your API connection (e.g., "Home Assistant"). Note: The name field has a character limit and longer names will be truncated.
 5. Give the connection an accurate description.
 6. Select a Resource Scope.
 7. Select an access Type, i.e., Confidential.

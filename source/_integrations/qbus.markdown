@@ -2,17 +2,22 @@
 title: Qbus
 description: Instructions on how to integrate your Qbus installation with Home Assistant.
 ha_category:
+  - Climate
+  - Light
   - Switch
 ha_platforms:
+  - climate
+  - light
   - switch
 ha_iot_class: Local Push
 ha_codeowners:
   - '@Qbus-iot'
   - '@thomasddn'
-ha_release: 2025.1
+ha_release: 2025.2
 ha_domain: qbus
-ha_integration_type: device
+ha_integration_type: hub
 ha_config_flow: true
+ha_quality_scale: bronze
 ---
 
 The **Qbus** {% term integration %} allows you to integrate your [Qbus Control](https://www.qbus.be) into Home Assistant. **Qbus** is a Belgian manufacturer of Home Automation systems.
@@ -33,12 +38,15 @@ Once the Qbus controller is connected to the MQTT server, you need to set up an 
 
 There is currently support for the following **Qbus** products within Home Assistant:
 
-- **CTD 3.0**: main controller.
-- **CTD 3.5**: main controller.
+- **CTD01E to CTD03E (CTD 3.0)**: main controllers (yellow).
+- **CTD10 to CTDMax (CTD 3.5)**: main controllers (black).
 - **Toggle**: toggle outputs on controllers.
+- **Dimmer**: dimmer outputs on controllers.
 
 ## Available entities
 
+- **Climate**: manages thermostats by setting temperature and choosing presets.
+- **Light**: controls dimmer lights, allowing both on/off functionality and brightness adjustment.
 - **Switch**: toggles on/off outputs.
 
 ## Removing the integration

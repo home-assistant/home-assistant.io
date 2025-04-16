@@ -1130,7 +1130,11 @@ article.listing {
   &>table,
   &>.entry-content>table {
     background-color: #fff;
+    display: block;
+    overflow-x: auto;
     table-layout: auto;
+    width: fit-content;
+    max-width: 100%;
 
     &>thead {
       background-color: rgba(0, 0, 0, .025);

@@ -1,6 +1,6 @@
 ---
 title: Ring
-description: Instructions on how to integrate your Ring.com devices within Home Assistant.
+description: Instructions on integrating Ring.com devices with Home Assistant.
 ha_category:
   - Binary sensor
   - Button
@@ -32,36 +32,56 @@ ha_codeowners:
   - '@sdb9696'
 ---
 
-The Ring integration allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. Due to recent authentication changes of Ring, you will need to run at least Home Assistant 0.104.
+The Ring integration allows you to control your [Ring.com](https://ring.com/) doorbell, stick up cam, chime, and intercom devices in Home Assistant.
 
-There is currently support for the following device types within Home Assistant:
+## How you can use this integration
 
-- [Binary sensor](#binary-sensor)
-- [Button](#button)
-- [Camera](#camera)
-  - [Saving the videos captured by your Ring Door Bell](#saving-the-videos-captured-by-your-ring-door-bell)
-- [Event](#event)
-  - [Realtime event stability](#realtime-event-stability)
-- [Sensor](#sensor)
-- [Siren](#siren)
-- [Switch](#switch)
-- [Light](#light)
-- [Number](#number)
+The Ring integration lets you do many things, such as switching devices on and off based on schedules or events, viewing live camera feeds, and controlling device configurations manually or via automations.
 
+## Prerequisites
+
+You need to provision your newly purchased devices via the Ring application, which will require creating a Ring account at [Ring.com](https://ring.com/) or via the official application.
+After that, you will use your Ring account credentials to log on to the Ring cloud in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-## Binary sensor
+{% configuration_basic %}
+
+Username:
+  description: |
+    Your Ring account username.
+Password:
+  description: |
+    Your Ring account password.
+2fa:
+  description: |
+    Account verification code via the method selected in your Ring account settings.
+
+{% endconfiguration_basic %}
+
+## Supported devices
+
+There is currently support for the following device types within Home Assistant:
+
+- **Doorbells**: Doorbell, Doorbell 2, Doorbell 3, Doorbell 3 Plus, Doorbell 4, Doorbell Pro, Doorbell Pro 2, Doorbell Elite, Doorbell Wired, Battery Doorbell, Doorbell (2nd Gen), Peephole Cam
+- **Stickup cams**: Floodlight Cam, Floodlight Cam Pro, Floodlight Cam Plus, Indoor Cam, Indoor Cam (2nd Gen), Spotlight Cam Battery, Spotlight Cam Wired, Spotlight Cam Plus, Spotlight Cam Pro, Stick Up Cam, Stick Up Battery, Stick Up Wired, Stick Up Cam (3rd Gen)
+- **Chimes**: Chime, Chime Pro
+- **Intercoms**: Intercom
+
+
+## Supported functionality
+
+### Binary sensor
 
 The binary sensor switches off and on when motion, doorbell rings, and intercom unlock events occur.
 
 The binary sensor is being replaced with the event entity, and you should migrate any automations to the event entity by release 2025.4.0.
 
-## Button
+### Button
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the button platform. Currently, it supports intercom to open the door.
 
-## Camera
+### Camera
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform.
 Currently, it supports doorbells and stickup cameras.
@@ -71,6 +91,134 @@ Two camera entities are provided: `live_view` and `last_recording`.
 {% important %}
 Please note that downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
 {% endimportant %}
+
+### Event
+
+The event entity captures events like doorbell rings, motion alerts, and intercom unlocking.
+
+### Sensor
+
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level and Wi-Fi signal.
+
+The volume sensors are being replaced with the number entity, which allows setting the volume. You should migrate any automations using the volume sensors to the number entity by release 2025.4.0.
+
+### Siren
+
+- Adds a siren entity for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off.
+- Adds a siren entity for chimes to play the test sound.
+
+### Switch
+
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the switch platform.
+
+- Motion detection - Switches motion detection on and off for cameras.
+- In-home chime - Switches on and off a mechanical or digital chime connected to a ring doorbell.
+
+### Light
+
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the light platform. This will add a light for every camera that supports a light (such as a floodlight).
+
+### Number
+
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the number platform.
+Currently, it supports showing and setting the volume of the doorbell/chime ring, intercom voice volume, and intercom microphone volume.
+
+## Data updates
+
+The Ring cloud API is {% term polling polled %} for data updates every 60 seconds. When you make changes through Home Assistant (for example by switching motion detection on), the device's state is updated immediately rather than waiting for the next  {% term polling poll %}.
+The Ring integration does not connect locally to devices, all communication goes via the cloud.
+
+## Known limitations
+
+### Two-way audio
+
+Two-way audio in camera live view is not currently supported.
+
+### Last recording
+
+To view the last recording entity you will need a Ring subscription.
+
+### Multiple alerts
+
+Some device models send two alerts for a single doorbell ring event.
+The integration will provide a workaround for this in a future release.
+
+## Troubleshooting
+
+### Realtime event stability
+
+Home Assistant requires outbound TCP access to port 5228 to connect to Ring's real-time event service.
+Ensure your firewall and network configuration allow this connection.
+
+Below are steps to follow if realtime events are not working.
+
+#### Step 1
+
+Issues with Ring alerts may be caused by having too many authenticated devices on your Ring account. Before version 2023.12.0, the Home Assistant Ring integration would register a new entry in `Authorized Client Devices` in the `Control Center` at [ring.com](https://account.ring.com/account/control-center/authorized-devices) on every restart.
+
+{% important %}
+When cleaning up devices:
+
+1. Only delete entries that start with `ring-doorbell:HomeAssistant` or `Python`.
+2. Do NOT delete entries for your phones or other Ring apps.
+3. If there are too many devices to delete individually, you can use the **Remove all devices** option, but you'll need to re-authorize all your devices afterward.
+
+{% endimportant %}
+
+#### Step 2
+
+If you're still experiencing issues after Step 1, try generating a new unique ID for the Home Assistant Ring integration instance.
+To do this, select the three dots {% icon "mdi:dots-vertical" %} menu on the integration entry and select the **Reconfigure** option.
+Do not try this step before clearing down all the excess `Authorized Client Devices` as per Step 1, or it will simply invalidate the reconfigured entry.
+
+#### Step 3
+
+If alerts are still not working after Steps 1 and 2, try toggling the Motion Warning setting:
+
+1. Go to [ring.com](https://ring.com) and sign in.
+2. Select your device.
+3. Navigate to **Device Settings**.
+4. Find the **Motion Warning** toggle.
+5. Turn it off and wait for 30 seconds.
+6. Turn it back on.
+
+This has successfully restored alerts for many users.
+
+## Examples
+
+### Automation ideas
+
+- Turn on motion detection for internal cameras when you leave home (with geofencing) and turn off when you get home.
+- Start a live feed on a device when the doorbell rings.
+- Turn up the volume on a digital chime when you are in the garden.
+
+### Setting up doorbell alerts
+
+You can set an automation up in the Home Assistant UI.
+
+1. Find the correct **event** entity under **Entity triggers**.
+2. For **From** choose the setting **Any state (ignoring attribute changes)**.
+3. Then add a **Send notification** action under **Notifications**.
+
+This will result in yaml similar to the following:
+
+```yaml
+alias: Doorbell alerts
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - event.front_door_ding
+    from: null
+conditions: []
+actions:
+  - device_id: internalhadeviceid
+    domain: mobile_app
+    type: notify
+    message: Front door ding
+    title: Front door ding
+mode: single
+```
 
 ### Saving the videos captured by your Ring Door Bell
 
@@ -148,69 +296,8 @@ data = {
 hass.services.call("downloader", "download_file", data)
 ```
 
-## Event
+## Removing the integration
 
-The event entity captures events like doorbell rings, motion alerts, and intercom unlocking.
+This integration follows standard integration removal. No extra steps are required.
 
-### Realtime event stability
-
-Home Assistant requires outbound TCP access to port 5228 to connect to Ring's real-time event service.
-Ensure your firewall and network configuration allow this connection.
-
-Below are steps to follow if realtime events are not working.
-
-#### Step 1
-
-Issues with Ring alerts may be caused by having too many authenticated devices on your Ring account. Before version 2023.12.0, the Home Assistant Ring integration would register a new entry in `Authorized Client Devices` in the `Control Center` at [ring.com](https://account.ring.com/account/control-center/authorized-devices) on every restart.
-{% warning %}
-When cleaning up devices:
-1. Only delete entries that start with `ring-doorbell:HomeAssistant` or `Python`
-2. Do NOT delete entries for your phones or other Ring apps
-3. If there are too many devices to delete individually, you can use the `Remove all devices` option, but you'll need to re-authorize all your devices afterward
-{% endwarning %}
-
-#### Step 2
-
-If you're still experiencing issues after Step 1, try generating a new unique ID for the Home Assistant Ring integration instance.
-To do this, click the three-dot menu on the integration entry and select the `Reconfigure` option.
-Do not try this step before clearing down all the excess `Authorized Client Devices` as per Step 1, or it will simply invalidate the reconfigured entry.
-
-#### Step 3
-
-If alerts are still not working after Steps 1 and 2, try toggling the Motion Warning setting:
-
-1. Go to [ring.com](https://ring.com) and sign in
-2. Select your device
-3. Navigate to Device Settings
-4. Find the Motion Warning toggle
-5. Turn it off, wait 30 seconds
-6. Turn it back on
-
-This has successfully restored alerts for many users.
-
-## Sensor
-
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level and Wi-Fi signal.
-
-The volume sensors are being replaced with the number entity which allows setting the volume. You should migrate any automations using the volume sensors to the number entity by release 2025.4.0.
-
-## Siren
-
-- Adds a siren entity for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off.
-- Adds a siren entity for chimes to play the test sound.
-
-## Switch
-
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the switch platform.
-
-- Motion detection - Switches motion detection on and off for cameras.
-- In-home chime - Switches on and off a mechanical or digital chime connected to a ring doorbell.
-
-## Light
-
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the light platform. This will add a light for every camera that supports a light (such as a floodlight).
-
-## Number
-
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the number platform.
-Currently, it supports showing and setting the volume of the doorbell/chime ring, intercom voice volume, and intercom microphone volume.
+{% include integrations/remove_device_service.md %}

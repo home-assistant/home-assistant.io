@@ -22,6 +22,7 @@ ha_codeowners:
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **Command line** {% term integration %} offers functionality that issues specific commands to get data or to control a device.

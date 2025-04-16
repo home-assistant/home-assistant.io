@@ -9,6 +9,8 @@ layout: null
 # General use redirects
 /join-chat https://discord.gg/home-assistant
 /twitter https://twitter.com/home_assistant/
+/mastodon https://fosstodon.org/@homeassistant
+/bluesky https://bsky.app/profile/home-assistant.io
 /newsletter https://newsletter.openhomefoundation.org/
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
@@ -16,6 +18,7 @@ layout: null
 /feature-requests https://community.home-assistant.io/c/feature-requests
 /issues https://github.com/home-assistant/core/issues
 /community https://community.home-assistant.io/
+/voice /voice_control/builtin_sentences/
 /latest-security-alert /security/
 
 # Link to latest release notes
@@ -624,6 +627,7 @@ layout: null
 /integrations/stookalert /more-info/removed-integration 301
 /integrations/synology /more-info/removed-integration 301
 /integrations/sytadin /more-info/removed-integration 301
+/integrations/sunweg /more-info/removed-integration 301
 /integrations/tahoma /more-info/removed-integration 301
 /integrations/teksavvy /more-info/removed-integration 301
 /integrations/tesla /more-info/removed-integration 301
@@ -645,6 +649,7 @@ layout: null
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
+/integrations/zengge /integrations/led_ble
 /components/zwave /integrations/zwave_js
 
 # Lovelace images

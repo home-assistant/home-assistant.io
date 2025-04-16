@@ -433,6 +433,20 @@ Refer to the [Performing actions](/docs/scripts/service-calls) page for examples
 
 When actions are linked to a particular device, the device is identified by its `device_id`. This `device_id` is a unique identifier supplied by Home Assistant.
 
+{% tip %}
+A simple method to obtain the `device_id` for LCN modules in automations and scripts is to use a template with the `device_id()` function as detailed [here](/docs/configuration/templating/#devices). This allows for finding the `device_id` using the module name as shown in the frontend or configured in the LCN-PRO software.
+
+{% raw %}
+```yaml
+action: lcn.pck
+data:
+  device_id: "{{ device_id('Module name') }}"
+  pck: PIN4
+```
+{% endraw %}
+
+{% endtip %}
+
 ### Action: `output_abs`
 
 Set absolute brightness of output port in percent.
@@ -798,3 +812,15 @@ The motor values specify which hardware relay or outputs configuration will be u
 
 Whenever a key has to be provided, it is defined by a joint string consisting of the table identifier (`a`, `b`, `c`, `d`) and the corresponding key number.
 Examples: `a1`, `a5`, `d8`.
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+{% warning %}
+
+Removing the integration will delete all device and entity configuration done via the UI panel.
+
+{% endwarning %}

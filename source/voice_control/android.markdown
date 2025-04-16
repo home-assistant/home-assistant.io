@@ -7,6 +7,8 @@ related:
     title: Best practices with Assist
   - url: https://companion.home-assistant.io/docs/getting_started/
     title: Home Assistant Companion App
+  - url: https://voice-pe.home-assistant.io/
+    title: Voice Preview Edition
 ---
 
 ## Assist on Android phones
