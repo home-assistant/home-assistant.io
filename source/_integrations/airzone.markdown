@@ -94,10 +94,12 @@ For the Airzone WebServer, the following *sensors* are created:
 
 For each Airzone zone (thermostat), the following *sensors* are created:
 
-| Condition           | Description                        |
-| :------------------ | :--------------------------------- |
-| humidity            | Current zone relative humidity.    |
-| temperature         | Current zone temperature.          |
+| Condition           | Description                              |
+| :------------------ | :--------------------------------------- |
+| battery             | Current zone thermostat battery.         |
+| humidity            | Current zone relative humidity.          |
+| temperature         | Current zone temperature.                |
+| signal_strength     | Current zone thermostat signal strength. |
 
 ## Switch
 
