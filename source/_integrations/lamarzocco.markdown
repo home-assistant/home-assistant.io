@@ -7,6 +7,7 @@ ha_category:
   - Calendar
   - Number
   - Select
+  - Sensor
   - Switch
   - Update
 ha_iot_class: Cloud Push
@@ -19,6 +20,7 @@ ha_platforms:
   - diagnostics
   - number
   - select
+  - sensor
   - switch
   - update
 ha_bluetooth: true
@@ -91,6 +93,14 @@ Use Bluetooth:
 | **Water tank empty** | Indicates whether the water tank needs a refill. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Brewing active** | Is on if you are in the process of making coffee. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Backflush enabled** | Is on if you started the backflushing process. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| - |
+
+## Sensors
+
+| Binary sensor name | Description | Available for machines |  Retrievable from | Remarks |
+|------------------- |-------------| ---------------------- | ----------------- | ------- |
+| **Coffee boiler ready time** | Indicates when the coffee boiler will be ready for brewing. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
+| **Steam boiler ready time** | Indicates when the steam boiler will be ready for brewing. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
+
 
 ## Updates
 
