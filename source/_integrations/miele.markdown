@@ -11,6 +11,7 @@ ha_codeowners:
   - '@astrandb'
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---
