@@ -416,7 +416,7 @@ Features:
 
 ## Data updates
 
-Devices are polled for data updates every 5 seconds. When you make changes through Home Assistant (e.g., switching a device on), the device's state is updated immediately rather than waiting for the next poll.
+Devices are {% term polling polled %} for data updates every 5 seconds. When you make changes through Home Assistant (for example by switching a device on), the device's state is updated immediately rather than waiting for the next poll.
 The integration connects locally to the devices without going via the SwitchBot Cloud.
 
 ## Known limitations
@@ -453,11 +453,11 @@ Make sure your devices are powered on and are in range.
 
 You can create all sort of automations using sensors as triggers and switches, shades, and lights as actions.
 
-- Turn on or turn off lights and switches when motion is detected
-- Turn on or turn off Bot to control fan, AC remote, circulator when temperature or humidity is too low
-- Close curtain when temperature is too high
-- Turn off Relay Switch when power consumption is too high
-- Change the color of LED Strip Lights or Color Bulb or turn on the circulator using Bot or Relay Switch if carbon dioxide is too high
+- Turn on or turn off lights and switches when motion is detected.
+- Turn on or turn off the Bot to control a fan, AC remote, or circulator when temperature or humidity are too low.
+- Close the curtain when the temperature is too high.
+- Turn off Relay Switch when power consumption is too high.
+- Change the color of LED Strip Lights or Color Bulb or turn on the circulator using Bot or Relay Switch if carbon dioxide is too high.
 
 ## Removing the integration
 
