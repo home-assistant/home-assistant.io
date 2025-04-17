@@ -50,6 +50,25 @@ This integration allows [ESPHome](https://esphome.io) devices to connect directl
 
 {% include integrations/config_flow.md %}
 
+### Required manual Input
+
+The configuration of an ESPHome device requires you to enter the following information:
+
+{% configuration_basic %}
+
+host:
+  description: "IP address or hostname of the ESPHome device. <br> This will be pre-filled if the device was auto-discovered."
+port:
+  description: "Port used by the ESPHome native API. <br> This will be pre-filled if the device was auto-discovered."
+noise_psk:
+  description: "The pre-shared key used for encryption. <br> This is a 32-byte base64-encoded string. Leave this blank if native encryption is not enabled."
+password:
+  description: "Device password. <br> Note: Passwords are deprecated—use encryption keys instead."
+
+{% endconfiguration_basic %}
+
+For more information, see the [ESPHome Native API Component documentation](https://esphome.io/components/api.html).
+
 ## Home Assistant actions
 
 ESPHome devices can perform actions to any [Home Assistant action](https://esphome.io/components/api.html#homeassistant-service-action). This functionality is not enabled by default for newly configured device, but can be turned on the options flow on a per device basis.
