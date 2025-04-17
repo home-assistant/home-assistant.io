@@ -364,7 +364,7 @@ Features:
 - get battery level
 ### Hubs
 
-Some of the hubs can be served as a bridge while the sensor data can be retrieved via bluetooth connection. Hub 2 displays temperature and humidity through a sensor cable. Without a digital display, Hub Mini Matter Enabled can also read from a sensor cable.
+Some of the hubs can be served as a bridge while the sensor data can be retrieved via Bluetooth connection. Hub 2 displays temperature and humidity through a sensor cable. Without a digital display, Hub Mini Matter Enabled can also read from a sensor cable.
 
 #### Hub 2
 
