@@ -96,7 +96,7 @@ Use Bluetooth:
 
 ## Sensors
 
-| Binary sensor name | Description | Available for machines |  Retrievable from | Remarks |
+| Sensor name | Description | Available for machines |  Retrievable from | Remarks |
 |------------------- |-------------| ---------------------- | ----------------- | ------- |
 | **Coffee boiler ready time** | Indicates when the coffee boiler will be ready for brewing. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Steam boiler ready time** | Indicates when the steam boiler will be ready for brewing. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
