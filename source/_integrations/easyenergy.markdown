@@ -160,7 +160,7 @@ Fetches the hourly prices for energy that you return (sell).
 | `end`          | yes      | End time to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
 
 {% tip %}
-You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the EnergyZero actions and view the YAML.
+You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the easyEnergy actions and view the YAML.
 {% endtip %}
 
 #### Response data
