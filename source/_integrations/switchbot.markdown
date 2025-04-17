@@ -88,14 +88,12 @@ Encryption key:
 
 For instructions on how to obtain the encryption key, see README in [PySwitchbot](https://github.com/Danielhiversen/pySwitchbot#obtaining-locks-encryption-key) project.
 
-
-
 {% include integrations/config_flow.md %}
 
+## Supported devices
 
-
-## Supported Devices
 ### Plugs and switches
+
 - [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)
 - [Plug Mini (WoPlug)](https://www.switch-bot.com/products/switchbot-plug-mini)
 - [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
@@ -103,23 +101,28 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 
 ### Cover
+
 - [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 - [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
 
 ### Lights
+
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
 
 ### Locks
+
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
 
 ### Humidifiers
+
 - [Humidifier (WoHumi)](https://www.switchbot.jp/products/switchbot-smart-humidifier)
 
 ### Sensors
+
 - [Meter](https://switch-bot.com/pages/switchbot-meter)
 - [Meter Plus (WoSensorTH)](https://switch-bot.com/pages/switchbot-meter-plus)
 - [Indoor/Outdoor Meter (WoIOSensorTH)](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) 
@@ -131,10 +134,12 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
 
 ### Hubs
+
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
 - [Hub Mini Matter Enabled](https://www.switch-bot.com/products/switchbot-hub-mini-matter-enabled)(currently only supports retrieving sensor data, does not yet support device control)
 
-## Supported Functionality
+## Supported functionality
+
 ### Common
 
 #### Options
@@ -144,9 +149,11 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - `last_run_success`: Returns `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see home-assistant.log for specific error messages.
 
 ### Plugs and switches
+
 Switch entities are added for Bot, Plug Mini, and Relay Switch.
 
 #### Bot
+
 Password protection: You can set a device password in the SwitchBot app to prevent people nearby take control of your device. When a password is set, you need to enter the correct password in order to add it to the integrations.
 
 Features:
@@ -158,17 +165,20 @@ Attributes:
 - `Switch mode`: Specifies the mode of the device. If `true`, the device is in Pull/Retract mode for toggle switches otherwise the device is in momentary switch mode.
 
 #### Plug Mini
+
 Features:
 - turn on or off
 - get power consumption readings
 
 #### Relay Switch 1
+
 This is an encrypted device.
 
 Features:
 - turn on or off
 
 #### Relay Switch 1PM
+
 This is an encrypted device.
 
 Features:
@@ -178,8 +188,11 @@ Features:
 - get current
 
 ### Cover
+
 Cover entities are added for Curtain, Curtain 3, Blind Tilt, and Roller Shade.
+
 #### Curtain
+
 Features:
 - open/close/pause
 - set position
@@ -189,6 +202,7 @@ Features:
 - get calibration state
 
 #### Curtain 3
+
 Features:
 - open/close/pause
 - set position
@@ -198,6 +212,7 @@ Features:
 - get calibration state
 
 #### Blind Tilt
+
 Features:
 - close up/close down/pause
 - set position
@@ -273,31 +288,41 @@ Features:
 Sensor entiteis are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, and remote button.
 
 #### Meter
+
 Features:
 - get temperature
 - get humidity
 - get battery level
+
 #### Meter Plus
+
 Features:
 - get temperature
 - get humidity
 - get battery level
+
 #### Indoor/Outdoor Meter
+
 Features:
 - get temperature
 - get humidity
 - get battery level
+
 #### Meter Pro
+
 Features:
 - get temperature
 - get humidity
 - get battery level
+
 #### Meter Pro CO2 Monitor
+
 Features:
 - get temperature
 - get humidity
 - get carbon dioxide
 - get battery level
+
 #### Contact Sensor
 
 Features:
@@ -305,6 +330,7 @@ Features:
 - open or closed state
 - motion detection state
 - get battery level
+
 #### Motion Sensor
 
 Features:
@@ -317,14 +343,18 @@ This is an encrypted device.
 Features:
 - leak or dry state
 - get battery level
+
 #### Remote
+
 Features:
 - get battery level
 
 ### Lights
+
 Light entities are added for Color Bulb and LED Strip Light.
 
 #### Color Bulb
+
 Features:
 - turn on or off
 - change brightness
@@ -332,6 +362,7 @@ Features:
 - change color
 
 #### LED Strip Light
+
 Features:
 - turn on or off
 - change brightness
@@ -351,6 +382,7 @@ Features:
 - auto-lock paused state
 - calibration state
 - get battery level
+
 #### Lock Pro
 
 This is an encrypted device.
@@ -362,6 +394,7 @@ Features:
 - auto-lock paused state
 - calibration state
 - get battery level
+
 ### Hubs
 
 Some of the hubs can be served as a bridge while the sensor data can be retrieved via Bluetooth connection. Hub 2 displays temperature and humidity through a sensor cable. Without a digital display, Hub Mini Matter Enabled can also read from a sensor cable.
