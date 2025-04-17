@@ -6,6 +6,7 @@ ha_category:
   - Light
   - Number
   - Sensor
+  - Time
 ha_release: 2025.1
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -18,6 +19,7 @@ ha_platforms:
   - light
   - number
   - sensor
+  - time
 ha_quality_scale: bronze
 ha_zeroconf: true
 ---
@@ -56,6 +58,11 @@ Currently, the following devices and entities are supported:
 - **Temperature offset**: Setting an offset between the measured temperature and the real temperature
 - **Night temperature offset**: Setting the offset for the night temperature in Bio mode
 
+#### Time
+
+- **Day start time**: Setting the start time for the day temperature in Bio mode
+- **Night start time**: Setting the start time for the night temperature in Bio mode
+
 ### [EHEIM classicVARIO+e](https://eheim.com/en_GB/aquatics/technology/external-filters/classicvario-e-250/classicvario-e-250)
 
 #### Number
@@ -69,6 +76,11 @@ Currently, the following devices and entities are supported:
 - **Current pump speed**: Displays the current pump speed
 - **Remaining hours until service**: Displays the remaining time until the filter needs to be serviced
 - **Error code**: Displays the current error code of the device (No error, Rotor stuck, air in filter)
+
+#### Time
+
+- **Day start time**: Setting the start time for the day pump speed in Bio mode
+- **Night start time**: Setting the start time for the night pump speed in Bio mode
 
 Support for additional EHEIM Digital devices and entities will be added in future updates.
 
