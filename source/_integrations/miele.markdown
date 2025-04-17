@@ -2,6 +2,7 @@
 title: Miele
 description: Instructions on how to set up the Miele integration within Home Assistant.
 ha_category:
+  - Binary sensor
   - Hub
   - Sensor
 ha_iot_class: Cloud Push
@@ -11,13 +12,14 @@ ha_codeowners:
   - '@astrandb'
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: integration
 ---
 
 The Miele {% term integrations %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
 
-Miele is known as a manufacturer of premium appliances for cooking, laundry care, and floorcare.
+Miele is known as a manufacturer of premium appliances for cooking, laundry care, and floor care.
 
 ## Use cases
 
@@ -73,10 +75,23 @@ The integration configuration may ask for the *Client ID* and *Client Secret* cr
 
 {% note %}
 
-- The entities' availability depends on the appliance type and the generation of the product, and the appliance might not support all the entities for its type.
+- The entities' availability depends on the appliance type and the generation of the product, and the appliance might not support all the entities for its type. Please refer to the product manual for details on implementation of specific functions.
 - Products from professional and semi-professional series are generally not supported due to the limitations in the Miele 3rd party API.
 - Some appliances don't report data while they are turned off, so corresponding entities will not appear in the Miele integration after loading until the appliances are turned on.
 {% endnote %}
+
+### Binary sensor
+
+{% details "List of binary sensors" %}
+
+- **Operation state**:
+  - **Door**: Shows if the door on the appliance is open or closed.
+  - **Full remote control**: Signals the state of Full remote control feature on appliances that supports it.
+  - **Mobile start**: Signals the state of Mobile start feature on appliances that supports it.
+  - **Notification active**: Signals if there is a notification message active on the appliance. The API does not supply any information on the details of the notifications.
+  - **Problem**: Signals if there is an error message active on the appliance. The API does not supply any information on the details of the error.
+  - **Smart grid**: Signals the state of Smart grid feature on appliances that supports it.
+{% enddetails %}
 
 ### Sensor
 
