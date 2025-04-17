@@ -50,7 +50,7 @@ This integration allows [ESPHome](https://esphome.io) devices to connect directl
 
 {% include integrations/config_flow.md %}
 
-### Required manual Input
+### Required manual input
 
 The configuration of an ESPHome device requires you to enter the following information:
 
