@@ -91,7 +91,7 @@ Use Bluetooth:
 | **Water tank empty** | Indicates whether the water tank needs a refill. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Brewing active** | Is on if you are in the process of making coffee. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Backflush enabled** | Is on if you started the backflushing process. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| - |
-| **Websocket connected** | Track your connection to the cloud websocket for real time updates. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| Disabled by default. |
+| **WebSocket connected** | Track your connection to the cloud WebSocket for real time updates. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| Disabled by default. |
 
 ## Updates
 
