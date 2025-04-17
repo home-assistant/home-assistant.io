@@ -13,7 +13,7 @@ og_image: /images/blog/2025-04-SOTOH/art.jpg
 
 The State of the Open Home 2025 has wrapped, and a big thanks to everyone who tuned in to the live stream! If you missed it, please [check out the recording](https://www.youtube.com/live/o4Vctz1_KYE?si=U7oCoNE0TLsWoUX8&t=601), it's a slick production and definitely the best way to take it all in. For those who would rather read about all the updates and announcements, we've also got you covered with this blog.
 
-It was an over 2-hour event, and if you need a shorter summary than this blog, here's my best attempt 😅,
+It was an over 2-hour event, and if you need a shorter summary than this blog, here's my best attempt 😅:
 
 <div class="alert">
 <b>Summary:</b>
