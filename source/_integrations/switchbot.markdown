@@ -416,7 +416,7 @@ Features:
 
 ## Data updates
 
-Devices are {% term polling polled %} for data updates every 5 seconds. When you make changes through Home Assistant (for example by switching a device on), the device's state is updated immediately rather than waiting for the next poll.
+SwitchBot devices utilize a ​​local_push​​ strategy to maintain real-time status updates. When devices detect state changes, they actively push updates to Home Assistant for immediate synchronization. For user-initiated actions through Home Assistant (e.g., turning a device on/off), the integration performs an additional proactive status fetch to ensure instant confirmation of the new state.
 The integration connects locally to the devices without going via the SwitchBot Cloud.
 
 ## Known limitations
