@@ -29,7 +29,7 @@ Libre Hardware Monitor, a fork of Open Hardware Monitor, is free software that c
 
 ### To open a port (on Windows Firewall)
 
-1. In Windows, navigate to Control Panel, System and Security and Windows Defender Firewall.
+1. In Windows, navigate to **Control Panel** → **System and Security** → **Windows Defender Firewall**.
 2. Select **Advanced settings** and highlight **Inbound Rules** in the left pane.
 3. Right-click **Inbound Rules** and select **New Rule**.
 4. Add the port you need to open and select **Next**.
@@ -44,7 +44,7 @@ Libre Hardware Monitor, a fork of Open Hardware Monitor, is free software that c
 host:
   description: IP address or hostname of the system where Libre Hardware Monitor is running. This is the system you want to monitor.
 port:
-  description:  The port of your Libre Hardware Monitor API. Defaults to 8085.
+  description: The port of your Libre Hardware Monitor API. Defaults to 8085.
 {% endconfiguration_basic %}
 
 ## Configuration options
@@ -63,7 +63,7 @@ Check if the Libre Hardware Monitor remote web server is running and accessible.
 On a device that is **not** the device running Libre Hardware Monitor (a smartphone is sufficient), open a browser and navigate to `http://<IP address>:<Port>`.
 Make sure you can see and refresh the data there.
 
-### Sensors change to "unavailable" status
+### Sensors change to `unavailable` status
 
 This is expected behavior when the system you are monitoring is not reachable. Usually, because it is turned off.
 Sensors will resume their data readings once the system is reachable again.
