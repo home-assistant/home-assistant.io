@@ -25,6 +25,7 @@ Libre Hardware Monitor, a fork of Open Hardware Monitor, is free software that c
 - Libre Hardware Monitor must be running during setup.
 - In Libre Hardware Monitor, make sure **Remote web server** is active.
 - Make sure to open the inbound port (8085 by default) on the host system's firewall.
+- In Libre Hardware Monitor go to **File** → **Hardware** and check the devices you want to monitor.
 
 ### To open a port (on Windows Firewall)
 
@@ -44,22 +45,11 @@ host:
   description: IP address or hostname of the system where Libre Hardware Monitor is running. This is the system you want to monitor.
 port:
   description:  The port of your Libre Hardware Monitor API. Defaults to 8085.
-scan_interval:
-  description: Time between updates of data fetched from Libre Hardware Monitor. Allowed values are between 5 and 30 seconds. Defaults to 30 seconds.
 {% endconfiguration_basic %}
 
 ## Configuration options
 
-In the configuration flow you can choose which hardware devices to add to Home Assistant, for example, if you only want to monitor your CPU you can deselect any other device.
 All sensors will be grouped by the device they belong to. If you do not want all sensors for a device, you can disable entities via the UI after setup.
-
-## Reconfiguration
-
-This integration allows you to reconfigure an existing entry. For example, if you want to add or remove hardware devices.
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the Libre Hardware Monitor integration.
-3. To reconfigure the settings, to the right of an entry, select the three dots  {% icon "mdi:dots-vertical" %} menu and select **Reconfigure**.
 
 ## Known limitations
 
