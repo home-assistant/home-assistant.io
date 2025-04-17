@@ -9,7 +9,6 @@ ha_domain: wallbox
 ha_platforms:
   - lock
   - number
-  - select
   - sensor
   - switch
 ha_config_flow: true

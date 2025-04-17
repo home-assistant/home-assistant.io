@@ -4,10 +4,13 @@ description: Home Assistant Hardware provides functionality shared between Home 
 ha_release: 2022.12
 ha_category:
   - Other
+  - Update
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant_hardware
 ha_integration_type: system
+ha_platforms:
+  - update
 ---
 
 The Home Assistant Hardware integration provides functionality

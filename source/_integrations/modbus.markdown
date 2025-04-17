@@ -527,7 +527,7 @@ The master configuration like device_class are automatically copied to the slave
 
 ## Configuring climate entities
 
-The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature, HVAC mode, swing mode, and fan state.
+The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature, HVAC action, HVAC mode, swing mode, and fan state.
 
 Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
@@ -652,6 +652,57 @@ climates:
           description: "Swap word ABCD -> CDAB, **not valid with data types: `int16`, `uint16`**"
         word_byte:
           description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
+    hvac_action_register:
+      description: "Configuration of register for HVAC action"
+      required: false
+      type: map
+      keys:
+        address:
+          description: "Address of HVAC action register."
+          required: true
+          type: integer
+        input_type:
+          description: "Type of register, either `holding` or `input`"
+          required: false
+          default: holding
+          type: string
+        values:
+          description: "Mapping between the register values and HVAC actions"
+          required: true
+          type: map
+          keys:
+            action_off:
+              description: "Value corresponding to HVAC Off action."
+              required: false
+              type: [integer, list]
+            action_cooling:
+              description: "Value corresponding to HVAC Cooling action."
+              required: false
+              type: [integer, list]
+            action_defrosting:
+              description: "Value corresponding to HVAC Defrosting action."
+              required: false
+              type: [integer, list]
+            action_drying:
+              description: "Value corresponding to HVAC Drying action."
+              required: false
+              type: [integer, list]
+            action_fan:
+              description: "Value corresponding to HVAC Fan action."
+              required: false
+              type: [integer, list]
+            action_heating:
+              description: "Value corresponding to HVAC Heating action."
+              required: false
+              type: [integer, list]
+            action_idle:
+              description: "Value corresponding to HVAC Idle action."
+              required: false
+              type: [integer, list]
+            action_preheating:
+              description: "Value corresponding to HVAC Preheating action."
+              required: false
+              type: [integer, list]
     hvac_mode_register:
       description: "Configuration of register for HVAC mode"
       required: false
