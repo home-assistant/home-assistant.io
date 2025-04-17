@@ -50,7 +50,7 @@ This integration allows [ESPHome](https://esphome.io) devices to connect directl
 
 {% include integrations/config_flow.md %}
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows the standard integration removal process; no extra steps are required.
 
 {% include integrations/remove_device_service.md %}
 
