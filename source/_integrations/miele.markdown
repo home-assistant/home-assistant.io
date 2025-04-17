@@ -93,7 +93,7 @@ The integration configuration may ask for the *Client ID* and *Client Secret* cr
 
 {% details "List of light entities" %}
 
-- **Light**: The light can be turned on and off in many models of ovens, cooker hoods and wine cabinets.
+- **Light**: The light can be turned on and off in many models of ovens, cooker hoods, and wine cabinets.
 - **Ambient light**: Some models of cooker hoods have ambient light that can be turned on and off. 
 {% enddetails %}
 
