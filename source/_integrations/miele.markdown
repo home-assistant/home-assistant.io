@@ -86,11 +86,11 @@ The integration configuration may ask for the *Client ID* and *Client Secret* cr
 
 - **Operation state**:
   - **Door**: Shows if the door on the appliance is open or closed.
-  - **Full remote control**: Signals the state of Full remote control feature on appliances that supports it.
-  - **Mobile start**: Signals the state of Mobile start feature on appliances that supports it.
-  - **Notification active**: Signals if there is a notification message active on the appliance. The API does not supply any information on the details of the notifications.
-  - **Problem**: Signals if there is an error message active on the appliance. The API does not supply any information on the details of the error.
-  - **Smart grid**: Signals the state of Smart grid feature on appliances that supports it.
+  - **Full remote control**: Shows the state of Full remote control feature on appliances that supports it.
+  - **Mobile start**: Shows the state of Mobile start feature on appliances that supports it.
+  - **Notification active**: Shows if there is a notification message active on the appliance. The API does not supply any information on the details of the notifications.
+  - **Problem**: Shows if there is an error message active on the appliance. The API does not supply any information on the details of the error.
+  - **Smart grid**: Shows the state of Smart grid feature on appliances that supports it.
 {% enddetails %}
 
 ### Sensor
