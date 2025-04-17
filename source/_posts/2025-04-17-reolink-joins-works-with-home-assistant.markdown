@@ -54,8 +54,8 @@ In case you didn't know, Works with Home Assistant differs from other certificat
 - [Reolink Argus Track](https://reolink.com/product/argus-track/)
 - [Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)
 - [Reolink TrackMix PoE](https://reolink.com/product/reolink-trackmix-poe/)
-- [Reolink Smart 4K PTZ PoE](https://reolink.com/product/rlc-823s2/)
-- [Reolink 12MP UHD PoE Camera with Color Night Vision](https://reolink.com/gb/product/rlc-1224a/)
+- [Reolink RLC-823S2](https://reolink.com/product/rlc-823s2/)
+- [Reolink RLC-1224A](https://reolink.com/gb/product/rlc-1224a/)
 
 **Other**
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
