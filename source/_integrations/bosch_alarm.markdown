@@ -3,6 +3,7 @@ title: Bosch Alarm
 description: Integrate Bosch Alarms.
 ha_category:
   - Alarm
+  - Sensor
 ha_release: 2025.4
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: bosch_alarm
 ha_platforms:
   - alarm_control_panel
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -34,11 +36,16 @@ The **Bosch Alarm Panel** {% term integration %} allows you to connect your [Bos
 The following {% term entities %} are provided:
 
 - [Alarm Control Panel](#alarm-control-panel)
+- [Sensor](#sensor)
 
 ### Alarm Control Panel
 
 This integration adds an Alarm Control Panel device for each configured area, with the ability to issue arm/disarm commands.
 This entity reports state (_disarmed_, _armed_away_, etc.).
+
+## Sensor
+
+A sensor is provided per area that lists how many points are currently in a faulted state.
 
 ## Authentication
 
@@ -57,6 +64,19 @@ The integration will prompt for the required passcodes, which depend on the pane
 {% important %}
 Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the regularly configured alarm pin: you will _not_ be prompted for a _User_ code when arming/disarming through the integration.
 {% endimportant %}
+
+If your authentication changes, the integration will automatically prompt you to enter the new credentials.
+
+## Reconfiguration
+
+This integration supports reconfiguration, so it is possible to change the configuration such as the IP Address after it is configured.
+
+## Troubleshooting
+
+### Diagnostics information
+
+Consider uploading [the diagnostics file](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) along with your issue report to allow faster triaging and pinpointing the issue.
+The information contained in the generated diagnostics file is redacted to avoid any sensitive information while still remaining useful for developers to fix the issue.
 
 ## Removing the integration
 

@@ -186,7 +186,7 @@ binary_sensor:
   type: list
   keys:
     state:
-      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor’s device_class value
+      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
       required: true
       type: template
     delay_on:
@@ -257,7 +257,7 @@ number:
       type: template
       default: 100.0
     optimistic:
-      description: Flag that defines if number works in optimistic mode.
+      description: Flag that defines if number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -279,7 +279,7 @@ select:
       required: true
       type: template
     optimistic:
-      description: Flag that defines if select works in optimistic mode.
+      description: Flag that defines if select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -302,7 +302,7 @@ image:
       required: true
       type: template
     verify_ssl:
-      description: Enable or disable SSL certificate verification. Set to false to use an http-only URL, or you have a self-signed SSL certificate and haven’t installed the CA certificate to enable verification.
+      description: Enable or disable SSL certificate verification. Set to false to use an http-only URL, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
       required: false
       type: boolean
       default: true
@@ -451,6 +451,22 @@ State-based and trigger-based template entities have the special template variab
 {% note %}
 Self-referencing using `this` provides the state and attributes for the entity before rendering the templates to calculate a new state. To access the new state, use the `value` or `value_json` variable.
 {% endnote %}
+
+### Optimistic mode
+
+For template entities that support interactivity (like `number` and `select`), you can enable optimistic mode by setting the `optimistic` parameter to `true`. This affects how the entity's state updates when you interact with it:
+
+- **With optimistic mode disabled (default)**: When you interact with the entity (for example, selecting a new option in a dropdown or setting a new number value), the entity's state in Home Assistant will only update after the underlying template defined in the `state` parameter returns the new value.
+
+- **With optimistic mode enabled**: When you interact with the entity, the entity's state in Home Assistant immediately updates to reflect your change, without waiting for the `state` template to update. This provides a more responsive UI experience but may not reflect the actual state if the underlying action fails or takes time to complete.
+
+Optimistic mode is particularly useful when:
+
+- The underlying system doesn't provide immediate feedback
+- You want a more responsive UI experience
+- You're confident the action will succeed
+
+When optimistic mode is disabled (default), you get more accuracy but potentially a less responsive UI, as the entity only updates after confirmation from the underlying system.
 
 ### Rate limiting updates
 
@@ -972,7 +988,7 @@ sensors:
           type: device_class
           default: None
         value_template:
-          description: The sensor is `on` if the template evaluates as `True` and `off` otherwise. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor’s device_class value
+          description: The sensor is `on` if the template evaluates as `True` and `off` otherwise. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
           required: true
           type: template
         availability_template:

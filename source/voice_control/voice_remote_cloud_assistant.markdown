@@ -31,7 +31,7 @@ To have the fastest processing voice assistant experience, follow these steps:
 3. To view the settings, go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and under **Assist**, select **Home Assistant Cloud**.
      ![Select the Home Assistant Cloud voice assistant](/images/assist/assistants_ha_cloud.png)
 
-     - **Troubleshooting**: If you do not see any assistants here, you are not using the default configuration. In this case, you need to add the following to your `configuration.yaml` file:
+     - **Troubleshooting**: If you do not see any assistants here, you are not using the [default configuration](/integrations/default_config). In this case, you need to add the following to your `configuration.yaml` file:
 
        ```yaml
        # Example configuration.yaml entry

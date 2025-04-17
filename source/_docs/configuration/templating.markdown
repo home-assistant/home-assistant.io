@@ -427,6 +427,7 @@ The same thing can also be expressed as a test:
 - `device_attr(device_or_entity_id, attr_name)` returns the value of `attr_name` for the given device or entity ID. Can also be used as a filter. Not supported in [limited templates](#limited-templates).
 - `is_device_attr(device_or_entity_id, attr_name, attr_value)` returns whether the value of `attr_name` for the given device or entity ID matches `attr_value`. Can also be used as a test. Not supported in [limited templates](#limited-templates).
 - `device_id(entity_id)` returns the device ID for a given entity ID or device name. Can also be used as a filter.
+- `device_name(lookup_value)` returns the device name for a given device ID or entity ID. Can also be used as a filter.
 
 #### Devices examples
 
@@ -442,6 +443,11 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ device_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ device_name('deadbeefdeadbeefdeadbeefdeadbeef') }}  # Sony speaker
+{{ device_name('sensor.sony') }}  # Sony speaker
 ```
 
 {% endraw %}

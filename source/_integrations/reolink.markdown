@@ -230,6 +230,7 @@ Depending on the supported features of the camera, select entities are added for
 - Hub alarm ringtone
 - Hub visitor ringtone
 - Hub scene mode (Off, Disarmed, Home, Away)
+- Recording packing time
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -767,6 +768,16 @@ Prerequisites:
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.
 - Reolink cameras can support a limited amount of simultaneous connections. Therefore using third-party software like Frigate, Blue Iris, or Scrypted, or using the ONVIF integration at the same time can cause the camera to drop connections. This results in short unavailabilities of the Reolink entities in Home Assistant. Especially when the connections are coming from the same device (IP) where Home Assistant is running, the Reolink cameras can get confused, dropping one connection in favor of the other originating from the same host IP. If you experience disconnections/unavailabilities of the entities, please first temporarily shut down the other connections (like Frigate) to diagnose if that is the problem. If that is indeed the problem, you could try moving the third-party software to a different host (IP address) since that is known to solve the problem most of the time. You could also try switching the protocol to FLV on Home Assistant and/or the third-party software, as that is known to be less resource-intensive on the camera.
 - If the Reolink entities go to unavailable for short periods, the camera may be overloaded with requests resulting in short connection drops. To resolve this, first, check if the integration is using `ONVIF push` instead of `ONVIF long polling` (resource intensive) or `Fast polling` (very resource intensive), see the [Reducing latency of motion events](#reducing-latency-of-motion-events) section. Moreover, try switching to the <abbr title="flash video">FLV</abbr> streaming protocol which is the least resource-intensive for the camera, see the [options](#options) section.
+
+### Battery drains fast
+
+The Reolink Home Assistant integration is supposed to only wake battery cameras once per hour for about 10 seconds, which should not have a big impact on battery life. You can check this using the **Sleep status** entity. However, there are several factors that can have significant impact on battery life:
+
+- Make sure the **Preload camera stream** option is turned off for all battery camera entities under {% my integrations title="**Settings** > **Devices & services**" %} > Reolink integration card > **x devices** > select the battery camera > select the camera stream (do this for all enabled streams) > Gear icon {% icon "mdi:cog-outline" %}. The Preload camera stream will keep a active stream open, keeping the camera awake. This will drain the battery.
+- Make sure the **Manual Record** switch is turned off. While this switch is on, the camera will be awake and recording. Excessive use of this entity will drain the battery.
+- **Automations** which use entities from a Reolink battery camera can wake up the camera. Changing settings or requesting a snapshot will wake the battery camera for 10-30 seconds. When automations trigger very often, this can cause excessive battery use.
+- Some **Custom cards** that can be used to view the camera in a dashboard are known to keep a battery camera constantly awake, draining its battery.
+- Viewing a **dashboard** with a picture-entity card of a Reolink battery camera, will wake that camera to show the latest snapshot and/or stream. Therefore, it is recommended to place the picture-entity cards in a separate dashboard/tab, which is only accessed when actually wanting to view the battery camera streams.
 
 ### Streams or recordings not playing
 
