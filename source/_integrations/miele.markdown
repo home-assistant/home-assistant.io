@@ -85,6 +85,12 @@ The integration configuration may ask for the *Client ID* and *Client Secret* cr
 
 - **Operation state**:
   - **Status**: Represents the current operation state of the device. The default entity name is just the appliance type. For example, "Dishwasher".
+  - **Program**: Shows the currently active program.
+  - **Program phase**: Shows the current phase in the running program.
+  - **Program type**: Shows the current program type.
+  - **Spin speed**: Shows the spin speed selected for the current washing machine program.
+  - **Energy consumption**: Shows the energy consumption during current program cycle. The value will be reset after finishing the program.
+  - **Water consumption**: Shows the water consumption during current program cycle. The value will be reset after finishing the program.
   - **Temperature**: Represents the current temperature in refrigerators, freezers, and ovens. Entities are created for up to 3 zones depending on the device capabilities.
 {% enddetails %}
 
