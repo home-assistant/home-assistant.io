@@ -27,10 +27,6 @@ ha_integration_type: integration
     First, install [apcupsd](http://www.apcupsd.org/) on the machine connected to your UPS. It works on Linux, macOS, Windows, BSD, Solaris, and more.  
     You can usually install it through your operating system’s package manager.
 
-    - **Ubuntu/Debian**: `sudo apt install apcupsd`
-    - **Red Hat/Fedora**: `sudo dnf install apcupsd`
-    - **macOS** (with Homebrew): `brew install apcupsd`
-    - **Windows**: Download the installer from the [apcupsd website](http://www.apcupsd.org/)
 
 2. Configure apcupsd for network access.
 
