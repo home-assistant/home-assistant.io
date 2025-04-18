@@ -46,7 +46,30 @@ works_with:
   - local
 ---
 
+## Overview
+
 This integration allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).
+
+ESPHome is a firmware generator and configuration system that enables the transformation of microcontrollers into fully customizable smart home devices. Using a simple YAML configuration file, ESPHome allows users to define hardware components like sensors, actuators, and peripherals. These configurations are then compiled into custom firmware that can be flashed onto the target device.
+
+### Key Features
+- **YAML Configuration**: Specify hardware components, sensors, actuators, and integrations using a clean and straightforward YAML syntax.
+- **Custom Firmware Generation**: ESPHome compiles the provided configuration into a highly optimized, device-specific firmware image that is ready to be flashed onto microcontrollers.
+- **Seamless Integration**: After flashing, ESPHome devices can integrate seamlessly with Home Assistant using the ESPHome native API. This documentation page focuses on the [native API](https://esphome.io/components/api.html), which allows devices to communicate directly with Home Assistant for real-time automation and monitoring. For other integrations, such as MQTT or HTTP, please refer to the relevant sections of the [ESPHome documentation](https://esphome.io/).
+
+ESPHome supports a variety of microcontrollers beyond just the ESP family. These include:
+
+- **ESP32**: A powerful microcontroller with Wi-Fi and Bluetooth capabilities.
+- **ESP8266**: A low-cost microcontroller with Wi-Fi support.
+- **BK72xx**: A series of microcontrollers from Beken, commonly used in smart home applications.
+- **RP2040**: A microcontroller developed by Raspberry Pi, known for its flexibility and cost-effectiveness.
+- **RTL87xx**: A series of microcontrollers from Realtek, supporting various wireless communication protocols.
+
+For a list of officially supported microcontrollers and devices, refer to the [ESPHome device database](https://devices.esphome.io/). Keep in mind that this database represents only a portion of the ecosystem—many other devices and peripherals are supported but may not appear in the database.
+
+For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/index.html). These include useful setups like [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy.html), which can expand the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) range of Home Assistant.
+
+For detailed information on configuring unsupported or custom devices, consult the official [ESPHome documentation](https://esphome.io/), which provides in-depth guides on expanding and customizing your setup beyond the pre-configured devices.
 
 {% include integrations/config_flow.md %}
 
@@ -157,7 +180,22 @@ sensor:
 
 The entity will be named `Temperature` and will default to having an entity_id of `sensor.temperature`.
 
-## Obtaining logs from the device
+## Troubleshooting
+
+### Viewing Live Logs
+
+To troubleshoot your ESPHome devices, you can easily view live logs, whether you're using the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) or the **ESPHome CLI**. The logs contain detailed information such as Wi-Fi connection status, errors, and debug messages, which can help you identify and resolve issues with your device.
+
+#### Using the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon)
+1. In the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) add-on, find the device you're working with.
+2. Click the **LOGS** button to open the log view.
+
+#### Using the **ESPHome CLI**
+If you're using the **ESPHome CLI**, follow the instructions for the [logs Command](https://esphome.io/guides/cli.html#logs-command) to access the logs.
+
+### Obtaining Logs from the Device
+
+If you want the device to send logs without requiring you to be actively monitoring, follow these steps:
 
 1. To have the device send logs to Home Assistant, in the [options flow](#options), enable `Subscribe to logs from the device`. 
    - They are logged under the `homeassistant.components.esphome` logger at the equivalent level.
