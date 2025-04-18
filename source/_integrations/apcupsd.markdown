@@ -41,12 +41,6 @@ ha_integration_type: integration
 
 3. **Start the apcupsd service**
 
-    Once it’s configured, start the service:
-
-    - **Linux (systemd)**: `sudo systemctl start apcupsd`
-    - **macOS**: Use `brew services start apcupsd`
-    - **Windows**: apcupsd usually starts automatically, or you can start it via the Services panel.
-
 {% include integrations/config_flow.md %}
 
 {% note %}
