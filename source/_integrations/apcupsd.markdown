@@ -22,7 +22,7 @@ ha_integration_type: integration
 
 ## Prerequisites
 
-1. **Install apcupsd**
+1. Install apcupsd.
 
     First, install [apcupsd](http://www.apcupsd.org/) on the machine connected to your UPS. It works on Linux, macOS, Windows, BSD, Solaris, and more.  
     You can usually install it through your operating system’s package manager. For example:
