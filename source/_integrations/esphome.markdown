@@ -54,11 +54,33 @@ This integration follows the standard integration removal process; no extra step
 
 {% include integrations/remove_device_service.md %}
 
-## Home Assistant actions
-
-ESPHome devices can perform actions to any [Home Assistant action](https://esphome.io/components/api.html#homeassistant-service-action). This functionality is not enabled by default for newly configured device, but can be turned on the options flow on a per device basis.
-
 {% include integrations/option_flow.md %}
+
+## Supported Functionality
+
+### Entities
+
+The available entities depend on the components defined in the ESPHome YAML configuration for each device. These entities are exposed through the [Native API Component](https://esphome.io/components/api.html).
+
+### Firing Events on the Home Assistant Event Bus
+
+When using the native API with Home Assistant, you can trigger events on the Home Assistant event bus directly from ESPHome. For more details, see the [homeassistant.event Action](https://esphome.io/components/api.html#homeassistant-event-action).
+
+### Actions
+
+Each device can define Home Assistant Actions based on its ESPHome YAML configuration. For more information, refer to the [Actions](https://esphome.io/components/api.html#actions) section in the [Native API Component](https://esphome.io/components/api.html) documentation.
+
+### Retrieving Data from Home Assistant
+
+ESPHome can retrieve the state of Home Assistant entities using the [Native API](https://esphome.io/components/api.html) with [User-Defined Actions](https://esphome.io/components/api.html#user-defined-actions).
+
+### Home Assistant Actions
+
+ESPHome devices can call any [Home Assistant Action](https://esphome.io/components/api.html#homeassistant-service-action). This feature is not enabled by default for newly added devices but can be enabled through the options flow on a per-device basis.
+
+### Tag Scanning Support
+
+The [Native API Component](https://esphome.io/components/api.html) also supports sending tag scan events to Home Assistant. See the [homeassistant.tag_scanned Action](https://esphome.io/components/api.html#homeassistant-tag-scanned-action) for more information.
 
 ## Entity naming and IDs
 
