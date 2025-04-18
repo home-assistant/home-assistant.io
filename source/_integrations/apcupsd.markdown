@@ -32,7 +32,7 @@ ha_integration_type: integration
     - **macOS** (with Homebrew): `brew install apcupsd`
     - **Windows**: Download the installer from the [apcupsd website](http://www.apcupsd.org/)
 
-2. **Configure apcupsd for network access**
+2. Configure apcupsd for network access.
 
     Open the `apcupsd.conf` file (usually found in `/etc/apcupsd/`) and make sure it’s set to listen for network connections.  
     Look for the line: `NISIP 0.0.0.0`  
