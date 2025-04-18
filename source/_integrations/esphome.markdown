@@ -56,7 +56,18 @@ This integration follows the standard integration removal process; no extra step
 
 ## Supported devices
 
-The ESPHome integration works with devices that run ESPHome and expose their functionality through the [native ESPHome API](https://esphome.io/components/api.html) can push updates to Home Assistant in near real time.
+The ESPHome integration works with devices that run ESPHome firmware and expose their functionality through the [native ESPHome API](https://esphome.io/components/api.html). This API is designed for tight, efficient integration with Home Assistant, enabling ESPHome devices to push updates directly to Home Assistant in **near real time**.
+
+## Updating data
+
+Rather than polling for sensor values or device states, Home Assistant maintains a persistent connection to each ESPHome device using the native API. This allows state changes—such as a temperature sensor update, a button press, or a binary sensor trigger—to be sent immediately as they happen, reducing latency and improving responsiveness in automations.
+
+Additional technical details:
+- The connection is established over TCP using a lightweight protocol optimized for microcontrollers.
+- **Home Assistant automatically reconnects to ESPHome devices if the connection is dropped**. This includes support for "sleepy" or battery-powered devices that spend most of their time in deep sleep to conserve energy. When a device wakes up, it becomes available on the network, and Home Assistant attempts to reconnect to it using the native API. If **mDNS** (Multicast DNS) is available, Home Assistant can rapidly discover the device and re-establish the connection without requiring static IP addresses or manual DNS configuration. This ensures that devices like battery-powered sensors report their state changes quickly and reliably as soon as they come online.
+- The API supports bi-directional communication, so Home Assistant can also push commands instantly to the device (e.g., toggling switches or changing light states).
+
+This real-time behavior enables fast, reactive automations and a smooth user experience compared to traditional polling-based integrations.
 
 ## Home Assistant actions
 
