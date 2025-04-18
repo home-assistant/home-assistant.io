@@ -50,6 +50,27 @@ This integration allows [ESPHome](https://esphome.io) devices to connect directl
 
 {% include integrations/config_flow.md %}
 
+### Required manual input
+
+To configure an ESPHome device, enter the following information:
+
+{% configuration_basic %}
+
+host:
+  description: "IP address or hostname of the ESPHome device. <br> This will be pre-filled if the device was auto-discovered."
+port:
+  description: "Port used by the ESPHome native API (default: 6053). <br> This will be pre-filled if the device was auto-discovered."
+noise_psk:
+  description: "The pre-shared key used for encryption. <br> This is a 32‑byte base64‑encoded string. Leave blank if native encryption is not enabled."
+password:
+  description: "Device password (deprecated). <br> Use a Noise PSK (encryption key) instead – password support will be removed in a future release."
+
+{% endconfiguration_basic %}
+
+For more information, see the [ESPHome Native API Component documentation](https://esphome.io/components/api.html).
+
+## Removing the integration
+
 This integration follows the standard integration removal process; no extra steps are required.
 
 {% include integrations/remove_device_service.md %}
