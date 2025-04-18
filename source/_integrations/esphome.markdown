@@ -65,7 +65,11 @@ ESPHome supports a variety of microcontrollers beyond just the ESP family. These
 - **RP2040**: A microcontroller developed by Raspberry Pi, known for its flexibility and cost-effectiveness.
 - **RTL87xx**: A series of microcontrollers from Realtek, supporting various wireless communication protocols.
 
-For a list of officially supported microcontrollers and devices, refer to the [ESPHome device database](https://devices.esphome.io/). Keep in mind that this database represents only a portion of the ecosystem—many other devices and peripherals are supported but may not appear in the database. For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/index.html). For detailed information on configuring unsupported or custom devices, consult the official [ESPHome documentation](https://esphome.io/), which provides in-depth guides on expanding and customizing your setup beyond the pre-configured devices.
+For a list of officially supported microcontrollers and devices, refer to the [ESPHome device database](https://devices.esphome.io/). Keep in mind that this database represents only a portion of the ecosystem—many other devices and peripherals are supported but may not appear in the database.
+
+For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/index.html). These include useful setups like [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy.html), which can expand the Bluetooth range of Home Assistant.
+
+For detailed information on configuring unsupported or custom devices, consult the official [ESPHome documentation](https://esphome.io/), which provides in-depth guides on expanding and customizing your setup beyond the pre-configured devices.
 
 {% include integrations/config_flow.md %}
 
