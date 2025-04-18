@@ -114,3 +114,9 @@ The entity will be named `Temperature` and will default to having an entity_id o
       data:
         homeassistant.components.esphome: debug
       ```
+
+## Known Limitations
+
+Each ESPHome device must have a **unique name**. This name is important for mDNS announcements, ensuring that the device can be properly discovered, quickly reconnected when it comes online or wakes from deep sleep (for devices that support deep sleep), and correctly linked to the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon). It's also crucial for **DHCP discovery** if mDNS is not available.
+
+Using duplicate names can lead to connection issues, failed discovery, and unexpected behavior with both the integration and the add-on.
