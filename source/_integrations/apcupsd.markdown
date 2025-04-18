@@ -34,10 +34,10 @@ ha_integration_type: integration
 
 2. Configure apcupsd for network access.
 
-    Open the `apcupsd.conf` file (usually found in `/etc/apcupsd/`) and make sure it’s set to listen for network connections.  
-    Look for the line: `NISIP 0.0.0.0`  
-    This setting allows it to accept connections on all network interfaces.  
-    If you prefer, you can set this to a specific IP address that Home Assistant can reach.
+    - Open the `apcupsd.conf` file (usually found in `/etc/apcupsd/`) and make sure it’s set to listen for network connections.  
+    - Look for the line: `NISIP 0.0.0.0`.
+    - This setting allows it to accept connections on all network interfaces.  
+    - If you prefer, you can set this to a specific IP address that Home Assistant can reach.
 
 3. **Start the apcupsd service**
 
