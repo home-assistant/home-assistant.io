@@ -52,7 +52,7 @@ This integration allows [ESPHome](https://esphome.io) devices to connect directl
 
 ### Required manual input
 
-The configuration of an ESPHome device requires you to enter the following information:
+To configure an ESPHome device, enter the following information:
 
 {% configuration_basic %}
 
