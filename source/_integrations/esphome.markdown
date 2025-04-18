@@ -69,7 +69,7 @@ password:
 
 For more information, see the [ESPHome Native API Component documentation](https://esphome.io/components/api.html).
 
-### Removing the integration
+## Removing the integration
 
 This integration follows the standard integration removal process; no extra steps are required.
 
