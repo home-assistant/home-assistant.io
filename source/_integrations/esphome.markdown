@@ -59,11 +59,11 @@ To configure an ESPHome device, enter the following information:
 host:
   description: "IP address or hostname of the ESPHome device. <br> This will be pre-filled if the device was auto-discovered."
 port:
-  description: "Port used by the ESPHome native API. <br> This will be pre-filled if the device was auto-discovered."
+  description: "Port used by the ESPHome native API (default: 6053). <br> This will be pre-filled if the device was auto-discovered."
 noise_psk:
-  description: "The pre-shared key used for encryption. <br> This is a 32-byte base64-encoded string. Leave this blank if native encryption is not enabled."
+  description: "The pre-shared key used for encryption. <br> This is a 32‑byte base64‑encoded string. Leave blank if native encryption is not enabled. See [Noise encryption in ESPHome](https://esphome.io/guides/security.html#noise-encryption) for more details."
 password:
-  description: "Device password. <br> Note: Passwords are deprecated—use encryption keys instead."
+  description: "Device password (deprecated). <br> Use a Noise PSK (encryption key) instead – password support will be removed in a future release."
 
 {% endconfiguration_basic %}
 
