@@ -56,7 +56,7 @@ This integration follows the standard integration removal process; no extra step
 
 ## Supported devices
 
-The ESPHome integration supports devices that implement server side of the [native ESPHome API](https://esphome.io/components/api.html)
+The ESPHome integration works with devices that run ESPHome and expose their functionality through the [native ESPHome API](https://esphome.io/components/api.html).
 
 ## Home Assistant actions
 
