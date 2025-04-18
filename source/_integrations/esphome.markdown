@@ -67,7 +67,9 @@ ESPHome supports a variety of microcontrollers beyond just the ESP family. These
 
 For a list of officially supported microcontrollers and devices, refer to the [ESPHome device database](https://devices.esphome.io/). Keep in mind that this database represents only a portion of the ecosystem—many other devices and peripherals are supported but may not appear in the database.
 
-For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/index.html). These include useful setups like [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy.html), which can expand the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) range of Home Assistant, and the [Voice PE](https://www.home-assistant.io/voice-pe/), a ready-made voice assistant device built on ESPHome.
+For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/index.html). These include setups like [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy.html), which can extend the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) range of Home Assistant.
+
+If you're looking for pre-built solutions, the [Voice PE](https://www.home-assistant.io/voice-pe/) is an excellent example. It's a pre-built voice assistant device powered by ESPHome, offering a simple way to integrate voice control into your Home Assistant system. Like all ESPHome projects, these pre-built solutions are open-source and fully customizable, giving you the flexibility to modify and expand them according to your needs.
 
 For detailed information on configuring unsupported or custom devices, consult the official [ESPHome documentation](https://esphome.io/), which provides in-depth guides on expanding and customizing your setup beyond the pre-configured devices.
 
