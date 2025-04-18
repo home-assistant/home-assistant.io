@@ -343,7 +343,8 @@ following are known limitations:
 
 - This NUT integration only supports a subset of NUT "variables" and
 "commands".
-- This NUT integration only supports retrieving, but not setting, NUT "variables".
+- This NUT integration only supports retrieving, but not setting, NUT
+"variables".
 - This NUT integration does not support NUT "commands" that require
 parameters.
 
