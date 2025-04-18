@@ -28,9 +28,9 @@ related:
 
 The **Network UPS Tools (NUT)** {% term integration %} allows you to monitor and manage an Uninterruptible Power Supply (UPS) for battery backup, a Power Distribution Unit (PDU), or other similar power device using a [NUT](https://networkupstools.org/) server. It lets you view the status, receive notifications about important events, and execute commands as device actions for one or more such devices.
 
-This integration communicates with a NUT server using the NUT
-protocol. It does not directly retrieve information or take action on
-a power device.
+This integration cannot communicate directly with a UPS or power device.
+For this reason, a NUT server is required. The integration talks to the
+NUT server using the NUT protocol to retrieve data and status information.
 
 ## Supported devices
 
