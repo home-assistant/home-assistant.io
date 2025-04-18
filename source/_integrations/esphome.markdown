@@ -100,7 +100,22 @@ sensor:
 
 The entity will be named `Temperature` and will default to having an entity_id of `sensor.temperature`.
 
-## Obtaining logs from the device
+## Troubleshooting
+
+### Viewing Live Logs
+
+To troubleshoot your ESPHome devices, you can easily view live logs, whether you're using the **ESPHome Device Builder Add-on** or the **ESPHome CLI**. The logs contain detailed information such as Wi-Fi connection status, errors, and debug messages, which can help you identify and resolve issues with your device.
+
+#### Using the **ESPHome Device Builder Add-on**:
+1. In the **ESPHome Device Builder** add-on, find the device you're working with.
+2. Click the **LOGS** button to open the log view.
+
+#### Using the **ESPHome CLI**:
+If you're using the **ESPHome CLI**, follow the instructions for the [logs Command](https://esphome.io/guides/cli.html#logs-command) to access the logs.
+
+### Obtaining Logs from the Device
+
+If you want the device to send logs without requiring you to be actively monitoring, follow these steps:
 
 1. To have the device send logs to Home Assistant, in the [options flow](#options), enable `Subscribe to logs from the device`. 
    - They are logged under the `homeassistant.components.esphome` logger at the equivalent level.
@@ -114,3 +129,4 @@ The entity will be named `Temperature` and will default to having an entity_id o
       data:
         homeassistant.components.esphome: debug
       ```
+
