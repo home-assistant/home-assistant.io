@@ -86,9 +86,9 @@ The integration configuration may ask for the *Client ID* and *Client Secret* cr
 - **Operation state**:
   - **Status**: Represents the current operation state of the device. The default entity name is just the appliance type. For example, "Dishwasher".
   - **Temperature**: Represents the current temperature in refrigerators, freezers, and ovens. Entities are created for up to 3 zones depending on the device capabilities.
-  - **Elapsed time**: Shows the duration measured in minutes that current program has been running.
-  - **Remaining time**: The device calculates an estimate of how many minutes that are remaining in current program cycle. The number can go up and down during a program due to amount of dirt, time needed to heat incoming water, etc.
-  - **Start in**: Shows number of minutes remaining to program start if the user has set a delayed start.
+  - **Elapsed time**: Shows the number of minutes that the current program has been running.
+  - **Remaining time**: Shows the estimated number of minutes remaining in the current program cycle. This value can fluctuate during a program cycle based on load dirtiness or water‑heating time.
+  - **Start in**: Shows the number of minutes until a delayed program start, if configured.
 {% enddetails %}
 
 ## Automation examples
