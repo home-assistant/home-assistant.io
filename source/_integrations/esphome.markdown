@@ -62,10 +62,10 @@ The ESPHome integration works with devices that run ESPHome firmware and expose 
 
 Rather than polling for sensor values or device states, Home Assistant maintains a persistent connection to each ESPHome device using the native API. This allows state changes—such as a temperature sensor update, a button press, or a binary sensor trigger—to be sent immediately as they happen, reducing latency and improving responsiveness in automations.
 
-Additional technical details:
-- **The connection is established over TCP using a lightweight protocol optimized for microcontrollers**. This protocol is implemented in [aioesphomeapi](https://github.com/esphome/aioesphomeapi), an async Python library used by Home Assistant to manage communication with ESPHome devices. It supports efficient, bi-directional messaging that minimizes latency and overhead, making it well-suited for constrained hardware environments.
-- **Home Assistant automatically reconnects to ESPHome devices if the connection is dropped**. This includes support for "sleepy" or battery-powered devices that spend most of their time in deep sleep to conserve energy. When a device wakes up, it becomes available on the network, and Home Assistant attempts to reconnect to it using the native API. If **mDNS** (Multicast DNS) is available, Home Assistant can rapidly discover the device and re-establish the connection without requiring static IP addresses or manual DNS configuration. This ensures that devices like battery-powered sensors report their state changes quickly and reliably as soon as they come online.
-- The API supports bi-directional communication, so Home Assistant can also push commands instantly to the device (e.g., toggling switches or changing light states).
+### Additional Technical Details:
+- **Efficient Communication Protocol**: ESPHome uses a lightweight, bi-directional protocol over TCP, optimized for microcontrollers. This protocol is implemented in [aioesphomeapi](https://github.com/esphome/aioesphomeapi), the async Python library used by Home Assistant to handle real-time communication with ESPHome devices. It enables low-latency updates and instant command execution.
+- **Automatic Reconnection**: Home Assistant maintains a persistent connection to each ESPHome device and will automatically attempt to reconnect if the connection is lost. This includes support for "sleepy" or battery-powered devices that periodically wake from deep sleep. When such a device comes online, Home Assistant quickly re-establishes the connection—especially when **mDNS** (Multicast DNS) is available—allowing the device to be discovered and connected without requiring static IPs or manual configuration.
+
 
 This real-time behavior enables fast, reactive automations and a smooth user experience compared to traditional polling-based integrations.
 
