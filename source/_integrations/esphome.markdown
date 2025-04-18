@@ -100,6 +100,15 @@ This integration follows the standard integration removal process; no extra step
 
 {% include integrations/option_flow.md %}
 
+These options are disabled by default and not required—only set them if specifically needed.
+
+{% configuration_basic %}
+Allow the device to perform Home Assistant actions:
+  description: "No/Yes <br> When enabled, ESPHome devices can perform Home Assistant actions, such as calling services or sending events. Only enable this if you trust the device."
+Subscribe to logs from the device:
+  description: "No/Yes <br> When enabled, the device will send logs to Home Assistant and you can view them in the logs panel."
+{% endconfiguration_basic %}
+
 ## Supported devices
 
 The ESPHome integration works with devices that run ESPHome firmware and expose their functionality through the [native ESPHome API](https://esphome.io/components/api.html). This API is designed for tight, efficient integration with Home Assistant, enabling ESPHome devices to push updates directly to Home Assistant in **near real time**.
