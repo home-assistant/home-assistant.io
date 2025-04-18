@@ -55,7 +55,7 @@ ESPHome is a firmware generator and configuration system that enables the transf
 ### Key Features:
 - **YAML Configuration**: Specify hardware components, sensors, actuators, and integrations using a clean and straightforward YAML syntax.
 - **Custom Firmware Generation**: ESPHome compiles the provided configuration into a highly optimized, device-specific firmware image that is ready to be flashed onto microcontrollers.
-- **Seamless Integration**: After flashing, ESPHome devices can integrate seamlessly with platforms like Home Assistant using the ESPHome native API. This documentation page focuses on the **native API integration**, which allows devices to communicate directly with Home Assistant for real-time automation and monitoring. For other integrations, such as MQTT or HTTP, please refer to the relevant sections of the [ESPHome documentation](https://esphome.io/).
+- **Seamless Integration**: After flashing, ESPHome devices can integrate seamlessly with Home Assistant using the ESPHome native API. This documentation page focuses on the **native API integration**, which allows devices to communicate directly with Home Assistant for real-time automation and monitoring. For other integrations, such as MQTT or HTTP, please refer to the relevant sections of the [ESPHome documentation](https://esphome.io/).
 
 ESPHome supports a variety of microcontrollers beyond just the ESP family. These include:
 
