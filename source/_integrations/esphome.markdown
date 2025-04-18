@@ -69,6 +69,12 @@ password:
 
 For more information, see the [ESPHome Native API Component documentation](https://esphome.io/components/api.html).
 
+### Removing the integration
+
+This integration follows the standard integration removal process; no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
 ## Home Assistant actions
 
 ESPHome devices can perform actions to any [Home Assistant action](https://esphome.io/components/api.html#homeassistant-service-action). This functionality is not enabled by default for newly configured device, but can be turned on the options flow on a per device basis.
