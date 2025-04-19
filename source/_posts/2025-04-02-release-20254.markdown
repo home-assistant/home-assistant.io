@@ -70,6 +70,7 @@ Enjoy the release!
 - [Patch releases](#patch-releases)
   - [2025.4.1 - April 4](#202541---april-4)
   - [2025.4.2 - April 12](#202542---april-12)
+  - [2025.4.3 - April 19](#202543---april-19)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -700,6 +701,83 @@ release every Friday.
 [@thimo-seitz]: https://github.com/thimo-seitz
 [@tronikos]: https://github.com/tronikos
 [@wilfredktlr]: https://github.com/wilfredktlr
+
+### 2025.4.3 - April 19
+
+- Fix duke_energy data retrieval to adhere to service start date ([@cmamatey] - [#136054])
+- Check Energy Live API works before creating the coordinator in Tessie ([@Bre77] - [#142510])
+- Correct enum member check in home_connect ([@emontnemery] - [#142666])
+- Fix error in recurrence calculation of Habitica integration ([@tr4nt0r] - [#142759])
+- Fix MQTT device discovery when using node_id ([@dionisis2014] - [#142784])
+- Force Squeezebox item id to string ([@peteS-UK] - [#142793])
+- Keep track of last play status update time in Apple TV ([@ericswpark] - [#142838])
+- Select correct Reolink device uid ([@starkillerOG] - [#142864])
+- Fix Reolink Home Hub Pro playback ([@starkillerOG] - [#142871])
+- Fix quality loss for LLM conversation agent question answering ([@allenporter] - [#142873])
+- Only get tracked pairs for kraken ([@eifinger] - [#142877])
+- Bump Environment Canada library to 0.10.1 ([@gwww] - [#142882])
+- Bump devolo_plc_api to 1.5.1 ([@Shutgun] - [#142908])
+- Don't do I/O while getting Jewish calendar data schema ([@tsvi] - [#142919])
+- Update UK Transport Integration URL ([@AlexLamond] - [#142949])
+- Bump holidays to 0.70 ([@gjohansson-ST] - [#142954])
+- Fix switch state for Comelit ([@chemelli74] - [#142978])
+- Bump reolink-aio to 0.13.2 ([@starkillerOG] - [#142985])
+- Increase uptime deviation for Shelly ([@chemelli74] - [#142996])
+- Bump pysmhi to 1.0.2 ([@gjohansson-ST] - [#143007])
+- Add Python-2.0 to list of approved licenses ([@cdce8p] - [#143052])
+- Reduce jumping Starlink uptime sensor ([@frenck] - [#143076])
+- Bump ZHA to 0.0.56 ([@puddly] - [#143165])
+- Fix SmartThings soundbar without media playback ([@joostlek] - [#143170])
+- Fix missing binary sensor for CoolSelect+ in SmartThings ([@joostlek] - [#143216])
+
+[#136054]: https://github.com/home-assistant/core/pull/136054
+[#141505]: https://github.com/home-assistant/core/pull/141505
+[#142299]: https://github.com/home-assistant/core/pull/142299
+[#142510]: https://github.com/home-assistant/core/pull/142510
+[#142666]: https://github.com/home-assistant/core/pull/142666
+[#142755]: https://github.com/home-assistant/core/pull/142755
+[#142759]: https://github.com/home-assistant/core/pull/142759
+[#142784]: https://github.com/home-assistant/core/pull/142784
+[#142793]: https://github.com/home-assistant/core/pull/142793
+[#142838]: https://github.com/home-assistant/core/pull/142838
+[#142864]: https://github.com/home-assistant/core/pull/142864
+[#142871]: https://github.com/home-assistant/core/pull/142871
+[#142873]: https://github.com/home-assistant/core/pull/142873
+[#142877]: https://github.com/home-assistant/core/pull/142877
+[#142882]: https://github.com/home-assistant/core/pull/142882
+[#142908]: https://github.com/home-assistant/core/pull/142908
+[#142919]: https://github.com/home-assistant/core/pull/142919
+[#142949]: https://github.com/home-assistant/core/pull/142949
+[#142954]: https://github.com/home-assistant/core/pull/142954
+[#142978]: https://github.com/home-assistant/core/pull/142978
+[#142985]: https://github.com/home-assistant/core/pull/142985
+[#142996]: https://github.com/home-assistant/core/pull/142996
+[#143007]: https://github.com/home-assistant/core/pull/143007
+[#143052]: https://github.com/home-assistant/core/pull/143052
+[#143076]: https://github.com/home-assistant/core/pull/143076
+[#143165]: https://github.com/home-assistant/core/pull/143165
+[#143170]: https://github.com/home-assistant/core/pull/143170
+[#143216]: https://github.com/home-assistant/core/pull/143216
+[@AlexLamond]: https://github.com/AlexLamond
+[@Bre77]: https://github.com/Bre77
+[@Shutgun]: https://github.com/Shutgun
+[@allenporter]: https://github.com/allenporter
+[@cdce8p]: https://github.com/cdce8p
+[@chemelli74]: https://github.com/chemelli74
+[@cmamatey]: https://github.com/cmamatey
+[@dionisis2014]: https://github.com/dionisis2014
+[@eifinger]: https://github.com/eifinger
+[@emontnemery]: https://github.com/emontnemery
+[@ericswpark]: https://github.com/ericswpark
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@gwww]: https://github.com/gwww
+[@joostlek]: https://github.com/joostlek
+[@peteS-UK]: https://github.com/peteS-UK
+[@puddly]: https://github.com/puddly
+[@starkillerOG]: https://github.com/starkillerOG
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@tsvi]: https://github.com/tsvi
 
 ## Need help? Join the community!
 
