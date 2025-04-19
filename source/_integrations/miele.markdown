@@ -68,7 +68,7 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 ## Local discovery
 
-HA will normally discover compatible Miele Appliances that are present on the same subnet as the Home Assistant instance.
+Home Assistant will automatically discover compatible Miele appliances on the same subnet as the Home Assistant instance using mDNS/zeroconf.
 
 {% include integrations/config_flow.md %}
 
