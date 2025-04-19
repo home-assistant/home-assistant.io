@@ -53,4 +53,9 @@ longitude:
   required: false
   type: float
   default: "The longitude in your `configuration.yaml` file."
+datum:
+  description: The datum to use for tide heights.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
