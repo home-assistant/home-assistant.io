@@ -54,7 +54,7 @@ longitude:
   type: float
   default: "The longitude in your `configuration.yaml` file."
 datum:
-  description: The datum to use for tide heights.
+  description: The [datum](https://www.worldtides.info/datums) to use for tide heights.
   required: false
   type: string
   default: null
