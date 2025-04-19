@@ -65,6 +65,8 @@ In countries like Germany, SML (Smart Message Language) is used typically. ESPHo
 
 {% include energy/ct_clamp.md %}
 
+Using a Raspberrypi you can use a CT Clamp hat from LeChacal. They are called [RPICT hats](https://lechacal.com/docs/RPICT/Raspberrypi_Current_and_Temperature_Sensor_Adaptor/). They can be stacked together to expand the number of lines to monitor. They also provide Active/Apparent/Reactive power and power factor for single phase and three phase installations. They integrate with HA using MQTT.
+
 ### Data provided by your energy provider
 
 Some energy providers will provide you real-time information about your usage and have this data integrated into Home Assistant.
