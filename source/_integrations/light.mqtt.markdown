@@ -666,6 +666,11 @@ effect_list:
   description: The list of effects the light supports.
   required: false
   type: [string, list]
+flash:
+  description: Flag that defines if light supports the flash feature.
+  required: false
+  type: boolean
+  default: true
 flash_time_long:
   description: The duration, in seconds, of a “long” flash.
   required: false
@@ -757,6 +762,11 @@ supported_color_modes:
   description: A list of color modes supported by the list. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`. Note that if `onoff` **or** `brightness` are used, that must be the _only_ value in the list.
   required: false
   type: list
+transition:
+  description: Flag that defines if light supports the transition feature.
+  required: false
+  type: boolean
+  default: true
 unique_id:
    description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
    required: false

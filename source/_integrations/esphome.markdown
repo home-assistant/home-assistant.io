@@ -58,14 +58,10 @@ ESPHome devices can perform actions to any [Home Assistant action](https://espho
 
 ## Entity naming and IDs
 
-ESPHome uses different naming and entity ID rules based on the configuration of the ESPHome device. It is recommended to set a `friendly_name` in the ESPHome {% term "`configuration.yaml`" %} to take advantage of the newer naming structure, which is consistent with Home Assistant naming standards and makes it much easier to tell similar devices apart. The legacy naming rules apply when the `friendly_name` is not set in the {% term "`configuration.yaml`" %}.
-
-### Friendly naming
-
-- Entity name is a combination of the friendly name and component name
+- Entity name is a combination of the friendly name (or name if unset) and component name
 - Entity ID is derived from the entity name with the device name prepended
 
-Example:
+Example with `friendly_name` set:
 
 ```yaml
 esphome:
@@ -78,13 +74,7 @@ sensor:
 
 The entity will be named `Living room desk Temperature` and will default to having an entity ID of `sensor.livingroomdesk_temperature`.
 
-### Legacy naming
-
-- Entity name is the component name
-- Device name is not prepended to the entity name
-- Entity ID is derived solely from the entity name
-
-Example:
+Example without `friendly_name` set:
 
 ```yaml
 esphome:
@@ -94,7 +84,7 @@ sensor:
    name: "Temperature"
 ```
 
-The entity will be named `Temperature` and will default to having an entity_id of `sensor.temperature`.
+The entity will be named `livingroomdesk Temperature` and will default to having an entity ID of `sensor.livingroomdesk_temperature`.
 
 ## Obtaining logs from the device
 
