@@ -57,5 +57,5 @@ datum:
   description: The datum to use for tide heights.
   required: false
   type: string
-  default: None
+  default: null
 {% endconfiguration %}
