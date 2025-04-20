@@ -221,7 +221,9 @@ script:
         response_variable: random_tracks
       - action: music_assistant.play_media
         data:
+{% raw %}
           media_id: "{{ random_tracks['items'] | map(attribute='uri') | list }}"
+{% endraw %}
           media_type: track
           enqueue: replace
         target:
