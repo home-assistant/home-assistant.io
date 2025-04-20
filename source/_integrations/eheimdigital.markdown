@@ -4,6 +4,7 @@ description: Instructions on how to set up EHEIM Digital with Home Assistant.
 ha_category:
   - Climate
   - Light
+  - Number
   - Sensor
 ha_release: 2025.1
 ha_iot_class: Local Polling
@@ -15,6 +16,7 @@ ha_integration_type: hub
 ha_platforms:
   - climate
   - light
+  - number
   - sensor
 ha_quality_scale: bronze
 ha_zeroconf: true
@@ -49,7 +51,18 @@ Currently, the following devices and entities are supported:
 - **Target temperature**: Controlling the target temperature of the heater (which corresponds to the day temperature in Bio and Smart mode)
 - **Presets / Operation mode**: Switching between Manual, Bio and Smart mode
 
+#### Number
+
+- **Temperature offset**: Setting an offset between the measured temperature and the real temperature
+- **Night temperature offset**: Setting the offset for the night temperature in Bio mode
+
 ### [EHEIM classicVARIO+e](https://eheim.com/en_GB/aquatics/technology/external-filters/classicvario-e-250/classicvario-e-250)
+
+#### Number
+
+- **Manual speed**: Setting the pump speed in Manual mode
+- **Day speed**: Setting the pump speed for the day in Bio mode
+- **Night speed**: Setting the pump speed for the night in Bio mode
 
 #### Sensor
 
