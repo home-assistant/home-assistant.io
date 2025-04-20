@@ -18,20 +18,26 @@ The following platforms are supported:
 
 - **fan**
 
-## Supported devices
+## Supported functionality
 
-This integration supports devices controllable by the Dreo App. The following devices are supported by this integration:
+### Entities
 
-### Fans
+The Dreo integration provides the following entities:
 
-This integration supports controlling Dreo fan devices with the following functionality:
+#### Fans
 
-- **On/Off**: Turn the fan on or off.
-- **Speed Levels**: Adjust fan speed. Range varies by model (typically 1-4, 1-6, 1-9, or 1-12 depending on the device).
-- **Preset Modes**: Select between available preset modes including "manual", "auto", and "sleep".
-- **Oscillation**: Enable or disable the oscillation feature.
-
-The supported models include: DR-HTF001S, DR-HTF002S, DR-HTF004S, DR-HTF005S, DR-HTF007S, DR-HTF008S, DR-HTF009S, DR-HTF010S.
+- **Fan**
+  - **Description**: Control your Dreo fan device.
+  - **Functionality**:
+    - Turn the fan on/off
+    - Adjust fan speed (ranges vary by model: 1-4, 1-6, 1-9, or 1-12)
+    - Select preset modes ("manual", "auto", "sleep")
+    - Enable/disable oscillation
+  - **Available for models**: DR-HTF001S, DR-HTF002S, DR-HTF004S, DR-HTF005S, DR-HTF007S, DR-HTF008S, DR-HTF009S, DR-HTF010S
+  - **Attributes**:
+    - `mode` - The current mode the device is in ("manual", "auto", "sleep")
+    - `speed` - The current speed setting
+    - `oscillate` - Whether oscillation is enabled (true/false)
 
 ## Prerequisite
 
@@ -40,21 +46,7 @@ Dreo App. Once registration is complete, you can add the Dreo integration in Hom
 
 {% include integrations/config_flow.md %}
 
-## Removing the integration
-
 {% include integrations/remove_device_service.md %}
-
-## Fan exposed attributes
-
-Dreo Tower Fan will expose the following details depending on the features supported by the model:
-
-| Attribute | Description                                                  | Example |
-| --------- | ------------------------------------------------------------ | ------- |
-| `mode`    | The current mode the device is in. | "manual", "auto", "sleep" |
-| `speed`   | The current speed setting (1-4). | 1 |
-| `oscillate` | Whether oscillation is enabled. | true/false |
-
-All attributes are supported by models: DR-HTF001S, DR-HTF002S, DR-HTF004S, DR-HTF005S, DR-HTF007S, DR-HTF008S, DR-HTF009S, DR-HTF010S
 
 ## Troubleshooting
 
