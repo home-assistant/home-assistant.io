@@ -10,7 +10,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Dreo** {% term integration %} enables you to control smart products connected to the [Dreo App](https://m.dreo.com/en).
+The **Dreo** {% term integration %} enables you to control smart products connected to the [Dreo App](https://m.dreo.com/en) from [Dreo](https://www.dreo.com/).
 
 The devices must be added to the Dreo App before this integration can discover them.
 
@@ -26,12 +26,10 @@ This integration supports devices controllable by the Dreo App. The following de
 
 #### General Features
 
-- **Sleep Mode**: All models can adjust the fan speed smoothly in the "sleep" mode. However, some models (such as DR-HTF001S) perform better in terms of adjustment smoothness, providing a more stable and quiet environment for sleeping.
-- **Wide-Angle Oscillation**: Fans are typically equipped with a wide oscillation function, which ensures more even air circulation—especially in larger spaces.
+- **Sleep Mode**: All models support a "sleep" preset mode that adjusts the fan speed smoothly. However, some models (such as DR-HTF001S) perform better in terms of adjustment smoothness, providing a more stable and quiet environment for sleeping.
+- **Wide-Angle Oscillation**: Fans are typically equipped with a wide oscillation function, which ensures more even air circulation — especially in larger spaces.
 - **Intelligent Auto Mode**: The "auto" mode of each model can adjust the fan speed based on temperature and humidity. For example, it provides a more precise and personalized comfort experience.
-- **Child Lock Function**: Many fans include a child lock that helps prevent accidental setting changes and enhances household safety.
 - **Fast Speed Adjustment Response**: Most fans offer a rapid speed-adjustment response time, enabling you to swiftly alter the fan speed according to your requirements.
-- **Multi-Voice Assistant Integration**: Many models support integration with a wider range of voice assistants, which facilitates a wider range of hands-free operations.
 - **Energy-Efficient Motor**: Many fans come with an energy-efficient motor that reduces electricity costs while delivering strong airflow.
 - **Long Timer Setting**: Most fans offer a timer setting of up to 12 hours, which gives you more flexibility in scheduling the fan's operation.
 
@@ -69,13 +67,11 @@ All attributes are supported by models: DR-HTF001S, DR-HTF002S, DR-HTF004S, DR-H
 ### Device not discovered
 
 - **Check Dreo App Connection**: Ensure that your devices are properly connected to the Dreo App. Try restarting the Dreo App and checking if the devices are still visible and controllable within it. If not, re-pair the devices with the Dreo App, following the app's official pairing instructions.
-- **Home Assistant Network Issues**: Make sure that your Home Assistant instance has network access. You can test this by trying to access other online services from within Home Assistant (for example, checking the weather integration if it's set up). If there are network problems, troubleshoot your Home Assistant's network connection, which may involve checking your router settings, Wi-Fi passwords, or Ethernet connections.
-- **Permissions**: Double-check that you've granted all the necessary permissions during the integration setup process. Incorrect permissions can prevent Home Assistant from discovering your Dreo devices.
 
 ### Inability to control devices
 
-- **Device State Sync**: Sometimes, the device state may not sync correctly between the Dreo App and Home Assistant. Try toggling the device on/off, changing the mode, or adjusting the speed from within the Dreo App, and then refreshing the device page in Home Assistant to see if the state updates.
-- **App Version Mismatch**: Ensure that both the Dreo App and Home Assistant are running up-to-date versions. An outdated version of either software could lead to compatibility issues and control problems. Update the Dreo App from the official app store for your device, and check for Home Assistant updates in the Home Assistant UI's update section.
+- **Device State Sync**: Sometimes, the device state may not sync correctly between the Dreo App and Home Assistant. Try toggling the device on/off, changing the mode, or adjusting the speed from within the Dreo App to see if the state updates.
+- **App Version Mismatch**: Ensure that the Dreo App is running an up-to-date version. An outdated version could lead to compatibility issues and control problems. Update the Dreo App from the official app store for your device.
 
 ### Dreo App credentials are invalid or expired
 
@@ -92,19 +88,4 @@ If the device becomes unresponsive, try the following steps:
 
 1. **Power cycle the device**: Turn off the device using its power switch or unplug it from the power source. Wait for about 10–15 seconds and then turn it back on or plug it back in.
 2. **Check the Wi-Fi connection**: Ensure that the device is connected to a stable Wi-Fi network. You can try moving the device closer to the router to improve the signal strength.
-3. **Restart the Dreo App and Home Assistant**: Close the Dreo App completely on your mobile device and restart it. Also, restart your Home Assistant instance. Then try to control the device again.
-4. **Reset the device**: If the above steps do not work, you may need to reset the device to its factory settings. Refer to the device's user manual for the specific reset procedure. After resetting, re-add the device to the Dreo App and then to Home Assistant.
-
-## Firmware update scenarios
-
-### Updating the device firmware
-
-1. **Check for updates in the Dreo App**: Open the Dreo App and navigate to the device management section. Select the device you want to update. If there is a firmware update available, the app will prompt you.
-2. **Start the update**: Follow the on-screen instructions in the Dreo App to start the firmware update process. Make sure the device is connected to a stable power source and Wi-Fi network during the update.
-3. **Wait for the update to complete**: The update process may take several minutes. Do not turn off the device or interrupt the update during this time.
-4. **Verify the update**: Once the update is complete, check if the device's features are working as expected. You can also check the device information in the Dreo App to confirm the new firmware version.
-
-### Issues during firmware update
-
-- **Update fails**: If the firmware update fails, check your network connection. Try restarting the device, the Dreo App, and your Wi-Fi router. Then attempt the update again.
-- **Device becomes unresponsive after update**: If the device becomes unresponsive after the firmware update, perform a power cycle on the device. If the problem persists, reset the device to its factory settings and re-add it to the Dreo App and Home Assistant.
+3. **Reset the device**: If the above steps do not work, you may need to reset the device to its factory settings. Refer to the device's user manual for the specific reset procedure. After resetting, re-add the device to the Dreo App and then to Home Assistant.
