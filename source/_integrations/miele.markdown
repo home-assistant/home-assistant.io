@@ -2,6 +2,7 @@
 title: Miele
 description: Instructions on how to set up the Miele integration within Home Assistant.
 ha_category:
+  - Climate
   - Hub
   - Sensor
 ha_iot_class: Cloud Push
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@astrandb'
 ha_config_flow: true
 ha_platforms:
+  - climate
   - diagnostics
   - sensor
 ha_integration_type: integration
@@ -78,6 +80,13 @@ The integration configuration may ask for the *Client ID* and *Client Secret* cr
 - Products from professional and semi-professional series are generally not supported due to the limitations in the Miele 3rd party API.
 - Some appliances don't report data while they are turned off, so corresponding entities will not appear in the Miele integration after loading until the appliances are turned on.
 {% endnote %}
+
+### Climate
+
+{% details "List of climate entities" %}
+
+Climate entities are used to control target temperatures in refrigerators, freezers and wine cabinets. One, two or three zones can be controlled depending on the capabilities of the appliance.
+{% enddetails %}
 
 ### Sensor
 
