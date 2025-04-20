@@ -46,6 +46,8 @@ Dreo App. Once registration is complete, you can add the Dreo integration in Hom
 
 {% include integrations/config_flow.md %}
 
+## Removing the integration
+
 {% include integrations/remove_device_service.md %}
 
 ## Troubleshooting
