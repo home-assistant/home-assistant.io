@@ -79,7 +79,7 @@ Events related to the alarm clock feature.
 
 ### Anti-snoring
 
-When the Anti-snoring was triggered.
+When the anti-snoring is triggered.
 
 {% details "Available event types" %}
 
