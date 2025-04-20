@@ -24,22 +24,14 @@ This integration supports devices controllable by the Dreo App. The following de
 
 ### Fans
 
-#### General Features
+This integration supports controlling Dreo fan devices with the following functionality:
 
-- **Sleep Mode**: All models support a "sleep" preset mode that adjusts the fan speed smoothly. However, some models (such as DR-HTF001S) perform better in terms of adjustment smoothness, providing a more stable and quiet environment for sleeping.
-- **Wide-Angle Oscillation**: Fans are typically equipped with a wide oscillation function, which ensures more even air circulation — especially in larger spaces.
-- **Intelligent Auto Mode**: The "auto" mode of each model can adjust the fan speed based on temperature and humidity. For example, it provides a more precise and personalized comfort experience.
-- **Fast Speed Adjustment Response**: Most fans offer a rapid speed-adjustment response time, enabling you to swiftly alter the fan speed according to your requirements.
-- **Energy-Efficient Motor**: Many fans come with an energy-efficient motor that reduces electricity costs while delivering strong airflow.
-- **Long Timer Setting**: Most fans offer a timer setting of up to 12 hours, which gives you more flexibility in scheduling the fan's operation.
+- **On/Off**: Turn the fan on or off.
+- **Speed Levels**: Adjust fan speed. Range varies by model (typically 1-4, 1-6, 1-9, or 1-12 depending on the device).
+- **Preset Modes**: Select between available preset modes including "manual", "auto", and "sleep".
+- **Oscillation**: Enable or disable the oscillation feature.
 
-The supported models include: DR-HTF001S, DR-HTF002S, DR-HTF005S, DR-HTF007S, DR-HTF008S, DR-HTF009S, DR-HTF010S.
-
-#### Model-Specific Features
-
-- **Wide-Angle Oscillation**: Generally, fans are equipped with a wide-angle oscillation function. However, the fan of model DR-HTF004S distinguishes itself with its remarkable performance. It offers an oscillation range of up to 120 degrees, and its oscillation mechanism is precisely engineered to ensure a more uniform and efficient air circulation. This feature is particularly advantageous in larger spaces, effectively spreading fresh air across the area.
-
-The supported models include: DR-HTF004S
+The supported models include: DR-HTF001S, DR-HTF002S, DR-HTF004S, DR-HTF005S, DR-HTF007S, DR-HTF008S, DR-HTF009S, DR-HTF010S.
 
 ## Prerequisite
 
@@ -47,6 +39,8 @@ Before you can use this integration, all devices must be registered with the
 Dreo App. Once registration is complete, you can add the Dreo integration in Home Assistant through the UI.
 
 {% include integrations/config_flow.md %}
+
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 
