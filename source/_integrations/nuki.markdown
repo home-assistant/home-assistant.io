@@ -79,6 +79,7 @@ Many Nuki Smart Locks support local alternatives. Consult the [Nuki website](htt
 ### HomeKit support
 
 The 2nd and 3rd Generation Smart Locks support [HomeKit via Bluetooth](https://help.nuki.io/hc/en-001/articles/19948907390737-Apple-HomeKit-via-Bluetooth) and can directly integrate with Home Assistant through the [HomeKit integration](/integrations/homekit_controller/#adding-a-homekit-device-through-bluetooth).
+
 ### MQTT support
 
 The Nuki Smart Lock 3.0 Pro and 4th generation devices support [MQTT]([https://support.nuki.io/hc/en-us/articles/12947926779409-MQTT-support]) and can directly integrate with Home Assistant through [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
