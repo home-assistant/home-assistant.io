@@ -64,10 +64,12 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Brake pedal|No|
 |Binary sensor|Cabin overheat protection actively cooling|No|
 |Binary sensor|Charge cable|Yes|
+|Binary sensor|Charge enable request|No|
 |Binary sensor|Charge port cold weather mode|No|
 |Binary sensor|Charger has multiple phases|No|
 |Binary sensor|Dashcam|No|
 |Binary sensor|DC DC|No|
+|Binary sensor|Defrost for preconditioning|No|
 |Binary sensor|Drive rail|No|
 |Binary sensor|Driver seat belt|No|
 |Binary sensor|Driver seat occupied|No|
@@ -80,6 +82,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Front passenger window|Yes|
 |Binary sensor|GPS state|No|
 |Binary sensor|Guest mode enabled|No|
+|Binary sensor|High beams|No|
 |Binary sensor|Homelink nearby|No|
 |Binary sensor|Located at favorite|Yes|
 |Binary sensor|Located at home|Yes|
@@ -96,7 +99,9 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Rear passenger window|Yes|
 |Binary sensor|Right hand drive|No|
 |Binary sensor|Scheduled charging pending|No|
+|Binary sensor|Seat vent enabled|No|
 |Binary sensor|Service mode|No|
+|Binary sensor|Speed limited|No|
 |Binary sensor|Status|Yes|
 |Binary sensor|Supercharger session trip planner|No|
 |Binary sensor|Tire pressure warning front left|No|
