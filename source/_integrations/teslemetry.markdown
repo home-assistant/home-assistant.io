@@ -84,6 +84,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Guest mode enabled|No|
 |Binary sensor|High beams|No|
 |Binary sensor|Homelink nearby|No|
+|Binary sensor|HVAC auto mode|No|
+|Binary sensor|High voltage interlock loop fault|No|
 |Binary sensor|Located at favorite|Yes|
 |Binary sensor|Located at home|Yes|
 |Binary sensor|Located at work|Yes|
@@ -97,6 +99,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Rear driver window|Yes|
 |Binary sensor|Rear passenger door|Yes|
 |Binary sensor|Rear passenger window|Yes|
+|Binary sensor|Remote start|No|
 |Binary sensor|Right hand drive|No|
 |Binary sensor|Scheduled charging pending|No|
 |Binary sensor|Seat vent enabled|No|
