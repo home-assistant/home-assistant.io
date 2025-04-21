@@ -167,6 +167,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Front drive inverter temperature|No|
 |Sensor|Front drive unit actual torque|No|
 |Sensor|Front drive unit stator temperature|No|
+|Sensor|HVAC power state|No|
 |Sensor|Ideal battery range|No|
 |Sensor|Inside temperature|Yes|
 |Sensor|Odometer|No|
