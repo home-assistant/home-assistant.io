@@ -35,7 +35,7 @@ This integration interacts with [La Marzocco](https://lamarzocco.com/it/en/) cof
 
 If your Home Assistant host can perform [DHCP discovery](https://www.home-assistant.io/integrations/dhcp/), your machine will be discovered automatically. Otherwise, if your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered as well.
 
-By default, this integration will receive push updates from the cloud and otherwise query your machine every 30 seconds for an update, every 5 minutes for new statistics, and every hour for a firmware update. If configure the optional local connection, your machine will receive immediate push updates about its state for everything except statistics and firmware updates.
+By default, this integration will receive push updates from the cloud and otherwise query your machine every 30 seconds for an update, every 15 minutes for new statistics, and every hour for a firmware update. If configure the optional local connection, your machine will receive immediate push updates about its state for everything except statistics and firmware updates.
 
 ## Prerequisites
 
@@ -104,7 +104,8 @@ Use Bluetooth:
 |------------------- |-------------| ---------------------- | ----------------- | ------- |
 | **Coffee boiler ready time** | Indicates when the coffee boiler will be ready for brewing. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Steam boiler ready time** | Indicates when the steam boiler will be ready for brewing. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
-
+| **Total coffees made** | How many coffees have been made in total. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
+| **Total flushes done** | How often the machine has been flushed. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 
 ## Updates
 
