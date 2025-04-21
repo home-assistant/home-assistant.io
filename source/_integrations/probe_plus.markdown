@@ -4,7 +4,7 @@ description: Instructions on how to integrate Probe Plus food temperature probes
 ha_release: 2025.5.0
 ha_category:
   - Sensor
-ha_iot_class: Local Push
+ha_iot_class: local_push
 ha_config_flow: true
 ha_domain: probe_plus
 ha_platforms:
@@ -16,7 +16,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **Probe Plus** {% term integration %} allows you to view food temperate probe details supported by [Probe Plus](https://play.google.com/store/apps/details?id=com.yscoco.thermoex) through Home Assistant.
+The **Probe Plus** {% term integration %} allows you to view food temperature probe details supported by [Probe Plus](https://play.google.com/store/apps/details?id=com.yscoco.thermoex) through Home Assistant.
 
 If your probe is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the probe should be discovered automatically providing that the model is  FM2**. If you are configuring the device manually, your probe needs to be turned on during setup. 
 
@@ -45,7 +45,7 @@ The following devices have been tested successfully with this integration:
 
 - FMC210/FMC213
 
-If you have successfully tested this integration with another Acaia model, please let us know by enhancing this documentation, or by opening an issue in GitHub.
+If you have successfully tested this integration with another probe model, please let us know by enhancing this documentation, or by opening an issue in GitHub.
 
 ## Possible use-cases
 
