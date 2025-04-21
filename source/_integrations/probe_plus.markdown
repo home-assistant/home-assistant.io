@@ -18,7 +18,7 @@ ha_quality_scale: bronze
 
 The **Probe Plus** {% term integration %} allows you to view food temperature probe details supported by [Probe Plus](https://play.google.com/store/apps/details?id=com.yscoco.thermoex) through Home Assistant.
 
-If your probe is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the probe should be discovered automatically providing that the model is  FM2**. If you are configuring the device manually, your probe needs to be turned on during setup. 
+If your probe is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the probe should be discovered automatically provided that the model name starts with FM2. If you are configuring the device manually, your probe needs to be turned on during setup. 
 
 Once the integration is set up, Home Assistant will try to connect to your probe every 15 seconds. This means there is sometimes a small delay between you removing the probe from its dock and Home Assistant connecting to it.
 
@@ -54,7 +54,7 @@ This integration can be used to monitor food temperatures, you could combine thi
 ## Known limitations
 
 - While this integration is configured for your device, you won't be able to use the official app, as only one connection at a time is supported.
-- This assumes that the probe is configured to read the temperature in celsius. Make sure you have changed this in the app before setting up in case you are using fahrenheit. A template helper can be used to convert between units.
+- This assumes that the probe is configured to read the temperature in Celsius. Make sure you have changed this in the app before setting up in case you are using Fahrenheit. A template helper can be used to convert between units.
 
 ## Remove integration
 
