@@ -138,6 +138,10 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Select|Steering wheel heater|Yes|
 |Sensor|Battery level|Yes|
 |Sensor|Battery range|Yes|
+|Sensor|BMS state|No|
+|Sensor|Brake pedal position|No|
+|Sensor|Brick voltage max|No|
+|Sensor|Brick voltage min|No|
 |Sensor|Charge cable|No|
 |Sensor|Charge energy added|Yes|
 |Sensor|Charge rate|Yes|
@@ -145,29 +149,65 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Charger power|Yes|
 |Sensor|Charger voltage|Yes|
 |Sensor|Charging|Yes|
+|Sensor|Cruise follow distance|No|
+|Sensor|Cruise set speed|No|
+|Sensor|Current speed limit|No|
+|Sensor|DC charging energy in|No|
+|Sensor|DC charging power|No|
 |Sensor|Distance to arrival|Yes|
 |Sensor|Driver temperature setting|No|
 |Sensor|Estimate battery range|No|
 |Sensor|Exterior color|No|
 |Sensor|Fast charger type|No|
+|Sensor|Front drive inverter axle speed|No|
+|Sensor|Front drive inverter battery voltage|No|
+|Sensor|Front drive inverter heatsink temperature|No|
+|Sensor|Front drive inverter motor current|No|
+|Sensor|Front drive inverter state|No|
+|Sensor|Front drive inverter temperature|No|
+|Sensor|Front drive unit actual torque|No|
+|Sensor|Front drive unit stator temperature|No|
 |Sensor|Ideal battery range|No|
 |Sensor|Inside temperature|Yes|
 |Sensor|Odometer|No|
 |Sensor|Outside temperature|Yes|
 |Sensor|Passenger temperature setting|No|
 |Sensor|Power|No|
+|Sensor|Rear drive inverter axle speed|No|
+|Sensor|Rear drive inverter battery voltage|No|
+|Sensor|Rear drive inverter heatsink temperature|No|
+|Sensor|Rear drive inverter motor current|No|
+|Sensor|Rear drive inverter state|No|
+|Sensor|Rear drive inverter temperature|No|
+|Sensor|Rear drive unit actual torque|No|
+|Sensor|Rear drive unit stator temperature|No|
+|Sensor|Rear left drive inverter axle speed|No|
+|Sensor|Rear left drive inverter battery voltage|No|
+|Sensor|Rear left drive inverter heatsink temperature|No|
+|Sensor|Rear left drive inverter motor current|No|
+|Sensor|Rear left drive inverter state|No|
+|Sensor|Rear left drive inverter temperature|No|
+|Sensor|Rear left drive unit actual torque|No|
+|Sensor|Rear left drive unit stator temperature|No|
+|Sensor|Rear right drive inverter axle speed|No|
+|Sensor|Rear right drive inverter battery voltage|No|
+|Sensor|Rear right drive inverter heatsink temperature|No|
+|Sensor|Rear right drive inverter motor current|No|
+|Sensor|Rear right drive inverter state|No|
+|Sensor|Rear right drive inverter temperature|No|
+|Sensor|Rear right drive unit actual torque|No|
+|Sensor|Rear right drive unit stator temperature|No|
 |Sensor|Roof color|No|
 |Sensor|Scheduled charging mode|No|
 |Sensor|Scheduled charging start time|No|
 |Sensor|Scheduled departure time|No|
+|Sensor|Secondary drive unit torque command|No|
 |Sensor|Shift state|No|
 |Sensor|Speed|No|
 |Sensor|State of charge at arrival|No|
 |Sensor|Time at arrival|Yes|
 |Sensor|Time at full charge|Yes|
 |Sensor|Time to arrival|Yes|
-|Sensor|Time to arrival|Yes|
-|Sensor|Time to full charge|Yes|
 |Sensor|Time to full charge|Yes|
 |Sensor|Tire pressure front left|No|
 |Sensor|Tire pressure front right|No|
@@ -179,6 +219,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Tire pressure rear right|No|
 |Sensor|Traffic delay|No|
 |Sensor|Usable Battery level|No|
+|Sensor|Drive unit torque command|No|
 |Switch|Auto seat climate left|Yes|
 |Switch|Auto seat climate right|Yes|
 |Switch|Auto steering wheel heater|Yes|
