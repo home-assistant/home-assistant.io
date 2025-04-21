@@ -14,7 +14,7 @@ The **Dreo** {% term integration %} enables you to control smart products connec
 
 The devices must be added to the Dreo App before this integration can discover them.
 
-The following platforms are supported:
+Supported platforms:
 
 - **fan**
 
@@ -29,32 +29,28 @@ The Dreo integration provides the following entities:
 - **Fan**
   - **Description**: Control your Dreo fan device.
   - **Functionality**:
-    - Turn the fan on/off
-    - Adjust fan speed (ranges vary by model: 1-4, 1-6, 1-9, or 1-12)
-    - Select preset modes ("manual", "auto", "sleep")
-    - Enable/disable oscillation
+    - Turn on/off
+    - Set fan speed
+    - Toggle oscillation
+    - Select preset modes
   - **Available for models**: DR-HTF001S, DR-HTF002S, DR-HTF004S, DR-HTF005S, DR-HTF007S, DR-HTF008S, DR-HTF009S, DR-HTF010S
   - **Attributes**:
     - `mode` - The current mode the device is in ("manual", "auto", "sleep")
     - `speed` - The current speed setting
     - `oscillate` - Whether oscillation is enabled (true/false)
 
-## Prerequisite
+## Prerequisites
 
 Before you can use this integration, all devices must be registered with the
 Dreo App. Once registration is complete, you can add the Dreo integration in Home Assistant through the UI.
 
 {% include integrations/config_flow.md %}
 
-## Removing the integration
+## Remove the integration
 
 {% include integrations/remove_device_service.md %}
 
 ## Troubleshooting
-
-### Device not discovered
-
-- **Check Dreo App Connection**: Ensure that your devices are properly connected to the Dreo App. Try restarting the Dreo App and checking if the devices are still visible and controllable within it. If not, re-pair the devices with the Dreo App, following the app's official pairing instructions.
 
 ### Inability to control devices
 
