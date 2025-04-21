@@ -45,14 +45,16 @@ Location:
 Search radius:
     description: "The radius in kilometers to search for gas stations around the selected location (_default: 2km_)"
 Stations:
-    description: "Select the gas stations you want to add to Home Assistant"
+    description: "Select the gas stations you want to add to Home Assistant."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
 Stations:
-    description: "Select the gas stations you want to add to Home Assistant"
+    description: "Select the gas stations you want to add to Home Assistant."
+Show stations on map:
+    description: "Weather to show the station sensors on the map or not."
 {% endconfiguration_basic %}
 
 ## Data updates
