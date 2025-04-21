@@ -41,7 +41,7 @@ Region name:
 API Key:
     description: "The tankerkoenig API-KEY to be used (_see [Prerequisites](#prerequisites)_)."
 Location:
-    description: "Pick the location, were to search for gas stations (_defaults to the location of your Home which was et during [onboarding](/getting-started/onboarding)_)"
+    description: "Pick the location where to search for gas stations (_defaults to the location of your Home which was et during [onboarding](/getting-started/onboarding)_)"
 Search radius:
     description: "The radius in kilometers to search for gas stations around the selected location (_default: 2km_)"
 Stations:
