@@ -6,7 +6,7 @@ ha_category:
   - Switch
 ha_release: 2025.04
 ha_codeowners:
-  - @rexense
+  - '@rexense'
 ha_iot_class: local_push
 ha_domain: rexense
 featured: false
@@ -14,19 +14,18 @@ ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
   - sensor
-  - switch
 ha_integration_type: device
 ---
 
-Integrate [Rexense IoT Mesh devices](https://www.rexense.com) into Home Assistant.
+Integrate [Rexense IoT Mesh devices](https://www.rexense.com) into Home Assistant.
 
 ## Overview
 
-The Rexense integration enables Home Assistant to automatically discover and manage Rexense IoT Mesh devices, providing automated device discovery, real-time sensor data, and switch control.
+The Rexense integration enables Home Assistant to automatically discover and manage Rexense IoT Mesh devices, providing automated device discovery, and real-time sensor data.
 
 ## Installation instructions
 
-1. **Enable default integrations**
+1. **Enable default integrations and Zeroconf**
 
    In your `configuration.yaml`, add:
 
@@ -35,16 +34,16 @@ The Rexense integration enables Home Assistant to automatically discover and ma
    zeroconf:
    ```
 
-2. **Restart Home Assistant**
+2. **Restart Home Assistant**
 
-3. **Add Rexense**
+3. **Add Rexense integration**
 
-   - Go to **Settings → Devices & Services**
+   - Go to **Settings → Devices & Services**
    - Click **Add integration**
    - Search for **Rexense** and select it
-   - Follow the prompts to either auto-discover your devices or enter **Host** and **Port** manually
+   - Follow the prompts to auto-discover devices or enter **Host** and **Port** manually
 
-Once configured, HA will fetch `/rex/GetBasicInfo` over HTTP then upgrade to a WebSocket at `/rpc` for live updates.
+Once configured, Home Assistant will fetch `/rex/GetBasicInfo` over HTTP then upgrade to a WebSocket at `/rpc` for live updates.
 
 ## Configuration options
 
@@ -52,7 +51,7 @@ Once configured, HA will fetch `/rex/GetBasicInfo` over HTTP then upgrade to a W
 
 ## WebSocket push updates
 
-After initial HTTP setup, the integration upgrades the connection to WebSocket for live updates. Sensor values and switch states are pushed in real time, and Home Assistant entities update immediately.
+After initial HTTP setup, the integration upgrades the connection to WebSocket for live updates. Sensor values and switch states are pushed in real time, and Home Assistant entities update immediately.
 
 ## Entities
 
@@ -73,3 +72,4 @@ Each sensor has:
 ## Removal instructions
 
 {% include integrations/remove_device_service.md %}
+
