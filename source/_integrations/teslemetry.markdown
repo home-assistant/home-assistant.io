@@ -63,6 +63,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|BMS full charge|No|
 |Binary sensor|Brake pedal|No|
 |Binary sensor|Cabin overheat protection actively cooling|No|
+|Binary sensor|Cellular|Yes|
 |Binary sensor|Charge cable|Yes|
 |Binary sensor|Charge port cold weather mode|No|
 |Binary sensor|Charger has multiple phases|No|
@@ -105,6 +106,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
+|Binary sensor|WiFi|Yes|
 |Binary sensor|Wiper heat|No|
 |Button|Flash lights|Yes|
 |Button|HomeLink|Yes|
