@@ -112,7 +112,7 @@ If Home Assistant detects multiple devices with the same [**name**](https://esph
 This process gives you two options:
 
 - **Migrate**: Transfers the existing entity configuration to the new device. This preserves all your settings, entity names, and history. Use this when you're replacing the hardware but keeping the same YAML configuration.
-- **Overwrite**: Replaces the existing configuration with the new device.  
+- **Overwrite**: Replaces the existing configuration with the new device.
   **Caution:** This will **erase all existing settings** for the old device including entity names, customizations, and history will be lost. Use this only if the new device is completely different and you don’t need anything from the previous setup.
 
 {% tip %}
