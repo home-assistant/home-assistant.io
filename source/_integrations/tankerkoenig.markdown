@@ -26,7 +26,9 @@ The `tankerkoenig` integration allows you to monitor the fuel prices with [tanke
 
 ## Prerequisites
 
-To use this integration you need an API key from tankerkoenig. Go to [tankerkoenig API](https://creativecommons.tankerkoenig.de) and click on **API-KEY** in the top right, fill out the form and request a free API key.
+To use this integration, you need an API key from tankerkoenig. 
+1. Go to [tankerkoenig API](https://creativecommons.tankerkoenig.de) and in the top right, select **API-KEY**.
+2. Fill out the form and request a free API key.
 
 {% important %}
 The Terms & Conditions of tankerkoenig.de specify that the API is not meant for massive data fetching, but it does not explicitly mention a limit. Having a maximum of 10 monitored fuel stations is recommended, and a warning will be issued otherwise.
@@ -73,14 +75,14 @@ This integrations provides a set of {% term "Binary sensor" %} and {% term Senso
 | Super E10 | The current price of Super E10 fuel. |
 
 {% note %}
-As the data of [tankerkoenig.de](https://www.tankerkoenig.de/) are based on the data from the German market transparency office for fuels (_[Markttransparenzstelle für Kraftstoffe](https://www.bundeskartellamt.de/DE/Aufgaben/MarkttransparenzstelleFuerKraftstoffe/MTS-K_Infotext/mts-k_node.html) MTS-K_), only the three base fuel types `Diesel`, `Super` and `Super E10` are available.
+As the data of [tankerkoenig.de](https://www.tankerkoenig.de/) is based on data from the German market transparency office for fuels (_[Markttransparenzstelle für Kraftstoffe](https://www.bundeskartellamt.de/DE/Aufgaben/MarkttransparenzstelleFuerKraftstoffe/MTS-K_Infotext/mts-k_node.html) MTS-K_), only the three base fuel types `Diesel`, `Super`, and `Super E10` are available.
 {% endnote %}
 
 ## Usage examples
 
 ### Show current fuel price only when station is opened
 
-This uses the common [sensor card](/dashboards/sensor/) in the {% term frontend %} and adds a visibility condition
+The example below uses the common [sensor card](/dashboards/sensor/) in the {% term frontend %} and adds a visibility condition.
 
 ```yaml
 graph: line
@@ -96,7 +98,7 @@ visibility:
 
 ## Troubleshooting
 
-In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the {% term diagnostics %} data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+Before reporting an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and restart the integration. As soon as the issue re-occurs, stop the debug logging again (_download of debug log file will start automatically_). Further, _if still possible_, download the {% term diagnostics %} data. If you have collected the debug log and the diagnostics data, include them in the issue report.
 
 ## Remove the integration
 
