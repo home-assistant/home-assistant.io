@@ -79,7 +79,7 @@ The Overseerr integration has the following actions:
 Get a list of media requests using `overseerr.get_requests`.
 
 | Data attribute    | Optional | Description                                                 |
-| ----------------- | -------- | ----------------------------------------------------------- |
+|-------------------|----------|-------------------------------------------------------------|
 | `config_entry_id` | No       | The ID of the Overseerr config entry to get data from.      |
 | `status`          | Yes      | The status to filter the results on.                        |
 | `sort_order`      | Yes      | The sort order to sort the results in (`added`/`modified`). |

@@ -56,41 +56,35 @@ Password:
 
 The integration has no additional configuration options.
 
-## Removing the integration
-
-This integration can be removed by following these steps:
-
-{% include integrations/remove_device_service.md %}
-
 ## Supported functionality
 ### Sensors
 
 The following sensors are available via the open JSON interface:
 
-| name                  | Unit | Description                                                                |
-| --------------------- | ---- | :------------------------------------------------------------------------- |
-| last_update           |      | Time of latest data update.                                                |
-| power_ac              | W    | Total output PAC from all of the inverters and meters in inverter mode.    |
-| power_dc              | W    | Total output PAC from all of the inverters.                                |
-| voltage_ac            | V    | Average voltage AC from the inverter.                                      |
-| voltage_dc            | V    | Average voltage DC from the inverter                                       |
-| yield_day             | kWh  | Total yield for the day from all of the inverters                          |
-| yield_yesterday       | kWh  | Total yield for the previous day from all of the inverters.                |
-| yield_month           | kWh  | Total yield for the month from all of the inverters.                       |
-| yield_year            | kWh  | Total yield for the year from all of the inverters.                        |
-| yield_total           | kWh  | Total yield from all of the inverters.                                     |
-| consumption_ac        | kWh  | Current total consumption AC from all of the consumption meters.           |
-| consumption_day       | kWh  | Total consumption for the day from all of the consumption meters.          |
-| consumption_yesterday | kWh  | Total consumption for the previous day from all of the consumption meters. |
-| consumption_month     | kWh  | Total consumption for the month from all of the consumption meters.        |
-| consumption_year      | kWh  | Total consumption for the year from all of the consumption meters.         |
-| consumption_total     | kWh  | Accumulated total consumption from all consumption meters.                 |
-| installed_peak_power  | W    | Installed solar peak power.                                                |
-| alternator_loss       | W    | Altenator loss (equals to power_dc - power_ac)                             |
-| capacity              | %    | Capacity (equals to power_dc / total power)                                |
-| efficiency            | %    | Efficiency (equals to power_ac / power_dc)                                 |
-| power_available       | W    | Available power (equals to power_ac - consumption_ac)                      |
-| usage                 | %    | Usage (equals to consumption_ac / power_ac)                                |
+| name                  | Unit   | Description   |
+|-----------------------|--------|:-------------------------------------------|
+| last_update           |        | Time of latest data update.                |
+| power_ac              | W      | Total output PAC from all of the inverters and meters in inverter mode. |
+| power_dc              | W      | Total output PAC from all of the inverters. |
+| voltage_ac            | V      | Average voltage AC from the inverter. |
+| voltage_dc            | V      | Average voltage DC from the inverter |
+| yield_day             | kWh    | Total yield for the day from all of the inverters |
+| yield_yesterday       | kWh    | Total yield for the previous day from all of the inverters. |
+| yield_month           | kWh    | Total yield for the month from all of the inverters. |
+| yield_year            | kWh    | Total yield for the year from all of the inverters. |
+| yield_total           | kWh    | Total yield from all of the inverters. |
+| consumption_ac        | kWh    | Current total consumption AC from all of the consumption meters. |
+| consumption_day       | kWh    | Total consumption for the day from all of the consumption meters. |
+| consumption_yesterday | kWh    | Total consumption for the previous day from all of the consumption meters. |
+| consumption_month     | kWh    | Total consumption for the month from all of the consumption meters. |
+| consumption_year      | kWh    | Total consumption for the year from all of the consumption meters. |
+| consumption_total     | kWh    | Accumulated total consumption from all consumption meters. |
+| installed_peak_power  | W      | Installed solar peak power. |
+| alternator_loss       | W      | Altenator loss (equals to power_dc - power_ac) |
+| capacity              | %      | Capacity (equals to power_dc / total power) |
+| efficiency            | %      | Efficiency (equals to power_ac / power_dc) |
+| power_available       | W      | Available power (equals to power_ac - consumption_ac) | 
+| usage                 | %      | Usage (equals to consumption_ac / power_ac) |
 
 {% note %}
 The solarlog integration is using the solarlog_cli pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the library.
@@ -104,16 +98,16 @@ The additional data is only accessible if the user's password is available (or p
 
 The following additional sensor becomes available:
 
-| Name                  | Unit | Description                       |
-| --------------------- | ---- | :-------------------------------- |
-| self_consumption_year | kWh  | Annual self-consumed solar power. |
+| Name                  | Unit   | Description   |
+|-----------------------|--------|:-------------------------------------------|
+| self_consumption_year | kWh    | Annual self-consumed solar power.          |
 
 In addition, information from devices connected to the Solar-Log device becomes available. The following additional sensors become available (all values are per inverter/device):
 
-| Name             | Unit | Description                                |
-| ---------------- | ---- | :----------------------------------------- |
-| current_power    | W    | Current power provided/used by the device. |
-| consumption_year | kWh  | Total energy provided/used by the device.  |
+| Name                  | Unit   | Description   |
+|-----------------------|--------|:-------------------------------------------|
+| current_power         | W      | Current power provided/used by the device. |
+| consumption_year      | kWh    | Total energy provided/used by the device.  |
 
 ### Additional template sensor
 
@@ -143,3 +137,9 @@ The integration provides no additional actions.
 
 The integration only provides the (limited) data exposed by means of the JSON interface. This also entails that the values for the self-consumption are rounded to full kWh.
 Firmware versions below 3.x are not supported, as they do not expose the JSON interface. Please contact the Solar-Log support if you need assistance with updating the firmware of your Solar-Log device.
+
+## Removing the integration
+
+This integration can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}
