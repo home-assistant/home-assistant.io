@@ -142,10 +142,22 @@ data:
 
 ## Entities
 
+### Switches
+
+- **Alarm**: Enables a scheduled alarm to sound. Alarms must also be enabled on the associated player for the alarm to sound, using the Alarms Enabled switch or directly on the Lyrion Music Server for that player.
+- **Alarms Enabled**: Enables a player to sound alarms. Disabling will prevent all alarms from sounding on that player, regardless of whether the individual alarm is enabled
+
 ### Binary sensors
 
 - **Needs restart**: Server Service needs to be restarted (typically, this is needed to apply updates).
 - **Library rescan**: The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
+
+### Buttons
+
+- **Preset 1 ... Preset 6**: Play media stored in Preset 1 to Preset 6 on Squeezebox.
+- **Brightness Up, Brightness Down**: Adjust the brightness on Logitech Squeezebox players with built-in screen, such as Radio and Boom.
+- **Bass Up, Bass Down**: Adjust the bass on Logitech Squeezebox players, such as Radio and Boom.
+- **Treble Up, Treble Down**: Adjust the treble on Logitech Squeezebox players, such as Radio and Boom.
 
 ### Sensors
 
@@ -188,10 +200,9 @@ When specifying additional parameters in the Visual Editor, each parameter must 
 
 For example, to create an automation to mute playback, use the command `mixer` and the parameter `muting`:
 
-| Row | Parameter | Description |
-| --- | --------  | ----------- |
-|  1  | - muting  | Toggle muting on / off |
-|  2  |           |             |
+| Row | Parameter | Description            |
+| --- | --------- | ---------------------- |
+| 1   | - muting  | Toggle muting on / off |
 
 resulting in the YAML:
 
@@ -209,10 +220,10 @@ Where a parameter is an increment or decrement, it is necessary to place the val
 
 For example, to increase the playback volume, use the command `mixer` and the parameters `volume` and the amount to increment:
 
-| Row | Parameter | Description |
-| --- | --------  | ----------- |
-|  1  | - volume  | Parameter to change |
-|  2  | - "+5"    | Increment volume by 5 percent |
+| Row | Parameter | Description                   |
+| --- | --------- | ----------------------------- |
+| 1   | - volume  | Parameter to change           |
+| 2   | - "+5"    | Increment volume by 5 percent |
 
 resulting in the YAML:
 
@@ -226,7 +237,6 @@ data:
     - volume
     - "+5"
 ```
-
 
 ### Action `call_query`
 
