@@ -120,14 +120,6 @@ Write data to add-on stdin.
 | ---------------------- | -------- | ----------- |
 | `addon` | no | Add-on slug
 
-### Action hassio.addon_update
-
-Update add-on. This action should be used with caution since add-on updates can contain backward-incompatible changes. It is highly recommended that you review release notes/change logs before updating an add-on.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `addon` | no | Add-on slug
-
 ### Action hassio.host_reboot
 
 Reboot the host system.
