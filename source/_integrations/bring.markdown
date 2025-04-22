@@ -91,20 +91,20 @@ If you want to receive these notifications, you must use a dedicated account, as
 
 {% endnote %}
 
-| Data attribute | Optional | Description                                                                                                                             |
-| -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `target`       | no       | Target Bring! list(s) whose members should be notified.                                                                                 |
-| `message`      | no       | Type of push notification to send to list members. See [Notification types](#available-notification-types).                             |
-| `item`         | yes      | Required for `urgent_message`. Item to include in the message. For example: *Attention! Attention! - We still urgently need: Cilantro*. |
+| Data attribute         | Optional | Description                                                                                                                             |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `target`               |       no | Target Bring! list(s) whose members should be notified.                                                                                 |
+| `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types).                             |
+| `item`                 |      yes | Required for `urgent_message`. Item to include in the message. For example: *Attention! Attention! - We still urgently need: Cilantro*. |
 
 ### Available notification types
 
-| Notification type | Name of notification                                      |
-| ----------------- | --------------------------------------------------------- |
-| `going_shopping`  | I'm going shopping! - Last chance for adjustments         |
-| `changed_list`    | I changed the list! - Take a look at the items            |
-| `shopping_done`   | The shopping is done! - The fridge is well stocked        |
-| `urgent_message`  | Attention! Attention! - We still urgently need: `[Items]` |
+| Notification type   | Name of notification                                           |
+| ------------------- | -------------------------------------------------------------- |
+| `going_shopping`    | I'm going shopping! - Last chance for adjustments              |
+| `changed_list`      | I changed the list! - Take a look at the items                 |
+| `shopping_done`     | The shopping is done! - The fridge is well stocked             |
+| `urgent_message`    | Attention! Attention! - We still urgently need: `[Items]`      |
 
 {% note %}
 

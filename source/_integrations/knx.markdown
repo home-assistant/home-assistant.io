@@ -270,7 +270,7 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 - `trigger.value` Decoded telegram payload according to DPT
 
 | Template variable          | Type                        | Project data required |
-| -------------------------- | --------------------------- | --------------------- |
+|----------------------------|-----------------------------|-----------------------|
 | `trigger.destination`      | string                      | no                    |
 | `trigger.destination_name` | string                      | yes                   |
 | `trigger.direction`        | string                      | no                    |
