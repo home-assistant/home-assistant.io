@@ -178,13 +178,13 @@ are exposed.
 The Home Assistant Model Context Protocol integration currently only supports a
 subset of MCP features:
 
-| Feature       | Supported by Home Assistant |
-| ------------- | --------------------------- |
-| Prompts       | ✅                           |
-| Tools         | ✅                           |
-| Resources     | ❌                           |
-| Sampling      | ❌                           |
-| Notifications | ❌                           |
+| Feature | Supported by Home Assistant |
+| ------- | --------- |
+| Prompts | ✅ |
+| Tools | ✅ |
+| Resources | ❌ |
+| Sampling | ❌ |
+| Notifications | ❌ |
 
 Home Assistant does not yet provide built-in tools that can fetch device state.
 

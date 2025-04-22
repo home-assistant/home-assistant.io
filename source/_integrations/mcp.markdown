@@ -79,13 +79,13 @@ are exposed.
 The Home Assistant Model Context Protocol integration currently only supports a
 subset of MCP features:
 
-| Feature       | Supported by Home Assistant |
-| ------------- | --------------------------- |
-| Prompts       | ❌                           |
-| Tools         | ✅                           |
-| Resources     | ❌                           |
-| Sampling      | ❌                           |
-| Notifications | ❌                           |
+| Feature | Supported by Home Assistant |
+| ------- | --------- |
+| Prompts | ❌ |
+| Tools | ✅ |
+| Resources | ❌ |
+| Sampling | ❌ |
+| Notifications | ❌ |
 
 ## Troubleshooting
 
@@ -93,7 +93,6 @@ See [Model Context Protocol: Debugging](https://modelcontextprotocol.io/docs/too
 general tips on debugging MCP. If you are developing your own MCP server and having trouble making it work
 with Home Assistant, you can also use the [MCP Inspector](https://github.com/modelcontextprotocol/inspector)
 to verify that your MCP server is working correctly.
-
 
 ## Removing the integration
 
