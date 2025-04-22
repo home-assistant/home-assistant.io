@@ -204,9 +204,9 @@ Depending on the supported features of the camera, button entities are added for
 Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` action can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` action, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
 
 | Data attribute | Optional | Description                                                                                                                         |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`    | no       | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
-| `speed`        | no       | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                          |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
+| `speed`                | no       | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                          |
 
 ### Select entities
 
@@ -243,10 +243,10 @@ Depending on the supported features of the camera, select entities are added for
 
 To play a ringtone on a Reolink chime, the `reolink.play_chime` action can be used.
 
-| Data attribute | Optional | Description                                                                                             |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------- |
-| `device_id`    | no       | List of device ids of the Reolink Chimes to control. For example, `- 12a34b56c7d8ef9ghijklm0n1op2345q`. |
-| `ringtone`     | no       | The ringtone to play. For example `operetta`.                                                           |
+| Data attribute | Optional | Description                                                                                                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `device_id`            | no       | List of device ids of the Reolink Chimes to control. For example, `- 12a34b56c7d8ef9ghijklm0n1op2345q`.                             |
+| `ringtone`             | no       | The ringtone to play. For example `operetta`.                                                                                       |
 
 ### Siren entities
 
