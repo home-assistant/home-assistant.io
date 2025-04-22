@@ -14,6 +14,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 The Miele {% term integrations %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
