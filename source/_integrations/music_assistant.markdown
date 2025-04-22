@@ -220,10 +220,8 @@ script:
           order_by: random
         response_variable: random_tracks
       - action: music_assistant.play_media
-        data:
-{% raw %}
-          media_id: "{{ random_tracks['items'] | map(attribute='uri') | list }}"
-{% endraw %}
+        data: {% raw %}
+          media_id: "{{ random_tracks['items'] | map(attribute='uri') | list }}" {% endraw %}
           media_type: track
           enqueue: replace
         target:
@@ -255,8 +253,8 @@ script:
         response_variable: queue_info
       - service: input_text.set_value
         data:
-          entity_id: input_text.now_playing
-          value: "{{ queue_info['media_player.ma_kitchen_speaker'].current_item.name }}"
+          entity_id: input_text.now_playing {% raw %}
+          value: "{{ queue_info['media_player.ma_kitchen_speaker'].current_item.name }}" {% endraw %}
 ```
   
 ## Notes
