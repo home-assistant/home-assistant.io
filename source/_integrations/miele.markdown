@@ -97,6 +97,20 @@ Climate entities are used to control target temperatures in refrigerators, freez
   - **Temperature**: Represents the current temperature in refrigerators, freezers, and ovens. Entities are created for up to 3 zones depending on the device capabilities.
 {% enddetails %}
 
+## Actions
+
+### Action `miele.set_program`
+
+Set and start a program for applicable appliances. Note that the device must be in a state where it will accept a new program, for example, most washing machines must be in state `On`. An error message is displayed if the device did not accept the action command.
+The service action can be set up by UI in Automations editor or Developer tools.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `device_id`    | no       |  Select device in GUI mode, then switch to YAML mode to see the device_id.                                        |
+| `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to fetch a diagnostic download while running the actual program. Use the value from the key  `state::programId::value_raw`.|
+| `duration`     | yes      |  Set desired program duration in minutes for ovens.                                                               |
+| `temperature`  | yes      |  Set desired target temperature for oven program.                                                                 |
+
 ## Automation examples
 
 Get started with these automation examples
