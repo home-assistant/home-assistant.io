@@ -44,7 +44,7 @@ The ntfy integration can be used to send push notifications from automations and
     You can now choose one of the following options:
 
     - Select **Enter topic** to add a new topic. Use an **existing topic name** by retrieving it from the ntfy app or the ntfy service's website. Simply copy and paste the topic name into the configuration.
-    - Select **Generate name** to allow the integration to generate a **random topic name** automatically.
+    - Select **Generate topic name** to allow the integration to generate a **random topic name** automatically.
 
     Repeat these steps for each topic you want to add.
 
