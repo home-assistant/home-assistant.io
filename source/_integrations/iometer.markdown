@@ -59,7 +59,7 @@ The following sensors are supported:
 
 There are no commonly known issues with this integration.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 

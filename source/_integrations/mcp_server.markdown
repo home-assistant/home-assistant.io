@@ -178,13 +178,13 @@ are exposed.
 The Home Assistant Model Context Protocol integration currently only supports a
 subset of MCP features:
 
-| Feature | Supported by Home Assistant |
-| ------- | --------- |
-| Prompts | ✅ |
-| Tools | ✅ |
-| Resources | ❌ |
-| Sampling | ❌ |
-| Notifications | ❌ |
+| Feature       | Supported by Home Assistant |
+| ------------- | --------------------------- |
+| Prompts       | ✅                           |
+| Tools         | ✅                           |
+| Resources     | ❌                           |
+| Sampling      | ❌                           |
+| Notifications | ❌                           |
 
 Home Assistant does not yet provide built-in tools that can fetch device state.
 
@@ -234,7 +234,7 @@ To understand the root cause, first check debug logs on the client. For example 
      this means that the long live access token is not correct.
 ...
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

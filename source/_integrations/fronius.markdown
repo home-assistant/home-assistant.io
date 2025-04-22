@@ -196,7 +196,7 @@ The Solar API used by this integration is read-only. It does not provide any mea
 Some data, like photovoltaic production, is only provided by the Fronius device when non-zero.
 When the integration is added at night, there might be no entities added providing photovoltaic related data. Entities will be added on sunrise, when the Fronius devices begin to provide more data.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

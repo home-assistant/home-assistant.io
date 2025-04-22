@@ -37,13 +37,13 @@ Password:
 
 Not all Poweropti devices are supported currently. Check the list below to see if your device is working with this integration. Create a [feature request](/help/) if your device is not supported yet.
 
-| Device                | Type        | Supported  |
-| --------------------- | ----------- | ---------- |
-| PA 201901 / PA 201902 | Power meter | Yes        |
-| PB 202001             | Power meter | Yes        |
-| WA 201902             | Water meter | Yes        |
-| Powerfox FLOW         | Gas meter   | No         |
-| HA 201902             | Heat meter  | Yes        |
+| Device                | Type        | Supported |
+| --------------------- | ----------- | --------- |
+| PA 201901 / PA 201902 | Power meter | Yes       |
+| PB 202001             | Power meter | Yes       |
+| WA 201902             | Water meter | Yes       |
+| Powerfox FLOW         | Gas meter   | No        |
+| HA 201902             | Heat meter  | Yes       |
 
 ## Data updates
 
@@ -92,7 +92,7 @@ It will create the following sensors:
 
 There are no commonly known issues with this integration.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 

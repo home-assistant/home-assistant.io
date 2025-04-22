@@ -91,20 +91,20 @@ If you want to receive these notifications, you must use a dedicated account, as
 
 {% endnote %}
 
-| Data attribute         | Optional | Description                                                                                                                             |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `target`               |       no | Target Bring! list(s) whose members should be notified.                                                                                 |
-| `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types).                             |
-| `item`                 |      yes | Required for `urgent_message`. Item to include in the message. For example: *Attention! Attention! - We still urgently need: Cilantro*. |
+| Data attribute | Optional | Description                                                                                                                             |
+| -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `target`       | no       | Target Bring! list(s) whose members should be notified.                                                                                 |
+| `message`      | no       | Type of push notification to send to list members. See [Notification types](#available-notification-types).                             |
+| `item`         | yes      | Required for `urgent_message`. Item to include in the message. For example: *Attention! Attention! - We still urgently need: Cilantro*. |
 
 ### Available notification types
 
-| Notification type   | Name of notification                                           |
-| ------------------- | -------------------------------------------------------------- |
-| `going_shopping`    | I'm going shopping! - Last chance for adjustments              |
-| `changed_list`      | I changed the list! - Take a look at the items                 |
-| `shopping_done`     | The shopping is done! - The fridge is well stocked             |
-| `urgent_message`    | Attention! Attention! - We still urgently need: `[Items]`      |
+| Notification type | Name of notification                                      |
+| ----------------- | --------------------------------------------------------- |
+| `going_shopping`  | I'm going shopping! - Last chance for adjustments         |
+| `changed_list`    | I changed the list! - Take a look at the items            |
+| `shopping_done`   | The shopping is done! - The fridge is well stocked        |
+| `urgent_message`  | Attention! Attention! - We still urgently need: `[Items]` |
 
 {% note %}
 
@@ -218,7 +218,7 @@ The **Bring!** integration relies on an active internet connection to communicat
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

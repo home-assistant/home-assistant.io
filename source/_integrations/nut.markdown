@@ -434,7 +434,7 @@ In this example, the user `my_user` has permission to execute all commands (`ins
 
 Please note that Home Assistant cannot determine whether a user can access a specific action without executing it. If you attempt to perform an action for which the user does not have permission, an exception will be thrown at runtime.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal. No extra steps
 are required.

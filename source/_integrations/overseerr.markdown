@@ -79,7 +79,7 @@ The Overseerr integration has the following actions:
 Get a list of media requests using `overseerr.get_requests`.
 
 | Data attribute    | Optional | Description                                                 |
-|-------------------|----------|-------------------------------------------------------------|
+| ----------------- | -------- | ----------------------------------------------------------- |
 | `config_entry_id` | No       | The ID of the Overseerr config entry to get data from.      |
 | `status`          | Yes      | The status to filter the results on.                        |
 | `sort_order`      | Yes      | The sort order to sort the results in (`added`/`modified`). |
@@ -139,7 +139,7 @@ There are a few known limitations for using the integration:
 This means you can only have 1 Home Assistant instance connected to your Overseerr instance at a time.
 - The integration is not able to function with <abbr title="cross-site request forgery">CSRF</abbr> protection turned on. In Overseer, go to **Settings** and turn off the **CSRF Protection**.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 

@@ -81,7 +81,7 @@ There is currently no way to control the heat pump via this integration.
 
 In case no devices are discovered, make sure that you can log in to the [Weheat portal](https://portal.weheat.nl) and the correct heat pumps are visible there. If they are available there, contact Weheat support.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 

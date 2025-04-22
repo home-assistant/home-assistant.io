@@ -270,7 +270,7 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 - `trigger.value` Decoded telegram payload according to DPT
 
 | Template variable          | Type                        | Project data required |
-|----------------------------|-----------------------------|-----------------------|
+| -------------------------- | --------------------------- | --------------------- |
 | `trigger.destination`      | string                      | no                    |
 | `trigger.destination_name` | string                      | yes                   |
 | `trigger.direction`        | string                      | no                    |
@@ -2456,7 +2456,7 @@ The `unique_id` for KNX entities is generated based on required configuration va
 
 There can not be multiple entities on the same platform sharing these exact group addresses, even if they differ in other configuration.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

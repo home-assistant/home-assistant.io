@@ -112,10 +112,10 @@ The integration exposes actions to give additional control over a Rain Bird devi
 Start a Rain Bird zone for a set number of minutes. This action accepts a Rain Bird sprinkler
 zone switch entity and allows a custom duration unlike the switch.
 
-| Data attribute | Optional | Description                                           |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | no       | The Rain Bird Sprinkler zone switch to turn on.       |
-| `duration`             | no       | Number of minutes for this zone to be turned on.      |
+| Data attribute | Optional | Description                                      |
+| -------------- | -------- | ------------------------------------------------ |
+| `entity_id`    | no       | The Rain Bird Sprinkler zone switch to turn on.  |
+| `duration`     | no       | Number of minutes for this zone to be turned on. |
 
 
 ```yaml
@@ -146,7 +146,7 @@ not be possible for Home Assistant to send commands to the device while you
 are also using the Rain Bird App. Home Assistant tries to carefully limit
 connections to the device to avoid failures.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 
