@@ -85,7 +85,7 @@ The integration configuration may ask for the *Client ID* and *Client Secret* cr
 
 {% details "List of climate entities" %}
 
-Climate entities are used to control target temperatures in refrigerators, freezers and wine cabinets. One, two or three zones can be controlled depending on the capabilities of the appliance.
+Climate entities are used to control target temperatures in refrigerators, freezers, and wine cabinets. One, two, or three zones can be controlled depending on the capabilities of the appliance.
 {% enddetails %}
 
 ### Sensor
