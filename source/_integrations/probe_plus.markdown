@@ -29,7 +29,7 @@ Device:
   description: "The Bluetooth device that is your probe."
 {% endconfiguration_basic %}
 
-## Available platforms & entities
+## Available functionality
 
 ### Sensors
 
@@ -63,7 +63,7 @@ This integration can be used to monitor food temperatures, you could combine thi
 Make sure your probe is removed from the charging dock and the dock is within Bluetooth range to your Home Assistant instance. [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy.html) are a great way to increase the range if your instance is too far away. Turn on debug settings in the Probe Plus integration and check your logs.
 {% enddetails %}
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 
