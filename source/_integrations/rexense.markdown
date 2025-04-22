@@ -20,16 +20,16 @@ ha_integration_type: device
 
 Integrate [Rexense IoT Mesh devices](https://www.rexense.com) into Home Assistant.
 
-## High-level description
+## Overview
 
-The Rexense integration enables Home Assistant to automatically discover and manage Rexense IoT Mesh devices, providing automated device discovery, real‑time sensor data, and switch control.
+The Rexense integration enables Home Assistant to automatically discover and manage Rexense IoT Mesh devices, providing automated device discovery, real-time sensor data, and switch control.
 
 ## Installation instructions
 
 1. **Enable default integrations**
 
    In your `configuration.yaml`, add:
-   
+
    ```yaml
    default_config:
    zeroconf:
@@ -45,7 +45,6 @@ The Rexense integration enables Home Assistant to automatically discover and ma
    - Follow the prompts to either auto-discover your devices or enter **Host** and **Port** manually
 
 Once configured, HA will fetch `/rex/GetBasicInfo` over HTTP then upgrade to a WebSocket at `/rpc` for live updates.
-
 
 ## Configuration options
 
@@ -74,4 +73,3 @@ Each sensor has:
 ## Removal instructions
 
 {% include integrations/remove_device_service.md %}
-
