@@ -37,7 +37,7 @@ Device:
 - **Temperature**: Current temperature reading from the probe.
 - **Probe signal strength**: The signal strength of the probe to its charging dock.
 - **Relay voltage**: Voltage of the battery within the charging dock (not supported on all models).
-- **Probe Voltage**: Voltage of the battery inside the probe.
+- **Probe voltage**: Voltage of the battery inside the probe.
 
 ## Supported devices
 
