@@ -28,6 +28,10 @@ related:
 
 The **Network UPS Tools (NUT)** {% term integration %} allows you to monitor and manage an Uninterruptible Power Supply (UPS) for battery backup, a Power Distribution Unit (PDU), or other similar power device using a [NUT](https://networkupstools.org/) server. It lets you view the status, receive notifications about important events, and execute commands as device actions for one or more such devices.
 
+This integration cannot communicate directly with a UPS or power device.
+For this reason, a NUT server is required. The integration talks to the
+NUT server using the NUT protocol to retrieve data and status information.
+
 ## Supported devices
 
 This integration supports hardware devices compatible with
@@ -135,7 +139,7 @@ for the sensor may vary by manufacturer.
 
 The following diagnostic sensors may be available:
 
-- **Ambient humidity (%)**\*: *Ambient relative humidity
+- **Ambient humidity (%)**\*: Ambient relative humidity
 - **Ambient humidity status**\*: Ambient humidity status relative to the thresholds, with the available states: `good`, `warning-low`, `critical-low`, `warning-high`, and `critical-high`
 - **Ambient temperature (°C)**\*: Ambient temperature
 - **Ambient temperature status**\*: Ambient temperature status relative to the thresholds, with the available states: `good`, `warning-low`, `critical-low`, `warning-high`, and `critical-high`
@@ -275,12 +279,88 @@ The following switches are available for each switchable outlet:
 The integration uses {% term polling %} to retrieve data from the NUT
 server. The default polling interval is once every 60 seconds.
 
-## Example Resources
+## Actions
 
-Given the following example output from NUT (your variables may differ):
+{% important %}
+The username and password configured for the device must be granted
+`instcmds` permissions on the NUT server to use buttons and
+switches. Device {% term actions %} will not be available if user
+credentials are not specified. See the [NUT server
+documentation](https://networkupstools.org/documentation.html) for
+configuration information.
+{% endimportant %}
+
+An action is available for each parameterless NUT
+[command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html)
+supported.
+
+## Automation example
+
+Home Assistant {% term automations %} can be created to monitor and
+take actions on one or more power devices using NUT.
+
+The following example illustrates how to use this integration in a
+Home Assistant automation. This example is just a starting point, and
+you can use it as inspiration to create your own automations.
+
+### UPS Power Failure Notification
+
+The following example sends a notification to your mobile device when
+a monitored UPS loses power and begins using the battery.
+
+#### Prerequisites
+
+- The NUT integration must be installed and
+configured.
+- Your mobile device must be configured for
+notification.
+- In the example below, the NUT server device is `ups` with the status
+sensor named `ups_status`. You must change the YAML sensor name to
+match your system.
+
+#### Example in YAML
 
 ```yaml
-$ upsc ups_name@192.168.11.5
+# Send notification on UPS power failure
+automation:
+  alias: "NUT Power failure notification"
+  triggers:
+    - trigger: state
+      entity_id:
+        - sensor.ups_status
+      to: "On Battery Battery Discharging"
+  actions:
+    - action: notify.notify
+      data:
+        title: "UPS power failure"
+        message: "The UPS lost power and is now on battery"
+```
+
+## Known limitations
+
+Not all NUT functionality is available through this integration. The
+following are known limitations:
+
+- This NUT integration only supports a subset of NUT "variables" and
+"commands".
+- This NUT integration only supports retrieving, but not setting, NUT
+"variables".
+- This NUT integration does not support NUT "commands" that require
+parameters.
+
+## Troubleshooting
+
+### Using NUT to list all variables
+
+The NUT server provides "variables" about your power device. If you
+have command line access to the system running your NUT server, you
+can query NUT directly using the `upsc` command.
+
+Below is an example where the NUT server is configured with a device
+named `my_ups`:
+
+```shell
+$ upsc my_ups
 ups.timer.reboot: 0
 battery.voltage: 27.0
 ups.firmware.aux: L3 -P
@@ -316,13 +396,15 @@ output.voltage: 121.50
 output.voltage.nominal: 120
 ```
 
-Use the values from the left hand column. Support is included for most
-values with `ups`, `battery`, `input` and `output` prefixes.
+### Using NUT to list all commands
 
-## Device Actions
+The NUT server provides commands for controlling your power device. If
+you have command line access to the system running your NUT server,
+you can query NUT directly for the available remote commands using
+`upscmd -l`.
 
-A device action is available for each parameterless NUT [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html) supported by the device. To find the list of supported commands for 
-your specific UPS device, you can use the `upscmd -l` command followed by the UPS name:
+Below is an example where the NUT server is configured with a device
+named `my_ups`:
 
 ```bash
 $ upscmd -l my_ups
@@ -333,9 +415,7 @@ test.battery.start.quick - Start a quick battery test
 test.battery.stop - Stop the battery test
 ```
 
-These commands will be available as device actions in Home Assistant, allowing you to interact with your UPS.
-
-### User Credentials and Permissions
+### User credentials and permissions
 
 To execute device actions through the NUT integration, you must specify user credentials in the configuration. These credentials are stored in the `upsd.users` file, part of the NUT server configuration. This file defines the usernames, passwords, and permissions for users accessing the UPS devices.
 
