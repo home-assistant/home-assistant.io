@@ -20,22 +20,28 @@ ha_integration_type: integration
 
 [apcupsd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) is configured on the APC device.
 
-There is currently support for the following device types within Home Assistant:
+## Prerequisites
 
-- [Binary sensor](#binary-sensor)
-- [Sensor](#sensors)
+1. Install apcupsd.
 
-## Home Assistant add-on installation
+    First, install [apcupsd](http://www.apcupsd.org/) on the machine connected to your UPS. It works on Linux, macOS, Windows, BSD, Solaris, and more.  
+    You can usually install it through your operating system’s package manager.
 
-Install this [unofficial add-on](https://github.com/korylprince/hassio-apcupsd/) to use this integration with Home Assistant. Keep in mind that we can't give you support for this add-on.
 
-After installation, follow the instructions on the GitHub page to configure the plugin. Then continue to follow the integration configurations below.
+2. Configure apcupsd for network access.
+
+    - Open the `apcupsd.conf` file (usually found in `/etc/apcupsd/`) and make sure it’s set to listen for network connections.  
+    - Look for the line: `NISIP 0.0.0.0`.
+    - This setting allows it to accept connections on all network interfaces.  
+    - If you prefer, you can set this to a specific IP address that Home Assistant can reach.
+
+3. Start the apcupsd service.
 
 {% include integrations/config_flow.md %}
 
 {% note %}
 
-If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, ensure the [apcupsd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses NISIP 0.0.0.0, else non-local addresses will not connect.
+If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, it means that Home Assistant is not able to connect to the daemon. Please check if the `NISIP` is properly configured.
 
 {% endnote %}
 
