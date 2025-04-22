@@ -56,15 +56,15 @@ This integration can be used to monitor food temperatures, you could combine thi
 - While this integration is configured for your device, you won't be able to use the official app, as only one connection at a time is supported.
 - This assumes that the probe is configured to read the temperature in Celsius. Make sure you have changed this in the app before setting up in case you are using Fahrenheit. A template helper can be used to convert between units.
 
-## Remove integration
-
-This integration follows standard integration removal, no extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
 ## Troubleshooting
 
 {% details "Device not discovered or found" %}
 
 Make sure your probe is removed from the charging dock and the dock is within Bluetooth range to your Home Assistant instance. [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy.html) are a great way to increase the range if your instance is too far away. Turn on debug settings in the Probe Plus integration and check your logs.
 {% enddetails %}
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
