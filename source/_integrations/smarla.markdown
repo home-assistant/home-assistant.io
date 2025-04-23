@@ -20,15 +20,15 @@ The `smarla` {% term integration %} is the main integration to integrate [Swing2
 ## Requirements
 
 - Swing2Sleep Smarla device with Version 1.6.X or greater.
-- Swing2Sleep App.
+- Swing2Sleep app.
 - Internet connectivity.
 
 ## Registration
 
-1. Follow the instructions in the Swing2Sleep App.
+1. Follow the instructions in the Swing2Sleep app.
 2. Connect the device with your Wi-Fi.
 3. Follow the steps for **Configuration** until the access token field appears
-4. Generate an access token in the Swing2Sleep App under settings.
+4. Generate an access token in the Swing2Sleep app under settings.
 5. Copy the access token and continue with the **Configuration**.
 
 {% include integrations/config_flow.md %}
