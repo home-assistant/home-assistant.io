@@ -106,7 +106,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
-|Binary sensor|WiFi|Yes|
+|Binary sensor|Wi-Fi|Yes|
 |Binary sensor|Wiper heat|No|
 |Button|Flash lights|Yes|
 |Button|HomeLink|Yes|
