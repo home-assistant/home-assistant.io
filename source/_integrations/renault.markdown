@@ -135,9 +135,11 @@ Notes:
 
 ## Troubleshooting
 
-The **Renault** integration relies on an active internet connection to communicate with the Renault servers. If you encounter issues, verify that your network connection is stable. Additionally, the Renault servers themselves may experience downtime, whether unexpected or due to scheduled maintenance.
+The **Renault** integration relies on:
+- A stable internet connection.
+- Renault server availability (unexpected downtime or scheduled maintenance).
 
-An easy way to check this is to ensure that the official Android/iOS application is working correctly.
+You can quickly verify service status by opening the official Android/iOS app.
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
