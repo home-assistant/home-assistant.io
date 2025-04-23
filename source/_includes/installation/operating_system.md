@@ -441,7 +441,7 @@ Minimum recommended assignments:
 
 - title: VMware ESXi/vSphere
   content: |
-    Use the “E1001” or “E1001E” virtual network adapter. There are confirmed mDNS/Multicast discovery issues when using VMware’s “VMXnet3” virtual network adapter.
+    Use the `E1000` or `E1000E` virtual network adapter. There are confirmed mDNS/Multicast discovery issues when using VMware’s `VMXnet3` virtual network adapter.
 {% endif %}
 {% if page.installation_type == 'windows' %}
 - title: Hyper-V

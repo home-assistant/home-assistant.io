@@ -133,6 +133,11 @@ Notes:
     duration: 15 
 ```
 
+## Known limitations
+
+- Some of the features may require a subscription such as the *Pack EV Remote Control* and/or the *Pack Smart Navigation* subscription.
+- Newer vehicles use new endpoints for some actions, which are not yet supported by the underlying library. The corresponding actions will currently fail with error code `err.func.wired.forbidden`.
+
 ## Troubleshooting
 
 The **Renault** integration relies on:

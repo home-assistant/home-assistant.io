@@ -190,17 +190,24 @@ You can use a backup during the onboarding process to restore your configuration
 
 1. If you are migrating to a new device and you had controllers or radios connected (such as a Z-Wave stick or Connect&nbsp;ZBT-1):
    - make sure to plug them into the new device.
-2. After Home Assistant has been installed, on the welcome screen, select **Restore from backup**.
-   - Then, select **Upload backup**.
-   - The file explorer opens on the device on which you are viewing the Home Assistant User interface.
-   - You can access any connected network drive from there.
-3. Select the backup file, then, in the dialog, select all parts you want to restore.
-   - Your current system will be overwritten with the parts that you choose to restore.
-   - If you want to restore the complete configuration with all directories and add-ons, select everything.
-4. Under **Backup password**, enter the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
-5. To start the process, select **Restore**.
+2. You can either restore a backup from your local machine or a backup stored on Home Assistant Cloud:
+   - **Option 1**: restoring from a local backup.
+     - On the welcome screen, select **Upload backup**.
+     - Select **Select backup file**.
+       - The file explorer opens on the device on which you are viewing the Home Assistant User interface.
+       - You can access any connected network drive from there.
+     - Select the backup file.
+   - **Option 2**: restoring from a Home Assistant Cloud backup.
+     - On the welcome screen, select **Home Assistant Cloud**.
+     - Sign in to Home Assistant Cloud.
+3. In the dialog, select all the parts you want to restore.
+      - Your current system will be overwritten with the parts that you choose to restore.
+      - If you want to restore the complete configuration with all directories and add-ons, select everything.
+4. Enter the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
+5. To start the process, select **Restore backup**.
    - The restore may take a while, depending on the amount of data.
-   - To see if the restore is complete, reload the page from time to time.
+   - Don't refresh the page. Just wait.
+     - If you refresh the page, you will see a "Not found" message. This is because the system is shutdown, wiped, and reinstalled from the backup. During that time, it won't be reachable.
    - If your previous installation had certificates enabled directly for the [`http` integration](/integrations/http), when the restore is complete, it will no longer respond to `http://` requests. In this case, use `https://` (added `s`) instead.
 6. On the login screen, enter the credentials of the system from which you took the backup.
    - The login password and username must match the ones you used at the time the backup was taken.

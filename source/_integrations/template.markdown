@@ -571,7 +571,7 @@ This video tutorial explains how to set up a Trigger based template that makes u
 State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the current [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attributes in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/).
 
 {% note %}
-Self-referencing using `this` provides the state and attributes for the entity before rendering the templates to calculate a new state. To access the new state, use the `value` or `value_json` variable.
+Self-referencing using `this` provides the state and attributes for the entity before rendering the templates to calculate a new state. In other words, it contains the previous state.
 {% endnote %}
 
 ### Optimistic mode
