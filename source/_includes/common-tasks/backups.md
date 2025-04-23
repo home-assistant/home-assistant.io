@@ -206,6 +206,8 @@ You can use a backup during the onboarding process to restore your configuration
 4. Enter the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
 5. To start the process, select **Restore backup**.
    - The restore may take a while, depending on the amount of data.
+   - Don't refresh the page. Just wait.
+     - If you refresh the page, you will see a "Not found" message. This is because the system is shutdown, wiped, and reinstalled from the backup. During that time, it won't be reachable.
    - If your previous installation had certificates enabled directly for the [`http` integration](/integrations/http), when the restore is complete, it will no longer respond to `http://` requests. In this case, use `https://` (added `s`) instead.
 6. On the login screen, enter the credentials of the system from which you took the backup.
    - The login password and username must match the ones you used at the time the backup was taken.
