@@ -53,7 +53,7 @@ In some situations, some of the features may require a subscription such as the 
 
 ## Data updates
 
-Due to rate limitation from the Renault servers, the integration limits polling to 60 data requests / hour.
+Due to rate limitations from the Renault servers, the integration limits {% term polling %} to 60 data requests/hour.
 For a single vehicle with all 7 endpoints available, the integration fetches data from the device every 7 minutes.
 
 ## Actions
