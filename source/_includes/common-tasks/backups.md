@@ -191,13 +191,13 @@ You can use a backup during the onboarding process to restore your configuration
 1. If you are migrating to a new device and you had controllers or radios connected (such as a Z-Wave stick or Connect&nbsp;ZBT-1):
    - make sure to plug them into the new device.
 2. You can either restore a backup from your local machine or a backup stored on Home Assistant Cloud:
-   - **Option 1**: restore from a local backup:
+   - **Option 1**: restoring from a local backup.
      - On the welcome screen, select **Upload backup**.
      - Select **Select backup file**.
        - The file explorer opens on the device on which you are viewing the Home Assistant User interface.
        - You can access any connected network drive from there.
      - Select the backup file.
-   - **Option 2**: restore from a Home Assistant Cloud:
+   - **Option 2**: restoring from a Home Assistant Cloud.
      - On the welcome screen, select **Home Assistant Cloud**.
      - Sign in to Home Assistant Cloud.
 3. In the dialog, select all parts you want to restore.
