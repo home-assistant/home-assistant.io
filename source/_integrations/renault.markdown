@@ -136,6 +136,7 @@ Notes:
 ## Troubleshooting
 
 The **Renault** integration relies on:
+
 - A stable internet connection.
 - Renault server availability (unexpected downtime or scheduled maintenance).
 
