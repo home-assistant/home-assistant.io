@@ -197,10 +197,10 @@ You can use a backup during the onboarding process to restore your configuration
        - The file explorer opens on the device on which you are viewing the Home Assistant User interface.
        - You can access any connected network drive from there.
      - Select the backup file.
-   - **Option 2**: restoring from a Home Assistant Cloud.
+   - **Option 2**: restoring from a Home Assistant Cloud backup.
      - On the welcome screen, select **Home Assistant Cloud**.
      - Sign in to Home Assistant Cloud.
-3. In the dialog, select all parts you want to restore.
+3. In the dialog, select all the parts you want to restore.
       - Your current system will be overwritten with the parts that you choose to restore.
       - If you want to restore the complete configuration with all directories and add-ons, select everything.
 4. Enter the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
