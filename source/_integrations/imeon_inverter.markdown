@@ -16,7 +16,7 @@ related:
 ha_integration_type: device
 ---
 
-The Imeon Energy Inverter integration will poll a [Imeon](https://imeon-energy.com/) solar inverter in Home Assistant.
+The Imeon Energy Inverter {% term integrations %} will poll an [Imeon](https://imeon-energy.com/) solar inverter in Home Assistant.
 
 ## Prerequisites
 
