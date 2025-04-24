@@ -22,7 +22,7 @@ The **Volvo** {% term integration %} is used to integrate your [Volvo](https://w
 
 ## Supported vehicles
 
-- All car models starting from model year 2015 (although some might have fewer features available).
+- Car models starting from model year 2010. Features available depend on model and year.
 - Cars located in Europe, Middle East, Africa, US, Canada, and Latin America regions. Or view the [full list of countries](https://developer.volvocars.com/terms-and-conditions/apis-supported-locations/).
 
 ## Prerequisites
