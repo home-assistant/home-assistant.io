@@ -93,12 +93,12 @@ todo.vacation_preparation:
 
 Add a new to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
-| Data attribute | Optional | Description                                                                                                            | Example                                                              |
-| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `item`         | no       | The name/summary or UID of the to-do item. To find the UID of an item, perform a `get_items` action on the to-do list. | `Submit income tax return` or `01244b28-e604-11ee-a0a4-e45f0197c057` |
-| `due_date`     | yes      | The date the to-do item is expected to be completed.                                                                   | 2024-04-10                                                           |
-| `due_datetime` | yes      | The date and time the to-do item is expected to be completed.                                                          | 2024-04-10 23:00:00                                                  |
-| `description`  | yes      | A more complete description than the one provided by the summary.                                                      | Collect all necessary documents and submit the final return.         |
+| Data attribute | Optional | Description                                                       | Example                                                      |
+| -------------- | -------- | ----------------------------------------------------------------- | ------------------------------------------------------------ |
+| `item`         | no       | The name/summary of the to-do item.                               | Submit income tax return                                     |
+| `due_date`     | yes      | The date the to-do item is expected to be completed.              | 2024-04-10                                                   |
+| `due_datetime` | yes      | The date and time the to-do item is expected to be completed.     | 2024-04-10 23:00:00                                          |
+| `description`  | yes      | A more complete description than the one provided by the summary. | Collect all necessary documents and submit the final return. |
 
 Only one of `due_date` or `due_datetime` may be specified.
 
