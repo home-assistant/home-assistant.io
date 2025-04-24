@@ -74,12 +74,14 @@ The integration {% term polling polls %} the Autoskope API every 60 seconds to r
 ### Authentication errors
 
 If you change your Autoskope password, the integration will fail to connect. Home Assistant should prompt you to re-authenticate. Go to {% my integrations title="**Settings** > **Devices & services**" %}, find the Autoskope integration card, and select **Reconfigure** to enter your new password.
+
 ### Connection failed during setup
 
 - Ensure you have entered the correct **Host** URL for the Autoskope API. 
    - The default value (`https://portal.autoskope.de`) should be correct for most users. 
 - Verify your username and password.
 - Check if your Home Assistant instance can reach the Autoskope host URL (for example, firewall rules, DNS issues).
+
 ### Vehicles not appearing
 
 If a vehicle you expect to see is missing in Home Assistant, log in to the Autoskope web portal or app and confirm that the vehicle is correctly registered, active, and associated with the account you used to set up the integration.
@@ -90,7 +92,6 @@ If a vehicle you expect to see is missing in Home Assistant, log in to the Autos
 
 ## Known limitations
 
-
 ### Update delay
 
 Due to the 60-second polling interval for the cloud API, there will be a delay of up to 60 seconds (plus processing time) before status changes (like location or activity) are reflected in Home Assistant.
@@ -98,7 +99,6 @@ Due to the 60-second polling interval for the cloud API, there will be a delay o
 ### Limited sensor data
 
 Currently, only the primary external voltage and internal battery voltage are exposed as attributes. Support for additional sensor data available on newer devices (like Autoskope V3's extra battery inputs or digital inputs) is planned for a future update.
-
 
 ## Automation examples
 
