@@ -4,7 +4,7 @@ description: "Instructions on how to integrate Autoskope devices into Home Assis
 ha_category:
   - Device tracker
 ha_release: 2025.5
-ha_iot_class: Cloud Polling
+ha_iot_class: cloud_polling
 ha_domain: autoskope
 ha_platforms:
   - device_tracker
