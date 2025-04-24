@@ -17,7 +17,7 @@ The community will be leading meetups across the globe, so find your nearest eve
 
 ## Our biggest party yet
 
-I'm sure you're all wondering, "*Missy, what is a Community Day?*" In its simplest form, it's a single day in which community members around the world set up local meetups with each other. That leaves a lot open, though. *Where do you sign up? How do you host your own meetup? How many people should show up? Where's the best place to hold a meetup?* ...that's a lot of questions! 😳 Luckily, I have all the answers 😉.
+I'm sure you're all wondering, "*Missy, what is a Community Day?*". In its simplest form, it's a single day in which community members around the world set up local meetups with each other. That leaves a lot open, though. *Where do you sign up? How do you host your own meetup? How many people should show up? Where's the best place to hold a meetup?* ...that's a lot of questions! 😳 Luckily, I have all the answers 😉.
 
 <!--more-->
 
