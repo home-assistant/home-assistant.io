@@ -31,7 +31,7 @@ Screenshot of the Dashboard list.
 
 Home Assistant ships with some dashboards out of the box:
 
-- [Areas dashboard (experimental)](#area-dashboard-experimental)
+- [Areas dashboard (experimental)](#areas-dashboard-experimental)
 - Energy dashboard
 - [History dashboard](#history-dashboard)
 - [Logbook dashboard](#logbook-dashboard)
