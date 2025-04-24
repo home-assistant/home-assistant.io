@@ -86,7 +86,7 @@ The integration {% term polling polls %} the Autoskope API every 60 seconds to r
 
 Here are a few examples of how you can use the Autoskope device tracker entities in your automations. Replace `device_tracker.my_vehicle_name` with the actual entity ID of your vehicle's tracker.
 
-**Notify when the vehicle arrives home:**
+### Notify when the vehicle arrives home
 
 ```yaml
 # filepath: automations.yaml
@@ -102,7 +102,7 @@ action:
 mode: single
 ```
 
-**Turn on porch light on arrival after sunset:**
+### Turn on porch light on arrival after sunset
 
 ```yaml
 # filepath: automations.yaml
@@ -121,7 +121,7 @@ action:
 mode: single
 ```
 
-**Open garage when arriving near home:**
+### Open garage when arriving near home
 
 ```yaml
 # filepath: automations.yaml
@@ -138,7 +138,7 @@ action:
 mode: single
 ```
 
-**Enable Wallbox when car is home:**
+### Enable Wallbox when car is home
 
 ```yaml
 # filepath: automations.yaml
@@ -154,7 +154,7 @@ action:
 mode: single
 ```
 
-**Arm garage alarm when car leaves home:**
+### Arm garage alarm when car leaves home
 
 ```yaml
 # filepath: automations.yaml
