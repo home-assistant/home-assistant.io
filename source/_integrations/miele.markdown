@@ -7,6 +7,7 @@ ha_category:
   - Hub
   - Light
   - Sensor
+  - Switch
 ha_iot_class: Cloud Push
 ha_release: '2025.5'
 ha_domain: miele
@@ -19,6 +20,7 @@ ha_platforms:
   - diagnostics
   - light
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
