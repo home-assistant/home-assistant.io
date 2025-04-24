@@ -71,15 +71,33 @@ The integration {% term polling polls %} the Autoskope API every 60 seconds to r
 
 ## Troubleshooting
 
-* **Authentication Errors:** If you change your Autoskope password, the integration will fail to connect. Home Assistant should prompt you to re-authenticate. Go to **Settings** > **Devices & Services**, find the Autoskope integration card, and click **Reconfigure** to enter your new password.
-* **Connection Failed during Setup:** Ensure you have entered the correct **Host** URL for the Autoskope API. The default value (`https://portal.autoskope.de`) should be correct for most users. Also, verify your username and password. Check if your Home Assistant instance can reach the Autoskope host URL (e.g., firewall rules, DNS issues).
-* **Vehicles Not Appearing:** If a vehicle you expect to see is missing in Home Assistant, log in to the Autoskope web portal or app and confirm that the vehicle is correctly registered, active, and associated with the account you used to set up the integration.
-* **Entities Become Unavailable:** If entities become unavailable, check the Home Assistant logs {% my logs title="**Settings** > **System** > **Logs**" %} for errors related to the Autoskope integration. This could indicate temporary connectivity issues with the Autoskope API or problems with your account credentials.
+### Authentication errors
+
+If you change your Autoskope password, the integration will fail to connect. Home Assistant should prompt you to re-authenticate. Go to {% my integrations title="**Settings** > **Devices & services**" %}, find the Autoskope integration card, and select **Reconfigure** to enter your new password.
+### Connection failed during setup
+
+- Ensure you have entered the correct **Host** URL for the Autoskope API. 
+   - The default value (`https://portal.autoskope.de`) should be correct for most users. 
+- Verify your username and password.
+- Check if your Home Assistant instance can reach the Autoskope host URL (for example, firewall rules, DNS issues).
+### Vehicles not appearing
+
+If a vehicle you expect to see is missing in Home Assistant, log in to the Autoskope web portal or app and confirm that the vehicle is correctly registered, active, and associated with the account you used to set up the integration.
+
+### Entities become unavailable
+
+- If entities become unavailable, check the Home Assistant logs {% my logs title="**Settings** > **System** > **Logs**" %} for errors related to the Autoskope integration. This could indicate temporary connectivity issues with the Autoskope API or problems with your account credentials.
 
 ## Known limitations
 
-* **Update Delay:** Due to the 60-second polling interval for the cloud API, there will be a delay of up to 60 seconds (plus processing time) before status changes (like location or activity) are reflected in Home Assistant.
-* **Limited Sensor Data:** Currently, only the primary external voltage and internal battery voltage are exposed as attributes. Support for additional sensor data available on newer devices (like Autoskope V3's extra battery inputs or digital inputs) is planned for a future update.
+
+### Update delay
+
+Due to the 60-second polling interval for the cloud API, there will be a delay of up to 60 seconds (plus processing time) before status changes (like location or activity) are reflected in Home Assistant.
+
+### Limited sensor data
+
+Currently, only the primary external voltage and internal battery voltage are exposed as attributes. Support for additional sensor data available on newer devices (like Autoskope V3's extra battery inputs or digital inputs) is planned for a future update.
 
 
 ## Automation examples
