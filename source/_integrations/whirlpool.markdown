@@ -3,7 +3,7 @@ title: Whirlpool Appliances
 description: Instructions on how to integrate Whirlpool appliances with Home Assistant.
 ha_category:
   - Climate
-  - Sensor
+  - Hub
 ha_release: '2022.10'
 ha_iot_class: Cloud Push
 ha_config_flow: true
