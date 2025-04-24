@@ -35,7 +35,7 @@ Configuration is handled entirely through the UI flow during setup. You will nee
 These are the same credentials used for the Autoskope web portal and mobile app.
 
 {% include integrations/config_flow.md %}
-## Entities
+## Supported functionality
 
 This integration provides the following entities:
 
