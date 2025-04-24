@@ -82,7 +82,7 @@ The integration {% term polling polls %} the Autoskope API every 60 seconds to r
 * **Limited Sensor Data:** Currently, only the primary external voltage and internal battery voltage are exposed as attributes. Support for additional sensor data available on newer devices (like Autoskope V3's extra battery inputs or digital inputs) is planned for a future update.
 
 
-## Automation Examples
+## Automation examples
 
 Here are a few examples of how you can use the Autoskope device tracker entities in your automations. Replace `device_tracker.my_vehicle_name` with the actual entity ID of your vehicle's tracker.
 
@@ -175,4 +175,5 @@ mode: single
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
+
 Note: Entities and devices associated with vehicles that are removed from your Autoskope account (for example, subscription canceled) will be automatically removed from Home Assistant during the next update cycle.
