@@ -13,7 +13,7 @@ og_image: /images/blog/2025-04-community-day/art.png
 
 Our first **Home Assistant Community Day** will be on **May 24th** this year 🎉, and with a month to go, here is all the information you need to take part.
 
-Our team will be leading meetups across the globe, so find your nearest event and **[register now](https://lu.ma/haday2025)**! They're all free and will be full of smart people with smart homes. If you don't see your city on this list, we're encouraging the community to host their own meetups, so keep reading to learn more.
+The community will be leading meetups across the globe, so find your nearest event and **[register now](https://lu.ma/haday2025)**! They're all free and will be full of smart people with smart homes. If you don't see your city on this list, we're encouraging the community to host their own meetups, so keep reading to learn more.
 
 ## Our biggest party yet
 
@@ -52,7 +52,7 @@ All Community Day events are free, so **[register before spaces run out!](https:
 
 Using Luma, [create an account](https://lu.ma/signin), and navigate to our [Home Assistant Community Day](https://lu.ma/haday2025) event page, select **Submit Event > Create New Event** (the button is above the calendar on the right). Don't stress if you don't have a venue yet---you can add it later! So people know you're part of the worldwide party, we've created an [invite graphic](https://drive.google.com/drive/u/0/folders/1xnAIVvsekX1tmfE60f0qrHOoIFK9Cw_R) you can set as the event image. Make sure you follow this checklist when you create your event:
 
-✅ **Event Name** = "<city name> meetup"\
+✅ **Event Name** = "(city name) meetup"\
 ✅ **Time zone** = your local time\
 ✅ **Date** = Saturday, May 24\
 ✅ **Time** = your choosing! (4 hours max)\
