@@ -112,7 +112,7 @@ This will leave the default dashboard intact.
 3. In the dialog, choose one of the options:
    - If you want to start with a pre-populated dashboard, choose **Default dashboard** or one of the suggested ones, such as the **Areas** dashboard.
    - If you want to start with a completely empty dashboard, choose **New dashboard from scratch**.
-   ![Screenshot of the dashboard list](/images/dashboards/areas-experimental-dialog.png)
+   ![Screenshot of the Add Dashboard dialog showing the Areas dashboard option](/images/dashboards/areas-experimental-dialog.png)
 
 4. In the **Add new dashboard** dialog, enter a name and select an icon.
    - Define if this dashboard should be visible only to the admin user.
