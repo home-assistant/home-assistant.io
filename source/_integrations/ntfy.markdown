@@ -3,6 +3,7 @@ title: ntfy
 description: Instructions on how to integrate ntfy with Home Assistant.
 ha_category:
   - Notifications
+  - Event
 ha_iot_class: Cloud Push
 ha_release: 2025.5
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_platforms:
   - diagnostics
   - notify
   - sensor
+  - event
 ha_quality_scale: bronze
 ---
 
@@ -83,6 +85,7 @@ Topics may not be password-protected, so choose a name that's not easy to guess.
     description: "An alternative name to display instead of the topic name. This helps identify topics with complex or hard-to-read names more easily."
 {% endconfiguration_basic %}
 
+
 ## Notifiers
 
 The **ntfy** integration will add a {% term device %} with an associated notify {% term entity %} for each configured topic. To publish notifications, you can use the `notify.send_message` {% term action %}. To use notifications, please see the [getting started with automation page](/getting-started/automation/).
@@ -101,6 +104,12 @@ data:
 {% endraw %}
 
 {% enddetails %}
+
+## Events
+
+An event entity is created for each configured topic. These entities subscribe to their respective topics and receive notifications from the **ntfy** service in real-time. Each event entity exposes the full contents of the notification — including links, attachments, tags, and other metadata — through its attributes.
+
+You can use event entities in automations to trigger actions in Home Assistant, or forward notifications to other devices for further processing or alerting.
 
 ## Actions
 
