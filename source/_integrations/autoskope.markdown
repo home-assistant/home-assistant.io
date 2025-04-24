@@ -65,7 +65,7 @@ The following attributes are provided:
 
 Note: Sensor entities for battery voltages and other values are planned for a future update.
 
-## Data Update
+## Data update
 
 The integration polls the Autoskope API every 60 seconds to retrieve the latest status and location data for all registered vehicles associated with the account.
 
