@@ -19,6 +19,10 @@ The **Autoskope** {% term integration %} allows you to integrate your [Autoskope
 
 This integration connects to the Autoskope cloud service to retrieve the current status and location of your registered vehicles.
 
+## Supported devices
+
+This integration should work with all past, present, and future hardware devices offered by Autoskope.
+
 {% include integrations/config_flow.md %}
 
 ## Installation
