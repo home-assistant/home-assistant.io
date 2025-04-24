@@ -120,7 +120,7 @@ Update a to-do item. A to-do list `target` is selected with a [Target Selector](
 
 | Data attribute | Optional | Description                                                                                                            | Example                                                              |
 | -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `item`         | no       | The UID of the to-do item. To find the UID of an item, perform a `get_items` action on the to-do list. You can also use the name/summary of the item, but using the UID is safer. | `01244b28-e604-11ee-a0a4-e45f0197c057` or `Submit income tax return`|
+| `item`         | no       | The name/summary of the to-do item. In some cases, for example if you have items with the same name, it can make sense to use the UID instead of the name. To find the UID of an item, perform a `get_items` action on the to-do list. | `Submit income tax return` or `01244b28-e604-11ee-a0a4-e45f0197c057`|
 | `rename`       | yes      | The new name of the to-do item.                                                                                        | Something else                                                       |
 | `status`       | yes      | The overall status of the to-do item.                                                                                  | `needs_action` or `completed`                                        |
 | `due_date`     | yes      | The date the to-do item is expected to be completed.                                                                   | 2024-04-10                                                           |
@@ -145,7 +145,7 @@ Removing a to-do item. A to-do list `target` is selected with a [Target Selector
 
 | Data attribute | Optional | Description                                                                                                            | Example                                                              |
 | -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `item`         | no       | The UID of the to-do item. To find the UID of an item, perform a `get_items` action on the to-do list.  You can also use the name/summary of the item, but using the UID is safer. | `01244b28-e604-11ee-a0a4-e45f0197c057` or `Submit income tax return` |
+| `item`         | no       |The name/summary of the to-do item. In some cases, for example if you have items with the same name, it can make sense to use the UID instead of the name. To find the UID of an item, perform a `get_items` action on the to-do list.  | `Submit income tax return` or `01244b28-e604-11ee-a0a4-e45f0197c057`|
 
 This is a full example that deletes a to-do Item with the specified name.
 
