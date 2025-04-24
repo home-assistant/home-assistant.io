@@ -23,14 +23,6 @@ This integration connects to the Autoskope cloud service to retrieve the current
 
 This integration should work with all past, present, and future hardware devices offered by Autoskope.
 
-## Installation
-
-This integration can be set up via the Home Assistant user interface.
-
-1. Go to **Settings** > **Devices & Services**.
-2. Click **Add Integration**.
-3. Search for "Autoskope" and select it.
-4. Follow the on-screen instructions to enter your Autoskope username, password, and the API host URL.
 
 ## Configuration
 
