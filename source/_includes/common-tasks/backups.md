@@ -45,8 +45,8 @@ The automatic backup process creates a backup on a predefined schedule and also 
      - Make sure you pick a time when all your backup locations are up and running and available. Otherwise, the backup will fail for locations which are not available.
 5. Define if you want to back up automatically before updating.
    - This sets a default. But you can change this setting each time before updating.
-   - If you have a large installation, backing up might take a while.
-   - This means that your update might start later than you expected.
+   - For large installations, backups might take a while.
+   - Your update might start later than you expected.
 6. Define how many backups you want to keep.
    - Older backups will be automatically deleted.
    - For example: if you back up daily, and select 7 backups, then the backup from 8 days ago and older will be deleted.
