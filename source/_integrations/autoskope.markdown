@@ -23,7 +23,6 @@ This integration connects to the Autoskope cloud service to retrieve the current
 
 This integration should work with all past, present, and future hardware devices offered by Autoskope.
 
-
 ## Prerequisites
 
 Configuration is handled entirely through the UI flow during setup. You will need to provide:
@@ -35,6 +34,7 @@ Configuration is handled entirely through the UI flow during setup. You will nee
 These are the same credentials used for the Autoskope web portal and mobile app.
 
 {% include integrations/config_flow.md %}
+
 ## Supported functionality
 
 This integration provides the following entities:
