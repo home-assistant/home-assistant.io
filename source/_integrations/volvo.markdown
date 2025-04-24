@@ -64,11 +64,11 @@ The **Volvo** integration provides the following entities.
 - **Distance to service**: Remaining distance until the next service maintenance
 - **Engine time to service**: Remaining engine-hours until the next service maintenance
 - **Odometer**: Odometer
-- **TA Avg. speed**: Average speed on the automatic trip meter
-- **TA Distance**: Total distance on the automatic trip meter
+- **TA avg. speed**: Average speed on the automatic trip meter
+- **TA distance**: Total distance on the automatic trip meter
 - **Time to service**: Remaining time until the next service maintenance
-- **TM Avg. speed**: Average speed on the manual trip meter
-- **TM Distance**: Total distance on the manual trip meter
+- **TM avg. speed**: Average speed on the manual trip meter
+- **TM distance**: Total distance on the manual trip meter
 
 ### Battery-only and plug-in hybrid
 
@@ -87,16 +87,18 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 - **Charging limit**: Charging limit configured in the car
 - **Charging status**: Indication if the car is charging or not
 - **Est. charging time**: Estimated charging time to reach the target battery charge level
-- **TA Avg. energy consumption**: Average energy consumption on the automatic trip meter
+- **TA avg. energy consumption**: Average energy consumption on the automatic trip meter
 - **Target battery charge level**: Target battery charge level configured in the car
-- **TM Avg. energy consumption**: Average energy consumption on the manual trip meter
+- **TM avg. energy consumption**: Average energy consumption on the manual trip meter
 
 ### Fuel-only and plug-in hybrid
 
+#### Sensors
+
 - **Distance to empty tank**: Fuel range
 - **Fuel amount**: Remaining fuel
-- **TA Avg. fuel consumption**: Average fuel consumption on the manual automatic meter
-- **TM Avg. fuel consumption**: Average fuel consumption on the manual trip meter
+- **TA avg. fuel consumption**: Average fuel consumption on the automatic trip meter
+- **TM avg. fuel consumption**: Average fuel consumption on the manual trip meter
 
 ## Examples
 
