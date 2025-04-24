@@ -12,6 +12,10 @@ related:
     title: Views
   - docs: /dashboards/iframe/
     title: Webpage card
+  - docs: /docs/organizing/
+    title: Grouping your assets
+  - docs: /docs/organizing/areas/
+    title: Grouping by areas
 ---
 
 You can define multiple dashboards in Home Assistant. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
@@ -27,6 +31,7 @@ Screenshot of the Dashboard list.
 
 Home Assistant ships with some dashboards out of the box:
 
+- [Areas dashboard (experimental)](#area-dashboard-experimental)
 - Energy dashboard
 - [History dashboard](#history-dashboard)
 - [Logbook dashboard](#logbook-dashboard)
@@ -35,6 +40,27 @@ Home Assistant ships with some dashboards out of the box:
 - [To-do lists dashboard](#to-do-lists-dashboard)
 
 Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Logbook** and **History** dashboards are powered by their respective integrations.
+
+### Areas dashboard (experimental)
+
+The **Areas** dashboard is prepopulated by default and shows your {% term entities %} [grouped](/docs/organizing/) by [areas](/docs/organizing/areas/).
+
+- It uses the [sections view](/dashboards/sections/) type and [tile cards](/dashboards/tile/).
+- The first view shows all your areas and the {% term entities %} that are [assigned to those areas](/docs/organizing/areas/).
+- In addition, the dashboard provides a separate view for each area.
+- {% term entities Entities%}, such as lights, covers, and cameras are automatically grouped by {% term domain %}.
+
+<p class='img'>
+<img src='/images/dashboards/areas-dashboard-overview.png' alt='Screenshot of the Areas default dashboard'>
+Screenshot of the Areas default dashboard.
+</p>
+
+After you [added the dashboard](#creating-a-new-dashboard), you can edit the **Areas** dashboard:
+
+1. In the top-right corner, select the {% icon "mdi:pencil" %} icon.
+2. You can show or hide sections, rearrange the content, or [add badges](/dashboards/badges/).
+
+The **Areas** dashboard is still experimental. It is subject to change and may not always work as intended.
 
 ### History dashboard
 
@@ -84,21 +110,26 @@ This will leave the default dashboard intact.
 2. Select **Add dashboard**.
    ![Screenshot of the dashboard list](/images/dashboards/dashboard-manage-02.png)
 3. In the dialog, choose one of the options:
-   - If you want to start with a pre-populated dashboard, choose **Default dashboard**.
+   - If you want to start with a pre-populated dashboard, choose **Default dashboard** or one of the suggested ones, such as the **Areas** dashboard.
    - If you want to start with a completely empty dashboard, choose **New dashboard from scratch**.
+   ![Screenshot of the dashboard list](/images/dashboards/areas-experimental-dialog.png)
+
 4. In the **Add new dashboard** dialog, enter a name and select an icon.
    - Define if this dashboard should be visible only to the admin user.
    - Define if you want the dashboard to be listed in the sidebar.
    - Select **Create**.
    - **Result**: The dashboard is added.
-5. Open your new dashboard and in the top right of the screen, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/> button.
-6. If you chose **Default dashboard**, you need to take control before you can edit it:
+
+## Editing a new dashboard
+
+1. Open your new dashboard and in the top right of the screen, select the {% icon "mdi:pencil" %} button.
+2. If you are editing a **Default dashboard** for the first time, you need to take control before you can edit it:
    - The **Edit dashboard** dialog appears.
      - By editing the dashboard, you are taking over control of this dashboard.
      - This means that it is no longer automatically updated when new dashboard elements become available.
      - Once you've taken control, you can't get this specific dashboard back to update automatically. However, you can create a new default dashboard.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
-7. You can now [add a card](/dashboards/cards/#adding-cards-to-your-dashboard) or [add a view](/dashboards/views/#adding-a-view-to-a-dashboard).
+3. You can now [add a card](/dashboards/cards/#adding-cards-to-your-dashboard) or [add a view](/dashboards/views/#adding-a-view-to-a-dashboard).
 
 ## Deleting a dashboard
 
