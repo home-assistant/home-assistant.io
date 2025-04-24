@@ -27,14 +27,22 @@ Screenshot of the Dashboard list.
 
 Home Assistant ships with some dashboards out of the box:
 
-- Overview
-- Energy
-- [Map](#map-dashboard)
-- Logbook
-- History
-- To-do lists
+- Energy dashboard
+- [History dashboard](#history-dashboard)
+- [Logbook dashboard](#logbook-dashboard)
+- [Map dashboard](#map-dashboard)
+- [Overview dashboard](#creating-a-new-dashboard)
+- [To-do lists dashboard](#to-do-lists-dashboard)
 
 Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Logbook** and **History** dashboards are powered by their respective integrations.
+
+### History dashboard
+
+The predefined **History** dashboard is powered by the [History integration](/integrations/history/). To learn about the data sources used and how to export data, refer to the documentation of the History integration.
+
+### Logbook dashboard
+
+The predefined **Logbook** dashboard is powered by the [Logbook integration](/integrations/logbook/). To control which events to show or filter out, refer to the documentation of the Logbook integration.
 
 ### Map dashboard
 
@@ -43,14 +51,6 @@ The predefined **Map** dashboard is populated by the [Map card](/dashboards/map/
 #### Maps and presence detection
 
 If you see a [person](/integrations/person/) on the map, it means you have connected a device that allows [presence detection](/integrations/#presence-detection). This is the case for example if you have the [Home Assistant Companion App](https://companion.home-assistant.io/) on your phone and allowed location tracking.
-
-### Logbook dashboard
-
-The predefined **Logbook** dashboard is powered by the [Logbook integration](/integrations/logbook/). To control which events to show or filter out, refer to the documentation of the Logbook integration.
-
-### History dashboard
-
-The predefined **History** dashboard is powered by the [History integration](/integrations/history/). To learn about the data sources used and how to export data, refer to the documentation of the History integration.
 
 ### To-do lists dashboard
 
