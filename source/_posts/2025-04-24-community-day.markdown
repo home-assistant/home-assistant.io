@@ -71,7 +71,7 @@ Click **Create Event** once you've followed that checklist, then come let everyo
 
 ***Clashes:***  If two or more events are requested in the same city, we'll link up hosts so they can organize things together.
 
-***Have more questions for me?*** Send me a message on Discord ([@adorablecyborg](https://discord.com/users/303933403303247872)) or [email](mailto:missy.quarry@openhomefoundation.org?subject=Community%20Day%202025)--- I'm absolutely happy to help you out where I can! 😌
+***Have more questions for me?*** Send me a message on Discord ([@adorablecyborg](https://discord.com/users/303933403303247872)) or [email](mailto:missy@openhomefoundation.org?subject=Community%20Day%202025)--- I'm absolutely happy to help you out where I can! 😌
 
 ## See you soon
 
