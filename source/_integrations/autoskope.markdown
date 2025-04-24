@@ -175,4 +175,4 @@ mode: single
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-Note: Entities and devices associated with vehicles that are removed from your Autoskope account (e.g., subscription canceled) will be automatically removed from Home Assistant during the next update cycle.
+Note: Entities and devices associated with vehicles that are removed from your Autoskope account (for example, subscription canceled) will be automatically removed from Home Assistant during the next update cycle.
