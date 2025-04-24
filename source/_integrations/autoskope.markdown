@@ -76,7 +76,7 @@ The integration {% term polling polls %} the Autoskope API every 60 seconds to r
 * **Vehicles Not Appearing:** If a vehicle you expect to see is missing in Home Assistant, log in to the Autoskope web portal or app and confirm that the vehicle is correctly registered, active, and associated with the account you used to set up the integration.
 * **Entities Become Unavailable:** If entities become unavailable, check the Home Assistant logs (**Settings** > **System** > **Logs**) for errors related to the Autoskope integration. This could indicate temporary connectivity issues with the Autoskope API or problems with your account credentials.
 
-## Known Limitations
+## Known limitations
 
 * **Update Delay:** Due to the 60-second polling interval for the cloud API, there will be a delay of up to 60 seconds (plus processing time) before status changes (like location or activity) are reflected in Home Assistant.
 * **Limited Sensor Data:** Currently, only the primary external voltage and internal battery voltage are exposed as attributes. Support for additional sensor data available on newer devices (like Autoskope V3's extra battery inputs or digital inputs) is planned for a future update.
