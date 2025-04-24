@@ -81,9 +81,6 @@ The integration {% term polling polls %} the Autoskope API every 60 seconds to r
 * **Update Delay:** Due to the 60-second polling interval for the cloud API, there will be a delay of up to 60 seconds (plus processing time) before status changes (like location or activity) are reflected in Home Assistant.
 * **Limited Sensor Data:** Currently, only the primary external voltage and internal battery voltage are exposed as attributes. Support for additional sensor data available on newer devices (like Autoskope V3's extra battery inputs or digital inputs) is planned for a future update.
 
-## Supported Devices
-
-This integration should work with all past, present, and future hardware devices offered by Autoskope.
 
 ## Automation Examples
 
@@ -173,12 +170,9 @@ action:
 mode: single
 ```
 
-## Removal
+## Removing the integration
 
-To remove the Autoskope integration:
+This integration follows standard integration removal.
 
-1. Go to Settings > Devices & Services.
-2. Find the Autoskope integration card.
-3. Click the three dots (...) menu on the card.
-4. Select Delete.
+{% include integrations/remove_device_service.md %}
 Note: Entities and devices associated with vehicles that are removed from your Autoskope account (e.g., subscription canceled) will be automatically removed from Home Assistant during the next update cycle.
