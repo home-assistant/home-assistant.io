@@ -87,9 +87,9 @@ An {% term "Event entity" %} entity will be created for each configured feed whi
 
 ### Video tutorial
 
-This video tutorial explains how to set up the feedreader and show the latest news feed item on your dashboard in Home Assistant.
+This video tutorial explains how to set up the feedreader and show a list of news feed items on your dashboard in Home Assistant.
 
-<lite-youtube videoid="Va4JOKbesi0" videotitle="How to view RSS feeds on your Dashboard in Home Assistant" posterquality="maxresdefault"></lite-youtube>
+<lite-youtube videoid="wqmLnjWQ4eY" videotitle="Show RSS News feeds on your Dashboard in Home Assistant!" posterquality="maxresdefault"></lite-youtube>
 
 ### Event listener
 
