@@ -39,7 +39,7 @@ These are the same credentials used for the Autoskope web portal and mobile app.
 
 This integration provides the following entities:
 
-### Device Tracker
+### Device tracker
 
 A `device_tracker` entity is created for each vehicle registered in your Autoskope account. This entity tracks the location of the vehicle.
 
@@ -74,7 +74,7 @@ The integration {% term polling polls %} the Autoskope API every 60 seconds to r
 * **Authentication Errors:** If you change your Autoskope password, the integration will fail to connect. Home Assistant should prompt you to re-authenticate. Go to **Settings** > **Devices & Services**, find the Autoskope integration card, and click **Reconfigure** to enter your new password.
 * **Connection Failed during Setup:** Ensure you have entered the correct **Host** URL for the Autoskope API. The default value (`https://portal.autoskope.de`) should be correct for most users. Also, verify your username and password. Check if your Home Assistant instance can reach the Autoskope host URL (e.g., firewall rules, DNS issues).
 * **Vehicles Not Appearing:** If a vehicle you expect to see is missing in Home Assistant, log in to the Autoskope web portal or app and confirm that the vehicle is correctly registered, active, and associated with the account you used to set up the integration.
-* **Entities Become Unavailable:** If entities become unavailable, check the Home Assistant logs (**Settings** > **System** > **Logs**) for errors related to the Autoskope integration. This could indicate temporary connectivity issues with the Autoskope API or problems with your account credentials.
+* **Entities Become Unavailable:** If entities become unavailable, check the Home Assistant logs {% my logs title="**Settings** > **System** > **Logs**" %} for errors related to the Autoskope integration. This could indicate temporary connectivity issues with the Autoskope API or problems with your account credentials.
 
 ## Known limitations
 
