@@ -1,6 +1,6 @@
 ---
-title: Nuki
-description: Instructions on how to integrate a Nuki Smart Lock devices.
+title: Nuki Bridge
+description: Instructions on how to integrate a Nuki Bridge to control their Smart Lock devices.
 ha_category:
   - Lock
 ha_release: 0.38
@@ -19,7 +19,7 @@ ha_dhcp: true
 ha_integration_type: integration
 ---
 
-The Nuki integration allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via a [Nuki Bridge](https://help.nuki.io/hc/en-001/sections/360004474718-Bridge) or Nuki Smart Lock with [Build-in WiFi](https://help.nuki.io/hc/en-001/sections/4402761196817-Built-in-Wi-Fi) using the cloud. 
+The Nuki integration allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via a [Nuki Bridge](https://help.nuki.io/hc/en-001/sections/360004474718-Bridge). 
 Many Nuki Smart Locks also support [local integrations](#local-integration-alternatives) using a different integration. 
 
 ## Prerequisites

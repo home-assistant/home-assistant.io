@@ -4,6 +4,7 @@ description: Instructions on how to set up the Miele integration within Home Ass
 ha_category:
   - Climate
   - Hub
+  - Light
   - Sensor
 ha_iot_class: Cloud Push
 ha_release: '2025.5'
@@ -14,6 +15,7 @@ ha_config_flow: true
 ha_platforms:
   - climate
   - diagnostics
+  - light
   - sensor
 ha_integration_type: integration
 ---
@@ -88,6 +90,14 @@ The integration configuration may ask for the *Client ID* and *Client Secret* cr
 Climate entities are used to control target temperatures in refrigerators, freezers, and wine cabinets. One, two, or three zones can be controlled depending on the capabilities of the appliance.
 {% enddetails %}
 
+### Light
+
+{% details "List of light entities" %}
+
+- **Light**: The light can be turned on and off in many models of ovens, cooker hoods, and wine cabinets.
+- **Ambient light**: Some models of cooker hoods have ambient light that can be turned on and off. 
+{% enddetails %}
+
 ### Sensor
 
 {% details "List of sensors" %}
@@ -110,7 +120,6 @@ The service action can be set up by UI in Automations editor or Developer tools.
 | `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to fetch a diagnostic download while running the actual program. Use the value from the key  `state::programId::value_raw`.|
 | `duration`     | yes      |  Set desired program duration in minutes for ovens.                                                               |
 | `temperature`  | yes      |  Set desired target temperature for oven program.                                                                 |
-
 ## Automation examples
 
 Get started with these automation examples
