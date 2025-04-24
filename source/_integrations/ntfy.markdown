@@ -121,6 +121,28 @@ For more customizable notifications, you can use the `ntfy.publish` action inste
 | `call`         | yes      | Phone number to call and read the message out loud using text-to-speech. Requires ntfy Pro and prior phone number verification. |
 | `icon`         | yes      | Include an icon that will appear next to the text of the notification. Only JPEG and PNG images are supported. |
 
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+action: ntfy.publish
+data:
+  title: "Server Alert"
+  message: "CPU usage exceeded 90%."
+  priority: "5"
+  click: "https://homeassistant.local"
+  tags:
+  - rotating_light
+target:
+  entity_id: notify.mytopic
+
+```
+
+{% endraw %}
+
+{% enddetails %}
+
 {% tip %}
 
 Check out the [emoji reference](https://docs.ntfy.sh/emojis/) for a full list of supported emoji short codes.
