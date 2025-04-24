@@ -23,8 +23,6 @@ This integration connects to the Autoskope cloud service to retrieve the current
 
 This integration should work with all past, present, and future hardware devices offered by Autoskope.
 
-{% include integrations/config_flow.md %}
-
 ## Installation
 
 This integration can be set up via the Home Assistant user interface.
