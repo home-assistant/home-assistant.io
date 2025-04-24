@@ -27,9 +27,9 @@ This integration should work with all past, present, and future hardware devices
 
 Configuration is handled entirely through the UI flow during setup. You will need to provide:
 
-* **Username:** Your Autoskope account username.
-* **Password:** Your Autoskope account password.
-* **Host:** URL of the Autoskope API server (e.g., `https://portal.autoskope.de`).
+- **Username**: Your Autoskope account username.
+- **Password**: Your Autoskope account password.
+- **Host**: URL of the Autoskope API server (for example, `https://portal.autoskope.de`).
 
 These are the same credentials used for the Autoskope web portal and mobile app.
 
