@@ -51,6 +51,11 @@ All vehicles linked to the account should then get added as devices, with sensor
 
 In some situations, some of the features may require a subscription such as the *Pack EV Remote Control* and/or the *Pack Smart Navigation* subscription.
 
+## Data updates
+
+Due to rate limitations from the Renault servers, the integration limits {% term polling %} to 60 data requests/hour.
+For a single vehicle with all 7 endpoints available, the integration fetches data from the device every 7 minutes.
+
 ## Actions
 
 ### Action `renault.ac_start`

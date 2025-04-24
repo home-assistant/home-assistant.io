@@ -5,6 +5,7 @@ ha_category:
   - Button
   - Climate
   - Hub
+  - Light
   - Sensor
 ha_iot_class: Cloud Push
 ha_release: '2025.5'
@@ -16,6 +17,7 @@ ha_platforms:
   - button
   - climate
   - diagnostics
+  - light
   - sensor
 ha_integration_type: integration
 ---
@@ -109,6 +111,14 @@ Climate entities are used to control target temperatures in refrigerators, freez
 - **Operation state**:
   - **Status**: Represents the current operation state of the device. The default entity name is just the appliance type. For example, "Dishwasher".
   - **Temperature**: Represents the current temperature in refrigerators, freezers, and ovens. Entities are created for up to 3 zones depending on the device capabilities.
+{% enddetails %}
+
+### Light
+
+{% details "List of light entities" %}
+
+- **Light**: The light can be turned on and off in many models of ovens, cooker hoods, and wine cabinets.
+- **Ambient light**: Some models of cooker hoods have ambient light that can be turned on and off. 
 {% enddetails %}
 
 ## Automation examples
