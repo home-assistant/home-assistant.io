@@ -150,9 +150,10 @@ The `jewish_calendar.count_omer` action returns the phrase for counting the Omer
 
 | Data attribute | Optional | Description                              |
 | -------------- | -------- | ---------------------------------------- |
-| `date`         | no       | Date for which to get the Omer blessing. |
+| `date`         | yes		| Date for which to get the Omer blessing. Defaults today	 |
+| `is_after_sunset`| yes	| Calculates the next day for a given date. This indicator is ignored if the Date field is empty.  |
 | `nusach`       | no       | Nusach (tradition) of the Omer blessing. |
-| `language`     | no       | Language to return. Defaults to Hebrew.  |
+| `language`     | yes		| Language to return. Defaults to Hebrew.  |
 
 If there's no Omer count on the given day, the message will be empty.
 Supported nusachim are: Ashkenaz, Sfarad, Adot Mizrah and Italian.
@@ -164,6 +165,7 @@ action: jewish_calendar.count_omer
 data:
   nusach: sfarad
   language: en
+  is_after_sunset: true
   date: "2025-05-20"
 ```
 
@@ -175,3 +177,11 @@ weeks: 5
 days: 2
 total_days: 37
 ```
+Minimal  call
+```yaml
+action: jewish_calendar.count_omer
+data:
+  nusach: sfarad
+```
+Will return the current text in Hebrew based on current Hebrew date (before/after  sunset)
+
