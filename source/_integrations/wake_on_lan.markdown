@@ -36,6 +36,8 @@ Broadcast address:
   description: The IP address of the host to send the magic packet to.
 Broadcast port:
   description: The port to send the magic packet to.
+Interface IP address:
+  description: The IP address of the network adapter of HA instance to route the magic packet through.
 {% endconfiguration_basic %}
 
 ### Integration services
@@ -62,6 +64,7 @@ Send a _magic packet_ to wake up a device with 'Wake on LAN' capabilities.
 | `mac`                  | no       | MAC address of the device to wake up.                 |
 | `broadcast_address`    | yes      | Optional broadcast IP where to send the magic packet. |
 | `broadcast_port`       | yes      | Optional port where to send the magic packet.         |
+| `if`                   | yes      | Optional HA interface IP address where magic packet is send.         |
 
 Sample action data:
 
@@ -127,6 +130,10 @@ broadcast_port:
   description: The port to send the magic packet to.
   required: false
   type: integer
+if:
+  description: HA interface IP address where magic packet is routed.
+  required: false
+  type: string  
 {% endconfiguration %}
 
 ### Examples
