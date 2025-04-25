@@ -57,7 +57,7 @@ The {% term integration %} adds a lock {% term entity %}, allowing you to lock t
 
 ## Select
 
-The {% term integration %} adds a select {% term entity %} to control Solar Charging options, allowing you to choose between Eco Mode, Full Solar or disable Solar Charging.
+The {% term integration %} adds a select {% term entity %} to control solar charging options, allowing you to choose between **Eco mode**, **Full solar**, or **Disable solar charging**.
 
 ## Switch
 
