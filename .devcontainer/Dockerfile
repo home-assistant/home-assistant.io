@@ -1,4 +1,4 @@
-ARG VARIANT=2
+ARG VARIANT=3
 FROM mcr.microsoft.com/vscode/devcontainers/ruby:${VARIANT}
 
 ARG NODE_VERSION="lts/*"
@@ -16,5 +16,12 @@ RUN \
   apt update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       ack \
+      ruby-dev \
+      gcc \
+      automake \
+      libtool \
+      rubygems \
+      build-essential \
   && echo "en_US UTF-8" > /etc/locale.gen \
-  && locale-gen en_US.UTF-8
+  && locale-gen en_US.UTF-8 \
+  && gem update --system
