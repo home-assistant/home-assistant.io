@@ -24,12 +24,12 @@ The Victron VRM Forecasts integration pulls solar production and consumption for
 - **At least 30 days of data** in VRM before forecasts appear.
 - **VRM access token** (keep this secret!). Create one in the VRM Portal at **Preferences → Integrations → Access tokens** or use [this link](https://vrm.victronenergy.com/access-tokens).
 - **VRM Site ID**: found under **Settings → General** in your site’s VRM Portal page.
-{% hint style="important" %}
+{% important %}
 Your VRM access token grants full access to your VRM portal, including system control and data retrieval. Treat it like a password:
 
 - Do not share it.
 - Rotate it immediately if you suspect compromise.
-{% endhint %}
+{% endimportant %}
 
 ---
 
@@ -39,7 +39,7 @@ Your VRM access token grants full access to your VRM portal, including system co
 
 ## Data updates
 
-The Victron VRM Forecasts fetches fresh data from the VRM API every 60 minutes.
+The Victron VRM Forecasts integration fetches fresh data from the VRM API every 60 minutes.
 
 ## Sensor Entities
 
