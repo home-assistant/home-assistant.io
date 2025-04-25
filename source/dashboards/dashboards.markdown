@@ -61,7 +61,7 @@ Screenshot of the Areas default dashboard.
 
 #### Limitations of the Areas dashboard
 
-1. Not all devices are automatically added to the **Areas** dashboard. Some motion detectors, door/window contact sensors, and BLE/third-party thermometer devices are not added to the dashboard.
+1. Not all devices are automatically added to the **Areas** dashboard {% icon "mdi:house" %} (the first view). Some motion detectors, door/window contact sensors, and BLE/third-party thermometer devices are not added to the {% icon "mdi:house" %} view, but only to the area-specific view.
 2. Certain entity types and helpers are omitted from the **Areas** dashboard. For example, `input_select` and `input_boolean` entities do not appear, even when assigned to an area.
 
 #### Adding an Areas dashboard
