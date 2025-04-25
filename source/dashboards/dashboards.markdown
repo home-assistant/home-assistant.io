@@ -77,7 +77,7 @@ Screenshot of the Areas default dashboard.
 
 #### Troubleshooting: entity is not showing
 
-1. Not all devices or entity types are automatically added to the **Areas** dashboard. Refer to the [Limitations](#limitations) section.
+1. Not all devices or entity types are automatically added to the **Areas** dashboard. Refer to the [Limitations](#limitations-of-the-areas-dashboard) section.
 2. Make sure the entity is [assigned to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items) and check the dashboard again.
 
 ### History dashboard
