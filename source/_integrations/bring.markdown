@@ -13,9 +13,9 @@ ha_domain: bring
 ha_integration_type: service
 ha_platforms:
   - diagnostics
+  - event
   - sensor
   - todo
-  - event
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation
@@ -25,6 +25,7 @@ related:
     title: To-do list card
   - url: https://www.getbring.com/
     title: Bring!
+ha_quality_scale: platinum
 ---
 
 The **Bring!** integration allows you to sync your [Bring!](https://www.getbring.com/) shopping lists with Home Assistant.

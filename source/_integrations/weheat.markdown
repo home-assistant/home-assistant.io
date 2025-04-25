@@ -46,6 +46,7 @@ The Weheat integration provides the following sensors:
 - **Water outlet temperature**: The heat pump water outlet temperature in °C
 - **Water target temperature**: Target for the water temperature in °C
 - **Central heating inlet temperature**: The central heating inlet temperature in °C
+- **Central heating flow** The flow volume of the central heating pump
 - **Outside temperature**: Outside temperature in °C
 - **Current room temperature**: Current room temperature in °C
 - **Room temperature setpoint**: Setpoint for the room temperature in °C
@@ -54,6 +55,7 @@ The Weheat integration provides the following sensors:
 - **State**: The current heat pump state
 - **DHW top temperature**: The domestic hot water temperature in the top of the vessel in °C (optional)
 - **DHW bottom temperature"**: The domestic hot water temperature in the bottom of the vessel in °C (optional)
+- **DHW pump flow**: The flow volume of the DHW pump (optional)
 - **Compressor RPM**: The rpm of the compressor fan.
 - **Compressor percentage**: The percentage of the compressor fan. Can exceed 100% for some models.
 
@@ -67,7 +69,7 @@ Depending on the model/installation, states for the Indoor Unit states are avail
 
 ## Data updates
 
-The integration is {% term polling %} and retrieves data every 30 seconds from the cloud.
+The integration uses {% term polling %} to retrieve data every 120 seconds for a single heat pump. This interval increases proportionally with the number of heat pumps, for example, to 240 seconds for two heat pumps. Additionally, energy data is retrieved from the cloud every 1800 seconds.
 
 ## Actions
 

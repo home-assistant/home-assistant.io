@@ -70,6 +70,8 @@ Some SwitchBot devices need to be configured within the app before being control
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 - [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 - [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
+- [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+- [HubMini Matter](https://www.switch-bot.com/products/switchbot-hub-mini-matter-enabled)(currently only supports retrieving sensor data, does not yet support device control)
 
 ## SwitchBot Entity
 
@@ -127,6 +129,15 @@ The blind tilt is exposed as a cover entity with control of the tilt position on
 | 0%            | Closed Down |
 
 The close button will close the blinds to the closest closed position (either 0% or 100%), and defaults to closing down if the blinds are fully open. Because Home Assistant believes 100% is open, the default cards will disable the open button when the tilt is at 100%, but the action will still work and open the blind to 50%.
+
+## SwitchBot Roller Shade
+
+The Roller Shade is exposed as a cover entity with control of the position only:
+
+| Tilt position | Roller Shade state |
+| ------------- | ------------------ |
+| <=20%         | Open               |
+| >20%          | Close              |
 
 ### Simple cover template entity
 

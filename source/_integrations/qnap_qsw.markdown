@@ -90,3 +90,9 @@ The following *sensors* are created for each port (or LACP):
 | Update              | Description                        |
 | :------------------ | :--------------------------------- |
 | firmware_update     | Firmware update status.            |
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
