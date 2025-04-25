@@ -106,9 +106,9 @@ data:
 
 ## Events
 
-An event entity is created for each configured topic. These entities subscribe to their respective topics and receive notifications from the **ntfy** service in real-time. Each event entity exposes the full contents of the notification — including links, attachments, tags, and other metadata — through its attributes.
+An {% term event %} {% term entity %} is created for each configured topic. These entities subscribe to their respective topics and receive notifications from the **ntfy** service in real-time. Each event entity exposes the full contents of the notification through its attributes. These attributes include links, attachments, tags, and other metadata.
 
-You can use event entities in automations to trigger actions in Home Assistant, or forward notifications to other devices for further processing or alerting.
+You can use {% term event %} {% term entities %} in automations. For example, to trigger actions in Home Assistant, or to forward notifications to other devices for further processing or alerting.
 
 {% details "Example YAML configuration" %}
 
