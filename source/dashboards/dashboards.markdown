@@ -31,7 +31,7 @@ Screenshot of the Dashboard list.
 
 Home Assistant ships with some dashboards out of the box:
 
-- [Areas dashboard (experimental)](#areas-dashboard-experimental)
+- [Areas dashboard (experimental)](#areas-dashboard)
 - Energy dashboard
 - [History dashboard](#history-dashboard)
 - [Logbook dashboard](#logbook-dashboard)
@@ -41,7 +41,7 @@ Home Assistant ships with some dashboards out of the box:
 
 Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Logbook** and **History** dashboards are powered by their respective integrations.
 
-### Areas dashboard (experimental)
+### Areas dashboard
 
 The **Areas** dashboard is prepopulated by default and shows your {% term entities %} [grouped](/docs/organizing/) by [areas](/docs/organizing/areas/).
 
