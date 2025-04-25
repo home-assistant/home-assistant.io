@@ -105,7 +105,7 @@ data:
 
 ### Publish notification
 
-For more customizable notifications, you can use the `ntfy.publish` action instead of `notify.send_message`. With `ntfy.publish`, you can take full advantage of the **ntfy** service's capabilities, including setting a priority, adding links, attachments, tags and emoji, and more.
+For more customizable notifications, use the `ntfy.publish` action instead of `notify.send_message`. With `ntfy.publish`, you can take full advantage of the **ntfy** service's capabilities. These include setting a priority, adding links, attachments, tags, and emojis.
 
 #### Parameters
 
