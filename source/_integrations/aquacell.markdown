@@ -54,6 +54,11 @@ This integration provides {% term sensors %} for the following information from 
 - i-Lid battery level.
 - Wi-Fi signal strength.
 
+It also provides (on a device called "Aquacell Integration") the following:
+
+- How long ago the API was polled.
+- A service (and button) to force poll API now.
+
 ## Use cases
 
 The integration provides sensors to monitor the salt level of the softener. You can use this information to create automations, for example, to notify you when the salt level is low and a refill is needed.
