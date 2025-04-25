@@ -55,11 +55,11 @@ The **Areas** dashboard is prepopulated by default and shows your {% term entiti
 Screenshot of the Areas default dashboard.
 </p>
 
-#### Adding an areas dashboard
+#### Adding an Areas dashboard
 
 - To add the **Areas** dashboard, follow the steps on [adding a dashboard](#creating-a-new-dashboard).
 
-#### Editing the areas dashboard
+#### Editing the Areas dashboard
 
 1. Make sure all the {% term entities %} are [assigned to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items).
 2. After you [added the dashboard](#creating-a-new-dashboard), you can edit the **Areas** dashboard.
@@ -68,9 +68,9 @@ Screenshot of the Areas default dashboard.
 
 The **Areas** dashboard is still experimental. It is subject to change and may not always work as intended.
 
-#### My entity is not showing on the areas dashboard
+#### My entity is not showing on the Areas dashboard
 
-If your {% term entity %} is not displayed on the areas dashboard, it is probably not assigned to an area. [Assign the entity to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items) and check the dashboard again.
+If your {% term entity %} is not displayed on the **Areas** dashboard, it is probably not assigned to an area. [Assign the entity to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items) and check the dashboard again.
 
 ### History dashboard
 
