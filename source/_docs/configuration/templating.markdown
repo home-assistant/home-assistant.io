@@ -63,7 +63,7 @@ Jinja supports a set of language extensions that add new functionality to the la
 To improve the experience of writing Jinja templates, we have enabled the following
 extensions:
 
-- [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+- [Loop Controls](https://jinja.palletsprojects.com/en/stable/extensions/#loop-controls) (`break` and `continue`)
 - [Expression Statement](https://jinja.palletsprojects.com/en/stable/extensions/#expression-statement) (`do`)
 
 ### Reusing templates
@@ -105,7 +105,7 @@ pass the macro into the `as_function` filter to use the returned value:
 
 {% raw %}
 
-```text
+```jinja
 {%- macro macro_is_switch(entity_name, returns) -%}
   {%- do returns(entity_name.startswith('switch.')) -%}
 {%- endmacro -%}
