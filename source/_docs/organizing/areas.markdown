@@ -82,6 +82,11 @@ Follow these steps to edit an area.
 
 Once you have assigned your entities to areas, you can use the [areas dashboard](/dashboards/dashboards/#areas-dashboard). The areas dashboard is a pre-populated dashboard that shows your {% term entities %} grouped by areas.
 
+<p class='img'>
+<img src='/images/dashboards/areas-dashboard-overview.png' alt='Screenshot of the Areas default dashboard'>
+Screenshot of the Areas default dashboard.
+</p>
+
 ## Deleting an area
 
 Follow these steps to delete an area. It will be removed from all the floors it was assigned to. All the devices that were assigned to this area will become unassigned.
