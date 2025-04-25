@@ -1221,6 +1221,45 @@ For a summary in a more readable format:
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@tsvi]: https://github.com/tsvi
 
+## Release 2025.4.4 - April 25
+
+- Meteofrance: adding new states provided by MF API since mid April ([@vingerha] - [#143137])
+- Create Home Connect active and selected program entities only when there are programs ([@Diegorro98] - [#143185])
+- Météo-France: Additional states and change weather condition for "Ciel clair" ([@vingerha] - [#143198])
+- Update setuptools to 78.1.1 ([@cdce8p] - [#143275])
+- Fix licenses check for setuptools ([@cdce8p] - [#143292])
+- Add scan interval and parallel updates to LinkPlay media player ([@silamon] - [#143324])
+- Sync random sensor device classes ([@silamon] - [#143368])
+- Fix Vodafone Station config entry unload ([@chemelli74] - [#143371])
+- Bump aiohomekit to 3.2.14 ([@bdraco] - [#143440])
+- Bump dio-chacon-api to v1.2.2 ([@cnico] - [#143489])
+- Bump pysmartthings to 3.0.5 ([@joostlek] - [#143586])
+
+[#141505]: https://github.com/home-assistant/core/pull/141505
+[#142299]: https://github.com/home-assistant/core/pull/142299
+[#142755]: https://github.com/home-assistant/core/pull/142755
+[#143137]: https://github.com/home-assistant/core/pull/143137
+[#143185]: https://github.com/home-assistant/core/pull/143185
+[#143198]: https://github.com/home-assistant/core/pull/143198
+[#143253]: https://github.com/home-assistant/core/pull/143253
+[#143275]: https://github.com/home-assistant/core/pull/143275
+[#143292]: https://github.com/home-assistant/core/pull/143292
+[#143324]: https://github.com/home-assistant/core/pull/143324
+[#143368]: https://github.com/home-assistant/core/pull/143368
+[#143371]: https://github.com/home-assistant/core/pull/143371
+[#143440]: https://github.com/home-assistant/core/pull/143440
+[#143489]: https://github.com/home-assistant/core/pull/143489
+[#143586]: https://github.com/home-assistant/core/pull/143586
+[@Diegorro98]: https://github.com/Diegorro98
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@chemelli74]: https://github.com/chemelli74
+[@cnico]: https://github.com/cnico
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@silamon]: https://github.com/silamon
+[@vingerha]: https://github.com/vingerha
+
 [#106985]: https://github.com/home-assistant/core/pull/106985
 [#107635]: https://github.com/home-assistant/core/pull/107635
 [#122818]: https://github.com/home-assistant/core/pull/122818
