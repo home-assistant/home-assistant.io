@@ -57,8 +57,8 @@ Screenshot of the Areas default dashboard.
 
 #### Limitations
 
-1. Not all devices are automatically added to the Areas dashboard. Some motion detectors, door/window contact sensors, and BLE/third-party thermometer devices are not added to the dashboard.
-2. Certain entity types and helpers are omitted from the Areas dashboard. For example, `input_select` and `input_boolean` entities do not appear, even when assigned to an area.
+1. Not all devices are automatically added to the **Areas** dashboard. Some motion detectors, door/window contact sensors, and BLE/third-party thermometer devices are not added to the dashboard.
+2. Certain entity types and helpers are omitted from the **Areas** dashboard. For example, `input_select` and `input_boolean` entities do not appear, even when assigned to an area.
 
 #### Adding an Areas dashboard
 
@@ -73,9 +73,9 @@ Screenshot of the Areas default dashboard.
 
 The **Areas** dashboard is still experimental. It is subject to change and may not always work as intended.
 
-#### My entity is not showing
+#### Troubleshooting: entity is not showing
 
-1. Not all devices or entity types are automatically added to the Areas dashboard. Refer to the [Limitations](#limitations) section.
+1. Not all devices or entity types are automatically added to the **Areas** dashboard. Refer to the [Limitations](#limitations) section.
 2. Make sure the entity is [assigned to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items) and check the dashboard again.
 
 ### History dashboard
