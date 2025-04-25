@@ -85,7 +85,6 @@ Topics may not be password-protected, so choose a name that's not easy to guess.
     description: "An alternative name to display instead of the topic name. This helps identify topics with complex or hard-to-read names more easily."
 {% endconfiguration_basic %}
 
-
 ## Notifiers
 
 The **ntfy** integration will add a {% term device %} with an associated notify {% term entity %} for each configured topic. To publish notifications, you can use the `notify.send_message` {% term action %}. To use notifications, please see the [getting started with automation page](/getting-started/automation/).
@@ -110,6 +109,27 @@ data:
 An event entity is created for each configured topic. These entities subscribe to their respective topics and receive notifications from the **ntfy** service in real-time. Each event entity exposes the full contents of the notification — including links, attachments, tags, and other metadata — through its attributes.
 
 You can use event entities in automations to trigger actions in Home Assistant, or forward notifications to other devices for further processing or alerting.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - event.mytopic
+    attribute: priority
+    above: 4
+actions:
+  - action: notify.notify.mobile_app_your_device
+    data:
+      message: "Received new ntfy notification"
+```
+
+{% endraw %}
+
+{% enddetails %}
 
 ## Actions
 
