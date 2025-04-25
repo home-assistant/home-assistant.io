@@ -80,7 +80,7 @@ Follow these steps to edit an area.
 
 ## Using the area dashboard
 
-Once you have assigned your entities to areas, you can use the [areas dashboard](/dashboards/dashboards/#areas-dashboard). The areas dashboard is a pre-populated dashboard that shows your {% term entities %} grouped by areas.
+Once you have assigned your entities to areas, you can use the areas dashboard. The areas dashboard is a pre-populated dashboard that shows your {% term entities %} grouped by areas. To learn how, refer to the documentation on the [areas dashboard](/dashboards/dashboards/#areas-dashboard).
 
 <p class='img'>
 <img src='/images/dashboards/areas-dashboard-overview.png' alt='Screenshot of the Areas default dashboard'>
