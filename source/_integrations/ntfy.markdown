@@ -107,19 +107,19 @@ data:
 
 For more customizable notifications, you can use the `ntfy.publish` action instead of `notify.send_message`. With `ntfy.publish`, you can take full advantage of the **ntfy** service's capabilities — including setting a priority, adding links, attachments, tags and emoji, and more.
 
-| Data attribute | Optional | Description                                                                                  |
-| -------------- | -------- | -------------------------------------------------------------------------------------------- |
-| `title`        | yes      | Title for your notification message.                                                        |
-| `message`      | yes      | Your notification message. |
-| `markdown`     | yes      | Enable Markdown formatting for the message body (Web app only). See the Markdown guide for syntax details: [https://www.markdownguide.org/basic-syntax/](https://www.markdownguide.org/basic-syntax/). |
-| `tags`         | yes      | Add tags or emojis to the notification. Emojis (using shortcodes like `smile`) will appear in the notification title or message. Other tags will be displayed below the notification content. |
-| `priority`     | yes      | All messages have a priority, which defines how urgently your phone notifies you, depending on the configured vibration patterns, notification sounds and visibility in notification drawer or pop-over.|
-| `click`        | yes      | URL that is opened when notification is clicked. |
-| `delay`        | yes      | Set a delay for message delivery. Minimum delay is 10 seconds, maximum is 3 days. |
-| `attach`       | yes      | Attach images or other files by URL. |
-| `email`        | yes      | Specify the address to forward the notification to, for example `mail@example.com` |
-| `call`         | yes      | Phone number to call and read the message out loud using text-to-speech. Requires ntfy Pro and prior phone number verification. |
-| `icon`         | yes      | Include an icon that will appear next to the text of the notification. Only JPEG and PNG images are supported. |
+| Data attribute | Optional | Description                                                                                                                                                                                              |
+| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`        | yes      | Title for your notification message.                                                                                                                                                                     |
+| `message`      | yes      | Your notification message.                                                                                                                                                                               |
+| `markdown`     | yes      | Enable Markdown formatting for the message body (Web app only). See the Markdown guide for syntax details: [https://www.markdownguide.org/basic-syntax/](https://www.markdownguide.org/basic-syntax/).   |
+| `tags`         | yes      | Add tags or emojis to the notification. Emojis (using shortcodes like `smile`) will appear in the notification title or message. Other tags will be displayed below the notification content.            |
+| `priority`     | yes      | All messages have a priority, which defines how urgently your phone notifies you, depending on the configured vibration patterns, notification sounds and visibility in notification drawer or pop-over. |
+| `click`        | yes      | URL that is opened when notification is clicked.                                                                                                                                                         |
+| `delay`        | yes      | Set a delay for message delivery. The minimum delay is 10 seconds, and the maximum delay is 3 days.                                                                                                      |
+| `attach`       | yes      | Attach images or other files by URL.                                                                                                                                                                     |
+| `email`        | yes      | Specify the address to forward the notification to, for example `mail@example.com`.                                                                                                                      |
+| `call`         | yes      | Phone number to call and read the message out loud using text-to-speech. Requires ntfy Pro and prior phone number verification.                                                                          |
+| `icon`         | yes      | Include an icon that will appear next to the text of the notification. Only JPEG and PNG images are supported.                                                                                           |
 
 {% details "Example YAML configuration" %}
 
@@ -133,7 +133,7 @@ data:
   priority: "5"
   click: "https://homeassistant.local"
   tags:
-  - rotating_light
+    - rotating_light
 target:
   entity_id: notify.mytopic
 
@@ -145,7 +145,7 @@ target:
 
 {% tip %}
 
-Check out the [emoji reference](https://docs.ntfy.sh/emojis/) for a full list of supported emoji short codes.
+Check out the [emoji reference](https://docs.ntfy.sh/emojis/) for a full list of supported emoji shortcodes.
 
 {% endtip %}
 
