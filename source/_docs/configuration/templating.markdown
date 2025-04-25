@@ -1379,6 +1379,8 @@ Some examples:
 
 Home Assistant provides two additional functions that make macros much more powerful.
 
+{% raw %}
+
 - `apply` is both a filter and a test that allows you to use any callable (macros or functions) wherever
 you can use other filters and tests.  `apply` also passes along any additional parameters to the function.
 For example, if you had a function called `double`, you could call
@@ -1390,6 +1392,8 @@ then call `{%- do returns(return_value) -%}`.  After passing this macro into `as
 function returns your return value directly, preserving the underlying data type rather than rendering
 a string.  You can return dictionaries, numbers, `True`/`False` (allowing you to write your own tests when
 used with `apply`), or any other value your code might produce.
+
+{% endraw %}
 
 ## Merge action responses
 
