@@ -144,7 +144,7 @@ target:
 
 {% note %}
 
-All parameters are optional. If `message` is left empty, the notification will use the default text: `triggered`. If `priority` is not specified the default priority (3) will be used.
+All parameters are optional. If `message` is left empty, the notification will use the default text: `triggered`. If `priority` is not specified, the default priority (3) will be used.
 
 {% endnote %}
 
