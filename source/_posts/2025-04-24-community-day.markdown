@@ -57,7 +57,8 @@ Using Luma, [create an account](https://lu.ma/signin), and navigate to our [Home
 ✅ **Date** = Saturday, May 24\
 ✅ **Time** = your choosing! (4 hours max)\
 ✅ **Add Event Location** = your city (or venue once you have one)\
-✅ **Capacity** = 50 max (less if the venue is smaller), and toggle the Waitlist on
+✅ **Capacity** = 50 max (less if the venue is smaller), and toggle the Waitlist on\
+✅ **Hosts** = Add me (Missy Quarry - missy.quarry@openhomefoundation.org) as a host of the event so I can make sure it appears in the main event calendar
 
 Click **Create Event** once you've followed that checklist, then come let everyone know in the Home Assistant Community Day [meetup thread on Discord](https://discord.com/channels/330944238910963714/1364989531069091920) or the [Social section of the Community forum](https://community.home-assistant.io/c/social/)! 🎉
 
