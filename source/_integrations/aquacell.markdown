@@ -54,10 +54,10 @@ This integration provides {% term sensors %} for the following information from 
 - i-Lid battery level.
 - Wi-Fi signal strength.
 
-It also provides (on a device called "Aquacell Integration") the following:
+It also provides the following, on a device called "Aquacell Integration":
 
 - How long ago the API was polled.
-- A service (and button) to force poll API now.
+- A service (and button) to poll the cloud API now.
 
 ## Use cases
 
