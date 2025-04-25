@@ -80,7 +80,7 @@ For example, you might define a macro in a template in `config/custom_templates/
 
 {% raw %}
 
-```text
+```jinja
 {% macro format_entity(entity_id) %}
 {{ state_attr(entity_id, 'friendly_name') }} - {{ states(entity_id) }}
 {% endmacro %}
@@ -92,7 +92,7 @@ In your automations, you could then reuse this macro by importing it:
 
 {% raw %}
 
-```text
+```jinja
 {% from 'formatter.jinja' import format_entity %}
 {{ format_entity('sensor.temperature') }}
 ```
