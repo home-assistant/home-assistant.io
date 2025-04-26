@@ -276,10 +276,11 @@ When adding multiple remote adapters to increase range or available connection s
 
 For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/index.html).
 
-> **Note:**  
-> - The `-EA` variant offers significantly better RF performance compared to the standard non-`EA` model.  
-> - If the `ESP32-POE-ISO-EA` is out of stock, the `ESP32-POE-ISO-EA-IND` is a good alternative.  
-> - The `ESP32-POE-ISO-WROVER-EA` model is **not recommended**, as it uses a different pin configuration and is not compatible with ESPHome ready-made projects.
+{% tip %}
+- The `-EA` variant offers significantly better RF performance compared to the standard non-`EA` model.  
+- If the `ESP32-POE-ISO-EA` is out of stock, the `ESP32-POE-ISO-EA-IND` is a good alternative.  
+- The `ESP32-POE-ISO-WROVER-EA` model is **not recommended**, as it uses a different pin configuration and is not compatible with ESPHome ready-made projects.
+{% endtip %}
 
 The following remote adapters are supported:
 
