@@ -262,10 +262,10 @@ the specified coordinates.
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific robot.
   - **Optional**: No.
-- **Data attribute**: `x_coord`
+- **Data attribute**: `x`
   - **Description**: X-coordinate, integer value. The dock is located at x-coordinate 25500.
   - **Optional**: No.
-- **Data attribute**: `y_coord`
+- **Data attribute**: `y`
   - **Description**: Y-coordinate, integer value. The dock is located at y-coordinate 25500.
   - **Optional**: No.
 
