@@ -164,9 +164,11 @@ Supported nusachim are: Ashkenaz, Sfarad, Adot Mizrah and Italian.
 action: jewish_calendar.count_omer
 data:
   nusach: sfarad
-  language: en
-  after_sunset: true
-  date: "2025-05-20"
+   data:
+     nusach: sfarad
+     date: "2025-05-20"       # optional; defaults to today
+     language: en             # optional; defaults to Hebrew
+     after_sunset: true       # optional; defaults to true
 ```
 
 Will return the following:
@@ -186,4 +188,11 @@ data:
   nusach: sfarad
 ```
 
-Will return the current text in Hebrew based on the current Hebrew date (taking into consideration the current time w.r.t. sunset)
+Will return the current text in Hebrew based on the Hebrew date, considering the current time relative to sunset.
+
+```yaml
+message: היום ארבעה עשר יום שהם שני שבועות לעומר
+weeks: 2
+days: 0
+total_days: 14
+```
