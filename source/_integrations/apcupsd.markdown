@@ -31,19 +31,27 @@ ha_integration_type: integration
 2. Configure apcupsd for network access.
 
     - Open the `apcupsd.conf` file (usually found in `/etc/apcupsd/`) and make sure it’s set to listen for network connections.  
-    - Look for the line: `NISIP 0.0.0.0`.
-    - This setting allows it to accept connections on all network interfaces.  
-    - If you prefer, you can set this to a specific IP address that Home Assistant can reach.
+    - Look for the line: `NISIP 0.0.0.0` and `NISPORT 3551`.
+    - This setting allows it to accept connections on all network interfaces on port 3551.  
+    - If you prefer, you can set this to a specific IP address and port that Home Assistant can reach.
 
 3. Start the apcupsd service.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+    description: "The IP address of the APC UPS Daemon configured above."
+Port:
+    description: "The port of the APC UPS Daemon configured above."
+{% endconfiguration_basic %}
 
 {% note %}
 
 If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, it means that Home Assistant is not able to connect to the daemon. Please check if the `NISIP` is properly configured.
 
 {% endnote %}
+
 
 
 ## Binary sensor
