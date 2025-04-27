@@ -142,7 +142,7 @@ Climate entities are used to control target temperatures in refrigerators, freez
 
 {% details "List of switch entities" %}
 
-- **Power**: The Power switch has slightly different characteristics depending on the appliance model. For some devices it works more or less as a traditional power switch while it behaves like a wake-up/sleep toggle on others. The availability of the switch is controlled by the API depending on the operational state of the appliance.
+- **Power**: The Power switch has slightly different characteristics depending on the appliance model. For some devices, it works more or less as a traditional power switch, while it behaves like a wake-up/sleep toggle on others. The availability of the switch is controlled by the API, depending on the operational state of the appliance.
 - **Supercooling**: The switch controls Supercooling mode for refrigerators.
 - **Superfreezing**: The switch controls Superfreezing mode for freezers.
 {% enddetails %}
