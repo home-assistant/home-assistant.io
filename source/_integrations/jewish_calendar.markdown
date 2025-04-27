@@ -177,7 +177,7 @@ weeks: 5
 days: 2
 total_days: 37
 ```
-#### Minimal  call
+#### Minimal call
 ```yaml
 action: jewish_calendar.count_omer
 data:
