@@ -57,3 +57,7 @@ The {% term integration %} adds a lock {% term entity %}, allowing you to lock t
 ## Switch
 
 The {% term integration %} adds a switch {% term entity %}, allowing you to pause/resume the charging process.
+
+## Update
+
+The {% term integration %} adds an update {% term entity %}, allowing you to update the firmware of your Wallbox charging station.
