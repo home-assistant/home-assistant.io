@@ -151,7 +151,7 @@ The `jewish_calendar.count_omer` action returns the phrase for counting the Omer
 | Data attribute | Optional | Description                              |
 | -------------- | -------- | ---------------------------------------- |
 | `date`         | yes    | Date for which to get the Omer blessing. Defaults to today. |
-| `after_sunset` | yes  | If true and a date is provided, calculates the Omer count based on the Hebrew date which starts after sunset. Ignored if no date is specified. Defaults to True |
+| `after_sunset` | yes  | If true and a date is provided, calculates the Omer count based on the Hebrew date, which starts after sunset. Ignored if no date is specified. Defaults to true. |
 | `nusach`       | no     | Nusach (tradition) of the Omer blessing. |
 | `language`     | yes    | Language to return. Defaults to Hebrew. |
 
