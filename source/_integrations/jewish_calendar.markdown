@@ -164,11 +164,9 @@ Supported nusachim are: Ashkenaz, Sfarad, Adot Mizrah and Italian.
 action: jewish_calendar.count_omer
 data:
   nusach: sfarad
-   data:
-     nusach: sfarad
-     date: "2025-05-20"       # optional; defaults to today
-     language: en             # optional; defaults to Hebrew
-     after_sunset: true       # optional; defaults to true
+  date: "2025-05-20"       # optional; defaults to today
+  language: en             # optional; defaults to Hebrew
+  after_sunset: true       # optional; defaults to true
 ```
 
 Will return the following:
