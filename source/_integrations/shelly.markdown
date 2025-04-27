@@ -92,7 +92,13 @@ Integration is communicating directly with the device; cloud connection is not n
 
 ## Bluetooth Support
 
-Shelly generation 2+ devices that are not battery-powered can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
+Shelly Gen 2 and newer devices (excluding battery-powered models) can act as Bluetooth proxies, forwarding advertisement data. You can enable either active or passive listening through the device’s options flow.
+
+{% tip %}
+Shelly devices do **not** support proxying active (GATT) connections.
+{% endtip %}
+
+For more details, see [Remote Adapters](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
 
 {% include integrations/option_flow.md %}
 

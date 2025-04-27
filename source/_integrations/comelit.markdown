@@ -34,10 +34,10 @@ The integration provides information on connected devices and enables control of
 
 ## Supported devices
 
-There is support for the following platform types within Home Assistant:
+There is support for the following devices within Home Assistant:
 
-- **Comelit Serial Bridge** - allows local control for light, cover, irrigation, climate, humidifier/dehumidifier and "other" devices; creates power sensors.
-- **Comelit VEDO System** - allows local control of the alarm system.
+- **Comelit Serial Bridge**
+- **Comelit VEDO System**
 
 {% include integrations/config_flow.md %}
 
@@ -106,9 +106,21 @@ This integration {% term polling polls %} data from the device every 5 seconds b
 
 The **Comelit SimpleHome** {% term integration %} provides the following entities:
 
-### Alarm control panel
+### Comelit Serial Bridge
 
-The integration will create an alarm entity for each area. Additionally, it will create a sensor and a presence detection binary sensor for each zone, enhancing monitoring capabilities.
+- Climate
+- Cover
+- Dehumidifier
+- Humidifier
+- Light
+- Sensor - power consumption
+- Switch - irrigation and sockets (other)
+
+### Comelit VEDO System
+
+- Alarm control panel - per area
+- Binary sensor - per zone presence detection
+- Sensor - per zone status
 
 ## Troubleshooting
 
