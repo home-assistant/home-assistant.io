@@ -165,7 +165,7 @@ action: jewish_calendar.count_omer
 data:
   nusach: sfarad
   language: en
-  is_after_sunset: true
+  after_sunset: true
   date: "2025-05-20"
 ```
 
