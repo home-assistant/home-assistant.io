@@ -91,7 +91,7 @@ The integration configuration may ask for the *Client ID* and *Client Secret* cr
 
 {% details "List of button entities" %}
 
-Button entities are used to control program progress in washing machines, dryers, dishwashers, robot vacuum cleaners, and others.  The exact response to pressing a button can vary slightly between product models, but the result is usually intuitive. The API enables and disables the buttons according to the actual state of the appliance. Most appliances will require you to manually activate mobile start or remote control mode.
+Button entities are used to control program progress in washing machines, dryers, dishwashers, robot vacuum cleaners, and others. The exact response to pressing a button can vary slightly between product models, but the result is usually intuitive. The API enables and disables the buttons according to the actual state of the appliance. Most appliances require you to manually activate mobile start or remote control mode.
 
 - **Start**: Starts or resumes a program.
 - **Pause**: Pauses a program.
