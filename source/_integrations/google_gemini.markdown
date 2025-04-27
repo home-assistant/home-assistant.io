@@ -1,5 +1,5 @@
 ---
-title: Gemini
+title: Google Gemini
 description: Instructions on how to integrate Google Gemini as a conversation agent
 ha_category:
   - Voice
@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@tronikos'
   - '@ivanlh'
-ha_domain: gemini
+ha_domain: google_gemini
 ha_integration_type: virtual
 ha_platforms:
   - conversation
