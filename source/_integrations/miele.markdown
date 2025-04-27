@@ -4,7 +4,9 @@ description: Instructions on how to set up the Miele integration within Home Ass
 ha_category:
   - Button
   - Climate
+  - Binary sensor
   - Hub
+  - Light
   - Sensor
 ha_iot_class: Cloud Push
 ha_release: '2025.5'
@@ -15,14 +17,16 @@ ha_config_flow: true
 ha_platforms:
   - button
   - climate
+  - binary_sensor
   - diagnostics
+  - light
   - sensor
 ha_integration_type: integration
 ---
 
 The Miele {% term integrations %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
 
-Miele is known as a manufacturer of premium appliances for cooking, laundry care, and floorcare.
+Miele is known as a manufacturer of premium appliances for cooking, laundry care, and floor care.
 
 ## Use cases
 
@@ -78,7 +82,7 @@ The integration configuration may ask for the *Client ID* and *Client Secret* cr
 
 {% note %}
 
-- The entities' availability depends on the appliance type and the generation of the product, and the appliance might not support all the entities for its type.
+- The entities' availability depends on the appliance type and the generation of the product, and the appliance might not support all the entities for its type. Please refer to the product manual for details on implementation of specific functions.
 - Products from professional and semi-professional series are generally not supported due to the limitations in the Miele 3rd party API.
 - Some appliances don't report data while they are turned off, so corresponding entities will not appear in the Miele integration after loading until the appliances are turned on.
 {% endnote %}
@@ -100,6 +104,18 @@ Button entities are used to control program progress in washing machines, dryers
 {% details "List of climate entities" %}
 
 Climate entities are used to control target temperatures in refrigerators, freezers, and wine cabinets. One, two, or three zones can be controlled depending on the capabilities of the appliance.
+
+### Binary sensor
+
+{% details "List of binary sensors" %}
+
+- **Operation state**:
+  - **Door**: Shows if the door on the appliance is open or closed.
+  - **Full remote control**: Shows the state of Full remote control feature on appliances that supports it.
+  - **Mobile start**: Shows the state of Mobile start feature on appliances that supports it.
+  - **Notification active**: Shows if there is a notification message active on the appliance. The API does not supply any information on the details of the notifications.
+  - **Problem**: Shows if there is an error message active on the appliance. The API does not supply any information on the details of the error.
+  - **Smart grid**: Shows the state of Smart grid feature on appliances that supports it.
 {% enddetails %}
 
 ### Sensor
@@ -109,6 +125,14 @@ Climate entities are used to control target temperatures in refrigerators, freez
 - **Operation state**:
   - **Status**: Represents the current operation state of the device. The default entity name is just the appliance type. For example, "Dishwasher".
   - **Temperature**: Represents the current temperature in refrigerators, freezers, and ovens. Entities are created for up to 3 zones depending on the device capabilities.
+{% enddetails %}
+
+### Light
+
+{% details "List of light entities" %}
+
+- **Light**: The light can be turned on and off in many models of ovens, cooker hoods, and wine cabinets.
+- **Ambient light**: Some models of cooker hoods have ambient light that can be turned on and off. 
 {% enddetails %}
 
 ## Automation examples
