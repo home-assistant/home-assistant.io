@@ -183,5 +183,5 @@ action: jewish_calendar.count_omer
 data:
   nusach: sfarad
 ```
-Will return the current text in Hebrew based on current Hebrew date (before/after  sunset)
+Will return the current text in Hebrew based on the current Hebrew date (taking into consideration the current time w.r.t. sunset)
 
