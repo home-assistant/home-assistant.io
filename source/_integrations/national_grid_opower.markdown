@@ -1,11 +1,11 @@
 ---
-title: National Grid
+title: National Grid - Opower
 description: Get energy usage from National Grid using the Opower integration
 ha_category:
   - Energy
   - Sensor
 ha_release: 2025.5
-ha_domain: national_grid
+ha_domain: national_grid_opower
 ha_integration_type: virtual
 ha_supporting_domain: opower
 ha_supporting_integration: Opower
