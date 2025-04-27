@@ -81,15 +81,14 @@ The tutorial is using OpenAI, but this could also be done with the Google Genera
 
 ### Generate content
 
-{% tip %}
-This action isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` action.
-{% endtip %}
-
 Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally attachments (images, PDFs, etc.).
 This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the generated content.
 
+This action uses the Gemini model and configuration options from the selected config entry.  It will **not** use the prompt or tool settings; those are only supported in conversations (eg, via the `conversation.process` action).
+
 | Data attribute | Optional | Description                                     | Example             |
 | ---------------------- | -------- | ----------------------------------------------- | ------------------- |
+| `config_entry`         | no       | The integration instance to use.                |                     |
 | `prompt`               | no       | The prompt for generating the content.          | Describe this image |
 | `filenames`            | yes      | File names for attachments to include in the prompt. | /tmp/image.jpg      |
 
