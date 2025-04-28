@@ -339,7 +339,7 @@ cover:
     type: boolean
     default: false
   tilt:
-    description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).  If the template produces a `None` value the current tilt state will be set to `unknown`.
+    description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).  If the template produces a `None` value, the current tilt state will be set to `unknown`.
     required: false
     type: template
 image:
