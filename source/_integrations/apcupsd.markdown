@@ -130,6 +130,10 @@ Some sensors are disabled by default, since they provide information that is onl
 - UPS Transfer from Battery (XOFFBATT)
 - UPS Transfer to Battery (XONBATT)
 
+## Data updates
+
+The integration will poll your APC UPS Daemon every minute to update the data in Home Assistant.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
