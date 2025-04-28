@@ -51,6 +51,7 @@ Vehicles delivered in 2024 and later will require a [virtual key](https://teslem
 ## Entities
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
+Entities in the device tracker platform specifically require the `Vehicle location` scope, and will appear unavailable otherwise. 
 
 ### Vehicles
 
