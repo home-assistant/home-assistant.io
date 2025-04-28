@@ -64,6 +64,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|BMS full charge|No|
 |Binary sensor|Brake pedal|No|
 |Binary sensor|Cabin overheat protection actively cooling|No|
+|Binary sensor|Cellular|Yes|
 |Binary sensor|Charge cable|Yes|
 |Binary sensor|Charge enable request|No|
 |Binary sensor|Charge port cold weather mode|No|
@@ -114,6 +115,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
+|Binary sensor|Wi-Fi|Yes|
 |Binary sensor|Wiper heat|No|
 |Button|Flash lights|Yes|
 |Button|HomeLink|Yes|
