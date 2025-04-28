@@ -171,6 +171,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Scheduled charging mode|No|
 |Sensor|Scheduled charging start time|No|
 |Sensor|Scheduled departure time|No|
+|Sensor|Sentry mode|Yes|
 |Sensor|Shift state|No|
 |Sensor|Speed|No|
 |Sensor|State of charge at arrival|No|
