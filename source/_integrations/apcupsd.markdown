@@ -132,7 +132,7 @@ Some sensors are disabled by default, since they provide information that is onl
 
 ## Data updates
 
-The integration will fetch data from your APC UPS Daemon every 60 seconds by default.
+The integration {% term polling polls %} data from your APC UPS Daemon every 60 seconds by default.
 
 ## Removing the integration
 
