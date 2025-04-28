@@ -12,10 +12,10 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-This integration allows you to use S3 bucket with Home Assistant Backups.
+The **S3** {% term integrations %} allows you to use S3 bucket with Home Assistant Backups.
 
 [AWS S3](https://aws.amazon.com/s3/) is the most widely known service with S3 API.
-Any S3-compatible service (e.g. [Minio](https://github.com/minio/minio)) should work with this integration as well.
+Any S3-compatible service (for example, [Minio](https://github.com/minio/minio)) should work with this integration as well.
 
 {% include integrations/config_flow.md %}
 
