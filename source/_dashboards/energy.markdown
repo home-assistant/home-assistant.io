@@ -263,12 +263,12 @@ layout:
   type: string
 group_by_area:
   required: false
-  description: Wether to group the devices by area
+  description: Whether to group the devices by area
   type: boolean
   default: true
 group_by_floor:
   required: false
-  description: Wether to group the devices by floor
+  description: Whether to group the devices by floor
   type: boolean
   default: true
 {% endconfiguration %}
