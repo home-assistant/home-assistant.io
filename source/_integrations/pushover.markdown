@@ -44,7 +44,7 @@ For further details on these parameters, please reference the [Pushover API docu
 <!-- textlint-disable terminology -->
 
 ```yaml
-  - action: notify.pushover
+  - service: notify.pushover
     data:
       message: This is the message
       title: Title of message
@@ -64,7 +64,7 @@ In the example above, the message includes a URL, a title for the URL, and an at
 To send a message to multiple devices, set them using `target`. These devices must be pre-defined in your [Pushover dashboard](https://pushover.net/dashboard). If one of the entered devices doesn't exist or is disabled in your Pushover account, Pushover will send the message to all your devices. To send to all devices, just leave the target attribute blank.
 
 ```yaml
-  - action: notify.pushover
+  - service: notify.pushover
     data:
       message: This is the message
       title: Title of message
@@ -84,7 +84,7 @@ Using the `ttl` parameter, messages may be set to delete automatically after a c
 Also note that in this example the sound parameter is not explicitly set, in which case Pushover will use the default `pushover` sound for the message.
 
 ```yaml
-  - action: notify.pushover
+  - service: notify.pushover
     data:
       message: "Flight AS23 Arrives at 6:30 PM"
       title: "Pick up John at the Airport"
@@ -102,7 +102,7 @@ Messages may also be sent with various [priority levels](https://pushover.net/ap
 The highest priority is the Emergency Priority (2), which will repeat the notification every x seconds (`retry`) for the duration of y seconds (`expire`). You MUST specify these parameters. The minimal time for the `retry` parameter is 30 seconds. The `expire` parameter has a maximum of 10800 seconds (3 hours). If you target more than one device, you may prefer to enable "Notification dismissal sync" under Advanced Settings in the app so that you can dismiss the alert on all devices simultaneously. Note that the `ttl` parameter cannot be used when priority is set to 2.  
 
 ```yaml
-- action: notify.pushover
+- service: notify.pushover
   data:
     message: "This is the message"
     title: "Title of message"
@@ -122,7 +122,7 @@ By including the `html: 1` data parameter and applying [Automation Templating](/
 
 ```yaml
 # Example - HTML formatting with Automation Templating
-- action: notify.pushover
+- service: notify.pushover
   metadata: {}
   data:
     title: Daily Weather Update
@@ -195,7 +195,7 @@ alexa:
   intents:
     LocateIntent:
       action:
-        action: notify.pushover
+        service: notify.pushover
         data:
           message: "The location of {{ User }} has been queried via Alexa."
           title: "Home Assistant"
