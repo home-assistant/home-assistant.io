@@ -141,6 +141,10 @@ Some sensors are disabled by default, since they provide information that is onl
 
 The integration {% term polling polls %} data from your APC UPS Daemon every 60 seconds by default.
 
+## Known limitations
+
+This integration does not provide the ability to control the UPSes such as running self-test, which can instead be done via `apctest` command thet [apcupsd](http://www.apcupsd.org/) provides.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
