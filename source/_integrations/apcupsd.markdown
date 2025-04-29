@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[apcupsd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) is configured on the APC device.
+The APC UPS Daemon {% term integration %} is used to integrate with UPS devices from [APC](www.apc.com) when the Network Information Server ([apcupsd](http://www.apcupsd.org/)) is configured on the APC devices. Use case: When the Notify integration is set up in Home Assistant, you can send notifications if the UPS switches to battery power, the battery level drops low, or simply to track the UPS load.
 
 ## Prerequisites
 
