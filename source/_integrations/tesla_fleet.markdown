@@ -54,16 +54,6 @@ You must have:
 
 {% include integrations/config_flow.md %}
 
-{% details "Vehicle data polling interval" %}
-
-The integration is configured to poll each vehicle every 10 minutes while its awake.
-This is long enough that a single vehicle can be polled 24/7 without exceeding the USD$10 credit Tesla provides.
-It is expected that most vehicles are asleep over 50% of the day, so the defaults should also suit users with multiple vehicles or that want to run automated commands.
-
-If the default polling interval does not suit your needs, you can [define a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval).
-
-{% enddetails %}
-
 {% details "Hosting a Public/Private Key Pair" %}
 
 While the [Tesla Fleet API documentation Step 3](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-3-generate-a-public-private-key-pair) mentions this as a later step, it is recommended that you do this first to ensure key reachability before the rest of the integration.
@@ -167,6 +157,14 @@ The following steps involve sensitive credentials. Never share your `Client Secr
 7. You're all set! The integration should fetch your device details into Home Assistant.
 
 {% enddetails %}
+
+## Vehicle data polling interval
+
+The integration is configured to poll each vehicle every 10 minutes while its awake.
+This is long enough that a single vehicle can be polled 24/7 without exceeding the USD$10 credit Tesla provides.
+It is expected that most vehicles are asleep over 50% of the day, so the defaults should also suit users with multiple vehicles or that want to run automated commands.
+
+If the default polling interval does not suit your needs, you can [define a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval).
 
 ## Scopes
 
