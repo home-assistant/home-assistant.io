@@ -20,25 +20,28 @@ The [Pushover service](https://pushover.net/) is an integration for the notify p
 
 ## Pushover API Parameters
 
+<!-- textlint-disable terminology -->
 | Field       | Type     | Required | Description                                                                            |
 |-------------|----------|----------|----------------------------------------------------------------------------------------|
-| message     | string   | yes      | Body of the message (max 1024 characters).                                        |
-| title       | string   | no       | Title of the message.                                                             |
+| message     | string   | yes      | Body of the message (max 1024 characters).                                             |
+| title       | string   | no       | Title of the message.                                                                  |
 | target      | string   | no       | List of Pushover devices to receive message.                                           |
 | url         | string   | no       | URL to show as a clickable link.                                                       |
 | url_title   | string   | no       | Text to display for the link.                                                          |
-| sound       | string   | no       | Name of the Pushover sound to play (defaults to “pushover”).                           |
+| sound       | string   | no       | Name of the Pushover sound to play (defaults to `pushover`).                           |
 | attachment  | string   | no       | Local file path for an attachment (e.g., `/tmp/image.png`).                            |
 | priority    | integer  | no       | Priority level (-2 to 2).                                                              |
 | ttl         | integer  | no       | Time-to-live in seconds (auto-deletes the message after this period).                  |
-| retry       | integer  | no       | Retry interval in seconds for priority 2 messages (minimum 30 seconds).           |
+| retry       | integer  | no       | Retry interval in seconds for priority 2 messages (minimum 30 seconds).                |
 | expire      | integer  | no       | Expiration period in seconds for priority 2 (maximum 10800 seconds).                   |
 | html        | boolean  | no       | Set to 1 to enable HTML formatting.                                                    |
+<!-- textlint-enable terminology -->
 
-For further details on these parameters, please reference the [Pushover API documentation](https://pushover.net/api). 
-
+For further details on these parameters, please reference the [Pushover API documentation](https://pushover.net/api).
 
 ## Example Automation Action
+
+<!-- textlint-disable terminology -->
 
 ```yaml
   - action: notify.pushover
@@ -52,7 +55,9 @@ For further details on these parameters, please reference the [Pushover API docu
         sound: pianobar
         attachment: "local/image.png"
 ```
-In the example above, the message includes a url, a title for the URL, and an attachment, which must be a local file reference (ex: `/tmp/image.png`). These are all optional parameters. The only required parameter is the message itself. 
+<!-- textlint-enable terminology -->
+
+In the example above, the message includes a URL, a title for the URL, and an attachment, which must be a local file reference (ex: `/tmp/image.png`). These are all optional parameters. The only required parameter is the message itself.
 
 ## Sending Messages to Multiple Devices
 
@@ -74,9 +79,9 @@ _**Note**: Home Assistant's "Create Automation" UI creates a single target line,
 
 ## Auto-Deleting Messages
 
-Using the `ttl` parameter, messages may be set to delete automatically after a certain period of time, which can be useful for messages that at some point outlive their usefulness. The `ttl` parameter specifies a Time to Live in seconds. In the following example, the message will self-delete from the targeted device(s) after 6 hours. 
+Using the `ttl` parameter, messages may be set to delete automatically after a certain period of time, which can be useful for messages that at some point outlive their usefulness. The `ttl` parameter specifies a Time to Live in seconds. In the following example, the message will self-delete from the targeted device(s) after 6 hours.
 
-Also note that in this example the sound parameter is not explicitly set, in which case Pushover will use the default `pushover` sound for the message.  
+Also note that in this example the sound parameter is not explicitly set, in which case Pushover will use the default `pushover` sound for the message.
 
 ```yaml
   - action: notify.pushover
@@ -111,7 +116,7 @@ The highest priority is the Emergency Priority (2), which will repeat the notifi
 
 ## Dynamic Messaging with HTML Formatting & Automation Templating
 
-By including the `html: 1` data parameter and applying [Automation Templating](/getting-started/automation-templating/), you can create dynamic, html-formatted messages (up to the 1024 character limit), as in this example.
+By including the `html: 1` data parameter and applying [Automation Templating](/getting-started/automation-templating/), you can create dynamic, html-formatted messages (up to the 1024-character limit), as in this example.
 
 {% raw %}
 
@@ -177,10 +182,11 @@ Which looks like this upon receipt:
     width="300"><br>
 </p>
 
-## Voice Integration
+# Voice Integration
 
 In the following example, the message is triggered from the Alexa integration using `intents`. This example also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
+<!-- textlint-disable terminology -->
 {% raw %}
 
 ```yaml
@@ -199,7 +205,6 @@ alexa:
             url: "https://www.home-assistant.io/"
             attachment: "/tmp/image.png"
 ```
-
 {% endraw %}
+<!-- textlint-enable terminology -->
 
-  
