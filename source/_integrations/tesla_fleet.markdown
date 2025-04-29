@@ -160,7 +160,7 @@ The following steps involve sensitive credentials. Never share your `Client Secr
 
 ## Vehicle data polling interval
 
-The integration is configured to poll each vehicle every 10 minutes while its awake.
+The integration is configured to {% term polling poll %} each vehicle every 10 minutes while it's awake.
 This is long enough that a single vehicle can be polled 24/7 without exceeding the USD$10 credit Tesla provides.
 It is expected that most vehicles are asleep over 50% of the day, so the defaults should also suit users with multiple vehicles or that want to run automated commands.
 
