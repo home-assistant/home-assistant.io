@@ -50,7 +50,7 @@ You must have:
   - [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
   - [Cloudflare Pages](https://pages.cloudflare.com/)
   - [Firebase Hosting](https://firebase.google.com/docs/hosting)
-  
+
 
 {% include integrations/config_flow.md %}
 
@@ -102,7 +102,7 @@ The following steps involve sensitive credentials. Never share your `Client Secr
 1. Get your OAuth details by going to your [Developer dashboard](https://developer.tesla.com/en_US/dashboard). Under the app you set up for Home Assistant integration select **View Details**. Then, select the **Credentials & APIs** tab. Note the `Client ID` and `Client Secret` strings.
 
 2. Run this CURL request, replacing the variable values as specified in the notes below:
-  
+
    ```shell
    CLIENT_ID=REPLACE_THIS_WITH_YOUR_CLIENT_ID
    CLIENT_SECRET=REPLACE_THIS_WITH_YOUR_CLIENT_SECRET
@@ -116,20 +116,20 @@ The following steps involve sensitive credentials. Never share your `Client Secr
      --data-urlencode "audience=$AUDIENCE" \
      'https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/token'
    ```
-  
+
    Notes about the variable values:
    - For the `CLIENT_SECRET` value, depending on your terminal environment, you may need to escape any `!` and `$` characters in the string, or the curl request will fail.
    - Replace the `AUDIENCE` value with your region-specific URL. The URL in the example is for users in North America and Asia-Pacific (excluding China). Refer to the [Base URLs documentation](https://developer.tesla.com/docs/fleet-api/getting-started/base-urls) for the URLs for other regions.
    - For the `scope=...` line, replace the values with a space-delimited list of [the official scope keywords](https://developer.tesla.com/docs/fleet-api/authentication/overview#scopes), as you defined them earlier in your app.
 3. The CURL request should return a response that looks something like:
-  
+
    ```json
    {"access_token":"ACCESS_TOKEN","expires_in":28800,"token_type":"Bearer"}
    ```
-  
+
    This is your access token. Copy everything between the double-quotes to be used next.
 4. Run this CURL request, replacing the variable values as specified in the notes below:
-  
+
    ```shell
    curl --location 'https://fleet-api.prd.na.vn.cloud.tesla.com/api/1/partner_accounts' \
    --header 'Content-Type: application/json' \
@@ -138,7 +138,7 @@ The following steps involve sensitive credentials. Never share your `Client Secr
        "domain": "my.domain.com"
    }'
    ```
-  
+
    - If you had to change the `AUDIENCE` URL for your region in step 2, update the main domain of the `--location` arg.
    - Replace `ACCESS_TOKEN` with the access token that you copied in the previous step.
    - In the `domain:` line, enter your domain without the leading `https://` and the trailing `/`.
@@ -336,14 +336,6 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 ## Vehicle sleep
 
 Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` service to force polling the API, which will reset the timer.
-
-## Energy dashboard
-
-The Tesla Fleet API only provides power data for Powerwall and Solar products. This means they cannot be used on the energy dashboard directly.
-
-Energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
-The `Load power`, `Solar power`, and the templated sensors can then use a [Riemann Sum](/integrations/integration/) to convert their instant power (kW) values into cumulative energy values (kWh),
-which then can be used within the energy dashboard.
 
 ## Troubleshooting
 
