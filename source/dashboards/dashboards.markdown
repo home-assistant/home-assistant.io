@@ -62,7 +62,7 @@ Screenshot of the Areas default dashboard.
 #### Limitations of the Areas dashboard
 
 1. Not all devices are added to the **Areas** dashboard. Only a few sensors are displayed automatically. Such as temperature and humidity of the area, and door, window, and gate binary sensors.
-2. Certain entity types and helpers are omitted from the **Areas** dashboard. For example, configuration and diagnostic {% term entities %} do not appear, even if they have been assigned to an area.
+2. Certain entity domains and helpers are omitted from the **Areas** dashboard. For example, configuration and diagnostic {% term entities %} do not appear, even if they have been assigned to an area.
 
 #### Adding an Areas dashboard
 
