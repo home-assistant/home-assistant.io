@@ -10,7 +10,7 @@ categories: Works-with-Home-Assistant
 og_image: /images/blog/2025-04-eve/art.jpg
 ---
 
-<img src='/images/blog/2025-04-eve/art.jpg' style='border: 0;box-shadow: none;' alt="Eve + Works with Home Assistant">
+<img src='/images/blog/2025-04-eve/art.jpg' style='border: 0;box-shadow: none;' alt="Eve and Home Assistant collaboration banner">
 
 We're thrilled to announce that [Eve](https://www.evehome.com/en) has joined the [Works with Home Assistant](https://works-with.home-assistant.io/) program! Eve is at the forefront of the Matter standard and has some great Matter devices focused on local control and privacy in the home. They're bringing a variety of devices to the program, including a couple of firsts!
 
