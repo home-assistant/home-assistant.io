@@ -36,7 +36,7 @@ This defines how many minutes before sunset is considered candle-lighting time. 
 
 ### Minutes after sunset for Havdalah
 
-By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static offset pas the time of sunset.
+By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static offset past the time of sunset.
 
 ### Latitude, Longitude, Time Zone and Elevation
 
