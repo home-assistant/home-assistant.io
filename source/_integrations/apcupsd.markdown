@@ -20,6 +20,10 @@ ha_integration_type: integration
 
 [apcupsd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) is configured on the APC device.
 
+## Supported devices
+
+Generally any device supported by [apcupsd](http://www.apcupsd.org/) is also supported by this integration. This includes most APC UPS models, such as Smart-UPS models and simple signaling models like Back-UPS models.
+
 ## Prerequisites
 
 1. Install apcupsd.
