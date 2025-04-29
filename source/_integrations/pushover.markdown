@@ -177,7 +177,7 @@ Which looks like this upon receipt:
     width="300"><br>
 </p>
 
-# Voice Integration
+## Voice Integration
 
 In the following example, the message is triggered from the Alexa integration using `intents`. This example also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
