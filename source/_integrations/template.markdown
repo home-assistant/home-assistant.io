@@ -4,11 +4,14 @@ description: Instructions on how to integrate Template Sensors into Home Assista
 ha_category:
   - Binary sensor
   - Button
+  - Cover
   - Helper
   - Image
+  - Light
   - Number
   - Select
   - Sensor
+  - Switch
 ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -73,7 +76,7 @@ Entities (sensors, binary sensors, buttons, images, numbers, and selections) are
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template binary sensors, buttons, images, numbers, selects, sensors, and weathers
+### State-based template binary sensors, buttons, covers, images, numbers, selects, sensors, and weathers
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -292,6 +295,56 @@ button:
       description: Defines actions to run to press the button.
       required: true
       type: action
+cover:
+  description: Characteristics of a cover
+  type: map
+  keys:
+    state:
+      description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `value_template` and a `position_template`](#combining-value_template-and-position_template) are specified, only `opening` and `closing` are set from the `value_template`. If the template produces a `None` value the state will be set to `unknown`.
+      required: false
+      type: template
+    position:
+      description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value the current position will be set to `unknown`.
+      required: false
+      type: template
+    device_class:
+      description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+      required: false
+      type: string
+    open_cover:
+      description: Defines an action to open the cover. If [`open_cover`](#open_cover) is specified, [`close_cover`](#close_cover) must also be specified. At least one of [`open_cover`](#open_cover) and [`set_cover_position`](#set_cover_position) must be specified.
+      required: inclusive
+      type: action
+    close_cover:
+      description: Defines an action to close the cover.
+      required: inclusive
+      type: action
+    stop_cover:
+      description: Defines an action to stop the cover.
+      required: false
+      type: action
+    set_cover_position:
+      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` will contain the entity's set position.
+      required: false
+      type: action
+    set_cover_tilt_position:
+      description: Defines an action to set the tilt of a cover (between `0` and `100`). The variable `tilt` will contain the entity's set tilt position.
+      required: false
+      type: action
+    optimistic:
+      description: Force cover position to use [optimistic mode](#optimistic-mode).
+      required: false
+      type: boolean
+      default: false
+    tilt_optimistic:
+      description: Force cover tilt position to use [optimistic mode](#optimistic-mode).
+      required: false
+      type: boolean
+      default: false
+    tilt:
+      description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).  If the template produces a `None` value, the current tilt state will be set to `unknown`.
+      required: false
+      type: template
 image:
   description: List of images
   required: true
@@ -391,7 +444,7 @@ weather:
       description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-"[all sensor, binary sensor, button, image, number, select, weather entities]":
+"[all sensor, binary sensor, button, cover, image, number, select, weather entities]":
   description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map

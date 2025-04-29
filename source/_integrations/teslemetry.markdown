@@ -64,6 +64,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|BMS full charge|No|
 |Binary sensor|Brake pedal|No|
 |Binary sensor|Cabin overheat protection actively cooling|No|
+|Binary sensor|Cellular|Yes|
 |Binary sensor|Charge cable|Yes|
 |Binary sensor|Charge enable request|No|
 |Binary sensor|Charge port cold weather mode|No|
@@ -114,6 +115,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
+|Binary sensor|Wi-Fi|Yes|
 |Binary sensor|Wiper heat|No|
 |Button|Flash lights|Yes|
 |Button|HomeLink|Yes|
@@ -169,6 +171,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Scheduled charging mode|No|
 |Sensor|Scheduled charging start time|No|
 |Sensor|Scheduled departure time|No|
+|Sensor|Sentry mode|Yes|
 |Sensor|Shift state|No|
 |Sensor|Speed|No|
 |Sensor|State of charge at arrival|No|
@@ -203,6 +206,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|Backup capable|Yes|
 |Binary sensor|Grid services active|Yes|
 |Binary sensor|Grid services enabled|Yes|
+|Binary sensor|Grid status|Yes|
 |Binary sensor|Storm watch active|Yes|
 |Number|Backup reserve|Yes|
 |Number|Off grid reserve|Yes|
