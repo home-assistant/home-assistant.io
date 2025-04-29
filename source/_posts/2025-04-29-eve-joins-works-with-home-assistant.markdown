@@ -44,7 +44,7 @@ Eve has certified the following Matter-over-Thread enabled devices:
 - [Eve Dimmer Switch](https://www.evehome.com/en/eve-dimmer-switch)
 - [Eve Motion](https://www.evehome.com/en/eve-motion)
 - [Eve Custom Smart Blinds](https://www.evehome.com/en-us/eve-blinds-collection)
-- [Eve MotionBlinds](https://www.evehome.com/en/eve-blinds-collection) [Upgrade Kit](https://www.evehome.com/eve-motionblinds)
+- [Eve MotionBlinds Upgrade Kit](https://www.evehome.com/eve-motionblinds)
 - [Eve Thermo](https://www.evehome.com/en/eve-thermo)
 - [Eve Weather](https://www.evehome.com/en/eve-weather)
 
