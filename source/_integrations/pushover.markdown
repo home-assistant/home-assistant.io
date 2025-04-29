@@ -25,7 +25,7 @@ The [Pushover service](https://pushover.net/) is an integration for the notify p
 |-------------|----------|----------|----------------------------------------------------------------------------------------|
 | message     | string   | yes      | Body of the message (max 1024 characters).                                             |
 | title       | string   | no       | Title of the message.                                                                  |
-| target      | string   | no       | List of Pushover devices to receive message.                                           |
+| target      | list     | no       | List of Pushover devices to receive message.                                           |
 | url         | string   | no       | URL to show as a clickable link.                                                       |
 | url_title   | string   | no       | Text to display for the link.                                                          |
 | sound       | string   | no       | Name of the Pushover sound to play (defaults to `pushover`).                           |
@@ -182,7 +182,7 @@ Which looks like this upon receipt:
     width="300"><br>
 </p>
 
-# Voice Integration
+## Voice Integration
 
 In the following example, the message is triggered from the Alexa integration using `intents`. This example also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
@@ -207,4 +207,3 @@ alexa:
 ```
 {% endraw %}
 <!-- textlint-enable terminology -->
-
