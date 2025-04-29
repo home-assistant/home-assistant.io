@@ -7,6 +7,7 @@ ha_release: 0.48
 ha_domain: snips
 ha_iot_class: Local Push
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 {% warning %}

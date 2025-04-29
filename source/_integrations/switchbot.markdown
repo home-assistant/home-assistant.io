@@ -58,7 +58,7 @@ Some SwitchBot devices need to be configured within the app before being control
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
 - Humidifier (WoHumi)
 - Light Strip (WoStrip)
-- [Meter](https://switch-bot.com/pages/switchbot-meter) / [Meter Plus](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH)
+- [Meter](https://switch-bot.com/pages/switchbot-meter) / [Meter Plus](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH) / [Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
 - [Indoor/Outdoor Meter](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) (WoIOSensorTH)
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
@@ -66,6 +66,12 @@ Some SwitchBot devices need to be configured within the app before being control
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
+- [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
+- [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
+- [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
+- [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
+- [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+- [HubMini Matter](https://www.switch-bot.com/products/switchbot-hub-mini-matter-enabled)(currently only supports retrieving sensor data, does not yet support device control)
 
 ## SwitchBot Entity
 
@@ -78,11 +84,11 @@ There are three attributes available on the SwitchBot entity to give you more in
 
 - `Retry count`: How many times to retry sending commands to your SwitchBot devices.
 
-## SwitchBot Lock / SwitchBot Lock Pro
+## SwitchBot Lock / SwitchBot Lock Pro / Relay Switch 1 / Relay Switch 1PM
 
 The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
 
-A SwitchBot lock can be set up in Home Assistant in two different ways. You can enter the key id and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
+A SwitchBot lock and relay switch can be set up in Home Assistant in two different ways. You can enter the key id and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
 
 ### SwitchBot account (recommended)
 
@@ -123,6 +129,15 @@ The blind tilt is exposed as a cover entity with control of the tilt position on
 | 0%            | Closed Down |
 
 The close button will close the blinds to the closest closed position (either 0% or 100%), and defaults to closing down if the blinds are fully open. Because Home Assistant believes 100% is open, the default cards will disable the open button when the tilt is at 100%, but the action will still work and open the blind to 50%.
+
+## SwitchBot Roller Shade
+
+The Roller Shade is exposed as a cover entity with control of the position only:
+
+| Tilt position | Roller Shade state |
+| ------------- | ------------------ |
+| <=20%         | Open               |
+| >20%          | Close              |
 
 ### Simple cover template entity
 
@@ -166,12 +181,13 @@ cover:
 
 The SwitchBot integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-{% configuration_basic %}
-"Config flow could not be loaded":
-  description: Possible custom integration conflict, using a different version of PySwitchbot; Try uninstalling the custom integration.
-"No unconfigured devices found":
-  description: Make sure your devices are powered on and are in range.
-{% endconfiguration_basic %}
+{% details "Config flow could not be loaded" %}
+Possible custom integration conflict, using a different version of PySwitchbot; Try uninstalling the custom integration.
+{% enddetails %}
+
+{% details "No unconfigured devices found" %}
+Make sure your devices are powered on and are in range.
+{% enddetails %}
 
 ### Slow connection times
 

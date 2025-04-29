@@ -130,7 +130,6 @@ initial:
   description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message received has not been changed, then an `imap_content` event is generated and the `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email, the `initial` property will always be set to `True`.
 uid:
   description: Latest `uid` of the message.
-
 {% endconfiguration_basic %}
 
 The `event_type` for the custom event should be set to `imap_content`. The configuration below shows how you can use the event data in a template `sensor`.
@@ -145,7 +144,7 @@ Increasing the default maximum message size (2048 bytes) could have a negative i
 
 ```yaml
 template:
-  - triggers:
+  - trigger:
       - trigger: event
         event_type: "imap_content"
         id: "custom_event"
@@ -229,7 +228,7 @@ The following example shows the usage of the IMAP email content sensor to scan t
 
 ```yaml
 template:
-  - triggers:
+  - trigger:
       - trigger: event
         event_type: "imap_content"
         id: "custom_event"
@@ -267,7 +266,7 @@ Below is the template sensor which extracts the information from the body of the
 
 ```yaml
 template:
-  - triggers:
+  - trigger:
       - trigger: event
         event_type: "imap_content"
         id: "custom_event"
@@ -316,7 +315,7 @@ The example below will only set the state to the subject of the email of templat
 
 ```yaml
 template:
-  - triggers:
+  - trigger:
       - trigger: event
         event_type: "imap_content"
         id: "custom_event"
@@ -328,3 +327,9 @@ template:
 ```
 
 {% endraw %}
+
+## Remove an IMAP service
+
+This integration follows standard config entry removal.
+
+{% include integrations/remove_device_service.md %}

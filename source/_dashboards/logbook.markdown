@@ -2,7 +2,7 @@
 type: card
 title: "Logbook card"
 sidebar_label: Logbook
-description: "The logbook card displays entries from the logbook for specific entities."
+description: "The logbook card displays entries from the logbook for specific entities, devices, areas, and/or labels."
 related:
   - docs: /integrations/frontend/
     title: Themes
@@ -10,7 +10,7 @@ related:
     title: Dashboard cards
 ---
 
-The logbook card displays entries from the logbook for specific entities.
+The logbook card displays entries from the logbook for specific entities, devices, areas, and/or labels.
 
 <p class='img'>
   <img src='/images/dashboards/logbook.png' alt='Screenshot of the logbook card'>
@@ -22,8 +22,8 @@ The logbook card displays entries from the logbook for specific entities.
 ## Card settings
 
 {% configuration_basic %}
-Entities:
-  description: The entities whose logbook entries will show in the card.
+Target:
+  description: The entities, devices, areas and labels whose logbook entries will show in the card. See [target selector](/docs/blueprint/selectors/#target-selector) for more information.
 Title:
   description: The title that shows on the top of the card.
 Hours to show:
@@ -41,10 +41,10 @@ type:
   required: true
   description: "`logbook`"
   type: string
-entities:
+target:
   required: true
-  description: The entities that will show in the card.
-  type: list
+  description: The target to use for the card.
+  type: map
 title:
   required: false
   description: Title of the card.
@@ -64,9 +64,24 @@ theme:
 
 ```yaml
 type: logbook
-entities:
-  - fan.ceiling_fan
-  - fan.living_room_fan
-  - light.ceiling_lights
+target: 
+  entity_id:
+    - fan.ceiling_fan
+    - fan.living_room_fan
+    - light.ceiling_lights
 hours_to_show: 24
+```
+
+```yaml
+type: logbook
+target:
+  area_id: living_room
+  device_id:
+    - ff22a1889a6149c5ab6327a8236ae704
+    - 52c050ca1a744e238ad94d170651f96b
+  entity_id:
+    - light.hallway
+    - light.landing
+  label_id:
+    - lights
 ```

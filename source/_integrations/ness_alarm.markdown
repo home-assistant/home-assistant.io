@@ -16,6 +16,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `ness_alarm` {% term integration %} will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
@@ -102,6 +103,19 @@ scan_interval:
   milliseconds: 0
 ```
 
+### Alarm System Configuration
+
+As part of the installation process of the IP232 module, the device will need to be configured with the correct settings. From the [iComms Manual](https://ness.zendesk.com/hc/en-us/articles/360021989074-iComms-Manual), there are 3 essential steps:
+1. Setting up the IP232 module with the correct baud rate (9600).
+2. Ensuring connectivity of the device on either a DHCP assigned or Static IP address.
+3. Setting the alarm panel up to allow for serial control. On D8x/D16x panels this is enabled by setting `P 199 E` `1E` to `6E` to be `ON` (6E available on v6 panels and later only).
+
+If the settings in steps 1 and 2 are not set correctly, the integration will not be able to communicate properly with the device. If the `P 199 E` from step 3 is not configured properly, data will not be sent to the integration when events occur.
+
+{% important %}
+Incorrect configuration of these settings will prevent the integration from functioning properly.
+{% endimportant %}
+
 ## Actions
 
 ### Action `aux`
@@ -110,7 +124,7 @@ Trigger an aux output.  This requires PCB version 7.8 or higher.
 
 | Data attribute | Optional | Description                                                                                                                                                         |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `output_id`            | No       | The aux output you wish to change.  A number from 1-4.                                                                                                              |
+| `output_id`            | No       | The aux output you wish to change.  A number from 1-8.                                                                                                              |
 | `state`                | Yes      | The On/Off State, represented as true/false. Default is true.  If P14xE 8E is enabled then a value of true will pulse output x for the time specified in P14(x+4)E. |
 
 ### Action `panic`

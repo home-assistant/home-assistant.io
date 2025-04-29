@@ -3,22 +3,26 @@ title: Cambridge Audio
 description: Instructions on how to integrate Cambridge Audio Receivers into Home Assistant.
 ha_category:
   - Media player
+  - Select
 ha_release: '2024.10'
 ha_iot_class: Local Push
 ha_domain: cambridge_audio
 ha_platforms:
   - diagnostics
   - media_player
+  - select
+  - switch
 ha_codeowners:
   - '@noahhusby'
 ha_config_flow: true
 ha_integration_type: device
 ha_zeroconf: true
+ha_quality_scale: platinum
 ---
 
-The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the StreamMagic app.
+The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the [StreamMagic](https://www.cambridgeaudio.com/usa/en/products/streammagic) app.
 
-The integration automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information and controls (such as play, pause, skip) are supported if the selected source reports it.
+The integration automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information and controls (such as play, pause, skip) are supported if the selected source reports it. The integration allows you to navigate presets, control streaming (Spotify, Tidal, Qobuz), and play radio stations all from your Home Assistant dashboard.
 
 ## Supported devices
 
@@ -33,6 +37,8 @@ This integration allows you to connect the following devices:
 - Cambridge Audio 851N
 - Cambridge Audio MXN10
 - Cambridge Audio AXN10
+- Cambridge Audio EXN100
+- Cambridge Audio Edge NQ
 
 Older, RS-232 serial-based amplifiers like the [CXA series](https://www.cambridgeaudio.com/usa/en/products/hi-fi/cx-series-2/cxa81)
 use a different protocol and are not currently supported.
@@ -41,10 +47,69 @@ use a different protocol and are not currently supported.
 
 {% configuration_basic %}
 Host:
-    description: The IP address of your device can be found by navigating to the device on the [StreamMagic app](https://www.cambridgeaudio.com/usa/en/products/streammagic) and selecting `Settings` → `IP address`.
-    required: true
-    type: string
+  description: The IP address of your device can be found by navigating to the device on the [StreamMagic app](https://www.cambridgeaudio.com/usa/en/products/streammagic) and selecting `Settings` → `IP address`.
 {% endconfiguration_basic %}
+
+## Data updates
+
+Cambridge Audio devices push data directly to Home Assistant, enabling immediate updates for device state changes, media information, and playback status.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+## Available configuration entities
+
+The integration provides a few entities to configure the device settings. The following entities are supported:
+
+- Display brightness
+- Pre-Amp
+- Early update
+- Audio output (Speaker select)
+
+## Playing media
+
+Cambridge Audio supports playing a variety of formats using the `media_player.play_media` action. 
+
+### Examples:
+
+Cambridge Audio can recall any stored presets saved on the device. An example action using a preset:
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.cambridge_audio
+data:
+  media_content_type: "preset"
+  media_content_id: "1"
+```
+
+An example action using an Airable radio ID:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.cambridge_audio
+data:
+  media_content_type: "airable"
+  media_content_id: "12345678"
+```
+
+An example action using an internet radio url:
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.cambridge_audio
+data:
+  media_content_type: "internet_radio"
+  media_content_id: "https://example.com/internet-radio/station_abcd.mp3"
+```
+
+## Browsing media
+
+The Cambridge Audio integration allows you to browse saved presets from your dashboard. 
+All stored presets will be categorized into playlists, artists, and tracks.
 
 ## Troubleshooting
 

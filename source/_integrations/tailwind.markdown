@@ -17,7 +17,6 @@ ha_platforms:
   - diagnostics
   - number
 ha_integration_type: device
-ha_quality_scale: platinum
 ha_dhcp: true
 ---
 
