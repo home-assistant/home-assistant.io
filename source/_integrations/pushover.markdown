@@ -34,7 +34,7 @@ The [Pushover service](https://pushover.net/) is an integration for the notify p
 | ttl         | integer  | no       | Time-to-live in seconds (auto-deletes the message after this period).                  |
 | retry       | integer  | no       | Retry interval in seconds for priority 2 messages (minimum 30 seconds).                |
 | expire      | integer  | no       | Expiration period in seconds for priority 2 (maximum 10800 seconds).                   |
-| html        | boolean  | no       | Set to 1 to enable HTML formatting.                                                    |
+| html        | integer  | no       | Set to 1 to enable HTML formatting.                                                    |
 <!-- textlint-enable terminology -->
 
 For further details on these parameters, please reference the [Pushover API documentation](https://pushover.net/api).
@@ -123,7 +123,6 @@ By including the `html: 1` data parameter and applying [Automation Templating](/
 ```yaml
 # Example - HTML formatting with Automation Templating
 - service: notify.pushover
-  metadata: {}
   data:
     title: Daily Weather Update
     message: >
