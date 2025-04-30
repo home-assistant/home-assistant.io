@@ -29,7 +29,7 @@ The **Fluss+** {% term integration %} allows you to control [Fluss+](https://flu
 
 ### Button
 
-The buttons represent the amount of devices you have access to to trigger via Wi-Fi. E.g if you have 3 devices, you will see 3 buttons. 
+A button in Home Assistant represents a Fluss device you can trigger via Wi-Fi. For example, if you have 3 devices, you will see 3 buttons. 
 
 Each button can be triggered via Wi-Fi as long it's connected to the internet. The button will be triggered when you press it in Home Assistant.
 
