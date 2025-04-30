@@ -146,11 +146,11 @@ This integration does not allow you to control the UPS. For example, you cannot 
 
 ### Failed to connect
 
-If you get "Failed to connect" error when setting up the integration (and/or `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs), it means that Home Assistant is not able to connect to the daemon. Please check if the `NISIP`/`NISPORT` in the apcupsd configuration file is properly configured. Additionally, try running `apcaccess` on the host machine to see if the daemon is working properly.
+If you get a **Failed to connect** error when setting up the integration (and/or `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs), it means that Home Assistant is not able to connect to the APC UPS daemon. Please check if the `NISIP`/`NISPORT` in the apcupsd configuration file is properly configured. Additionally, try running `apcaccess` on the host machine to see if the daemon is working properly.
 
 ### Some entities are no longer provided
 
-If certain entities are missing after a Home Assistant restart, it's likely because they represent event-based data that only appears after specific UPS events (e.g. transfer to battery). These entities are cleared when the APC UPS Daemon restarts and won’t reappear until the corresponding event occurs again.
+If certain entities are missing after a Home Assistant restart, it's likely because they represent event-based data that only appears after specific UPS events (for example, transfer to battery). These entities are cleared when the APC UPS Daemon restarts and won’t reappear until the corresponding event occurs again.
 
 ## Removing the integration
 
