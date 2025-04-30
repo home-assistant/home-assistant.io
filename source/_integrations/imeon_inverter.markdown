@@ -136,7 +136,7 @@ This document provides an overview of the sensors available in the Imeon Inverte
 
 Custom dashboard templates for the custom [Imeon Integration](https://github.com/Imeon-Inverters-for-Home-Assistant/imeon-integration). Uses [APEXCharts-card](https://github.com/RomRider/apexcharts-card/blob/master/README.md#data_generator-option) for graphs and custom gauges.
 
-###Troubleshooting
+### Troubleshooting
 
 
 ### What is my domain name? 
