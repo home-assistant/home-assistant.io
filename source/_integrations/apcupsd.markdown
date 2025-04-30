@@ -150,7 +150,6 @@ Some sensors are disabled by default, since they provide information that is onl
 ```yaml
 alias: "APC UPS Load High Notification"
 description: "Notify when APC UPS load is too high"
-description: ""
 mode: single
 triggers:
   - trigger: numeric_state
