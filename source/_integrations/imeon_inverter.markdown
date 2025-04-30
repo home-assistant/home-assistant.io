@@ -27,7 +27,7 @@ The Imeon Energy Inverter {% term integrations %} will poll an [Imeon](https://i
 
 {% include integrations/config_flow.md %}
 
-## Imeon inverter sensors documentation
+## Supported functionality
 
 This document provides an overview of the sensors available in the Imeon Inverter integration and details their functionality, units, and purpose.
 
