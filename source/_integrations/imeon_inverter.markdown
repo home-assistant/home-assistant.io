@@ -124,7 +124,7 @@ This document provides an overview of the sensors available in the Imeon Inverte
 
 ### Monitoring sensors (instant minute data)
 
-| Sensor Key                            | Description                                 | Unit   |
+| Sensor key                            | Description                                 | Unit   |
 |---------------------------------------|---------------------------------------------|--------|
 | `monitoring_minute_building_consumption`| Energy consumed by the building (minute). | W      |
 | `monitoring_minute_grid_consumption`  | Energy consumed from the grid (minute).     | W      |
