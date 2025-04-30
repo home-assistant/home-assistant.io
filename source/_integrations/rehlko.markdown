@@ -20,7 +20,7 @@ The **Rehlko** (formerly Kohler Energy Management) {% term integration %} allows
 
 {% include integrations/config_flow.md %}
 
-### Required manual input
+## Required manual input
 
 To configure a Rehlko (Kohler Energy Management) account, enter the following information:
 
