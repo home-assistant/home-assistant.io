@@ -272,6 +272,9 @@ We welcome the following new integrations in this release:
   Use an [Amazon S3 storage] bucket–or any S3 API compatible storage provider–
   as a backup location for your Home Assistant backups.
 
+To process:
+- Add Rehlko (formerly Kohler Energy Management) Integration ([@PeteRager] - [#143602])
+
 [@astrandb]: https://github.com/astrandb
 [@Imeon-Energy]: https://github.com/Imeon-Energy
 [@tomasbedrich]: https://github.com/tomasbedrich
@@ -344,6 +347,7 @@ Potential candidates for this list:
 - Wiz - update dependency to support new light features and bugfixes ([@sbidy] - [#141529])
 - Mill, add statistics ([@Danielhiversen] - [#130406])
 - Add number & sensor platform to eheimdigital ([@autinerd] - [#142835] - [#138809])
+- Add an LLM tool for fetching todo list items ([@allenporter] - [#143777]) ([todo docs]) (noteworthy)
 
 ### Integration quality scale achievements
 
