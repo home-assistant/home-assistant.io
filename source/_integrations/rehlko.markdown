@@ -18,7 +18,7 @@ ha_integration_type: integration
 
 The Rehlko (formerly Kohler Energy) integration monitors the state of your [Enabled Kohler generator](https://www.kohlerhomeenergy.rehlko.com/kohler-energy-management-app). This integration replaces the Oncue integration.
 
-To configure the integration you will need your log in credentials (email and password) for the Kohler app.
+To configure the integration you will need your log in credentials (email and password) form the manufacturers app.
 
 Note: The set of sensors avaiable depends on the specific instrumentation installed on your generator and transfer switch. There is wide variation within the same model.
 
