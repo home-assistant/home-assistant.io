@@ -696,7 +696,7 @@ A string that represents a time to fire on each day. Can be specified as `HH:MM`
 automation:
   - triggers:
     - trigger: time
-      # Military time format. This trigger will fire at 3:32 PM
+      # 24-hour time format. This trigger will fire at 3:32 PM
       at: "15:32:00"
 ```
 

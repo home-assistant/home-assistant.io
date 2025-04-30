@@ -41,6 +41,7 @@ The Govee BLE integration will automatically discover devices once the [Bluetoot
 - H5105 Hygrometer Thermometer
 - H5106 Hygrometer Thermometer and Air Quality Monitor
 - H5108 Hygrometer Thermometer
+- H5110 Hygrometer Thermometer
 - H5121 Motion Sensor
 - H5122 Mini Button
 - H5123 Window Sensor

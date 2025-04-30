@@ -30,12 +30,14 @@ ha_integration_type: hub
 
 The **Comelit SimpleHome** {% term integration %} allows you to control your [Comelit home automation devices](https://comelitgroup.it/installatore/offerta/home-building-automation/).
 
+The integration provides information on connected devices and enables control of the alarm system.
+
 ## Supported devices
 
-There is support for the following platform types within Home Assistant:
+There is support for the following devices within Home Assistant:
 
-- **Comelit Serial Bridge** - allows local control for light, cover, irrigation, climate, humidifier/dehumidifier and "other" devices; creates power sensors.
-- **Comelit VEDO System** - allows local control of the alarm system.
+- **Comelit Serial Bridge**
+- **Comelit VEDO System**
 
 {% include integrations/config_flow.md %}
 
@@ -55,6 +57,47 @@ There is support for the following platform types within Home Assistant:
         description: Comelit VEDO System.
 {% endconfiguration_basic %}
 
+## Examples
+
+### Automation: Activate the alarm when you leave home
+
+```yaml
+automation:
+- alias: "Arm alarm away"
+  id: "arm_alarm_away"
+  triggers:
+    - platform: state
+      entity_id: person.simone
+      to: "not_home"
+  actions:
+    - action: alarm_control_panel.alarm_arm_away
+      target:
+        entity_id: alarm_control_panel.home
+      data:
+        code: "12345"
+```
+
+### Automation: Close the covers at sunset if you are not at home
+
+```yaml
+automation:
+- alias: Close covers at sunset
+  id: "covers_close_sunset"
+  trigger:
+   - platform: sun
+     event: sunset
+  condition:
+    conditions:
+      - alias: "condition alias (not home)"
+        condition: state
+        entity_id: group.person_family
+        state: "not_home"
+  action:
+    entity_id:
+      - cover.group_home_covers
+    service: cover.close_cover
+```
+
 ## Data updates
 
 This integration {% term polling polls %} data from the device every 5 seconds by default.
@@ -63,9 +106,37 @@ This integration {% term polling polls %} data from the device every 5 seconds b
 
 The **Comelit SimpleHome** {% term integration %} provides the following entities:
 
-### Alarm control panel
+### Comelit Serial Bridge
 
-The integration will create an alarm entity for each area. Additionally, it will create a sensor and a presence detection binary sensor for each zone, enhancing monitoring capabilities.
+- Climate
+- Cover
+- Dehumidifier
+- Humidifier
+- Light
+- Sensor - power consumption
+- Switch - irrigation and sockets (other)
+
+### Comelit VEDO System
+
+- Alarm control panel - per area
+- Binary sensor - per zone presence detection
+- Sensor - per zone status
+
+## Troubleshooting
+
+### Can’t set up the device
+
+#### Symptom: "Cannot connect"
+
+When trying to set up the integration, the form shows the message "Cannot connect".
+
+##### Description
+
+This means that the IP address or the port specified is wrong.
+
+##### Resolution
+
+To resolve this issue, verify the device’s IP address and port by navigating to them in a web browser.
 
 ## Removing the integration
 

@@ -8,6 +8,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/dashboards/#areas-dashboard
+    title: Areas dashboard
 ---
 
 The area card lets you control and monitor an individual {% term area %}.

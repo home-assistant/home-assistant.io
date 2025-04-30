@@ -2,8 +2,14 @@
 title: Miele
 description: Instructions on how to set up the Miele integration within Home Assistant.
 ha_category:
+  - Binary sensor
+  - Button
+  - Climate
   - Hub
+  - Fan
+  - Light
   - Sensor
+  - Switch
 ha_iot_class: Cloud Push
 ha_release: '2025.5'
 ha_domain: miele
@@ -11,19 +17,27 @@ ha_codeowners:
   - '@astrandb'
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
+  - button
+  - climate
   - diagnostics
+  - fan
+  - light
   - sensor
+  - switch
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 The Miele {% term integrations %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
 
-Miele is known as a manufacturer of premium appliances for cooking, laundry care, and floorcare.
+Miele is known as a manufacturer of premium appliances for cooking, laundry care, and floor care.
 
 ## Use cases
 
 - Monitor the multiple sensors of the appliance and trigger automations based on these sensors.
 - Monitor the program status of the appliances.
+- Control settings on the appliances.
 
 {% note %}
 Note that the feature availability depends on the appliance model.
@@ -74,10 +88,59 @@ The integration configuration may ask for the *Client ID* and *Client Secret* cr
 
 {% note %}
 
-- The entities' availability depends on the appliance type and the generation of the product, and the appliance might not support all the entities for its type.
+- The entities' availability depends on the appliance type and the generation of the product, and the appliance might not support all the entities for its type. Please refer to the product manual for details on implementation of specific functions.
 - Products from professional and semi-professional series are generally not supported due to the limitations in the Miele 3rd party API.
 - Some appliances don't report data while they are turned off, so corresponding entities will not appear in the Miele integration after loading until the appliances are turned on.
 {% endnote %}
+
+### Binary sensor
+
+{% details "List of binary sensors" %}
+
+- **Operation state**:
+  - **Door**: Shows if the door on the appliance is open or closed.
+  - **Full remote control**: Shows the state of Full remote control feature on appliances that supports it.
+  - **Mobile start**: Shows the state of Mobile start feature on appliances that supports it.
+  - **Notification active**: Shows if there is a notification message active on the appliance. The API does not supply any information on the details of the notifications.
+  - **Problem**: Shows if there is an error message active on the appliance. The API does not supply any information on the details of the error.
+  - **Smart grid**: Shows the state of Smart grid feature on appliances that supports it.
+{% enddetails %}
+
+### Button
+
+{% details "List of button entities" %}
+
+Button entities are used to control program progress in washing machines, dryers, dishwashers, robot vacuum cleaners, and others. The exact response to pressing a button can vary slightly between product models, but the result is usually intuitive. The API enables and disables the buttons according to the actual state of the appliance. Most appliances require you to manually activate mobile start or remote control mode.
+
+- **Start**: Starts or resumes a program.
+- **Pause**: Pauses a program.
+- **Stop**: Stops a program.
+
+{% enddetails %}
+
+### Climate
+
+{% details "List of climate entities" %}
+
+Climate entities are used to control target temperatures in refrigerators, freezers, and wine cabinets. One, two, or three zones can be controlled depending on the capabilities of the appliance.
+
+{% enddetails %}
+
+### Fan
+
+{% details "List of fan entities" %}
+
+- **Fan**: The speed of extraction fans can be monitored and controlled in many models of cooker hoods and combined induction hobs with integrated extraction fans.
+
+{% enddetails %}
+
+### Light
+
+{% details "List of light entities" %}
+
+- **Light**: The light can be turned on and off in many models of ovens, cooker hoods, and wine cabinets.
+- **Ambient light**: Some models of cooker hoods have ambient light that can be turned on and off.
+{% enddetails %}
 
 ### Sensor
 
@@ -85,7 +148,25 @@ The integration configuration may ask for the *Client ID* and *Client Secret* cr
 
 - **Operation state**:
   - **Status**: Represents the current operation state of the device. The default entity name is just the appliance type. For example, "Dishwasher".
+  - **Program**: Shows the currently active program.
+  - **Program phase**: Shows the current phase in the running program.
+  - **Program type**: Shows the current program type.
+  - **Spin speed**: Shows the spin speed selected for the current washing machine program.
+  - **Energy consumption**: Shows the energy consumption during the current program cycle. The value will be reset after finishing the program.
+  - **Water consumption**: Shows the water consumption during the current program cycle. The value will be reset after finishing the program.
   - **Temperature**: Represents the current temperature in refrigerators, freezers, and ovens. Entities are created for up to 3 zones depending on the device capabilities.
+  - **Elapsed time**: Shows the number of minutes that the current program has been running.
+  - **Remaining time**: Shows the estimated number of minutes remaining in the current program cycle. This value can fluctuate during a program cycle based on load dirtiness or water‑heating time.
+  - **Start in**: Shows the number of minutes until a delayed program start, if configured.
+{% enddetails %}
+
+### Switch
+
+{% details "List of switch entities" %}
+
+- **Power**: The Power switch has slightly different characteristics depending on the appliance model. For some devices, it works more or less as a traditional power switch, while it behaves like a wake-up/sleep toggle on others. The availability of the switch is controlled by the API, depending on the operational state of the appliance.
+- **Supercooling**: The switch controls Supercooling mode for refrigerators.
+- **Superfreezing**: The switch controls Superfreezing mode for freezers.
 {% enddetails %}
 
 ## Automation examples

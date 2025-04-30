@@ -80,7 +80,7 @@ foreign_exchange:
 
 ## API information
 
-Alpha Vantage offers two tiers of the API key, one free and one paid for. If you are using the free version, you will be limited to twenty-five queries per day. The sensor polls every 5 minutes, so you will only get data for the first two hours per day. This can be configured using the `scan_interval` variable.
+Alpha Vantage offers two tiers of the API key, one free and one paid for. If you are using the free version, you will be limited to twenty-five queries per day. The sensor polls every 5 minutes, so you will only get data for the first two hours per day. This can be configured using the `scan_interval` variable. To find the necessary symbols, you can use the search function of the API. For example, try [this SYMBOL_SEARCH query](https://www.alphavantage.co/query?function=SYMBOL_SEARCH&apikey=<your-api-key>&keywords=IBM).
 
 The paid version starts at 75 queries per minute, increasing ticker quantity quite a bit.
 

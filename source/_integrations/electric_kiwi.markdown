@@ -70,7 +70,7 @@ actions:
 {% endraw %}
 {% enddetails %}
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 

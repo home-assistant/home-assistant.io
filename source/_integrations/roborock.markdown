@@ -24,15 +24,15 @@ ha_platforms:
   - diagnostics
   - image
   - number
-  - scene
   - select
   - sensor
   - switch
   - time
   - vacuum
 ha_integration_type: integration
+ha_quality_scale: silver
+ha_dhcp: true
 ---
-
 
 The Roborock {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are
 intelligent home cleaning robots and, depending on the specific device, may have features
@@ -103,7 +103,7 @@ Zones:
 
 This integration uses both local and cloud {% term polling %} and also receives
 cloud push events using MQTT. Local communication is preferred when possible.
-Map data is always fetched through the cloud, and Dyad and Zeo devices are cloud only. 
+Map data and routines are always fetched through the cloud, and Dyad and Zeo devices are cloud only.
 
 The integration will automatically discover your Roborock devices using the cloud APIs and get
 the needed information to communicate locally with them, if supported. Please ensure your Home Assistant
@@ -250,6 +250,8 @@ There are currently four buttons that allow you to reset the various maintenance
 - **Reset air filter**
   - **Description**: The air filter is expected to be replaced every 150 hours.
 
+In addition, some vacuums allow routines to be set up in the app. For each of those routines, a button entity will be created, allowing you to trigger it.
+
 #### Actions
 
 ##### Action Set Vacuum Goto Position
@@ -260,10 +262,10 @@ the specified coordinates.
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific robot.
   - **Optional**: No.
-- **Data attribute**: `x_coord`
+- **Data attribute**: `x`
   - **Description**: X-coordinate, integer value. The dock is located at x-coordinate 25500.
   - **Optional**: No.
-- **Data attribute**: `y_coord`
+- **Data attribute**: `y`
   - **Description**: Y-coordinate, integer value. The dock is located at y-coordinate 25500.
   - **Optional**: No.
 

@@ -92,7 +92,13 @@ Integration is communicating directly with the device; cloud connection is not n
 
 ## Bluetooth Support
 
-Shelly generation 2+ devices that are not battery-powered can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
+Shelly Gen 2 and newer devices (excluding battery-powered models) can act as Bluetooth proxies, forwarding advertisement data. You can enable either active or passive listening through the device’s options flow.
+
+{% tip %}
+Shelly devices do **not** support proxying active (GATT) connections.
+{% endtip %}
+
+For more details, see [Remote Adapters](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
 
 {% include integrations/option_flow.md %}
 
@@ -162,6 +168,10 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
 If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
 Each script which generates events using [Shelly.emitEvent()](https://shelly-api-docs.shelly.cloud/gen2/Scripts/ShellyScriptLanguageFeatures#shellyemitevent) also gets an corresponding event entity. This entity is disabled by default. After changing a script, it's required to manually reload the device before new event types show up.
+
+{% note %}
+To avoid increased startup time, only the first 5 KB of the script is downloaded and analyzed. If your script exceeds 5 KB, place the event emitting function at the beginning to ensure it is processed.
+{% endnote %}
 
 For example, the following script will emit an event every time an input (button or switch) on the device is changed.
 
