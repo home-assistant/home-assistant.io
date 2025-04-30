@@ -12,9 +12,6 @@ ha_config_flow: true
 ha_platforms:
   - button
 ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ---
 
 The **Fluss+** {% term integration %} allows you to control [Fluss+](https://fluss.io/) devices through Home Assistant.
