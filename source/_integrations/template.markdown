@@ -46,18 +46,18 @@ related:
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Sensors, binary (on/off) sensors, buttons, images, numbers, and selects are covered on this page. They can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
+Sensors, binary (on/off) sensors, buttons, images, numbers, selects, and switches are covered on this page. They can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
 
 For other types, please see the specific pages:
 
 - [Alarm control panel](/integrations/alarm_control_panel.template/)
-- [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
 - [Lock](/integrations/lock.template/)
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
 For Legacy types, please see the specific pages:
+- [Cover](/integrations/cover.template/)
 - [Light](/integrations/light.template/)
 - [Switch](/integrations/switch.template/)
 
@@ -75,11 +75,11 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 ## YAML configuration
 
-Entities (sensors, binary sensors, buttons, images, numbers, and selections) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
+Entities (binary sensors, buttons, covers, images, lights, numbers, selects, sensors, switches, and weathers) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template binary sensors, buttons, images, lights, numbers, selects, sensors, switches, and weathers
+### State-based template binary sensors, buttons, covers, images, lights, numbers, selects, sensors, switches, and weathers
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -101,7 +101,7 @@ template:
 
 {% endraw %}
 
-### Trigger-based template binary sensors, images, numbers, selects, sensors, and weathers
+### Trigger-based template binary sensors, images, lights, numbers, selects, sensors, switches, and weathers
 
 If you want more control over when an entity updates, you can define triggers. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
