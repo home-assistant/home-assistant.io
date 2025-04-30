@@ -18,7 +18,7 @@ The **Fluss+** {% term integration %} allows you to control [Fluss+](https://flu
 
 ## Prerequisites
 
-- A Fluss+ account
+- A Fluss+ account.
 - The Fluss+ app installed on your smart phone.
 - Fluss+ device connected to your Wi-Fi network and has internet access.
 - During setup of the integration in Home Assistant, you will be prompted to input your API key.
