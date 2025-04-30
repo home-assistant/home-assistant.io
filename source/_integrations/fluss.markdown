@@ -46,7 +46,7 @@ Trigger a Fluss device by simulating a button press.
 
 | Service data attribute | Optional | Description |
 |-----------------------|----------|-------------|
-| `entity_id`           | No       | The entity ID of the Fluss button to press (e.g., `button.fluss_12345`). |
+| `entity_id`           | No       | The entity ID of the Fluss button to press (for example, `button.fluss_12345`). |
 
 ## Removing the integration
 
