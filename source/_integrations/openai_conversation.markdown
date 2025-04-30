@@ -111,7 +111,7 @@ The response data field `url` will contain a URL to the generated image. Also, t
 
 #### Organization verification
 
-[According to OpenAI](https://openai.com/index/image-generation-api/#get-started), some developers may need to verify⁠ their organization before being able to use the `gpt-image-1` model. You can do that in your [organization settings](https://platform.openai.com/settings/organization/general). If you don't have access the the model, the `generate_image` action will fallback to the previous `dall-e-3` model and a [repair issue](/integrations/repairs/) will be raised.
+[According to OpenAI](https://openai.com/index/image-generation-api/#get-started), some developers may need to verify⁠ their organization before being able to use the `gpt-image-1` model. You can do that in your [organization settings](https://platform.openai.com/settings/organization/general). If you don't have access to the model, the `generate_image` action will fallback to the previous `dall-e-3` model and a [repair issue](/integrations/repairs/) will be raised.
 
 #### Example using a generated image entity
 
