@@ -50,13 +50,6 @@ Port:
     description: "The port of the APC UPS Daemon configured above."
 {% endconfiguration_basic %}
 
-{% note %}
-
-If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, it means that Home Assistant is not able to connect to the daemon. Please check if the `NISIP` is properly configured.
-
-{% endnote %}
-
-
 ## Binary sensor
 
 This integration provides a binary sensor for the following information from apcupsd:
@@ -148,6 +141,16 @@ The integration {% term polling polls %} data from your APC UPS Daemon every 60 
 ## Known limitations
 
 This integration does not allow you to control the UPS. For example, you cannot run a self-test. To run a self-test, use the `aptest` command provided by [apcupsd](http://www.apcupsd.org/).
+
+## Troubleshooting
+
+### Failed to connect
+
+If you get "Failed to connect" error when setting up the integration (and/or `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs), it means that Home Assistant is not able to connect to the daemon. Please check if the `NISIP`/`NISPORT` in the apcupsd configuration file is properly configured. Additionally, try running `apcaccess` on the host machine to see if the daemon is working properly.
+
+### Some entities are no longer provided
+
+If certain entities are missing after a Home Assistant restart, it's likely because they represent event-based data that only appears after specific UPS events (e.g. transfer to battery). These entities are cleared when the APCUPSD daemon restarts and won’t reappear until the corresponding event occurs again.
 
 ## Removing the integration
 
