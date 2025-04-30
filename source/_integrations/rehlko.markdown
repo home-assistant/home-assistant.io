@@ -32,6 +32,7 @@ The sensors exposed by this integration depend on the specific instrumentation i
 
 There are the geneator models that have been tested.
 
+- [38RCLB](https://resources.kohler.com/power/kohler/residential/pdf/tp6908.pdf)
 - [20RESA](https://resources.kohler.com/power/kohler/residential/pdf/tp6804.pdf)
 - [20RCA](https://www.kohlerhomeenergy.rehlko.com/products/home+generators/20rca)
 - [14RESA](https://www.kohler.com/content/dam/kohler-com-NA/Lifestyle/PDF/PDF-tp6803.pdf)
