@@ -35,7 +35,7 @@ This integration interacts with [La Marzocco](https://lamarzocco.com/it/en/) cof
 
 If your Home Assistant host can perform [DHCP discovery](https://www.home-assistant.io/integrations/dhcp/), your machine will be discovered automatically. Otherwise, if your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered as well.
 
-By default, this integration will receive push updates from the cloud and otherwise query your machine every 30 seconds for an update, every 15 minutes for new statistics, and every hour for a firmware update. If configure the optional local connection, your machine will receive immediate push updates about its state for everything except statistics and firmware updates.
+By default, this integration will receive push updates from the cloud about its general status and otherwise query your machine every 30 seconds for an update, every 15 minutes for new statistics, and every hour for a firmware update.
 
 ## Prerequisites
 
@@ -191,9 +191,4 @@ This integration follows standard integration removal. No extra steps are requir
 {% details "Problem: Connection to machine is not possible" %}
 
 Check the La Marzocco Home app to see if you can connect to your machine there. If not, remove the machine and add it again (follow the instructions in the La Marzocco App).
-{% enddetails %}
-
-{% details "Real time updates are not available" %}
-
-Check the La Marzocco Home app to see if your machine is connected to Wi-Fi. Ensure Home Assistant can reach the machine. Ensure you configured the host option in the integration options.
 {% enddetails %}
