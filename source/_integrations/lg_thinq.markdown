@@ -19,6 +19,7 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
+  - water_heater
 ha_integration_type: integration
 ---
 
