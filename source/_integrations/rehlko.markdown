@@ -18,10 +18,6 @@ ha_integration_type: integration
 
 The Rehlko (formerly Kohler Energy Management) integration allows you to monitor the status of your [enabled Kohler generator](https://www.kohlerhomeenergy.rehlko.com/kohler-energy-management-app) through Home Assistant. This integration replaces the legacy Oncue integration.
 
-### Configuration
-
-To set up the integration, you’ll need your login credentials (email and password) for the manufacturer's app.
-
 {% include integrations/config_flow.md %}
 
 ### Required manual input
