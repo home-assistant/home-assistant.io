@@ -143,8 +143,6 @@ Some sensors are disabled by default, since they provide information that is onl
 
 ## Examples
 
-## Example automations
-
 ### Send me a push notification when UPS load is high
 
 {% raw %}
