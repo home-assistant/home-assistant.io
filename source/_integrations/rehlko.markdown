@@ -39,7 +39,7 @@ This integration follows the standard integration removal process; no extra step
 
 {% include integrations/remove_device_service.md %}
 
-### Sensor Availability
+## Sensor Availability
 
 The sensors exposed by this integration depend on the specific instrumentation installed on your generator and transfer switch. Sensor availability can vary significantly—even between units of the same model.
 
