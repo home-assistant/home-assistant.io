@@ -11,7 +11,9 @@ ha_codeowners:
 ha_domain: ntfy
 ha_integration_type: integration
 ha_platforms:
+  - diagnostics
   - notify
+ha_quality_scale: bronze
 ---
 
 The **ntfy** {% term integration %} allows publishing push notifications on [ntfy.sh](https://ntfy.sh/) or other ntfy services.

@@ -13,8 +13,10 @@ ha_codeowners:
 ha_domain: bosch_alarm
 ha_platforms:
   - alarm_control_panel
+  - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **Bosch Alarm Panel** {% term integration %} allows you to connect your [Bosch Alarm Panel](https://www.boschsecurity.com) to Home Assistant to control and monitor your Bosch Alarm Panel.

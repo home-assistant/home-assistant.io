@@ -21,6 +21,8 @@ ha_bluetooth: true
 ha_platforms:
   - binary_sensor
   - cover
+  - diagnostics
+  - fan
   - humidifier
   - light
   - lock

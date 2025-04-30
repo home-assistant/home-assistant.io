@@ -14,6 +14,7 @@ ha_domain: rehlko
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: silver
 ---
 
 The **Rehlko** (formerly Kohler Energy Management) {% term integration %} allows you to monitor the status of your [enabled Kohler generator](https://www.kohlerhomeenergy.rehlko.com/kohler-energy-management-app) through Home Assistant. This integration replaces the legacy Oncue integration.
@@ -51,4 +52,3 @@ These are the generator models that have been tested:
 This integration follows the standard integration removal process; no extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-

@@ -10,6 +10,7 @@ ha_domain: s3
 ha_codeowners:
   - '@tomasbedrich'
 ha_integration_type: service
+ha_quality_scale: bronze
 ---
 
 The **S3** {% term integrations %} allows you to use S3 bucket with Home Assistant Backups.

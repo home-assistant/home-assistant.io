@@ -5,8 +5,8 @@ ha_category:
   - Binary sensor
   - Button
   - Climate
-  - Hub
   - Fan
+  - Hub
   - Light
   - Sensor
   - Switch
@@ -27,6 +27,7 @@ ha_platforms:
   - switch
 ha_integration_type: integration
 ha_zeroconf: true
+ha_quality_scale: bronze
 ---
 
 The Miele {% term integrations %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).

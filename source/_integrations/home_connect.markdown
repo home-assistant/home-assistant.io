@@ -29,6 +29,7 @@ ha_platforms:
   - switch
   - time
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 The Home Connect integration allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).

@@ -19,6 +19,7 @@ ha_platforms:
   - light
   - number
   - sensor
+  - switch
   - time
 ha_quality_scale: bronze
 ha_zeroconf: true
