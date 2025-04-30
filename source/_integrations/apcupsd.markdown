@@ -150,7 +150,7 @@ If you get "Failed to connect" error when setting up the integration (and/or `Co
 
 ### Some entities are no longer provided
 
-If certain entities are missing after a Home Assistant restart, it's likely because they represent event-based data that only appears after specific UPS events (e.g. transfer to battery). These entities are cleared when the APCUPSD daemon restarts and won’t reappear until the corresponding event occurs again.
+If certain entities are missing after a Home Assistant restart, it's likely because they represent event-based data that only appears after specific UPS events (e.g. transfer to battery). These entities are cleared when the APC UPS Daemon restarts and won’t reappear until the corresponding event occurs again.
 
 ## Removing the integration
 
