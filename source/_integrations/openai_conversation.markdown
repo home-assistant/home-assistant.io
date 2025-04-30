@@ -88,9 +88,10 @@ with the requested image.
 | ---------------------- | -------- | ------------------------------------------------------ | ---------------- |
 | `config_entry`         | no       | Integration entry ID to use.                           |                  |
 | `prompt`               | no       | The text to turn into an image.                        | Picture of a dog |
-| `size`                 | yes      | Size of the returned image in pixels. Must be one of `1024x1024`, `1792x1024`, or `1024x1792`, defaults to `1024x1024`. | 1024x1024        |
-| `quality`              | yes      | The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image. | standard         |
-| `style`                | yes      | The style of the generated images. Must be one of `vivid` or `natural`. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images. | vivid            |
+| `size`                 | yes      | Size of the returned image in pixels. Must be one of `1024x1024`, `1536x1024` (landscape), `1024x1536` (portrait), or `auto` (default value). | 1024x1024        |
+| `quality`              | yes      | The quality of the image that will be generated. Supported values are `high`, `medium`, `low`, and `auto` (default value). | medium           |
+| `background`           | yes      | Allows to set transparency for the background of the generated image. Must be one of `transparent`, `opaque` or `auto` (default value). When `auto` is used, the model will automatically determine the best background for the image. | transparent      |
+| `moderation`           | yes      | Control the content-moderation level for the generated image. Must be either `low` for less restrictive filtering or `auto` (default value). | auto             |
 
 {% raw %}
 ```yaml
@@ -99,13 +100,18 @@ data:
   config_entry: abce6b8696a15e107b4bd843de722249
   prompt: "Cute picture of a dog chasing a herd of cats"
   size: 1024x1024
-  quality: standard
-  style: vivid
+  quality: high
+  background: opaque
+  moderation: auto
 response_variable: generated_image
 ```
 {% endraw %}
 
-The response data field `url` will contain a URL to the generated image and `revised_prompt` will contain the updated prompt used.
+The response data field `url` will contain a URL to the generated image. Also, the image is saved into local media files and can be used as a [media source](/integrations/media_source/).
+
+#### Organization verification
+
+[According to OpenAI](https://openai.com/index/image-generation-api/#get-started), some developers may need to verify⁠ their organization before being able to use the `gpt-image-1` model. You can do that in your [organization settings](https://platform.openai.com/settings/organization/general). If you don't have access the the model, the `generate_image` action will fallback to the previous `dall-e-3` model and a [repair issue](/integrations/repairs/) will be raised.
 
 #### Example using a generated image entity
 
