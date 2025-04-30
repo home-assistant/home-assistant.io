@@ -2,6 +2,7 @@
 title: SwitchBot Cloud
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
+  - Binary Sensor
   - Button
   - Hub
   - Lock
@@ -18,6 +19,7 @@ ha_codeowners:
   - '@Gigatrappeur'
 ha_domain: switchbot_cloud
 ha_platforms:
+  - binary_sensor
   - button
   - climate
   - lock
