@@ -10,7 +10,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@tronikos'
   - '@Drafteed'
-ha_quality_scale: platinum
 ha_domain: androidtv_remote
 ha_zeroconf: true
 ha_platforms:
@@ -64,7 +63,7 @@ Example:
 
 ```yaml
 # Launch the YouTube app
-service: media_player.play_media
+action: media_player.play_media
 data:
   media_content_type: app
   media_content_id: com.google.android.youtube.tv
@@ -91,7 +90,7 @@ Example:
 
 ```yaml
 # Open a specific YouTube video:
-service: media_player.play_media
+action: media_player.play_media
 data:
   media_content_type: url
   media_content_id: https://www.youtube.com/watch?v=dQw4w9WgXcQ
@@ -107,7 +106,7 @@ Example:
 
 ```yaml
 # Change channel to number 15:
-service: media_player.play_media
+action: media_player.play_media
 data:
   media_content_type: channel
   media_content_id: 15
@@ -136,19 +135,19 @@ media_player:
     browse_media_entity: media_player.living_room_tv_cast
     commands:
       turn_off:
-        service: media_player.turn_off
+        action: media_player.turn_off
         data:
           entity_id: media_player.living_room_tv_remote
       turn_on:
-        service: media_player.turn_on
+        action: media_player.turn_on
         data:
           entity_id: media_player.living_room_tv_remote
       volume_up:
-        service: media_player.volume_up
+        action: media_player.volume_up
         data:
           entity_id: media_player.living_room_tv_remote
       volume_down:
-        service: media_player.volume_down
+        action: media_player.volume_down
         data:
           entity_id: media_player.living_room_tv_remote
 ```
@@ -249,7 +248,7 @@ Example actions:
 
 ```yaml
 # Open the currently selected item on the Android TV
-service: remote.send_command
+action: remote.send_command
 data:
   command: DPAD_CENTER
 target:
@@ -258,7 +257,7 @@ target:
 
 ```yaml
 # Long press on the currently selected item on the Android TV
-service: remote.send_command
+action: remote.send_command
 data:
   command: DPAD_CENTER
   hold_secs: 0.5
@@ -268,7 +267,7 @@ target:
 
 ```yaml
 # Launch YouTube
-service: remote.turn_on
+action: remote.turn_on
 data:
   activity: https://www.youtube.com
 target:
@@ -277,7 +276,7 @@ target:
 
 ```yaml
 # Open a specific YouTube video:
-service: remote.turn_on
+action: remote.turn_on
 data:
   activity: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 target:
@@ -317,8 +316,8 @@ cards:
       - type: button
         icon: mdi:arrow-up-bold
         tap_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: DPAD_UP
           target:
@@ -334,8 +333,8 @@ cards:
       - type: button
         icon: mdi:arrow-left-bold
         tap_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: DPAD_LEFT
           target:
@@ -345,15 +344,15 @@ cards:
       - type: button
         icon: mdi:circle
         tap_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: DPAD_CENTER
           target:
             entity_id: remote.living_room_tv
         hold_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: DPAD_CENTER
             hold_secs: 0.5
@@ -362,8 +361,8 @@ cards:
       - type: button
         icon: mdi:arrow-right-bold
         tap_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: DPAD_RIGHT
           target:
@@ -373,15 +372,15 @@ cards:
       - type: button
         icon: mdi:arrow-left
         tap_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: BACK
           target:
             entity_id: remote.living_room_tv
         hold_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: BACK
             hold_secs: 0.5
@@ -390,8 +389,8 @@ cards:
       - type: button
         icon: mdi:arrow-down-bold
         tap_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: DPAD_DOWN
           target:
@@ -401,15 +400,15 @@ cards:
       - type: button
         icon: mdi:home-outline
         tap_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: HOME
           target:
             entity_id: remote.living_room_tv
         hold_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: HOME
             hold_secs: 0.5
@@ -422,15 +421,15 @@ cards:
       - type: button
         icon: mdi:skip-previous
         tap_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: MEDIA_PREVIOUS
           target:
             entity_id: remote.living_room_tv
         hold_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: MEDIA_REWIND
           target:
@@ -438,15 +437,15 @@ cards:
       - type: button
         icon: mdi:play-pause
         tap_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: MEDIA_PLAY_PAUSE
           target:
             entity_id: remote.living_room_tv
         hold_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: MEDIA_STOP
           target:
@@ -454,15 +453,15 @@ cards:
       - type: button
         icon: mdi:skip-next
         tap_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: MEDIA_NEXT
           target:
             entity_id: remote.living_room_tv
         hold_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: MEDIA_FAST_FORWARD
           target:
@@ -470,8 +469,8 @@ cards:
       - type: button
         icon: mdi:volume-off
         tap_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: MUTE
           target:
@@ -481,8 +480,8 @@ cards:
       - type: button
         icon: mdi:volume-medium
         tap_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: VOLUME_DOWN
           target:
@@ -492,8 +491,8 @@ cards:
       - type: button
         icon: mdi:volume-high
         tap_action:
-          action: call-service
-          service: remote.send_command
+          action: perform-action
+          perform_action: remote.send_command
           data:
             command: VOLUME_UP
           target:
@@ -507,8 +506,8 @@ cards:
       - type: button
         icon: mdi:youtube
         tap_action:
-          action: call-service
-          service: remote.turn_on
+          action: perform-action
+          perform_action: remote.turn_on
           data:
             activity: https://www.youtube.com
           target:
@@ -518,8 +517,8 @@ cards:
       - type: button
         icon: mdi:netflix
         tap_action:
-          action: call-service
-          service: remote.turn_on
+          action: perform-action
+          perform_action: remote.turn_on
           data:
             activity: com.netflix.ninja
           target:
@@ -530,8 +529,8 @@ cards:
         image: >-
           https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Amazon_Prime_Video_logo.svg/450px-Amazon_Prime_Video_logo.svg.png
         tap_action:
-          action: call-service
-          service: remote.turn_on
+          action: perform-action
+          perform_action: remote.turn_on
           data:
             activity: com.amazon.amazonvideo.livingroom
           target:
@@ -542,8 +541,8 @@ cards:
         image: >-
           https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Disney%2B_logo.svg/440px-Disney%2B_logo.svg.png
         tap_action:
-          action: call-service
-          service: remote.turn_on
+          action: perform-action
+          perform_action: remote.turn_on
           data:
             activity: com.disney.disneyplus
           target:
@@ -570,9 +569,4 @@ cards:
 - Some devices experience disconnects every 15 seconds. This is typically resolved by rebooting the Android TV device after the initial setup of the integration.
 - If you are not able to connect to the Android TV device, or are asked to pair it again and again, try force-stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to **Settings** > **Apps** > **Show system apps**. Then, select **Android TV Remote Service** > **Storage** > **Clear storage**. You will have to pair again.
 - Some onscreen keyboards enabled by TV manufacturers do not support concurrent virtual and onscreen keyboard use. This presents whenever a text field is selected, such as "search" where a constant **use the keyboard on your mobile device** will show, preventing you from opening the onscreen keyboard to type. This can be overcome by either disabling your 3rd party keyboard and using the default Gboard keyboard or by deselecting **Enable IME** in the **Configure** page of the integration.
-- In some instances, Zeroconf will assign an incorrect IP address to a device. As a workaround, the below can be added to `configuration.yaml` to prevent Zeroconf from assigning IPs for the integration. IPs will need to be manually entered during setup, as described [above](/integrations/androidtv_remote/#configuration).
-```yaml
-zeroconf:
-  ignore:
-    - androidtv_remote
-```
+- If you can't turn on your Nvidia Shield device, go to **Settings** > **Remotes & accessories** > **Simplified wake buttons** and disable the following options: **SHIELD 2019 Remote: Wake on power and Netflix buttons only** and **Controllers: Wake on NVIDIA or logo buttons only**.

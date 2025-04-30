@@ -106,6 +106,10 @@ If the setup for your Android or Fire TV device fails, then there is probably an
 
 7. If you are using the [Python ADB implementation](#1-python-adb-implementation) approach, as mentioned above, there may be some issues with newer devices. In this case, you should use the [ADB server](#2-adb-server) approach instead.
 
+## Device Unavailable
+
+Some devices, such as the Insignia F30 series, disappear from the network when they are turned off. This can be seen as the device becoming unavailable in Home Assistant (logs show TCP timeout errors), disappearing from the network, and not responding to ping. Often, this is for approximately 50 minutes out of each hour when turned off. This can be fixed by opening the Settings app on the device and using "Display & Sounds" -> "Power Controls" -> "Voice Commands When TV Screen is Off". Change this value to "On" and accept the warning about increased power consumption. This will cause the device to always remain listening on the network so that it can be turned on via Home Assistant. Note that after being unplugged or losing power, the device will need to be manually turned on once before this setting takes effect again.
+
 ## Actions
 
 ### `media_player.select_source`
@@ -115,7 +119,7 @@ You can launch an app on your device using the `media_player.select_source` comm
 ```yaml
 start_netflix:
   sequence:
-  - service: media_player.select_source
+  - action: media_player.select_source
     target:
       entity_id: media_player.fire_tv_living_room
     data:
@@ -123,7 +127,7 @@ start_netflix:
 
 stop_netflix:
   sequence:
-  - service: media_player.select_source
+  - action: media_player.select_source
     target:
       entity_id: media_player.fire_tv_living_room
     data:
@@ -142,12 +146,12 @@ The `androidtv.adb_command` action allows you to send either keys or ADB shell c
 In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this:
 
 ```yaml
-action:
-  service: androidtv.adb_command
-  target:
-    entity_id: media_player.androidtv_tv_living_room
-  data:
-    command: "HOME"
+actions:
+  - action: androidtv.adb_command
+    target:
+      entity_id: media_player.androidtv_tv_living_room
+    data:
+      command: "HOME"
 ```
 
 Available key commands include:
@@ -185,7 +189,7 @@ As an example, an action in a [script](/docs/scripts) could be changed from this
 
 ```yaml
 # Send the "UP" command (slow)
-- service: androidtv.adb_command
+- action: androidtv.adb_command
   target:
     entity_id: media_player.fire_tv_living_room
   data:
@@ -196,7 +200,7 @@ to this:
 
 ```yaml
 # Send the "UP" command using `sendevent` (faster)
-- service: androidtv.adb_command
+- action: androidtv.adb_command
   target:
     entity_id: media_player.fire_tv_living_room
   data:
@@ -321,7 +325,7 @@ You can also send other Android keys using the syntax `input keyevent {key}`, re
 **Example to send sequence of commands:**
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   device_id: 12345f9b4c9863e28ddd52c87dcebe05
 data:

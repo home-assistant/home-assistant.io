@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: laundrify
 ha_platforms:
   - binary_sensor
+  - sensor
 ha_codeowners:
   - '@xLarry'
 ha_config_flow: true
@@ -16,9 +17,13 @@ ha_integration_type: integration
 
 Monitor the status of your washing machine or dryer within Home Assistant using a [laundrify](https://laundrify.de/) WiFi power plug.
 
-The following device types are currently supported by the integration:
+The following platforms/entities are currently supported by the integration:
 
 - Binary sensor
+  - Wash Cycle (_running_/_not running_)
+- Sensor
+  - Power (latest measurement in _Watts_)
+  - Energy (total consumption in _kWh_)
 
 ## Generate an Auth Code
 
@@ -35,8 +40,6 @@ Your code will expire within 60 minutes after activation. Make sure to configure
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-code:
+Code:
   description: "Auth Code that can be obtained in the laundrify App (see above), e.g., `123-456`."
-  required: true
-  type: string
 {% endconfiguration_basic %}

@@ -9,8 +9,8 @@ ha_config_flow: true
 ha_domain: dsmr
 ha_codeowners:
   - '@Robbie1221'
-  - '@frenck'
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: hub
 ---
@@ -19,9 +19,10 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 
 - Currently support DSMR V2.2, V3, V4, V5, Belgian V5 variant, Luxembourg V5 variant (Smarty), Swedish V5 variant and the EasyMeter Q3D (Germany) through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
 - For official information about DSMR refer to: [DSMR Document](https://www.netbeheernederland.nl/dossiers/slimme-meter-15)
-- For official information about the P1 port refer to: [P1 Companion Standard](https://www.netbeheernederland.nl/_upload/Files/Slimme_meter_15_a727fce1f1.pdf)
+- For official information about the P1 port refer to: [P1 Companion Standard](https://www.netbeheernederland.nl/sites/default/files/2024-02/dsmr_5.0.2_p1_companion_standard.pdf)
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 - For official information about the Swedish variant refer to: [Swedish specification](https://www.energiforetagen.se/globalassets/energiforetagen/det-erbjuder-vi/kurser-och-konferenser/elnat/branschrekommendation-lokalt-granssnitt-v2_0-201912.pdf).
+- For official information about the E.ON Hungary variant refer to: [E.ON Hungary P1 port specification](https://www.eon.hu/content/dam/eon/eon-hungary/documents/Lakossagi/aram/muszaki-ugyek/P1_port_felhasznaloi_interfesz_felhasznaloi_tajekoztato_%2020240702.pdf)
 - Supports [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602) integrated in a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103).
 
 <p class='img'>
@@ -35,10 +36,11 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For Luxembourg meters, choose DSMR version `5L`
 - For Swedish meters, choose DSMR version `5S`
 - For EasyMeter Q3D, choose DSMR version `Q3D`
+- For E-ON Hungary meters (and for most of other Hungarian meters), choose DSMR version `5EONHU`
 
 ### Options
 
-To configure options for DSMR integration go to **Settings** -> **Devices & Services** and press **Options** on the DSMR card.
+To configure options for DSMR integration go to **Settings** -> **Devices & services** and press **Options** on the DSMR card.
 
 #### Time between updates
 
@@ -54,16 +56,20 @@ This integration is known to work for:
 
 - Iskra ME382 / MT382 (DSMR 2.2)
 - ISKRA AM550 (DSMR 5.0)
-- Landis+Gyr E350 (DMSR 4)
+- Landis+Gyr E350 (DSMR 4)
+- Landis+Gyr E360 (DSMR 5)*
 - Landis+Gyr ZCF110 / ZM F110 (DSMR 4.2)
 - Kaifa E0026
 - Kaifa MA304C (DSMR 4.2)
 - Kamstrup 382JxC (DSMR 2.2)
 - Sagemcom XS210 ESMR5
-- Sagemcom T211 
+- Sagemcom T211
+- Sagemcom MA304
 - Ziv E0058 ESMR5
 - EasyMeter Q3D
 
+Remarks:  
+\* The E360 requires a special P1 cable, various webstores sell these specific to the E360.
 ### M-Bus support
 
 A smart meter can have multiple subdevices, also known as [M-Bus](https://m-bus.com/) devices.

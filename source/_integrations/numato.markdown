@@ -16,6 +16,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
+ha_quality_scale: legacy
 ---
 
 The `numato` integration is the base for all related GPIO platforms of the

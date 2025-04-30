@@ -21,7 +21,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@Bre77'
 ha_domain: teslemetry
-ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button
@@ -52,49 +51,88 @@ Vehicles delivered in 2024 and later will require a [virtual key](https://teslem
 ## Entities
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
+Entities in the device tracker platform specifically require the `Vehicle location` scope, and will appear unavailable otherwise. 
 
 ### Vehicles
 
 |Domain|Name|Enabled|
 |---|---|---|
+|Binary sensor|Automatic blind spot camera|No|
+|Binary sensor|Automatic emergency braking off|No|
 |Binary sensor|Battery heater|No|
+|Binary sensor|Blind spot collision warning chime|No|
+|Binary sensor|BMS full charge|No|
+|Binary sensor|Brake pedal|No|
 |Binary sensor|Cabin overheat protection actively cooling|No|
+|Binary sensor|Cellular|Yes|
 |Binary sensor|Charge cable|Yes|
+|Binary sensor|Charge enable request|No|
+|Binary sensor|Charge port cold weather mode|No|
 |Binary sensor|Charger has multiple phases|No|
 |Binary sensor|Dashcam|No|
+|Binary sensor|DC DC|No|
+|Binary sensor|Defrost for preconditioning|No|
+|Binary sensor|Drive rail|No|
+|Binary sensor|Driver seat belt|No|
+|Binary sensor|Driver seat occupied|No|
+|Binary sensor|Emergency lane departure avoidance|No|
+|Binary sensor|Europe vehicle|No|
+|Binary sensor|Fast charger present|No|
 |Binary sensor|Front driver door|Yes|
 |Binary sensor|Front driver window|Yes|
 |Binary sensor|Front passenger door|Yes|
 |Binary sensor|Front passenger window|Yes|
+|Binary sensor|GPS state|No|
+|Binary sensor|Guest mode enabled|No|
+|Binary sensor|High beams|No|
+|Binary sensor|Homelink nearby|No|
+|Binary sensor|HVAC auto mode|No|
+|Binary sensor|High voltage interlock loop fault|No|
+|Binary sensor|Located at favorite|Yes|
+|Binary sensor|Located at home|Yes|
+|Binary sensor|Located at work|Yes|
+|Binary sensor|Offroad lightbar|No|
+|Binary sensor|Passenger seat belt|No|
+|Binary sensor|Pin to drive enabled|No|
 |Binary sensor|Preconditioning enabled|No|
 |Binary sensor|Preconditioning|No|
+|Binary sensor|Rear display HVAC|No|
 |Binary sensor|Rear driver door|Yes|
 |Binary sensor|Rear driver window|Yes|
 |Binary sensor|Rear passenger door|Yes|
 |Binary sensor|Rear passenger window|Yes|
+|Binary sensor|Remote start|No|
+|Binary sensor|Right hand drive|No|
 |Binary sensor|Scheduled charging pending|No|
+|Binary sensor|Seat vent enabled|No|
+|Binary sensor|Service mode|No|
+|Binary sensor|Speed limited|No|
 |Binary sensor|Status|Yes|
+|Binary sensor|Supercharger session trip planner|No|
 |Binary sensor|Tire pressure warning front left|No|
 |Binary sensor|Tire pressure warning front right|No|
 |Binary sensor|Tire pressure warning rear left|No|
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
+|Binary sensor|Wi-Fi|Yes|
+|Binary sensor|Wiper heat|No|
 |Button|Flash lights|Yes|
-|Button|Homelink|Yes|
+|Button|HomeLink|Yes|
 |Button|Honk horn|Yes|
 |Button|Keyless driving|Yes|
 |Button|Play fart|Yes|
 |Button|Wake|Yes|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
-|Device tracker|Location|Yes|
-|Device tracker|Route|Yes|
 |Cover|Charge port door|Yes|
 |Cover|Frunk|Yes|
 |Cover|Sunroof|No|
 |Cover|Trunk|Yes|
 |Cover|Vent windows|Yes|
+|Device tracker|Location|Yes|
+|Device tracker|Origin|No|
+|Device tracker|Route|Yes|
 |Lock|Charge cable lock|Yes|
 |Lock|Lock|Yes|
 |Lock|Speed limit|Yes|
@@ -133,6 +171,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Scheduled charging mode|No|
 |Sensor|Scheduled charging start time|No|
 |Sensor|Scheduled departure time|No|
+|Sensor|Sentry mode|Yes|
 |Sensor|Shift state|No|
 |Sensor|Speed|No|
 |Sensor|State of charge at arrival|No|
@@ -167,22 +206,39 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Backup capable|Yes|
 |Binary sensor|Grid services active|Yes|
 |Binary sensor|Grid services enabled|Yes|
+|Binary sensor|Grid status|Yes|
+|Binary sensor|Storm watch active|Yes|
 |Number|Backup reserve|Yes|
 |Number|Off grid reserve|Yes|
+|Select|Allow export|Yes|
+|Select|Operation mode|Yes|
 |Sensor|Battery power|Yes|
+|Sensor|Consumer imported from battery|No|
+|Sensor|Consumer imported from generator|No|
+|Sensor|Consumer imported from grid|No|
+|Sensor|Consumer imported from solar|No|
 |Sensor|Energy left|Yes|
+|Sensor|Generator exported|Yes|
 |Sensor|Generator power|No|
+|Sensor|Grid exported|Yes|
+|Sensor|Grid exported from battery|No|
+|Sensor|Grid exported from generator|No|
+|Sensor|Grid exported from solar|No|
+|Sensor|Grid imported|No|
 |Sensor|Grid power|Yes|
+|Sensor|Grid services exported|No|
+|Sensor|Grid services imported|No|
 |Sensor|Grid services power|Yes|
+|Sensor|Home usage|Yes|
 |Sensor|Island status|Yes|
 |Sensor|Load power|Yes|
 |Sensor|Percentage charged|Yes|
+|Sensor|Solar exported|No|
+|Sensor|Solar generated|Yes|
 |Sensor|Solar power|Yes|
 |Sensor|Total pack energy|No|
-|Sensor|VPP backup reserve|Yes|
 |Sensor|Version|Yes|
-|Select|Allow export|Yes|
-|Select|Operation mode|Yes|
+|Sensor|VPP backup reserve|Yes|
 |Switch|Allow charging from grid|Yes|
 |Switch|Storm watch|Yes|
 
@@ -195,13 +251,9 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|State|Yes|
 |Sensor|Vehicle|Yes|
 
-## Vehicle sleep
+## Actions
 
-Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the Teslemetry integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` service to force polling the API, which will reset the timer.
-
-## Services
-
-Teslemetry provides various custom services to interact with the Tesla Fleet API directly.
+Teslemetry provides various custom actions to interact with the Tesla Fleet API directly.
 
 ### Navigate to coordinates
 
@@ -268,3 +320,11 @@ Teslemetry provides various custom services to interact with the Tesla Fleet API
 |---------------|------------------------------|------------------------------------------------------------------------------------------------------------------|
 | device_id     | The energy site's device ID  | 0d462c0c4c0b064b1a91cdbd1ffcbd31                                                                                 |
 | tou_settings  | Time of use settings         | See [Tesla Fleet API documentation](https://developer.tesla.com/docs/fleet-api#time_of_use_settings) for details |
+
+## Energy dashboard
+
+The Tesla Fleet API only provides power data for Powerwall and Solar products. This means they cannot be used on the energy dashboard directly.
+
+Energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
+The `Load power`, `Solar power`, and the templated sensors can then use a [Riemann Sum](/integrations/integration/) to convert their instant power (kW) values into cumulative energy values (kWh),
+which then can be used within the energy dashboard.

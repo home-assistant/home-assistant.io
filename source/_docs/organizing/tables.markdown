@@ -20,7 +20,7 @@ When working with tables, you can select multiple items to apply an action. If y
 
 ## Selecting multiple items in a table
 
-1. In your table, select the <img height="28px" src="/images/organizing/multiselect_icon.png" alt="Multiselect icon"/> button.
+1. In your table, select the {% icon "mdi:order-checkbox-ascending" %} button.
 
    ![Screenshots point out the enable selection mode button in the toolbar of the tables in Home Assistant](/images/blog/2024-04/enable-selection-mode.png)
 
@@ -74,5 +74,6 @@ To customize columns, follow these steps:
 1. In the top right corner of the table, select the cog wheel.
 2. To hide a column, deselect it.
 3. To rearrange the order, grab the column and move it to its new position.
+4. To sort, select the column header of interest.
 
    ![Screencast showing how to show, hide, and rearrange columns](/images/organizing/customize_columns.webp)

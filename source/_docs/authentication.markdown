@@ -7,7 +7,7 @@ The authentication system secures access to Home Assistant.
 
 ## Login screen
 
-You are greeted with a log in screen, asking you for user name and password.
+You are greeted with a log in screen, asking you for username and password.
 
 <img src='/images/docs/authentication/login-outside-local-network.png' alt='Screenshot of the login screen, when logging in from within the local network' style='border: 0;box-shadow: none;'>
 
@@ -51,9 +51,13 @@ _Make sure to choose a secure password!_ At some time in the future, you will pr
 
 As an extra level of security, you can turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 
-## Changing display or user name
+## Adding a person to Home Assistant
 
-To learn how to change a display or user name, refer to [setting up basic information](/docs/configuration/basic/).
+If you have administrator rights, you can [add a person to Home Assistant](/integrations/person/#adding-a-person-to-home-assistant) and create them a user account.
+
+## Changing display or username
+
+To learn how to change a display or username, refer to [setting up basic information](/docs/configuration/basic/).
 
 ## Other authentication techniques
 

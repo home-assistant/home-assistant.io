@@ -49,21 +49,21 @@ Konnected devices communicate with Home Assistant over your local LAN -- there i
 
 ### Web Interface
 
-Starting with 0.106.0 Home Assistant requires UI based configuration of Konnected via **Settings** -> **Devices & Services** in the Home Assistant (web) frontend. If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
+Starting with 0.106.0 Home Assistant requires UI-based configuration of Konnected via **Settings** > **Devices & services** in the Home Assistant (web) frontend. If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
 
 Selecting one of these discovered panels will guide you through connecting and configuring the panel. If your panel was discovered via SSDP, you shouldn't need any information to complete configuration - simply confirm that the information displayed is correct. If the UI prompts you for IP/Port, you'll need to enter it. IP/Port info can be found using the Konnected mobile app.
 
 {% note %}
 If you have an existing `configuration.yaml` completing the UI configuration will do a one time import of the settings contained in `configuration.yaml`. Once the import creates a **Configured** integration the Konnected section of the `configuration.yaml` is no longer used - it is recommended to remove the `konnected` section of `configuration.yaml` and after the import occurs. Any future changes to settings should occur via the settings provided in the Home Assistant web interface.
 
-If you want to retain `configuration.yaml` and need to re-import any changes or updates you will need to delete the entry in **Settings** -> **Devices & Services** -> **Configured** and repeat the UI configuration for that device.
+If you want to retain `configuration.yaml` and need to re-import any changes or updates, you will need to delete the entry in **Settings** > **Devices & services** > **Configured** and repeat the UI configuration for that device.
 {% endnote %}
 
-Once configuration is completed you'll see a Konnected.io entry in **Settings** -> **Devices & Services** -> **Configured**.  If you imported settings from `configuration.yaml` you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings, you'll need to utilize the settings UI to configure zone behavior.
+Once configuration is completed, you'll see a Konnected.io entry in **Settings** > **Devices & services** > **Configured**.  If you imported settings from `configuration.yaml`, you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings, you'll need to utilize the settings UI to configure zone behavior.
 
 #### Using Settings UI to Configure Zone Behavior
 
-The settings for each panel can be accessed by selecting the entry in **Settings** -> **Devices & Services** -> **Configured** and then clicking on the gear icon in the upper right corner. You can reconfigure these settings at any time and once completed the settings will be immediately applied.
+The settings for each panel can be accessed by selecting the entry in **Settings** > **Devices & services** > **Configured** and then clicking on the gear icon in the upper right corner. You can reconfigure these settings at any time, and once completed, the settings will be immediately applied.
 
 The settings UI starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary Sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that, you'll be prompted, for each zone that is not disabled, to configure details of the zones' behavior. All zones will allow entry of a Name. Additional fields depend on how you configured the general behavior of the zone.  
 **Note some zones do not support all behaviors. The UI will reflect specific options available to each zone.**
@@ -104,9 +104,9 @@ Once all zones are configured you'll be presented with the configuration for add
 
 **Blink panel LED on when sending state change:** The desired LED behavior for the panel.
 
-**Override default Home Assistant API host panel URL:** The Konnected Alarm Panel post sensor states back to the Home Assistant API. If this value is unchecked the panel will default postbacks using the URL [configured](/integrations/homeassistant/#allowlist_external_urls) in Home Assistant. By default, the integration will use the internal URL. However, if you check this field and set the **Override API host URL** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`), it will be used instead of the internal URL.
+**Override default Home Assistant API host URL:** The Konnected Alarm Panel posts sensor states back to the Home Assistant API. If this value is unchecked, the panel will default postbacks using the URL [configured](/integrations/homeassistant/#allowlist_external_urls) in Home Assistant. By default, the integration will use the internal URL. However, if you check this field and set the **Custom API host URL** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`), it will be used instead of the internal URL.
 
-**Override API host URL (optional):** The host info to use if you checked **Override default Home Assistant API host panel URL** in the step above. This is ignored if **Override default Home Assistant API host panel URL** is unchecked.
+**Custom API host URL (optional):** The host info to use if you checked **Override default Home Assistant API host URL** in the step above. This is ignored if **Override default Home Assistant API host URL** is unchecked.
 
 ### YAML configuration
 
@@ -309,7 +309,7 @@ konnected:
 
 ## Unique IDs and the Entity Registry
 
-Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI at **Settings** -> **Devices & Services** -> **Entities**.
+Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI at **Settings** -> **Devices & services** -> **Entities**.
 
 Unique IDs are internally generated as follows:
 

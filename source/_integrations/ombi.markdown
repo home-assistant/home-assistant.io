@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The Ombi integration monitors data from your [Ombi](https://ombi.io) instance.
@@ -85,33 +86,33 @@ ombi:
   ssl: true
 ```
 
-## Services
+## Actions
 
-### Submit request services
+### Submit request actions
 
-Available services: `submit_movie_request`, `submit_music_request`, `submit_tv_request`
+Available actions: `submit_movie_request`, `submit_music_request`, `submit_tv_request`
 
-#### Service `submit_movie_request`
+#### Action `submit_movie_request`
 
 Searches and requests the closest matching movie.
 
-| Service data attribute | Optional | Description       |
+| Data attribute | Optional | Description       |
 | ---------------------- | -------- | ----------------- |
 | `name`                 | no       | Search parameter. |
 
-#### Service `submit_music_request`
+#### Action `submit_music_request`
 
 Searches and requests the closest matching music album.
 
-| Service data attribute | Optional | Description       |
+| Data attribute | Optional | Description       |
 | ---------------------- | -------- | ----------------- |
 | `name`                 | no       | Search parameter. |
 
-#### Service `submit_tv_request`
+#### Action `submit_tv_request`
 
 Searches and requests the closest matching TV show.
 
-| Service data attribute | Optional | Description                                                                                |
+| Data attribute | Optional | Description                                                                                |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------ |
 | `name`                 | no       | Search parameter.                                                                          |
 | `season`               | yes      | Which season(s) to request. Must be one of `first`, `latest` or `all`. Defaults to latest. |

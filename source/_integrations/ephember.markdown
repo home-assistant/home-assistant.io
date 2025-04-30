@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `ephember` {% term integration %} lets you control [EPH Controls](https://emberapp.ephcontrols.com/) thermostats. The module only works if you have a Wi-Fi gateway to control your EPH system and an account on the EMBER app.
@@ -48,4 +49,4 @@ The supported operation modes map to the ON/OFF period selection of your timeswi
 - **Off** The timeswitch is permanently off.
 
 If **All Day** is selected in the EMBER app it will show as **Auto** in Home Assistant.
-To **Boost** your heating, you should call the `climate.set_aux_heater` service on your zone entity. This will then **Boost** that zone for 1 hour.
+To **Boost** your heating, you should use the `climate.set_aux_heater` action on your zone entity. This will then **Boost** that zone for 1 hour.

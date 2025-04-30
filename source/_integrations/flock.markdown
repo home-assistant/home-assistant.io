@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `flock` integration uses [Flock.com](https://flock.com) to deliver notifications from Home Assistant.
@@ -45,7 +46,7 @@ notify:
 
 {% configuration %}
 name:
-  description: "The optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`."
+  description: "The optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action."
   required: false
   type: string
   default: notify

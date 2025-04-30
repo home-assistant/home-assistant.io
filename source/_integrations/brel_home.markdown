@@ -12,6 +12,7 @@ ha_codeowners:
   - '@starkillerOG'
 ha_config_flow: true
 ha_platforms:
+  - button
   - cover
   - sensor
 ha_iot_class: Local Push

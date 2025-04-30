@@ -80,11 +80,11 @@ Using the entity state and attributes is more error prone and less flexible than
 
 {% enddetails %}
 
-### Service `google.create_event`
+### Action `google.create_event`
 
-You can use the service `google.create_event` to create a new calendar event in a calendar.
+You can use the `google.create_event` action to create a new calendar event in a calendar.
 
-{% details "Create Event Service details" %}
+{% details "Create event action details" %}
 
 {% note %}
 This will only be available if you have given Home Assistant `read-write` access in configuration options.
@@ -92,7 +92,7 @@ This will only be available if you have given Home Assistant `read-write` access
 
 A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
-| Service data attribute | Optional | Description                                         | Example             |
+| Data attribute | Optional | Description                                         | Example             |
 | ---------------------- | -------- | --------------------------------------------------- | ------------------- |
 | `summary`              | no       | Acts as the title of the event.                     | Bowling             |
 | `description`          | yes      | The description of the event.                       | Birthday bowling    |
@@ -107,10 +107,10 @@ A calendar `target` is selected with a [Target Selector](/docs/blueprint/selecto
 You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
 {% endimportant %}
 
-This is a full example of service call in YAML:
+This is a full example of an action in YAML:
 
 ```yaml
-service: google.create_event
+action: google.create_event
 target:
   entity_id: calendar.device_automation_schedules
 data:

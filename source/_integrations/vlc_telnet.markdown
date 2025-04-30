@@ -17,7 +17,7 @@ ha_integration_type: integration
 
 The **VLC media player via Telnet** {% term integration %} allows you to control a [VLC media player](https://www.videolan.org/vlc/index.html) using the built in telnet interface.
 
-This service will control any instance of VLC player on the network with the telnet interface activated.
+This action will control any instance of VLC player on the network with the telnet interface activated.
 To activate the telnet interface on your VLC Player please read the [official VLC documentation](https://wiki.videolan.org/Documentation:Modules/telnet/). Also remember to add a firewall rule allowing inbound connections for the port used in the device running VLC.
 
 In case the VLC is running on a host with a locale other than English, you may get some errors during the volume change.
@@ -26,9 +26,9 @@ Consider to set the locale to `en_US` before starting VLC.
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
-When using the `media_player.play_media` service, only the "music" media type is supported for now.
+When using the `media_player.play_media` action, only the "music" media type is supported for now.
 
 ## Home Assistant add-on
 

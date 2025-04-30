@@ -14,11 +14,11 @@ You can also perform the action to activate [a scene](/integrations/scene/) whic
 ```yaml
 automation:
   # Change the light in the kitchen and living room to 150 brightness and color red.
-  trigger:
-    - platform: sun
+  triggers:
+    - trigger: sun
       event: sunset
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       target:
         entity_id:
           - light.kitchen
@@ -29,19 +29,19 @@ automation:
 
 automation 2:
   # Notify me on my mobile phone of an event
-  trigger:
-    - platform: sun
+  triggers:
+    - trigger: sun
       event: sunset
       offset: -00:30
   variables:
-    notification_service: notify.paulus_iphone
-  action:
+    notification_action: notify.paulus_iphone
+  actions:
     # Actions are scripts so can also be a list of actions
-    - service: "{{ notification_service }}"
+    - action: "{{ notification_action }}"
       data:
         message: "Beautiful sunset!"
     - delay: 0:35
-    - service: notify.notify
+    - action: notify.notify
       data:
         message: "Oh wow you really missed something great."
 ```
@@ -53,12 +53,12 @@ Conditions can also be part of an action. You can combine multiple actions and c
 ```yaml
 automation:
 - alias: "Office at evening"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.office_occupancy
       to: "on" 
-  action:
-    - service: notify.notify
+  actions:
+    - action: notify.notify
       data:
         message: "Testing conditional actions"
     - condition: or
@@ -70,7 +70,7 @@ automation:
         - condition: state
           entity_id: sensor.office_illuminance
           below: 10
-    - service: scene.turn_on
+    - action: scene.turn_on
       target:
         entity_id: scene.office_at_evening
 ```

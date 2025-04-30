@@ -2,7 +2,6 @@
 title: "Script Syntax"
 description: "Documentation for the Home Assistant Script Syntax."
 toc: true
-no_toc: true
 ---
 
 Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script integration] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
@@ -22,11 +21,11 @@ script:
     sequence:
       # This is written using the Script Syntax
       - alias: "Turn on ceiling light"
-        service: light.turn_on
+        action: light.turn_on
         target:
           entity_id: light.ceiling
       - alias: "Notify that ceiling light is turned on"
-        service: notify.notify
+        action: notify.notify
         data:
           message: "Turned on the ceiling light!"
 ```
@@ -39,7 +38,7 @@ Performing an action can be done in various ways. For all the different possibil
 
 ```yaml
 - alias: "Bedroom lights on"
-  service: light.turn_on
+  action: light.turn_on
   target:
     entity_id: group.bedroom
   data:
@@ -63,12 +62,12 @@ The variables {% term action %} allows you to set/override variables that will b
 ```yaml
 - alias: "Set variables"
   variables:
-    entities: 
+    entities:
       - light.kitchen
       - light.living_room
     brightness: 100
 - alias: "Control lights"
-  service: light.turn_on
+  action: light.turn_on
   target:
     entity_id: "{{ entities }}"
   data:
@@ -86,7 +85,7 @@ Variables can be templated.
   variables:
     blind_state_message: "The blind is {{ states('cover.blind') }}."
 - alias: "Notify about the state of the blind"
-  service: notify.mobile_app_iphone
+  action: notify.mobile_app_iphone
   data:
     message: "{{ blind_state_message }}"
 ```
@@ -95,9 +94,7 @@ Variables can be templated.
 
 ### Scope of variables
 
-Variables have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
-
-Inside the `if` sequence the `variables` {% term action %} will only alter the `people` variable for that sequence.
+The `variables` {% term action %} assigns the values to previously defined variables with the same name. If a variable was not previously defined, it is assigned in the top-level (script run) scope.
 
 {% raw %}
 
@@ -112,17 +109,17 @@ sequence:
         entity_id: device_tracker.paulus
         state: "home"
     then:
-      # At this scope and this point of the sequence, people == 0
       - variables:
           people: "{{ people + 1 }}"
-      # At this scope, people will now be 1 ...
-      - service: notify.notify
+          paulus_home: true
+      - action: notify.notify
         data:
           message: "There are {{ people }} people home" # "There are 1 people home"
-  # ... but at this scope it will still be 0
-  - service: notify.notify
+  # Variable value is now updated
+  - action: notify.notify
     data:
-      message: "There are {{ people }} people home" # "There are 0 people home"
+      message: "There are {{ people }} people home {% if paulus_home is defined %}(including Paulus){% endif %}"
+      # "There are 1 people home (including Paulus)"
 ```
 
 {% endraw %}
@@ -147,7 +144,7 @@ The `condition` {% term action %} only stops executing the current sequence bloc
 
 ```yaml
 - alias: "Check if Paulus ishome AND temperature is below 20"
-  condition:
+  conditions:
     - condition: state
       entity_id: "device_tracker.paulus"
       state: "home"
@@ -214,8 +211,8 @@ This {% term action %} evaluates the template, and if true, the script will cont
 The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) integration that will update minutely or daily.
 
 {% raw %}
-```yaml
 
+```yaml
 # Wait until media player is stopped
 - alias: "Wait until media player is stopped"
   wait_template: "{{ is_state('media_player.floor', 'stop') }}"
@@ -232,9 +229,9 @@ This {% term action %} can use the same triggers that are available in an automa
 # Wait for a custom event or light to turn on and stay on for 10 sec
 - alias: "Wait for MY_EVENT or light on"
   wait_for_trigger:
-    - platform: event
+    - trigger: event
       event_type: MY_EVENT
-    - platform: state
+    - trigger: state
       entity_id: light.LIGHT
       to: "on"
       for: 10
@@ -259,11 +256,11 @@ With both types of waits it is possible to set a timeout after which the script 
 You can also get the script to abort after the timeout by using optional `continue_on_timeout: false`.
 
 {% raw %}
-```yaml
 
+```yaml
 # Wait for IFTTT event or abort after specified timeout.
 - wait_for_trigger:
-    - platform: event
+    - trigger: event
       event_type: ifttt_webhook_received
       event_data:
         action: connected_to_network
@@ -282,9 +279,9 @@ After each time a wait completes, either because the condition was met, the even
 
 | Variable         | Description                                                                                                                                                                                                                             |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `wait.completed` | Exists only after `wait_template`. `true` if the condition was met, `false` otherwise                                                                                                                                                   |
-| `wait.trigger`   | Exists only after `wait_for_trigger`. Contains information about which trigger fired. (See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).) Will be `none` if no trigger happened before timeout expired |
+| `wait.completed` | `true` if the condition was met, `false` otherwise                                                                                                                                                                                      |
 | `wait.remaining` | Timeout remaining, or `none` if a timeout was not specified                                                                                                                                                                             |
+| `wait.trigger`   | Exists only after `wait_for_trigger`. Contains information about which trigger fired. (See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).) Will be `none` if no trigger happened before timeout expired |
 
 This can be used to take different actions based on whether or not the condition was met, or to use more than one wait sequentially while implementing a single timeout overall.
 
@@ -297,9 +294,9 @@ This can be used to take different actions based on whether or not the condition
 - if:
     - "{{ not wait.completed }}"
   then:
-    - service: script.door_did_not_open
+    - action: script.door_did_not_open
   else:
-    - service: script.turn_on
+    - action: script.turn_on
       target:
         entity_id:
           - script.door_did_open
@@ -309,20 +306,21 @@ This can be used to take different actions based on whether or not the condition
 - wait_template: "{{ is_state('binary_sensor.door_1', 'on') }}"
   timeout: 10
   continue_on_timeout: false
-- service: switch.turn_on
+- action: switch.turn_on
   target:
     entity_id: switch.some_light
 - wait_for_trigger:
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.door_2
       to: "on"
       for: 2
   timeout: "{{ wait.remaining }}"
   continue_on_timeout: false
-- service: switch.turn_off
+- action: switch.turn_off
   target:
     entity_id: switch.some_light
 ```
+
 {% endraw %}
 
 ## Fire an event
@@ -361,11 +359,11 @@ The following {% term automation %} example shows how to raise a custom event ca
 
 ```yaml
 - alias: "Fire Event"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: switch.kitchen
       to: "on"
-  action:
+  actions:
     - event: event_light_state_changed
       event_data:
         state: "on"
@@ -377,11 +375,11 @@ The following {% term automation %} example shows how to capture the custom even
 
 ```yaml
 - alias: "Capture Event"
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: event_light_state_changed
-  action:
-    - service: notify.notify
+  actions:
+    - action: notify.notify
       data:
         message: "kitchen light is turned {{ trigger.event.data.state }}"
 ```
@@ -405,7 +403,7 @@ script:
   flash_light:
     mode: restart
     sequence:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: "light.{{ light }}"
       - alias: "Cycle light 'count' times"
@@ -413,13 +411,13 @@ script:
           count: "{{ count|int * 2 - 1 }}"
           sequence:
             - delay: 2
-            - service: light.toggle
+            - action: light.toggle
               target:
                 entity_id: "light.{{ light }}"
   flash_hallway_light:
     sequence:
       - alias: "Flash hallway light 3 times"
-        service: script.flash_light
+        action: script.flash_light
         data:
           light: hallway
           count: 3
@@ -446,7 +444,7 @@ repeat:
     - "kitchen"
     - "office"
   sequence:
-    - service: light.turn_off
+    - action: light.turn_off
       target:
         entity_id: "light.{{ repeat.item }}"
 ```
@@ -454,7 +452,7 @@ repeat:
 {% endraw %}
 
 Other types are accepted as list items, for example, each item can be a
-template, or even an mapping of key/value pairs. 
+template, or even an mapping of key/value pairs.
 
 {% raw %}
 
@@ -466,7 +464,7 @@ repeat:
     - language: Dutch
       message: Hallo Wereld
   sequence:
-    - service: notify.phone
+    - action: notify.phone
       data:
         title: "Message in {{ repeat.item.language }}"
         message: "{{ repeat.item.message }}!"
@@ -485,7 +483,7 @@ is run. The sequence will be run _as long as_ the condition(s) evaluate to true.
 script:
   do_something:
     sequence:
-      - service: script.get_ready_for_something
+      - action: script.get_ready_for_something
       - alias: "Repeat the sequence AS LONG AS the conditions are true"
         repeat:
           while:
@@ -496,7 +494,7 @@ script:
             - condition: template
               value_template: "{{ repeat.index <= 20 }}"
           sequence:
-            - service: script.something
+            - action: script.something
 ```
 
 {% endraw %}
@@ -510,7 +508,7 @@ For example:
 - repeat:
     while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
     sequence:
-    - ...
+      - ...
 ```
 
 {% endraw %}
@@ -525,21 +523,20 @@ _until_ the condition(s) evaluate to true.
 
 ```yaml
 automation:
-  - trigger:
-      - platform: state
+  - triggers:
+      - trigger: state
         entity_id: binary_sensor.xyz
         to: "on"
-    condition:
+    conditions:
       - condition: state
         entity_id: binary_sensor.something
         state: "off"
-    mode: single
-    action:
+    actions:
       - alias: "Repeat the sequence UNTIL the conditions are true"
         repeat:
           sequence:
             # Run command that for some reason doesn't always work
-            - service: shell_command.turn_something_on
+            - action: shell_command.turn_something_on
             # Give it time to complete
             - delay:
                 milliseconds: 200
@@ -561,8 +558,9 @@ For example:
 - repeat:
     until: "{{ is_state('device_tracker.iphone', 'home') }}"
     sequence:
-    - ...
+      - ...
 ```
+
 {% endraw %}
 
 ### Repeat loop variable
@@ -578,9 +576,8 @@ It contains the following fields:
 
 ## If-then
 
-This {% term action %} allow you to conditionally (`if`) run a sequence of actions (`then`)
-and optionally supports running other sequence when the condition didn't
-pass (`else`).
+This {% term action %} allows you to conditionally (`if`), based on or more [conditions](/docs/scripts/conditions/) (which are `and` combined),
+run a sequence of actions (`then`) and optionally supports running other sequence when the condition didn't pass (`else`).
 
 ```yaml
 script:
@@ -591,12 +588,12 @@ script:
         state: 0
     then:
       - alias: "Then start cleaning already!"
-        service: vacuum.start
+        action: vacuum.start
         target:
           area_id: living_room
     # The `else` is fully optional and can be omitted
     else:
-      - service: notify.notify
+      - action: notify.notify
         data:
           message: "Skipped cleaning, someone is home!"
 ```
@@ -622,36 +619,36 @@ The `choose` {% term action %} can be used like an "if/then/elseif/then.../else"
 ```yaml
 # Example with "if", "elif" and "else"
 automation:
-  - trigger:
-      - platform: state
+  - triggers:
+      - trigger: state
         entity_id: input_boolean.simulate
         to: "on"
     mode: restart
-    action:
+    actions:
       - choose:
           # IF morning
           - conditions:
               - condition: template
                 value_template: "{{ now().hour < 9 }}"
             sequence:
-              - service: script.sim_morning
+              - action: script.sim_morning
           # ELIF day
           - conditions:
               - condition: template
                 value_template: "{{ now().hour < 18 }}"
             sequence:
-              - service: light.turn_off
+              - action: light.turn_off
                 target:
                   entity_id: light.living_room
-              - service: script.sim_day
+              - action: script.sim_day
         # ELSE night
         default:
-          - service: light.turn_off
+          - action: light.turn_off
             target:
               entity_id: light.kitchen
           - delay:
               minutes: "{{ range(1, 11)|random }}"
-          - service: light.turn_off
+          - action: light.turn_off
             target:
               entity_id: all
 ```
@@ -665,35 +662,34 @@ For example:
 
 ```yaml
 automation:
-  - trigger:
-      - platform: state
+  - triggers:
+      - trigger: state
         entity_id: input_select.home_mode
-    action:
+    actions:
       - choose:
           - conditions: >
               {{ trigger.to_state.state == 'Home' and
                  is_state('binary_sensor.all_clear', 'on') }}
             sequence:
-              - service: script.arrive_home
+              - action: script.arrive_home
                 data:
                   ok: true
           - conditions: >
               {{ trigger.to_state.state == 'Home' and
                  is_state('binary_sensor.all_clear', 'off') }}
             sequence:
-              - service: script.turn_on
+              - action: script.turn_on
                 target:
                   entity_id: script.flash_lights
-              - service: script.arrive_home
+              - action: script.arrive_home
                 data:
                   ok: false
           - conditions: "{{ trigger.to_state.state == 'Away' }}"
             sequence:
-              - service: script.left_home
+              - action: script.left_home
 ```
 
 {% endraw %}
-
 
 More `choose` can be used together. This is the case of an IF-IF.
 
@@ -707,14 +703,14 @@ When the sun goes below the horizon, the `porch` and `garden` lights must turn o
 # Example with "if" and "if"
 automation:
   - alias: "Turn lights on when the sun gets dim and if some room is occupied"
-      trigger:
-        - platform: numeric_state
+      triggers:
+        - trigger: numeric_state
           entity_id: sun.sun
           attribute: elevation
           below: 4
-      action:
+      actions:
         # This must always apply
-        - service: light.turn_on
+        - action: light.turn_on
           data:
             brightness: 255
             color_temp: 366
@@ -729,7 +725,7 @@ automation:
                   entity_id: binary_sensor.livingroom_tv
                   state: "on"
               sequence:
-                - service: light.turn_on
+                - action: light.turn_on
                   data:
                     brightness: 255
                     color_temp: 366
@@ -742,7 +738,7 @@ automation:
                   entity_id: binary_sensor.studio_pc
                   state: "on"
               sequence:
-                - service: light.turn_on
+                - action: light.turn_on
                   data:
                     brightness: 255
                     color_temp: 366
@@ -771,25 +767,25 @@ groups themselves. In total, four actions are executed, one after the other.
 
 ```yaml
 automation:
-  - trigger:
-      - platform: state
+  - triggers:
+      - trigger: state
         entity_id: binary_sensor.motion
         to: "on"
-    action:
+    actions:
       - alias: "Turn on devices"
         sequence:
-          - service: light.turn_on
+          - action: light.turn_on
             target:
               entity_id: light.ceiling
-          - service: siren.turn_on
+          - action: siren.turn_on
             target:
               entity_id: siren.noise_maker
       - alias: "Send notifications"
         sequence:
-          - service: notify.person1
+          - action: notify.person1
             data:
               message: "The motion sensor was triggered!"
-          - service: notify.person2
+          - action: notify.person2
             data:
               message: "Oh oh, someone triggered the motion sensor..."
 ```
@@ -808,16 +804,16 @@ The following example shows sending messages out at the same time (in parallel):
 
 ```yaml
 automation:
-  - trigger:
-      - platform: state
+  - triggers:
+      - trigger: state
         entity_id: binary_sensor.motion
         to: "on"
-    action:
+    actions:
       - parallel:
-          - service: notify.person1
+          - action: notify.person1
             data:
               message: "These messages are sent at the same time!"
-          - service: notify.person2
+          - action: notify.person2
             data:
               message: "These messages are sent at the same time!"
 ```
@@ -832,13 +828,13 @@ script:
       - parallel:
           - sequence:
               - wait_for_trigger:
-                  - platform: state
+                  - trigger: state
                     entity_id: binary_sensor.motion
                     to: "on"
-              - service: notify.person1
+              - action: notify.person1
                 data:
                   message: "This message awaited the motion trigger"
-          - service: notify.person2
+          - action: notify.person2
             data:
               message: "I am sent immediately and do not await the above action!"
 ```
@@ -859,8 +855,8 @@ Some of the caveats of running {% term actions %} in parallel:
   there is no guarantee that they will be completed in the same order.
 - If one {% term action %} fails or errors, the other {% term actions %} will keep running until
   they too have finished or errored.
-- Variables created/modified in one parallelized {% term action %} are not available
-  in another parallelized {% term action %}. Each step in a parallelized has its own scope.
+- Variables created/modified in one parallelized {% term action %} can conflict with variables
+  from another parallelized {% term action %}. Make sure to give them distinct names to prevent that.
 
 ## Stopping a script sequence
 
@@ -916,12 +912,12 @@ it encounters an error; it will continue to the next {% term action %}.
 ```yaml
 - alias: "If this one fails..."
   continue_on_error: true
-  service: notify.super_unreliable_service_provider
+  action: notify.super_unreliable_service_provider
   data:
     message: "I'm going to error out..."
 
 - alias: "This one will still run!"
-  service: persistent_notification.create
+  action: persistent_notification.create
   data:
     title: "Hi there!"
     message: "I'm fine..."
@@ -944,13 +940,13 @@ script:
       # The message will not be sent.
       - enabled: false
         alias: "Notify that the ceiling light is being turned on"
-        service: notify.notify
+        action: notify.notify
         data:
           message: "Turning on the ceiling light!"
 
       # This action will run, as it is not disabled
       - alias: "Turn on the ceiling light"
-        service: light.turn_on
+        action: light.turn_on
         target:
           entity_id: light.ceiling
 ```
@@ -964,10 +960,10 @@ blueprint:
   input:
     input_boolean:
       name: Boolean
-      selector: 
+      selector:
         boolean:
 
-  action:
+  actions:
     - delay: 0:35
       enabled: !input input_boolean
 ```
@@ -1007,7 +1003,7 @@ will not be used by anything.
 [Script integration]: /integrations/script/
 [automations]: /docs/automation/action/
 [Alexa/Amazon Echo]: /integrations/alexa/
-[actions page]: /docs/scripts/service-calls/
+[actions page]: /docs/scripts/perform-actions/
 [conditions page]: /docs/scripts/conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
 [script variables]: /integrations/script/#configuration-variables

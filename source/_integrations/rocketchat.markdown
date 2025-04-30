@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `rocketchat` notify {% term integration %} allows you to send messages to your [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.
@@ -32,7 +33,7 @@ notify:
     room: YOUR_ROOM_NAME
 ```
 
-- `name` (*Optional*): Name displayed in the frontend. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+- `name` (*Optional*): Name displayed in the frontend. The notifier will bind to the `notify.NOTIFIER_NAME` action.
 - `url` (*Required*): The URL of your Rocket.Chat instance.
 - `username` (*Required*): The Rocket.Chat username.
 - `password` (*Required*): The Rocker.Chat password.
@@ -43,7 +44,7 @@ notify:
 ```yaml
 rocketchat_notification:
   sequence:
-  - service: notify.NOTIFIER_NAME
+  - action: notify.NOTIFIER_NAME
     data:
       message: "Message to Rocket.Chat from Home Assistant!"
       data:
@@ -53,6 +54,6 @@ rocketchat_notification:
 #### Message variables
 
 - **message** (*Required*): Message to be displayed.
-- **data** (*Optional*): Dictionary containing any of the variables defined in the [Rocket.Chat documentation](https://developer.rocket.chat/reference/api/rest-api/endpoints/core-endpoints/chat-endpoints/postmessage)
+- **data** (*Optional*): Dictionary containing any of the variables defined in the [Rocket.Chat documentation](https://developer.rocket.chat/apidocs/post-message)
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

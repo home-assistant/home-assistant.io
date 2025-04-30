@@ -48,7 +48,7 @@ Devices must have a Yale Access module installed to function with this {% term i
 
 These devices do not send updates, but can be locked and unlocked.
 
-- MD-04I (Yale Conexis L1, Yale Conexis L2)
+- MD-04I (Yale Conexis L1 (requires yale access module), Yale Conexis L2)
 - YRCB-490 (Yale Smart Cabinet Lock)
 
 ## Troubleshooting
@@ -61,7 +61,7 @@ Some locks only send push updates when they have an active HomeKit pairing. If y
 
 One easy way to fix this is to create a new/second home in the Apple Home app and add the lock to that new home. Push updates should occur as intended after the lock is added.
 
-Alternatively, call the `homeassistant.update_entity` service to force the {% term integration %} to update the lock state, or enable the always connected option.
+Alternatively, call the `homeassistant.update_entity` action to force the {% term integration %} to update the lock state, or enable the always connected option.
 
 {% include integrations/option_flow.md %}
 

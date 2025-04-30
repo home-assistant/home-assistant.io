@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 [EverLights](https://myeverlights.com/) are permanent Christmas lights installed on a home's gutters or flashing. This integration can change all LEDs in a zone to a single color or activate a pattern that was previously saved to the control box.
@@ -39,7 +40,7 @@ hosts:
 
 ### Effects
 
-EverLights patterns saved to the control box can be activated using the effect parameter to the `light.turn_on` service. If an effect is specified, then the color and brightness are ignored.
+EverLights patterns saved to the control box can be activated using the effect parameter to the `light.turn_on` action. If an effect is specified, then the color and brightness are ignored.
 
 ### Limitations
 

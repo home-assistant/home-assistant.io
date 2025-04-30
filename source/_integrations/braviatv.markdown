@@ -69,36 +69,36 @@ media_player:
     browse_media_entity: media_player.sony_tv_native
     commands:
       turn_off:
-        service: media_player.turn_off
+        action: media_player.turn_off
         data:
           entity_id: media_player.sony_tv_native
       turn_on:
-        service: media_player.turn_on
+        action: media_player.turn_on
         data:
           entity_id: media_player.sony_tv_native
       select_source:
-        service: media_player.select_source
+        action: media_player.select_source
         data:
           entity_id: media_player.sony_tv_native
           source: "{{ source }}"
       media_play:
-        service: media_player.media_play
+        action: media_player.media_play
         target:
           entity_id: media_player.sony_tv_native
       media_pause:
-        service: media_player.media_pause
+        action: media_player.media_pause
         target:
           entity_id: media_player.sony_tv_native
       media_play_pause:
-        service: media_player.media_play_pause
+        action: media_player.media_play_pause
         target:
           entity_id: media_player.sony_tv_native
       media_previous_track:
-        service: media_player.media_previous_track
+        action: media_player.media_previous_track
         target:
           entity_id: media_player.sony_tv_native
       media_next_track:
-        service: media_player.media_next_track
+        action: media_player.media_next_track
         target:
           entity_id: media_player.sony_tv_native
 ```
@@ -119,7 +119,7 @@ The `play_media` {% term action %} can be used in an {% term automation %} or {%
 **Example to open YouTube app:**
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.bravia_tv
 data:
@@ -130,7 +130,7 @@ data:
 **Example to switch to channel number 11:**
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.bravia_tv
 data:
@@ -141,7 +141,7 @@ data:
 **Example to switch to channel including 'news' in its name:**
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.bravia_tv
 data:
@@ -158,7 +158,7 @@ The commands that can be sent to the TV depend on the model of your TV. To displ
 **Example to send `Down` key command:**
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.bravia_tv
 data:

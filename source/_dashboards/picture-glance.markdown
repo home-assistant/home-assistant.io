@@ -42,6 +42,10 @@ image:
   required: false
   description: Background image URL.
   type: string
+image_entity:
+  required: false
+  description: Image or person entity to display.
+  type: string
 camera_image:
   required: false
   description: Camera entity as Background image.
@@ -68,6 +72,11 @@ aspect_ratio:
   required: false
   description: 'Forces the height of the image to be a ratio of the width. Valid formats: Height percentage value (`23%`) or ratio expressed with colon or "x" separator (`16:9` or `16x9`). For a ratio, the second element can be omitted and will default to "1" (`1.78` equals `1.78:1`).'
   type: string
+fit_mode:
+  required: false
+  description: 'Defines the manner in which the image is stretched/clipped to fit the card area. `cover`: The image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit. `contain`: The image keeps its aspect ratio, but is resized to fit within the given dimension. `fill`: The image is resized to fill the given dimension. If necessary, the image will be stretched or squished to fit.'
+  type: string
+  default: cover
 entity:
   required: false
   description: Entity to use for `state_image` and `state_filter`.
@@ -139,15 +148,6 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-### Options for exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: User ID that can see the view tab.
-  type: string
-{% endconfiguration %}
-
 ### How to use state_filter
 
 Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
@@ -193,35 +193,35 @@ If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr> (can be mov
       - entity: button.camera1_ptz_left
         icon: mdi:pan-left
         tap_action:
-          action: call-service
-          service: button.press
+          action: perform-action
+          perform_action: button.press
           data:
             entity_id: button.camera1_ptz_left
       - entity: button.camera1_ptz_right
         icon: mdi:pan-right
         tap_action:
-          action: call-service
-          service: button.press
+          action: perform-action
+          perform_action: button.press
           data:
             entity_id: button.camera1_ptz_right
       - entity: button.camera1_ptz_up
         icon: mdi:pan-up
         tap_action:
-          action: call-service
-          service: button.press
+          action: perform-action
+          perform_action: button.press
           data:
             entity_id: button.camera1_ptz_up
       - entity: button.camera1_ptz_down
         icon: mdi:pan-down
         tap_action:
-          action: call-service
-          service: button.press
+          action: perform-action
+          perform_action: button.press
           data:
             entity_id: button.camera1_ptz_down
     camera_image: camera.camera1_sub
     tap_action:
-      action: call-service
-      service: light.toggle
+      action: perform-action
+      perform_action: light.toggle
       target:
         entity_id: light.philips_929003052501_01_huelight
     ```

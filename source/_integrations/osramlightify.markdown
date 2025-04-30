@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `osramlightify` {% term integration %} allows you to integrate your [Osram Lightify](https://www.osram.com/cb/lightify/index.jsp) into Home Assistant.
@@ -81,7 +82,7 @@ dropdown on UI. You can apply a scene by clicking an item from the dropdown or b
 `light.turn_on` service:
 
 ```yaml
-  - service: light.turn_on
+  - action: light.turn_on
     target:
       entity_id: light.bedroom
     data:

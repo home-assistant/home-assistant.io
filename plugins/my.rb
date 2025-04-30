@@ -53,8 +53,8 @@ module Jekyll
             # Custom title
             title = options[:title]
           elsif @redirect == "developer_call_service"
-            # Developer service call
-            title = "Call Service"
+            # Developer actions
+            title = "Perform action"
             title = "`#{options[:service]}`" if options.include? :service
           elsif DEFAULT_TITLES.include?(@redirect)
             # Lookup defaults
@@ -96,7 +96,7 @@ module Jekyll
         "config_zwave_js" => "Z-Wave JS Configuration",
         "config" => "Settings",
         "developer_events" => "Events",
-        "developer_services" => "Services",
+        "developer_services" => "Actions",
         "developer_states" => "States",
         "developer_template" => "Templates",
         "energy" => "Energy",
@@ -104,7 +104,7 @@ module Jekyll
         "info" => "Information",
         "supervisor_info" => "Supervisor Information",
         "supervisor_backups" => "Backups",
-        "integrations" => "Devices & Services",
+        "integrations" => "Devices & services",
       }
 
       def parse_options(input, context)

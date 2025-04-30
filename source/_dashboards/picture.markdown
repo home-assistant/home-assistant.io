@@ -34,6 +34,10 @@ image:
   required: true
   description: "The URL of an image. When you want to store images in your Home Assistant installation use the [hosting files documentation](/integrations/http/#hosting-files). After storing your files, use the `/local` path, for example, `/local/filename.jpg`."
   type: string
+image_entity:
+  required: false
+  description: Image or person entity to display.
+  type: string
 alt_text:
   required: false
   description: Alternative text for the image. This is necessary for users of assistive technology. The [W3C images tutorial](https://www.w3.org/WAI/tutorials/images/) provides simple guidance for writing alternative text.
@@ -76,8 +80,8 @@ Toggle entity using an action:
 type: picture
 image: /local/light.png
 tap_action:
-  action: call-service
-  service: light.toggle
+  action: perform-action
+  perform_action: light.toggle
   data:
     entity_id: light.ceiling_lights
 ```

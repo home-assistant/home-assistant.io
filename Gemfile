@@ -4,15 +4,16 @@ ruby '> 2.5.0'
 
 group :development do
   gem 'rake', '13.2.1'
-  gem 'jekyll', '4.3.3'
+  gem 'jekyll', '4.4.1'
   gem 'compass', '1.0.3'
   gem 'sass-globbing', '1.1.5'
   gem 'stringex', '2.8.6'
   # > 2.1.0 causes slowdowns https://github.com/sass/sassc-ruby/issues/189
   gem 'sassc', '2.1.0'
-  gem 'rubocop', '1.64.1'
-  gem 'ruby-lsp', '0.17.4'
-  gem 'rackup', '2.1.0'
+  gem 'sass-embedded', '1.87.0'
+  gem 'rubocop', '1.75.4'
+  gem 'ruby-lsp', '0.23.15'
+  gem 'rackup', '2.2.1'
 end
 
 group :jekyll_plugins do
@@ -22,8 +23,8 @@ group :jekyll_plugins do
   gem 'jekyll-toc', '0.19.0'
 end
 
-gem 'sinatra', '4.0.0'
-gem 'nokogiri', '1.16.6'
+gem 'sinatra', '4.1.1'
+gem 'nokogiri', '1.18.8'
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library

@@ -15,6 +15,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 ## Description
@@ -68,7 +69,7 @@ notify:
 
 {% configuration %}
 name:
-  description: "The optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`."
+  description: "The optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action."
   required: false
   type: string
   default: notify
@@ -76,16 +77,16 @@ name:
 
 ### That's it!
 
-Now you can use the `notify.events` service inside your Home Assistant to:
+Now you can use the `notify.events` action inside your Home Assistant to:
 - Send any notifications or alerts
 - Distribute events by `level` and `priority`
 - Attach **files** and **images** (local or remote)
 - .. and just keep using your favorite messenger to receive them!
 
-### Example service call
+### Example action
 
 ```yaml
-- service: notify.events
+- action: notify.events
   data:
     message: "Backyard motion detected!"
     data:

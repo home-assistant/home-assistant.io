@@ -30,8 +30,8 @@ One of the most common problems with Home Assistant is an invalid {% term "`conf
   - [Supervised](/common-tasks/supervised/#configuration-check)
 
 - The configuration files, including {% term "`configuration.yaml`" %} must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
-- You can verify your configuration's YAML structure using [this online YAML parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/).
-- To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltproject.io/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
+- You can verify your configuration's {% term YAML %} structure using [this online YAML parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/).
+- To learn more about the quirks of {% term YAML %}, read [YAML IDIOSYNCRASIES](https://docs.saltproject.io/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 
 `configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one integration, you can append a number or string to the name or nest them:
 
@@ -100,7 +100,7 @@ The only characters valid in entity names are:
 - Numbers
 - Underscores
 
-The entity name must not start or end with an underscore. If you create an entity with other characters from the UI, Home Assistant validates the name. If you change the name directly in the YAML file, then Home Assistant may not generate an error for that entity. However, attempts to use that entity will generate errors (or possibly fail silently).
+The entity name must not start or end with an underscore. If you create an entity with other characters from the UI, Home Assistant validates the name. If you change the name directly in the {% term YAML %} file, then Home Assistant may not generate an error for that entity. However, attempts to use that entity will generate errors (or possibly fail silently).
 
 For instructions on how to change an entity name, refer to the section on [customizing entities](/docs/configuration/customizing-devices/).
 
@@ -110,12 +110,18 @@ The first thing you will need before reporting an issue online is debug logs and
 
 ### Enabling debug logging
 
-To enable debug logging for an integration, go to **Settings** > **Devices & Services** > **Integrations** and go to the detail page of the integration. Select the **Enable Debug Logging** button on the left side of the integration detail page.
+To enable debug logging for a specific integration, follow these steps:
 
-<p class='img'>
-  <img src='/images/docs/configuration/enable-debug-logging.png' alt='Example of Enable debug logging'>
-  Example of Enable debug logging.
-</p>
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the integration card to open the detail page of the integration for which you want to enable debug logging.
+3. On the left side of the integration detail page, select **Enable Debug Logging**.
+   - The screenshot uses the MQTT integration as an example for illustration purposes. It does not mean you need to install the MQTT integration.
+
+    <p class='img'>
+      <img src='/images/docs/configuration/enable-debug-logging.png' alt='Screenshot showing the Enable debug logging button on an integration detail page'>
+      Screenshot showing the <b>Enable debug logging</b> button on an integration detail page. The MQTT integration is used as an example to show where the button can be found.
+    </p>
+4. To see the error in the logs, you need to reproduce the error. Continue with the steps on [disabling debug logging and download logs](#disable-debug-logging-and-download-logs).
 
 ### Disable debug logging and download logs
 

@@ -267,23 +267,23 @@ These work recursively. As an example using `!include_dir_list automation`, will
 ```yaml
 automation:
   - alias: "Automation 1"
-    trigger:
-      platform: state
-      entity_id: device_tracker.iphone
-      to: "home"
-    action:
-      service: light.turn_on
-      target:
-        entity_id: light.entryway
+    triggers:
+      - trigger: state
+        entity_id: device_tracker.iphone
+        to: "home"
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: light.entryway
   - alias: "Automation 2"
-    trigger:
-      platform: state
-      entity_id: device_tracker.iphone
-      from: "home"
-    action:
-      service: light.turn_off
-      target:
-        entity_id: light.entryway
+    triggers:
+      - trigger: state
+        entity_id: device_tracker.iphone
+        from: "home"
+    actions:
+      - action: light.turn_off
+        target:
+          entity_id: light.entryway
 ```
 
 can be turned into:
@@ -298,28 +298,28 @@ automation: !include_dir_list automation/presence/
 
 ```yaml
 alias: "Automation 1"
-trigger:
-  platform: state
-  entity_id: device_tracker.iphone
-  to: "home"
-action:
-  service: light.turn_on
-  target:
-    entity_id: light.entryway
+triggers:
+  - trigger: state
+    entity_id: device_tracker.iphone
+    to: "home"
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.entryway
 ```
 
 `automation/presence/automation2.yaml`
 
 ```yaml
 alias: "Automation 2"
-trigger:
-  platform: state
-  entity_id: device_tracker.iphone
-  from: "home"
-action:
-  service: light.turn_off
-  target:
-    entity_id: light.entryway
+triggers:
+  - trigger: state
+    entity_id: device_tracker.iphone
+    from: "home"
+actions:
+  - action: light.turn_off
+    target:
+      entity_id: light.entryway
 ```
 
 It is important to note that each file must contain only **one** entry when using `!include_dir_list`.
@@ -333,8 +333,8 @@ It is important to note that each file must contain only **one** entry when usin
 alexa:
   intents:
     LocateIntent:
-      action:
-        service: notify.pushover
+      actions:
+        action: notify.pushover
         data:
           message: "Your location has been queried via Alexa."
       speech:
@@ -371,8 +371,8 @@ alexa:
 
 ```yaml
 {% raw %}
-action:
-  service: notify.pushover
+actions:
+  action: notify.pushover
   data:
     message: "Your location has been queried via Alexa."
 speech:
@@ -408,21 +408,21 @@ speech:
 ```yaml
 automation:
   - alias: "Automation 1"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: device_tracker.iphone
         to: "home"
-    action:
-      - service: light.turn_on
+    actions:
+      - action: light.turn_on
         target:
           entity_id: light.entryway
   - alias: "Automation 2"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: device_tracker.iphone
         from: "home"
-    action:
-      - service: light.turn_off
+    actions:
+      - action: light.turn_off
         target:
           entity_id: light.entryway
 ```
@@ -439,21 +439,21 @@ automation: !include_dir_merge_list automation/
 
 ```yaml
 - alias: "Automation 1"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: device_tracker.iphone
       to: "home"
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       target:
         entity_id: light.entryway
 - alias: "Automation 2"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: device_tracker.iphone
       from: "home"
-  action:
-    - service: light.turn_off
+  actions:
+    - action: light.turn_off
       target:
         entity_id: light.entryway
 ```

@@ -18,6 +18,8 @@ related:
     title: Configuration file
 ---
 
+The sun {% term integration %} calculates all sun-related times (sunrise, sunset, dawn, dusk, etc.) based on your configured home location. This means that all time-based calculations and triggers will be accurate for your specific location, as defined in your [basic configuration](/docs/configuration/basic/).
+
 The sun {% term integration %} will use the location as
 {% my general title="configured in your Home Assistant configuration" %} to
 track if the sun is above or below the horizon. The sun can be used within
@@ -57,14 +59,14 @@ sun:
 
 ## Automation trigger
 
-The sun's event listener will call the service when the sun rises or sets with
+The sun's event listener will perform the action when the sun rises or sets with
 an offset.
 
 The sun trigger need to have the type 'sun', which event (sunset or sunrise) and an optional offset.
 
 ```yaml
-trigger:
-  - platform: sun
+triggers:
+  - trigger: sun
     event: sunrise
     offset: "-01:00:01"
 ```

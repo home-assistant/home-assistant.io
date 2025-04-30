@@ -8,7 +8,6 @@ ha_category:
 ha_release: 2021.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@frenck'
   - '@joostlek'

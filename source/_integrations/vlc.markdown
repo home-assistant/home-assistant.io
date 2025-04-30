@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `vlc` platform allows you to control [VLC media player](https://www.videolan.org/vlc/index.html).
@@ -44,7 +45,7 @@ arguments:
 
 Only the "music" media type is supported for now.
 
-This service will control a background VLC instance, therefore you cannot use this to control a VLC instance launched on your desktop, unlike the Kodi media player for example.
+This action will control a background VLC instance, therefore you cannot use this to control a VLC instance launched on your desktop, unlike the Kodi media player for example.
 
 ## Full configuration
 

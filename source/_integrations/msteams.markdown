@@ -11,9 +11,16 @@ ha_domain: msteams
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `Microsoft Teams` platform allows you to send notifications from Home Assistant to a team channel in [Microsoft Teams](https://www.microsoft.com/microsoft-teams/group-chat-software).
+
+{% note %}
+
+Please note that Microsoft announced the retirement of the Office 365 connectors within Microsoft Teams. Existing connectors will [continue to work until December 2025](https://devblogs.microsoft.com/microsoft365dev/retirement-of-office-365-connectors-within-microsoft-teams/).
+
+{% endnote %}
 
 ## Setup
 
@@ -32,7 +39,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting this parameter allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting this parameter allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   type: string
   default: "notify"
@@ -46,7 +53,7 @@ url:
 
 The following attributes can be placed inside `data` for extended functionality.
 
-| Service data attribute | Optional | Description                     |
+| Data attribute | Optional | Description                     |
 | ---------------------- | -------- | ------------------------------- |
 | `image_url`            | yes      | Attach an image to the message. |
 

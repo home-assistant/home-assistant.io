@@ -62,7 +62,7 @@ type: markdown
 title: Packages in transit
 content: >
   {% for package in
-  states.sensor.seventeentrack_packages_in_transit.attributes.packages %}
+  states.sensor['17track_in_transit'].attributes.packages %}
 
   >- **{{ package.friendly_name }} ({{ package.tracking_number }}):** {{
   package.info_text }}
@@ -73,22 +73,38 @@ content: >
 
 {% endraw %}
 
-## Services
+## Actions
 
-### Service `seventeentrack.get_packages`
+### Action `seventeentrack.get_packages`
 
-The `seventeentrack.get_packages` service allows you to query the 17track API for the latest package data.
+The `seventeentrack.get_packages` action allows you to query the 17track API for the latest package data.
 
-
-| Service data attribute | Optional | Description                                 |
+| Data attribute | Optional | Description                                 |
 |------------------------|----------|---------------------------------------------|
 | `config_entry_id`      | No       | The ID of the 17Track service config entry. |
 | `package_state`        | yes      | A list of the package states.                |
 
 ```yaml
 # Example automation action to retrieve packages with specific states from 17Track
-- service: seventeentrack.get_packages
+- action: seventeentrack.get_packages
   data:
     config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
     package_state: ["Delivered", "In transit"]
+```
+
+### Action `seventeentrack.archive_package`
+
+The `seventeentrack.archive_package` action allows you to archive a package using the 17track API.
+
+| Data attribute            | Optional | Description                                 |
+|---------------------------|----------|---------------------------------------------|
+| `config_entry_id`         | No       | The ID of the 17Track service config entry. |
+| `package_tracking_number` | No       | The package tracking number.                |
+
+```yaml
+# Example automation action to archive a package with a tracking number
+- action: seventeentrack.archive_package
+  data:
+    config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
+    package_tracking_number: RU0103445624A
 ```

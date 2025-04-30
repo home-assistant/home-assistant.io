@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 `limitlessled` can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.
@@ -106,15 +107,15 @@ bridges:
 
 LimitlessLED has a `night` effect that can be used to dim the lights below `brightness: 1`. This night mode is meant to temporarily turn the lights into a nightlight. This mode can be especially helpful when wall switches are also being used. For example, when a light is using the `night` effect one way to return it to its previous brightness level (other than using Home Assistant) is to switch the lights off and then back on from the wall switch.
 
-Note that the `brightness`, `color` and `temperature` attributes cannot be used when using the `night` effect. You can turn on `night` effect by using the `effect` attribute of the normal `light.turn_on` service. Here is an example:
+Note that the `brightness`, `color` and `temperature` attributes cannot be used when using the `night` effect. You can turn on `night` effect by using the `effect` attribute of the normal `light.turn_on` action. Here is an example:
 
 ```yaml
 automation:
   - alias: "..."
-    trigger:
+    triggers:
       # ...
-    action:
-      - service: light.turn_on
+    actions:
+      - action: light.turn_on
         target:
           entity_id:
             - light.office

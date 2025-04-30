@@ -23,7 +23,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The IKEA TRÅDFRI integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it. Home Assistant will automatically discover the gateway's presence on your local network if `discovery:` is present in your {% term "`configuration.yaml`" %} file.
+The IKEA TRÅDFRI integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it.
 
 {% include integrations/config_flow.md %}
 
@@ -34,7 +34,9 @@ If you see an "Unable to connect" message, restart the gateway and try again. Do
 {% endtip %}
 
 {% note %}
-There is currently no native support for the Dirigera hub released in October, 2022.
+There is currently no dedicated core integration for the Dirigera hub released in October 2022.
+
+The Dirigera hub can, however, be integrated directly via the [HomeKit device](/integrations/homekit_controller/) integration or the [Matter](/integrations/matter/#using-a-matter-bridge) integration. As of Hub version 2.615.8 (September 2024), there is support for the following device types via Matter Bridge: lights (including drivers), smart plugs/outlets, connected blinds, remotes, motion sensors, open/close sensors, air purifiers, and air quality sensors.
 {% endnote %}
 
 
@@ -61,5 +63,5 @@ Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf
 
 ## Known limitations
 
-- The TRÅDFRI Shortcut button, Remotes and motion sensor only send information about their battery status, no events, to Home Assistant and thus can't be used to automate with. If you want to automate with these devices, you need to use something like [ZHA](/integrations/zha/).
+- The TRÅDFRI Shortcut button, Remotes and motion sensor only send information about their battery status, no events, to Home Assistant and thus can't be used to automate with. If you want to automate with these devices, you need to use something like [ZHA](/integrations/zha/), or the [HomeKit device](/integrations/homekit_controller) integration as mentioned above.
 - The groups you find in the app are not imported into Home Assistant as they are known to cause stability issues. We recommend that you use the native [light groups](/integrations/light.group/) instead.

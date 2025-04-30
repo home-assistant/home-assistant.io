@@ -11,7 +11,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@v9.0.0
+      - uses: actions/stale@v9.1.0
         if: ${{ github.repository_owner == 'home-assistant' }}
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}

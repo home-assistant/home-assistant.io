@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `sinch` {% term integration %} uses [Sinch](https://www.sinch.com/products/apis/messaging/sms/) to deliver notifications from Home Assistant.
@@ -37,7 +38,7 @@ notify:
 
 {% configuration %}
 name:
-  description: "Setting the optional parameter name allows multiple notifiers to be created. The default value is `Sinch`. The notifier will bind to the service `notify.NOTIFIER_NAME`."
+  description: "Setting the optional parameter name allows multiple notifiers to be created. The default value is `Sinch`. The notifier will bind to the `notify.NOTIFIER_NAME` action."
   required: false
   type: string
 service_plan_id:
@@ -49,7 +50,7 @@ api_key:
   required: true
   type: string
 default_recipient:
-  description: "A single or multiple phone numbers. This is where you want to send your SMS notification messages by default (when not specifying `target` in the service call), e.g., `09171234567` or `[09171234567, 09177654321]`."
+  description: "A single or multiple phone numbers. This is where you want to send your SMS notification messages by default (when not specifying `target` in the action), e.g., `09171234567` or `[09171234567, 09177654321]`."
   required: false
   type: [string, list]
 sender:

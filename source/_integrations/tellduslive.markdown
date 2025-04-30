@@ -11,7 +11,6 @@ ha_category:
 ha_release: 0.11
 ha_config_flow: true
 ha_iot_class: Cloud Polling
-ha_quality_scale: silver
 ha_codeowners:
   - '@fredrike'
 ha_domain: tellduslive
@@ -58,3 +57,9 @@ scan_interval:
 {% endconfiguration %}
 
 The integration will offer configuration through the Home Assistant user interface where it will let you associate it with your Telldus Live account.
+
+{% note %}
+
+If you are receiving the error message: "The path '/tellduslive/authorize' was not found", you have to switch to a web browser that allows HTTP connections. Firefox is known to work fine. Chrome is known to cause issues.
+
+{% endnote %}

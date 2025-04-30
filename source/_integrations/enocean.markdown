@@ -65,8 +65,8 @@ Tested with:
 
 The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/specifications/) are supported:
 
-- F6-02-01 (Light and Blind Control - Application Style 2)
-- F6-02-02 (Light and Blind Control - Application Style 1)
+- F6-02-01 (Light and Blind Control - Application Style 1)
+- F6-02-02 (Light and Blind Control - Application Style 2)
 
 To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -111,16 +111,16 @@ Sample automation to switch lights on and off:
 # Example automation to turn lights on/off on button release
 automation:
   - alias: "Hall light switches"
-    trigger:
-      platform: event
-      event_type: button_pressed
-      event_data:
-        id: [0xYY, 0xYY, 0xYY, 0xYY]
-        pushed: 0
-    action:
-      service: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
-      target:
-        entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
+    triggers:
+      - trigger: event
+        event_type: button_pressed
+        event_data:
+          id: [0xYY, 0xYY, 0xYY, 0xYY]
+          pushed: 0
+    actions:
+      - action: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
+        target:
+          entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
 ```
 
 {% endraw %}

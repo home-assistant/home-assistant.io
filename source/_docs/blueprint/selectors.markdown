@@ -75,7 +75,7 @@ The output of this selector is a list of actions. For example:
 
 ```yaml
 # Example action selector output result
-- service: scene.turn_on
+- action: scene.turn_on
   target:
     entity_id: scene.watching_movies
   metadata: {}
@@ -150,6 +150,12 @@ device:
         the set model.
       type: string
       required: false
+    model_id:
+      description: >
+        When set, the list of areas is limited to areas with devices that have
+        the set model ID.
+      type: string
+      required: false      
 entity:
   description: >
     When entity options are provided, the list of areas is filtered by areas
@@ -167,7 +173,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of areas that provide entities of a certain domain(s),
+        Limits the list of areas that provide entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection to.
@@ -282,6 +288,10 @@ on what you have configured in [storage](https://my.home-assistant.io/redirect/s
 The output of this selector is the name of the selected network storage. It may
 also be the value `/backup`, if the user chooses to use the local data disk option
 instead of one of the configured network storage locations.
+
+```yaml
+backup_location:
+```
 
 ## Boolean selector
 
@@ -481,7 +491,7 @@ devices based on the selector configuration. The value of the input will contain
 the device ID or a list of device IDs, based on if `multiple` is set to `true`.
 
 A device selector can filter the list of devices, based on things like the
-manufacturer or model of the device, the entities the device provides or based
+manufacturer, model, or model ID of the device, the entities the device provides or based
 on the domain that provided the device.
 
 ![Screenshot of a device selector](/images/blueprints/selector-device.png)
@@ -511,7 +521,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of devices that provide entities of a certain domain(s),
+        Limits the list of devices that provide entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection
@@ -557,6 +567,11 @@ filter:
         When set, it limits the list of devices to devices that have the set model.
       type: string
       required: false
+    model_id:
+      description: >
+        When set, the list of devices is limited to devices that have the set model ID.
+      type: string
+      required: false      
 multiple:
   description: >
     Allows selecting multiple devices. If set to `true`, the resulting value of
@@ -616,6 +631,11 @@ enable_day:
   type: boolean
   default: false
   required: false
+enable_millisecond:
+  description: When `true`, the duration selector will allow selecting milliseconds.
+  type: boolean
+  default: false
+  required: false  
 {% endconfiguration %}
 
 The output of this selector is a mapping of the time values the user selected.
@@ -626,6 +646,7 @@ days: 1 # Only when enable_day was set to true
 hours: 12
 minutes: 30
 seconds: 15
+milliseconds: 500 # Only when enable_millisecond was set to true
 ```
 
 ## Entity selector
@@ -673,7 +694,7 @@ filter:
       required: false
     domain:
       description: >
-        Limits the list of entities to entities of a certain domain(s), for example,
+        Limits the list of entities to entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains), for example,
         [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection
@@ -782,6 +803,12 @@ device:
         the set model.
       type: string
       required: false
+    model_id:
+      description: >
+        When set, the list only includes floors with devices that have
+        the set model ID.
+      type: string
+      required: false      
 entity:
   description: >
     When entity options are provided, the list only includes floors
@@ -799,7 +826,7 @@ entity:
       required: false
     domain:
       description: >
-        When set, the list only includes floors that have entities of certain domains,
+        When set, the list only includes floors that have entities of certain [domains](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection to.
@@ -1332,6 +1359,10 @@ device:
       description: When set, it limits the targets to devices by the set model.
       type: string
       required: false
+    model_id:
+      description: When set, the targets are limited to devices that have the set model ID.
+      type: string
+      required: false      
 entity:
   description: >
     When entity options are provided, the targets are limited by entities
@@ -1349,7 +1380,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the targets to entities of a certain domain(s),
+        Limits the targets to entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a
         with a single domain, or a list of string domains to limit the
@@ -1371,8 +1402,8 @@ Targets are meant to be used with the `target` property of an action in
 a script sequence. For example:
 
 ```yaml
-action:
-  - service: light.turn_on
+actions:
+  - action: light.turn_on
     target: !input lights
 ```
 
@@ -1525,7 +1556,23 @@ The output of this selector is a list of triggers. For example:
 
 ```yaml
 # Example trigger selector output result
-- platform: numeric_state
+- trigger: numeric_state
   entity_id: "sensor.outside_temperature"
   below: 20
+```
+
+### Example - Merging with existing triggers
+
+If the trigger(s) should exist within a blueprint that already has some default triggers defined, and an additional customizable trigger should be merged, you need to use the `- triggers` syntax in the blueprint.
+
+```yaml
+# Example trigger selector
+input:
+  my_trigger_input:
+    selector:
+      trigger:
+triggers:
+  - triggers: !input my_trigger_input
+  - platform: numeric_state
+  [...]
 ```

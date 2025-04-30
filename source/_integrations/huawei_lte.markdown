@@ -75,41 +75,61 @@ entities varies by device model and firmware version.
 
 {% include integrations/config_flow.md %}
 
-Unauthenticated mode and default list of notification recipient phone
-numbers can be set using the integration's configuration options.
+{% configuration_basic %}
+URL:
+  description: Base URL to the API of the router. Typically, something like `http://192.168.X.1` where `X` is, for example, `1`, `8`, or `100`. This is the beginning of the location shown in a browser when accessing the router's web interface.
+Verify SSL certificate:
+  description: Whether to verify the SSL certificate of the router when accessing it. Applicable only if the router is accessed via HTTPS. In other words, if the configured URL starts with `https://`.
+Username:
+  description: Username for accessing the router's API. Typically, either `admin`, or left empty (recommended if that works).
+Password:
+  description: Password for accessing the router's API.
+{% endconfiguration_basic %}
 
-## Services
+{% include integrations/option_flow.md %}
 
-The following router action services are available. When invoked by a user, administrator access is required.
+{% configuration_basic %}
+Notification service name:
+  description: Name of the notification service. Used to distinguish between notification services in case there are multiple Huawei LTE devices configured. The name here will be prefixed with `notify.`. For example, specifying `huawei_lte` will yield `notify.huawei_lte` as the complete service name.
+Notification recipients:
+  description: Comma separated list of default recipient SMS phone numbers for the notification service, used in case the notification sender does not specify any. Accepted formats may vary between device models and subscription types, but international [E.164](https://en.wikipedia.org/wiki/E.164) format including the `+` prefix and country code, numbers only, is a good first bet.
+Track wired network clients:
+  description: Whether the device tracker entities track also clients attached to the router's wired Ethernet network, in addition to wireless clients.
+Unauthenticated mode:
+  description: Whether to run in unauthenticated mode. See above for more information between authenticated and unauthenticated modes.
+{% endconfiguration_basic %}
 
-### Service `huawei_lte.suspend_integration`
+## Actions
+
+The following router action actions are available. When invoked by a user, administrator access is required.
+
+### Action `huawei_lte.suspend_integration`
 
 Suspend integration. Suspending logs the integration out from the router, and stops accessing it.
 Useful e.g.,  if accessing the router web interface from another source such as a web browser is temporarily required.
-Invoke the `huawei_lte.resume_integration` service to resume.
+Invoke the `huawei_lte.resume_integration` action to resume.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `url`                  | yes, if only one router configured | Router URL. |
 
-### Service `huawei_lte.resume_integration`
+### Action `huawei_lte.resume_integration`
 
 Resume suspended integration.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `url`                  | yes, if only one router configured | Router URL. |
 
 ## Tested devices
 
-Devices we know to be working with this integration based on the [documentation of used libraries](https://github.com/Salamek/huawei-lte-api/#huawei-lte-api) and reports by users:
+It is the intention and highly likely that this integration works with all devices
+[reported working with the underlying huawei-lte-api library](https://github.com/Salamek/huawei-lte-api#tested-on).
 
-- Huawei B310s-22
-- Huawei B315s-936
-- Huawei B525s-23a
-- Huawei E5186s-22a
-- Huawei B618
-- Huawei B529s-23a
-- Huawei B535s
+It will not work on ones noted as not working in that list.
 
-This is not a complete list. The integration can probably connect to other Huawei LTE devices running similar firmware.
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

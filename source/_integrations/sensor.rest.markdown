@@ -164,21 +164,28 @@ $ curl -X GET http://192.168.1.31/temperature/
 
 The response is expected to be a dictionary or a list with a dictionary as its 0th element.
 
+{% include integrations/using_templates.md %}
+
 ## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
 ### External IP address
 
-You can find your external IP address using the service [JSON Test](https://www.jsontest.com/) at their [http://ip.jsontest.com/](http://ip.jsontest.com/) URL.
+You can find your external IP address using the [ipify](https://www.ipify.org) service for both IPv4 and IPv6.
 
 {% raw %}
 
 ```yaml
 sensor:
   - platform: rest
-    resource: http://ip.jsontest.com
-    name: External IP
+    name: "External IP"
+    resource: "https://api.ipify.org/?format=json"
+    value_template: "{{ value_json.ip }}"
+
+  - platform: rest
+    name: "External IPv6"
+    resource: "https://api6.ipify.org/?format=json"
     value_template: "{{ value_json.ip }}"
 ```
 

@@ -4,17 +4,20 @@ description: Instructions on how to integrate Template Sensors into Home Assista
 ha_category:
   - Binary sensor
   - Button
+  - Cover
   - Helper
   - Image
+  - Light
   - Number
   - Select
   - Sensor
+  - Switch
 ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
+  - '@Petro31'
   - '@PhracturedBlue'
-  - '@tetienne'
   - '@home-assistant/core'
 ha_domain: template
 ha_platforms:
@@ -34,36 +37,49 @@ ha_platforms:
   - weather
 ha_integration_type: helper
 ha_config_flow: true
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+  - docs: /docs/blueprint/
+    title: About blueprints
 ---
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Sensors, binary (on/off) sensors, buttons, images, numbers and selects are covered on this page. For other types, please see the specific pages:
+Sensors, binary (on/off) sensors, buttons, images, numbers, and selects are covered on this page. They can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
+
+For other types, please see the specific pages:
 
 - [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
-- [Light](/integrations/light.template/)
 - [Lock](/integrations/lock.template/)
-- [Switch](/integrations/switch.template/)
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
-Sensor, binary sensor, button, image and select can be configured using [UI](#ui-configuration) or [YAML](#yaml-configuration) file.
+For Legacy types, please see the specific pages:
+- [Light](/integrations/light.template/)
+- [Switch](/integrations/switch.template/)
 
-Number template entities are defined in your YAML configuration files under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+{% include integrations/config_flow.md %}
 
-_For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
-
-## UI configuration
-
-Sensor template, binary sensor template, button template, image template and select template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
-
+{% important %}
 To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your {% term "`configuration.yaml`" %}. It should already be there by default unless you removed it.
+{% endimportant %}
+
+{% note %}
+Configuration using our user interface provides a more limited subset of options, making this integration more accessible while covering most use cases.
+
+If you need more specific features for your use case, the manual [YAML-configuration section](#yaml-configuration) of this integration might provide them.
+{% endnote %}
 
 ## YAML configuration
 
-### State-based template binary sensors, buttons, images, numbers, selects and sensors
+Entities (sensors, binary sensors, buttons, images, numbers, and selections) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
+
+_For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
+
+### State-based template binary sensors, buttons, images, lights, numbers, selects, sensors, switches, and weathers
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -85,24 +101,27 @@ template:
 
 {% endraw %}
 
+### Trigger-based template binary sensors, images, numbers, selects, sensors, and weathers
 
-### Trigger-based template binary sensors, buttons, images, numbers, selects and sensors
+If you want more control over when an entity updates, you can define triggers. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
-If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
-
-Whenever the trigger fires, all related entities will re-render and it will have access to [the trigger data](/docs/automation/templating/) in the templates.
+Whenever a trigger fires, all related entities will re-render and it will have access to [the trigger data](/docs/automation/templating/) in the templates.
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [state trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
 The state, including attributes, of trigger-based sensors and binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
+
+{% note %}
+Buttons do not support using `trigger` or `action` options.
+{% endnote %}
 
 {% raw %}
 
 ```yaml
 # Example configuration entry
 template:
-  - trigger:
-      - platform: time_pattern
+  - triggers:
+      - trigger: time_pattern
         # This will update every night
         hours: 0
         minutes: 0
@@ -115,23 +134,38 @@ template:
 
 {% endraw %}
 
+### Configuration reference
+
 {% configuration %}
-trigger:
-  description: Define an automation trigger to update the entities. Optional. If omitted will update based on referenced entities. [See trigger documentation](/docs/automation/trigger).
+triggers:
+  description: Define one or multiple automation triggers to update the entities. Optional. If omitted will update based on referenced entities. [See trigger documentation](/docs/automation/trigger).
   required: false
   type: list
 unique_id:
   description: The unique ID for this config block. This will be prefixed to all unique IDs of all entities in this block.
   required: false
   type: string
-action:
-  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything via services, in particular services with [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+conditions:
+  description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed (for trigger-based entities only). Optional. [See condition documentation](/docs/automation/condition).
   required: false
   type: list
+actions:
+  description: Define actions to be executed when the trigger fires (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  required: false
+  type: list
+variables:
+  description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints.
+  required: false
+  type: map
+  keys:
+    "variable_name: value":
+      description: The variable name and corresponding value.
+      required: true
+      type: string
 sensor:
   description: List of sensors
   required: true
-  type: map
+  type: list
   keys:
     state:
       description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
@@ -143,7 +177,7 @@ sensor:
       type: string
       default: None
     state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
+      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in long-term statistics, include this key and assign it the appropriate value"
       required: false
       type: string
       default: None
@@ -155,10 +189,10 @@ sensor:
 binary_sensor:
   description: List of binary sensors
   required: true
-  type: map
+  type: list
   keys:
     state:
-      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor’s device_class value
+      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
       required: true
       type: template
     delay_on:
@@ -205,6 +239,11 @@ number:
       description: Template for the number's current value.
       required: true
       type: template
+    unit_of_measurement:
+      description: Defines the units of measurement of the number, if any.
+      required: false
+      type: string
+      default: None
     set_value:
       description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
       required: true
@@ -224,7 +263,7 @@ number:
       type: template
       default: 100.0
     optimistic:
-      description: Flag that defines if number works in optimistic mode.
+      description: Flag that defines if number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -246,7 +285,7 @@ select:
       required: true
       type: template
     optimistic:
-      description: Flag that defines if select works in optimistic mode.
+      description: Flag that defines if select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -259,6 +298,56 @@ button:
       description: Defines actions to run to press the button.
       required: true
       type: action
+cover:
+  description: Characteristics of a cover
+  type: map
+  keys:
+    state:
+      description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `value_template` and a `position_template`](#combining-value_template-and-position_template) are specified, only `opening` and `closing` are set from the `value_template`. If the template produces a `None` value the state will be set to `unknown`.
+      required: false
+      type: template
+    position:
+      description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value the current position will be set to `unknown`.
+      required: false
+      type: template
+    device_class:
+      description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+      required: false
+      type: string
+    open_cover:
+      description: Defines an action to open the cover. If [`open_cover`](#open_cover) is specified, [`close_cover`](#close_cover) must also be specified. At least one of [`open_cover`](#open_cover) and [`set_cover_position`](#set_cover_position) must be specified.
+      required: inclusive
+      type: action
+    close_cover:
+      description: Defines an action to close the cover.
+      required: inclusive
+      type: action
+    stop_cover:
+      description: Defines an action to stop the cover.
+      required: false
+      type: action
+    set_cover_position:
+      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` will contain the entity's set position.
+      required: false
+      type: action
+    set_cover_tilt_position:
+      description: Defines an action to set the tilt of a cover (between `0` and `100`). The variable `tilt` will contain the entity's set tilt position.
+      required: false
+      type: action
+    optimistic:
+      description: Force cover position to use [optimistic mode](#optimistic-mode).
+      required: false
+      type: boolean
+      default: false
+    tilt_optimistic:
+      description: Force cover tilt position to use [optimistic mode](#optimistic-mode).
+      required: false
+      type: boolean
+      default: false
+    tilt:
+      description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).  If the template produces a `None` value, the current tilt state will be set to `unknown`.
+      required: false
+      type: template
 image:
   description: List of images
   required: true
@@ -269,10 +358,129 @@ image:
       required: true
       type: template
     verify_ssl:
-      description: Enable or disable SSL certificate verification. Set to false to use an http-only URL, or you have a self-signed SSL certificate and haven’t installed the CA certificate to enable verification.
+      description: Enable or disable SSL certificate verification. Set to false to use an http-only URL, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
       required: false
       type: boolean
       default: true
+light:
+  description: List of your lights.
+  required: true
+  type: map
+  keys:
+    state:
+      description: Defines a template to set the state of the light. If not defined, the switch will optimistically assume all commands are successful.
+      required: false
+      type: template
+      default: optimistic
+    level:
+      description: Defines a template to get the brightness of the light.
+      required: false
+      type: template
+      default: optimistic
+    temperature:
+      description: Defines a template to get the color temperature of the light.
+      required: false
+      type: template
+      default: optimistic
+    hs:
+      description: Defines a template to get the HS color of the light. Must render a tuple (hue, saturation).
+      required: false
+      type: template
+      default: optimistic
+    rgb:
+      description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
+      required: false
+      type: template
+      default: optimistic
+    rgbw:
+      description: Defines a template to get the RGBW color of the light. Must render a tuple or a list (red, green, blue, white).
+      required: false
+      type: template
+      default: optimistic
+    rgbww:
+      description: Defines a template to get the RGBWW color of the light. Must render a tuple or a list (red, green, blue, cold white, warm white).
+      required: false
+      type: template
+      default: optimistic
+    supports_transition:
+      description: Defines a template to get if the light supports transition. Should return a boolean value (True/False). If this value is `True`, the transition parameter in a `turn on` or `turn off` call will be passed as a named parameter `transition` in either of the scripts.
+      required: false
+      type: template
+      default: false
+    effect_list:
+      description: Defines a template to get the list of supported effects. Must render a list.
+      required: inclusive
+      type: template
+      default: optimistic
+    effect:
+      description: Defines a template to get the effect of the light.
+      required: inclusive
+      type: template
+      default: optimistic
+    min_mireds:
+      description: Defines a template to get the minimum mired value of the light.
+      required: false
+      type: template
+      default: optimistic
+    max_mireds:
+      description: Defines a template to get the maximum mired value of the light.
+      required: false
+      type: template
+      default: optimistic
+    turn_on:
+      description: Defines an action to run when the light is turned on. May receive the variables `brightness` and/or `transition`.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action to run when the light is turned off. May receive the variable `transition`.
+      required: true
+      type: action
+    set_level:
+      description: Defines an action to run when the light is given a brightness command. The script will only be called if the `turn_on` call only ha brightness, and optionally transition. Receives variables `brightness` and, optionally, `transition`.
+      required: false
+      type: action
+    set_temperature:
+      description: Defines an action to run when the light is given a color temperature command. Receives variable `color_temp`. May also receive variables `brightness`  and/or `transition`.
+      required: false
+      type: action
+    set_hs:
+      description: "Defines an action to run when the light is given a hs color command. Available variables: `hs` as a tuple, `h` and `s`"
+      required: false
+      type: action
+    set_rgb:
+      description: "Defines an action to run when the light is given an RGB color command. Available variables: `rgb` as a tuple, `r`, `g` and `b`."
+      required: false
+      type: action
+    set_rgbw:
+      description: "Defines an action to run when the light is given an RGBW color command. Available variables: `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b`  and `w`."
+      required: false
+      type: action
+    set_rgbww:
+      description: "Defines an action to run when the light is given an RGBWW color command. Available variables: `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`  `b`, `cw` and `ww`."
+      required: false
+      type: action
+    set_effect:
+      description: Defines an action to run when the light is given an effect command. Receives the variable `effect`. May also receive the variables `brightness`, and/or  `transition`.
+      required: inclusive
+      type: action
+switch:
+  description: List of switches
+  required: true
+  type: map
+  keys:
+    state:
+      description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
+      required: false
+      type: template
+      default: optimistic
+    turn_on:
+      description: Defines an action or list of actions to run when the switch is turned on.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action or list of actions to run when the switch is turned off.
+      required: true
+      type: action
 weather:
   description: List of weather entities
   required: true
@@ -358,7 +566,7 @@ weather:
       description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-"[all sensor, binary sensor, button, image, number, select, weather entities]":
+"[all sensor, binary sensor, button, image, light, number, select, switch, weather entities]":
   description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map
@@ -395,7 +603,7 @@ template:
       ...
 
   # Define trigger-based template entities
-  - trigger:
+  - triggers:
       ...
     sensor:
       ...
@@ -406,13 +614,34 @@ template:
 [trigger-doc]: /docs/automation/trigger
 
 #### Video tutorial
-This video tutorial explains how to set up a Trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
+
+This video tutorial explains how to set up a trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
 
 <lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
 ### Template and action variables
 
-State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attribute in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/). 
+State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the current [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attributes in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/).
+
+{% note %}
+Self-referencing using `this` provides the state and attributes for the entity before rendering the templates to calculate a new state. In other words, it contains the previous state.
+{% endnote %}
+
+### Optimistic mode
+
+For template entities that support interactivity (like `number` and `select`), you can enable optimistic mode by setting the `optimistic` parameter to `true`. This affects how the entity's state updates when you interact with it:
+
+- **With optimistic mode disabled (default)**: When you interact with the entity (for example, selecting a new option in a dropdown or setting a new number value), the entity's state in Home Assistant will only update after the underlying template defined in the `state` parameter returns the new value.
+
+- **With optimistic mode enabled**: When you interact with the entity, the entity's state in Home Assistant immediately updates to reflect your change, without waiting for the `state` template to update. This provides a more responsive UI experience but may not reflect the actual state if the underlying action fails or takes time to complete.
+
+Optimistic mode is particularly useful when:
+
+- The underlying system doesn't provide immediate feedback
+- You want a more responsive UI experience
+- You're confident the action will succeed
+
+When optimistic mode is disabled (default), you get more accuracy but potentially a less responsive UI, as the entity only updates after confirmation from the underlying system.
 
 ### Rate limiting updates
 
@@ -453,7 +682,7 @@ template:
 
 {% endraw %}
 
-If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` service is used, no rate limit is applied.
+If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` action is used, no rate limit is applied.
 
 ### Considerations
 
@@ -471,6 +700,46 @@ The same would apply to the `is_state()` function. You should replace {% raw %}`
 
 {% endraw %}
 
+## Using blueprints
+
+If you're just starting out and are not really familiar with templates, we recommend that you start with {% term blueprint %} template entities. These are template entities which are ready-made by the community and that you only need to configure.
+
+Each blueprint contains the "recipe" for creating a single template entity, but you can create multiple template entities based on the same blueprint.
+
+To create your first template entity based on a blueprint, open up your `configuration.yaml` file and add:
+
+```yaml
+# Example configuration.yaml template entity based on a blueprint located in config/blueprints/homeassistant/inverted_binary_sensor.yaml
+template:
+  - use_blueprint:
+      path: homeassistant/inverted_binary_sensor.yaml # relative to config/blueprints/template/
+      input:
+        reference_entity: binary_sensor.foo
+    name: Inverted foo
+    unique_id: inverted_foo
+```
+
+If you look at the blueprint definition, you will notice it has one input defined (`reference_entity`), which expects a `binary_sensor` entity ID. When you create a template entity based on that blueprint, you will have to tell it which of your `binary_sensor` entities it should use to fill that spot.
+
+### Importing blueprints
+
+Home Assistant can import blueprints from the Home Assistant forums, GitHub, and GitHub gists.
+
+1. To import a blueprint, first [find a blueprint you want to import][blueprint-forums].
+   - If you just want to practice importing, you can use this URL:
+
+      ```text
+      https://github.com/home-assistant/core/blob/dev/homeassistant/components/template/blueprints/inverted_binary_sensor.yaml
+      ```
+
+2. Download the file and place it under `config/blueprints/template/<source or author>/<blueprint name>.yaml`
+3. Use a config similar to the one above to create a new template entity based on the blueprint you just imported.
+4. Make sure to fill in all required inputs.
+
+The blueprint can now be used for creating template entities.
+
+[blueprint-forums]: /get-blueprints
+
 ## Examples
 
 In this section, you find some real-life examples of how to use template sensors.
@@ -483,8 +752,8 @@ Template entities can be triggered using any automation trigger, including webho
 
 ```yaml
 template:
-  - trigger:
-      - platform: webhook
+  - triggers:
+      - trigger: webhook
         webhook_id: my-super-secret-webhook-id
     sensor:
       - name: "Webhook Temperature"
@@ -518,14 +787,35 @@ You can use a trigger-based template entity to convert any event or other automa
 
 ```yaml
 template:
-  - trigger:
-      platform: event
+  - triggers:
+      trigger: event
       event_type: my_event
     binary_sensor:
       - name: Event recently fired
         auto_off: 5
         state: "true"
 ```
+
+### Using conditions with triggers to control status updates
+
+This example shows how to store the last valid value of a temperature sensor. It will update as long as the source sensor has a valid (numeric) state. Otherwise, the template sensor's state will remain unchanged. 
+
+{% raw %}
+
+```yaml
+template:
+  - triggers:
+      trigger: state
+      entity_id: sensor.outside_temperature
+    conditions:
+      - condition: template
+        value_template: "{{ is_number(states('sensor.outside_temperature')) }}"
+    sensor:
+      - name: Outside Temperature last known value
+        state: "{{ states('sensor.outside_temperature') }}"
+```
+
+{% endraw %}
 
 ### State based sensor exposing sun angle
 
@@ -713,10 +1003,10 @@ The binary sensor turns on and sets the matching icon when the appropriate event
 
 ```yaml
 template:
-  - trigger:
-      - platform: event
+  - triggers:
+      - trigger: event
         event_type: YOUR_EVENT
-      - platform: state
+      - trigger: state
         entity_id: binary_sensor.doorbell_rang
         to: "off"
     binary_sensor:
@@ -731,7 +1021,7 @@ template:
 
 ### State based select - Control Day/Night mode of a camera
 
-This show how a state based template select can be used to call a service.
+This show how a state based template select can be used to perform an action.
 
 {% raw %}
 
@@ -744,7 +1034,7 @@ template:
       state: "{{ state_attr('camera.porch_camera_sd', 'day_night_mode') }}"
       options: "{{ ['off', 'on', 'auto'] }}"
       select_option:
-        - service: tapo_control.set_day_night_mode
+        - action: tapo_control.set_day_night_mode
           data:
             day_night_mode: "{{ option }}"
           target:
@@ -771,20 +1061,20 @@ template:
 
 {% endraw %}
 
-### Trigger based handling of service response data
+### Trigger based handling of action response data
 
-This example demonstrates how to use an `action` to call a [service with response data](/docs/scripts/service-calls/#use-templates-to-handle-response-data)
+This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data)
 and use the response in a template.
 
 {% raw %}
 
 ```yaml
 template:
-  - trigger:
-      - platform: time_pattern
+  - triggers:
+      - trigger: time_pattern
         hours: /1
-    action:
-      - service: weather.get_forecasts
+    actions:
+      - action: weather.get_forecasts
         data:
           type: hourly
         target:
@@ -796,6 +1086,33 @@ template:
         state: "{{ now().isoformat() }}"
         attributes:
           forecast: "{{ hourly['weather.home'].forecast }}"
+```
+
+{% endraw %}
+
+### Number entity changing the unit of measurement of another number
+
+This example demonstrates the usage of a template number with a unit of measurement set to change a unit-less value of another number entity.
+
+{% raw %}
+
+```yaml
+template:
+  - number:
+      - name: "Cutting Height"
+        unit_of_measurement: "cm"
+        unique_id: automower_cutting_height
+        state: "{{ states('number.automower_cutting_height_raw')|int(0) * 0.5 + 1.5 }}"
+        set_value:
+          - service: number.set_value
+            target:
+              entity_id: number.automower_cutting_height_raw
+            data:
+              value: "{{ (value - 1.5) * 2 }}"
+        step: 0.5
+        min: 2
+        max: 6
+        icon: mdi:ruler
 ```
 
 {% endraw %}
@@ -816,7 +1133,7 @@ binary_sensor:
     sensors:
       sun_up:
         friendly_name: "Sun is up"
-        value_template: {{ state_attr('sun.sun', 'elevation') > 0 }}
+        value_template: "{{ state_attr('sun.sun', 'elevation') > 0 }}"
 ```
 
 {% endraw %}
@@ -846,7 +1163,7 @@ sensors:
           type: device_class
           default: None
         value_template:
-          description: The sensor is `on` if the template evaluates as `True` and `off` otherwise. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor’s device_class value
+          description: The sensor is `on` if the template evaluates as `True` and `off` otherwise. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
           required: true
           type: template
         availability_template:

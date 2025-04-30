@@ -7,6 +7,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.59
 ha_domain: dominos
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The **Dominos Pizza** {% term integration %} allows you to order Dominos Pizza from within your Home Assistant scripts and automations.
@@ -35,10 +36,10 @@ dominos:
       - P12IPAZA
 ```
 
-Now you can use the Dominos {% term service %} to order pizza within your automations:
+Now you can use the Dominos {% term action %} to order pizza within your automations:
 
 ```yaml
-- service: dominos.order
+- action: dominos.order
   data:
     order_entity_id: dominos.medium_pan
 ```

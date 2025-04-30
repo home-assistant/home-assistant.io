@@ -13,6 +13,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 [Mycroft](https://mycroft.ai) is an open source voice assistant that allows you to send notifications and more to Mycroft from Home Assistant.
@@ -59,7 +60,7 @@ name:
 
 ## Examples
 
-Send a message to Mycroft by calling `notify.mycroft` service:
+Send a message to Mycroft by calling `notify.mycroft` action:
 
 ```yaml
 message: "Hey Mycroft. Turn on the office light. "

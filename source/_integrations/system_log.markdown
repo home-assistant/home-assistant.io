@@ -9,7 +9,7 @@ ha_domain: system_log
 ha_integration_type: system
 ---
 
-The `system_log` integration stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to **Settings** -> **System** -> **Logs**. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.
+The `system_log` integration stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to {% my logs title="**Settings** > **System** > **Logs**" %} (condensed and full raw logs are available). In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored inside a condensed log. Older entries are automatically discarded from a condensed log; a full raw log keeps all records. It is possible to change the number of stored log entries in a condensed log using the parameter `max_entries`.
 
 ## Configuration
 
@@ -22,7 +22,7 @@ system_log:
 
 {% configuration %}
 max_entries:
-  description: Number of entries to store (older entries are discarded).
+  description: Number of entries to store in a condensed log (older entries are discarded).
   required: false
   type: integer
   default: 50
@@ -33,17 +33,17 @@ fire_event:
   default: false
 {% endconfiguration %}
 
-## Services
+## Actions
 
-### Service `clear`
+### Action `clear`
 
-To manually clear the system log, call this service.
+To manually clear the system log, use this action.
 
-### Service `write`
+### Action `write`
 
 Write a log entry
 
-| Service data attribute | Optional | Description                                                                    |
+| Data attribute | Optional | Description                                                                    |
 | ---------------------- | -------- | ------------------------------------------------------------------------------ |
 | `message`              | no       | Message to log                                                                 |
 | `level`                | yes      | Log level: debug, info, warning, error, critical. Defaults to 'error'.         |
@@ -90,37 +90,37 @@ counter:
 
 automation:
   - alias: "Count warnings"
-    trigger:
-      platform: event
-      event_type: system_log_event
-      event_data:
-        level: WARNING
-    action:
-      service: counter.increment
-      target:
-        entity_id: counter.warning_counter
+    triggers:
+      - trigger: event
+        event_type: system_log_event
+        event_data:
+          level: WARNING
+    actions:
+      - action: counter.increment
+        target:
+          entity_id: counter.warning_counter
 ```
 
 ### Conditional Messages
 
-This automation will create a persistent notification whenever an error or warning is logged that has the word "service" in the message:
+This automation will create a persistent notification whenever an error or warning is logged that has the word "action" in the message:
 
 {% raw %}
 
 ```yaml
 automation:
-  - alias: "Create notifications for 'service' errors"
-    trigger:
-      platform: event
-      event_type: system_log_event
-    condition:
-      condition: template
-      value_template: '{{ "service" in trigger.event.data.message[0] }}'
-    action:
-      service: persistent_notification.create
-      data:
-        title: Something bad happened
-        message: "{{ trigger.event.data.message[0] }}"
+  - alias: "Create notifications for 'action' errors"
+    triggers:
+      - trigger: event
+        event_type: system_log_event
+    conditions:
+      - condition: template
+        value_template: '{{ "action" in trigger.event.data.message[0] }}'
+    actions:
+      - action: persistent_notification.create
+        data:
+          title: "Something bad happened"
+          message: "{{ trigger.event.data.message[0] }}"
 ```
 
 {% endraw %}
@@ -132,14 +132,14 @@ This automation will create a new log entry when the door is opened:
 ```yaml
 automation:
   - alias: "Log door opened"
-    trigger:
-      platform: state
-      entity_id: binary_sensor.door
-      from: "off"
-      to: "on"
-    action:
-      service: system_log.write
-      data:
-        message: "Door opened!"
-        level: info
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.door
+        from: "off"
+        to: "on"
+    actions:
+      - action: system_log.write
+        data:
+          message: "Door opened!"
+          level: info
 ```

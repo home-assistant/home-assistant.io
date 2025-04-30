@@ -132,7 +132,7 @@ Using a combination of the available {% term actions %} and attributes, you can 
           entity_id: alarm_control_panel.alarm_panel
           attribute: chime
           state: False
-        - service: alarmdecoder.alarm_toggle_chime
+        - action: alarmdecoder.alarm_toggle_chime
           target:
             entity_id: alarm_control_panel.alarm_panel
           data:
@@ -142,7 +142,7 @@ Using a combination of the available {% term actions %} and attributes, you can 
           entity_id: alarm_control_panel.alarm_panel
           attribute: chime
           state: True
-        - service: alarmdecoder.alarm_toggle_chime
+        - action: alarmdecoder.alarm_toggle_chime
           target:
             entity_id: alarm_control_panel.alarm_panel
           data:

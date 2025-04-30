@@ -16,7 +16,7 @@ The **DHCP discovery** {% term integration %} will watch the network for DHCP re
 
 ## Configuration
 
-This {% term integration %} is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This {% term integration %} is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually in the {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `lifx_cloud` scene {% term integration %} allows you to activate the scenes that LIFX smartphone apps store in the LIFX cloud.
@@ -29,7 +30,7 @@ scene:
 You can then activate each scene with its name from the smartphone app:
 
 ```yaml
-  - service: scene.turn_on
+  - action: scene.turn_on
     target:
       entity_id: scene.goodnight
 ```

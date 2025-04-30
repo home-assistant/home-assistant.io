@@ -53,7 +53,7 @@ The following parameters can be controlled for the `climate` platform entities:
 
 #### Controlling vanes
 
-The horizontal and vertical vane positions can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` services.
+The horizontal and vertical vane positions can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` actions.
 
 Swing mode can also be used to control vertical vane position.
 

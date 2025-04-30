@@ -83,7 +83,7 @@ Unlike other protocols, Thread can use multiple border routers in a single netwo
 
 OpenThread is an open source implementation of Thread, originally released by Google. Almost all commercially available Thread border routers are based on the open source implementation. However, the configuration of <abbr title="Thread border routers">TBRs</abbr> is not part of the Thread standard. This means that Google and Apple <abbr title="Thread border routers">TBRs</abbr> implementation setup and configured by their respective ecosystems.
 
-While Home Assistant can *use* any border router, it can *configure* and *control* only OpenThread border routers built with the REST API available in the open source implementation. The OpenThread Border Router add-on (as well as the OpenThread Border Router bundled in the experimental Silicon Labs Multiprotocol add-on) are built from this open source OpenThread code and have the REST API enabled.
+While Home Assistant can *use* any border router, it can *configure* and *control* only OpenThread border routers built with the REST API available in the open source implementation. The OpenThread Border Router add-on is built from this open source OpenThread code and has the REST API enabled.
 
 ### List of Thread border router devices
 
@@ -121,7 +121,7 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
 
 Find out if you already have Thread networks:
 
-- Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+- Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 - If you do not see a **Thread** integration, add it.
 - Then, select **Configure** and check if you see any Thread networks on the overview page.
 - Case 1: If you do not have any Thread networks yet, follow [Case 1: Make Home Assistant your first Thread network](#case-1-making-home-assistant-your-first-thread-network)
@@ -145,7 +145,7 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
 
 2. Make sure the Home Assistant Thread network is defined as preferred network.
    - This should happen automatically, but check to be sure.
-   - Go to {% my integrations title="**Settings** > **Devices & Services**" %}, select the **Thread** integration.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
    - Then, select **Configure**.
    - You should see the Home Assistant logo under **Preferred network**.
 
@@ -157,7 +157,8 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
      - Follow the instructions on screen.
      - **Result**: You will see a confirmation stating that Thread credentials from Home Assistant have been added to this device.
    - To share the credentials with your iPhone, open the Home Assistant Companion app.
-     - Go to {% my integrations title="**Settings** > **Devices & Services**" %}, select the **Thread** integration.
+     - Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
+     - Select **Configure** under **Services**.
      - At the bottom of the preferred network box, select **Send credentials to phone**.
 4. To add Matter-based Thread devices, follow the steps on [Adding a matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
 
@@ -181,7 +182,7 @@ Note: the steps and images here show the process with a Google Thread network. B
 
 1. Make sure you have an Android/iPhone phone and your phone is in the same Wi-Fi network as your Google border router.
 2. First you need to import the Thread credentials of your Google thread network.
-   - In the companion app, go to {% my integrations title="**Settings** > **Devices & Services**" %}, select the **Thread** integration.
+   - In the companion app, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
    - On Android, select **Configure** and **Import Credentials**.
      - **Result**: You should see a notification that the credentials are imported.
    - On iOS, select **Send credentials to Home Assistant**.

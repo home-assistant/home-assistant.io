@@ -12,10 +12,14 @@ body, html {
 
 .page-content {
   display: inline-block;
-  height: 100%;
+  min-height: 100%;
   margin-top: 0;
   padding-top: 88px;
   width: 100%;
+
+  &>.grid-wrapper:last-of-type {
+    min-height: calc(100vh - 714px);
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -58,6 +62,11 @@ table {
   th,td {
       word-wrap: break-word;
   }
+}
+
+.text-input,
+textarea {
+  cursor: text;
 }
 
 .gist {

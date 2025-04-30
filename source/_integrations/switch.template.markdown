@@ -3,11 +3,20 @@ title: "Template Switch"
 description: "Instructions on how to integrate Template Switches into Home Assistant."
 ha_category:
   - Switch
+  - Helper
 ha_release: 0.13
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
 ha_config_flow: true
+ha_platforms:
+  - switch
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` platform creates switches that combines components.
@@ -42,11 +51,11 @@ switch:
       skylight:
         value_template: "{{ is_state('sensor.skylight', 'on') }}"
         turn_on:
-          service: switch.turn_on
+          action: switch.turn_on
           target:
             entity_id: switch.skylight_open
         turn_off:
-          service: switch.turn_off
+          action: switch.turn_off
           target:
             entity_id: switch.skylight_close
 ```
@@ -107,9 +116,9 @@ If you are using the state of a platform that takes extra time to load, the Temp
 
 In this section you find some real-life examples of how to use this switch.
 
-### Copy Switch
+### Invert a Switch
 
-This example shows a switch that copies another switch.
+This example shows a switch that is the inverse of another switch.
 
 {% raw %}
 
@@ -117,14 +126,15 @@ This example shows a switch that copies another switch.
 switch:
   - platform: template
     switches:
-      copy:
-        value_template: "{{ is_state('switch.source', 'on') }}"
+      invert:
+        value_template: "{{ not is_state('switch.target', 'on') }}"
+        availability_template: "{{ has_value('switch.target') }}"
         turn_on:
-          service: switch.turn_on
+          action: switch.turn_off
           target:
             entity_id: switch.target
         turn_off:
-          service: switch.turn_off
+          action: switch.turn_on
           target:
             entity_id: switch.target
 ```
@@ -145,11 +155,11 @@ switch:
         friendly_name: "Blind"
         value_template: "{{ is_state_attr('switch.blind_toggle', 'sensor_state', 'on') }}"
         turn_on:
-          service: switch.toggle
+          action: switch.toggle
           target:
             entity_id: switch.blind_toggle
         turn_off:
-          service: switch.toggle
+          action: switch.toggle
           target:
             entity_id: switch.blind_toggle
 ```
@@ -158,7 +168,7 @@ switch:
 
 ### Multiple actions for turn_on or turn_off
 
-This example shows multiple service calls for turn_on and turn_off.
+This example shows multiple actions for turn_on and turn_off.
 
 {% raw %}
 
@@ -169,19 +179,19 @@ switch:
       copy:
         value_template: "{{ is_state('switch.source', 'on') }}"
         turn_on:
-          - service: switch.turn_on
+          - action: switch.turn_on
             target:
               entity_id: switch.target
-          - service: light.turn_on
+          - action: light.turn_on
             target:
               entity_id: light.target
             data:
               brightness_pct: 40
         turn_off:
-          - service: switch.turn_off
+          - action: switch.turn_off
             target:
               entity_id: switch.target
-          - service: light.turn_off
+          - action: light.turn_off
             target:
               entity_id: light.target
 ```
@@ -203,11 +213,11 @@ switch:
         friendly_name: "Skylight"
         value_template: "{{ is_state('sensor.skylight', 'on') }}"
         turn_on:
-          service: switch.turn_on
+          action: switch.turn_on
           target:
             entity_id: switch.skylight_open
         turn_off:
-          service: switch.turn_on
+          action: switch.turn_on
           target:
             entity_id: switch.skylight_close
 ```
@@ -227,11 +237,11 @@ switch:
       garage:
         value_template: "{{ is_state('cover.garage_door', 'open') }}"
         turn_on:
-          service: cover.open_cover
+          action: cover.open_cover
           target:
             entity_id: cover.garage_door
         turn_off:
-          service: cover.close_cover
+          action: cover.close_cover
           target:
             entity_id: cover.garage_door
         icon_template: >-
@@ -246,7 +256,7 @@ switch:
 
 ### Change The Entity Picture
 
-This example shows how to change the entity picture based on the day/night cycle.
+This example shows how to change the entity picture based on the state of the garage door.
 
 {% raw %}
 
@@ -257,11 +267,11 @@ switch:
       garage:
         value_template: "{{ is_state('cover.garage_door', 'open') }}"
         turn_on:
-          service: cover.open_cover
+          action: cover.open_cover
           target:
             entity_id: cover.garage_door
         turn_off:
-          service: cover.close_cover
+          action: cover.close_cover
           target:
             entity_id: cover.garage_door
         entity_picture_template: >-

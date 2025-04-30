@@ -61,6 +61,21 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+hide_completed:
+  required: false
+  description: Hide the completed items section in the card.
+  type: boolean
+  default: "false"
+hide_create:
+  required: false
+  description: Hide the textbox for creating new tasks at the top of the card.
+  type: boolean
+  default: "false"
+display_order:
+  required: false
+  description: "Optionally sorts the items in the to-do list for display. Options are: `none`: Show the list in its original order. `alpha_asc`: Sort the list in alphabetical order. `alpha_desc`: Sort the list in reverse alphabetical order. `duedate_asc`: Sort the list by due date (soonest first). `duedate_desc`: Sort the list by reverse due date (soonest last)."
+  type: string
+  default: "none"
 {% endconfiguration %}
 
 ### Examples
@@ -69,6 +84,6 @@ Title example:
 
 ```yaml
 type: todo-list
-entity: todo-list
-title: todo list
+entity: todo.todo_list
+title: Todo List
 ```

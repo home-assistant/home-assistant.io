@@ -10,11 +10,12 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 With the `route53` {% term integration %} can you keep your AWS Route53 DNS records up to date.
 
-The integration will run every hour, but can also be started manually by using the service `route53.update_records` under services.
+The integration will run every hour, but can also be started manually by using the `route53.update_records` action.
 
 Please note that this platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
 
@@ -108,8 +109,8 @@ ttl:
   default: 300
 {% endconfiguration %}
 
-## Services
+## Actions
 
-### Service `route53.update_records`
+### Action `route53.update_records`
 
-Use this service to manually trigger an update of the DNS records.
+Use this action to manually trigger an update of the DNS records.

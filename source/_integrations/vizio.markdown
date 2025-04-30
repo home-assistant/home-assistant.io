@@ -6,7 +6,6 @@ ha_category:
 ha_release: 0.49
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@raman325'
 ha_domain: vizio
@@ -212,11 +211,11 @@ The list of apps that are provided by default is statically defined [here](https
 pyvizio --ip=0 get-apps-list
 ```
 
-## Service `vizio.update_setting`
+## Action `vizio.update_setting`
 
-This service allows you to update a setting on a given VIZIO device. You will need to know the type of setting and the name of the setting to call this service. You can determine this by using the SmartCast app and going to device settings for your target device. The setting type is the lowercase version of the first menu item you'd select (e.g., display, audio, system), and the setting name is what you see in the app, but spaces are replaced with underscores and it is also all lowercase (e.g., AV delay would be called `av_delay`).
+This action allows you to update a setting on a given VIZIO device. You will need to know the type of setting and the name of the setting to perform this action. You can determine this by using the SmartCast app and going to device settings for your target device. The setting type is the lowercase version of the first menu item you'd select (e.g., display, audio, system), and the setting name is what you see in the app, but spaces are replaced with underscores and it is also all lowercase (e.g., AV delay would be called `av_delay`).
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | yes | The devices to update a setting for. | `media_player.vizio_smartcast`
 | `setting_type` | no | The type of setting. | `audio`

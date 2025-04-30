@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `itach` remote {% term integration %} allows you to control IR devices with a Global Caché iTach Device and GC-100 devices. The Global Cache IR API are similar across their product line. See API documentation links at the end of this page.
@@ -85,7 +86,7 @@ devices:
           type: string
 {% endconfiguration %}
 
-An example to call the integration from developer tools using the `remote.send_command` service: `{ "entity_id":"remote.tv", "command":"menu" }`
+An example to call the integration from developer tools using the `remote.send_command` action: `{ "entity_id":"remote.tv", "command":"menu" }`
 
 Note: Global Cache devices expect data in their own format of "sendir...". This integration converts hex code to Global Cache IR form.
 

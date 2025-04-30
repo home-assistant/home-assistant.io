@@ -8,7 +8,6 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@frenck'
-ha_quality_scale: platinum
 ha_domain: elgato
 ha_zeroconf: true
 ha_platforms:
@@ -60,20 +59,20 @@ If you have a Key Light Mini, Home Assistant will provide an additional
 switch that allows the control of the "Studio mode" of your light. When
 studio mode is enabled, your battery will not be used and bypassed.
 
-## Services
+## Actions
 
-### Service `elgato.identify`
+### Action `elgato.identify`
 
-The identify service shortly blinks the Elgato light. Originally meant as
+The identify action shortly blinks the Elgato light. Originally meant as
 a way to identify which light you are talking to; it can also be used as
-a service to create a visual notification.
+an action to create a visual notification.
 
-This service also works when the light is turned off and will turn off the
+This action also works when the light is turned off and will turn off the
 light after the identification sequence has been completed.
 
 {% my developer_call_service badge service="elgato.identify" %}
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | Yes | String or list of Elgato light entity IDs.
 
@@ -81,13 +80,13 @@ Example automation, in YAML format, that triggers a visual notification when
 a binary sensor (a doorbell) is triggered:
 
 ```yaml
-- alias: Visual doorbell notification example
-  trigger:
-    - platform: state
+- alias: "Visual doorbell notification example"
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.doorbell
       to: "on"
-  action:
-    - service: elgato.identify
+  actions:
+    - action: elgato.identify
       target:
         entity_id: light.elgato_key_light
 ```

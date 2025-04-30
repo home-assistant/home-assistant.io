@@ -115,6 +115,10 @@ double_tap_action:
   required: false
   description: Action taken on row double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
+confirmation:
+  required: false
+  description: For entities that display a button element in the row (for example, button, lock, script), this option adds a confirmation dialog to the press of the button. See [options for confirmation](/dashboards/actions/#options-for-confirmation) for configuration options.
+  type: map
 {% endconfiguration %}
 
 ## Special row elements
@@ -426,8 +430,8 @@ entities:
     name: Bed light transition
     action_name: Toggle light
     tap_action:
-      action: call-service
-      service: light.toggle
+      action: perform-action
+      perform_action: light.toggle
       data:
         entity_id: light.bed_light
         transition: 10
@@ -458,8 +462,8 @@ entities:
     name: Power cycle LibreELEC
     icon: mdi:power-cycle
     tap_action:
-      action: call-service
+      action: perform-action
       confirmation:
         text: Are you sure you want to restart?
-      service: script.libreelec_power_cycle
+      perform_action: script.libreelec_power_cycle
 ```

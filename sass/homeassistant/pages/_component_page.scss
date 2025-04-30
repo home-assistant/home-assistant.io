@@ -5,23 +5,156 @@
       font-weight: 500;
       letter-spacing: .005em;
       color: $gray;
-      text-transform: uppercase;
       padding-top: 8px;
+      text-transform: uppercase;
     }
   }
+
   .component-search {
     margin-bottom: 24px;
+    min-height: 80px;
 
     input {
       width: 100%;
       padding: 10px;
-
       background-color: #fefefe;
       border-radius: 8px;
       border: 1px solid;
       border-color: #7c7c7c #c3c3c3 #ddd;
     }
   }
+
+  .grid-filters {
+    @media only screen and (min-width: $desk-start) {
+      display: flex;
+    }
+  }
+
+  .integration-filter-radio {
+    display: flex;
+    border: none;
+    padding: 0;
+    grid-gap: 10px;
+  }
+
+  .filter-button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    width: fit-content;
+    font-size: 1rem;
+    box-shadow: none;
+    background-color: $blueDark;
+    color: white;
+    border-radius: 24px;
+
+    input {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      padding-left: 16px;
+      display: block;
+      margin-left: 10px;
+      flex-shrink: 0;
+      height: 1rem;
+      width: 1rem;
+      border-radius: 100%;
+      border-color: transparent;
+      background-color: white;
+
+      &:checked {
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22%23007fa8%22%20transform%3D%22rotate(90)%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%223%22%2F%3E%3C%2Fsvg%3E");
+      }
+    }
+
+    label {
+      display: block;
+      width: 100%;
+      padding: 4px 16px 4px 10px;
+    }
+  }
+
+  .integration-filter.integration-filter-select {
+    position: relative;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      margin-top: 2px;
+      right: 8px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid black;
+    }
+
+    .ha_category {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      color: #222;
+      width: 100%;
+      margin-bottom: 15px;
+      text-align-last: center;
+      font-size: 16px;
+      line-height: 24px;
+      border: 2px solid $blueDark;
+      border-top-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-top: 0;
+      position: relative;
+      top: -2px;
+      padding: 5px 5px 2px;
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+
+  .filter-title {
+      background: $blueDark;
+      color: white;
+      text-align: center;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      padding: 5px;
+      margin-top: 0;
+      margin-bottom: -2px;
+      text-transform: capitalize;
+      font-size: 18px;
+      position: relative;
+      z-index: 1;
+  }
+
+  .active-filter {
+    margin: 10px 5px 0px 0px;
+    padding: 5px 10px;
+    min-width: 100px;
+    background-color: $blueDark;
+    border-radius: 28px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    line-height: 18px;
+
+    span {
+      display: flex;
+      align-items: center;
+    }
+
+    iconify-icon {
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+
   select {
     font-family: $sans-serif;
     border: 0;
@@ -38,21 +171,22 @@
 // styles for the cards
 .hass-option-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(192px, 1fr));
-
-  margin: -10px; // grid trick, has to match option-card's margin
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 24px;
 
   div.alert, p.alert-content {
     width: 100%;
   }
 
+  div.alert {
+    text-align: center;
+  }
+
   .option-card {
     flex: 0 0 auto;
-    min-width: 192px;
-    height: 192px;
+    aspect-ratio: 1;
     display: inline-block;
     background-color: #f8f8f8;
-    margin: 10px;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, .12);
     padding: 8px;
@@ -60,7 +194,6 @@
     text-decoration: none;
     align-content: center;
     transition: box-shadow .33s;
-
 
     .img-container {
       height: 64px;
@@ -128,20 +261,23 @@ a.option-card:hover {
 
 @for $i from 1 through 40 {
   .option-card:nth-child(#{$i}) {
-    animation-delay: #{$i * 0.04}s !important;
+    animation-delay: #{$i * 0.025}s !important;
+    @media only screen and (max-width: $palm-end) {
+      animation-delay: #{$i * 0.05}s !important;
+    }
   }
 }
 
-
 @media only screen and (max-width: $palm-end) {
   .hass-option-cards {
+    grid-template-columns: 1fr;
+
     .option-card {
-      width: calc(100% - 24px) !important;
+      width: 100% !important;
       flex-direction: row;
       display: flex;
       align-items: center;
       height: 80px;
-      margin: 8px;
 
       .img-container {
         margin: 8px;
@@ -149,7 +285,7 @@ a.option-card:hover {
         img {
           max-width: 48px;
           max-height: 48px;
-        }  
+        }
       }
 
       .title {
@@ -160,9 +296,8 @@ a.option-card:hover {
   }
   #components-page {
     .hass-option-cards {
-      grid-template-columns: 1fr;
       .option-card {
-        width: calc(50% - 24px);
+
       }
     }
     .category_select {
@@ -181,6 +316,7 @@ a.option-card:hover {
       flex-wrap: wrap;
       margin-bottom: 16px;
       align-items: flex-end;
+      gap: 8px;
 
       &>div {
         margin-right: 8px;
@@ -203,7 +339,7 @@ a.option-card:hover {
     }
     .category_select {
       display: block;
-    }  
+    }
     .category_list {
       display: none;
     }
@@ -231,12 +367,13 @@ a.option-card:hover {
       }
 
       .btn {
+        font-size: 1rem;
         display: block;
         background: 0;
         color: black;
         box-shadow: none;
         text-shadow: none;
-        padding: 2px;
+        padding: 4px 0;
         border-radius: 0;
 
         &.current {

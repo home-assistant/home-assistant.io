@@ -43,49 +43,48 @@ The OpenAI key is used to authenticate requests to the OpenAI API. To generate a
 - Visit the [API Keys page](https://platform.openai.com/account/api-keys) to retrieve the API key you'll use to configure the integration.
 
 {% include integrations/option_flow.md %}
+
 {% configuration_basic %}
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
-
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
-
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
-
 {% endconfiguration_basic %}
 
 If you choose to not use the recommended settings, you can configure the following options:
 
 {% configuration_basic %}
-
 Model:
-  description: The GPT language model is used for text generation. You can find more details on the available models in the [OpenAI GPT-3.5 Turbo Documentation](https://platform.openai.com/docs/models/gpt-3-5-turbo), [OpenAI GPT-4 Turbo and GPT-4 Documentation](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4), or [GPT-4o Documentation](https://platform.openai.com/docs/models/gpt-4o). The default is "gpt-4o".
-
+  description: The GPT language model is used for text generation. You can find more details on the available models in the [GPT-4o Documentation](https://platform.openai.com/docs/models/gpt-4o). The default is "gpt-4o-mini".
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate in its completion of the prompt. For more information, see the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction).
-
 Temperature:
   description: A value that determines the level of creativity and risk-taking the model should use when generating text. A higher temperature means the model is more likely to generate unexpected results, while a lower temperature results in more deterministic results. See the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction) for more information.
-
 Top P:
   description: An alternative to temperature, top_p determines the proportion of the most likely word choices the model should consider when generating text. A higher top_p means the model will only consider the most likely words, while a lower top_p means a wider range of words, including less likely ones, will be considered. For more information, see the [OpenAI Completion API Reference](https://platform.openai.com/docs/api-reference/completions/create#completions/create-top_p).
-
+Enable web search:
+  description: Enable OpenAI-provided [Web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Note that it is only available for gpt-4o and gpt-4o-mini models.
+Search context size:
+  description: The search is performed with a separate fine-tuned "gpt-4o-search-preview" or "gpt-4o-mini-search-preview" model with its own context and its own [pricing](https://platform.openai.com/docs/pricing#web-search). This parameter controls how much context is retrieved from the web to help the tool formulate a response. The tokens used by the search tool do not affect the context window of the main model. These tokens are also not carried over from one turn to another — they're simply used to formulate the tool response and then discarded. This parameter would affect the search quality, cost, and latency.
+Include home location:
+  description: This parameter allows using the location of your Home Assistant instance during search to provide more relevant search results.
 {% endconfiguration_basic %}
 
 ## Talking to Super Mario over the phone
 
 You can use an OpenAI Conversation integration to [talk to Super Mario and, if desired, have it control devices](/voice_control/assist_create_open_ai_personality/) in your home.
 
-## Services
+## Actions
 
-### Service `openai_conversation.generate_image`
+### Action `openai_conversation.generate_image`
 
-Allows you to ask OpenAI to generate an image based on a prompt. This service
-populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+Allows you to ask OpenAI to generate an image based on a prompt. This action
+populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with the requested image.
 
-| Service data attribute | Optional | Description                                            | Example          |
+| Data attribute | Optional | Description                                            | Example          |
 | ---------------------- | -------- | ------------------------------------------------------ | ---------------- |
 | `config_entry`         | no       | Integration entry ID to use.                           |                  |
 | `prompt`               | no       | The text to turn into an image.                        | Picture of a dog |
@@ -95,7 +94,7 @@ with the requested image.
 
 {% raw %}
 ```yaml
-service: openai_conversation.generate_image
+action: openai_conversation.generate_image
 data:
   config_entry: abce6b8696a15e107b4bd843de722249
   prompt: "Cute picture of a dog chasing a herd of cats"
@@ -117,7 +116,7 @@ to generate a new image of New York in the current weather state.
 The resulting image entity can be used in, for example, a card on your dashboard.
 
 The *config_entry* is installation specific. To get the value, make sure the integration has been installed.
-Then, go to {% my developer_services title="**Developer Tools** > **Services**" %}. Ensure you are in UI mode and enter the following below:
+Then, go to {% my developer_services title="**Developer Tools** > **Actions**" %}. Ensure you are in UI mode and enter the following below:
 
 ![Open AI Conversation UI Mode](/images/integrations/openai_conversation/openai_developer_tools_ui.png)
 
@@ -129,18 +128,18 @@ Select **YAML Mode** to reveal the *config_entry* value to be used in the below 
 ```yaml
 automation:
   - alias: "Update image when weather changes"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: weather.home
-    action:
+    actions:
       - alias: "Ask OpenAI to generate an image"
-        service: openai_conversation.generate_image
+        action: openai_conversation.generate_image
         response_variable: generated_image
         data:
           config_entry: abce6b8696a15e107b4bd843de722249
           size: "1024x1024"
           prompt: >-
-            New York when the weather is {{ states("weather.home") }}"
+            New York when the weather is {{ states("weather.home") }}
 
       - alias: "Send out a manual event to update the image entity"
         event: new_weather_image
@@ -149,12 +148,72 @@ automation:
 
 template:
   - trigger:
-      alias: "Update image when a new weather image is generated"
-      platform: event
-      event_type: new_weather_image
+      - alias: "Update image when a new weather image is generated"
+        trigger: event
+        event_type: new_weather_image
     image:
-      name: "AI generated image of New York"
-      url: "{{ trigger.event.data.url }}"
+      - name: "AI generated image of New York"
+        url: "{{ trigger.event.data.url }}"
+```
+
+{% endraw %}
+
+### Service `openai_conversation.generate_content`
+
+Allows you to ask OpenAI to generate a content based on a prompt. This service
+populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+with the response from OpenAI.
+
+- **Service data attribute**: `config_entry`
+  - **Description**: Integration entry ID to use.
+  - **Example**: 
+  - **Optional**: no
+
+- **Service data attribute**: `prompt`
+  - **Description**: The text to generate content from.
+  - **Example**: Describe the weather
+  - **Optional**: no
+
+- **Service data attribute**: `image_filename`
+  - **Description**: List of file names for images to include in the prompt.
+  - **Example**: /tmp/image.jpg
+  - **Optional**: yes
+
+{% raw %}
+
+```yaml
+service: openai.generate_content
+data:
+  config_entry: abce6b8696a15e107b4bd843de722249
+  prompt: >-
+    Very briefly describe what you see in this image from my doorbell camera.
+    Your message needs to be short to fit in a phone notification. Don't
+    describe stationary objects or buildings.
+  image_filename: 
+    - /tmp/doorbell_snapshot.jpg
+response_variable: generated_content
+```
+
+{% endraw %}
+
+The response data field `text` will contain the generated content.
+
+Another example with multiple images:
+
+{% raw %}
+
+```yaml
+service: openai.generate_content
+data:
+  prompt: >-
+    Briefly describe what happened in the following sequence of images
+    from my driveway camera.
+  image_filename:
+    - /tmp/driveway_snapshot1.jpg
+    - /tmp/driveway_snapshot2.jpg
+    - /tmp/driveway_snapshot3.jpg
+    - /tmp/driveway_snapshot4.jpg
+response_variable: generated_content
 ```
 
 {% endraw %}

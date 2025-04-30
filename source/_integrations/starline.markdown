@@ -29,13 +29,13 @@ The `starline` integration lets you retrieve data of your [StarLine](https://www
 
 This integration provides the following platforms:
 
-- Binary sensors: Hand brake, hood, trunk, alarm status, doors lock state, handsfree, neutral and moving ban status.
+- Binary sensors: Hand brake, hood, trunk, alarm status, doors lock state, handsfree, neutral, moving ban status, ignition state, and autostart state.
 - Device tracker: The location of your car.
 - Lock: Control the lock of your car.
 - Sensors: Battery level, SIM card balance, GSM signal level, GPS satellites count, fuel volume, mileage, OBD errors, interior temperature and engine temperature.
 - Switches: Start/stop engine, heater (webasto), additional channel, and service mode.
-- Buttons: Sound the horn.
-- Services: Update the state, set update frequency. More details can be found [here](#services).
+- Buttons: Sound the horn, flex logic, and panic mode.
+- Actions: Update the state, set update frequency. More details can be found [here](#actions).
 
 ## Prerequisites
 
@@ -50,27 +50,27 @@ It is not recommended to set an update interval of less than 90 seconds.
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
 ### Update the state
 
-The service `starline.update_state` fetches the last state of the device from the StarLine server.
+The `starline.update_state` action fetches the last state of the device from the StarLine server.
 
-This service does not require any attributes.
+This action does not require any attributes.
 
 ### Set scan interval
 
-The service `starline.set_scan_interval` sets update frequency for entities.
+The `starline.set_scan_interval` action sets update frequency for entities.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `scan_interval` | no | Update frequency in seconds.
 
 ### Set scan OBD interval
 
-The service `starline.set_scan_obd_interval` sets update frequency for OBD information.
+The `starline.set_scan_obd_interval` action sets update frequency for OBD information.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `scan_interval` | no | Update frequency in seconds.
 

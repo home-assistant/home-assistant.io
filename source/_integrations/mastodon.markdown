@@ -1,130 +1,158 @@
 ---
 title: Mastodon
-description: Instructions on how to add Instapush notifications to Home Assistant.
+description: Instructions on how to add Mastodon posts and account statistics to Home Assistant.
 ha_category:
   - Notifications
+  - Sensor
 ha_release: 0.67
 ha_codeowners:
   - '@fabaff'
+  - '@andrew-codechimp'
 ha_domain: mastodon
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Polling
 ha_platforms:
+  - diagnostics
   - notify
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+  - sensor
+ha_integration_type: service
+ha_config_flow: true
 ---
 
-The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver notifications from Home Assistant.
+The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to post status updates and get account statistics.
 
 ### Setup
 
 Go to **Preferences** in the Mastodon web interface, then to **Development** and create a new application.
-If you want to grant only required accesses, uncheck all checkboxes then check only **read:accounts** and **write:statuses**.
 
-### Configuration
+Check the following scopes **read:accounts**, **write:statuses** and **write:media**.
 
-To add Mastodon to your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+Select **Submit** to create the application and generate the key, secret, and token required for the integration.
 
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: NOTIFIER_NAME
-    platform: mastodon
-    access_token: !secret mastodon_access_token
-    client_id: !secret mastodon_client_id
-    client_secret: !secret mastodon_client_secret
-```
+{% include integrations/config_flow.md %}
 
-{% configuration %}
-name:
-  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME."
-  required: false
-  type: string
-  default: notify
-access_token:
-  description: Your Mastodon access token.
-  required: true
-  type: string
-client_id:
-  description: Your Mastodon client ID
-  required: true
-  type: string
-client_secret:
-  description: Your Mastodon client secret.
-  required: true
-  type: string
-base_url:
-  description: URL of the Mastodon instance to use.
-  required: false
-  type: string
-  default: https://mastodon.social
-{% endconfiguration %}
+{% configuration_basic %}
+URL:
+  description: The URL of your Mastodon instance, for example `https://mastodon.social`.
+Client key:
+  description: The client key for the application created within your Mastodon account web interface.
+Client secret:
+  description: The client secret for the application created within your Mastodon account web interface.
+Access token:
+  description: The access token for the application created within your Mastodon account web interface.
+{% endconfiguration_basic %}
 
-### Usage
+## Sensors
 
-Mastodon is a notify platform, and can be used by calling notify service as described in the [notify documentation](/integrations/notify/). It will toot messages using 
-your account. An optional **target** parameter can be given to specify whether your toot will be public, private, unlisted, or direct. 
+The integration will create sensors for the Mastodon account showing total followers, following, and posts. Sensors are updated once an hour.
 
-| Service attribute      | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `message`              |       no | Body of the notification.
-| `target`               |      yes | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. 
-| `data`                 |      yes | See below for extended functionality. 
+## Actions
 
-### Service data
+The Mastodon integration has the following actions:
 
-The following attributes can be placed inside `data` for extended functionality. 
+- `mastodon.post`
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `media`                |      yes | Attach an image or video to the message.
-| `media_warning`        |      yes | If an image or video is attached, `True`: will marked the media as sensitive. `False` is default.
-| `content_warning`      |      yes | Text will be be shown as a warning before the text of the status. If not used, no warning will be displayed.
+{% note %}
+The previous `notify.mastodon` service has been deprecated in favor of the new `mastodon.post` action. If you're upgrading from a previous version, you'll need to update your automations to use the new action format shown below.
+{% endnote %}
 
-### Example service call
+### Action `mastodon.post`
 
-This will post a message to Mastodon. Visibility will default to your account's setting. 
+Post a status to your Mastodon account
+
+| Data attribute      | Optional | Description                                                                                                                                                                                                                                                        |
+| ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `config_entry_id`   | No       | The ID of the Mastodon config entry to post to.                                                                                                                                                                                                                    |
+| `status`            | No       | The status text to post.                                                                                                                                                                                                                                           |
+| `visibility`        | Yes      | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. |
+| `content_warning`   | Yes      | Text will be shown as a warning before the text of the status. If not used, no warning will be displayed.                                                                                                                                                          |
+| `media`             | Yes      | Attach an image or video to the post.                                                                                                                                                                                                                              |
+| `media_description` | Yes      | If an image or video is attached, will add a description for this media for people with visual impairments.                                                                                                                                                        |
+| `media_warning`     | Yes      | If an image or video is attached, `True` will mark the media as sensitive. `False` is default.                                                                                                                                                                     |
+
+{% tip %}
+You can get your `config_entry_id` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
+{% endtip %}
+
+### Examples
+
+{% details "Example status post action" %}
+
+Example post action that will post a status using your account's default visibility:
+
+{% raw %}
 
 ```yaml
-- service: notify.mastodon
-  message: "A toot from Home Assistant"
+- action: mastodon.post
+  config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+  status: "A toot from Home Assistant"
 ```
 
-### Example service call - private
+{% endraw %}
 
-This will post a message to Mastodon, but visibility is marked as `private` so only followers will see it.
+{% enddetails %}
+
+{% details "Example private post action" %}
+
+This will post a status to Mastodon, but visibility is marked as `private` so only followers will see it.
+
+{% raw %}
 
 ```yaml
-- service: notify.mastodon
-  message: "A private toot from Home Assistant"
-  target: private
+- action: mastodon.post
+  config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+  status: "A private toot from Home Assistant"
+  visibility: private
 ```
 
-### Example service call - with media
+{% endraw %}
 
-This will post a message to Mastodon that includes an image.
+{% enddetails %}
+
+{% details "Example media post action" %}
+
+This will post a status to Mastodon that includes an image.
+
+{% raw %}
 
 ```yaml
-- service: notify.mastodon
-  message: "A media toot from Home Assistant"
-  data:
-    media: /config/www/funny_meme.png
+- action: mastodon.post
+  config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+  status: "A media toot from Home Assistant"
+  media: /config/www/funny_meme.png
 ```
 
-### Example service call - with media and content warning to hide post behind a warning
+{% endraw %}
 
-This will post a message to Mastodon that includes an image and a target of `unlisted`, so it doesn't show in the public timeline.
+{% enddetails %}
+
+{% details "Example post with media and a content warning that will not be visible in the public timeline" %}
+
+This will post a status to Mastodon that includes an image, with a description, a content warning, and a visibility of `unlisted`, so it doesn't show in the public timeline.
+
+{% raw %}
 
 ```yaml
-- service: notify.mastodon
-  message: "A media toot from Home Assistant"
-  target: unlisted
-  data:
-    media: /config/www/funny_meme.png
-    content_warning: "This might not be funny enough"
+- action: mastodon.post
+  config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+  status: "A media toot from Home Assistant"
+  visibility: unlisted
+  media: /config/www/funny_meme.png
+  media_description: "A funny meme"
+  content_warning: "This might not be funny enough"
 ```
+
+{% endraw %}
+
+{% enddetails %}
 
 For more on how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
+
+## Known limitations
+
+The integration only allows reading the status of the authenticated account and posting to that account. It does not provide functionality to get the stream, favorite, bookmark, or boost posts of that account.
+
+## Removing the integration
+
+This integration follows standard integration removal, once the integration is removed you can remove the application registration (assuming it was only used by this integration) from your Mastodon account by going to **Preferences** in the Mastodon web interface, then to **Development** and deleting the application you created for Home Assistant.
+
+{% include integrations/remove_device_service.md %}

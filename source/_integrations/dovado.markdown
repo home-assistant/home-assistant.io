@@ -15,6 +15,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **Dovado** {% term integration %} manages communication with the [Dovado](https://www.dovado.com/) router.
@@ -70,20 +71,20 @@ notify:
 
 ### Usage
 
-This is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send an SMS notification to a single phone number in the notification **target**.
+This is a notify platform and thus can be controlled by calling the notify action [as described here](/integrations/notify/). It will send an SMS notification to a single phone number in the notification **target**.
 
 ```yaml
 # Example automation notification entry
 automation:
   - alias: "The sun has set"
-    trigger:
-      platform: sun
-      event: sunset
-    action:
-      service: notify.dovado
-      data:
-        message: "The sun has set"
-        target: "+14151234567"
+    triggers:
+      - trigger: sun
+        event: sunset
+    actions:
+      - action: notify.dovado
+        data:
+          message: "The sun has set"
+          target: "+14151234567"
 ```
 
 ## Sensor

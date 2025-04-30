@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `free_mobile` {% term integration %} uses the French mobile operator [Free Mobile](http://mobile.free.fr/) to send SMS to your own cell phone.
@@ -46,7 +47,7 @@ notify:
 
 {% configuration %}
 name:
-  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME."
+  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action."
   required: false
   type: string
   default: notify

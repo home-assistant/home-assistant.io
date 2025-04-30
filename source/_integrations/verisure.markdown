@@ -53,11 +53,11 @@ The `changed_by` attribute enables one to be able to take different actions depe
 ```yaml
 automation:
   - alias: "Alarm status changed"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: alarm_control_panel.alarm_1
-    action:
-      - service: notify.notify
+    actions:
+      - action: notify.notify
         data:
           message: >
             Alarm changed from {{ trigger.from_state.state }}
@@ -67,7 +67,7 @@ automation:
 
 {% endraw %}
 
-## Services
+## Actions
 
 | Service | Description |
 | ------- | ----------- |
@@ -96,6 +96,7 @@ Some users have reported that this integration currently doesn't work in the fol
 - France
 - Ireland
 - Italy
+- Spain
 - Sweden
 
 ## Troubleshooting

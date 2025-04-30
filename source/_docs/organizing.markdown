@@ -16,12 +16,12 @@ Once you have more devices, you may want to target entire groups of devices in a
 
 There are a few tools to group your assets: [Areas](#areas), [floors](#floors), [labels](#labels), and [categories](#categories).
 
-| Taxonomy | Automation target | Entity can have multiple |
-| -------- | ----------------- | ------------------------ |
-| Area     | ✅                 | ❌                        |
-| Floor    | ✅                 | ❌                        |
-| Label    | ✅                 | ✅                        |
-| Category | ❌                 | ❌                        |
+| Taxonomy | Automation target                | Entity can have multiple         |
+| -------- | -------------------------------- | -------------------------------- |
+| Area     | {% icon "openmoji:check-mark" %} | {% icon "openmoji:cross-mark" %} |
+| Floor    | {% icon "openmoji:check-mark" %} | {% icon "openmoji:cross-mark" %} |
+| Label    | {% icon "openmoji:check-mark" %} | {% icon "openmoji:check-mark" %} |
+| Category | {% icon "openmoji:cross-mark" %} | {% icon "openmoji:cross-mark" %} |
 
 ## Area
 
