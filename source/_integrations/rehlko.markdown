@@ -1,6 +1,6 @@
 ---
 title: Rehlko
-description: Documentation about the Rehlko devices.
+description: Support for Rehlko devices (formerly Oncue and Kohler Energy)
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
