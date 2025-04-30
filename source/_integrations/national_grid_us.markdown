@@ -1,6 +1,6 @@
 ---
-title: National Grid - Opower
-description: Get energy usage from National Grid using the Opower integration
+title: National Grid US
+description: Get energy usage from National Grid US using the Opower integration
 ha_category:
   - Energy
   - Sensor
