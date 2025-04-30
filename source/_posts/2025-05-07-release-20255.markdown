@@ -1,0 +1,814 @@
+---
+layout: post
+title: "2025.5: Beta release notes for this QoL release"
+description: "Beta release notes for Home Assistant 2025.5"
+date: 2025-04-29 00:00:00
+date_formatted: "May 7, 2025"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2025-05/social.jpg
+---
+
+<lite-youtube videoid="kfu_3Fm0wDw" videotitle="Home Assistant 2025.5 Release Party"></lite-youtube>
+
+{% note %}
+
+**Welcome to the beta release notes for Home Assistant 2025.5** 🎉
+
+<br />
+
+Please note that these release notes are a work in progress. 👷‍♀️ We will be
+completing them over the next couple of days. Not all features might be final
+yet, and some features _**may not** make it into the final release_.
+
+<br />
+
+**Want to help test the beta?** Awesome! ❤️ We have documented how you
+[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
+
+<br />
+
+While running the beta, we highly recommend joining our _#beta_ channel on
+the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
+testers are in this channel during the beta period to share experiences, ideas,
+and iterate over new features, fine-tuning them before the final release.
+It's a really fun place to hang out. 😎
+
+<br />
+
+**Reporting issues**: As this is a beta test, you might encounter unexpected
+behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
+You can find our issue trackers and the reported issues during beta here:
+
+<br />
+
+- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/131)
+- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/738)
+- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/138)
+
+🙏 When reporting issues, **make sure to mention the exact beta version you are
+running** in the issue description. This will help us identify and track the
+issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
+
+<br />
+
+Issues introduced in the beta are processed with priority. 🔝
+
+{% endnote %}
+
+{% tip %}
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=kfu_3Fm0wDw)
+7 May 2025, at 20:00 GMT / 12:00 PT / 21:00 CEST!
+
+{% endtip %}
+
+Home Assistant 2025.5! 🎉
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Another iteration of the backup system](#another-iteration-of-the-backup-system)
+  - [Per location backup retention policy settings](#per-location-backup-retention-policy-settings)
+  - [Backup before upgrading the Home Assistant Operating System](#backup-before-upgrading-the-home-assistant-operating-system)
+  - [Set the default backup preference for upgrades](#set-the-default-backup-preference-for-upgrades)
+  - [Waiting for the backup to finish on restarts](#waiting-for-the-backup-to-finish-on-restarts)
+- [Thousands of new text-to-speech voice variants for Home Assistant Cloud subscribers](#thousands-of-new-text-to-speech-voice-variants-for-home-assistant-cloud-subscribers)
+- [Picking entities](#picking-entities)
+- [Z-Wave Smart Start and long range support](#z-wave-smart-start-and-long-range-support)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integration quality scale achievements](#integration-quality-scale-achievements)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+  - [Farewell to the following](#farewell-to-the-following)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [Improved UI experience when using templates in automations \& scripts](#improved-ui-experience-when-using-templates-in-automations--scripts)
+- [Pasting automations and scripts YAML directly into the UI](#pasting-automations-and-scripts-yaml-directly-into-the-ui)
+- [Discover what Home Assistant is discovering](#discover-what-home-assistant-is-discovering)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+## Another iteration of the backup system
+
+In our [January release](/blog/2025/01/03/release-20251/#overhaul-of-the-backup-system),
+we did the first overhaul of the backup system. In the [February release](/blog/2025/02/05/release-20252/#iterating-on-backups)
+we did an iteration based on your feedback. This release, we dedicated some more
+time to once more iterate and improve backups even further.
+
+Let's dive in!
+
+### Per location backup retention policy settings
+
+This release adds a much requested feature: the ability to set a backup retention
+policy per location. This is particularly useful for those of you who have
+multiple locations configured in Home Assistant.
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-05/temp-backups-retention-per-location.png" />
+
+It might be that one of your backups locations has more storage space than
+another, or that you want to keep more backups in one location than another.
+For example, maybe you have space to store the last 3 backups in your Google
+Drive, but you want to keep 25 backups on your local NAS server.
+
+### Backup before upgrading the Home Assistant Operating System
+
+If you are running the Home Assistant Operating System, updating the operating
+system is as easy as the click of a button. And while the upgrade process has
+a fallback mechanism in case the upgrade process fails, it is always a good
+idea to have a backup before you start the upgrade process.
+
+To help you with that, the update dialog for the Home Assistant Operating System
+now includes the option to create a backup before starting the upgrade process.
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-05/temp-backup-before-upgrade-home-assistant-operating-system.png" />
+
+This way, you can be sure that you have a backup of your system before
+upgrading, even if something goes wrong beyond the safe guards of the
+operating system upgrade.
+
+### Set the default backup preference for upgrades
+
+The above option to update before upgrade is great, but the feedback on the
+toggle to create a backup before upgrade is mixed. Some of you prefer to always
+backup before upgrading, while others rely on their scheduled backups and don't
+want to be bothered with the backup process every time they upgrade a part
+of Home Assistant.
+
+To please both groups, we have added a new setting to the backup settings page
+to set the default behavior for the backup before upgrade toggle.
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-05/temp-backups-select-preference-backup-before-update.png" />
+
+When you set the option to "Backup before upgrade", the toggle will be enabled
+by default, otherwise it will be default to disabled. There is an additional
+option to set this behavior for add-ons as well, so you can tweak it to your
+liking.
+
+### Waiting for the backup to finish on restarts
+
+Another small improvement, but one an unimportant one, is that if you restart
+Home Assistant while a backup is in progress, the restart will wait for the
+backup to finish before proceeding.
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-05/temp-backups-prevents-restart-when-in-progress.png" />
+
+This prevents the unintended situation where a backup is in progress, and you
+abort the process by restarting Home Assistant.
+
+## Thousands of new text-to-speech voice variants for Home Assistant Cloud subscribers
+
+You are are subscribed to [Home Assistant Cloud](https://www.nabucasa.com), you
+not just get [backup storage included](https://www.nabucasa.com/config/backups/),
+but you also get access to the absolute [best in class text-to-speech](https://www.nabucasa.com/config/tts/)
+available. If you haven't tried it yet, you should!
+
+This release, extends the already staggering amount of text-to-speech voices
+and above all now include voice variants and styles. This means that you can
+now choose between different voice styles and tones, such as "friendly",
+"angry", "sad", "wispher", etc; allowing you to customize your announcements to
+fit the mood and context of the situation.
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-05/temp-new-voice-variants-for-home-assistant-cloud.png" />
+
+<br /><br />
+
+{% details "Overview of extra voices" %}
+
+- de: 19 voices previously, 21 voices with variants
+- en: 86 voices previously, 199 voices with variants
+- es: 71 voices previously, 81 voices with variants
+- fr: 22 voices previously, 30 voices with variants
+- hi: 9 voices previously, 12 voices with variants
+- it: 16 voices previously, 24 voices with variants
+- ja: 7 voices previously, 10 voices with variants
+- ko: 9 voices previously, 10 voices with variants
+- pt: 19 voices previously, 22 voices with variants
+- zh: 31 voices previously, 150 voices with variants
+
+{% enddetails %}
+
+## Picking entities
+
+{% important %}
+
+**During beta testing, we'd like to collect feedback from you on this change.**
+
+Please help us out, by filling out this small survey to share your thoughts
+on this change after testing it out.
+
+✍️ [Feedback survey](https://usabi.li/do/nfv79h4wcf6q/kioaqa)
+
+Thanks a ton! 🙏 ❤️
+
+{% endimportant %}
+
+We are working on improving the context of things shown in the UI. This to
+ensure you always know which device or entity you are looking at, no matter
+where you are in the Home Assistant interface.
+
+In the last release, we already had a small noteworthy change regarding this.
+We added the device and area to the entity information dialogs, so you always
+exactly know which entity you are viewing.
+
+This release, we improve context on the entity pickers in our UI. This is the
+dropdown you see when you select an entity in, for example, an card, automation,
+or script. This picker will now show the device and area name as well!
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-05/temp-improved-entity-picker.png" />
+
+This slowly will remove the need for you to rename every single entity or
+device to include this information in the name of the entity.
+
+You might notice that the entity ID isn't shown in the picker anymore. We think
+we are at a point where many uses solely rely on the UI and the entity ID is
+not needed anymore. However, if you do prefer to see the entity ID, you can
+enable it in your profile settings.
+
+## Z-Wave Smart Start and long range support
+
+We are providing quite a few enhancements to the Z-Wave integration and
+experience this release. Our commercial partner [Nabu Casa](https://nabucasa.com)
+is working on a–not so secret–Z-Wave antenna, and we want to ensure that
+Home Assistant is ready for it; providing the best possible user experience
+possible.
+
+This release, we improved the whole experience in setting up new Z-Wave devices,
+adding support for Z-Wave smart start to scan a QR code from your new device
+to magically add it to Home Assistant; and most noteworthy, we added support
+for Z-Wave long range devices directly in Home Assistant!
+
+**TODO**: Add screenshots or little video of this this process.
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-05/temp-zwave-long-range.png" />
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Imeon Inverter]**, added by [@Imeon-Energy]  
+  Integrates your [Imeon] inverter, allowing you to monitor your home battery
+  and solar usage in the [energy dashboard].
+- **[Miele]**, added by [@astrandb]  
+  Monitor and control your [Miele home appliances], including washing machines,
+  dryers, and dishwashers, and more!
+- **[ntfy]**, added by [@tr4nt0r]  
+  Integrates with [ntfy.sh], a simple HTTP-based pub-sub notification service
+  that allows you to send notifications to your phones or desktops.
+- **[S3]**, added by [@tomasbedrich]  
+  Use an [Amazon S3 storage] bucket–or any S3 API compatible storage provider–
+  as a backup location for your Home Assistant backups.
+
+[@astrandb]: https://github.com/astrandb
+[@Imeon-Energy]: https://github.com/Imeon-Energy
+[@tomasbedrich]: https://github.com/tomasbedrich
+[@tr4nt0r]: https://github.com/tr4nt0r
+[Amazon S3 storage]: https://aws.amazon.com/s3/
+[energy dashboard]: /docs/energy/
+[Imeon Inverter]: /integrations/imeon_inverter
+[Imeon]: https://imeon-energy.com/
+[Miele home appliances]: https://www.miele.com/
+[Miele]: /integrations/miele
+[ntfy.sh]: https://ntfy.sh/
+[ntfy]: /integrations/ntfy
+[S3]: /integrations/s3
+
+This release also has new virtual integrations. Virtual integrations
+are stubs that are handled by other (existing) integrations to help with
+findability. These ones are new:
+
+- **[Balay]**, provided by [Home Connect], added by [@Diegorro98]
+- **[Constructa]**, provided by [Home Connect], added by [@Diegorro98]
+- **[Gaggenau]**, provided by [Home Connect], added by [@Diegorro98]
+- **[Google Gemini]**, provided by [Google Generative AI], added by [@tronikos]
+- **[Maytag]**, provided by [Whirlpool], added by [@abmantis]
+- **[National Grid US]**, provided by [Opower], added by [@tronikos]
+- **[Neff]**, provided by [Home Connect], added by [@Diegorro98]
+- **[Pitsos]**, provided by [Home Connect], added by [@Diegorro98]
+- **[Profilo]**, provided by [Home Connect], added by [@Diegorro98]
+- **[Siemens]**, provided by [Home Connect], added by [@Diegorro98]
+- **[Thermador]**, provided by [Home Connect], added by [@Diegorro98]
+
+[@abmantis]: https://github.com/abmantis
+[@Diegorro98]: https://github.com/Diegorro98
+[@tronikos]: https://github.com/tronikos
+[Balay]: /integrations/balay
+[Constructa]: /integrations/constructa
+[Gaggenau]: /integrations/gaggenau
+[Google Gemini]: /integrations/google_gemini
+[Google Generative AI]: /integrations/google_generative_ai_conversation
+[Home Connect]: /integrations/home_connect
+[Maytag]: /integrations/maytag
+[National Grid US]: /integrations/national_grid_us
+[Neff]: /integrations/neff
+[Opower]: /integrations/opower
+[Pitsos]: /integrations/pitsos
+[Profilo]: /integrations/profilo
+[Siemens]: /integrations/siemens
+[Thermador]: /integrations/thermador
+[Whirlpool]: /integrations/whirlpool
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing
+integrations are also being constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+Potential candidates for this list:
+
+- Add support for air purifiers in HomeKit ([@MaartenStaa] - [#142467]) ([homekit docs]) (noteworthy)
+- Add support for external USB drives to Synology DSM ([@lezmaka] - [#138661])
+- Add PDF support for `openai_conversation.generate_content` service ([@Shulyaka] - [#141588])
+- Add switchbot roller shade and hubmini matter support ([@zerzhang] - [#142168])
+- Add ability to subscribe to own YouTube channels ([@frenck] - [#141693])
+- [xiaomi_ble] Support Body Composition Scale S400 ([@zry98] - [#142705])
+- Add support for InkBird IAM-T1 ([@bdraco] - [#142824])
+- Add preset modes to HKC fans ([@bdraco] - [#142528])
+- Add play queue item to HEOS ([@andrewsayre] - [#141480])
+- Add HEOS entity service to remove queue items ([@andrewsayre] - [#141495])
+- Add sensors to lamarzocco ([@zweckj] - [#143156])
+- Add statistic entities to lamarzocco ([@zweckj] - [#143415])
+- Wiz - update dependency to support new light features and bugfixes ([@sbidy] - [#141529])
+- Mill, add statistics ([@Danielhiversen] - [#130406])
+- Add number & sensor platform to eheimdigital ([@autinerd] - [#142835] - [#138809])
+
+### Integration quality scale achievements
+
+One thing we are incredibly proud of in Home Assistant is our
+[integration quality scale]. This scale helps us and our contributors to ensure
+integrations are of high quality, maintainable, and provide the best possible
+user experience.
+
+This release, we celebrate several {% term integrations %} that have improved
+their quality scale:
+
+- **4 integrations reached platinum** 🏆
+  - [Ohme], thanks to [@dan-r]
+  - [Vodafone Station], thanks to [@chemelli74]
+  - [ESPHome], thanks to [@bdraco]
+  - [Enphase Envoy], thanks to [@catsmanac]
+
+- **2 integrations reached silver** 🥈
+  - [IMGW-PIB], thanks to [@bieniu]
+  - [SMLIGHT], thanks to [@tl-sl]
+
+- **2 integrations reached bronze** 🥉
+  - [Whirlpool], thanks to [@abmantis]
+  - [UptimeRobot], thanks to [@chemelli74]
+
+This is a huge achievement for these integrations and their maintainers. The
+effort and dedication required to reach these quality levels is significant,
+as it involves extensive testing, documentation, error handling, and often
+complete rewrites of parts of the integration.
+
+A big thank you to all the contributors involved! 👏
+
+[integration quality scale]: https://www.home-assistant.io/docs/quality_scale/
+[@abmantis]: https://github.com/abmantis
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@catsmanac]: https://github.com/catsmanac
+[@chemelli74]: https://github.com/chemelli74
+[@dan-r]: https://github.com/dan-r
+[@tl-sl]: https://github.com/tl-sl
+[Enphase Envoy]: /integrations/enphase_envoy
+[ESPHome]: /integrations/esphome
+[IMGW-PIB]: /integrations/imgw_pib
+[Ohme]: /integrations/ohme
+[SMLIGHT]: /integrations/smlight
+[UptimeRobot]: /integrations/uptimerobot
+[Vodafone Station]: /integrations/vodafone_station
+[Whirlpool]: /integrations/whirlpool
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
+more integrations to the UI, making them more accessible for everyone
+to set up and use.
+
+The following integration is now available via the Home Assistant UI:
+
+- **[STIEBEL ELTRON]**, done by [@ThyMYthOS]
+
+[@ThyMYthOS]: https://github.com/ThyMYthOS
+[STIEBEL ELTRON]: /integrations/stiebel_eltron
+
+### Farewell to the following
+
+The following {% term integrations %} are also no longer available as
+of this release:
+
+- **Oncue by Kohler** has been removed because the app by Kohler has been
+  discontinued.
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- Support for the [Matter] 1.4 water heater devices types have been added.
+  Thanks, [@lboue]!
+- When setting up a new device in Home Assistant, you can now directly name
+  it during the setup process. Nice! Thanks, [@bramkragten]!
+- Media players now have an action to search using the `media_player.search_media`
+  action. Thanks, [@zweckj]!
+- [@piitaya] added a `device_name` template function to get the name of a device
+  in Home Assistant. Cool!
+- The `floor_id` and `area_id` template methods have been enhanced by [@formatBCE]
+  to also look for floors or area aliases. Awesome!
+- We new have support for trigger-based template entities for switches and
+  lights. Amazing work [@Petro31]!
+- [@Petro31] wasn't done yet though, he also added support for modern YAML-syntax
+  to the cover template entities. Nice!
+- [@frenck] added support for detecting Home Assistant Container installation
+  types not running in host networking mode. This is important for
+  Home Assistant to function properly. It raises a repair issue if it detects
+  this.
+
+[@bramkragten]: https://github.com/bramkragten
+[@formatBCE]: https://github.com/formatBCE
+[@frenck]: https://github.com/frenck
+[@lboue]: https://github.com/lboue
+[@Petro31]: https://github.com/Petro31
+[@piitaya]: https://github.com/piitaya
+[@zweckj]: https://github.com/zweckj
+[Matter]: /integrations/matter
+
+## Improved UI experience when using templates in automations & scripts
+
+If you are a power-user, using templates in your automations and script, you
+are probably familiar with the fact that the UI falls back to using YAML for
+any action block that contains a template.
+
+[@karwosts] to the rescue! He has worked on a solution to improve this
+experience.
+
+How this looked before this release:
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-05/temp-template-automation-old.png" />
+
+So, instead of falling back to pure YAML for the whole block, it now only
+falls back to a code editor for fields that contain an action template. This
+means the rest of the UI–for all other action fields–remains intact and you
+can still use the UI to edit the rest.
+
+This is how the same as above looks now:
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-05/temp-template-automation-new.png" />
+
+This is a great improvement for power users, as it allows you to use the UI
+for most of the automation or script, while still being able to use templates
+where needed. It also makes it easier to understand the automation or script,
+as you can see the context of the template in the UI.
+
+Great improvement there [@karwosts]! 🙌
+
+[@karwosts]: https://github.com/karwosts
+
+## Pasting automations and scripts YAML directly into the UI
+
+Found this great automation or script example in our documentation or the
+[community forums](https://community.home-assistant.io/), but it is shared in
+YAML format? No problem! You can now paste the YAML directly into the UI.
+
+When you are editing an automation, you can now simply paste the YAML directly
+into the UI editor and it will be converted to the UI format, regardless
+if the paste example is a full blown automation or just a single trigger,
+condition, or action.
+
+**TODO:** Add small movie clip on how this works.
+
+An amazing quality of live improvement, contributed by [@jpbede]! Thank you! 🙌
+
+[@jpbede]: https://github.com/jpbede
+
+## Discover what Home Assistant is discovering
+
+Home Assistant is constantly scanning your network for new devices and
+integrations. using all sorts of discovery protocols. This greatly improves the
+user experience, as it allows you to easily add new devices to your Home
+Assistant installation.
+
+However, sometimes, you might want to know what Home Assistant is seeing
+or wondering why a certain device is not being discovered. To help with that
+[@bdraco] added browsing tools for the DHCP, mDNS/ZeroConf and UPnP/SSDP, that
+allow you to see what Home Assistant is seeing. It is quite technical, but
+it is a great way to see what is going on in your network.
+
+<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-05/temp-discovery-browsers.png" />
+
+You can find these new tools in **Settings** > **System** > **Network**. On the
+bottom of that page, you will find the ability to browse all the things
+Home Assistant is seeing on your network for each of the discovery protocols.
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might
+unexpectedly impact your Home Assistant installation. Unfortunately, sometimes,
+it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Theming & Typography" %}
+
+In this release, we’ve made foundational updates to our theming system, which
+include **backwards incompatible changes**:
+
+- **Polymer Components Removed**: Legacy Polymer-based components have been
+  fully removed. As a result, all related `paper-*` CSS variables have also
+  been removed.
+  - Some variables have been **migrated to new theme tokens**.
+  - Others were outdated and have been **removed entirely**.
+
+- **New Typography Variables**: We’ve introduced a new set of
+  **typography CSS variables** to lay the groundwork for a more consistent
+  and modern UI.
+  - These are part of an ongoing refactor and are **not yet in use everywhere**.
+    More adoption will follow in future releases.
+
+If you’re maintaining custom cards or themes, **please update any usage of the
+following variables** accordingly.
+
+---
+
+**✅ New tokens**
+
+```css
+--ha-font-family-body
+--ha-font-family-heading
+--ha-font-family-code
+--ha-font-family-longform
+--ha-font-size-scale
+--ha-font-size-2xs
+--ha-font-size-xs
+--ha-font-size-s
+--ha-font-size-m
+--ha-font-size-l
+--ha-font-size-xl
+--ha-font-size-2xl
+--ha-font-size-3xl
+--ha-font-size-4xl
+--ha-font-weight-light
+--ha-font-weight-normal
+--ha-font-weight-medium
+--ha-font-weight-bold
+--ha-font-weight-body
+--ha-font-weight-heading
+--ha-font-weight-action
+--ha-line-height-condensed
+--ha-line-height-normal
+--ha-line-height-expanded
+--ha-font-smoothing
+```
+
+**❌ Removed tokens**
+
+```css
+--paper-font-common-nowrap_-_text-overflow
+--paper-font-display1_-_letter-spacing
+--paper-font-headline_-_letter-spacing
+--paper-font-common-base_-_font-family
+--paper-font-common-base_-_-webkit-font-smoothing
+--paper-font-common-code_-_font-family
+--paper-font-common-code_-_-webkit-font-smoothing
+--paper-font-common-nowrap_-_white-space
+--paper-font-common-nowrap_-_overflow
+--paper-font-title_-_overflow
+--paper-font-title_-_text-overflow
+--paper-font-title_-_text-overflow
+--paper-font-title_-_white-space
+--paper-item-body-two-line-min-height
+--paper-time-input-justify-content
+--paper-item-body-three-line-min-height
+--paper-item-icon-width
+--paper-card-header-color
+--paper-dialog-color
+--paper-font-headline_-_white-space
+--paper-font-headline_-_overflow
+--paper-font-headline_-_text-overflow
+--paper-font-subhead_-_white-space
+--paper-font-subhead_-_overflow
+--paper-font-subhead_-_text-overflow
+--paper-item-icon-active-color
+--paper-listbox-background-color
+```
+
+**🔄 Migrated tokens**
+
+```css
+--code-font-family → --ha-font-family-code
+--paper-font-title_-_-webkit-font-smoothing → --ha-font-smoothing
+--paper-font-headline_-_-webkit-font-smoothing → --ha-font-smoothing
+--paper-font-display1_-_-webkit-font-smoothing → --ha-font-smoothing
+--paper-font-subhead_-_-webkit-font-smoothing → --ha-font-smoothing
+--paper-font-body1_-_-webkit-font-smoothing → --ha-font-smoothing
+--paper-font-display1_-_font-family → --ha-font-family-body
+--paper-font-display1_-_font-size → --ha-font-size-4xl
+--paper-font-display1_-_font-weight → --ha-font-weight-normal
+--paper-font-display1_-_line-height → --ha-line-height-condensed
+--paper-font-headline_-_font-family → --ha-font-family-body
+--paper-font-headline_-_font-size → --ha-font-size-2xl
+--paper-font-headline_-_font-weight → --ha-font-weight-normal
+--paper-font-headline_-_line-height → --ha-line-height-condensed
+--paper-font-title_-_font-family → --ha-font-family-body
+--paper-font-title_-_font-size → --ha-font-size-xl
+--paper-font-title_-_font-weight → --ha-font-weight-medium
+--paper-font-title_-_line-height → --ha-line-height-normal
+--paper-font-subhead_-_font-family → --ha-font-family-body
+--paper-font-subhead_-_font-size → --ha-font-size-l
+--paper-font-subhead_-_font-weight → --ha-font-weight-normal
+--paper-font-subhead_-_line-height → --ha-line-height-normal
+--paper-font-body1_-_font-family → --ha-font-family-body
+--paper-font-body1_-_font-size → --ha-font-size-m
+--paper-font-body1_-_font-weight → --ha-font-weight-normal
+--paper-font-body1_-_line-height → --ha-line-height-normal
+--paper-item-icon-color → --state-icon-color
+```
+
+{% enddetails %}
+
+{% details "17TRACK" %}
+
+The previously deprecated state attributes for the 17TRACK entities
+have been removed.
+
+If you relied on these attributes your automations or scripts, you will need to
+update them to use the dedicated sensors instead.
+
+([@joostlek] - [#142622]) ([documentation](/integrations/seventeentrack))
+
+[@joostlek]: https://github.com/joostlek
+[#142622]: https://github.com/home-assistant/core/pull/142622
+
+{% enddetails %}
+
+{% details "AVM FRITZ!SmartHome" %}
+
+The AVM Fritz!Smarthome has a concept of devices and units. A device can have
+multiple units with different features. We now merge all units of a device into
+one entry representing the physical device.
+
+As this might remove existing devices and create new ones, you should check your
+automations and scripts, if they need to be adjusted to the new device registry
+entries.
+
+([@mib1185] - [#142845]) ([documentation](/integrations/fritzbox))
+
+[@mib1185]: https://github.com/mib1185
+[#142845]: https://github.com/home-assistant/core/pull/142845
+
+{% enddetails %}
+
+{% details "Generic Thermostat" %}
+
+The switch targeted by the Generic Thermostat is now only turned on when the
+current temperature falls outside the target temperature range
+(target_temp +- tolerances).
+
+Previously, it would also turn on when the temperature was equal to the limit
+of the target range.
+
+([@esand] - [#138209]) ([documentation](/integrations/generic_thermostat))
+
+[@esand]: https://github.com/esand
+[#138209]: https://github.com/home-assistant/core/pull/138209
+
+{% enddetails %}
+
+{% details "HomeKit Bridge" %}
+
+The name configured in Home Assistant now takes precedence for the following
+HomeKit child accessories:
+
+- Fan presets (switches)
+- Media player sources (switches)
+- Power strips (Input Select, etc) (outlets)
+- Triggers (stateless programmable switches)
+
+This fixes an issue where the name is missing in HomeKit for these child
+accessories. The downside is that the name provided by Home Assistant
+has to be changed in Home Assistant (where applicable).
+
+([@bdraco] - [#142531]) ([documentation](/integrations/homekit))
+
+[@bdraco]: https://github.com/bdraco
+[#142531]: https://github.com/home-assistant/core/pull/142531
+
+{% enddetails %}
+
+{% details "Network UPS Tools (NUT)" %}
+
+The status sensor has changed, providing the state from the UPS Display.
+
+Previously, multiple states would be concatenated using a space, which made
+them harder to read and process. As of this release, multiple statuses are
+separated using a comma instead.
+
+([@bonanitech] - [#141335]) ([documentation](/integrations/nut))
+
+[@bonanitech]: https://github.com/bonanitech
+[#141335]: https://github.com/home-assistant/core/pull/141335
+
+---
+
+The scan interval option has been removed from NUT. Scans default to once
+every 60 seconds. If needed, an integration-independent and
+[common method](/common-tasks/general/#defining-a-custom-polling-interval)
+can be used to set a custom polling interval.
+
+([@tdfountain] - [#141845]) ([documentation](/integrations/nut))
+
+[@tdfountain]: https://github.com/tdfountain
+[#141845]: https://github.com/home-assistant/core/pull/141845
+
+{% enddetails %}
+
+{% details "Overkiz" %}
+
+Previously, for Atlantic Electrical Towel Dryer devices, the ‘auto’ HVAC mode
+in Home Assistant was mapped to the ‘prog’ mode in Overkiz.
+
+Now, the ‘auto’ mode in Home Assistant will correspond directly to the
+‘auto’ mode in Overkiz, while the ‘prog’ mode can be selected using presets.
+
+([@iMicknl] - [#143243]) ([documentation](/integrations/overkiz))
+
+[@iMicknl]: https://github.com/iMicknl
+[#143243]: https://github.com/home-assistant/core/pull/143243
+
+{% enddetails %}
+
+{% details "Persistent notifications" %}
+
+Persistent notifications are no longer created when devices are discovered.
+
+Automations which trigger on the persistent notification
+`config_entry_discovery` should be updated to instead trigger on the
+event `config_entry_discovered`.
+
+([@emontnemery] - [#141546])
+
+[@emontnemery]: https://github.com/emontnemery
+[#141546]: https://github.com/home-assistant/core/pull/141546
+
+{% enddetails %}
+
+{% details "Total Connect" %}
+
+The previously deprecated state attributes for the Total Connect alarm control
+panel have been removed.
+
+If you relied on these attributes your automations or scripts, you will need to
+update them to use the dedicated sensors instead.
+
+([@joostlek] - [#142625]) ([documentation](/integrations/totalconnect))
+
+[@joostlek]: https://github.com/joostlek
+[#142625]: https://github.com/home-assistant/core/pull/142625
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following changes are the most notable for this release:
+
+- [Searching in media players](https://developers.home-assistant.io/blog/2025/04/17/search-media-play/)
+- [Device tracker TrackerEntity location accuracy attribute type change](https://developers.home-assistant.io/blog/2025/04/24/device-tracker-accuracy)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2025.5](/changelogs/core-2025.5)
