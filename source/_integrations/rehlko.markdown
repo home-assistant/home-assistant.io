@@ -1,6 +1,6 @@
 ---
-title: Kohler Energy Management
-description: Documentation about the oncue sensors.
+title: Rehlko
+description: Documentation about the Rehlko devices.
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
@@ -10,13 +10,13 @@ ha_codeowners:
   - '@bdraco'
   - '@peterager'
 ha_dhcp: true
-ha_domain: kem
+ha_domain: rehlko
 ha_platforms:
   - sensor
 ha_integration_type: integration
 ---
 
-The Kohler Energy Management integration monitors the state of your [Enabled Kohler generator](https://www.kohlerhomeenergy.rehlko.com/kohler-energy-management-app). This integration replaces the Oncue integration.
+The Rehlko (formerly Kohler Energy) integration monitors the state of your [Enabled Kohler generator](https://www.kohlerhomeenergy.rehlko.com/kohler-energy-management-app). This integration replaces the Oncue integration.
 
 To configure the integration you will need your log in credentials (email and password) for the Kohler app.
 
