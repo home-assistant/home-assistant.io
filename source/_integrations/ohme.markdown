@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_domain: ohme
 ha_platforms:
   - button
+  - diagnostics
   - number
   - select
   - sensor

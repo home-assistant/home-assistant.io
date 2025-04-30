@@ -16,6 +16,7 @@ ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
+  - '@Petro31'
   - '@PhracturedBlue'
   - '@home-assistant/core'
 ha_domain: template
@@ -52,11 +53,13 @@ For other types, please see the specific pages:
 - [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
-- [Light](/integrations/light.template/)
 - [Lock](/integrations/lock.template/)
-- [Switch](/integrations/switch.template/)
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
+
+For Legacy types, please see the specific pages:
+- [Light](/integrations/light.template/)
+- [Switch](/integrations/switch.template/)
 
 {% include integrations/config_flow.md %}
 
@@ -72,11 +75,11 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 ## YAML configuration
 
-Entities (sensors, binary sensors, buttons, images, numbers, and selections) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+Entities (sensors, binary sensors, buttons, images, numbers, and selections) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template binary sensors, buttons, covers, images, numbers, selects, sensors, and weathers
+### State-based template binary sensors, buttons, images, lights, numbers, selects, sensors, switches, and weathers
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -100,9 +103,9 @@ template:
 
 ### Trigger-based template binary sensors, images, numbers, selects, sensors, and weathers
 
-If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
+If you want more control over when an entity updates, you can define triggers. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
-Whenever the trigger fires, all related entities will re-render and it will have access to [the trigger data](/docs/automation/templating/) in the templates.
+Whenever a trigger fires, all related entities will re-render and it will have access to [the trigger data](/docs/automation/templating/) in the templates.
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [state trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
@@ -117,7 +120,7 @@ Buttons do not support using `trigger` or `action` options.
 ```yaml
 # Example configuration entry
 template:
-  - trigger:
+  - triggers:
       - trigger: time_pattern
         # This will update every night
         hours: 0
@@ -134,19 +137,19 @@ template:
 ### Configuration reference
 
 {% configuration %}
-trigger:
-  description: Define an automation trigger to update the entities. Optional. If omitted will update based on referenced entities. [See trigger documentation](/docs/automation/trigger).
+triggers:
+  description: Define one or multiple automation triggers to update the entities. Optional. If omitted will update based on referenced entities. [See trigger documentation](/docs/automation/trigger).
   required: false
   type: list
 unique_id:
   description: The unique ID for this config block. This will be prefixed to all unique IDs of all entities in this block.
   required: false
   type: string
-condition:
+conditions:
   description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed (for trigger-based entities only). Optional. [See condition documentation](/docs/automation/condition).
   required: false
   type: list
-action:
+actions:
   description: Define actions to be executed when the trigger fires (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
   required: false
   type: list
@@ -359,6 +362,125 @@ image:
       required: false
       type: boolean
       default: true
+light:
+  description: List of your lights.
+  required: true
+  type: map
+  keys:
+    state:
+      description: Defines a template to set the state of the light. If not defined, the switch will optimistically assume all commands are successful.
+      required: false
+      type: template
+      default: optimistic
+    level:
+      description: Defines a template to get the brightness of the light.
+      required: false
+      type: template
+      default: optimistic
+    temperature:
+      description: Defines a template to get the color temperature of the light.
+      required: false
+      type: template
+      default: optimistic
+    hs:
+      description: Defines a template to get the HS color of the light. Must render a tuple (hue, saturation).
+      required: false
+      type: template
+      default: optimistic
+    rgb:
+      description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
+      required: false
+      type: template
+      default: optimistic
+    rgbw:
+      description: Defines a template to get the RGBW color of the light. Must render a tuple or a list (red, green, blue, white).
+      required: false
+      type: template
+      default: optimistic
+    rgbww:
+      description: Defines a template to get the RGBWW color of the light. Must render a tuple or a list (red, green, blue, cold white, warm white).
+      required: false
+      type: template
+      default: optimistic
+    supports_transition:
+      description: Defines a template to get if the light supports transition. Should return a boolean value (True/False). If this value is `True`, the transition parameter in a `turn on` or `turn off` call will be passed as a named parameter `transition` in either of the scripts.
+      required: false
+      type: template
+      default: false
+    effect_list:
+      description: Defines a template to get the list of supported effects. Must render a list.
+      required: inclusive
+      type: template
+      default: optimistic
+    effect:
+      description: Defines a template to get the effect of the light.
+      required: inclusive
+      type: template
+      default: optimistic
+    min_mireds:
+      description: Defines a template to get the minimum mired value of the light.
+      required: false
+      type: template
+      default: optimistic
+    max_mireds:
+      description: Defines a template to get the maximum mired value of the light.
+      required: false
+      type: template
+      default: optimistic
+    turn_on:
+      description: Defines an action to run when the light is turned on. May receive the variables `brightness` and/or `transition`.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action to run when the light is turned off. May receive the variable `transition`.
+      required: true
+      type: action
+    set_level:
+      description: Defines an action to run when the light is given a brightness command. The script will only be called if the `turn_on` call only ha brightness, and optionally transition. Receives variables `brightness` and, optionally, `transition`.
+      required: false
+      type: action
+    set_temperature:
+      description: Defines an action to run when the light is given a color temperature command. Receives variable `color_temp`. May also receive variables `brightness`  and/or `transition`.
+      required: false
+      type: action
+    set_hs:
+      description: "Defines an action to run when the light is given a hs color command. Available variables: `hs` as a tuple, `h` and `s`"
+      required: false
+      type: action
+    set_rgb:
+      description: "Defines an action to run when the light is given an RGB color command. Available variables: `rgb` as a tuple, `r`, `g` and `b`."
+      required: false
+      type: action
+    set_rgbw:
+      description: "Defines an action to run when the light is given an RGBW color command. Available variables: `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b`  and `w`."
+      required: false
+      type: action
+    set_rgbww:
+      description: "Defines an action to run when the light is given an RGBWW color command. Available variables: `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`  `b`, `cw` and `ww`."
+      required: false
+      type: action
+    set_effect:
+      description: Defines an action to run when the light is given an effect command. Receives the variable `effect`. May also receive the variables `brightness`, and/or  `transition`.
+      required: inclusive
+      type: action
+switch:
+  description: List of switches
+  required: true
+  type: map
+  keys:
+    state:
+      description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
+      required: false
+      type: template
+      default: optimistic
+    turn_on:
+      description: Defines an action or list of actions to run when the switch is turned on.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action or list of actions to run when the switch is turned off.
+      required: true
+      type: action
 weather:
   description: List of weather entities
   required: true
@@ -444,7 +566,7 @@ weather:
       description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-"[all sensor, binary sensor, button, cover, image, number, select, weather entities]":
+"[all sensor, binary sensor, button, image, light, number, select, switch, weather entities]":
   description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map
@@ -481,7 +603,7 @@ template:
       ...
 
   # Define trigger-based template entities
-  - trigger:
+  - triggers:
       ...
     sensor:
       ...
@@ -493,7 +615,7 @@ template:
 
 #### Video tutorial
 
-This video tutorial explains how to set up a Trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
+This video tutorial explains how to set up a trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
 
 <lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
@@ -502,7 +624,7 @@ This video tutorial explains how to set up a Trigger based template that makes u
 State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the current [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attributes in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/).
 
 {% note %}
-Self-referencing using `this` provides the state and attributes for the entity before rendering the templates to calculate a new state. To access the new state, use the `value` or `value_json` variable.
+Self-referencing using `this` provides the state and attributes for the entity before rendering the templates to calculate a new state. In other words, it contains the previous state.
 {% endnote %}
 
 ### Optimistic mode
@@ -630,7 +752,7 @@ Template entities can be triggered using any automation trigger, including webho
 
 ```yaml
 template:
-  - trigger:
+  - triggers:
       - trigger: webhook
         webhook_id: my-super-secret-webhook-id
     sensor:
@@ -665,7 +787,7 @@ You can use a trigger-based template entity to convert any event or other automa
 
 ```yaml
 template:
-  - trigger:
+  - triggers:
       trigger: event
       event_type: my_event
     binary_sensor:
@@ -682,10 +804,10 @@ This example shows how to store the last valid value of a temperature sensor. It
 
 ```yaml
 template:
-  - trigger:
+  - triggers:
       trigger: state
       entity_id: sensor.outside_temperature
-    condition:
+    conditions:
       - condition: template
         value_template: "{{ is_number(states('sensor.outside_temperature')) }}"
     sensor:
@@ -881,7 +1003,7 @@ The binary sensor turns on and sets the matching icon when the appropriate event
 
 ```yaml
 template:
-  - trigger:
+  - triggers:
       - trigger: event
         event_type: YOUR_EVENT
       - trigger: state
@@ -948,10 +1070,10 @@ and use the response in a template.
 
 ```yaml
 template:
-  - trigger:
+  - triggers:
       - trigger: time_pattern
         hours: /1
-    action:
+    actions:
       - action: weather.get_forecasts
         data:
           type: hourly

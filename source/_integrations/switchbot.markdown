@@ -30,7 +30,11 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/).
+The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, hubs and etc.
+
+## How you can use this integration
+
+The SwitchBot integration lets you do many things, such as switching devices on and off, changing device modes, monitoring sensor data and energy usage in the Home Assistant dashboards, and controlling device configurations manually or via automations.
 
 ## Prerequisites
 
@@ -47,50 +51,16 @@ Please note, device names configured in the SwitchBot app are not transferred in
 
 Some SwitchBot devices need to be configured within the app before being controlled by Home Assistant, such as calibrating the cover open/close limits or pairing two covers to move together.
 
-{% include integrations/config_flow.md %}
 
-## Supported devices
 
-- [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
-- [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)
-- [Contact Sensor (WoContact)](https://switch-bot.com/pages/switchbot-contact-sensor)
-- [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
-- [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
-- Humidifier (WoHumi)
-- Light Strip (WoStrip)
-- [Meter](https://switch-bot.com/pages/switchbot-meter) / [Meter Plus](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH) / [Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
-- [Indoor/Outdoor Meter](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) (WoIOSensorTH)
-- [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
-- Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
-- [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
-- [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
-- [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
-- [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
-- [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
-- [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
-- [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
-- [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
-- [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
-- [HubMini Matter](https://www.switch-bot.com/products/switchbot-hub-mini-matter-enabled)(currently only supports retrieving sensor data, does not yet support device control)
+### Adding encrypted SwitchBot devices
 
-## SwitchBot Entity
+Some types of the SwitchBot devices are encrypted for improved security. More types and models will be added as encrypted devices in the future.
 
-There are three attributes available on the SwitchBot entity to give you more information about your device.
+An encrypted SwitchBot device can be set up in Home Assistant in two different ways.
+You can enter the key ID and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
 
-- `last_run_success`: If `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see home-assistant.log for specific error messages.
-- `Switch mode`: Specifies the mode of the SwitchBot. If `true` the the SwitchBot is in Pull/Retract mode for toggle switches otherwise the bot is in momentary switch mode.
-
-## SwitchBot Options
-
-- `Retry count`: How many times to retry sending commands to your SwitchBot devices.
-
-## SwitchBot Lock / SwitchBot Lock Pro / Relay Switch 1 / Relay Switch 1PM
-
-The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
-
-A SwitchBot lock and relay switch can be set up in Home Assistant in two different ways. You can enter the key id and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
-
-### SwitchBot account (recommended)
+#### SwitchBot account (recommended)
 
 Using this option you can provide your SwitchBot account login credentials and Home Assistant will import the appropriate encryption key from your account.
 
@@ -105,7 +75,7 @@ Password:
 This integration doesn't support SSO accounts (Login with Google, etc.) only username and password accounts.
 {% endimportant %}
 
-### Enter the lock encryption key manually
+#### Enter the lock encryption key manually
 
 This option is for those that would rather obtain the encryption key themselves, and/or want to know exactly where and how are their account credentials used.
 
@@ -116,9 +86,140 @@ Encryption key:
   description: Locks' encryption key
 {% endconfiguration_basic %}
 
-For instructions on how to obtain the locks encryption key, see README in [PySwitchbot](https://github.com/Danielhiversen/pySwitchbot#obtaining-locks-encryption-key) project.
+For instructions on how to obtain the encryption key, see README in [PySwitchbot](https://github.com/Danielhiversen/pySwitchbot#obtaining-locks-encryption-key) project.
 
-## SwitchBot Blind Tilt
+{% include integrations/config_flow.md %}
+
+## Supported devices
+
+### Plugs and switches
+
+- [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)
+- [Plug Mini (WoPlug)](https://www.switch-bot.com/products/switchbot-plug-mini)
+- [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
+- [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
+- [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
+
+### Cover
+
+- [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
+- [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
+- [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
+- [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+
+### Lights
+
+- [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
+- [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
+
+### Locks
+
+- [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
+- [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
+
+### Humidifiers
+
+- [Humidifier (WoHumi)](https://www.switchbot.jp/products/switchbot-smart-humidifier)
+
+### Sensors
+
+- [Meter](https://switch-bot.com/pages/switchbot-meter)
+- [Meter Plus (WoSensorTH)](https://switch-bot.com/pages/switchbot-meter-plus)
+- [Indoor/Outdoor Meter (WoIOSensorTH)](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) 
+- [Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
+- [Meter Pro CO2 Monitor](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
+- [Contact Sensor (WoContact)](https://switch-bot.com/pages/switchbot-contact-sensor)
+- [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
+- [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
+- [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
+
+### Hubs
+
+- [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
+- [Hub Mini Matter Enabled](https://www.switch-bot.com/products/switchbot-hub-mini-matter-enabled)(currently only supports retrieving sensor data, does not yet support device control)
+
+## Supported functionality
+
+### Common
+
+#### Options
+- `Retry count`: How many times to retry sending commands to your SwitchBot devices.
+
+#### Attributes
+- `last_run_success`: Returns `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see home-assistant.log for specific error messages.
+
+### Plugs and switches
+
+Switch entities are added for Bot, Plug Mini, and Relay Switch.
+
+#### Bot
+
+Password protection: You can set a device password in the SwitchBot app to prevent people nearby take control of your device. When a password is set, you need to enter the correct password in order to add it to the integrations.
+
+Features:
+- turn on or off
+- press
+- get battery level
+
+Attributes:
+- `Switch mode`: Specifies the mode of the device. If `true`, the device is in Pull/Retract mode for toggle switches otherwise the device is in momentary switch mode.
+
+#### Plug Mini
+
+Features:
+- turn on or off
+- get power consumption readings
+
+#### Relay Switch 1
+
+This is an encrypted device.
+
+Features:
+- turn on or off
+
+#### Relay Switch 1PM
+
+This is an encrypted device.
+
+Features:
+- turn on or off
+- get power
+- get voltage
+- get current
+
+### Cover
+
+Cover entities are added for Curtain, Curtain 3, Blind Tilt, and Roller Shade.
+
+#### Curtain
+
+Features:
+- open/close/pause
+- set position
+- get position
+- get light level
+- get battery level
+- get calibration state
+
+#### Curtain 3
+
+Features:
+- open/close/pause
+- set position
+- get position
+- get light level
+- get battery level
+- get calibration state
+
+#### Blind Tilt
+
+Features:
+- close up/close down/pause
+- set position
+- get position
+- get light level
+- get battery level
+- get calibration state
 
 The blind tilt is exposed as a cover entity with control of the tilt position only:
 
@@ -130,16 +231,7 @@ The blind tilt is exposed as a cover entity with control of the tilt position on
 
 The close button will close the blinds to the closest closed position (either 0% or 100%), and defaults to closing down if the blinds are fully open. Because Home Assistant believes 100% is open, the default cards will disable the open button when the tilt is at 100%, but the action will still work and open the blind to 50%.
 
-## SwitchBot Roller Shade
-
-The Roller Shade is exposed as a cover entity with control of the position only:
-
-| Tilt position | Roller Shade state |
-| ------------- | ------------------ |
-| <=20%         | Open               |
-| >20%          | Close              |
-
-### Simple cover template entity
+##### Simple cover template entity
 
 Some integrations may expose your SwitchBot Blind Tilt to other actions which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/cover.template), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
 
@@ -177,7 +269,171 @@ cover:
 
 {% endraw %}
 
-## Error codes and troubleshooting
+#### Roller Shade
+The Roller Shade is exposed as a cover entity with control of the position only:
+
+| position | Roller Shade state |
+| -------- | ------------------ |
+| <=20%    | Open               |
+| >20%     | Close              |
+
+Features:
+- open/close/pause
+- set position
+- get position
+- get battery level
+
+### Sensors
+
+Sensor entiteis are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, and remote button.
+
+#### Meter
+
+Features:
+- get temperature
+- get humidity
+- get battery level
+
+#### Meter Plus
+
+Features:
+- get temperature
+- get humidity
+- get battery level
+
+#### Indoor/Outdoor Meter
+
+Features:
+- get temperature
+- get humidity
+- get battery level
+
+#### Meter Pro
+
+Features:
+- get temperature
+- get humidity
+- get battery level
+
+#### Meter Pro CO2 Monitor
+
+Features:
+- get temperature
+- get humidity
+- get carbon dioxide
+- get battery level
+
+#### Contact Sensor
+
+Features:
+
+- open or closed state
+- motion detection state
+- get battery level
+
+#### Motion Sensor
+
+Features:
+
+- motion detection state
+- get battery level
+#### Water Leak Detector
+This is an encrypted device.
+
+Features:
+- leak or dry state
+- get battery level
+
+#### Remote
+
+Features:
+- get battery level
+
+### Lights
+
+Light entities are added for Color Bulb and LED Strip Light.
+
+#### Color Bulb
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+
+#### LED Strip Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+
+### Locks
+
+Note: The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
+
+#### Lock
+
+This is an encrypted device.
+
+Features:
+- Lock or unlock
+- open or closed state
+- auto-lock paused state
+- calibration state
+- get battery level
+
+#### Lock Pro
+
+This is an encrypted device.
+
+Features:
+
+- Lock or unlock
+- open or closed state
+- auto-lock paused state
+- calibration state
+- get battery level
+
+### Hubs
+
+Some of the hubs can be served as a bridge while the sensor data can be retrieved via Bluetooth connection. Hub 2 displays temperature and humidity through a sensor cable. Without a digital display, Hub Mini Matter Enabled can also read from a sensor cable.
+
+#### Hub 2
+
+Features:
+
+- get temperature
+- get humidity
+- get light level
+
+#### Hub Mini Matter Enabled
+
+Features:
+
+- get temperature
+- get humidity
+
+## Data updates
+
+SwitchBot devices utilize a [​​local push](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers)​​ strategy to maintain real-time status updates. When devices detect state changes, they actively push updates to Home Assistant for immediate synchronization. For user-initiated actions through Home Assistant (for example, when turning a device on/off), the integration performs an additional proactive status fetch to ensure instant confirmation of the new state.
+The integration connects locally to the devices without going via the SwitchBot Cloud.
+
+## Known limitations
+
+### Slow connection times
+
+Move the device closer, or replace the Bluetooth adapter with a faster one. See [Improving connection times](/integrations/bluetooth/#improving-connection-times) for more information.
+
+### Device names not synced
+
+Device names configured in the SwitchBot app are not transferred into Home Assistant.
+
+### Lock state
+
+The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
+
+## Troubleshooting
 
 The SwitchBot integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
@@ -189,6 +445,22 @@ Possible custom integration conflict, using a different version of PySwitchbot; 
 Make sure your devices are powered on and are in range.
 {% enddetails %}
 
-### Slow connection times
 
-Move the device closer, or replace the Bluetooth adapter with a faster one. See [Improving connection times](/integrations/bluetooth/#improving-connection-times) for more information.
+
+## Examples
+
+### Automation ideas
+
+You can create all sort of automations using sensors as triggers and switches, shades, and lights as actions.
+
+- Turn on or turn off lights and switches when motion is detected.
+- Turn on or turn off the Bot to control a fan, AC remote, or circulator when temperature or humidity are too low.
+- Close the curtain when the temperature is too high.
+- Turn off Relay Switch when power consumption is too high.
+- Change the color of LED Strip Lights or Color Bulb or turn on the circulator using Bot or Relay Switch if carbon dioxide is too high.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

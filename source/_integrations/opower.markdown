@@ -42,8 +42,13 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - Delmarva Power
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
+- Glendale Water and Power (GWP)
 - Mercury NZ Limited
-- National Grid NY Upstate
+- National Grid US subsidiaries
+  - National Grid Massachusetts
+  - National Grid NY Long Island
+  - National Grid NY Metro
+  - National Grid NY Upstate
 - Pacific Gas & Electric (PG&E)
 - Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
@@ -55,7 +60,7 @@ This is typically the same information needed to access your utility's website.
 
 ## Utility Authentication Requirements
 
-For many utilities, only a username and password are required to access your accounts. Some utilities requires additional authentication information.
+For many utilities, only a username and password are required to access your accounts. Some utilities require additional authentication information.
 It might be necessary to configure your utility account with an authentication method that is compatible with the Opower integration.
 Utility-specific authentication requirements are listed below:
 

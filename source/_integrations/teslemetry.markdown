@@ -171,6 +171,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Scheduled charging mode|No|
 |Sensor|Scheduled charging start time|No|
 |Sensor|Scheduled departure time|No|
+|Sensor|Sentry mode|Yes|
 |Sensor|Shift state|No|
 |Sensor|Speed|No|
 |Sensor|State of charge at arrival|No|
@@ -205,6 +206,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|Backup capable|Yes|
 |Binary sensor|Grid services active|Yes|
 |Binary sensor|Grid services enabled|Yes|
+|Binary sensor|Grid status|Yes|
 |Binary sensor|Storm watch active|Yes|
 |Number|Backup reserve|Yes|
 |Number|Off grid reserve|Yes|

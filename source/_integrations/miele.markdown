@@ -2,10 +2,11 @@
 title: Miele
 description: Instructions on how to set up the Miele integration within Home Assistant.
 ha_category:
+  - Binary sensor
   - Button
   - Climate
-  - Binary sensor
   - Hub
+  - Fan
   - Light
   - Sensor
   - Switch
@@ -16,10 +17,11 @@ ha_codeowners:
   - '@astrandb'
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - button
   - climate
-  - binary_sensor
   - diagnostics
+  - fan
   - light
   - sensor
   - switch
@@ -35,6 +37,7 @@ Miele is known as a manufacturer of premium appliances for cooking, laundry care
 
 - Monitor the multiple sensors of the appliance and trigger automations based on these sensors.
 - Monitor the program status of the appliances.
+- Control settings on the appliances.
 
 {% note %}
 Note that the feature availability depends on the appliance model.
@@ -90,6 +93,19 @@ The integration configuration may ask for the *Client ID* and *Client Secret* cr
 - Some appliances don't report data while they are turned off, so corresponding entities will not appear in the Miele integration after loading until the appliances are turned on.
 {% endnote %}
 
+### Binary sensor
+
+{% details "List of binary sensors" %}
+
+- **Operation state**:
+  - **Door**: Shows if the door on the appliance is open or closed.
+  - **Full remote control**: Shows the state of Full remote control feature on appliances that supports it.
+  - **Mobile start**: Shows the state of Mobile start feature on appliances that supports it.
+  - **Notification active**: Shows if there is a notification message active on the appliance. The API does not supply any information on the details of the notifications.
+  - **Problem**: Shows if there is an error message active on the appliance. The API does not supply any information on the details of the error.
+  - **Smart grid**: Shows the state of Smart grid feature on appliances that supports it.
+{% enddetails %}
+
 ### Button
 
 {% details "List of button entities" %}
@@ -110,26 +126,20 @@ Climate entities are used to control target temperatures in refrigerators, freez
 
 {% enddetails %}
 
+### Fan
+
+{% details "List of fan entities" %}
+
+- **Fan**: The speed of extraction fans can be monitored and controlled in many models of cooker hoods and combined induction hobs with integrated extraction fans.
+
+{% enddetails %}
+
 ### Light
 
 {% details "List of light entities" %}
 
 - **Light**: The light can be turned on and off in many models of ovens, cooker hoods, and wine cabinets.
 - **Ambient light**: Some models of cooker hoods have ambient light that can be turned on and off.
-
-{% enddetails %}
-
-### Binary sensor
-
-{% details "List of binary sensors" %}
-
-- **Operation state**:
-  - **Door**: Shows if the door on the appliance is open or closed.
-  - **Full remote control**: Shows the state of Full remote control feature on appliances that supports it.
-  - **Mobile start**: Shows the state of Mobile start feature on appliances that supports it.
-  - **Notification active**: Shows if there is a notification message active on the appliance. The API does not supply any information on the details of the notifications.
-  - **Problem**: Shows if there is an error message active on the appliance. The API does not supply any information on the details of the error.
-  - **Smart grid**: Shows the state of Smart grid feature on appliances that supports it.
 {% enddetails %}
 
 ### Sensor
@@ -138,7 +148,16 @@ Climate entities are used to control target temperatures in refrigerators, freez
 
 - **Operation state**:
   - **Status**: Represents the current operation state of the device. The default entity name is just the appliance type. For example, "Dishwasher".
+  - **Program**: Shows the currently active program.
+  - **Program phase**: Shows the current phase in the running program.
+  - **Program type**: Shows the current program type.
+  - **Spin speed**: Shows the spin speed selected for the current washing machine program.
+  - **Energy consumption**: Shows the energy consumption during the current program cycle. The value will be reset after finishing the program.
+  - **Water consumption**: Shows the water consumption during the current program cycle. The value will be reset after finishing the program.
   - **Temperature**: Represents the current temperature in refrigerators, freezers, and ovens. Entities are created for up to 3 zones depending on the device capabilities.
+  - **Elapsed time**: Shows the number of minutes that the current program has been running.
+  - **Remaining time**: Shows the estimated number of minutes remaining in the current program cycle. This value can fluctuate during a program cycle based on load dirtiness or water‑heating time.
+  - **Start in**: Shows the number of minutes until a delayed program start, if configured.
 {% enddetails %}
 
 ### Switch

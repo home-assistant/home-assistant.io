@@ -396,7 +396,8 @@ alexa:
                   type: string
 {% endconfiguration %}
 
-### Alexa locale <!-- omit in toc -->
+<!-- omit in toc -->
+### Alexa locale
 
 The `locale` should match the location and language used for your Amazon echo devices.
 
@@ -421,7 +422,8 @@ The supported locales are:
 
 See [List of Capability Interfaces and Supported Locales][alexa-supported-locales].
 
-### Proactive events <!-- omit in toc -->
+<!-- omit in toc -->
+### Proactive events
 
 The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e., "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
 
@@ -429,7 +431,8 @@ The `endpoint`, `client_id` and `client_secret` are optional, and are only requi
 - The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][alexa-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
 - If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available. Also, you need to restart your Home Assistant after each disabling/enabling the skill in Alexa."
 
-### Configure filter <!-- omit in toc -->
+<!-- omit in toc -->
+### Configure filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to Alexa, you can use the `filter` parameter. Keep in mind that only [supported platforms](#supported-platforms) can be added.
 
@@ -451,7 +454,8 @@ alexa:
 
 See the [troubleshooting](#troubleshooting) if you're experiencing issues setting up the integration.
 
-### Alexa Display Categories <!-- omit in toc -->
+<!-- omit in toc -->
+### Alexa Display Categories
 
 Configure a display category to override the display category and iconography each entity is shown in the Alexa app. This makes it easier to find and monitor devices.
 
@@ -1103,13 +1107,15 @@ If the water heater entity supports on/off, use _"turn on"_ and _"turn off"_ utt
 
 ## Troubleshooting
 
-### Binary Sensor not available in Routine Trigger <!-- omit in toc -->
+<!-- omit in toc -->
+### Binary Sensor not available in Routine Trigger
 
 Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
 
 Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
-### Token Invalid and no Refresh Token Available <!-- omit in toc -->
+<!-- omit in toc -->
+### Token Invalid and no Refresh Token Available
 
 Disable and re-enable the skill using the Alexa App; then restart Home Assistant.
 

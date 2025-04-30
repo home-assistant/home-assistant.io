@@ -173,7 +173,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of areas that provide entities of a certain domain(s),
+        Limits the list of areas that provide entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection to.
@@ -521,7 +521,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of devices that provide entities of a certain domain(s),
+        Limits the list of devices that provide entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection
@@ -694,7 +694,7 @@ filter:
       required: false
     domain:
       description: >
-        Limits the list of entities to entities of a certain domain(s), for example,
+        Limits the list of entities to entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains), for example,
         [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection
@@ -826,7 +826,7 @@ entity:
       required: false
     domain:
       description: >
-        When set, the list only includes floors that have entities of certain domains,
+        When set, the list only includes floors that have entities of certain [domains](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection to.
@@ -1380,7 +1380,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the targets to entities of a certain domain(s),
+        Limits the targets to entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a
         with a single domain, or a list of string domains to limit the

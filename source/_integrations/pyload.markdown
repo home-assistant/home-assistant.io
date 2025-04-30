@@ -162,7 +162,7 @@ This integration {% term polling polls %} your **pyLoad** instance every 20 seco
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

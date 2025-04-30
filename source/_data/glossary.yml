@@ -261,6 +261,12 @@
   link: /docs/configuration/events/
   aliases:
     - events
+- term: Event entity
+  definition: >-
+    Events are signals that are emitted when something happens, for example,
+    when a user presses a physical button like a doorbell or when a button on a
+    remote control is pressed.
+  link: /integrations/event
 - term: Floor
   definition: >-
     A floor in Home Assistant is a logical grouping of areas that are meant to
