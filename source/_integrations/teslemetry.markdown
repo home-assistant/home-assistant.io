@@ -84,7 +84,6 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|Front passenger window|Yes|
 |Binary sensor|GPS state|No|
 |Binary sensor|Guest mode enabled|No|
-|Binary sensor|Hazard lights|No|
 |Binary sensor|High beams|No|
 |Binary sensor|Homelink nearby|No|
 |Binary sensor|HVAC auto mode|No|
@@ -182,7 +181,6 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|HVAC power state|No|
 |Sensor|Ideal battery range|No|
 |Sensor|Inside temperature|Yes|
-|Sensor|Left temperature request|No|
 |Sensor|Odometer|No|
 |Sensor|Outside temperature|Yes|
 |Sensor|Passenger temperature setting|No|
@@ -211,7 +209,6 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Rear right drive inverter temperature|No|
 |Sensor|Rear right drive unit actual torque|No|
 |Sensor|Rear right drive unit stator temperature|No|
-|Sensor|Right temperature request|No|
 |Sensor|Roof color|No|
 |Sensor|Scheduled charging mode|No|
 |Sensor|Scheduled charging start time|No|
@@ -242,7 +239,6 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Switch|Charge|Yes|
 |Switch|Defrost|Yes|
 |Switch|Sentry mode|Yes|
-|Switch|Valet mode|Yes|
 |Update|Update|Yes|
 
 ### Energy sites
@@ -296,12 +292,6 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Power|Yes|
 |Sensor|State|Yes|
 |Sensor|Vehicle|Yes|
-
-### Metadata
-
-|Domain|Name|Enabled|
-|---|---|---|
-|Sensor|Teslemetry credits|Yes|
 
 ## Actions
 
