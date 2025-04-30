@@ -26,10 +26,6 @@ The **Fluss+** {% term integration %} allows you to control [Fluss+](https://flu
 
 {% include integrations/config_flow.md %}
 
-## Setup
-To add Fluss+ to your installation, go to **Settings** -> **Devices & Services** in the UI, click the button with `+` sign and from the list of integrations select **Fluss+**.
-You will be prompted to enter your API key.
-Once the integration is set up, you will see a list of your Fluss+ devices.
 
 ### Button
 
