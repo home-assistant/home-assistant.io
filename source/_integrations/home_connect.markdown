@@ -1187,7 +1187,7 @@ The program key needs to be added to the integration. To help with that, you can
 
 #### Symptom: "the "active program" and "selected program" entities are not provided by the integration"
 
-The the "active program" and "selected program" entities are not provided by the integration, and the downloaded device diagnostics file does not list any programs.
+The "active program" and "selected program" entities are not provided by the integration, and the downloaded device diagnostics file does not list any programs.
 
 ##### Description
 
