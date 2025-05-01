@@ -78,6 +78,7 @@ Some other rules:
 - Do not use "e.g.", "i.e.", "etc.", or "etcetera". Use "like", "for example",
   or "such as" instead.
 - Lists
+    - Lists should be surrounded by blank lines.
     - Use numbers list for sequential steps, procedures, or prioritized items.
     - Use bullet lists for non-sequential items, or when the order does not
       matter.
