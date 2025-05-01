@@ -147,7 +147,7 @@ mode: single
 triggers:
   - trigger: numeric_state
     entity_id:
-      - sensor.gogoups_load
+      - sensor.apc_ups_load
     above: 80
 conditions: []
 actions:
