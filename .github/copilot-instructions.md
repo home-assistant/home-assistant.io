@@ -822,7 +822,7 @@ list `[]` by default.
 
 As written in the first chapter, strings are preferably enquoted with double
 quotes. However, the following value types are exempted from this rule,
-as is makes our examples more readable:
+e, however, as it makes our examples more readable:
 
 - Entity IDs (e.g., `binary_sensor.motion`)
 - Entity attributes (e.g., `temperature`)
