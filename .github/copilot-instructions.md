@@ -51,7 +51,7 @@ speakers.
 The writing needs to be inclusive, objective, and not gender biased, polarizing,
 or discriminatory. We want to be welcoming to all users.
 
-Write towards the reader directly, and not a group of users. Write in a
+Write towards the reader directly, and not a group of users. Write from a second-person perspective, using "you" and "your" instead of "the user"
 second-person perspective, using "you" and "your" instead of "the user"
 or "users".
 
