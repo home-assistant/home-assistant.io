@@ -66,7 +66,7 @@ Some other rules:
 - There is no limit for the line length. We preferably write in a flowing text
   style in our Markdown files, as this makes it easier to edit in the online
   editors.
-- If an paragraph/markdown isn't written in a flowing text style, it must
+- If a paragraph/markdown isn't written in a flowing text style, it must
   be adjusted.
 - Do not use CAPS for emphasis. Use italics instead.
 - Use the word "Home Assistant" in full, and not "HA" or "HASS". 
