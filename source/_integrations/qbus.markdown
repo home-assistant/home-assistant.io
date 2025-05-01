@@ -4,10 +4,12 @@ description: Instructions on how to integrate your Qbus installation with Home A
 ha_category:
   - Climate
   - Light
+  - Scene
   - Switch
 ha_platforms:
   - climate
   - light
+  - scene
   - switch
 ha_iot_class: Local Push
 ha_codeowners:
@@ -40,13 +42,12 @@ There is currently support for the following **Qbus** products within Home Assis
 
 - **CTD01E to CTD03E (CTD 3.0)**: main controllers (yellow).
 - **CTD10 to CTDMax (CTD 3.5)**: main controllers (black).
-- **Toggle**: toggle outputs on controllers.
-- **Dimmer**: dimmer outputs on controllers.
 
 ## Available entities
 
 - **Climate**: manages thermostats by setting temperature and choosing presets.
 - **Light**: controls dimmer lights, allowing both on/off functionality and brightness adjustment.
+- **Scene**: activates scenes.
 - **Switch**: toggles on/off outputs.
 
 ## Removing the integration
