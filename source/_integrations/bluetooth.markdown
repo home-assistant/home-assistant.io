@@ -299,6 +299,18 @@ Bluetooth advertisement bundling reduces traffic between Home Assistant and the 
 
 ## Troubleshooting
 
+### Advertisement monitor
+
+Once Bluetooth is configured, the advertisement monitor will allow you to view devices in range that are advertising:
+
+{% my bluetooth-advertisement-monitor icon %}
+
+### Connection monitor
+
+Once Bluetooth is configured, the connection monitor will allow you to few currently connected devices.
+
+{% my bluetooth-connection-monitor icon %}
+
 ### Improving connection times
 
 Connection time and performance vary greatly depending on the Bluetooth adapter and interference. 
