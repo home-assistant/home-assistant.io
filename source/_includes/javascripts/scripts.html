@@ -32,7 +32,7 @@
     }
   
     window.addEventListener("load", () => changeNavColor());
-    window.addEventListener("scroll", () => changeNavColor());
+    window.addEventListener("scroll", () => changeNavColor(), { passive: true });
   }
 </script>
 {% endif %}
