@@ -198,3 +198,14 @@ segments:
   - from: 65
     color: var(--error-color)
 ```
+
+Display attribute of an entity instead of its state:
+
+```yaml
+type: gauge
+entity: sensor.back_door_info
+attribute: battery_level
+unit: '%'
+max: 100
+```
+In this example, the card displays the `battery_level` attribute of the `sensor.back_door_info` entity.
