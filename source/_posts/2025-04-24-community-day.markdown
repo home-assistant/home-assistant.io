@@ -23,7 +23,7 @@ I'm sure you're all wondering, "*Missy, what is a Community Day?*". In its simpl
 
 ### Locations and registering to attend
 
-We already have **13 events** hosted by several of us who work on Home Assistant 😎! To coordinate these, we are using Luma, a site focused on tech meetups. All the current events can be found below or on our [Home Assistant Community Day](https://lu.ma/haday2025) calendar.
+We have organized our own events which are hosted by those who work at Home Assistant 😎! To coordinate these, we are using Luma, a site focused on tech meetups. All the current events can be found below or on our [Home Assistant Community Day](https://lu.ma/haday2025) calendar.
 
 <iframe
   data-src="https://lu.ma/embed/calendar/cal-QXZXEJrvB3UaI63/events?lt=light"
