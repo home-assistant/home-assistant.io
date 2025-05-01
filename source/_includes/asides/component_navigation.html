@@ -55,9 +55,9 @@
       &nbsp;Its IoT class is <a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'>{{ page.ha_iot_class }}.</a>
     </div>
     {%- endif -%}
-  
+
   {%- if page.ha_quality_scale %}
-  <div class='section'>  
+  <div class='section'>
     {% if page.ha_quality_scale == "bronze" %}<a href='/docs/quality_scale/#-bronze'>🥉 Bronze quality</a><br />{%- endif -%}
     {% if page.ha_quality_scale == "silver" %}<a href='/docs/quality_scale/#-silver'>🥈 Silver quality</a><br />{%- endif -%}
     {% if page.ha_quality_scale == "gold" %}<a href='/docs/quality_scale/#-gold'>🥇 Gold quality</a><br />{%- endif -%}
@@ -67,12 +67,12 @@
     {% if page.ha_quality_scale == "custom" %}<a href='/docs/quality_scale/#-custom'>📦 Custom integration</a><br />{%- endif -%}
   </div>
   {%- endif -%}
-  
+
   {% if page.works_with %}
     {%- for type in page.works_with -%}
       <div class="section">
         <a href="https://works-with.home-assistant.io/">
-          <img src="../../images/works_with/works-with-{{ type }}.png" alt="Works via {{ type }} with Home assistant">
+          <img src="../../images/works_with/works-with.png" alt="Works with Home assistant">
         </a>
       </div>
     {%- endfor -%}
@@ -96,7 +96,7 @@
                 {% assign ha_project = true %}
             {% endif %}
         {% endfor %}
-        
+
           {% if ha_project %}
           <div class="section">
             This integration is being maintained by the Home Assistant project.
