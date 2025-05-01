@@ -118,7 +118,7 @@ make it easier to read.
 ### Integration pages
 
 The content structure for integration pages is a little more strict and
-extensive. These pages are found in the `_source/_integrations` folder.
+extensive. These pages are found in the `source/_integrations` folder.
 This is the structure we use for integration pages:
 
 - Introduction
