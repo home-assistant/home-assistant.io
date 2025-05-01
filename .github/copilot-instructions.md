@@ -12,7 +12,7 @@ content can be found as well.
 
 In this day and age, where LLMs are becoming more and more common, and also
 really popular in our community, slightly optimizing our content for LLMs is
-preferred. However, this must never comes at the cost of readability for humans.
+preferred. However, this must never come at the cost of readability for humans.
 
 You are always putting the reader/end-user first when applying SEO, LLMO,
 and GEO techniques.
