@@ -47,7 +47,7 @@ There is currently support for the following **Qbus** products within Home Assis
 
 - **Climate**: manages thermostats by setting temperature and choosing presets.
 - **Light**: controls dimmer lights, allowing both on/off functionality and brightness adjustment.
-- **Scene**: activates scenes.
+- **Scene**: activates predefined scenes.
 - **Switch**: toggles on/off outputs.
 
 ## Removing the integration
