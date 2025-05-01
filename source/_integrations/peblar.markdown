@@ -29,6 +29,21 @@ The Peblar {% term integration %} brings your [Peblar Rocksolid EV Charger] into
 
 [Peblar Rocksolid EV Charger]: https://peblar.com/
 
+## Use cases
+
+The Peblar integration connects your EV charger to Home Assistant, providing comprehensive data and control capabilities. Here's how you can benefit from this integration in your smart home:
+
+- **Monitor your EV charging in real time** - Track charging status, current power draw, and session energy consumption directly from your dashboard.
+- **Optimize your home energy management** - Add your charger to the Home Assistant energy dashboard to integrate EV charging into your overall energy monitoring system.
+- **Create smart charging automations** such as:
+  - Receiving notifications when your vehicle completes charging
+  - Automatically adjusting charging modes based on solar production forecasts
+  - Getting alerts when the charger detects errors or issues
+  - Scheduling charging during off-peak electricity hours
+  - Optimizing charging based on electricity prices and your travel schedule
+- **Stay up to date with software** - Receive notifications when firmware or customization updates are available for your Peblar charger.
+- **Control charging remotely** - Start, stop, or adjust charging parameters from anywhere using the Home Assistant app.
+
 ## Supported devices
 
 The following Peblar Rocksolid EV chargers are supported by this integration:
