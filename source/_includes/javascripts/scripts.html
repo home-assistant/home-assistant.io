@@ -35,7 +35,6 @@
 </script>
 {% endif %}
 
-{% if layout.is_post %}
 <script type="text/javascript">
   const article = document.querySelector("article.post");
   if (article) {
@@ -49,7 +48,7 @@
       function loadLazyFrames() {
         if (loaded) return;
         loaded = true;
-        
+
         iframes.forEach((iframe) => {
           const src = iframe.getAttribute("data-src");
           if (src) {
@@ -61,4 +60,3 @@
     }
   }
 </script>
-{% endif %}
