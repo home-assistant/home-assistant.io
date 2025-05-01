@@ -39,6 +39,10 @@ entity:
   required: true
   description: Entity ID to show.
   type: string
+attribute:
+  required: false
+  description: Attribute from the selected entity to display
+  type: string
 name:
   required: false
   description: Name of gauge entity.
