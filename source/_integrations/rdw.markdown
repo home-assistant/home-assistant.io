@@ -32,8 +32,6 @@ To use this integration, you need:
 1. A vehicle with Dutch registration (license plate)
 2. The license plate number of the vehicle you want to monitor
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
