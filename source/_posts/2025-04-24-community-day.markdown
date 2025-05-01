@@ -36,7 +36,7 @@ To coordinate all these meetups, we are using Luma, a site focused on tech meetu
   tabindex="0"
 ></iframe>
 
-All Community Day events are free, so **[register before spaces run out!](https://lu.ma/haday2025)** (No worries, there are waitlists!). **15 events** are set to have full-time Home Assistant team members in attendance 😎!
+All Community Day events are free, so **[register before spaces run out!](https://lu.ma/haday2025)** (No worries, there are waitlists!). We also have full-time Home Assistant employees attending events. To find out who you can meet, head over to Luma 😎!
 
 ### Host your own
 
