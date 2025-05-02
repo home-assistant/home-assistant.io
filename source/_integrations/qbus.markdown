@@ -60,6 +60,71 @@ This integration follows standard integration removal. No extra steps are requir
 
 All data from **Qbus** entities are pushed to Home Assistant over MQTT.
 
+## Examples
+
+### Automation to activate Qbus scene
+
+This automation will activate the **Watching TV** Qbus scene when turning on your TV.
+
+Replace `media_player.my_tv` with your TV entity and `scene.ctd_000001_watching_tv` with your Qbus scene entity.
+
+{% raw %}
+
+```yaml
+alias: Activate TV scene when turning on TV
+description: ""
+mode: single
+triggers:
+  - entity_id:
+      - media_player.my_tv
+    from: "off"
+    to: "on"
+    trigger: state
+conditions: []
+actions:
+  - target:
+      entity_id: scene.ctd_000001_watching_tv
+    metadata: {}
+    alias: Activate TV scene
+    action: scene.turn_on
+    data: {}
+```
+
+{% endraw %}
+
+### Extend Qbus scene
+
+You can extend a Qbus scene by adding other entities in an automation.
+In this example, a LED strip is turned on when the **Watching TV** Qbus scene is activated.
+
+Replace `scene.ctd_000001_watching_tv` with your Qbus scene entity and `light.tv_strip` with your light entity.
+
+{% raw %}
+
+```yaml
+alias: Extend "Watching TV" Qbus scene
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - scene.ctd_000001_watching_tv
+conditions: []
+actions:
+  - action: light.turn_on
+    metadata: {}
+    data:
+      rgb_color:
+        - 255
+        - 187
+        - 0
+      brightness_pct: 40
+    target:
+      entity_id: light.tv_strip
+mode: single
+```
+
+{% endraw %}
+
 ## Known limitations
 
 The integration does not provide a way to update the firmware on the devices. This can only be done with the configuration software System Manager.
