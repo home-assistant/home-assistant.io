@@ -297,8 +297,8 @@ Example YAML configuration of a siren group:
 siren:
   - platform: group
     entities:
-      - switch.alarm
-      - switch.door_alarm
+      - siren.alarm
+      - siren.door_alarm
 ```
 
 Example YAML configuration of a switch group:
