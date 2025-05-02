@@ -94,18 +94,18 @@ In case your installation is set up to use SSL encryption (HTTP**S** with certif
 Integration is communicating directly with the device; cloud connection is not needed.
 {% endnote %}
 
-### Shelly entities that polls data from the device (generation 1)
+### Shelly entities that poll data from the device (generation 1)
 
-The following disabled by default entities {% term polling polls %} data from the device every 60 seconds:
+The following disabled by default entities {% term polling poll %} data from the device every 60 seconds:
 
 - Cloud connected sensor
 - RSSI sensor
 - Uptime sensor
 - Firmware update
 
-### Shelly entities that polls data from the device (generation 2+)
+### Shelly entities that poll data from the device (generation 2+)
 
-The following disabled by default entities {% term polling polls %} data from the device every 60 seconds:
+The following disabled by default entities {% term polling poll %} data from the device every 60 seconds:
 
 - Device temperature sensor
 - RSSI sensor
