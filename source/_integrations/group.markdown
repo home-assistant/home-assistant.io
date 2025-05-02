@@ -14,6 +14,7 @@ ha_category:
   - Notifications
   - Organization
   - Sensor
+  - Siren
   - Switch
 ha_release: pre 0.7
 ha_iot_class: Calculated
@@ -33,6 +34,7 @@ ha_platforms:
   - media_player
   - notify
   - sensor
+  - siren
   - switch
 ha_integration_type: helper
 ---
@@ -48,6 +50,7 @@ The following entities can be grouped:
 - [cover (covers)](/integrations/cover/)
 - [fan (fans)](/integrations/fan/)
 - [switch (switches)](/integrations/switch/)
+- [siren (sirens)](/integrations/siren/)
 - [lock (locks)](/integrations/lock/)
 - [light (lights)](/integrations/light/)
 - [event (events)](/integrations/event/)
@@ -66,7 +69,7 @@ The older notification actions can only be grouped via YAML configuration.
 
 ## Group behavior
 
-### Binary sensor, light, and switch groups
+### Binary sensor, light, siren and switch groups
 
 In short, when any group member entity is `on`, the group will also be `on`. A complete overview of how groups behave:
 
@@ -285,6 +288,17 @@ sensor:
     entities:
       - sensor.temperature_kitchen
       - sensor.temperature_hallway
+```
+
+Example YAML configuration of a siren group:
+
+```yaml
+# Example configuration.yaml entry
+siren:
+  - platform: group
+    entities:
+      - switch.alarm
+      - switch.door_alarm
 ```
 
 Example YAML configuration of a switch group:
