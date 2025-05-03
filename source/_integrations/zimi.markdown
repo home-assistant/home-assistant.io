@@ -12,7 +12,7 @@ ha_category:
 ha_domain: zimi
 ---
 
-The Zimi integration allows you to connect your Zimi Cloud Controller to Home Assistant and via this integration control all of the local devices connected to the Zimi mesh.
+The Zimi integration allows you to connect your Zimi Cloud Controller to Home Assistant and, via this integration control local devices connected to the Zimi mesh.
 
 (See [Zimi's website](https://zimi.life/) for details of the Zimi portfolio).
 
@@ -26,7 +26,7 @@ The following Zimi devices are supported:
 
 The following Zimi devices are yet to be supported:
 
-- Zimi Matter Connect ([links to specifications](https://zimi.life/product/cloud-connect/))
+- Zimi Matter Connect ([links to specifications](https://zimi.life/product/matter-connect/))
 
 ## Prerequisites
 
@@ -42,11 +42,11 @@ A configured Zimi Cloud Connect and internet connection is needed for this integ
 
 You will be prompted to configure the Zimi Cloud Connect through the Home Assistant interface.
 
-If the Zimi discovery process is successful and there is a single Zimi Cloud Connect then the integration will be configured without further user input.
+If the Zimi discovery process is successful and there is a single Zimi Cloud Connect, then the integration will be configured without further user input.
 
-If the Zimi discovery process is successful and there are multiple Zimi Cloud Connects present then the user will be prompted to select the desired Zimi Cloud Connect.
+If the Zimi discovery process is successful and there are multiple Zimi Cloud Connects present, then the user will be prompted to select the desired Zimi Cloud Connect.
 
-If the Zimi discovery process is unsuccessful (i.e. the Zimi Cloud Connect is not reachable on the local LAN) then the user will be prompted for the following parameters:
+If the Zimi discovery process is unsuccessful (i.e. the Zimi Cloud Connect is not reachable on the local LAN), then the user will be prompted for the following parameters:
 
 {% configuration_basic %}
 host:
@@ -61,7 +61,7 @@ It is possible to add multiple Zimi Cloud Connect devices.
 
 The integration will support all Zimi devices.  It should be noted that the naming conventions and default integration types may not be what the user is expecting.
 
-1. Zimi devices that are generic switchs will be shown in the UI as a switch and not as a light.   The 'Identify as light for voice control' is not available in the API to pass the necessary information to HA to correctly classify.   For more details of the concept and how to change your device to the correct type after the initial integration see [Change device type of a switch](/integrations/switch_as_x/).
+1. Zimi devices that are generic switches will be shown in the UI as a switch and not as a light.   The 'Identify as light for voice control' is not available in the API to pass the necessary information to HA to correctly classify.   For more details of the concept and how to change your device to the correct type after the initial integration see [Change device type of a switch](/integrations/switch_as_x/).
 2. Zimi devices and names will be mapped per HA guidelines in the table below.   The user may change these names to more friendly names - see [Customizing entities](/docs/configuration/customizing-devices/).
 
 When you add a supported device, the following entities will be created:
@@ -86,7 +86,7 @@ When you add a supported device, the following entities will be created:
 
 ## Data updates
 
-The integration is pushed updates from the Zimi Cloud Controller instantly via the Zimi API.
+The integration receives updates instantly from the Zimi Cloud Controller instantly via the Zimi API.
 
 ## Known limitations
 
