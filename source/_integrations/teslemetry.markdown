@@ -84,6 +84,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|Front passenger window|Yes|
 |Binary sensor|GPS state|No|
 |Binary sensor|Guest mode enabled|No|
+|Binary sensor|Hazard lights|No|
 |Binary sensor|High beams|No|
 |Binary sensor|Homelink nearby|No|
 |Binary sensor|HVAC auto mode|No|
