@@ -64,7 +64,7 @@ Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BT
 
 ## Data updates
 
-Shelly devices push updates to Home Assistant upon changes for all main functions of the device. For push updates to work correctly some devices need additional configuration:
+Shelly devices push updates to Home Assistant upon changes for all main functions of the device. For push updates to work correctly, some devices need additional configuration:
 
 ### Shelly device configuration (generation 1)
 
