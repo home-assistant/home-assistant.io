@@ -24,7 +24,7 @@ The following Zimi devices are supported:
 
 ## Unsupported Devices
 
-The following Zimi devices are not yet supported:
+The following Zimi devices are yet to be supported:
 
 - Zimi Matter Connect ([links to specifications](https://zimi.life/product/cloud-connect/))
 
@@ -42,13 +42,17 @@ A configured Zimi Cloud Connect and internet connection is needed for this integ
 
 You will be prompted to configure the Zimi Cloud Connect through the Home Assistant interface.
 
+If the Zimi discovery process is successful and there is a single Zimi Cloud Connect then the integration will be configured without further user input.
+
+If the Zimi discovery process is successful and there are multiple Zimi Cloud Connects present then the user will be prompted to select the desired Zimi Cloud Connect.
+
+If the Zimi discovery process is unsuccessful (i.e. the Zimi Cloud Connect is not reachable on the local LAN) then the user will be prompted for the following parameters:
+
 {% configuration_basic %}
 host:
-    description: "The IP address of your Zimi Cloud Connect. You can find it via your router admin interface.    If no IP address is entered the integration will attempt to discover a Zimi Cloud Connect via a broadcast message on the local LAN."
+    description: "The IP address of your Zimi Cloud Connect. You can find it via your router admin interface."
 port:
     description: "The port number used to connect to your Zimi Cloud Connect.   If no port number is entered the integration will use the default port.   (The default port will be correct in almost all deployment scenarios)"
-mac:
-    description: "The MAC address printed on the back of the Zimi Cloud Connect device (required)."
 {% endconfiguration_basic %}
 
 It is possible to add multiple Zimi Cloud Connect devices.
