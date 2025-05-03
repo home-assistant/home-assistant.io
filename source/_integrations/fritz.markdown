@@ -26,6 +26,9 @@ ha_platforms:
   - update
 ha_ssdp: true
 ha_integration_type: integration
+related:
+  - docs: /common-tasks/general/#enabling-or-disabling-entities
+    title: Enabling or disabling entities
 ---
 
 The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://en.avm.de/products/fritzbox/) router and have presence detection for connected network devices.
@@ -40,19 +43,47 @@ There is support for the following platform types within Home Assistant:
 - **{% term Switch %}** - call deflection, port forward, parental control and Wi-Fi networks.
 - **{% term Update %}** - firmware status of the device.
 
-{% include integrations/config_flow.md %}
+## Prerequisites
 
 {% important %}
 Both the TR-064 (_Permit access for apps_) and UPnP (_Transmit status information over UPnP_) protocol needs to be enabled in the FRITZ!Box under **Home Network** > **Network** > **Network settings** > **Access Settings in the Home Network** for Home Assistant to login and read device info.
 {% endimportant %}
 
-## Username
+### Username
 
 It is recommended to create a separate user to connect Home Assistant to your FRITZ!Box. To create a user, in the FRITZ!Box go to **System** > **FRITZ!Box Users** > **Users** > **Add User**. Make sure the user has the **FRITZ!Box Settings** permission.
 
 {% note %}
-If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24, the default username was `admin`.
+If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Before FRITZ!OS 7.24, the default username was `admin`.
 {% endnote %}
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+    description: "The hostname or IP address of your FRITZ!Box router."
+Port:
+    description: "The port used to connect to your FRITZ!Box router. Leave it empty to use the default port."
+Username:
+    description: "Name of the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)"
+Password:
+    description: "Password for the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)"
+Uses an SSL certificate:
+    description: "Whether to use SSL encryption for connecting to your FRITZ!Box router."
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Consider home:
+  description: Number of seconds that must elapse before considering a disconnected device "not at home".
+Enable old discovery method:
+  description: Required in scenarios such as networks without mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
+{% endconfiguration_basic %}
+
+## Data updates
+
+This integration fetches the data every 30 seconds from the FRITZ!Box router.
 
 ## Actions
 
@@ -67,19 +98,6 @@ Set a new password for the guest wifi. The password Length must be between 8 and
 | `device_id` | yes | Only act on a specific router |
 | `password` | no | New password for the guest wifi (_will be auto-generated if not defined_) |
 | `length` | no | Length of the auto-generated password. (_default 12_) |
-
-## Integration options
-
-It is possible to change some behaviors through the integration options.
-To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. Select the **AVM FRITZ!Box Tools** integration, then select **Configure**.
-
-### Consider home
-
-Number of seconds that must elapse before considering a disconnected device "not at home".
-
-### Enable old discovery method
-
-Needed on some scenarios like no mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
 
 ## Additional information
 
@@ -98,6 +116,14 @@ Due to security reasons, AVM implemented the ability to enable/disable a port fo
 **Note 1**: On your FRITZ!Box under **Internet** > **Permit Access**, enable the setting `Permit independent port sharing for this device` for the device which runs HA.
 
 **Note 2**: Only works if you have a dedicated IPv4 address (_it won't work with DS-Lite_)
+
+### WiFi switches
+
+WiFi {% term switches %} are created for each SSID the FRITZ!Box is serving. With these switches, one can activate and deactivate each single SSID.
+
+**Note 1**: In a mesh setup, the WiFi settings are adopted by each mesh repeater (_**Home Network > Mesh > Mesh Settings > Automatically Adopting Settings from the Mesh**_)
+
+**Note 2**: For mesh repeaters, these switches are disabled by default, but can be enabled. When your mesh is based on a WiFi connection between the mesh master and the mesh repeater, the WiFi switches won't be created for the mesh repeater either.
 
 ## Example Automations and Scripts
 
@@ -159,3 +185,9 @@ Check if one of the following cases applies:
 - You're using additional network equipment like a network switch or Wi-Fi access point other than an AVM Fritz!Repeater or other AVM components, but not configured as a [mesh](https://en.avm.de/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) in your home network.
 
 If one of the above cases applies to your setup, try [enabling the old discovery method](#enable-old-discovery-method) in the [integration options](#integration-options). This might resolve the issue.
+
+## Remove the integration
+
+{% include integrations/remove_device_service.md %}
+
+If you don't use the separately created FRITZ!Box user anymore, then remove it from the FRITZ!Box under **System** > **FRITZ!Box Users** > **Users**.

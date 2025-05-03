@@ -19,7 +19,7 @@ related:
 The map card allows you to display your home zone, entities, and other predefined zones on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
 <p class='img'>
-<img src='/images/dashboards/map_card.png' alt='Screenshot of the map card'>
+<img src='/images/dashboards/map_card.webp' alt='Screenshot of the map card'>
 Screenshot of the map card.
 </p>
 
@@ -57,13 +57,18 @@ type:
   description: "`map`"
   type: string
 entities:
-  required: true
-  description: List of entity IDs or `entity` objects (see [below](#options-for-entities)). Either this or the `geo_location_sources` configuration option is required.
+  required: false
+  description: List of entity IDs or `entity` objects (see [below](#options-for-entities)). Either this, `show_all`, or the `geo_location_sources` configuration option is required.
   type: list
 geo_location_sources:
-  required: true
-  description: List of geolocation sources or `source` objects (see [below](#options-for-geolocation-sources)). All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this or the `entities` configuration option is required.
+  required: false
+  description: List of geolocation sources or `source` objects (see [below](#options-for-geolocation-sources)). All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this, `show_all`, or the `entities` configuration option is required.
   type: list
+show_all:
+  required: false
+  description: Automatically add all entities with coordinates to the map card. (Default behavior of Map panel)
+  type: boolean
+  default: false
 auto_fit:
   required: false
   description: The map will follow moving `entities` by adjusting the viewport of the map each time an entity is updated.
@@ -125,7 +130,11 @@ name:
 label_mode:
   required: false
   default: name
-  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state` or `attribute`, renders the entity's state or attribute as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  type: string
+attribute:
+  required: false
+  description: An entity's attribute when `label_mode` set to `attribute`.
   type: string
 focus:
   required: false
@@ -146,8 +155,12 @@ source:
 label_mode:
   required: false
   default: name
-  description: When set to `icon`, renders the geolocation entity's icon in the marker instead of text. When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. 
-  type: string    
+  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state` or `attribute`, renders the entity's state or attribute as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  type: string
+attribute:
+  required: false
+  description: An entity's attribute when `label_mode` set to `attribute`.
+  type: string
 focus:
   required: false
   default: true

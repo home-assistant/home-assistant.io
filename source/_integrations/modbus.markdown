@@ -527,7 +527,7 @@ The master configuration like device_class are automatically copied to the slave
 
 ## Configuring climate entities
 
-The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature, HVAC mode, swing mode, and fan state.
+The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature, HVAC action, HVAC mode, swing mode, and fan state.
 
 Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
@@ -652,6 +652,57 @@ climates:
           description: "Swap word ABCD -> CDAB, **not valid with data types: `int16`, `uint16`**"
         word_byte:
           description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
+    hvac_action_register:
+      description: "Configuration of register for HVAC action"
+      required: false
+      type: map
+      keys:
+        address:
+          description: "Address of HVAC action register."
+          required: true
+          type: integer
+        input_type:
+          description: "Type of register, either `holding` or `input`"
+          required: false
+          default: holding
+          type: string
+        values:
+          description: "Mapping between the register values and HVAC actions"
+          required: true
+          type: map
+          keys:
+            action_off:
+              description: "Value corresponding to HVAC Off action."
+              required: false
+              type: [integer, list]
+            action_cooling:
+              description: "Value corresponding to HVAC Cooling action."
+              required: false
+              type: [integer, list]
+            action_defrosting:
+              description: "Value corresponding to HVAC Defrosting action."
+              required: false
+              type: [integer, list]
+            action_drying:
+              description: "Value corresponding to HVAC Drying action."
+              required: false
+              type: [integer, list]
+            action_fan:
+              description: "Value corresponding to HVAC Fan action."
+              required: false
+              type: [integer, list]
+            action_heating:
+              description: "Value corresponding to HVAC Heating action."
+              required: false
+              type: [integer, list]
+            action_idle:
+              description: "Value corresponding to HVAC Idle action."
+              required: false
+              type: [integer, list]
+            action_preheating:
+              description: "Value corresponding to HVAC Preheating action."
+              required: false
+              type: [integer, list]
     hvac_mode_register:
       description: "Configuration of register for HVAC mode"
       required: false
@@ -756,13 +807,24 @@ climates:
               description: "Value corresponding to Fan Diffuse mode."
               required: false
               type: integer
+    hvac_onoff_coil:
+      description: "Address of On/Off state.
+        Only use this setting if your On/Off state is not handled as a HVAC mode.
+        When zero is read from this coil, the HVAC state is set to Off, otherwise the `hvac_mode_register`
+        dictates the state of the HVAC. If no such coil is defined, it defaults to Auto.
+        When the HVAC mode is set to Off, the value 0 is written to the coil, otherwise the
+        value 1 is written.
+        **Cannot be used with `hvac_onoff_register`.**"
+      required: false
+      type: integer
     hvac_onoff_register:
       description: "Address of On/Off state.
         When the value defined by `hvac_off_value` is read from this register, the HVAC
         state is set to Off. Otherwise, the `hvac_mode_register` dictates the state
         of the HVAC. If no such register is defined, it defaults to Auto.
         When the HVAC mode is set to Off, the value defined by `hvac_off_value` is written to
-        the register, otherwise the value defined by `hvac_on_value` is written."
+        the register, otherwise the value defined by `hvac_on_value` is written.
+        **Cannot be used with `hvac_onoff_coil`.**"
       required: false
       type: integer
     hvac_on_value:

@@ -17,6 +17,11 @@ green:
       ship_to: America
       url: https://cloudfree.shop/product/home-assistant-green/
       logo: /images/distributors/cloudfree.webp
+    - name: Seeed Studio
+      ship_from: US
+      ship_to: America
+      url: https://www.seeedstudio.com/Home-Assistant-Green-p-5792.html
+      logo: /images/distributors/seeed-studio.webp
       # Asia
     - name: Seeed Studio
       ship_from: China
@@ -41,7 +46,7 @@ green:
       logo: /images/distributors/smarthome.webp
       # Europe
     - name: Alza.cz
-      ship_from: Czechia
+      ship_from: Czech Republic
       ship_to: Europe
       url: https://www.alza.cz/home-assistant-green-d7998187.htm
       logo: /images/distributors/alza-cz.webp
@@ -217,6 +222,11 @@ yellow:
       ship_to: Europe
       url: https://thepihut.com/products/home-assistant-yellow
       logo: /images/distributors/pi-hut.webp
+    - name: Domadoo
+      ship_from: France
+      ship_to: Europe
+      url: https://www.domadoo.fr/en/smart-home-hub/7113-nabu-casa-home-assistant-yellow-kit-with-power-supply.html
+      logo: /images/distributors/domadoo.jpg
 zbt-1:
   name: "<strong>Home Assistant Connect ZBT-1</strong>"
   distributors:
@@ -397,7 +407,7 @@ voice-pe:
       logo: /images/distributors/smart-guys.webp
       # Europe
     - name: Alza.cz
-      ship_from: Czechia
+      ship_from: Czech Republic
       ship_to: Europe
       url: https://www.alza.cz/home-assistant-voice-preview-edition-d12741248.htm
       logo: /images/distributors/alza-cz.webp
@@ -411,7 +421,7 @@ voice-pe:
       ship_to: Europe
       url: https://www.domadoo.fr/fr/box-domotique/7558-nabu-casa-home-assistant-voice-preview-edition-0860011789727.html
       logo: /images/distributors/domadoo.jpg
-    - name: Mediarath
+    - name: mediarath
       ship_from: Germany
       ship_to: Europe
       url: https://mediarath.de/products/home-assistant-voice-preview-edition-open-source-privacy-focused-voice-assistant-with-esphome
@@ -476,3 +486,8 @@ voice-pe:
       ship_to: Europe
       url: https://www.pi-shop.ch/home-assistant-voice-preview-edition
       logo: /images/distributors/pi-shop.webp
+    - name: ROBBshop
+      ship_from: Netherlands
+      ship_to: Europe
+      url: https://www.robbshop.nl/home-assistant-voice-preview-edition
+      logo: /images/distributors/robb.webp

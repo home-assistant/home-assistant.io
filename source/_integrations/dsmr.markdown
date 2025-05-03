@@ -22,6 +22,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For official information about the P1 port refer to: [P1 Companion Standard](https://www.netbeheernederland.nl/sites/default/files/2024-02/dsmr_5.0.2_p1_companion_standard.pdf)
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 - For official information about the Swedish variant refer to: [Swedish specification](https://www.energiforetagen.se/globalassets/energiforetagen/det-erbjuder-vi/kurser-och-konferenser/elnat/branschrekommendation-lokalt-granssnitt-v2_0-201912.pdf).
+- For official information about the E.ON Hungary variant refer to: [E.ON Hungary P1 port specification](https://www.eon.hu/content/dam/eon/eon-hungary/documents/Lakossagi/aram/muszaki-ugyek/P1_port_felhasznaloi_interfesz_felhasznaloi_tajekoztato_%2020240702.pdf)
 - Supports [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602) integrated in a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103).
 
 <p class='img'>
@@ -35,6 +36,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For Luxembourg meters, choose DSMR version `5L`
 - For Swedish meters, choose DSMR version `5S`
 - For EasyMeter Q3D, choose DSMR version `Q3D`
+- For E-ON Hungary meters (and for most of other Hungarian meters), choose DSMR version `5EONHU`
 
 ### Options
 
@@ -61,7 +63,8 @@ This integration is known to work for:
 - Kaifa MA304C (DSMR 4.2)
 - Kamstrup 382JxC (DSMR 2.2)
 - Sagemcom XS210 ESMR5
-- Sagemcom T211 
+- Sagemcom T211
+- Sagemcom MA304
 - Ziv E0058 ESMR5
 - EasyMeter Q3D
 

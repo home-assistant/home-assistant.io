@@ -46,6 +46,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Smart Rollo (SIRO)](https://smart-rollos.de/)
 - [Smartblinds](https://www.smartblinds.nl/)
 - [Smart Home](https://www.smart-home.hu)
+- [Ublockout](https://www.ublockout.com/)
 - [Uprise Smart Shades](http://uprisesmartshades.com)
 
 This integration allows for both directly controlling blinds that support wifi-connection and controlling Uni- and Bi-direction blinds that connect to a 433MHz WiFi bridge.

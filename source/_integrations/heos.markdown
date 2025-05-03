@@ -14,7 +14,7 @@ ha_platforms:
   - diagnostics
   - media_player
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The HEOS {% term integration %} is used to connect a [HEOS](https://www.denon.com/en-gb/category/heos/) System to Home Assistant. HEOS is a wireless audio ecosystem
@@ -29,6 +29,7 @@ Add this integration to automate playback and group configuration of HEOS-capabl
 - Controlling play mode (e.g., play/pause), volume, mute, and shuffle
 - Playing HEOS favorites, playlists, quick selects, URLs
 - Setting the source to physical inputs (e.g., `AUX1`)
+- Browsing HEOS music services (for example, **Tidal**) and sources (such as **Favorites**)
 - Grouping and ungrouping HEOS devices
 - Clearing playlists
 
@@ -40,12 +41,12 @@ Add this integration to automate playback and group configuration of HEOS-capabl
 {% include integrations/config_flow.md %}
 
 {% note %}
-Only a single instance of the integration is needed to access the entire HEOS system on the network. It will only connect to a single {% term host %}.
+A single instance of the integration adds all devices in the HEOS system to Home Assistant. When setup through discovery, it will automatically select the best {% term host %}. The integration will automatically reconnect and fail over to other hosts in the HEOS system if the configured host goes offline.
 {% endnote %}
 
 {% configuration_basic %}
 Host:
-    description: "The host name or IP address (e.g., \"192.168.1.2\") of your HEOS-capable product. If you have more than one device, select, or enter a host, that is connected to the LAN via wire or has the strongest wireless signal."
+    description: "The host name or IP address (e.g., \"192.168.1.2\") of your HEOS-capable product. If you have more than one device, enter a host that is connected to the LAN via wire and is always powered on."
 {% endconfiguration_basic %}
 
 ## Configuration options
@@ -80,9 +81,59 @@ This integration follows standard integration removal. No extra steps are requir
 1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
 2. Select **Denon HEOS**. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Delete**.
 
-## Playing media
+## Actions
 
-### Play a favorite
+In addition to the standard [Media Player actions](/integrations/media_player#actions), the HEOS integration provides the following {% term actions %}:
+
+Group volume actions: `heos.group_volume_set`, `heos.group_volume_down`, and `heos.group_volume_up` for entities joined to a group.
+
+Queue actions: `heos.get_queue` to manage a player's queue items.
+
+### Action `heos.group_volume_set`
+
+Sets the group's volume while preserving member volume ratios. This action can be called on any entity in a group.
+
+| Data attribute | Optional | Description                                      |
+|------------------------|----------|------------------------------------------------------------------|
+| `entity_id`            |      yes | A media player entity that is joined to a group.                  |
+| `volume_level`         |       no | The volume level, where 0 is inaudible, 1 is the maximum volume. |
+
+### Action `heos.get_queue`
+
+Returns the items in the player's queue. This can be used to inspect the current play queue of target players.
+
+| Data attribute | Optional | Description                                      |
+|------------------------|----------|------------------------------------------------------------------|
+| `entity_id`            | no      | `entity_id` of the player(s)                                     |
+
+Example response:
+
+```yaml
+media_player.office:
+  queue:
+    - queue_id: 1
+      song: Alone Again
+      album: After Hours
+      artist: The Weeknd
+      image_url: >-
+        http://resources.wimpmusic.com/images/22f72311/8e9e/461e/a100/d9cfd4ddc2fa/640x640.jpg
+      media_id: "134788274"
+      album_id: "134788273"
+    - queue_id: 2
+      song: Too Late
+      album: After Hours
+      artist: The Weeknd
+      image_url: >-
+        http://resources.wimpmusic.com/images/22f72311/8e9e/461e/a100/d9cfd4ddc2fa/640x640.jpg
+      media_id: "134788275"
+      album_id: "134788273"
+```
+
+## Examples
+
+### Playing media
+
+#### Play a favorite
 
 You can play a HEOS favorite by number or name with the `media_player.play_media` action. Example action data payload:
 
@@ -100,7 +151,7 @@ data:
 | `media_content_type`   | no       | Set to the value `favorite`                                         |
 | `media_content_id`     | no       | (e.g., `1`) or name (e.g., `Thumbprint Radio`) of the HEOS favorite |
 
-### Play a playlist
+#### Play a playlist
 
 You can play a HEOS playlist with the `media_player.play_media` action. Example action data payload:
 
@@ -118,7 +169,7 @@ data:
 | `media_content_type`   | no       | Set to the value `playlist`   |
 | `media_content_id`     | no       | The name of the HEOS playlist |
 
-### Play a Quick Select
+#### Play a Quick Select
 
 You can play a HEOS Quick Select by number or name with the `media_player.play_media` action. Example action data payload:
 
@@ -136,7 +187,7 @@ data:
 | `media_content_type`   | no       | Set to the value `quick_select`                                      |
 | `media_content_id`     | no       | The quick select number (e.g., `1`) or name (e.g., `Quick Select 1`) |
 
-### Play a URL
+#### Play a URL
 
 You can play a URL through a HEOS media player using the `media_player.play_media` action. The HEOS player must be able to reach the URL.
 
@@ -160,9 +211,27 @@ data:
 | `media_content_type`   | no       | Set to the value `url`                           |
 | `media_content_id`     | no       | The full URL to the stream (max 255 characters)  |
 
-## Grouping players
+#### Play a queue item
 
-### Join
+You can play/move to an item within the player's queue by using the `media_player.play_media` action. Set `media_content_type` to `queue` and `media_content_id` to the index (starting from 1) of an item in the play queue. The play queue can be enumerated by using the `heos.get_queue` action. Example action data payload:
+
+```yaml
+action: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: "queue"
+  media_content_id: "1"
+```
+
+| Data attribute | Optional | Description                   |
+| ---------------------- | -------- | ----------------------------- |
+| `entity_id`            | yes      | `entity_id` of the player(s)  |
+| `media_content_type`   | no       | Set to the value `queue`   |
+| `media_content_id`     | no       | The queue index (e.g. `1`) |
+
+### Grouping players
+
+#### Join
 
 To group HEOS media players together for synchronous playback, use the `media_player.join` action.
 
@@ -186,7 +255,7 @@ data:
 | `entity_id`            | yes      | The media player entity whose playback will be expanded to the players specified in `group_members`. |
 | `group_members`        | no       | The player entities which will be synced with the playback from `entity_id`.                         |
 
-### Unjoin
+#### Unjoin
 
 For removing a HEOS player from a group, use the `media_player.unjoin` action.
 
@@ -200,9 +269,11 @@ data:
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | yes      | Remove this media player from any player groups. |
 
-## Actions
 
-The HEOS integration makes available the standard [Media Player actions](/integrations/media_player#actions).
+{% note %}
+
+Actions may fail if they cannot be processed by the HEOS device. For example, attempting to call `media_player.clear_playlist` when the queue is empty will result in an error. To prevent this from halting a script or automation, set [`continue_on_error: true`](/docs/scripts/#continuing-on-error) in the action call.
+{% endnote %}
 
 ## Supported devices
 

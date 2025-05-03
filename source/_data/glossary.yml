@@ -261,6 +261,12 @@
   link: /docs/configuration/events/
   aliases:
     - events
+- term: Event entity
+  definition: >-
+    Events are signals that are emitted when something happens, for example,
+    when a user presses a physical button like a doorbell or when a button on a
+    remote control is pressed.
+  link: /integrations/event
 - term: Floor
   definition: >-
     A floor in Home Assistant is a logical grouping of areas that are meant to
@@ -532,7 +538,6 @@
     entities for organic, paper, and packaging waste. In terms of functionality,
     the information service is like a device. It is called *service* to avoid
     confusion, as it does not come with a piece of hardware.
-  link: /docs/scripts/perform-actions/
   aliases:
     - services
 - term: State
