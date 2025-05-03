@@ -71,7 +71,7 @@ Password:
 Uses an SSL certificate:
     description: Whether to use SSL encryption for connecting to your FRITZ!Box router.
 Enable network device tracking:
-    description: Whether to enable or disable the network device tracking feature. When disabled all network device related entities (_Parental control switches, Device tracker and WoL buttons_) will also be removed or not created.
+    description: Whether to enable or disable the network device tracking feature. When disabled, all network device related entities (_Parental control switches, Device tracker and WoL buttons_) will also be removed or not created.
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
@@ -82,7 +82,7 @@ Consider home:
 Enable old discovery method:
     description: Required in scenarios such as networks without mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
 Enable network device tracking:
-    description: Whether to enable or disable the network device tracking feature. When disabled all network device related entities (_Parental control switches, Device tracker and WoL buttons_) will also be removed or not created.
+    description: Whether to enable or disable the network device tracking feature. When disabled, all network device related entities (_Parental control switches, Device tracker and WoL buttons_) will also be removed or not created.
 {% endconfiguration_basic %}
 
 ## Data updates
