@@ -55,7 +55,26 @@ It is possible to add multiple Zimi Cloud Connect devices.
 
 ## Available Entities
 
+The integration will support all Zimi devices.  It should be noted that the naming conventions and default integration types may not be what the user is expecting.
+
+1. Zimi devices that are generic switch's will be shown in the UI as a switch and not as a light.   The 'Identify as light for voice control' is not available in the API to pass the necessary information to HA to correctly classify.   For more details of the concept and how to change your device to the correct type after the initial integration see [Change device type of a switch] (<https://www.home-assistant.io/integrations/switch_as_x/>).
+2. Zimi devices and names will be mapped per HA guidelines in the table below.   The user may change these names to more friendly names - see [Customizing entities] (<https://www.home-assistant.io/docs/configuration/customizing-devices/>).
+
 When you add a supported device, the following entities will be created:
+
+| Zimi Product | HA Device Name | HA Entities | HA Default Friendy Name | Supported |
+|--------------|----------------|-------------|-------------------------|-----------|
+|Blind Controller|Cover|1xCover|Cover {Name}|Future|
+|Fan and Light Controller|Fan|1xFan<br>1xSwitch|Fan {Name}<br>Fan {Name}|Future|
+|Garage Door Controller|Cover|1xCover<br>2xSensor|Cover {Name}<br>Cover {Temperature}<br>Cover {Humidity}|Future|
+|Light Dimmer Switch|Light|1xLight|Light {Name}|Yes|
+|Multi Dimmer Switch (2 button)|Light|1xLight|Light {Name}|Yes|
+|Multi Dimmer Switch (4 button)|Light|2xLight|Light {Name}<br>Light {Name}|Yes|
+|Multi-Purpose Switch (1 button)|Switch|1xSwitch|Switch {Name}|Future|
+|Multi-Purpose Switch (2 button)|Switch|2xSwitch|Switch {Name}<br>Switch {Name}|Future|
+|Multi-Purpose Switch (3 button)|Switch|3xSwitch|Switch {Name}<br>Switch {Name}<br>Switch {Name}|Future|
+|Multi-Purpose Switch (4 button)|Switch|4xSwitch|Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name}|Future|
+|Power Point|Outlet|2xOutlet|Outlet {Name}|Future|
 
 ### Zimi Light Controller
 
