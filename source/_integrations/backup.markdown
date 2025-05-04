@@ -121,6 +121,6 @@ The timestamp of the last successful automatic backup.
 The state of the last automatic backup. Possible states are:
 
 - No automatic backups yet
-- Last automatic backup wasn't stored in all locations
-- Last automatic backup failed
+- Not stored in all locations
+- Failed
 - Backed up
