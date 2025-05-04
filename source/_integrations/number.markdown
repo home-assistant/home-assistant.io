@@ -75,7 +75,7 @@ The following device classes are supported for numbers:
 - **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d or mm/h
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg or psi
-- **reactive_power**: Reactive power in var
+- **reactive_power**: Reactive power in var or kvar
 - **signal_strength**: Signal strength in dB or dBm
 - **sound_pressure**: Sound pressure in dB or dBA
 - **speed**: Generic speed in ft/s, in/d, in/h, in/s, km/h, kn, m/s, mph, mm/d, or mm/s
@@ -91,7 +91,7 @@ The following device classes are supported for numbers:
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
 - **wind_direction**: Wind direction in °
 - **wind_speed**: Wind speed in Beaufort, ft/s, km/h, kn, m/s, or mph
- 
+
 ## Actions
 
 The Number entities registers the following actions:

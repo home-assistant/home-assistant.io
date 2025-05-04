@@ -36,7 +36,7 @@ This defines how many minutes before sunset is considered candle-lighting time. 
 
 ### Minutes after sunset for Havdalah
 
-By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static offset pas the time of sunset.
+By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static offset past the time of sunset.
 
 ### Latitude, Longitude, Time Zone and Elevation
 
@@ -71,6 +71,7 @@ Time sensor states are represented as ISO8601 formatted *UTC time*.
 - `plag_hamincha`: Time of the Plag Hamincha (פלג המנחה)
 - `shkia`: Sunset (Shkiya - שקיעה)
 - `t_set_hakochavim`: Time at which the first stars are visible (Tseit Hakochavim - צאת הכוכבים)
+- `t_set_hakochavim_3_stars`: Time at which 3 stars are visible, mostly used for Havdalah
 - `upcoming_shabbat_candle_lighting`: The time of candle lighting for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat.
 - `upcoming_shabbat_havdalah`: The time of havdalah for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat. If it is currently a three-day holiday, this value *could* be None (i.e., if a holiday is Sat./Sun./Mon. and it's Saturday, there will be no `shabbat_havdalah` value. See comments in hdate library for details.)
 - `upcoming_candle_lighting`: The time of candle lighting for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the candle lighting for Rosh Hashana on Monday night. This avoids a situation of triggering pre-candle-lighting automations while it is currently Yom Tov. To always get the Shabbat times, use the `upcoming_shabbat_candle_lighting` sensor.
@@ -137,3 +138,60 @@ The following is the list of holidays the sensor knows about with their selected
 | tisha_bav            | Tish'a B'Av                | תשעה באב              | FAST_DAY                  |
 | tu_bav               | Tu B'Av                    | ט"ו באב               | MINOR_HOLIDAY             |
 | rosh_chodesh         | Rosh Chodesh               | ראש חודש              | ROSH_CHODESH              |
+
+## Actions
+
+Available {% term actions %}:
+
+- `jewish_calendar.count_omer`
+
+### Action Count the Omer
+
+The `jewish_calendar.count_omer` action returns the phrase for counting the Omer for a given date.
+
+| Data attribute | Optional | Description                              |
+| -------------- | -------- | ---------------------------------------- |
+| `date`         | yes    | Date for which to get the Omer blessing. Defaults to today. |
+| `after_sunset` | yes  | If true and a date is provided, calculates the Omer count based on the Hebrew date, which starts after sunset. Ignored if no date is specified. Defaults to true. |
+| `nusach`       | no     | Nusach (tradition) of the Omer blessing. |
+| `language`     | yes    | Language to return. Defaults to Hebrew. |
+
+If there's no Omer count on the given day, the message will be empty.
+Supported nusachim are: Ashkenaz, Sfarad, Adot Mizrah and Italian.
+
+#### Example
+
+```yaml
+action: jewish_calendar.count_omer
+data:
+  nusach: sfarad
+  date: "2025-05-20"       # optional; defaults to today
+  language: en             # optional; defaults to Hebrew
+  after_sunset: true       # optional; defaults to true
+```
+
+Will return the following:
+
+```yaml
+message: Today is the thirty-seventh day, which are five weeks and two days of the Omer
+weeks: 5
+days: 2
+total_days: 37
+```
+
+#### Minimal call
+
+```yaml
+action: jewish_calendar.count_omer
+data:
+  nusach: sfarad
+```
+
+Will return the current text in Hebrew based on the Hebrew date, considering the current time relative to sunset.
+
+```yaml
+message: היום ארבעה עשר יום שהם שני שבועות לעומר
+weeks: 2
+days: 0
+total_days: 14
+```

@@ -8,7 +8,8 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories:
-- Announcements
+  - Announcements
+  - Works-with-Home-Assistant
 og_image: /images/blog/2022-07-12-partner-program/partner_program_og.jpg
 ---
 
