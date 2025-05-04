@@ -36,6 +36,13 @@ Calendar URL:
     description: "The URL of the remote calendar. Example: `https://calendar.google.com/calendar/ical/p07n98go11onamd08d0kmq6jhs%40group.calendar.google.com/public/basic.ics`"
 {% endconfiguration_basic %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Treat events that start and end at midnight as all day events:
+  description: Enable to treat events that start and end at midnight in the same time zone as Home Assistant as all day events.
+{% endconfiguration_basic %}
+
 ## Data updates
 
 At the start of the integration, we fetch data from the remote. If the update fails, the integration tries again to fetch the data. After that, the update interval of the calendar is set to every 24 hours.
