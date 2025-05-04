@@ -239,6 +239,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Switch|Charge|Yes|
 |Switch|Defrost|Yes|
 |Switch|Sentry mode|Yes|
+|Switch|Valet mode|Yes|
 |Update|Update|Yes|
 
 ### Energy sites
