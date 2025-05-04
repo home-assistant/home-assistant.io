@@ -16,6 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@nmaggioni'
+ha_quality_scale: legacy
 ---
 
 A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/managing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and Wi-Fi registrations.
@@ -24,6 +25,9 @@ There is currently support for the following device types within Home Assistant:
 
 - [Presence detection](#presence-detection)
 - [Sensor](#sensor)
+  - [Finding OIDs](#finding-oids)
+  - [Examples](#examples)
+    - [Printer uptime minutes](#printer-uptime-minutes)
 - [Switch](#switch)
 
 {% important %}
@@ -101,6 +105,8 @@ priv_key:
 {% endconfiguration %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
+
+{% include integrations/using_templates.md %}
 
 ## Sensor
 

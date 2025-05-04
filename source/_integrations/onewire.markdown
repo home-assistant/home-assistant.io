@@ -10,13 +10,14 @@ ha_codeowners:
   - '@garbled1'
   - '@epenet'
 ha_domain: onewire
-ha_quality_scale: gold
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - select
   - sensor
   - switch
 ha_integration_type: hub
+ha_zeroconf: true
 ---
 
 The Onewire integration supports sensors that use the 1-wire bus for communication.
@@ -38,6 +39,12 @@ Each 1-wire component data sheet describes the different properties the componen
 | 3A     | [DS2413](https://datasheets.maximintegrated.com/en/ds/DS2413.pdf)  | 2 sensed (sensed.A/B) <sup>[4](#note_4)</sup> |
 | EF     | [HobbyBoard](https://hobbyboards.com/)                             | Hub Branch State <sup>[3](#note_3) [4](#note_4)</sup> |
 
+#### Select:
+
+| Family | Device           | Physical Quantity  |
+| -------|:-----|:-----|
+| 28     | [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)          | Temperature resolution          |
+
 #### Sensors:
 
 | Family | Device           | Physical Quantity  |
@@ -45,6 +52,7 @@ Each 1-wire component data sheet describes the different properties the componen
 | 10     | [DS18S20](https://www.maximintegrated.com/en/products/sensors/DS18S20.html)  | Temperature                     |
 | 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)            | Temperature and pressure when using TAI-8570 <sup>[1](#note_1)</sup> |
 | 1D     | [DS2423](https://datasheets.maximintegrated.com/en/ds/DS2423.pdf)            | Counter                         |
+| 20     | [DS2450](https://datasheets.maximintegrated.com/en/ds/DS2450.pdf) | 4 x Voltage         |
 | 22     | [DS1822](https://datasheets.maximintegrated.com/en/ds/DS1822.pdf)            |                                 |
 | 26     | [DS2438](https://datasheets.maximintegrated.com/en/ds/DS2438.pdf)            | Temperature, Voltage, Current (pressure when using B1-R1-A, illuminance when using S2-R1-A, humidity when using compatible Honeywell or Humirel sensor) <sup>[2](#note_2)</sup> |
 | 28     | [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)          | Temperature                     |
@@ -133,3 +141,9 @@ UPDATE states SET entity_id='sensor.<sensor_name>_humidity' WHERE entity_id LIKE
 ```
 
 Remember to replace `<sensor_name>` with the actual name of the sensor, as seen in the `SELECT` query.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

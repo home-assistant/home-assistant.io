@@ -12,12 +12,29 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - media_player
+  - button
 ha_iot_class: Local Polling
 ---
 
 The LinkPlay {% term integrations %} for Home Assistant allows you to control various media players based on the LinkPlay protocol. The integration supports auto-discovery on your local network through [Zeroconf](/integrations/zeroconf).
 
 {% include integrations/config_flow.md %}
+
+## Features
+
+### Media Player 
+
+The media player entity offers robust controls and playback features from the media player integration and provides additionally:
+
+- **Preset playback**: Play LinkPlay presets configured on the device using the action `linkplay.play_preset`. 
+- **Multiroom**: Combine multiple LinkPlay devices in a multiroom. Use the actions `media_player.join` and `media_player.unjoin`. 
+
+### Buttons
+
+The button entities provide some additional LinkPlay features available on the device:
+
+- **Time Sync**: Synchronize the device's internal clock with the current time in Home Assistant. 
+- **Restart Device**: Reboot the device, allowing for convenient troubleshooting and maintenance.
 
 ## Actions
 

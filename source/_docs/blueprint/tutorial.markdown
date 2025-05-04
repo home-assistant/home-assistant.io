@@ -193,7 +193,7 @@ blueprint:
         entity:
           filter:
             - domain: binary_sensor
-            - device_class: motion
+              device_class: motion
     target_light:
       name: Lights
       description: The lights to keep in sync.
@@ -224,7 +224,7 @@ blueprint:
         entity:
           filter:
             - domain: binary_sensor
-            - device_class: motion
+              device_class: motion
     target_light:
       name: Lights
       description: The lights to keep in sync.

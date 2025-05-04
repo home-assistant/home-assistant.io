@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `vlc` platform allows you to control [VLC media player](https://www.videolan.org/vlc/index.html).

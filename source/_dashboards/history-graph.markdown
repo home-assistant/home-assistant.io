@@ -71,6 +71,11 @@ fit_y_data:
   description: If true, configured Y-axis bounds would automatically extend (but not shrink) to fit the data.
   type: boolean
   default: false
+expand_legend:
+  required: false
+  description: If true, the legend will show all items initially
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Options for entities

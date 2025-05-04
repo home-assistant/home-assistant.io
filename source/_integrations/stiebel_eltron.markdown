@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `stiebel_eltron` {% term integration %} lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
@@ -29,6 +30,7 @@ It requires the following components:
 By now, the following units are tested:
 
 - LWZ 504e
+- LWZ 404eco
 - LWZ 304
 - LWZ 304 Trend
 
@@ -58,6 +60,8 @@ To enable this integration, add the following lines to your {% term "`configurat
 # Example configuration.yaml entry
 stiebel_eltron:
   name: LWZ504e
+  host: IP_ADDRESS
+  port: 502
 ```
 
 {% configuration %}
@@ -66,26 +70,13 @@ name:
   required: false
   default: Unnamed Device
   type: string
-hub:
-  description: The name of the hub where this slave is located.
-  required: false
-  default: default
+host:
+  description: The hostname or IP of the stiebel eltron ISG.
+  required: true
   type: string
+port:
+  description: The port of the stiebel eltron ISG.
+  required: false
+  default: 502
+  type: integer
 {% endconfiguration %}
-
-{% important %}
-This integration requires the [Modbus](/integrations/modbus/) integration to be set up to work
-{% endimportant %}
-
-Full configuration example including modbus setup shown below:
-
-```yaml
-# Full example configuration.yaml entry
-modbus:
-  type: tcp
-  host: YOUR_ISGWEB_IP
-  port: 502
-
-stiebel_eltron:
-  name: LWZ504e
-```

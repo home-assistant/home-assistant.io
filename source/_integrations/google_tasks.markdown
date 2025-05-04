@@ -23,67 +23,135 @@ related:
     title: Google Tasks
   - url: https://console.cloud.google.com/apis/library/tasks.googleapis.com
     title: Google Developers Console
+google_dev_console_link: https://console.developers.google.com/start/api?id=tasks
+api: Google Tasks API
+api_link: https://console.cloud.google.com/apis/enableflow?apiid=tasks.googleapis.com
 ---
 
-The **Google Tasks** integration allows you to connect your [Google Tasks](https://support.google.com/tasks/answer/7675772) to Home Assistant. The integration adds a [to-do list entity](/integrations/todo) for
-each task list, allowing you to create, update, or delete items on the list from the **To-do list** dashboard.
+The **Google Tasks** integration allows you to connect your [Google Tasks](https://support.google.com/tasks/answer/7675772)
+to Home Assistant. The integration adds a [to-do list entity](/integrations/todo) for
+each task list, allowing you to create, update, or delete items on the list
+from the **To-do list** dashboard.
 
-{% note %}
-The Google Tasks public API does not support viewing or setting the due time of tasks, only the due date.
-{% endnote %}
+You can use to-do lists in automations, such as adding a new task when Home Assistant detects
+a device has low batteries. When you combine with a Home Assistant voice assistant, you can
+manage your Google Tasks by saying something like *Add clean out garage to personal task list*.
 
 ## Prerequisites
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
-These credentials are the same as the ones for [Nest](/integrations/nest) and [Google Mail](/integrations/google_mail).
+These credentials are the same as the ones for [Nest](/integrations/nest), [Google Mail](/integrations/google_mail), and most other Google integrations.
 These are not the same as *Device Auth* credentials previously recommended for [Google Calendar](/integrations/google).
 
-If you have already set up the correct credentials, you can do step 1 and then skip to step 13 on the below instructions.
-
-{% details "Generate Client ID and Client Secret" %}
-
-This section explains how to generate a Client ID and Client Secret on
-[Google Developers Console](https://console.cloud.google.com/apis/library/tasks.googleapis.com).
-
-1. First, go to the Google Developers Console to enable [Google Tasks](https://console.cloud.google.com/apis/library/tasks.googleapis.com)
-2. The wizard will ask you to choose a project to manage your application. Select a project and select **Continue**.
-3. Verify that your Google Tasks API was enabled and select **Go to credentials**.
-4. Navigate to **APIs & Services** (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials).
-5. Click on the field on the left of the screen, **OAuth Consent Screen**.
-6. Select **External** and **Create**.
-7. Set the **App Name** (the name of the application asking for consent) to anything you want, for example to *Home Assistant*.
-8. You then need to select a **Support email**. To do this, from the dropdown menu, select your email address.
-9. You finally need to complete the section: **Developer contact information**. To do this, enter your email address (the same as above is fine).
-10. Scroll to the bottom and select **Save and Continue**. You don't have to fill out anything else, or it may enable additional review.
-11. You will then be automatically taken to the **Scopes** page. You do not need to add any scopes here, so select **Save and Continue** to move to the **Optional info** page. You do not need to add anything to the **Optional info** page, so select **Save and Continue**, which will take you to the **Summary** page. Select **Back to Dashboard**.
-12. Select **OAuth consent screen** again and set **Publish Status** to **Production**. Otherwise, your credentials will expire every 7 days.
-13. Make sure **Publishing status** is set to production.
-14. Select **Credentials** in the menu on the left-hand side of the screen, then select **Create credentials** (at the top of the screen), then select **OAuth client ID**.
-15. Set the Application type to **Web application** and give this credential set a name (like "Home Assistant Credentials").
-16. Add `https://my.home-assistant.io/redirect/oauth` to **Authorized redirect URIs** then select **Create**. This is not a placeholder and is the URI that must be used.
-17. You will then be presented with a pop-up saying **OAuth client created**, showing **Your Client ID** and **Your Client Secret**. Make a note of these (for example, copy and paste them into a text editor), as you will need them shortly. Once you have noted these strings, select **OK**. If you need to find these credentials again at any point, then navigate to **APIs & Services** > **Credentials**, and you will see **Home Assistant Credentials** (or whatever you named them in the previous step) under **OAuth 2.0 Client IDs**. To view both the **Client ID** and **Client secret**, select the pencil icon. This will take you to the settings page for these credentials, and the information will be on the right-hand side of the page.
-18. Double-check that the **Google Tasks API** has been automatically enabled. To do this, select **Library** from the menu, then search for **Google Tasks API**. If it is enabled, you will see **API Enabled** with a green tick next to it. If it is not enabled, then enable it.
-
-{% enddetails %}
+{% include integrations/google_client_secret.md %}
 
 {% include integrations/config_flow.md %}
 
-The integration setup will next give you instructions to enter the [Application Credentials](/integrations/application_credentials/) (OAuth Client ID and Client Secret) and authorize Home Assistant to access your Google Tasks.
+{% include integrations/google_oauth.md %}
 
-{% details "OAuth and Device Authorization steps" %}
+## Supported functionality
 
-1. Continue through the steps of selecting the account you want to authorize.
+### Entities
 
-2. **NOTE**: You may get a message telling you that the app has not been verified and you will need to acknowledge that in order to proceed.
+The Google Tasks integration provides the following entities.
 
-3. You can now see the details of what you are authorizing Home Assistant to access with two options at the bottom. Select **Continue**.
+#### To-do lists
 
-4. The page will now display **Link account to Home Assistant?**, note **Your instance URL**. If this is not correct, refer to [My Home Assistant](/integrations/my). If everything looks good, select **Link Account**.
+The integration will create a [to-do list entity](/integrations/todo) for every task list.
+For example, a Google Tasks list named *My Tasks* then will have a Home Assistant
+to-do list entity named *My Tasks*.
 
-5. You may close the window, and return back to Home Assistant where you should see a **Success!** message from Home Assistant.
+The Google Task integration can create, update, or delete items on a to-do list.
+The to-do list entities support creating, updating, and deleting items on the to-do
+list. A to-do list item supports the following fields:
 
-{% enddetails %}
+- **Item**: The item is the Google Task *Title* field.
+- **Due date**: The Google Tasks Date. The time field in Google Tasks is not supported
+  by the Google Tasks API.
+- **Description**: The Google Tasks *Details* field.
+- **Status**: The Google Tasks *Completed* check box corresponds to the to-do list
+  status `needs_action` when not checked and `completed` when checked.
+
+
+## Actions
+
+The Google Tasks integration provides all actions supported by a to-do list entity
+including actions for retrieving, creating, updating, and deleting to-do list items and the fields
+described above. See the [To-do list: Actions](/integrations/todo#actions) documentation
+for more details.
+
+## Examples
+
+### Low Battery Maintenance
+
+You can use Google Tasks to help you automate battery maintenance. To tackle this
+you can use this blueprint to send a notification with devices that have low
+low battery level. The notification includes a button that can add an item to your
+Google Tasks to-do list.
+
+[Low Battery Notifications & Actions](https://community.home-assistant.io/t/low-battery-notifications-actions/653754)
+
+
+## Data updates
+
+The Google Tasks integration fetches task lists once initially, and creates a
+to-do list for each task list. Data for each to-do list refreshed refreshed by
+{% term polling %} every 30 minutes.
+
+Updates to the to-do list in Home Assistant use the Google Tasks API and changes
+are reflected immediately in Google Tasks. This will also refresh the to-do
+list contents, {% term polling %} again for any new changes.
+
+## Known limitations
+
+There are some known Google Tasks API limitations that affect this integration:
+
+- Only supports {% term polling %}. Updates in Google Tasks are not reflected immediately in Home Assistant.
+- Only supports viewing or setting a task due date. A task due *time* is not supported.
 
 ## Troubleshooting
 
-If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
+### Can’t setup the integration
+
+#### Symptom: “The OAuth client was not found.”
+
+When trying to configure the integration, the Google OAuth flows shows the message *The OAuth client was not found* and *Error 401: invalid_client*.
+
+##### Description
+
+This means that the application credentials in Home Assistant do not match the
+OAuth credentials in the Google Cloud console.
+
+##### Resolution
+
+To resolve this issue:
+
+1. Follow the instructions in [Application Credentials](/integrations/application_credentials/#deleting-application-credentials) to remove any existing credentials.  
+1. Follow the steps above in the [Prerequisites](#prerequisites).
+1. Follow the steps above in the [Configuration](#configuration).
+
+#### Symptom: "Unable to access the Google API: Tasks API has not been used in project before or it is disabled"
+
+Home Assistant fails to configure the integration with the error *Unable to access the
+Google API: Google Tasks API has not been used in project before or it is disabled*.
+
+##### Description
+
+This means that Home Assistant is unable to use the Google Tasks API because it was not
+enabled in the Google Cloud Console.
+
+##### Resolution
+
+Follow the steps above in the [Prerequisites](#prerequisites) to enable the Google Tasks API.
+
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+You will be asked if you would like to remove [Application Credentials](/integrations/application_credentials/) which you can do if you no longer plan to use
+Google Tasks with Home Assistant. You may want to also remove any credentials
+in the Google Cloud Console, created above in the Prerequisites, if they are no
+longer in use with any of your other Home Assistant integrations.

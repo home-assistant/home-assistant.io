@@ -87,20 +87,12 @@ You can use **Developer Tools** to test your [Webhooks](https://ifttt.com/maker_
 {% configuration_basic %}
 event:
   description: The name of the event to send.
-  required: true
-  type: string
 value1:
   description: Generic field to send data via the event.
-  required: false
-  type: string
 value2:
   description: Generic field to send data via the event.
-  required: false
-  type: string
 value3:
   description: Generic field to send data via the event.
-  required: false
-  type: string
 {% endconfiguration_basic %}
 
 When your screen looks like this, select the **Perform action** button.

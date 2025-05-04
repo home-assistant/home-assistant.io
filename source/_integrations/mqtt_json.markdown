@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `mqtt_json` device tracker {% term integration %} allows you to detect presence by monitoring an MQTT topic for new locations. To use this platform, you specify a unique topic for each device.

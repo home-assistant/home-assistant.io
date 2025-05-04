@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `lifx_cloud` scene {% term integration %} allows you to activate the scenes that LIFX smartphone apps store in the LIFX cloud.

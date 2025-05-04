@@ -42,12 +42,11 @@ To get started with the general settings in YAML, follow these steps:
       latitude: 32.87336
       longitude: 117.22743
       elevation: 430
+      radius: 100
       unit_system: metric
       currency: USD
       country: US
       time_zone: "America/Los_Angeles"
-      external_url: "https://www.example.com"
-      internal_url: "http://homeassistant.local:8123"
       allowlist_external_dirs:
         - "/usr/var/dumping-ground"
         - "/tmp"
@@ -78,6 +77,10 @@ elevation:
   description: Altitude above sea level in meters. Impacts sunrise data.
   required: false
   type: integer
+radius:
+  description: Radius in meters defining your locations area. Impacts location awareness.
+  required: false
+  type: integer
 unit_system:
   description: "`metric` for Metric, `us_customary` for US Customary. This also sets temperature_unit, Celsius for Metric and Fahrenheit for US Customary"
   required: false
@@ -96,11 +99,11 @@ currency:
   type: string
   default: "EUR"
 external_url:
-  description: "The URL that Home Assistant is available on from the internet. For example: `https://example.duckdns.org:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
+  description: "The URL that Home Assistant is available on from the internet. For example: `https://example.duckdns.org:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported. This can also be configured by navigating to **{% my network title="Settings > System > Network" %}**."
   required: false
   type: string
 internal_url:
-  description: "The URL that Home Assistant is available on from your local network. For example: `http://homeassistant.local:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
+  description: "The URL that Home Assistant is available on from your local network. For example: `http://192.168.0.10:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported. This can also be configured by navigating to **{% my network title="Settings > System > Network" %}**."
   required: false
   type: string
 customize:
@@ -296,8 +299,8 @@ homeassistant:
     ice_servers:
     # Add an entry for each STUN or TURN server
     - url:
-      - "stun:stun.l.google.com:19302"
-      - "stun:stun1.l.google.com:3478"
+      - "stun:stun.example.com:19302"
+      - "stun:stun2.example.com:12345"
     - url: "turn:turn.domain.com"
       username: "username"
       credential: "abc123"

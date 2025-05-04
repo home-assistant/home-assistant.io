@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file
+ha_quality_scale: legacy
 ---
 
 This section shows you how to integrate a [Xiaomi router](http://miwifi.com) or a Xiaomi camera into Home Assistant.
