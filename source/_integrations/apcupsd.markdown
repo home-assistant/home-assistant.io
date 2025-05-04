@@ -138,9 +138,10 @@ Some sensors are disabled by default, since they provide information that is onl
   - **Description**: The number of transfers to batteries since apcupsd startup.
   - **Available for machines**: all
 
-- **Last Self Test**
+- **Last Self-test**
   - **Description**: The date and time of the last self-test performed by the UPS.
   - **Available for machines**: all
+  - **Remarks**: This only becomes available when a self-test (either automatic or manual) is performed.
 
 - **Self Test Result**
   - **Description**: The results of the last self test, and may have the following values:
