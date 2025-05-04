@@ -39,6 +39,7 @@ When you want to add a device for the first time, turn it on before following th
 - Epson EH-TW7000
 - Epson EH-TW9400W (shares platform with 7400/8400/9400(w))
 - Epson EH-TW3200
+- Epson Powerlite W39
 
 ## Configuration
 

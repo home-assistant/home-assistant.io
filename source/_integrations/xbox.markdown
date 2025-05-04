@@ -71,7 +71,7 @@ The Xbox remote platform will create Remote entities for each console linked to 
 | Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | no       | `entity_id` of the Xbox remote.                                                      |
-| `command`              | no       | List of the controller commands or text input to be sent.<br />Commands: A, B, X, Y, Up, Down, Left, Right |
+| `command`              | no       | List of the controller commands or text input to be sent.<br />Commands: A, B, X, Y, Up, Down, Left, Right, Menu, View |
 | `num_repeats`          | yes      | Number of times to repeat the commands.                                |
 | `delay_secs`           | yes      | Interval in seconds between one send and another.                      |
 

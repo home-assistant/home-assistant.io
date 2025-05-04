@@ -13,6 +13,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **WGL Designs W800RF32** {% term integration %} supports W800RF32 devices by WGL Designs which

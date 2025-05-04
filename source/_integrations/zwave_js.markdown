@@ -44,7 +44,6 @@ ha_platforms:
   - update
 ha_integration_type: hub
 ha_zeroconf: true
-ha_quality_scale: platinum
 ---
 
 The **Z-Wave** {% term integration %} allows you to control a Z-Wave network from Home Assistant via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
@@ -1003,6 +1002,19 @@ In Home Assistant, a single [association group](#association-group) is implement
 This association group is used when Home Assistant [resets the Z-Wave controller](#controller).
 
 Under normal circumstances, it is not necessary to add a device to this group.
+
+## Identification via Z-Wave
+
+Other Z-Wave devices can instruct a Home Assistant instance to identify itself by sending the following `Indicator Set` Z-Wave command (all bytes are hexadecimal):
+
+```txt
+87010003500308500403500506
+            ~~    ~~    ~~
+```
+
+The bytes underlined with `~` can also have any other value.
+
+When receiving such a command, Home Assistant will show a notification in its sidebar, mentioning which node sent the command.
 
 ## Z-Wave Command Classes Home Assistant responds to when queried
 

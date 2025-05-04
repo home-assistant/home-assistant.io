@@ -1,28 +1,25 @@
 ---
-title: "About wake words"
+title: "The Home Assistant approach to wake words "
 related:
   - docs: /voice_control/thirteen-usd-voice-remote/
     title: Create a $13 voice assistant
-  - docs: /voice_control/install_wake_word_add_on/
-    title: Enable wake words
   - docs: /voice_control/create_wake_word/
     title: Create your own wake words
   - docs: /voice_control/voice_remote_cloud_assistant/)
     title: Create a cloud assistant
+  - docs: /voice_control/voice_remote_local_assistant/)
+    title: Create a local assistant
+  - docs: /voice_control/best_practices/)
+    title: Best practices with Assist
 ---
-
-Wake words are special words or phrases that tell a voice assistant that a command is about to be spoken. The device then switches from passive to active listening. Examples are: *Hey Google*, *Hey Siri*, or *Alexa*. Home Assistant supports its own wake words, such as *Hey Nabu*.
-
-## The Home Assistant approach to wake words
-
-### The challenge
+## The challenge
 
 - The wake words have to be processed extremely fast: You can’t have a voice assistant start listening 5 seconds after a wake word is spoken.
 - There is little room for false positives.
 - Wake word processing is based on compute-intensive AI models.
 - Voice satellite hardware generally does not have a lot of computing power, so wake word engines need hardware experts to optimize the models to run smoothly.
 
-### The approach
+## The approach
 
 To avoid being limited to specific hardware, the wake word detection is done inside Home Assistant. Voice satellite devices constantly sample current audio in your room for voice. When it detects voice, the satellite sends audio to Home Assistant where it checks if the wake word was said and handle the command that followed it.
 

@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `anel_pwrctrl` switch platform allows you to control [ANEL PwrCtrl](https://en.anel.eu/index.htm?src=/produkte/produkte.htm) devices on firmware 6.x and older. [ANEL PwrCtrl](https://en.anel.eu/index.htm?src=/produkte/produkte.htm) devices on firmware 7.x are not supported.

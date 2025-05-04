@@ -13,6 +13,7 @@ ha_platforms:
   - cover
   - switch
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The SUPLA integration allows you to use [SUPLA](https://supla.org/) devices in Home Assistant.
@@ -24,6 +25,12 @@ Currently, only covers (shutters in SUPLA's terminology), gates, garage doors, a
 Right now, it's impossible to add a device -- all of them are discovered from SUPLA-CLOUD's servers or yours.
 
 For more complete Home Assistant support based on MQTT autodiscovery, consider switching your Supla devices to MQTT (through the setup interface). Or use the MQTT broker provided by [Supla Cloud](https://cloud.supla.org/integrations/mqtt-broker).
+
+{% important %}
+
+The Supla Cloud MQTT broker requires [changing the default MQTT protocol setting](https://www.home-assistant.io/integrations/mqtt/#broker-configuration) at version 3.1.
+
+{% endimportant %}
 
 ## Configuration
 

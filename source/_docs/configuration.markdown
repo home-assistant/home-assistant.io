@@ -6,7 +6,7 @@ related:
     title: YAML syntax
   - docs: /docs/configuration/secrets
     title: Storing credentials in `secrets.yaml` file
-  - docs: /common-tasks/os/#backups
+  - docs: /common-tasks/general/#backups
     title: Creating and restoring backups
   - docs: /integrations/backup/docs/tools/dev-tools/#reloading-the-yaml-configuration
     title: Creating backups for Home Assistant Container and Core

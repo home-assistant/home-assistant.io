@@ -7,12 +7,12 @@ ha_category:
   - Hub
   - Presence detection
   - Sensor
+  - Switch
   - Water heater
   - Weather
 ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@chiefdragon'
   - '@erwindouna'
 ha_domain: tado
 ha_config_flow: true
@@ -22,6 +22,7 @@ ha_platforms:
   - climate
   - device_tracker
   - sensor
+  - switch
   - water_heater
 ha_dhcp: true
 ha_integration_type: integration
@@ -37,12 +38,30 @@ There is currently support for the following device types within Home Assistant:
 - [Presence detection](#presence-detection)
 - Sensor - for some additional information of the zones.
 - Weather - for information about the current weather at the location of your Tado home.
-
-{% include integrations/config_flow.md %}
+- Switch - for controlling child lock on supported devices
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 
-It currently supports presenting the current temperature, the setting temperature and the current operation mode. The operation mode can be set to manual, auto and off. If no user is at home anymore, all Tado zones show the away-state (Only with Tado assist mode). Manually switching between home-mode and away-mode is also supported. Manually switching to auto-mode is only supported with Tado assist mode. Any Tado climate card can be switched between these presence modes, this changes the setting for the entire home.
+It currently supports presenting the current temperature, the setting temperature, and the current operation mode. The operation mode can be set to manual, auto, and off. If no user is at home anymore, all Tado zones show the away-state (Only with Tado assist mode). Manually switching between `home-mode` and `away-mode` is also supported. Manually switching to `auto-mode` is only supported with Tado assist mode. Any Tado climate card can be switched between these presence modes. This changes the setting for the entire home.
+
+{% include integrations/config_flow.md %}
+
+## Connect with Tado
+
+As of **March 21st 2025**, Tado has changed the authentication method. This means a few extra steps need to be followed in order to log in:
+
+1. When you set up this integration, the integration will setup a "Device Code" and provide a URL to Tado's authentication server.
+2. Follow the URL and confirm the "Device Code" (normally it should be copied automatically).
+3. Follow the steps to login and authenticate your account.
+4. Once the authentication is completed, go back to Home Assistant. Wait a few seconds for the loading screen to finish. You are now connected with Tado!
+
+### Migrate to new authentication method
+
+By default, the integration detects when re-authentication is needed for the new login method and prompts with a re-authenticate action. Follow the steps described under  [Connect with Tado](#connect-with-tado).
+
+## Unsupported device types
+
+New Tado X devices are not supported by this integration, they have to be used through the [Matter integration](/integrations/matter).
 
 ## Presence detection
 

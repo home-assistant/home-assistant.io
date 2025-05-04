@@ -80,3 +80,5 @@ data:
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+{% include integrations/using_templates.md %}

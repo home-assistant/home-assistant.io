@@ -10,6 +10,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `graphite` {% term integration %} records all events and state changes and feeds the data to a [graphite](http://graphiteapp.org/) instance.

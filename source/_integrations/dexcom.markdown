@@ -18,7 +18,9 @@ The Dexcom integration allows you to view your CGM data from [Dexcom](https://ww
 
 ## Prerequisites
 
-You will need to set up the [Dexcom Share](https://provider.dexcom.com/education-research/cgm-education-use/videos/setting-dexcom-share-and-follow) feature in your Dexcom G6 App to use this integration. Enabling the Dexcom Share service requires setup of at least one follower. The integration will use the Dexcom user's credentials, not the follower's credentials.
+You will need to set up the Dexcom Share feature in your Dexcom [G6](https://provider.dexcom.com/education-research/cgm-education-use/videos/setting-dexcom-share-and-follow) or [G7](https://www.dexcom.com/faqs/how-do-i-share-my-dexcom-g7-glucose-data-with-followers) app to use this integration. Enabling the Dexcom Share service requires setup of at least one follower. The integration will use the Dexcom user's credentials, not the follower's credentials.
+
+Your Dexcom account must have an email address—not a phone number—as its primary user ID. If you normally log into your Dexcom account using a phone number, then this integration will not work. It is unfortunately not possible to change from a phone to email user ID after an account is created, so you will need to create a new Dexcom account in this case.
 
 {% include integrations/config_flow.md %}
 

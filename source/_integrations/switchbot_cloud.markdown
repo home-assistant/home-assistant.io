@@ -2,11 +2,12 @@
 title: SwitchBot Cloud
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
+  - Button
   - Hub
+  - Lock
   - Plug
   - Remote
   - Sensor
-  - Lock
   - Switch
   - Vacuum
 ha_release: '2023.10'
@@ -17,6 +18,7 @@ ha_codeowners:
   - '@Gigatrappeur'
 ha_domain: switchbot_cloud
 ha_platforms:
+  - button
   - climate
   - lock
   - sensor
@@ -44,10 +46,17 @@ Please note, device names configured in the SwitchBot app are transferred into H
   - ON/OFF for all appliance types excepted "Others"
   - Air Conditioner
 - Lock
+- Lock Pro
 - Meter
 - MeterPlus
+- MeterPro
+- MeterPro (C02)
 - Outdoor Meter
 - Vacuum K10+, K10+ pro, S1, S1 Plus
+- Hub 2
+- Relay Switch 1
+- Relay Switch 1PM
+- Bot (as a Switch in `switchMode` and `customizeMode`, as a Button in `pressMode`)
 
 ## Important considerations
 

@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 [QVR Pro](https://www.qnap.com/en/software/qvr-pro) allows you to create 
