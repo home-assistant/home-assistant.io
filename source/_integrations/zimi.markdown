@@ -12,7 +12,7 @@ ha_category:
 ha_domain: zimi
 ---
 
-The Zimi integration allows you to connect your Zimi Cloud Controller to Home Assistant and, via this integration control local devices connected to the Zimi mesh.
+The Zimi integration allows you to connect your Zimi Cloud Controller to Home Assistant and, via this integration, control local devices connected to the Zimi mesh.
 
 (See [Zimi's website](https://zimi.life/) for details of the Zimi portfolio).
 
@@ -52,7 +52,7 @@ If the Zimi discovery process is unsuccessful (i.e. the Zimi Cloud Connect is no
 host:
     description: "The IP address of your Zimi Cloud Connect. You can find it via your router admin interface."
 port:
-    description: "The port number used to connect to your Zimi Cloud Connect.   If no port number is entered the integration will use the default port.   (The default port will be correct in almost all deployment scenarios)"
+    description: "The port number used to connect to your Zimi Cloud Connect.   If no port number is entered, the integration will use the default port.   (The default port will be correct in almost all deployment scenarios)"
 {% endconfiguration_basic %}
 
 It is possible to add multiple Zimi Cloud Connect devices.
@@ -61,24 +61,24 @@ It is possible to add multiple Zimi Cloud Connect devices.
 
 The integration will support all Zimi devices.  It should be noted that the naming conventions and default integration types may not be what the user is expecting.
 
-1. Zimi devices that are generic switches will be shown in the UI as a switch and not as a light.   The 'Identify as light for voice control' is not available in the API to pass the necessary information to HA to correctly classify.   For more details of the concept and how to change your device to the correct type after the initial integration see [Change device type of a switch](/integrations/switch_as_x/).
+1. Zimi devices that are generic switches will be shown in the UI as a switch and not as a light.   The 'Identify as light for voice control' is not available in the API to pass the necessary information to HA to correctly classify.   For more details of the concept and how to change your device to the correct type after the initial integration, see [Change device type of a switch](/integrations/switch_as_x/).
 2. Zimi devices and names will be mapped per HA guidelines in the table below.   The user may change these names to more friendly names - see [Customizing entities](/docs/configuration/customizing-devices/).
 
 When you add a supported device, the following entities will be created:
 
-| Zimi Product | HA Device Name | HA Entities | HA Default Friendly Name | Supported |
-|--------------|----------------|-------------|--------------------------|-----------|
-|Blind Controller|Cover|1xCover|Cover {Name}|Future|
-|Fan and Light Controller|Fan|1xFan<br>1xSwitch|Fan {Name}<br>Fan {Name}|Future|
-|Garage Door Controller|Cover|1xCover<br>2xSensor|Cover {Name}<br>Cover {Temperature}<br>Cover {Humidity}|Future|
-|Light Dimmer Switch|Light|1xLight|Light {Name}|Yes|
-|Multi Dimmer Switch (2 button)|Light|1xLight|Light {Name}|Yes|
-|Multi Dimmer Switch (4 button)|Light|2xLight|Light {Name}<br>Light {Name}|Yes|
-|Multi-Purpose Switch (1 button)|Switch|1xSwitch|Switch {Name}|Future|
-|Multi-Purpose Switch (2 button)|Switch|2xSwitch|Switch {Name}<br>Switch {Name}|Future|
-|Multi-Purpose Switch (3 button)|Switch|3xSwitch|Switch {Name}<br>Switch {Name}<br>Switch {Name}|Future|
-|Multi-Purpose Switch (4 button)|Switch|4xSwitch|Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name}|Future|
-|Power Point|Outlet|2xOutlet|Outlet {Name}|Future|
+| Zimi Product                    | HA Device Name | HA Entities         | HA Default Friendly Name                                         | Supported |
+|---------------------------------|----------------|---------------------|------------------------------------------------------------------|-----------|
+| Blind Controller                | Cover          | 1xCover             | Cover {Name}                                                     | Future    |
+| Fan and Light Controller        | Fan            | 1xFan<br>1xSwitch   | Fan {Name}<br>Fan {Name}                                         | Future    |
+| Garage Door Controller          | Cover          | 1xCover<br>2xSensor | Cover {Name}<br>Cover {Temperature}<br>Cover {Humidity}          | Future    |
+| Light Dimmer Switch             | Light          | 1xLight             | Light {Name}                                                     | Yes       |
+| Multi Dimmer Switch (2 button)  | Light          | 1xLight             | Light {Name}                                                     | Yes       |
+| Multi Dimmer Switch (4 button)  | Light          | 2xLight             | Light {Name}<br>Light {Name}                                     | Yes       |
+| Multi-Purpose Switch (1 button) | Switch         | 1xSwitch            | Switch {Name}                                                    | Future    |
+| Multi-Purpose Switch (2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   | Future    |
+| Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  | Future    |
+| Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Future    |
+|Power Point                      | Outlet         | 2xOutlet            | Outlet {Name}|Future|
 
 ### Zimi Light Controller
 
@@ -86,7 +86,7 @@ When you add a supported device, the following entities will be created:
 
 ## Data updates
 
-The integration receives updates instantly from the Zimi Cloud Controller instantly via the Zimi API.
+The integration receives updates instantly from the Zimi Cloud Controller via the Zimi API.
 
 ## Known limitations
 
@@ -98,7 +98,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Troubleshooting
 
-### Missing Zimi devices
+### Missing Zimi Devices
 
 If there are missing Zimi devices after the initial integration, you may have to run the discovery process again.
 
