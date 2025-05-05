@@ -93,7 +93,7 @@ The integration receives updates instantly from the Zimi Cloud Controller via th
 
 ## Known limitations
 
-1. Entity name changes made in the Zimi app will not be reflected in Home Assistant until after a restart. This is because entity names are only read during integration setup and Home Assistant startup.
+Entity name changes made in the Zimi app will not be reflected in Home Assistant until after a restart. This is because entity names are only read during integration setup and Home Assistant startup.
 
 
 ## Troubleshooting
