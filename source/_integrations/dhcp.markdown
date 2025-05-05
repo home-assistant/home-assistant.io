@@ -30,4 +30,4 @@ dhcp:
 The **DHCP Browser** displays devices discovered by Home Assistant using various network methods, such as DHCP, ARP + PTR lookups, and router-based device trackers. When a device connects to the network and requests an IP address via DHCP (Dynamic Host Configuration Protocol), Home Assistant can automatically detect it. All devices discovered through these methods will appear in the DHCP Browser.
 
 To open the DHCP Browser, go to:
-{% my dhcp_config title="Settings > System > Network > DHCP Browser" %}
+{% my config_dhcp title="Settings > System > Network > DHCP Browser" %}
