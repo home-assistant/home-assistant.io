@@ -40,7 +40,7 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 
 ## Buttons
 
-- All devices that support an identification activity (e.g. winking an awning or blinking a light)
+- All devices that support an identification activity (for example, winking an awning or blinking a light)
   can be triggered to perform such activity.
 
 ## Covers
