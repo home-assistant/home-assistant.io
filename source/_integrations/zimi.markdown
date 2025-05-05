@@ -10,6 +10,7 @@ ha_codeowners:
 ha_category:
   - Light
 ha_domain: zimi
+ha_config_flow: true
 ---
 
 The **Zimi** {% term integration %} allows you to connect your Zimi Cloud Controller to Home Assistant and, via this integration, control local devices connected to the Zimi mesh.
