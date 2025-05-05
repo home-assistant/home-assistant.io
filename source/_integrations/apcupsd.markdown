@@ -18,27 +18,37 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[apcupsd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) is configured on the APC device.
+The **APC UPS Daemon** {% term integration %} is used to integrate with UPS devices from [APC](www.apc.com) when the Network Information Server ([apcupsd](http://www.apcupsd.org/)) is configured on the APC devices. Use case: When the Notify integration is set up in Home Assistant, you can send notifications. For example, when the UPS switches to battery power, or when the battery level drops low. You can also use it to track the UPS load.
 
-There is currently support for the following device types within Home Assistant:
+## Supported devices
 
-- [Binary sensor](#binary-sensor)
-- [Sensor](#sensors)
+Generally any device supported by [apcupsd](http://www.apcupsd.org/) is also supported by this integration. This includes most APC UPS models, such as Smart-UPS models and simple signaling models like Back-UPS models.
 
-## Home Assistant add-on installation
+## Prerequisites
 
-Install this [unofficial add-on](https://github.com/korylprince/hassio-apcupsd/) to use this integration with Home Assistant. Keep in mind that we can't give you support for this add-on.
+1. Install apcupsd.
 
-After installation, follow the instructions on the GitHub page to configure the plugin. Then continue to follow the integration configurations below.
+    First, install [apcupsd](http://www.apcupsd.org/) on the machine connected to your UPS. It works on Linux, macOS, Windows, BSD, Solaris, and more.  
+    You can usually install it through your operating system’s package manager.
+
+
+2. Configure apcupsd for network access.
+
+    - Open the `apcupsd.conf` file (usually found in `/etc/apcupsd/`) and make sure it’s set to listen for network connections.  
+    - Look for the lines: `NISIP 0.0.0.0` and `NISPORT 3551`.
+    - This setting allows it to accept connections on all network interfaces on port 3551.  
+    - If you prefer, you can set this to a specific IP address and port that Home Assistant can reach.
+
+3. Start the apcupsd service.
 
 {% include integrations/config_flow.md %}
 
-{% note %}
-
-If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, ensure the [apcupsd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses NISIP 0.0.0.0, else non-local addresses will not connect.
-
-{% endnote %}
-
+{% configuration_basic %}
+Host:
+    description: "The IP address of the APC UPS Daemon configured above."
+Port:
+    description: "The port of the APC UPS Daemon configured above."
+{% endconfiguration_basic %}
 
 ## Binary sensor
 
@@ -123,3 +133,51 @@ Some sensors are disabled by default, since they provide information that is onl
 - UPS Transfer from Battery (XOFFBAT)
 - UPS Transfer from Battery (XOFFBATT)
 - UPS Transfer to Battery (XONBATT)
+
+## Examples
+
+### Send me a push notification when UPS load is high
+
+{% raw %}
+
+```yaml
+alias: "APC UPS Load High Notification"
+description: "Notify when APC UPS load is too high"
+mode: single
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - sensor.gogoups_load
+    above: 80
+conditions: []
+actions:
+  - action: notify.notify
+    data:
+      message: "APC UPS load is high: {{ states('sensor.apc_ups_load') }}%"
+```
+
+{% endraw %}
+
+## Data updates
+
+The integration {% term polling polls %} data from your APC UPS Daemon every 60 seconds by default.
+
+## Known limitations
+
+This integration does not allow you to control the UPS. For example, you cannot run a self-test. To run a self-test, use the `aptest` command provided by [apcupsd](http://www.apcupsd.org/).
+
+## Troubleshooting
+
+### Failed to connect
+
+If you get a **Failed to connect** error when setting up the integration (and/or `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs), it means that Home Assistant is not able to connect to the APC UPS daemon. Please check if the `NISIP`/`NISPORT` in the apcupsd configuration file is properly configured. Additionally, try running `apcaccess` on the host machine to see if the daemon is working properly.
+
+### Some entities are no longer provided
+
+If certain entities are missing after a Home Assistant restart, it's likely because they represent event-based data that only appears after specific UPS events (for example, transfer to battery). These entities are cleared when the APC UPS Daemon restarts and won’t reappear until the corresponding event occurs again.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

@@ -111,7 +111,7 @@ The Home Assistant to-do list interface allows both renaming items and changing 
 
 The Cookidoo integration fetches data from the device every 90 seconds by default.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 

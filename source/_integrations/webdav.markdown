@@ -41,6 +41,10 @@ Verify SSL:
 - [Owncloud](https://owncloud.com/): `https://<your-owncloud-domain>/remote.php/webdav/`
 - [Hetzner Storage Box](https://www.hetzner.com/storage/storage-box): `https://<username>.your-storagebox.de`
 - [Strato HiDrive](https://www.strato.de/): `https://webdav.hidrive.strato.com`
+- [Seafile](https://manual.seafile.com/13.0/extension/webdav/): `https://<your-seafile-domain>/seafdav` if you are running your Seafile behind a reverse proxy, make sure to add the relevant port, by default WebDAV serves at port 8080.
+- [Beeline Cloud](https://cloudbeeline.ru/): `https://webdav.cloudbeeline.ru` – free 10GB (forever), to enable WebDAV – navigate to Profile → Security and toggle the setting (screenshots and [detailed explanation here](https://t.me/another_mvp/49)).
+- [Mail.ru Cloud](https://cloud.mail.ru/): `https://webdav.cloud.mail.ru/` – free 8GB (forever).
+
 
 ## Removing the integration
 
@@ -58,5 +62,4 @@ If you experience issues with the backup, please check the server configuration 
 Following WebDAV services are known to have issues with Home Assistant backups:
 
 - Yandex Disk is not supported, as the speed is artificially slowed down when using WebDAV.
-- mail.ru Cloud is not supported due to the lack of support for WebDAV properties.
 - pCloud WebDAV implementation proved to be unstable and is not recommended for backups.
