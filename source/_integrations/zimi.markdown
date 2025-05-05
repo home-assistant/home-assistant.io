@@ -3,7 +3,7 @@ title: Zimi Cloud Controller
 description: Access and control your Zimi Cloud Controller and its connected Zimi-based devices.
 featured: false
 ha_iot_class: Local Push
-ha_release: 2024.6
+ha_release: 2025.6
 ha_codeowners:
   - '@markhannon'
   - '@mhannon11'
