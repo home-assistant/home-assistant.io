@@ -301,11 +301,11 @@ Bluetooth advertisement bundling reduces traffic between Home Assistant and the 
 
 ### Advertisement monitor
 
-Once Bluetooth is configured, the {% my bluetooth_advertisement_monitor %} will allow you to view devices in range that are advertising
+Once Bluetooth is configured, the {% my bluetooth_advertisement_monitor %} will allow you to view devices in range that are advertising.
 
 ### Connection monitor
 
-Once Bluetooth is configured, the {% my bluetooth_connection_monitor %} will allow you to few currently connected devices.
+Once Bluetooth is configured, the {% my bluetooth_connection_monitor %} will allow you to view currently connected devices.
 
 ### Improving connection times
 
