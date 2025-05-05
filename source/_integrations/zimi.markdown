@@ -12,17 +12,17 @@ ha_category:
 ha_domain: zimi
 ---
 
-The Zimi integration allows you to connect your Zimi Cloud Controller to Home Assistant and, via this integration, control local devices connected to the Zimi mesh.
+The **Zimi** {% term integration %} allows you to connect your Zimi Cloud Controller to Home Assistant and, via this integration, control local devices connected to the Zimi mesh.
 
-(See [Zimi's website](https://zimi.life/) for details of the Zimi portfolio).
+For a detailed description of the Zimi portfolio, refer to the [Zimi's website](https://zimi.life/).
 
-## Supported Devices
+## Supported devices
 
-The following Zimi devices are supported:
+This integration supports the following Zimi devices:
 
 - Zimi Cloud Connect ([links to specifications](https://zimi.life/product/cloud-connect/))
 
-## Unsupported Devices
+## Unsupported devices
 
 The following Zimi devices are yet to be supported:
 
@@ -44,29 +44,29 @@ You will be prompted to configure the Zimi Cloud Connect through the Home Assist
 
 If the Zimi discovery process is successful and there is a single Zimi Cloud Connect, then the integration will be configured without further user input.
 
-If the Zimi discovery process is successful and there are multiple Zimi Cloud Connects present, then the user will be prompted to select the desired Zimi Cloud Connect.
+If the Zimi discovery process is successful and there are multiple Zimi Cloud Connects present, then you will be prompted to select the desired Zimi Cloud Connect.
 
-If the Zimi discovery process is unsuccessful (i.e. the Zimi Cloud Connect is not reachable on the local LAN), then the user will be prompted for the following parameters:
+If the Zimi discovery process is unsuccessful (that is, if the Zimi Cloud Connect is not reachable on the local LAN), then you will be prompted for the following parameters:
 
 {% configuration_basic %}
 host:
     description: "The IP address of your Zimi Cloud Connect. You can find it via your router admin interface."
 port:
-    description: "The port number used to connect to your Zimi Cloud Connect.   If no port number is entered, the integration will use the default port.   (The default port will be correct in almost all deployment scenarios)"
+    description: "The port number used to connect to your Zimi Cloud Connect. If no port number is entered, the integration will use the default port. (The default port will be correct in almost all deployment scenarios)"
 {% endconfiguration_basic %}
 
 It is possible to add multiple Zimi Cloud Connect devices.
 
-## Available Entities
+## Supported functionality
 
-The integration will support all Zimi devices.  It should be noted that the naming conventions and default integration types may not be what the user is expecting.
+The integration will support all Zimi devices. Note that the naming conventions and default integration types may not be what you expect.
 
-1. Zimi devices that are generic switches will be shown in the UI as a switch and not as a light.   The 'Identify as light for voice control' is not available in the API to pass the necessary information to HA to correctly classify.   For more details of the concept and how to change your device to the correct type after the initial integration, see [Change device type of a switch](/integrations/switch_as_x/).
-2. Zimi devices and names will be mapped per HA guidelines in the table below.   The user may change these names to more friendly names - see [Customizing entities](/docs/configuration/customizing-devices/).
+1. Zimi devices that are generic switches will be shown in the UI as a switch and not as a light. The **Identify as light for voice control** is not available in the API to pass the necessary information to HA to correctly classify. For more details on the concept and how to change your device to the correct type after the initial integration, see [Change device type of a switch](/integrations/switch_as_x/).
+2. Zimi devices and names will be mapped per HA guidelines in the table below. The user may change these names to more friendly names - see [Customizing entities](/docs/configuration/customizing-devices/).
 
 When you add a supported device, the following entities will be created:
 
-| Zimi Product                    | HA Device Name | HA Entities         | HA Default Friendly Name                                         | Supported |
+| Zimi product                    | HA device name | HA entities         | HA default friendly name                                         | Supported |
 |---------------------------------|----------------|---------------------|------------------------------------------------------------------|-----------|
 | Blind Controller                | Cover          | 1xCover             | Cover {Name}                                                     | Future    |
 | Fan and Light Controller        | Fan            | 1xFan<br>1xSwitch   | Fan {Name}<br>Fan {Name}                                         | Future    |
@@ -80,7 +80,7 @@ When you add a supported device, the following entities will be created:
 | Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Future    |
 |Power Point                      | Outlet         | 2xOutlet            | Outlet {Name}|Future|
 
-### Zimi Light Controller
+### Zimi light controller
 
 - Light entity: Basic on/off and brightness control
 
@@ -92,9 +92,6 @@ The integration receives updates instantly from the Zimi Cloud Controller via th
 
 1. Entity name changes made in the Zimi app will not be reflected in Home Assistant until after a restart. This is because entity names are only read during integration setup and Home Assistant startup.
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
 
 ## Troubleshooting
 
@@ -109,7 +106,7 @@ To do this:
 3. Click **Add Hub**
 This will re-run the discovery process.
 
-### Device Authorization Failure
+### Device authorization failure
 
 Due to the authorization lifecycle of the Zimi Cloud Controller, the device implements rate limiting on authorization requests. If you exceed these limits
 (typically more than 3-5 requests within a few minutes), the device will temporarily reject new connection attempts. If you encounter this issue, you'll
@@ -117,6 +114,12 @@ need to wait for the rate limit to reset.
 
 To do this:
 
-1. Remove the integration from **Settings** > **Devices & Services** > **Zimi**
-2. Wait for approximately 5 minutes
-3. Try adding the integration again
+1. Remove the integration from {% my integrations title="**Settings** > **Devices & services**" %} > **Zimi**.
+2. Wait for approximately 5 minutes.
+3. Try adding the integration again.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
