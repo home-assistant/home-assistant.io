@@ -98,7 +98,7 @@ The integration receives updates instantly from the Zimi Cloud Controller via th
 
 ## Troubleshooting
 
-### Missing Zimi Devices
+### Missing Zimi devices
 
 If there are missing Zimi devices after the initial integration, you may have to run the discovery process again.
 
