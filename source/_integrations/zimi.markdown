@@ -10,6 +10,8 @@ ha_codeowners:
 ha_category:
   - Light
 ha_domain: zimi
+ha_platforms:
+  - light
 ha_config_flow: true
 ---
 
