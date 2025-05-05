@@ -164,7 +164,7 @@ The integration {% term polling polls %} data from your APC UPS Daemon every 60 
 
 ## Known limitations
 
-This integration does not allow you to control the UPS. For example, you cannot run a self-test. To run a self-test, use the `aptest` command provided by [apcupsd](http://www.apcupsd.org/).
+This integration does not allow you to control the UPS. For example, you cannot run a self-test. To run a self-test, use the `apctest` command provided by [apcupsd](http://www.apcupsd.org/).
 
 ## Troubleshooting
 
