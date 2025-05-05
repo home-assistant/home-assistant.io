@@ -58,7 +58,7 @@ The following device classes are supported for covers.
 - **garage**: Control of a garage door that provides access to a garage.
 - **gate**: Control of a gate. Gates are found outside of a structure and are typically part of a fence.
 - **shade**: Control of shades, which are a continuous plane of material or connected cells that expanded or collapsed over an opening, such as window shades.
-- **shutter**: Control of shutters, which are linked slats that can be raised or lowered to cover an opening, such as window or door roller shutters, or that swing out/in to covering an opening or may be tilted for partial cover, such as indoor or exterior window shutters.
+- **shutter**: Control of shutters, which are linked slats that can be raised or lowered to cover an opening, such as window or door roller shutters, or that swing out/in to cover an opening or may be tilted for partial cover, such as indoor or exterior window shutters.
 - **window**: Control of a physical window that opens and closes or may tilt.
 
 ## Actions
