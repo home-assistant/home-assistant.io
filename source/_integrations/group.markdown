@@ -69,7 +69,7 @@ The older notification actions can only be grouped via YAML configuration.
 
 ## Group behavior
 
-### Binary sensor, light, siren and switch groups
+### Binary sensor, light, siren, and switch groups
 
 In short, when any group member entity is `on`, the group will also be `on`. A complete overview of how groups behave:
 
