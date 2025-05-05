@@ -25,12 +25,9 @@ ha_integration_type: device
 ha_dhcp: true
 ---
 
-The [SMLIGHT](https://smlight.tech) SLZB-06x Ethernet Zigbee coordinators
-provide a convenient way to add Zigbee to your smart home setup.
+The [SMLIGHT](https://smlight.tech) SLZB-06x ethernet Zigbee coordinators provide a reliable and convenient way to integrate Zigbee devices into your smart home setup. By placing the Zigbee gateway closer to your devices, you can improve connectivity and reduce interference, avoiding the limitations of gateways hidden in cupboards or distant locations.
 
-The **SMLIGHT SLZB** {% term integration %} allows users to monitor and manage their SLZB-06x devices
-directly from within Home Assistant and to directly access many of the
-features found in the SMLIGHT web UI. You can also use these in your automations.
+The **SMLIGHT SLZB** {% term integration %} allows you to monitor and manage your SLZB devices directly from Home Assistant. This integration provides direct access to many features available in the SLZB device's web UI, such as managing firmware updates, monitoring device health through diagnostic sensors, and controlling settings like LED modes or restarting the device. These features can also be incorporated into your automations for central control.
 
 ## Prerequisites
 
@@ -43,13 +40,26 @@ You need a supported SLZB-06 adapter.
 - [SLZB-06Mg24](https://smlight.tech/product/slzb-06mg24)
 - [SLZB-06p7](https://smlight.tech/product/slzb-06p7)
 - [SLZB-06p10](https://smlight.tech/product/slzb-06p10/)
-- SLZB-MR1 - Additional entities will be created for the second Zigbee radio, including Zigbee firmware updates, temperature sensor, and firmware type. (Note: the Zigbee restart and flash mode buttons are shared between both radios.) Requires core firmware `v2.8.x` or later.
+- [SLZB-MR1](https://smlight.tech/product/slzb-mr1/) - Additional entities will be created for the second Zigbee radio, including Zigbee firmware updates, temperature sensor, and firmware type. (Note: the Zigbee restart and flash mode buttons are shared between both radios.) Requires core firmware `v2.8.x` or later.
   
 Core firmware on your SLZB-06x device must be `v2.3.6` or newer. If you have an older `v2.x.x` version, you can update from within Home Assistant. If you have `v0.9.9`, update using the [SMLIGHT web flasher](https://smlight.tech/flasher/#SLZB-06) before installing this integration.
 
 {% include integrations/config_flow.md %}
 
-## Integration entities
+{% configuration_basic %}
+Host:
+  description: "Hostname or IP address of your SLZB device"
+Username:
+  description: "Username for web login to your SLZB device"
+Password:
+  description: "Password for web login to your SLZB device"
+{% endconfiguration_basic %}
+
+## Data Updates
+
+The **SMLIGHT** {% term integration %} will poll for sensor updates every 5 minutes, except for the internet connectivity sensor which is checked every 15 minutes. Firmware updates for both core and Zigbee are checked once per day.
+
+## Supported functionality
 
 ### Sensors
 
@@ -87,6 +97,8 @@ The following switches will be created:
 - **LED night mode** - Enables night mode, which turns off the LEDs overnight, based on the times set in SLZB-06x web UI.
 - **Enable VPN** - Enable WireGuard VPN client (requires configuration via the SMLIGHT web UI).
 
+Switches update in real-time if the settings are changed from the SLZB device web interface.
+
 ### Updates
 
 The following update entities will be created:
@@ -95,3 +107,29 @@ The following update entities will be created:
 - **Zigbee firmware** - Firmware updates of Zigbee chip
 
 The updates offered in Home Assistant will match your currently installed firmware. This is based on the firmware channel (dev, release) and for Zigbee also on the firmware type (coordinator, router, Thread). If you wish to switch channels, install the different firmware type in the SMLIGHT web UI. You will get notifications when new firmware updates are available to install.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+## Known Limitations
+
+Certain advanced features are not supported directly within this integration and must be configured through the SLZB device's web UI:
+
+- Switching the firmware update channel (for example, stable or development).
+- Changing firmware modes (for example, Zigbee coordinator, Zigbee router, or OpenThread).
+- Configuring security settings.
+- Adjusting network settings.
+- Setting up the WireGuard VPN client.
+
+## Troubleshooting
+
+- In the unlikely event you encounter issues after a firmware update, you can always downgrade the firmware to a previously stable version using the device's web UI.
+
+- If you require access to the SLZB device over IPv6, this can be enabled on the device's web UI.
+
+For any problems with the integration, [open an issue on GitHub][1] and include the device diagnostics from the SMLIGHT integration page. Including diagnostics will help identify and address the issue more efficiently.
+
+[1]: https://github.com/home-assistant/core/issues/new?template=bug_report.yml

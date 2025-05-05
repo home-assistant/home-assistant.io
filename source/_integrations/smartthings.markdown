@@ -29,6 +29,7 @@ ha_platforms:
   - button
   - climate
   - cover
+  - diagnostics
   - event
   - fan
   - light
@@ -43,6 +44,9 @@ ha_platforms:
   - valve
 ha_dhcp: true
 ha_integration_type: integration
+ha_codeowners:
+  - '@joostlek'
+ha_quality_scale: bronze
 ---
 
 [SmartThings](https://www.samsung.com/smartthings/) is a home automation platform for connecting with Samsung or third-party devices.
