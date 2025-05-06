@@ -42,7 +42,7 @@
   link: /getting-started/concepts-terminology/#add-ons
 - term: Area
   definition: >-
-    An area in Home Assistant is a logical grouping of devices and entities that
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
     are meant to match areas (or rooms) in the physical world: your home. For
     example, the `living room` area groups devices and entities in your living
     room. Areas allow you to target actions at an entire group of devices.
@@ -51,7 +51,7 @@
     floors. Areas can also be used for automatically generated cards, such as
     the [Area card](/dashboards/area/).
   excerpt: >-
-    An area in Home Assistant is a logical grouping of devices and entities that
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
     are meant to match areas (or rooms) in the physical world: your home. For
     example, the `living room` area groups devices and entities in your living
     room.
@@ -115,7 +115,7 @@
     - buttons
 - term: Category
   definition: >-
-    A category is an organization tool that allows grouping items in a table.
+    A category is an organization tool that allows [grouping](/docs/organizing/) items in a table.
     Like labels, categories allow grouping irrespective of the items' physical
     location. For example, on the automations page, you can create the
     categories “Notifications” or “NFC tags” to view your automations grouped or
@@ -268,7 +268,7 @@
   link: /integrations/event
 - term: Floor
   definition: >-
-    A floor in Home Assistant is a logical grouping of areas that are meant to
+    A floor in Home Assistant is a [logical grouping](/docs/organizing/) of areas that are meant to
     match the physical floors in your home. Devices & entities are not assigned
     to floors but to areas. A floor has properties such as: Floor ID, name,
     aliases (for use in assistants), an icon, and a floor level. Some of these
@@ -277,13 +277,14 @@
     target for actions. For example, to turn off all the lights on the
     downstairs floor when you go to bed.
   excerpt: >-
-    A floor in Home Assistant is a logical grouping of areas that are meant to
+    A floor in Home Assistant is a [logical grouping](/docs/organizing/) of areas that are meant to
     match the physical floors in your home. Devices & entities are not assigned
     to floors but to areas. Floors can be used in automations and scripts as a
     target for actions. For example, to turn off all the lights on the
     downstairs floor when you go to bed.
   aliases:
     - floors
+  link: /docs/organizing/floors/
 - term: Frontend
   definition: >-
     The frontend is a necessary component for the UI, it is also where you can
@@ -410,7 +411,7 @@
     - Intents
 - term: Label
   definition: >-
-    Labels in Home Assistant allow grouping elements irrespective of their
+    Labels in Home Assistant allow [grouping](/docs/organizing/) elements irrespective of their
     physical location or type. Labels can be assigned to areas, devices,
     entities, automations, scenes, scripts, and helpers. Labels can be used in
     automations and scripts as a target for actions. Labels can
@@ -418,13 +419,14 @@
     to show only devices with the label `heavy energy usage` or turn these
     devices off when there is not a lot of solar energy available.
   excerpt: >-
-    Labels in Home Assistant allow grouping elements irrespective of their
+    Labels in Home Assistant allow [grouping](/docs/organizing/) elements irrespective of their
     physical location or type. Labels can be assigned to areas, devices,
     entities, automations, scenes, scripts, and helpers. Labels can be used in
     automations and scripts as a target for actions. Labels can
     also be used to filter data.
   aliases:
     - labels
+  link: /docs/organizing/labels/
 - term: Lovelace
   definition: >-
     Lovelace is the original code name of the UI that is now known as [Home
