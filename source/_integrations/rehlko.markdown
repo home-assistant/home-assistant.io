@@ -39,7 +39,7 @@ The integration uses your generator's name as the device name and within your en
 
 The sensors exposed by this integration depend on the specific instrumentation installed on your generator and transfer switch. Sensor availability can vary significantly—even between units of the same model.
 
-### Status Sensors
+### Status sensors
 
 Status sensors provide information about the overall state of the generator.
 
