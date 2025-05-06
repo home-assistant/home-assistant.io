@@ -138,6 +138,10 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
 - [Hub Mini Matter Enabled](https://www.switch-bot.com/products/switchbot-hub-mini-matter-enabled)(currently only supports retrieving sensor data, does not yet support device control)
 
+### Fans
+
+- [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+
 ## Supported functionality
 
 ### Common
@@ -413,6 +417,19 @@ Features:
 
 - get temperature
 - get humidity
+
+### Fans
+
+Fan entities are added for Circulator Fan.
+
+Features:
+
+- turn on
+- turn off
+- set speed
+- set mode
+- oscillate left and right
+
 
 ## Data updates
 
