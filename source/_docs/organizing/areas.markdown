@@ -47,7 +47,7 @@ If an area has not yet been assigned to a {% term floor %}, it is shown in the *
 
 1. Go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and select **Create area**.
 2. On the area card, select the edit {% icon "mdi:edit" %} button.
-3. In the dialog, select the {% term floor %} and add {% term labels %}, if you like.
+3. In the dialog, select the {% term floor %} and add {% term labels %} if you like.
 
 ## Assigning an area to multiple items
 

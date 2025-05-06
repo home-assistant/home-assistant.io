@@ -123,6 +123,7 @@
     have different categories than the scene, scripts, or helpers settings page.
   aliases:
     - categories
+  link: /docs/organizing/categories/
 - term: Climate
   definition: >-
     The Climate entity allows you to control and monitor HVAC (heating,
