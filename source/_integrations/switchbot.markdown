@@ -424,7 +424,7 @@ Fan entities are added for Circulator Fan.
 
 Features:
 
-- trun on
+- turn on
 - turn off
 - set speed
 - set mode
