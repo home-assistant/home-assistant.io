@@ -281,9 +281,8 @@ We welcome the following new integrations in this release:
 - **[ntfy]**, added by [@tr4nt0r]  
   Integrates with [ntfy.sh], a simple HTTP-based pub-sub notification service
   that allows you to send notifications to your phones or desktops.
-- **[S3]**, added by [@tomasbedrich]  
-  Use an [Amazon S3 storage] bucket–or any S3 API compatible storage provider–
-  as a backup location for your Home Assistant backups.
+- **[AWS S3]**, added by [@tomasbedrich]  
+  Use an [Amazon S3 storage] bucket as a backup location for your Home Assistant backups.
 
 To process:
 - Add Rehlko (formerly Kohler Energy Management) Integration ([@PeteRager] - [#143602])
@@ -300,7 +299,7 @@ To process:
 [Miele]: /integrations/miele
 [ntfy.sh]: https://ntfy.sh/
 [ntfy]: /integrations/ntfy
-[S3]: /integrations/s3
+[AWS S3]: /integrations/aws_s3
 
 This release also has new virtual integrations. Virtual integrations
 are stubs that are handled by other (existing) integrations to help with
