@@ -8,13 +8,23 @@ ha_codeowners:
   - '@markhannon'
   - '@mhannon11'
 ha_category:
+  - Cover
   - Light
+  - Switch
+  - Fan
+  - Sensor
 ha_domain: zimi
 ha_platforms:
+  - cover
   - light
+  - switch
+  - fan
+  - sensor
 ha_config_flow: true
 quality_scale: bronze
 integration_type: hub
+related:
+  - url: https://zimi.life/
 ---
 
 The **Zimi Cloud Controller** {% term integration %} allows you to connect your Zimi Cloud Controller to Home Assistant and, via this integration, control local devices connected to the Zimi mesh.
@@ -73,21 +83,37 @@ When you add a supported device, the following entities will be created:
 
 | Zimi product                    | HA device name | HA entities         | HA default friendly name                                         | Supported |
 |---------------------------------|----------------|---------------------|------------------------------------------------------------------|-----------|
-| Blind Controller                | Cover          | 1xCover             | Cover {Name}                                                     | Future    |
-| Fan and Light Controller        | Fan            | 1xFan<br>1xSwitch   | Fan {Name}<br>Fan {Name}                                         | Future    |
-| Garage Door Controller          | Cover          | 1xCover<br>2xSensor | Cover {Name}<br>Cover {Temperature}<br>Cover {Humidity}          | Future    |
+| Blind Controller                | Cover          | 1xCover             | Cover {Name}                                                     | Yes       |
+| Fan and Light Controller        | Fan            | 1xFan<br>1xSwitch   | Fan {Name}<br>Fan {Name}                                         | Yes       |
+| Garage Door Controller          | Cover          | 1xCover<br>2xSensor | Cover {Name}<br>Cover {Temperature}<br>Cover {Humidity}          | Yes       |
 | Light Dimmer Switch             | Light          | 1xLight             | Light {Name}                                                     | Yes       |
 | Multi Dimmer Switch (2 button)  | Light          | 1xLight             | Light {Name}                                                     | Yes       |
 | Multi Dimmer Switch (4 button)  | Light          | 2xLight             | Light {Name}<br>Light {Name}                                     | Yes       |
-| Multi-Purpose Switch (1 button) | Switch         | 1xSwitch            | Switch {Name}                                                    | Future    |
-| Multi-Purpose Switch (2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   | Future    |
-| Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  | Future    |
-| Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Future    |
-|Power Point                      | Outlet         | 2xOutlet            | Outlet {Name}|Future|
+| Multi-Purpose Switch (1 button) | Switch         | 1xSwitch            | Switch {Name}                                                    | Yes       |
+| Multi-Purpose Switch (2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   | Yes       |
+| Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  | Yes       |
+| Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Yes       |
+| Power Point                     | Outlet         | 2xOutlet            | Outlet {Name}                                                    | Yes       |
+
+### Zimi cover controller
+
+- Cover entity: Basic open/close and open to percentage
+  
+### Zimi fan controller
+
+- Fan entity: Basic on/off and speed control
 
 ### Zimi light controller
 
 - Light entity: Basic on/off and brightness control
+
+### Zimi sensor
+
+- Sensor entity: Temperatures, Humidity and Battery Level
+
+### Zimi switch controller
+
+- Switch entity: Basic on/off
 
 ## Data updates
 
