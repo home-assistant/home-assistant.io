@@ -39,6 +39,7 @@
   excerpt: >
     Add-ons are additional standalone third-party software packages that can be
     installed on Home Assistant OS.
+  link: /getting-started/concepts-terminology/#add-ons
 - term: Area
   definition: >-
     An area in Home Assistant is a logical grouping of devices and entities that
@@ -75,12 +76,9 @@
   definition: >-
     Home Assistant has built-in functionality to create files containing a copy
     of your configuration. This can be used to restore your Home Assistant as
-    well as migrate to a new system. The backup feature is available on some
-    installation types.
-  link: /integrations/backup/
-  excerpt: >-
-    Home Assistant has built-in functionality to create files containing a copy
-    of your configurations. This is available on certain installation types.
+    well as migrate to a new system. The backup feature is available for all
+    [installation types](/installation/#advanced-installation-methods).
+  link: /common-tasks/general/#backups
   aliases:
     - backups
 - term: Binary sensor
