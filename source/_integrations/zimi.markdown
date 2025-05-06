@@ -9,12 +9,10 @@ ha_codeowners:
   - '@mhannon11'
 ha_category:
   - Light
-  - Switch
   - Fan
 ha_domain: zimi
 ha_platforms:
   - light
-  - switch
   - fan
 ha_config_flow: true
 quality_scale: bronze
