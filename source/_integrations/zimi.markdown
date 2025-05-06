@@ -9,9 +9,11 @@ ha_codeowners:
   - '@mhannon11'
 ha_category:
   - Light
+  - Switch
 ha_domain: zimi
 ha_platforms:
   - light
+  - switch
 ha_config_flow: true
 quality_scale: bronze
 integration_type: hub
@@ -83,7 +85,7 @@ When you add a supported device, the following entities will be created:
 | Multi-Purpose Switch (2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   | Yes       |
 | Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  | Yes       |
 | Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Yes       |
-|Power Point                      | Outlet         | 2xOutlet            | Outlet {Name}                                                    | Future    |
+| Power Point                     | Outlet         | 2xOutlet            | Outlet {Name}                                                    | Future    |
 
 ### Zimi light controller
 
