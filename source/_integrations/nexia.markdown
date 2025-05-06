@@ -99,7 +99,6 @@ These switches allow you to select which RoomIQ sensors to include in a zone's a
 To change your selected sensors, set each switch to represent your choice.
 Several seconds after the last such change, the selection is sent to the manufacturer's web service.
 It usually takes 10–15 seconds to complete, depending on the web service.
-These switches have a `Request pending` attribute showing if your selection is outstanding.
 At least one sensor must be selected.
 If you exclude all sensors, the switches will revert to show the zone's settings.
 
