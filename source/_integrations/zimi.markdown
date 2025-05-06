@@ -97,10 +97,6 @@ When you add a supported device, the following entities will be created:
 
 - Light entity: Basic on/off and brightness control
 
-### Zimi switch controller
-
-- Switch entity: Basic on/off
-
 ## Data updates
 
 The integration receives updates instantly from the Zimi Cloud Controller via the Zimi API.
