@@ -75,7 +75,7 @@ The above configuration can also be adjusted later via {% my integrations title=
 
 ## Supported functionality
 
-The Peblar integration brings comprehensive EV charging functionality to your smart home. It exposes a variety of entities that let you monitor, control, and automate your charging sessions. Below is a complete overview of the entities this integration provides.
+Below is a complete overview of the entities this integration provides.
 
 ### Binary sensors
 
