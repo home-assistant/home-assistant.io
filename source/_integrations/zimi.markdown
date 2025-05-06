@@ -9,12 +9,18 @@ ha_codeowners:
   - '@mhannon11'
 ha_category:
   - Light
+  - Switch
+  - Fan
 ha_domain: zimi
 ha_platforms:
   - light
+  - switch
+  - fan
 ha_config_flow: true
 quality_scale: bronze
 integration_type: hub
+related:
+  - url: https://zimi.life/
 ---
 
 The **Zimi Cloud Controller** {% term integration %} allows you to connect your Zimi Cloud Controller to Home Assistant and, via this integration, control local devices connected to the Zimi mesh.
@@ -83,8 +89,12 @@ When you add a supported device, the following entities will be created:
 | Multi-Purpose Switch (2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   | Future    |
 | Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  | Future    |
 | Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Future    |
-|Power Point                      | Outlet         | 2xOutlet            | Outlet {Name}|Future|
+| Power Point                     | Outlet         | 2xOutlet            | Outlet {Name}                                                    | Future    |
 
+### Zimi fan controller
+
+- Fan entity: Basic on/off and speed control
+- 
 ### Zimi light controller
 
 - Light entity: Basic on/off and brightness control
