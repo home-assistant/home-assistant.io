@@ -55,9 +55,9 @@ If the Zimi discovery process is unsuccessful (that is, if the Zimi Cloud Connec
 
 {% configuration_basic %}
 host:
-    description: "The IP address of your Zimi Cloud Connect. You can find it via your router admin interface."
+  description: "The IP address of your Zimi Cloud Connect. You can find it via your router admin interface."
 port:
-    description: "The port number used to connect to your Zimi Cloud Connect. If no port number is entered, the integration will use the default port. (The default port will be correct in almost all deployment scenarios)"
+  description: "The port number used to connect to your Zimi Cloud Connect. If no port number is entered, the integration will use the default port. (The default port will be correct in almost all deployment scenarios)"
 {% endconfiguration_basic %}
 
 It is possible to add multiple Zimi Cloud Connect devices.
@@ -72,7 +72,7 @@ The integration will support all Zimi devices. Note that the naming conventions 
 When you add a supported device, the following entities will be created:
 
 | Zimi product                    | HA device name | HA entities         | HA default friendly name                                         | Supported |
-|---------------------------------|----------------|---------------------|------------------------------------------------------------------|-----------|
+| ------------------------------- | -------------- | ------------------- | ---------------------------------------------------------------- | --------- |
 | Blind Controller                | Cover          | 1xCover             | Cover {Name}                                                     | Future    |
 | Fan and Light Controller        | Fan            | 1xFan<br>1xSwitch   | Fan {Name}<br>Fan {Name}                                         | Future    |
 | Garage Door Controller          | Cover          | 1xCover<br>2xSensor | Cover {Name}<br>Cover {Temperature}<br>Cover {Humidity}          | Future    |
@@ -83,7 +83,7 @@ When you add a supported device, the following entities will be created:
 | Multi-Purpose Switch (2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   | Future    |
 | Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  | Future    |
 | Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Future    |
-|Power Point                      | Outlet         | 2xOutlet            | Outlet {Name}|Future|
+| Power Point                     | Outlet         | 2xOutlet            | Outlet {Name}                                                    | Future    |
 
 ### Zimi light controller
 
