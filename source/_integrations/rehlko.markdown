@@ -33,9 +33,23 @@ password:
 
 {% endconfiguration_basic %}
 
-## Sensor availability
+The integration uses your generator's name as the device name and within your entity names. To change this name, it is recommended to do so in the Kohler app before configuring the integration.
+
+## Sensors
 
 The sensors exposed by this integration depend on the specific instrumentation installed on your generator and transfer switch. Sensor availability can vary significantly—even between units of the same model.
+
+### Status sensors
+
+Status sensors provide information about the overall state of the generator.
+
+> **Note:** This list of values is not complete. If you observe new values, please report them by opening an issue.
+
+| Sensor ID         | Values                                | Description                     |
+|-------------------|--------------------------------------|---------------------------------|
+| `generator_status` | ReadyToRun, RunningExercise, ...     | Indicates the current generator status. |
+| `engine_state`     | Standby, PerformingVariableSpeedExercise, ... | Displays the current engine state. |
+| `power_source`     | Utility, ...                        | The source of power for the home. |
 
 ## Tested generators
 
