@@ -10,10 +10,12 @@ ha_codeowners:
 ha_category:
   - Light
   - Fan
+  - Switch
 ha_domain: zimi
 ha_platforms:
   - light
   - fan
+  - switch
 ha_config_flow: true
 quality_scale: bronze
 integration_type: hub
@@ -83,10 +85,10 @@ When you add a supported device, the following entities will be created:
 | Light Dimmer Switch             | Light          | 1xLight             | Light {Name}                                                     | Yes       |
 | Multi Dimmer Switch (2 button)  | Light          | 1xLight             | Light {Name}                                                     | Yes       |
 | Multi Dimmer Switch (4 button)  | Light          | 2xLight             | Light {Name}<br>Light {Name}                                     | Yes       |
-| Multi-Purpose Switch (1 button) | Switch         | 1xSwitch            | Switch {Name}                                                    | Future    |
-| Multi-Purpose Switch (2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   | Future    |
-| Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  | Future    |
-| Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Future    |
+| Multi-Purpose Switch (1 button) | Switch         | 1xSwitch            | Switch {Name}                                                    | Yes       |
+| Multi-Purpose Switch (2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   | Yes       |
+| Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  | Yes       |
+| Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Yes       |
 | Power Point                     | Outlet         | 2xOutlet            | Outlet {Name}                                                    | Future    |
 
 ### Zimi fan controller
@@ -96,6 +98,10 @@ When you add a supported device, the following entities will be created:
 ### Zimi light controller
 
 - Light entity: Basic on/off and brightness control
+
+### Zimi switch controller
+
+- Switch entity: Basic on/off
 
 ## Data updates
 
