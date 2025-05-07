@@ -35,14 +35,14 @@ This integration requires an existing S3 bucket and an IAM user with limited acc
 ### 1. Create a new S3 bucket
 
 1. Log in to the [AWS Management Console](https://console.aws.amazon.com/).
-2. Navigate to **S3** from the Services menu.
-3. Click **Create bucket**.
-4. Choose a unique **bucket name** (e.g., `home-assistant-backups-123456`).
-5. Select your preferred AWS **region** (e.g., `eu-central-1`).
-6. **Keep the default settings**, especially:
+1. Navigate to **S3** from the Services menu.
+1. Click **Create bucket**.
+1. Choose a unique **bucket name** (e.g., `home-assistant-backups-123456`).
+1. Select your preferred AWS **region** (e.g., `eu-central-1`).
+1. **Keep the default settings**, especially:
    - ✅ **Block all public access** (recommended)
    - ✅ **Enable Bucket Versioning** is optional, but can add safety
-7. Click **Create bucket**.
+1. Click **Create bucket**.
 
 Make a note of the bucket name — you'll need it later when setting up the integration in Home Assistant.
 
@@ -51,15 +51,16 @@ Make a note of the bucket name — you'll need it later when setting up the inte
 To protect your AWS account, create a user that can only access your backup bucket.
 
 1. Go to **IAM > Users** in the AWS Console.
-2. Click **Add users**.
-3. Enter a user name like `home-assistant-backup`.
-4. Check **Access key - Programmatic access** only.
-5. Click **Next: Permissions**.
+1. Click **Add users**.
+1. Enter a username like `home-assistant-backup`.
+1. Check **Access key - Programmatic access** only.
+1. Click **Next: Permissions**.
 
 #### Create and attach a custom policy
 
 1. Click **Create policy** and switch to the **JSON** tab.
-2. Paste the following policy, replacing `YOUR_BUCKET_NAME`:
+1. Paste the following policy, replacing `YOUR_BUCKET_NAME`:
+
     ```json
     {
       "Version": "2012-10-17",
@@ -81,16 +82,17 @@ To protect your AWS account, create a user that can only access your backup buck
       ]
     }
     ```
-4. Click **Next**, give the policy a name like `HomeAssistantS3Policy`, and create it.
-5. Return to the user creation wizard and attach your new policy.
-6. Finish creating the user.
-7. Save the **Access Key ID** and **Secret Access Key** displayed at the end. You will need these for Home Assistant.
+
+1. Click **Next**, give the policy a name like `HomeAssistantS3Policy`, and create it.
+1. Return to the user creation wizard and attach your new policy.
+1. Finish creating the user.
+1. Save the **Access Key ID** and **Secret Access Key** displayed at the end. You will need these for Home Assistant.
 
 ### 3. Add the AWS S3 integration in Home Assistant
 
 1. In Home Assistant, go to **Settings > Devices & Services**.
-2. Click **Add Integration** and search for **AWS S3**.
-3. Enter the following details:
+1. Click **Add Integration** and search for **AWS S3**.
+1. Enter the following details:
    - Access Key ID and Secret Access Key from the IAM user
    - Your bucket name
    - The region endpoint (e.g., `https://s3.eu-central-1.amazonaws.com/`)
