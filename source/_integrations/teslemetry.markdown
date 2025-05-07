@@ -182,6 +182,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|HVAC power state|No|
 |Sensor|Ideal battery range|No|
 |Sensor|Inside temperature|Yes|
+|Sensor|Left temperature request|No|
 |Sensor|Odometer|No|
 |Sensor|Outside temperature|Yes|
 |Sensor|Passenger temperature setting|No|
@@ -210,6 +211,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Rear right drive inverter temperature|No|
 |Sensor|Rear right drive unit actual torque|No|
 |Sensor|Rear right drive unit stator temperature|No|
+|Sensor|Right temperature request|No|
 |Sensor|Roof color|No|
 |Sensor|Scheduled charging mode|No|
 |Sensor|Scheduled charging start time|No|
