@@ -89,7 +89,7 @@ When you add a supported device, the following entities will be created:
 | Multi-Purpose Switch (2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   | Yes       |
 | Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  | Yes       |
 | Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Yes       |
-| Power Point                     | Outlet         | 2xOutlet            | Outlet {Name}                                                    | Future    |
+| Power Point                     | Outlet         | 2xSwitch            | Outlet {Name}                                                    | Yes       |
 
 ### Zimi fan controller
 
