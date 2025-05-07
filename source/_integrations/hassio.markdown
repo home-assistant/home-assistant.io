@@ -2,6 +2,7 @@
 title: Home Assistant Supervisor
 description: Control Supervisor Add-ons and OS from Home Assistant
 ha_category:
+  - Backup
   - Binary sensor
   - Sensor
   - Update
@@ -10,6 +11,7 @@ ha_release: 0.42
 ha_domain: hassio
 ha_quality_scale: internal
 ha_platforms:
+  - backup
   - binary_sensor
   - diagnostics
   - sensor
