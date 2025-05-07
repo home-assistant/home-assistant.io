@@ -62,7 +62,7 @@ port:
   description: The port on which the IP232 module listens for clients.
   required: true
   type: integer
-name: 
+name:
   description: Name of the alarm control panel entity.
   required: false
   type: string
