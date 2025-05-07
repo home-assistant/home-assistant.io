@@ -44,6 +44,9 @@ The integration also allows for automation and integration with other smart home
 devices. For example, you could send a notification when the vacuum is stuck, or
 pause the vacuum when a media player starts playing music.
 
+## Note about compatability
+Roborock recently released a new series of models (Q10 and Q7) - these (and likely all future released vacuums) are NOT supported by this integration. Roborock has changed the protocol for how these devices interact and they will not be supported by this integration until they are reverse engineered.
+
 ## Prerequisites
 
 1. Download the Roborock App for iOS or Android.
