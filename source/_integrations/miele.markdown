@@ -158,6 +158,7 @@ Climate entities are used to control target temperatures in refrigerators, freez
   - **Elapsed time**: Shows the number of minutes that the current program has been running.
   - **Remaining time**: Shows the estimated number of minutes remaining in the current program cycle. This value can fluctuate during a program cycle based on load dirtiness or water‑heating time.
   - **Start in**: Shows the number of minutes until a delayed program start, if configured.
+  - **Plate #**: Shows the current state of a hob heating plate. The status mimics the display on the actual hob. For example, 0 is off, 5 is approximately 50% power, and "B" is power boost. Plates can only be monitored from Home Assistant, not controlled.
 {% enddetails %}
 
 ### Switch
