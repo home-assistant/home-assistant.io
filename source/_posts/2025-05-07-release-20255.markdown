@@ -198,7 +198,7 @@ where you are in the Home Assistant interface.
 
 In the last release, we already had a small noteworthy change regarding this.
 We added the device and area to the entity information dialogs, so you always
-know exactly now which entity you are viewing.
+know exactly which entity you are viewing.
 
 In this release, we have improved the context provided within the entity pickers in our UI. This is the dropdown you see when you select an entity in, for example, a card, automation,
 or script. This picker will now show the device and area name as well!
