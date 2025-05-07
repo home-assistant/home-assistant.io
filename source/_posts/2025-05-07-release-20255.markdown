@@ -17,7 +17,7 @@ og_image: /images/blog/2025-05/social.jpg
 
 Home Assistant 2025.5! 🎉
 
-Time for the May release, and we have a lot to talk about this time! But before
+It's time for the May release, and we have a lot to talk about! But before
 we do, I want to quickly touch on things that happened in the last month that
 you might have missed...
 
@@ -39,7 +39,7 @@ world!** Want to learn more? Join a meetup? Or even host one?
 [Check out the Home Assistant Community Day 2025 blog post](/blog/2025/04/24/community-day/) for more information!
 
 Ok, the May release, really, I love this one! It is filled to the brim with
-quality of life improvements, that I'm sure you will love. 🥰
+quality of life improvements that I'm sure you will love. 🥰
 
 The quest for a great backup system is continuing this release, shipping
 quite the list of improvements, most notably the ability to set a retention
@@ -47,9 +47,8 @@ policy per backup location! 🤯 [Nabu Casa](https://nabucasa.com) throws in a
 whole bunch of new text-to-speech voice variants 🗣️ [included in your Home Assistant Cloud subscription](https://www.nabucasa.com/config/tts/),
 allowing your announcements to sound, for example, sad or happy!
 
-But... there is more! Z-Wave gets long range support 📶, you can now copy and
-paste YAML automation snippets directly in our automation UI, panels to
-look at the internal device discovery process of Home Assistant, and–my personal
+But... there is more! Z-Wave gets Long Range support 📶, you can now copy and
+paste YAML automation snippets directly in our automation UI, a new tool to monitor the device discovery process in Home Assistant, and–my personal
 favorite–the improved experience when you pick an entity anywhere in the UI. 🤩
 
 Enjoy the release!
@@ -84,15 +83,15 @@ Enjoy the release!
 ## Another iteration of the backup system
 
 In our [January release](/blog/2025/01/03/release-20251/#overhaul-of-the-backup-system),
-we did the first overhaul of the backup system. In the [February release](/blog/2025/02/05/release-20252/#iterating-on-backups)
-we did an iteration based on your feedback. This release, we dedicated some more
-time to once more iterate and improve backups even further.
+we did the first overhaul of the backup system. In the [February release](/blog/2025/02/05/release-20252/#iterating-on-backups),
+we did an iteration based on your feedback. In this release, we dedicated even more
+time to iterate and improve backups even further.
 
 Let's dive in!
 
 ### Per location backup retention policy settings
 
-This release adds a much requested feature: the ability to set a backup retention
+This release adds a much-requested feature: the ability to set a backup retention
 policy per location. This is particularly useful if you have multiple backup
 locations configured in Home Assistant.
 
@@ -105,18 +104,17 @@ Drive, but you want to keep 25 backups on your local NAS server.
 
 ### Backup before upgrading the Home Assistant Operating System
 
-If you are running the Home Assistant Operating System, updating the operating
-system is as easy as the click of a button. And while the upgrade process has
+Updating the Home Assistant Operating System is as easy as clicking a button. And while the upgrade process has
 a fallback mechanism in case the upgrade process fails, it is always a good
-idea to have a backup before you start the upgrade process.
+idea to have a recent backup in multiple locations before you start the upgrade process.
 
 To help you with that, the update dialog for the Home Assistant Operating System
-now includes the option to create a backup before starting the upgrade process.
+now includes the option to create a backup before starting the upgrade process. Selecting this will create a backup that follows the same settings as your automatic backups (and if you don’t have that configured yet, it will just backup your settings, history, and add-ons), uploading this to all enabled backup locations before starting the upgrade process.
 
 <img class="no-shadow" alt="Screenshot showing the Home Assistant Operating System update dialog, which has a new toggle that asks you if you want to backup before upgrading." src="/images/blog/2025-05/backup-before-upgrade-home-assistant-operating-system.png" />
 
 This way, you can be sure that you have a backup of your system before
-upgrading, even if something goes wrong beyond the safe guards of the
+upgrading, even if something goes wrong beyond the safeguards of the
 operating system upgrade.
 
 ### Set the default backup preference for upgrades
@@ -124,7 +122,7 @@ operating system upgrade.
 The above option to update before upgrade is great, but the feedback on the
 toggle to create a backup before upgrade is mixed. Some of you prefer to always
 backup before upgrading, while others rely on their scheduled backups and don't
-want to be bothered with the backup process every time they upgrade a part
+want to be bothered with the backup process whenever they upgrade a part
 of Home Assistant.
 
 To please both groups, we have added a new setting to the backup settings page
@@ -139,9 +137,7 @@ liking.
 
 ### Waiting for the backup to finish on restarts
 
-Another small improvement, but not an unimportant one, is that if you restart
-Home Assistant while a backup is in progress, the restart will wait for the
-backup to finish before proceeding.
+Another small but important improvement is that if you initiate a restart of Home Assistant while a backup is in progress, your system will wait for the backup to finish before restarting.
 
 <img class="no-shadow" alt="Screenshot showing Home Assistant waiting for backup to finish before restarting." src="/images/blog/2025-05/backups-prevents-restart-when-in-progress.png" />
 
@@ -151,12 +147,12 @@ abort the process by restarting Home Assistant.
 ## Thousands of new text-to-speech voice variants for Home Assistant Cloud subscribers
 
 If you are subscribed to [Home Assistant Cloud](https://www.nabucasa.com), you
-not just get [backup storage included](https://www.nabucasa.com/config/backups/),
-but you also get access to the absolute [best in class text-to-speech](https://www.nabucasa.com/config/tts/)
-available. If you haven't tried it yet, you should!
+not only get [backup storage included](https://www.nabucasa.com/config/backups/),
+but you also get access to speedy, super accurate [text-to-speech](https://www.nabucasa.com/config/tts/)
+available. If you haven’t tried it yet, now is the perfect time to sign up for the 30-day trial!
 
-This release extends the already staggering amount of text-to-speech voices
-and above all now include voice variants and styles. This means that you can
+This release extends the already staggering number of text-to-speech voices,
+but also now includes voice variants and styles. This means that you can
 now choose between different voice styles and tones, such as "friendly",
 "angry", "sad", "whisper", etc., allowing you to customize your announcements to
 fit the mood and context of the situation.
@@ -202,10 +198,9 @@ where you are in the Home Assistant interface.
 
 In the last release, we already had a small noteworthy change regarding this.
 We added the device and area to the entity information dialogs, so you always
-exactly know which entity you are viewing.
+know exactly now which entity you are viewing.
 
-In this release, we improve context on the entity pickers in our UI. This is the
-dropdown you see when you select an entity in, for example, a card, automation,
+In this release, we have improved the context provided within the entity pickers in our UI. This is the dropdown you see when you select an entity in, for example, a card, automation,
 or script. This picker will now show the device and area name as well!
 
 <img class="no-shadow" alt="Screenshot showing the new entity pickers, providing more context and improves search capabilities." src="/images/blog/2025-05/improved-entity-picker.png" />
@@ -243,7 +238,7 @@ the **Display entity IDs in picker** option.
 We are providing quite a few enhancements to the Z-Wave integration and
 experience in this release. Our commercial partner [Nabu Casa](https://nabucasa.com)
 is working on a not-so-secret Z-Wave antenna, and we want to ensure that
-Home Assistant is ready for it, providing the best user experience
+Home Assistant is ready for it by providing the best user experience
 possible.
 
 This release, we improved the whole experience in setting up new Z-Wave devices,
@@ -252,7 +247,7 @@ Smart Start QR code.
 
 Z-Wave Smart Start QR scanning now works natively in our [mobile companion apps](https://companion.home-assistant.io/),
 removing browser limitations. Added devices are immediately visible in
-Home Assistant, even if the device is not yet powered on. Once powered on, the
+Home Assistant, even if the device is not yet powered on. Once powered on or rebooted, the
 device will automatically be added to your Z-Wave network.
 
 The most exciting part of this release is the addition of Z-Wave Long Range
@@ -287,7 +282,7 @@ We welcome the following new integrations in this release:
   and solar usage in the [energy dashboard].
 - **[Miele]**, added by [@astrandb]  
   Monitor and control your [Miele home appliances], including washing machines,
-  dryers, and dishwashers, and more!
+  dryers, dishwashers, and more!
 - **[ntfy]**, added by [@tr4nt0r]  
   Integrates with [ntfy.sh], a simple HTTP-based pub-sub notification service
   that allows you to send notifications to your phones or desktops.
@@ -358,11 +353,11 @@ changes to existing integrations:
   meaning it can now, for example, summarize PDF reports for you.
   Great work [@Shulyaka]!
 - [@allenporter] added a new LLM tool for fetching to-do list items,
-  enabling you to interact with your to-do lists contents via voice or chat
+  enabling you to interact with the contents of your to-do lists via voice or chat
   assistants. Awesome!
 - The [HomeKit Bridge] integration now has support for air purifiers!
   Thanks [@MaartenStaa]!
-- [@frenck] extended the [YouTube] integration allowing you to monitor your own
+- [@frenck] extended the [YouTube] integration, allowing you to monitor your own
   YouTube channel 📺. Nice!
 - The [HEOS] integration received multiple improvements from [@andrewsayre],
   including the ability to add items to the play queue and remove queued items.
@@ -478,7 +473,7 @@ noteworthy changes this release:
   things? No? Well... if you are curious to learn, after upgrading, press
   `?` anywhere in the UI to see a list of all available keyboard shortcuts.
   Nice addition [@jpbede]!
-- Support for the [Matter] 1.4 water heater devices types have been added.
+- Support for the [Matter] 1.4 water heater device type has been added.
   Thanks, [@lboue]!
 - When setting up a new device in Home Assistant, you can now directly name
   it during the setup process. Nice! Thanks, [@bramkragten]!
@@ -512,8 +507,8 @@ noteworthy changes this release:
 
 ## Badges on the dashboard can now be wrapped or scrolled
 
-A cool little new feature for dashboards landed this release, that we don't
-want to walk past unnoticed. The behavior of the badges in the header of a
+A cool little new feature for dashboards landed this release, which we don't
+want to rush past unnoticed. The behavior of the badges in the header of a
 dashboard view can now be configured to either wrap or scroll.
 
 Wrap was the original and is still the default behavior, but if you have a lot
@@ -532,7 +527,7 @@ any action block that contains a template.
 experience.
 
 So, instead of falling back to pure YAML for the whole block, it now only
-falls back to a code editor for fields that contain an action template. This
+falls back to a code editor for fields containing an action template. This
 means the rest of the UI—for all other action fields—remains intact and you
 can still use the UI to edit the rest.
 
@@ -557,8 +552,8 @@ Found this great automation or script example in our documentation or the
 YAML format? No problem! You can now paste the YAML directly into the UI.
 
 When you are editing an automation, you can now simply paste the YAML directly
-into the UI editor and it will be converted to the UI format, regardless of
-whether the paste example is a full-blown automation or just a single trigger,
+into the UI editor and it will be converted to the UI format. This is regardless of
+whether the pasted example is a full-blown automation or just a single trigger,
 condition, or action.
 
 <lite-youtube videoid="RRl-G3Igo4E" videotitle="Copy & paste YAML directly into the UI!"></lite-youtube>
@@ -575,7 +570,7 @@ experience, as it allows you to easily add new devices to your Home
 Assistant installation.
 
 However, sometimes, you might want to know what Home Assistant is seeing
-or wondering why a certain device is not being discovered. To help with that
+or wonder why a certain device is not being discovered. To help with that
 [@bdraco] added browsing tools for the DHCP, mDNS/ZeroConf, and UPnP/SSDP that
 allow you to see what Home Assistant is seeing. It is quite technical, but
 it is a great way to see what is going on in your network.
