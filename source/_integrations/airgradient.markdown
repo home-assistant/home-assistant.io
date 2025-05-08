@@ -84,7 +84,7 @@ The following entities are supported:
 - NOx learning offset
 - Total volatile organic compounds learning offset
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 

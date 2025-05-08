@@ -3,7 +3,7 @@ title: Whirlpool Appliances
 description: Instructions on how to integrate Whirlpool appliances with Home Assistant.
 ha_category:
   - Climate
-  - Sensor
+  - Hub
 ha_release: '2022.10'
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -12,10 +12,12 @@ ha_codeowners:
   - '@mkmer'
 ha_domain: whirlpool
 ha_platforms:
+  - binary_sensor
   - climate
   - diagnostics
   - sensor
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **Whirlpool Appliances** {% term integration %} allows you to connect Whirlpool and Maytag appliances to Home Assistant.
@@ -51,8 +53,15 @@ Dryers:
 
 This {% term integration %} maps appliances to entities in Home Assistant. A single appliance may be represented by one or more entities.
 
+- [Binary Sensor](#binary_sensor)
 - [Climate](#climate)
 - [Sensor](#sensor)
+
+### Binary Sensor
+
+The binary sensor platform provides the following functionality:
+
+- state of the washer/dryer machine door (open/closed)
 
 ### Climate
 

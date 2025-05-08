@@ -92,7 +92,7 @@ It will create the following sensors:
 
 There are no commonly known issues with this integration.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 

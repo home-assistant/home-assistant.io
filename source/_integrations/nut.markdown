@@ -28,6 +28,10 @@ related:
 
 The **Network UPS Tools (NUT)** {% term integration %} allows you to monitor and manage an Uninterruptible Power Supply (UPS) for battery backup, a Power Distribution Unit (PDU), or other similar power device using a [NUT](https://networkupstools.org/) server. It lets you view the status, receive notifications about important events, and execute commands as device actions for one or more such devices.
 
+This integration cannot communicate directly with a UPS or power device.
+For this reason, a NUT server is required. The integration talks to the
+NUT server using the NUT protocol to retrieve data and status information.
+
 ## Supported devices
 
 This integration supports hardware devices compatible with
@@ -62,6 +66,12 @@ Username:
 Password:
   description: "The password to sign in to your NUT server. The password is optional."
 {% endconfiguration_basic %}
+
+You can update these settings after installation. To do so,
+reconfigure the NUT device via
+{% my integrations title="**Settings** > **Devices & services**" %},
+select {% icon "mdi:dots-vertical" %} for the NUT device you wish to update,
+and select **Reconfigure**.
 
 ## Supported functionality
 
@@ -273,7 +283,10 @@ The following switches are available for each switchable outlet:
 ## Data updates
 
 The integration uses {% term polling %} to retrieve data from the NUT
-server. The default polling interval is once every 60 seconds.
+server. The default polling interval is once every 60 seconds. You can
+also [define a custom polling
+interval](/common-tasks/general/#defining-a-custom-polling-interval)
+if needed.
 
 ## Actions
 
@@ -331,6 +344,18 @@ automation:
         title: "UPS power failure"
         message: "The UPS lost power and is now on battery"
 ```
+
+## Known limitations
+
+Not all NUT functionality is available through this integration. The
+following are known limitations:
+
+- This NUT integration only supports a subset of NUT "variables" and
+"commands".
+- This NUT integration only supports retrieving, but not setting, NUT
+"variables".
+- This NUT integration does not support NUT "commands" that require
+parameters.
 
 ## Troubleshooting
 
@@ -418,7 +443,7 @@ In this example, the user `my_user` has permission to execute all commands (`ins
 
 Please note that Home Assistant cannot determine whether a user can access a specific action without executing it. If you attempt to perform an action for which the user does not have permission, an exception will be thrown at runtime.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal. No extra steps
 are required.

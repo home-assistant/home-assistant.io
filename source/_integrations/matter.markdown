@@ -4,6 +4,7 @@ description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary sensor
   - Button
+  - Car
   - Climate
   - Cover
   - Fan
@@ -16,6 +17,7 @@ ha_category:
   - Update
   - Vacuum
   - Valve
+  - Water heater
 featured: true
 ha_release: '2022.12'
 ha_iot_class: Local Push
@@ -40,6 +42,7 @@ ha_platforms:
   - update
   - vacuum
   - valve
+  - water_heater
 ha_integration_type: integration
 related:
   - docs: /integrations/thread/

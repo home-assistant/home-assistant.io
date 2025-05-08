@@ -146,7 +146,7 @@ not be possible for Home Assistant to send commands to the device while you
 are also using the Rain Bird App. Home Assistant tries to carefully limit
 connections to the device to avoid failures.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 
