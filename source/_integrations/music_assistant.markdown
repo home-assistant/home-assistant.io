@@ -51,65 +51,35 @@ The Music Assistant integration creates media player entities for all players an
 
 Play media on a Music Assistant player with more fine-grained control options. This action is more powerful than the [`media_player.play_media`](https://www.home-assistant.io/integrations/media_player/#action-media_playerplay_media) action because it allows multiple items to be added to the queue at once, it allows more specific control of the media item to be played (e.g. a track from a specific album can be specified) and Music Assistant's radio mode (where the queue is filled with similar tracks to that enqueued) can be enabled.
 
-- **Data attribute**: `media_id`
-  - **Optional**: No.
-  - **Description**: URI or name of the item to be played. Specify a list if it is desired to play/enqueue multiple items.
-  - **Example**: `spotify://playlist/aabbccddeeff`
-- **Data attribute**: `media_type`
-  - **Optional**: Yes.
-  - **Description**: The type of content to play. Select from artist, album, track, playlist or radio. Will be auto-determined if omitted.
-  - **Example**: `playlist`
-- **Data attribute**: `artist`
-  - **Optional**: Yes.
-  - **Description**: When specifying a track or album by name in the Media ID field, you can optionally restrict results by this artist name.
-  - **Example**: `Queen`
-- **Data attribute**: `album`
-  - **Optional**: Yes.
-  - **Description**: When specifying a track by name in the Media ID field, you can optionally restrict results by this album name.
-  - **Example**: `News of the world`
-- **Data attribute**: `enqueue`
-  - **Optional**: Yes.
-  - **Description**: If the content should be played now or be added to the queue. Options are:
-    - play: Play now
-    - replace: Replace the existing queue and play now
-    - next: Add to the current queue after the currently playing item
-    - replace_next: Replace the current queue after the currently playing item
-    - add: Add to the end of the queue
-  - **Example**: `replace`
-- **Data attribute**: `radio_mode`
-  - **Optional**: Yes.
-  - **Description**: Enable radio mode to auto-generate a playlist based on the selection.
-  - **Example**: `true`
+| Data attribute | Optional | Description                                                            |
+| ----------------------------- | -------- | ----------------------------------------------------------------------- |
+| `media_id` | no | URI or name of the item to be played.<br> Specify a list if it is desired to play/enqueue multiple items.|
+| `media_type`| yes |  The type of content to play. Select from artist, album, track, playlist or radio.<br> Will be auto-determined if omitted.|
+| `artist`| yes |  When specifying a track or album by name in the Media ID field,<br> you can optionally restrict results by this artist name.|
+| `album`| yes |  When specifying a track by name in the Media ID field,<br> you can optionally restrict results by this album name.|
+| `enqueue`| yes |  If the content should be played now or be added to the queue.<br> Must be one of `add`, `next`, `play`, `replace`, `replace_next`.
+| `radio_mode` | yes |  Enable radio mode to auto-generate a playlist based on the selection.|
+
 
 ### Action `music_assistant.play_announcement`
 
 Play an announcement which is accessible via URL on a Music Assistant player. Home Assistant [TTS](https://www.home-assistant.io/integrations/tts/) actions are used for announcements provided as text.
 
-- **Data attribute**: `url`
-  - **Optional**: No.
-  - **Description**: URL to the notification sound.
-  - **Example**: `https://someremotesite.com/doorbell.mp3`
-- **Data attribute**: `use_pre_announce`
-  - **Optional**: Yes.
-  - **Description**: Use pre-announcement sound. Omit to use the player default.
-  - **Example**: `true`
-- **Data attribute**: `announce_volume`
-  - **Optional**: Yes.
-  - **Description**: Use a forced volume level for the announcement. Omit to use the player default.
-  - **Example**: `75`
+| Data attribute | Optional | Description                                                            |
+| ----------------------------- | -------- | ----------------------------------------------------------------------- |
+| `url` | no | URL to the notification sound.|
+| `use_pre_announce` | yes | Use pre-announcement sound. Omit to use the player default.|
+| `announce_volume` | yes | Use a forced volume level for the announcement. Omit to use the player default.|
+
 
 ### Action `music_assistant.transfer_queue`
 
 Transfer the player's queue to another player. This could be combined with presence sensors to allow music to follow you around the house.
 
-- **Data attribute**: `source_player`
-  - **Optional**: Yes.
-  - **Description**: The source media player which has the queue to be transferred. When omitted, the first playing player will be used.
-  - **Example**: `media_player.kitchen_speaker`
-- **Data attribute**: `auto_play`
-  - **Optional**: Yes.
-  - **Description**: Start playing the queue on the target player. Omit to use the default behavior.
-  - **Example**: `true`
+| Data attribute | Optional | Description                                                            |
+| ----------------------------- | -------- | ----------------------------------------------------------------------- |
+|`source_player` | yes | The source media player which has the queue to be transferred.<br> When omitted, the first playing player will be used.|
+| `auto_play` | yes |  Start playing the queue on the target player. Omit to use the default behavior.|
 
 #### Example
 
@@ -133,75 +103,31 @@ automation:
 
 Perform a global search on the Music Assistant library and all providers. This allows programmatic access to all of the music provider's catalogs and could be used to build a HA dashboard where any track could be found for playback.
 
-- **Data attribute**: `config_entry_id`
-  - **Optional**: No.
-  - **Description**: The Music Assistant instance that the search will be performed upon. Allows for multiple servers to be running. This is obtained from a dropdown in the GUI editor. Users of YAML can use the dev tools action tab and select from the dropdown and then switch to YAML to get the actual value.
-  - **Example**: `Music Assistant`
-- **Data attribute**: `name`
-  - **Optional**: No.
-  - **Description**: The name/title to search for.
-  - **Example**: `We Are The Champions`
-- **Data attribute**: `media_type`
-  - **Optional**: Yes.
-  - **Description**: The type(s) of content to search for. Select from artist, album, track, radio, or playlist. All types if omitted.
-  - **Example**: `playlist`
-- **Data attribute**: `artist`
-  - **Optional**: Yes.
-  - **Description**: When specifying a track or album in the name field, you can optionally restrict results by this artist name.
-  - **Example**: `Queen`
-- **Data attribute**: `album`
-  - **Optional**: Yes.
-  - **Description**: When specifying a track in the name field, you can optionally restrict results by this album name.
-  - **Example**: `News of the world`
-- **Data attribute**: `limit`
-  - **Optional**: Yes.
-  - **Description**: Maximum number of items to return (per media type).
-  - **Example**: `10`
-- **Data attribute**: `library_only`
-  - **Optional**: Yes.
-  - **Description**: Only include results that are in the library.
-  - **Example**: `true`
+| Data attribute | Optional | Description                                                            |
+| ----------------------------- | -------- | ----------------------------------------------------------------------- |
+|`config_entry_id` | no | The Music Assistant instance that the search will be performed upon.<br> Allows for multiple servers to be running. This is obtained from a dropdown in the GUI editor.<br> Users of YAML can use the dev tools action tab and select from the dropdown and<br> then switch to YAML to get the actual value.
+| `name` | no | The name/title to search for.
+| `media_type` | yes | The type(s) of content to search for. Select from artist, album, track, radio, or playlist.<br> All types if omitted.
+| `artist` | yes | When specifying a track or album in the name field, you can optionally restrict results by this artist name.
+| `album` | yes | When specifying a track in the name field, you can optionally restrict results by this album name.
+| `limit` | yes | Maximum number of items to return (per media type).
+| `library_only` | yes | Only include results that are in the library.
   
 ### Action `music_assistant.get_library`
 
 Perform a local search on the Music Assistant library. This provides programmatic access to concise information about the media item. This information could be used to create a queue of tracks for playback.
 
-- **Data attribute**: `config_entry_id`
-  - **Optional**: No.
-  - **Description**: The Music Assistant instance that the search will be performed upon. Allows for multiple servers to be running.
-  - **Example**: `Music Assistant`
-- **Data attribute**: `media_type`
-  - **Optional**: No.
-  - **Description**: The type of content to search for. Select from artist, album, track, radio, or playlist.
-  - **Example**: `artist`
-- **Data attribute**: `favorite`
-  - **Optional**: Yes.
-  - **Description**: When selected, only items marked as favorites will be returned.
-  - **Example**: `false`
-- **Data attribute**: `limit`
-  - **Optional**: Yes.
-  - **Description**: Maximum number of items to return.
-  - **Example**: `25`
-- **Data attribute**: `offset`
-  - **Optional**: Yes.
-  - **Description**: From what point in the list should results be returned.
-  - **Example**: `10`
-- **Data attribute**: `search`
-  - **Optional**: Yes.
-  - **Description**: A string that will further filter the results.
-  - **Example**: `Home`
-- **Data attribute**: `order_by`
-  - **Optional**: Yes.
-  - **Description**: Sort the list by this field. View available sorting options in the Developer Tools > Actions > music_assistant.get_library action.
-  - **Example**: `year`
-- **Data attribute**: `album_artists_only`
-  - **Optional**: Yes.
-  - **Description**: When `artist` is the `media_type` then this option will restrict the result to album artists only.
-  - **Example**: `true`
-- **Data attribute**: `album_type`
-  - **Optional**: Yes.
-  - **Description**: When `album` is the `media_type` then this option will restrict the result according to the selection of either album, single, compilation, EP or unknown.
-  - **Example**: `album`
+| Data attribute | Optional | Description                                                            |
+| ----------------------------- | -------- | ----------------------------------------------------------------------- |
+| `config_entry_id` | no | The Music Assistant instance that the search will be performed upon.<br> Allows for multiple servers to be running.
+| `media_type` | no | The type of content to search for. Select from artist, album, track, radio, or playlist.
+| `favorite` | yes | When selected, only items marked as favorites will be returned.
+| `limit` | yes | Maximum number of items to return.
+| `offset` | yes | From what point in the list should results be returned.
+| `search` | yes | A string that will further filter the results.
+| `order_by` | yes | Sort the list by this field. View available sorting options in<br> Developer Tools > Actions > music_assistant.get_library action.
+| `album_artists_only` | yes | When `artist` is the `media_type` then this option will restrict the result to album artists only.
+| `album_type` | yes | When `album` is the `media_type` then this option will restrict the result<br> according to the selection of either album, single, compilation, EP or unknown.
 
 #### Example
 
@@ -232,10 +158,9 @@ script:
 
 Get the queue details of a Music Assistant player queue. This provides programmatic access to comprehensive information about the current and next media item in the queue. This information could be used to create a bespoke media dashboard.
 
-- **Data attribute**: `entity_id`
-  - **Optional**: No.
-  - **Description**: The entity_id of the player holding the queue to be retrieved.
-  - **Example**: `media_player.kitchen_speaker`
+| Data attribute | Optional | Description                                                            |
+| ----------------------------- | -------- | ----------------------------------------------------------------------- |
+| `entity_id` | no | The entity_id of the player holding the queue to be retrieved.
 
 #### Example
 
