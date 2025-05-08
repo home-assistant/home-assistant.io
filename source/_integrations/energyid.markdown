@@ -1,50 +1,122 @@
 ---
 title: EnergyID
-description: Instructions on how to integrate EnergyID into Home Assistant.
+description: Instructions on how to integrate EnergyID into Home Assistant to send your sensor data to the EnergyID platform.
 ha_category:
   - Energy
   - Sensor
 ha_iot_class: Cloud Push
 ha_domain: energyid
-ha_integration_type: integration
-ha_release: 2023.6
+ha_integration_type: service
+ha_release: 2023.10
 ha_config_flow: true
 ha_codeowners:
-    - '@JrtPec'
-    - '@Molier'
+  - '@JrtPec'
+  - '@Molier'
+ha_quality_scale: silver
 ---
 
-The `Energyid` integration makes it possible to transfer measurements collected with Home Assistant to [EnergyID](https://www.energyid.eu/), a cloud based energy management platform.
+The **EnergyID** {% term integration %} allows you to send data from your Home Assistant sensors to [EnergyID](https://www.energyid.eu/), a cloud-based energy management platform. This enables you to use EnergyID's tools for analysis, reporting, and insights based on data collected by your Home Assistant instance.
 
-The integration works by listening to changes in the state of selected entities within Home Assistant. When a change is detected, the new state is sent via HTTP POST to the [EnergyID Webhooks](https://app.energyid.eu/integrations/WebhookIn)
+This integration uses EnergyID's Incoming Webhook API.
 
-## Grabbing your Webhook URL
+## Prerequisites
 
-Go to the [Incoming Webhook App](https://app.energyid.eu/integrations/WebhookIn) in EnergyID and click on the `Activate` button. You will be asked to choose which Record to send the data to, and a name to give the webhook. Click `Create`, and you wil be presented with a Webhook URL. Copy this URL, as you will need it later.
-
-The URL will look something like this:
-
-```html
-https://app.energyid.eu/integrations/WebhookIn/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-```
+1. **EnergyID Account:** You need an active account on [EnergyID](https://www.energyid.eu/).
+2. **Provisioning Credentials:** You must generate a **Provisioning Key** and **Provisioning Secret** from your EnergyID portal. These are used by Home Assistant to identify itself to EnergyID when establishing a connection.
+   - For detailed instructions on generating these credentials, refer to the [official EnergyID Incoming Webhooks documentation](https://help.energyid.eu/en/developer/incoming-webhooks/).
 
 {% include integrations/config_flow.md %}
 
-Next, you are asked to fill in the required fields:
+{% configuration_basic %}
+Provisioning Key:
+  description: The key from your EnergyID portal under Device Provisioning or Webhook settings.
+Provisioning Secret:
+  description: The secret associated with your Provisioning Key.
+Device Name:
+  description: A name to identify this Home Assistant connection in your EnergyID portal's webhook list.
+{% endconfiguration_basic %}
 
-- **EnergyID Webhook URL**: The URL of the EnergyID Webhook you created earlier.
-- **Home Assistant Entity ID**: The entity ID of the Home Assistant entity you want to send to EnergyID. The drop-down is populated with the entities that are available in Home Assistant.
-- **EnergyID Metric**: The metric that is being measured. The drop-down is populated with the metrics that are available in EnergyID. You can also find the list on our [documentation website](https://api.energyid.eu/docs.html#webhook).
-- **EnergyID Metric Kind**: Choose from `cumulative`, `total`, `delta` or `gauge`. This describes how we should interpret the values.:
-  - `cumulative`: A value that only accumulates over time. For example, the total energy measured by a smart meter.
-  - `total`: The change in a value during a time interval. The timestamp indicates the *start of the time interval*.
-  - `delta`: The change in a value during a time interval. The timestamp indicates the *end of the time interval*.
-  - `gauge`: An instantaneous measurement of a value. An example of a gauge metric is the current temperature.
-- **Unit of Measurement**: The unit of the metric. Can be `kWh, Wh, l, m³, kg, km, °C, %, count`. The drop-down is populated with the units that are available in EnergyID. You can also find the list on our [documentation website](https://api.energyid.eu/docs.html#webhook).
+## Configuration steps
 
-### Optional fields
+The setup consists of three main steps:
 
-By clicking `configure`, after you have filled in the required fields, you can change optional fields:
+1. **Connect to EnergyID**: Enter your Provisioning Key and Secret.
+2. **Claim Device** (Conditional): If this is a new connection, you'll need to claim it in your EnergyID account:
+   - Follow the provided **Claim URL** or enter the **Claim Code** on the EnergyID website.
+   - Select which EnergyID record (property or site) should receive data from this Home Assistant instance.
+3. **Finalize Setup**: Confirm the device name for this connection.
 
-- **EnergyID Data Interval**: Defines the resolution of the data that EnergyID will retain. Can be `P1M` (monthly), `P1D` (daily), `PT1H` (hourly), `PT15M` (quarter-hourly), `PT5M` (five-minute). The default is `P1D`. If multiple values are sent within the same interval, the last value will be retained. Note that some shorter intervals will require a paid subscription.
-- **Upload Interval (seconds)**: Defines, in seconds, how long the integration will wait before listening for the next value. The default is `300` (5 minutes).
+Once configured, a diagnostic status sensor will appear to monitor the connection.
+
+## Managing sensor mappings
+
+After initial setup, you need to configure which Home Assistant sensors should send data to EnergyID:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the EnergyID integration card and click **Configure**.
+3. Choose from the following options:
+
+### Add new sensor mapping
+
+- **Home Assistant Sensor**: Select the sensor entity whose data you want to send.
+- **EnergyID Metric Key**: Enter the key that EnergyID should use for this data.
+  - Use [predefined keys](https://help.energyid.eu/en/developer/incoming-webhooks/#predefined-properties) like `el` (electricity), `pv` (solar), `gas`, or `temp` (temperature).
+  - You can also use custom keys (for example, `temp.livingroom`).
+  - Keys should not contain spaces.
+
+### Manage existing mappings
+
+- View a list of all your current sensor mappings.
+- For each mapping, you can:
+  - **Update EnergyID Key**: Change the metric key for the selected sensor.
+  - **Delete Mapping**: Stop sending data from this sensor.
+
+## Status sensor
+
+The integration creates a diagnostic sensor named "EnergyID Status" with these attributes:
+
+- **State**: Number of currently active sensor mappings.
+- **claimed**: Whether the instance is successfully linked to your EnergyID account.
+- **last_sync**: Timestamp of the last successful data synchronization.
+- **webhook_endpoint**: The URL used to send data.
+- **mapped_entities**: Dictionary of configured entity-to-key mappings.
+- **webhook_policy**: Details received from EnergyID (such as uploadInterval).
+
+## Data upload
+
+- The integration listens for state changes of your mapped sensors.
+- When a mapped sensor's state changes, its new value and the change timestamp are recorded.
+- Data is pushed to EnergyID in batches based on the `uploadInterval` policy (typically every 60 seconds).
+- Authentication tokens are managed automatically.
+
+## Known limitations
+
+- **Webhook Policy Changes**: If EnergyID updates your webhook policy, you may need to reload the integration through {% my integrations title="**Settings** > **Devices & services**" %}.
+- **Timestamp Accuracy**: The integration uses the `last_updated` timestamp from Home Assistant states, so ensure your system time is accurate.
+
+## Troubleshooting
+
+{% details "Connection issues" %}
+If the status sensor shows the device is not claimed or data is not synchronizing:
+
+1. Ensure your EnergyID account is active.
+2. Check that the device is properly claimed in your EnergyID portal.
+3. Reload the integration:
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+   - Find the EnergyID integration card, click the {% icon "mdi:dots-vertical" %} menu, and select **Reload**.
+{% enddetails %}
+
+{% details "Missing data in EnergyID" %}
+If data isn't appearing in your EnergyID account:
+
+1. Confirm the status sensor shows the device is claimed.
+2. Verify your mapped sensor is delivering valid numerical values (not unknown or unavailable).
+3. Check the sensor's unit matches what EnergyID expects for the given metric key.
+4. Allow up to 5 minutes for data to appear in EnergyID after a state change.
+{% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
