@@ -8,7 +8,6 @@ ha_iot_class: Local Push
 ha_domain: hyperion
 ha_codeowners:
   - '@dermotduffy'
-ha_quality_scale: platinum
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
@@ -111,13 +110,12 @@ To start Hyperion with an effect, use the following automation:
 
 ```yaml
 automation:
-- id: one
-  alias: "Turn Hyperion effect on when light goes on"
-  trigger:
-    - platform: state
+- alias: "Turn Hyperion effect on when light goes on"
+  triggers:
+    - trigger: state
       entity_id: light.hyperion
       to: "on"
-  action:
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.hyperion
@@ -129,17 +127,17 @@ To have the lights playing an effect when pausing, idle or turn off a media play
 
 ```yaml
 - alias: "Set hyperion effect after playback"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: media_player.plex
       to: "off"
-    - platform: state
+    - trigger: state
       entity_id: media_player.plex.plex
       to: "paused"
-    - platform: state
+    - trigger: state
       entity_id: media_player.plex.plex
       to: "idle"
-  action:
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.hyperion
@@ -151,11 +149,11 @@ To capture the screen on a USB capture device, when playing something on a media
 
 ```yaml
 - alias: "Set hyperion when playback starts"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: media_player.plex
       to: "playing"
-  action:
+  actions:
     - action: switch.turn_on
       target:
         entity_id: switch.[instance]_component_usb_capture
@@ -165,17 +163,17 @@ To toggle the LED device together with the light entity in order to turn light o
 
 ```yaml
 - alias: "Turn LED device on when Hyperion light is activated"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id:
         - light.hyperion
       from: "off"
       to: "on"
-  condition:
+  conditions:
     - condition: state
       entity_id: switch.[instance]_component_led_device
       state: "off"
-  action:
+  actions:
     - action: switch.turn_on
       target:
         entity_id: switch.[instance]_component_led_device

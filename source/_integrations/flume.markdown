@@ -49,10 +49,10 @@ Example of an automation that sends a Home Assistant notification of the most re
 
 ```yaml
 alias: "Notify: flume"
-trigger:
-  - platform: time_pattern
+triggers:
+  - trigger: time_pattern
     minutes: /5
-action:
+actions:
   - action: flume.list_notifications
     data:
       config_entry: 1234 # replace this with your config entry id

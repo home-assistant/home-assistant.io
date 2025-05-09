@@ -34,7 +34,6 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: integration
-ha_quality_scale: platinum
 ---
 
 The Tessie integration exposes various commands and sensors from the Tesla vehicles and energy products connected to your [Tessie](https://tessie.com/) subscription.
@@ -44,6 +43,10 @@ The Tessie integration exposes various commands and sensors from the Tesla vehic
 You must have an active [Tessie](https://my.tessie.com/) subscription, generate a [Tessie Access Token](https://my.tessie.com/settings/api) and grant Tessie access to your Tesla vehicle by generating a [Tesla Virtual Key](https://www.tesla.com/_ak/tessie.com).
 
 {% include integrations/config_flow.md %}
+
+## Troubleshooting
+
+If a vehicle action returns an error in Home Assistant, you should first try to perform the same action in the Tessie app. The app will guide you through the steps to fix common issues like command signing or scopes.
 
 ## Vehicle entities
 
@@ -88,7 +91,7 @@ The integration will create binary sensor entities for a variety of metrics rela
 The integration will create button entities to control various aspects of the vehicle:
 
 - Flash lights
-- Homelink
+- HomeLink
 - Honk horn
 - Keyless driving
 - Play fart
@@ -223,6 +226,7 @@ The integration will show vehicle software updates and their installation progre
 - Backup capable
 - Grid services enabled
 - Grid services active
+- Storm watch active
 
 ### Number
 
@@ -256,3 +260,11 @@ The integration will show vehicle software updates and their installation progre
 
 - Allow charging from grid
 - Storm watch
+
+## Energy dashboard
+
+The Tesla Fleet API only provides power data for Powerwall and Solar products. This means they cannot be used on the energy dashboard directly.
+
+Energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
+The `Load power`, `Solar power`, and the templated sensors can then use a [Riemann Sum](/integrations/integration/) to convert their instant power (kW) values into cumulative energy values (kWh),
+which then can be used within the energy dashboard.

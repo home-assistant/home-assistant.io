@@ -11,6 +11,7 @@ ha_domain: meteoalarm
 ha_platforms:
   - binary_sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `MeteoAlarm` platform allows one to watch for weather alerts in Europe from [MeteoAlarm](https://www.meteoalarm.org) (EUMETNET). To use this binary sensor, you need the country and the province name from  [MeteoAlarm](https://feeds.meteoalarm.org). Please note that it is crucial to write the country name exactly as it appears in the URL starting with https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-, including any hyphens used in the name. Failure to do so may result in errors or incorrect data.
@@ -91,11 +92,11 @@ Example automation
 ```yaml
 automation:
   - alias: "Alert me about weather warnings"
-    trigger:
-      platform: state
-      entity_id: binary_sensor.meteoalarm
-      from: 'off'
-    action:
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.meteoalarm
+        from: "off"
+    actions:
       - action: notify.notify
         data:
           title: "{{state_attr('binary_sensor.meteoalarm', 'headline')}}"

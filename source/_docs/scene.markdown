@@ -24,21 +24,16 @@ scene:
       media_player.sony_bravia_tv:
         state: "on"
         source: HDMI 1
-        state: "on"
 ```
 
 ## How to configure your scene
 
-In the scene you define in your YAML files, please ensure you use
+In the scene you define in your {% term YAML %} files, please ensure you use
 all required parameters as listed below.
 
 {% configuration %}
 name: 
   description: Friendly name of the scene.
-  required: true
-  type: string
-description:
-  description: Description of the scene.
   required: true
   type: string
 entities:
@@ -57,15 +52,15 @@ Scenes can be activated using the action `scene.turn_on` (there is no 'scene.tur
 ```yaml
 # Example automation
 automation:
-  trigger:
-    platform: state
-    entity_id: device_tracker.sweetheart
-    from: "not_home"
-    to: "home"
-  action:
-    action: scene.turn_on
-    target:
-      entity_id: scene.romantic
+  triggers:
+    - trigger: state
+      entity_id: device_tracker.sweetheart
+      from: "not_home"
+      to: "home"
+  actions:
+    - action: scene.turn_on
+      target:
+        entity_id: scene.romantic
 ```
 
 ## Applying a scene without defining it
@@ -75,22 +70,22 @@ With the `scene.apply` action you are able to apply a scene without first defini
 ```yaml
 # Example automation
 automation:
-  trigger:
-    platform: state
-    entity_id: device_tracker.sweetheart
-    from: "not_home"
-    to: "home"
-  action:
-    action: scene.apply
-    data:
-      entities:
-        light.tv_back_light:
-          state: "on"
-          brightness: 100
-        light.ceiling: off
-        media_player.sony_bravia_tv:
-          state: "on"
-          source: HDMI 1
+  triggers:
+    - trigger: state
+      entity_id: device_tracker.sweetheart
+      from: "not_home"
+      to: "home"
+  actions:
+    - action: scene.apply
+      data:
+        entities:
+          light.tv_back_light:
+            state: "on"
+            brightness: 100
+          light.ceiling: off
+          media_player.sony_bravia_tv:
+            state: "on"
+            source: "HDMI 1"
 ```
 
 ## Using scene transitions
@@ -104,17 +99,17 @@ light will transition to the scene in 2.5 seconds.
 ```yaml
 # Example automation
 automation:
-  trigger:
-    platform: state
-    entity_id: device_tracker.sweetheart
-    from: "not_home"
-    to: "home"
-  action:
-    action: scene.turn_on
-    target:
-      entity_id: scene.romantic
-    data:
-      transition: 2.5
+  triggers:
+    - trigger: state
+      entity_id: device_tracker.sweetheart
+      from: "not_home"
+      to: "home"
+  actions:
+    - action: scene.turn_on
+      target:
+        entity_id: scene.romantic
+      data:
+        transition: 2.5
 ```
 
 Transitions are currently only support by lights, which in their turn, have

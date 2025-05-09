@@ -285,12 +285,12 @@ but you will still receive the done message.
 
 ```yaml
 - alias: "Telegram callback to stop alerts for garage door"
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: telegram_callback
       event_data:
         data: "/garage_acknowledge"
-  action:
+  actions:
     - action: alert.turn_off
       target:
         entity_id: alert.garage_door

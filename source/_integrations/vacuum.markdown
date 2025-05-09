@@ -15,6 +15,19 @@ The **Vacuum** {% term integration %} enables the ability to control home cleani
 
 {% include integrations/building_block_integration.md %}
 
+## The state of a vacuum entity
+
+A vacuum {% term entity %} can have the following states:
+
+- **Cleaning**: The vacuum is currently cleaning.
+- **Docked**: The vacuum is currently docked. It is assumed that docked can also mean charging.
+- **Error**: The vacuum encountered an error while cleaning.
+- **Idle**: The vacuum is not paused, not docked, and does not have any errors.
+- **Paused**: The vacuum was cleaning but was paused without returning to the dock.
+- **Returning**: The vacuum is done cleaning and is currently returning to the dock, but not yet docked.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Actions
 
 Available actions: `start`, `pause`, `stop`, `return_to_base`, `locate`, `clean_spot`, `set_fan_speed` and `send_command`.

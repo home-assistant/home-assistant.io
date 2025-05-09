@@ -7,6 +7,7 @@ ha_release: 0.85
 ha_iot_class: Local Push
 ha_domain: idteck_prox
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 [IDTECK](https://www.idteck.com/) makes ID systems used to control access and identify users.  This integration works with [Proximity Readers](https://www.idteck.com/en/products/rfid-reader-__-card-%26-tag-__idteck-credential-format-(idc)) (RFID card readers). The device is connected to Home Assistant through a serial to ethernet converter (NPort).

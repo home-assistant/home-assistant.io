@@ -11,16 +11,30 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-Keeps track on `select` entities in your environment, their state, and allows
+The **Select** {% term integration %} manages the state of the select entities and allows
 you to control them. This integration allows other integrations to offer
 a limited set of selectable options for the entity.
 
 {% include integrations/building_block_integration.md %}
 
+## The state of a select entity
+
+The state of a select entity is the value of the currently selected option.
+
+<p class='img'>
+<img src='/images/integrations/select/state_select.png' alt='Screenshot showing the state of a select entity in the developer tools' />
+Screenshot showing the state of a select entity in the developer tools.
+</p>
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Actions
 
-The select entity exposes additional actions to control the entity in, for example,
-automation or scripts. These actions can be created via the UI, but are
+The select {% term entity %} exposes additional {% term actions %} to control the entity in, for example,
+{% term automation %} or {% term scripts %}. These actions can be created via the UI, but are
 also available in YAML (for which examples are provided below).
 
 ### Action `select.select_first`

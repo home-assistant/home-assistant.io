@@ -18,3 +18,7 @@ ha_iot_class: Cloud Polling
 ---
 
 {% include integrations/supported_brand.md %}
+
+## Limitations
+
+Unlike other utilities that use the [{{ page.ha_supporting_integration }}](/integrations/{{ page.ha_supporting_domain }}) integration, {{ name }} only publishes monthly data.

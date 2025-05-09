@@ -74,13 +74,13 @@ Any configured Powr Savr occupancy sensors will be added as occupancy binary sen
 
 ``` yaml
 - alias: "keypad button pressed notification"
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: lutron_event
       event_data:
         id: office_pico_on
         action: single
-  action:
+  actions:
     - action: notify.telegram
       data:
         message: "pico just turned on!"

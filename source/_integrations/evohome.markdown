@@ -17,6 +17,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **Evohome** {% term integration %} links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
@@ -129,7 +130,7 @@ This action call will set the operating `mode` of the system for a specified per
 For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
 
 ```yaml
-- action:
+- actions:
     - action: evohome.set_system_mode
       data:
         mode: AutoWithEco
@@ -139,7 +140,7 @@ For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
 For the other modes, such as **Away**, the duration is a `period` of days, where 1 day will revert at midnight tonight, and 2 days reverts at midnight tomorrow.
 
 ```yaml
-- action:
+- actions:
     - action: evohome.set_system_mode
       data:
         mode: Away
@@ -161,7 +162,7 @@ This action will immediately pull the latest state data from the vendor's server
 This action will set the `setpoint` of a zone, as identified by its `entity_id`, for a specified period of time (**TemporaryOverride**). However, if no period of time is provided (c.f. a duration of 0, below), then the change is permanent (**PermanentOverride**).
 
 ```yaml
-- action:
+- actions:
     - action: evohome.set_zone_override
       target:
         entity_id: climate.loungeroom
@@ -172,7 +173,7 @@ This action will set the `setpoint` of a zone, as identified by its `entity_id`,
 The `duration` can be up to 24 hours, after which the zone mode will revert to schedule (**FollowSchedule**). If the `duration` is 0 hours, then the change will be until the next setpoint.
 
 ```yaml
-- action:
+- actions:
     - action: evohome.set_zone_override
       target:
         entity_id: climate.loungeroom

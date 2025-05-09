@@ -121,7 +121,11 @@ Depending on the sensor type you choose, the `history_stats` integration can sho
 
 - **time**: The default value, which is the tracked time, in hours
 - **ratio**: The tracked time divided by the length of your period, as a percentage
-- **count**: How many times the tracked entity matched the configured state during the time period
+- **count**: How many times the tracked entity matched the configured state during the time period. This will count states (for example, how many times a light was in the `on` state during the time period), as opposed to counting state transitions (for example, how many times a light was *turned* `on`). The difference is if the entity was already in the desired state at the start of the time period, that scenario will be counted with this sensor type.
+
+{% note %}
+For a **time** or **count** sensor that uses a time period that does not slide (such as one that resets upon each hour, as opposed to one which considers the trailing 60 minutes), consider using [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml) to change the `state_class` to `total_increasing` to generate statistics that track the `sum`. This is useful when emulating the behavior of a `utility_meter` helper that has a defined reset cycle. Without intervention, the `state_class` of any `history_stats` sensor will be `measurement` and will therefore generate `average`, `min`, and `max` statistics.
+{% endnote %}
 
 ## Time periods
 
@@ -158,6 +162,10 @@ duration:
 If the duration exceeds the number of days of history stored by the `recorder` integration (`purge_keep_days`), the history statistics sensor will not have all the information it needs to look at the entire duration. For example, if `purge_keep_days` is set to 7, a history statistics sensor with a duration of 30 days will only report a value based on the last 7 days of history.
 {% endnote %}
 
+{% note %}
+The history stats sensor will be updated when the source entity changes or once per minute if there is no source change. Keep this in mind when using fixed durations that aren't evenly divisible by one minute.
+{% endnote %}
+
 ### Video tutorial
 This video tutorial explains how you can use history stats. It also shows how you can create a daily bar chart graph to visualize things such as occupancy, or how long the lights are on in a particular room.
 
@@ -172,7 +180,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: "{{ today_at() }}"
+    start: "{{ today_at('00:00') }}"
     end: "{{ now() }}"
 ```
 
@@ -183,7 +191,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    end: "{{ today_at() }}"
+    end: "{{ today_at('00:00') }}"
     duration:
       hours: 24
 ```
@@ -209,7 +217,7 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 {% raw %}
 
 ```yaml
-    start: "{{ today_at() - timedelta(days=now().weekday()) }}"
+    start: "{{ today_at('00:00') - timedelta(days=now().weekday()) }}"
     end: "{{ now() }}"
 ```
 
@@ -220,7 +228,7 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 {% raw %}
 
 ```yaml
-    start: "{{ today_at().replace(day=1) }}"
+    start: "{{ today_at('00:00').replace(day=1) }}"
     end: "{{ now() }}"
 ```
 
@@ -231,8 +239,8 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 {% raw %}
 
 ```yaml
-    start: "{{ (today_at().replace(day=1) - timedelta(days=1)).replace(day=1) }}"
-    end: "{{ today_at().replace(day=1) }}"
+    start: "{{ (today_at('00:00').replace(day=1) - timedelta(days=1)).replace(day=1) }}"
+    end: "{{ today_at('00:00').replace(day=1) }}"
 ```
 
 {% endraw %}
@@ -254,7 +262,7 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 {% raw %}
 
 ```yaml
-    end: "{{ today_at() }}"
+    end: "{{ today_at('00:00') }}"
     duration:
       days: 30
 ```

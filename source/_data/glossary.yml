@@ -39,9 +39,10 @@
   excerpt: >
     Add-ons are additional standalone third-party software packages that can be
     installed on Home Assistant OS.
+  link: /getting-started/concepts-terminology/#add-ons
 - term: Area
   definition: >-
-    An area in Home Assistant is a logical grouping of devices and entities that
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
     are meant to match areas (or rooms) in the physical world: your home. For
     example, the `living room` area groups devices and entities in your living
     room. Areas allow you to target actions at an entire group of devices.
@@ -50,12 +51,13 @@
     floors. Areas can also be used for automatically generated cards, such as
     the [Area card](/dashboards/area/).
   excerpt: >-
-    An area in Home Assistant is a logical grouping of devices and entities that
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
     are meant to match areas (or rooms) in the physical world: your home. For
     example, the `living room` area groups devices and entities in your living
     room.
   aliases:
     - areas
+  link: /docs/organizing/areas/
 - term: Automation
   definition: >-
     Automations connect one or more triggers to one or more actions in a 'when
@@ -74,12 +76,9 @@
   definition: >-
     Home Assistant has built-in functionality to create files containing a copy
     of your configuration. This can be used to restore your Home Assistant as
-    well as migrate to a new system. The backup feature is available on some
-    installation types.
-  link: /integrations/backup/
-  excerpt: >-
-    Home Assistant has built-in functionality to create files containing a copy
-    of your configurations. This is available on certain installation types.
+    well as migrate to a new system. The backup feature is available for all
+    [installation types](/installation/#advanced-installation-methods).
+  link: /common-tasks/general/#backups
   aliases:
     - backups
 - term: Binary sensor
@@ -87,26 +86,31 @@
     A binary sensor returns information about things that only have two states -
     such as on or off.
   link: /integrations/binary_sensor
+  aliases:
+    - binary_sensor
+    - binary_sensors
 - term: Blueprint
   definition: >-
-    A blueprint is a script or automation configuration with certain parts
-    marked as configurable. This allows users to create multiple scripts or
-    automations based on the same blueprint, with each having its own
+    A blueprint is a [script](/getting-started/concepts-terminology/#scripts), [automation](/getting-started/concepts-terminology/#automation), or [template](/integrations/template/) entity configuration with certain parts
+    marked as configurable. This allows users to create multiple scripts,
+    automations or template entities based on the same blueprint, with each having its own
     configuration-specific settings. Blueprints are shared by the community on
     the [blueprints
     exchange](https://community.home-assistant.io/c/blueprints-exchange/53) in
     the forum.
   link: /docs/blueprint/
-  excerpt: >-
-    A blueprint is a script or automation configuration with certain parts
-    marked as configurable. This allows users to create multiple scripts or
-    automations based on the same blueprint, with each having its own
-    configuration-specific settings.
   aliases:
     - blueprints
+- term: Button
+  definition: >-
+    A button entity can fire an event, or trigger an action towards a device or
+    service. It can be compared to a physical push button. The button entity does not have a state like `on` or `off`, but keeps the timestamp of when it was last pressed in the Home Assistant UI or via an action.
+  link: /integrations/button
+  aliases:
+    - buttons
 - term: Category
   definition: >-
-    A category is an organization tool that allows grouping items in a table.
+    A category is an organization tool that allows [grouping](/docs/organizing/) items in a table.
     Like labels, categories allow grouping irrespective of the items' physical
     location. For example, on the automations page, you can create the
     categories “Notifications” or “NFC tags” to view your automations grouped or
@@ -114,6 +118,14 @@
     have different categories than the scene, scripts, or helpers settings page.
   aliases:
     - categories
+  link: /docs/organizing/categories/
+- term: Climate
+  definition: >-
+    The Climate entity allows you to control and monitor HVAC (heating,
+    ventilating, and air conditioning) devices and thermostats.
+  link: /integrations/climate
+  aliases:
+    - climates
 - term: Commissioning
   definition: >-
     In the context of Matter devices, *commissioning* is the process of adding a
@@ -155,6 +167,13 @@
     Covers are devices such as blinds, garage doors, etc that can be opened and
     closed and optionally set to a specific position.
   link: /integrations/cover
+  aliases:
+    - covers
+- term: Custom integration
+  definition: >-
+    A custom integration is an integration that has been created by someone from the Home Assistant community and has been published for others to use at their own risk. Custom integrations are not supported by the Home Assistant project. They are not reviewed or tested by the Home Assistant development team and thus may negatively impact the stability of your Home Assistant instance. An example of a custom integration is the [Spook](https://spook.boo/) integration.
+  aliases:
+    - custom integrations
 - term: Customize
   definition: >-
     Customization allows you to overwrite the default parameters of your devices
@@ -181,6 +200,11 @@
   definition: >-
     Device trackers are used to track the presence, or location, of a device.
   link: /integrations/device_tracker
+- term: Diagnostics
+  definition: >-
+    The diagnostics integration provides a way to download diagnostic data from a device or integration for sharing in issue reports. Sharing diagnostics data when reporting an issue allows developers to diagnose and
+    fix your reported problem quicker.
+  link: /integrations/diagnostics
 - term: Discovery
   definition: >
     Discovery is the automatic setup of zeroconf/mDNS and uPnP devices after
@@ -219,7 +243,7 @@
     properties of entities are related to the state. Entities have optional
     attributes such as friendly name, unit of measurement, and an icon or
     picture that can be displayed in the frontend.
-  link: /docs/configuration/state_object/
+  link: /docs/configuration/entities_domains/
   excerpt: >
     An entity represents a sensor, actor, or function in Home Assistant.
     Entities are used to monitor physical properties or to control other
@@ -228,13 +252,19 @@
     - entities
 - term: Event
   definition: >-
-    An event is when something happens.
+    Every time something happens in Home Assistant, an event is fired. There are different types of events, such as state change events, when an action was triggered, or the time changed. All entities produce state change events. Every time a state changes, a state change event is produced. Events can be used to trigger automations or scripts. For example, you can trigger an automation when a light is turned on, then a speaker turns on in that room. Events can also be used to trigger actions in the frontend. For example, you can trigger an action when a button is pressed.
   link: /docs/configuration/events/
   aliases:
     - events
+- term: Event entity
+  definition: >-
+    Events are signals that are emitted when something happens, for example,
+    when a user presses a physical button like a doorbell or when a button on a
+    remote control is pressed.
+  link: /integrations/event
 - term: Floor
   definition: >-
-    A floor in Home Assistant is a logical grouping of areas that are meant to
+    A floor in Home Assistant is a [logical grouping](/docs/organizing/) of areas that are meant to
     match the physical floors in your home. Devices & entities are not assigned
     to floors but to areas. A floor has properties such as: Floor ID, name,
     aliases (for use in assistants), an icon, and a floor level. Some of these
@@ -243,13 +273,14 @@
     target for actions. For example, to turn off all the lights on the
     downstairs floor when you go to bed.
   excerpt: >-
-    A floor in Home Assistant is a logical grouping of areas that are meant to
+    A floor in Home Assistant is a [logical grouping](/docs/organizing/) of areas that are meant to
     match the physical floors in your home. Devices & entities are not assigned
     to floors but to areas. Floors can be used in automations and scripts as a
     target for actions. For example, to turn off all the lights on the
     downstairs floor when you go to bed.
   aliases:
     - floors
+  link: /docs/organizing/floors/
 - term: Frontend
   definition: >-
     The frontend is a necessary component for the UI, it is also where you can
@@ -337,6 +368,12 @@
   link: https://en.wikipedia.org/wiki/Host_(network)
   aliases:
     - hosts
+- term: Image
+  definition: >-
+    The Image integration allows other integrations to display a static image.
+  link: /integrations/image
+  aliases:
+    - images
 - term: Integration
   definition: >-
     Integrations connect and integrate Home Assistant with devices, services,
@@ -350,7 +387,7 @@
   excerpt: >
     Integrations connect and integrate Home Assistant with your devices,
     services, and more.
-  link: /integrations/
+  link: /getting-started/concepts-terminology/#integrations
   aliases:
     - integrations
 - term: Intent
@@ -370,7 +407,7 @@
     - Intents
 - term: Label
   definition: >-
-    Labels in Home Assistant allow grouping elements irrespective of their
+    Labels in Home Assistant allow [grouping](/docs/organizing/) elements irrespective of their
     physical location or type. Labels can be assigned to areas, devices,
     entities, automations, scenes, scripts, and helpers. Labels can be used in
     automations and scripts as a target for actions. Labels can
@@ -378,13 +415,14 @@
     to show only devices with the label `heavy energy usage` or turn these
     devices off when there is not a lot of solar energy available.
   excerpt: >-
-    Labels in Home Assistant allow grouping elements irrespective of their
+    Labels in Home Assistant allow [grouping](/docs/organizing/) elements irrespective of their
     physical location or type. Labels can be assigned to areas, devices,
     entities, automations, scenes, scripts, and helpers. Labels can be used in
     automations and scripts as a target for actions. Labels can
     also be used to filter data.
   aliases:
     - labels
+  link: /docs/organizing/labels/
 - term: Lovelace
   definition: >-
     Lovelace is the original code name of the UI that is now known as [Home
@@ -394,6 +432,8 @@
     A light has a brightness you can control, and optionally color temperature
     or RGB color control.
   link: /integrations/light
+  aliases:
+    - lights
 - term: Matter
   definition: >-
     Matter is an open-source standard that defines how to control smart home
@@ -433,6 +473,12 @@
   link: /docs/configuration/platform_options/
   aliases:
     - platforms
+- term: Polling
+  definition: >-
+    Data polling is the process of querying a device or service at regular intervals to check for updates or retrieve data. By defining a custom polling interval, you can control how frequently your system checks for new data, which can help optimize performance and reduce unnecessary network traffic.
+  link: /common-tasks/general/#defining-a-custom-polling-interval
+  aliases:
+    - data polling
 - term: Reload
   definition: >-
     Applies the changes made to the Home Assistant configuration files. Changes
@@ -489,20 +535,18 @@
     entities for organic, paper, and packaging waste. In terms of functionality,
     the information service is like a device. It is called *service* to avoid
     confusion, as it does not come with a piece of hardware.
-  link: /docs/scripts/service-calls/
   aliases:
     - services
 - term: State
   definition: |-
     The state holds the information of interest of an entity. For example, if a
-    light is on or off, the current temperature, or the amount of energy used.
-    The data type of state is `string` (a textual value). Entities store 2
-    timestamps related to the state: `last_updated` and `last_changed`. Each
+    light is on or off, the current temperature, or the amount of energy used. Entities store 3
+    timestamps related to the state: `last_updated`, `last_changed`, and `last_reported`. Each
     entity has exactly one state and the state only holds one value at a time.
     However, entities can store attributes related to that state. For example,
     the state of a light is _on_, and the related state attributes could be its
-    current brightness and color values. State changes can be used as the source
-    of triggers. The current state can be used in conditions.
+    current brightness and color values. State change events can be used as triggers.
+    The current state can be used in conditions.
 
   link: /docs/configuration/state_object/
   aliases:
@@ -517,6 +561,8 @@
     Switches are things that have two states you can select between, such as
     turning on or off a socket.
   link: /integrations/switch/
+  aliases:
+    - switches
 - term: Template
   definition: >-
     A template is an automation definition that can include variables for the
@@ -568,6 +614,18 @@
     TTS (text-to-speech) allows Home Assistant to talk to you.
   link: /integrations/tts/
 
+- term: Update
+  definition: >-
+    An update entity is an entity that indicates if an update is available for a
+    device or service. This can be any update, be it a firmware update
+    for a device like a light bulb or router, or a software update for an add-on or a container.
+  excerpt: >
+    An update entity is an entity that indicates if an update is available for a
+    device or service.
+  link: /integrations/update
+  aliases:
+    - updates
+
 - term: Valve
   definition: >-
     Valves are devices to control the flow of liquids and gases. All valves in
@@ -580,9 +638,13 @@
     Variables are used to store values in memory that can be processed for
     example, in a script.
   link: /docs/scripts/#variables
+- term: YAML
+  definition: >-
+    YAML is a human-readable data serialization language. It is used to store and transmit data in a structured format. In Home Assistant, YAML is used for configuration, for example in the `configuration.yaml` or `automations.yaml` files.
+  link: /docs/configuration/yaml/
 - term: Zone
   definition: >-
-    Zones are areas that can be used for presence detection.
+    Zones allow you to specify certain regions on a map. They enable zone presence-detection and can be used in automations. For example, to start the vacuum after you left home or start the heating at home when you leave the office.
   link: /integrations/zone/
   aliases:
     - zones

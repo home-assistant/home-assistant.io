@@ -78,5 +78,5 @@ For example:
 ```
 
 {% note %}
-Any comments in the YAML file will be lost and templates will be reformatted when you update a scene via the editor.
+Any comments in the {% term YAML %} file will be lost and templates will be reformatted when you update a scene via the editor.
 {% endnote %}

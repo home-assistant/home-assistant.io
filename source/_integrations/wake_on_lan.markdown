@@ -78,7 +78,7 @@ The action to route the packet is most likely named "IP Helper". It may support 
 
 ## Button
 
-The `wake_on_lan` (WOL) switch {% term integration %} allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
+The `wake_on_lan` (WOL) button {% term integration %} allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
 
 The WOL button can only turn on your computer.
 It will send a magic packet to the MAC address specified in the configuration. As a button, it is stateless. This means it can not monitor if the WOL-enabled computer has actually received the wake-up call and has started.
@@ -173,7 +173,7 @@ A switch defined with the `wake_on_lan` platform will render in the UI with both
     - Continuing your example, the trigger YAML will look like this:
 
       ```yaml
-      platform: state
+      trigger: state
       entity_id:
         - input_button.wake_pc
       ```

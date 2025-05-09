@@ -10,6 +10,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `logentries` {% term integration %} makes it possible to log all state changes to [Logentries](https://logentries.com) using Logentries Webhook endpoint.

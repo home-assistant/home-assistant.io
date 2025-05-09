@@ -39,16 +39,29 @@ ha_integration_type: helper
 
 The group integration lets you combine multiple entities into a single entity. Entities that are members of a group can be controlled and monitored as a whole.
 
-This can be useful for cases where you want to control, for example, the
-multiple bulbs in a light fixture as a single light in Home Assistant.
+This can be useful, for example, in cases where you want to control multiple bulbs in a light fixture as a single light in Home Assistant. You also have the option of hiding the individual member entities in a group.
 
-Home Assistant can group multiple binary sensors, covers, events, fans, lights, locks, media players, switches as a single entity, with the option of hiding the individual member entities.
+The following entities can be grouped:
+
+- [binary sensor (binary sensors)](/integrations/binary_sensor/)
+- [button (buttons)](/integrations/button/)
+- [cover (covers)](/integrations/cover/)
+- [fan (fans)](/integrations/fan/)
+- [switch (switches)](/integrations/switch/)
+- [lock (locks)](/integrations/lock/)
+- [light (lights)](/integrations/light/)
+- [event (events)](/integrations/event/)
+- [media player (media players)](/integrations/media_player/)
+- [notify (notifications)](/integrations/notify/)
+- [sensor (sensors)](/integrations/sensor/)
+- [number (numbers)](/integrations/number/)
+- [input_number (input_numbers)](/integrations/input_number/)
 
 {% include integrations/config_flow.md %}
 
 {% note %}
 Notification entities can only be grouped via the UI.
-The older notification services can only be grouped via YAML configuration.
+The older notification actions can only be grouped via YAML configuration.
 {% endnote %}
 
 ## Group behavior
@@ -105,10 +118,12 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
 - Otherwise, the group state is `jammed` if at least one group member is `jammed`.
+- Otherwise, the group state is `opening` if at least one group member is `opening`.
 - Otherwise, the group state is `locking` if at least one group member is `locking`.
+- Otherwise, the group state is `open` if at least one group member is `open`.
 - Otherwise, the group state is `unlocking` if at least one group member is `unlocking`.
-- Otherwise, the group state is `unlocked` if at least one group member is `unlocked`.
-- Otherwise, the group state is `locked`.
+- Otherwise, the group state is `locked` if all group members are `locked`.
+- Otherwise, the group state is `unlocked`.
 
 ### Notify entity groups
 
@@ -126,7 +141,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - Otherwise, the group state is `on` if at least one group member is not `off`, `unavailable` or `unknown`.
 - Otherwise, the group state is `off`.
 
-### Sensor groups
+### Sensor, number, and input_number groups
 
 - The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), mean, median, range, product, standard deviation, or sum of the collected states.
 - Members can be any `sensor`, `number` or `input_number` holding numeric states.
@@ -144,6 +159,14 @@ To edit a group, **{% my helpers title="Settings -> Devices & services -> Helper
 To add or remove entities from an existing group, click on `Group options`, all the existing entities are listed in the `members` section where you add and remove entities.
 
 ![Group members](/images/integrations/group/Group_members.png)
+
+### Group attributes
+
+These are the attributes available for a group.
+
+| Attribute                            | Data                                                                                                                            |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`                          | List of all the `entity_id`'s in the group.                                                                                     |
 
 ## YAML configuration
 
@@ -344,7 +367,7 @@ services:
   required: true
   type: list
   keys:
-    service:
+    action:
       description: The name part of an entity ID, e.g.,  if you use `notify.html5` normally, just put `html5`. Note that you must put everything in lower case here. Although you might have capitals written in the actual notification actions!
       required: true
       type: string
@@ -452,9 +475,19 @@ It is possible to create a group that the system cannot calculate a group state.
 
 These groups can still be in templates with the `expand()` directive, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
 
+### Attributes
+
+These are the attributes available for an old-style group.
+
+| Attribute                            | Data                                                                                                         |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `entity_id`                          | List of all the `entity_id`'s in the group.                                                                  |
+| `order`                              | Integer representing the order in which the entity was created, starting with `0`.                           |
+| `auto`                               | Boolean that will always be set to `true`. Only appears in groups that were created with the `set` action.   |
+
 ### Actions
 
-This integration provides the following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself.
+The following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself. These actions are only available for old-style groups. They cannot be used with the new-style groups described above.
 
 | Action   | Data              | Description                                                                   |
 | -------- | ----------------- | ----------------------------------------------------------------------------- |

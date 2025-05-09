@@ -40,6 +40,34 @@ If you are trying to get the IRK for your iPhone or Apple Watch, you must be log
 7. You will have to enter your password, then enter your username and password.
 8. macOS will show some XML. You are looking for the "Remote IRK" field. After there is a data field that contains a base64 encoded version of your Identity Resolving Key.
 
+### On Windows / For Android
+
+If you have a rooted Android phone, the IRK (and LTKs) can be viewed in the file `/data/misc/bluedroid/bt_config.conf`. The LE_LOCAL_KEY_IRK specifies the Android device's own IRK, and the first 16 bytes of LE_KEY_PID for every bonded device in the file indicate the bonded device's IRK. Be aware that keys stored in this file are a little-endian, so the byte order of keys in this file will need to be reversed. For example, the little-endian IRK 22BC0E3F2EACF08EE36B865553EA0B4E needs to be changed to 4E0BEA5355866BE38EF0AC2E3F0EBC22.
+
+Alternatively, the IRK of an Android phone and/or secondary device can be obtained using Wireshark:
+
+1. In developer settings on the Android phone, enable the "USB Debugging" and "Enable Bluetooth HCI snoop log" options.
+2. Ensure a second Bluetooth device (e.g., smartwatch or earbuds) is unpaired.
+3. Disable and re-enable Bluetooth on the phone ,then re-pair the secondary device.
+4. Connect the Android phone to a computer with [adb](https://developer.android.com/tools/adb) installed.
+5. Establish an adb connection (`adb connect...`), then run the command: `adb bugreport scanwatch`.
+6. In the generated `scanwatch.zip` file, locate and extract `FS\data\misc\bluetooth\logs\btsnoop_hci.log`.
+7. Open `btsnoop_hci.log` in [Wireshark](https://www.wireshark.org/download.html) and search for `btsmp.id_resolving_key`.
+8. Select one of the frames and expand the "Bluetooth Security Manager Protocol." The hex dump will show either the sending or receiving device IRK.
+9. Reverse the value displayed. For example, if it is `763af6c7f7d94ad6c262158e2320544e`, the IRK to use would be: `4e5420238e1562c2d64ad9f7c7f63a76`.
+
+### On Windows - for any devices that will connect to a computer
+
+1. Get the PsExec tool from Microsoft. It's available in the [Sysinternals Suite](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec). Download and extract the `PsExec.exe` or `PsExec64.exe`.
+2. Open Command Prompt as Administrator: Press the Windows key, type `cmd`, right-click on **Command Prompt**, and select **Run as administrator**.
+3. Run PsExec: Navigate to the folder where PsExec is located and run `psexec -i -s cmd` or `psexec64 -i -s cmd`. This command will open a new command prompt window with SYSTEM rights.
+4. Verify SYSTEM Rights: In the new command prompt window, type `whoami` to confirm that you have SYSTEM rights.
+5. Open Registry Editor with SYSTEM Rights: In the new command prompt window, type `regedit` to open the Registry Editor with SYSTEM rights.
+6. Locate the IRK: Navigate to `HKLM\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys`. There is one subfolder that probably holds the computer's Bluetooth radio's MAC address, look inside it for the folder corresponding to the MAC address of your Bluetooth device.
+7. Right-click the key(folder) and select export. Save the `.reg` file somewhere.
+8. Open the `.reg` file in Notepad. To open the **Replace** window, press Ctrl+H. **Find what:** "," and **Replace with** "". Select **Replace All**. This removes all commas from the hex value.
+9. Copy the IRK value (only the part after `hex:`) and it can be used as-is. No reversing of byte order needs to be done.
+
 ## ESPresense
 
 If you already use Identity Resolving Key tracking with ESPresence then you already have a hex-encoded version of your Identity Resolving Key. Home Assistant can use the key in this format directly.

@@ -17,7 +17,7 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
    ![Screenshot of the integrations page, with discovered devices](/images/getting-started/integrations_page_discovered.png)
   
 2. If there are any devices discovered for you, you can add them now.
-   - Under **Discovered**, on the integration, select **Configure**.
+   - Under **Discovered**, on the integration, select **Add**.
    - Follow the steps in the UI if additional configuration is required.
    - If no devices were discovered, don't worry, we will add an integration in the next step.
 3. In the bottom-right corner, select **Add integration**.
@@ -48,7 +48,11 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
    ![Screenshot of the workday integration on the integrations page](/images/getting-started/workday_select_integration.png)
 
    - This opens the integration details page.
-   - On the details page, we see that this integration has one {% term service %} and one {% term entity %}.
+   - We see that this integration has one {% term service %} and one {% term entity %}.
+   - **Documentation** opens the documentation page of this integration.
+   - **Known issues** opens the GitHub issue tracker, filtered for issues related to this integration.
+     - This allows you to see if other users reported issues related to that integration.
+   - **Enable debug logging** lets you [activate the debug logs for that integration](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
    ![Screenshot of the workday integration details page](/images/getting-started/workday_sensor_details.png)
 

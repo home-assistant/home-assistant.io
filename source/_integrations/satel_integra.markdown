@@ -17,6 +17,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `satel_integra` {% term integration %} will allow Home Assistant users who own a Satel Integra alarm panel to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a ETHM extension module that must be installed in the alarm. Compatible with ETHM-1 Plus module with firmware version > 2.00 (version 2.04 confirmed).
@@ -172,12 +173,12 @@ For example:
 
 ```yaml
   alias: "Flick the input switch when movement in bedroom detected"
-  trigger:
-      platform: state
+  triggers:
+    - trigger: state
       entity_id: "binary_sensor.bedroom"
       to: "on"
-  action:
-      action: input_boolean.turn_on
+  actions:
+    - action: input_boolean.turn_on
       target:
         entity_id: input_boolean.movement_detected
 ```

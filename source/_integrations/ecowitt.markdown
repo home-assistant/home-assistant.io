@@ -22,13 +22,25 @@ ha_integration_type: integration
 
 ## Ecowitt Weather Station configuration
 
-The following steps must be performed to set up this integration. For security reason, use the token path that you get from the Home Assistant config flow.
+The **Ecowitt** {% term integration %} works by first creating a callback endpoint on your Home Assistant instance and then adding this configuration to the Ecowitt console so that it starts sending data.
 
-1. Use the Ecowitt App (on your phone) or access the Ecowitt WebUI in a browser at the station IP address.
-2. Pick your station -> Menu Others -> DIY Upload Servers.
-3. Hit next and select 'Customized'
-4. Pick the protocol Ecowitt, and put in the ip/hostname of your Home Assistant server.
-5. Path has to match! If using the Ecowitt App, remove the first forward slash from the API token, as the app will prepend one.
-6. Save configuration.
+The integration will display a Server IP / Host Name, Path, and Port. You can input it into the Ecowitt configuration in one of two ways:
 
-Ecowitt doesn't support TLS/SSL, you can use the NGINX TLS Proxy Add-on to support HTTPS and HTTP at the same time.
+1. Use the Ecowitt App (on your phone):
+    - Select the Menu Icon ({% icon "mdi:menu" %}) on the upper left, then **My Devices** → **Pick your station**
+    - Select the Ellipsis Icon ({% icon "mdi:dots-horizontal" %}) → **Others**
+    - Select **DIY Upload Servers** → **Customized**
+    - Make sure to choose 'Protocol Type Same As: Ecowitt'
+    - Enter the Server IP / Host Name, Path, and Port from the integration. _Note: The path has to match! Remove the first forward slash from the path, as the app will prepend one._
+    - Save
+1. Navigate to the Ecowitt web UI in a browser at the station IP address:
+    - Select **Weather Services** then scroll down to 'Customized'
+    - Make sure to select 'Customized: 🔘 Enable' and 'Protocol Type Same As: 🔘 Ecowitt'
+    - Enter the Server IP / Host Name, Path, and Port from the integration.
+    - Save
+
+## TLS/SSL limitations
+
+Ecowitt devices do not support TLS/SSL connections (HTTPS). If your Home Assistant instance is configured to use HTTPS only, the Ecowitt integration will not work properly. You must ensure your Home Assistant instance is accessible via HTTP (non-secure) for the Ecowitt devices to successfully send data.
+
+If you're using SSL/TLS for your Home Assistant instance, you'll need to configure your setup to accept both secure (HTTPS) and non-secure (HTTP) connections. This can typically be done by adjusting your reverse proxy configuration or by using the NGINX Home Assistant add-on which can handle both HTTP and HTTPS traffic simultaneously.

@@ -8,7 +8,6 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@frenck'
-ha_quality_scale: platinum
 ha_domain: elgato
 ha_zeroconf: true
 ha_platforms:
@@ -81,12 +80,12 @@ Example automation, in YAML format, that triggers a visual notification when
 a binary sensor (a doorbell) is triggered:
 
 ```yaml
-- alias: Visual doorbell notification example
-  trigger:
-    - platform: state
+- alias: "Visual doorbell notification example"
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.doorbell
       to: "on"
-  action:
+  actions:
     - action: elgato.identify
       target:
         entity_id: light.elgato_key_light

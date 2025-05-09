@@ -17,9 +17,18 @@ related:
     title: Dashboard
 ---
 
-The `humidifier` integration is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
+The **Humidifier** {% term integration %} is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
 
 {% include integrations/building_block_integration.md %}
+
+## The state of a humidifier entity
+
+The state of a humidifier entity can be either **On** or **Off**.
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Device class
 
@@ -60,10 +69,10 @@ Set mode for the humidifier device. This action is only available if the device 
 
 ```yaml
 automation:
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: "07:15:00"
-  action:
+  actions:
     - action: humidifier.set_mode
       target:
         entity_id: humidifier.bedroom
@@ -84,10 +93,10 @@ Set target humidity of the humidifier device
 
 ```yaml
 automation:
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: "07:15:00"
-  action:
+  actions:
     - action: humidifier.set_humidity
       target:
         entity_id: humidifier.bedroom

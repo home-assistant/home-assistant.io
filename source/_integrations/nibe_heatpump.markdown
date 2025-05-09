@@ -25,24 +25,26 @@ The Nibe Heat Pump integration allows you to control and monitor [Nibe Heat Pump
 
 Supported devices:
 
-- F1145/F1155
-- S1145/S1155
-- F1245/F1255
-- F1355/F1355
+- F1145/F1245
+- F1155/F1255
+- S1155/S1255
+- F1345
+- F1355
 - S2125
 - S320/S325
+- S330/S332
 - F370
 - F470
 - F730
 - S735
 - F750
+- S1156
+- S1255
+- S1256
 - SMO40
 - SMOS40
-- VVM225
-- VVM310
-- VVM320
-- VVM325
-- VVM500
+- VVM225/VVM320/VVM325
+- VVM310/VVM500
 
 {% include integrations/config_flow.md %}
 

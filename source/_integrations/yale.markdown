@@ -42,6 +42,7 @@ The login credentials used to authenticate the integration are the same as the o
 | Yale Conexis L2 | yes |
 | Yale Doorman L3 | yes |
 | Yale Linus | yes |
+| Yale Linus L2 | no |
 | Yale Smart Safe | yes |
 
 Other devices not listed above have not been tested and may not function as expected.
@@ -94,7 +95,7 @@ Not all models include motion sensors and support for locks with built-in doorbe
 
 ## Camera
 
-The `yale` camera platform allows you to view the latest camera image (triggered by motion) by your [Yale](https://yale.com/) device in Home Assistant.
+The `yale` camera platform allows you to view the latest camera image (triggered by motion) by your [Yale](https://yalehome.com/) device in Home Assistant.
 
 ## Sensor
 
@@ -137,20 +138,17 @@ Using the lock operation sensors, you can detect when a user operates a lock and
 {% raw %}
 
 ```yaml
-- id: "1583706446906"
-  alias: "joe_doe_front_door_operate"
-  description: John Doe locks or unlocks the Front Door
-  trigger:
-  - entity_id: sensor.front_door_operator
-    platform: state
-    to: John Doe
-  condition:
-  - condition: template
-    value_template: "{{ not state_attr('sensor.front_door_operator', 'remote') }}"
-  action:
-  - data: {}
-    entity_id: camera.inside
-    service: camera.turn_off
+- alias: "John Doe locks or unlocks the Front Door"
+  triggers:
+    - trigger: state
+      entity_id: sensor.front_door_operator
+      to: "John Doe"
+  conditions:
+    - condition: template
+      value_template: "{{ not state_attr('sensor.front_door_operator', 'remote') }}"
+  actions:
+    - action: camera.turn_off
+      entity_id: camera.inside
 ```
 
 {% endraw %}

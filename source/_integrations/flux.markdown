@@ -52,10 +52,12 @@ name:
 start_time:
   description: The start time.
   required: false
+  default: sunrise
   type: time
 stop_time:
   description: The stop time.
   required: false
+  default: dusk
   type: time
 start_colortemp:
   description: The color temperature at the start.
@@ -82,7 +84,7 @@ disable_brightness_adjust:
   type: boolean
   default: false
 mode:
-  description: Select how color temperature is passed to lights. Valid values are `xy`, `mired` and `rgb`.
+  description: Select how color temperature is passed to lights. Valid values are `xy`, `mired` (alias to kelvin) and `rgb`.
   required: false
   default: xy
   type: string
@@ -102,7 +104,7 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-Full example:
+Full example of an entry in the {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

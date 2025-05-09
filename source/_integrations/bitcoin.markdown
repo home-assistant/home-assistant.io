@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `bitcoin` sensor platform displays various details about the [Bitcoin](https://bitcoin.org) network.

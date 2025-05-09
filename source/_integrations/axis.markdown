@@ -13,7 +13,6 @@ ha_codeowners:
   - '@Kane610'
 ha_domain: axis
 ha_qa_scale: platinum
-ha_quality_scale: platinum
 ha_zeroconf: true
 ha_ssdp: true
 ha_dhcp: true

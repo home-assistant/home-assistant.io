@@ -25,6 +25,7 @@ Triggers from all platforms will include the following data.
 
 | Template variable | Data |
 | ---- | ---- |
+| `trigger.alias` | Alias of the trigger.
 | `trigger.id` | The [`id` of the trigger](/docs/automation/trigger/#trigger-id).
 | `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
 
@@ -47,7 +48,7 @@ These are the properties available for a [Calendar trigger](/docs/automation/tri
 
 ### Device
 
-These are the properties available for a [Device trigger](/docs/automation/trigger/#device-trigger).
+These are the properties available for a [Device trigger](/docs/automation/trigger/#device-triggers).
 
 Inherites template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
 
@@ -102,6 +103,7 @@ These are the properties available for a [Sentence trigger](/docs/automation/tri
 | `trigger.sentence` | Text of the sentence that was matched
 | `trigger.slots`    | Object with matched slot values
 | `trigger.details` | Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains: <ul><li>`name` - name of the slot</li><li>`text` - matched text</li><li>`value` - output value (see [lists](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#lists))</li></ul>
+| `trigger.device_id` | The device ID that captured the command, if any.
 
 ### State
 
@@ -201,11 +203,11 @@ These are the properties available for a [Zone trigger](/docs/automation/trigger
 ```yaml
 # Example configuration.yaml entries
 automation:
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: device_tracker.paulus
       id: paulus_device
-  action:
+  actions:
     - action: notify.notify
       data:
         message: >
@@ -215,19 +217,19 @@ automation:
           This was triggered by {{ trigger.id }}
 
 automation 2:
-  trigger:
-    - platform: mqtt
+  triggers:
+    - trigger: mqtt
       topic: "/notify/+"
-  action:
-    action: >
-      notify.{{ trigger.topic.split('/')[-1] }}
-    data:
-      message: "{{ trigger.payload }}"
+  actions:
+    - action: >
+        notify.{{ trigger.topic.split('/')[-1] }}
+      data:
+        message: "{{ trigger.payload }}"
 
 automation 3:
-  trigger:
+  triggers:
     # Multiple entities for which you want to perform the same action.
-    - platform: state
+    - trigger: state
       entity_id:
         - light.bedroom_closet
         - light.kiddos_closet
@@ -235,27 +237,27 @@ automation 3:
       to: "on"
       # Trigger when someone leaves one of those lights on for 10 minutes.
       for: "00:10:00"
-  action:
+  actions:
     - action: light.turn_off
       target:
         # Turn off whichever entity triggered the automation.
         entity_id: "{{ trigger.entity_id }}"
 
 automation 4:
-  trigger:
+  triggers:
     # When an NFC tag is scanned by Home Assistant...
-    - platform: event
+    - trigger: event
       event_type: tag_scanned
       # ...By certain people
       context:
         user_id:
           - 06cbf6deafc54cf0b2ffa49552a396ba
           - 2df8a2a6e0be4d5d962aad2d39ed4c9c
-  condition:
+  conditions:
     # Check NFC tag (ID) is the one by the front door
     - condition: template
       value_template: "{{ trigger.event.data.tag_id == '8b6d6755-b4d5-4c23-818b-cf224d221ab7'}}"
-  action:
+  actions:
     # Turn off various lights
     - action: light.turn_off
       target:

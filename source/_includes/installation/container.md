@@ -12,7 +12,7 @@ This installation method **does not have access to add-ons**. If you want to use
 <b>Prerequisites</b>
 This guide assumes that you already have an operating system setup and a container runtime installed (like Docker).
 
-If you are using Docker then you need to be on at least version 19.03.9, ideally an even higher version, and `libseccomp` 2.4.2 or newer.
+If you are using Docker then you need to be on at least version 19.03.9, ideally an even higher version, and `libseccomp` 2.4.2 or newer. Docker _Desktop_ will not work, you must use Docker _Engine_.
 
 {% endimportant %}
 
@@ -112,7 +112,7 @@ In order to use Zigbee or other integrations that require access to devices, you
 
 The Home Assistant Container is using an alternative memory allocation library [jemalloc](http://jemalloc.net/) for better memory management and Python runtime speedup.
 
-As jemalloc can cause issues on certain hardware, it can be disabled by passing the environment variable `DISABLE_JEMALLOC` with any value, for example:
+As the jemalloc configuration used can cause issues on certain hardware featuring a page size larger than 4K (like some specific ARM64-based SoCs), it can be disabled by passing the environment variable `DISABLE_JEMALLOC` with any value, for example:
 
 {% tabbed_block %}
 

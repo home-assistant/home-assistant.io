@@ -72,7 +72,7 @@ This table shows the supported operation modes. The available modes will depend 
 ### Sensor
 
 The following sensor entities are available:
-- Hot water availability (low, medium, or high)
+- Hot water availability (percentage)
 - Energy usage
 
 ## Disclaimer

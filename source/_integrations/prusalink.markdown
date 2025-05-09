@@ -8,7 +8,6 @@ ha_release: '2022.9'
 ha_config_flow: true
 ha_codeowners:
   - '@balloob'
-  - '@Skaronator'
 ha_domain: prusalink
 ha_integration_type: integration
 ha_platforms:
@@ -23,7 +22,7 @@ related:
   - url: https://help.prusa3d.com/guide/prusalink-and-prusa-connect-setup-mk3-s-_221744
     title: PrusaLink installation guide for Prusa MK3 with Raspberry Pi Zero W
   - url: https://help.prusa3d.com/guide/prusalink-prusa-connect-with-rpi-3-4-usb-mk2-5-s-mk3-s-_469341
-    title: Sentence trigger
+    title: PrusaLink installation guide for Prusa MK2.5/MK3 with Raspberry Pi 3/4
 ---
 
 The **PrusaLink** {% term integration %} allows you to monitor your [Prusa 3D printer](https://www.prusa3d.com) and its progress with your Home Assistant installation. This integration works with Prusa MINI/MINI+, Prusa MK3.9/MK4, Prusa XL, and with the older Raspberry Pi-based Prusa MK2.5/MK3.

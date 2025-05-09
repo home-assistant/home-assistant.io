@@ -10,6 +10,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: template
+ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
 ha_integration_type: helper
@@ -30,7 +31,9 @@ This can simplify the GUI and make it easier to write automations.
 
 In optimistic mode, the alarm control panel will immediately change state after every command. Otherwise, the alarm control panel will wait for state confirmation from the template. Try to enable it, if experiencing incorrect operation.
 
-## Configuration
+{% include integrations/config_flow.md %}
+
+## YAML Configuration
 
 To enable a template alarm control panel in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

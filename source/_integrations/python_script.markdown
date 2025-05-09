@@ -19,7 +19,7 @@ This integration allows you to write Python scripts that are exposed as actions 
 | `time`     | The stdlib `time` available as limited access.                                                                                             |
 | `datetime` | The stdlib `datetime` available as limited access.                                                                                         |
 | `dt_util`  | The ` homeassistant.util.dt` module.                                                                                                       |
-| `output`   | An empty dictionary. Add items to return data as [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data). |
+| `output`   | An empty dictionary. Add items to return data as [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data). |
 
 Other imports like `min`, `max` are available as builtins. See the [python_script](https://github.com/home-assistant/core/blob/dev/homeassistant/components/python_script/__init__.py) source code for up-to-date information on the available objects inside the script.
   
@@ -28,7 +28,8 @@ Other imports like `min`, `max` are available as builtins. See the [python_scrip
 [logger-api]: https://docs.python.org/3.7/library/logging.html#logger-objects
 
 {% note %}
-It is not possible to use Python imports with this integration. If you want to do more advanced scripts, you can take a look at [AppDaemon](https://appdaemon.readthedocs.io/en/latest/) or [pyscript](https://github.com/custom-components/pyscript)
+ - It is not possible to use Python imports with this integration. If you want to do more advanced scripts, you can take a look at [AppDaemon](https://appdaemon.readthedocs.io/en/latest/) or [pyscript](https://github.com/custom-components/pyscript)
+ - It is not possible to include your script as a button on the dashboard. A workaround is to create a [helper button](/integrations/input_button/) and create automation to run your script when the button state changes.
 {% endnote %}
 
 ## Writing your first script, reading input and logging the activity
@@ -137,7 +138,7 @@ current_forecast = hass.services.call("weather", "get_forecasts", service_data, 
 
 ## Returning data
 
-Python script itself can respond with data. Just add items to the `output` variable in your `python_script` and the whole dictionary will be returned. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+Python script itself can respond with data. Just add items to the `output` variable in your `python_script` and the whole dictionary will be returned. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
 
 ```python
 # hello_world.py

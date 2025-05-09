@@ -30,7 +30,7 @@ Recovery mode loads a minimum set of integrations to allow troubleshooting the c
 
 ### Resolution
 
-You need to identify the issue in the configuration files and fix it there. The issue could be caused by something as simple as an invalid YAML file.
+You need to identify the issue in the configuration files and fix it there. The issue could be caused by something as simple as an invalid {% term YAML %} file.
 
 - If you are running {% term "Home Assistant Operating System" %}, you can install an add-on such as Studio Code Server to edit the configuration file if needed.
 - If you are still logged in, you can [edit your configuration](/docs/configuration/#editing-configurationyaml).

@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Mealie integration will fetch data from your [Mealie instance](https://mealie.io/).
+[Mealie](https://mealie.io/) is an open source, self-hosted recipe manager, meal planner, and shopping list. The Mealie {% term integration %} will fetch and allow you to create and update data held in your Mealie instance.
 
 ## Prerequisites
 
@@ -34,9 +34,18 @@ You create your API token on your Mealie installation:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+URL:
+  description: The URL of your Mealie installation.
+API token:
+  description: The API token for your Mealie installation you generated in the prerequisites.
+Verify SSL certificate:
+  description: Enable this unless you are using a self-signed certificate on your Mealie installation.
+{% endconfiguration_basic %}
+
 ## Available calendars
 
-The integration will create a calendar for every type of meal plan:
+The integration will create a calendar for every type of meal plan, which are updated once an hour:
 
 - Breakfast
 - Lunch
@@ -45,11 +54,12 @@ The integration will create a calendar for every type of meal plan:
 
 ## Shopping Lists
 
-The integration will create a to-do list for every Mealie shopping list.
+The integration will create a to-do list for every Mealie shopping list, which are updated every 5 minutes.
 
 ## Sensors
 
-The integration provides the following sensors for the statistics:
+The integration provides the following sensors for the statistics, which are updated every 15 minutes:
+
 - number of recipes
 - categories (such as beverage, dessert, Italian, seafood)
 - tags (such as alcohol)
@@ -132,10 +142,10 @@ Example template sensor that contains today's dinner meal plan entries:
 
 ```yaml
 template:
-  - trigger:
-      - platform: time_pattern
+  - triggers:
+      - trigger: time_pattern
         hours: /1
-    action:
+    actions:
       - action: mealie.get_mealplan
         data:
           config_entry_id: YOUR_MEALIE_CONFIG_ENTITY_ID
@@ -153,3 +163,9 @@ template:
 {% endraw %}
 
 {% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal, once the integration is removed you can remove the API token (assuming it was only used by this integration) by going to your Account in the Mealie web interface, then to **Manage Your API Tokens** and deleting the token you created for Home Assistant.
+
+{% include integrations/remove_device_service.md %}

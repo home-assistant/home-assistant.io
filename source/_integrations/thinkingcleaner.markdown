@@ -11,6 +11,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 There is currently support for the following device types within Home Assistant:

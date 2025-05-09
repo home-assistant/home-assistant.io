@@ -1,5 +1,5 @@
 ---
-title: WeatherFlow Cloud
+title: WeatherflowCloud
 description: Instructions on the Cloud based WeatherFlow integration
 ha_release: 2024.3
 ha_category:
@@ -84,4 +84,3 @@ There is not a straight 1-1 mapping between the Home Assistant supported weather
 | snow | snowy |
 | thunderstorm | lightning |
 | windy | windy |
-

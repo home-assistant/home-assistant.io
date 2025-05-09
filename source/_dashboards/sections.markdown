@@ -1,7 +1,7 @@
 ---
 type: view
-title: Sections (experimental)
-sidebar_label: Sections (experimental)
+title: Sections
+sidebar_label: Sections (default)
 description: "Lets you organize your cards in sections on a grid."
 description: "The panel view shows a single card in the full width of the screen."
 related:
@@ -23,44 +23,59 @@ The sections view lets you organize your cards in sections on a grid.
 You can group cards without using horizontal or vertical stack cards.
 
 <p class='img'>
-    <img src="/images/blog/2024-03-dashboard-chapter-1/sections-example-dashboard.png" alt="A fully populated dashboard in Sections view layout"/>
+    <img src="/images/dashboards/section_view.png" alt="A fully populated dashboard in Sections view layout"/>
     A fully populated dashboard in Sections view layout
 </p>
-
-{% note %}
-The sections view was released beginning of March 2024 and is experimental! Do not build your daily dashboard on top of it yet! We are still collecting feedback.<br>
-It is not possible to migrate dashboards into sections view.
-{% endnote %}
 
 ## Creating a sections view
 
 1. If you have multiple dashboards, in the left sidebar, select the dashboard to which you want to add the sections view.
 2. Follow the steps on [adding a new view](/dashboards/views/#adding-a-view-to-a-dashboard).
-   - Under **View type**, select **Sections (experimental)**.
-3. Select the maximum number of columns you want to see in the new sections view.
-4. When you are done, select **Save**.
+   - Under **View type**, select **Sections**.
+3. Under **Max number of sections wide**, select the maximum number of columns you want to see in the new sections view.
+4. Under **Dense section placement**, select if you want to allow the cards to be arranged automatically in order to fill gaps between cards.
+   - This will remove some gaps, but it also means you have less control over the order of the cards.
+   - Note that this only applies to horizontal gaps if you used sections more than one column wide.
+5. When you are done, select **Save**.
    - You are now presented with a new, empty view.
    - If you chose a background image, the page is filled with that image.
+6. Once you have created a sections view, you can start curating it:
+   - [Add sections and cards](#adding-sections-and-cards-to-a-sections-view).
+   - [Rearrange](#rearranging-sections-and-cards) and [show or hide sections conditionally](#show-or-hide-section-conditionally).
+   - [Add a dashboard header with a title and badges](#editing-the-header).
+
+## Editing the header
+
+<p class='img'>
+  <img src="/images/dashboards/sections_view_header_edit.png" alt="Editing the header"/>
+  Editing the header
+</p>
+
+1. To add a title, select the **Add title** button. The title supports [Markdown](https://commonmark.org/help/) and [templating](/docs/configuration/templating/).
+2. To add badges, elect the **Add badge** button. Follow [steps on adding badges](/dashboards/badges) to see the different possible options.
+3. To change the title and badges disposition, select the edit {% icon "mdi:edit" %} button to access header settings.
+
+![Edit view heading section button](/images/dashboards/sections_view_header_editor.png)
 
 ## Adding sections and cards to a sections view
 
-Once you have created a sections view, you can populate it with sections and cards. The new section comes with one section to which you can directly add a card.
+The view comes with one section to which you can directly add a card.
 
 1. To add a card, select the **Add card** button.
    - Follow the [steps on adding cards](/dashboards/cards/#adding-cards-to-your-dashboard).
 
-    ![Add Section button](/images/dashboards/sections_view_add-card-or-section.png)
+   ![Add Section button](/images/dashboards/sections_view_add-card-or-section.png)
 
 2. To add a new section, select the **Create section** button.
-3. To edit the section title, select the edit {% icon "mdi:edit" %} button.
-   - If you leave the section title empty, this line will be hidden.
+3. A [heading card](/dashboards/heading) will be automatically added to the top of the section.
+   - To edit it, select the card.
+   - If you don't want a heading title at the top of the section, delete this card.
+   - The title can be added again later, like any other card.
 4. If you want this section to be visible only to specific users or under a certain condition, you can define those conditions:
    - On the **Visibility** tab, select **Add condition**.
    - Select the type of condition, and enter the parameters.
    - If you define multiple conditions, the section is only shown when all conditions are met.
    - If you did not define any conditions, the section is always shown, to all users.
-
-    ![Define visibility](/images/dashboards/section-visibility.png)
 
 ## Deleting a section
 
@@ -76,15 +91,15 @@ In the sections view, you can rearrange sections and cards by dragging them to a
 2. To rearrange sections, hold the move {% icon "mdi:cursor-move" %} button and move the card.
 
     <p class='img'>
-        <img src="/images/blog/2024-03-dashboard-chapter-1/drag-and-drop-sections.gif" alt="Rearranging sections by dragging"/>
-        Rearranging sections by dragging
+      <img src="/images/dashboards/section_view_rearrange_sections.gif" alt="Rearranging sections by dragging"/>
+      Rearranging sections by dragging
     </p>
 
 3. To rearrange cards, tap and hold the card and move it to your desired location.
 
-   <p class='img'>
-        <img src="/images/blog/2024-03-dashboard-chapter-1/drag-and-drop-cards.gif" alt="Rearranging cards by dragging"/>
-        Rearranging cards by dragging
+    <p class='img'>
+      <img src="/images/dashboards/section_view_rearrange_cards.gif" alt="Rearranging cards by dragging"/>
+      Rearranging cards by dragging
     </p>
 
 ## Show or hide section conditionally
@@ -110,4 +125,23 @@ type:
   required: false
   description: "`sections`"
   type: string
+{% endconfiguration %}
+
+## Header YAML configuration
+
+{% configuration %}
+layout:
+  required: false
+  description: Layout of the different elements. Can be `start`, `center`, or `responsive`. `responsive` is the same as `start` on mobile devices. It places badges and title side by side on desktop.
+  type: string
+  default: center
+badges_position:
+  required: false
+  description: Badges position. Can be `bottom` or `top`.
+  type: string
+  default: bottom
+card:
+  required: true
+  description: Card to be used as title. If you are configuring the view using the visual editor, the configuration of the [Markdown card](/dashboards/markdown) is used.
+  type: map
 {% endconfiguration %}

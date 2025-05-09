@@ -19,7 +19,15 @@ The IMAP integration is observing your [IMAP server](https://en.wikipedia.org/wi
 
 {% include integrations/config_flow.md %}
 
-### Gmail with App Password
+### IMAP services with App Passwords
+
+### Microsoft 365 and Live IMAP services
+
+Microsoft has removed support for direct use (App) passwords when accessing IMAP without modern verification. You can create an App password, but access is only allowed though OAUTH2 enabled mail clients authorized by Microsoft or via an App registration in Microsoft Entra ID (school or business).
+
+An OAUTH2 authentication flow is not supported for the IMAP integration. This means that unfortunately, it is not possible to use Home Assistant IMAP with Microsoft 365 IMAP services for school and business and the (free) personal Microsoft Live IMAP services.
+
+### Google Gmail IMAP service
 
 If you’re going to use Gmail, 2-step verification must be enabled on your Gmail account.  Once it is enabled, you need to create an [App Password](https://support.google.com/mail/answer/185833).
 
@@ -54,17 +62,7 @@ By default, this integration will count unread emails. By configuring the search
 
 ### Selecting a charset supported by the imap server
 
-Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US-ASCII` as charset:
-
-- Server: `outlook.office365.com`
-- Port: `993`
-- Username: Your full email address
-- Password: Your password
-- Charset: `US-ASCII`
-
-{% important %}
-Yahoo also requires the character set `US-ASCII`.
-{% endimportant %}
+Some IMAP services, like Yahoo, require a `US-ASCII` charset to be configured.
 
 ### Selecting message data to include in the IMAP event (advanced mode)
 
@@ -132,7 +130,6 @@ initial:
   description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message received has not been changed, then an `imap_content` event is generated and the `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email, the `initial` property will always be set to `True`.
 uid:
   description: Latest `uid` of the message.
-
 {% endconfiguration_basic %}
 
 The `event_type` for the custom event should be set to `imap_content`. The configuration below shows how you can use the event data in a template `sensor`.
@@ -148,7 +145,7 @@ Increasing the default maximum message size (2048 bytes) could have a negative i
 ```yaml
 template:
   - trigger:
-      - platform: event
+      - trigger: event
         event_type: "imap_content"
         id: "custom_event"
     sensor:
@@ -196,17 +193,17 @@ The example below filters the event trigger by `entry_id`, fetches the message a
 {% raw %}
 
 ```yaml
-alias: imap fetch and seen example
-description: Fetch and mark an incoming message as seen
-trigger:
-  - platform: event
+alias: "imap fetch and seen example"
+description: "Fetch and mark an incoming message as seen"
+triggers:
+  - trigger: event
     event_type: imap_content
     event_data:
       entry_id: 91fadb3617c5a3ea692aeb62d92aa869
-condition:
+conditions:
   - condition: template
     value_template: "{{ trigger.event.data['sender'] == 'info@example.com' }}"
-action:
+actions:
   - action: imap.fetch
     data:
       entry: 91fadb3617c5a3ea692aeb62d92aa869
@@ -217,10 +214,8 @@ action:
       entry: 91fadb3617c5a3ea692aeb62d92aa869
       uid: "{{ trigger.event.data['uid'] }}"
   - action: persistent_notification.create
-    metadata: {}
     data:
       message: "{{ message_text['subject'] }}"
-mode: single
 ```
 
 {% endraw %}
@@ -234,7 +229,7 @@ The following example shows the usage of the IMAP email content sensor to scan t
 ```yaml
 template:
   - trigger:
-      - platform: event
+      - trigger: event
         event_type: "imap_content"
         id: "custom_event"
         event_data:
@@ -272,7 +267,7 @@ Below is the template sensor which extracts the information from the body of the
 ```yaml
 template:
   - trigger:
-      - platform: event
+      - trigger: event
         event_type: "imap_content"
         id: "custom_event"
         event_data:
@@ -321,7 +316,7 @@ The example below will only set the state to the subject of the email of templat
 ```yaml
 template:
   - trigger:
-      - platform: event
+      - trigger: event
         event_type: "imap_content"
         id: "custom_event"
         event_data:
@@ -332,3 +327,9 @@ template:
 ```
 
 {% endraw %}
+
+## Remove an IMAP service
+
+This integration follows standard config entry removal.
+
+{% include integrations/remove_device_service.md %}

@@ -35,7 +35,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -44,7 +44,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -118,7 +118,7 @@ fan_speed_list:
   required: false
   type: [string, list]
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -174,6 +174,10 @@ payload_stop:
   required: false
   type: string
   default: stop
+platform:
+  description: Must be `vacuum`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -202,7 +206,7 @@ supported_features:
   type: [string, list]
   default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
 unique_id:
-   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception.
+   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
    required: false
    type: string
 {% endconfiguration %}
@@ -214,7 +218,6 @@ unique_id:
 mqtt:
   - vacuum:
       name: "MQTT Vacuum"
-      schema: state
       supported_features:
         - start
         - pause
@@ -227,7 +230,6 @@ mqtt:
         - fan_speed
         - send_command
       command_topic: "vacuum/command"
-      state_topic: "vacuum/state"
       set_fan_speed_topic: "vacuum/set_fan_speed"
       fan_speed_list:
         - min
@@ -276,17 +278,17 @@ Action trigger example:
 
 ```yaml
 - alias: "Push command based on sensor"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: sensor.sensor
-    action:
-      action: vacuum.send_command
-      target:
-        entity_id: vacuum.vacuum_entity
-      data:
-        command: "custom_command"
-        params:
-          - key: value
+    actions:
+      - action: vacuum.send_command
+        target:
+          entity_id: vacuum.vacuum_entity
+        data:
+          command: "custom_command"
+          params:
+            - key: value
 ```
 
 MQTT topic: `vacuum/send_command`

@@ -13,6 +13,8 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_codeowners:
+  - '@alexyao2015'
 ---
 
 The `html5` notification {% term integration %} enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
@@ -27,7 +29,7 @@ The `html5` platform can only function if all of the following requirements are 
 
 - You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android. Or you added your Home Assistant instance to your home screen on iOS 16.4 or higher.
 - Your Home Assistant instance is accessible from outside your network over HTTPS or can perform an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) on the domain used by Home Assistant.
-- If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
+- If using a proxy, HTTP basic authentication must be disabled to register or deregister push notifications. It can be re-enabled afterwards.
 - If you don't run Hass.io: `pywebpush` must be installed. `libffi-dev`, `libpython-dev` and `libssl-dev` must be installed prior to `pywebpush` (i.e., `pywebpush` probably won't automatically install).
 - You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running NGINX in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self-signed).
 - You are willing to accept the notification permission in your browser.
@@ -81,7 +83,7 @@ data:
 
 #### Data
 
-Any parameters that you pass in the notify payload that aren't valid for use in the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`, `priority`, `ttl`) will be sent back to you in the [callback events](#automating-notification-events).
+Any parameters that you pass in the notify payload that aren't valid for use in the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`, `priority`, `ttl`, `silent`) will be sent back to you in the [callback events](#automating-notification-events).
 
 ```yaml
 title: Front door
@@ -107,15 +109,15 @@ Example of adding a tag to your notification. This won't create new notification
 
 ```yaml
   - alias: "Push/update notification of sensor state with tag"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: sensor.sensor
-    action:
-      action: notify.html5
-      data:
-        message: "Last known sensor state is {{ states('sensor.sensor') }}."
+    actions:
+      - action: notify.html5
         data:
-          tag: "notification-about-sensor"
+          message: "Last known sensor state is {{ states('sensor.sensor') }}."
+          data:
+            tag: "notification-about-sensor"
 ```
 
 {% endraw %}
@@ -193,7 +195,7 @@ Common event payload parameters are:
 | Parameter | Description                                                                                                                                                                                                                                                    |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `action`  | The `action` key that you set when sending the notification of the action clicked. Only appears in the `clicked` event.                                                                                                                                        |
-| `data`    | The data dictionary you originally passed in the notify payload, minus any parameters that were added to the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`). |
+| `data`    | The data dictionary you originally passed in the notify payload, minus any parameters that were added to the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`, `silent`). |
 | `tag`     | The unique identifier of the notification. Can be overridden when sending a notification to allow for replacing existing notifications.                                                                                                                        |
 | `target`  | The target that this notification callback describes.                                                                                                                                                                                                          |
 | `type`    | The type of event callback received. Can be `received`, `clicked` or `closed`.                                                                                                                                                                                 |
@@ -207,9 +209,9 @@ notification is received on the device.
 
 ```yaml
 - alias: "HTML5 push notification received and displayed on device"
-  trigger:
-    platform: event
-    event_type: html5_notification.received
+  triggers:
+    - trigger: event
+      event_type: html5_notification.received
 ```
 
 #### clicked event
@@ -218,20 +220,20 @@ You will receive an event named `html5_notification.clicked` when the notificati
 
 ```yaml
 - alias: "HTML5 push notification clicked"
-  trigger:
-    platform: event
-    event_type: html5_notification.clicked
+  triggers:
+    - trigger: event
+      event_type: html5_notification.clicked
 ```
 
 or
 
 ```yaml
 - alias: "HTML5 push notification action button clicked"
-  trigger:
-    platform: event
-    event_type: html5_notification.clicked
-    event_data:
-      action: open_door
+  triggers:
+    - trigger: event
+      event_type: html5_notification.clicked
+      event_data:
+        action: open_door
 ```
 
 #### closed event
@@ -240,9 +242,9 @@ You will receive an event named `html5_notification.closed` when the notificatio
 
 ```yaml
 - alias: "HTML5 push notification clicked"
-  trigger:
-    platform: event
-    event_type: html5_notification.closed
+  triggers:
+    - trigger: event
+      event_type: html5_notification.closed
 ```
 
 ### Making notifications work with NGINX proxy

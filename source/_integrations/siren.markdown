@@ -12,15 +12,24 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Siren integration is built for the controlling and monitoring of siren/chime devices.
+The **Siren** {% term integration %} is built for the controlling and monitoring of siren/chime devices.
 
 {% include integrations/building_block_integration.md %}
+
+## The state of a siren entity
+
+The state of a siren entity can be either **On** or **Off**.
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 
 ### Siren actions
 
-Available actions: `siren.turn_on`, `siren.turn_off`, `siren.toggle`
+Available {% term actions %}: `siren.turn_on`, `siren.turn_off`, `siren.toggle`
 
 ### Action `siren.turn_on`
 

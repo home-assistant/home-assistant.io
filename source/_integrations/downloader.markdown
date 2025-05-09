@@ -16,7 +16,7 @@ The **Downloader** {% term integration %} provides an action to download files. 
 
 {% include integrations/config_flow.md %}
 
-If the path is not absolute, it’s assumed to be relative to the Home Assistant configuration directory (for example, .homeassistant/downloads).
+If the path is not absolute, it’s assumed to be relative to the Home Assistant configuration directory (for example, `/config/downloads`). So if you have a folder called `/config/my_download_folder`, when prompted to **Select a location to get to store downloads**, enter `my_download_folder`. Home Assistant checks if the directory exists.
 
 ### Use the action
 
@@ -51,12 +51,12 @@ Along with the event the following payload parameters are available:
 
 ```yaml
 - alias: "Download Failed Notification"
-  trigger:
-    platform: event
-    event_type: downloader_download_failed
-  action:
-    action: persistent_notification.create
-    data:
-      message: "{{trigger.event.data.filename}} download failed"
-      title: "Download Failed"
+  triggers:
+    - trigger: event
+      event_type: downloader_download_failed
+  actions:
+    - action: persistent_notification.create
+      data:
+        message: "{{trigger.event.data.filename}} download failed"
+        title: "Download Failed"
  ```
