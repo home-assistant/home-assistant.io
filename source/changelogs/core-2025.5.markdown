@@ -1179,6 +1179,53 @@ For a summary in a more readable format:
 - Add more missing device_class translations for template helper ([@MindFreeze] - [#144399])
 - Bump intents to 2025.5.7 ([@synesthesiam] - [#144404])
 
+## Release 2025.5.1 - May 9
+
+- Fix Z-Wave restore nvm command to wait for driver ready ([@MartinHjelmare] - [#144413])
+- fix homekit air purifier temperature sensor to convert unit ([@tamwahba] - [#144435])
+- Add LAP-V102S-AUSR to VeSync ([@DukeChocula] - [#144437])
+- Bump pylamarzocco to 2.0.1 ([@zweckj] - [#144454])
+- Fix Z-Wave reset accumulated values button entity category ([@MartinHjelmare] - [#144459])
+- Fix point import error ([@fredrike] - [#144462])
+- Ignore Fronius Gen24 firmware 1.35.4-1 SSL verification issue ([@farmio] - [#144463])
+- Don't encrypt or decrypt unknown files in backup archives ([@emontnemery] - [#144495])
+- Bump forecast-solar to 4.2.0 ([@bdraco] - [#144502])
+- Fix removing of smarthome templates on startup of AVM Fritz!SmartHome integration ([@mib1185] - [#144506])
+- Bump aiodns to 3.4.0 ([@bdraco] - [#144511])
+- Fix statistics coordinator subscription for lamarzocco ([@zweckj] - [#144541])
+- Update frontend to 20250509.0 ([@bramkragten] - [#144549])
+- Reolink clean device registry mac ([@starkillerOG] - [#144554])
+- Prevent errors during cleaning of connections/identifiers in device registry ([@starkillerOG] - [#144558])
+
+[#144406]: https://github.com/home-assistant/core/pull/144406
+[#144413]: https://github.com/home-assistant/core/pull/144413
+[#144435]: https://github.com/home-assistant/core/pull/144435
+[#144437]: https://github.com/home-assistant/core/pull/144437
+[#144454]: https://github.com/home-assistant/core/pull/144454
+[#144459]: https://github.com/home-assistant/core/pull/144459
+[#144462]: https://github.com/home-assistant/core/pull/144462
+[#144463]: https://github.com/home-assistant/core/pull/144463
+[#144495]: https://github.com/home-assistant/core/pull/144495
+[#144502]: https://github.com/home-assistant/core/pull/144502
+[#144506]: https://github.com/home-assistant/core/pull/144506
+[#144511]: https://github.com/home-assistant/core/pull/144511
+[#144541]: https://github.com/home-assistant/core/pull/144541
+[#144549]: https://github.com/home-assistant/core/pull/144549
+[#144554]: https://github.com/home-assistant/core/pull/144554
+[#144558]: https://github.com/home-assistant/core/pull/144558
+[@DukeChocula]: https://github.com/DukeChocula
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@farmio]: https://github.com/farmio
+[@fredrike]: https://github.com/fredrike
+[@frenck]: https://github.com/frenck
+[@mib1185]: https://github.com/mib1185
+[@starkillerOG]: https://github.com/starkillerOG
+[@tamwahba]: https://github.com/tamwahba
+[@zweckj]: https://github.com/zweckj
+
 [#126150]: https://github.com/home-assistant/core/pull/126150
 [#126775]: https://github.com/home-assistant/core/pull/126775
 [#127875]: https://github.com/home-assistant/core/pull/127875
