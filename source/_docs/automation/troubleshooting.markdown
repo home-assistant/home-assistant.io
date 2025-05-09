@@ -47,7 +47,7 @@ The right side of the trace screen has tabs with more information:
 - **Related logbook entries**, shows a logbook for all the entries related to the specific trace.
 - **Blueprint Config** will only be shown if the automation was created from a {% term blueprint %}.
 
-The top bar shows the date and time the automation was triggered. Use the left and right arrows to view previous s of the automation.
+The top bar shows the date and time the automation was triggered. Use the left and right arrows to view previous runs of the automation.
 
 Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating-your-yaml-automations-to-automationsyaml) assigned in order for debugging traces to be stored.
 
