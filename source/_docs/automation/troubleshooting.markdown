@@ -31,7 +31,7 @@ If you are writing automations in YAML, it is also useful to go to {% my server_
 
 ## Traces
 
-When an {% term automation %} is , all steps are recorded and a trace is made. From the UI, open **Settings**, which is located in the sidebar, then select **Automations & Scenes** to go to the automation editor or click this button directly: {% my automations badge %}
+When an {% term automation %} is run, all steps are recorded and a trace is made. From the UI, open **Settings**, which is located in the sidebar, then select **Automations & Scenes** to go to the automation editor or click this button directly: {% my automations badge %}
 
 From the automation editor UI, or in the automations list in the three dots menu, select **Traces**. Alternatively, select an automation entry shown in the Logbook.
 
