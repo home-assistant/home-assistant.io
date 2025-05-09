@@ -65,8 +65,8 @@ port:
 name:
   description: Name of the alarm control panel entity.
   required: false
-  type: string
   default: "Alarm Panel"
+  type: string
 scan_interval:
   description: "Time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
   required: false
