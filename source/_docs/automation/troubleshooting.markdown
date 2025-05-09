@@ -23,7 +23,7 @@ In the automation editor UI, each {% term condition %} and {% term action %} can
 
 - Testing a condition will highlight it to show whether the condition passed at the moment it was tested. If all conditions pass, then the automation will run when triggered. Testing building blocks like an **and** condition will report whether the whole block registers as true or false, or you can test individual conditions within the building block.
 
-- Testing an action block will  that block immediately.
+- Testing an action block will run that block immediately.
 
 Note that complex automations that depend on previous blocks, such as trigger IDs, variables in templates, or action calls that return data to use in subsequent blocks, cannot be tested this way.
 
