@@ -37,7 +37,7 @@ From the automation editor UI, or in the automations list in the three dots menu
 
 ![Automation tracing example](/images/integrations/automation/automation-tracing.png)
 
-The above screenshot shows a previous  of an automation. The automation is displayed using an interactive graph, highlighting which path the automation took. Each node in the graph can be clicked to view the details on what happened with the automation during that specific step. It traces the complete  of an automation.
+The above screenshot shows a previous run of an automation. The automation is displayed using an interactive graph, highlighting which path the automation took. Each node in the graph can be clicked to view the details on what happened with the automation during that specific step. It traces the complete run of an automation.
 
 The right side of the trace screen has tabs with more information:
 
