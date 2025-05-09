@@ -1077,12 +1077,20 @@ knx:
   cover:
     - name: "Kitchen shutter"
       move_long_address: "3/0/0"
-      move_short_address: "3/0/1"
       stop_address: "3/0/4"
       position_address: "3/0/3"
       position_state_address: "3/0/2"
       travelling_time_down: 51
       travelling_time_up: 61
+    - name: "Bedroom blinds"
+      move_long_address: "3/1/1"
+      move_short_address: "3/1/4"
+      position_address: "3/1/3"
+      position_state_address: "3/1/2"
+      angle_address: "3/1/5"
+      angle_state_address: "3/1/6"
+      travelling_time_down: 40
+      travelling_time_up: 40
 ```
 
 {% configuration %}
