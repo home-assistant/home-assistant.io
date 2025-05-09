@@ -88,7 +88,7 @@ This will be a core architectural change that will be proposed and discussed in 
 
 To make all this work, we also need a centralized, structured place to store and share device knowledge. That's where the Device Database---a brand new project from the Open Home Foundation---comes in.
 
-Think of it as a source of truth created, curated, and validated by the community. A place where we gather everything from metadata (like power usage or infrared codes) to factual information (setup instructions such as how to add or reset a device) to real-world setup insights and community creations (such as automation examples). It will contain information users intentionally submit to the database, nothing will be collected automatically, nor without your explicit consent.
+Think of it as a source of truth created, curated, and validated by the community. A place where we gather everything from metadata (like power usage or infrared codes) to factual information (setup instructions such as how to add or reset a device) to real-world setup insights and community creations (such as automation examples). It will contain information users intentionally submit to the database, nothing will be collected automatically without your explicit consent.
 
 It's more than just having all device documentation in one place. We want to universalize all our collective experiences about devices in one place, which is more accessible, centralized, and structured than online websites and chat rooms.
 
