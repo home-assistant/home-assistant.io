@@ -42,7 +42,7 @@ The above screenshot shows a previous  of an automation. The automation is displ
 The right side of the trace screen has tabs with more information:
 
 - **Step Details** shows data and results of the step that is currently highlighted.
-- **Automation Config** shows the full YAML configuration at the time the automation was .
+- **Automation Config** shows the full YAML configuration at the time the automation was run.
 - **Trace Timeline**, shown in the screenshot above, lists the steps that were executed and their timing.
 - **Related logbook entries**, shows a logbook for all the entries related to the specific trace.
 - **Blueprint Config** will only be shown if the automation was created from a {% term blueprint %}.
