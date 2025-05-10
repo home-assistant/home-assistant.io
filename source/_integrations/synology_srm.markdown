@@ -2,6 +2,7 @@
 title: Synology SRM
 description: Instructions on how to integrate Synology SRM routers into Home Assistant.
 ha_category:
+  - Hub
   - Presence detection
 ha_iot_class: Local Polling
 ha_release: 0.87
@@ -21,6 +22,8 @@ related:
 This {% term integration %} allows you to detect presence by looking at connected devices to a [Synology SRM](https://www.synology.com/srm) router.
 
 ## Configuration
+
+{% include integrations/config_flow.md %}
 
 {% configuration %}
 host:
@@ -61,5 +64,6 @@ List of models known to be supported:
 - RT2600ac
 - MR2200ac
 - RT6600ax
+- WRX560
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.
