@@ -7,30 +7,20 @@ ha_iot_class: Local Polling
 ha_release: 0.87
 ha_codeowners:
   - '@aerialls'
+  - '@noriega3'
 ha_domain: synology_srm
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+ha_config_flow: true
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 This {% term integration %} allows you to detect presence by looking at connected devices to a [Synology SRM](https://www.synology.com/srm) router.
 
 ## Configuration
-
-To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: synology_srm
-    host: 192.168.1.254
-    password: YOUR_ADMIN_PASSWORD
-```
 
 {% configuration %}
 host:
