@@ -9,6 +9,7 @@ ha_category:
   - Sensor
   - Switch
   - Vacuum
+  - Fan
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
@@ -152,6 +153,11 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
 - [K20](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
 - [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
+
+### Air Purifiers
+
+- [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
+- [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 
 ## Supported functionality
 
@@ -431,7 +437,9 @@ Features:
 
 ### Fans
 
-Fan entities are added for Circulator Fan.
+Fan entities are added for Circulator Fan, Air Purifier
+
+#### Circulator Fan
 
 Features:
 
@@ -450,6 +458,15 @@ Features:
 - start
 - return to base
 - get battery
+#### Air Purifier
+
+This is an encrypted device.
+
+Features:
+
+- turn on
+- turn off
+- set mode
 
 ## Data updates
 
