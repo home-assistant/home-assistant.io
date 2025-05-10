@@ -234,7 +234,7 @@ To understand the root cause, first check debug logs on the client. For example 
      this means that the long live access token is not correct.
 ...
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

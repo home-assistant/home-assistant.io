@@ -61,7 +61,7 @@ Extra attributes of `Water usage yesterday` sensor:
 - Last year total consumption
 - Current year total consumption
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 
