@@ -14,7 +14,7 @@ Included section for this page is located under source/_includes/installation
 
 We will need a few things to get started with installing Home Assistant.
 
-- [Raspberry Pi 5](https://amzn.to/3UH6TcD) or [Raspberry Pi 4](https://amzn.to/2S0Gcl1) with [power supply](https://amzn.to/2ReZ2Vq) (Raspberry Pi 3 Model B is ok to get started, but the Model A does not have enough RAM).
+- [Raspberry Pi 5](https://amzn.to/3UH6TcD) or [Raspberry Pi 4](https://amzn.to/2S0Gcl1) with [power supply](https://amzn.to/2ReZ2Vq) (neither the Raspberry Pi 3 Model A nor Model B have enough RAM to be stable).
 - [Micro SD Card](https://amzn.to/2X0Z2di).
   - Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html). Check for the label **A2** on the card. Application Class 2 cards perform better especially on small read and write operations and are better suited to host applications.
   - Make sure to use a card that provides at least 32&nbsp;GB.
@@ -78,7 +78,7 @@ Congratulations! You finished the Raspberry Pi setup!
 
 If Raspberry Pi Imager is not supported by your platform, you can download the Home Assistant image and use another imaging tool, such as Balena Etcher.
 
-To download the image to your computer, copy the correct URL for the Raspberry Pi 3, 4 or 5 (Note: there are 3 different links below!):
+To download the image to your computer, copy the correct URL for the Raspberry Pi 4 or 5 (Note: there are two different links below!):
 
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}

@@ -17,8 +17,6 @@ After Home Assistant has been [installed](/installation/) on your device, there 
    - **Option 1: new installation**: If this is your initial installation, we will now create the owner's account of Home Assistant.
      - {% icon "mdi:information-outline" %} This account is an administrator account. It will always be able to change everything.
      - Select **Create my smart home**.
-
-        ![Home Assistant preparation](/images/getting-started/onboarding_preparing_02.png)
      - Enter a name, username, and password.
        - Make sure the username is lowercase and contains no whitespace.
        - {% icon "mdi:info" %} **Info**: The **Name** is the name of the person that is shown in the UI. The username is used for login.
@@ -27,10 +25,9 @@ After Home Assistant has been [installed](/installation/) on your device, there 
      - Store the name, username, and password somewhere safe. There is no way to recover the owner credentials.
      - Select **Create account**.
 
-   - **Option 2: restore from backup**: If you want to restore a backup of a previous installation, select **Restore from backup**.
-     - Ignore the rest of this procedure and continue with the procedure on [restoring from backup](/common-tasks/general/#restoring-a-backup).
-       - If you have a Home Assistant Yellow, start with the [Yellow documentation on restoring from backup](https://yellow.home-assistant.io/guides/restore-backup/).
-       - If you have a Home Assistant Green, start with the [Green documentation on restoring from backup](https://green.home-assistant.io/guides/restore-backup/).
+   - **Option 2: restore from backup**: If you want to restore a backup of a previous installation, follow the steps on [restoring from backup](/common-tasks/general/#restoring-a-backup).
+       - If you have a Home Assistant Yellow, follow the [Yellow documentation on restoring from backup](https://yellow.home-assistant.io/guides/restore-backup/).
+       - If you have a Home Assistant Green, follow the [Green documentation on restoring from backup](https://green.home-assistant.io/guides/restore-backup/).
 
 3. Enter the location of your home.
    - The home location is used to configure the time zone, unit system, and currency.

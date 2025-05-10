@@ -114,7 +114,7 @@ When **Light on** and **Light off** are set to the same time, the built-in light
 
 The integration receives updates when the device state changes, enabling immediate updates of the data in Home Assistant.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 
