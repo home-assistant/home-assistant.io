@@ -443,7 +443,7 @@ Features:
 
 ### Vacuums
 
-Vaccum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10.
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10.
 
 Features:
 
