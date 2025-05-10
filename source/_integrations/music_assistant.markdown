@@ -15,7 +15,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.
+The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/) (Required version 2.4 or later). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.
 
 There is currently support for the following Home Assistant Platforms:
 
@@ -39,15 +39,17 @@ These URIs can be obtained from, for example, the output of the `get_library` or
 
 Under normal circumstances, Home Assistant automatically discovers your running Music Assistant Server. If there is something special about the Home Assistant or MA setup (for example, the MA server is running as a remote Docker container) or discovery is not working, you can manually specify the URL to your Music Assistant server. If the Music Assistant Server is not installed, then follow these [installation instructions](https://music-assistant.io/installation/).
 
-## Media player entities
+## Supported functionality
 
-The Music Assistant integration creates media player entities for all players available in MA, including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. These entities will display media information, playback progress, and playback controls.
+### Media player entities
+
+The Music Assistant integration creates media player entities for all players and groups available in MA, including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. This full functionality includes transfer of the playing queue of music from one player to another, automatic pausing of playback during announcements, and richer options for selecting the media for playback. These entities will display media information, playback progress, and playback controls.
 
 ## Actions
 
 ### Action `music_assistant.play_media`
 
-Play media on a Music Assistant player with more fine-grained control options.
+Play media on a Music Assistant player with more fine-grained control options. This action is more powerful than the [`media_player.play_media`](https://www.home-assistant.io/integrations/media_player/#action-media_playerplay_media) action because it allows multiple items to be added to the queue at once, it allows more specific control of the media item to be played (e.g. a track from a specific album can be specified) and Music Assistant's radio mode (where the queue is filled with similar tracks to that enqueued) can be enabled.
 
 - **Data attribute**: `media_id`
   - **Optional**: No.
@@ -81,7 +83,7 @@ Play media on a Music Assistant player with more fine-grained control options.
 
 ### Action `music_assistant.play_announcement`
 
-Play announcement on a Music Assistant player with more fine-grained control options.
+Play an announcement which is accessible via URL on a Music Assistant player. Home Assistant [TTS](https://www.home-assistant.io/integrations/tts/) actions are used for announcements provided as text.
 
 - **Data attribute**: `url`
   - **Optional**: No.
@@ -98,7 +100,7 @@ Play announcement on a Music Assistant player with more fine-grained control opt
 
 ### Action `music_assistant.transfer_queue`
 
-Transfer the player's queue to another player.
+Transfer the player's queue to another player. This could be combined with presence sensors to allow music to follow you around the house.
 
 - **Data attribute**: `source_player`
   - **Optional**: Yes.
@@ -109,13 +111,31 @@ Transfer the player's queue to another player.
   - **Description**: Start playing the queue on the target player. Omit to use the default behavior.
   - **Example**: `true`
 
+#### Example
+
+In this example, the queue of the first player found playing will be transferred to the kitchen when a motion sensor is triggered in that room.
+
+```yaml
+automation:
+  - id: auto_queue_transfer_kitchen
+    alias: Automatically Transfer Queue to Kitchen
+    trigger:
+      platform: state
+      entity_id: binary_sensor.kitchen_motion_sensor_occupancy
+      to: 'on'
+    action:
+      service: music_assistant.transfer_queue
+      target:
+        entity_id: media_player.ma_kitchen_speaker
+```
+
 ### Action `music_assistant.search`
 
-Perform a global search on the Music Assistant library and all providers.
+Perform a global search on the Music Assistant library and all providers. This allows programmatic access to all of the music provider's catalogs and could be used to build a HA dashboard where any track could be found for playback.
 
 - **Data attribute**: `config_entry_id`
   - **Optional**: No.
-  - **Description**: The Music Assistant instance that the search will be performed upon. Allows for multiple servers to be running.
+  - **Description**: The Music Assistant instance that the search will be performed upon. Allows for multiple servers to be running. This is obtained from a dropdown in the GUI editor. Users of YAML can use the dev tools action tab and select from the dropdown and then switch to YAML to get the actual value.
   - **Example**: `Music Assistant`
 - **Data attribute**: `name`
   - **Optional**: No.
@@ -144,7 +164,7 @@ Perform a global search on the Music Assistant library and all providers.
   
 ### Action `music_assistant.get_library`
 
-Perform a local search on the Music Assistant library.
+Perform a local search on the Music Assistant library. This provides programmatic access to concise information about the media item. This information could be used to create a queue of tracks for playback.
 
 - **Data attribute**: `config_entry_id`
   - **Optional**: No.
@@ -183,18 +203,85 @@ Perform a local search on the Music Assistant library.
   - **Description**: When `album` is the `media_type` then this option will restrict the result according to the selection of either album, single, compilation, EP or unknown.
   - **Example**: `album`
 
+#### Example
+
+This example will start playback of ten random tracks.
+
+```yaml
+script:
+  create_random_queue:
+    mode: single
+    sequence:
+      - service: music_assistant.get_library
+        data:
+          limit: 10
+          media_type: track
+          config_entry_id: 01JEXNDHT21V0BHJXM7A5SZANV
+          order_by: random
+        response_variable: random_tracks
+      - action: music_assistant.play_media
+        data: 
+          media_id: {% raw %}"{{ random_tracks['items'] | map(attribute='uri') | list }}" {% endraw %}
+          media_type: track
+          enqueue: replace
+        target:
+          entity_id: media_player.ma_kitchen_speaker
+```
+
 ### Action `music_assistant.get_queue`
 
-Get the queue details of a Music Assistant player queue.
+Get the queue details of a Music Assistant player queue. This provides programmatic access to comprehensive information about the current and next media item in the queue. This information could be used to create a bespoke media dashboard.
 
 - **Data attribute**: `entity_id`
   - **Optional**: No.
   - **Description**: The entity_id of the player holding the queue to be retrieved.
   - **Example**: `media_player.kitchen_speaker`
 
+#### Example
+
+This example sets the name of the currently playing track in an [`input_text`](https://www.home-assistant.io/integrations/input_text/) which could then be used on a dashboard.
+
+```yaml
+script:
+  get_now_playing:
+    mode: queued
+    alias: "Get Now Playing Track Name"
+    sequence:
+      - action: music_assistant.get_queue
+        data:
+          entity_id: media_player.ma_kitchen_speaker
+        response_variable: queue_info
+      - service: input_text.set_value
+        data:
+          entity_id: input_text.now_playing 
+          value: {% raw %}"{{ queue_info['media_player.ma_kitchen_speaker'].current_item.name }}" {% endraw %}
+```
+  
 ## Notes
 
 - Any Home Assistant players added to Music Assistant will appear duplicated as the MA version of the player is created. The original HA player can be hidden if desired.
+
+## Known limitations
+
+The data returned by the `get_queue` action will be partially limited if the item is not in the library (For example, if an item was selected for playback directly from Spotify). Metadata such as favorite status, explicit status, last played, played count, and disc art URL are only available for items that are in the MA library.
+
+Radio mode is only available with certain music providers, and an error will be shown if attempting to enable radio mode on an item that isn't linked to one of those providers. Review the [Music Assistant documentation](https://www.music-assistant.io/music-providers/#summary) to identify which providers support this functionality.
+
+## Troubleshooting
+
+### Can’t find the MA actions
+
+#### Symptom: No Music Assistant actions are shown in the editor
+
+When trying to set up a script or automation via the GUI, no MA actions can be found.
+
+##### Description
+
+This means the add-on may have been installed, but the integration has not.
+
+##### Resolution
+
+Go to the [Configuration section](https://www.home-assistant.io/integrations/music_assistant/#configuration) and install the integration.
 
 ## Removing the integration
 

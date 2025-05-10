@@ -6,7 +6,7 @@ date: 2025-02-27 00:00:01
 date_formatted: "February 27, 2025"
 author: Miranda Bishop
 comments: true
-categories: Announcements
+categories: Works-with-Home-Assistant
 og_image: /images/blog/2025-02-apollo/art.jpg
 ---
 

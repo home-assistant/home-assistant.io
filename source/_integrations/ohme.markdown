@@ -12,12 +12,13 @@ ha_config_flow: true
 ha_domain: ohme
 ha_platforms:
   - button
+  - diagnostics
   - number
   - select
   - sensor
   - switch
   - time
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_integration_type: device
 ---
 

@@ -2456,7 +2456,7 @@ The `unique_id` for KNX entities is generated based on required configuration va
 
 There can not be multiple entities on the same platform sharing these exact group addresses, even if they differ in other configuration.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 
