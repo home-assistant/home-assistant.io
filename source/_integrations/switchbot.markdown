@@ -437,7 +437,7 @@ Features:
 
 ### Fans
 
-Fan entities are added for Circulator Fan, Air Purifier
+Fan entities are added for Circulator Fan, Air Purifier, and Air Purifier Table
 
 #### Circulator Fan
 
@@ -459,6 +459,16 @@ Features:
 - return to base
 - get battery
 #### Air Purifier
+
+This is an encrypted device.
+
+Features:
+
+- turn on
+- turn off
+- set mode
+
+#### Air Purifier Table
 
 This is an encrypted device.
 
