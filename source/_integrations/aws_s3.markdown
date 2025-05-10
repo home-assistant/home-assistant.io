@@ -26,6 +26,7 @@ Bucket Name:
   description: "S3 bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
 Prefix:
   description: "Prefix to use for the backup keys in the bucket. This is optional."
+  default: ""
 Endpoint URL:
   description: "Endpoint URL provided to [Boto3 Session](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html). Region-specific [AWS S3 endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html) are available in their documentation. Defaults to `https://s3.eu-central-1.amazonaws.com/`."
 {% endconfiguration_basic %}
