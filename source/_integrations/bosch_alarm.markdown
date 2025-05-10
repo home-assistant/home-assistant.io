@@ -46,13 +46,13 @@ The following {% term entities %} are provided:
 This integration adds an Alarm Control Panel device for each configured area, with the ability to issue arm/disarm commands.
 This entity reports state (_disarmed_, _armed_away_, etc.).
  
-## Switch
+### Switch
 
 A switch is added for each output configured on the panel. Note that for some panels, only outputs with the type set to **remote output** can be controlled via _Mode 2_ API.
 
 Three switches are added per door, that allow for locking, securing or momentarily unlatching the door.
 
-## Sensor
+### Sensor
 
 A sensor is provided per area that lists how many points are currently in a faulted state.
 
