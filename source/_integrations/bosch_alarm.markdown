@@ -52,7 +52,7 @@ This entity reports state (_disarmed_, _armed_away_, etc.).
 
 A switch is added for each output configured on the panel. Note that for some panels, only outputs with the type set to **remote output** can be controlled via _Mode 2_ API.
 
-Three switches are added per door, which allow for locking, securing, or momentarily unlatching the door.
+Three switches are added per door, which allow for locking, securing, or momentarily unlocking the door.
 
 ### Sensor
 
