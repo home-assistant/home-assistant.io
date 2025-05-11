@@ -337,7 +337,7 @@ automation:
     - trigger: state
       entity_id:
         - sensor.ups_status
-      to: "On Battery Battery Discharging"
+      to: "On Battery, Battery Discharging"
   actions:
     - action: notify.notify
       data:
