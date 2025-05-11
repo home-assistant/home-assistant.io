@@ -103,12 +103,12 @@ own dashboards, many simply want something that works for their household.
 
 <img class="no-shadow" alt="Screenshot viewing an area of the new experimental Areas dashboard" src="/images/blog/2025-04/areas-dashboard-detail.png" />
 
-The new experimental Areas Dashboard automatically generates a ready-to-use
-dashboard based on the areas you’ve set up in your home. It uses sections and
-tile cards for a modern, clean, and intuitive look—instantly. No more starting
+The new experimental [Areas dashboard](/dashboards/dashboards/#areas-dashboard) automatically generates a ready-to-use
+dashboard based on the areas you’ve set up in your home. It uses [sections](/dashboards/sections/) and
+[tile cards](/dashboards/tile/) for a modern, clean, and intuitive look—instantly. No more starting
 from a blank slate!
 
-Each area now has its own dedicated page, giving you a clear and organized view
+Each [area](/docs/organizing/areas/) now has its own dedicated page, giving you a clear and organized view
 of the devices in that space. Entities, such as lights, covers, cameras,
 and more, are automatically grouped by domain so you can easily locate the ones
 you need.
@@ -125,20 +125,20 @@ based on your preferences.
 
 <img class="no-shadow" alt="Screenshot showing the overview page of the new Areas dashboard" src="/images/blog/2025-04/areas-dashboard-overview.png" />
 
-If you haven’t organized your devices into areas yet, now’s the perfect time to
+If you haven’t [organized your devices into areas](/docs/organizing/areas/) yet, now’s the perfect time to
 start—it’s key to unlocking this new dashboard experience. To get
-started with the Areas dashboard, go to
+started with the [Areas dashboard](/dashboards/dashboards/#areas-dashboard), go to
 **{% my lovelace_dashboards title="Settings > Dashboards" %}**, and select
 **Add Dashboard** in the bottom right, next select the **Areas (experimental)**
 option from the dialog:
 
 <img class="no-shadow" alt="Screenshot of the dialog when adding a new dashboard, showing the new option to add the new experimental Area dashboard" src="/images/blog/2025-04/areas-experimental-dialog.png" />
 
-The new experimental Areas Dashboard previews what’s to come. We’ve learned from
+The new experimental [Areas dashboard](/dashboards/dashboards/#areas-dashboard) previews what’s to come. We’ve learned from
 our users that they organize their homes in different ways—by rooms,
 by function, by device, and more. They often combine all of the above,
 and therefore, our upcoming default dashboard will accommodate
-all these methods of organization.
+all these methods of [organization](/docs/organizing/).
 
 Over time, this foundation will grow into a flexible system that adapts to
 your priorities, whether that’s keeping an eye on security, managing energy use,
@@ -158,7 +158,7 @@ dashboard built for your home, try it!
 
 It has been a while since we introduced a new card, but this release, we
 thought it might be _**time**_ to add a new one! Thanks to [@mrdarrengriffin],
-Home Assistant now features a Clock card!
+Home Assistant now features a [Clock card](/dashboards/clock/)!
 
 <img class="no-shadow" alt="Screenshot showing a dashboard with a large clock card on it, indicating the current time" src="/images/blog/2025-04/card-clock.png" />
 

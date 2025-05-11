@@ -1064,6 +1064,11 @@ Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully o
 Home Assistant will, by default, `close` a cover by moving it in the `DOWN` direction in the KNX nomenclature, and `open` a cover by moving it in the `UP` direction.
 {% endnote %}
 
+Cover entities can be created from the frontend in the KNX panel or via YAML.
+
+<a name="configuration-cover-yaml"></a>
+{% details "Configuration of KNX cover entities via YAML" %}
+
 To use your KNX covers in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in your {% term "`configuration.yaml`" %}:
 
 ```yaml
@@ -1072,12 +1077,20 @@ knx:
   cover:
     - name: "Kitchen shutter"
       move_long_address: "3/0/0"
-      move_short_address: "3/0/1"
       stop_address: "3/0/4"
       position_address: "3/0/3"
       position_state_address: "3/0/2"
       travelling_time_down: 51
       travelling_time_up: 61
+    - name: "Bedroom blinds"
+      move_long_address: "3/1/1"
+      move_short_address: "3/1/4"
+      position_address: "3/1/3"
+      position_state_address: "3/1/2"
+      angle_address: "3/1/5"
+      angle_state_address: "3/1/6"
+      travelling_time_down: 40
+      travelling_time_up: 40
 ```
 
 {% configuration %}
@@ -1149,6 +1162,8 @@ entity_category:
   type: string
   default: None
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Date
 

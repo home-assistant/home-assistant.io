@@ -1,11 +1,11 @@
 ---
 title: National Grid US
-description: Get energy usage from National Grid US using the Opower integration
+description: Connect and control your National Grid US devices using the Opower integration
 ha_category:
   - Energy
   - Sensor
-ha_release: 2025.5
-ha_domain: national_grid_opower
+ha_release: 2023.8
+ha_domain: national_grid_us
 ha_integration_type: virtual
 ha_supporting_domain: opower
 ha_supporting_integration: Opower

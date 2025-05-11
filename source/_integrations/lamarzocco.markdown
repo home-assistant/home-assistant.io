@@ -104,6 +104,7 @@ Use Bluetooth:
 |------------------- |-------------| ---------------------- | ----------------- | ------- |
 | **Coffee boiler ready time** | Indicates when the coffee boiler will be ready for brewing. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Steam boiler ready time** | Indicates when the steam boiler will be ready for brewing. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
+| **Brew start time** | If a brew is running, tells the exact start time of that brew. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Total coffees made** | How many coffees have been made in total. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Total flushes done** | How often the machine has been flushed. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Last cleaning time** | Indicates when the machine was last cleaned with a **Backflush**. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
