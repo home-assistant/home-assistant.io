@@ -35,9 +35,11 @@ The ntfy integration can be used to send push notifications from automations and
     - Use `https://ntfy.sh` for the official ntfy service.
     - Provide the URL of an alternative public ntfy service or your self-hosted instance (for example, `https://your-ntfy-instance.com`).
 
-2. **Authentication**
+2. **Authentication (optional)**
 
-    Depending on whether the server is configured to support access control, some topics may be read/write protected so that only users with the correct credentials can subscribe or publish to them. To publish/subscribe to protected topics, you can provide a username and password.
+    Depending on whether the server is configured to support access control, some topics may be read/write protected so that only users with the correct credentials can subscribe or publish to them.
+
+    The **ntfy** integration uses **access token** authentication to access protected topics. When you provide your ntfy username and password, Home Assistant automatically generates and uses an access token for authentication.
 
 3. **Adding a topic**
 
@@ -98,6 +100,20 @@ data:
 {% endraw %}
 
 {% enddetails %}
+
+## Known limitations
+
+**ntfy** imposes various rate and usage limits. The official [ntfy.sh](https://ntfy.sh/) service allows up to **60 messages in a burst**, with a **replenishment rate of one message every 5 seconds** (i.e., the full 60-message capacity refills in 5 minutes).
+
+Additional usage limits depend on your account tier. To view your current limits, go to [**Account → Usage**](https://ntfy.sh/account).
+
+Limits may vary when using other **ntfy** services. If you're using a self-hosted instance, you can configure higher limits or disable them entirely.
+
+## Troubleshooting
+
+The **ntfy** integration relies on an active internet connection to communicate with the ntfy service. If you encounter issues, verify that your network connection is stable and the ntfy service is reachable. Additionally, the ntfy service itself may experience downtime, whether unexpected or due to scheduled maintenance.
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
 ## Removing the integration
 
