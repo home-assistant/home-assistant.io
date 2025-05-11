@@ -72,7 +72,8 @@ To protect your AWS account, create a user that can only access your backup buck
             "s3:ListBucket",
             "s3:GetObject",
             "s3:PutObject",
-            "s3:DeleteObject"
+            "s3:DeleteObject",
+            "s3:AbortMultipartUpload"
           ],
           "Resource": [
             "arn:aws:s3:::YOUR_BUCKET_NAME",
