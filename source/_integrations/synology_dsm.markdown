@@ -47,7 +47,9 @@ When SSDP is activated on a NAS with two or more NICs with different IP addresse
 
 ## Separate User Configuration
 
-You must grant the user admin rights in order to access utilization information since it's stored in the core module.
+{% note %}
+You must grant the user administrator rights, as the basic functions of this integration require them due to the structure of the Synology DSM API.
+{% endnote %}
 
 When creating the user, it is possible to deny access to all locations and applications. By doing this, the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
 
