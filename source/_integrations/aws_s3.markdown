@@ -37,7 +37,7 @@ Make a note of the bucket name — you’ll need it later.
 
 {% details "Create an IAM user" %}
 
-Create a new user that can access the S3 bucket:
+To create a new IAM user that can access the S3 bucket:
 
 1. Go to **IAM > Users** in the AWS Management Console.
 1. Click **Add users**.
@@ -45,7 +45,7 @@ Create a new user that can access the S3 bucket:
 1. Check **Access key - Programmatic access** only.
 1. Click **Next: Permissions**.
 
-#### Create and attach a custom policy
+Now, let's create and attach a custom IAM policy to give the user the necessary permissions to the bucket:
 
 1. Click **Create policy**, go to the **JSON** tab, and paste the following (replace `YOUR_BUCKET_NAME`):
 
@@ -80,10 +80,8 @@ Create a new user that can access the S3 bucket:
 {% enddetails %}
 
 {% note %}
-
 - Avoid using credentials for your AWS root account or IAM users that have more permissions than is necessary.
 - By limiting credentials to a specific bucket, you reduce risk and help keep your AWS account secure.
-
 {% endnote %}
 
 {% include integrations/config_flow.md %}
