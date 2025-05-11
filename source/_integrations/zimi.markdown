@@ -83,21 +83,21 @@ When you add a supported device, the following entities will be created:
 | ------------------------------- | -------------- | ------------------- | ---------------------------------------------------------------- | --------- |
 | Blind Controller                | Cover          | 1xCover             | Cover {Name}                                                     | Future    |
 | Fan and Light Controller        | Fan            | 1xFan<br>1xSwitch   | Fan {Name}<br>Fan {Name}                                         | Yes       |
-| Garage Door Controller          | Cover          | 1xCover<br>4xSensor | Cover {Cover Name}<br>Cover {Sensor Name}<br>Cover {Sensor Name}<br>Cover {Sensor Name}<br>Cover {Sensor Name}                              | Cover (Future)<br>Sensor (Yes)    |
+| Garage Door Controller          | Cover          | 1xCover<br>4xSensor | Cover {Name}<br>Cover {Battery Level}<br>Cover {Garage Temperature}<br>Cover {Garage Humidity}<br>Cover {Outside Temperature}                              | Cover (Future)<br>Sensor (Yes)    |
 | Light Dimmer Switch             | Light          | 1xLight             | Light {Name}                                                     | Yes       |
 | Multi Dimmer Switch<br>(2 button)  | Light          | 1xLight             | Light {Name}                                                     | Yes       |
-| Multi Dimmer Switch<br> (4 button)  | Light          | 2xLight             | Light {Name}<br>Light {Name}                                     | Yes       |
+| Multi Dimmer Switch<br>(4 button)  | Light          | 2xLight             | Light {Name}<br>Light {Name}                                     | Yes       |
 | Multi-Purpose Switch<br>(1 button) | Switch         | 1xSwitch            | Switch {Name}                                                    | Yes       |
 | Multi-Purpose Switch<br>(2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   | Yes       |
 | Multi-Purpose Switch<br>(3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  | Yes       |
 | Multi-Purpose Switch<br>(4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Yes       |
 | Power Point                     | Outlet         | 2xOutlet            | Outlet {Name}                                                    | Yes       |
 
-### Zimi fan controller
+### Zimi fan
 
 - Fan entity: Basic on/off and speed control
 
-### Zimi light controller
+### Zimi light
 
 - Light entity: Basic on/off and brightness control
 
@@ -105,7 +105,7 @@ When you add a supported device, the following entities will be created:
 
 - Sensor entity: Battery Level, Garage Temperature, Garage Humidity, Outside Temperature
 
-### Zimi switch controller
+### Zimi switch
 
 - Switch entity: Basic on/off
 
