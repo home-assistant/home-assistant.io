@@ -41,7 +41,7 @@ This integration requires an existing S3 bucket and an IAM user with limited acc
 1. Select your preferred AWS **region** (e.g., `eu-central-1`).
 1. Adjust the settings:
    - ✅ **Block all public access** (highly recommended — enabled by default)
-   - ⚠️ **Enable Bucket Versioning** (optional). When enabled, this allows you to recover backups even after Home Assistant deletes them based on its configured retention policy. However, **it can increase storage costs**, as deleted backups are retained as previous versions in S3. Leave this disabled if you want Home Assistant’s retention and deletion behaviour to permanently remove backups once they no longer meet the retention criteria.
+   - ⚠️ **Enable Bucket Versioning** (optional). When enabled, this allows you to recover backups even after Home Assistant deletes them based on its configured retention policy. However, **it can increase storage costs**, as deleted backups are retained as previous versions in S3. Leave this disabled if you want Home Assistant’s retention and deletion behavior to permanently remove backups once they no longer meet the retention criteria.
 1. Click **Create bucket**.
 
 Make a note of the bucket name — you'll need it later when setting up the integration in Home Assistant.
