@@ -35,10 +35,8 @@ The integration provides the following configuration options:
 
 {% configuration_basic %}
 Control Home Assistant:
-  description: The API to use to expose tools over the Model Context Protocol. It is recommended
-    to use **Stateless Assist** which is a version of the **Assist** API where the
-    prompt does not contain any state information. Clients can only control or
-    provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+  description: If MCP clients are allowed to control Home Assistant. Clients can only
+    control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
 {% endconfiguration_basic %}
 
 ## Architecture overview
@@ -175,11 +173,6 @@ The [MCP Prompts](https://modelcontextprotocol.io/docs/concepts/prompts) provide
 inform LLMs how to call the tools. The tools used by the configured LLM API
 are exposed.
 
-It is recommended to use the **Stateless Assist** API since the prompt does
-not contain any state information, which will be incorrect after any actions
-are performed.
-
-
 ## Known Limitations
 
 The Home Assistant Model Context Protocol integration currently only supports a
@@ -241,7 +234,7 @@ To understand the root cause, first check debug logs on the client. For example 
      this means that the long live access token is not correct.
 ...
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

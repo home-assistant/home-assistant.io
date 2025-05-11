@@ -27,6 +27,7 @@ This integration also offers a button to pick up and then hang up the call to pr
 
 Reported models with this integration include that work:
 - [StarTech.com USB56KEMH2](https://www.startech.com/en-us/networking-io/usb56kemh2)
+- Zoom USB Modem Model 3095
 
 Devices that did not work:
 - [StarTech.com USB56KEM3](https://www.startech.com/en-us/networking-io/usb56kem3)

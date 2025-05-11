@@ -23,6 +23,15 @@ This integration is by default enabled, unless you've disabled or removed the [`
 ssdp:
 ```
 
+## Troubleshooting
+
+### SSDP/UPnP Browser
+
+The **SSDP/UPnP Browser** displays devices discovered by Home Assistant using SSDP (Simple Service Discovery Protocol), a core part of the UPnP (Universal Plug and Play) standard. Devices like smart TVs, media servers, and printers often use SSDP to announce themselves on the network. Home Assistant listens for these broadcasts to automatically detect compatible devices.
+
+To open the SSDP/UPnP Browser, go to:
+{% my config_ssdp title="**Settings** > **System** > **Network** > **SSDP Browser**" %}
+
 ## Discovered integrations
 
 The following integrations are automatically discovered by the SSDP integration:

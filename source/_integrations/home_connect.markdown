@@ -10,7 +10,6 @@ ha_category:
   - Select
   - Sensor
   - Switch
-  - Time
 ha_iot_class: Cloud Push
 ha_release: '0.110'
 ha_domain: home_connect
@@ -30,6 +29,7 @@ ha_platforms:
   - switch
   - time
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 The Home Connect integration allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
@@ -95,6 +95,7 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 {% note %}
 
 - The entities availability depends on the appliance type, but the appliance might not support all the entities for its type.
+- The program option entities will not be provided by the integration until they are available in the selected or active program.
 - Some appliances don't report data while they are turned off, so corresponding entities will not appear in the Home Connect integration after loading until the appliances are turned on.
 {% endnote %}
 
@@ -117,8 +118,17 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 - **Bottle cooler door**:
   - **Description**: Indicates if the bottle cooler door is open.
   - **Availability**: Fridge freezer, Refrigerator
+- **Common chiller door**:
+  - **Description**: Indicates if the common chiller door is open.
+  - **Availability**: Fridge freezer, Refrigerator
 - **Chiller door**:
   - **Description**: Indicates if the chiller door is open.
+  - **Availability**: Fridge freezer, Refrigerator
+- **Left chiller door**:
+  - **Description**: Indicates if the left chiller door is open.
+  - **Availability**: Fridge freezer, Refrigerator
+- **Right chiller door**:
+  - **Description**: Indicates if the right chiller door is open.
   - **Availability**: Fridge freezer, Refrigerator
 - **Flex compartment door**:
   - **Description**: Indicates if the flex compartment door is open.
@@ -192,6 +202,9 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 
 #### Settings
 
+- **Alarm clock**
+  - **Description**: Sets the alarm clock.
+  - **Availability**: Cooktop, Oven
 - **Refrigerator setpoint temperature**:
   - **Description**: Sets the refrigerator temperature.
   - **Availability**: Fridge freezer, Refrigerator
@@ -824,6 +837,10 @@ It is not recommended to use the **Current cavity temperature** sensor because t
 
 #### Event sensors
 
+{% note %}
+The event sensors will not be provided by the integration until the appliance reports the event.
+{% endnote %}
+
 {% details "Event sensor options" %}
 All the event sensors will have the following possible values:
 
@@ -833,30 +850,120 @@ All the event sensors will have the following possible values:
 
 {% enddetails %}
 
-- **Freezer door alarm**:
-  - **Description**: Represents the alarm state of the freezer door.
-  - **Availability**: Freezer, Fridge freezer
-- **Refrigerator door alarm**:
-  - **Description**: Represents the alarm state of the refrigerator door.
-  - **Availability**: Fridge freezer, Refrigerator
-- **Freezer temperature alarm**:
-  - **Description**: Represents the alarm state of the freezer temperature.
-  - **Availability**: Freezer, Fridge freezer
-- **Bean container empty**:
-  - **Description**: Indicates whether the bean container is empty.
-  - **Availability**: Coffee maker
-- **Water tank empty**:
-  - **Description**: Indicates whether the water tank is empty.
-  - **Availability**: Coffee maker
-- **Drip tray full**:
-  - **Description**: Indicates whether the drip tray is full.
-  - **Availability**: Coffee maker
+- **Program aborted**:
+  - **Description**: Event triggered each time a program is successfully canceled.
+  - **Availability**: Cook processor, Cleaning robot, Dishwasher
+- **Program finished**:
+  - **Description**: Event triggered each time a program run is successfully finished.
+  - **Availability**: Cook processor, Cooktop, Hood, Oven, Cleaning robot, Dishwasher, Washer, Washer dryer
+- **Alarm clock elapsed**:
+  - **Description**: Event triggered when the alarm clock has elapsed.
+  - **Availability**: Cooktop, Oven
+- **Pre-heat finished**:
+  - **Description**: Event triggered when **Fast pre-heat** program option is active and the preheating phase is finished.
+  - **Availability**: Cooktop, Oven
+- **Regular pre-heat finished**:
+  - **Description**: Event triggered when the preheating phase is finished (and the **Fast pre-heat** option is not active nor supported).
+  - **Availability**: Oven
+- **Drying process finished**:
+  - **Description**: Event triggered when the drying process is finished.
+  - **Availability**: Dryer
 - **Salt nearly empty**:
-  - **Description**: Indicates whether the salt is nearly empty.
+  - **Description**: Event triggered when the salt supply is running low.
   - **Availability**: Dishwasher
 - **Rinse aid nearly empty**:
-  - **Description**: Indicates whether the rinse aid is nearly empty.
+  - **Description**: Event triggered when the rinse aid supply is running low.
   - **Availability**: Dishwasher
+- **Bean container empty**:
+  - **Description**: Event triggered when the bean container is empty.
+  - **Availability**: Coffee maker
+- **Water tank empty**:
+  - **Description**: Event triggered when the water tank is empty.
+  - **Availability**: Coffee maker
+- **Drip tray full**:
+  - **Description**: Event triggered when the drip tray is full.
+  - **Availability**: Coffee maker
+- **Keep milk tank cool**:
+  - **Description**: Event triggered when the user should remove the milk container and put it in a cool place so that the milk stays fresh.
+  - **Availability**: Coffee maker
+- **Descaling in 20 cups**:
+  - **Description**: Event triggered when there are 20 cups left before the descaling process is required.
+  - **Availability**: Coffee maker
+- **Descaling in 15 cups**:
+  - **Description**: Event triggered when there are 15 cups left before the descaling process is required.
+  - **Availability**: Coffee maker
+- **Descaling in 10 cups**:
+  - **Description**: Event triggered when there are 10 cups left before the descaling process is required.
+  - **Availability**: Coffee maker
+- **Descaling in 5 cups**:
+  - **Description**: Event triggered when there are 5 cups left before the descaling process is required.
+  - **Availability**: Coffee maker
+- **Device should be descaled**:
+  - **Description**: Event triggered when the device should be descaled.
+  - **Availability**: Coffee maker
+- **Device descaling overdue**:
+  - **Description**: Event triggered when the device descaling is overdue.
+  - **Availability**: Coffee maker
+- **Device descaling blockage**:
+  - **Description**: Event triggered when the device descaling is blocked.
+  - **Availability**: Coffee maker
+- **Device should be cleaned**:
+  - **Description**: Event triggered when the device should be cleaned.
+  - **Availability**: Coffee maker
+- **Device cleaning overdue**:
+  - **Description**: Event triggered when the device cleaning is overdue.
+  - **Availability**: Coffee maker
+- **Calc'N'Clean in 20 cups**:
+  - **Description**: Event triggered when there are 20 cups left before the Calc'N'Clean process is required.
+  - **Availability**: Coffee maker
+- **Calc'N'Clean in 15 cups**:
+  - **Description**: Event triggered when there are 15 cups left before the Calc'N'Clean process is required.
+  - **Availability**: Coffee maker
+- **Calc'N'Clean in 10 cups**:
+  - **Description**: Event triggered when there are 10 cups left before the Calc'N'Clean process is required.
+  - **Availability**: Coffee maker
+- **Calc'N'Clean in 5 cups**:
+  - **Description**: Event triggered when there are 5 cups left before the Calc'N'Clean process is required.
+  - **Availability**: Coffee maker
+- **Device should be Calc'N'Cleaned**:
+  - **Description**: Event triggered when the device should be Calc'N'Cleaned.
+  - **Availability**: Coffee maker
+- **Device Calc'N'Clean overdue**:
+  - **Description**: Event triggered when the device Calc'N'Clean is overdue.
+  - **Availability**: Coffee maker
+- **Device Calc'N'Clean blockage**:
+  - **Description**: Event triggered when the device Calc'N'Clean is blocked.
+  - **Availability**: Coffee maker
+- **Freezer door alarm**:
+  - **Description**: Event triggered when the freezer door was left open too long.
+  - **Availability**: Freezer, Fridge freezer
+- **Refrigerator door alarm**:
+  - **Description**: Event triggered when the refrigerator door was left open too long.
+  - **Availability**: Fridge freezer, Refrigerator
+- **Freezer temperature alarm**:
+  - **Description**: Event triggered when the freezer temperature is too high.
+  - **Availability**: Freezer, Fridge freezer
+- **Empty dust box and clean filter**:
+  - **Description**: Event triggered when the user has to empty the dust box and clean the filter.
+  - **Availability**: Cleaning robot
+- **Cleaning robot is stuck**:
+  - **Description**: Event triggered when the cleaning robot is stuck and isn't able to continue its run.
+  - **Availability**: Cleaning robot
+- **Docking station not found**:
+  - **Description**: Event triggered when the cleaning robot wasn't able to find the charging station.
+  - **Availability**: Cleaning robot
+- **Poor i-Dos 1 fill level**:
+  - **Description**: Event triggered when i-Dos content 1 is poor.
+  - **Availability**: Washer
+- **Poor i-Dos 2 fill level**:
+  - **Description**: Event triggered when i-Dos content 2 is poor.
+  - **Availability**: Washer
+- **Grease filter max saturation nearly reached**:
+  - **Description**: Event triggered when the grease filters need to be cleaned soon
+  - **Availability**: Hood
+- **Grease filter max saturation reached**:
+  - **Description**: Event triggered when  the grease filters are saturated
+  - **Availability**: Hood
 
 {% enddetails %}
 
@@ -905,16 +1012,6 @@ Some devices only have the state `on` and turn off is not supported by the appli
 - **Fridge door assistant**:
   - **Description**: Enables/Disables the automatic door opening for the refrigerator/freezer compartment
   - **Availability**: Fridge freezer, Refrigerator
-
-{% enddetails %}
-
-### Time
-
-{% details "List of time entities" %}
-
-- **Alarm clock**
-  - **Description**: Sets the alarm clock.
-  - **Availability**: Cooktop, Oven
 
 {% enddetails %}
 
@@ -1081,7 +1178,7 @@ To solve the above issue, follow these steps:
 
 ### Missing options at the "active program" and "selected program" entities
 
-#### Symptom: "Although I have options, some programs that are available on the app are not in the list of options at the "active program" and "selected program" entities"
+#### Symptom: "Although I have options, some programs that are available on the app are not in the list of options at the "active program" and "selected program" entities or the entities don't show up"
 
 Some programs that are available to select on the app, on the physical device or in the diagnostics file from the device are missing at the "active program" and "selected program" entities.
 
@@ -1093,9 +1190,9 @@ If you see programs in the app or the physical device that are missing in the in
 
 The program key needs to be added to the integration. To help with that, you can open an issue at [aiohomeconnect](https://github.com/MartinHjelmare/aiohomeconnect) about the missing program key.
 
-#### Symptom: "No programs available at the "active program" and "selected program" entities nor in the diagnostics file"
+#### Symptom: "the "active program" and "selected program" entities are not provided by the integration"
 
-There are no programs available to select at the "active program" and "selected program" entities, and the downloaded device diagnostics file does not list any programs.
+The "active program" and "selected program" entities are not provided by the integration, and the downloaded device diagnostics file does not list any programs.
 
 ##### Description
 
@@ -1106,7 +1203,7 @@ The Home Connect API is not sending any programs to the integration.
 There's no solution for this issue. The only thing that can be done is reporting the issue to Home Connect through these channels:
 
 - [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
-- [Home Connect developer Help & Support](https://developer.home-connect.com/support)
+- [Home Connect developer Help & Support](https://developer.home-connect.com/support/contact)
 
 ### Unavailable entities for a device
 
@@ -1149,7 +1246,7 @@ To try to solve the above issues, follow these steps:
       - If the line between the appliance and the cloud is green, the appliance is connected to the cloud.
 4. If everything is correct and the issue persists, contact Home Connect support.
    - [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
-   - [Home Connect developer Help & Support](https://developer.home-connect.com/support)
+   - [Home Connect developer Help & Support](https://developer.home-connect.com/support/contact)
 
 ## Removing the integration
 
