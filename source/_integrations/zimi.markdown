@@ -83,7 +83,7 @@ When you add a supported device, the following entities will be created:
 | ------------------------------- | -------------- | ------------------- | ---------------------------------------------------------------- | --------- |
 | Blind Controller                | Cover          | 1xCover             | Cover {Name}                                                     | Future    |
 | Fan and Light Controller        | Fan            | 1xFan<br>1xSwitch   | Fan {Name}<br>Fan {Name}                                         | Yes       |
-| Garage Door Controller          | Cover          | 1xCover<br>2xSensor | Cover {Name}<br>Cover {Temperature}<br>Cover {Humidity}          | Cover (Future)<br>Sensor (Yes)    |
+| Garage Door Controller          | Cover          | 1xCover<br>4xSensor | Cover {Name}<br>Cover {Battery Level}<br>Cover {Garage Temperature}<br>Cover {Garage Humidity}<br>Cover {Outside Temperature}          | Cover (Future)<br>Sensor (Yes)    |
 | Light Dimmer Switch             | Light          | 1xLight             | Light {Name}                                                     | Yes       |
 | Multi Dimmer Switch (2 button)  | Light          | 1xLight             | Light {Name}                                                     | Yes       |
 | Multi Dimmer Switch (4 button)  | Light          | 2xLight             | Light {Name}<br>Light {Name}                                     | Yes       |
@@ -92,7 +92,6 @@ When you add a supported device, the following entities will be created:
 | Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  | Yes       |
 | Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Yes       |
 | Power Point                     | Outlet         | 2xOutlet            | Outlet {Name}                                                    | Yes       |
-
 
 ### Zimi fan controller
 
@@ -104,7 +103,7 @@ When you add a supported device, the following entities will be created:
 
 ### Zimi sensor
 
-- Sensor entity: Temperatures, Humidity and Battery Level
+- Sensor entity: Battery Level, Garage Temperature, Garage Humidity, Outside Temperature
 
 ### Zimi switch controller
 
