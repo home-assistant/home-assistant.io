@@ -8,6 +8,7 @@ ha_category:
   - Lock
   - Sensor
   - Switch
+  - Vacuum
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
@@ -28,6 +29,7 @@ ha_platforms:
   - lock
   - sensor
   - switch
+  - vacuum
 ha_config_flow: true
 ha_integration_type: integration
 ---
@@ -143,6 +145,13 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+
+### Vacuums
+- [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
+- [K10+ Pro](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10-pro)
+- [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
+- [K20](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
+- [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
 
 ## Supported functionality
 
@@ -432,6 +441,15 @@ Features:
 - set mode
 - oscillate left and right
 
+### Vacuums
+
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10.
+
+Features:
+
+- start
+- return to base
+- get battery
 
 ## Data updates
 

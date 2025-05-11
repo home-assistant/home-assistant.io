@@ -3,6 +3,7 @@ title: Bosch Alarm
 description: Integrate Bosch Alarms.
 ha_category:
   - Alarm
+  - Switch
   - Sensor
 ha_release: 2025.4
 ha_iot_class: Local Push
@@ -13,6 +14,7 @@ ha_codeowners:
 ha_domain: bosch_alarm
 ha_platforms:
   - alarm_control_panel
+  - switch
   - diagnostics
   - sensor
 ha_integration_type: device
@@ -38,6 +40,7 @@ The **Bosch Alarm Panel** {% term integration %} allows you to connect your [Bos
 The following {% term entities %} are provided:
 
 - [Alarm Control Panel](#alarm-control-panel)
+- [Switch](#switch)
 - [Sensor](#sensor)
 
 ### Alarm Control Panel
@@ -48,6 +51,12 @@ This entity reports state (_disarmed_, _armed_away_, etc.).
 ### Sensor
 
 A sensor is provided per area that lists how many points are currently in a faulted state.
+
+### Switch
+
+A switch is added for each output configured on the panel. Note that for some panels, only outputs with the type set to **remote output** can be controlled via _Mode 2_ API.
+
+Three switches are added per door, which allow for locking, securing, or momentarily unlatching the door.
 
 ## Actions
 
