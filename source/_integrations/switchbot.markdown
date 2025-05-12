@@ -115,6 +115,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
+- [Smart Ceiling Light (WoCeiling)](https://www.switchbot.jp/products/switchbot-ceiling-light)
 
 ### Locks
 
@@ -366,7 +367,7 @@ Features:
 
 ### Lights
 
-Light entities are added for Color Bulb and LED Strip Light.
+Light entities are added for Color Bulb, LED Strip Light, and Ceiling Light.
 
 #### Color Bulb
 
