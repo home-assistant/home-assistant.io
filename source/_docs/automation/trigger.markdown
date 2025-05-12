@@ -696,7 +696,7 @@ A string that represents a time to fire on each day. Can be specified as `HH:MM`
 automation:
   - triggers:
     - trigger: time
-      # Military time format. This trigger will fire at 3:32 PM
+      # 24-hour time format. This trigger will fire at 3:32 PM
       at: "15:32:00"
 ```
 
@@ -797,6 +797,8 @@ automation:
 
 It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) for times.
 
+{% raw %}
+
 ```yaml
 blueprint:
   input:
@@ -820,6 +822,8 @@ blueprint:
       - "sensor.{{ my_alarm | slugify }}_time"
       - "{{ my_hour }}:30:00"
 ```
+
+{% endraw %}
 
 ## Time pattern trigger
 

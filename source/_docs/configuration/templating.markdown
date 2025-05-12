@@ -427,6 +427,7 @@ The same thing can also be expressed as a test:
 - `device_attr(device_or_entity_id, attr_name)` returns the value of `attr_name` for the given device or entity ID. Can also be used as a filter. Not supported in [limited templates](#limited-templates).
 - `is_device_attr(device_or_entity_id, attr_name, attr_value)` returns whether the value of `attr_name` for the given device or entity ID matches `attr_value`. Can also be used as a test. Not supported in [limited templates](#limited-templates).
 - `device_id(entity_id)` returns the device ID for a given entity ID or device name. Can also be used as a filter.
+- `device_name(lookup_value)` returns the device name for a given device ID or entity ID. Can also be used as a filter.
 
 #### Devices examples
 
@@ -442,6 +443,11 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ device_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ device_name('deadbeefdeadbeefdeadbeefdeadbeef') }}  # Sony speaker
+{{ device_name('sensor.sony') }}  # Sony speaker
 ```
 
 {% endraw %}
@@ -470,7 +476,7 @@ The same thing can also be expressed as a test:
 ### Floors
 
 - `floors()` returns the full list of floor IDs.
-- `floor_id(lookup_value)` returns the floor ID for a given device ID, entity ID, area ID, or area name. Can also be used as a filter.
+- `floor_id(lookup_value)` returns the floor ID for a given floor name or alias, area name or alias, entity ID or device ID. Can also be used as a filter.
 - `floor_name(lookup_value)` returns the floor name for a given device ID, entity ID, area ID, or floor ID. Can also be used as a filter.
 - `floor_areas(floor_name_or_id)` returns the list of area IDs tied to a given floor ID or name. Can also be used as a filter.
 - `floor_entities(floor_name_or_id)` returns the list of entity IDs tied to a given floor ID or name. Can also be used as a filter.
@@ -485,6 +491,10 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ floor_id('First floor') }}  # 'first_floor'
+```
+
+```text
+{{ floor_id('First floor alias') }}  # 'first_floor'
 ```
 
 ```text
@@ -516,7 +526,7 @@ The same thing can also be expressed as a test:
 ### Areas
 
 - `areas()` returns the full list of area IDs
-- `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
+- `area_id(lookup_value)` returns the area ID for a given area name or alias, entity ID or device ID. Can also be used as a filter.
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
 - `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter.
 - `area_devices(area_name_or_id)` returns the list of device IDs tied to a given area ID or name. Can also be used as a filter.
@@ -531,6 +541,10 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ area_id('Living Room') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
+```
+
+```text
+{{ area_id('Living Room Alias') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
 ```
 
 ```text
@@ -727,7 +741,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
   - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
-- `today_at(value)` converts a string containing a military time format to a datetime object with today's date in your time zone. Defaults to midnight (`00:00`).
+- `today_at(value)` converts a string containing a 24-hour time format to a datetime object with today's date in your time zone. Defaults to midnight (`00:00`).
 
   - Using `today_at()` will cause templates to be refreshed at the start of every new minute.
 
@@ -744,6 +758,8 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 - `as_timestamp(value, default)` converts a datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts a datetime object to local time. This function can also be used as a filter.
 - `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
+- `relative_time` converts a datetime object to its human-friendly "age" string. The age can be in seconds, minutes, hours, days, months, or years (but only the biggest unit is considered. For example, if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
+  - Using `relative_time()` will cause templates to be refreshed at the start of every new minute.
 - `time_since(datetime, precision)` converts a datetime object into its human-readable time string. The time string can be in seconds, minutes, hours, days, months, and years. `precision` takes an integer (full number) and indicates the number of units returned.  The last unit is rounded. For example: `precision = 1` could return "2 years" while `precision = 2` could return "1 year 11 months". This function can also be used as a filter.
 If the datetime is in the future, returns 0 seconds.
 A precision of 0 returns all available units, default is 1.
@@ -1256,6 +1272,71 @@ Some examples:
 
 {% endraw %}
 
+### Find common elements between lists
+
+The template engine provides a filter to find common elements between two lists: `intersect`.
+
+This function returns a list containing all elements that are present in both input lists.
+
+Some examples:
+
+{% raw %}
+
+- `{{ intersect([1, 2, 5, 3, 4, 10], [1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[1, 2, 3, 4, 5]`
+- `{{ [1, 2, 5, 3, 4, 10] | intersect([1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[1, 2, 3, 4, 5]`
+- `{{ intersect(['a', 'b', 'c'], ['b', 'c', 'd']) }}` - renders as `['b', 'c']`
+- `{{ ['a', 'b', 'c'] | intersect(['b', 'c', 'd']) }}` - renders as `['b', 'c']`
+
+{% endraw %}
+
+### Find elements in first list not in second list
+
+The template engine provides a filter to find elements that are in the first list but not in the second list: `difference`.
+This function returns a list containing all elements that are present in the first list but absent from the second list.
+
+Some examples:
+
+{% raw %}
+
+- `{{ difference([1, 2, 5, 3, 4, 10], [1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[10]`
+- `{{ [1, 2, 5, 3, 4, 10] | difference([1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[10]`
+- `{{ difference(['a', 'b', 'c'], ['b', 'c', 'd']) }}` - renders as `['a']`
+- `{{ ['a', 'b', 'c'] | difference(['b', 'c', 'd']) }}` - renders as `['a']`
+
+{% endraw %}
+
+### Find elements that are in either list but not in both
+
+The template engine provides a filter to find elements that are in either of the input lists but not in both: `symmetric_difference`.
+This function returns a list containing all elements that are present in either the first list or the second list, but not in both.
+
+Some examples:
+
+{% raw %}
+
+- `{{ symmetric_difference([1, 2, 5, 3, 4, 10], [1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[10, 11, 99]`
+- `{{ [1, 2, 5, 3, 4, 10] | symmetric_difference([1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[10, 11, 99]`
+- `{{ symmetric_difference(['a', 'b', 'c'], ['b', 'c', 'd']) }}` - renders as `['a', 'd']`
+- `{{ ['a', 'b', 'c'] | symmetric_difference(['b', 'c', 'd']) }}` - renders as `['a', 'd']`
+
+{% endraw %}
+
+### Combine all unique elements from two lists
+
+The template engine provides a filter to combine all unique elements from two lists: `union`.
+This function returns a list containing all unique elements that are present in either the first list or the second list.
+
+Some examples:
+
+{% raw %}
+
+- `{{ union([1, 2, 5, 3, 4, 10], [1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[1, 2, 3, 4, 5, 10, 11, 99]`
+- `{{ [1, 2, 5, 3, 4, 10] | union([1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[1, 2, 3, 4, 5, 10, 11, 99]`
+- `{{ union(['a', 'b', 'c'], ['b', 'c', 'd']) }}` - renders as `['a', 'b', 'c', 'd']`
+- `{{ ['a', 'b', 'c'] | union(['b', 'c', 'd']) }}` - renders as `['a', 'b', 'c', 'd']`
+
+{% endraw %}
+
 ### Combining dictionaries
 
 The template engine provides a function and filter to merge multiple dictionaries: `combine`.
@@ -1571,10 +1652,12 @@ Example value template:
 With given payload:
 
 ```json
-{ "state": "ON", "temperature": 21.902 }
+{ "state": "ON", "temperature": 21.902, "humidity": null }
 ```
 
 Template {% raw %}`{{ value_json.temperature | round(1) }}`{% endraw %} renders to `21.9`.
+
+Template {% raw %}`{{ value_json.humidity }}`{% endraw %} renders to `None`.
 
 {% endnote %}
 

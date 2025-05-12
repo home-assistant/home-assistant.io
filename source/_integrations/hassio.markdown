@@ -2,6 +2,7 @@
 title: Home Assistant Supervisor
 description: Control Supervisor Add-ons and OS from Home Assistant
 ha_category:
+  - Backup
   - Binary sensor
   - Sensor
   - Update
@@ -10,6 +11,7 @@ ha_release: 0.42
 ha_domain: hassio
 ha_quality_scale: internal
 ha_platforms:
+  - backup
   - binary_sensor
   - diagnostics
   - sensor
@@ -115,14 +117,6 @@ Restart an add-on.
 ### Action hassio.addon_stdin
 
 Write data to add-on stdin.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `addon` | no | Add-on slug
-
-### Action hassio.addon_update
-
-Update add-on. This action should be used with caution since add-on updates can contain backward-incompatible changes. It is highly recommended that you review release notes/change logs before updating an add-on.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

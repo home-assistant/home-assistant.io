@@ -49,13 +49,24 @@ Integrate [Shelly devices](https://shelly.com) into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+    description: "The Hostname or IP address of your Shelly device. You can find it in your router."
+Port:
+    description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
+{% endconfiguration_basic %}
+
 ## Shelly device generations
 
 There are four generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
 
 Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3.
 
-## Shelly device configuration (generation 1)
+## Data updates
+
+Shelly devices push updates to Home Assistant upon changes for all main functions of the device. For push updates to work correctly, some devices need additional configuration:
+
+### Shelly device configuration (generation 1)
 
 Generation 1 devices use the `CoIoT` protocol to communicate with the integration. `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** > **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
 
@@ -72,7 +83,7 @@ The list below will help you diagnose and fix the problem:
 - The missing push updates may be related to the WiFi network range. If using a WiFi network with several access points, enable **Internet & Security** >> **WiFi Client AP Roaming** option. Consider moving Shelly device closer to the WiFi access point. Consider adding another WiFi access point, which will improve the connection quality with the device.
 - If you think your Shelly devices are working correctly and don't want to change your network/configuration, you can ignore the repair issue. Still, you must know you are giving up the best experience of using first-generation Shelly devices with Home Assistant.
 
-## Shelly device configuration (generation 2+)
+### Shelly device configuration (generation 2+)
 
 Generation 2+ devices use the `RPC` protocol to communicate with the integration. **Battery-operated devices** (even if USB connected) may need manual outbound WebSocket configuration if Home Assistant cannot correctly determine your instance's internal URL or the outbound WebSocket was previously configured for a different Home Assistant instance. In this case, navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
 
@@ -83,9 +94,32 @@ In case your installation is set up to use SSL encryption (HTTP**S** with certif
 Integration is communicating directly with the device; cloud connection is not needed.
 {% endnote %}
 
+### Shelly entities that poll data from the device (generation 1)
+
+The following disabled by default entities {% term polling poll %} data from the device every 60 seconds:
+
+- Cloud connected sensor
+- RSSI sensor
+- Uptime sensor
+- Firmware update
+
+### Shelly entities that poll data from the device (generation 2+)
+
+The following disabled by default entities {% term polling poll %} data from the device every 60 seconds:
+
+- Device temperature sensor
+- RSSI sensor
+- Uptime sensor
+
 ## Bluetooth Support
 
-Shelly generation 2+ devices that are not battery-powered can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
+Shelly Gen 2 and newer devices (excluding battery-powered models) can act as Bluetooth proxies, forwarding advertisement data. You can enable either active or passive listening through the device’s options flow.
+
+{% tip %}
+Shelly devices do **not** support proxying active (GATT) connections.
+{% endtip %}
+
+For more details, see [Remote Adapters](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
 
 {% include integrations/option_flow.md %}
 
@@ -155,6 +189,10 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
 If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
 Each script which generates events using [Shelly.emitEvent()](https://shelly-api-docs.shelly.cloud/gen2/Scripts/ShellyScriptLanguageFeatures#shellyemitevent) also gets an corresponding event entity. This entity is disabled by default. After changing a script, it's required to manually reload the device before new event types show up.
+
+{% note %}
+To avoid increased startup time, only the first 5 KB of the script is downloaded and analyzed. If your script exceeds 5 KB, place the event emitting function at the beginning to ensure it is processed.
+{% endnote %}
 
 For example, the following script will emit an event every time an input (button or switch) on the device is changed.
 
@@ -373,3 +411,9 @@ Please check from the device Web UI that the configured server is reachable.
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
 - Using the `homeassistant.update_entity` action for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
