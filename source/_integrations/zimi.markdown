@@ -103,10 +103,10 @@ When you add a supported device, the following entities will be created:
 
 ### Zimi sensor
 
-- Battery Level
-- Garage Temperature
-- Garage Humidity
-- Outside Temperature
+- Battery Level (in %)
+- Garage Temperature (in degrees)
+- Garage Humidity (in %)
+- Outside Temperature (in degrees)
 
 ### Zimi switch
 
