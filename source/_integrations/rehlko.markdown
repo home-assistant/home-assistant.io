@@ -48,9 +48,9 @@ Status sensors provide information about the overall state of the generator.
 
 | Sensor ID         | Values                                | Description                     |
 |-------------------|--------------------------------------|---------------------------------|
-| `generator_status` | ReadyToRun, RunningExercise, ...     | Indicates the current generator status. |
-| `engine_state`     | Standby, PerformingVariableSpeedExercise, ... | Displays the current engine state. |
-| `power_source`     | Utility, ...                        | The source of power for the home. |
+| `generator_status` | ReadyToRun<br>RunningExercise     | Indicates the current generator status. |
+| `engine_state`     | Standby<br>PerformingFullSpeedDiagnostics<br>PerformingUnloadedFullSpeedExercise<br>PerformingVariableSpeedExercise | Displays the current engine state. |
+| `power_source`     | Utility                        | The source of power for the home. |
 
 ## Tested generators
 
