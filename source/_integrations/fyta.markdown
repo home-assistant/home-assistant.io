@@ -45,13 +45,6 @@ Password:
 
 The integration has no additional configuration options.
 
-{% include integrations/option_flow.md %}
-
-{% configuration_basic %}
-User Image:
-  description: "When checked, the user image is used instead of the generic plant image."
-{% endconfiguration_basic %}
-
 ## Supported functionality
 
 ### Binary sensors
@@ -69,7 +62,7 @@ The following binary sensors are currently available per plant:
 
 ### Image
 
-The picture created or chosen in the FYTA app is also exposed to Home Assistant. Depending on the [preferences](#options), generic plant image or the user image set in the FYTA app is used.
+An image entity for both the generic plant image and the user image is added. You may use those for your dashboard.
 
 ### Sensors
 
