@@ -83,7 +83,7 @@ When you add a supported device, the following entities will be created:
 | ------------------------------- | -------------- | ------------------- | ---------------------------------------------------------------- | --------- |
 | Blind Controller                | Cover          | 1xCover             | Cover {Name}                                                     | Future    |
 | Fan and Light Controller        | Fan            | 1xFan<br>1xSwitch   | Fan {Name}<br>Fan {Name}                                         | Yes       |
-| Garage Door Controller          | Cover          | 1xCover<br>4xSensor | Cover {Name}<br>Cover {Battery Level}<br>Cover {Garage Temperature}<br>Cover {Garage Humidity}<br>Cover {Outside Temperature}                              | Cover (Future)<br>Sensor (Yes)    |
+| Garage Door Controller          | Cover          | 1xCover<br>4xSensor | Garage Controller {Name}<br>Garage Controller {Battery Level}<br>Garage Controller {Garage Temperature}<br>Garage Controller {Garage Humidity}<br>Garage Controller {Outside Temperature}                              | Cover (Future)<br>Sensor (Yes)    |
 | Light Dimmer Switch             | Light          | 1xLight             | Light {Name}                                                     | Yes       |
 | Multi Dimmer Switch<br>(2 button)  | Light          | 1xLight             | Light {Name}                                                     | Yes       |
 | Multi Dimmer Switch<br>(4 button)  | Light          | 2xLight             | Light {Name}<br>Light {Name}                                     | Yes       |
