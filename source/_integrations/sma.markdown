@@ -25,10 +25,11 @@ The SMA Solar integration will poll a [SMA](http://www.sma-solar.com/) [(US)](ht
 
 ### Installation details
 Either when Home Assistant discovers or you want to manually add a new SMA entry, the following form will be presented:
+
 - Host: the hostname or IP address (if discovered via DHCP this field will not be displayed as its known via the discovery)
 - Uses SSL certificate
 - Verify SSL certificate
-- Group: this can be either "user" or "installer". By default it should be "user". Ask your installer which one to use
+- Group: this can be either "user" or "installer". By default, it should be "user". Ask your installer which one to use
 - Password: use your password or ask your installer the default password which has been setup
 
 ## Supported Devices
