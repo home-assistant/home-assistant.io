@@ -13,9 +13,13 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The **AWS S3** {% term integrations %} allows you to use [AWS S3](https://aws.amazon.com/s3/) bucket with Home Assistant Backups.
+The **AWS S3** {% term integration %} allows you to use [AWS S3](https://aws.amazon.com/s3/) bucket with Home Assistant Backups.
 
 ## Prerequisites
+
+{% important %}
+This integration is specifically designed to work **only with Amazon AWS S3** and not with third-party storage providers that claim S3 API compatibility. Third-party providers like Wasabi, DigitalOcean Spaces, Backblaze B2, Infomaniak, and others are not supported.
+{% endimportant %}
 
 This integration requires an existing S3 bucket and an IAM user that has access to that bucket. For security reasons, it is strongly recommended to scope the IAM policy as narrowly as possible to only the required operations and resources.
 
@@ -80,8 +84,10 @@ Now, let's create and attach a custom IAM policy to give the user the necessary 
 {% enddetails %}
 
 {% note %}
+
 - Avoid using credentials for your AWS root account or IAM users that have more permissions than is necessary.
 - By limiting credentials to a specific bucket, you reduce risk and help keep your AWS account secure.
+
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -107,6 +113,14 @@ Endpoint URL:
    - The region endpoint (e.g., `https://s3.eu-central-1.amazonaws.com/`)
 
 The integration will test the connection and confirm access to your S3 bucket.
+
+## Known limitations
+
+The AWS S3 integration has the following limitations:
+
+### No support for third-party S3 API compatible providers
+
+This integration is designed to work only with the official Amazon AWS S3 service. Despite claims of S3 API compatibility, third-party storage providers like Wasabi, DigitalOcean Spaces, Backblaze B2, Infomaniak, OVH Cloud, and others have often proven to be incompatible. Even when they appear to work initially, they cannot guarantee ongoing compatibility with this AWS S3 integration in the future.
 
 ## Removing the integration
 
