@@ -3,8 +3,8 @@ title: Bosch Alarm
 description: Integrate Bosch Alarms.
 ha_category:
   - Alarm
-  - Switch
   - Sensor
+  - Switch
 ha_release: 2025.4
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -40,8 +40,8 @@ The **Bosch Alarm Panel** {% term integration %} allows you to connect your [Bos
 The following {% term entities %} are provided:
 
 - [Alarm Control Panel](#alarm-control-panel)
-- [Switch](#switch)
 - [Sensor](#sensor)
+- [Switch](#switch)
 
 ### Alarm Control Panel
 
