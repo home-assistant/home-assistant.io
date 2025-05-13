@@ -21,9 +21,9 @@ The integration with the Greencell EVSE [HabuDen](https://greencell.global/en/55
 
 As not all Greencell users may be interested in integrating the Home Assistant system, a suitable integration access system for the operation of the device must be interested. After discussions, it was decided on 3 levels of integration:
 
-* ***DISABLE*** - Home Assistant integration on device is not run. Device is not connected to user MQTT broker. All entities are disabled.
-* ***READ*** - Home Assistant integration on device is run. Device only send measurements data (voltage, current, power, energy) and does not react on any commands received in proper topic. Buttons and number are disabled.
-* ***EXECUTE*** - Home Assistant integration on device is run. Device send measurements data (voltage, current, power, energy) and react on commands (start, stop, pause) received in proper topic. All supported enables are enabled.
+* **DISABLE** - Home Assistant integration on device is not run. Device is not connected to user MQTT broker. All entities are disabled.
+* **READ** - Home Assistant integration on device is run. Device only send measurements data (voltage, current, power, energy) and does not react on any commands received in proper topic. Buttons and number are disabled.
+* **EXECUTE** - Home Assistant integration on device is run. Device send measurements data (voltage, current, power, energy) and react on commands (start, stop, pause) received in proper topic. All supported enables are enabled.
 
 ## Supported functionalities
 
