@@ -245,6 +245,14 @@ To try to solve the above issues, follow these steps:
    - [Miele service and contact](https://www.miele.com/)
    - [Miele developer Help & Support](https://www.miele.com/developer)
 
+### Program or program phase is unknown
+
+#### Description and resolution
+
+The most common cause is that the code presented by the API is unknown to the integration. Details of the missing code can be found in the Home Assistant log or in the diagnostic file. Please open an issue on GitHub with the details from the logs. Please also include information on the program or program phase that was active when the message occurred.
+
+Unknown can also be displayed if the state is reported as unknown by the API, usually caused by a temporary malfunction in the cloud service.
+
 ## Removing the integration
 
 This integration follows standard integration removal. If you have entered your own credentials, you will be asked if you want to keep them or delete them. If you want to delete them later you can do that from the tree-dot menu in {% my integrations title="**Settings** > **Devices & services**" %}.
