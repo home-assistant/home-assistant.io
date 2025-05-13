@@ -2,6 +2,7 @@
 title: Template
 description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
+  - Alarm Control Panel
   - Binary sensor
   - Button
   - Cover
@@ -47,16 +48,16 @@ related:
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Sensors, binary (on/off) sensors, buttons, images, numbers, selects, and switches are covered on this page. They can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
+Alarm control panels, binary (on/off) sensors, buttons, images, numbers, selects, sensors, switches and weathers are covered on this page. They can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
 
 For other types, please see the specific pages:
 
-- [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Lock](/integrations/lock.template/)
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
 For Legacy types, please see the specific pages:
+- [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
 - [Light](/integrations/light.template/)
@@ -76,11 +77,11 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 ## YAML configuration
 
-Entities (binary sensors, buttons, covers, fans, images, lights, numbers, selects, sensors, switches, and weathers) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
+Entities (alarm control panels, binary sensors, buttons, covers, fans, images, lights, numbers, selects, sensors, switches, and weathers) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template binary sensors, buttons, covers, fans, images, lights, numbers, selects, sensors, switches, and weathers
+### State-based template alarm control panels, binary sensors, buttons, covers, fans, images, lights, numbers, selects, sensors, switches, and weathers
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -231,6 +232,53 @@ binary_sensor:
       required: false
       type: device_class
       default: None
+alarm_control_panel:
+  description: List of alarm control panels
+  required: true
+  type: map
+  keys:
+    state:
+      description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
+      required: false
+      type: template
+    disarm:
+      description: Defines an action to run when the alarm is disarmed.
+      required: false
+      type: action
+    arm_away:
+      description: Defines an action to run when the alarm is armed to away mode.
+      required: false
+      type: action
+    arm_home:
+      description: Defines an action to run when the alarm is armed to home mode.
+      required: false
+      type: action
+    arm_night:
+      description: Defines an action to run when the alarm is armed to night mode.
+      required: false
+      type: action
+    arm_vacation:
+      description: Defines an action to run when the alarm is armed to vacation mode.
+      required: false
+      type: action
+    arm_custom_bypass:
+      description: Defines an action to run when the alarm is armed to custom bypass mode.
+      required: false
+      type: action
+    trigger:
+      description: Defines an action to run when the alarm is triggered.
+      required: false
+      type: action
+    code_arm_required:
+      description: If true, the code is required to arm the alarm.
+      required: false
+      type: boolean
+      default: true
+    code_format:
+      description: One of `number`, `text` or `no_code`. Format for the code used to arm/disarm the alarm.
+      required: false
+      type: string
+      default: number
 number:
   description: List of numbers
   required: true
