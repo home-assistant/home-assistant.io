@@ -582,7 +582,7 @@ lock:
       required: true
       type: template
     code_format:
-      description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, the user is prompted to enter a code when interacting with the lock. The code will be matched against the regular expression, and only if it matches, the lock/unlock actions will be executed. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity will be unavailable. If the template fails to render for other reasons or if the regular expression is invalid, no code will be accepted and the lock/unlock actions will never be invoked.
+      description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code will be matched against the regular expression, and the lock/unlock actions will be executed only if they match. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity will be unavailable. If the template fails to render for other reasons or if the regular expression is invalid, no code will be accepted, and the lock/unlock actions will never be invoked.
       required: false
       type: template
       default: None
@@ -599,7 +599,7 @@ lock:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if lock works in optimistic mode.
+      description: Flag that defines if the lock works in optimistic mode.
       required: false
       type: boolean
       default: false
