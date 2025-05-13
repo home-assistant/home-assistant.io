@@ -355,7 +355,7 @@ fan:
   type: map
   keys:
     state:
-      description: "Defines a template to get the state of the fan. Valid values: `on`, `off`"
+      description: "Defines a template to get the state of the fan. Valid values: `on`, `off`."
       required: true
       type: template
     percentage:
@@ -367,11 +367,11 @@ fan:
       required: false
       type: template
     oscillating:
-      description: "Defines a template to get the osc state of the fan. Valid values: `true`, `false`"
+      description: "Defines a template to get the osc state of the fan. Valid values: `true`, `false`."
       required: false
       type: template
     direction:
-      description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`"
+      description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`."
       required: false
       type: template
     turn_on:
@@ -391,7 +391,7 @@ fan:
       required: false
       type: action
     set_oscillating:
-      description: Defines an action to run when the fan is given an osc state command.
+      description: Defines an action to run when the fan is given an oscillation state command.
       required: false
       type: action
     set_direction:
