@@ -116,8 +116,8 @@ Since the Leneda API has (at least) a one-day lag, historical data is inserted i
 1. Go to the configuration of the energy dashboard ({% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}).
 2. Select **Add Consumption** or **Add Production**.
 3. Select the relevant Leneda statistics from the list.
-    - For electricity consumption, the relevant OBIS code is 1-1:1.29.0 (measured active consumption).
-    - For electricity production, the relevant OBIS code is 1-1:2.29.0 (measured active production).
+   - For electricity consumption, the relevant OBIS code is 1-1:1.29.0 (measured active consumption).
+   - For electricity production, the relevant OBIS code is 1-1:2.29.0 (measured active production).
 
 ## Troubleshooting
 
