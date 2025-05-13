@@ -118,7 +118,9 @@ The integration will test the connection and confirm access to your S3 bucket.
 
 The AWS S3 integration has the following limitations:
 
-- **Third-party S3 API compatible providers are not supported**: This integration is designed to work only with the official Amazon AWS S3 service. Despite claims of S3 API compatibility, third-party storage providers like Wasabi, DigitalOcean Spaces, Backblaze B2, Infomaniak, OVH Cloud, and others have often proven to be incompatible. Even when they appear to work initially, they cannot guarantee ongoing compatibility with this AWS S3 integration in the future.
+### No support for third-party S3 API compatible providers
+
+This integration is designed to work only with the official Amazon AWS S3 service. Despite claims of S3 API compatibility, third-party storage providers like Wasabi, DigitalOcean Spaces, Backblaze B2, Infomaniak, OVH Cloud, and others have often proven to be incompatible. Even when they appear to work initially, they cannot guarantee ongoing compatibility with this AWS S3 integration in the future.
 
 ## Removing the integration
 
