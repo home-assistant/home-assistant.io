@@ -23,6 +23,7 @@ ha_codeowners:
   - '@tl-sl'
 ha_integration_type: device
 ha_dhcp: true
+ha_quality_scale: silver
 ---
 
 The [SMLIGHT](https://smlight.tech) SLZB-06x ethernet Zigbee coordinators provide a reliable and convenient way to integrate Zigbee devices into your smart home setup. By placing the Zigbee gateway closer to your devices, you can improve connectivity and reduce interference, avoiding the limitations of gateways hidden in cupboards or distant locations.

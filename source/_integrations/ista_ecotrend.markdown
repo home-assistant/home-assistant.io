@@ -9,6 +9,7 @@ ha_codeowners:
   - '@tr4nt0r'
 ha_domain: ista_ecotrend
 ha_platforms:
+  - diagnostics
   - sensor
 ha_config_flow: true
 ha_integration_type: integration

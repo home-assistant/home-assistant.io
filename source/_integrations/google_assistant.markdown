@@ -160,7 +160,7 @@ Now add your setup to your {% term "`configuration.yaml`" %} file, such as:
 # Example configuration.yaml entry
 google_assistant:
   project_id: YOUR_PROJECT_ID
-  service_account: !include SERVICE_ACCOUNT.JSON
+  service_account: !include SERVICE_ACCOUNT.json
   report_state: true
   exposed_domains:
     - switch

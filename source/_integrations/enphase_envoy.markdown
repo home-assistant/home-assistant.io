@@ -21,6 +21,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
 The **Enphase Envoy** {% term integration %} is used to integrate with the [Enphase IQ Gateway](https://enphase.com/en-us/products-and-services/envoy-and-combiner), a communication device for [Enphase](https://enphase.com/homeowners) solar inverters and batteries. In this documentation, as well as in integration entity names, the Enphase IQ Gateway is commonly referred to as `Envoy`, a name from the conception times of this integration and retained for its compact format.

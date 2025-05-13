@@ -5,11 +5,12 @@ ha_category:
   - Binary sensor
   - Button
   - Climate
-  - Hub
   - Fan
+  - Hub
   - Light
   - Sensor
   - Switch
+  - Vacuum
 ha_iot_class: Cloud Push
 ha_release: '2025.5'
 ha_domain: miele
@@ -25,8 +26,10 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - vacuum
 ha_integration_type: integration
 ha_zeroconf: true
+ha_quality_scale: bronze
 ---
 
 The Miele {% term integrations %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
@@ -168,6 +171,13 @@ Climate entities are used to control target temperatures in refrigerators, freez
 - **Power**: The Power switch has slightly different characteristics depending on the appliance model. For some devices, it works more or less as a traditional power switch, while it behaves like a wake-up/sleep toggle on others. The availability of the switch is controlled by the API, depending on the operational state of the appliance.
 - **Supercooling**: The switch controls Supercooling mode for refrigerators.
 - **Superfreezing**: The switch controls Superfreezing mode for freezers.
+{% enddetails %}
+
+### Vacuum
+
+{% details "List of vacuum entities" %}
+
+- **Robot vacuum cleaner**: Miele robot vacuum cleaners can be monitored and controlled to a limited extent. The device can be started, stopped, and paused. The fan speed can also be set.
 {% enddetails %}
 
 ## Automation examples
