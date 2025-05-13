@@ -57,15 +57,15 @@ A binary sensor is added for each point configured on your alarm.
 
 Two binary sensors are added for each area to indicate whether it can be armed away or armed home.
 
+### Sensor
+
+A sensor is provided per area that lists how many points are currently in a faulted state.
+
 ### Switch
 
 A switch is added for each output configured on the panel. Note that for some panels, only outputs with the type set to **remote output** can be controlled via _Mode 2_ API.
 
 Three switches are added per door, which allow for locking, securing, or momentarily unlatching the door.
-
-### Sensor
-
-A sensor is provided per area that lists how many points are currently in a faulted state.
 
 ## Authentication
 
