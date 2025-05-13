@@ -110,9 +110,10 @@ This delay means that there will be no data in the energy dashboard for today an
 
 ## Energy dashboard
 
-Since the Leneda API has (at least) a one-day lag, historical data is inserted into statistics objects by this integration. You must therefore be careful to select the statistics, and not the sensors for use with the energy dashboard.
+Since the Leneda API has (at least) a one-day lag, historical data is inserted into statistics objects by this integration. You must therefore be careful to select the statistics, and not the sensors, for use with the energy dashboard.
 
 ### Adding the Leneda statistics to the energy dashboard
+
 1. Go to the configuration of the energy dashboard ({% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}).
 2. Select **Add Consumption** or **Add Production**.
 3. Select the relevant Leneda statistics from the list.
