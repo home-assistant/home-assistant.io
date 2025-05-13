@@ -42,14 +42,14 @@ Metering Point ID:
 You can add more metering points in two ways:
 
 - **Option 1**: Using an existing Energy ID
-   - Go through the configuration steps again.
-   - Choose **Add using existing Energy ID**.
-   - Enter the new metering point ID.
+   1. Go through the configuration steps again.
+   2. Choose **Add using existing Energy ID**.
+   3. Enter the new metering point ID.
 
 - **Option 2**: With a new Energy ID
-   - Go through the configuration steps again.
-   - Choose **Add with new Energy ID**.
-   - Enter the new API token, Energy ID, and metering point ID.
+   1. Go through the configuration steps again.
+   2. Choose **Add with new Energy ID**.
+   3. Enter the new API token, Energy ID, and metering point ID.
 
 {% note %} Leneda allows users to grant access rights to specific OBIS codes for metering points to other users. However, the integration only allows adding a metering point once (with one Energy ID). Choose the Energy ID that provides all the access rights you need for your desired sensors.{% endnote %}
 
