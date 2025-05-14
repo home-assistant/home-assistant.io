@@ -48,17 +48,17 @@ Status sensors provide information about the overall state of the generator.
 
 #### Generator status
 
-Provides the overall status of the generator
+Provides the overall status of the generator.
 
 |  Value                              | Description                     |
 |--------------------------------------|---------------------------------|
 | ReadyToRun | Generator is ready to run in case of a power outage. |
 | RunningExercise | Generator is currently running its exercise program. |
-| SwitchStateOff | Generator is turned off and **will not** run in case of a power outage |
+| SwitchStateOff | Generator is turned off and **will not** run in case of a power outage. |
 
 #### Engine state
 
-Provides the detailed engine state
+Provides the detailed engine state.
 
 |  Value                            | Description                     |
 |--------------------------------------|---------------------------------|
@@ -70,7 +70,7 @@ Provides the detailed engine state
 
 #### Power source
 
-Provides indicate of power source for the home
+Provides and indication of power source for the home.
 
 |  Value                            | Description                     |
 |--------------------------------------|---------------------------------|
