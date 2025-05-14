@@ -278,7 +278,7 @@ If you opt for manual configuration of IP Secure routing, you will need the back
 
 This integration uses the KNX/IP protocol to receive telegrams live as they appear on the bus. When the integration is loaded, it actively requests data needed to initialize the configured entities. See [Group Addresses](#group-addresses) for more details.
 
-States fo diagnostic entities of the "KNX Interface" device are {% term polling polled %} every 10 seconds.
+States of diagnostic entities of the "KNX Interface" device are {% term polling polled %} every 10 seconds.
 
 ## Triggers
 
