@@ -24,7 +24,7 @@ The integration uses the REST-API interface which is also used by the integrated
 
 ## Installer Access
 
-The integration supports installer-level access using a Master key and Service Code. This enables access to additional settings that are normally restricted to certified installers.
+The integration supports installer-level access using a Master key and Service Code. This enables access to future additional settings that are normally restricted to certified installers.
 
 {% warning %}
 
@@ -38,11 +38,6 @@ Using installer credentials:
 {% endwarning %} 
 
 To enable installer access, set your Master Key as the password and fill in the Service Code in the configuration when adding the integration. 
-
-### Additional Settings with Installer Access 
-
-The following settings become available when using installer credentials: 
-- Battery Manual Charge 
 
 For information about obtaining installer credentials, please consult your device documentation or contact a certified installer.
 
@@ -171,7 +166,6 @@ The following sensors are available in the library:
 | Name                    | Unit | RW | Description   |
 |-------------------------|------|----|:--------------|
 | Battery Dynamic SoC     |      | RW | Dynamic SoC. |
-| Battery Manual Charge | | RW | Enables manual charging of the battery for service purposes. This feature: <br>- Requires installer login credentials<br>- Allows forcing battery charging regardless of normal charging rules<br>- Should only be used for maintenance/service purposes<br>- May impact battery longevity if used incorrectly |
 | Battery Smart Control   |      | RW | Enable smart battery control |
 | Battery Strategy        |      | RW | Battery strategy. |
 | Shadow Management       |      | RW | PV string shadow management. |
