@@ -148,7 +148,7 @@ Provide a (new) keyring file to be used by the integration. See [KNX Secure](#kn
 
 ## Basic configuration
 
-In order to make use of the various platforms offered by the KNX integration, you will need to set them up via the KNX panel or add the according configuration yaml to your {% term "`configuration.yaml`" %}. See [Splitting up the configuration](/docs/configuration/splitting_configuration/) if you like to arrange yaml parts in dedicated files.
+In order to make use of the various platforms offered by the KNX integration, you will need to set them up via the KNX panel or add the corresponding configuration yaml to your {% term "`configuration.yaml`" %}. See [Splitting up the configuration](/docs/configuration/splitting_configuration/) if you like to arrange yaml parts in dedicated files.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -2460,7 +2460,7 @@ entity_category:
 
 ## Known limitations
 
-- The integration aims to be compatible with a wide variety of KNX devices from different manufacturers and eras. However, there are some devices that use non-standard <abbr title="data point type">DPT</abbr> or use telegrams in a proprietary way. In these cases, you might not be able to configure entities directly through this integration. However, you may still be able use [Template entities](integrations/template/) with [KNX telegram trigger](#telegram-trigger) to work around this.
+- The integration aims to be compatible with a wide variety of KNX devices from different manufacturers and eras. However, there are some devices that use non-standard <abbr title="data point type">DPT</abbr> or use telegrams in a proprietary way. In these cases, you might not be able to configure entities directly through this integration. However, you may still use [Template entities](integrations/template/) with the [KNX telegram trigger](#telegram-trigger) to work around this.
 
 - USB bus interfaces are not directly supported by the underlying [`xknx` library](https://github.com/XKNX/xknx). However, you could try to run a software KNX router such as `Calimero` or `knxd` alongside Home Assistant to serve as a USB to IP bridge. For best reliability, using a certified KNX IP interface or router is recommended.
 
