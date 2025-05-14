@@ -85,13 +85,13 @@ Select the connection type to your KNX bus. The integration supports the followi
 
 For more information about KNX connection types see [Connection](#connection).
 
-### Tunnelling specific settings
+### Tunneling specific settings
 
 You can select a specific tunnel device if multiple were found during the setup. In case no device was discovered you can configure connection information manually.
 
 {% configuration_basic %}
 KNX tunneling type:
-  description: "`UDP`, `TCP` or `Secure Tunnelling`"
+  description: "`UDP`, `TCP` or `Secure Tunneling`"
 Host:
   description: "IP address or hostname of the KNX/IP tunneling device."
 Port:
@@ -104,7 +104,7 @@ Local IP interface:
 
 #### Tunnel endpoint
 
-Select the tunnel endpoint used for the connection. This step is only available for `TCP` or `Secure Tunnelling` connection types.
+Select the tunnel endpoint used for the connection. This step is only available for `TCP` or `Secure Tunneling` connection types.
 
 ### Routing specific settings
 
