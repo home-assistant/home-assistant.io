@@ -23,7 +23,7 @@ The **Briiv** {% term integration %} allows you to control a [Briiv air purifier
 
 {% include integrations/config_flow.md %}
 
-Upon initial instalation of the **Briiv** integration, it will automatically scan for available devices on the network. As a fallback, it will allow manual entry of the devices’ IP addresses or a re-scan of the network. You will then be presented with a list of new devices and pre-existing ones. Select one and associate it with a room. Afterward, the device will be added and accessible via normal means.
+Upon initial installation of the **Briiv** integration, it will automatically scan for available devices on the network. As a fallback, it will allow manual entry of the devices’ IP addresses or a re-scan of the network. You will then be presented with a list of new devices and pre-existing ones. Select one and associate it with a room. Afterward, the device will be added and accessible via normal means.
 
 Note that the device may have a schedule. Any interaction with Home Assistant will suspend the schedule for exactly one hour. After this lapse, the **Briiv** device will resume its internal schedule routine. If you want Home Assistant to determine the schedule behavior, it is recommended to remove all schedules from our native app and set desired states using Home Assistant.
 
