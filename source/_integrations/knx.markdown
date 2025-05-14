@@ -50,7 +50,7 @@ ha_config_flow: true
 ha_integration_type: hub
 ---
 
-The [KNX](https://www.knx.org) integration connects Home Assistant to your KNX installation, allowing you to control KNX devices, act on telegrams and forward states from other Home Assistant entities to your KNX bus.
+The [KNX](https://www.knx.org) integration connects Home Assistant to your KNX installation, allowing you to control KNX devices, act on telegrams and forward state changes from other integrations entities to your KNX bus.
 
 This integration requires a local KNX/IP interface or router to establish the connection between Home Assistant and your KNX bus.
 
