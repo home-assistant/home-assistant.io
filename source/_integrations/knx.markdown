@@ -75,9 +75,80 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+### KNX Connection
+
+Select the connection type to your KNX bus. The integration supports the following connection methods:
+
+- 'Automatic' performs a gateway scan on start, to find a KNX IP interface. It will connect via a tunnel. This option is not available when a gateway scan at setup initiation was not successful.
+- 'Tunneling' will connect to a specific KNX IP interface over a tunnel.
+- 'Routing' will use Multicast to communicate with KNX IP routers.
+
+For more information about KNX connection types see [Connection](#connection).
+
+### Tunnelling specific settings
+
+You can select a specific tunnel device if multiple were found during the setup. In case no device was discovered you can configure connection information manually.
+
+{% configuration_basic %}
+KNX tunneling type:
+  description: "`UDP`, `TCP` or `Secure Tunnelling`"
+Host:
+  description: "IP address or hostname of the KNX/IP tunneling device."
+Port:
+  description: "Port used by the KNX/IP tunneling device."
+Route back / NAT mode:
+  description: "Enable if your KNXnet/IP tunneling server is behind NAT. Only applies for UDP connections."
+Local IP interface:
+  description: "Local IP or interface name used for the connection from Home Assistant. Leave blank to use auto-discovery."
+{% endconfiguration_basic %}
+
+#### Tunnel endpoint
+
+Select the tunnel endpoint used for the connection. This step is only available for `TCP` or `Secure Tunnelling` connection types.
+
+### Routing specific settings
+
+{% configuration_basic %}
+Individual address:
+  description: "KNX individual address to be used by Home Assistant to send telegrams. This shall not be used by any other device in your installation."
+KNX IP Secure Routing:
+  description: "Select if your installation uses encrypted communication according to the KNX IP Secure standard. This setting requires compatible devices and configuration. You'll be prompted for credentials in the next step."
+Multicast group:
+  description: "Multicast group used by your installation. Default is `224.0.23.12`"
+Multicast port:
+  description: "Multicast port used by your installation. Default is `3671`"
+Local IP interface:
+  description: "Local IP or interface name used for the connection from Home Assistant. Leave blank to use auto-discovery."
+{% endconfiguration_basic %}
+
+### KNX IP Secure specific settings
+
+See [Connection](#connection) on how to get the files or keys needed for this configuration step.
+
+{% include integrations/option_flow.md %}
+
+### Configure KNX interface
+
+Reconfigure your connection settings. See above for more information.
+
+### Communication settings
+
+{% configuration_basic %}
+State updater:
+  description: "Sets the default behavior for periodically reading state addresses from the KNX Bus."
+Rate limit:
+  description: "Maximum outgoing telegrams per second. `0` to disable limit - which is recommended."
+Telegram history limit:
+  description: "Number of Telegrams to keep in memory for the KNX panels group monitor."
+{% endconfiguration_basic %}
+
+### Import KNX Keyring
+
+Provide a (new) keyring file to be used by the integration. See [KNX Secure](#knx-secure) on how to get this file.
+
 ## Basic configuration
 
-In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main {% term "`configuration.yaml`" %} file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files. See [Splitting up the configuration](/docs/configuration/splitting_configuration/).
+In order to make use of the various platforms offered by the KNX integration, you will need to set them up via the KNX panel or add the according configuration yaml to your {% term "`configuration.yaml`" %}. See [Splitting up the configuration](/docs/configuration/splitting_configuration/) if you like to arrange yaml parts in dedicated files.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -152,7 +223,7 @@ When updating secure groups, ensure all participating devices, routers, and coup
 Tunneling uses a KNX IP Interface to connect to the KNX bus. Most KNX IP Routers also support tunneling connections. This is the recommended connection type and is also used when selecting an "Automatic" connection in the integration setup.
 
 For modern interfaces (supporting TCP or IP Secure) you can select a specific tunnel endpoint to be used. Make sure that Home Assistant is the only client connecting to this tunnel endpoint.
-It is recommended to connect the group addresses you want to use to the tunnel endpoint that Home Assistant uses. For secure group addresses, this is mandatory.
+In ETS it is recommended to connect the group addresses you want to use to the tunnel endpoint that Home Assistant uses. For secure group addresses, this is mandatory.
 
 If you use KNX IP Secure tunneling or Data Secure, export the Keyring file from ETS and import it in the KNX integration settings.
 
