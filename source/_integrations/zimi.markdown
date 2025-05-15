@@ -9,17 +9,17 @@ ha_codeowners:
   - '@mhannon11'
 ha_category:
   - Cover
-  - Light
-  - Switch
   - Fan
+  - Light
   - Sensor
+  - Switch
 ha_domain: zimi
 ha_platforms:
   - cover
-  - light
-  - switch
   - fan
+  - light
   - sensor
+  - switch
 ha_config_flow: true
 quality_scale: bronze
 integration_type: hub
