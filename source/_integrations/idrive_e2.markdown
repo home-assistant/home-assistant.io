@@ -1,6 +1,6 @@
 ---
 title: IDrive e2
-description: Instructions on how to setup an IDrive e2 bucket to use as a backup location.
+description: Instructions on how to set up an IDrive e2 bucket to use as a backup location.
 ha_release: 2025.6
 ha_category:
   - Backup
@@ -38,7 +38,7 @@ Make a note of the bucket name and region — you’ll need it later.
 
 {% details "Create an Access Key" %}
 
-To create a Access Key that has access to the bucket:
+To create an Access Key that has access to the bucket:
 
 1. Navigate to **Access Keys** from the Dashboard menu.
 1. Click **Create Access Key**.
