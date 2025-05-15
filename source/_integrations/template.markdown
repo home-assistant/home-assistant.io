@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Button
   - Cover
+  - Fan
   - Helper
   - Image
   - Light
@@ -51,13 +52,13 @@ Sensors, binary (on/off) sensors, buttons, images, numbers, selects, and switche
 For other types, please see the specific pages:
 
 - [Alarm control panel](/integrations/alarm_control_panel.template/)
-- [Fan](/integrations/fan.template/)
 - [Lock](/integrations/lock.template/)
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
 For Legacy types, please see the specific pages:
 - [Cover](/integrations/cover.template/)
+- [Fan](/integrations/fan.template/)
 - [Light](/integrations/light.template/)
 - [Switch](/integrations/switch.template/)
 
@@ -75,11 +76,11 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 ## YAML configuration
 
-Entities (binary sensors, buttons, covers, images, lights, numbers, selects, sensors, switches, and weathers) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
+Entities (binary sensors, buttons, covers, fans, images, lights, numbers, selects, sensors, switches, and weathers) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template binary sensors, buttons, covers, images, lights, numbers, selects, sensors, switches, and weathers
+### State-based template binary sensors, buttons, covers, fans, images, lights, numbers, selects, sensors, switches, and weathers
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -348,6 +349,65 @@ cover:
       description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).  If the template produces a `None` value, the current tilt state will be set to `unknown`.
       required: false
       type: template
+fan:
+  description: List of fans
+  required: true
+  type: map
+  keys:
+    state:
+      description: "Defines a template to get the state of the fan. Valid values: `on`, `off`."
+      required: true
+      type: template
+    percentage:
+      description: Defines a template to get the speed percentage of the fan.
+      required: false
+      type: template
+    preset_mode:
+      description: Defines a template to get the preset mode of the fan.
+      required: false
+      type: template
+    oscillating:
+      description: "Defines a template to get the osc state of the fan. Valid values: `true`, `false`."
+      required: false
+      type: template
+    direction:
+      description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`."
+      required: false
+      type: template
+    turn_on:
+      description: Defines an action to run when the fan is turned on.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action to run when the fan is turned off.
+      required: true
+      type: action
+    set_percentage:
+      description: Defines an action to run when the fan is given a speed percentage command.
+      required: false
+      type: action
+    set_preset_mode:
+      description: Defines an action to run when the fan is given a preset command.
+      required: false
+      type: action
+    set_oscillating:
+      description: Defines an action to run when the fan is given an oscillation state command.
+      required: false
+      type: action
+    set_direction:
+      description: Defines an action to run when the fan is given a direction command.
+      required: false
+      type: action
+    preset_modes:
+      description: List of preset modes the fan is capable of. This is an arbitrary list of strings and must not contain any speeds.
+      required: false
+      type: [string, list]
+      default: []
+    speed_count:
+      description: The number of speeds the fan supports. Used to calculate the percentage step for the `fan.increase_speed` and `fan.decrease_speed` actions.
+      required: false
+      type: integer
+      default: 100
 image:
   description: List of images
   required: true
