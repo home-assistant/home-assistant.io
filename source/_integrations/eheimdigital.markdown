@@ -41,6 +41,12 @@ Host:
 
 Currently, the following devices and entities are supported:
 
+### All devices
+
+#### Number
+
+- **System LED brightness**: Controlling the brightness of the system LED
+
 ### [EHEIM classicLEDcontrol+e](https://eheim.com/en_GB/aquatics/technology/lighting-control/classicledcontrol-e/classicledcontrol-e)
 
 #### Lights

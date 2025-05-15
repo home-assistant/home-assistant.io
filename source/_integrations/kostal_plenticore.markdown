@@ -22,6 +22,25 @@ The Kostal Plenticore integration allows you to get data from [Kostal Plenticore
 
 The integration uses the REST-API interface which is also used by the integrated Web-UI and therefore uses the same password.
 
+## Installer access
+
+The integration supports installer-level access using a Master key and Service Code. This enables access to future additional settings that are normally restricted to certified installers.
+
+{% warning %}
+
+Using installer credentials:
+
+- Should only be done if you fully understand the implications 
+- May void your warranty 
+- Could potentially damage your device if settings are incorrectly configured 
+- Should be done with extreme caution 
+
+{% endwarning %} 
+
+To enable installer access, set your Master Key as the password and fill in the Service Code in the configuration when adding the integration. 
+
+For information about obtaining installer credentials, please consult your device documentation or contact a certified installer.
+
 {% include integrations/config_flow.md %}
 
 ## Sensors
