@@ -22,7 +22,7 @@ The Kostal Plenticore integration allows you to get data from [Kostal Plenticore
 
 The integration uses the REST-API interface which is also used by the integrated Web-UI and therefore uses the same password.
 
-## Installer Access
+## Installer access
 
 The integration supports installer-level access using a Master key and Service Code. This enables access to future additional settings that are normally restricted to certified installers.
 
