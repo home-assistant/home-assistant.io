@@ -47,8 +47,8 @@ To create an Access Key that has access to the bucket:
 1. Adjust the settings:
    - ✅ **Access Key Expiry: disabled** (disabled by default, recommended)
    - ✅ **Assign access permission: read and write** (selected by default)
-     - ✅ **Allow deletion of objects: check** (checked by default)
-     - ⚠️ **Allow bucket deletion: uncheck** (checked by default)
+     - ✅ **Allow deletion of objects** (checked by default)
+     - ⚠️ **Allow bucket deletion** (must be **unchecked**; checked by default)
 1. Click **Assign buckets - Select buckets**.
 1. Select the **Bucket name** of the bucket created earlier.
 1. Click **Create Access Key**.
