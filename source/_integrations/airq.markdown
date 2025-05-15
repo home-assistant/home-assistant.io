@@ -96,6 +96,10 @@ After the integration has been initialized, the user can configure any of the fo
 
 - **Clip negative values**. Default: `on`. For baseline calibration purposes, certain sensor values may briefly become negative. The default behavior is to clip such values to 0.
 
+## LED Control
+
+In addition to sensor readings, this integration exposes each device’s LED strip as a `light` entity. For every device you’ll get an entity `light.<device_name>_led`. The entity can be controlled manually from the overview panel or through an automation. The entity allows to switch/toggle the LEDs on and off as well as to set their brightness.
+
 ## Troubleshooting
 
 For troubleshooting or when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and restart the integration. As soon as the issue reoccurs stop the debug logging, which will trigger the download of the debug log file.
