@@ -65,9 +65,9 @@ If the Zimi discovery process is unsuccessful (that is, if the Zimi Cloud Connec
 
 {% configuration_basic %}
 host:
-    description: "The IP address of your Zimi Cloud Connect. You can find it via your router admin interface."
+  description: "The IP address of your Zimi Cloud Connect. You can find it via your router admin interface."
 port:
-    description: "The port number used to connect to your Zimi Cloud Connect. If no port number is entered, the integration will use the default port. (The default port will be correct in almost all deployment scenarios)"
+  description: "The port number used to connect to your Zimi Cloud Connect. If no port number is entered, the integration will use the default port. (The default port will be correct in almost all deployment scenarios)"
 {% endconfiguration_basic %}
 
 It is possible to add multiple Zimi Cloud Connect devices.
@@ -98,20 +98,23 @@ When you add a supported device, the following entities will be created:
 ### Zimi cover controller
 
 - Cover entity: Basic open/close and open to percentage
-  
-### Zimi fan controller
+
+### Zimi fan
 
 - Fan entity: Basic on/off and speed control
 
-### Zimi light controller
+### Zimi light
 
 - Light entity: Basic on/off and brightness control
 
 ### Zimi sensor
 
-- Sensor entity: Temperatures, Humidity and Battery Level
+- Battery Level (in %)
+- Garage Temperature (in degrees)
+- Garage Humidity (in %)
+- Outside Temperature (in degrees)
 
-### Zimi switch controller
+### Zimi switch
 
 - Switch entity: Basic on/off
 

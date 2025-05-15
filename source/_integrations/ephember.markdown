@@ -7,6 +7,7 @@ ha_release: 0.57
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@ttroy50'
+  - '@roberty99'
 ha_domain: ephember
 ha_platforms:
   - climate
