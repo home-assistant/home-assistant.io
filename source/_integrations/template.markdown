@@ -2,7 +2,6 @@
 title: Template
 description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
-  - Alarm Control Panel
   - Binary sensor
   - Button
   - Cover
@@ -10,13 +9,10 @@ ha_category:
   - Helper
   - Image
   - Light
-  - Lock
   - Number
   - Select
   - Sensor
   - Switch
-  - Vacuum
-  - Weather
 ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -51,18 +47,20 @@ related:
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Alarm control panels, binary sensors, buttons, covers, fans, images, lights, locks, numbers, selects, sensors, switches, vacuums, and weathers are covered on this page. They can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
+Sensors, binary (on/off) sensors, buttons, images, numbers, selects, and switches are covered on this page. They can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
 
-For Legacy types, please see the specific pages:
+For other types, please see the specific pages:
 
 - [Alarm control panel](/integrations/alarm_control_panel.template/)
+- [Lock](/integrations/lock.template/)
+- [Vacuum](/integrations/vacuum.template/)
+- [Weather](/integrations/weather.template/)
+
+For Legacy types, please see the specific pages:
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
 - [Light](/integrations/light.template/)
-- [Lock](/integrations/lock.template/)
 - [Switch](/integrations/switch.template/)
-- [Vacuum](/integrations/vacuum.template/)
-- [Weather](/integrations/weather.template/)
 
 {% include integrations/config_flow.md %}
 
@@ -78,11 +76,11 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 ## YAML configuration
 
-Entities (alarm control panels, binary sensors, buttons, covers, fans, images, lights, locks, numbers, selects, sensors, switches, vacuums, and weathers) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
+Entities (binary sensors, buttons, covers, fans, images, lights, numbers, selects, sensors, switches, and weathers) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template alarm control panels, binary sensors, buttons, covers, fans, images, lights, numbers, selects, sensors, switches, vacuums, and weathers
+### State-based template binary sensors, buttons, covers, fans, images, lights, numbers, selects, sensors, switches, and weathers
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -233,53 +231,6 @@ binary_sensor:
       required: false
       type: device_class
       default: None
-alarm_control_panel:
-  description: List of alarm control panels
-  required: true
-  type: map
-  keys:
-    state:
-      description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
-      required: false
-      type: template
-    disarm:
-      description: Defines an action to run when the alarm is disarmed.
-      required: false
-      type: action
-    arm_away:
-      description: Defines an action to run when the alarm is armed to away mode.
-      required: false
-      type: action
-    arm_home:
-      description: Defines an action to run when the alarm is armed to home mode.
-      required: false
-      type: action
-    arm_night:
-      description: Defines an action to run when the alarm is armed to night mode.
-      required: false
-      type: action
-    arm_vacation:
-      description: Defines an action to run when the alarm is armed to vacation mode.
-      required: false
-      type: action
-    arm_custom_bypass:
-      description: Defines an action to run when the alarm is armed to custom bypass mode.
-      required: false
-      type: action
-    trigger:
-      description: Defines an action to run when the alarm is triggered.
-      required: false
-      type: action
-    code_arm_required:
-      description: If true, the code is required to arm the alarm.
-      required: false
-      type: boolean
-      default: true
-    code_format:
-      description: One of `number`, `text` or `no_code`. Format for the code used to arm/disarm the alarm.
-      required: false
-      type: string
-      default: number
 number:
   description: List of numbers
   required: true
@@ -572,37 +523,6 @@ light:
       description: Defines an action to run when the light is given an effect command. Receives the variable `effect`. May also receive the variables `brightness`, and/or  `transition`.
       required: inclusive
       type: action
-lock:
-  description: List of locks
-  required: true
-  type: map
-  keys:
-    state:
-      description: Defines a template to set the state of the lock.
-      required: true
-      type: template
-    code_format:
-      description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code will be matched against the regular expression, and the lock/unlock actions will be executed only if they match. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity will be unavailable. If the template fails to render for other reasons or if the regular expression is invalid, no code will be accepted, and the lock/unlock actions will never be invoked.
-      required: false
-      type: template
-      default: None
-    lock:
-      description: Defines an action to run when the lock is locked.
-      required: true
-      type: action
-    unlock:
-      description: Defines an action to run when the lock is unlocked.
-      required: true
-      type: action
-    open:
-      description: Defines an action to run when the lock is opened.
-      required: false
-      type: action
-    optimistic:
-      description: Flag that defines if the lock works in optimistic mode.
-      required: false
-      type: boolean
-      default: false
 switch:
   description: List of switches
   required: true
@@ -621,64 +541,6 @@ switch:
       description: Defines an action or list of actions to run when the switch is turned off.
       required: true
       type: action
-vacuum:
-  description: List of vacuum entities
-  required: true
-  type: map
-  keys:
-    state:
-      description: "Defines a template to get the state of the vacuum. Valid value: `docked`/`cleaning`/`idle`/`paused`/`returning`/`error`"
-      required: false
-      type: template
-    battery_level:
-      description: "Defines a template to get the battery level of the vacuum. Legal values are numbers between `0` and `100`."
-      required: false
-      type: template
-    fan_speed:
-      description: Defines a template to get the fan speed of the vacuum.
-      required: false
-      type: template
-    attributes:
-      description: Defines templates for attributes of the sensor.
-      required: false
-      type: map
-      keys:
-        "attribute: template":
-          description: The attribute and corresponding template.
-          required: true
-          type: template
-    start:
-      description: Defines an action to run when the vacuum is started.
-      required: true
-      type: action
-    pause:
-      description: Defines an action to run when the vacuum is paused.
-      required: false
-      type: action
-    stop:
-      description: Defines an action to run when the vacuum is stopped.
-      required: false
-      type: action
-    return_to_base:
-      description: Defines an action to run when the vacuum is given a return to base command.
-      required: false
-      type: action
-    clean_spot:
-      description: Defines an action to run when the vacuum is given a clean spot command.
-      required: false
-      type: action
-    locate:
-      description: Defines an action to run when the vacuum is given a locate command.
-      required: false
-      type: action
-    set_fan_speed:
-      description: Defines an action to run when the vacuum is given a command to set the fan speed.
-      required: false
-      type: action
-    fan_speeds:
-      description: List of fan speeds supported by the vacuum.
-      required: false
-      type: [string, list]
 weather:
   description: List of weather entities
   required: true
