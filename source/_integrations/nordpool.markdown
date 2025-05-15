@@ -26,13 +26,13 @@ Most European energy is traded via the Nord Pool Group marketplace. If your ener
 
 {% important %}
 
-The energy market is transitioning to 15-minute MTU instead of 60-minute MTU.
+The energy market is transitioning to 15-minute <abbr title="market time unit">MTU</abbr> instead of 60-minute MTU.
 
-When this finally occurs, the **Nord Pool** {% term integration %} will automatically switch and use the 15-minute MTU. This means during the transition you may have a current price which is hourly based and a future price which is a 15 minute price.
+When this finally occurs, the **Nord Pool** {% term integration %} will automatically switch and use the 15-minute <abbr title="market time unit">MTU</abbr>. This means during the transition, you may have a current price which is hourly based and a future price that is a 15-minute price.
 
-If you use this integration to calculate your own energy cost, it is advisable to see how this affects you and if any automations, templates or other that might need to be modified accordingly.
+If you use this integration to calculate your own energy cost, it is advisable to see how this affects you. Check if any automations, templates, or other settings might need to be modified accordingly.
 
-You can read more and monitor the timeline [here](https://www.nordpoolgroup.com/en/trading/transition-to-15-minute-market-time-unit-mtu/)
+You can read more and monitor the timeline [on the page about the transition to 15-minute MTU by Nordpool](https://www.nordpoolgroup.com/en/trading/transition-to-15-minute-market-time-unit-mtu/)
 
 {% endimportant %}
 
