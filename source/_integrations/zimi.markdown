@@ -81,21 +81,21 @@ The integration will support all Zimi devices. Note that the naming conventions 
 
 When you add a supported device, the following entities will be created:
 
-| Zimi product                    | HA device name | HA entities         | HA default friendly name                                         | Supported |
-|---------------------------------|----------------|---------------------|------------------------------------------------------------------|-----------|
-| Blind Controller                | Cover          | 1xCover             | Cover {Name}                                                     | Yes       |
-| Fan and Light Controller        | Fan            | 1xFan<br>1xSwitch   | Fan {Name}<br>Fan {Name}                                         | Yes       |
-| Garage Door Controller          | Cover          | 1xCover<br>2xSensor | Cover {Name}<br>Cover {Temperature}<br>Cover {Humidity}          | Yes       |
-| Light Dimmer Switch             | Light          | 1xLight             | Light {Name}                                                     | Yes       |
-| Multi Dimmer Switch (2 button)  | Light          | 1xLight             | Light {Name}                                                     | Yes       |
-| Multi Dimmer Switch (4 button)  | Light          | 2xLight             | Light {Name}<br>Light {Name}                                     | Yes       |
-| Multi-Purpose Switch (1 button) | Switch         | 1xSwitch            | Switch {Name}                                                    | Yes       |
-| Multi-Purpose Switch (2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   | Yes       |
-| Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  | Yes       |
-| Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Yes       |
-| Power Point                     | Outlet         | 2xOutlet            | Outlet {Name}                                                    | Yes       |
+| Zimi product                    | HA device name | HA entities         | HA default friendly name                                         |
+|---------------------------------|----------------|---------------------|------------------------------------------------------------------|
+| Blind Controller                | Cover          | 1xCover             | Cover {Name}                                                     |
+| Fan and Light Controller        | Fan            | 1xFan<br>1xSwitch   | Fan {Name}<br>Fan {Name}                                         |
+| Garage Door Controller          | Cover          | 1xCover<br>2xSensor | Garage {Name}<br>Garage {Temperature}<br>Garage {Humidity}       |
+| Light Dimmer Switch             | Light          | 1xLight             | Light {Name}                                                     |
+| Multi Dimmer Switch (2 button)  | Light          | 1xLight             | Light {Name}                                                     |
+| Multi Dimmer Switch (4 button)  | Light          | 2xLight             | Light {Name}<br>Light {Name}                                     |
+| Multi-Purpose Switch (1 button) | Switch         | 1xSwitch            | Switch {Name}                                                    |
+| Multi-Purpose Switch (2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   |
+| Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  |
+| Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} |
+| Power Point                     | Outlet         | 2xOutlet            | Outlet {Name}                                                    |
 
-### Zimi cover controller
+### Zimi cover
 
 - Cover entity: Basic open/close and open to percentage
 
@@ -125,7 +125,6 @@ The integration receives updates instantly from the Zimi Cloud Controller via th
 ## Known limitations
 
 Entity name changes made in the Zimi app will not be reflected in Home Assistant until after a restart. This is because entity names are only read during integration setup and Home Assistant startup.
-
 
 ## Troubleshooting
 
