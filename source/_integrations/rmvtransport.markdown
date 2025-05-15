@@ -21,7 +21,7 @@ The `rvmtransport` {% term integration %} will give you the departure time of th
 
 ## Setup
 
-Visit the [RMV OpenData web site](https://opendata.rmv.de) to find a list of valid station IDs.
+Visit the [RMV OpenData web site](https://opendata.rmv.de) to find a list of valid station IDs. You will need to use the "HAFAS_ID".
 
 ## Configuration
 
