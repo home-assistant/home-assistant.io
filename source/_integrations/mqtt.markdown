@@ -122,6 +122,9 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 <a name="configuration-via-subentries"></a>
 {% details "Configuration of MQTT components via Subentries" %}
 
+- [Binary sensor](/integrations/binary_sensor.mqtt/)
+- [Button](/integrations/button.mqtt/)
+- [Light](/integrations/light.mqtt/)
 - [Notify](/integrations/notify.mqtt/)
 - [Sensor](/integrations/sensor.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
@@ -740,6 +743,7 @@ support_url:
     'evt_typ':             'event_types',
     'exp_aft':             'expire_after',
     'fanspd_lst':          'fan_speed_list',
+    'flsh':                'flash',
     'flsh_tlng':           'flash_time_long',
     'flsh_tsht':           'flash_time_short',
     'fx_cmd_t':            'effect_command_topic',
@@ -933,6 +937,7 @@ support_url:
     'tilt_status_t':       'tilt_status_topic',
     'tilt_status_tpl':     'tilt_status_template',
     'tit':                 'title',
+    'trns':                'transition',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
     'url_t':               'url_topic',

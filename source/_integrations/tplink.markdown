@@ -112,7 +112,7 @@ Alternatively, you can factory reset and then prevent the device from accessing 
 - **Wall Switches**: S210, S220, S500D, S505, S505D
 - **Bulbs**: L510B, L510E, L530E, L630
 - **Light Strips**: L900-10, L900-5, L920-5, L930-5
-- **Cameras**: C100, C210, C220, C225, C325WB, C520WS, C720, TC65, TC70
+- **Cameras**: C100, C120, C210, C220, C225, C325WB, C520WS, C720, TC65, TC70
 - **Doorbells and chimes**: D100C, D130, D230
 - **Vacuums**: RV20 Max Plus, RV30 Max
 - **Hubs**: H100, H200

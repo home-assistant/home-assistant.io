@@ -56,12 +56,6 @@ Password:
 
 The integration has no additional configuration options.
 
-## Remove integration
-
-This integration can be removed by following these steps:
-
-{% include integrations/remove_device_service.md %}
-
 ## Supported functionality
 ### Sensors
 
@@ -143,3 +137,9 @@ The integration provides no additional actions.
 
 The integration only provides the (limited) data exposed by means of the JSON interface. This also entails that the values for the self-consumption are rounded to full kWh.
 Firmware versions below 3.x are not supported, as they do not expose the JSON interface. Please contact the Solar-Log support if you need assistance with updating the firmware of your Solar-Log device.
+
+## Removing the integration
+
+This integration can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}
