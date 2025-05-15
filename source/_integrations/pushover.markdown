@@ -86,8 +86,8 @@ Also note that in this example the sound parameter is not explicitly set, in whi
 ```yaml
   - service: notify.pushover
     data:
-      message: "Flight AS23 Arrives at 6:30 PM"
-      title: "Pick up John at the Airport"
+      message: "This is the message"
+      title: "Title of message"
       target:
         - pixel9
         - johnsmith
