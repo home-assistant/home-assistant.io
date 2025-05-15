@@ -61,6 +61,7 @@ The integration will create binary sensor entities for a variety of metrics rela
 - Preconditioning enabled
 - Scheduled charging enabled
 - Trip charging enabled
+- Lifetime energy used
 
 #### Climate state
 
