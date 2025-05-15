@@ -52,9 +52,9 @@ Provides the overall status of the generator.
 
 |  Value                              | Description                     |
 |--------------------------------------|---------------------------------|
-| ReadyToRun | Generator is ready to run in case of a power outage. |
-| RunningExercise | Generator is currently running its exercise program. |
-| SwitchStateOff | Generator is turned off and **will not** run in case of a power outage. |
+| `ReadyToRun` | Generator is ready to run in case of a power outage. |
+| `RunningExercise` | Generator is currently running its exercise program. |
+| `SwitchStateOff` | Generator is turned off and **will not** run in case of a power outage. |
 
 #### Engine state
 
@@ -62,19 +62,19 @@ Provides the detailed engine state.
 
 |  Value                            | Description                     |
 |--------------------------------------|---------------------------------|
-| Off | Generator is turned off and **will not** run in case of a power outage. |
-| Standby | Generator is ready to run in case of a power outage. |
-| PerformingFullSpeedDiagnostics | Generator is running full speed diagnostics. |
-| PerformingUnloadedFullSpeedExercise | Generator is running full speed exercise. |
-| PerformingVariableSpeedExercise | Generator is running variable speed exercise. |
+| `Off` | Generator is turned off and **will not** run in case of a power outage. |
+| `Standby` | Generator is ready to run in case of a power outage. |
+| `PerformingFullSpeedDiagnostics` | Generator is running full speed diagnostics. |
+| `PerformingUnloadedFullSpeedExercise` | Generator is running full speed exercise. |
+| `PerformingVariableSpeedExercise` | Generator is running variable speed exercise. |
 
 #### Power source
 
-Provides and indication of power source for the home.
+Provides an indication of power source for the home.
 
 |  Value                            | Description                     |
 |--------------------------------------|---------------------------------|
-| Utility | Utility power is providing power to the home. |
+| `Utility` | Utility power is providing power to the home. |
 
 
 ## Tested generators
