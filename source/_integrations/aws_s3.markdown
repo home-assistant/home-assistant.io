@@ -41,26 +41,45 @@ The AWS S3 integration has the following limitations:
 
 S3 uses prefix-based paths to organize objects, but it does not enforce true directory structures. If multiple configurations use the same bucket without a prefix, or use overlapping prefixes such as:
 
-- `homeassistant/prod`
-- `homeassistant/test`
-- `homeassistant`
+- `homeassistant/prod/`
+- `homeassistant/test/`
+- `homeassistant/`
 
 This causes two issues:
 
-- **Across instances**: One instance may show backups that were created by another instance.
-- **Within a single instance**: When using **multiple S3 config entries**, Home Assistant cannot reliably determine which backup belongs to which configuration if their prefixes overlap. As a result, backups may be incorrectly shown under the wrong S3 config entry in the UI. The backups are still stored in the correct S3 location — this is a display issue that affects the assignment shown in the backup overview.
+##### Across Instances
+
+When different Home Assistant instances use overlapping prefixes in the same S3 bucket, backups may be incorrectly shown in the wrong instance’s UI.
+
+Example:
+
+- Instance A uses the prefix `homeassistant/prod/`  
+- Instance B uses the prefix `homeassistant/`
+
+Since `homeassistant/` includes all sub-prefixes like `prod/` and `test/`, Instance B will also see the backups created by Instance A. As a result, backups from multiple instances may appear mixed together — even though they were stored in their correct locations.
+
+##### Within a Single Instance
+
+When multiple S3 configuration entries are defined in the same Home Assistant instance, overlapping prefixes make it difficult to accurately assign backups to the correct configuration in the UI.
+
+Example:
+
+- One S3 config uses `homeassistant/`  
+- Another uses `homeassistant/test/`
+
+Because `homeassistant/` includes everything under it (including `test/`), Home Assistant may incorrectly associate backups stored under `homeassistant/test/` with the `homeassistant/` config. This leads to backups being shown under the wrong config entry in the UI. The backups are still stored in the correct S3 location — this is purely a display/assignment issue in the UI.
 
 #### ✅ Recommended Solution
 
-To avoid cross-listing of backups use **unique, non-overlapping prefixes** for each instance.
+To avoid cross-listing of backups, use **unique, non-overlapping prefixes** for each instance.
 
 Correct usage:
 
 - `homeassistant/prod/`
 - `homeassistant/test/`
 - `homeassistant/dev/`
-- Avoid using generic prefixes like `homeassistant/` unless that is your only backup location
 
+Avoid using generic prefixes like `homeassistant/` unless that is your only backup location.
 This ensures that each Home Assistant instance only sees its own backups, and not those from other environments or configurations.
 
 ## Removing the integration
