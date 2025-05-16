@@ -27,6 +27,24 @@ The **Bosch Alarm Panel** {% term integration %} allows you to connect your [Bos
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+    description: "The IP address of your panel. You can find it in your router, or within A-Link Plus / RPS."
+Port:
+    description: "The port used by your panel. This is usually 7700 unless it was changed when the panel was configured."
+Password:
+    description: "The automation code set up for your panel. This can be found within A-Link Plus or RPS. Used by the AMAX, B and G series panels."
+User Code:
+    description: "The user code for the user that this integration will communicate with the panel with. This is usually the code you would use when arming or disarming the panel via a code pad. Used by the Solution series panels."
+Installer Code:
+    description: "The installer code for your panel. This can be found within A-Link Plus. Used by the AMAX series panels."
+
+{% endconfiguration_basic %}
+
+{% important %}
+Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the regularly configured alarm pin: you will _not_ be prompted for a _User_ code when arming/disarming through the integration.
+{% endimportant %}
+
 ## Supported devices
 
 - _Solution 2000/3000/4000_
@@ -87,25 +105,6 @@ The state for the sensor can be one of the following:
 A switch is added for each output configured on the panel. Note that for some panels, only outputs with the type set to **remote output** can be controlled via _Mode 2_ API.
 
 Three switches are added per door, which allow for locking, securing, or momentarily unlocking the door.
-
-
-## Authentication
-
-The primary means of authentication for the _Mode 2_ API is the _Automation_ passcode. It needs to be at least 10 characters long, and it is different from the _User_ code -- a shorter numeric pin used to arm/disarm the panel.
-The integration will prompt for the required passcodes, which depend on the panel type.
-
-| Panel    | Code       |
-| -------- | ---------- |
-| Solution | User [^2]  |
-| B Series | Automation |
-| G Series | Automation |
-| AMAX     | Both       |
-
-[^2]: The user needs to have the "master code functions" authority if you wish to interact with history events.
-
-{% important %}
-Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the regularly configured alarm pin: you will _not_ be prompted for a _User_ code when arming/disarming through the integration.
-{% endimportant %}
 
 ## Data updates
 
