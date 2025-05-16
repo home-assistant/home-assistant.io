@@ -3,10 +3,7 @@ title: Bosch Alarm
 description: Integrate Bosch Alarms.
 ha_category:
   - Alarm
-<<<<<<< HEAD
   - Binary Sensor
-=======
->>>>>>> c8b7ccce5e960edca856483d9fb26334c9ea9e8a
   - Sensor
   - Switch
 ha_release: 2025.4
@@ -45,10 +42,7 @@ The **Bosch Alarm Panel** {% term integration %} allows you to connect your [Bos
 The following {% term entities %} are provided:
 
 - [Alarm Control Panel](#alarm-control-panel)
-<<<<<<< HEAD
 - [Binary Sensor](#binary-sensor)
-=======
->>>>>>> c8b7ccce5e960edca856483d9fb26334c9ea9e8a
 - [Sensor](#sensor)
 - [Switch](#switch)
 
