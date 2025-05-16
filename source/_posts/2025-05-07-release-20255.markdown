@@ -78,6 +78,7 @@ Enjoy the release!
 - [Discover what Home Assistant is discovering](#discover-what-home-assistant-is-discovering)
 - [Patch releases](#patch-releases)
   - [2025.5.1 - May 9](#202551---may-9)
+  - [2025.5.2 - May 16](#202552---may-16)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
