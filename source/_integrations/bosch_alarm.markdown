@@ -97,12 +97,22 @@ The integration provides the following actions.
 The `bosch_alarm.set_date_time` action is used to update the date and time on the panel.
 
 - **Data attribute**: `config_entry_id`
-   - **Description**: The ID of the config entry to get the schedule from.
+   - **Description**: The ID of the config entry of the panel being updated.
    - **Optional**: No
 
 - **Data attribute**: `datetime`
    - **Description**: The date and time to set. Defaults to the current date and time if it is not set.
    - **Optional**: Yes
+
+{% raw %}
+```yaml
+# Example: Update the panel’s date and time
+service: bosch_alarm.set_date_time
+data:
+  config_entry_id: "YOUR_CONFIG_ENTRY_ID"
+  datetime: "2025-05-01T12:00:00"
+```
+{% endraw %}
 
 ## Authentication
 
