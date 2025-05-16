@@ -81,7 +81,7 @@ Currently, the following devices and entities are supported:
 - **Day speed**: Setting the pump speed for the day in Bio mode
 - **Night speed**: Setting the pump speed for the night in Bio mode
 
-### Select
+#### Select
 
 - **Filter mode**: Setting the filter mode
   - Manual mode: The filter uses the **manual speed**
