@@ -449,15 +449,6 @@ Features:
 - set mode
 - oscillate left and right
 
-### Vacuums
-
-Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10.
-
-Features:
-
-- start
-- return to base
-- get battery
 #### Air Purifier
 
 This is an encrypted device.
@@ -477,6 +468,16 @@ Features:
 - turn on
 - turn off
 - set mode
+
+### Vacuums
+
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10.
+
+Features:
+
+- start
+- return to base
+- get battery
 
 ## Data updates
 
