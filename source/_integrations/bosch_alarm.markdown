@@ -105,6 +105,7 @@ The `bosch_alarm.set_date_time` action is used to update the date and time on th
   - **Optional**: Yes
 
 {% raw %}
+
 ```yaml
 # Example: Update the panel’s date and time
 service: bosch_alarm.set_date_time
