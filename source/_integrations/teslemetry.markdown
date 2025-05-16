@@ -297,6 +297,12 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|State|Yes|
 |Sensor|Vehicle|Yes|
 
+### Metadata
+
+|Domain|Name|Enabled|
+|---|---|---|
+|Sensor|Teslemetry credits|Yes|
+
 ## Actions
 
 Teslemetry provides various custom actions to interact with the Tesla Fleet API directly.

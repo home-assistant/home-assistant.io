@@ -158,9 +158,14 @@ Climate entities are used to control target temperatures in refrigerators, freez
   - **Energy consumption**: Shows the energy consumption during the current program cycle. The value will be reset after finishing the program.
   - **Water consumption**: Shows the water consumption during the current program cycle. The value will be reset after finishing the program.
   - **Temperature**: Represents the current temperature in refrigerators, freezers, and ovens. Entities are created for up to 3 zones depending on the device capabilities.
+  - **Target temperature**: Shows the set target temperature for ovens and washing machines.
+  - **Core temperature**: Shows the core temperature of the food in ovens with an appropriate temperature probe.
+  - **Target core temperature**: Shows the set core target temperature for the food in ovens with an appropriate temperature probe.
+  - **Drying step**: Shows the selected drying step on tumble dryers.
   - **Elapsed time**: Shows the number of minutes that the current program has been running.
   - **Remaining time**: Shows the estimated number of minutes remaining in the current program cycle. This value can fluctuate during a program cycle based on load dirtiness or water‑heating time.
   - **Start in**: Shows the number of minutes until a delayed program start, if configured.
+  - **Plate**: Four to six sensors that show the current state of hob heating plates. The status mimics the display on the actual hob. For example, 0 is off, 5 is approximately 50% power, and "B" is power boost. Plates can only be monitored from Home Assistant, not controlled.
 {% enddetails %}
 
 ### Switch
