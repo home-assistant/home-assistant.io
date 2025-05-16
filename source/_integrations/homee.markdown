@@ -14,6 +14,7 @@ ha_platforms:
   - button
   - climate
   - cover
+  - fan
   - light
   - lock
   - number

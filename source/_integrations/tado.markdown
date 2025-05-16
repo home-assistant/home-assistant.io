@@ -21,6 +21,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - device_tracker
+  - diagnostics
   - sensor
   - switch
   - water_heater

@@ -12,6 +12,10 @@ related:
     title: Views
   - docs: /dashboards/iframe/
     title: Webpage card
+  - docs: /docs/organizing/
+    title: Grouping your assets
+  - docs: /docs/organizing/areas/
+    title: Grouping by areas
 ---
 
 You can define multiple dashboards in Home Assistant. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
@@ -27,14 +31,62 @@ Screenshot of the Dashboard list.
 
 Home Assistant ships with some dashboards out of the box:
 
-- Overview
-- Energy
-- [Map](#map-dashboard)
-- Logbook
-- History
-- To-do lists
+- [Areas dashboard (experimental)](#areas-dashboard)
+- Energy dashboard
+- [History dashboard](#history-dashboard)
+- [Logbook dashboard](#logbook-dashboard)
+- [Map dashboard](#map-dashboard)
+- [Overview dashboard](#creating-a-new-dashboard)
+- [To-do lists dashboard](#to-do-lists-dashboard)
 
 Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Logbook** and **History** dashboards are powered by their respective integrations.
+
+### Areas dashboard
+
+{% note %}
+The **Areas** dashboard is still experimental. It is subject to change and may not always work as intended.
+{% endnote %}
+
+The **Areas** dashboard is prepopulated by default and shows your {% term entities %} [grouped](/docs/organizing/) by [areas](/docs/organizing/areas/).
+
+- It uses the [sections view](/dashboards/sections/) type and [tile cards](/dashboards/tile/).
+- The first view shows all your areas and the {% term entities %} that are [assigned to those areas](/docs/organizing/areas/).
+- In addition, the dashboard provides a separate view for each area.
+- {% term entities Entities%}, such as lights, covers, and cameras are automatically grouped by {% term domain %}.
+
+<p class='img'>
+<img src='/images/dashboards/areas-dashboard-overview.png' alt='Screenshot of the Areas default dashboard'>
+Screenshot of the Areas default dashboard.
+</p>
+
+#### Limitations of the Areas dashboard
+
+1. Not all devices are added to the **Areas** dashboard. Only a few sensors are displayed automatically. Such as temperature and humidity of the area, and door, window, and gate binary sensors.
+2. Certain entity domains and helpers are omitted from the **Areas** dashboard. For example, configuration and diagnostic {% term entities %} do not appear, even if they have been assigned to an area.
+
+#### Adding an Areas dashboard
+
+- To add the **Areas** dashboard, follow the steps on [adding a dashboard](#creating-a-new-dashboard).
+
+#### Editing the Areas dashboard
+
+1. Make sure all the {% term entities %} are [assigned to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items).
+2. After you [added the dashboard](#creating-a-new-dashboard), you can edit the **Areas** dashboard.
+3. In the top-right corner, select the {% icon "mdi:pencil" %} icon.
+4. You can show or hide sections, rearrange the content, or [add badges](/dashboards/badges/).
+
+#### Troubleshooting: entity is not showing
+
+1. Not all devices or entity types are automatically added to the **Areas** dashboard. Refer to the [Limitations](#limitations-of-the-areas-dashboard) section.
+2. Make sure the entity is [assigned to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items) and check the dashboard again.
+
+### History dashboard
+
+The predefined **History** dashboard is powered by the [History integration](/integrations/history/). To learn about the data sources used and how to export data, refer to the documentation of the History integration.
+
+### Logbook dashboard
+
+The predefined **Logbook** dashboard is powered by the [Logbook integration](/integrations/logbook/). To control which events to show or filter out, refer to the documentation of the Logbook integration.
 
 ### Map dashboard
 
@@ -43,14 +95,6 @@ The predefined **Map** dashboard is populated by the [Map card](/dashboards/map/
 #### Maps and presence detection
 
 If you see a [person](/integrations/person/) on the map, it means you have connected a device that allows [presence detection](/integrations/#presence-detection). This is the case for example if you have the [Home Assistant Companion App](https://companion.home-assistant.io/) on your phone and allowed location tracking.
-
-### Logbook dashboard
-
-The predefined **Logbook** dashboard is powered by the [Logbook integration](/integrations/logbook/). To control which events to show or filter out, refer to the documentation of the Logbook integration.
-
-### History dashboard
-
-The predefined **History** dashboard is powered by the [History integration](/integrations/history/). To learn about the data sources used and how to export data, refer to the documentation of the History integration.
 
 ### To-do lists dashboard
 
@@ -84,21 +128,26 @@ This will leave the default dashboard intact.
 2. Select **Add dashboard**.
    ![Screenshot of the dashboard list](/images/dashboards/dashboard-manage-02.png)
 3. In the dialog, choose one of the options:
-   - If you want to start with a pre-populated dashboard, choose **Default dashboard**.
+   - If you want to start with a pre-populated dashboard, choose **Default dashboard** or one of the suggested ones, such as the **Areas** dashboard.
    - If you want to start with a completely empty dashboard, choose **New dashboard from scratch**.
+   ![Screenshot of the Add Dashboard dialog showing the Areas dashboard option](/images/dashboards/areas-experimental-dialog.png)
+
 4. In the **Add new dashboard** dialog, enter a name and select an icon.
    - Define if this dashboard should be visible only to the admin user.
    - Define if you want the dashboard to be listed in the sidebar.
    - Select **Create**.
    - **Result**: The dashboard is added.
-5. Open your new dashboard and in the top right of the screen, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/> button.
-6. If you chose **Default dashboard**, you need to take control before you can edit it:
+
+## Editing a new dashboard
+
+1. Open your new dashboard and in the top right of the screen, select the {% icon "mdi:pencil" %} button.
+2. If you are editing a **Default dashboard** for the first time, you need to take control before you can edit it:
    - The **Edit dashboard** dialog appears.
      - By editing the dashboard, you are taking over control of this dashboard.
      - This means that it is no longer automatically updated when new dashboard elements become available.
      - Once you've taken control, you can't get this specific dashboard back to update automatically. However, you can create a new default dashboard.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
-7. You can now [add a card](/dashboards/cards/#adding-cards-to-your-dashboard) or [add a view](/dashboards/views/#adding-a-view-to-a-dashboard).
+3. You can now [add a card](/dashboards/cards/#adding-cards-to-your-dashboard) or [add a view](/dashboards/views/#adding-a-view-to-a-dashboard).
 
 ## Deleting a dashboard
 
