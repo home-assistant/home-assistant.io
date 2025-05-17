@@ -44,8 +44,12 @@ Prices are split up into three channel types:
 It exposes the following {% term sensors %} for each channel type:
 
 - **Price** - Your current electricity price in $/kWh
-- **Forecast** - The forecasted prices for the next 12 hours. Note: This sensor is deprecated and will be removed in 2025.11. Use the `get_forecasts` action instead.
+- **Forecast** - The forecasted prices for the next 12 hours
 - **Descriptor** - A description of the price. Useful if you want to create an Amber light that matches the app. Possible values: `extremely_low`, `very_low`, `low`, `neutral`, `high`, and `spike`.
+
++:::warning Deprecated
++The **Forecast** sensor will be removed in version **2025.11**. Please use the **`get_forecasts`** action to retrieve forecast information.
++:::
 
 There are two additional sensors:
 
