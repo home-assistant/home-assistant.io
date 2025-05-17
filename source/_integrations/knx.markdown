@@ -2460,7 +2460,7 @@ entity_category:
 
 ## Known limitations
 
-- The integration aims to be compatible with a wide variety of KNX devices from different manufacturers and eras. However, there are some devices that use non-standard <abbr title="data point type">DPT</abbr> or use telegrams in a proprietary way. In these cases, you might not be able to configure {% term entities %} directly through this integration. However, you may still use [Template entities](integrations/template/) with the [KNX telegram trigger](#telegram-trigger) to work around this.
+- The integration aims to be compatible with a wide variety of KNX devices from different manufacturers and eras. However, there are some devices that use non-standard <abbr title="data point type">DPT</abbr> or use telegrams in a proprietary way. In these cases, you might not be able to configure {% term entities %} directly through this integration. However, you may still use [Template entities](/integrations/template/) with the [KNX telegram trigger](#telegram-trigger) to work around this.
 
 - USB bus interfaces are not directly supported by the underlying [`xknx` library](https://github.com/XKNX/xknx). However, you could try to run a software KNX router such as `Calimero` or `knxd` alongside Home Assistant to serve as a USB to IP bridge. For best reliability, using a certified KNX IP interface or router is recommended.
 
