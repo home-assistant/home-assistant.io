@@ -44,10 +44,21 @@ Prices are split up into three channel types:
 It exposes the following {% term sensors %} for each channel type:
 
 - **Price** - Your current electricity price in $/kWh
-- **Forecast** - The forecasted prices for the next 12 hours
+- **Forecast** - The forecasted prices for the next 12 hours. Note: This sensor is deprecated and will be removed in 2025.11. Use the `get_forecasts` action instead.
 - **Descriptor** - A description of the price. Useful if you want to create a Amber light that matches the app.
 
 There are two additional sensors:
 
 - **Price Spike** - A binary sensor that indicates when the current price is over $3/kWh.
 - **Renewables** - The percentage of renewable energy currently in the grid.
+
+## Actions
+
+### `get_forecasts`
+
+The `get_forecasts` action returns an array of forecasts for the requested channel type.
+
+| Data attribute | Optional | Description                                                           |
+| -------------- | -------- | --------------------------------------------------------------------- |
+| `site_id`      | Yes      | ID of the site you want the prices for.                               |
+| `channel_type` | Yes      | The channel type to fetch. Options: general, controller_load, feed_in |
