@@ -27,6 +27,8 @@ The **Wallbox** {% term integration %} pulls data from the [MyWallbox Portal](ht
 The {% term integration %} adds the following sensors:
 
 - Added energy (kWh)
+- Added green energy (kWh)
+- Added grid energy (kWh)
 - Added range (km)
 - Charging power (kW)
 - Charging speed
