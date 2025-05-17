@@ -108,6 +108,10 @@ The current state of the backup system. Possible states are:
 
 The timestamp of the next scheduled automatic backup.
 
+### Last attempted automatic backup
+
+The timestamp of the last attempted automatic backup.
+
 ### Last successful automatic backup
 
 The timestamp of the last successful automatic backup.

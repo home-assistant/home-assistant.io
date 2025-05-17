@@ -43,6 +43,10 @@ Not all of the predefined dashboards are listed under {% my lovelace_dashboards 
 
 ### Areas dashboard
 
+{% note %}
+The **Areas** dashboard is still experimental. It is subject to change and may not always work as intended.
+{% endnote %}
+
 The **Areas** dashboard is prepopulated by default and shows your {% term entities %} [grouped](/docs/organizing/) by [areas](/docs/organizing/areas/).
 
 - It uses the [sections view](/dashboards/sections/) type and [tile cards](/dashboards/tile/).
@@ -55,12 +59,26 @@ The **Areas** dashboard is prepopulated by default and shows your {% term entiti
 Screenshot of the Areas default dashboard.
 </p>
 
-After you [added the dashboard](#creating-a-new-dashboard), you can edit the **Areas** dashboard:
+#### Limitations of the Areas dashboard
 
-1. In the top-right corner, select the {% icon "mdi:pencil" %} icon.
-2. You can show or hide sections, rearrange the content, or [add badges](/dashboards/badges/).
+1. Not all devices are added to the **Areas** dashboard. Only a few sensors are displayed automatically. Such as temperature and humidity of the area, and door, window, and gate binary sensors.
+2. Certain entity domains and helpers are omitted from the **Areas** dashboard. For example, configuration and diagnostic {% term entities %} do not appear, even if they have been assigned to an area.
 
-The **Areas** dashboard is still experimental. It is subject to change and may not always work as intended.
+#### Adding an Areas dashboard
+
+- To add the **Areas** dashboard, follow the steps on [adding a dashboard](#creating-a-new-dashboard).
+
+#### Editing the Areas dashboard
+
+1. Make sure all the {% term entities %} are [assigned to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items).
+2. After you [added the dashboard](#creating-a-new-dashboard), you can edit the **Areas** dashboard.
+3. In the top-right corner, select the {% icon "mdi:pencil" %} icon.
+4. You can show or hide sections, rearrange the content, or [add badges](/dashboards/badges/).
+
+#### Troubleshooting: entity is not showing
+
+1. Not all devices or entity types are automatically added to the **Areas** dashboard. Refer to the [Limitations](#limitations-of-the-areas-dashboard) section.
+2. Make sure the entity is [assigned to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items) and check the dashboard again.
 
 ### History dashboard
 

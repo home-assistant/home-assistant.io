@@ -3,6 +3,9 @@ title: Bosch Alarm
 description: Integrate Bosch Alarms.
 ha_category:
   - Alarm
+  - Binary Sensor
+  - Sensor
+  - Switch
 ha_release: 2025.4
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -12,10 +15,15 @@ ha_codeowners:
 ha_domain: bosch_alarm
 ha_platforms:
   - alarm_control_panel
-ha_integration_type: integration
+  - binary_sensor
+  - diagnostics
+  - sensor
+  - switch
+ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
-The **Bosch Alarm** {% term integration %} allows you to connect your [Bosch Alarm Panel](https://www.boschsecurity.com) to Home Assistant to control and monitor your Bosch Alarm Panel.
+The **Bosch Alarm Panel** {% term integration %} allows you to connect your [Bosch Alarm Panel](https://www.boschsecurity.com) to Home Assistant to control and monitor your Bosch Alarm Panel.
 
 {% include integrations/config_flow.md %}
 
@@ -34,11 +42,52 @@ The **Bosch Alarm** {% term integration %} allows you to connect your [Bosch Ala
 The following {% term entities %} are provided:
 
 - [Alarm Control Panel](#alarm-control-panel)
+- [Binary Sensor](#binary-sensor)
+- [Sensor](#sensor)
+- [Switch](#switch)
 
 ### Alarm Control Panel
 
 This integration adds an Alarm Control Panel device for each configured area, with the ability to issue arm/disarm commands.
 This entity reports state (_disarmed_, _armed_away_, etc.).
+ 
+### Binary Sensor
+
+A binary sensor is added for each point configured on your alarm.
+
+Two binary sensors are added for each area to indicate whether it can be armed away or armed home.
+
+### Sensor
+
+A sensor is provided per area that lists how many points are currently in a faulted state.
+
+A sensor is provided for each of the following alarm types that displays the health of that alarm
+
+- Fire
+- Gas
+- Burglary
+
+The state for the sensor can be one of the following:
+
+- No issues
+- Trouble
+
+  These signals indicate a malfunction or failure within the system. These signals often point to something that, if left unresolved, could lead to a complete system failure. For example, a broken wire or a failed smoke detector could trigger a trouble signal. These signals generally require prompt action to ensure the system continues to work as intended.
+
+- Supervisory
+
+  These signals relate to system components that require attention but are not in immediate danger of failing. They are typically non-urgent and indicate that something within the system needs maintenance or is functioning suboptimally. These signals might include a closed valve or a fire extinguisher that’s out of service.
+
+- Alarm
+
+  The alarm is currently triggered.
+
+### Switch
+
+A switch is added for each output configured on the panel. Note that for some panels, only outputs with the type set to **remote output** can be controlled via _Mode 2_ API.
+
+Three switches are added per door, which allow for locking, securing, or momentarily unlocking the door.
+
 
 ## Authentication
 
@@ -63,6 +112,34 @@ Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the r
 The **Bosch Alarm** {% term integration %} fetches data from the device every 30 seconds.
 Newer devices and firmware revisions have the possibility to push data instead of needing to rely on {% term polling %}.
 At startup, the integration checks whether your panel supports push data updates and falls back to {% term polling %} if not.
+
+## Examples
+
+### Turning on lights when walking into a room
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Turn on light when walking into room"
+    triggers:
+      - platform: state
+        entity_id:
+          - binary_sensor.bosch_solution_3000_bedroom
+        to: "on"
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: light.bedroom_light
+
+
+```
+
+{% endraw %}
+
+## Reconfiguration
+
+This integration supports reconfiguration, so it is possible to change the configuration such as the IP Address after it is configured.
 
 ## Troubleshooting
 

@@ -15,7 +15,7 @@ ha_iot_standard: matter
 ha_brand: true
 ---
 
-[Eve](https://www.evehome.com/) is a manufacturer of Matter products.
+[Eve](https://www.evehome.com/) is a member of the Works with Home Assistant partner program for their Matter products. Eve is committed to making sure their products are up-to-date and ready to use in Home Assistant.
 
 Eve Matter devices work locally and integrate seamlessly with the Matter integration in Home Assistant. As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.
 

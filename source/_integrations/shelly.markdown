@@ -62,7 +62,11 @@ There are four generations of devices and all generations are supported by this 
 
 Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3.
 
-## Shelly device configuration (generation 1)
+## Data updates
+
+Shelly devices push updates to Home Assistant upon changes for all main functions of the device. For push updates to work correctly, some devices need additional configuration:
+
+### Shelly device configuration (generation 1)
 
 Generation 1 devices use the `CoIoT` protocol to communicate with the integration. `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** > **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
 
@@ -79,7 +83,7 @@ The list below will help you diagnose and fix the problem:
 - The missing push updates may be related to the WiFi network range. If using a WiFi network with several access points, enable **Internet & Security** >> **WiFi Client AP Roaming** option. Consider moving Shelly device closer to the WiFi access point. Consider adding another WiFi access point, which will improve the connection quality with the device.
 - If you think your Shelly devices are working correctly and don't want to change your network/configuration, you can ignore the repair issue. Still, you must know you are giving up the best experience of using first-generation Shelly devices with Home Assistant.
 
-## Shelly device configuration (generation 2+)
+### Shelly device configuration (generation 2+)
 
 Generation 2+ devices use the `RPC` protocol to communicate with the integration. **Battery-operated devices** (even if USB connected) may need manual outbound WebSocket configuration if Home Assistant cannot correctly determine your instance's internal URL or the outbound WebSocket was previously configured for a different Home Assistant instance. In this case, navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
 
@@ -89,6 +93,23 @@ In case your installation is set up to use SSL encryption (HTTP**S** with certif
 {% note %}
 Integration is communicating directly with the device; cloud connection is not needed.
 {% endnote %}
+
+### Shelly entities that poll data from the device (generation 1)
+
+The following disabled by default entities {% term polling poll %} data from the device every 60 seconds:
+
+- Cloud connected sensor
+- RSSI sensor
+- Uptime sensor
+- Firmware update
+
+### Shelly entities that poll data from the device (generation 2+)
+
+The following disabled by default entities {% term polling poll %} data from the device every 60 seconds:
+
+- Device temperature sensor
+- RSSI sensor
+- Uptime sensor
 
 ## Bluetooth Support
 

@@ -45,7 +45,7 @@ It exposes the following {% term sensors %} for each channel type:
 
 - **Price** - Your current electricity price in $/kWh
 - **Forecast** - The forecasted prices for the next 12 hours. Note: This sensor is deprecated and will be removed in 2025.11. Use the `get_forecasts` action instead.
-- **Descriptor** - A description of the price. Useful if you want to create a Amber light that matches the app.
+- **Descriptor** - A description of the price. Useful if you want to create an Amber light that matches the app. Possible values: `extremely_low`, `very_low`, `low`, `neutral`, `high`, and `spike`.
 
 There are two additional sensors:
 

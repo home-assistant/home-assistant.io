@@ -427,6 +427,7 @@ The same thing can also be expressed as a test:
 - `device_attr(device_or_entity_id, attr_name)` returns the value of `attr_name` for the given device or entity ID. Can also be used as a filter. Not supported in [limited templates](#limited-templates).
 - `is_device_attr(device_or_entity_id, attr_name, attr_value)` returns whether the value of `attr_name` for the given device or entity ID matches `attr_value`. Can also be used as a test. Not supported in [limited templates](#limited-templates).
 - `device_id(entity_id)` returns the device ID for a given entity ID or device name. Can also be used as a filter.
+- `device_name(lookup_value)` returns the device name for a given device ID or entity ID. Can also be used as a filter.
 
 #### Devices examples
 
@@ -442,6 +443,11 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ device_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ device_name('deadbeefdeadbeefdeadbeefdeadbeef') }}  # Sony speaker
+{{ device_name('sensor.sony') }}  # Sony speaker
 ```
 
 {% endraw %}
@@ -470,7 +476,7 @@ The same thing can also be expressed as a test:
 ### Floors
 
 - `floors()` returns the full list of floor IDs.
-- `floor_id(lookup_value)` returns the floor ID for a given device ID, entity ID, area ID, or area name. Can also be used as a filter.
+- `floor_id(lookup_value)` returns the floor ID for a given floor name or alias, area name or alias, entity ID or device ID. Can also be used as a filter.
 - `floor_name(lookup_value)` returns the floor name for a given device ID, entity ID, area ID, or floor ID. Can also be used as a filter.
 - `floor_areas(floor_name_or_id)` returns the list of area IDs tied to a given floor ID or name. Can also be used as a filter.
 - `floor_entities(floor_name_or_id)` returns the list of entity IDs tied to a given floor ID or name. Can also be used as a filter.
@@ -485,6 +491,10 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ floor_id('First floor') }}  # 'first_floor'
+```
+
+```text
+{{ floor_id('First floor alias') }}  # 'first_floor'
 ```
 
 ```text
@@ -516,7 +526,7 @@ The same thing can also be expressed as a test:
 ### Areas
 
 - `areas()` returns the full list of area IDs
-- `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
+- `area_id(lookup_value)` returns the area ID for a given area name or alias, entity ID or device ID. Can also be used as a filter.
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
 - `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter.
 - `area_devices(area_name_or_id)` returns the list of device IDs tied to a given area ID or name. Can also be used as a filter.
@@ -531,6 +541,10 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ area_id('Living Room') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
+```
+
+```text
+{{ area_id('Living Room Alias') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
 ```
 
 ```text
@@ -727,7 +741,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
   - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
-- `today_at(value)` converts a string containing a military time format to a datetime object with today's date in your time zone. Defaults to midnight (`00:00`).
+- `today_at(value)` converts a string containing a 24-hour time format to a datetime object with today's date in your time zone. Defaults to midnight (`00:00`).
 
   - Using `today_at()` will cause templates to be refreshed at the start of every new minute.
 

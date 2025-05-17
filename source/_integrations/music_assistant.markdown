@@ -15,7 +15,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.
+The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/) (Required version 2.4 or later). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.
 
 There is currently support for the following Home Assistant Platforms:
 

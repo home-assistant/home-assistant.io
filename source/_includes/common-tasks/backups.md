@@ -43,14 +43,18 @@ The automatic backup process creates a backup on a predefined schedule and also 
      - **System optimal** sets a time in a predefined time window as shown in the UI.
      - **Custom** lets you pick the time when you want the backup to start.
      - Make sure you pick a time when all your backup locations are up and running and available. Otherwise, the backup will fail for locations which are not available.
-5. Define how many backups you want to keep.
+5. Define if you want to back up automatically before updating.
+   - This sets a default. But you can change this setting each time before updating.
+   - For large installations, backups might take a while.
+   - Your update might start later than you expected.
+6. Define how many backups you want to keep.
    - Older backups will be automatically deleted.
    - For example: if you back up daily, and select 7 backups, then the backup from 8 days ago and older will be deleted.
-6. Define the data you want to back up.
+7. Define the data you want to back up.
    - It is recommended to disable media and the shared folder to reduce the size of the backup.
    - A large backup also takes longer to restore.
    - Some add-ons may also be quite large.
-7. [Define the location for backups](#defining-backup-locations).
+8. [Define the location for backups](#defining-backup-locations).
 
 ### Defining backup locations
 

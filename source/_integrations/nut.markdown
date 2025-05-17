@@ -67,6 +67,12 @@ Password:
   description: "The password to sign in to your NUT server. The password is optional."
 {% endconfiguration_basic %}
 
+You can update these settings after installation. To do so,
+reconfigure the NUT device via
+{% my integrations title="**Settings** > **Devices & services**" %},
+select {% icon "mdi:dots-vertical" %} for the NUT device you wish to update,
+and select **Reconfigure**.
+
 ## Supported functionality
 
 {% note %}
@@ -277,7 +283,10 @@ The following switches are available for each switchable outlet:
 ## Data updates
 
 The integration uses {% term polling %} to retrieve data from the NUT
-server. The default polling interval is once every 60 seconds.
+server. The default polling interval is once every 60 seconds. You can
+also [define a custom polling
+interval](/common-tasks/general/#defining-a-custom-polling-interval)
+if needed.
 
 ## Actions
 

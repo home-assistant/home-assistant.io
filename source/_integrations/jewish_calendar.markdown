@@ -36,7 +36,7 @@ This defines how many minutes before sunset is considered candle-lighting time. 
 
 ### Minutes after sunset for Havdalah
 
-By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static offset pas the time of sunset.
+By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static offset past the time of sunset.
 
 ### Latitude, Longitude, Time Zone and Elevation
 
@@ -151,9 +151,10 @@ The `jewish_calendar.count_omer` action returns the phrase for counting the Omer
 
 | Data attribute | Optional | Description                              |
 | -------------- | -------- | ---------------------------------------- |
-| `date`         | no       | Date for which to get the Omer blessing. |
-| `nusach`       | no       | Nusach (tradition) of the Omer blessing. |
-| `language`     | no       | Language to return. Defaults to Hebrew.  |
+| `date`         | yes    | Date for which to get the Omer blessing. Defaults to today. |
+| `after_sunset` | yes  | If true and a date is provided, calculates the Omer count based on the Hebrew date, which starts after sunset. Ignored if no date is specified. Defaults to true. |
+| `nusach`       | no     | Nusach (tradition) of the Omer blessing. |
+| `language`     | yes    | Language to return. Defaults to Hebrew. |
 
 If there's no Omer count on the given day, the message will be empty.
 Supported nusachim are: Ashkenaz, Sfarad, Adot Mizrah and Italian.
@@ -164,8 +165,9 @@ Supported nusachim are: Ashkenaz, Sfarad, Adot Mizrah and Italian.
 action: jewish_calendar.count_omer
 data:
   nusach: sfarad
-  language: en
-  date: "2025-05-20"
+  date: "2025-05-20"       # optional; defaults to today
+  language: en             # optional; defaults to Hebrew
+  after_sunset: true       # optional; defaults to true
 ```
 
 Will return the following:
@@ -175,4 +177,21 @@ message: Today is the thirty-seventh day, which are five weeks and two days of t
 weeks: 5
 days: 2
 total_days: 37
+```
+
+#### Minimal call
+
+```yaml
+action: jewish_calendar.count_omer
+data:
+  nusach: sfarad
+```
+
+Will return the current text in Hebrew based on the Hebrew date, considering the current time relative to sunset.
+
+```yaml
+message: היום ארבעה עשר יום שהם שני שבועות לעומר
+weeks: 2
+days: 0
+total_days: 14
 ```
