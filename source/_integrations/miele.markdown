@@ -156,7 +156,9 @@ Climate entities are used to control target temperatures in refrigerators, freez
   - **Program type**: Shows the current program type.
   - **Spin speed**: Shows the spin speed selected for the current washing machine program.
   - **Energy consumption**: Shows the energy consumption during the current program cycle. The value will be reset after finishing the program.
+  - **Energy forecast**: Shows the forecast percentage of the maximum energy the program will consume for a given cycle.
   - **Water consumption**: Shows the water consumption during the current program cycle. The value will be reset after finishing the program.
+  - **Water forecast**: Shows the forecast percentage of the maximum water the program will consume for a given cycle.
   - **Temperature**: Represents the current temperature in refrigerators, freezers, and ovens. Entities are created for up to 3 zones depending on the device capabilities.
   - **Target temperature**: Shows the set target temperature for ovens and washing machines.
   - **Core temperature**: Shows the core temperature of the food in ovens with an appropriate temperature probe.
