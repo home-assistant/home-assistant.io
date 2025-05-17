@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Sure Petcare cat and pet flaps
 ha_category:
   - Binary sensor
   - Lock
+  - Select
   - Sensor
 ha_release: 0.104
 ha_iot_class: Cloud Polling
@@ -15,6 +16,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - lock
+  - select
   - sensor
 ha_integration_type: integration
 ---
