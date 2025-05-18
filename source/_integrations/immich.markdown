@@ -37,7 +37,7 @@ Data are polled every 60 seconds.
 
 ## Sensors
 
-The following {% term sensors %} are created
+The following {% term sensors %} are created. For some of those the API key needs to have admin rights.
 
 | Entity | Description | Default enabled |
 | --- | --- | --- |
@@ -45,10 +45,10 @@ The following {% term sensors %} are created
 | **Disk available** | Free space on the disk  | ✅ |
 | **Disk used** | Used space on the disk | ❌ |
 | **Disk usage** | Usage of the disk in percentage | ❌ |
-| **Photos count** | Count of stored photos | ✅ |
-| **Videos count** | Count of stored videos | ✅ |
-| **Disk used by photos** | Used disk space by photos | ❌ |
-| **Disk used by videos** | Used disk space by videos | ❌ |
+| **Photos count** | Count of stored photos (_admin only_) | ✅ |
+| **Videos count** | Count of stored videos (_admin only_) | ✅ |
+| **Disk used by photos** | Used disk space by photos (_admin only_) | ❌ |
+| **Disk used by videos** | Used disk space by videos (_admin only_) | ❌ |
 
 ## Troubleshooting
 
