@@ -14,7 +14,7 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-This integration allows to add an [immich](https://immich.app/) instance to Home Assistant.
+This integration allows adding an [immich](https://immich.app/) instance to Home Assistant.
 
 ## Prerequisites
 
@@ -33,20 +33,22 @@ Verify SSL certificate:
 
 ## Data fetching
 
-The data are polled every 60 seconds.
+Data are polled every 60 seconds.
 
 ## Sensors
 
 The following {% term sensors %} are created
 
-- **Disk size** Overall size of the disk.
-- **Disk available** Free space on the disk.
-- **Disk used** Used space on the disk. (_disabled by default_)
-- **Disk usage** Usage of the disk in percentage. (_disabled by default_)
-- **Photos count** Count of stored photos.
-- **Videos count** Count of stored videos.
-- **Disk used by photos** Used disk space by photos (_disabled by default_)
-- **Disk used by videos** Used disk space by videos (_disabled by default_)
+| Entity | Description | Default enabled |
+| --- | --- | --- |
+| **Disk size** | Overall size of the disk | ✅ |
+| **Disk available** | Free space on the disk  | ✅ |
+| **Disk used** | Used space on the disk | ❌ |
+| **Disk usage** | Usage of the disk in percentage | ❌ |
+| **Photos count** | Count of stored photos | ✅ |
+| **Videos count** | Count of stored videos | ✅ |
+| **Disk used by photos** | Used disk space by photos | ❌ |
+| **Disk used by videos** | Used disk space by videos | ❌ |
 
 ## Troubleshooting
 
