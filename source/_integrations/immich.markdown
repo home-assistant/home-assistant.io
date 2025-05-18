@@ -23,14 +23,10 @@ You need to [obtain an API key](https://immich.app/docs/features/command-line-in
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Host:
-  description: "Hostname or IP address of your immich instance."
+URL:
+  description: "The URL of your immich instance. (_e.g. `https://immich.example.com`_)."
 API key:
   description: "API key to connect to your immich instance."
-Port:
-  description: "Port number of your immich instance (default 2283)."
-Uses an SSL certificate:
-  description: "Whether to use SSL encryption to connect to your immich instance."
 Verify SSL certificate:
   description: "Whether to verify the SSL certificate when SSL encryption is used to connect to your immich instance."
 {% endconfiguration_basic %}
