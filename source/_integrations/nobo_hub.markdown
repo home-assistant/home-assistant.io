@@ -56,6 +56,10 @@ By default, all overrides (when operation is not in "Auto" mode) are constant. I
 to let overrides end when the week profile changes next (same as duration "Now" in the Nobø Energy mobile app)
 in the integration configuration.
 
+### Disabling comfort control
+
+Some heaters only let you control the "Eco" preset temperature from the hub, while the "Comfort" temperature is set on the heater itself. In this case you can disable the comfort control in the integration settings. 
+
 ### Week profiles
 
 The week profiles are retrieved from the hub. It is possible to change the current week profile for a zone
