@@ -57,6 +57,7 @@ Status sensors provide information about the overall state of the generator.
 These are the generator models that have been tested:
 
 - [38RCLB](https://resources.kohler.com/power/kohler/residential/pdf/tp6908.pdf)
+- [26RCA](https://www.kohlerhomeenergy.rehlko.com/products/home+generators/26rca)
 - [20RESA](https://resources.kohler.com/power/kohler/residential/pdf/tp6804.pdf)
 - [20RCA](https://www.kohlerhomeenergy.rehlko.com/products/home+generators/20rca)
 - [14RESA](https://www.kohler.com/content/dam/kohler-com-NA/Lifestyle/PDF/PDF-tp6803.pdf)

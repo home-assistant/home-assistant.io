@@ -714,6 +714,20 @@ Envoy Metered without installed CT, running older firmware versions, reportedly 
 
 {% enddetails %}
 
+### Lifetime energy production decreases by 1.2 MWh
+
+Envoy Standard (not Metered), running firmware 8.2.4264, reportedly decreases the **Lifetime energy production** value by 1.2 MWh at irregular times. The current hypothesis is that the step change occurs when one of the inverters exceeds a lifetime value of 1.2 MWh and resets to zero. This leads to the decrease with 1.2 MWh in the aggregated value for all inverters. It's not clear if this also happens for the metered Envoy.
+
+{% details "History example for Envoy Lifetime energy production value decrease" %}
+
+The example below shows decreases when multiple inverters reach a 1.2 MWh lifetime value over time. This would typically occur after some year(s) lifetime and then spread over some months based on individual solar panel production variations.
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_production_decrease.png" alt="envoy lifetime energy production decrease">
+  <figcaption>Envoy Lifetime energy production value decrease.</figcaption>
+</figure>
+
+{% enddetails %}
+
 ### Summed Voltage
 
 The Envoy Metered in multiphase setup, sums the voltages of the phases measured on the CT for the aggregated data. This may be valid for split-phase, but for 3-phase systems, use the individual phases rather than the summed value.

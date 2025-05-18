@@ -111,7 +111,7 @@ View some of the options in the video below. Explained by Mike Hansen, creator o
 
 The options are also documented in the add-on itself. Go to the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} or the {% my supervisor_addon addon="core_piper" title="**Piper**" %} add-on and open the **Documentation** page.
 
-Also be sure to check the specific tutorial for [using Piper in Automations](voice_control/using_tts_in_automation/)
+Also be sure to check the specific tutorial for [using Piper in Automations](/voice_control/using_tts_in_automation/)
 
 ## Learning more about Speech-to-Phrase
 
