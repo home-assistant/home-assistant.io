@@ -2,6 +2,7 @@
 title: Immich
 description: Instructions on how to integrate an Immich user account into Home Assistant.
 ha_category:
+  - Multimedia
   - Sensor
 ha_release: 2025.6
 ha_config_flow: true
@@ -33,7 +34,7 @@ Verify SSL certificate:
 
 ## Data fetching
 
-Data are polled every 60 seconds.
+The integration polls data every 60 seconds.
 
 ## Sensors
 
