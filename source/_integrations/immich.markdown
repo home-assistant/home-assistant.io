@@ -1,6 +1,6 @@
 ---
 title: Immich
-description: Instructions on how to integrate an immich instance into Home Assistant.
+description: Instructions on how to integrate an immich user account into Home Assistant.
 ha_category:
   - Sensor
 ha_release: 2025.6
@@ -14,11 +14,11 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-This integration allows adding an [immich](https://immich.app/) instance to Home Assistant.
+This integration allows adding an [immich](https://immich.app/) user account to Home Assistant.
 
 ## Prerequisites
 
-You need to [obtain an API key](https://immich.app/docs/features/command-line-interface#obtain-the-api-key) for your user in your immich instance.
+You need to [obtain the API key](https://immich.app/docs/features/command-line-interface#obtain-the-api-key) for your user account in your immich instance.
 
 {% include integrations/config_flow.md %}
 
@@ -26,7 +26,7 @@ You need to [obtain an API key](https://immich.app/docs/features/command-line-in
 URL:
   description: "The URL of your immich instance. (_e.g. `https://immich.example.com`_)."
 API key:
-  description: "API key to connect to your immich instance."
+  description: "API key of your user account to connect to your immich instance."
 Verify SSL certificate:
   description: "Whether to verify the SSL certificate when SSL encryption is used to connect to your immich instance."
 {% endconfiguration_basic %}
