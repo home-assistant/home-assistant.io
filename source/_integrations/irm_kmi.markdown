@@ -34,10 +34,14 @@ The data provided by this integration is retrieved from their [mobile applicatio
 {% configuration_basic %}
 Zone:
     description: "The Home Assistant {% term Zone %} for which you want to get weather data."
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
 Language:
     description: "Override the Home Assistant language for the textual weather forecast. Useful if your Home Assistant language is not supported by the Royal Meteorological Institute of Belgium."
 {% endconfiguration_basic %}
-
 
 
 ## Supported features
