@@ -66,9 +66,9 @@ If you have an error with your credentials, you can delete them in the [Applicat
 The integration will create the following sensors:
 
 - Universal Air Quality Index
-  *Googles AQI. 100 is the best air quality and 0 the worst*
+  *Google's AQI. 100 is the best air quality and 0 the worst.*
 - Category
-  *The current air quality in words. Possible values: Excellent air quality, Good air quality, Moderate air quality, Low air quality, Poor air quality
+   *The current air quality in words. Possible values: Excellent air quality, Good air quality, Moderate air quality, Low air quality, Poor air quality*
 - PM10
   *Inhalable particulate matter (<10µm)*
 - PM2.5
