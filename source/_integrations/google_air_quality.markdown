@@ -70,9 +70,9 @@ The integration will create the following sensors:
 - Category
   *The current air quality in words. Possible values: Excellent air quality, Good air quality, Moderate air quality, Low air quality, Poor air quality
 - PM10
-  *Fine particulate matter (<2.5µm)*
-- PM2.5
   *Inhalable particulate matter (<10µm)*
+- PM2.5
+  *Fine particulate matter (<2.5µm)*
 
 ## Removing the integration
 
