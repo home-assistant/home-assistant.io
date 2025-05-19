@@ -224,21 +224,15 @@ When the configuration entry is loaded or after a streaming error (for example a
 
 ## Troubleshooting
 
-### Unavailable entities for a device
-
-#### Symptom: "The entities related to an appliance were available but no longer are"
+{% details "Problem: Unavailable entities for a device" %}
 
 After reloading the Miele integration, the entities related to an appliance that used to be available are no longer available.
-
-##### Description
 
 Unavailable entities can have multiple causes:
 
 - The appliance is turned off. When it is turned off, the appliance is disconnected and the API does not retrieve information about the appliance.
 - The appliance is experiencing a network issue.
 - The Miele API is experiencing issues.
-
-##### Resolution
 
 To try to solve the above issues, follow these steps:
 
@@ -251,6 +245,16 @@ To try to solve the above issues, follow these steps:
 4. If everything is correct and the issue persists, contact Miele support.
    - [Miele service and contact](https://www.miele.com/)
    - [Miele developer Help & Support](https://www.miele.com/developer)
+
+{% enddetails %}
+
+{% details "Problem: Program or program phase is unknown" %}
+
+The most common cause is that the code presented by the API is unknown to the integration. Details of the missing code can be found in the Home Assistant log or in the diagnostic file. Please open an issue on GitHub with the details from the logs. Please also include information on the program or program phase that was active when the message occurred.
+
+Unknown can also be displayed if the state is reported as unknown by the API, usually caused by a temporary malfunction in the cloud service.
+
+{% enddetails %}
 
 ## Removing the integration
 

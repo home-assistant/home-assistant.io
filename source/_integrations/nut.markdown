@@ -156,7 +156,7 @@ The following diagnostic sensors may be available:
 - **Battery current (A)**: Battery current
 - **Battery date**: Battery installation or last change date (opaque by mfg)
 - **Battery manuf date**: Battery manufacturing date (opaque by mfg)
-- **Battery runtime (secs)**: Battery runtime
+- **Battery runtime (secs)**: Remaining battery runtime as estimated by the device
 - **Battery temperature (°C)**: Battery temperature
 - **Battery voltage (V)**: Battery voltage
 - **Beeper status**: UPS beeper status, with the available states: `enabled`, `disabled`, and `muted`
@@ -337,7 +337,7 @@ automation:
     - trigger: state
       entity_id:
         - sensor.ups_status
-      to: "On Battery Battery Discharging"
+      to: "On Battery, Battery Discharging"
   actions:
     - action: notify.notify
       data:
