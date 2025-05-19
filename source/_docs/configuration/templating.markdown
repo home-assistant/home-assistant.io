@@ -1175,6 +1175,7 @@ Some examples:
 - Filter `slugify(separator="_")` will convert a given string into a "slug".
 - Filter `ordinal` will convert an integer into a number defining a position in a series (e.g., `1st`, `2nd`, `3rd`, `4th`, etc).
 - Filter `value | from_hex` Decodes a hex string to raw bytes.
+- Filter `value | base64_encode` Encodes a string or bytes to a base 64 string.
 - Filter `value | base64_decode` Decodes a base 64 string to a string, by default utf-8 encoding is used.
 - Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ascii encoding.
 - Filter `value | base64_decode(None)` Decodes a base 64 string to raw bytes.
@@ -1183,7 +1184,7 @@ Some examples:
 
 Some examples:
 {% raw %}
-
+- `{{ "homeassistant" | base64_encode }}` - renders as `aG9tZWFzc2lzdGFudA==`
 - `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode }}` - renders as `homeassistant`
 - `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode(None) }}` - renders as `b'homeassistant'`
 - `{{ "0F010003" | from_hex }}` - renders as `b'\x0f\x01\x00\x03'`
