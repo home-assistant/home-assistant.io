@@ -148,7 +148,7 @@ Examples:
 | `Not set`   | `Not Set`      | shellyswitch25-ABC123 | Channel 1       | Channel 1      |
 | `Not set`   | Kids Room Bulb | shellyswitch25-ABC123 | Kids Room Bulb  | Kids Room Bulb |
 | Kitchen     | `Not Set`      | Kitchen               | Channel 1       | Channel 1      |
-| Bedroom     | Round Bulb     | Kitchen               | Round Bulb      | Round Bulb     |
+| Bedroom     | Round Bulb     | Bedroom               | Round Bulb      | Round Bulb     |
 
 Names are set from the device web page:
 
