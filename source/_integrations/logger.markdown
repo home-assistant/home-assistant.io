@@ -171,7 +171,7 @@ data:
 
 ## Viewing logs
 
-The log information are stored in the
+The log information are stored by default in the
 [configuration directory](/docs/configuration/) as `home-assistant.log`
 and you can read it with the command-line tool `cat` or follow it dynamically
 with `tail -f`.
@@ -190,3 +190,12 @@ docker logs --follow  MY_CONTAINER_ID
 ```
 
 To see other options use `--help` instead, or simply leave with no options to display the entire log.
+
+## Changing the path to the log file
+
+If you want to change the default log file you have 2 ways:
+
+- Passing to Home Assistant command the argument `--log-file=/path/to/file.log`.
+- Setting the environment variable `HA_LOG_FILE` to the value you needs.
+
+{% important %}The folder where you put the log file **MUST** exist and be writable by the user starting Home Assistant.{% endimportant %}
