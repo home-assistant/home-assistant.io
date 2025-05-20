@@ -48,9 +48,15 @@ API key:
 
 This integration provides {% term sensors %} for the following information from Paperless-ngx:
 
-| Sensor       | Description                                                              |
-| ------------ | ------------------------------------------------------------------------ |
-| **Firmware** | Displays the installed and latest version of the Paperless-ngx instance. |
+| Sensor                   | Description                                                              |
+|--------------------------|--------------------------------------------------------------------------|
+| **Documents total**      | Indicates the total number of documents stored.                          |
+| **Documents inbox**      | Indicates the number of documents currently in the inbox.                |
+| **Tags total**           | Indicates the total number of defined tags                               |
+| **Correspondents total** | Indicates the total number of defined correspondents.                    |
+| **Document types total** | Indicates the total number of defined document types.                    |
+| **Characters total**     | Indicates the total number of characters extracted from all documents.   |
+
 
 
 ## Removing the integration
