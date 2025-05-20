@@ -53,6 +53,7 @@ Provides the overall status of the generator.
 |  Value                              | Description                     |
 |--------------------------------------|---------------------------------|
 | `ReadyToRun` | Generator is ready to run in case of a power outage. |
+| `Running` | Generator is running. |
 | `RunningExercise` | Generator is currently running its exercise program. |
 | `SwitchStateOff` | Generator is turned off and **will not** run in case of a power outage. |
 
@@ -62,8 +63,11 @@ Provides the detailed engine state.
 
 |  Value                            | Description                     |
 |--------------------------------------|---------------------------------|
+| `CrankOn` | Generator is currently cranking and trying to startup. |
 | `Off` | Generator is turned off and **will not** run in case of a power outage. |
+| `Running` | Generator is running. |
 | `Standby` | Generator is ready to run in case of a power outage. |
+| `Stopping` | Generator is stopping. |
 | `PerformingFullSpeedDiagnostics` | Generator is running full speed diagnostics. |
 | `PerformingUnloadedFullSpeedExercise` | Generator is running full speed exercise. |
 | `PerformingVariableSpeedExercise` | Generator is running variable speed exercise. |
@@ -74,6 +78,7 @@ Provides an indication of power source for the home.
 
 |  Value                            | Description                     |
 |--------------------------------------|---------------------------------|
+| `Generator` | Generator is providing power to the home. |
 | `Utility` | Utility power is providing power to the home. |
 
 
