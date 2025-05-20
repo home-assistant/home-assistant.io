@@ -34,7 +34,7 @@ Port:
     description: "The port used by your panel. This is usually 7700 unless it was changed when the panel was configured."
 Password:
     description: "The automation code set up for your panel. This can be found within A-Link Plus or RPS. Used by the AMAX, B and G series panels."
-User Code:
+User code:
     description: "The user code for the user that this integration will communicate with the panel with. This is usually the code you would use when arming or disarming the panel via a code pad. Used by the Solution series panels."
 Installer code:
     description: "The installer code for your panel. This can be found within A-Link Plus. Used by the AMAX series panels."
