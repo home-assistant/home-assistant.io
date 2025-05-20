@@ -58,7 +58,7 @@ in the integration configuration.
 
 ### Disabling comfort control
 
-Some heaters only let you control the "Eco" preset temperature from the hub, while the "Comfort" temperature is set on the heater itself. In this case you can disable the comfort control in the integration settings. 
+Some heaters only let you control the **Eco** preset temperature from the hub, while the **Comfort** temperature is set on the heater itself. In this case, you can disable the comfort control in the integration settings. 
 
 ### Week profiles
 
