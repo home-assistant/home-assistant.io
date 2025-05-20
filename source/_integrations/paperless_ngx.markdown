@@ -1,6 +1,6 @@
 ---
 title: Paperless-ngx
-description: Instructions on how to setup the Paperless-ngx integration
+description: Instructions on how to integrate Paperless-ngx into Home Assistant
 ha_release: 2025.7
 ha_category:
   - Sensor
@@ -48,15 +48,10 @@ Access token:
 
 This integration provides {% term sensors %} for the following information from Paperless-ngx:
 
-- Number of documents
-- Number of document with inbox tags
-- Status of the database with errors
-- Status of Redis with errors
-- Status of Celery
-- Status of classifier with errors
-- Status of index with errors
-- Storage Total
-- Storage Available
+| Sensor       | Description                                                              |
+| ------------ | ------------------------------------------------------------------------ |
+| **Firmware** | Displays the installed and latest version of the Paperless-ngx instance. |
+
 
 ## Removing the integration
 
