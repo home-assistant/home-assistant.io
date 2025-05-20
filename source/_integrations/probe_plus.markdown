@@ -1,7 +1,7 @@
 ---
 title: Probe Plus
 description: Instructions on how to integrate Probe Plus food temperature probes into Home Assistant.
-ha_release: 2025.5.0
+ha_release: 2025.6
 ha_category:
   - Sensor
 ha_iot_class: local_push
