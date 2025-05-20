@@ -106,6 +106,51 @@ A switch is added for each output configured on the panel. Note that for some pa
 
 Three switches are added per door, which allow for locking, securing, or momentarily unlocking the door.
 
+## Actions
+
+The integration provides the following actions.
+
+### Action: Set panel date and time
+
+The `bosch_alarm.set_date_time` action is used to update the date and time on the panel.
+
+- **Data attribute**: `config_entry_id`
+  - **Description**: The ID of the config entry of the panel being updated.
+  - **Optional**: No
+
+- **Data attribute**: `datetime`
+  - **Description**: The date and time to set. Defaults to the current date and time if it is not set.
+  - **Optional**: Yes
+
+{% raw %}
+
+```yaml
+# Example: Update the panel’s date and time
+service: bosch_alarm.set_date_time
+data:
+  config_entry_id: "YOUR_CONFIG_ENTRY_ID"
+  datetime: "2025-05-01T12:00:00"
+```
+{% endraw %}
+
+## Authentication
+
+The primary means of authentication for the _Mode 2_ API is the _Automation_ passcode. It needs to be at least 10 characters long, and it is different from the _User_ code -- a shorter numeric pin used to arm/disarm the panel.
+The integration will prompt for the required passcodes, which depend on the panel type.
+
+| Panel    | Code       |
+| -------- | ---------- |
+| Solution | User [^2]  |
+| B Series | Automation |
+| G Series | Automation |
+| AMAX     | Both       |
+
+[^2]: The user needs to have the "master code functions" authority if you wish to interact with history events.
+
+{% important %}
+Since the _Mode 2_ automation user has "superuser" privileges, it bypasses the regularly configured alarm pin: you will _not_ be prompted for a _User_ code when arming/disarming through the integration.
+{% endimportant %}
+
 ## Data updates
 
 The **Bosch Alarm** {% term integration %} fetches data from the device every 30 seconds.

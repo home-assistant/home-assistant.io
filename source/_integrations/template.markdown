@@ -15,6 +15,8 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Vacuum
+  - Weather
 ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -49,19 +51,17 @@ related:
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Alarm control panels, binary sensors, buttons, covers, fans, images, lights, locks, numbers, selects, sensors, switches, and weathers are covered on this page. They can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
-
-For other types, please see the specific pages:
-
-- [Vacuum](/integrations/vacuum.template/)
+Alarm control panels, binary sensors, buttons, covers, fans, images, lights, locks, numbers, selects, sensors, switches, vacuums, and weathers are covered on this page. They can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
 
 For Legacy types, please see the specific pages:
+
 - [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
 - [Light](/integrations/light.template/)
 - [Lock](/integrations/lock.template/)
 - [Switch](/integrations/switch.template/)
+- [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
 {% include integrations/config_flow.md %}
@@ -78,11 +78,11 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 ## YAML configuration
 
-Entities (alarm control panels, binary sensors, buttons, covers, fans, images, lights, locks, numbers, selects, sensors, switches, and weathers) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
+Entities (alarm control panels, binary sensors, buttons, covers, fans, images, lights, locks, numbers, selects, sensors, switches, vacuums, and weathers) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template alarm control panels, binary sensors, buttons, covers, fans, images, lights, numbers, selects, sensors, switches, and weathers
+### State-based template alarm control panels, binary sensors, buttons, covers, fans, images, lights, numbers, selects, sensors, switches, vacuums, and weathers
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -621,6 +621,64 @@ switch:
       description: Defines an action or list of actions to run when the switch is turned off.
       required: true
       type: action
+vacuum:
+  description: List of vacuum entities
+  required: true
+  type: map
+  keys:
+    state:
+      description: "Defines a template to get the state of the vacuum. Valid value: `docked`/`cleaning`/`idle`/`paused`/`returning`/`error`"
+      required: false
+      type: template
+    battery_level:
+      description: "Defines a template to get the battery level of the vacuum. Legal values are numbers between `0` and `100`."
+      required: false
+      type: template
+    fan_speed:
+      description: Defines a template to get the fan speed of the vacuum.
+      required: false
+      type: template
+    attributes:
+      description: Defines templates for attributes of the sensor.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
+    start:
+      description: Defines an action to run when the vacuum is started.
+      required: true
+      type: action
+    pause:
+      description: Defines an action to run when the vacuum is paused.
+      required: false
+      type: action
+    stop:
+      description: Defines an action to run when the vacuum is stopped.
+      required: false
+      type: action
+    return_to_base:
+      description: Defines an action to run when the vacuum is given a return to base command.
+      required: false
+      type: action
+    clean_spot:
+      description: Defines an action to run when the vacuum is given a clean spot command.
+      required: false
+      type: action
+    locate:
+      description: Defines an action to run when the vacuum is given a locate command.
+      required: false
+      type: action
+    set_fan_speed:
+      description: Defines an action to run when the vacuum is given a command to set the fan speed.
+      required: false
+      type: action
+    fan_speeds:
+      description: List of fan speeds supported by the vacuum.
+      required: false
+      type: [string, list]
 weather:
   description: List of weather entities
   required: true

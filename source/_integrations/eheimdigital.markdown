@@ -5,6 +5,7 @@ ha_category:
   - Climate
   - Light
   - Number
+  - Select
   - Sensor
   - Switch
   - Time
@@ -19,6 +20,7 @@ ha_platforms:
   - climate
   - light
   - number
+  - select
   - sensor
   - switch
   - time
@@ -78,6 +80,13 @@ Currently, the following devices and entities are supported:
 - **Manual speed**: Setting the pump speed in Manual mode
 - **Day speed**: Setting the pump speed for the day in Bio mode
 - **Night speed**: Setting the pump speed for the night in Bio mode
+
+#### Select
+
+- **Filter mode**: Setting the filter mode
+  - Manual mode: The filter uses the **manual speed**
+  - Pulse mode: The filter uses a high and low pulse, the speeds are configured via **high pulse speed** and **low pulse speed**, the durations are configured via **high pulse duration** and **low pulse duration**
+  - Bio mode: The filter uses a day and night rhythm, the speeds are configured via **day speed** and **night speed**, the start times of day and night are configured via **day start time** and **night start time**
 
 #### Sensor
 
