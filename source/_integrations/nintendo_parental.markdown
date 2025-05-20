@@ -16,7 +16,7 @@ The **Nintendo Switch Parental Controls** {% term integration %} integrates with
 
 ## Supported devices
 
-Devices supported by the Nintendo Switch Parental Controls mobile app, are supported by this integration.
+Devices supported by the Nintendo Switch Parental Controls mobile app are supported by this integration.
 
 ## Setup
 
@@ -74,7 +74,7 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
 
 ## Known limitations
 
-The integration currently does not provide all functionality found in the mobile app, future updates will see this extended.
+The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.
 
 Further, this integration relies on the cloud and cannot make a local connection to your Switch.
 
