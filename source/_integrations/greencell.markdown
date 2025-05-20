@@ -34,8 +34,8 @@ Greencell offers three levels of integration with Home Assistant to suit differe
 | Mode      | Description                                                                                         |
 |:----------|:-----------------------------------------------------------------------------------------------------|
 | **DISABLE** | Integration Disabled – the device does not connect to the MQTT broker, and all entities are disabled. |
-| **READ**    | Read Only – the device sends measurement data (voltage, current, power, set_current) and ignores any commands received on the relevant topic. Buttons and Number entities are disabled. |
-| **EXECUTE** | Full Access – the device sends measurement data and responds to commands (`START`, `STOP`, `SET_CURRENT`) received on the relevant topic. All supported entities are enabled. |
+| **READ**    | Read Only – the device sends measurement data (voltage, current, power, set_current) and ignores commands received on the relevant topic except for the `QUERY` command. Buttons and Number entities are disabled. |
+| **EXECUTE** | Full Access – the device sends measurement data and responds to commands (`START`, `STOP`, `SET_CURRENT`, `QUERY`) received on the relevant topic. All supported entities are enabled. |
 
 ## Supported Entities
 
@@ -112,7 +112,7 @@ The message contains commands that the device should execute. Possible command n
 
 #### /greencell/evse/{SERIAL}/voltage
 
-The message contains the voltages in Volts on each phase
+The message contains the voltages (in volts) for each phase.
 
 ```json
 {
@@ -124,7 +124,7 @@ The message contains the voltages in Volts on each phase
 
 #### /greencell/evse/{SERIAL}/current
 
-The message contains the currents in MilliAmperes on each phase and maximal current for **EACH** phase in Amperes
+The message contains the currents (in milliamperes) on each phase and the maximal current for each phase (in amperes).
 
 ```json
 {
@@ -137,7 +137,7 @@ The message contains the currents in MilliAmperes on each phase and maximal curr
 
 #### /greencell/evse/{SERIAL}/power
 
-The message contains the momentary power in each phases in Watts
+The message contains the momentary power for each phase (in watts).
 
 ```json
 {
@@ -147,7 +147,7 @@ The message contains the momentary power in each phases in Watts
 
 #### /greencell/evse/{SERIAL}/status
 
-The message contains current charging state of connected electric/PHEV car. Possible states are:
+The message contains the current charging state of a connected electric/PHEV car. Possible states are:
 `IDLE`, `CONNECTED`, `WAITING_FOR_CAR`, `CHARGING`, `FINISHED`, `ERROR_CAR`, `ERROR_EVSE`
 
 ```json
@@ -169,7 +169,7 @@ This message contains information about the current state of Home Assistant inte
 
 #### /greencell/broadcast
 
-This topic is used to add a command `BROADCAST` to notify all devices on the local network that the user is trying to add a new device to their integration.
+This topic is used to send a `BROADCAST` command to notify all devices on the local network that a new device is being added to the integration.
 
 ```json
 {
@@ -183,6 +183,6 @@ On this topic, devices send their serial numbers in response to a broadcast requ
 
 ```json
 {
-    "id" : "${SERIAL_NUMBER}"
+    "id" : "{SERIAL}"
 }
 ```
