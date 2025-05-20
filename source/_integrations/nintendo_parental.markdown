@@ -2,7 +2,7 @@
 title: Nintendo Switch Parental Controls
 description: The Nintendo Switch Parental Controls integration allows you to monitor and control screentime for children via the Nintendo Switch Parental Controls service.
 ha_release: 2025.7
-ha_iot_class: Cloud Polling
+ha_iot_class: cloud_polling
 ha_codeowners:
   - '@pantherale0'
 ha_domain: nintendo_parental
@@ -55,6 +55,8 @@ The integration provides the following configuration options:
 {% configuration_basic %}
 Update Interval:
   description: The frequency to poll Nintendo's APIs for updated data. Note, screentime data from the Switch itself is only sent to Nintendo every **5 minutes**
+  default: 60
+  unit: seconds
 {% endconfiguration_basic %}
 
 ## Supported functionality
