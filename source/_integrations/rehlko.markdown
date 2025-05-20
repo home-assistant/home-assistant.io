@@ -63,7 +63,7 @@ Provides the detailed engine state.
 
 |  Value                            | Description                     |
 |--------------------------------------|---------------------------------|
-| `CrankOn` | Generator is currently cranking and trying to startup. |
+| `CrankOn` | Generator is currently cranking and trying to start up. |
 | `Off` | Generator is turned off and **will not** run in case of a power outage. |
 | `Running` | Generator is running. |
 | `Standby` | Generator is ready to run in case of a power outage. |
