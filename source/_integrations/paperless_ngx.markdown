@@ -20,16 +20,16 @@ The **Paperless-ngx** {% term integration %} allows you to connect your [Paperle
 
 ## Prerequisites
 
-To ensure full functionality of this integration, the user must have **read permissions** for all document-related resources, including documents, tags, document types, and correspondents.
+To ensure full functionality of this integration, you must have **read permissions** for all document-related resources, including documents, tags, document types, and correspondents.
 
-To enable monitoring of diagnostic sensors, the user must have **admin permissions**. Without admin rights, specific API endpoints cannot be accessed, and the sensor states will not be available.
+To enable monitoring of diagnostic sensors, you must have **administrator permissions**. Without administrator rights, specific API endpoints cannot be accessed, and the sensor states will not be available.
 
 {% details "Create an access token" %}
 
 1. Log in to your **Paperless-ngx** instance.
-2. Click on your profile icon in the upper-right corner.
+2. In the upper-right corner, select your profile icon.
 3. Select **My Profile**.
-4. Under **API Auth Token**, click the right **Refresh** button next to the textbox to generate a new token. Confirm with **yes**.
+4. Under **API Auth Token**, select the right **Refresh** button next to the textbox to generate a new token. Confirm with **yes**.
 5. Copy the token and use it during the integration setup in Home Assistant.
 
 {% enddetails %}
