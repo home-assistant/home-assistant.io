@@ -40,8 +40,8 @@ To enable monitoring of diagnostic sensors, you must have **administrator permis
 {% configuration_basic %}
 Host:
   description: "The host to connect to"
-Access token:
-  description: "The access token for Paperless-ngx user."
+API key:
+  description: "The API key for the Paperless-ngx user."
 {% endconfiguration_basic %}
 
 ## Sensors
