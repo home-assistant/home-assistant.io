@@ -35,7 +35,7 @@ Greencell offers three levels of integration with Home Assistant to suit differe
 |:----------|:-----------------------------------------------------------------------------------------------------|
 | **DISABLE** | Integration Disabled – the device does not connect to the MQTT broker, and all entities are disabled. |
 | **READ**    | Read Only – the device sends only measurement data (voltage, current, power, set_current) and ignores any commands received on the relevant topic. Buttons and Number entities are disabled. |
-| **EXECUTE** | Full Access – the device sends measurement data and responds to commands (start, stop, pause) received on the relevant topic. All supported entities are enabled. |
+| **EXECUTE** | Full Access – the device sends measurement data and responds to commands (start, stop, set max current) received on the relevant topic. All supported entities are enabled. |
 
 ## Supported Entities
 
