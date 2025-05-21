@@ -50,13 +50,12 @@ This integration provides {% term sensors %} for the following information from 
 
 | Sensor                   | Description                                                              |
 |--------------------------|--------------------------------------------------------------------------|
-| **Documents total**      | Indicates the total number of documents stored.                          |
-| **Documents inbox**      | Indicates the number of documents currently in the inbox.                |
-| **Tags total**           | Indicates the total number of defined tags                               |
-| **Correspondents total** | Indicates the total number of defined correspondents.                    |
-| **Document types total** | Indicates the total number of defined document types.                    |
-| **Characters total**     | Indicates the total number of characters extracted from all documents.   |
-
+| **Correspondents**       | Indicates the total number of defined correspondents.                    |
+| **Document types**       | Indicates the total number of defined document types.                    |
+| **Documents in inbox**   | Indicates the number of documents currently in the inbox.                |
+| **Tags**                 | Indicates the total number of defined tags                               |
+| **Total characters**     | Indicates the total number of characters extracted from all documents.   |
+| **Total documents**      | Indicates the total number of documents stored.                          |
 
 
 ## Removing the integration
