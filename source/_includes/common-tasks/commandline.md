@@ -114,7 +114,7 @@ Note, some systems have a reset button you can use to clear the data disk, inste
 - If you have a Home Assistant Yellow with a Raspberry Pi Compute Module 5, use the command line steps described above.
 
 - If you have a Home Assistant Yellow with a Raspberry Pi Compute Module 4, there is a red hardware button to wipe the data disk. Follow the procedure on [resetting the Home Assistant Yellow](https://yellow.home-assistant.io/guides/factory-reset/).
-- If you have a Home Assistant Green, there is a black hardware button to wipe the data disk. Follow the procedure on [resetting the Home Assistant Green](https://green.home-assistant.io/guides/reset/).
+- If you have a Home Assistant Green, there is a black hardware button to wipe the data disk. Follow the procedure on [resetting the Home Assistant Green](https://support.nabucasa.com/hc/en-us/articles/25161225495837).
 
 #### Listing all users from the command line
 
