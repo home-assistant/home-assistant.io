@@ -16,7 +16,7 @@ ha_platforms:
 
 The Home Assistant Connect ZBT-1 integration provides hardware information for the hardware configuration page.
 
-For documentation on the Home Assistant Connect ZBT-1, please visit the [documentation page](https://connectzbt1.home-assistant.io/documentation/).
+For documentation on the Home Assistant Connect ZBT-1, please visit the [documentation page](https://support.nabucasa.com/hc/en-us/categories/24734620813469).
 If you are looking to buy one, please visit the [product page](https://home-assistant.io/connectzbt1)
 
 ## Configuration
