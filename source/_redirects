@@ -270,7 +270,6 @@ layout: null
 /docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
 /skyconnect /connectzbt1#from-skyconnect
-/connectzbt1 https://support.nabucasa.com/hc/en-us/categories/24734620813469
 /glossary/ /docs/glossary/
 
 # Redirect for the QR Codes on the S3 Box
