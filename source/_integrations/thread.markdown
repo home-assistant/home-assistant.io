@@ -27,7 +27,7 @@ related:
     title: Adding an Apple HomeKit device through Thread
   - url: https://support.nabucasa.com/hc/en-us/articles/26124710072861
     title: Enabling Thread on Connect ZBT-1
-  - url: https://yellow.home-assistant.io/procedures/enable-thread/
+  - url: https://support.nabucasa.com/hc/en-us/articles/25742476767517
     title: Enabling Thread on Yellow
 ---
 
@@ -140,7 +140,7 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
 #### To make Home Assistant your first Thread network
 
 1. To enable Thread support on your Home Assistant Yellow or Connect&nbsp;ZBT-1, you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
-   - [Enable Thread on Home Assistant Yellow](https://yellow.home-assistant.io/procedures/enable-thread/).
+   - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517).
    - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/articles/26124710072861).
 
 2. Make sure the Home Assistant Thread network is defined as preferred network.
@@ -194,7 +194,7 @@ Note: the steps and images here show the process with a Google Thread network. B
    ![image](/images/integrations/thread/thread-google-br.png)
 
 5. To enable Thread support on your Home Assistant Yellow or Connect ZBT-1, you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
-   - [Enable Thread on Home Assistant Yellow](https://yellow.home-assistant.io/procedures/enable-thread/).
+   - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517).
    - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/articles/26124710072861).
    - **Result**: The network now shows as the preferred network, joined with the third-party network.
 
