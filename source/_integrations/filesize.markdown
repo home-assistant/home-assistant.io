@@ -29,7 +29,7 @@ Example `allowlist_external_dirs` configuration to monitor a file in your config
 
 homeassistant:
   allowlist_external_dirs:
-    - "/config" # Default 
+    - "/config" # Default configuration directory
 
 ```
 
