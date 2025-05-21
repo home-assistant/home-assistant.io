@@ -14,6 +14,10 @@ ha_quality_scale: legacy
 
 This tracker discovers new devices on boot and tracks Bluetooth devices periodically based on `interval_seconds` value. It is not required to pair the devices with each other! Devices discovered are stored with 'bt_' as the prefix for device MAC addresses in `known_devices.yaml`.
 
+{% important %}
+This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised, or Container.
+{% endimportant %}
+
 {% details "Notes for Home Assistant Core Installations" %}
 
 This platform requires `pybluez` to be installed. On Debian based installs, run

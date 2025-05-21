@@ -48,6 +48,9 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
     max-width: initial;
     width: 100px;
   }
+  #landingpage .page-content .content .bullet-points .item span{
+    letter-spacing: unset;
+  }
   .banner-overlay-button, #landingpage .fab {
     background-color: #ffc900 !important;
     color: black !important;
@@ -132,7 +135,7 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
           <img src="/images/yellow/yellow-preview.jpg" />
         </a>
       </div>
-      <div class="banner-overlay-button" onclick="showBuyDialog()">
+      <div class="banner-overlay-button buy">
         <div>Order now</div>
       </div>
     </div>
@@ -335,236 +338,10 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
   </a>
 </div>
 
-<div id="buy-dialog" class="dialog">
-  <div class="material-card text dialog-content">
-    <div class="close-container"></div>
-    <div class="dialog-header">
-      <span>Home Assistant Yellow</span>
-      <span class="dialog-close" onclick="closeDialog()" title="close">
-        <svg width="24" height="24" viewBox="0 0 24 24">
-          <path
-            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
-          />
-        </svg>
-      </span>
-    </div>
-    <div class="distributors">
-      <details id="dist_america">
-        <summary class="region">Shipping to America</summary>
-        <div>
-
-          <a href="https://ameridroid.com/products/home-assistant-yellow" target="_blank">
-            <div class="distributor">
-              <div>
-                <div>🇺🇸</div>
-                <div>ameriDroid</div>
-                <div>Shipping from US</div>
-              </div>
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-                />
-              </svg>
-            </div>
-          </a>
-
-          <a href="https://cloudfree.shop/product/home-assistant-yellow/" target="_blank">
-            <div class="distributor">
-              <div>
-                <div>🇺🇸</div>
-                <div>CloudFree</div>
-                <div>Shipping from US</div>
-              </div>
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-                />
-              </svg>
-            </div>
-          </a>
-
-          <a
-            href="https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html"
-            target="_blank"
-          >
-            <div class="distributor">
-              <div>
-                <div>🇨🇳</div>
-                <div>Seeed Studio</div>
-                <div>Shipping from China, US and Germany</div>
-              </div>
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-                />
-              </svg>
-            </div>
-          </a>
-
-        </div>
-      </details>
-      <details id="dist_asia">
-        <summary class="region">Shipping to Asia</summary>
-        <div>
-
-          <a
-            href="https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html"
-            target="_blank"
-          >
-            <div class="distributor">
-              <div>
-                <div>🇨🇳</div>
-                <div>Seeed Studio</div>
-                <div>Shipping from China, US and Germany</div>
-              </div>
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-                />
-              </svg>
-            </div>
-          </a>
-
-        </div>
-      </details>
-      <details id="dist_europe">
-        <summary class="region">Shipping to Europe</summary>
-        <div>
-
-          <!--a
-            href="https://en.m.nu/controllers-smart-hubs-3/home-assistant-yellow-with-cm4-module"
-            target="_blank"
-          >
-            <div class="distributor">
-              <div>
-                <div>🇸🇪</div>
-                <div>m.nu</div>
-                <div>Shipping from Sweden. Yellow Standard only.</div>
-              </div>
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-                />
-              </svg>
-            </div>
-          </a-->
-
-          <a
-          href="https://botland.com.pl/centralki-i-bramki-sieciowe/24698-home-assistant-yellow-standard-kit-inteligenta-centralka-zigbee-thread-nabu-casa-yellow-kit-std-794677011741.html"
-          target="_blank"
-          >
-            <div class="distributor">
-              <div>
-                <div>🇵🇱</div>
-                <div>Botland</div>
-                <div>Shipping from Poland</div>
-              </div>
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-                />
-              </svg>
-            </div>
-          </a>
-
-          <a
-          href="https://mauser.pt/catalog/product_info.php?products_id=095-3150"
-          target="_blank"
-          >
-            <div class="distributor">
-              <div>
-                <div>🇵🇹</div>
-                <div>Mauser</div>
-                <div>Shipping from Portugal</div>
-              </div>
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-                />
-              </svg>
-            </div>
-          </a>
-
-          <a
-            href="https://www.pi-shop.ch/home-assistant-yellow-kit-with-power-supply-cm4-not-included"
-            target="_blank"
-          >
-            <div class="distributor">
-              <div>
-                <div>🇨🇭</div>
-                <div>Pi-Shop.ch</div>
-                <div>Shipping from Switzerland</div>
-              </div>
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-                />
-              </svg>
-            </div>
-          </a>
-
-          <a
-            href="https://raspberrypi.dk/en/product/home-assistant-yellow/"
-            target="_blank"
-          >
-            <div class="distributor">
-              <div>
-                <div>🇩🇰</div>
-                <div>RaspberryPi.dk</div>
-                <div>Shipping from Denmark</div>
-              </div>
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-                />
-              </svg>
-            </div>
-          </a>
-
-          <a
-            href="https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html"
-            target="_blank"
-          >
-            <div class="distributor">
-              <div>
-                <div>🇨🇳</div>
-                <div>Seeed Studio</div>
-                <div>Shipping from China, US and Germany</div>
-              </div>
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-                />
-              </svg>
-            </div>
-          </a>
-
-          <a
-            href="https://thepihut.com/products/home-assistant-yellow"
-            target="_blank"
-          >
-            <div class="distributor">
-              <div>
-                <div>🇬🇧</div>
-                <div>The Pi Hut</div>
-                <div>Shipping from the United Kingdom</div>
-              </div>
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-                />
-              </svg>
-            </div>
-          </a>
-        </div>
-      </details>
-    </div>
-  </div>
-</div>
+{% include custom/buy-dialog.html product="yellow" %}
 
 <div
-  class="fab" style="position: fixed; top: 78px; height: 48px;"
-  onclick="showBuyDialog()"
+  class="fab buy" style="position: fixed; top: 78px; height: 48px;"
   title="pre-order Home Assistant Yellow"
 >
   <svg style="width: 32px; height: 32px" viewBox="0 0 32 32">
@@ -575,39 +352,3 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
   </svg>
   ORDER
 </div>
-
-<script>
-  const buyDialog = document.getElementById("buy-dialog");
-  const buyFab = document.querySelector(".fab");
-
-  function showBuyDialog() {
-    buyDialog.style.display = "flex";
-    buyFab.style.display = "none";
-  }
-
-  function closeDialog() {
-    buyDialog.style.display = "none";
-    buyFab.style.display = "flex";
-  }
-
-  window.onclick = function (event) {
-    if (event.target === buyDialog) {
-      closeDialog();
-    }
-  };
-
-  if (document.location.search === "?order") {
-    showBuyDialog();
-  }
-
-  try {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const continent = tz.replace( /^(Asia|America|Australia|Europe)\/.*$/, '$1' );
-
-    if ( continent != tz ) {
-      document.querySelector( `#dist_${continent.toLowerCase()}` ).open = true;
-    }
-  } catch ( ev ) {
-    // Ignore...
-  }
-</script>

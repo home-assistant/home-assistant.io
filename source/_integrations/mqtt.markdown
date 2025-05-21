@@ -44,25 +44,14 @@ ha_platforms:
   - valve
   - water_heater
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
 
 {% include integrations/config_flow.md %}
 
-### Removing the MQTT integration
-
-The MQTT integration and its entities can be removed by following these steps:
-
-1. Navigate to **Settings** > **Devices & Services**
-2. Find the MQTT integration and click on it
-3. Click the delete button to remove the MQTT config entry
-
-Note: This action does not remove the [MQTT broker](#setting-up-a-broker) or its data. If you want to completely remove MQTT:
-
-1. Check your `configuration.yaml` and other YAML files for MQTT-related configurations and remove them
-2. Review your automations and scripts for any MQTT dependencies
-3. Consider backing up your configuration before making these changes
+MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discovery) or [added manually](#manual-configured-mqtt-items) via YAML or subentries.
 
 <a name="configuration-via-mqtt-discovery"></a>
 {% details "Configuration of MQTT components via MQTT discovery" %}
@@ -130,10 +119,30 @@ Note: This action does not remove the [MQTT broker](#setting-up-a-broker) or its
 
 {% enddetails %}
 
+<a name="configuration-via-subentries"></a>
+{% details "Configuration of MQTT components via Subentries" %}
+
+- [Binary sensor](/integrations/binary_sensor.mqtt/)
+- [Button](/integrations/button.mqtt/)
+- [Light](/integrations/light.mqtt/)
+- [Notify](/integrations/notify.mqtt/)
+- [Sensor](/integrations/sensor.mqtt/)
+- [Switch](/integrations/switch.mqtt/)
+
+To add an MQTT device via a Subentry, follow these steps:
+
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
+2. Select the MQTT integration.
+3. Add a subentry via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Add MQTT device**.
+
+A device context and one or more entities can be added to the subentry.
+
+{% enddetails %}
+
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
 The easiest option is to install the official Mosquitto Broker add-on. You can choose to set up and configure this add-on automatically when you set up the MQTT integration. Home Assistant will automatically generate and assign a safe username and password, and no further attention is required. This also works if you have already set up this add-on yourself in advance.
-You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/create-link/?redirect=supervisor_addon&addon=core_mosquitto).
+You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto).
 
 {% important %}
 When MQTT is set up with the official Mosquitto MQTT broker add-on, the broker's credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the add-on user options, like the additional logins. After re-installing the add-on, the MQTT integration will automatically update the new password for the re-installed broker. It will then reconnect automatically.
@@ -160,7 +169,9 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
-3. Select **Configure**, then **Re-configure MQTT**.
+3. Reconfigure the MQTT broker settings via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
+
+MQTT subentries can also be reconfigured. Additional entities can be added, or an entity can bve removed from the sub entry. Each MQTT subentry holds one MQTT device. The MQTT device must have at least one entity.
 
 {% important %}
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
@@ -184,7 +195,7 @@ The time in seconds between sending keep alive messages for this client. The def
 
 #### Broker certificate validation
 
-To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose `Auto`. This will allow validation against certificate CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM-encoded CA certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
+To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose `Auto`. This will allow validation against certificate CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM- or DER-encoded CA certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
 If the server certificate does not match the hostname then validation will fail. To allow a connection without the verification of the hostname, turn the `Ignore broker certificate validation` switch on.
 
 #### MQTT Protocol
@@ -193,7 +204,7 @@ The MQTT protocol setting defaults to version `3.1.1`. If your MQTT broker suppo
 
 #### Securing the connection
 
-With a secure broker connection it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to show the controls to upload the files. Only a PEM encoded client certificates together with a PEM encoded private key can be uploaded. Make sure the private key has no password set.
+With a secure broker connection, it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to reveal file upload controls. A client certificate and the corresponding private key must be uploaded together. Both client certificate and private key must be either PEM- or DER-encoded. If the private key is encrypted with a password, ensure you supply the correct password when uploading the client certificate and key files.
 
 #### Using WebSockets as transport
 
@@ -206,12 +217,20 @@ A configured client certificate will only be active if broker certificate valida
 
 ## Configure MQTT options
 
-To change the settings, follow these steps:
+To change the options, follow these steps:
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
 3. Select **Configure**, then **Re-configure MQTT**.
 4. To open the MQTT options page, select **Next**.
+
+### Change MQTT discovery options
+
+The MQTT discovery options can be changed by following these steps:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the MQTT integration and select it.
+3. To open the MQTT discovery options page, select the **Configure MQTT Options** button.
 
 ### Discovery options
 
@@ -360,12 +379,12 @@ The component specific options are placed as mappings under the `components` key
     "mdl": "xya",
     "sw": "1.0",
     "sn": "ea334450945afc",
-    "hw": "1.0rev2",
+    "hw": "1.0rev2"
   },
   "o": {
     "name":"bla2mqtt",
     "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support",
+    "url": "https://bla2mqtt.example.com/support"
   },
   "cmps": {
     "some_unique_component_id1": {
@@ -373,18 +392,18 @@ The component specific options are placed as mappings under the `components` key
       "device_class":"temperature",
       "unit_of_measurement":"°C",
       "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id":"temp01ae_t",
+      "unique_id":"temp01ae_t"
     },
     "some_unique_id2": {
       "p": "sensor",
       "device_class":"humidity",
       "unit_of_measurement":"%",
       "value_template":"{% raw %}{{ value_json.humidity}}{% endraw %}",
-      "unique_id":"temp01ae_h",
+      "unique_id":"temp01ae_h"
     }
   },
   "state_topic":"sensorBedroom/state",
-  "qos": 2,
+  "qos": 2
 }
 ```
 
@@ -403,12 +422,12 @@ An empty config can be published as an update to remove a single component from 
     "mdl": "xya",
     "sw": "1.0",
     "sn": "ea334450945afc",
-    "hw": "1.0rev2",
+    "hw": "1.0rev2"
   },
   "o": {
     "name":"bla2mqtt",
     "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support",
+    "url": "https://bla2mqtt.example.com/support"
   },
   "cmps": {
     "some_unique_component_id1": {
@@ -416,14 +435,14 @@ An empty config can be published as an update to remove a single component from 
       "device_class":"temperature",
       "unit_of_measurement":"°C",
       "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id":"temp01ae_t",
+      "unique_id":"temp01ae_t"
     },
     "some_unique_id2": {
-      "p": "sensor",
+      "p": "sensor"
     }
   },
   "state_topic":"sensorBedroom/state",
-  "qos": 2,
+  "qos": 2
 }
 ```
 
@@ -440,12 +459,12 @@ After removing a component, you should send another update with the removed comp
     "mdl": "xya",
     "sw": "1.0",
     "sn": "ea334450945afc",
-    "hw": "1.0rev2",
+    "hw": "1.0rev2"
   },
   "o": {
     "name":"bla2mqtt",
     "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support",
+    "url": "https://bla2mqtt.example.com/support"
   },
   "cmps": {
     "some_unique_component_id1": {
@@ -453,11 +472,11 @@ After removing a component, you should send another update with the removed comp
       "device_class":"temperature",
       "unit_of_measurement":"°C",
       "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id":"temp01ae_t",
+      "unique_id":"temp01ae_t"
     }
   },
   "state_topic":"sensorBedroom/state",
-  "qos": 2,
+  "qos": 2
 }
 ```
 
@@ -575,7 +594,7 @@ Discovery payload device:
       "state_topic": "foobar/sensor/sensor1",
       "unique_id": "bla_sensor001"
     }
-  },
+  }
 }
 ```
 
@@ -618,19 +637,19 @@ Example discovery payload:
     "mdl": "xya",
     "sw": "1.0",
     "sn": "ea334450945afc",
-    "hw": "1.0rev2",
+    "hw": "1.0rev2"
   },
   "o": {
     "name":"bla2mqtt",
     "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support",
+    "url": "https://bla2mqtt.example.com/support"
   },
   "device_class":"temperature",
   "unit_of_measurement":"°C",
   "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
   "unique_id":"temp01ae_t",
   "state_topic":"sensorBedroom/state",
-  "qos": 2,
+  "qos": 2
 }
 ```
 
@@ -692,6 +711,7 @@ support_url:
     'bri_val_tpl':         'brightness_value_template',
     'clr_temp_cmd_tpl':    'color_temp_command_template',
     'clr_temp_cmd_t':      'color_temp_command_topic',
+    'clr_temp_k':           'color_temp_kelvin',
     'clr_temp_stat_t':     'color_temp_state_topic',
     'clr_temp_tpl':        'color_temp_template',
     'clr_temp_val_tpl':    'color_temp_value_template',
@@ -723,6 +743,7 @@ support_url:
     'evt_typ':             'event_types',
     'exp_aft':             'expire_after',
     'fanspd_lst':          'fan_speed_list',
+    'flsh':                'flash',
     'flsh_tlng':           'flash_time_long',
     'flsh_tsht':           'flash_time_short',
     'fx_cmd_t':            'effect_command_topic',
@@ -758,11 +779,13 @@ support_url:
     'lrst_val_tpl':        'last_reset_value_template',
     'max':                 'max',
     'max_hum':             'max_humidity',
+    'max_k':               'max_kelvin',
     'max_mirs':            'max_mireds',
     'max_temp':            'max_temp',
     'migr_discvry':        'migrate_discovery',
     'min':                 'min',
     'min_hum':             'min_humidity',
+    'min_k':               'min_kelvin',
     'min_mirs':            'min_mireds',
     'min_temp':            'min_temp',
     'mode':                'mode',
@@ -782,7 +805,7 @@ support_url:
     'osc_cmd_tpl':         'oscillation_command_template',
     'osc_stat_t':          'oscillation_state_topic',
     'osc_val_tpl':         'oscillation_value_template',
-    'platform':            'p',
+    'p':                   'platform',
     'pct_cmd_t':           'percentage_command_topic',
     'pct_cmd_tpl':         'percentage_command_template',
     'pct_stat_t':          'percentage_state_topic',
@@ -821,6 +844,7 @@ support_url:
     'pl_rst_pct':          'payload_reset_percentage',
     'pl_rst_pr_mode':      'payload_reset_preset_mode',
     'pl_stop':             'payload_stop',
+    'pl_stop_tilt':        'payload_stop_tilt',
     'pl_stpa':             'payload_start_pause',
     'pl_strt':             'payload_start',
     'pl_toff':             'payload_turn_off',
@@ -913,6 +937,7 @@ support_url:
     'tilt_status_t':       'tilt_status_topic',
     'tilt_status_tpl':     'tilt_status_template',
     'tit':                 'title',
+    'trns':                'transition',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
     'url_t':               'url_topic',
@@ -1029,7 +1054,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_topic:
@@ -1042,7 +1067,7 @@ availability_mode:
    type: string
    default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 payload_available:
@@ -1286,12 +1311,12 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
       "mdl_id": "ABC123",
       "sw": "1.0",
       "sn": "ea334450945afc",
-      "hw": "1.0rev2",
+      "hw": "1.0rev2"
     },
     "o": {
       "name":"bla2mqtt",
       "sw": "2.1",
-      "url": "https://bla2mqtt.example.com/support",
+      "url": "https://bla2mqtt.example.com/support"
     }
   }
   ```
@@ -1359,6 +1384,8 @@ Compatibility and features will vary, and not all devices may work.
 
 ## Manual configured MQTT items
 
+Support to allow [adding manual items as a subentry via a config flow](#configuration), is work in progress. Not all entity platforms are supported yet.
+
 For most integrations, it is also possible to manually set up MQTT items in {% term "`configuration.yaml`" %}. Read more [about configuration in YAML](/docs/configuration/yaml).
 
 MQTT supports two styles for configuring items in YAML. All configuration items are placed directly under the `mqtt` integration key. Note that you cannot mix these styles. Use the *YAML configuration listed per item* style when in doubt.
@@ -1395,6 +1422,18 @@ If you have a large number of manually configured items, you might want to consi
 {% note %}
 Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
 {% endnote %}
+
+## Entity state updates
+
+Entities receive state updates via MQTT subscriptions. The payloads received on the state topics are processed to determine whether there is a significant change. If a change is detected, the entity will be updated.
+
+Note that MQTT device payloads often contain information for updating multiple entities that subscribe to the same topics. For example, a light status update might include information about link quality. This data can update a link quality sensor but is not used to update the light itself. MQTT filters out entity state updates when there are no changes.
+
+### The last reported state attribute
+
+Because MQTT state updates are often repeated frequently, even when no actual changes exist, it is up to the MQTT subscriber to determine whether a status update was received. If the latest update is missed, it might take some time before the next one arrives. If a retained payload exists at the broker, that value will be replayed first, but it will be an update of a previous last state. 
+
+MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
 
 ## Using Templates
 
@@ -1454,18 +1493,14 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 | Data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `topic`                | no       | Topic to publish payload to.                                 |
-| `payload`              | no       | Payload to publish.                                          |
+| `payload`              | yes      | Payload to publish. Will publish an empty payload when `payload` is omitted.               |
 | `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
 {% note %}
-When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
+When `payload` is rendered from [template](/docs/configuration/templating/#using-value-templates-with-mqtt) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
 {% endnote %}
-
-{% important %}
-You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
-{% endimportant %}
 
 ```yaml
 topic: homeassistant/light/1/command
@@ -1570,3 +1605,13 @@ logger:
 Event `event_mqtt_reloaded` is fired when Manually configured MQTT entities have been reloaded and entities thus might have changed.
 
 This event has no additional data.
+
+## Removing the integration
+
+{% include integrations/remove_device_service_steps.md %}
+
+Note: This action does not remove the [MQTT broker](#setting-up-a-broker) or its data. If you want to completely remove MQTT:
+
+1. Check your {% term "`configuration.yaml`" %} and other YAML files for MQTT-related configurations and remove them
+2. Review your automations and scripts for any MQTT dependencies
+3. Consider backing up your configuration before making these changes

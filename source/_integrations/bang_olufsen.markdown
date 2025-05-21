@@ -2,6 +2,7 @@
 title: Bang & Olufsen
 description: Instructions on how to integrate Bang & Olufsen devices into Home Assistant.
 ha_category:
+  - Event
   - Media Player
   - Multimedia
 ha_release: 2024.2
@@ -9,6 +10,7 @@ ha_iot_class: Local Push
 ha_domain: bang_olufsen
 ha_platforms:
   - diagnostics
+  - event
   - media_player
 ha_codeowners:
   - '@mj23000'
@@ -51,7 +53,7 @@ The **Bang & Olufsen** integration uses the [Mozart API](https://bang-olufsen.gi
 
 ## Supported features
 
-Currently, a single device with a `media_player` entity is created for each added physical device. For advanced automations, [events](#automations) are fired in Home Assistant.
+Currently, for each added physical device, a single device is created that includes a `media_player` entity and, if available, `event` entities.
 
 ### Media player
 
@@ -69,9 +71,35 @@ A number of features are available through the media player entity:
      - Connect to, expand to or unexpand devices.
      - Set all connected Beolink devices to standby.
 
+### Events
+
+Event entities are created for each of the physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
+Available event entities:
+
+- Bluetooth
+- Microphone
+- Next
+- Play / Pause
+- Favourite 1
+- Favourite 2
+- Favourite 3
+- Favourite 4
+- Previous
+- Volume
+
+All of these event entities support the following event types:
+
+- Release of short press
+- Long press
+- Release of long press
+- Very long press
+- Release of very long press
+
+All devices except the [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) support device controls.
+
 ## Limitations
 
-Currently, some features of the Mozart platform such as:
+Currently, some features of the Mozart platform are not available through the [public API](https://github.com/bang-olufsen/mozart-open-api). Some may become available at a later point, but until then the [Bang & Olufsen App](https://www.bang-olufsen.com/en/dk/story/apps) can be used to configure these settings and features:
 
 - Creating timers and alarms
 - Retrieving detailed alarm and timer information
@@ -84,8 +112,6 @@ And more advanced app-centric features such as:
 - Creating stereo pairs
 - Adjusting specific sound settings
 - Pairing remotes
-
-These features are not available through the API. Some may become available at a later point, but until then the [Bang & Olufsen App](https://www.bang-olufsen.com/en/dk/story/apps) can be used to configure these settings and features.
 
 ## Actions
 

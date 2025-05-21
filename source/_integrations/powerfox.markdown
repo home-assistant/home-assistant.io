@@ -11,8 +11,11 @@ ha_codeowners:
   - '@klaasnicolaas'
 ha_domain: powerfox
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
+ha_quality_scale: silver
+ha_zeroconf: true
 ---
 
 The **Powerfox** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) devices, by using their cloud API and fetch the data in Home Assistant.
@@ -37,10 +40,10 @@ Not all Poweropti devices are supported currently. Check the list below to see i
 | Device                | Type        | Supported  |
 | --------------------- | ----------- | ---------- |
 | PA 201901 / PA 201902 | Power meter | Yes        |
-| PB 202001             | Power meter | Not tested |
+| PB 202001             | Power meter | Yes        |
 | WA 201902             | Water meter | Yes        |
 | Powerfox FLOW         | Gas meter   | No         |
-| HA 201902             | Heat meter  | No         |
+| HA 201902             | Heat meter  | Yes        |
 
 ## Data updates
 
@@ -76,11 +79,20 @@ It will create the following sensors:
 - **Cold water (m³)**: How much cold water is used.
 - **Warm water (m³)**: How much warm water is used.
 
+### Heat meter
+
+It will create the following sensors:
+
+- **Total eneregy (kWh)**: How much energy is used.
+- **Delta energy (kWh)**: How much energy is used since the last update.
+- **Total volume (m³)**: How much water is used.
+- **Delta volume (m³)**: How much water is used since the last update.
+
 ## Troubleshooting
 
 There are no commonly known issues with this integration.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 

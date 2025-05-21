@@ -11,8 +11,10 @@ ha_codeowners:
 ha_domain: heos
 ha_ssdp: true
 ha_platforms:
+  - diagnostics
   - media_player
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: platinum
 ---
 
 The HEOS {% term integration %} is used to connect a [HEOS](https://www.denon.com/en-gb/category/heos/) System to Home Assistant. HEOS is a wireless audio ecosystem
@@ -27,6 +29,7 @@ Add this integration to automate playback and group configuration of HEOS-capabl
 - Controlling play mode (e.g., play/pause), volume, mute, and shuffle
 - Playing HEOS favorites, playlists, quick selects, URLs
 - Setting the source to physical inputs (e.g., `AUX1`)
+- Browsing HEOS music services (for example, **Tidal**) and sources (such as **Favorites**)
 - Grouping and ungrouping HEOS devices
 - Clearing playlists
 
@@ -38,12 +41,28 @@ Add this integration to automate playback and group configuration of HEOS-capabl
 {% include integrations/config_flow.md %}
 
 {% note %}
-Only a single instance of the integration is needed to access the entire HEOS system on the network. It will only connect to a single {% term host %}.
+A single instance of the integration adds all devices in the HEOS system to Home Assistant. When setup through discovery, it will automatically select the best {% term host %}. The integration will automatically reconnect and fail over to other hosts in the HEOS system if the configured host goes offline.
 {% endnote %}
 
 {% configuration_basic %}
 Host:
-    description: "The host name or IP address (e.g., \"192.168.1.2\") of your HEOS-capable product. If you have more than one device, select, or enter a host, that is connected to the LAN via wire or has the strongest wireless signal."
+    description: "The host name or IP address (e.g., \"192.168.1.2\") of your HEOS-capable product. If you have more than one device, enter a host that is connected to the LAN via wire and is always powered on."
+{% endconfiguration_basic %}
+
+## Configuration options
+
+The integration provides the following configuration options. By entering your HEOS Account login information, the integration will be able to access streaming services, playlists, favorites, and other features. The integration will validate and sign in to your HEOS Account when credentials are entered or updated, and will ensure the HEOS System remains logged in while the credentials remain valid. Clearing the credentials will sign the HEOS System out of your account.
+
+1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
+2. Select **Denon HEOS**. Select **Configure**.
+3. Enter or clear your HEOS Account credentials.
+4. Select **Submit** to save the options.
+
+{% configuration_basic %}
+Username:
+  description: "The username or e-mail address of your HEOS Account."
+Password:
+  description: "The password to your HEOS Account."
 {% endconfiguration_basic %}
 
 ## Reconfiguration
@@ -62,9 +81,98 @@ This integration follows standard integration removal. No extra steps are requir
 1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
 2. Select **Denon HEOS**. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Delete**.
 
-## Playing media
+## Actions
 
-### Play a favorite
+In addition to the standard [Media Player actions](/integrations/media_player#actions), the HEOS integration provides the following {% term actions %}:
+
+Group volume actions: `heos.group_volume_set`, `heos.group_volume_down`, and `heos.group_volume_up` for entities joined to a group.
+
+Queue actions: `heos.get_queue`, `heos.move_queue_item`, and `heos.remove_from_queue` to manage a player's queue items.
+
+### Action `heos.group_volume_set`
+
+Sets the group's volume while preserving member volume ratios. This action can be called on any entity in a group.
+
+| Data attribute | Optional | Description                                      |
+|------------------------|----------|------------------------------------------------------------------|
+| `entity_id`            |      yes | A media player entity that is joined to a group.                  |
+| `volume_level`         |       no | The volume level, where 0 is inaudible, 1 is the maximum volume. |
+
+### Action `heos.get_queue`
+
+Returns the items in the player's queue. This can be used to inspect the current play queue of target players.
+
+| Data attribute | Optional | Description                                      |
+|------------------------|----------|------------------------------------------------------------------|
+| `entity_id`            | no      | `entity_id` of the player(s)                                     |
+
+Example response:
+
+```yaml
+media_player.office:
+  queue:
+    - queue_id: 1
+      song: Alone Again
+      album: After Hours
+      artist: The Weeknd
+      image_url: >-
+        http://resources.wimpmusic.com/images/22f72311/8e9e/461e/a100/d9cfd4ddc2fa/640x640.jpg
+      media_id: "134788274"
+      album_id: "134788273"
+    - queue_id: 2
+      song: Too Late
+      album: After Hours
+      artist: The Weeknd
+      image_url: >-
+        http://resources.wimpmusic.com/images/22f72311/8e9e/461e/a100/d9cfd4ddc2fa/640x640.jpg
+      media_id: "134788275"
+      album_id: "134788273"
+```
+
+### Action `heos.move_queue_item`
+
+Move one or more items in the target player's queue, effectively reordering the play queue. The play queue can be enumerated by using the `heos.get_queue` service.
+
+Example action data payload that moves the second item to the top of the play queue:
+
+```yaml
+action: heos.move_queue_item
+target:
+  entity_id: media_player.family_room_receiver
+data:
+  queue_ids:
+    - 2
+  destination_position: 1
+```
+
+| Data attribute | Optional | Description                                                     |
+| ---------------------- | -------- | ------------------------------------------------------- |
+| `queue_ids`            | no       | The IDs (indexes) of the items in the queue to move.    |
+| `destination_position` | no       | The destination position in the queue (starting at 1).  |
+
+### Action `heos.remove_from_queue`
+
+Removes one or more items from the target player(s) queue. The play queue can be enumerated by using the `heos.get_queue` service. Example action data payload:
+
+```yaml
+action: heos.remove_from_queue
+target:
+  entity_id: media_player.family_room_receiver
+data:
+  queue_ids:
+    - 1
+    - 3
+```
+
+| Data attribute | Optional | Description                                                     |
+| ---------------------- | -------- | ------------------------------------------------------- |
+| `queue_ids`            | no       | The IDs (indexes) of the items in the queue to remove.   |
+
+## Examples
+
+### Playing media
+
+#### Play a favorite
 
 You can play a HEOS favorite by number or name with the `media_player.play_media` action. Example action data payload:
 
@@ -82,7 +190,7 @@ data:
 | `media_content_type`   | no       | Set to the value `favorite`                                         |
 | `media_content_id`     | no       | (e.g., `1`) or name (e.g., `Thumbprint Radio`) of the HEOS favorite |
 
-### Play a playlist
+#### Play a playlist
 
 You can play a HEOS playlist with the `media_player.play_media` action. Example action data payload:
 
@@ -100,7 +208,7 @@ data:
 | `media_content_type`   | no       | Set to the value `playlist`   |
 | `media_content_id`     | no       | The name of the HEOS playlist |
 
-### Play a Quick Select
+#### Play a Quick Select
 
 You can play a HEOS Quick Select by number or name with the `media_player.play_media` action. Example action data payload:
 
@@ -118,7 +226,7 @@ data:
 | `media_content_type`   | no       | Set to the value `quick_select`                                      |
 | `media_content_id`     | no       | The quick select number (e.g., `1`) or name (e.g., `Quick Select 1`) |
 
-### Play a URL
+#### Play a URL
 
 You can play a URL through a HEOS media player using the `media_player.play_media` action. The HEOS player must be able to reach the URL.
 
@@ -142,9 +250,27 @@ data:
 | `media_content_type`   | no       | Set to the value `url`                           |
 | `media_content_id`     | no       | The full URL to the stream (max 255 characters)  |
 
-## Grouping players
+#### Play a queue item
 
-### Join
+You can play/move to an item within the player's queue by using the `media_player.play_media` action. Set `media_content_type` to `queue` and `media_content_id` to the index (starting from 1) of an item in the play queue. The play queue can be enumerated by using the `heos.get_queue` action. Example action data payload:
+
+```yaml
+action: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: "queue"
+  media_content_id: "1"
+```
+
+| Data attribute | Optional | Description                   |
+| ---------------------- | -------- | ----------------------------- |
+| `entity_id`            | yes      | `entity_id` of the player(s)  |
+| `media_content_type`   | no       | Set to the value `queue`   |
+| `media_content_id`     | no       | The queue index (e.g. `1`) |
+
+### Grouping players
+
+#### Join
 
 To group HEOS media players together for synchronous playback, use the `media_player.join` action.
 
@@ -168,7 +294,7 @@ data:
 | `entity_id`            | yes      | The media player entity whose playback will be expanded to the players specified in `group_members`. |
 | `group_members`        | no       | The player entities which will be synced with the playback from `entity_id`.                         |
 
-### Unjoin
+#### Unjoin
 
 For removing a HEOS player from a group, use the `media_player.unjoin` action.
 
@@ -182,42 +308,11 @@ data:
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | yes      | Remove this media player from any player groups. |
 
-## Actions
-
-The HEOS integration makes various custom {% term actions %} available in addition to the standard [Media Player actions](/integrations/media_player#actions).
-
-### Action `heos.sign_in`
-
-Use the sign-in action to sign the connected device into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful.
 
 {% note %}
-The device the integration connects to authenticates independently of other devices and the HEOS mobile app. When you first set up the integration, or after a device firmware update, the device will most likely not be logged in.
+
+Actions may fail if they cannot be processed by the HEOS device. For example, attempting to call `media_player.clear_playlist` when the queue is empty will result in an error. To prevent this from halting a script or automation, set [`continue_on_error: true`](/docs/scripts/#continuing-on-error) in the action call.
 {% endnote %}
-
-To run, go to **Developer Tools** > **Actions** and then type in `heos.sign_in`. Then enter your HEOS account username and password, and click the Perform Action button. An error message is only logged if sign-in is unsuccessful.
-
-Example action data payload:
-
-```yaml
-action: heos.sign_in
-data:
-  username: "example@example.com"
-  password: "password"
-```
-
-| Data attribute | Optional | Description                                |
-| ---------------------- | -------- | ------------------------------------------ |
-| `username`             | no       | The username or email of the HEOS account. |
-| `password`             | no       | The password of the HEOS account.          |
-
-### Action `heos.sign_out`
-
-Use the sign-out action to sign the connected device out of a HEOS account. An error message is logged if sign-out is unsuccessful. There are no parameters to this action Example action data payload:
-
-```yaml
-action: heos.sign_out
-data: {% raw %}{}{% endraw %}
-```
 
 ## Supported devices
 
@@ -240,19 +335,45 @@ HEOS pushes data to Home Assistant via the local network when data and entity st
 - {% term TTS %} is not supported.
 - The maximum length of a URL that can be used in the `play_media` action is 255 characters due to a limitation in the HEOS firmware.
 
+## Logging and diagnostics
+
+The HEOS integration supports [Home Assistant debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). Diagnostics are available at both the integration entry and device level.
+
 ## Troubleshooting
 
 ### Missing favorites
 
-#### Symptom: "IP_ADDRESS is not logged in to a HEOS account and will be unable to retrieve HEOS favorites..."
+#### Symptom: "The HEOS System is not logged in: Enter credentials in the integration options to access favorites and streaming services"
 
-The message above is logged and the `source_list` attribute of the integration's media_player entities are empty. Attempting call the `media_player.play_media` action
-for `favorite` and `playlist` will fail.
+The message above is logged during integration startup and the `source_list` attribute of the integration's media_player entities are empty. Attempting call the `media_player.play_media` action
+for `favorite` and `playlist` will fail. Other functionality of the integration is unaffected.
 
 ##### Description
 
-The HEOS system is not logged in to a HEOS account. This occurs when the integration is first added, the HEOS account has changed (e.g. password reset), and sometimes after a firmware update.
+To access features, such as favorites, playlists, and streaming services, the HEOS System must be logged in to your HEOS Account. This occurs when credentials are not entered in the configuration options and the HEOS System is in a logged out state.
 
 ##### Resolution
 
-Use the [heos.sign_in action](/integrations/heos#action-heossign_in) to sign the HEOS system into a HEOS account. This only needs to be performed once, as the system will remain signed in while the account credentials are valid.
+Enter the credentials to your HEOS Account in the [configuration options](#configuration-options) if you want to access playlists, favorites, and streaming services; otherwise, the logged warning can be ignored. If credentials are entered, the integration will ensure that the HEOS System remains logged in while the credentials remain valid.
+
+### Error attempting to submit configuration options
+
+#### Symptom: "Invalid authentication"
+
+##### Description
+
+The integration was unable to log the HEOS System in using the credentials provided. An informational log message contains the specific reason, such as: `User not found (10)` or `Invalid credentials (6)`.
+
+##### Resolution
+
+Validate your credentials by logging in to the HEOS Mobile App and then re-enter your credentials in the configuration options and try submitting again.
+
+#### Symptom: "Unexpected error"
+
+##### Description
+
+An unexpected error occurred signing in or logging out of your HEOS Account. An error-level log message contains the error information.
+
+##### Resolution
+
+Power-cycle the host that the integration is connected to and try again. If the problem persists, open an issue and include the error information.

@@ -20,6 +20,8 @@ If you don't need to receive messages, you can use the [broadcast](/integrations
 
 Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `edit_message`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message` and `leave_chat`.
 
+Actions that send contents (`send_*`) will return a list of `message_id`/`chat_id` for messages delivered (in a property called `chats`). This will populate [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) that you can further utilize in your automations to edit/delete the message later based on the `message_id`. See the example later on this page for usage instructions.
+
 ### Action `telegram_bot.send_message`
 
 Send a notification.
@@ -288,7 +290,7 @@ Remove the bot from the chat group where it was added.
 
 ## Telegram notification platform
 
-The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag` and `disable_web_page_preview` are also supported.
+The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents, and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag`, `disable_web_page_preview`, and `message_thread_id` are also supported.
 
 The required YAML configuration now reduces to:
 
@@ -314,6 +316,7 @@ user_id: "<id of the sender>"
 chat_id: "<origin chat id>"
 chat: "<chat info>"
 date: "<message timestamp>"
+message_thread_id: "<message thread id>"
 ```
 
 Any other message not starting with `/` will be processed as simple text, firing a `telegram_text` event on the event bus with the following `event_data`:
@@ -326,6 +329,7 @@ user_id: "<id of the sender>"
 chat_id: "<origin chat id>"
 chat: "<chat info>"
 date: "<message timestamp>"
+message_thread_id: "<message thread id>"
 ```
 
 If the message is sent from a [press from an inline button](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), for example, a callback query is received, and Home Assistant will fire a `telegram_callback` event with:
@@ -594,7 +598,7 @@ actions:
       message_tag: "example_tag"
 ```
 
-## Example: send_message with disabled webpage preview:
+## Example: send_message with disabled webpage preview
 
 ```yaml
 actions:
@@ -606,3 +610,38 @@ actions:
       parse_mode: html
       disable_web_page_preview: true
 ```
+
+## Example: send_message to a topic within a group
+
+```yaml
+actions:
+- action: notify.telegram
+  data:
+    message: "Message to a topic"
+    data:
+      message_thread_id: 123
+```
+
+## Example: automation to send a message and delete after a delay
+
+{% raw %}
+
+```yaml
+alias: telegram send message and delete
+sequence:
+  - action: telegram_bot.send_message
+    data:
+      message: testing
+    response_variable: response
+  - delay:
+      seconds: 5
+  - repeat:
+      sequence:
+        - action: telegram_bot.delete_message
+          data:
+            message_id: "{{ repeat.item.message_id }}"
+            chat_id: "{{ repeat.item.chat_id }}"
+      for_each: "{{ response.chats }}"
+```
+
+{% endraw %}

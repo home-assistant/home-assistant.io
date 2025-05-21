@@ -15,6 +15,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: hub
+ha_quality_scale: platinum
 ---
 
 The **Nord Pool** {% term integration %} integrates [Nord Pool Group](https://www.nordpoolgroup.com/) energy prices into Home Assistant.
@@ -43,7 +44,8 @@ All prices are displayed as `[Currency]/kWh`.
 
 Data is polled from the **Nord Pool** API on an hourly basis, exactly on the hour, to ensure the price sensors are displaying the correct price.
 
-If polling cannot happen because of no connectivity or a malfunctioning API, there is no retry; the next periodic update will try again.
+If polling cannot happen because of no connectivity or a malfunctioning API, it will wait a retry a few times before failing.
+The user can use the [`homeassistant.update_entity`](homeassistant#action-homeassistantupdate_entity) action to manually try again later, in the case the user has solved the connectivity issue.
 
 ## Troubleshooting
 
@@ -95,7 +97,7 @@ The block price sensors are not enabled by default.
 | Sensor                    | Type              | Description                                                                       |
 | ------------------------- | ----------------- | --------------------------------------------------------------------------------- |
 | Currency                  | [Currency]        | The configured currency.                                                          |
-| Exchange rate             | Integer           | The exchange rate between the configure currency and Euro's.                      |
+| Exchange rate             | Decimal           | The exchange rate between the configure currency and Euro's.                      |
 | Last updated              | Datetime          | The time when the market prices were last updated.                                |
 
 ## Actions
@@ -126,6 +128,10 @@ The public API only allows us to see past pricing information for up to 2 months
 Tomorrow's prices are typically released around 13:00 CET, and trying to get them before that time will generate an error that needs to be considered in such a case.
 
 {% endnote %}
+
+{% tip %}
+You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
+{% endtip %}
 
 #### Example action with data
 
@@ -191,10 +197,14 @@ template:
 Using a trigger template, you can create a template sensor to calculate tomorrow's lowest price which also puts the list of all prices in the attributes of the sensor. All prices are returned in [Currency]/MWh.
 
 {% note %}
-You need to replace the `config_entry` with your own Nord Pool config entry id.
 
 Below example will convert the action call response to kWh prices in the selected currency and add all prices for tomorrow as a list in an attribute.
+
 {% endnote %}
+
+{% tip %}
+You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
+{% endtip %}
 
 {% raw %}
 

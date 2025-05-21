@@ -25,9 +25,9 @@ The following screenshot shows a fully populated dashboard in [sections view](/d
     A fully populated dashboard in Sections view layout
 </p>
 
-### Multiple dashboards
+### Different dashboard types
 
-In the sidebar on the left, you see the names of different dashboards. Home Assistant comes with [multiple dashboards](/dashboards/dashboards/) out of the box.
+In the sidebar on the left, you see the names of different dashboards. Home Assistant comes with [different dashboard types](/dashboards/dashboards/) out of the box.
 
 - Overview
 - Energy
@@ -138,7 +138,7 @@ In the following steps, we will create a new dashboard and edit some card settin
 
 If you want to learn more about dashboards, views, and cards, take a look at these topics:
 
-1. Take a look at the [introduction to dashboards](/dashboards/) and learn about [multiple dashboards](/dashboards/dashboards).
+1. Take a look at the [introduction to dashboards](/dashboards/) and learn about [dashboard types](/dashboards/dashboards).
 2. Learn more about [view types](/dashboards/views/)
 3. Learn how to [add cards](/dashboards/cards/#adding-cards-to-your-dashboard) to a view.
 

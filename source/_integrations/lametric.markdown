@@ -93,7 +93,7 @@ message:
   required: true
   type: string
 icon:
-  description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
+  description: "The ID of an icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
   required: false
   type: string
 cycles:
@@ -132,7 +132,7 @@ following, additional, optional parameters:
 
 {% configuration "notification" %}
 icon:
-  description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
+  description: "The ID of an icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
   required: false
   type: string
 cycles:
@@ -272,3 +272,10 @@ authentication process.
 Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
 
 {% enddetails %}
+
+## Troubleshooting
+
+### The brightness doesn't go to 100%
+
+When the LaMetric is powered by a USB port on a computer, the brightness is limited.
+To get the full brightness, use a proper USB charger.

@@ -3,7 +3,7 @@ title: "Packages"
 description: "Describes all there is to know about configuration packages in Home Assistant."
 ---
 
-Packages in Home Assistant provide a way to bundle different integration's configuration together. With packages we have a way to include different integrations, or different configuration parts using any of the `!include` directives introduced in [splitting the configuration](/docs/configuration/splitting_configuration).
+Packages in Home Assistant provide a way to bundle configurations from multiple integrations. With packages, we have a way to include multiple integrations, or parts of integrations using any of the `!include` directives introduced in [splitting the configuration](/docs/configuration/splitting_configuration).
 
 Packages are configured under the core `homeassistant/packages` in the configuration and take the format of a package name (no spaces, all lower case) followed by a dictionary with the package configuration. For example, package `pack_1` would be created as:
 

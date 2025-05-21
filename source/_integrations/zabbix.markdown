@@ -14,6 +14,8 @@ related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_quality_scale: legacy
+ha_codeowners:
+  - '@kruton'
 ---
 
 The **Zabbix** {% term integration %} is the main {% term integration %} to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.

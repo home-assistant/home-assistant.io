@@ -9,10 +9,13 @@ ha_release: 0.36
 ha_codeowners:
   - '@kellerza'
   - '@rklomp'
+  - '@erwindouna'
 ha_domain: sma
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 The SMA Solar integration will poll a [SMA](http://www.sma-solar.com/) [(US)](https://www.sma-america.com/) solar inverter, energy meter or battery inverter and present the values as sensors in Home Assistant.

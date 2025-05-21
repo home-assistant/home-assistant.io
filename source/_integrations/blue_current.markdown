@@ -8,8 +8,9 @@ ha_release: 2024.1
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - '@Floris272'
   - '@gleeuwen'
+  - '@NickKoepr'
+  - '@jtodorova23'
 ha_domain: blue_current
 ha_platforms:
   - sensor
@@ -65,3 +66,13 @@ The following sensors are created as well, but disabled by default:
 The following sensors are created as well, but disabled by default:
 
 - Grid current phase 1-3
+
+## Button
+
+The Blue Current integration provides the following buttons:
+
+### Charge point buttons
+
+- Reset
+- Reboot
+- Stop charge session

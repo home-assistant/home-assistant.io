@@ -16,6 +16,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 The **Withings** {% term integration %} consumes data from various health products produced by [Withings](https://www.withings.com).

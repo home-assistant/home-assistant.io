@@ -10,6 +10,7 @@ ha_release: '0.30'
 ha_quality_scale: internal
 ha_codeowners:
   - '@ThomDietrich'
+  - '@gjohansson-ST'
 ha_domain: statistics
 ha_config_flow: true
 ha_platforms:

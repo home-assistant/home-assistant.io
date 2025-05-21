@@ -101,6 +101,11 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% include integrations/config_flow.md %}
 
+## Data updates
+
+The integration polls at least every 30 seconds.
+If the track that is playing ends in less than 30 seconds, the integration will poll again after the track has ended to update the state again.
+
 ## Using multiple Spotify accounts
 
 This integration supports multiple Spotify accounts at once. You don't need to
@@ -151,4 +156,4 @@ The `media_content_id` value can be obtained from the Spotify desktop app by cli
 
 ## Unsupported devices
 
-- **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API.
+- **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API. One workaround to use Sonos players with Spotify is through [Music Assistant](https://www.music-assistant.io/) using the action `music_assistant.play_media`. Music Assistant creates another media_player entity named after the original media_player, which you can use to play from Spotify.

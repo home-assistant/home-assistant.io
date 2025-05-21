@@ -23,7 +23,6 @@ ha_domain: tuya
 ha_codeowners:
   - '@Tuya'
   - '@zlinoliver'
-  - '@frenck'
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
