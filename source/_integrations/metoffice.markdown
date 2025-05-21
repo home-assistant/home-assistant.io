@@ -27,13 +27,12 @@ The `metoffice` weather platform uses the Met Office's [DataHub API](https://www
 
 ## Entities
 
-This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast (daily and hourly), and twelve sensor entities for individual reporting on each of the individual measurements. Note that only some of the sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration.
+This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast (daily and hourly), and sensor entities for individual reporting on each of the individual measurements. Note that only some of the sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration.
 
 The available sensor entities:
 
 - "feels like" temperature
 - humidity
-- pressure
 - probability of precipitation
 - station name
 - temperature
@@ -44,6 +43,6 @@ The available sensor entities:
 - wind gust
 - wind speed
 
-Only probability of precipitation, pressure, temperature, weather and wind speed are enabled by default.
+Only probability of precipitation, temperature, weather and wind speed are enabled by default.
 
 Details about the API are available in the [DataHub API documentation](https://datahub.metoffice.gov.uk/docs/f/category/site-specific/overview). The [datapoint-python](https://github.com/EJEP/datapoint-python) library is used to retrieve data.
