@@ -33,8 +33,7 @@ layout: null
 /energy /home-energy-management
 /integrations/energy /docs/energy 301!
 
-/amber https://support.nabucasa.com/hc/en-us/categories/24734575925149-Home-Assistant-Yellow
-/yellow https://support.nabucasa.com/hc/en-us/categories/24734575925149-Home-Assistant-Yellow
+/amber https://yellow.home-assistant.io
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
 # Design & User research
