@@ -4,7 +4,7 @@ description: Instructions on how to integrate Paperless-ngx into Home Assistant
 ha_release: 2025.7
 ha_category:
   - Sensor
-ha_iot_class: Local Pull
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: paperless_ngx
 ha_codeowners:
@@ -33,7 +33,6 @@ To enable monitoring of diagnostic sensors, you must have **administrator permis
 5. Copy the token and use it during the integration setup in Home Assistant.
 
 {% enddetails %}
-
 
 {% include integrations/config_flow.md %}
 
