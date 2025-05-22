@@ -1238,6 +1238,29 @@ template:
 
 {% endraw %}
 
+### Trigger based event - Turn any custom event into an event entity
+
+This example demonstrates how to use custom events to create an event entity.
+
+```yaml
+template:
+  - triggers:
+      - trigger: event
+        event_type: room_state
+    event:
+      name: Room State
+      event_type: "{{ trigger.event.data.status }}"
+      event_types: "{{ ['room_occupied', 'room_empty'] }}"
+```
+
+In an automation or script, using the following action will update the Room State event entity.
+
+```yaml
+- event: room_state
+  event_data:
+    status: room_empty
+```
+
 ### State based select - Control Day/Night mode of a camera
 
 This show how a state based template select can be used to perform an action.
