@@ -1,7 +1,7 @@
 ---
 title: Paperless-ngx
 description: Instructions on how to integrate Paperless-ngx into Home Assistant
-ha_release: 2025.7
+ha_release: 2025.6
 ha_category:
   - Sensor
 ha_iot_class: Local Polling
@@ -22,8 +22,6 @@ The **Paperless-ngx** {% term integration %} allows you to connect your [Paperle
 
 To ensure full functionality of this integration, you must have **read permissions** for all document-related resources, including documents, tags, document types, and correspondents.
 
-To enable monitoring of diagnostic sensors, you must have **administrator permissions**. Without administrator rights, specific API endpoints cannot be accessed, and the sensor states will not be available.
-
 {% details "Create an access token" %}
 
 1. Log in to your **Paperless-ngx** instance.
@@ -37,10 +35,10 @@ To enable monitoring of diagnostic sensors, you must have **administrator permis
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Host:
-  description: "The host to connect to"
+URL:
+  description: "URL to connect to the Paperless-ngx instance."
 API key:
-  description: "The API key for the Paperless-ngx user."
+  description: "API key to connect to the Paperless-ngx API."
 {% endconfiguration_basic %}
 
 ## Sensors
