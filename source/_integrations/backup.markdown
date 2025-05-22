@@ -78,6 +78,8 @@ action: backup.create
 This is a YAML example for an automation that initiate a backup every night
 at 3 AM:
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: "Backup Home Assistant every night at 3 AM"
@@ -88,6 +90,8 @@ automation:
       - alias: "Create backup now"
         action: backup.create
 ```
+
+{% endraw %}
 
 ## Restoring a backup
 
@@ -107,6 +111,8 @@ The **Backup** {% term integration %} provides an {% term "Event entity" %} whic
 
 Send notification to mobile app, when an automatic backup failed.
 
+{% raw %}
+
 ```yaml
 alias: Backup failed
 triggers:
@@ -125,6 +131,8 @@ actions:
     action: notify.mobile-app
 mode: single
 ```
+
+{% endraw %}
 
 ## Sensors
 
