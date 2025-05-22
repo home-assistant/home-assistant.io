@@ -73,11 +73,11 @@ Many of those impacted asked for better guidance on how to migrate. A good numbe
 If you are unsure which **installation method** you are running:
 
 - Select [this link](https://my.home-assistant.io/redirect/system_health/) OR Navigate to ***Settings > System > Repairs***, select the three-dotted menu in the top right corner, and select ***System information***.
-- Check the Installation type field. If you are running Home Assistant OS, or Container, you are fine as the deprecation doesn't apply to you.
+- Check the Installation type field. If you are running Home Assistant OS, or Container, you are fine as the installation method deprecation doesn't apply to you.
 
 In this [same window](https://my.home-assistant.io/redirect/system_health/), you can find the **architecture** as well:
 
-- The CPU architecture field will tell you exactly which architecture you are using. If you are seeing aarch64 or x86_64 here, you are fine as the deprecation doesn't apply to you.
+- The CPU architecture field will tell you exactly which architecture you are using. If you are seeing aarch64 or x86_64 here, you are fine as the architecture deprecation doesn't apply to you.
 
 ## How to migrate
 
