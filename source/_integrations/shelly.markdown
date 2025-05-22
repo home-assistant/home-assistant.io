@@ -141,16 +141,16 @@ The integration creates a sub-device for every relay and uses the following stra
 - If a `Device Name` is set in the device, the integration will use it to generate the main device name and entity names assigned to the main device.
 - If a `Device Name` is not set, the integration will use the `Device ID` to generate the main device name and entity names assigned to the main device.
 - If a `Channel Name` is set in the device, the integration will use it to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
-- If a `Channel Name` is not set in the device, the integration will use channel/relay number to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
+- If a `Channel Name` is not set in the device, the integration will use the device name and channel/relay number to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
 
 Examples:
 
-| Device Name | Channel Name   | Main Device Name      | Sub-device Name | Entity Name    |
-| ----------- | -------------- | --------------------- | --------------- | -------------- |
-| `Not set`   | `Not Set`      | shellyswitch25-ABC123 | Channel 1       | Channel 1      |
-| `Not set`   | Kids Room Bulb | shellyswitch25-ABC123 | Kids Room Bulb  | Kids Room Bulb |
-| Kitchen     | `Not Set`      | Kitchen               | Channel 1       | Channel 1      |
-| Bedroom     | Round Bulb     | Bedroom               | Round Bulb      | Round Bulb     |
+| Device Name | Channel Name   | Main Device Name      | Sub-device Name                 | Entity Name                      |
+| ----------- | -------------- | --------------------- | ------------------------------- | -------------------------------- |
+| `Not set`   | `Not Set`      | shellyswitch25-ABC123 | shellyswitch25-ABC123 Channel 1 |  shellyswitch25-ABC123 Channel 1 |
+| `Not set`   | Kids Room Bulb | shellyswitch25-ABC123 | Kids Room Bulb                  | Kids Room Bulb                   |
+| Kitchen     | `Not Set`      | Kitchen               | Kitchen Channel 1               | Kitchen Channel 1                |
+| Bedroom     | Round Bulb     | Bedroom               | Round Bulb                      | Round Bulb                       |
 
 Names are set from the device web page:
 
@@ -180,16 +180,16 @@ The integration creates a sub-device for every relay (channel) and uses the foll
 - If a `Device Name` is set in the device, the integration will use it to generate the main device name and entity names assigned to the main device.
 - If a `Device Name` is not set, the integration will use the `Device ID` to generate the main device name and entity names assigned to the main device.
 - If a `Channel Name` is set in the device, the integration will use it to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
-- If a `Channel Name` is set to the default value in the device, the integration will use it to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
+- If a `Channel Name` is set to the default value in the device, the integration will use the device name and this ddefault channel name to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
 
 Examples:
 
-| Device Name | Channel Name   | Main Device Name           | Sub-device Name | Entity Name    |
-| ----------- | -------------- | -------------------------- | --------------- | -------------- |
-| `Not set`   | `Not Set`      | shelly2pmgen3-aabbccddeeff | Switch 1        | Switch 1       |
-| `Not set`   | Kids Room Bulb | shelly2pmgen3-aabbccddeeff | Kids Room Bulb  | Kids Room Bulb |
-| Kitchen     | `Not Set`      | Kitchen                    | Switch 1        | Switch 1       |
-| Bedroom     | Round Bulb     | Bedroom                    | Round Bulb      | Round Bulb     |
+| Device Name | Channel Name   | Main Device Name           | Sub-device Name                     | Entity Name                         |
+| ----------- | -------------- | -------------------------- | ----------------------------------- | ----------------------------------- |
+| `Not set`   | `Not Set`      | shelly2pmgen3-aabbccddeeff | shelly2pmgen3-aabbccddeeff Switch 1 | shelly2pmgen3-aabbccddeeff Switch 1 |
+| `Not set`   | Kids Room Bulb | shelly2pmgen3-aabbccddeeff | Kids Room Bulb                      | Kids Room Bulb                      |
+| Kitchen     | `Not Set`      | Kitchen                    | Kitchen Switch 1                    | Kitchen Switch 1                    |
+| Bedroom     | Round Bulb     | Bedroom                    | Round Bulb                          | Round Bulb                          |
 
 ## Cover entities
 
