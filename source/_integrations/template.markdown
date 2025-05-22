@@ -6,6 +6,7 @@ ha_category:
   - Binary sensor
   - Button
   - Cover
+  - Event
   - Fan
   - Helper
   - Image
@@ -30,6 +31,7 @@ ha_platforms:
   - binary_sensor
   - button
   - cover
+  - event
   - fan
   - image
   - light
@@ -51,7 +53,7 @@ related:
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Alarm control panels, binary sensors, buttons, covers, fans, images, lights, locks, numbers, selects, sensors, switches, vacuums, and weathers are covered on this page. They can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
+Alarm control panels, binary sensors, buttons, covers, events, fans, images, lights, locks, numbers, selects, sensors, switches, vacuums, and weathers are covered on this page. They can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
 
 For Legacy types, please see the specific pages:
 
@@ -78,11 +80,11 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 ## YAML configuration
 
-Entities (alarm control panels, binary sensors, buttons, covers, fans, images, lights, locks, numbers, selects, sensors, switches, vacuums, and weathers) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
+Entities (alarm control panels, binary sensors, buttons, covers, events, fans, images, lights, locks, numbers, selects, sensors, switches, vacuums, and weathers) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template alarm control panels, binary sensors, buttons, covers, fans, images, lights, numbers, selects, sensors, switches, vacuums, and weathers
+### State-based template alarm control panels, binary sensors, buttons, covers, events, fans, images, lights, numbers, selects, sensors, switches, vacuums, and weathers
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -104,7 +106,7 @@ template:
 
 {% endraw %}
 
-### Trigger-based template binary sensors, images, lights, numbers, selects, sensors, switches, and weathers
+### Trigger-based template binary sensors, events, images, lights, numbers, selects, sensors, switches, and weathers
 
 If you want more control over when an entity updates, you can define triggers. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
@@ -165,52 +167,8 @@ variables:
       description: The variable name and corresponding value.
       required: true
       type: string
-sensor:
-  description: List of sensors
-  required: true
-  type: list
-  keys:
-    state:
-      description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
-      required: true
-      type: template
-    unit_of_measurement:
-      description: "Defines the units of measurement of the sensor, if any. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
-      required: false
-      type: string
-      default: None
-    state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in long-term statistics, include this key and assign it the appropriate value"
-      required: false
-      type: string
-      default: None
-    last_reset:
-      description: "Defines a template that describes when the state of the sensor was last reset. Must render to a valid `datetime`. Only available when `state_class` is set to `total`"
-      required: false
-      type: template
-      default: None
-binary_sensor:
-  description: List of binary sensors
-  required: true
-  type: list
-  keys:
-    state:
-      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
-      required: true
-      type: template
-    delay_on:
-      description: The amount of time (e.g. `0:00:05`) the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
-      required: false
-      type: time
-    delay_off:
-      description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`. This can also be a template.
-      required: false
-      type: time
-    auto_off:
-      description: "**Requires a trigger.** After how much time the entity should turn off after it rendered 'on'."
-      required: false
-      type: time
-"[both sensor and binary_sensor entities]":
+
+"[all binary_sensor, event, sensor entities]":
   description: Fields that can be used above for both sensors and binary sensors.
   required: false
   type: map
@@ -233,6 +191,28 @@ binary_sensor:
       required: false
       type: device_class
       default: None
+"[all alarm control panel, binary sensor, button, cover, event, fan, image, light, number, select, sensor, switch, vacuum, weather entities]":
+  description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
+  required: false
+  type: map
+  keys:
+    name:
+      description: Defines a template to get the name of the entity.
+      required: false
+      type: template
+    unique_id:
+      description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+      required: false
+      type: string
+    icon:
+      description: Defines a template for the icon of the entity.
+      required: false
+      type: template
+    availability:
+      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison is not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+      required: false
+      type: template
+      default: true
 alarm_control_panel:
   description: List of alarm control panels
   required: true
@@ -280,65 +260,27 @@ alarm_control_panel:
       required: false
       type: string
       default: number
-number:
-  description: List of numbers
+binary_sensor:
+  description: List of binary sensors
   required: true
-  type: map
+  type: list
   keys:
     state:
-      description: Template for the number's current value.
+      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
       required: true
       type: template
-    unit_of_measurement:
-      description: Defines the units of measurement of the number, if any.
+    delay_on:
+      description: The amount of time (e.g. `0:00:05`) the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
       required: false
-      type: string
-      default: None
-    set_value:
-      description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
-      required: true
-      type: action
-    step:
-      description: Template for the number's increment/decrement step.
-      required: true
-      type: template
-    min:
-      description: Template for the number's minimum value.
+      type: time
+    delay_off:
+      description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`. This can also be a template.
       required: false
-      type: template
-      default: 0.0
-    max:
-      description: Template for the number's maximum value.
+      type: time
+    auto_off:
+      description: "**Requires a trigger.** After how much time the entity should turn off after it rendered 'on'."
       required: false
-      type: template
-      default: 100.0
-    optimistic:
-      description: Flag that defines if number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
-      required: false
-      type: boolean
-      default: false
-select:
-  description: List of selects
-  required: true
-  type: map
-  keys:
-    state:
-      description: Template for the select's current value.
-      required: true
-      type: template
-    select_option:
-      description: Defines actions to run to select an option from the `options` list. The variable `option` will contain the option selected.
-      required: true
-      type: action
-    options:
-      description: Template for the select's available options.
-      required: true
-      type: template
-    optimistic:
-      description: Flag that defines if select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
-      required: false
-      type: boolean
-      default: false
+      type: time
 button:
   description: List of buttons
   required: true
@@ -397,6 +339,23 @@ cover:
     tilt:
       description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).  If the template produces a `None` value, the current tilt state will be set to `unknown`.
       required: false
+      type: template
+event:
+  description: List of events
+  required: true
+  type: map
+  keys:
+    device_class:
+      description: Sets the [class of the device](/integrations/event/), changing the device state and icon that is displayed on the frontend.
+      required: false
+      type: string
+    event_type:
+      description: Template for the event's last fired event type.
+      required: true
+      type: template
+    event_types:
+      description: Template for the event's available event types.
+      required: true
       type: template
 fan:
   description: List of fans
@@ -603,6 +562,89 @@ lock:
       required: false
       type: boolean
       default: false
+number:
+  description: List of numbers
+  required: true
+  type: map
+  keys:
+    state:
+      description: Template for the number's current value.
+      required: true
+      type: template
+    unit_of_measurement:
+      description: Defines the units of measurement of the number, if any.
+      required: false
+      type: string
+      default: None
+    set_value:
+      description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
+      required: true
+      type: action
+    step:
+      description: Template for the number's increment/decrement step.
+      required: true
+      type: template
+    min:
+      description: Template for the number's minimum value.
+      required: false
+      type: template
+      default: 0.0
+    max:
+      description: Template for the number's maximum value.
+      required: false
+      type: template
+      default: 100.0
+    optimistic:
+      description: Flag that defines if number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
+select:
+  description: List of selects
+  required: true
+  type: map
+  keys:
+    state:
+      description: Template for the select's current value.
+      required: true
+      type: template
+    select_option:
+      description: Defines actions to run to select an option from the `options` list. The variable `option` will contain the option selected.
+      required: true
+      type: action
+    options:
+      description: Template for the select's available options.
+      required: true
+      type: template
+    optimistic:
+      description: Flag that defines if select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
+sensor:
+  description: List of sensors
+  required: true
+  type: list
+  keys:
+    state:
+      description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
+      required: true
+      type: template
+    unit_of_measurement:
+      description: "Defines the units of measurement of the sensor, if any. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
+      required: false
+      type: string
+      default: None
+    state_class:
+      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in long-term statistics, include this key and assign it the appropriate value"
+      required: false
+      type: string
+      default: None
+    last_reset:
+      description: "Defines a template that describes when the state of the sensor was last reset. Must render to a valid `datetime`. Only available when `state_class` is set to `total`"
+      required: false
+      type: template
+      default: None
 switch:
   description: List of switches
   required: true
@@ -764,28 +806,7 @@ weather:
       description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-"[all sensor, binary sensor, button, image, light, number, select, switch, weather entities]":
-  description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
-  required: false
-  type: map
-  keys:
-    name:
-      description: Defines a template to get the name of the entity.
-      required: false
-      type: template
-    unique_id:
-      description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
-      required: false
-      type: string
-    icon:
-      description: Defines a template for the icon of the entity.
-      required: false
-      type: template
-    availability:
-      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison is not case sensitive; `"TrUe"` and `"yEs"` are allowed.
-      required: false
-      type: template
-      default: true
+
 
 {% endconfiguration %}
 
