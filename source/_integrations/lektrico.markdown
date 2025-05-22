@@ -113,7 +113,7 @@ Buttons available in the library:
 | :------------------------- | :--------------------------------- |
 | charge_start               | Command charger to start charging. |
 | charge_stop                | Command charger to stop charging.  |
-| charging_schedule_override | Command charger to override the charging schedule for the next charging. |
+| charging_schedule_override | Command charger to override the charging schedule for the next charging session. |
 | reboot                     | Reboot charger.                    |
 
 ### Energy meters
