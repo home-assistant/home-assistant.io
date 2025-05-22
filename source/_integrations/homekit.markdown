@@ -278,7 +278,7 @@ homekit:
               required: false
               type: string
               default: libx264
-              available options: copy, libx264, h264_v4l2m2m, h264_omx
+              available options: copy, libx264, h264_v4l2m2m, h264_omx, h264_qsv
             video_profile_names:
               description: Only for `camera` entities. FFmpeg video profile names for transcoding, only relevant if `video_codec` isn't `copy`. Some encoders, e.g., the Raspberry Pi's `h264_v4l2m2m`, don't use the standard `["baseline", "main", "high"]` profile names but expects `["0", "2", "4"]` instead. Use this option to override the default names, if needed.
               required: false
