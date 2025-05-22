@@ -14,7 +14,7 @@ ha_platforms:
 ---
 
 The Home Assistant Hardware integration provides functionality
-shared between [Home Assistant Yellow](/integrations/homeassistant_yellow/), [Home Assistant Connect ZBT-1](/integrations/homeassistant_sky_connect/), and [Home Assistant Green](/integrations/homeassistant_green).
+shared between [Home Assistant Connect ZBT-1](/integrations/homeassistant_sky_connect/), [Home Assistant Green](/integrations/homeassistant_green), and [Home Assistant Yellow](/integrations/homeassistant_yellow/).
 
 ## Configuration
 
