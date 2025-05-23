@@ -20,19 +20,28 @@ Screenshot of the clock card
 All options for this card can be configured via the user interface.
 
 
-## Card settings
+## YAML configuration
 
-{% configuration_basic %}
-Title:
+{% configuration %}
+type:
+  required: true
+  description: "`clock`"
+  type: string
+title:
   description: Adds a title to the top of the card
-Clock Size:
-  description: Adjusts the size of the text allowing a wider range of use with different types of dashboards. Defaults to small.
-Display Seconds:
+  type: string (optional)
+clock_size:
+  description: Adjusts the size of the text allowing a wider range of use with different types of dashboards.
+  type: string (optional, default: small)
+show_seconds:
   description: Shows seconds alongside the clock, providing the time format is in a 12-hour format.
-Time Format:
+  type: boolean (optional, default: false)
+time_format:
   description: Allows the time format to be changed on a per-card level. Defaults to the user profile setting.
-Time Zone:
+  type: '12' or '24' 
+time_zone:
   description: Change the timezone used for the time on a per-card level. Defaults to the user profile setting.
+  type: string (optional)
 {% endconfiguration_basic %}
 
 ### Examples
