@@ -79,7 +79,7 @@
     Home Assistant has built-in functionality to create files containing a copy
     of your configuration. This can be used to restore your Home Assistant as
     well as migrate to a new system. The backup feature is available for all
-    [installation types](/installation/#advanced-installation-methods).
+    [installation types](/installation/#about-installation-methods).
   link: /common-tasks/general/#backups
   aliases:
     - backups
@@ -307,7 +307,7 @@
     Home Assistant Container is a standalone container-based installation of
     Home Assistant Core. Any [OCI](https://opencontainers.org/) compatible
     runtime can be used, but the documentation focus is on Docker.
-  link: /installation/#advanced-installation-methods
+  link: /installation/#about-installation-methods
 - term: Home Assistant Core
   definition: >-
     Home Assistant Core is the Python program at the heart of Home Assistant. It

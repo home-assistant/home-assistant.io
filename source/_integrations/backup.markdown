@@ -25,7 +25,7 @@ related:
     title: backup emergency kit
 ---
 
-The **Backup** {% term integration %} is used by all [installation types](/installation/#advanced-installation-methods) to create and restore backups.
+The **Backup** {% term integration %} is used by all [installation types](/installation/#about-installation-methods) to create and restore backups.
 
 To learn how to create and restore a backup, refer to the backup section under [common tasks](/common-tasks/general/#backups).
 
@@ -59,7 +59,7 @@ action: backup.create_automatic
 The {% my developer_call_service service="backup.create" %} action can be used
 to create a backup of your Home Assistant instance.
 
-- This action is only available in [core and container installations](/installation/#advanced-installation-methods).
+- This action is only available in [core and container installations](/installation/#about-installation-methods).
 - The action has no additional options or parameters.
 - The backup will only be saved on the local storage.
 - The backup created with `backup.create` always includes the database.

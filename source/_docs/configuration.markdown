@@ -31,7 +31,7 @@ Example of a configuration.yaml file, accessed using the File editor add-on on a
 
 ## Editing `configuration.yaml`
 
-How you edit your `configuration.yaml` file depends on your editor preferences and the [installation method](/installation/#advanced-installation-methods) you used to set up Home Assistant. Follow these steps:
+How you edit your `configuration.yaml` file depends on your editor preferences and the [installation method](/installation/#about-installation-methods) you used to set up Home Assistant. Follow these steps:
 
 1. [Set up file access](#to-set-up-access-to-the-files-and-prepare-an-editor).
 2. [Locate the config directory](#to-find-the-configuration-directory).
@@ -41,9 +41,9 @@ How you edit your `configuration.yaml` file depends on your editor preferences a
 ### To set up access to the files and prepare an editor
 
 Before you can edit a file, you need to know how to access files in Home Assistant and setup an editor.
-File access depends on your [installation method](/installation/#advanced-installation-methods). If you use {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %}, you can use editor add-ons, for example, but not if you use {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}.
+File access depends on your [installation method](/installation/#about-installation-methods). If you use {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %}, you can use editor add-ons, for example, but not if you use {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}.
 
-To set up file access, follow the steps for your [installation method](/installation/#advanced-installation-methods):
+To set up file access, follow the steps for your [installation method](/installation/#about-installation-methods):
 
 - [Configure file access on the Operating System](/common-tasks/os/#configuring-access-to-files):
   - If you are unsure which option to choose, install the [file editor add-on](/common-tasks/os/#installing-and-using-the-file-editor-add-on).
@@ -80,7 +80,7 @@ If you have watched any videos about setting up Home Assistant using `configurat
 
 After changing configuration or automation files, you can check if the configuration is valid. A configuration check is also applied automatically when you reload the configuration or when you restart Home Assistant.
 
-The method for running a configuration check depends on your [installation type](/installation/#advanced-installation-methods). Check the common tasks for your installation type:
+The method for running a configuration check depends on your [installation type](/installation/#about-installation-methods). Check the common tasks for your installation type:
 
 - [Configuration check on Operating System](/common-tasks/os/#configuration-check)
 - [Configuration check on Supervised](/common-tasks/supervised/#configuration-check)
