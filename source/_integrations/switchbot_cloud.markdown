@@ -75,5 +75,5 @@ For IR Appliances, the state is inferred from previous commands in Home Assistan
 For vacuums, the states are updated from SwitchBot's cloud.
 
 {% warning %}
-Only ONE webhook URL seems to be accepted by the SwitchBot's cloud. So, if you want several applications to be notified, it's not possible, or you'll have to go through a “proxy” which will re-dispatch the message to the other applications.
+Only ONE webhook URL seems to be accepted by the SwitchBot's cloud. So, if you want several applications notified,  you need to use a “proxy” to re-dispatch the message to the other applications.
 {% endwarning %}
