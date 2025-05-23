@@ -13,11 +13,11 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The **Backblaze B2** {% term integration %} allows you to use a [Backblaze B2](https://www.backblaze.com/cloud-storage) bucket for use with Home Assistant Backups.
+The **Backblaze B2** {% term integration %} enables you to use a [Backblaze B2](https://www.backblaze.com/cloud-storage) bucket as a backup location in Home Assistant.
 
 ## Prerequisites
 
-This integration requires an existing B2 bucket and application key that has access to that bucket. It is recommended to create a key that only has access to the required bucket and prefix (if desired).
+This integration requires an existing B2 bucket and an application key that has access to that bucket. It is recommended to create a key that only has access to the required bucket and prefix (if desired).
 
 {% details "Create a new B2 bucket" %}
 
@@ -36,13 +36,13 @@ Make a note of the bucket name — you’ll need it later.
 
 {% details "Create an application key" %}
 
-To create a application key that can access the bucket:
+To create an application key that can access the bucket:
 
 1. Go to [**Application Keys**](https://secure.backblaze.com/app_keys.htm) in the sidebar.
 2. Click **Add a New Application Key**.
 3. Use a name like `home-assistant-backup`.
 4. Limit access to the bucket you created earlier by selecting it from the **Choose a bucket** dropdown.
-5. Type of access should be **Read and Write**.
+5. The type of access should be **Read and Write**.
 6. **Allow List All Bucket Names** can be left unchecked.
 7. Optionally, you can limit the key to a specific prefix (e.g., `home-assistant-backups`) if you want to save backups in a specific folder within the bucket.
 8. Click **Create New Key**.
