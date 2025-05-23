@@ -315,7 +315,7 @@
     Assistant Core installation method) or as a container using Docker
     (typically referred to as Home Assistant Container installation method). The
     [Home Assistant Core installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/). 
-  link: /installation/#advanced-installation-methods  
+  link: /installation/#advanced-installation-methods
 - term: Home Assistant Supervised
   definition: >-
     The Home Assistant Supervised installation method is a full UI managed home automation ecosystem
@@ -323,7 +323,7 @@
     add-ons. It comes pre-installed on Home Assistant OS, but can be installed
     standalone on Debian Linux systems. It leverages Docker, which is managed by
     the Home Assistant Supervisor. The
-    [Home Assistant Supervised installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/)
+    [Home Assistant Supervised installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
   link: /installation/#advanced-installation-methods
 - term: Home Assistant Supervisor
   definition: >-
