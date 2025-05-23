@@ -72,14 +72,15 @@ Prefix:
 
 ## Setting up the Backblaze B2 integration in Home Assistant
 
+## Setting up the Backblaze B2 integration in Home Assistant
+
 1. In Home Assistant, go to **Settings > Devices & Services**.
-1. Click **Add Integration** and search for **Backblaze B2**.
-1. Enter the following details:
+2. Click **Add Integration** and search for **Backblaze B2**.
+3. Enter the following details:
    - Access Key ID and Application Key from the B2 Console
    - Your bucket name
    - (Optional) Prefix for the backups
-1. Click **Submit**.
-
+4. Click **Submit**.
 The integration will test the connection and confirm access to your bucket.
 
 ## Known limitations
