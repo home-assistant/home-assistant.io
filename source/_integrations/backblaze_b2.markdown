@@ -72,8 +72,6 @@ Prefix:
 
 ## Setting up the Backblaze B2 integration in Home Assistant
 
-## Setting up the Backblaze B2 integration in Home Assistant
-
 1. In Home Assistant, go to **Settings > Devices & Services**.
 2. Click **Add Integration** and search for **Backblaze B2**.
 3. Enter the following details:
