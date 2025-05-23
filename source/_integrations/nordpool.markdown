@@ -125,7 +125,9 @@ Currency:
 
 The public API only allows us to see past pricing information for up to 2 months.
 
-Tomorrow's prices are typically released around 13:00 CET, and trying to get them before that time will generate an error that needs to be considered in such a case.
+Meanwhile Nord Pool operates in CET/CEST timezone all the data is returned in UTC which may need to be considered depending on how the data is consumed or manipulated.
+
+Tomorrow's prices are typically released around 13:00 CET/CEST, and trying to get them before that time will return an empty list.
 
 {% endnote %}
 
@@ -227,26 +229,18 @@ template:
       - name: Tomorrow lowest price
         unique_id: se3_tomorrow_low_price
         state: >
-          {% if not tomorrow_price %}
-            unavailable
-          {% else %}
-            {% set data = namespace(prices=[]) %}
-            {% for state in tomorrow_price['SE3'] %}
-              {% set data.prices = data.prices + [(state.price / 1000)] %}
-            {% endfor %}
-            {{min(data.prices)}}
-          {% endif %}
+          {% set data = namespace(prices=[]) %}
+          {% for state in tomorrow_price['SE3'] %}
+            {% set data.prices = data.prices + [(state.price / 1000)] %}
+          {% endfor %}
+          {{min(data.prices)}}
         attributes:
           data: >
-            {% if not tomorrow_price %}
-              []
-            {% else %}
-              {% set data = namespace(prices=[]) %}
-              {% for state in tomorrow_price['SE3'] %}
-                {% set data.prices = data.prices + [{'start':state.start, 'end':state.end, 'price': state.price/1000}] %}
-              {% endfor %}
-              {{data.prices}}
-            {% endif %}
+            {% set data = namespace(prices=[]) %}
+            {% for state in tomorrow_price['SE3'] %}
+              {% set data.prices = data.prices + [{'start':state.start, 'end':state.end, 'price': state.price/1000}] %}
+            {% endfor %}
+            {{data.prices}}
 ```
 
 {% endraw %}
