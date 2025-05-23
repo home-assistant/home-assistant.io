@@ -129,9 +129,9 @@ See [Connection](#connection) on how to get the files or keys needed for this co
 
 You can change your KNX connection configuration at any time through the integration settings. This is useful when you need to update the Keyring file or switch to a different connection type.
 
-1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**
-2. Select **KNX**
-3. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**
+1. Go to {% my integrations icon title="**Settings** > **Devices & services**" %}.
+2. Select **KNX**.
+3. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
 
 ### Configure KNX interface
 
