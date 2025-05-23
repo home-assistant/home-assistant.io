@@ -39,6 +39,8 @@
   excerpt: >
     Add-ons are additional standalone third-party software packages that can be
     installed on Home Assistant OS.
+  aliases:
+    - add-ons
   link: /getting-started/concepts-terminology/#add-ons
 - term: Area
   definition: >-
