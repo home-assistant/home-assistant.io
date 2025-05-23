@@ -40,7 +40,7 @@ For the Home Assistant Yellow, we have two ways to install Home Assistant OS ont
 
 If you already have a Yellow running Home Assistant OS, upgrading to CM5 can be a drop-in replacement, but in some circumstances it can be more complex,
 
-- **CM4 Lite (no eMMC) with NVMe storage** - Update to the latest HAOS (version 14.0 or greater - as of writing 14.0 is still pre-release, we recommend you wait for the stable release, but if you want to get the pre-release today either [join the beta channel](https://www.home-assistant.io/common-tasks/os/#running-a-beta-version) or [explicitly install](https://www.home-assistant.io/common-tasks/os/#running-a-specific-version) `14.0.rc2`), power it down, swap the CM4 Lite for a CM5 Lite, and you're good to go.
+- **CM4 Lite (no eMMC) with NVMe storage** - Update to the latest HAOS (version 14.0 or greater), power it down, swap the CM4 Lite for a CM5 Lite, and you're good to go.
 
 - **CM4 with eMMC (regardless if you are using NVMe or not)** -  Download a backup of your Home Assistant, power down your system, and install Home Assistant OS on the CM5 using [rpiboot](https://support.nabucasa.com/hc/en-us/articles/25485061432093-Reinstall-the-Home-Assistant-Operating-System-on-Raspberry-Pi-CM5) (the more complex installation method). Once installed restore the backup.
 
