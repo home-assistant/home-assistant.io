@@ -1366,6 +1366,113 @@ For a summary in a more readable format:
 [@tl-sl]: https://github.com/tl-sl
 [@zweckj]: https://github.com/zweckj
 
+## Release 2025.5.3 - May 23
+
+- Netatmo: do not fail on schedule updates ([@wuede] - [#142933])
+- Fix QNAP fail to load ([@disforw] - [#144675])
+- Allow image send with read-only access (matrix notify) ([@TheOneValen] - [#144819])
+- Postpone update in WMSPro after service call ([@mback2k] - [#144836])
+- Bump ESPHome stable BLE version to 2025.5.0 ([@bdraco] - [#144857])
+- Fix album and artist returning "None" rather than None for Squeezebox media player. ([@peteS-UK] - [#144971])
+- Bump aiontfy to 0.5.2 ([@tr4nt0r] - [#145044])
+- Fix proberly Ecovacs mower area sensors ([@edenhaus] - [#145078])
+- Map auto to heat_cool for thermostat in SmartThings ([@joostlek] - [#145098])
+- Add missing device condition translations to lock component ([@jpbede] - [#145104])
+- Fix history_stats with sliding window that ends before now ([@karwosts] - [#145117])
+- Bump sense-energy to 0.13.8 ([@kbickar] - [#145156])
+- Improve Z-Wave config flow tests ([@MartinHjelmare] - [#144871])
+- Fix Z-Wave unique id update during controller migration ([@MartinHjelmare] - [#145185])
+- Bump velbusaio to 2025.5.0 ([@cereal2nd] - [#145198])
+- Bump aiocomelit to 0.12.3 ([@chemelli74] - [#145209])
+- Fix Z-Wave config entry unique id after NVM restore ([@MartinHjelmare] - [#145221])
+- Bump holidays to 0.73 ([@gjohansson-ST] - [#145238])
+- Bump pyaprilaire to 0.9.0 ([@chamberlain2007] - [#145260])
+- Add cloud as after_dependency to onedrive ([@zweckj] - [#145301])
+- Handle more exceptions in azure_storage ([@zweckj] - [#145320])
+- Fix limit of shown backups on Synology DSM location ([@mib1185] - [#145342])
+- Add initial coordinator refresh for players in Squeezebox ([@peteS-UK] - [#145347])
+- Fix: Revert Ecovacs mower total_stats_area unit to square meters ([@Augar] - [#145380])
+- Bump pysqueezebox to v0.12.1 ([@rajlaud] - [#145384])
+- OTBR: remove links to obsolete multiprotocol docs ([@c0ffeeca7] - [#145394])
+- Bump pylamarzocco to 2.0.4 ([@zweckj] - [#145402])
+- Bump py-synologydsm-api to 2.7.2 ([@mib1185] - [#145403])
+- Mark backflush binary sensor not supported for GS3 MP in lamarzocco ([@zweckj] - [#145406])
+- Bump yt-dlp to 2025.05.22 ([@joostlek] - [#145441])
+- Reolink fix device migration ([@starkillerOG] - [#145443])
+- Bump pysmartthings to 3.2.3 ([@joostlek] - [#145444])
+- Bump opower to 0.12.1 ([@tronikos] - [#145464])
+- Make Gemma models work in Google AI ([@tronikos] - [#145479])
+- Fix strings related to Google search tool in Google AI ([@tronikos] - [#145480])
+- Bump pyfibaro to 0.8.3 ([@rappenze] - [#145488])
+- Bump deebot-client to 13.2.1 ([@edenhaus] - [#145492])
+
+[#142933]: https://github.com/home-assistant/core/pull/142933
+[#144406]: https://github.com/home-assistant/core/pull/144406
+[#144564]: https://github.com/home-assistant/core/pull/144564
+[#144675]: https://github.com/home-assistant/core/pull/144675
+[#144819]: https://github.com/home-assistant/core/pull/144819
+[#144836]: https://github.com/home-assistant/core/pull/144836
+[#144857]: https://github.com/home-assistant/core/pull/144857
+[#144871]: https://github.com/home-assistant/core/pull/144871
+[#144971]: https://github.com/home-assistant/core/pull/144971
+[#145044]: https://github.com/home-assistant/core/pull/145044
+[#145072]: https://github.com/home-assistant/core/pull/145072
+[#145078]: https://github.com/home-assistant/core/pull/145078
+[#145098]: https://github.com/home-assistant/core/pull/145098
+[#145104]: https://github.com/home-assistant/core/pull/145104
+[#145117]: https://github.com/home-assistant/core/pull/145117
+[#145156]: https://github.com/home-assistant/core/pull/145156
+[#145185]: https://github.com/home-assistant/core/pull/145185
+[#145198]: https://github.com/home-assistant/core/pull/145198
+[#145209]: https://github.com/home-assistant/core/pull/145209
+[#145221]: https://github.com/home-assistant/core/pull/145221
+[#145238]: https://github.com/home-assistant/core/pull/145238
+[#145260]: https://github.com/home-assistant/core/pull/145260
+[#145301]: https://github.com/home-assistant/core/pull/145301
+[#145320]: https://github.com/home-assistant/core/pull/145320
+[#145342]: https://github.com/home-assistant/core/pull/145342
+[#145347]: https://github.com/home-assistant/core/pull/145347
+[#145380]: https://github.com/home-assistant/core/pull/145380
+[#145384]: https://github.com/home-assistant/core/pull/145384
+[#145394]: https://github.com/home-assistant/core/pull/145394
+[#145402]: https://github.com/home-assistant/core/pull/145402
+[#145403]: https://github.com/home-assistant/core/pull/145403
+[#145406]: https://github.com/home-assistant/core/pull/145406
+[#145441]: https://github.com/home-assistant/core/pull/145441
+[#145443]: https://github.com/home-assistant/core/pull/145443
+[#145444]: https://github.com/home-assistant/core/pull/145444
+[#145464]: https://github.com/home-assistant/core/pull/145464
+[#145479]: https://github.com/home-assistant/core/pull/145479
+[#145480]: https://github.com/home-assistant/core/pull/145480
+[#145488]: https://github.com/home-assistant/core/pull/145488
+[#145492]: https://github.com/home-assistant/core/pull/145492
+[@Augar]: https://github.com/Augar
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@TheOneValen]: https://github.com/TheOneValen
+[@bdraco]: https://github.com/bdraco
+[@c0ffeeca7]: https://github.com/c0ffeeca7
+[@cereal2nd]: https://github.com/cereal2nd
+[@chamberlain2007]: https://github.com/chamberlain2007
+[@chemelli74]: https://github.com/chemelli74
+[@disforw]: https://github.com/disforw
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@karwosts]: https://github.com/karwosts
+[@kbickar]: https://github.com/kbickar
+[@mback2k]: https://github.com/mback2k
+[@mib1185]: https://github.com/mib1185
+[@peteS-UK]: https://github.com/peteS-UK
+[@rajlaud]: https://github.com/rajlaud
+[@rappenze]: https://github.com/rappenze
+[@starkillerOG]: https://github.com/starkillerOG
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@tronikos]: https://github.com/tronikos
+[@wuede]: https://github.com/wuede
+[@zweckj]: https://github.com/zweckj
+
 [#126150]: https://github.com/home-assistant/core/pull/126150
 [#126775]: https://github.com/home-assistant/core/pull/126775
 [#127875]: https://github.com/home-assistant/core/pull/127875
