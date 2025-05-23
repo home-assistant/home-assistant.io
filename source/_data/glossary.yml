@@ -315,8 +315,7 @@
     Supervisor) as a container using Docker (this is typically referred to as the Home Assistant
     Container installation method). For development, Core can also be run using a Virtual
     Environment (previously referred as the Home Assistant Core installation method.
-    For production setup, the [Home Assistant Core installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/). 
-  link: /installation/#advanced-installation-methods  
+    For production setup, the [Home Assistant Core installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
 - term: Home Assistant Supervised
   definition: >-
     The Home Assistant Supervised installation method is a full UI managed home automation ecosystem
@@ -324,14 +323,12 @@
     add-ons. It comes pre-installed on Home Assistant OS, but can be installed
     standalone on Debian Linux systems. It leverages Docker, which is managed by
     the Home Assistant Supervisor. The
-    [Home Assistant Supervised installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
-  link: /installation/#advanced-installation-methods
+    [Home Assistant Supervised installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).  
 - term: Home Assistant Supervisor
   definition: >-
     The Home Assistant Supervisor is a program that manages a Home Assistant
     installation, taking care of installing and updating Home Assistant,
     add-ons, itself, and, if used, updating the Home Assistant Operating System.
-  link: /installation/#advanced-installation-methods
 - term: Home Assistant Operating System
   definition: >-
     Home Assistant OS, the Home Assistant Operating System, is an embedded,
@@ -341,11 +338,6 @@
     add-ons. Home Assistant Supervisor keeps it up to date, removing the need
     for you to manage an operating system. Home Assistant Operating System is
     the recommended installation method for most users.
-  excerpt: >
-    Home Assistant OS, the Home Assistant Operating System, is an embedded,
-    minimalistic, operating system designed to run the Home Assistant ecosystem.
-    It is the recommended installation method for most users.
-  link: /installation/#advanced-installation-methods
 - term: Host
   definition: >-
     A device that can communicate with other devices on a network. During setup
