@@ -41,18 +41,13 @@ How you edit your `configuration.yaml` file depends on your editor preferences a
 ### To set up access to the files and prepare an editor
 
 Before you can edit a file, you need to know how to access files in Home Assistant and setup an editor.
-File access depends on your [installation method](/installation/#about-installation-methods). If you use {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %}, you can use editor add-ons, for example, but not if you use {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}.
+File access depends on your [installation method](/installation/#about-installation-methods). If you use {% term "Home Assistant Operating System" %}, you can use editor add-ons, for example. If you use {% term "Home Assistant Container" %}, add-ons are not available.
 
-To set up file access, follow the steps for your [installation method](/installation/#about-installation-methods):
+To set up file access on the Home Assistant Operating System, follow these steps:
 
-- [Configure file access on the Operating System](/common-tasks/os/#configuring-access-to-files):
-  - If you are unsure which option to choose, install the [file editor add-on](/common-tasks/os/#installing-and-using-the-file-editor-add-on).
+- If you are unsure which option to choose, install the [file editor add-on](/common-tasks/os/#installing-and-using-the-file-editor-add-on).
   - Alternatively, use the [Studio Code Server add-on](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on). This editor offers live syntax checking and auto-fill of various Home Assistant entities. But it looks more complex than the file editor.
   - If you prefer to use a file editor on your computer, use the [Samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
-- [Configure file access on Supervised](/common-tasks/supervised/#configuring-access-to-files):
-  - Using the [File editor add-on](/common-tasks/supervised/#installing-and-using-the-file-editor-add-on).
-  - Using the [Studio Code Server add-on](/common-tasks/supervised/#installing-and-using-the-visual-studio-code-vsc-add-on).
-  - Using the [Samba add-on](/common-tasks/supervised/#installing-and-using-the-samba-add-on).
 
 ### To find the configuration directory
 
@@ -67,7 +62,6 @@ To set up file access, follow the steps for your [installation method](/installa
    - Unless you changed the file structure, the default is as follows:     - 
      - {% term "Home Assistant Operating System" %}: the `configuration.yaml` is in the `/config` folder of the installation.
      - {% term "Home Assistant Container" %}: the `configuration.yaml` is in the config folder that you mounted in your container.
-     - {% term "Home Assistant Core" %}: the `configuration.yaml` is in the config folder passed to the `hass` command (default is `~/.homeassistant`).
 3. Once you located the config folder, you can edit your `configuration.yaml` file.
 
 {% note %}
@@ -83,9 +77,7 @@ After changing configuration or automation files, you can check if the configura
 The method for running a configuration check depends on your [installation type](/installation/#about-installation-methods). Check the common tasks for your installation type:
 
 - [Configuration check on Operating System](/common-tasks/os/#configuration-check)
-- [Configuration check on Supervised](/common-tasks/supervised/#configuration-check)
 - [Configuration check on Container](/common-tasks/container/#configuration-check)
-- [Configuration check on Core](/common-tasks/core/#configuration-check)
 
 ## Reloading the configuration to apply changes
 
