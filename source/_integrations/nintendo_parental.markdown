@@ -48,17 +48,6 @@ To set up the integration, follow these steps:
 
 10. Click **Submit** to finalize the setup.
 
-## Configuration options
-
-The integration provides the following configuration options:
-
-{% configuration_basic %}
-Update Interval:
-  description: The frequency to poll Nintendo's APIs for updated data. Note, screentime data from the Switch itself is only sent to Nintendo every **5 minutes**
-  default: 60
-  unit: seconds
-{% endconfiguration_basic %}
-
 ## Supported functionality
 
 ### Entities
@@ -67,8 +56,12 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
 
 #### Sensors
 
-- **Used Screen Time**
+- **Used screen time**
   - **Description**: The current used screen time for a given device.
+  - **Unit of measurement**: `minutes`
+  - **Device class**: `duration`
+- **Time remaining**
+  - **Description**: The amount total amount of time remaining for a device.
   - **Unit of measurement**: `minutes`
   - **Device class**: `duration`
 
