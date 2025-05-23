@@ -83,7 +83,7 @@ But you can do the following workaround that exposes a script to voice assistant
 
 1. Add a second Google Generative AI service.
 2. Select **Configure**
-3. Select **No control** under **Control Home Assistant**
+3. Uncheck **Assist**, and any other checkboxes if any, under **Control Home Assistant**
 4. Uncheck **Recommended model settings**
 5. Select **Submit**
 6. Check **Enable Google Search tool**
