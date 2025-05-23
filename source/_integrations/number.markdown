@@ -53,10 +53,10 @@ The following device classes are supported for numbers:
 - **distance**: Generic distance in km, m, cm, mm, mi, nmi, yd, or in
 - **duration**: Duration in d, h, min, s, ms, or µs
 - **energy**: Energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
-- **energy_distance**: Energy per distance in kWh/100km, mi/kWh or km/kWh.
+- **energy_distance**: Energy per distance in kWh/100km, Wh/km, mi/kWh, or km/kWh.
 - **energy_storage**: Stored energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
-- **gas**: Gasvolume in m³, ft³ or CCF
+- **gas**: Gas volume in L, m³, ft³ or CCF
 - **humidity**: Percentage of humidity in the air in %
 - **illuminance**: The current light level in lx
 - **irradiance**: Irradiance in W/m² or BTU/(h⋅ft²)
@@ -75,6 +75,7 @@ The following device classes are supported for numbers:
 - **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d or mm/h
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg or psi
+- **reactive_energy**: Reactive energy in varh or kvarh
 - **reactive_power**: Reactive power in var or kvar
 - **signal_strength**: Signal strength in dB or dBm
 - **sound_pressure**: Sound pressure in dB or dBA
