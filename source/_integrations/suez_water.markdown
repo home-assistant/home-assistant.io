@@ -58,11 +58,11 @@ In the configuration of the energy dashboard ({% my config_energy title="**Setti
 
 ### Statistics details
 
-- **Suez water Consumption** (`suez_water_water_consumption_statistics_{counter_id}`):
+- **Suez water consumption** (`suez_water_water_consumption_statistics_{counter_id}`):
   - Contains daily water consumption in liters
   - Provides both state and sum statistics for each day
 
-- **Suez water Cost** (`suez_water_water_cost_statistics_{counter_id}`):
+- **Suez water cost** (`suez_water_water_cost_statistics_{counter_id}`):
   - Contains daily cost calculations in euros
   - Provides both state and sum statistics for each day
   - **Important**: Historical costs are calculated using the current water price since historical price information is not available. If water prices have changed over time, the calculated historical costs may not match your actual bills.
