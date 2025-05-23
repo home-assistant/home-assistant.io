@@ -137,7 +137,9 @@ Currency:
 
 The public API only allows us to see past pricing information for up to 2 months.
 
-Tomorrow's prices are typically released around 13:00 CET, and trying to get them before that time will generate an error that needs to be considered in such a case.
+Meanwhile Nord Pool operates in CET/CEST timezone all the data is returned in UTC which may need to be considered depending on how the data is consumed or manipulated.
+
+Tomorrow's prices are typically released around 13:00 CET/CEST, and trying to get them before that time will generate an error that needs to be considered in such a case.
 
 {% endnote %}
 
