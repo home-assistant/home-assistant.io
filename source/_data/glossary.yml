@@ -313,22 +313,17 @@
     operating systems. It can be installed standalone (without Home Assistant
     Supervisor), using a Virtual Environment (typically referred to as Home
     Assistant Core installation method) or as a container using Docker
-    (typically referred to as Home Assistant Container installation method).
-  link: /installation/#advanced-installation-methods
-  excerpt: >
-    Home Assistant Core is the heart of Home Assistant itself. It is a Python
-    program that powers every installation type, but can be installed
-    standalone.
+    (typically referred to as Home Assistant Container installation method). The
+    [Home Assistant Core installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/). 
+  link: /installation/#advanced-installation-methods  
 - term: Home Assistant Supervised
   definition: >-
-    Home Assistant Supervised is a full UI managed home automation ecosystem
+    The Home Assistant Supervised installation method is a full UI managed home automation ecosystem
     that runs the Home Assistant Core program, the Home Assistant Supervisor and
     add-ons. It comes pre-installed on Home Assistant OS, but can be installed
     standalone on Debian Linux systems. It leverages Docker, which is managed by
-    the Home Assistant Supervisor.
-  excerpt: >
-    Home Assistant Supervised is the full Home Assistant ecosystem, without the
-    Home Assistant Operating System.
+    the Home Assistant Supervisor. The
+    [Home Assistant Supervised installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/)
   link: /installation/#advanced-installation-methods
 - term: Home Assistant Supervisor
   definition: >-
