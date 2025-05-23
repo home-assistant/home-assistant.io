@@ -294,12 +294,12 @@ retain:
   type: boolean
   default: true
 speed_range_max:
-  description: The maximum of numeric output range (representing 100 %). The number of speeds within the `speed_range` / `100` will determine the `percentage_step`.
+  description: The maximum of numeric output range (representing 100 %). The `percentage_step` is defined by `100` / the number of speeds within the speed range.
   required: false
   type: integer
   default: 100
 speed_range_min:
-  description: The minimum of numeric output range (`off` not included, so `speed_range_min` - `1` represents 0 %). The number of speeds within the speed_range / 100 will determine the `percentage_step`.
+  description: The minimum of numeric output range (`off` not included, so `speed_range_min` - `1` represents 0 %). The `percentage_step` is defined by `100` / the number of speeds within the speed range.
   required: false
   type: integer
   default: 1
