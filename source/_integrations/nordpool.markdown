@@ -241,18 +241,26 @@ template:
       - name: Tomorrow lowest price
         unique_id: se3_tomorrow_low_price
         state: >
-          {% set data = namespace(prices=[]) %}
-          {% for state in tomorrow_price['SE3'] %}
-            {% set data.prices = data.prices + [(state.price / 1000)] %}
-          {% endfor %}
-          {{min(data.prices)}}
-        attributes:
-          data: >
+          {% if not tomorrow_price %}
+            unavailable
+          {% else %}
             {% set data = namespace(prices=[]) %}
             {% for state in tomorrow_price['SE3'] %}
-              {% set data.prices = data.prices + [{'start':state.start, 'end':state.end, 'price': state.price/1000}] %}
+              {% set data.prices = data.prices + [(state.price / 1000)] %}
             {% endfor %}
-            {{data.prices}}
+            {{min(data.prices)}}
+          {% endif %}
+        attributes:
+          data: >
+            {% if not tomorrow_price %}
+              []
+            {% else %}
+              {% set data = namespace(prices=[]) %}
+              {% for state in tomorrow_price['SE3'] %}
+                {% set data.prices = data.prices + [{'start':state.start, 'end':state.end, 'price': state.price/1000}] %}
+              {% endfor %}
+              {{data.prices}}
+            {% endif %}
 ```
 
 {% endraw %}

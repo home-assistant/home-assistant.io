@@ -15,14 +15,12 @@ ha_platforms:
   - button
   - climate
   - cover
-  - event
   - fan
   - light
   - lock
   - number
   - select
   - sensor
-  - siren
   - switch
   - valve
 ha_integration_type: hub

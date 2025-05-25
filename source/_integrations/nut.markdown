@@ -103,10 +103,7 @@ The following sensors may be available:
 - **Input load (%)**: Load on (ePDU) input
 - **Input voltage (V)**: Input voltage
 - **Load (%)**: Load on UPS
-- **Outlet apparent power (VA)**: Apparent power for all outlets
-- **Outlet current (A)**: Current for all outlets
-- **Outlet real power (W)**: Real power for all outlets
-- **Outlet voltage (V)**: Voltage for all outlets
+- **Outlet voltage (V)**: Total output voltage
 - **Output phases**: Output phases
 - **Output voltage (V)**: Output voltage
 - **Status**: Human-readable version of "Status data" (see below)
