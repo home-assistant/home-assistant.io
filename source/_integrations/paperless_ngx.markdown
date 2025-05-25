@@ -22,6 +22,8 @@ The **Paperless-ngx** {% term integration %} allows you to connect your [Paperle
 
 To ensure full functionality of this integration, you must have **read permissions** for all document-related resources, including documents, tags, document types, and correspondents.
 
+To enable monitoring of diagnostic sensors, you must have **administrator permissions**. Without administrator rights, specific API endpoints cannot be accessed, and the sensor states will not be available.
+
 {% details "Create an access token" %}
 
 1. Log in to your **Paperless-ngx** instance.
@@ -45,14 +47,22 @@ API key:
 
 This integration provides {% term sensors %} for the following information from Paperless-ngx:
 
-| Sensor                   | Description                                                              |
-|--------------------------|--------------------------------------------------------------------------|
-| **Correspondents**       | Indicates the total number of defined correspondents.                    |
-| **Document types**       | Indicates the total number of defined document types.                    |
-| **Documents in inbox**   | Indicates the number of documents currently in the inbox.                |
-| **Tags**                 | Indicates the total number of defined tags                               |
-| **Total characters**     | Indicates the total number of characters extracted from all documents.   |
-| **Total documents**      | Indicates the total number of documents stored.                          |
+| Sensor                   | Description                                                                    |
+|--------------------------|--------------------------------------------------------------------------------|
+| **Correspondents**       | Indicates the total number of defined correspondents.                          |
+| **Document types**       | Indicates the total number of defined document types.                          |
+| **Documents in inbox**   | Indicates the number of documents currently in the inbox.                      |
+| **Tags**                 | Indicates the total number of defined tags                                     |
+| **Total characters**     | Indicates the total number of characters extracted from all documents.         |
+| **Total documents**      | Indicates the total number of documents stored.                                |
+| **Total storage**        | Indicates the total disk space used by Paperless-ngx.                          |
+| **Available storage**    | Indicates the remaining available disk space for Paperless-ngx.                |
+| **Status database**      | Indicates whether the database is reachable and functioning correctly.         |
+| **Status index**         | Indicates whether the document indexing service is operational.                |
+| **Status classifier**    | Indicates whether the document classifier service is running properly.         |
+| **Status celery**        | Indicates whether the Celery task queue is active and processing tasks.        |
+| **Status redis**         | Indicates whether the Redis service used for task queuing is available.        |
+| **Status sanity**        | Indicates the sanity of the Paperless-ngx documents.                           |
 
 
 ## Removing the integration
