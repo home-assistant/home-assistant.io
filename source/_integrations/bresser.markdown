@@ -1,6 +1,6 @@
 ---
-title: GARNI technology
-description: Instructions on how to integrate your GARNI technology devices into Home Assistant.
+title: Bresser
+description: Instructions on how to integrate your Bresser devices into Home Assistant.
 ha_category:
   - Sensor
 ha_release: 2025.6
@@ -13,13 +13,13 @@ ha_platforms:
   - sensor
 ---
 
-The **GARNI technology** {% term integration %} is a local-only {% term integration %} that reads weather data from GARNI weather station on the local network.
+The **Bresser** {% term integration %} is a local-only {% term integration %} that reads weather data from Bresser weather station on the local network.
 
 {% include integrations/config_flow.md %}
 
 ## Weather Station configuration
 
-1. In the **Settings** → **Devices & services**, click **Add integration** and select **GARNI technology** from the pop-up menu.
+1. In the **Settings** → **Devices & services**, click **Add integration** and select **Bresser** from the pop-up menu.
 2. Follow the instructions and press **Submit** to generate the following details.  
   For example:
    - Server IP: '192.168.1.154'
