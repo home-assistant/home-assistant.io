@@ -476,6 +476,27 @@ type:
   type: string
 {% endconfiguration %}
 
+## Light color hue
+
+Widget that displays a slider to select the hue for a [light](/integrations/light).
+
+<p class='img'>
+  <img src='/images/dashboards/features/light_color_hue.png' alt='Screenshot of the tile card with the light color hue feature'>
+  Screenshot of the tile card with the light color hue feature
+</p>
+
+```yaml
+features:
+  - type: "light-color-hue"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`light-color-hue`"
+  type: string
+{% endconfiguration %}
+
 ## Lock commands
 
 Widget that displays buttons to lock or unlock a [lock](/integrations/lock).
