@@ -59,15 +59,9 @@ Use the following templated Markdown card to list all packages in transit along 
 
 ```yaml
 type: markdown
-title: Packages in transit
-content: >
-  {% for package in
-  states.sensor['17track_in_transit'].attributes.packages %}
-
-  >- **{{ package.friendly_name }} ({{ package.tracking_number }}):** {{
-  package.info_text }}
-
-  {% endfor %}
+title: Number of packages delivered
+content: |
+  {{states.sensor['17track_delivered'].state}}
 
 ```
 
