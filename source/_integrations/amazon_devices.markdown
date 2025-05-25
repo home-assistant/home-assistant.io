@@ -3,8 +3,6 @@ title: Amazon Devices
 description: Instructions on how to integrate Amazon Devices into Home Assistant.
 ha_category:
   - Binary Sensor
-  - Notify
-  - Switch
 ha_release: '2025.6'
 ha_domain: amazon_devices
 ha_config_flow: true
@@ -13,8 +11,6 @@ ha_codeowners:
 ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
-  - notify
-  - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -42,6 +38,12 @@ There is support for the following devices within Home Assistant:
   otp:
     description: One-time password.
 {% endconfiguration_basic %}
+
+{% note %}
+When trying to set up the integration, the form may show the message "Cannot connect".
+This means that the specified country may need a special setting.
+Open a issue with all details to investigate
+{% endnote %}
 
 ## Examples
 
@@ -95,24 +97,6 @@ This integration {% term polling polls %} data from the device every 30 seconds 
 The **Amazon Devices** {% term integration %} provides the following entities:
 
 - Binary sensor - main and Bluetooth connectivity
-- Notify - send message of type sound, announce and custom
-- Switch - Do not disturb
-
-## Troubleshooting
-
-### Can’t set up the account
-
-#### Symptom: "Cannot connect"
-
-When trying to set up the integration, the form shows the message "Cannot connect".
-
-##### Description
-
-This means that the specified country may need a special setting.
-
-##### Resolution
-
-To resolve this issue, open a issue with all details to investigate.
 
 ## Removing the integration
 
