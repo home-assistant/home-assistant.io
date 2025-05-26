@@ -46,17 +46,16 @@ When the LMS cannot be discovered, it can be manually configured.
 
 {% configuration_basic %}
 Host:
-  description: "The host name or IP address (e.g., \"192.168.1.2\") of your LMS."
+description: "The host name or IP address (e.g., \"192.168.1.2\") of your LMS."
 Port:
-  description: "The integration uses the web interface of the Lyrion Music Server (LMS) to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser."
+description: "The integration uses the web interface of the Lyrion Music Server (LMS) to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser."
 Username:
-  description: "If you have selected \"Password Protection\" in your LMS Advanced Security, enter your Username here."
+description: "If you have selected \"Password Protection\" in your LMS Advanced Security, enter your Username here."
 Password:
-  description: "If you have selected \"Password Protection\" in your LMS Advanced Security, enter your Password here."
+description: "If you have selected \"Password Protection\" in your LMS Advanced Security, enter your Password here."
 Connect over HTTPS:
-  description: "The integration now supports Lyrion Music Servers behind an HTTPS reverse proxy. Please note that Lyrion Music Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the \"Connect over HTTPS\" option. If you have configured a reverse proxy, remember to update the port number."
+description: "The integration now supports Lyrion Music Servers behind an HTTPS reverse proxy. Please note that Lyrion Music Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the \"Connect over HTTPS\" option. If you have configured a reverse proxy, remember to update the port number."
 {% endconfiguration_basic %}
-
 
 The Logitech Transporter which have two digital inputs can be activated using a script. The following example turns on the Transporter and activates the toslink input interface:
 
@@ -165,6 +164,11 @@ data:
 
 ## Supported functionality
 
+### Switches
+
+- **Alarm**: Enables a scheduled alarm to sound. Alarms must also be enabled on the associated player for the alarm to sound, using the Alarms Enabled switch or directly on the Lyrion Music Server for that player.
+- **Alarms Enabled**: Enables a player to sound alarms. Disabling will prevent all alarms from sounding on that player, regardless of whether the individual alarm is enabled
+
 ### Binary sensors
 
 The integration provides the following entities.
@@ -172,6 +176,7 @@ The integration provides the following entities.
 #### Binary sensors
 
 - **Needs restart**
+
   - **Description**: Server Service needs to be restarted (typically, this is needed to apply updates).
 
 - **Library rescan**
@@ -180,13 +185,14 @@ The integration provides the following entities.
 #### Buttons
 
 - **Preset 1 ... Preset 6**
+
   - **Description**: Play media stored in Preset 1 to Preset 6 on Squeezebox.
 
 - **Brightness up, Brightness down**
   - **Description**: Adjust the brightness on Logitech Squeezebox players
   - **Available on**: Logitech hardware players with built-in screen, such as Radio and Boom.
-  
 - **Bass up, Bass down**
+
   - **Description**: Adjust the bass on Logitech Squeezebox players, such as Radio and Boom.
   - **Available on**: Logitech hardware players such as Radio, Duet and Boom.
 
@@ -197,24 +203,31 @@ The integration provides the following entities.
 #### Sensors
 
 - **Last scan**
+
   - **Description**: Date of the last library scan.
 
 - **Player count**
+
   - **Description**: Number of players on the service.
 
 - **Player count off service**
+
   - **Description**: Number of players not on this service.
 
 - **Total albums**
+
   - **Description**: Total number of albums currently available on the service.
 
 - **Total artists**
+
   - **Description**: Total number of artists currently available on the service.
 
 - **Total duration**
+
   - **Description**: Duration of all tracks in service (HHHH:MM:SS).
 
 - **Total genres**
+
   - **Description**: Total number of genres used in current service.
 
 - **Total songs**
@@ -318,7 +331,7 @@ The integration uses {% term polling %} to receive updates from the Lyrion Music
 
 ## Known limitations
 
-The LMS API, which is used by this integration, does not currently provide the ability to override or control fade-in & crossfade settings. This means that if you have enabled **Play or Resume fade-in duration** within the player's audio settings, this fade-in will be applied to any announcement played.  This could potentially lead to the start of an announcement being missed as it fades in.  You should, therefore, consider a short **Play or Resume fade-in duration** or preferably disabling this feature if you make use of announcements.
+The LMS API, which is used by this integration, does not currently provide the ability to override or control fade-in & crossfade settings. This means that if you have enabled **Play or Resume fade-in duration** within the player's audio settings, this fade-in will be applied to any announcement played. This could potentially lead to the start of an announcement being missed as it fades in. You should, therefore, consider a short **Play or Resume fade-in duration** or preferably disabling this feature if you make use of announcements.
 
 ## Removing the integration
 
