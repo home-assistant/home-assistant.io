@@ -3,7 +3,7 @@ Best practice for updating Home Assistant Core:
 1. [Back up your installation](/common-tasks/general/#backups) and store the backup and the [backup emergency kit](/more-info/backup-emergency-kit/) somewhere safe.
    - This ensures that you can [restore your installation from backup](/common-tasks/general/#restoring-a-backup) if needed.
 2. Check the release notes for backward-incompatible changes on [Home Assistant release notes](/blog/categories/core/). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f` / `CMD + f`) and search for **Backward-incompatible changes**.
-3. To update Home Assistant Core, you have 2 options.
+3. To update Home Assistant Core, choose one of the following options.
 
 {% if page.installation == "os" %}
 
@@ -28,7 +28,7 @@ Best practice for updating Home Assistant Core:
       ha core update --backup
       ```
 
-      _The_ `--backup` _flag here ensures that you have a partial backup of your current setup incase you need to downgrade._
+      _The_ `--backup` _flag here ensures that you have a partial backup of your current setup in case you need to downgrade._
 
   {% endtabbed_block %}
 
@@ -59,4 +59,4 @@ Best practice for updating Home Assistant Core:
 
 {% endif %}
 
-4. Review persistent notifications and log to see if there are any issues with your configuration that need to be addressed.
+4. Review persistent notifications and logs to see if there are any issues with your configuration that need to be addressed.
