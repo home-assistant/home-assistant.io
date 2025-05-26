@@ -6,9 +6,9 @@ Best practice for updating Home Assistant Core:
 3. Update Home Assistant.
 4. Review persistent notifications and log to see if there are any issues with your configuration that need to be addressed.
 
-{% if page.installation == "os" or page.installation == "supervised" %}
+{% if page.installation == "os" %}
 
-To update Home Assistant Core when you run Home Assistant {{ page.installation_name }} you have 2 options.
+To update Home Assistant Core when you run Home Assistant {{ page.installation_name }}, you have 2 options.
 
 {% tabbed_block %}
 
@@ -59,29 +59,5 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
     ```
 
 {% endtabbed_block %}
-
-{% elsif page.installation == "core" %}
-
-1. Stop the Home Assistant service.
-
-2. Switch to the user that is running Home Assistant
-
-    ```bash
-    sudo -u homeassistant -H -s
-    ```
-
-3. Activate the virtual environment that Home Assistant is running in
-
-    ```bash
-    source /srv/homeassistant/bin/activate
-    ```
-
-4. Download and install the new version
-
-    ```bash
-    pip3 install --upgrade homeassistant
-    ```
-
-5. When that is complete start the service again for it to use the new files.
 
 {% endif %}
