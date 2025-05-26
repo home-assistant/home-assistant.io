@@ -69,6 +69,7 @@ The `Daikin Smart AC` climate platform integrates Daikin air conditioning system
 
 - [**Set hvac mode**](/integrations/climate/#action-climateset_hvac_mode) (`off`, `heat`, `cool`, `dry`, `fan_only`)
 - [**Set target temperature**](/integrations/climate#action-climateset_temperature)
+- [**Turn on/off**](/integrations/climate#action-climateturn_on)
 - [**Set fan mode**](/integrations/climate#action-climateset_fan_mode) (fan speed)
 - [**Set swing mode**](/integrations/climate#action-climateset_swing_mode)
 - [**Set preset mode**](/integrations/climate#action-climateset_preset_mode) (eco, boost)
