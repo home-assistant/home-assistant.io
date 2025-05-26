@@ -59,17 +59,48 @@ Status sensors provide information about the overall state of the generator.
 
 > **Note:** This list of values is not complete. If you observe new values, please report them by opening an issue.
 
-| Sensor ID         | Values                                | Description                     |
-|-------------------|--------------------------------------|---------------------------------|
-| `generator_status` | ReadyToRun, RunningExercise, ...     | Indicates the current generator status. |
-| `engine_state`     | Standby, PerformingVariableSpeedExercise, ... | Displays the current engine state. |
-| `power_source`     | Utility, ...                        | The source of power for the home. |
+#### Generator status
+
+Provides the overall status of the generator.
+
+|  Value                              | Description                     |
+|--------------------------------------|---------------------------------|
+| `ReadyToRun` | Generator is ready to run in case of a power outage. |
+| `Running` | Generator is running. |
+| `RunningExercise` | Generator is currently running its exercise program. |
+| `SwitchStateOff` | Generator is turned off and **will not** run in case of a power outage. |
+
+#### Engine state
+
+Provides the detailed engine state.
+
+|  Value                            | Description                     |
+|--------------------------------------|---------------------------------|
+| `CrankOn` | Generator is currently cranking and trying to start up. |
+| `Off` | Generator is turned off and **will not** run in case of a power outage. |
+| `Running` | Generator is running. |
+| `Standby` | Generator is ready to run in case of a power outage. |
+| `Stopping` | Generator is stopping. |
+| `PerformingFullSpeedDiagnostics` | Generator is running full speed diagnostics. |
+| `PerformingUnloadedFullSpeedExercise` | Generator is running full speed exercise. |
+| `PerformingVariableSpeedExercise` | Generator is running variable speed exercise. |
+
+#### Power source
+
+Provides an indication of power source for the home.
+
+|  Value                            | Description                     |
+|--------------------------------------|---------------------------------|
+| `Generator` | Generator is providing power to the home. |
+| `Utility` | Utility power is providing power to the home. |
+
 
 ## Tested generators
 
 These are the generator models that have been tested:
 
 - [38RCLB](https://resources.kohler.com/power/kohler/residential/pdf/tp6908.pdf)
+- [26RCA](https://www.kohlerhomeenergy.rehlko.com/products/home+generators/26rca)
 - [20RESA](https://resources.kohler.com/power/kohler/residential/pdf/tp6804.pdf)
 - [20RCA](https://www.kohlerhomeenergy.rehlko.com/products/home+generators/20rca)
 - [14RESA](https://www.kohler.com/content/dam/kohler-com-NA/Lifestyle/PDF/PDF-tp6803.pdf)

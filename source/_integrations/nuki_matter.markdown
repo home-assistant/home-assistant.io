@@ -12,8 +12,6 @@ ha_platforms:
   - lock
 ha_iot_class: Local Push
 ha_integration_type: virtual
-works_with:
-  - matter
 ha_iot_standard:
   - matter
 ---

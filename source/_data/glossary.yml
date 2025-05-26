@@ -39,6 +39,8 @@
   excerpt: >
     Add-ons are additional standalone third-party software packages that can be
     installed on Home Assistant OS.
+  aliases:
+    - add-ons
   link: /getting-started/concepts-terminology/#add-ons
 - term: Area
   definition: >-
@@ -77,7 +79,7 @@
     Home Assistant has built-in functionality to create files containing a copy
     of your configuration. This can be used to restore your Home Assistant as
     well as migrate to a new system. The backup feature is available for all
-    [installation types](/installation/#advanced-installation-methods).
+    [installation types](/installation/#about-installation-methods).
   link: /common-tasks/general/#backups
   aliases:
     - backups
@@ -305,37 +307,28 @@
     Home Assistant Container is a standalone container-based installation of
     Home Assistant Core. Any [OCI](https://opencontainers.org/) compatible
     runtime can be used, but the documentation focus is on Docker.
-  link: /installation/#advanced-installation-methods
+  link: /installation/#about-installation-methods
 - term: Home Assistant Core
   definition: >-
     Home Assistant Core is the Python program at the heart of Home Assistant. It
-    is part of all of the four installation types and can be run on various
-    operating systems. It can be installed standalone (without Home Assistant
-    Supervisor), using a Virtual Environment (typically referred to as Home
-    Assistant Core installation method) or as a container using Docker
-    (typically referred to as Home Assistant Container installation method).
-  link: /installation/#advanced-installation-methods
-  excerpt: >
-    Home Assistant Core is the heart of Home Assistant itself. It is a Python
-    program that powers every installation type, but can be installed
-    standalone.
+    is part of all installation types. It can be installed standalone (without Home Assistant
+    Supervisor) as a container using Docker (this is typically referred to as the Home Assistant
+    Container installation method). For development, Core can also be run using a Virtual
+    Environment (previously referred as the Home Assistant Core installation method.
+    For production setup, the [Home Assistant Core installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
 - term: Home Assistant Supervised
   definition: >-
-    Home Assistant Supervised is a full UI managed home automation ecosystem
+    The Home Assistant Supervised installation method is a full UI managed home automation ecosystem
     that runs the Home Assistant Core program, the Home Assistant Supervisor and
     add-ons. It comes pre-installed on Home Assistant OS, but can be installed
     standalone on Debian Linux systems. It leverages Docker, which is managed by
-    the Home Assistant Supervisor.
-  excerpt: >
-    Home Assistant Supervised is the full Home Assistant ecosystem, without the
-    Home Assistant Operating System.
-  link: /installation/#advanced-installation-methods
+    the Home Assistant Supervisor. The
+    [Home Assistant Supervised installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).  
 - term: Home Assistant Supervisor
   definition: >-
     The Home Assistant Supervisor is a program that manages a Home Assistant
     installation, taking care of installing and updating Home Assistant,
     add-ons, itself, and, if used, updating the Home Assistant Operating System.
-  link: /installation/#advanced-installation-methods
 - term: Home Assistant Operating System
   definition: >-
     Home Assistant OS, the Home Assistant Operating System, is an embedded,
@@ -345,11 +338,6 @@
     add-ons. Home Assistant Supervisor keeps it up to date, removing the need
     for you to manage an operating system. Home Assistant Operating System is
     the recommended installation method for most users.
-  excerpt: >
-    Home Assistant OS, the Home Assistant Operating System, is an embedded,
-    minimalistic, operating system designed to run the Home Assistant ecosystem.
-    It is the recommended installation method for most users.
-  link: /installation/#advanced-installation-methods
 - term: Host
   definition: >-
     A device that can communicate with other devices on a network. During setup

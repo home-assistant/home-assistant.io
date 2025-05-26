@@ -24,6 +24,18 @@ The {% term integration %} provides the public market prices displayed on the [N
 
 Most European energy is traded via the Nord Pool Group marketplace. If your energy provider doesn't have a dedicated Home Assistant integration and you have a spot-price-based contract, you can use the **Nord Pool** {% term integration %}. This integration provides spot prices for your selected market, which you can, as an example, use in a {% term template %} to calculate prices for your [energy dashboard](#energy-dashboard).
 
+{% important %}
+
+The energy market is transitioning to 15-minute <abbr title="market time unit">MTU</abbr> instead of 60-minute MTU.
+
+When this finally occurs, the **Nord Pool** {% term integration %} will automatically switch and use the 15-minute <abbr title="market time unit">MTU</abbr>. This means during the transition, you may have a current price which is hourly based and a future price that is a 15-minute price.
+
+If you use this integration to calculate your own energy cost, it is advisable to see how this affects you. Check if any automations, templates, or other settings might need to be modified accordingly.
+
+You can read more and monitor the timeline [on the page about the transition to 15-minute MTU by Nordpool](https://www.nordpoolgroup.com/en/trading/transition-to-15-minute-market-time-unit-mtu/)
+
+{% endimportant %}
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -125,9 +137,9 @@ Currency:
 
 The public API only allows us to see past pricing information for up to 2 months.
 
-Meanwhile Nord Pool operates in CET/CEST timezone all the data is returned in UTC which may need to be considered depending on how the data is consumed or manipulated.
+Although Nord Pool operates in the CET/CEST timezone, all data is returned in UTC. Depending on how the data is consumed or manipulated, you may need to consider this.
 
-Tomorrow's prices are typically released around 13:00 CET/CEST, and trying to get them before that time will return an empty list.
+Tomorrow's prices are typically released around 13:00 CET/CEST, and trying to get them before that time will generate an error that needs to be considered in such a case.
 
 {% endnote %}
 

@@ -23,6 +23,16 @@ The SMA Solar integration will poll a [SMA](http://www.sma-solar.com/) [(US)](ht
 
 {% include integrations/config_flow.md %}
 
+### Installation details
+
+When Home Assistant discovers a new SMA device, or when you manually add one, the following form is presented:
+
+- **Host**: the hostname or IP address (if discovered via DHCP, this field will not be displayed as it's known via discovery)
+- Use SSL certificate
+- Verify SSL certificate
+- **Group**: choose either **user** or **installer** (default: **user**). Ask your installer if you’re unsure which to use
+- **Password**: use your password or ask your installer the default password that has been set up
+
 ## Supported Devices
 
 Not all inverters, energy meters and batteries from SMA are supported.
