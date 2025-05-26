@@ -59,4 +59,4 @@ Best practice for updating Home Assistant Core:
 
 {% endif %}
 
-4. Review persistent notifications and logs to see if there are any issues with your configuration that need to be addressed.
+4. Check if there are any repair issues and check the logs to see if there are any issues with your configuration that need to be addressed.
