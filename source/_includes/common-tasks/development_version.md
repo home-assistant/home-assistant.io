@@ -6,7 +6,7 @@ If you want to stay on the bleeding-edge Home Assistant Core development branch,
 The `dev` branch is likely to be unstable. Potential consequences include loss of data and instance corruption.
 {% endcaution %}
 
-{% if page.installation == "os" or page.installation == "supervised" %}
+{% if page.installation == "os" %}
 
 1. Join the dev channel.
 
