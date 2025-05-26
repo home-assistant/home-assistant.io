@@ -26,12 +26,22 @@ on the back of the hub. If the hub is on a different network than Home Assistant
 
 {% include integrations/config_flow.md %}
 
-# Heaters
+## Heaters
 
 Each zone containing floor or wall mounted heaters is represented as an HVAC entity. Adding and removing zones
-and heaters must be done using the Nobø Energy mobile app. 
+and heaters must be done using the Nobø Energy mobile app.
 
-## Operation modes
+### Temperature control
+
+What temperature presets can be controlled from the hub differs between Nobø heaters (and other recievers). While some let you control both the **Eco** and **Comfort** presets from the hub, others only let you control **Eco**, while **Comfort** temperature is set on the heater itself. Others again do not support remote control of the temperature presets at all.
+
+The HVAC entity for each zone only exposes temperature controls for presets that recievers in the zone support controlling from the hub:
+
+- If any reciever in the zone supports remote control of both **Eco** and **Comfort**, the HVAC entity lets you set a temperature range where the low temperature is **Eco** and high is **Comfort**.
+- If recievers in the zone only support remote control of **Eco**, the HVAC entity lets you set a single target temperature.
+- If no recievers in the zone support remote control of temperature, the HVAC entity does not expose any temperature controls.
+
+### Operation modes
 
 Currently, you can see and change operation and preset for zones and set eco/comfort temperatures if you have
 a thermostat that supports remote control of the temperature settings.
@@ -50,28 +60,25 @@ This can be utilized the following ways:
 - Changing operation to "Auto" will automatically update preset.
 - Changing operation to "Heat" will set preset to "Comfort".
 
-### Preset override duration
+#### Preset override duration
 
 By default, all overrides (when operation is not in "Auto" mode) are constant. It is possible to change this
 to let overrides end when the week profile changes next (same as duration "Now" in the Nobø Energy mobile app)
 in the integration configuration.
 
-### Disabling comfort control
-
-Some heaters only let you control the **Eco** preset temperature from the hub, while the **Comfort** temperature is set on the heater itself. In this case, you can disable the comfort control in the integration settings. 
-
-### Week profiles
+#### Week profiles
 
 The week profiles are retrieved from the hub. It is possible to change the current week profile for a zone
 using a selector. Week profiles must be created and edited using the Nobø Energy mobile app.
 
-### No preset "Off"
+#### No preset "Off"
 
 Nobø heaters do not support preset "Off". This is not a limitation of the integration, but a safety mechanism in the
-Nobø system (perhaps related to frozen pipes due to frost in Nordic regions). 
+Nobø system (perhaps related to frozen pipes due to frost in Nordic regions).
 "Away" temperature is fixed to 7°C and cannot be altered. On/off receivers will be off when the zone is in "Away" status.
 
-To turn heaters completely off, follow these steps (this is a workaround solution): 
+To turn heaters completely off, follow these steps (this is a workaround solution):
+
 1. In the Nobø Energy mobile app, create a week profile.
     - In this profile, set all days to state off. 
 2. To turn a zone off, select this week profile for the zone. 
@@ -79,12 +86,12 @@ To turn heaters completely off, follow these steps (this is a workaround solutio
 
 For more information, see the [Nobø Ecohub manual](https://help.nobo.no/en/user-manual/before-you-start/what-is-a-weekly-program/).
 
-## Global override
+### Global override
 
 To override all zones to a given preset (except the zones configured to not respect global override), use the global
 override selector. Global override duration respects the same configuration as preset override duration.  
 
-# Nobø Switch
+## Nobø Switch
 
 Each Nobø Switch (SW4) is represented as a temperature sensor. If a switch is linked to a zone, the temperature is
 also available as the current temperature of the HVAC entity.
