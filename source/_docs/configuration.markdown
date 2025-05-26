@@ -8,14 +8,10 @@ related:
     title: Storing credentials in `secrets.yaml` file
   - docs: /common-tasks/general/#backups
     title: Creating and restoring backups
-  - docs: /integrations/backup/docs/tools/dev-tools/#reloading-the-yaml-configuration
-    title: Creating backups for Home Assistant Container and Core
   - docs: /docs/tools/dev-tools/#reloading-the-yaml-configuration
     title: Reloading the YAML configuration from developer tools
   - docs: /common-tasks/os/#configuring-access-to-files
     title: Configuring file access on the Operating System
-  - docs: /common-tasks/supervised/#configuring-access-to-files
-    title: Configuring file access on Supervised
   - docs: docs/configuration/troubleshooting/
     title: Troubleshooting the configuration
 ---
