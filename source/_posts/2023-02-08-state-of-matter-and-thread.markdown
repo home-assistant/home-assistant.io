@@ -129,7 +129,7 @@ We’re open sourcing this to make it easier for other creators to provide their
 [sl-web-tools]: https://github.com/NabuCasa/sl-web-tools
 [thread-mockup]: https://www.figma.com/proto/DDz0MNwzzxjJdeEHCamQi1/Thread?node-id=68:2863&scaling=scale-down&page-id=68:2862&starting-point-node-id=68:2863
 [thread]: /integrations/thread
-[yellow-docs]: https://support.nabucasa.com/hc/en-us/categories/24734575925149-Home-Assistant-Yellow
+[yellow-docs]: https://yellow.home-assistant.io/documentation/
 [yellow]: /yellow
 [Pyodide]: https://pyodide.org/en/stable/
 [Tasmota]: https://tasmota.github.io/install/
