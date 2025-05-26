@@ -9,12 +9,14 @@ ha_domain: alexa_devices
 ha_config_flow: true
 ha_codeowners:
   - '@chemelli74'
-ha_iot_class: Local Polling
+ha_iot_class: Cloud Polling
 ha_platforms:
   - binary_sensor
   - notify
+  - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
+ha_dhcp: true
 ---
 
 The **Alexa Devices** {% term integration %} lets you control Alexa-enabled devices connected to your Amazon account.

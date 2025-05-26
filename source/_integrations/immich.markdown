@@ -14,7 +14,8 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@mib1185'
-ha_integration_type: service
+ha_integration_type: integration
+ha_quality_scale: silver
 ---
 
 This integration allows adding an [Immich](https://immich.app/) user account to Home Assistant.

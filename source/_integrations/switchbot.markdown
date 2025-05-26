@@ -4,12 +4,12 @@ description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary sensor
   - Cover
+  - Fan
   - Light
   - Lock
   - Sensor
   - Switch
   - Vacuum
-  - Fan
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
@@ -18,6 +18,7 @@ ha_codeowners:
   - '@murtas'
   - '@Eloston'
   - '@dsypniewski'
+  - '@zerzhang'
 ha_domain: switchbot
 ha_bluetooth: true
 ha_platforms:
@@ -33,6 +34,7 @@ ha_platforms:
   - vacuum
 ha_config_flow: true
 ha_integration_type: integration
+ha_quality_scale: gold
 ---
 
 The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, hubs and etc.

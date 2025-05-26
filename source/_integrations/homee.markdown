@@ -10,7 +10,7 @@ ha_codeowners:
   - '@Taraman17'
 ha_domain: homee
 ha_platforms:
-  - alarm-control-panel
+  - alarm_control_panel
   - binary_sensor
   - button
   - climate

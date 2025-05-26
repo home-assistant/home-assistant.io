@@ -18,6 +18,7 @@ ha_domain: eheimdigital
 ha_integration_type: hub
 ha_platforms:
   - climate
+  - diagnostics
   - light
   - number
   - select
