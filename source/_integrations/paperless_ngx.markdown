@@ -4,13 +4,14 @@ description: Instructions on how to integrate Paperless-ngx into Home Assistant
 ha_release: 2025.6
 ha_category:
   - Sensor
+  - Update
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: paperless_ngx
 ha_codeowners:
   - '@fvgarrel'
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: silver
 related:
   - url: https://docs.paperless-ngx.com/
     title: Paperless-ngx
@@ -60,9 +61,10 @@ This integration provides {% term sensors %} for the following information from 
 | **Status database**      | Indicates whether the database is reachable and functioning correctly.         |
 | **Status index**         | Indicates whether the document indexing service is operational.                |
 | **Status classifier**    | Indicates whether the document classifier service is running properly.         |
-| **Status celery**        | Indicates whether the Celery task queue is active and processing tasks.        |
-| **Status redis**         | Indicates whether the Redis service used for task queuing is available.        |
+| **Status Celery**        | Indicates whether the Celery task queue is active and processing tasks.        |
+| **Status Redis**         | Indicates whether the Redis service used for task queuing is available.        |
 | **Status sanity**        | Indicates the sanity of the Paperless-ngx documents.                           |
+| **Software**             | Indicates whether a new Paperless-ngx update ist available.                    |
 
 
 ## Removing the integration
