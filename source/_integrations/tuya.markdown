@@ -7,6 +7,7 @@ ha_category:
   - Climate
   - Cover
   - Doorbell
+  - Event
   - Fan
   - Humidifier
   - Light
@@ -31,6 +32,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - event
   - fan
   - humidifier
   - light

@@ -15,6 +15,7 @@ ha_platforms:
   - button
   - climate
   - cover
+  - event
   - fan
   - light
   - lock

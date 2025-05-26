@@ -83,8 +83,7 @@ The output of this selector is a list of actions. For example:
 
 ## Add-on selector
 
-This can only be used on an installation with a Supervisor. For installations
-that do not have that, an error will be displayed.
+This can only be used on a {% term "Home Assistant Operating System" %} installation. For {% term "Home Assistant Container" %} installations, an error will be displayed.
 
 The add-on selector allows the user to input an add-on slug.
 On the user interface, it will list all installed add-ons and use the slug of the
@@ -276,8 +275,8 @@ assist_pipeline:
 
 ## Backup location selector
 
-This can only be used on an installation with a Supervisor (Operating System or
-Supervised). For installations of type {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}, an error
+This can only be used on an installation with a {% term "Home Assistant Operating System" %}. For {% term "Home Assistant Container" %} installations, an error
+
 will be displayed.
 
 The backup location selector shows a list of places a backup could go, depending

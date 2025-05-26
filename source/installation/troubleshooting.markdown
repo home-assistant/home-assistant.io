@@ -39,8 +39,8 @@ To resolve this issue, try the following steps:
 6. Check your router's web interface to see what IP address is assigned to your Home Assistant installation.
    - Enter this IP address (`http://x.x.x.x:8123`) directly into your browser.
 7. If you still can’t reach Home Assistant, connect keyboard and monitor to the device Home Assistant is running on to access the console and see where Home Assistant gets stuck.
-   - If you are using a Home Assistant Green, follow these steps [to access the console](https://green.home-assistant.io/guides/use-terminal/).
-   - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://yellow.home-assistant.io/guides/use-serial-console-windows/), or [to access the console from Linux or macOS](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/).
+   - If you are using a Home Assistant Green, follow these steps [to access the console](https://support.nabucasa.com/hc/en-us/articles/25153288092829).
+   - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://support.nabucasa.com/hc/en-us/articles/25454894609693), or [to access the console from Linux or macOS](https://support.nabucasa.com/hc/en-us/articles/25454972435357).
 8. [Reach out to our community for help](https://www.home-assistant.io/help/).
 
 ## "Error installing Home Assistant"

@@ -17,6 +17,7 @@ ha_platforms:
   - button
   - media_player
   - sensor
+  - switch
   - update
 ha_integration_type: integration
 ---
