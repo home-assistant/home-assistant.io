@@ -79,8 +79,7 @@ Nobø system (perhaps related to frozen pipes due to frost in Nordic regions).
 
 To completely turn off heaters, follow these workaround steps:
 
-1. In the Nobø Energy mobile app, create a week profile.
-    - In this profile, set all days to state off.
+1. In the Nobø Energy mobile app, create a week profile and set all days to state **Off**.
 2. To turn a zone off, select this week profile for the zone.
 3. To turn a zone on again, switch to the normal week profile for the zone.
 
