@@ -33,13 +33,13 @@ and heaters must be done using the Nobø Energy mobile app.
 
 ### Temperature control
 
-What temperature presets can be controlled from the hub differs between Nobø heaters (and other recievers). While some let you control both the **Eco** and **Comfort** presets from the hub, others only let you control **Eco**, while **Comfort** temperature is set on the heater itself. Others again do not support remote control of the temperature presets at all.
+What temperature presets can be controlled from the hub differs between Nobø heaters (and other receivers). While some let you control both the **Eco** and **Comfort** presets from the hub, others only let you control **Eco**, while **Comfort** temperature is set on the heater itself. Others again do not support remote control of the temperature presets at all.
 
-The HVAC entity for each zone only exposes temperature controls for presets that recievers in the zone support controlling from the hub:
+The HVAC entity for each zone only exposes temperature controls for presets that receivers in the zone support controlling from the hub:
 
-- If any reciever in the zone supports remote control of both **Eco** and **Comfort**, the HVAC entity lets you set a temperature range where the low temperature is **Eco** and high is **Comfort**.
-- If recievers in the zone only support remote control of **Eco**, the HVAC entity lets you set a single target temperature.
-- If no recievers in the zone support remote control of temperature, the HVAC entity does not expose any temperature controls.
+- If any receiver in the zone supports remote control of both **Eco** and **Comfort**, the HVAC entity lets you set a temperature range where the low temperature is **Eco** and high is **Comfort**.
+- If receivers in the zone only support remote control of **Eco**, the HVAC entity lets you set a single target temperature.
+- If no receivers in the zone support remote control of temperature, the HVAC entity does not expose any temperature controls.
 
 ### Operation modes
 
