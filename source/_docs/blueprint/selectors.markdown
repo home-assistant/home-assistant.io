@@ -276,6 +276,7 @@ assist_pipeline:
 ## Backup location selector
 
 This can only be used on an installation with a {% term "Home Assistant Operating System" %}. For {% term "Home Assistant Container" %} installations, an error
+
 will be displayed.
 
 The backup location selector shows a list of places a backup could go, depending
