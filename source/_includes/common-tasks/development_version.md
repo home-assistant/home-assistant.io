@@ -8,7 +8,7 @@ The `dev` branch is likely to be unstable. Potential consequences include loss o
 
 {% if page.installation == "os" %}
 
-1. Join the dev channel.
+1. Join the dev channel
 
     ```bash
     ha supervisor options --channel dev
