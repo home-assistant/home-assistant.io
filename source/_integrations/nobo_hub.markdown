@@ -33,7 +33,7 @@ and heaters must be done using the Nobø Energy mobile app.
 
 ### Temperature control
 
-What temperature presets can be controlled from the hub differs between Nobø heaters (and other receivers). While some let you control both the **Eco** and **Comfort** presets from the hub, others only let you control **Eco**, while **Comfort** temperature is set on the heater itself. Others again do not support remote control of the temperature presets at all.
+Remote controllable temperature presets differs between Nobø heaters (and other receivers). While some let you control both the **Eco** and **Comfort** presets from the hub, others only let you control **Eco**, with **Comfort** temperature set on the heater itself. Others again do not support remote control of the temperature presets at all.
 
 The HVAC entity for each zone only exposes temperature controls for presets that receivers in the zone support controlling from the hub:
 
@@ -77,7 +77,7 @@ Nobø heaters do not support preset "Off". This is not a limitation of the integ
 Nobø system (perhaps related to frozen pipes due to frost in Nordic regions).
 "Away" temperature is fixed to 7°C and cannot be altered. On/off receivers will be off when the zone is in "Away" status.
 
-To turn heaters completely off, follow these steps (this is a workaround solution):
+To completely turn off heaters, follow these workaround steps:
 
 1. In the Nobø Energy mobile app, create a week profile.
     - In this profile, set all days to state off.
