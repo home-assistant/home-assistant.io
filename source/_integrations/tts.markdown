@@ -111,14 +111,14 @@ The integration cache can be controlled with the `cache` option in the action to
 
 Each TTS platform produces audio samples in different formats, not always compatible with every media player. TTS integration building block supports a way to configure preferred target audio format through `options` option of `speak` or `say` actions.
 
-TTS integration building block uses [FFmpeg integration](/integrations/ffmpeg) to perform audio transcoding when target entity platform does not supports one or all the specified preferred audio format settings (refer to specific platform documentation for any supported setting with related supported values).
+TTS integration building block uses [FFmpeg integration](/integrations/ffmpeg) to perform audio transcoding when target entity platform does not support one or all the specified preferred audio format settings (refer to specific platform documentation for any supported setting with related supported values).
 
 Available preferred audio settings, all optional, are:
 
 - `preferred_format`: Set the audio format. When not supported by the target entity platform, the value is a file extension like `wav`, `mp3`, `ogg`, etc., among ones supported by FFmpeg tool for output files.
 - `preferred_sample_rate`: Set the sample rate. When not supported by the target entity platform, the value is in Hz as a number, among ones supported by the `-ar` parameter of FFmpeg tool.
 - `preferred_sample_channels`: Set the number of audio channels. When not supported by the target entity platform, the value is a number among ones supported by the `-ac` parameter of FFmpeg tool.
-- `preferred_sample_bytes`: Set the audio bit sampling. When not supported by the target entity platform, can only be set to `2` to use 16bit audio sampling (any other value is ignored).
+- `preferred_sample_bytes`: Set the audio bit sampling. When not supported by the target entity platform, can only be set to `2` to use 16-bit audio sampling (any other value is ignored).
 
 Example to produce an MP3 audio at 22050Hz:
 
