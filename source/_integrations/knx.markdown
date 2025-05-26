@@ -1149,7 +1149,6 @@ knx:
   cover:
     - name: "Kitchen shutter"
       move_long_address: "3/0/0"
-      move_short_address: "3/0/1"
       stop_address: "3/0/4"
       position_address: "3/0/3"
       position_state_address: "3/0/2"
