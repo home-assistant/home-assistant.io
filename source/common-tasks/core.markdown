@@ -10,7 +10,6 @@ To learn how to back up the system or how to restore a system from a backup, ref
 
 ## Update
 
-{% include common-tasks/update.md %}
 {% include common-tasks/specific_version.md %}
 {% include common-tasks/beta_version.md %}
 {% include common-tasks/development_version.md %}

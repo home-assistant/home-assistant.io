@@ -26,7 +26,6 @@ For additional information about command line usage, use the `ha help` command o
 
 ## Update
 
-{% include common-tasks/update.md %}
 {% include common-tasks/network_storage.md %}
 {% include common-tasks/lost_password.md %}
 {% include common-tasks/third-party-addons.md %}
