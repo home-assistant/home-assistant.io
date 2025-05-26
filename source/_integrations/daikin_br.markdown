@@ -4,7 +4,7 @@ description: Instructions on how to integrate Daikin Smart AC devices with Home 
 ha_category:
   - Climate
 ha_release: 2025.3
-ha_iot_class: Local Polling
+ha_iot_class: local_polling
 ha_config_flow: true
 ha_codeowners:
   - '@daikin-br'
@@ -67,7 +67,7 @@ If this applies to your setup, adjust your firewall settings to allow access to 
 
 The `Daikin Smart AC` climate platform integrates Daikin air conditioning systems with Home Assistant, allowing control over the following parameters:
 
-- [**Set hvac mode**](/integrations/climate/#action-climateset_hvac_mode) (`off`, `heat`, `cool`, `dry`, `fan_only`)
+- [**Set HVAC mode**](/integrations/climate/#action-climateset_hvac_mode) (`off`, `heat`, `cool`, `dry`, `fan_only`)
 - [**Set target temperature**](/integrations/climate#action-climateset_temperature)
 - [**Turn on/off**](/integrations/climate#action-climateturn_on)
 - [**Set fan mode**](/integrations/climate#action-climateset_fan_mode) (fan speed)
