@@ -1176,7 +1176,6 @@ Some examples:
 - Filter `ordinal` will convert an integer into a number defining a position in a series (e.g., `1st`, `2nd`, `3rd`, `4th`, etc).
 - Filter `value | from_hex` Decodes a hex string to raw bytes.
 - Filter `value | base64_encode` Encodes a string or bytes to a base 64 string.
-- Filter `value | from_hex | base64_encode` Encodes a hex string as a base 64 string.
 - Filter `value | base64_decode` Decodes a base 64 string to a string, by default utf-8 encoding is used.
 - Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ascii encoding.
 - Filter `value | base64_decode(None)` Decodes a base 64 string to raw bytes.
