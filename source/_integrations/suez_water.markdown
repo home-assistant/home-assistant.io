@@ -94,7 +94,7 @@ Counter ID:
 
 {% endconfiguration_basic %}
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 
