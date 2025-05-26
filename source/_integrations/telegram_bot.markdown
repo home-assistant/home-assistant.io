@@ -292,6 +292,8 @@ Remove the bot from the chat group where it was added.
 
 The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents, and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag`, `disable_web_page_preview`, and `message_thread_id` are also supported.
 
+**Please note:** the telegram bot integration currently only supports one bot at the same time. While adding additional ones won't throw an error, it will lead to unexpected behaviour and potentially messages being sent to the wrong receivers.
+
 The required YAML configuration now reduces to:
 
 ```yaml
