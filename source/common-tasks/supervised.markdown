@@ -37,7 +37,6 @@ For additional information about command line usage, use the `ha help` command o
 To see which version your system is running, go to {% my info title="**Settings** > **About**" %}.
 
 {% include common-tasks/specific_version.md %}
-{% include common-tasks/beta_version.md %}
 {% include common-tasks/development_version.md %}
 
 {% include common-tasks/commandline.md %}
