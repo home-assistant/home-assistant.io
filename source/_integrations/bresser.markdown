@@ -8,7 +8,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@fkiscd'
-ha_domain: ccl
+ha_domain: bresser
 ha_platforms:
   - sensor
 ---
