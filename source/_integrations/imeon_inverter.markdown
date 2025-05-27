@@ -8,11 +8,11 @@ ha_category:
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-- '@Imeon-Energy'
+  - '@Imeon-Energy'
 ha_domain: imeon_inverter
 related:
-- url: https://imeon-energy.com/
-- title: Imeon Energy website
+  - url: https://imeon-energy.com/
+  - title: Imeon Energy website
 ha_integration_type: device
 ---
 
@@ -146,9 +146,9 @@ This document provides an overview of the sensors available in the Imeon Inverte
 | `energy_pv`                   | Energy produced by PV today.        | Wh   |
 | `energy_grid_injected`        | Energy injected to grid today.      | Wh   |
 | `energy_grid_consumed`        | Energy consumed from grid today.    | Wh   |
-| `energy_building_consumption` | Today building energy consumption.  | Wh   |
-| `energy_battery_stored`       | Today energy stored in battery.     | Wh   |
-| `energy_battery_consumed`     | Today energy consumed from battery. | Wh   |
+| `energy_building_consumption` | Energy building consumption today.  | Wh   |
+| `energy_battery_stored`       | Energy stored in battery today.     | Wh   |
+| `energy_battery_consumed`     | Energy consumed from battery today. | Wh   |
 
 ## Imeon integration extras
 
