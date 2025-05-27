@@ -43,10 +43,7 @@ The HVAC entity for each zone only exposes temperature controls for presets that
 
 ### Operation modes
 
-Currently, you can see and change operation and preset for zones and set eco/comfort temperatures if you have
-a thermostat that supports remote control of the temperature settings.
-
-The possible operation modes are as follows:
+You can see and change **operation mode** and **preset** for zones. The possible operation modes are as follows:
 
 - "Auto" - In this mode, the zone is in the default setting and preset shows which state the zone is in right now
   (according to calendar setup).
@@ -56,9 +53,9 @@ The possible operation modes are as follows:
 This can be utilized the following ways:
 
 - Changing preset to "Away", "Eco", or "Comfort" will automatically change operation mode to "Heat".
-- Changing preset to none will automatically change operation to "Auto" and update preset.
-- Changing operation to "Auto" will automatically update preset.
-- Changing operation to "Heat" will set preset to "Comfort".
+- Changing preset to none will automatically change operation mode to "Auto" and update preset.
+- Changing operation mode to "Auto" will automatically update preset.
+- Changing operation mode to "Heat" will set preset to "Comfort".
 
 #### Preset override duration
 
