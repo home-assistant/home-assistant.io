@@ -28,7 +28,7 @@ After adding the integration to Home Assistant, follow these steps:
 Server IP:
   description: "Your Home Assistant IP address. For example, `192.168.1.154`."
 Port:
-  description: "Your Home Assistant port number. Should always be '8123'."
+  description: "Your Home Assistant port number. Should always be `8123`."
 Path:
   description: "It includes a unique 8-digits passkey and can be occupied by the first device as an identifier. For example, `/webhook/api/54fa0b9c`"
 {% endconfiguration_basic %}
