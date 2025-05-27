@@ -33,13 +33,6 @@ After adding the integration to Home Assistant, follow these steps:
     description: "It includes a unique 8-digits passkey and can be occupied by the first device as an identifier. For example, `/webhook/api/54fa0b9c`"
   {% endconfiguration_basic %}
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
-After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
 
 ## Sensors
 
@@ -69,3 +62,11 @@ One weather station includes 3 components. Each of them represents a "device" in
 
   - Battery
   - Connection
+ 
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
