@@ -3,7 +3,7 @@ title: Bresser
 description: Instructions on how to integrate your Bresser devices into Home Assistant.
 ha_category:
   - Sensor
-ha_release: 2025.6
+ha_release: 2025.7
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -17,25 +17,20 @@ The **Bresser** {% term integration %} is a local-only {% term integration %} th
 
 {% include integrations/config_flow.md %}
 
-## Weather Station configuration
 
-1. In the **Settings** → **Devices & services**, click **Add integration** and select **Bresser** from the pop-up menu.
-2. Follow the instructions and press **Submit** to generate the following details.  
-  For example:
-   - Server IP: '192.168.1.154'
-   - Port: '8123'
-   - Path: '/webhook/api/54fa0b9c'
-3. Open the **WSLink** app on your mobile device.
-4. Connect your mobile device to your weather station in AP mode.
-5. In the WSLink app, go to **Weather Server** → **Home Assistant**, and enter the Server IP, Port, and Path assigned by Home Assistant.
-6. Save
+After adding the integration to Home Assistant, follow these steps:
+
+1. Open the **WSLink** app on your mobile device.
+2. Connect your mobile device to your weather station in AP mode.
+3. In the WSLink app, go to **Weather Server** > **Home Assistant**, and enter the Server IP, Port, and Path assigned by Home Assistant.
+4. Save.
   {% configuration_basic %}
   Server IP:
-    description: "Your Home Assistant IP address."
+    description: "Your Home Assistant IP address. For example, `192.168.1.154`."
   Port:
     description: "Your Home Assistant port number. Should always be '8123'."
   Path:
-    description: "It includes a unique 8-digits passkey and can be occupied by the first device as an identifier."
+    description: "It includes a unique 8-digits passkey and can be occupied by the first device as an identifier. For example, `/webhook/api/54fa0b9c`"
   {% endconfiguration_basic %}
 
 ## Removing the integration
