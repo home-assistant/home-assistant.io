@@ -24,14 +24,15 @@ After adding the integration to Home Assistant, follow these steps:
 2. Connect your mobile device to your weather station in AP mode.
 3. In the WSLink app, go to **Weather Server** > **Home Assistant**, and enter the Server IP, Port, and Path assigned by Home Assistant.
 4. Save.
-  {% configuration_basic %}
-  Server IP:
-    description: "Your Home Assistant IP address. For example, `192.168.1.154`."
-  Port:
-    description: "Your Home Assistant port number. Should always be '8123'."
-  Path:
-    description: "It includes a unique 8-digits passkey and can be occupied by the first device as an identifier. For example, `/webhook/api/54fa0b9c`"
-  {% endconfiguration_basic %}
+
+{% configuration_basic %}
+Server IP:
+  description: "Your Home Assistant IP address. For example, `192.168.1.154`."
+Port:
+  description: "Your Home Assistant port number. Should always be '8123'."
+Path:
+  description: "It includes a unique 8-digits passkey and can be occupied by the first device as an identifier. For example, `/webhook/api/54fa0b9c`"
+{% endconfiguration_basic %}
 
 
 ## Sensors
