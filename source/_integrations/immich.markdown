@@ -40,7 +40,7 @@ The integration polls data every 60 seconds.
 
 ## Media source
 
-A [media source](integrations/media_source) is provided for your [Immich](https://immich.app/) albums. It shows only the albums you own or that are shared with you. If you have multiple Immich integrations in Home Assistant (_one integration for each Immich user_), only the albums for that specific user are shown.
+A [media source](/integrations/media_source/) is provided for your [Immich](https://immich.app/) albums. It shows only the albums you own or that are shared with you. If you have multiple Immich integrations in Home Assistant (_one integration for each Immich user_), only the albums for that specific user are shown.
 
 ## Sensors
 
@@ -59,7 +59,7 @@ The following {% term sensors %} are created. For some of those the API key need
 
 ## Troubleshooting
 
-In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs, stop the debug logging again (_download of debug log file will start automatically_). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs, stop the debug logging again (_download of debug log file will start automatically_). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics/) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
 ## Remove the integration
 
