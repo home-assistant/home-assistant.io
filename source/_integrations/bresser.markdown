@@ -17,7 +17,6 @@ The **Bresser** {% term integration %} is a local-only {% term integration %} th
 
 {% include integrations/config_flow.md %}
 
-
 After adding the integration to Home Assistant, follow these steps:
 
 1. Open the **WSLink** app on your mobile device.
