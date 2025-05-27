@@ -122,8 +122,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
-- [Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
-- [Lock Lite](https://www.switchbot.jp/products/switchbot-lock-lite)
+- [Lock Ultra (WoLockUltra)](https://www.switch-bot.com/products/switchbot-lock-ultra)
+- [Lock Lite (WoLockLite)](https://www.switchbot.jp/products/switchbot-lock-lite)
 
 ### Humidifiers
 
@@ -145,7 +145,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
 - [Hub Mini Matter Enabled](https://www.switch-bot.com/products/switchbot-hub-mini-matter-enabled)(currently only supports retrieving sensor data, does not yet support device control)
-- [Hub3](https://www.switch-bot.com/products/switchbot-hub-3)(currently only supports retrieving sensor data, does not yet support device control)
+- [Hub 3 (WoHub3)](https://www.switch-bot.com/products/switchbot-hub-3)(currently only supports retrieving sensor data, does not yet support device control)
 
 ### Fans
 
