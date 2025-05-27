@@ -22,6 +22,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
   - valve
 ha_integration_type: hub
