@@ -139,7 +139,7 @@ This document provides an overview of the sensors available in the Imeon Inverte
 | ------------------- | ------------------------ | ---- |
 | `timeline_type_msg` | Current timeline status. | —    |
 
-### Daily energy counters (made for the Home Assistant energy pannel)
+### Daily energy counters (made for the Home Assistant energy panel)
 
 | Sensor key                    | Description                         | Unit |
 | ----------------------------- | ----------------------------------- | ---- |
