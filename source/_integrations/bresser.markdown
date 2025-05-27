@@ -36,7 +36,7 @@ Path:
 
 ## Sensors
 
-One weather station includes 3 components. Each of them represents a {% term devices %} in Home Assistant:
+One weather station includes 3 components. Each of them represents a {% term device %} in Home Assistant:
 
 - Console & Sensor Array
 
