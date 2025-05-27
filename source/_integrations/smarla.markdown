@@ -38,10 +38,10 @@ The `smarla` {% term integration %} enables Home Assistant to integrate [Swing2S
 
 This component will set up the following entities:
 
-| Entity         | Platform          | Description                           |
-| -------------- | ----------------- | ------------------------------------- |
-| `cradle`       | `switch`          | Turn on or off the cradle’s oscillation. |
-| `smartmode`    | `switch`          | Enable or disable automatic intensity control. |
+| Entity         | Platform | Description                                                 |
+| -------------- | -------- | ----------------------------------------------------------- |
+| `swing_active` | `switch` | Turns the cradle’s oscillation on or off.                   |
+| `smart_mode`   | `switch` | Enables or disables automatic intensity control.            |
 
 ## Removing the integration
 
