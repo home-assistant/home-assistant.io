@@ -49,3 +49,5 @@ There is currently support for the following device types within Home Assistant:
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
+
+After removing the integration, consider deleting the Portainer access token.
