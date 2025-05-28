@@ -70,18 +70,15 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
    ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
 
-6. To add the newly discovered device, select the ATOM Echo from the list.
-   - Add your ATOM Echo to a room and select **Finish**.
-7. You should now see the **ESPHome** integration.
-   ![New ESPHome device discovered](/images/assist/m5stack-atom-echo-discovered-33.png)
-8. Select the **ESPHome** integration. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
-   ![ATOM Echo discovered](/images/assist/m5stack-atom-echo-discovered-new-03.png)
-   - Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
-9. Congratulations! You can now voice control Home Assistant. Now give some commands.
+6. This starts the a wizard to customize the your voice assistant.
+   - Follow the wizard steps to define the wake word and choose the voice.
+   - When you are finished, select **Done**.
+7. Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
+8. Congratulations! You can now voice control Home Assistant. Now give some commands.
 
 ## Controlling Home Assistant over the ATOM Echo
 
-1. Say your wake word. For this tutorial, use "OK, Nabu".
+1. Say the wake word you configured. For example, use "OK, Nabu".
    - Wait for the LED to start blinking in blue.
 2. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.
    - While you are speaking, the blue LED keeps pulsing.
@@ -93,8 +90,8 @@ Before you can use this device with Home Assistant, you need to install a bit of
 3. Your command is not supported? Add your own commands using [a sentence trigger](/voice_control/custom_sentences/).
 4. You find ATOM Echo takes too long to start processing your command?
    - Adjust the silence detection settings.
-   - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
-   - Under **M5Stack ATOM Echo**, select **1 device**. Under **Configuration**, change the **Finish speaking detection**.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **ESPHome** integration.
+   - Under **M5Stack ATOM Echo**, select **1 device**. Under **Configuration**, change the **Finished speaking detection**.
    - This setting defines how much silence is needed for Assist to find you're done speaking and it can start processing your command.
 
      ![Open My link](/images/assist/esp32-atom_silence_detection_01.png)
