@@ -13,6 +13,8 @@ ha_platforms:
   - sensor
 ha_iot_standard: matter
 ha_brand: true
+works_with:
+  - matter
 ---
 
 [Eve](https://www.evehome.com/) is a member of the Works with Home Assistant partner program for their Matter products. Eve is committed to making sure their products are up-to-date and ready to use in Home Assistant.
