@@ -33,7 +33,7 @@ and heaters must be done using the Nobø Energy mobile app.
 
 ### Temperature control
 
-Remote controllable temperature presets differs between Nobø heaters (and other receivers). While some let you control both the **Eco** and **Comfort** presets from the hub, others only let you control **Eco**, with **Comfort** temperature set on the heater itself. Others again do not support remote control of the temperature presets at all.
+Remote-controllable temperature presets differs between Nobø heaters (and other receivers). While some let you control both the **Eco** and **Comfort** presets from the hub, others only let you control **Eco**, with **Comfort** temperature set on the heater itself. Others again do not support remote control of the temperature presets at all.
 
 The HVAC entity for each zone only exposes temperature controls for presets that receivers in the zone support controlling from the hub:
 
@@ -70,8 +70,7 @@ using a selector. Week profiles must be created and edited using the Nobø Energ
 
 #### No preset "Off"
 
-Nobø heaters do not support preset "Off". This is not a limitation of the integration, but a safety mechanism in the
-Nobø system (perhaps related to frozen pipes due to frost in Nordic regions).
+Nobø heaters do not support preset "Off". This is not a limitation of the integration, but a safety mechanism in the Nobø system (perhaps related to frozen pipes due to frost in Nordic regions).
 "Away" temperature is fixed to 7°C and cannot be altered. On/off receivers will be off when the zone is in "Away" status.
 
 To completely turn off heaters, follow these workaround steps:
@@ -84,8 +83,8 @@ For more information, see the [Nobø Ecohub manual](https://help.nobo.no/en/user
 
 ### Global override
 
-To override all zones to a given preset (except the zones configured to not respect global override), use the global
-override selector. Global override duration respects the same configuration as preset override duration.  
+To override all zones to a given preset (except for zones configured to ignore the global override), use the global override selector.
+Global override duration respects the same configuration as preset override duration.  
 
 ## Nobø Switch
 
