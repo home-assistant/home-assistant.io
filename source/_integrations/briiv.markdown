@@ -48,3 +48,9 @@ Currently, the integration supports the following sensors:
 
 Available actions:
 `fan.set_percentage`, `fan.turn_on`, `fan.turn_off`, `fan.increase_speed`, `fan.decrease_speed`
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
