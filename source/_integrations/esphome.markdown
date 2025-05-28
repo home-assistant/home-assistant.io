@@ -193,7 +193,7 @@ To troubleshoot your ESPHome devices, you can easily view live logs, whether you
 
 If you're using the **ESPHome CLI**, follow the instructions for the [logs Command](https://esphome.io/guides/cli.html#logs-command) to access the logs.
 
-### Obtaining Llgs from the device
+### Obtaining logs from the device
 
 If you want the device to send logs without requiring you to be actively monitoring, follow these steps:
 
