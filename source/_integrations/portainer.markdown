@@ -24,11 +24,8 @@ The Portainer API provides a way to manage Docker containers, images, networks, 
 Before you can configure Portainer within Home Assistant, you need an Access Token. Create a Portainer Access Token by following these steps:
 
 1. Log in to your Portainer instance.
-2. Go to your user profile by clicking on your username in the top right corner and select `My Account`.
-3. Goto the section `Access Tokens`.
-4. Click on `Add Access Token` to create a new key.
-5. Copy the generated Access Token.
-6. In Home Assistant, go to the Portainer integration configuration and paste the Access Token into the appropriate field.
+2. To create an access token, follow the steps in the [Portainer documentation](https://docs.portainer.io/api/access).
+3. Copy the generated Access Token and store it somewhere safe, you will need it in the next steps.
 
 {% include integrations/config_flow.md %}
 
@@ -42,3 +39,8 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary sensor - for monitoring the status of Portainer services.
 
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
