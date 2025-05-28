@@ -19,17 +19,6 @@ Portainer is a lightweight management UI that allows you to easily manage your D
 
 The Portainer API provides a way to manage Docker containers, images, networks, and volumes. It allows you to interact programmatically with your Docker host or Swarm cluster.
 
-## Supported functionality
-
-{% note %}
-This integration is currently being actively developed and tested. More platforms and features will be added in.
-{% endnote %}
-
-There is currently support for the following device types within Home Assistant:
-
-- Binary sensor - for monitoring the status of Portainer services.
-
-
 ## Connect with Portainer
 
 Before you can configure Portainer within Home Assistant, you need an Access Token. Create a Portainer Access Token by following these steps:
@@ -42,3 +31,14 @@ Before you can configure Portainer within Home Assistant, you need an Access Tok
 6. In Home Assistant, go to the Portainer integration configuration and paste the Access Token into the appropriate field.
 
 {% include integrations/config_flow.md %}
+
+## Supported functionality
+
+{% note %}
+This integration is currently being actively developed and tested. More platforms and features will be added in.
+{% endnote %}
+
+There is currently support for the following device types within Home Assistant:
+
+- Binary sensor - for monitoring the status of Portainer services.
+
