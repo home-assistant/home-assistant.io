@@ -20,12 +20,6 @@ related:
 
 The `scrape` sensor {% term integration %} scrapes information from websites. The sensor loads an HTML page, and allows you to search and extract specific values. As this is not a fully featured web scraper like [scrapy](https://scrapy.org/), it will work with simple web pages and it can be time-consuming to get the right section.
 
-If you are not using Home Assistant Container or Home Assistant Operating System, this integration requires `libxml2` to be installed. On Debian based installs, run:
-
-```bash
-sudo apt install libxml2
-```
-
 Both UI and YAML setup is supported while YAML provides additional configuration possibilities.
 
 {% include integrations/config_flow.md %}

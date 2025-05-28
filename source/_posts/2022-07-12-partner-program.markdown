@@ -14,7 +14,7 @@ og_image: /images/blog/2022-07-12-partner-program/partner_program_og.jpg
 ---
 
 {% note %}
-**This blog is outdated.** For the latest information on the partner program, please visit our [Works with Home Assistant webpage](https://partner.home-assistant.io/).
+**This blog is outdated.** For the latest information on the partner program, please visit our [Works with Home Assistant webpage](https://works-with.home-assistant.io/).
 {% endnote %}
 
 With Home Assistant, we integrate with over 1000 different APIs. The majority of these integrations are created and maintained by the Home Assistant community. Over the years a number of companies have stepped up to work with our community offering samples and engineering support. In a few cases, we saw companies pick up the maintenance of integrating their products in Home Assistant.

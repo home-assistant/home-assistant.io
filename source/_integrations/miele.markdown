@@ -5,11 +5,12 @@ ha_category:
   - Binary sensor
   - Button
   - Climate
-  - Hub
   - Fan
+  - Hub
   - Light
   - Sensor
   - Switch
+  - Vacuum
 ha_iot_class: Cloud Push
 ha_release: '2025.5'
 ha_domain: miele
@@ -25,8 +26,10 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - vacuum
 ha_integration_type: integration
 ha_zeroconf: true
+ha_quality_scale: bronze
 ---
 
 The Miele {% term integrations %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
@@ -153,11 +156,18 @@ Climate entities are used to control target temperatures in refrigerators, freez
   - **Program type**: Shows the current program type.
   - **Spin speed**: Shows the spin speed selected for the current washing machine program.
   - **Energy consumption**: Shows the energy consumption during the current program cycle. The value will be reset after finishing the program.
+  - **Energy forecast**: Shows the forecast percentage of the maximum energy the program will consume for a given cycle.
   - **Water consumption**: Shows the water consumption during the current program cycle. The value will be reset after finishing the program.
+  - **Water forecast**: Shows the forecast percentage of the maximum water the program will consume for a given cycle.
   - **Temperature**: Represents the current temperature in refrigerators, freezers, and ovens. Entities are created for up to 3 zones depending on the device capabilities.
+  - **Target temperature**: Shows the set target temperature for ovens and washing machines.
+  - **Core temperature**: Shows the core temperature of the food in ovens with an appropriate temperature probe.
+  - **Target core temperature**: Shows the set core target temperature for the food in ovens with an appropriate temperature probe.
+  - **Drying step**: Shows the selected drying step on tumble dryers.
   - **Elapsed time**: Shows the number of minutes that the current program has been running.
   - **Remaining time**: Shows the estimated number of minutes remaining in the current program cycle. This value can fluctuate during a program cycle based on load dirtiness or water‑heating time.
   - **Start in**: Shows the number of minutes until a delayed program start, if configured.
+  - **Plate**: Four to six sensors that show the current state of hob heating plates. The status mimics the display on the actual hob. For example, 0 is off, 5 is approximately 50% power, and "B" is power boost. Plates can only be monitored from Home Assistant, not controlled.
 {% enddetails %}
 
 ### Switch
@@ -167,6 +177,13 @@ Climate entities are used to control target temperatures in refrigerators, freez
 - **Power**: The Power switch has slightly different characteristics depending on the appliance model. For some devices, it works more or less as a traditional power switch, while it behaves like a wake-up/sleep toggle on others. The availability of the switch is controlled by the API, depending on the operational state of the appliance.
 - **Supercooling**: The switch controls Supercooling mode for refrigerators.
 - **Superfreezing**: The switch controls Superfreezing mode for freezers.
+{% enddetails %}
+
+### Vacuum
+
+{% details "List of vacuum entities" %}
+
+- **Robot vacuum cleaner**: Miele robot vacuum cleaners can be monitored and controlled to a limited extent. The device can be started, stopped, and paused. The fan speed can also be set.
 {% enddetails %}
 
 ## Automation examples
@@ -207,21 +224,15 @@ When the configuration entry is loaded or after a streaming error (for example a
 
 ## Troubleshooting
 
-### Unavailable entities for a device
-
-#### Symptom: "The entities related to an appliance were available but no longer are"
+{% details "Problem: Unavailable entities for a device" %}
 
 After reloading the Miele integration, the entities related to an appliance that used to be available are no longer available.
-
-##### Description
 
 Unavailable entities can have multiple causes:
 
 - The appliance is turned off. When it is turned off, the appliance is disconnected and the API does not retrieve information about the appliance.
 - The appliance is experiencing a network issue.
 - The Miele API is experiencing issues.
-
-##### Resolution
 
 To try to solve the above issues, follow these steps:
 
@@ -234,6 +245,16 @@ To try to solve the above issues, follow these steps:
 4. If everything is correct and the issue persists, contact Miele support.
    - [Miele service and contact](https://www.miele.com/)
    - [Miele developer Help & Support](https://www.miele.com/developer)
+
+{% enddetails %}
+
+{% details "Problem: Program or program phase is unknown" %}
+
+The most common cause is that the code presented by the API is unknown to the integration. Details of the missing code can be found in the Home Assistant log or in the diagnostic file. Please open an issue on GitHub with the details from the logs. Please also include information on the program or program phase that was active when the message occurred.
+
+Unknown can also be displayed if the state is reported as unknown by the API, usually caused by a temporary malfunction in the cloud service.
+
+{% enddetails %}
 
 ## Removing the integration
 

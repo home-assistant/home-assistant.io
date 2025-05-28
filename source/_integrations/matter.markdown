@@ -11,6 +11,7 @@ ha_category:
   - Light
   - Lock
   - Number
+  - Pump
   - Select
   - Sensor
   - Switch

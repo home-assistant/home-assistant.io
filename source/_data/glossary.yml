@@ -39,9 +39,12 @@
   excerpt: >
     Add-ons are additional standalone third-party software packages that can be
     installed on Home Assistant OS.
+  aliases:
+    - add-ons
+  link: /getting-started/concepts-terminology/#add-ons
 - term: Area
   definition: >-
-    An area in Home Assistant is a logical grouping of devices and entities that
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
     are meant to match areas (or rooms) in the physical world: your home. For
     example, the `living room` area groups devices and entities in your living
     room. Areas allow you to target actions at an entire group of devices.
@@ -50,12 +53,13 @@
     floors. Areas can also be used for automatically generated cards, such as
     the [Area card](/dashboards/area/).
   excerpt: >-
-    An area in Home Assistant is a logical grouping of devices and entities that
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
     are meant to match areas (or rooms) in the physical world: your home. For
     example, the `living room` area groups devices and entities in your living
     room.
   aliases:
     - areas
+  link: /docs/organizing/areas/
 - term: Automation
   definition: >-
     Automations connect one or more triggers to one or more actions in a 'when
@@ -74,12 +78,9 @@
   definition: >-
     Home Assistant has built-in functionality to create files containing a copy
     of your configuration. This can be used to restore your Home Assistant as
-    well as migrate to a new system. The backup feature is available on some
-    installation types.
-  link: /integrations/backup/
-  excerpt: >-
-    Home Assistant has built-in functionality to create files containing a copy
-    of your configurations. This is available on certain installation types.
+    well as migrate to a new system. The backup feature is available for all
+    [installation types](/installation/#about-installation-methods).
+  link: /common-tasks/general/#backups
   aliases:
     - backups
 - term: Binary sensor
@@ -92,7 +93,7 @@
     - binary_sensors
 - term: Blueprint
   definition: >-
-    A blueprint is a script, automation or template entity configuration with certain parts
+    A blueprint is a [script](/getting-started/concepts-terminology/#scripts), [automation](/getting-started/concepts-terminology/#automation), or [template](/integrations/template/) entity configuration with certain parts
     marked as configurable. This allows users to create multiple scripts,
     automations or template entities based on the same blueprint, with each having its own
     configuration-specific settings. Blueprints are shared by the community on
@@ -100,11 +101,6 @@
     exchange](https://community.home-assistant.io/c/blueprints-exchange/53) in
     the forum.
   link: /docs/blueprint/
-  excerpt: >-
-    A blueprint is a script, automation or template entity configuration with certain parts
-    marked as configurable. This allows users to create multiple scripts,
-    automations or template entities based on the same blueprint, with each having its own
-    configuration-specific settings.
   aliases:
     - blueprints
 - term: Button
@@ -116,7 +112,7 @@
     - buttons
 - term: Category
   definition: >-
-    A category is an organization tool that allows grouping items in a table.
+    A category is an organization tool that allows [grouping](/docs/organizing/) items in a table.
     Like labels, categories allow grouping irrespective of the items' physical
     location. For example, on the automations page, you can create the
     categories “Notifications” or “NFC tags” to view your automations grouped or
@@ -124,6 +120,7 @@
     have different categories than the scene, scripts, or helpers settings page.
   aliases:
     - categories
+  link: /docs/organizing/categories/
 - term: Climate
   definition: >-
     The Climate entity allows you to control and monitor HVAC (heating,
@@ -269,7 +266,7 @@
   link: /integrations/event
 - term: Floor
   definition: >-
-    A floor in Home Assistant is a logical grouping of areas that are meant to
+    A floor in Home Assistant is a [logical grouping](/docs/organizing/) of areas that are meant to
     match the physical floors in your home. Devices & entities are not assigned
     to floors but to areas. A floor has properties such as: Floor ID, name,
     aliases (for use in assistants), an icon, and a floor level. Some of these
@@ -278,13 +275,14 @@
     target for actions. For example, to turn off all the lights on the
     downstairs floor when you go to bed.
   excerpt: >-
-    A floor in Home Assistant is a logical grouping of areas that are meant to
+    A floor in Home Assistant is a [logical grouping](/docs/organizing/) of areas that are meant to
     match the physical floors in your home. Devices & entities are not assigned
     to floors but to areas. Floors can be used in automations and scripts as a
     target for actions. For example, to turn off all the lights on the
     downstairs floor when you go to bed.
   aliases:
     - floors
+  link: /docs/organizing/floors/
 - term: Frontend
   definition: >-
     The frontend is a necessary component for the UI, it is also where you can
@@ -309,37 +307,28 @@
     Home Assistant Container is a standalone container-based installation of
     Home Assistant Core. Any [OCI](https://opencontainers.org/) compatible
     runtime can be used, but the documentation focus is on Docker.
-  link: /installation/#advanced-installation-methods
+  link: /installation/#about-installation-methods
 - term: Home Assistant Core
   definition: >-
     Home Assistant Core is the Python program at the heart of Home Assistant. It
-    is part of all of the four installation types and can be run on various
-    operating systems. It can be installed standalone (without Home Assistant
-    Supervisor), using a Virtual Environment (typically referred to as Home
-    Assistant Core installation method) or as a container using Docker
-    (typically referred to as Home Assistant Container installation method).
-  link: /installation/#advanced-installation-methods
-  excerpt: >
-    Home Assistant Core is the heart of Home Assistant itself. It is a Python
-    program that powers every installation type, but can be installed
-    standalone.
+    is part of all installation types. It can be installed standalone (without Home Assistant
+    Supervisor) as a container using Docker (this is typically referred to as the Home Assistant
+    Container installation method). For development, Core can also be run using a Virtual
+    Environment (previously referred as the Home Assistant Core installation method.
+    For production setup, the [Home Assistant Core installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
 - term: Home Assistant Supervised
   definition: >-
-    Home Assistant Supervised is a full UI managed home automation ecosystem
+    The Home Assistant Supervised installation method is a full UI managed home automation ecosystem
     that runs the Home Assistant Core program, the Home Assistant Supervisor and
     add-ons. It comes pre-installed on Home Assistant OS, but can be installed
     standalone on Debian Linux systems. It leverages Docker, which is managed by
-    the Home Assistant Supervisor.
-  excerpt: >
-    Home Assistant Supervised is the full Home Assistant ecosystem, without the
-    Home Assistant Operating System.
-  link: /installation/#advanced-installation-methods
+    the Home Assistant Supervisor. The
+    [Home Assistant Supervised installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).  
 - term: Home Assistant Supervisor
   definition: >-
     The Home Assistant Supervisor is a program that manages a Home Assistant
     installation, taking care of installing and updating Home Assistant,
     add-ons, itself, and, if used, updating the Home Assistant Operating System.
-  link: /installation/#advanced-installation-methods
 - term: Home Assistant Operating System
   definition: >-
     Home Assistant OS, the Home Assistant Operating System, is an embedded,
@@ -349,11 +338,6 @@
     add-ons. Home Assistant Supervisor keeps it up to date, removing the need
     for you to manage an operating system. Home Assistant Operating System is
     the recommended installation method for most users.
-  excerpt: >
-    Home Assistant OS, the Home Assistant Operating System, is an embedded,
-    minimalistic, operating system designed to run the Home Assistant ecosystem.
-    It is the recommended installation method for most users.
-  link: /installation/#advanced-installation-methods
 - term: Host
   definition: >-
     A device that can communicate with other devices on a network. During setup
@@ -411,7 +395,7 @@
     - Intents
 - term: Label
   definition: >-
-    Labels in Home Assistant allow grouping elements irrespective of their
+    Labels in Home Assistant allow [grouping](/docs/organizing/) elements irrespective of their
     physical location or type. Labels can be assigned to areas, devices,
     entities, automations, scenes, scripts, and helpers. Labels can be used in
     automations and scripts as a target for actions. Labels can
@@ -419,13 +403,14 @@
     to show only devices with the label `heavy energy usage` or turn these
     devices off when there is not a lot of solar energy available.
   excerpt: >-
-    Labels in Home Assistant allow grouping elements irrespective of their
+    Labels in Home Assistant allow [grouping](/docs/organizing/) elements irrespective of their
     physical location or type. Labels can be assigned to areas, devices,
     entities, automations, scenes, scripts, and helpers. Labels can be used in
     automations and scripts as a target for actions. Labels can
     also be used to filter data.
   aliases:
     - labels
+  link: /docs/organizing/labels/
 - term: Lovelace
   definition: >-
     Lovelace is the original code name of the UI that is now known as [Home

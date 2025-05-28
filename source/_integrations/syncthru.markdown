@@ -12,6 +12,7 @@ ha_domain: syncthru
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---

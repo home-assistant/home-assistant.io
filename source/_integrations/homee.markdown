@@ -10,15 +10,19 @@ ha_codeowners:
   - '@Taraman17'
 ha_domain: homee
 ha_platforms:
+  - alarm-control-panel
   - binary_sensor
   - button
   - climate
   - cover
+  - event
+  - fan
   - light
   - lock
   - number
   - select
   - sensor
+  - siren
   - switch
   - valve
 ha_integration_type: hub

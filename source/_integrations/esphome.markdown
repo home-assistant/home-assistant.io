@@ -44,6 +44,7 @@ ha_integration_type: device
 ha_dhcp: true
 works_with:
   - local
+ha_quality_scale: platinum
 ---
 
 ## Overview

@@ -91,6 +91,14 @@ Groups are instantly created in Home Assistant when created in the native Homema
 Devices are created with a delay of 30 seconds in Home Assistant when created in the native HomematicIP APP.
 Within this delay the device registration should be completed in the App, otherwise the device name will be a default one based on the device type. This can easily be fixed in the Home Assistant entity registry afterwards.
 
+## Use HmIP-DLD Door Lock Drive in Home Assistant
+
+If you are unable to control the **HmIP-DLD** device via Home Assistant, you may need to allow the Home Assistant device to control the **HmIP-DLD** in the HomematicIP app.
+
+To do this, navigate to the **Access Control** section in your HomematicIP app and enable the necessary permissions.
+
+Currently, the **HmIP-DLD** can only be used in Home Assistant without a PIN. Ensure that no PIN is set for the device in the HomematicIP app.
+
 ## Implemented and tested devices
 
 - homematicip_cloud.alarm_control_panel
