@@ -101,3 +101,21 @@ Before you can use this device with Home Assistant, you need to install a bit of
 Are things not working as expected?
 
 - Checkout the [general troubleshooting section for Assist](/voice_control/troubleshooting/).
+
+## Removing the Wi-Fi credentials from the ATOM Echo
+
+If you no longer use the device or want to pass it on to someone else, you can remove the Wi-Fi credentials that are stored on the device.
+
+1. Make sure this page is opened in a Chromium-based browser on a desktop. It does not work on a tablet or phone.
+   - Select the **Connect** button below. If your browser does not support web serial, you will see a warning instead of a button.
+
+      <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+      <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
+
+2. To connect the ATOM Echo to your computer, follow these steps:
+   - In the pop-up window, view the available ports.
+   - Plug the USB-C cable into the ATOM Echo and connect it to your computer.
+   - In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.
+3. In the dialog, select **Erase user data**.
+   - **Result**: Your Wi-Fi credentials are deleted from the device.
+   - The firmware stays on the device.
