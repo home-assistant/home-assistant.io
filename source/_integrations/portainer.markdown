@@ -14,9 +14,12 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Portainer is a lightweight management UI which allows you to easily manage your Docker containers, images, networks and volumes. It works on every Docker host or Swarm cluster.
+The Portainer {% term integration %} is used as an interface to the [Portainer API](https://docs.portainer.io/api).
+Portainer is a lightweight management UI that allows you to easily manage your Docker containers, images, networks, and volumes. It works on every Docker host or Swarm cluster.
 
-The Portainer integration platform is used as an interface to the [Portainer API](https://docs.portainer.io/api).
+The Portainer API provides a way to manage Docker containers, images, networks, and volumes. It allows you to interact programmatically with your Docker host or Swarm cluster.
+
+## Supported functionality
 
 {% note %}
 This integration is currently being actively developed and tested. More platforms and features will be added in.
@@ -26,7 +29,6 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary sensor - for monitoring the status of Portainer services.
 
-The Portainer API provides a way to manage Docker containers, images, networks, and volumes. It allows you to interact with your Docker host or Swarm cluster programmatically.
 
 ## Connect with Portainer
 
