@@ -76,8 +76,8 @@ Well, the Open Home Foundation is hosting a summit in Dublin, Ireland during the
 
 {% tip %}
 
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=fcqXortXBVk)
-11 June 2025, at 20:00 GMT / 12:00 PT / 21:00 CEST!
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=fcqXortXBVk) on
+June 11, 2025, at 20:00 GMT / 12:00 PT / 21:00 CEST!
 
 {% endtip %}
 
@@ -126,9 +126,9 @@ The Bluetooth integration now provides a graph that shows how your Bluetooth dev
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-bluetooth-connection-graph.png" />
 
-And it not just shows the actively connected device, but also the device that are not yet known to Home Assistant, but are in range. This is a great way to see what devices are around you and how they are connected.
+And it not only shows the actively connected devices, but also the devices that are not yet known to Home Assistant, but are in range. This is a great way to see what devices are around you and how they are connected.
 
-Oh! And not the the Bluetooth integration got nice graphs, the [Zigbee integration]–which already has a similar feature–also got an update to its graphs, making it consistent with the amazing new Bluetooth graphs.
+Oh! And now that the Bluetooth integration got nice graphs, the [Zigbee integration]–which already has a similar feature–also got an update to its graphs, making it consistent with the amazing new Bluetooth graphs.
 
 [Bluetooth capabilities]: /integrations/bluetooth
 [ESPHome Bluetooth proxies]: https://esphome.io/projects/?type=bluetooth
@@ -138,11 +138,11 @@ Oh! And not the the Bluetooth integration got nice graphs, the [Zigbee integrati
 
 In the April release, we introduced a [new experimental Areas dashboard](/blog/2025/04/02/release-20254/#a-new-experimental-areas-dashboard), which automatically generates a ready-to-use dashboard based on the areas you’ve set up in your home. It uses sections and tile cards for a modern, clean, and intuitive look—instantly.
 
-This release brings some iteration on this one, based on your feedback, to refine the experience a little.
+This release brings some iterations on this one, based on your feedback, to refine the experience a little.
 
-We added a new "Actions" section that includes the scripts, automations, and scenes. We also added the number entities (and number helpers), button entities (and button helpers), counter and timer helpers to the "Others" section. This makes it easier to find and manage your automations and scenes in the context of your areas.
+We added a new "Actions" section that includes scripts, automations, and scenes. We also added number entities (and number helpers), button entities (and button helpers), counter and timer helpers to the "Others" section. This makes it easier to find and manage your automations and scenes in the context of your areas.
 
-Finally, we renamed the "Entertainment" section to "Media players" section. This makes it clearer that this section is specifically for media player entities.
+Finally, we renamed the "Entertainment" section to "Media players". This makes it clearer that this section is specifically for media player entities.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-areas-dashboard.png" />
 
@@ -176,7 +176,7 @@ We welcome the following new integrations in this release:
 - **[Paperless-ngx]**, added by [@fvgarrel]  
   Connect to your [Paperless-ngx system] to track and manage your digital documents from Home Assistant.
 - **[Probe Plus]**, added by [@pantherale0]  
-  Monitor various sensors using the [Probe Plus platform] for enhanced environmental awareness in your home.
+  Integrate wireless Bluetooth meat thermometers compatible with the PROBE PLUS app, bringing real-time temperature monitoring during cooking into Home Assistant.
 - **[Zimi Cloud Connect]**, added by [@mhannon11]  
   Connect to [Zimi Cloud] devices to monitor and control your Zimi smart home products.
 
@@ -191,14 +191,11 @@ We welcome the following new integrations in this release:
 [Immich]: /integrations/immich
 [Paperless-ngx system]: https://paperless-ngx.readthedocs.io/
 [Paperless-ngx]: /integrations/paperless_ngx
-[Probe Plus platform]: https://probeplus.io/
 [Probe Plus]: /integrations/probe_plus
 [Zimi Cloud Connect]: /integrations/zimi
 [Zimi Cloud]: https://www.zimi.com.au/
 
-This release also has new virtual integrations. Virtual integrations
-are stubs that are handled by other (existing) integrations to help with
-findability. These ones are new:
+This release also has new virtual integrations. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. These ones are new:
 
 - **[Kaiser Nienhaus]**, provided by [Motionblinds], added by [@starkillerOG]
 
@@ -221,8 +218,8 @@ changes to existing integrations:
 - [@bieniu] improved the [Shelly] integration to use sub-devices for multi-channel devices.
   A notable change for complex setups!
 - The [SmartThings] integration saw a huge round of improvements by [@joostlek], including:
-  support for cooktops, hobs, water heaters, hood fan speeds, Steam closet modes, 
-  freezer and cooler temperatures, washer spin and soil levels, valve positions, 
+  support for cooktops, hobs, water heaters, hood fan speeds, Steam closet modes,
+  freezer and cooler temperatures, washer spin and soil levels, valve positions,
   heat pump zone climates, and atmospheric pressure. Amazing!
 - [Miele] keeps on shining with new features from [@astrandb], like vacuum support,
   drying step sensors, washer-dryer program phases, and hob plate sensors.
@@ -230,7 +227,7 @@ changes to existing integrations:
 - [@agorecki] added a Lux sensor to the [Airthings Cloud] integration—bright idea!
 - The [Squeezebox] integration now includes service update entities, thanks to [@pssc]!
 - [@tedvdb] added a status sensor to the [Whois] integration. Simple, but effective.
-- [@zerzhang] added support for [SwitchBot] 
+- [@zerzhang] added support for [SwitchBot]
   [vacuums](https://www.switch-bot.com/products/switchbot-robot-vacuum-k10-plus),
   and new lock models: the [Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
   and [Lock Lite](https://www.switch-bot.com/products/switchbot-lock-lite)!  
@@ -317,24 +314,22 @@ of this release:
 
 ## Other noteworthy changes
 
-There are many more improvements in this release; here are some of the other
-noteworthy changes this release:
+There are many more improvements in this release; here are some of the other noteworthy changes:
 
-- And a small but neat one: [@balloob] made it so the discoveries shown on an
-  integration page are now sorted by title. Helpful!
+- And a small but neat one: [@balloob] made it so discoveries shown on an integration page are now sorted by title. Helpful!
 - The [Home Assistant Cloud] integration will now raise a repair issue when your subscription has expired, helping make sure you’re aware and not caught off guard. Nice one, [@ludeeus]!
-- Move backup improvements! 🎉
+- More backup improvements! 🎉
   - Home Assistant will now raise a repair issue if not all add-ons or folders were successfully backed up. Thanks, [@emontnemery]!
-  - [@agners] made it so that when an add-on is auto-updated, a backup is now created automatically. That used to be a manual step. Nice!
+  - [@agners] made it so that when an add-on is auto-updated, a backup is now correctly created as an "add-on"-backup. Great!
   - A new automatic backup [event entity] has been added to track automatic backups made by the system. Great addition by [@mib1185]!
 - [@lboue] added support for the [Matter] pump device type. Another one
   added to the list—awesome!
-- Template integration got a big boost!
+- The Template integration got a big boost!
   - [@Petro31] added modern-style YAML support for template fans, locks, alarm control panels, vacuums, and covers. So clean!
   - You can now create **trigger-based template covers**. Yep, also by [@Petro31]!
   - The `trigger_variables` option is now supported when using `for` in a trigger. A small but powerful feature. Thanks, [@Petro31]!
   - New template filters! You can now use `from_hex`, and `base64_encode` now supports both bytes and strings. Handy additions from [@Petro31]!
-- New sensor capabilities
+- New sensor capabilities:
   - [@Passific] added a new device class and units for **reactive energy**. Nice!
   - A new unit for **energy distance (Wh/km)** has been added. Thanks, [@frenck]!
   - Sensors now support **mg/m³** as a concentration unit—another nice addition by [@frenck]!
@@ -345,7 +340,7 @@ noteworthy changes this release:
 [@agners]: https://github.com/agners
 [@Arnie97]: https://github.com/Arnie97
 [@balloob]: https://github.com/balloob
-[@emontnemery]: https://github.com/emontnemer
+[@emontnemery]: https://github.com/emontnemery
 [@frenck]: https://github.com/frenck
 [@Hypfer]: https://github.com/Hypfer
 [@lboue]: https://github.com/lboue
@@ -360,19 +355,19 @@ noteworthy changes this release:
 
 ## Sidebar improvements
 
-If you didn't know yet, you can actually adjust the contents of your Home&nbsp;Assistant sidebar. You can change the order and show/hide items by pressing and holding the "Home Assistant" text in top of the sidebar, or by going to your user profile page and selecting the "Change the order and hide items from the sidebar" item.
+If you didn't know yet, you can actually adjust the contents of your Home&nbsp;Assistant sidebar. You can change the order and show/hide items by pressing and holding the "Home Assistant" text at the top of the sidebar, or by going to your user profile page and selecting "Change the order and hide items from the sidebar".
 
-This release brings a couple of much needed improvements to this feature. When you customize the sidebar, it will now bring up a nice and clean dialog that allows you to drag and drop items to change their order, or hide them by clicking the eye icon next to them.
+This release brings a couple of much-needed improvements to this feature. When you customize the sidebar, it will now bring up a nice and clean dialog that allows you to drag and drop items to change their order, or hide them by clicking the eye icon next to them.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-sidebar-customization.png" />
 
-The biggest improvement is actually to be found in something else! Previously, the customization of the sidebar was only applied to the device you made the changes on; and even more annoying, sometimes it would lose the changes, or it magically would forget your settings on our [mobile companion apps] when you switched between your home network (and thus internal URL). 🥲
+The biggest improvement is actually to be found in something else! Previously, the customization of the sidebar was only applied to the device you made the changes on; and even more annoying, sometimes it would lose the changes, or it would magically forget your settings on our [mobile companion apps] when you switched between your home network (and thus internal URL). 🥲
 
-This release, this annoyance has been fixed! The sidebar customization is now stored in your user profile, which means it is applied to all devices you use Home Assistant on!
+In this release, this annoyance has been fixed! The sidebar customization is now stored in your user profile, which means it is applied to all devices you use Home Assistant on!
 
 ## Join/unjoin groups of media players
 
-Media players in Home Assistant, can provide actions for media players to join or unjoin a group of media players. This is a great way to dynamically control your media players and the groups they are in. This feature, however, was limited in a way, as it only could be used by performing the actions in, for example, an automation or script.
+Media players in Home Assistant can provide actions for media players to join or unjoin a group of media players. This is a great way to dynamically control your media players and the groups they are in. This feature, however, was limited in a way, as it only could be used by performing the actions in, for example, an automation or script.
 
 Now, [@AlexGustafsson] changed that! 🎉
 
@@ -382,13 +377,13 @@ You can now use the media player card to join or unjoin groups of media players.
 
 Please note, you can only join or unjoin groups of media players that support this feature. Not all media players support this, so it might not be available for all your media players.
 
-Anyhow, Amazing contribution Alex! 👏
+Anyhow, amazing contribution Alex! 👏
 
 [@AlexGustafsson]: https://github.com/AlexGustafsson
 
 ## Reset/restore entity IDs
 
-You can now restore the ID of an entity to its original value. This is useful if you have renamed an entity and want to revert it back to its original entity ID, or if you want to reset it to a new value.
+You can now restore the ID of an entity to its original value. This is useful if you have renamed an entity and want to revert it back to its original entity ID.
 
 This feature is available in the entity configuration page, where you can now find a "Reset entity ID" button. When clicked, it will restore the entity ID to its original value. Additionally, there is the option to reset all entity IDs of a device to their original values, which can be found in the device configuration page.
 
@@ -424,13 +419,13 @@ possible for you. This release has the following backward-incompatible changes:
 
 Met Office [deprecated the Datapoint API](https://www.metoffice.gov.uk/services/data/datapoint/datapoint-retirement-faqs) used by this integration, causing it to stop working. To address this, it is now migrated to [DataHub API](https://www.metoffice.gov.uk/services/data/met-office-weather-datahub).
 
-To keep using this integration you will need to provide it a new API key which can be obtained by signing up for [DataHub](https://datahub.metoffice.gov.uk/) and subscribing to [Global spot dataset](https://datahub.metoffice.gov.uk/pricing/site-specific). Free subscription provides 360 calls per day which is enough for this integration to work.
+To keep using this integration, you will need to provide a new API key, which can be obtained by signing up for [DataHub](https://datahub.metoffice.gov.uk/) and subscribing to [Global spot dataset](https://datahub.metoffice.gov.uk/pricing/site-specific). The free subscription provides 360 calls per day, which is enough for this integration to work.
 
-Some sensors have changed due to new data source:
+Some sensors have changed due to the new data source:
 
-- Hourly forecast provided by weather entity now has actual hourly entries as opposed to 3-hourly in the old version
-- Instead of `visibility` and `visibility_distance` sensors showing a range and qualitative description (such as "1-4 km" and "Poor"), integration now exposes a single `visibility` sensor with precise visibility distance in meters
-- The integration no longer exposes "daily" and "3-hourly" sensors, there is a single set of them now
+- Hourly forecast provided by the weather entity now has actual hourly entries as opposed to 3-hourly in the old version
+- Instead of `visibility` and `visibility_distance` sensors showing a range and qualitative description (such as "1-4 km" and "Poor"), the integration now exposes a single `visibility` sensor with precise visibility distance in meters
+- The integration no longer exposes "daily" and "3-hourly" sensors; there is a single set of them now
 - The integration sensors no longer expose `Site ID`, `Site name` and `Sensor ID` attributes as these don't provide any additional value
 
 ([@avee87] - [#131425]) ([documentation](/integrations/metoffice))
@@ -445,10 +440,10 @@ new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following changes are the most notable for this release:
 
 - [Icon translations now support ranges](https://developers.home-assistant.io/blog/2025/05/22/range-based-icons/)
+- [Sensor device classes now have default display precision](https://developers.home-assistant.io/blog/2025/05/26/sensor-default-display-precision/)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
 ## All changes
 
-Of course there is a lot more in this release. You can find a list of
-all changes made here: [Full changelog for Home Assistant Core 2025.6](/changelogs/core-2025.6)
+Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2025.6](/changelogs/core-2025.6)
