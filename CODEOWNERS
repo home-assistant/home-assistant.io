@@ -804,6 +804,7 @@ source/_integrations/sfr_box.markdown @epenet
 source/_integrations/sharkiq.markdown @JeffResc @funkybunch
 source/_integrations/shell_command.markdown @home-assistant/core
 source/_integrations/shelly.markdown @balloob @bieniu @thecode @chemelli74 @bdraco
+source/_integrations/shelly_zwave.markdown @home-assistant/z-wave
 source/_integrations/shodan.markdown @fabaff
 source/_integrations/sia.markdown @eavanvalkenburg
 source/_integrations/siemens.markdown @DavidMStraub @Diegorro98 @MartinHjelmare
