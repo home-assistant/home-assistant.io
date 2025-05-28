@@ -6,7 +6,7 @@ ha_category:
   - Health
   - Sensor
   - Fan
-ha_release: 2025.2.4
+ha_release: 2025.7
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@JWFIVE'
