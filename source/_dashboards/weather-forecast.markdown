@@ -63,7 +63,7 @@ name:
   default: Entity name
 show_current:
   required: false
-  description: Show current wheather.
+  description: Show the current weather conditions above the forecast.
   type: boolean
   default: true
 show_forecast:
