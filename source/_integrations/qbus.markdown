@@ -49,7 +49,7 @@ There is currently support for the following **Qbus** products within Home Assis
 ## Available entities
 
 - **Climate**: manage thermostats by setting temperature and choosing presets.
-- **Cover**: operate covers with support for actions like open, close, stop, position adjustment, and tilt — depending on your setup.
+- **Cover**: operate covers with support for actions like open, close, stop, position adjustment, and tilt, depending on your setup.
 - **Light**: control dimmer lights, allowing both on/off functionality and brightness adjustment.
 - **Scene**: activate predefined scenes.
 - **Switch**: toggle on/off outputs.
