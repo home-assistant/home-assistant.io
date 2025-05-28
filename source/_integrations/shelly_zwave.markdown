@@ -4,6 +4,7 @@ description: Connect and control your Shelly Z-Wave devices using the Z-Wave int
 ha_release: '2025.6'
 ha_iot_class: Local Push
 ha_category:
+  - Sensor
   - Switch
   - Plug
 ha_domain: shelly
@@ -11,8 +12,9 @@ ha_integration_type: brand
 works_with:
   - zwave
 ha_platforms:
-  - Switch
-  - Plug
+  - binary_sensor
+  - sensor
+  - switch
 ha_iot_standard: zwave
 ha_brand: true
 ---
@@ -24,3 +26,9 @@ Shelly Z-Wave devices work locally and integrate seamlessly with the Z-Wave inte
 {% my add_zwave_device badge domain=page.ha_domain %}
 
 [Learn more about Z-Wave in Home Assistant.](/integrations/zwave_js/)
+
+## Supported devices
+
+- [Shelly Wave 1PM Mini](https://www.shelly.com/products/shelly-qubino-wave-1pm-mini)
+- [Shelly Wave PM Mini](https://www.shelly.com/products/shelly-qubino-wave-pm-mini)
+- [Shelly Wave i4](https://www.shelly.com/products/shelly-qubino-wave-i4)
