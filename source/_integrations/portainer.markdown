@@ -3,7 +3,7 @@ title: Portainer
 description: Instructions on how to integrate Portainer with Home Assistant.
 ha_category:
   - Binary sensor
-ha_release: 0.41
+ha_release: 2025.7
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@erwindouna'
