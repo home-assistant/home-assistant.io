@@ -358,6 +358,67 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor | State       | Yes     |
 | Sensor | Vehicle     | Yes     |
 
+
+## Actions
+
+The Tesla Fleet integration provides the following actions to directly interact with your Tesla vehicle:
+
+### Navigate to Location
+
+`tesla_fleet.navigation_request`
+
+| Field      | Description                                    | Example                                        |
+| ---------- | ---------------------------------------------- | ---------------------------------------------- |
+| device\_id | The Tesla vehicle to send the request to       | 0d462c0c4c0b064b1a91cdbd1ffcbd31               |
+| value      | Location as a text address or Google Maps link | "1600 Amphitheatre Parkway, Mountain View, CA" |
+| type       | (Optional) Navigation request type             | "share\_ext\_content\_raw" (default)           |
+| locale     | (Optional) Locale for formatting the request   | "en\_AU"                                       |
+
+### Share to Vehicle
+
+`tesla_fleet.share_to_vehicle`
+
+| Field      | Description                              | Example                                                                              |
+| ---------- | ---------------------------------------- | ------------------------------------------------------------------------------------ |
+| device\_id | The Tesla vehicle to send the request to | 0d462c0c4c0b064b1a91cdbd1ffcbd31                                                     |
+| value      | URL or content to share with your Tesla  | "[https://youtube.com/watch?v=dQw4w9WgXcQ](https://youtube.com/watch?v=dQw4w9WgXcQ)" |
+| type       | (Optional) Navigation request type       | "share\_ext\_content\_raw" (default)                                                 |
+| locale     | (Optional) Locale                        | "en\_US"                                                                             |
+
+### Navigate to Coordinates
+
+`tesla_fleet.navigation_gps_request`
+
+| Field              | Description                          | Example                          |
+| ------------------ | ------------------------------------ | -------------------------------- |
+| device\_id         | The Tesla vehicle to send request to | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
+| location           | Latitude and Longitude coordinates   |                                  |
+| location.latitude  | Latitude in degrees                  | -27.9699373                      |
+| location.longitude | Longitude in degrees                 | 153.4081865                      |
+| order              | (Optional) Order of this waypoint    | 1                                |
+
+### Navigate to Supercharger
+
+`tesla_fleet.navigate_to_supercharger_request`
+
+| Field            | Description                                                          | Example                          |
+| ---------------- | -------------------------------------------------------------------- | -------------------------------- |
+| device\_id       | The Tesla vehicle to send request to                                 | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
+| supercharger\_id | Tesla Supercharger site ID (found via API sniffing, see notes below) | 1389                             |
+| order            | (Optional) Order of this waypoint                                    | 0                                |
+
+Please be aware this will initiate precondtitioning if required. There is no "cancel" command if you decide to reverse this action, but you could send a navigation request (`navigation_request`) to your home address which should clear it.
+
+#### Finding the Supercharger ID
+
+The `supercharger_id` used for the `navigate_to_supercharger_request` is not publicly documented by Tesla. To find it:
+
+1. Use **[mitmproxy](https://mitmproxy.org/)** to monitor your Tesla mobile app.
+2. Open the Tesla app and navigate to **Locations > Charging**.
+4. Select a Supercharger and observe the network requests.
+5. Search for "getChargingSiteInformation" requests.
+6. Look for the `fastchargeSiteId` value in the API response. This is your supercharger ID.
+
 ## Vehicle sleep
 
 Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` service to force polling the API, which will reset the timer.
