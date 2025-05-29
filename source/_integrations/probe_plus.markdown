@@ -13,7 +13,7 @@ ha_bluetooth: true
 ha_codeowners:
   - '@pantherale0'
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: gold
 ---
 
 The **Probe Plus** {% term integration %} allows you to view food temperature probe details supported by [Probe Plus](https://play.google.com/store/apps/details?id=com.yscoco.thermoex) through Home Assistant.
@@ -50,6 +50,31 @@ If you have successfully tested this integration with another probe model, pleas
 ## Possible use-cases
 
 This integration can be used to monitor food temperatures, you could combine this with your Home Assistant Voice to alert you when the food has finished cooking. As a bonus, multiple probes are supported and therefore if you are cooking a large family meal, you can view all your food temperatures on one dashboard.
+
+## Examples
+
+In this section you will find examples on how this integration can be used.
+
+### Send notification when a given temperature reached
+
+This example will send a notification when the temperature reaches 75 degrees with the current temperature.
+
+```yaml
+description: ""
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - sensor.fm210_ea_00_00_02_74_ec_temperature
+    to: "75"
+conditions: []
+actions:
+  - action: notify.persistent_notification
+    metadata: {}
+    data:
+      title: Temperature reached
+      message: The temperature of the probe has reached {{ trigger.to_state.state }}
+```
 
 ## Known limitations
 
