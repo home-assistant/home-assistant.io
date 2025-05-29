@@ -58,7 +58,7 @@ For Bluetooth to function on Linux systems:
 - Home Assistant Supervised: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
 - Home Assistant Core: The system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant.
 
-### Additional details for Container, Core, and Supervised installs
+### Additional details for Container
 
 {% details "Making the DBus socket available in the Docker container" %}
 
@@ -76,12 +76,6 @@ volumes:
 {% details "Switching from dbus-daemon to dbus-broker" %}
 
 Follow [the instructions](https://github.com/bus1/dbus-broker/wiki) to switch to dbus-broker.
-
-{% enddetails %}
-
-{% details "Installing BlueZ" %}
-
-On Debian based host systems, the `sudo apt-get -y install bluez` command will install BlueZ.
 
 {% enddetails %}
 
