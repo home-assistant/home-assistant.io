@@ -34,6 +34,8 @@ You need to configure developer credentials to allow Home Assistant to access yo
 These credentials are the same as the ones for [Google Sheets](/integrations/google_sheets), [Nest](/integrations/nest), [YouTube](/integrations/youtube), and [Google Mail](/integrations/google_mail).
 These are not the same as *Device Auth* credentials previously recommended for [Google Calendar](/integrations/google).
 
+Keep in mind that Google API might be subect to cost : see details in [Free to sign up. Free to use. Free monthly usage.](https://cloud.google.com/free?hl=en)
+
 {% include integrations/google_client_secret.md %}
 
 {% include integrations/config_flow.md %}
