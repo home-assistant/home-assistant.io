@@ -86,14 +86,14 @@ Each device adds a set of sensors to Home Assistant.
     - Current relative self-consumption of produced energy
     - Current relative autonomy
 
-- Inverter
-
-  The energy produced on the current day, year (not for Gen24 devices), and total produced energy, power, current, voltage, frequency, and status for an individual inverter.
-  Updated every minute.
-
 - Meter
 
   Detailed information about power, current, and voltage, if supported, split among the phases.
+  Updated every 10 seconds.
+  
+- Inverter
+
+  The energy produced on the current day, year (not for Gen24 devices), and total produced energy, power, current, voltage, frequency, and status for an individual inverter.
   Updated every minute.
 
 - Ohmpilot
