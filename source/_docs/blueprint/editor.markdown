@@ -3,12 +3,9 @@ title: "Blueprint Editor"
 description: "Tutorial on using the blueprint editor."
 ---
 
-Have you wanted your own personal theme song that plays when you come in the
-house? For this tutorial, we're going to create a blueprint to play a song
-when someone enters a zone!
+Have you wanted your own personal theme song that plays when you come in the house? For this tutorial, we're going to create a blueprint to play a song when someone enters a zone!
 
-1. Go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}
-   and in the lower right corner, select the **Add Blueprint** button.
+1. Go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %} and in the lower right corner, select the **Add Blueprint** button.
 2. To create an automation blueprint, select **Create new automation blueprint**.
     ![Create blueprint dialogue box](/images/docs/blueprint-editor/create-blueprint.png)
 
@@ -54,8 +51,7 @@ when someone enters a zone!
 
 7. Enter the trigger condition:
    - Under **When**, click **Add Trigger**, select **Time and location > Zone**
-   - Select the overflow menu, then select **Edit in YAML** and input the
-     following YAML:
+   - Select the overflow menu, then select **Edit in YAML** and input the following YAML:
 
     ```yaml
     trigger: zone
@@ -69,8 +65,7 @@ when someone enters a zone!
 8. Define the action that should happen:
    - In the **Then do** section, select **Add Action**.
    - Select **Media player > Play media**
-   - Select the overflow menu, then select **Edit in YAML** and input the
-     following YAML:
+   - Select the overflow menu, then select **Edit in YAML** and input the following YAML:
 
    ```yaml
    action: media_player.play_media
@@ -78,7 +73,6 @@ when someone enters a zone!
     entity_id: !input speaker
    data:
     media_content_id: !input song
-   metadata: {}
    ```
 
     ![Play media action](/images/docs/blueprint-editor/play-action.png)
@@ -87,5 +81,4 @@ when someone enters a zone!
 
 ## Using a Blueprint
 
-For more information on how to use a blueprint to create an automation or script,
-see the [Blueprint Tutorial](/docs/blueprint/tutorial/#using-the-blueprint-via-the-ui)
+For more information on how to use a blueprint to create an automation or script, see the [Blueprint Tutorial](/docs/blueprint/tutorial/#using-the-blueprint-via-the-ui)
