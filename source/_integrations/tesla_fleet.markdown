@@ -44,15 +44,31 @@ You must have:
 
 - A [Tesla](https://tesla.com) account
 - A [Developer Application](https://developer.tesla.com/en_US/dashboard)
-- A web domain and host that you can serve your public key file from. Some free options include:
+- A web domain and host that you can serve your public key file from. Either locally (see [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) instructions below), or alternatively, with some free web-options (ordered from easier to more complex):
   - [FleetKey.cc](https://fleetkey.cc)
   - [MyTeslamate.com](https://app.myteslamate.com/fleet)
   - [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
   - [Cloudflare Pages](https://pages.cloudflare.com/)
   - [Firebase Hosting](https://firebase.google.com/docs/hosting)
-  
+
 
 {% include integrations/config_flow.md %}
+
+{% details "Hosting a Public/Private Key Pair with the NGINX Home Assistant SSL proxy Add-on" %}
+
+While the [Tesla Fleet API documentation Step 3](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-3-generate-a-public-private-key-pair) mentions this as a later step, it is recommended that you do this first to ensure key reachability before the rest of the integration.
+With this method, it is assumed that the [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) is running as a reverse proxy for external access to your Home Assistant installation.
+
+1. **Open an SSH Terminal** on your Home Assistant installation using the [Terminal & SSH Add-on](https://www.home-assistant.io/common-tasks/os#installing-and-using-the-ssh-add-on).
+2. Run this command to **create a private key**: `openssl ecparam -name prime256v1 -genkey -noout -out private-key.pem`
+3. Run this command to **create and associate a public key** with it: `openssl ec -in private-key.pem -pubout -out public-key.pem`
+4. **Backup both these files** somewhere safe and private for access later.
+5. **Copy the public key** file `public-key.pem` to `/share/tesla/.well-known/appspecific/com.tesla.3p.public-key.pem`. It needs to be exactly this location for Tesla's API to partner with your account correctly.
+6. Create a **NGINX configuration file** `nginx_proxy_default_tesla.conf` in `/share` with: `echo 'location /.well-known/appspecific/com.tesla.3p.public-key.pem {\n  root /share/tesla;\n}' > /share/nginx_proxy_default_tesla.conf`
+7. Close the Terminal and go to Settings->Add-Ons->**NGINX Home Assistant SSL proxy**->Configuration page. Change the `customize.active` option from the default `false` to `true`. Leave the `config.default` option at its default value: `nginx_proxy_default*.conf`.
+8. **Restart the NGINX Home Assistant SSL proxy Add-on** on the Settings->Add-Ons->NGINX Home Assistant SSL proxy->Info page and test if the public key file is accessible at `https://my.domain.com/.well-known/appspecific/com.tesla.3p.public-key.pem`
+
+{% enddetails %}
 
 {% details "Hosting a Public/Private Key Pair" %}
 
@@ -102,7 +118,7 @@ The following steps involve sensitive credentials. Never share your `Client Secr
 1. Get your OAuth details by going to your [Developer dashboard](https://developer.tesla.com/en_US/dashboard). Under the app you set up for Home Assistant integration select **View Details**. Then, select the **Credentials & APIs** tab. Note the `Client ID` and `Client Secret` strings.
 
 2. Run this CURL request, replacing the variable values as specified in the notes below:
-  
+
    ```shell
    CLIENT_ID=REPLACE_THIS_WITH_YOUR_CLIENT_ID
    CLIENT_SECRET=REPLACE_THIS_WITH_YOUR_CLIENT_SECRET
@@ -116,20 +132,20 @@ The following steps involve sensitive credentials. Never share your `Client Secr
      --data-urlencode "audience=$AUDIENCE" \
      'https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/token'
    ```
-  
+
    Notes about the variable values:
    - For the `CLIENT_SECRET` value, depending on your terminal environment, you may need to escape any `!` and `$` characters in the string, or the curl request will fail.
    - Replace the `AUDIENCE` value with your region-specific URL. The URL in the example is for users in North America and Asia-Pacific (excluding China). Refer to the [Base URLs documentation](https://developer.tesla.com/docs/fleet-api/getting-started/base-urls) for the URLs for other regions.
    - For the `scope=...` line, replace the values with a space-delimited list of [the official scope keywords](https://developer.tesla.com/docs/fleet-api/authentication/overview#scopes), as you defined them earlier in your app.
 3. The CURL request should return a response that looks something like:
-  
+
    ```json
    {"access_token":"ACCESS_TOKEN","expires_in":28800,"token_type":"Bearer"}
    ```
-  
+
    This is your access token. Copy everything between the double-quotes to be used next.
 4. Run this CURL request, replacing the variable values as specified in the notes below:
-  
+
    ```shell
    curl --location 'https://fleet-api.prd.na.vn.cloud.tesla.com/api/1/partner_accounts' \
    --header 'Content-Type: application/json' \
@@ -138,7 +154,7 @@ The following steps involve sensitive credentials. Never share your `Client Secr
        "domain": "my.domain.com"
    }'
    ```
-  
+
    - If you had to change the `AUDIENCE` URL for your region in step 2, update the main domain of the `--location` arg.
    - Replace `ACCESS_TOKEN` with the access token that you copied in the previous step.
    - In the `domain:` line, enter your domain without the leading `https://` and the trailing `/`.
@@ -157,6 +173,14 @@ The following steps involve sensitive credentials. Never share your `Client Secr
 7. You're all set! The integration should fetch your device details into Home Assistant.
 
 {% enddetails %}
+
+## Vehicle data polling interval
+
+The integration is configured to {% term polling poll %} each vehicle every 10 minutes while it's awake.
+This is long enough that a single vehicle can be polled 24/7 without exceeding the USD$10 credit Tesla provides.
+It is expected that most vehicles are asleep over 50% of the day, so the defaults should also suit users with multiple vehicles or that want to run automated commands.
+
+If the default polling interval does not suit your needs, you can [define a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval).
 
 ## Scopes
 
@@ -183,6 +207,7 @@ Certain vehicles, including all vehicles manufactured since late 2023, require v
 The integration expects your private key to be located at `config/tesla_fleet.key`.
 
 Your public key must be added to each of your vehicles by visiting https://tesla.com/_ak/YOUR.DOMAIN and following the instructions in the Tesla app.
+If you're using an iPhone, you may need to use Safari to open the webpage and finish the setup. 
 
 For more details see [Tesla Fleet API vehicle commands documentation](https://developer.tesla.com/docs/fleet-api/endpoints/vehicle-commands#key-pairing).
 
@@ -336,14 +361,6 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 ## Vehicle sleep
 
 Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` service to force polling the API, which will reset the timer.
-
-## Energy dashboard
-
-The Tesla Fleet API only provides power data for Powerwall and Solar products. This means they cannot be used on the energy dashboard directly.
-
-Energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
-The `Load power`, `Solar power`, and the templated sensors can then use a [Riemann Sum](/integrations/integration/) to convert their instant power (kW) values into cumulative energy values (kWh),
-which then can be used within the energy dashboard.
 
 ## Troubleshooting
 

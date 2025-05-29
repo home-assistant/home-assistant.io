@@ -1239,6 +1239,26 @@ lights:
       required: false
       default: 0x00
       type: integer
+    brightness_address: 
+      description: "Address to read/write color brightness."
+      required: false
+      default: None
+      type: integer
+    color_temp_address:
+      description: "Address to read/write color temperature."
+      required: false
+      default: None
+      type: integer
+    min_temp:
+      description: "Minimal level of color temperature in Kelvin."
+      required: false
+      default: 2000
+      type: integer
+    max_temp:
+      description: "Maximal level of color temperature in Kelvin."
+      required: false
+      default: 7000
+      type: integer
     write_type:
       description: "Type of write request."
       required: false
@@ -1313,6 +1333,22 @@ modbus:
         slave: 2
         address: 14
         write_type: coil
+        brightness_address: 1006
+        verify:
+      - name: "light3"
+        slave: 2
+        address: 14
+        write_type: coil
+        brightness_address: 1006
+        color_temp_address: 2006
+      - name: "light4"
+        slave: 2
+        address: 14
+        write_type: coil
+        brightness_address: 1006
+        color_temp_address: 2006
+        min_temp: 2500
+        max_temp: 5500
         verify:
       - name: "Register1"
         address: 11
@@ -1398,7 +1434,7 @@ sensors:
       required: false
       type: float
     nan_value:
-      description: If a Modbus sensor has a defined NaN value, this value can be set as a hex string starting with `0x` containing one or more bytes (for example, `0xFFFF` or `0x80000000`) or provided as an integer directly. If triggered, the sensor becomes `unavailable`. Please note that the hex to int conversion for `nan_value` does currently not obey home-assistants Modbus encoding using the `data_type`, `structure`, or `swap` arguments.
+      description: If a Modbus sensor has a defined NaN value, this value can be set as a hex string starting with `0x` containing one or more bytes (for example, `0xFFFF` or `0x80000000`) or provided as an integer directly. If triggered, the sensor becomes `unknown`. Please note that the hex to int conversion for `nan_value` does currently not obey home-assistants Modbus encoding using the `data_type`, `structure`, or `swap` arguments.
       required: false
       type: string
     zero_suppress:

@@ -1,6 +1,6 @@
 ---
 title: Pitsos
-description: Connect and control your Pitsos appliances using the Home Connect integration
+description: Connect and control your Pitsos devices using the Home Connect integration
 ha_category:
   - Binary sensor
   - Button
@@ -10,9 +10,11 @@ ha_category:
   - Select
   - Sensor
   - Switch
-ha_iot_class: Cloud Push
-ha_release: '2025.4'
+ha_release: '0.110'
 ha_domain: pitsos
+ha_integration_type: virtual
+ha_supporting_domain: home_connect
+ha_supporting_integration: Home Connect
 ha_codeowners:
   - '@DavidMStraub'
   - '@Diegorro98'
@@ -27,9 +29,9 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: virtual
-ha_supporting_domain: home_connect
-ha_supporting_integration: Home Connect
+  - time
+ha_iot_class: Cloud Push
+ha_zeroconf: true
 ---
 
 {% include integrations/supported_brand.md %}

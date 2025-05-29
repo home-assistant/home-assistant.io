@@ -73,7 +73,7 @@ Firmware can be upgraded using the below directions:
 If you are just starting out, we recommend that you purchase a 700 series controller or a Raspberry Pi module. The 700 series controllers are the more recent version (when compared to the 500 series). The 700 series controllers support SmartStart, which allows you to add a device by scanning a QR code.
 
 {% tip %}
-If you're using Home Assistant OS, Supervised, or Container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
+It's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
 {% endtip %}
 
 ## Stick alternatives
@@ -107,8 +107,7 @@ On Raspberry Pi 3 and 4, you need to disable the on-board Bluetooth since the bo
 
 For both processes below you will need to insert your SD card into your PC and open the configuration file with your favorite text editor.
 
-- If you are using {% term "Home Assistant Operating System" %}, once you mounted the disk, you will see the `config.txt` directly in the root directory.
-- If you are using {% term "Home Assistant Supervised" %}, the config file is stored in the boot folder: `/boot/config.txt`.
+- Once you mounted the disk, you will see the `config.txt` directly in the root directory.
 
 #### Raspberry Pi 5 procedure
 
@@ -171,7 +170,7 @@ This procedure has been tested with the following modules:
 
 1. Make sure the module is properly seated on the Home Assistant Yellow.
    ![Aeotec Z-Pi 7 on Home Assistant Yellow](/images/docs/z-wave/zpi-7-yellow.jpg).
-2. Carefully [close the case](https://yellow.home-assistant.io/guides/add-ssd-existing-installation/#reassembling-top-part) and power up Home Assistant Yellow.
+2. Carefully [close the case](https://support.nabucasa.com/hc/en-us/articles/25606333033501) (see Reassembling your Home Assistant Yellow section) and power up Home Assistant Yellow.
 3. Follow the procedure on [setting up a Z-Wave JS server](/integrations/zwave_js/#setting-up-a-z-wave-js-server).
    1. In step 2, follow the manual setup steps to install the Z-Wave integration.
    2. in Step 4, you will be prompted to choose a **Device path**. Choose **ttyAMA0**.

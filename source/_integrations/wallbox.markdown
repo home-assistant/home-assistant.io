@@ -27,6 +27,8 @@ The **Wallbox** {% term integration %} pulls data from the [MyWallbox Portal](ht
 The {% term integration %} adds the following sensors:
 
 - Added energy (kWh)
+- Added green energy (kWh)
+- Added grid energy (kWh)
 - Added range (km)
 - Charging power (kW)
 - Charging speed
@@ -57,7 +59,7 @@ The {% term integration %} adds a lock {% term entity %}, allowing you to lock t
 
 ## Select
 
-The {% term integration %} adds a select {% term entity %} to control Solar Charging options, allowing you to choose between Eco Mode, Full Solar or disable Solar Charging.
+The {% term integration %} adds a select {% term entity %} to control solar charging options, allowing you to choose between **Eco mode**, **Full solar**, or **Disable solar charging**.
 
 ## Switch
 
