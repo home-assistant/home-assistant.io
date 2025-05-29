@@ -358,7 +358,6 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor | State       | Yes     |
 | Sensor | Vehicle     | Yes     |
 
-
 ## Actions
 
 The Tesla Fleet integration provides the following actions to directly interact with your Tesla vehicle:
@@ -367,47 +366,85 @@ The Tesla Fleet integration provides the following actions to directly interact 
 
 `tesla_fleet.navigation_request`
 
-| Field      | Description                                    | Example                                        |
-| ---------- | ---------------------------------------------- | ---------------------------------------------- |
-| device\_id | The Tesla vehicle to send the request to       | 0d462c0c4c0b064b1a91cdbd1ffcbd31               |
-| value      | Location as a text address or Google Maps link | "1600 Amphitheatre Parkway, Mountain View, CA" |
-| type       | (Optional) Navigation request type             | "share\_ext\_content\_raw" (default)           |
-| locale     | (Optional) Locale for formatting the request   | "en\_AU"                                       |
+| Field       | Description                                    | Example                                        |
+| ----------- | ---------------------------------------------- | ---------------------------------------------- |
+| `device_id` | The Tesla vehicle to send the request to       | `0d462c0c4c0b064b1a91cdbd1ffcbd31`             |
+| `value`     | Location as a text address or Google Maps link | `1600 Amphitheatre Parkway, Mountain View, CA` |
+| `type`      | (Optional) Navigation request type             | `share_ext_content_raw` (default)              |
+| `locale`    | (Optional) Locale for formatting the request   | `en_AU`                                        |
+
+**Example YAML service call:**
+
+```yaml
+service: tesla_fleet.navigation_request
+data:
+  device_id: "0d462c0c4c0b064b1a91cdbd1ffcbd31"
+  value: "1600 Amphitheatre Parkway, Mountain View, CA"
+```
 
 ### Share to Vehicle
 
 `tesla_fleet.share_to_vehicle`
 
-| Field      | Description                              | Example                                                                              |
-| ---------- | ---------------------------------------- | ------------------------------------------------------------------------------------ |
-| device\_id | The Tesla vehicle to send the request to | 0d462c0c4c0b064b1a91cdbd1ffcbd31                                                     |
-| value      | URL or content to share with your Tesla  | "[https://youtube.com/watch?v=dQw4w9WgXcQ](https://youtube.com/watch?v=dQw4w9WgXcQ)" |
-| type       | (Optional) Navigation request type       | "share\_ext\_content\_raw" (default)                                                 |
-| locale     | (Optional) Locale                        | "en\_US"                                                                             |
+| Field       | Description                              | Example                                   |
+| ----------- | ---------------------------------------- | ----------------------------------------- |
+| `device_id` | The Tesla vehicle to send the request to | `0d462c0c4c0b064b1a91cdbd1ffcbd31`        |
+| `value`     | URL or content to share with your Tesla  | `https://youtube.com/watch?v=dQw4w9WgXcQ` |
+| `type`      | (Optional) Navigation request type       | `share_ext_content_raw` (default)         |
+| `locale`    | (Optional) Locale                        | `en_US`                                   |
+
+**Example YAML service call:**
+
+```yaml
+service: tesla_fleet.share_to_vehicle
+data:
+  device_id: "0d462c0c4c0b064b1a91cdbd1ffcbd31"
+  value: "https://youtube.com/watch?v=dQw4w9WgXcQ"
+```
 
 ### Navigate to Coordinates
 
 `tesla_fleet.navigation_gps_request`
 
-| Field              | Description                          | Example                          |
-| ------------------ | ------------------------------------ | -------------------------------- |
-| device\_id         | The Tesla vehicle to send request to | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| location           | Latitude and Longitude coordinates   |                                  |
-| location.latitude  | Latitude in degrees                  | -27.9699373                      |
-| location.longitude | Longitude in degrees                 | 153.4081865                      |
-| order              | (Optional) Order of this waypoint    | 1                                |
+| Field                | Description                          | Example                            |
+| -------------------- | ------------------------------------ | ---------------------------------- |
+| `device_id`          | The Tesla vehicle to send request to | `0d462c0c4c0b064b1a91cdbd1ffcbd31` |
+| `location`           | Latitude and Longitude coordinates   |                                    |
+| `location.latitude`  | Latitude in degrees                  | `-27.9699373`                      |
+| `location.longitude` | Longitude in degrees                 | `153.4081865`                      |
+| `order`              | (Optional) Order of this waypoint    | `1`                                |
+
+**Example YAML service call:**
+
+```yaml
+service: tesla_fleet.navigation_gps_request
+data:
+  device_id: "0d462c0c4c0b064b1a91cdbd1ffcbd31"
+  location:
+    latitude: -27.9699373
+    longitude: 153.4081865
+```
 
 ### Navigate to Supercharger
 
 `tesla_fleet.navigate_to_supercharger_request`
 
-| Field            | Description                                                          | Example                          |
-| ---------------- | -------------------------------------------------------------------- | -------------------------------- |
-| device\_id       | The Tesla vehicle to send request to                                 | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| supercharger\_id | Tesla Supercharger site ID (found via API sniffing, see notes below) | 1389                             |
-| order            | (Optional) Order of this waypoint                                    | 0                                |
+| Field             | Description                                                          | Example                            |
+| ----------------- | -------------------------------------------------------------------- | ---------------------------------- |
+| `device_id`       | The Tesla vehicle to send request to                                 | `0d462c0c4c0b064b1a91cdbd1ffcbd31` |
+| `supercharger_id` | Tesla Supercharger site ID (found via API sniffing, see notes below) | `1389`                             |
+| `order`           | (Optional) Order of this waypoint                                    | `0`                                |
 
-Please be aware this will initiate precondtitioning if required. There is no "cancel" command if you decide to reverse this action, but you could send a navigation request (`navigation_request`) to your home address which should clear it.
+Please be aware this will initiate preconditioning if required. There is no "cancel" command if you decide to reverse this action, but you could send a navigation request (`navigation_request`) to your home address which should clear it.
+
+**Example YAML service call:**
+
+```yaml
+service: tesla_fleet.navigate_to_supercharger_request
+data:
+  device_id: "0d462c0c4c0b064b1a91cdbd1ffcbd31"
+  supercharger_id: 1389
+```
 
 #### Finding the Supercharger ID
 
@@ -415,9 +452,9 @@ The `supercharger_id` used for the `navigate_to_supercharger_request` is not pub
 
 1. Use **[mitmproxy](https://mitmproxy.org/)** to monitor your Tesla mobile app.
 2. Open the Tesla app and navigate to **Locations > Charging**.
-4. Select a Supercharger and observe the network requests.
-5. Search for "getChargingSiteInformation" requests.
-6. Look for the `fastchargeSiteId` value in the API response. This is your supercharger ID.
+3. Select a Supercharger and observe the network requests.
+4. Search for "getChargingSiteInformation" requests.
+5. Look for the `fastchargeSiteId` value in the API response. This is your supercharger ID.
 
 ## Vehicle sleep
 
