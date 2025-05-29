@@ -136,13 +136,9 @@ attribute:
   required: false
   description: An entity's attribute when `label_mode` set to `attribute`.
   type: string
-prefix:
+unit:
   required: false
-  description: A prefix for a value of an attribute when `label_mode` set to `attribute`.
-  type: string
-suffix:
-  required: false
-  description: A suffix for a value of an attribute when `label_mode` set to `attribute`.
+  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
   type: string
 focus:
   required: false
@@ -169,13 +165,9 @@ attribute:
   required: false
   description: An entity's attribute when `label_mode` set to `attribute`.
   type: string
-prefix:
+unit:
   required: false
-  description: A prefix for a value of an attribute when `label_mode` set to `attribute`.
-  type: string
-suffix:
-  required: false
-  description: A suffix for a value of an attribute when `label_mode` set to `attribute`.
+  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
   type: string
 focus:
   required: false
