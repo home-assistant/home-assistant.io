@@ -114,8 +114,6 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Button|Keyless driving|Yes|
 |Button|Play fart|Yes|
 |Button|Wake|Yes|
-|Calendar|Charging schedule|No|
-|Calendar|Precondition schedule|No|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
 |Cover|Charge port door|Yes|
