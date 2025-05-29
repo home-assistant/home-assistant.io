@@ -33,7 +33,7 @@ and heaters must be done using the Nobø Energy mobile app.
 
 ### Temperature control
 
-Remote-controllable temperature presets differs between Nobø heaters (and other receivers). While some let you control both the **Eco** and **Comfort** presets from the hub, others only let you control **Eco**, with **Comfort** temperature set on the heater itself. Others again do not support remote control of the temperature presets at all.
+Remote-controllable temperature presets differ between Nobø heaters (and other receivers). While some let you control both the **Eco** and **Comfort** presets from the hub, others only let you control **Eco**, with **Comfort** temperature set on the heater itself. Others again do not support remote control of the temperature presets at all.
 
 The HVAC entity for each zone only exposes temperature controls for presets that receivers in the zone support controlling from the hub:
 
@@ -45,17 +45,17 @@ The HVAC entity for each zone only exposes temperature controls for presets that
 
 You can see and change **operation mode** and **preset** for zones. The possible operation modes are as follows:
 
-- "Auto" - In this mode, the zone is in the default setting and preset shows which state the zone is in right now
+- "Auto" - In this mode, the zone is in the default setting and the preset shows which state the zone is in right now
   (according to calendar setup).
 - "Heat" - In this mode the zone is overridden and in the state selected by the preset ("Away", "Eco"
   or "Comfort").
 
 This can be utilized the following ways:
 
-- Changing preset to "Away", "Eco", or "Comfort" will automatically change operation mode to "Heat".
-- Changing preset to none will automatically change operation mode to "Auto" and update preset.
-- Changing operation mode to "Auto" will automatically update preset.
-- Changing operation mode to "Heat" will set preset to "Comfort".
+- Changing the preset to "Away", "Eco", or "Comfort" will automatically change the operation mode to "Heat".
+- Changing the preset to none will automatically change the operation mode to "Auto" and update the preset.
+- Changing the operation mode to "Auto" will automatically update the preset.
+- Changing the operation mode to "Heat" will set the preset to "Comfort".
 
 #### Preset override duration
 
@@ -70,8 +70,8 @@ using a selector. Week profiles must be created and edited using the Nobø Energ
 
 #### No preset "Off"
 
-Nobø heaters do not support preset "Off". This is not a limitation of the integration, but a safety mechanism in the Nobø system (perhaps related to frozen pipes due to frost in Nordic regions).
-"Away" temperature is fixed to 7°C and cannot be altered. On/off receivers will be off when the zone is in "Away" status.
+Nobø heaters do not support preset "Off". This is not a limitation of the integration, but a safety mechanism in the Nobø system to avoid frost damage.
+The "Away" temperature preset is fixed to 7°C and cannot be altered. Note that certain receivers (e.g. power plugs) that only support on/off will be off when the zone preset is set to "Away".
 
 To completely turn off heaters, follow these workaround steps:
 
@@ -84,7 +84,7 @@ For more information, see the [Nobø Ecohub manual](https://help.nobo.no/en/user
 ### Global override
 
 To override all zones to a given preset (except for zones configured to ignore the global override), use the global override selector.
-Global override duration respects the same configuration as preset override duration.  
+Global override duration respects the same configuration as preset override duration.
 
 ## Nobø Switch
 
