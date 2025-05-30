@@ -16,6 +16,8 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
+>Note: The Met Office DataPoint API closes on 1 December 2025. It is being replaced by the [DataHub](https://www.metoffice.gov.uk/services/data/met-office-weather-datahub). Instructions for using the new API can be found [here](https://community.home-assistant.io/t/template-weather-provider-from-uk-met-office-datahub-api/695692).
+
 The `metoffice` weather platform uses the Met Office's [DataPoint API](https://www.metoffice.gov.uk/datapoint) for weather data. 
 ## Getting started
 Their website is not as straightforward so check the [getting started](https://www.metoffice.gov.uk/services/data/datapoint/getting-started).
