@@ -16,39 +16,18 @@ ha_quality_scale: legacy
 
 The `nsw_fuel_station` sensor platform uses the [NSW Fuel Check App](https://www.fuelcheck.nsw.gov.au/app) data as a source for current fuel price data.
 
-## Setup
+{% include integrations/config_flow.md %}
 
-To get the station ID for any NSW fuel station you will need to:
+{% configuration_basic %}
+Name/Address search:
+  description: Enter a search string to find a station. Typically this will be a suburb, street, or postcode.
+Select station:
+  description: Choose a station from the list matching the search. Note that not all will have every fuel type. Some are EV charger only.
+Choose fuel yypes:
+  description:  Select whcih fuel types you'd like to create entities for. Only fuels sold at the selected station are displayed.
+{% endconfiguration_basic %}
 
-- Visit the [Fuel Check App](https://www.fuelcheck.nsw.gov.au/app).
-- Open the developer console of your browser (for Chrome, click View -> Developer -> Developer Tools). Click the "Network" tab in the developer console.
-- In the Fuel Check App, search for your postcode or click "Fuel Near Me".
-- In the developer console, you should see a request to `/FuelCheckApp/v1/fuel/prices/bylocation`. Open this request and preview the response. Find the station you wish to add, and copy down the `ServiceStationID` field.
+## Changing station fuel types
 
-Alternatively:
-
-- Select a station you wish to find the ID for.
-- Select "Report this Station".
-- In the URL of the new page opened, locate `serviceStationId`.
-
-## Configuration
-
-To add the NSW fuel station price sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file:
-
-```yaml
-sensor:
-  - platform: nsw_fuel_station
-    station_id: 291
-```
-
-{% configuration %}
-station_id:
-  description: The ID of the station to track
-  required: true
-  type: string
-fuel_types:
-  description: A list of fuel types to track for the station. Must be one of `["E10", "U91", "E85", "P95", "P98", "DL", "PDL", "B20", "LPG", "CNG", "EV"]`. Descriptions of fuel types can be found [here](https://www.fuelcheck.nsw.gov.au/App/Home/FuelTypes).
-  required: false
-  default: "`['E10', 'U91']`"
-  type: list
-{% endconfiguration %}
+It's currently not possible to add or remove fuel types from a station that has already been added. You will
+need to remove all entries for that station and re-add them.
