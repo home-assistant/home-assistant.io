@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `ekeybionyx` integration allows you get events from your [ekey fingerprint reader](https://www.ekey.net) to Home Assistant.
+The `ekeybionyx` integration allows you to get events from your [ekey fingerprint reader](https://www.ekey.net) to Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -24,24 +24,24 @@ The webhooks from the ekey device are represented in Home Assistant as events. Y
 
 ## Current Limitations
 
-- Ekey allows only 5 Webhooks per Device
-- You cannot link multiple HA instances to the same ekey System
+- Ekey allows only five webhooks per device
+- You cannot link multiple HA instances to the same ekey system
 
 ## Installation Instructions
 
-In order to use the integration the ekey device needs to be set up in **plus mode** and the ekey Bionyx Third Party Api needs to be enabled in the App.
+To use the integration, the ekey device needs to be set up in **plus mode**, and the ekey Bionyx Third Party API needs to be enabled in the app.
 
-![Activate Ekey Bionyx Third Party Api](/images/integrations/ekeybionyx/activate_third_party_api.png)
+![Activate Ekey Bionyx Third Party API](/images/integrations/ekeybionyx/activate_third_party_api.png)
 
 {% tip %}
 Prefer using local IPs when setting up the integration instead of domain names because the events will be more responsive.
 {% endtip %}
 
-After setting up Home Assistant you need to go to the app and manually assign the created Events to fingers that will trigger them.
+After setting up Home Assistant, you need to go to the app and manually assign the created events to fingers that will trigger them.
 
 ## Uninstallation Instructions
 
-Based on the limited lifetime of the token you have 2 options of cleanly resetting the connection to Home Assistant:
+Based on the limited lifetime of the token, you have two options for cleanly resetting the connection to Home Assistant:
 
 - Delete from HA and then turn the API off and on again in the App. (all webhooks will be reset even outside of HA)
 - Delete from HA, Set it up again in HA (it will go through the deletion process) and confirm the deletion in the App afterwards.
