@@ -26,8 +26,6 @@ One of the most common problems with Home Assistant is an invalid {% term "`conf
 - Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has its own section in the common-tasks about this:
   - [Operating System](/common-tasks/os/#configuration-check)
   - [Container](/common-tasks/container/#configuration-check)
-  - [Core](/common-tasks/core/#configuration-check)
-  - [Supervised](/common-tasks/supervised/#configuration-check)
 
 - The configuration files, including {% term "`configuration.yaml`" %} must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
 - You can verify your configuration's {% term YAML %} structure using [this online YAML parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/).

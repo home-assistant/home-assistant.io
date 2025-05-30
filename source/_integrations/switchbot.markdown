@@ -122,6 +122,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
+- [Lock Ultra (WoLockUltra)](https://www.switch-bot.com/products/switchbot-lock-ultra)
+- [Lock Lite (WoLockLite)](https://www.switchbot.jp/products/switchbot-lock-lite)
 
 ### Humidifiers
 
@@ -143,6 +145,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
 - [Hub Mini Matter Enabled](https://www.switch-bot.com/products/switchbot-hub-mini-matter-enabled)(currently only supports retrieving sensor data, does not yet support device control)
+- [Hub 3 (WoHub3)](https://www.switch-bot.com/products/switchbot-hub-3)(currently only supports retrieving sensor data, does not yet support device control)
 
 ### Fans
 
@@ -417,6 +420,30 @@ Features:
 - calibration state
 - get battery level
 
+#### Lock Ultra
+
+This is an encrypted device.
+
+Features:
+
+- Lock or unlock
+- open or closed state
+- auto-lock paused state
+- calibration state
+- get battery level
+
+#### Lock Lite
+
+This is an encrypted device.
+
+Features:
+
+- Lock or unlock
+- open or closed state
+- auto-lock paused state
+- calibration state
+- get battery level
+
 ### Hubs
 
 Some of the hubs can be served as a bridge while the sensor data can be retrieved via Bluetooth connection. Hub 2 displays temperature and humidity through a sensor cable. Without a digital display, Hub Mini Matter Enabled can also read from a sensor cable.
@@ -435,6 +462,15 @@ Features:
 
 - get temperature
 - get humidity
+
+#### Hub3
+
+Features:
+
+- get temperature
+- get humidity
+- get light level
+- motion detection state
 
 ### Fans
 

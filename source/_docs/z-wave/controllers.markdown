@@ -73,7 +73,7 @@ Firmware can be upgraded using the below directions:
 If you are just starting out, we recommend that you purchase a 700 series controller or a Raspberry Pi module. The 700 series controllers are the more recent version (when compared to the 500 series). The 700 series controllers support SmartStart, which allows you to add a device by scanning a QR code.
 
 {% tip %}
-If you're using Home Assistant OS, Supervised, or Container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
+It's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
 {% endtip %}
 
 ## Stick alternatives
@@ -107,8 +107,7 @@ On Raspberry Pi 3 and 4, you need to disable the on-board Bluetooth since the bo
 
 For both processes below you will need to insert your SD card into your PC and open the configuration file with your favorite text editor.
 
-- If you are using {% term "Home Assistant Operating System" %}, once you mounted the disk, you will see the `config.txt` directly in the root directory.
-- If you are using {% term "Home Assistant Supervised" %}, the config file is stored in the boot folder: `/boot/config.txt`.
+- Once you mounted the disk, you will see the `config.txt` directly in the root directory.
 
 #### Raspberry Pi 5 procedure
 
