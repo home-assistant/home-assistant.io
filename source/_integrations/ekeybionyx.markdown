@@ -25,7 +25,7 @@ The webhooks from the ekey device are represented in Home Assistant as events. Y
 ## Current Limitations
 
 - Ekey allows only five webhooks per device
-- You cannot link multiple HA instances to the same ekey system
+- You cannot link multiple Home Assistant instances to the same ekey system
 
 ## Installation Instructions
 
