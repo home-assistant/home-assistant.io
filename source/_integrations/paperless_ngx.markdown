@@ -21,7 +21,7 @@ The **Paperless-ngx** {% term integration %} allows you to connect your [Paperle
 ## Prerequisites
 
 {% important %}
-This integration is only fully supported with Paperless-ngx version 2.15 or later. Earlier versions are not supported.
+This integration is only fully supported with **Paperless-ngx version 2.15 or later**. Earlier versions are not supported.
 {% endimportant %}
 
 To ensure full functionality of this integration, you must have **read permissions** for all document-related resources, including documents, tags, document types, and correspondents.
