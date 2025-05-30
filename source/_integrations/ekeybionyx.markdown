@@ -18,9 +18,9 @@ The `ekeybionyx` integration allows you get events from your [ekey fingerprint r
 
 {% include integrations/config_flow.md %}
 
-## Event Plattform
+## Event Platform
 
-The webhooks from the ekey device are represented in Home Assistant as `event` entities. You can automate based on their state.
+The webhooks from the ekey device are represented in Home Assistant as events. You can use these events as triggers in automations.
 
 ## Current Limitations
 
@@ -32,6 +32,10 @@ The webhooks from the ekey device are represented in Home Assistant as `event` e
 In order to use the integration the ekey device needs to be set up in **plus mode** and the ekey Bionyx Third Party Api needs to be enabled in the App.
 
 ![Activate Ekey Bionyx Third Party Api](/images/integrations/ekeybionyx/activate_third_party_api.png)
+
+{% tip %}
+Prefer using local IPs when setting up the integration instead of domain names because the events will be more responsive.
+{% endtip %}
 
 After setting up Home Assistant you need to go to the app and manually assign the created Events to fingers that will trigger them.
 
