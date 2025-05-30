@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `ekeybionyx` integration allows you to get events from your [ekey fingerprint reader](https://www.ekey.net) to Home Assistant.
+The `ekeybionyx` integration allows Home Assistant to receive events from your [ekey fingerprint reader](https://www.ekey.net).
 
 {% include integrations/config_flow.md %}
 
@@ -43,5 +43,5 @@ After setting up Home Assistant, you need to go to the app and manually assign t
 
 Based on the limited lifetime of the token, you have two options for cleanly resetting the connection to Home Assistant:
 
-- Delete from HA and then turn the API off and on again in the App. (all webhooks will be reset even outside of HA)
-- Delete from HA, Set it up again in HA (it will go through the deletion process) and confirm the deletion in the App afterwards.
+- Delete the integration in Home Assistant, set it up again (triggering the deletion process), and confirm the deletion in the ekey app afterward.
+- Delete the integration in Home Assistant, then disable and re-enable the Third Party API in the ekey app. This resets all webhooks.
