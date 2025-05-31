@@ -532,6 +532,7 @@ layout: null
 /integrations/crimereports /more-info/removed-integration 301
 /integrations/cups /more-info/removed-integration 301
 /integrations/darksky /more-info/removed-integration 301
+/integrations/decora /more-info/removed-integration 301
 /integrations/deutsche_bahn /more-info/removed-integration 301
 /integrations/device_tracker.trackr /more-info/removed-integration 301
 /integrations/dht /more-info/removed-integration 301
@@ -569,6 +570,8 @@ layout: null
 /integrations/hydroquebec /more-info/removed-integration 301
 /integrations/ialarm_xr /more-info/removed-integration 301
 /integrations/iota /more-info/removed-integration 301
+/integrations/keyboard /more-info/removed-integration 301
+/integrations/lirc /more-info/removed-integration 301
 /integrations/life360 /more-info/removed-integration 301
 /integrations/lifx_legacy /more-info/removed-integration 301
 /integrations/linksys_ap /more-info/removed-integration 301
@@ -599,6 +602,7 @@ layout: null
 /integrations/opencv /more-info/removed-integration 301
 /integrations/orangepi_gpio /more-info/removed-integration 301
 /integrations/ozw /more-info/removed-integration 301
+/integrations/pandora /more-info/removed-integration 301
 /integrations/panel_iframe /more-info/removed-integration 301
 /integrations/pcal9535a /more-info/removed-integration 301
 /integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
@@ -621,6 +625,7 @@ layout: null
 /integrations/simple_alarm /more-info/removed-integration 301
 /integrations/simulated /more-info/removed-integration 301
 /integrations/smarthab /more-info/removed-integration 301
+/integrations/sms /more-info/removed-integration 301
 /integrations/snips /more-info/removed-integration 301
 /integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
@@ -633,6 +638,7 @@ layout: null
 /integrations/sytadin /more-info/removed-integration 301
 /integrations/sunweg /more-info/removed-integration 301
 /integrations/tahoma /more-info/removed-integration 301
+/integrations/tensorflow /more-info/removed-integration 301
 /integrations/teksavvy /more-info/removed-integration 301
 /integrations/tesla /more-info/removed-integration 301
 /integrations/tof /more-info/removed-integration 301
