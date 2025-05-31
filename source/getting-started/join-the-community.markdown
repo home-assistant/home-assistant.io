@@ -9,6 +9,7 @@ Now that you've got that going, let's see what is next:
 
  - Learn about [next steps](/getting-started/configuration/) of the getting started guide, such as creating a backup or configuring network storage.
  - Join the community in [our forums] or [our chat].
+ - Have a look at the forum's [Home Assistant Cookbook](https://community.home-assistant.io/t/the-home-assistant-cookbook-index/707144)
  - Check out [video tutorials] on a wide range of Home Assistant related topics
 
 You're now ready to be a part of our world-wide community of tinkerers. Welcome!
