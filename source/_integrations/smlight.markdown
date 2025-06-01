@@ -42,7 +42,7 @@ You need a supported SLZB-06 adapter.
 - [SLZB-06p7](https://smlight.tech/product/slzb-06p7)
 - [SLZB-06p10](https://smlight.tech/product/slzb-06p10/)
 
-Multi radio devices - Additional entities will be created for the second Zigbee radio, including Zigbee firmware updates, temperature sensor, router reconnect button and firmware type. (Note: the Zigbee restart and flash mode buttons are shared between both radios.) Requires core firmware `v2.8.x` or later.
+Multi radio devices - Additional entities will be created for the second Zigbee radio, including Zigbee firmware updates, temperature sensor, router reconnect button, and firmware type. (Note: the Zigbee restart and flash mode buttons are shared between both radios.) Requires core firmware `v2.8.x` or later.
 
 - [SLZB-MR1](https://smlight.tech/product/slzb-mr1/)
 - [SLZB-MR2](https://smlight.tech/product/slzb-mr2/)
