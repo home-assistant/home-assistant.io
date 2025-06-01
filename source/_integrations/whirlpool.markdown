@@ -17,6 +17,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **Whirlpool Appliances** {% term integration %} allows you to connect Whirlpool and Maytag appliances to Home Assistant.

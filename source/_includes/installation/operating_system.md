@@ -277,8 +277,10 @@ If you are running an older Windows version or have a stricter network configura
 
 ### Download the appropriate image
 
-- [VirtualBox][vdi] (.vdi)
-{% if page.installation_type == 'linux' %}
+- [VirtualBox (Intel chip)][vdi] (.vdi)
+{% if page.installation_type == 'macos' %}
+- [VirtualBox (Apple Silicon chip)][vmdk_arch64] (.vmdk)
+{% elsif page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
 {% elsif page.installation_type == 'alternative' %}
 - [KVM/Proxmox][qcow2] (.qcow2)
@@ -317,14 +319,11 @@ Minimum recommended assignments:
 - title: VirtualBox
   content: |
     1. Create a new virtual machine.
-    2. Select type **Linux** and version **Linux 2.6 / 3.x / 4.x (64-bit)**.
+    2. Select type **Linux**, subtype **Oracle Linux** and version **Oracle Linux (ARM 64-bit)**.
     3. Under **Hardware**, select the amount of memory and number of CPUs. Then, select **Enable EFI**.
        - Make sure **EFI** is enabled. If EFI is not enabled, HAOS won't boot.
     4. Under **Hard Disk**, select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
-    5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter.  
-      {% icon "mdi:alert-outline" %} Please keep in mind that the bridged
-      adapter only functions over a hardwired Ethernet connection.
-      Using Wi-Fi on your VirtualBox host is unsupported.
+    5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter (i.e. `en0:Wi-Fi`).  
     6. Then go to <b>Audio</b> and choose <b>Intel HD Audio</b> as audio controller.
 
     {% icon "mdi:alert-outline" %}  By default, VirtualBox does not
@@ -484,6 +483,7 @@ With the Home Assistant Operating System installed and accessible, you can conti
 
 [generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['generic-x86-64']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
 [vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip
+[vmdk_arch64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-aarch64-{{site.data.version_data.hassos['ova']}}.vmdk.zip
 [vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.zip
 [vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [qcow2]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.qcow2.xz

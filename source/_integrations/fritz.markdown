@@ -61,24 +61,28 @@ If you still want to use the predefined user, please note that as of FRITZ!OS 7.
 
 {% configuration_basic %}
 Host:
-    description: "The hostname or IP address of your FRITZ!Box router."
+    description: The hostname or IP address of your FRITZ!Box router.
 Port:
-    description: "The port used to connect to your FRITZ!Box router. Leave it empty to use the default port."
+    description: The port used to connect to your FRITZ!Box router. Leave it empty to use the default port.
 Username:
-    description: "Name of the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)"
+    description: Name of the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)
 Password:
-    description: "Password for the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)"
+    description: Password for the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)
 Uses an SSL certificate:
-    description: "Whether to use SSL encryption for connecting to your FRITZ!Box router."
+    description: Whether to use SSL encryption for connecting to your FRITZ!Box router.
+Enable network device tracking:
+    description: Whether to enable or disable the network device tracking feature. When disabled, all network device related entities (_Parental control switches, Device tracker and WoL buttons_) will also be removed or not created.
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
 Consider home:
-  description: Number of seconds that must elapse before considering a disconnected device "not at home".
+    description: Number of seconds that must elapse before considering a disconnected device "not at home".
 Enable old discovery method:
-  description: Required in scenarios such as networks without mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
+    description: Required in scenarios such as networks without mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
+Enable network device tracking:
+    description: Whether to enable or disable the network device tracking feature. When disabled, all network device related entities (_Parental control switches, Device tracker and WoL buttons_) will also be removed or not created.
 {% endconfiguration_basic %}
 
 ## Data updates

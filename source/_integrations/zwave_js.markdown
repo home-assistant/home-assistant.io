@@ -89,7 +89,7 @@ To run a Z-Wave network, you need the following elements:
 
 If you are running {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %}, the easiest way to get started is by using the built-in Z-Wave JS add-on in Home Assistant.
 
-For other ways to setup a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
+For other ways to setup a Z-Wave server, refer to the [advanced installation instructions](#about-installation-instructions).
 
 Follow these steps:
 
@@ -752,7 +752,7 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 ## Advanced installation instructions
 
-If you are using Home Assistant Container, Home Assistant Core, or you don't want to use the built-in Z-Wave JS Server add-on, you will need to run the Z-Wave JS server yourself, to which the Z-Wave integration will connect.
+If you are using Home Assistant Container or you don't want to use the built-in Z-Wave JS Server add-on, you will need to run the Z-Wave JS server yourself, to which the Z-Wave integration will connect.
 
 ### Running [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server)
 

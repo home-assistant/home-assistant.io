@@ -11,6 +11,7 @@ ha_category:
   - Light
   - Lock
   - Number
+  - Pump
   - Select
   - Sensor
   - Switch
@@ -107,8 +108,6 @@ For devices where Home Assistant provides a native integration (with local API),
 It is recommended to run the Matter add-on on Home Assistant OS. This is currently the only supported option. Other installation types are without support and at your own risk.
 
 If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
-
-Running Matter on a Home Assistant Core installation is not supported.
 
 ## Adding a Matter device to Home Assistant
 

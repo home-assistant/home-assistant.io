@@ -17,6 +17,8 @@ ha_platforms:
   - button
   - media_player
   - sensor
+  - switch
+  - update
 ha_integration_type: integration
 ---
 
@@ -223,6 +225,11 @@ The integration provides the following entities.
 
 - **Total songs**
   - **Description**: Total number of music files currently in service.
+
+### Updates
+
+-- **Lyrion Music Server**: Update of the server software is available.
+-- **Updated plugins**: Named Plugins will be updated on the next restart. For some installation types, the service will be restarted automatically after the **Install** button has been selected. Allow enough time for the service to restart. It will become briefly unavailable.
 
 ### Actions
 

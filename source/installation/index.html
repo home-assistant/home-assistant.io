@@ -53,7 +53,7 @@ toc: true
               %}</a
             >
             <a
-              href="https://green.home-assistant.io"
+              href="https://support.nabucasa.com/hc/en-us/categories/24638797677853-Home-Assistant-Green"
               class="button"
               target="_blank"
               >View tutorial {% include assets/chevron_right.html %}</a
@@ -157,7 +157,7 @@ toc: true
               %}</a
             >
             <a
-              href="https://yellow.home-assistant.io"
+              href="https://support.nabucasa.com/hc/en-us/categories/24734575925149-Home-Assistant-Yellow"
               class="button"
               target="_blank"
               >View tutorial {% include assets/chevron_right.html %}</a
@@ -254,43 +254,29 @@ toc: true
 
   <span class="label expert">Expert</span>
 
-  <h2>Advanced installation methods</h2>
+  <h2>About installation methods</h2>
   <p>
-    Home Assistant offers four different installation methods. We recommend
-    using Home Assistant Operating System. Other methods are available for
-    experienced users for their specific needs, for example, running Home
-    Assistant in a virtualized environment (e.g. Proxmox), or on top of an
-    existing operating system (e.g. Windows, macOS, Linux):
+    Home Assistant offers two different installation methods:
   </p>
   <ul>
+    <li><b>Home Assistant Operating System</b>: An embedded,
+    minimalistic operating system designed to run the Home Assistant ecosystem
+    on single board computers (like the Home Assistant Green or a Raspberry Pi) or Virtual Machines. It
+    is the most convenient option in terms of installation and maintenance and it supports
+    {% term "add-ons" %}. Home Assistant Operating System is
+    the recommended installation method for most users.</li>
     <li>
-      <b>Home Assistant Container:</b> Standalone container-based installation
-      of Home Assistant Core (e.g. Docker).
-    </li>
-    <li>
-      <b>Home Assistant Supervised:</b> Manual installation of the Supervisor.
-    </li>
-    <li>
-      <b>Home Assistant Core:</b> Manual installation using Python virtual
-      environment.
+      <b>Home Assistant Container:</b>Container-based installation of Home Assistant. You need to bring your own system (such as Linux) with container orchestration (like Docker), and manually handle updates. Home Assistant Container installations don’t have access to {% term "add-ons" %}.
     </li>
   </ul>
-  <p>
-    Note that while these installation methods may provide some
-    features for advanced users, they may also have some major limitations.
-    For example, add-ons and other important Home Assistant features may not be available.
-  </p>
+  
   <div class="compare-installations">
     <table>
       <th></th>
       <th>HA OS<sup>1</sup></th>
       <th>Container<sup>1</sup></th>
-      <th>Core<sup>1</sup></th>
-      <th>Supervised<sup>1</sup></th>
       <tr>
         <td><a href="/docs/automation" target="_blank">Automations</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
         <td>{% icon "openmoji:check-mark" %}</td>
         <td>{% icon "openmoji:check-mark" %}</td>
       </tr>
@@ -298,13 +284,9 @@ toc: true
         <td><a href="/dashboards" target="_blank">Dashboards</a></td>
         <td>{% icon "openmoji:check-mark" %}</td>
         <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
       </tr>
       <tr>
         <td><a href="/integrations" target="_blank">Integrations</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
         <td>{% icon "openmoji:check-mark" %}</td>
         <td>{% icon "openmoji:check-mark" %}</td>
       </tr>
@@ -312,13 +294,9 @@ toc: true
         <td><a href="/addons" target="_blank">Add-ons</a></td>
         <td>{% icon "openmoji:check-mark" %}</td>
         <td>{% icon "openmoji:cross-mark" %}</td>
-        <td>{% icon "openmoji:cross-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
       </tr>
       <tr>
         <td><a href="/docs/blueprint" target="_blank">Blueprints</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
         <td>{% icon "openmoji:check-mark" %}</td>
         <td>{% icon "openmoji:check-mark" %}</td>
       </tr>
@@ -328,13 +306,9 @@ toc: true
         </td>
         <td>{% icon "openmoji:check-mark" %}</td>
         <td>{% icon "openmoji:cross-mark" %}</td>
-        <td>{% icon "openmoji:cross-mark" %}</td>
-        <td>{% icon "noto-v1:check-mark" %}<sup>2</sup></td>
       </tr>
       <tr>
         <td><a href="/common-tasks/general/#backups" target="_blank">Backups</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
         <td>{% icon "openmoji:check-mark" %}</td>
         <td>{% icon "openmoji:check-mark" %}</td>
       </tr>
@@ -346,15 +320,23 @@ toc: true
     <ul>
       <li style="margin-top: 0.4em">Home Assistant Operating System</li>
       <li style="margin-top: 15px">Home Assistant Container</li>
-      <li style="margin-top: 15px">Home Assistant Core</li>
-      <li style="margin-top: 15px">Home Assistant Supervised</li>
     </ul></sub
   >
   <p>
-    <sub
-      >2: Home Assistant Supervised requires users to maintain their own operating system.</sub
-    >
   </p>
+  <h3>Deprecated installation methods</h3>
+  <p>
+    Home Assistant used to offer two additional installation methods for advanced users: <b>{% term "Home Assistant Core" %}</b> and <b>{% term "Home Assistant Supervised" %}</b>. These two methods are now <a href="https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/">deprecated and no longer recommended for new users</a>.
+  </p>
+  <ul>
+    <li>
+      <b>Home Assistant Supervised:</b> Manual installation of the Supervisor.
+    </li>
+    <li>
+      <b>Home Assistant Core:</b> Manual installation using Python virtual
+      environment.
+    </li>
+  </ul>
   <p></p>
   <div class="installations-card">
     <div class="material-card text">
@@ -407,7 +389,7 @@ toc: true
         </div>
         <div class="content">
           <h3>Install Home Assistant on Linux</h3>
-          <p>Use Home Assistant OS, Container, Supervised, or Core</p>
+          <p>Use Home Assistant OS, Container</p>
           <div class="columns">
             <div>
               <b>SKILLS REQUIRED</b>
@@ -442,7 +424,7 @@ toc: true
         </div>
         <div class="content">
           <h3>Install Home Assistant on macOS</h3>
-          <p>Use Home Assistant OS on a VM, or install Core</p>
+          <p>Use Home Assistant OS on a VM</p>
           <div class="columns">
             <div>
               <b>SKILLS REQUIRED</b>
@@ -476,7 +458,7 @@ toc: true
         </div>
         <div class="content">
           <h3>Install Home Assistant on Windows</h3>
-          <p>Use Home Assistant OS on a VM, or Core on WSL</p>
+          <p>Use Home Assistant OS on a VM</p>
           <div class="columns">
             <div>
               <b>SKILLS REQUIRED</b>
@@ -491,7 +473,6 @@ toc: true
               <ul>
                 <li>Machine with Windows installed</li>
                 <li>VirtualBox (for VM)</li>
-                <li>Windows Subsystem for Linux (for Core)</li>
               </ul>
             </div>
           </div>
@@ -527,7 +508,6 @@ toc: true
               <ul>
                 <li>Machine with Windows installed</li>
                 <li>VirtualBox (for VM)</li>
-                <li>Windows Subsystem for Linux (for Core)</li>
               </ul>
             </div>
           </div>
