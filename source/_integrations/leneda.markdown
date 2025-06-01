@@ -3,7 +3,7 @@ title: Leneda
 description: Instructions on how to integrate Leneda with Home Assistant.
 ha_category:
   - Energy
-ha_release: "2025.6"
+ha_release: "2025.7"
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -33,23 +33,18 @@ API Key:
     description: Your API key
 Energy ID:
     description: Your Energy ID
-Metering Point ID:
-    description: The identifier for the electricity or gas meter you want to access
 {% endconfiguration_basic %}
 
-### Adding additional metering points
+### Adding metering points
 
-You can add more metering points in two ways:
+To add metering points to an existing configuration:
 
-- **Option 1**: Using an existing Energy ID
-   1. Go through the configuration steps again.
-   2. Choose **Add using existing Energy ID**.
-   3. Enter the new metering point ID.
-
-- **Option 2**: With a new Energy ID
-   1. Go through the configuration steps again.
-   2. Choose **Add with new Energy ID**.
-   3. Enter the new API token, Energy ID, and metering point ID.
+1. Go to {% my config title="**Settings** > **Devices & Services**" %}.
+2. Find your Leneda configuration entry.
+3. Click the three dots menu (⋮) next to the configuration.
+4. Select **Add metering point**.
+5. Enter your metering point ID.
+6. Choose between automatic probing or manual setup for the sensors.
 
 {% note %} Leneda allows users to grant access rights to specific OBIS codes for metering points to other users. However, the integration only allows adding a metering point once (with one Energy ID). Choose the Energy ID that provides all the access rights you need for your desired sensors.{% endnote %}
 
