@@ -5,16 +5,83 @@ ha_category:
   - Hub
 ha_release: 0.42
 ha_iot_class: Cloud Push
+ha_config_flow: true
 ha_domain: telegram_bot
 ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
+This integration creates notification actions to send, edit or receive messages from a [Telegram Bot account](https://core.telegram.org/bots).
 
-This integration creates notification actions to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/integrations/telegram_polling) platform or with the [webhooks](/integrations/telegram_webhooks) one, and trigger events when receiving messages.
+## Introduction - Telegram bot platforms
 
-If you don't need to receive messages, you can use the [broadcast](/integrations/telegram_broadcast) platform instead.
+Platforms are Telegram bot implementations for managing communications with Telegram for sending and receiving messages.
+When setting up this integration, you should specify the platform which fits your environment and use case.
+
+### Broadcast
+
+Telegram implementation to support **sending messages only**. Your Home Assistant instance does not have to be exposed to the internet and there is no polling to receive messages or commands sent to the bot.
+
+### Polling
+
+Telegram chatbot polling implementation.
+Your Home Assistant instance does not have to be exposed to the internet.
+
+### Webhooks
+
+Telegram chatbot webhooks implementation as described in the Telegram [documentation](https://core.telegram.org/bots/webhooks).
+This implementation allows Telegram to push updates directly to your server and requires your Home Assistant instance to be exposed to the internet.
+
+## Prerequisites
+
+- Create your Telegram bot and [retrieve the API key](/integrations/telegram). The `api_key` will be used for adding the bot to Home Assistant during integration setup.
+- If you are going to use the `Webhooks` platform, you must configure either [HTTPS](/integrations/http#ssl_certificate) or [trusted proxies](/integrations/http#trusted_proxies) to allow Telegram to connect to your Home Assistant instance.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Platform:
+  description: The Telegram bot type, either `Broadcast`, `Polling` or `Webhooks`.
+API key:
+  description: The API token of your bot.
+Proxy URL:
+  description: Proxy URL if working behind one, optionally including username and password. (`socks5://username:password@proxy_ip:proxy_port`).
+{% endconfiguration_basic %}
+
+### Webhooks configuration
+
+If you have selected the `Webhooks` Telegram bot type, the integration setup will continue with the webhooks configuration step.
+{% configuration_basic %}
+URL:
+  description: Allow to overwrite the external URL from the Home Assistant [configuration](/integrations/homeassistant/#editing-the-general-settings-in-yaml) for different setups (`https://<public_url>:<port>`).
+Trusted networks:
+  description: Telegram server access ACL as list.
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+The integration can be configured to use a default parse mode for messages.
+
+{% configuration_basic %}
+Parse mode:
+  description: Default parser for messages if not explicit in message data, either `markdown` (legacy), `markdownv2` or `html`. Refer to Telegram's [formatting options](https://core.telegram.org/bots/api#formatting-options) for more information.
+{% endconfiguration_basic %}
+
+## Whitelisting chat IDs via Subentries
+
+A Telegram chat ID is a unique numerical identifier for an individual user (positive) or a chat group (negative integer).
+You must whitelist the chat ID for the Telegram bot before it can send/receive messages for that chat.
+To whitelist the chatID, [retrieve the chat ID](http://localhost:4000/integrations/telegram#methods-to-retrieve-a-chat_id) and create a subentry:
+
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
+2. Select the Telegram bot integration.
+3. Add a subentry via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Add allowed chat ID**.
+
+{% configuration_basic %}
+Chat ID:
+  description: ID representing the user or group chat to which messages can be sent.
+{% endconfiguration_basic %}
 
 ## Notification actions
 
@@ -28,6 +95,7 @@ Send a notification.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`          | yes      | The config entry representing the Telegram bot to send the message. Defaults to the first config entry.|
 | `message`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
 | `title`                    | yes      | Optional title for your notification. Will be composed as '%title\n%message'.                                                                                                                                                                                                                             |
 | `target`                   | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
@@ -40,14 +108,15 @@ Send a notification.
 | `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`              | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
 | `reply_to_message_id`      | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                           |
-| `message_thread_id`        | yes      | Send the message to a specific topic or thread.
+| `message_thread_id`        | yes      | Send the message to a specific topic or thread.|
 
-### Action `telegram_bot.send_photo` 
+### Action `telegram_bot.send_photo`
 
 Send a photo.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the photo. Defaults to the first config entry.|
 | `url`                  | no       | Remote path to an image.                                                                                                                                                                                                                                                                                  |
 | `file`                 | no       | Local path to an image.                                                                                                                                                                                                                                                                                   |
 | `caption`              | yes      | The title of the image.                                                                                                                                                                                                                                                                                   |
@@ -65,7 +134,7 @@ Send a photo.
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
-| `message_thread_id`    | yes      | Send the message to a specific topic or thread.
+| `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
 ### Action `telegram_bot.send_video`
 
@@ -73,6 +142,7 @@ Send a video.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the video. Defaults to the first config entry.|
 | `url`                  | no       | Remote path to a video.                                                                                                                                                                                                                                                                                   |
 | `file`                 | no       | Local path to a video.                                                                                                                                                                                                                                                                                    |
 | `caption`              | yes      | The title of the video.                                                                                                                                                                                                                                                                                   |
@@ -89,7 +159,7 @@ Send a video.
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
-| `message_thread_id`    | yes      | Send the message to a specific topic or thread.
+| `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
 ### Action `telegram_bot.send_animation`
 
@@ -97,6 +167,7 @@ Send an animation.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the animation. Defaults to the first config entry.|
 | `url`                  | no       | Remote path to a GIF or H.264/MPEG-4 AVC video without sound.                                                                                                                                                                                                                                             |
 | `file`                 | no       | Local path to a GIF or H.264/MPEG-4 AVC video without sound.                                                                                                                                                                                                                                              |
 | `caption`              | yes      | The title of the animation.                                                                                                                                                                                                                                                                               |
@@ -114,7 +185,7 @@ Send an animation.
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
-| `message_thread_id`    | yes      | Send the message to a specific topic or thread.
+| `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
 ### Action `telegram_bot.send_voice`
 
@@ -122,6 +193,7 @@ Send a voice message.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the voice message. Defaults to the first config entry.|
 | `url`                  | no       | Remote path to a voice message.                                                                                                                                                                                                                                                                           |
 | `file`                 | no       | Local path to a voice message.                                                                                                                                                                                                                                                                            |
 | `caption`              | yes      | The title of the voice message.                                                                                                                                                                                                                                                                           |
@@ -138,7 +210,7 @@ Send a voice message.
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
-| `message_thread_id`    | yes      | Send the message to a specific topic or thread.
+| `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
 ### Action `telegram_bot.send_sticker`
 
@@ -146,6 +218,7 @@ Send a sticker.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the sticker. Defaults to the first config entry.|
 | `url`                  | no       | Remote path to a static .webp or animated .tgs sticker.                                                                                                                                                                                                                                                   |
 | `file`                 | no       | Local path to a static .webp or animated .tgs sticker.                                                                                                                                                                                                                                                    |
 | `sticker_id`           | no       | ID of a sticker that exists  on telegram servers. The ID can be found by sending a sticker to your bot and querying the telegram-api method [getUpdates](https://core.telegram.org/bots/api#getting-updates) or by using the [@idstickerbot](https://t.me/idstickerbot)                                   |
@@ -162,7 +235,7 @@ Send a sticker.
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
-| `message_thread_id`    | yes      | Send the message to a specific topic or thread.
+| `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
 ### Action `telegram_bot.send_document`
 
@@ -170,6 +243,7 @@ Send a document.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the document. Defaults to the first config entry.|
 | `url`                  | no       | Remote path to a document.                                                                                                                                                                                                                                                                                |
 | `file`                 | no       | Local path to a document.                                                                                                                                                                                                                                                                                 |
 | `caption`              | yes      | The title of the document.                                                                                                                                                                                                                                                                                |
@@ -187,7 +261,7 @@ Send a document.
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
-| `message_thread_id`    | yes      | Send the message to a specific topic or thread.
+| `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
 ### Action `telegram_bot.send_location`
 
@@ -195,6 +269,7 @@ Send a location.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the location. Defaults to the first config entry.|
 | `latitude`             | no       | The latitude to send.                                                                                                                                                                                                                                                                                     |
 | `longitude`            | no       | The longitude to send.                                                                                                                                                                                                                                                                                    |
 | `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`.                                                                                                                                                                                     |
@@ -205,7 +280,7 @@ Send a location.
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
-| `message_thread_id`    | yes      | Send the message to a specific topic or thread.
+| `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
 ### Action `telegram_bot.send_poll`
 
@@ -213,6 +288,7 @@ Send a poll.
 
 | Data attribute    | Optional | Description                                                                                                                                                                    |
 | ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `config_entry_id`         | yes      | The config entry representing the Telegram bot to send the poll. Defaults to the first config entry.|
 | `question`                | no       | Poll question, 1-300 characters.                                                                                                                                               |
 | `options`                 | no       | List of answer options, 2-10 strings 1-100 characters each.                                                                                                                    |
 | `target`                  | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`.                                                          |
@@ -222,7 +298,7 @@ Send a poll.
 | `disable_notification`    | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `timeout`                 | yes      | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc)                                                                            |
 | `reply_to_message_id`     | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %} |
-| `message_thread_id`       | yes      | Send the message to a specific topic or thread.
+| `message_thread_id`       | yes      | Send the message to a specific topic or thread.|
 
 ### Action `telegram_bot.edit_message`
 
@@ -230,6 +306,7 @@ Edit a previously sent message in a conversation.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the message. Defaults to the first config entry.|
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `chat_id`                  | no       | The chat_id where to edit the message.                                                                                                                                                                                                                                                                    |
 | `message`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
@@ -244,6 +321,7 @@ Edit the caption of a previously sent message.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the caption. Defaults to the first config entry.|
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `chat_id`                  | no       | The chat_id where to edit the caption.                                                                                                                                                                                                                                                                    |
 | `caption`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
@@ -256,6 +334,7 @@ Edit the inline keyboard of a previously sent message.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the inline keyboard. Defaults to the first config entry.|
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `chat_id`                  | no       | The chat_id where to edit the reply_markup.                                                                                                                                                                                                                                                               |
 | `disable_web_page_preview` | yes      | True/false for disable link previews for links in the message.                                                                                                                                                                                                                                            |
@@ -267,6 +346,7 @@ Respond to a callback query originated by clicking on an online keyboard button.
 
 | Data attribute | Optional | Description                                                                                                                   |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to answer the callback query. Defaults to the first config entry.|
 | `message`              | no       | Unformatted text message body of the notification.                                                                            |
 | `callback_query_id`    | no       | Unique id of the callback response. In the `telegram_callback` event data: {% raw %}`{{ trigger.event.data.id }}`{% endraw %} |
 | `show_alert`           | yes      | True/false for show a permanent notification. Defaults to False.                                                              |
@@ -277,6 +357,7 @@ Delete a previously sent message in a conversation.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to delete the message. Defaults to the first config entry.|
 | `message_id`           | no       | Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`. |
 | `chat_id`              | no       | The chat_id where to delete the message.                                                                                                                                                                                                                   |
 
@@ -286,6 +367,7 @@ Remove the bot from the chat group where it was added.
 
 | Data attribute | Optional | Description                               |
 | ---------------------- | -------- | ----------------------------------------- |
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to leave the chat. Defaults to the first config entry.|
 | `chat_id`              | no       | The chat_id from where to remove the bot. |
 
 ## Telegram notification platform
