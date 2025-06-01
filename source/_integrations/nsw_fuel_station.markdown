@@ -24,7 +24,7 @@ Name/Address search:
 Select station:
   description: Choose a station from the list matching the search. Note that not all will have every fuel type. Some are EV charger only.
 Choose fuel yypes:
-  description:  Select whcih fuel types you'd like to create entities for. Only fuels sold at the selected station are displayed.
+  description:  Select which fuel types you'd like to create entities for. Only fuels sold at the selected station are displayed.
 {% endconfiguration_basic %}
 
 ## Changing station fuel types
