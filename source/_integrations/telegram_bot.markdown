@@ -35,8 +35,37 @@ This implementation allows Telegram to push updates directly to your server and 
 
 ## Prerequisites
 
-- Create your Telegram bot and [retrieve the API key](/integrations/telegram). The `api_key` will be used for adding the bot to Home Assistant during integration setup.
-- If you are going to use the `Webhooks` platform, you must configure either [HTTPS](/integrations/http#ssl_certificate) or [trusted proxies](/integrations/http#trusted_proxies) to allow Telegram to connect to your Home Assistant instance.
+### Create Telegram bot
+
+Create your Telegram bot and [retrieve the API key](/integrations/telegram). The `api_key` will be used for adding the bot to Home Assistant during integration setup.
+
+### Allow Telegram to connect to your Home Assistant (Webhooks platform only)
+
+If you plan to use the `Webhooks` platform, you will need to allow Telegram to connect to your Home Assistant using one of the following methods:
+
+#### Home Assistant Cloud
+
+If you have a Home Assistant Cloud subscription, you can [enable remote access](https://support.nabucasa.com/hc/en-us/articles/26474279202973-Enabling-remote-access-to-Home-Assistant#to-activate-remote-control-from-outside-your-network) to your Home Assistant.
+
+#### Reverse proxy
+
+If your Home Assistant is behind a publicly accessible reverse proxy (for example Nginx, Caddy, Traefik) with HTTPS enabled, do the following:
+
+1. Go to {% my network title="**Settings** > **System** > **Network**" %} and configure *Home Assistant URL*.
+2. Configure the [HTTP integration](/integrations/http) to allow Home Assistant to accept connections from your reverse proxy:
+   - Set `use_x_forwarded_for` to `true`.
+   - Add the IP address of the reverse proxy to `trusted_proxies`.
+  
+#### Direct
+
+If your Home Assistant is publicly accessible, do the following:
+
+1. Go to {% my network title="**Settings** > **System** > **Network**" %} and configure *Home Assistant URL*.
+2. Configure the [HTTP integration](/integrations/http) to enable HTTPS on your Home Assistant by configuring the following variables:
+   - `server_host`
+   - `server_port`
+   - `ssl_certificate`
+   - `ssl_key`
 
 {% include integrations/config_flow.md %}
 
@@ -70,13 +99,13 @@ Parse mode:
 
 ## Allowlisting chat IDs via Subentries
 
-A Telegram chat ID is a unique numerical identifier for an individual user (positive) or a chat group (negative integer).
+A Telegram chat ID is a unique numerical identifier for an individual user (positive) or a chat group (negative).
 You must allowlist the chat ID for the Telegram bot before it can send/receive messages for that chat.
-To allowlist the chatID, [retrieve the chat ID](/integrations/telegram#methods-to-retrieve-a-chat_id) and create a subentry:
+To allowlist the chat ID, [retrieve the chat ID](/integrations/telegram#methods-to-retrieve-a-chat_id) and create a subentry:
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the Telegram bot integration.
-3. Add a subentry via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Add allowed chat ID**.
+3. Click {% icon "mdi:dots-vertical" %} and select **Add allowed chat ID**.
 
 {% configuration_basic %}
 Chat ID:
@@ -95,7 +124,7 @@ Send a notification.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`          | yes      | The config entry representing the Telegram bot to send the message. Defaults to the first config entry.|
+| `config_entry_id`          | yes      | The config entry representing the Telegram bot to send the message. Required if you have multiple Telegram bots.|
 | `message`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
 | `title`                    | yes      | Optional title for your notification. Will be composed as '%title\n%message'.                                                                                                                                                                                                                             |
 | `target`                   | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
@@ -116,7 +145,7 @@ Send a photo.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the photo. Defaults to the first config entry.|
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the photo. Required if you have multiple Telegram bots.|
 | `url`                  | no       | Remote path to an image.                                                                                                                                                                                                                                                                                  |
 | `file`                 | no       | Local path to an image.                                                                                                                                                                                                                                                                                   |
 | `caption`              | yes      | The title of the image.                                                                                                                                                                                                                                                                                   |
@@ -142,7 +171,7 @@ Send a video.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the video. Defaults to the first config entry.|
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the video. Required if you have multiple Telegram bots.|
 | `url`                  | no       | Remote path to a video.                                                                                                                                                                                                                                                                                   |
 | `file`                 | no       | Local path to a video.                                                                                                                                                                                                                                                                                    |
 | `caption`              | yes      | The title of the video.                                                                                                                                                                                                                                                                                   |
@@ -167,7 +196,7 @@ Send an animation.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the animation. Defaults to the first config entry.|
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the animation. Required if you have multiple Telegram bots.|
 | `url`                  | no       | Remote path to a GIF or H.264/MPEG-4 AVC video without sound.                                                                                                                                                                                                                                             |
 | `file`                 | no       | Local path to a GIF or H.264/MPEG-4 AVC video without sound.                                                                                                                                                                                                                                              |
 | `caption`              | yes      | The title of the animation.                                                                                                                                                                                                                                                                               |
@@ -193,7 +222,7 @@ Send a voice message.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the voice message. Defaults to the first config entry.|
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the voice message. Required if you have multiple Telegram bots.|
 | `url`                  | no       | Remote path to a voice message.                                                                                                                                                                                                                                                                           |
 | `file`                 | no       | Local path to a voice message.                                                                                                                                                                                                                                                                            |
 | `caption`              | yes      | The title of the voice message.                                                                                                                                                                                                                                                                           |
@@ -218,7 +247,7 @@ Send a sticker.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the sticker. Defaults to the first config entry.|
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the sticker. Required if you have multiple Telegram bots.|
 | `url`                  | no       | Remote path to a static .webp or animated .tgs sticker.                                                                                                                                                                                                                                                   |
 | `file`                 | no       | Local path to a static .webp or animated .tgs sticker.                                                                                                                                                                                                                                                    |
 | `sticker_id`           | no       | ID of a sticker that exists  on telegram servers. The ID can be found by sending a sticker to your bot and querying the telegram-api method [getUpdates](https://core.telegram.org/bots/api#getting-updates) or by using the [@idstickerbot](https://t.me/idstickerbot)                                   |
@@ -243,7 +272,7 @@ Send a document.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the document. Defaults to the first config entry.|
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the document. Required if you have multiple Telegram bots.|
 | `url`                  | no       | Remote path to a document.                                                                                                                                                                                                                                                                                |
 | `file`                 | no       | Local path to a document.                                                                                                                                                                                                                                                                                 |
 | `caption`              | yes      | The title of the document.                                                                                                                                                                                                                                                                                |
@@ -269,7 +298,7 @@ Send a location.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the location. Defaults to the first config entry.|
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the location. Required if you have multiple Telegram bots.|
 | `latitude`             | no       | The latitude to send.                                                                                                                                                                                                                                                                                     |
 | `longitude`            | no       | The longitude to send.                                                                                                                                                                                                                                                                                    |
 | `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`.                                                                                                                                                                                     |
@@ -288,7 +317,7 @@ Send a poll.
 
 | Data attribute    | Optional | Description                                                                                                                                                                    |
 | ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `config_entry_id`         | yes      | The config entry representing the Telegram bot to send the poll. Defaults to the first config entry.|
+| `config_entry_id`         | yes      | The config entry representing the Telegram bot to send the poll. Required if you have multiple Telegram bots.|
 | `question`                | no       | Poll question, 1-300 characters.                                                                                                                                               |
 | `options`                 | no       | List of answer options, 2-10 strings 1-100 characters each.                                                                                                                    |
 | `target`                  | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`.                                                          |
@@ -306,7 +335,7 @@ Edit a previously sent message in a conversation.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the message. Defaults to the first config entry.|
+| `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the message. Required if you have multiple Telegram bots.|
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `chat_id`                  | no       | The chat_id where to edit the message.                                                                                                                                                                                                                                                                    |
 | `message`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
@@ -321,7 +350,7 @@ Edit the caption of a previously sent message.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the caption. Defaults to the first config entry.|
+| `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the caption. Required if you have multiple Telegram bots.|
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `chat_id`                  | no       | The chat_id where to edit the caption.                                                                                                                                                                                                                                                                    |
 | `caption`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
@@ -334,7 +363,7 @@ Edit the inline keyboard of a previously sent message.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the inline keyboard. Defaults to the first config entry.|
+| `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the inline keyboard. Required if you have multiple Telegram bots.|
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `chat_id`                  | no       | The chat_id where to edit the reply_markup.                                                                                                                                                                                                                                                               |
 | `disable_web_page_preview` | yes      | True/false for disable link previews for links in the message.                                                                                                                                                                                                                                            |
@@ -346,7 +375,7 @@ Respond to a callback query originated by clicking on an online keyboard button.
 
 | Data attribute | Optional | Description                                                                                                                   |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`      | yes      | The config entry representing the Telegram bot to answer the callback query. Defaults to the first config entry.|
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to answer the callback query. Required if you have multiple Telegram bots.|
 | `message`              | no       | Unformatted text message body of the notification.                                                                            |
 | `callback_query_id`    | no       | Unique id of the callback response. In the `telegram_callback` event data: {% raw %}`{{ trigger.event.data.id }}`{% endraw %} |
 | `show_alert`           | yes      | True/false for show a permanent notification. Defaults to False.                                                              |
@@ -357,7 +386,7 @@ Delete a previously sent message in a conversation.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`      | yes      | The config entry representing the Telegram bot to delete the message. Defaults to the first config entry.|
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to delete the message. Required if you have multiple Telegram bots.|
 | `message_id`           | no       | Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`. |
 | `chat_id`              | no       | The chat_id where to delete the message.                                                                                                                                                                                                                   |
 
@@ -367,7 +396,7 @@ Remove the bot from the chat group where it was added.
 
 | Data attribute | Optional | Description                               |
 | ---------------------- | -------- | ----------------------------------------- |
-| `config_entry_id`      | yes      | The config entry representing the Telegram bot to leave the chat. Defaults to the first config entry.|
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to leave the chat. Required if you have multiple Telegram bots.|
 | `chat_id`              | no       | The chat_id from where to remove the bot. |
 
 ## Telegram notification platform
