@@ -71,7 +71,7 @@ Parse mode:
 ## Allowlisting chat IDs via Subentries
 
 A Telegram chat ID is a unique numerical identifier for an individual user (positive) or a chat group (negative integer).
-You must whitelist the chat ID for the Telegram bot before it can send/receive messages for that chat.
+You must allowlist the chat ID for the Telegram bot before it can send/receive messages for that chat.
 To whitelist the chatID, [retrieve the chat ID](http://localhost:4000/integrations/telegram#methods-to-retrieve-a-chat_id) and create a subentry:
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
