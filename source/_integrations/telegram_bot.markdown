@@ -49,7 +49,7 @@ If you have a Home Assistant Cloud subscription, you can [enable remote access](
 
 #### Reverse proxy
 
-If your Home Assistant is behind a publicly accessible reverse proxy (for example Nginx, Caddy, Traefik) with HTTPS enabled, do the following:
+If your Home Assistant is behind a publicly accessible reverse proxy (for example NGINX, Caddy, Traefik) with HTTPS enabled, do the following:
 
 1. Go to {% my network title="**Settings** > **System** > **Network**" %} and configure *Home Assistant URL*.
 2. Configure the [HTTP integration](/integrations/http) to allow Home Assistant to accept connections from your reverse proxy:
