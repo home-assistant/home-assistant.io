@@ -68,7 +68,7 @@ Parse mode:
   description: Default parser for messages if not explicit in message data, either `markdown` (legacy), `markdownv2` or `html`. Refer to Telegram's [formatting options](https://core.telegram.org/bots/api#formatting-options) for more information.
 {% endconfiguration_basic %}
 
-## Whitelisting chat IDs via Subentries
+## Allowlisting chat IDs via Subentries
 
 A Telegram chat ID is a unique numerical identifier for an individual user (positive) or a chat group (negative integer).
 You must whitelist the chat ID for the Telegram bot before it can send/receive messages for that chat.
