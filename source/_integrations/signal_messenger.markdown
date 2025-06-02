@@ -189,7 +189,6 @@ actions:
 **NOTE** If the parameter `mode` is set to `json-rpc`, then you can use one of these solutions:
 
 1. employ [signal-api-receiver](https://github.com/kalbasit/signal-api-receiver) to receive from Signal as follows:
-
    ```yaml
    - resource: "http://127.0.0.1:8105/receive/pop"
      sensor:
