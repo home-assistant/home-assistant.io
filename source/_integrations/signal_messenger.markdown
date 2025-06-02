@@ -68,7 +68,7 @@ number:
   required: true
   type: string
 recipients:
-  description: A list of default recipients (either phone numbers or Signal Messenger group ids). Can be overwritten for individual messages.
+  description: A list of default recipients (either phone numbers or Signal Messenger group ids). It can be overwritten for individual messages.
   required: true
   type: string
 {% endconfiguration %}
@@ -95,9 +95,10 @@ actions:
       data:
         text_mode: styled
 ```
+
 | Attribute | Optional   | Default                                         | Description                                                                                                       |
 |-----------|------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| target    | *optional* | as configured via `recipients` for the `notify` | a list of strings, containing either fully-qualified phone numbers (including country prefix) or Signal group IDs |
+| target    | *optional* | as configured via `recipients` for the `notify` | a list of strings, containing either fully qualified phone numbers (including country prefix) or Signal group IDs |
 
 | Data Attribute | Optional | Default |Description                                                                                                                                                                                          |
 |----------------| -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -186,6 +187,7 @@ actions:
 ```
 
 **NOTE** If the parameter `mode` is set to `json-rpc`, then you can use one of these solutions:
+
 1. employ [signal-api-receiver](https://github.com/kalbasit/signal-api-receiver) to receive from Signal as follows:
 
    ```yaml
