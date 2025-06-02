@@ -3,6 +3,7 @@ title: Amazon Devices
 description: Instructions on how to integrate Amazon Devices into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Notify
 ha_release: '2025.6'
 ha_domain: amazon_devices
 ha_config_flow: true
@@ -11,20 +12,34 @@ ha_codeowners:
 ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
+  - notify
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Amazon Devices** {% term integration %} allows you to control your [Amazon Echo dots](https://www.amazon.com/echo-dot/).
+The **Amazon Devices** {% term integration %} lets you control Alexa-enabled devices connected to your Amazon account.
 
 The integration provides information on connected devices and enables control of the main features.
 
 ## Supported devices
 
-There is support for the following devices within Home Assistant:
+There is support for the following device families within Home Assistant:
 
+- **Amazon Echo Auto**
 - **Amazon Echo Dot**
-- **Amazon Fire TV**
+- **Amazon Echo Flex**
+- **Amazon Echo Plus**
+- **Amazon Echo Show**
+- **Amazon Fire TV Stick**
+- **Fire Tablet**
+
+and all 3rd party that has Alexa capabilities built-in
+
+{% warning %}
+
+Currently, only MFA-protected Amazon accounts via the authenticator app are supported.
+
+{% endwarning %}
 
 {% include integrations/config_flow.md %}
 
@@ -36,7 +51,7 @@ There is support for the following devices within Home Assistant:
   password:
     description: The password of your Amazon account.
   otp:
-    description: One-time password.
+    description: One-time password via Authenticator App.
 {% endconfiguration_basic %}
 
 {% note %}
@@ -97,6 +112,7 @@ This integration {% term polling polls %} data from the device every 30 seconds 
 The **Amazon Devices** {% term integration %} provides the following entities:
 
 - Binary sensor - main and Bluetooth connectivity
+- Notify - Speak and Announce notifications
 
 ## Removing the integration
 
