@@ -70,7 +70,9 @@ number:
 recipients:
   description: A list of default recipients (either phone numbers or Signal Messenger group ids). It can be overwritten for individual messages.
   required: true
-  type: string
+  type: list
+  items:
+    type: string
 {% endconfiguration %}
 
 
