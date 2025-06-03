@@ -15,7 +15,9 @@ The CADIO integration allows Home Assistant to communicate with the CADIO Home A
 
 ## Configuration
 
-This integration is configured via the Home Assistant UI.
+Navigate to Settings → Integrations → Add Integration → CADIO.
+Enter CADIO login required fields credentials (email / password).
+your devices will be discovered and added.
 
 ## Features
 
