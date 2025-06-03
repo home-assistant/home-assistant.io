@@ -724,7 +724,7 @@ Both entities can use these options, but the availability of these will depend o
 
 ### Sensor
 
-{% details "List of binary sensors" %}
+{% details "List of sensors" %}
 
 - **Finish time**:
   - **Description**: Represents the time when the program will end.
