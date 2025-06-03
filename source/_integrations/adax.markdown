@@ -51,7 +51,6 @@ When using the cloud integration, the Adax integration provides energy monitorin
 
 The integration creates the following energy sensors:
 
-- **Individual energy sensors** - One sensor for each Adax heater showing its energy consumption in kWh
-- **Total energy sensor** - A master sensor that shows the combined energy consumption of all your Adax heaters
+- **Individual energy sensors** - One sensor for each Adax heater showing its energy consumption in Wh
 
 The energy sensors use the `total_increasing` state class, making them suitable for use with Home Assistant's energy dashboard to track your heating costs and consumption over time.
