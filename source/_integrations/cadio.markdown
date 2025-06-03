@@ -1,4 +1,6 @@
 ---
+layout: integration
+sidebar_current: integrations:cadio
 title: CADIO
 description: Integration with CADIO Home Automation platform.
 stage: custom
@@ -6,7 +8,7 @@ iot_class: local_push
 integration_type: hub
 documentation: https://egycad.com/cadio/docs/discover-cadio/
 codeowners:
-  - "@your-github-username"
+  - "@mohamed-rashad-ata"
 ---
 
 The CADIO integration allows Home Assistant to communicate with the CADIO Home Automation system over MQTT.
