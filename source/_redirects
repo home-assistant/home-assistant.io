@@ -152,9 +152,9 @@ layout: null
 /components/switch.mysensors /integrations/mysensors#switch
 /components/switch.rest /integrations/switch.rest
 /components/switch.template /integrations/switch.template
-/components/telegram_bot.broadcast /integrations/telegram_broadcast
-/components/telegram_bot.polling /integrations/telegram_polling
-/components/telegram_bot.webhooks /integrations/telegram_webhooks
+/components/telegram_bot.broadcast /integrations/telegram_bot
+/components/telegram_bot.polling /integrations/telegram_bot
+/components/telegram_bot.webhooks /integrations/telegram_bot
 /components/vacuum.mqtt /integrations/vacuum.mqtt
 /components/vacuum.template /integrations/vacuum.template
 /integrations/binary_sensor.group /integrations/group
@@ -207,6 +207,9 @@ layout: null
 /integrations/switch.xiaomi_aqara/ /integrations/xiaomi_aqara/#switches
 /integrations/switch.pca /integrations/elv/
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wifi-socket-and-smart-power-strip
+/integrations/telegram_broadcast /integrations/telegram_bot
+/integrations/telegram_polling /integrations/telegram_bot
+/integrations/telegram_webhooks /integrations/telegram_bot
 /integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-mi-robot-vacuum
 
 /components/air_pollutants.* /integrations/:splat
