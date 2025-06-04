@@ -50,7 +50,7 @@ If you scroll to the top and click on *Events* you can individually select and d
 "Webhook ID":
   description: "The ID for the webhook URL."
 "Cloudhook":
-    description: "Whether a Nabu Casa Cloudhook is used."
+  description: "Whether a Nabu Casa Cloudhook is used."
 {% endconfiguration_basic %}
 
 ## Events
@@ -72,7 +72,7 @@ Events related to the alarm clock feature.
 
 ### Smart wake-up
 
-Events related to the  smart wake-up feature.
+Events related to the smart wake-up feature.
 
 | Event type                | Description                |
 | ------------------------- | -------------------------- |
@@ -122,7 +122,7 @@ Events when entering a new sleep phase.
 
 {% warning %}
 
-Be cautious when automating based on sleep phase events, especially deep and light sleep, as these can trigger lots of events throughout the night and they may not precisely correlate with the resulting sleep graph as Sleep as Android can only detect phases reliably using whole-night data.
+Be cautious when automating based on sleep phase events, especially deep and light sleep, as these can trigger lots of events throughout the night, and they may not precisely correlate with the resulting sleep graph as Sleep as Android can only detect phases reliably using whole-night data.
 
 {% endwarning %}
 
