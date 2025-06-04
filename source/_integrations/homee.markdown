@@ -62,6 +62,20 @@ New devices added to Homee will be automatically discovered after a restart of H
 
 Changed values are reported from Homee in defined time intervals and not always in realtime. For example, while a cover moves, the position is updated only every few seconds and intermediate states may be missed by Home Assistant.
 
+## Troubleshooting
+
+If you discover something, that is not working, please [report it](https://github.com/home-assistant/core/issues).
+
+### Device not working as expected
+
+Make sure, the {% term device %} works as expected in homee.
+If a homee {% term device %} shows up in Home Assistant, but does not work as expected or is missing entities, attach the device's [diagnostics](/integrations/diagnostics) data.
+
+### Device not showing up in HA
+
+Check that the homee-user, you use for Home Assistant, is allowed to see the device.
+If that is the case, open a [report](https://github.com/home-assistant/core/issues) and attach the diagnostic data of the {% term integration %}.
+
 ## Removing the integration
 
 This integration follows standard integration removal, and once the integration is removed, you can also remove the dedicated user from your Homee.
