@@ -31,6 +31,6 @@ All information about how the seasons work was taken from Wikipedia:
 - [https://en.wikipedia.org/wiki/Equinox](https://en.wikipedia.org/wiki/Equinox)
 - [https://en.wikipedia.org/wiki/Solstice](https://en.wikipedia.org/wiki/Solstice)
 
-Astronomical seasons change on a solstice or equinox. For example, the June Solstice (which in 2025 is June 21 at 02:42 UTC) marks the beginning of Summer in the Northern Hemisphere and the beginning of Winter in the Southern Hemisphere.
+Astronomical seasons change on solstices and equinoxes. For example, the June solstice in 2025 occurs on June 21 at 02:42 UTC, marking the beginning of Summer in the Northern Hemisphere and Winter in the Southern Hemisphere.
 
-Meteorological seasons change at the beginning of a month. Every year, midnight the morning of June 1 (in local time) marks the beginning of Summer in the Northern Hemisphere and the beginning of Winter in the Southern Hemisphere.
+Meteorological seasons change at the beginning of a calendar month. Each year, at midnight local time on June 1, Summer begins in the Northern Hemisphere and Winter begins in the Southern Hemisphere.
