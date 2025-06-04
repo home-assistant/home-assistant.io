@@ -50,7 +50,7 @@ compensation:
 
 {% configuration %}
 attribute:
-  description: Attribute from the source to monitor/compensate. When omitted the state value of the source will be used.
+  description: Attribute from the source to monitor/compensate. When omitted, the state value of the source will be used.
   required: false
   type: string
 data_points:
