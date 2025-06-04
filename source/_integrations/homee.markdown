@@ -74,6 +74,16 @@ If a homee device shows up in Home Assistant, but does not work as expected or i
 Check that the homee-user, you use for Home Assistant, is allowed to see the device.
 If that is the case, open a [report](https://github.com/home-assistant/core/issues) and attach the diagnostic data of the {% term integration %}.
 
+## Reconfiguration
+
+This integration supports reconfiguration, allowing you to change the IP address, even after a device has already been set up.
+
+### To start the reconfiguration
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the homee integration card.
+2. From the list of hubs, select the one you want to reconfigure.
+3. Next to the entry, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Reconfigure**.
+
 ## Removing the integration
 
 This integration follows standard integration removal, and once the integration is removed, you can also remove the dedicated user from your Homee.
