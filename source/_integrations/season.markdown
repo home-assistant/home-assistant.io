@@ -31,4 +31,6 @@ All information about how the seasons work was taken from Wikipedia:
 - [https://en.wikipedia.org/wiki/Equinox](https://en.wikipedia.org/wiki/Equinox)
 - [https://en.wikipedia.org/wiki/Solstice](https://en.wikipedia.org/wiki/Solstice)
 
-To cut a long read short, Astronomical gives seasons based on the shortest/longest day and equinoxes. So in the Northern Hemisphere spring starts on 20 March. Meteorological gives seasons based on months so in the Northern Hemisphere spring starts on 1 March.
+Astronomical seasons change on a solstice or equinox. For example, the June Solstice (which in 2025 is June 21 at 02:42 UTC) marks the beginning of Summer in the Northern Hemisphere and the beginning of Winter in the Southern Hemisphere.
+
+Meteorological seasons change at the beginning of a month. Every year, midnight the morning of June 1 (in local time) marks the beginning of Summer in the Northern Hemisphere and the beginning of Winter in the Southern Hemisphere.
