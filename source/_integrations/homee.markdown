@@ -64,12 +64,10 @@ Changed values are reported from Homee in defined time intervals and not always 
 
 ## Troubleshooting
 
-If you discover something, that is not working, please [report it](https://github.com/home-assistant/core/issues).
-
 ### Device not working as expected
 
 Make sure, the {% term device %} works as expected in homee.
-If a homee {% term device %} shows up in Home Assistant, but does not work as expected or is missing entities, attach the device's [diagnostics](/integrations/diagnostics) data.
+If a homee device shows up in Home Assistant, but does not work as expected or is missing {% term entities %}, open a [report](https://github.com/home-assistant/core/issues) and attach the device's [diagnostics](/integrations/diagnostics) data.
 
 ### Device not showing up in HA
 
