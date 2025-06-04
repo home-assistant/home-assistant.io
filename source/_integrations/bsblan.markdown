@@ -38,13 +38,13 @@ or using a passkey is supported. Use either one.
 
 ## Available sensors depending on your heating system
 
-- inside temperature
-- outside temperature
+- `inside temperature`
+- `outside temperature`
 
 ## Available platforms depending on your system
 
-- climate
-- water heater
+- `climate`
+- `water heater`
 
 For more documentation of the BSBLan device, check the [manual](https://docs.bsb-lan.de).
 
