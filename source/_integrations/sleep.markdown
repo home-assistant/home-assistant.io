@@ -4,7 +4,7 @@ description: Instructions on how to integrate Sleep as Android with Home Assista
 ha_category:
   - Event
 ha_iot_class: Local push
-ha_release: 2025.5
+ha_release: 2025.7
 ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
@@ -19,7 +19,7 @@ The **Sleep as Android** {% term integration %} connects the Sleep as Android ap
 
 ## About Sleep as Android
 
-**Sleep as Android** is a smart alarm clock with sleep cycle tracking capabilities and numerous other features to analyze and improve sleeping habits. It is available exclusively for Android devices and can be downloaded from [Google Play](https://play.google.com/store/apps/details?id=com.urbandroid.sleep).
+[**Sleep as Android**](https://sleep.urbandroid.org/) is a smart alarm clock with sleep cycle tracking capabilities and numerous other features to analyze and improve sleeping habits. It is available exclusively for Android devices and can be downloaded from [Google Play](https://play.google.com/store/apps/details?id=com.urbandroid.sleep).
 
 ## How you can use this integration
 
@@ -61,39 +61,46 @@ The integration offers various event entities that will display the most recent 
 
 Events related to the alarm clock feature.
 
-{% details "Available event types" %}
+| Event type                | Description                |
+| ------------------------- | -------------------------- |
+| `alarm_alert_dismiss`     | Alarm dismissed            |
+| `alarm_alert_start`       | Alarm started              |
+| `alarm_rescheduled`       | Alarm rescheduled          |
+| `alarm_skip_next`         | Alarm skipped              |
+| `alarm_snooze_clicked`    | Snoozing                   |
+| `alarm_snooze_canceled`   | Snoozing canceled          |
+
+### Smart wake-up
+
+Events related to the  smart wake-up feature.
 
 | Event type                | Description                |
 | ------------------------- | -------------------------- |
-| `alarm_alert_dismiss`     | Alarm stopped              |
-| `alarm_alert_start`       | Alarm started              |
-| `alarm_rescheduled`       | Alarm rescheduled          |
-| `alarm_skip_next`         | Snoozing                   |
-| `alarm_wake_up_check`     | Wake-up check notification |
 | `before_smart_period`     | 45min before smart wake-up |
-| `show_skip_next_alarm`    | 1h before alarm            |
 | `smart_period`            | Smart wake-up started      |
-| `time_to_bed_alarm_alert` | Time to bed                |
 
-{% enddetails %}
+### User notifications
 
-### Anti-snoring
+Events related to user notifications.
 
-When the anti-snoring is triggered.
+| Event type                | Description     |
+| ------------------------- | --------------- |
+| `alarm_wake_up_check`     | Wake-up check   |
+| `show_skip_next_alarm`    | Skip next alarm |
+| `time_to_bed_alarm_alert` | Time to bed     |
 
-{% details "Available event types" %}
+### Sleep health
+
+Events related to sleep health.
 
 | Event type    | Description            |
 | ------------- | ---------------------- |
 | `antisnoring` | Anti-snoring triggered |
-
-{% enddetails %}
+| `apnea_alarm` | Sleep apnea detected   |
 
 ### Lullaby
 
 Events related to the Lullaby feature.
-
-{% details "Available event types" %}
 
 | Event type            | Description                     |
 | --------------------- | ------------------------------- |
@@ -101,13 +108,9 @@ Events related to the Lullaby feature.
 | `lullaby_stop`        | Lullaby stopped playing         |
 | `lullaby_volume_down` | Lullaby started lowering volume |
 
-{% enddetails %}
-
 ### Sleep phase
 
 Events when entering a new sleep phase.
-
-{% details "Available event types" %}
 
 | Event type    | Description |
 | ------------- | ----------- |
@@ -117,13 +120,15 @@ Events when entering a new sleep phase.
 | `not_awake`   | Fell asleep |
 | `rem`         | REM sleep   |
 
-{% enddetails %}
+{% warning %}
+
+Be cautious when automating based on sleep phase events, especially deep and light sleep, as these can trigger lots of events throughout the night and they may not precisely correlate with the resulting sleep graph as Sleep as Android can only detect phases reliably using whole-night data.
+
+{% endwarning %}
 
 ### Sleep tracking
 
 Events related to the sleep tracking feature.
-
-{% details "Available event types" %}
 
 | Event type               | Description      |
 | ------------------------ | ---------------- |
@@ -132,13 +137,9 @@ Events related to the sleep tracking feature.
 | `sleep_tracking_started` | Tracking started |
 | `sleep_tracking_stopped` | Tracking stopped |
 
-{% enddetails %}
-
 ### Sound recognition
 
 Events triggered when a specific sound is detected during sleep tracking.
-
-{% details "Available event types" %}
 
 | Event type          | Description          |
 | ------------------- | -------------------- |
@@ -147,20 +148,6 @@ Events triggered when a specific sound is detected during sleep tracking.
 | `sound_event_laugh` | Laughter             |
 | `sound_event_snore` | Snoring              |
 | `sound_event_talk`  | Talking              |
-
-{% enddetails %}
-
-### Sleep apnea
-
-When a significant dip in oxygen saturation level is detected.
-
-{% details "Available event types" %}
-
-| Event type    | Description          |
-| ------------- | -------------------- |
-| `apnea_alarm` | Sleep apnea detected |
-
-{% enddetails %}
 
 ## Removing the integration
 
