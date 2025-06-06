@@ -2,6 +2,7 @@
 title: Swing2Sleep Smarla
 description: Instructions on connecting Swing2Sleep Smarla to Home Assistant.
 ha_category:
+  - Number
   - Sensor
   - Switch
 ha_iot_class: Cloud Push
@@ -13,6 +14,7 @@ ha_domain: smarla
 ha_integration_type: device
 ha_config_flow: true
 ha_platforms:
+  - number
   - sensor
   - switch
 ha_quality_scale: bronze
@@ -44,6 +46,7 @@ This component will set up the following entities:
 | -------------- | -------- | ----------------------------------------------------------- |
 | `swing_active` | `switch` | Turns the cradle’s oscillation on or off.                   |
 | `smart_mode`   | `switch` | Enables or disables automatic intensity control.            |
+| `intensity`    | `number` | Sets the intensity level (range: `0` to `100`).             |
 | `amplitude`    | `sensor` | Displays the current measured amplitude of the oscillation. |
 | `period`       | `sensor` | Displays the current measured period of the oscillation.    |
 | `activity`     | `sensor` | Displays the current measured activity level.               |

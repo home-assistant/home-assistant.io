@@ -278,6 +278,7 @@ Depending on the supported features of the camera, switch entities are added for
 - PIR enabled*
 - PIR reduce false alarm*
 - Chime LED
+- Hardwired chime enabled*
 
 When the **Privacy mode** is ON, almost all other entities will be unavailable because the camera shuts down the API and camera streams. When turning OFF the **Privacy mode**, all entities will become available again. Take this into consideration when making automations; ensure the **Privacy mode** is OFF before changing camera settings using other entities.
 
@@ -295,6 +296,8 @@ The Push-notification in the Reolink app is independent of the Home Assistant se
 The **PTZ patrol** positions first need to be configured using the Reolink [app](https://support.reolink.com/hc/en-us/articles/360008746833/)/[windows](https://support.reolink.com/hc/en-us/articles/900003738126/)/web client. When no positions are configured, the PTZ patrol entity will not be added. When adding patrol positions for the first time, you need to restart the Reolink integration.
 
 The **Manual record** switch will turn off automatically after 10 minutes. Therefore the recording will end as soon as the manual record switch is turned off, or 10 minutes have passed.
+
+Polling the status of the **Hardwired chime enabled** switch can make the hardwired chime rattle a bit depending on the model of the chime. Therefore the status of this switch is only polled one time (about 1 minute after the integration starts). The rattle at startup can only happen if you chose to enable this switch.
 
 ### Light entities
 
