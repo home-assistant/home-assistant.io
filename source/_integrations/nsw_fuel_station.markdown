@@ -19,12 +19,12 @@ The `nsw_fuel_station` sensor platform uses the [NSW Fuel Check App](https://www
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Name/Address search:
-  description: Enter a search string to find a station. Typically this will be a suburb, street, or postcode.
+Name/address search:
+  description: Enter a search string to find a station. Typically, this will be a suburb, street, or postcode.
 Select station:
   description: Choose a station from the list matching the search. Note that not all will have every fuel type. Some are EV charger only.
-Choose fuel yypes:
-  description:  Select which fuel types you'd like to create entities for. Only fuels sold at the selected station are displayed.
+Choose fuel types:
+  description: Select which fuel types you'd like to create entities for. Only fuels sold at the selected station are displayed.
 {% endconfiguration_basic %}
 
 ## Changing station fuel types
