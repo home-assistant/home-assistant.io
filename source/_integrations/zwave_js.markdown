@@ -752,7 +752,7 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 ## Advanced installation instructions
 
-If you are using Home Assistant Container, Home Assistant Core, or you don't want to use the built-in Z-Wave JS Server add-on, you will need to run the Z-Wave JS server yourself, to which the Z-Wave integration will connect.
+If you are using Home Assistant Container or you don't want to use the built-in Z-Wave JS Server add-on, you will need to run the Z-Wave JS server yourself, to which the Z-Wave integration will connect.
 
 ### Running [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server)
 
