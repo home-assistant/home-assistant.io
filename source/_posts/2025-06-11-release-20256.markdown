@@ -108,9 +108,9 @@ Enjoy the (beta) release!
 
 ## Improving all the "pickers"
 
-Pickers are those dropdowns you use to select entities, devices, areas, and more. Pickers are *everywhere* in Home Assistant: automations, scripts, and configuration options.
+Pickers are those dropdowns you use to select entities, devices, areas, and more. Pickers are *everywhere* in Home Assistant, being used in automations, scripts, and configuration options.
 
-Last release, we [introduced a new entity picker](/blog/2025/05/07/release-20255/#picking-entities), which was a big hit! This release builds on that: we've improved its search functionality based on your feedback.
+Last release, we [introduced a new entity picker](/blog/2025/05/07/release-20255/#picking-entities), which was a big hit! This release takes things further by refining the search experience based on your feedback.
 
 Even better, that same improved search experience now comes to the area, category, floor, label, user, and device pickers too! They are consistent, fast, and easy to use, no matter what you're selecting.
 
