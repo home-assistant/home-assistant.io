@@ -38,11 +38,11 @@ This integration has the following Nextcloud Server prerequisites:
 
 ## Entities
 
-The integration will create the following entities.
+For each entry, the integration will create the following entities.
 
-## Update entity
+### Update entity
 
-For each entry, the integration will create a an update entity.
+For each entry, the integration will create an update entity.
 
 ### Sensors
 
