@@ -35,3 +35,112 @@ This integration has the following Nextcloud Server prerequisites:
 - (Recommended) A Nextcloud App password should be generated for use in Home Assistant (__*Nextcloud*__ > __*Settings*__ > __*Personal*__ > __*Security*__ > __*Devices & sessions*__ > __*Create new app password*__)
 
 {% include integrations/config_flow.md %}
+
+## Entities
+
+The integration will create the following entities.
+
+## Update entity
+
+For each entry, the integration will create a an update entity.
+
+### Sensors
+
+For each entry, the integration will create the following sensors.
+
+- Amount of files
+- Amount of shares
+- Amount of storages
+- Amount of user
+- Apps installed
+- CPU load last 1 minute
+- CPU load last 15 minutes
+- CPU load last 5 minutes
+- Database size
+- Free memory
+- Free space
+- Free swap memory
+- System theme
+- System version
+- Total memory
+- Total swap memory
+- Updates available
+
+### Diagnostic sensors
+
+For each entry, the integration will create the following diagnostic sensors.
+
+#### Enabled by default
+
+- Amount of active users last 5 minutes
+- Amount of active users last day
+- Amount of active users last hour
+- Amount of group shares
+- Amount of link shares
+- Amount of local storages
+- Amount of mail shares
+- Amount of other storages
+- Amount of passwordless link shares
+- Amount of room shares
+- Amount of shares received
+- Amount of shares sent
+- Amount of storages at home
+- Amount of user shares
+- Avatars enabled
+- Cache memory size
+- Database type
+- Database version
+- Debug enabled
+- Filelocking enabled
+- PHP max execution time
+- PHP memory limit
+- PHP upload maximum filesize
+- PHP version
+- Previews enabled
+- Webserver
+
+#### Disabled by default
+
+- Cache expunges
+- Cache memory
+- Cache number of entries
+- Cache number of hits
+- Cache number of inserts
+- Cache number of misses
+- Cache number of slots
+- Cache start time
+- Cache TTL
+- Interned buffer size
+- Interned free memory
+- Interned number of strings
+- Interned used memory
+- JIT active
+- JIT buffer free
+- JIT buffer size
+- JIT enabled
+- JIT kind
+- JIT opt flags
+- JIT opt level
+- Opcache blacklist miss ratio
+- Opcache blacklist misses
+- Opcache cached keys
+- Opcache cached scripts
+- Opcache current wasted percentage
+- Opcache free memory
+- Opcache hash restarts
+- Opcache hit rate
+- Opcache hits
+- Opcache last restart time
+- Opcache manual restarts
+- Opcache max cached keys
+- Opcache misses
+- Opcache out of memory restarts
+- Opcache start time
+- Opcache used memory
+- Opcache wasted memory
+- SMA available memory
+- SMA number of segments
+- SMA segment size
+- System memcache distributed
+- System memcache local
+- System memcache locking
