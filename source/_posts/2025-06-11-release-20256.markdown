@@ -90,7 +90,7 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Improving all the "pickers"](#improving-all-the-pickers)
-- [Clearer Bluetooth networks](#clearer-bluetooth-networks)
+- [Making sense of Bluetooth](#making-sense-of-bluetooth)
 - [Iterations of the experimental area dashboard](#iterations-of-the-experimental-area-dashboard)
 - [Deprecating installation methods and 32-bit architectures](#deprecating-installation-methods-and-32-bit-architectures)
 - [Integrations](#integrations)
@@ -118,7 +118,7 @@ And the device picker? It now has a fresh look to match, complete with manufactu
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-new-device-picker.png" />
 
-## Clearer Bluetooth networks
+## Making sense of Bluetooth
 
 Home Assistant has powerful [Bluetooth capabilities], and with the use of something like [ESPHome Bluetooth proxies], you can extend your Bluetooth network to cover your entire home. This release brings some improvements to the Bluetooth integration that will help you understand your Bluetooth network better.
 
