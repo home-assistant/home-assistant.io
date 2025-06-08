@@ -120,16 +120,6 @@ sql:
       type: template
 {% endconfiguration %}
 
-## Information
-
-See [supported engines](/integrations/recorder/#custom-database-engines) for which you can connect with this integration.
-
-The SQL integration will connect to the Home Assistant Recorder database if "Database URL" has not been specified.
-
-There is no explicit configuration required for attributes. The integration will set all columns returned by the query as attributes.
-
-Note that in all cases only the first row returned will be used.
-
 ## Polling interval
 
 By default, the integration will execute the SQL query to update the sensor every 30 seconds.
@@ -140,6 +130,16 @@ For more detailed steps on how to define a custom interval, follow the procedure
 ### Defining a custom polling interval
 
 {% include common-tasks/define_custom_polling.md %}
+
+## Information
+
+See [supported engines](/integrations/recorder/#custom-database-engines) for which you can connect with this integration.
+
+The SQL integration will connect to the Home Assistant Recorder database if "Database URL" has not been specified.
+
+There is no explicit configuration required for attributes. The integration will set all columns returned by the query as attributes.
+
+Note that in all cases only the first row returned will be used.
 
 {% include integrations/using_templates.md %}
 
