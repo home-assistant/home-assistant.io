@@ -65,7 +65,7 @@ Changed values are reported from Homee in defined time intervals and not always 
 
 ## Troubleshooting
 
-First see general [Home Assistant troubleshooting guide](/docs/configuration/troubleshooting/).
+First, see the general [Home Assistant troubleshooting guide](/docs/configuration/troubleshooting/).
 
 The **homee** integration supports [debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
