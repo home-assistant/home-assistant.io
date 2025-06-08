@@ -190,7 +190,9 @@ Here are two example JSON payloads resulting in the same task:
 
 - **project** (*Optional*): The project to put the task in.
 
-- **section** (*Optional*): The section within the project to add the task to.
+- **section** (*Optional*): The section within the project to add the task to. If the section doesn't already exist, it will be created (unless `create_section` is `false`).
+
+- **create_section** (*Optional*): Whether the specified section should be created if it doesn't already exist.
 
 - **labels** (*Optional*): Any labels you want to add to the task, separated by commas.
 
@@ -211,3 +213,19 @@ Here are two example JSON payloads resulting in the same task:
   Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
 
 - **reminder_date** (*Optional*): When should the user be reminded of this task, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format (in UTC timezone). Mutually exclusive with `reminder_date_string`.
+
+- **reminder_zone** (*Optional*): Home Assistant zone to use for location-based reminder. Mutually exclusive with `reminder_location_name`, `reminder_latitude`, `reminder_longitude`, and `reminder_radius`.
+  *Note: Zone name, latitude, longitude, and radius will be shared with Todoist to support the reminder.*
+
+- **reminder_location_name** (*Optional*): Name of location for reminder. Requires specifying `reminder_latitude`, `reminder_longitude`, and `reminder_radius`; mutually exclusive with `reminder_zone`.
+
+- **reminder_latitude** (*Optional*): Latitude of location for reminder. Requires specifying `reminder_location_name`, `reminder_longitude`, and `reminder_radius`; mutually exclusive with `reminder_zone`.
+
+- **reminder_longitude** (*Optional*): Longitude of location for reminder. Requires specifying `reminder_location_name`, `reminder_latitude`, and `reminder_radius`; mutually exclusive with `reminder_zone`.
+
+- **reminder_radius** (*Optional*): Radius of location for reminder. Requires specifying `reminder_location_name`, `reminder_latitude`, and `reminder_longitude`; mutually exclusive with `reminder_zone`.
+
+- **reminder_location_direction** (*Optional*): Whether the reminder should be sent when entering or leaving the zone. This parameter can only be set if `reminder_zone` or `reminder_location_name`, `reminder_latitude`, `reminder_longitude`, and `reminder_radius` are set.
+  Valid options are `on_enter` or `on_leave`, defaults to `on_enter`.
+
+- **reminder_users** (*Optional*): A list of usernames of shared project members to be reminded of this task. You can find these usernames in bold within the collaborator menu of a shared project. If not specified, the user Home Assistant is authenticated as will be reminded.
