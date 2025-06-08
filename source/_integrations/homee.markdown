@@ -69,15 +69,15 @@ First see general [Home Assistant troubleshooting guide](/docs/configuration/tro
 
 The **homee** integration supports [debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
-### Device not working as expected
+### Homee device not working as expected
 
 Make sure, the {% term device %} works as expected in homee.
-If a homee device shows up in Home Assistant, but does not work as expected or is missing {% term entities %}, open a [report](https://github.com/home-assistant/core/issues) and attach the device's {% term diagnostics %} data.
+If a homee device shows up in Home Assistant, but does not work as expected or is missing {% term entities %}, open a [report](https://github.com/home-assistant/core/issues) and attach error logs and the device's {% term diagnostics %} data.
 
-### Device not showing up in HA
+### Integration not loading or homee device not showing up in HA
 
 Check that the homee-user, you use for Home Assistant, is allowed to see the device.
-If that is the case, open a [report](https://github.com/home-assistant/core/issues) and attach the diagnostic data of the {% term integration %}.
+If that is the case, open a [report](https://github.com/home-assistant/core/issues) and attach error logs and the diagnostic data of the {% term integration %}.
 
 ## Reconfiguration
 
