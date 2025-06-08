@@ -130,7 +130,16 @@ There is no explicit configuration required for attributes. The integration will
 
 Note that in all cases only the first row returned will be used.
 
-This integration executes the SQL query to update the sensor every 30 seconds.
+## Polling interval
+
+By default, the integration will execute the SQL query to update the sensor every 30 seconds.
+If you wish to update at a different interval, you can disable the automatic refresh in the integration’s system options (**Enable polling for updates**) and create your own automation with your desired frequency.
+
+For more detailed steps on how to define a custom interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}
 
 {% include integrations/using_templates.md %}
 
