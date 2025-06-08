@@ -101,6 +101,34 @@ armed_custom_bypass/armed_home/armed_away/armed_night/armed_vacation/disarmed/tr
       type: integer
 {% endconfiguration %}
 
+### Event: `manual_alarm_bad_code_attempt`
+
+This event is fired when an attempt to change the state of a manual alarm control panel (e.g., arm or disarm) fails due to an invalid code being provided.
+
+#### Event Data
+
+| Key       | Type   | Description                                   |
+| --------- | ------ | --------------------------------------------- |
+| `entity_id` | `string` | The entity ID of the alarm control panel (e.g., `alarm_control_panel.my_alarm`). |
+| `action`    | `string` | The attempted action or target state (e.g., `disarmed`, `armed_away`, `armed_home`). |
+| `user_id`   | `string` | The user ID who initiated the service call (if available). |
+
+Example automation trigger:
+
+```yaml
+automation:
+  - alias: "Notify on invalid manual alarm code attempt"
+    trigger:
+      platform: event
+      event_type: manual_alarm_bad_code_attempt
+    action:
+      - service: notify.your_notification_service # Replace with your actual notification service
+        data:
+          message: >
+            Invalid alarm code attempt for {{ trigger.event.data.entity_id }}
+            by user ID {{ trigger.event.data.user_id }}
+            while attempting action {{ trigger.event.data.action }}.
+
 ## State machine
 
 The state machine of the manual alarm integration is complex but powerful. The
