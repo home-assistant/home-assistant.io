@@ -128,6 +128,7 @@ automation:
             Invalid alarm code attempt for {{ trigger.event.data.entity_id }}
             by user ID {{ trigger.event.data.user_id }}
             while attempting action {{ trigger.event.data.action }}.
+```
 
 ## State machine
 
