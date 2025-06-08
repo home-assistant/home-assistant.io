@@ -130,6 +130,8 @@ There is no explicit configuration required for attributes. The integration will
 
 Note that in all cases only the first row returned will be used.
 
+This integration executes the SQL query to update the sensor every 30 seconds.
+
 {% include integrations/using_templates.md %}
 
 ## Examples
