@@ -119,8 +119,8 @@ Example automation trigger:
 automation:
   - alias: "Notify on invalid manual alarm code attempt"
     trigger:
-      platform: event
-      event_type: manual_alarm_bad_code_attempt
+      - platform: event
+        event_type: manual_alarm_bad_code_attempt
     action:
       - service: notify.your_notification_service # Replace with your actual notification service
         data:
