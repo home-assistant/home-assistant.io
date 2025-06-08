@@ -38,7 +38,7 @@ This integration has the following Nextcloud Server prerequisites:
 
 ## Sensors
 
-For each entry, the integration will create the following sensors:
+For each entry, the integration will create the following {% term sensors %}:
 
 | Sensor | Enabled by default |
 | ------ | ------------------ |
