@@ -131,4 +131,4 @@ For each entry, the integration will create the following {% term sensors %}:
 
 ## Update entity
 
-An update entity will be created for each entry.
+An {% term update %} entity will be created for each entry.
