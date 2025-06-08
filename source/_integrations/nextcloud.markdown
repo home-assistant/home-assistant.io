@@ -36,111 +36,99 @@ This integration has the following Nextcloud Server prerequisites:
 
 {% include integrations/config_flow.md %}
 
-## Entities
+## Sensors
 
-For each entry, the integration will create the following entities.
+For each entry, the integration will create the following sensors:
 
-### Update entity
+| Sensor | Enabled by default |
+| ------ | ------------------ |
+| Amount of active users last 5 minutes | yes |
+| Amount of active users last day | yes |
+| Amount of active users last hour | yes |
+| Amount of files | yes |
+| Amount of group shares | yes |
+| Amount of link shares | yes |
+| Amount of local storages | yes |
+| Amount of mail shares | yes |
+| Amount of other storages | yes |
+| Amount of passwordless link shares | yes |
+| Amount of room shares | yes |
+| Amount of shares | yes |
+| Amount of shares received | yes |
+| Amount of shares sent | yes |
+| Amount of storages | yes |
+| Amount of storages at home | yes |
+| Amount of user | yes |
+| Amount of user shares | yes |
+| Apps installed | yes |
+| Avatars enabled | yes |
+| CPU load last 1 minute | yes |
+| CPU load last 15 minutes | yes |
+| CPU load last 5 minutes | yes |
+| Cache TTL | no |
+| Cache expunges | no |
+| Cache memory | no |
+| Cache memory size | yes |
+| Cache number of entries | no |
+| Cache number of hits | no |
+| Cache number of inserts | no |
+| Cache number of misses | no |
+| Cache number of slots | no |
+| Cache start time | no |
+| Database size | yes |
+| Database type | yes |
+| Database version | yes |
+| Debug enabled | yes |
+| Filelocking enabled | yes |
+| Free memory | yes |
+| Free space | yes |
+| Free swap memory | yes |
+| Interned buffer size | no |
+| Interned free memory | no |
+| Interned number of strings | no |
+| Interned used memory | no |
+| JIT active | no |
+| JIT buffer free | no |
+| JIT buffer size | no |
+| JIT enabled | no |
+| JIT kind | no |
+| JIT opt flags | no |
+| JIT opt level | no |
+| Opcache blacklist miss ratio | no |
+| Opcache blacklist misses | no |
+| Opcache cached keys | no |
+| Opcache cached scripts | no |
+| Opcache current wasted percentage | no |
+| Opcache free memory | no |
+| Opcache hash restarts | no |
+| Opcache hit rate | no |
+| Opcache hits | no |
+| Opcache last restart time | no |
+| Opcache manual restarts | no |
+| Opcache max cached keys | no |
+| Opcache misses | no |
+| Opcache out of memory restarts | no |
+| Opcache start time | no |
+| Opcache used memory | no |
+| Opcache wasted memory | no |
+| PHP max execution time | yes |
+| PHP memory limit | yes |
+| PHP upload maximum filesize | yes |
+| PHP version | yes |
+| Previews enabled | yes |
+| SMA available memory | no |
+| SMA number of segments | no |
+| SMA segment size | no |
+| System memcache distributed | no |
+| System memcache local | no |
+| System memcache locking | no |
+| System theme | yes |
+| System version | yes |
+| Total memory | yes |
+| Total swap memory | yes |
+| Updates available | yes |
+| Webserver | yes |
 
-For each entry, the integration will create an update entity.
+## Update entity
 
-### Sensors
-
-For each entry, the integration will create the following sensors.
-
-- Amount of files
-- Amount of shares
-- Amount of storages
-- Amount of user
-- Apps installed
-- CPU load last 1 minute
-- CPU load last 15 minutes
-- CPU load last 5 minutes
-- Database size
-- Free memory
-- Free space
-- Free swap memory
-- System theme
-- System version
-- Total memory
-- Total swap memory
-- Updates available
-
-### Diagnostic sensors
-
-For each entry, the integration will create the following diagnostic sensors.
-
-#### Enabled by default
-
-- Amount of active users last 5 minutes
-- Amount of active users last day
-- Amount of active users last hour
-- Amount of group shares
-- Amount of link shares
-- Amount of local storages
-- Amount of mail shares
-- Amount of other storages
-- Amount of passwordless link shares
-- Amount of room shares
-- Amount of shares received
-- Amount of shares sent
-- Amount of storages at home
-- Amount of user shares
-- Avatars enabled
-- Cache memory size
-- Database type
-- Database version
-- Debug enabled
-- Filelocking enabled
-- PHP max execution time
-- PHP memory limit
-- PHP upload maximum filesize
-- PHP version
-- Previews enabled
-- Webserver
-
-#### Disabled by default
-
-- Cache expunges
-- Cache memory
-- Cache number of entries
-- Cache number of hits
-- Cache number of inserts
-- Cache number of misses
-- Cache number of slots
-- Cache start time
-- Cache TTL
-- Interned buffer size
-- Interned free memory
-- Interned number of strings
-- Interned used memory
-- JIT active
-- JIT buffer free
-- JIT buffer size
-- JIT enabled
-- JIT kind
-- JIT opt flags
-- JIT opt level
-- Opcache blacklist miss ratio
-- Opcache blacklist misses
-- Opcache cached keys
-- Opcache cached scripts
-- Opcache current wasted percentage
-- Opcache free memory
-- Opcache hash restarts
-- Opcache hit rate
-- Opcache hits
-- Opcache last restart time
-- Opcache manual restarts
-- Opcache max cached keys
-- Opcache misses
-- Opcache out of memory restarts
-- Opcache start time
-- Opcache used memory
-- Opcache wasted memory
-- SMA available memory
-- SMA number of segments
-- SMA segment size
-- System memcache distributed
-- System memcache local
-- System memcache locking
+An update entity will be created for each entry.
