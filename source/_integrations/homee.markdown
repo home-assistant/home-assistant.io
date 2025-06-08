@@ -10,15 +10,19 @@ ha_codeowners:
   - '@Taraman17'
 ha_domain: homee
 ha_platforms:
+  - alarm-control-panel
   - binary_sensor
   - button
   - climate
   - cover
+  - event
+  - fan
   - light
   - lock
   - number
   - select
   - sensor
+  - siren
   - switch
   - valve
 ha_integration_type: hub
@@ -57,6 +61,16 @@ New devices added to Homee will be automatically discovered after a restart of H
 ## Limitations
 
 Changed values are reported from Homee in defined time intervals and not always in realtime. For example, while a cover moves, the position is updated only every few seconds and intermediate states may be missed by Home Assistant.
+
+## Reconfiguration
+
+This integration supports reconfiguration, allowing you to change the IP address, even after a device has already been set up.
+
+### To start the reconfiguration
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the homee integration card.
+2. From the list of hubs, select the one you want to reconfigure.
+3. Next to the entry, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Reconfigure**.
 
 ## Removing the integration
 

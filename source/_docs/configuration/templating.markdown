@@ -63,7 +63,8 @@ Jinja supports a set of language extensions that add new functionality to the la
 To improve the experience of writing Jinja templates, we have enabled the following
 extensions:
 
-- [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+- [Loop Controls](https://jinja.palletsprojects.com/en/stable/extensions/#loop-controls) (`break` and `continue`)
+- [Expression Statement](https://jinja.palletsprojects.com/en/stable/extensions/#expression-statement) (`do`)
 
 ### Reusing templates
 
@@ -79,7 +80,7 @@ For example, you might define a macro in a template in `config/custom_templates/
 
 {% raw %}
 
-```text
+```jinja
 {% macro format_entity(entity_id) %}
 {{ state_attr(entity_id, 'friendly_name') }} - {{ states(entity_id) }}
 {% endmacro %}
@@ -91,12 +92,31 @@ In your automations, you could then reuse this macro by importing it:
 
 {% raw %}
 
-```text
+```jinja
 {% from 'formatter.jinja' import format_entity %}
 {{ format_entity('sensor.temperature') }}
 ```
 
+{$ endraw %}
+
+Home Assistant also allows you to write macros with non-string return values by
+taking a named argument called `returns` and calling it with a return value.  Once created,
+pass the macro into the `as_function` filter to use the returned value:
+
+{% raw %}
+
+```jinja
+{%- macro macro_is_switch(entity_name, returns) -%}
+  {%- do returns(entity_name.startswith('switch.')) -%}
+{%- endmacro -%}
+{%- set is_switch = macro_is_switch | as_function -%}
+{{ "It's a switch!" if is_switch("switch.my_switch") else "Not a switch!" }}
+```
+
 {% endraw %}
+
+In this way, you can export utility functions that return scalar or complex values rather than
+just macros that render to strings.
 
 ## Home Assistant template extensions
 
@@ -1174,6 +1194,8 @@ Some examples:
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
 - Filter `slugify(separator="_")` will convert a given string into a "slug".
 - Filter `ordinal` will convert an integer into a number defining a position in a series (e.g., `1st`, `2nd`, `3rd`, `4th`, etc).
+- Filter `value | from_hex` Decodes a hex string to raw bytes.
+- Filter `value | base64_encode` Encodes a string or bytes to a base 64 string.
 - Filter `value | base64_decode` Decodes a base 64 string to a string, by default utf-8 encoding is used.
 - Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ascii encoding.
 - Filter `value | base64_decode(None)` Decodes a base 64 string to raw bytes.
@@ -1182,9 +1204,11 @@ Some examples:
 
 Some examples:
 {% raw %}
-
+- `{{ "homeassistant" | base64_encode }}` - renders as `aG9tZWFzc2lzdGFudA==`
 - `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode }}` - renders as `homeassistant`
 - `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode(None) }}` - renders as `b'homeassistant'`
+- `{{ "0F010003" | from_hex }}` - renders as `b'\x0f\x01\x00\x03'`
+- `{{ "0F010003" | from_hex | base64_encode }}` - renders as `DwEAAw==`
 
 {% endraw %}
 
@@ -1354,6 +1378,26 @@ Some examples:
 
 - `{{ combine({'a': 1, 'b': {'x': 1}}, {'b': {'y': 2}, 'c': 4}, recursive=True) }}` - renders as `{'a': 1, 'b': {'x': 1, 'y': 2}, 'c': 4}`
 - `{{ combine({'a': 1, 'b': {'x': 1}}, {'b': {'y': 2}, 'c': 4}) }}` - renders as `{'a': 1, 'b': {'y': 2}, 'c': 4}`
+
+{% endraw %}
+
+### Working with macros
+
+Home Assistant provides two additional functions that make macros much more powerful.
+
+{% raw %}
+
+- `apply` is both a filter and a test that allows you to use any callable (macros or functions) wherever
+you can use other filters and tests. `apply` also passes along any additional parameters to the function.
+For example, if you had a function called `double`, you could call
+`{{ [1, 2, 3, 4] | map('apply', double) | list }}`, which would render as `[2, 4, 6, 8]`.  
+Alternatively, if you had a function called `is_multiple_of`, you could call
+`{{ [1, 2, 3, 4] | select('apply', is_multiple_of, 2) | list }}`, which would render as `[2, 4]`.
+- `as_function` is a filter that takes a macro that has a named parameter called `returns`. The macro can
+then call `{%- do returns(return_value) -%}`. After passing this macro into `as_function`, the resulting
+function returns your return value directly, preserving the underlying data type rather than rendering
+a string. You can return dictionaries, numbers, `True`/`False` (allowing you to write your own tests when
+used with `apply`), or any other value your code might produce.
 
 {% endraw %}
 

@@ -109,27 +109,21 @@ Self defined [templates](https://en.avm.de/guide/three-smart-home-templates-that
 
 Thermostats like the [FRITZ!DECT 301][fritzdect_301], [FRITZ!DECT 302][fritzdect_302] or [Eurotronic Comet DECT][eurotronic_comet_dect] will be integrated as {% term climate %} entities.
 
-These entities can have several attributes that can be useful for {% term automations %} and {% term templates %}:
-
-| Attribute | Description |
-| --------- | ----------- |
-| `battery_low` | The low battery state indication. |
-| `battery_level` | The battery level (only available since Fritz!OS 7). |
-| `holiday_mode` | The state of the holiday mode (only available since Fritz!OS 7). |
-| `summer_mode` | The state of the summer mode (only available since Fritz!OS 7). |
-| `window_open` | The state of the window open detection (only available since Fritz!OS 7). |
-
-Further there are additional {% term sensor %} and {% term binary_sensor "binary sensor" %} entities created for each device, based on its capabilities:
+Further there are additional {% term sensor %} and {% term binary_sensor "binary sensor" %} entities created for each device which can be useful for {% term automations %} and {% term templates %}, based on its capabilities:
 
 - Battery
+- Battery low
 - Button lock via UI
 - Button lock on device
 - Comfort Temperature
 - Current Scheduled Preset
 - Eco Temperature
+- Holiday mode
 - Next Scheduled Change Time
 - Next Scheduled Preset
 - Next Scheduled Temperature
+- Open window detected
+- Summer mode
 
 ### Other devices
 
@@ -138,9 +132,11 @@ Some devices like the [FRITZ!DECT 350][fritzdect_350] or the [FRITZ!DECT 440][fr
 The availability of these {% term sensor %} and {% term binary_sensor "binary sensor" %} entities depends on the features and capabilities of the connected device and can be one or multiple of:
 
 - Battery
+- Battery low
 - Button lock via UI
 - Button lock on device
 - Humidity
+- Open window detected
 - Temperature
 
 [fritzbox_5590_fiber]: https://en.avm.de/products/fritzbox/fritzbox-5590-fiber
