@@ -17,6 +17,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `lightwave` {% term integration %} links Home Assistant with your Lightwave WiFi link for controlling Lightwave lights, switches and TRVs.

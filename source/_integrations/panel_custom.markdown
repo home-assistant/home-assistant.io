@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/frontend'
 ha_domain: panel_custom
-ha_integration_type: integration
+ha_integration_type: system
 related:
   - docs: /docs/configuration/
     title: Configuration file

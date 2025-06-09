@@ -10,6 +10,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The DuckDNS {% term integration %} allows you to keep your DuckDNS subdomain always in sync with your public IP address. [DuckDNS](https://www.duckdns.org) is a free service that allows you to bind your own favorite subdomain under `duckdns.org` to the public IP address in use from your router, even though such address is dynamically allocated by your internet service provider and therefore changes over time.

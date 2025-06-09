@@ -77,7 +77,7 @@ fields:
           description: The name of this script parameter field.
           type: string
         description:
-          description: A description of this of this script parameter.
+          description: A description of this script parameter.
           type: string
         advanced:
           description: Marks this field as an advanced parameter. This causes it only to be shown in the UI, when the user has advanced mode enabled.

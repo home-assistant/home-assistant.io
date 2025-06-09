@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `rocketchat` notify {% term integration %} allows you to send messages to your [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.
@@ -53,6 +54,6 @@ rocketchat_notification:
 #### Message variables
 
 - **message** (*Required*): Message to be displayed.
-- **data** (*Optional*): Dictionary containing any of the variables defined in the [Rocket.Chat documentation](https://developer.rocket.chat/reference/api/rest-api/endpoints/core-endpoints/chat-endpoints/postmessage)
+- **data** (*Optional*): Dictionary containing any of the variables defined in the [Rocket.Chat documentation](https://developer.rocket.chat/apidocs/post-message)
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

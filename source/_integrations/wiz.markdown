@@ -11,7 +11,6 @@ ha_iot_class: Local Push
 ha_release: '2022.3'
 ha_dhcp: true
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@sbidy'
 ha_domain: wiz

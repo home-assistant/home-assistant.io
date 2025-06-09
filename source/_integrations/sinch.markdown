@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `sinch` {% term integration %} uses [Sinch](https://www.sinch.com/products/apis/messaging/sms/) to deliver notifications from Home Assistant.

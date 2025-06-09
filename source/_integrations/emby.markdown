@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **Emby** {% term integration %} allows you to control a [Emby](https://emby.media/) multimedia system from Home Assistant.

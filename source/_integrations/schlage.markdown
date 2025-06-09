@@ -23,7 +23,13 @@ ha_domain: schlage
 
 The Schlage integration provides connectivity with Schlage WiFi smart locks through Schlage's cloud API.
 
-{% include integrations/config_flow.md %}
+## Known working devices
+
+- Schlage Encode Smart WiFi Deadbolt
+- Schlage Encode Smart WiFi Lever
+- Schlage Encode Plus Smart WiFi Deadbolt
+
+Other devices not listed above have not been tested and may not function as expected.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -31,6 +37,12 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 - Sensor
 - Switch
+
+{% include integrations/config_flow.md %}
+
+## Data updates
+
+The Schlage integration fetches updated lock state data every 30 seconds.
 
 ## Binary sensor
 
@@ -56,3 +68,9 @@ Once you have enabled the Schlage integration, you should see the following swit
 
 - **1-Touch Locking** - When enabled, locks the lock with a press of the Schlage button.
 - **Keypress Beep** - Controls whether the lock will emit beeping tones on use.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

@@ -7,11 +7,9 @@ This section lists a few steps that may help you troubleshoot issues with Assist
 ## View debug information
 
 1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
-2. From the list of assistants, select your assistant.
-   ![Select your assistant](/images/assist/assistant-select.png)
-3. In the dialog, select **Debug**.
+2. From the list of assistants, go to your assistant and select **Debug** in the dialog.
 ![Open the debug dialog](/images/assist/assistant-debug-03.png)
-4. At the top of the screen, from the dropdown menu, select the run you are interested in.
+3. At the top of the screen, from the dropdown menu, select the run you are interested in.
 ![Debug speech-to-text](/images/assist/assistant-debug-02.png)
 
 ## Test a sentence per language without voice: without executing commands
@@ -94,6 +92,7 @@ My voice assistant understands me and processes the command, but I don't get a v
 The voice response is generated in Home Assistant by one of our supported text-to-speech (or {% term TTS %}) engines.
 The voice assistant device then fetches the audio file from Home Assistant and plays it back.
 
+### Local Network Settings
 For this fetching process to work, Home Assistant must communicate its own URL to the device.
 If you have a complex network setup, or if you changed this setting in the past, the URL communicated could be wrong.
 
@@ -105,6 +104,8 @@ To fix the URL, follow these steps:
   - For most users, the **Automatic** option works and is recommended.
    ![Create alias for entity name](/images/assist/local_url.png)
 
+### Missing Media Source
+If you are using YAML configuration and do not have `default_config:` make sure `media_source:` is present.
 
 ## Tweaking the Assist audio configuration for your device
 

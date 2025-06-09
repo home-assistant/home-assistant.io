@@ -57,7 +57,7 @@ description:
 domain:
   description: >
     The domain in which this blueprint is used. Currently, only
-    [`automation`](/docs/automation/yaml/), `script` and [`template`](/docs/integrations/template/#using-blueprints) are supported.
+    [`automation`](/docs/automation/yaml/), `script` and [`template`](/integrations/template/#using-blueprints) are supported.
   type: string
   required: true
 author:
@@ -134,6 +134,7 @@ The following example shows a minimal blueprint with a single input:
 blueprint:
   name: Example blueprint
   description: Example showing an input
+  domain: automation
   input:
     my_input:
       name: Example input
@@ -157,7 +158,7 @@ by their name; not by section and name.
 A section is differentiated from an input by the presence of an additional `input` key within that section. 
 
 {% caution %}
-Input sections are a new feature in version 2024.6.0. Set the `min_version` for the blueprint to at least this version if using input sections. Otherwise, the blueprint will generate errors on older versions.
+Input sections are a new feature in version 2024.6.0. Set the `min_version` for the blueprint to at least this version if using input sections. Otherwise, the blueprint will generate errors on older versions. See [this section](/docs/blueprint/schema/#min_version) for more details.
 {% endcaution %}
 
 The full configuration for a section is below:

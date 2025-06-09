@@ -1,21 +1,25 @@
 ---
-title: Matter (BETA)
+title: Matter
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary sensor
   - Button
+  - Car
   - Climate
   - Cover
   - Fan
   - Light
   - Lock
   - Number
+  - Pump
   - Select
   - Sensor
   - Switch
   - Update
   - Vacuum
   - Valve
+  - Water heater
+featured: true
 ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -39,6 +43,7 @@ ha_platforms:
   - update
   - vacuum
   - valve
+  - water_heater
 ha_integration_type: integration
 related:
   - docs: /integrations/thread/
@@ -53,10 +58,6 @@ ha_zeroconf: true
 The Matter integration allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
 
 For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" as add-on. This Matter Server add-on runs the controller software as a separate process and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
-
-{% warning %}
-The integration is marked BETA: Both the Matter standard itself and its implementation within Home Assistant are in an early stage. You may run into compatibility issues and/or other bugs.
-{% endwarning %}
 
 # Introduction - What is Matter?
 
@@ -108,8 +109,6 @@ It is recommended to run the Matter add-on on Home Assistant OS. This is current
 
 If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
 
-Running Matter on a Home Assistant Core installation is not supported.
-
 ## Adding a Matter device to Home Assistant
 
 Each Matter network is called a fabric. Each home automation controller that controls Matter devices has its own "fabric". You can add devices directly to the fabric of your Home Assistant instance, or share them from another fabric (for example from Google or Apple) to Home Assistant's fabric. We're going to explore all these options below.
@@ -125,7 +124,7 @@ Make sure you have all these components ready before trying to add a Matter devi
 - Make sure you have the latest version of Home Assistant [installed](/installation/).
 - In Home Assistant, have the Matter integration installed.
   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-  - Add the **Matter (BETA)** integration.
+  - Add the **Matter** integration.
   - When prompted to **Select the connection method**:
     - If you run Home Assistant OS in a regular setup: select **Submit**.
       - This will install the official Matter server add-on.
@@ -139,17 +138,17 @@ Make sure you have all these components ready before trying to add a Matter devi
 - On the device packaging, check for both the Matter logo and for either the Wi-Fi or the {% term Thread %} logo.
 - Check if the QR code or the numeric setup code is on the device.
   - If you reset your device you'll need the QR code *or* numeric setup code to {% term commission %} that device again! Without this information, commissioning won't be possible.
-  - If the QR code or the numeric setup code is only in accompanied documentation, it is good practice to snap a picture of the QR code and/or numeric setup code as a backup, ideally along with the device for reference, and store the code in a safe place.
+  - If the QR code or the numeric setup code is only in accompanied documentation, it is a good practice to snap a picture of the QR code and/or numeric setup code as a backup, ideally along with the device for reference, and store it in a safe place.
 
 #### Prepare Android or iPhone
 
 - Have either an Android or iPhone ready and Bluetooth enabled. For information why Bluetooth is required, refer to the section on [Bluetooth used during commissioning](#bluetooth-used-during-commissioning):
-  - Android:
-    - Have the Android version 8.1 or higher.
+  - **Android**:
+    - At a minimum, have Android version 8.1. Recommended is version 12 or higher.
     - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
     - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the OpenThread Border Router add-on) present in your home network.
       - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
-  - iPhone
+  - **iPhone**
     - Have the iOS version 16 or higher
     - Have the latest version of the Home Assistant Companion app installed.
     - If you are using {% term Thread %}: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K or Home Assistant with the OpenThread Border Router add-on) present in your home network.
@@ -211,16 +210,34 @@ Check these steps if you are experiencing issues when trying to add a Matter dev
 
 #### Symptom
 
-While trying to add the Matter device, I get an error stating that *Matter is currently unavailable*. 
+While trying to add the Matter device, I get an error stating that _Matter is currently unavailable_.
 
 #### Remedy
 
 This could mean that not all required Matter modules that are needed by the Home Assistant Companion App have been downloaded yet. Try the following steps:
 
-1. Wait up to 24 hours for the Google Play services to download the necessary Matter modules.
-2. If this did not work, try reinstalling the Home Assistant Companion app.
-3. If this did not work, try installing the Google Home app. Technically this is not required, but it might trigger another installation attempt of the Matter modules.
-4. Refer to this [Troubleshooting Guide from Google](https://developers.home.google.com/matter/verify-services).
+1. Wait up to 24 hours for the Google Play Services to download the necessary Matter modules.
+2. Make sure the requirements listed in the [prerequisites](#prerequisites) are met. This includes meeting the minimum system requirements:
+   - **Android**:
+     - Minimum version is 8.1. Recommended is version 12 or higher.
+       - More issues have been reported by people using older Android versions.
+     - Use a regular, Google-account Android setup. No alternative Android versions.
+     - Make sure the Google Play Services are all up to date.
+   - **iPhone**:
+     - Have the iOS version 16 or higher
+3. Home Assistant Companion app:
+   - Make sure you installed the (full) version, downloaded from the Play Store.
+   - Make sure it is the latest version.
+   - If you only just installed or updated the Home Assistant Companion app:
+     - Wait.
+     - It can take a while before the required components are installed in the background.
+     - Try again after 1 hour to ensure the installation is complete.
+4. Verify your device meets all requirements to support Matter:
+   - On your Android device, go to **Settings** > **Google** > **Devices & Sharing**.
+     - There should be an entry there for **Matter devices**.
+5. Reinstalling the Home Assistant Companion app.
+6. Try (re-)installing the Google Home app. Technically, this is not required, but it might trigger another installation attempt of the Matter modules.
+7. Refer to this [Troubleshooting Guide from Google](https://developers.home.google.com/matter/verify-services).
 
 ## Sharing a device from another platform with Home Assistant
 
@@ -232,7 +249,7 @@ Use one of these methods if your Matter device was added to Apple Home or Google
 - Have the Matter device integrated to Apple Home or Google Home respectively
 - In Home Assistant, have the Matter integration installed.
   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-  - Add the **Matter (BETA)** integration.
+  - Add the **Matter** integration.
   - When prompted to **Select the connection method**:
     - If you run Home Assistant OS in a regular setup: select **Submit**.
       - This will install the official Matter server add-on.
@@ -279,7 +296,7 @@ In some cases, bridging devices into Home Assistant via Matter might not bring y
 
 Follow these steps if you have added a Matter device to Home Assistant and you want to make it available in an other platform, such as Google Home or Apple Home.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
 2. From the list of devices, select the device you want to share.
 3. Select **Share device**, then in the dialog, select **Share device** again.
    - There is no need to press a hardware button on the device to set it to commissioning mode.
@@ -294,7 +311,7 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
 
 Follow these steps if you want to remove a device from a particular Matter controller.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
 2. From the list of devices, select the device you want to remove from a controller.
 3. In the **Device info** section, next to **Share device**, select the three-dot menu. Then, select **Manage fabrics**.
 4. From the list, remove the controller of interest.
@@ -306,7 +323,7 @@ Follow these steps if you want to remove a device from a particular Matter contr
 
 The device information section provides some diagnostic information of a device.
 
-1. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+1. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
 2. From the list of devices, select the device you want to look at.
 
 <p class='img'>
@@ -338,6 +355,10 @@ The CSA operates a Distributed Compliance Ledger (DCL) which provides metadata f
 <img src='/images/integrations/matter/matter_ota_message.png' alt='Matter device OTA update message'>
 Notification of an OTA update for a Matter device
 </p>
+
+{% note %}
+The Home Assistant Matter updates currently do not work for Thread devices on a Thread network with (any) Apple border routers. Typically you'll see "Target node did not process the update file" error instead. The Apple border routers do not forward the necessary mDNS packets which allow to discover the update provider on Home Assistant end. The Apple Home ecosystem might offer updates from their end as an alternative (e.g. for Eve devices).
+{% endnote %}
 
 ## Automate on a button press
 
@@ -377,22 +398,101 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 - For more detailed information on network configuration, refer to the [README of the Matter server repository](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md).
 
-### I do not see the button "Commission using the Companion app"
+### I do not see the button _Commission using the Companion app_
 
-This button will only be visible within the Home Assistant Companion App (so not in the browser) and your device meets all requirements for Matter support.
+The **Commission using the Companion app** button only exists in the Home Assistant Companion App. It is not available in the browser.
 
-- For iOS, minimum version is iOS 16 (minimal 16.3 is preferred) and the most recent version of the HA companion app.
-- For Android, minimum version is 8.1 and the most recent version of the (full) HA Companion app, downloaded from the Play Store.
+#### Remedy
 
-### When I'm trying to commission using the Android app, I get an error stating "Matter is currently unavailable"
+If you don't see the button in the Companion app:
 
-See above, make sure your device meets all requirements to support Matter. Update Android to the latest version and the Home Assistant Companion app. To quickly verify if your device meets all requirements to support Matter, on your Android device, go to **Settings** > **Google** > **Devices & Sharing**. There should be an entry there for **Matter devices**.
+1. Make sure the requirements listed in the [prerequisites](#prerequisites) are met.
+2. This includes meeting the minimum system requirements:
 
-Some users have reported that uninstalling and reinstalling the Google Home app fixed this issue for them.
-Also see this [extended troubleshooting guide](https://developers.home.google.com/matter/verify-services) from Google.
+   - **Android**:
+     - Minimum version is 8.1. Recommended is version 12 or higher.
+       - More issues have been reported by people using older Android versions.
+       - Use a regular, Google-account Android setup. No alternative Android versions.
+       - Make sure the Google Play Services are all up to date.
+   - **iPhone**:
+     - Have the iOS version 16 or higher
+
+### When trying to commission using Android, I get an error "Matter is unavailable"
+
+Refer to the steps under [Troubleshooting the installation](#troubleshooting-the-installation).
+
+### Android: stuck at "Checking network connectivity"
+
+#### Symptom
+
+You are trying to {% term commissioning commission %} a Matter device using an Android phone. During that process, you see the "Checking network connectivity" message and never get past that.
+
+#### Remedy
+
+1. Make sure the requirements listed in the [prerequisites](#prerequisites) are met.
+2. This includes meeting the minimum system requirements for **Android**:
+
+   - Minimum version is 8.1. Recommended is version 12 or higher.
+     - More issues have been reported by people using older Android versions.
+     - Use a regular, Google-account Android setup. No alternative Android versions.
+     - Make sure the Google Play Services are all up to date.
+3. If you are adding a {% term Thread %}-based Matter device, make sure the phone is in close range of the border router and your device.
+4. If you are adding a Wi-Fi-based Matter device:
+   - Matter devices often use the 2.4&nbsp;GHz frequency for Wi-Fi.
+   - Make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
+
+### Error "this device requires a border router"
+
+#### Symptom
+
+While trying to add a Matter device with your Home Assistant Companion app, you get the error "this device requires a border router".
+
+#### Cause
+
+To add a Matter device which is based on the {% term Thread %} radio protocol, you need a {% term "Thread border router" %} near the device and your phone needs to know the credentials of your (newly created) Thread network.
+
+#### Remedy
+
+Set up a {% term "Thread border router" %} and synchronize the credentials from Home Assistant to your Android device:
+
+1. Follow the steps on [Turning Home Assistant into a Thread border router](https://www.home-assistant.io/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+2. Make sure to Sync the Thread credentials as described in step 3.
+
+### Error "Target node did not process the update file"
+
+#### Symptom
+
+You are trying to update a Matter over Thread device via Home Assistant and see the error "Target node did not process the update file".
+
+#### Cause
+
+Over-the-air (OTA) updates of Matter devices from Home Assistant are not supported with an Apple {% term "Thread border router" %}.
+
+#### Remedy
+
+- If you only have a {% term "Thread border router" %} from Apple, you cannot update the device from Home Assistant.
+  - If you want to be able to use OTA updates on these devices, you could add another border router, for example by [turning Home Assistant into a Thread border router](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+
+- If you have a mixture of Apple and other {% term "Thread border routers" %} such as the Home Assistant [OpenThread border router](/integrations/thread#openthread-border-routers), follow these steps:
+  1. Power down all the Apple {% term "Thread border routers" %}.
+  2. Wait at least 30 minutes.
+  3. Try again to update the devices from Home Assistant.
 
 ### Unable to commission devices, it keeps giving errors or stops working randomly
 
-The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices that use Wi-Fi (including Thread border routers) must be on the same LAN/VLAN as Home Assistant. Matter devices that only use {% term Thread %} must be joined to {% term Thread %} networks for which there is at least one border router connected to the Home Assistant LAN.
+#### Symptom
 
-If you experience any issues with discovering devices (for example, if the initial {% term commissioning %} keeps failing or if devices become unavailable randomly), investigate your network topology. For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and may not integrate well with enterprise networking solutions like VLANs, Multicast filtering, and (malfunctioning) IGMP snooping. To avoid issues, try to keep your network topology as simple and flat as possible.
+The initial {% term commissioning %} keeps failing, you experience issues with discovering devices, or devices become unavailable randomly.
+
+#### Cause
+
+- The Matter protocol relies on (local) IPv6 and <abbr title="multicast Domain Name System">mDNS</abbr> (multicast traffic) traveling freely in your network.
+- Matter is designed for regular residential network setups and may not integrate well with enterprise networking solutions like <abbr title="virtual local area networks">VLANs</abbr>, Multicast filtering, and (malfunctioning) <abbr title="Internet Group Management Protocol i">IGMP</abbr> snooping.
+
+#### Remedy
+
+1. Make sure that Matter devices that use Wi-Fi (including {% term "Thread border router" %}) are on the same <abbr title="local area networks">VLANs</abbr>/<abbr title="virtual local area networks">VLAN</abbr> as Home Assistant.
+2. Make sure that Matter devices that only use {% term Thread %} are joined to Thread networks for which there is at least one {% term "Thread border router" %} connected to the Home Assistant LAN.
+3. Investigate your network topology.
+   - For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices.
+   - To avoid issues, try to keep your network topology as simple and flat as possible.

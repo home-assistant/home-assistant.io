@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **Volkszaehler** {% term integration %} is consuming the system information provided by the [Volkszaehler](https://wiki.volkszaehler.org/) API.

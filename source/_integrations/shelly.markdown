@@ -43,18 +43,30 @@ ha_platforms:
   - update
   - valve
 ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 Integrate [Shelly devices](https://shelly.com) into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+    description: "The Hostname or IP address of your Shelly device. You can find it in your router."
+Port:
+    description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
+{% endconfiguration_basic %}
+
 ## Shelly device generations
 
-There are three generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
+There are four generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
 
-## Shelly device configuration (generation 1)
+Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3.
+
+## Data updates
+
+Shelly devices push updates to Home Assistant upon changes for all main functions of the device. For push updates to work correctly, some devices need additional configuration:
+
+### Shelly device configuration (generation 1)
 
 Generation 1 devices use the `CoIoT` protocol to communicate with the integration. `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** > **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
 
@@ -71,9 +83,9 @@ The list below will help you diagnose and fix the problem:
 - The missing push updates may be related to the WiFi network range. If using a WiFi network with several access points, enable **Internet & Security** >> **WiFi Client AP Roaming** option. Consider moving Shelly device closer to the WiFi access point. Consider adding another WiFi access point, which will improve the connection quality with the device.
 - If you think your Shelly devices are working correctly and don't want to change your network/configuration, you can ignore the repair issue. Still, you must know you are giving up the best experience of using first-generation Shelly devices with Home Assistant.
 
-## Shelly device configuration (generation 2 and 3)
+### Shelly device configuration (generation 2+)
 
-Generation 2 and 3 devices use the `RPC` protocol to communicate with the integration. **Battery-operated devices** (even if USB connected) may need manual outbound WebSocket configuration if Home Assistant cannot correctly determine your instance's internal URL or the outbound WebSocket was previously configured for a different Home Assistant instance. In this case, navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
+Generation 2+ devices use the `RPC` protocol to communicate with the integration. **Battery-operated devices** (even if USB connected) may need manual outbound WebSocket configuration if Home Assistant cannot correctly determine your instance's internal URL or the outbound WebSocket was previously configured for a different Home Assistant instance. In this case, navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
 
 `ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
 In case your installation is set up to use SSL encryption (HTTP**S** with certificate), an additional `s` needs to be added to the WebSocket protocol, too, so that it reads `wss://` (for example: `wss://192.168.1.100:8123/api/shelly/ws`).
@@ -82,37 +94,63 @@ In case your installation is set up to use SSL encryption (HTTP**S** with certif
 Integration is communicating directly with the device; cloud connection is not needed.
 {% endnote %}
 
+### Shelly entities that poll data from the device (generation 1)
+
+The following disabled by default entities {% term polling poll %} data from the device every 60 seconds:
+
+- Cloud connected sensor
+- RSSI sensor
+- Uptime sensor
+- Firmware update
+
+### Shelly entities that poll data from the device (generation 2+)
+
+The following disabled by default entities {% term polling poll %} data from the device every 60 seconds:
+
+- Device temperature sensor
+- RSSI sensor
+- Uptime sensor
+
 ## Bluetooth Support
 
-Shelly generation 2 and 3 devices not battery-powered can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
+Shelly Gen 2 and newer devices (excluding battery-powered models) can act as Bluetooth proxies, forwarding advertisement data. You can enable either active or passive listening through the device’s options flow.
+
+{% tip %}
+Shelly devices do **not** support proxying active (GATT) connections.
+{% endtip %}
+
+For more details, see [Remote Adapters](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
 
 {% include integrations/option_flow.md %}
 
 ## Range Extender Support
 
-Shelly generation 2 and 3 devices that are not battery-powered can act as a Range Extender.
+Shelly generation 2+ devices that are not battery-powered can act as a Range Extender.
 Devices of the same generations can be configured via those Range Extenders specifying a custom TCP port during the configuration flow.
 Currently, only static IP or DHCP reserved IP are supported for the main device.
 
 ## Entity naming (generation 1)
 
-The integration uses `Device Name` to name its entities if the device has only one relay or no relays at all.
+The integration uses the following strategy to name its devices and entities if the device has only one relay (channel) or no relays at all:
 
-The integration uses the following strategy to name its entities if the device has more than one relay:
+- If a `Device Name` is set in the device, the integration will use it to generate the device name and entity names.
+- If a `Device Name` is not set, the integration will use the `Device ID` to generate the device name and entity names.
 
-- If `Device Name` or `Channel Name` is set in the device, the integration will use them to generate the entities' name.
-- If channel names are set, they will be used in the entity names. The device name will not be used.
-- If only the device name is set, and the device has multiple channels, the channel number will be appended to the entity name (e.g., Channel 2).
-- In case device name and channel names are not set, the entity name will be generated by the `Device Type`, `Device ID` and `Channel Number`.
+The integration creates a sub-device for every relay and uses the following strategy to name its entities if the device has more than one relay:
+
+- If a `Device Name` is set in the device, the integration will use it to generate the main device name and entity names assigned to the main device.
+- If a `Device Name` is not set, the integration will use the `Device ID` to generate the main device name and entity names assigned to the main device.
+- If a `Channel Name` is set in the device, the integration will use it to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
+- If a `Channel Name` is not set in the device, the integration will use the device name and channel/relay number to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
 
 Examples:
 
-| Device Name | Channel Name   | Entity Name                     |
-| ----------- | -------------- | ------------------------------- |
-| `Not set`   | `Not Set`      | shellyswitch25-ABC123 Channel 1 |
-| `Not set`   | Kids Room Bulb | Kids Room Bulb                  |
-| Kitchen     | `Not Set`      | Kitchen Channel 1               |
-| Bedroom     | Round Bulb     | Round Bulb                      |
+| Device Name | Channel Name   | Main Device Name      | Sub-device Name                 | Entity Name                      |
+| ----------- | -------------- | --------------------- | ------------------------------- | -------------------------------- |
+| `Not set`   | `Not Set`      | shellyswitch25-ABC123 | shellyswitch25-ABC123 Channel 1 |  shellyswitch25-ABC123 Channel 1 |
+| `Not set`   | Kids Room Bulb | shellyswitch25-ABC123 | Kids Room Bulb                  | Kids Room Bulb                   |
+| Kitchen     | `Not Set`      | Kitchen               | Kitchen Channel 1               | Kitchen Channel 1                |
+| Bedroom     | Round Bulb     | Bedroom               | Round Bulb                      | Round Bulb                       |
 
 Names are set from the device web page:
 
@@ -120,12 +158,38 @@ Names are set from the device web page:
 - Channel name for single-channel devices can be set in **Settings** >> **CHANNEL NAME**
 - Channel name for multi-channel devices can be set in **Settings** >> **CHANNEL NAME** after selecting the channel, by clicking on the channel name.
 
-## Entity naming (generation 2 and 3)
+## Entity naming (generation 2+)
 
-The integration uses the following strategy to name its entities:
+The integration uses the following strategy to name its devices and entities if the device has only one relay (channel) or no relays at all:
 
-- If `Channel Name` is set in the device, the integration will use it to generate the entities' name, e.g. `Kitchen Light`
-- If `Channel Name` is set to the default value, the integration will use the `Device ID` and default channel name to generate the entities' name, e.g. `ShellyPro4PM-9808D1D8B912 Switch 0`.
+- If a `Device Name` is set in the device, the integration will use it to generate the device name and entity names.
+- If a `Device Name` is not set, the integration will use the `Device ID` to generate the device name and entity names.
+- If a `Channel Name` is set in the device, the integration will add it as a suffix to the entity names.
+
+Examples:
+
+| Device Name | Channel Name   | Integration Device Name  | Entity Name                             |
+| ----------- | -------------- | ------------------------ | --------------------------------------- |
+| `Not set`   | `Not Set`      | shelly1gen3-aabbccddeeff | shelly1gen3-aabbccddeeff                |
+| `Not set`   | Kids Room Bulb | shelly1gen3-aabbccddeeff | shelly1gen3-aabbccddeeff Kids Room Bulb |
+| Kitchen     | `Not Set`      | Kitchen                  | Kitchen                                 |
+| Bedroom     | Round Bulb     | Bedroom                  | Bedroom Round Bulb                      |
+
+The integration creates a sub-device for every relay (channel) and uses the following strategy to name its devices and entities if the device has more than one relay:
+
+- If a `Device Name` is set in the device, the integration will use it to generate the main device name and entity names assigned to the main device.
+- If a `Device Name` is not set, the integration will use the `Device ID` to generate the main device name and entity names assigned to the main device.
+- If a `Channel Name` is set in the device, the integration will use it to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
+- If a `Channel Name` is set to the default value in the device, the integration will use the device name and this ddefault channel name to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
+
+Examples:
+
+| Device Name | Channel Name   | Main Device Name           | Sub-device Name                     | Entity Name                         |
+| ----------- | -------------- | -------------------------- | ----------------------------------- | ----------------------------------- |
+| `Not set`   | `Not Set`      | shelly2pmgen3-aabbccddeeff | shelly2pmgen3-aabbccddeeff Switch 1 | shelly2pmgen3-aabbccddeeff Switch 1 |
+| `Not set`   | Kids Room Bulb | shelly2pmgen3-aabbccddeeff | Kids Room Bulb                      | Kids Room Bulb                      |
+| Kitchen     | `Not Set`      | Kitchen                    | Kitchen Switch 1                    | Kitchen Switch 1                    |
+| Bedroom     | Round Bulb     | Bedroom                    | Round Bulb                          | Round Bulb                          |
 
 ## Cover entities
 
@@ -141,17 +205,39 @@ Shelly 2PM Gen3 supports `tilt` for `cover` entities. To enable this feature, yo
 
 Depending on how a device's button type is configured, the integration will create binary sensors corresponding to those inputs. binary sensors are not created when the button type is `momentary` or `momentary_on_release`, for these types you need to use events for your automations.
 
-### Binary input sensors (generation 2 and 3)
+### Binary input sensors (generation 2+)
 
-For generation 2 and 3 hardware it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the input mode is set to `switch`. When the input is of type `button` you need to use events for your automations.
+For generation 2+ hardware, it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the input mode is set to `switch`. When the input is of type `button` you need to use events for your automations.
 
 ## Event entities (generation 1)
 
 If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
-## Event entities (generation 2 and 3)
+## Event entities (generation 2+)
 
 If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
+
+Each script which generates events using [Shelly.emitEvent()](https://shelly-api-docs.shelly.cloud/gen2/Scripts/ShellyScriptLanguageFeatures#shellyemitevent) also gets an corresponding event entity. This entity is disabled by default. After changing a script, it's required to manually reload the device before new event types show up.
+
+{% note %}
+To avoid increased startup time, only the first 5 KB of the script is downloaded and analyzed. If your script exceeds 5 KB, place the event emitting function at the beginning to ensure it is processed.
+{% endnote %}
+
+For example, the following script will emit an event every time an input (button or switch) on the device is changed.
+
+```javascript
+// Example shelly script
+function eventHandler(event, userdata) {
+  if (
+    typeof event.component === "string" &&
+    event.component.substring(0, 5) === "input"
+  ) {
+    let id = Number(event.component.substring(6));
+    Shelly.emitEvent("input_event", { id: id });
+  }
+}
+Shelly.addEventHandler(eventHandler);
+```
 
 ## Events
 
@@ -244,11 +330,11 @@ Not all devices support all input events. You can check on [Shelly API Reference
 
 ## Appliance type (generation 1)
 
-Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **Settings** >> **APPLIANCE TYPE** value is set to `light`.
+Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **Settings** >> **APPLIANCE TYPE** value in the WebUI of the device is set to `light`.
 
-## Consumption type (generation 2 and 3)
+## Consumption type (generation 2+)
 
-Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **EXTERNAL CONSUMPTION TYPE** value is set to `light`.
+Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **EXTERNAL CONSUMPTION TYPE** value in the WebUI of the device is set to `light`.
 
 ## Light transition
 
@@ -330,7 +416,7 @@ The integration supports the following virtual components:
 - `text` in `field` mode, for which a `text` platform entity is created
 - `text` in `label` mode, for which a `sensor` platform entity is created
 
-## Scripts (generation 2 and 3)
+## Scripts (generation 2+)
 
 For each device script, the integration creates a `switch` entity that allows you to control the script. These entities are disabled by default.
 
@@ -354,3 +440,9 @@ Please check from the device Web UI that the configured server is reachable.
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
 - Using the `homeassistant.update_entity` action for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

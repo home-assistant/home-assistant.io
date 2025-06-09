@@ -151,6 +151,8 @@ params:
   type: [list, template]
 {% endconfiguration %}
 
+{% include integrations/using_templates.md %}
+
 ## Examples
 
 In this section you find some real-life examples of how to use this sensor.

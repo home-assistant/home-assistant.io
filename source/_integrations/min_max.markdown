@@ -24,6 +24,7 @@ The sensor provided by this integration will always show you the lowest/highest/
 If the source sensor provides an unknown state, it will be ignored in the calculation except for sum where it will set the state to unknown. If the unit of measurement of the sensors differs, the Min/Max sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR`.
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 Name:
   description: The name the sensor should have. You can change it again later.
