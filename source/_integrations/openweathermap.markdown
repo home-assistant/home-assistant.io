@@ -28,7 +28,8 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Weather
 
-You need an API key, it requires a [registration](https://home.openweathermap.org/users/sign_up).
+You need to register for an API key: [Sign up here](https://home.openweathermap.org/users/sign_up).
+
 There are currently two types of OpenWeatherMap services supported by this integration:
 
 - [One Call API 3.0](https://openweathermap.org/price#onecall) : current weather, hourly forecast for 48 hours, daily forecast for 8 days
@@ -40,7 +41,7 @@ The One Call API 3.0 services requires a [subscription](https://openweathermap.o
 
 ### OpenWeatherMap API V2.5 Deprecation
 
-OpenWeatherMap API V2.5 has been deprecated and is not supported anymore by this integration. You need to use API V3.0.
+OpenWeatherMap API V2.5 has been deprecated and is no longer supported by this integration. You need to use API V3.0.
 
 To continue using the service if you were previously using API V2.5:
 
@@ -65,7 +66,7 @@ not be activated yet. Recent policy changes limit the API access for new registe
 | Name      | Name of the integration                                   |
 | Latitude  | Latitude for weather forecast and sensor                  |
 | Longitude | Longitude for weather forecast and sensor                 |
-| Mode      | <li>`v3.0` (new API version) daily weather forecast for 8 days, and 1-hour steps for 48 hours</li><li>`current` current weather data only, no forecast</li><li>`forecast` weather forecast only, in 3-hour steps for 5 days, no current weather data</li><li>`air_pollution` current air quality data</li> |
+| Mode      | <li>`v3.0` (new API version) current weather plus daily forecast for 8 days, and 1-hour steps for 48 hours</li><li>`current` current weather data only, no forecast</li><li>`forecast` weather forecast only, in 3-hour steps for 5 days, no current weather data</li><li>`air_pollution` current air quality data</li> |
 | Language  | Language for receiving data (only for `sensor`)           |
 
 A `sensor` entity will be created for each supported condition. Their IDs will follow the format:
