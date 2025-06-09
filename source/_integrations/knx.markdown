@@ -1264,7 +1264,7 @@ state_address:
   required: false
   type: [string, list]
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If true, the entity will respond to received GroupValueRead telegrams by sending a GroupValueResponse to the configured `address`. This is used when Home Assistant acts as the state provider on the KNX bus. In such cases, typically only `address` is configured, and no `state_address` is set.
   required: false
   type: boolean
   default: false
@@ -1331,7 +1331,7 @@ state_address:
   required: false
   type: [string, list]
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If true, the entity will respond to received GroupValueRead telegrams by sending a GroupValueResponse to the configured `address`. This is used when Home Assistant acts as the state provider on the KNX bus. In such cases, typically only `address` is configured, and no `state_address` is set.
   required: false
   type: boolean
   default: false
@@ -1735,7 +1735,7 @@ type:
   required: true
   type: [string, integer]
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If true, the entity will respond to received GroupValueRead telegrams by sending a GroupValueResponse to the configured `address`. This is used when Home Assistant acts as the state provider on the KNX bus. In such cases, typically only `address` is configured, and no `state_address` is set.
   required: false
   type: boolean
   default: false
@@ -1868,7 +1868,7 @@ options:
       required: true
       type: integer
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If true, the entity will respond to received GroupValueRead telegrams by sending a GroupValueResponse to the configured `address`. This is used when Home Assistant acts as the state provider on the KNX bus. In such cases, typically only `address` is configured, and no `state_address` is set.
   required: false
   type: boolean
   default: false
@@ -2204,7 +2204,7 @@ invert:
   type: boolean
   default: false
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If true, the entity will respond to received GroupValueRead telegrams by sending a GroupValueResponse to the configured `address`. This is used when Home Assistant acts as the state provider on the KNX bus. In such cases, typically only `address` is configured, and no `state_address` is set.
   required: false
   type: boolean
   default: false
@@ -2267,7 +2267,7 @@ type:
   type: [string, integer]
   default: latin_1
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If true, the entity will respond to received GroupValueRead telegrams by sending a GroupValueResponse to the configured `address`. This is used when Home Assistant acts as the state provider on the KNX bus. In such cases, typically only `address` is configured, and no `state_address` is set.
   required: false
   type: boolean
   default: false
@@ -2320,7 +2320,7 @@ state_address:
   required: false
   type: [string, list]
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If true, the entity will respond to received GroupValueRead telegrams by sending a GroupValueResponse to the configured `address`. This is used when Home Assistant acts as the state provider on the KNX bus. In such cases, typically only `address` is configured, and no `state_address` is set.
   required: false
   type: boolean
   default: false
