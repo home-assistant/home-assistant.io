@@ -785,7 +785,7 @@ Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to al
 
 ### Problems upgrading Zigbee device firmware via OTA
 
-General tip before upgrading any OTA firmware upgrade is to simply put new fresh batteries in the device, (OTA updating of firmware is very power-consuming and while some devices do check for a minimum battery-level before starting the upgrade and might refuse to start the update process unless it has enough battery-life left, which not all device firmware do.
+Before upgrading any OTA firmware, it is recommended to install fresh batteries in the device. OTA firmware updates are power-intensive, and some devices check for a minimum battery level before starting the upgrade. These devices may refuse to initiate the update process if the battery level is too low. However, not all device firmware includes this check.
 
 If Zigbee firmware upgrades do not start on a Zigbee End Device (i.e. a battery-powered product), then note that you usually need to "wake up the device" (e.g. trigger state change or pressing a button if available) so that the device becomes awake and are thus able to receive commands to start the OTA upgrade. The reason for this is that battery-powered products are so called "sleepy devices", so they normally they are askeep and only receive commands when the state of the device is changed.
 
