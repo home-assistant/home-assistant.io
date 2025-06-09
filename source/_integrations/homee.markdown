@@ -76,7 +76,7 @@ If a homee device shows up in Home Assistant, but does not work as expected or i
 
 ### Integration not loading or homee device not showing up in HA
 
-Check that the homee-user, you use for Home Assistant, is allowed to see the device.
+Check that the homee-user, used for Home Assistant, is allowed to see the device.
 If that is the case, open a [report](https://github.com/home-assistant/core/issues) and attach error logs and the diagnostic data of the {% term integration %}.
 
 ## Reconfiguration
