@@ -51,9 +51,19 @@ The integration will fetch data from each device. The following sensors are supp
 - PM10 density
 - Raw nitrogen
 - Raw total volatile organic compounds
+- Raw PM2.5
 - Signal strength
 - Temperature
 - Total volatile organic compounds index
+
+A number of configuration entities are available as sensors to automate with if you control the device via the AirGradient dashboard instead of set it to control locally.
+- CO2 automatic baseline calibration days
+- NOx learning offset
+- Total volatile organic compounds learning offset
+- Data used for the LED bar
+- LED bar brightness
+- Display temperature unit
+- Display brightness
 
 ## Available configuration entities
 
@@ -67,8 +77,14 @@ The following entities are supported:
 - Requesting CO2 calibration
 - Requesting LED bar test
 - Toggling sharing metrics with AirGradient
+- Configuration source
+- Data used for the LED bar
+- Display PM standard
+- CO2 automatic baseline calibration days
+- NOx learning offset
+- Total volatile organic compounds learning offset
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 

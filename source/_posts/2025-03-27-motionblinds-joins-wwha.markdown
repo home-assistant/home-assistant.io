@@ -6,7 +6,7 @@ date: 2025-03-27 00:00:01
 date_formatted: "March 27, 2025"
 author: Miranda Bishop
 comments: true
-categories: Announcements
+categories: Works-with-Home-Assistant
 og_image: /images/blog/2025-03-motionblinds/art.jpg
 ---
 
@@ -48,4 +48,4 @@ All these devices connect directly to Home Assistant via Matter, provided you pi
 
 ## Closing thoughts 🪟
 
-A big thanks to both Coulisse and Eve for putting their time and effort into bringing Motionblinds to the Works with Home Assistant program. This is really plugging a blind spot in our Works with program by covering new ground and opening up some exciting options for our community 😬.
+A big thanks to both Coulisse and Eve for putting their time and effort into bringing Motionblinds to the Works with Home Assistant program. This is really plugging a blind spot in our Works with program by covering new ground and opening up some exciting options for our community 😃.

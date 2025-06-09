@@ -728,6 +728,10 @@ join: ',' | split: ',' -%}
       let value = select.value;
 
       if (value !== '#') {
+        // Clear any existing brand filter when selecting a category
+        if (id === 'cat') {
+          removeQueryFromURL('brands');
+        }
         setQueryURL(id, value);
       } else {
         // clear current filter

@@ -72,12 +72,6 @@ sudo apt install libxml2-dev libxmlsec1-dev
 
 The integration provides an alarm control panel for each Total Connect location. It uses the name of your location from Total Connect.  For example, if your location name in Total Connect is "Home", Home Assistant will use `alarm_control_panel.home`.
 
-The `triggered` state also provides a state attribute called `triggered_source` giving more detail on what triggered the alarm:
-
-- `Police/Medical` is when sensors detected a burglar and/or the Police or Medical button was pressed
-- `Fire/Smoke` is when fire or smoke is detected, and/or the Fire button was pressed
-- `Carbon Monoxide` is when carbon monoxide is detected
-
 ## Binary sensor
 
 The integration provides a binary sensor for each Total Connect zone. To see faulted zones in Home Assistant, your Total Connect account must have "Sensor Activities" enabled. Your alarm monitoring company may charge an extra fee to enable this. If available, these can be found in the Total Connect 2 web portal at **Notifications** -> **Sensor Activities**. Alternately, they can be found in the Total Connect mobile app at **More** -> **Settings** -> **Notifications** -> **Sensor Activities**. Enable each zone you want to monitor. Unmonitored zones will display as `Closed` in Home Assistant.
