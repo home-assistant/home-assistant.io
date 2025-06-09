@@ -264,7 +264,7 @@ weather.openweathermap:
 | Condition           | Description                                                                             |
 | :------------------ | :-------------------------------------------------------------------------------------- |
 | `air_quality_index` | Air Quality Index, where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, and 5 = Very Poor. |
-| `carbon_monoxide`   | Concentration of CO (Carbon monoxide), ppm.                                             |
+| `carbon_monoxide`   | Concentration of CO (Carbon monoxide), µg/m³.                                             |
 | `nitrogen_monoxide` | Concentration of NO (Nitrogen monoxide), µg/m³.                                         |
 | `nitrogen_dioxide`  | Concentration of NO2 (Nitrogen dioxide), µg/m³.                                         |
 | `ozone`             | Concentration of O3 (Ozone), µg/m³.                                                    |
