@@ -42,7 +42,7 @@ The **Tesla Fleet** {% term integration %} lets you control Tesla vehicles and e
 
 You need to configure developer credentials and host a public key file to allow Home Assistant to communicate with your Tesla account.
 
-- A [Tesla](https://tesla.com) account with verified email and multi-factor authentication
+- A [Tesla](https://tesla.com) account with verified email
 - A web domain to host your public key file:
   - [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) (recommended)
   - External hosting service ([FleetKey.cc](https://fleetkey.cc), [MyTeslamate.com](https://app.myteslamate.com/fleet), etc.)
@@ -169,24 +169,25 @@ Now you'll create a Tesla Developer Application to connect Home Assistant with T
 
 1. **Set up your Tesla Developer account** at [developer.tesla.com](https://developer.tesla.com/teslaaccount):
    - Verify your email address
-   - Enable multi-factor authentication
+   - Enable multi-factor authentication (optional)
 
 2. **Create a new application**:
-   - Go to the [Developer dashboard](https://developer.tesla.com/en_US/dashboard)
-   - Select **Create New Application**
+   - Go to [developer.tesla.com/request](https://developer.tesla.com/request)
+   - Start the application request process
 
-3. **Choose registration type**:
-   - Select **Just for me** for personal use
-   - Select **For my business** if this is for commercial use
+3. **Complete registration**:
+   - **Select your account**: Choose your Tesla account from the dropdown
 
 4. **Enter application details**:
-   - **Application name**: Use something memorable like `Home Assistant Integration`
-   - Note this name - you'll need it when configuring the integration
+   - **Application name**: A name to identify the application
+   - **Description**: Enter a brief description of your integration
+   - **Purpose of Usage**: Explain how you'll use the API (e.g., "Home automation integration")
 
 5. **Configure client details**:
    - **OAuth Grant Type**: Select **Authorization Code and Machine-to-Machine**
-   - **Allowed Origin URL**: Enter your domain (example: `https://yourdomain.com/`)
+   - **Allowed Origin URL(s)**: Enter your domain (example: `https://yourdomain.com/`)
    - **Allowed Redirect URI**: Enter `https://my.home-assistant.io/redirect/oauth`
+   - **Allowed Returned URL(s)**: Leave this field empty (not required)
 
 6. **Select API scopes**:
 
@@ -196,9 +197,10 @@ Now you'll create a Tesla Developer Application to connect Home Assistant with T
 
    Recommended scopes for full functionality:
    - Vehicle Information
-   - Energy Product Information
+   - Vehicle Location
    - Vehicle Commands
-   - Vehicle Charging Commands
+   - Energy Product Information
+   - Energy Product Settings
 
    {% note %}
    You can change scopes later, but you'll need to reconfigure the entire integration.
@@ -230,7 +232,10 @@ The following steps involve sensitive credentials. Never share your Client Secre
 2. **Choose your region URL**:
    - **North America/Asia-Pacific**: `https://fleet-api.prd.na.vn.cloud.tesla.com`
    - **Europe/Middle East/Africa**: `https://fleet-api.prd.eu.vn.cloud.tesla.com`
-   - **China**: `https://fleet-api.prd.cn.vn.cloud.tesla.cn`
+
+   {% note %}
+   The China region is currently not supported by this {% term integration %}.
+   {% endnote %}
 
 3. **Get your access token** by running this command (replace the variables):
 
