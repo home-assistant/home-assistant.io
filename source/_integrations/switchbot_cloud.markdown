@@ -59,6 +59,10 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - Relay Switch 1
 - Relay Switch 1PM
 - Bot (as a Switch in `switchMode` and `customizeMode`, as a Button in `pressMode`)
+- Strip Light
+- Strip Light 3
+- Floor Lamp
+- Color Bulb
 
 ## Important considerations
 
