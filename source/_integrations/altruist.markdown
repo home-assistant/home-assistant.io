@@ -17,7 +17,7 @@ ha_integration_type: device
 ha_zeroconf: true
 ---
 
-The Altruist integration connects Home Assistant to [Air Quality Sensor “Altruist“](https://robonomics.network/devices/altruist/)—device designed for decentralized environmental monitoring. It captures noise, dust, and temperature data from the sensor over HTTP, making it available as locally usable entities within Home Assistant.
+The **Altruist** {% term integration %} connects Home Assistant to [Air Quality Sensor “Altruist“](https://robonomics.network/devices/altruist/) — device designed for decentralized environmental monitoring. It captures noise, dust, and temperature data from the sensor over HTTP, making it available as locally usable entities within Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -32,14 +32,14 @@ The integration will fetch data from each device. The following sensors are supp
 
 - Humidity
 - Temperature
-- Atmospheric Pressure
+- Atmospheric pressure
 - PM2.5 density
 - PM10 density
-- Ambient Noise Level
-- Carbon Dioxide (CO2) Level
-- Total Volatile Organic Compounds (TVOC)
-- Ambient Radiation Level
-- Wi-Fi Signal Strength
+- Ambient noise level
+- Carbon dioxide (CO2) level
+- Total volatile organic compounds (TVOC)
+- Ambient radiation level
+- Wi-Fi signal strength
 
 ## Removing the integration
 
