@@ -120,9 +120,9 @@ sql:
       type: template
 {% endconfiguration %}
 
-## Polling interval
+## Data updates
 
-By default, the integration will execute the SQL query to update the sensor every 30 seconds.
+By default, the integration executes the SQL query to update the sensor every 30 seconds.
 If you wish to update at a different interval, you can disable the automatic refresh in the integration’s system options (**Enable polling for updates**) and create your own automation with your desired frequency.
 
 For more detailed steps on how to define a custom interval, follow the procedure below.
