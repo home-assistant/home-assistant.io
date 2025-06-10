@@ -25,7 +25,7 @@ This approach enables the detection of complex events that are not directly or e
 
 Bayesian works by applying [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem). It estimates the likelihood that a specific event is occurring based on the combination of the states of 'observed' sensors and a baseline, (`prior`) probability. When the calculated probability - known as a 'posterior' - exceeds the defined `probability_threshold`, the `bayesian` sensor will turn `on`; otherwise, it will be `off`.
 
-Both UI and YAML setup is supported, importantly YAML uses probabilities of `0` to `1` whereas UI uses percentages.
+Both UI and YAML setups are supported, importantly YAML uses probabilities of `0` to `1` whereas the UI uses percentages, `0` to `100`.
 
 ## Theory
 
@@ -44,13 +44,13 @@ To configure a YAML Bayesian sensor, add an entry using the following structure 
 # Example configuration.yaml entry
 binary_sensor:
   - platform: bayesian
-    name: "Kitchen Occupied"
-    prior: 0.3
-    probability_threshold: 0.5
+    name: "Kitchen Occupied by Humans"
+    prior: 0.3 # The kitchen is occupied by humans about 30% of the time
+    probability_threshold: 0.5 # I care about false positives and false negatives equally
     observations:
-      - entity_id: "switch.kitchen_lights"
-        prob_given_true: 0.6
-        prob_given_false: 0.2
+      - entity_id: "binary_sensor.kitchen_motion"
+        prob_given_true: 0.95 # When humans are in the kitchen, the motion sensor detects them 95% of the time
+        prob_given_false: 0.33 # When no humans are in the kitchen, the cats trigger the motion sensor 33% of the time
         platform: "state"
         to_state: "on"
 ```
