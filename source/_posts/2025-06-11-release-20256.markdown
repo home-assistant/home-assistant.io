@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2025.6: Beta release notes for this QoL release"
+title: "2025.6: Getting picky about Bluetooth"
 description: "Beta release notes for Home Assistant 2025.6"
 date: 2025-05-26 00:00:00
 date_formatted: "June 11, 2025"
@@ -90,7 +90,7 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Improving all the "pickers"](#improving-all-the-pickers)
-- [Understanding your Bluetooth network](#understanding-your-bluetooth-network)
+- [Making sense of Bluetooth](#making-sense-of-bluetooth)
 - [Iterations of the experimental area dashboard](#iterations-of-the-experimental-area-dashboard)
 - [Deprecating installation methods and 32-bit architectures](#deprecating-installation-methods-and-32-bit-architectures)
 - [Integrations](#integrations)
@@ -108,27 +108,27 @@ Enjoy the (beta) release!
 
 ## Improving all the "pickers"
 
-Pickers—those dropdowns you use to select entities, devices, areas, and more—are everywhere in Home Assistant: automations, scripts, and configuration options.
+Pickers are those dropdowns you use to select entities, devices, areas, and more. Pickers are *everywhere* in Home Assistant, being used in automations, scripts, and configuration options.
 
-Last release, we [introduced a new entity picker](/blog/2025/05/07/release-20255/#picking-entities), which was a big hit! This release builds on that: we've improved its search functionality based on your feedback.
+Last release, we [introduced a new entity picker](/blog/2025/05/07/release-20255/#picking-entities), which was a big hit! This release takes things further by refining the search experience based on your feedback.
 
-Even better: that same improved search experience now comes to the area, category, floor, label, user, and device pickers too! Consistent, fast, and easy to use—no matter what you're selecting.
+Even better, that same improved search experience now comes to the area, category, floor, label, user, and device pickers too! They are consistent, fast, and easy to use, no matter what you're selecting.
 
 And the device picker? It now has a fresh look to match, complete with manufacturer logos and styling inspired by the entity picker.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-new-device-picker.png" />
 
-## Understanding your Bluetooth network
+## Making sense of Bluetooth
 
-Home Assistant has powerful [Bluetooth capabilities], and with the use of, for example, [ESPHome Bluetooth proxies], you can extend your Bluetooth network to cover your entire home. This release brings some improvements to the Bluetooth integration that will help you understand your Bluetooth network better.
+Home Assistant has powerful [Bluetooth capabilities], and with the use of something like [ESPHome Bluetooth proxies], you can extend your Bluetooth network to cover your entire home. This release brings some improvements to the Bluetooth integration that will help you understand your Bluetooth network better.
 
-The Bluetooth integration now provides a graph that shows how your Bluetooth devices are connected to your Home Assistant instance. This includes information about whether the device is connected directly or through a Bluetooth proxy.
+The Bluetooth integration now provides a visualization that shows how your Bluetooth devices are connected to your Home Assistant instance, whether that's directly to your system or through a Bluetooth proxy.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-bluetooth-connection-graph.png" />
 
-And it not only shows the actively connected devices, but also the devices that are not yet known to Home Assistant, but are in range. This is a great way to see what devices are around you and how they are connected.
+It not only shows the actively connected devices, but also the devices that are in range, but not yet known to Home Assistant. This is a great way to see what devices are around you and where they can be potentially connected.
 
-Oh! And now that the Bluetooth integration got nice graphs, the [Zigbee integration]–which already has a similar feature–also got an update to its graphs, making it consistent with the amazing new Bluetooth graphs.
+Oh! And now that the Bluetooth integration has a sleek new visualization, the [Zigbee integration], which already has a similar feature, has been given a visual update. This makes visualizations consistent across Home Assistant.
 
 [Bluetooth capabilities]: /integrations/bluetooth
 [ESPHome Bluetooth proxies]: https://esphome.io/projects/?type=bluetooth
@@ -136,29 +136,29 @@ Oh! And now that the Bluetooth integration got nice graphs, the [Zigbee integrat
 
 ## Iterations of the experimental area dashboard
 
-In the April release, we introduced a [new experimental Areas dashboard](/blog/2025/04/02/release-20254/#a-new-experimental-areas-dashboard), which automatically generates a ready-to-use dashboard based on the areas you’ve set up in your home. It uses sections and tile cards for a modern, clean, and intuitive look—instantly.
+In the April release, we introduced a [new experimental Areas dashboard](/blog/2025/04/02/release-20254/#a-new-experimental-areas-dashboard), which automatically generates a ready-to-use dashboard based on the areas you’ve set up in your home. It uses sections and tile cards for a modern, clean, and intuitive look --- all built for you in a couple of clicks.
 
-This release brings some iterations on this one, based on your feedback, to refine the experience a little.
+As this is experimental, it is being continuously iterated on. This release brings some nice changes, based on your feedback, to subtly refine the experience.
 
-We added a new "Actions" section that includes scripts, automations, and scenes. We also added number entities (and number helpers), button entities (and button helpers), counter and timer helpers to the "Others" section. This makes it easier to find and manage your automations and scenes in the context of your areas.
+We added a new "Actions" section that includes scripts, automations, and scenes. We also added number entities (and number helpers), button entities (and button helpers), counters, and timer helpers to the "Others" section. This makes it easier to find and manage your automations and scenes in the context of your areas.
 
-Finally, we renamed the "Entertainment" section to "Media players". This makes it clearer that this section is specifically for media player entities.
+Finally, we renamed the "Entertainment" section to "Media players". This makes it clearer that this section is specifically for your players, and may not include your DIY arcade machine 👾.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-areas-dashboard.png" />
 
 ## Deprecating installation methods and 32-bit architectures
 
-This release introduces significant deprecation announcements that may affect you.
+This release introduces important deprecation announcements, and though they only affect a small percentage of users, it is important that they understand the impacts. We've written [a detailed blog](/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/) that explains the rationale, timeline, and tips on how to migrate --- which I highly suggest reading if you think you're affected.
 
-- **Installation Methods**: The **Core** and **Supervised** installation methods are now officially deprecated. These advanced setups, involving running Home Assistant in a Python environment or installing the Supervisor on top of your own operating system, have been used by a small percentage of our community. Moving forward, we are focusing our support on the more streamlined and maintainable installation methods: **Home Assistant OS** and **Home Assistant Container**.
+- **Installation Methods**: The **Core** and **Supervised** installation methods are now officially deprecated. These advanced setups that are only used by a small portion of users, as they involve running Home Assistant in a Python environment or installing the Supervisor on top of your own operating system. Moving forward, we are focusing our support on the more streamlined and maintainable installation methods: **Home Assistant OS** and **Home Assistant Container**.
 
-- **32-bit Architectures**: Support for legacy 32-bit CPU architectures—**i386**, **armhf**, and **armv7**—is also being phased out. These architectures are increasingly uncommon and pose challenges for maintaining compatibility and performance.
+- **32-bit Architectures**: Support for legacy 32-bit CPU architectures(**i386**, **armhf**, and **armv7**) is also being deprecated. These architectures are increasingly uncommon and pose challenges for maintaining compatibility and performance.
 
-To assist you during this transition, Home Assistant will now raise a **repair issue** after upgrading if your system is affected by these deprecations. This notification will appear in the repair dashboard, providing clear information about the deprecation and guidance on how to migrate to a supported setup.
+To assist you during this transition, Home Assistant will now raise a **repair issue** after upgrading if your system is affected by these deprecations. This notification will appear in the repair dashboard, providing information about the deprecation along with guidance on how to migrate to a supported setup.
 
-It's important to note that while these methods and architectures are deprecated, they will continue to receive support for the next six months, until the release of Home Assistant 2025.12. After this period, they will become unsupported, meaning they will no longer receive updates or official assistance.
+It's important to note that while these methods and architectures are deprecated, they will continue to receive support for the next six months, until the release of Home Assistant 2025.12. You can continue to use them after this point, but we would highly recommend migrating. After this 6-month period, they will become unsupported, meaning they will no longer receive updates or official assistance.
 
-For detailed information on these changes, including the rationale behind them, timelines, and step-by-step migration instructions, please refer to our [dedicated blog post](/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
+If you don't receive this repair message, you're not affected. However, you can double-check using [our guide](/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/#what-does-deprecated-and-unsupported-mean) if you'd like. We also have specific information on what becoming deprecated and unsupported [means for your installation](/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/#what-does-deprecated-and-unsupported-mean). Lastly, we have detailed information on [how best to migrate](/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/#how-to-migrate) to a supported system.
 
 ## Integrations
 
@@ -361,13 +361,13 @@ This release brings a couple of much-needed improvements to this feature. When y
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-sidebar-customization.png" />
 
-The biggest improvement is actually to be found in something else! Previously, the customization of the sidebar was only applied to the device you made the changes on; and even more annoying, sometimes it would lose the changes, or it would magically forget your settings on our [mobile companion apps] when you switched between your home network (and thus internal URL). 🥲
+The biggest improvement is actually found somewhere else! Previously, the customization of the sidebar was only applied to the device you made the changes on; and even more annoying, sometimes it would lose the changes, or it would magically forget your settings on our [mobile companion apps] when you switched between your home network (and thus the internal URL). 🥲
 
-In this release, this annoyance has been fixed! The sidebar customization is now stored in your user profile, which means it is applied to all devices you use Home Assistant on!
+In this release, this annoyance has been fixed! The sidebar customization is now stored in your user profile, so your personalized layout follows you across all devices you use with Home Assistant!
 
 ## Join/unjoin groups of media players
 
-Media players in Home Assistant can provide actions for media players to join or unjoin a group of media players. This is a great way to dynamically control your media players and the groups they are in. This feature, however, was limited in a way, as it only could be used by performing the actions in, for example, an automation or script.
+Media players in Home Assistant can provide actions for media players to join or unjoin a group of media players. This is a great way to dynamically control your media players and the groups they are in. However, this feature was somewhat limited, as it could only be used as actions within things like automations or scripts.
 
 Now, [@AlexGustafsson] changed that! 🎉
 
@@ -375,7 +375,7 @@ You can now use the media player card to join or unjoin groups of media players.
 
 <img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-group-media-players-from-media-player-card.png" />
 
-Please note, you can only join or unjoin groups of media players that support this feature. Not all media players support this, so it might not be available for all your media players.
+Please note that, you can only join or unjoin groups of media players that support this feature. Unfortunately, not all media players support this, so it might not be available for all your media players.
 
 Anyhow, amazing contribution Alex! 👏
 
