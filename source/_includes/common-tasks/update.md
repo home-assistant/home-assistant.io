@@ -24,7 +24,7 @@ To update Home Assistant Core, choose one of the following options.
             - Select the update notification.
             - Select the cogwheel {% icon "mdi:cog-outline" %}, then set **Visible** to active.
       4. Open the notification for the component you want to update.
-      5. If you want to update the system first (recommended), enable the backup toggle.
+      5. If you want to backup the system first (recommended), enable the backup toggle.
       6. Select **Update**.
       7. After the update completed, check if there are any repair issues and check the logs to see if there are any issues with your configuration that need to be addressed.
 
