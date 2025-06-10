@@ -38,7 +38,7 @@ When configuring these conditional probabilities define the probability of the s
 {% include integrations/config_flow.md %}
 
 Once you have created a Bayesian helper, you can add and edit 'observations' here:
-{% my integration badge domain=bayesian %}
+{% my integration badge domain='bayesian' %}
 
 To configure a YAML Bayesian sensor, add an entry using the following structure to your {% term "`configuration.yaml`" %} file.
  {% include integrations/restart_ha_after_config_inclusion.md %}
