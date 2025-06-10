@@ -128,6 +128,8 @@ use them as inspiration to create your own automations.
 
 The following example sends a notification to your mobile device when the CO2 level exceeds 1000 ppm.
 
+{% endraw %}
+
 ```yaml
 automation:
   - alias: "Notify when CO2 level is too high"
@@ -143,7 +145,6 @@ automation:
           message: >
             The CO2 level is too high at {{ states('sensor.airgradient_carbon_dioxide') }} ppm.
             Please consider ventilating the room.
-```
 
 ## Known limitations
 
