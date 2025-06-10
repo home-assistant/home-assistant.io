@@ -154,7 +154,7 @@ The AirGradient integration currently has the following limitations:
 
 If you're experiencing issues with your AirGradient integration, try these general troubleshooting steps:
 
-1. Make sure your AirGradient is powered on and properly connected to your home network.AirGradient
+1. Make sure your AirGradient is powered on and properly connected to your home network.
 2. If the integration shows as unavailable, try restarting both your AirGradient and Home Assistant.
 
 ## Removing the integration
