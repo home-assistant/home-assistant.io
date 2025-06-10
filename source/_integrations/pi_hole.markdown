@@ -34,9 +34,9 @@ During the setup, it will ask for the following:
 | `Port` | Port used to get to the admin page, typically `80` for `http` connections and `443` for `https` connections. | 80 |
 | `Name` | Name to for this Pi-Hole. | Pi-Hole |
 | `Location` | the path to the admin page. In the version 6 API this will be ignored. | /admin |
-| `API Key or App Password` | This can be found in your Pi-hole's Settings -> API (expert mode). | `585a2fef2d25698425cc210891ea658eaa2e84a4db65f583372b7d82703a28d4` |
-| `Uses an SSL certificate` | Whether your Pi-hole has an Certificate, typically true for `https` connections and false for `http`. | :white_check_mark: |
-| `Verify SSL certificate` | Whether to use verify your Pi-hole's certificate, ignored in Pi-hole API version 5. | :white_check_mark: |
+| `API Key or App Password` | This can be found in your Pi-hole's Settings -> API (expert mode). | `585a2fe...` |
+| `Uses an SSL certificate` | Whether your Pi-hole has an Certificate, typically true for `https` connections and false for `http`. | {% icon "openmoji:check-mark" %} |
+| `Verify SSL certificate` | Whether to use verify your Pi-hole's certificate, ignored in Pi-hole API version 5. | {% icon "openmoji:check-mark" %} |
 
 The combined host, port and location should take you to the login page of Pi-Hole. Using the example above, it would be `http://192.168.1.1:80/admin`.
 
