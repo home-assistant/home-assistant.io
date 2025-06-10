@@ -143,6 +143,32 @@ actions:
 
 {% endraw %}
 
+### Notify on new Pull Request
+
+This automation notifies you when a new pull request is created in a monitored repository.
+
+{% raw %}
+
+```yaml
+- id: 'notify_on_new_github_pull_request'
+  alias: "Notify on new GitHub Pull Request"
+  description: "Sends a notification when a new pull request is opened in a monitored GitHub repository."
+  trigger:
+    - platform: state
+      entity_id: sensor.YOUR_REPO_latest_pull_request
+  action:
+    - service: notify.YOUR_NOTIFY_SERVICE
+      data:
+        title: "New PR in {{ trigger.to_state.attributes.repository }}"
+        message: |
+          '{{ trigger.to_state.state }}' (#{{ trigger.to_state.attributes.number }})
+          was opened by {{ trigger.to_state.attributes.user }}.
+        data:
+          url: "{{ trigger.to_state.attributes.url }}"
+```
+
+{% endraw %}
+
 ### Notify new stars
 
 This example uses the [Stars](#diagnostic-entities) diagnostic entity provided by this integration, and a [notify](/integrations/notify) action,
