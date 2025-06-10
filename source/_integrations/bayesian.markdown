@@ -19,7 +19,7 @@ related:
     title: Configuration file
 ---
 
-A `bayesian` helper is a virtual binary sensor that determines its state based on the combination of multiple other sensors using probabilistic methods.
+A `Bayesian` helper is a virtual binary sensor that determines its state based on the combination of multiple other sensors using probabilistic methods.
 
 This approach enables the detection of complex events that are not directly or easily measurable, such as cooking, showering, being in bed, or starting a morning routine. Additionally, it can improve confidence and reliability in measurable events where sensors may be unreliable, such as some presence detectors.
 
@@ -79,7 +79,7 @@ name:
   type: string
   default: Bayesian Binary Sensor
 unique_id:
-  description: An ID that uniquely identifies this bayesian entity. If two entities have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this Bayesian entity. If two entities have the same unique ID, Home Assistant will raise an exception.
   required: false
   type: string
 device_class:
@@ -112,11 +112,11 @@ observations:
       type: template
     prob_given_true:
       description: >
-        Assuming the bayesian binary_sensor is `on`, the probability the entity state is occurring.
+        Assuming the Bayesian binary_sensor is `on`, the probability the entity state is occurring.
       required: true
       type: float
     prob_given_false:
-      description: Assuming the bayesian binary_sensor is `off` the probability the entity state is occurring.
+      description: Assuming the Bayesian binary_sensor is `off` the probability the entity state is occurring.
       required: true
       type: float
 {% endconfiguration %}
