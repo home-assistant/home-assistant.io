@@ -259,11 +259,11 @@ Perform the action `recorder.get_statistics` to retrieve statistics for one or m
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `statistic_ids`| yes      | The entity IDs or statistic IDs to get statistics for. |
-| `start_time`   | yes      | The start time for the statistics query. |
+| `statistic_ids`| no      | The entity IDs or statistic IDs to get statistics for. |
+| `start_time`   | no      | The start time for the statistics query. |
 | `end_time`     | yes      | The end time for the statistics query. If omitted, returns all statistics from start time onward. |
-| `period`       | yes      | The time period to group statistics by (`5minute`, `hour`, `day`, `week`, or `month`). |
-| `types`        | yes      | The types of statistics values to return (`change`, `last_reset`, `max`, `mean`, `min`, `state`, or `sum`). |
+| `period`       | no      | The time period to group statistics by (`5minute`, `hour`, `day`, `week`, or `month`). |
+| `types`        | no      | The types of statistics values to return (`change`, `last_reset`, `max`, `mean`, `min`, `state`, or `sum`). |
 | `units`        | yes      | Optional unit conversion mapping. An object where keys are [device classes](https://www.home-assistant.io/integrations/sensor#device-class) and values are the desired target units. This allows retrieving statistics converted to different units than what's stored in the database. |
 
 #### Example using get_statistics
