@@ -84,6 +84,8 @@ The Blue Current integration provides the following buttons:
 The Blue Current integration provides the following switches:
 
 - Toggle Plug & Charge
+  - Allows you to start a session without having to scan a card.
 - Toggle linked charging cards only
   - When enabled, visitors can't make use of the charge point. Only linked charging cards are allowed.
 - Toggle charge point block
+  - Enables or disables a charge point.
