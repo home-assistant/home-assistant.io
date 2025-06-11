@@ -1064,3 +1064,25 @@ No further action is required and the SmartStart product will be added automatic
 ### Terminology mapping table
 
 For some of the concepts, the terminology used in Home Assistant does not correspond to the terminology used in Z-Wave documentation. Refer to the [terminology mapping table](#z-wave-terminology-and-home-assistant) for a list of term equivalents.
+
+## Removing Z-Wave JS from Home Assistant
+
+This removes all paired Z-Wave devices and their entities, the Z-Wave JS add-on, and the Z-Wave integration from Home Assistant.
+
+### To remove Z-Wave JS from Home Assistant
+
+1. [Remove the device from your Z-Wave network](/integrations/zwave_js/#removing-a-device-from-the-z-wave-network).
+   - Do this for each device that is joined to your network so that it is no longer paired to the controller.
+   - You cannot add a device to a new controller while it is still paired with an old one.
+   - Alternatively, you can factory reset each device. Refer to the device manual to see how this is done.
+     - This usually involves finding the device in your household and pressing a button.
+2. Remove the Z-Wave integration.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
+   - Next to the integration entry, select the three-dot {% icon "mdi:dots-vertical" %} menu.
+   - Select **Delete**.
+3. If it hasn't been deleted automatically, remove the Z-Wave JS add-on.
+   - Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.
+   - Select **Uninstall**.
+   - Decide whether to also delete the data related to the add-on or whether to keep it.
+4. Done. Z-Wave JS is now completely removed from your Home Assistant server.
+   - You can now use your Z-Wave devices and controller on a new server.
