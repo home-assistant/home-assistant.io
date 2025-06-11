@@ -113,7 +113,7 @@ and improvements to existing ones! You’re all awesome 🥰
 
 We welcome the following new integrations in this release:
 
-- **[Amazon Devices]**, added by [@chemelli74]  
+- **[Alexa Devices]**, added by [@chemelli74]  
   Connect to and control your Amazon devices like Echo, Fire TV, and Alexa-enabled devices.
 - **[Immich]**, added by [@mib1185]  
   Integrates with [Immich App], a self-hosted photo and video backup solution that puts you in control of your personal media.
@@ -130,7 +130,7 @@ We welcome the following new integrations in this release:
 [@mib1185]: https://github.com/mib1185
 [@pantherale0]: https://github.com/pantherale0
 [@starkillerOG]: https://github.com/starkillerOG
-[Amazon Devices]: /integrations/amazon_devices
+[Alexa Devices]: /integrations/alexa_devices
 [Immich App]: https://immich.app/
 [Immich]: /integrations/immich
 [Paperless-ngx system]: https://docs.paperless-ngx.com/
