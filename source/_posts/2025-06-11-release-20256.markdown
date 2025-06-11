@@ -189,7 +189,7 @@ We welcome the following new integrations in this release:
 [Amazon Devices]: /integrations/amazon_devices
 [Immich App]: https://immich.app/
 [Immich]: /integrations/immich
-[Paperless-ngx system]: https://paperless-ngx.readthedocs.io/
+[Paperless-ngx system]: https://docs.paperless-ngx.com/
 [Paperless-ngx]: /integrations/paperless_ngx
 [Probe Plus]: /integrations/probe_plus
 [Zimi Cloud Connect]: /integrations/zimi
