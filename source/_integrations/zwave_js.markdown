@@ -164,7 +164,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 
 ## Migrating a Z-Wave network to a new controller
 
-Do this if you have an existing Z-Wave network and want to use a new controller. This will reset your current controller (remove all network information from it) and remove the controller from Home Assistant. The Z-Wave add-on and integration with all its entities will stay in Home Assistant. The new controller is added to Home Assistant and paired with the existing network.
+Do this if you have an existing Z-Wave network and want to use a new controller. This will reset your current controller (remove all network information from it) and remove the controller from Home Assistant. The Z-Wave integration with all its entities will stay in Home Assistant. The new controller is added to Home Assistant and paired with the existing network.
 
 To migrate a Z-Wave network to a new controller, follow these steps:
 
