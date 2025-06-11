@@ -44,6 +44,9 @@ ha_platforms:
   - update
 ha_integration_type: hub
 ha_zeroconf: true
+related:
+  - docs: /docs/z-wave/controllers/
+    title: Z-Wave controllers
 ---
 
 The **Z-Wave** {% term integration %} allows you to control a Z-Wave network from Home Assistant via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
@@ -961,10 +964,13 @@ Many users have reported issues with interference when the USB stick was directl
 
 ##### Enable Z-Wave JS logging
 
-1. Go to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
-2. Select `Enable debug logging` on the left-hand side of the screen.
-
-The log level will be set to `debug` for the integration, library, and optionally the driver (if the driver log level is not already set to `verbose`, `debug`, or `silly`), and all Z-Wave JS logs will be added to the Home Assistant logs.
+1. Define the log level:
+   - By default, it is set to `info` for the integration, library, and optionally the driver (if the driver log level is not already set to `verbose`, `debug`, or `silly`), and all Z-Wave JS logs will be added to the Home Assistant logs.
+   - Go to the {% my integration domain="zwave_js" title="**Settings** > **Devices & services** > **Z-Wave**" %} and select **Configure**.
+   - On the Z-Wave configuration page, open the **Logs** tab.
+   - Choose your log level.
+2. Go back to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
+3. On the left-hand side of the screen, select **Enable debug logging**.
 
 ##### Disable Z-Wave JS logging
 
