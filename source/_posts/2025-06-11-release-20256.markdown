@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2025.6: Getting picky about Bluetooth"
-description: "Great new Bluetooth connection graphs, all pickers have been revamped, sidebar management improvements, (un)group media players straight from you dashboards, and more!"
+description: "Great new Bluetooth connection graphs, all pickers have been revamped, sidebar management improvements, (un)group media players straight from your dashboards, and more!"
 date: 2025-06-11 00:00:00
 date_formatted: "June 11, 2025"
 author: Franck Nijhof
@@ -19,9 +19,9 @@ Home Assistant 2025.6! 🎉
 
 We are already half way through 2025, can you believe it? I personally can't, as it feels like we just started the year. Not just that, there are so many exciting things to still come this year, and I can't wait to share them with you!
 
-Anyway, the June release is here! A week later that usual, but it also means we had an extra week to polish and beta test this release. Like the [previous release](/blog/2025/05/07/release-20255/), this release is packed with quality-of-life improvements!
+Anyway, the June release is here! A week later than usual, but it also means we had an extra week to polish and beta test this release. Like the [previous release](/blog/2025/05/07/release-20255/), this release is packed with quality-of-life improvements!
 
-Last release my favorite feature was the new entity picker, this release, improve ALL other pickers! No surprise that this, again, makes it to my top favorite this release. Although the ability to group media players directly from the media player card is a close second. It is so nice to see how Home Assistant keeps getting better and better, and how our community keeps contributing to it. 😍
+Last release my favorite feature was the new entity picker; this release, we improved ALL other pickers! No surprise that this, again, makes it to my top favorite this release. Although the ability to group media players directly from the media player card is a close second. It is so nice to see how Home Assistant keeps getting better and better, and how our community keeps contributing to it. 😍
 
 If you are leveraging Bluetooth in your Home Assistant setup, you will also love the new Bluetooth connection graph that shows how your Bluetooth devices are connected, including Bluetooth proxies. Troubleshooting Bluetooth has become so much easier now!
 
@@ -68,7 +68,7 @@ Home Assistant has powerful [Bluetooth capabilities], and with the use of someth
 
 The Bluetooth integration now provides a visualization that shows how your Bluetooth devices are connected to your Home Assistant instance, whether that's directly to your system or through a Bluetooth proxy.
 
-<img class="no-shadow" alt="Screenshot showcasing the new Bluetooth connection graph; Even Bluetooth proxies are show in the map." src="/images/blog/2025-06/bluetooth-connection-graph.png" />
+<img class="no-shadow" alt="Screenshot showcasing the new Bluetooth connection graph; Even Bluetooth proxies are shown in the map." src="/images/blog/2025-06/bluetooth-connection-graph.png" />
 
 It not only shows the actively connected devices, but also the devices that are in range, but not yet known to Home Assistant. This is a great way to see what devices are around you and where they can be potentially connected.
 
@@ -94,9 +94,9 @@ Finally, we renamed the "Entertainment" section to "Media players". This makes i
 
 This release introduces important deprecation announcements, and though they only affect a small percentage of users, it is important that they understand the impacts. We've written [a detailed blog](/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/) that explains the rationale, timeline, and tips on how to migrate --- which I highly suggest reading if you think you're affected.
 
-- **Installation Methods**: The **Core** and **Supervised** installation methods are now officially deprecated. These advanced setups that are only used by a small portion of users, as they involve running Home Assistant in a Python environment or installing the Supervisor on top of your own operating system. Moving forward, we are focusing our support on the more streamlined and maintainable installation methods: **Home Assistant OS** and **Home Assistant Container**.
+- **Installation Methods**: The **Core** and **Supervised** installation methods are now officially deprecated. These are advanced setups that are only used by a small portion of users, as they involve running Home Assistant in a Python environment or installing the Supervisor on top of your own operating system. Moving forward, we are focusing our support on the more streamlined and maintainable installation methods: **Home Assistant OS** and **Home Assistant Container**.
 
-- **32-bit Architectures**: Support for legacy 32-bit CPU architectures(**i386**, **armhf**, and **armv7**) is also being deprecated. These architectures are increasingly uncommon and pose challenges for maintaining compatibility and performance.
+- **32-bit Architectures**: Support for legacy 32-bit CPU architectures (**i386**, **armhf**, and **armv7**) is also being deprecated. These architectures are increasingly uncommon and pose challenges for maintaining compatibility and performance.
 
 To assist you during this transition, Home Assistant will now raise a **repair issue** after upgrading if your system is affected by these deprecations. This notification will appear in the repair dashboard, providing information about the deprecation along with guidance on how to migrate to a supported setup.
 
@@ -326,7 +326,7 @@ Anyhow, amazing contribution Alex! 👏
 
 You can now restore the ID of an entity to its original value. This is useful if you have renamed an entity and want to revert it back to its original entity ID.
 
-This feature is available in the entity configuration dialog, where you can now find a "Reset" icon on the entity ID field. When clicked, it will restore the entity ID to its original value. Additionally, there is the option called "Recreated entity IDs" in the top right three-dotted menu on the device page, to reset all entity IDs of a device to their original values.
+This feature is available in the entity configuration dialog, where you can now find a "Reset" icon on the entity ID field. When clicked, it will restore the entity ID to its original value. Additionally, there is the option called "Recreate entity IDs" in the top right three-dotted menu on the device page, to reset all entity IDs of a device to their original values.
 
 <img class="no-shadow" alt="Screenshot showing the reset option of the entity ID in the entity configuration dialog." src="/images/blog/2025-06/reset-entity-id.png" />
 
