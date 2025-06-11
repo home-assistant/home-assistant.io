@@ -95,8 +95,11 @@ Follow these steps:
 
 1. Open the Home Assistant user interface.
 2. Plug the Z-Wave dongle into the device running Home Assistant.
-   - Most likely, your dongle will be recognized automatically. On the user interface, you will be asked if you want to set up this device with the Z-Wave JS add-on. Select **Submit**.
-   - If your dongle is not recognized, follow these steps:
+   - Most likely, your dongle will be recognized automatically.
+   - In the dialog, select **Recommended installation**.
+     - This will install the Z-Wave JS add-on on the Home Assistant server.
+   - Add the device to an {% term area %} and select **Finish**.
+   - **Troubleshooting**: If your dongle is not recognized, follow these steps:
 
 {% details "Manual setup steps" %}
 Use this My button:
@@ -113,7 +116,7 @@ Use this My button:
 {% enddetails %}
 
 3. Wait for the installation to complete.
-4. You are prompted for network security keys.
+4. Depending on your Home Assistant version, you may be prompted for network security keys.
    - If you are using Z-Wave for the first time, leave all the fields empty and select **Submit**. The system will generate network security keys for you.
    - If this Z-Wave dongle has already been paired with secure devices, you need to enter the previously used network key as the S0 network key. S2 security keys will be automatically generated for you.
    - Make sure that you keep a backup of these keys in a safe place in case you need to move your Z-Wave dongle to another device. Copy and paste them somewhere safe.
