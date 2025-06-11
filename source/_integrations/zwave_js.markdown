@@ -155,7 +155,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 
 ### Removing a device from the Z-Wave network
 
-Do this when you want to use the device with another controller, or when you don't use the device anymore. It removes the device from the Z-Wave network stored on the controller. It also removed the device and all its entities from Home Assistant.
+Do this before using the device with another controller, or when you don't use the device anymore. It removes the device from the Z-Wave network stored on the controller. It also removes the device and all its entities from Home Assistant. You can not join a device to a new network if it is still paired with a controller.
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Z-Wave** integration. Then, select **Configure**.
