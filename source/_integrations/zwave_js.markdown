@@ -164,6 +164,23 @@ Do this before using the device with another controller, or when you don't use t
 4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
 5. The UI should confirm that the device was removed and the device and entities will be removed from Home Assistant.
 
+## Migrating a Z-Wave network to a new controller
+
+Do this if you have an existing Z-Wave network and want to use a new controller. This will reset your current controller (remove all network information from it) and remove the controller from Home Assistant. The Z-Wave integration with all its entities will stay in Home Assistant. The new controller is added to Home Assistant and paired with the existing network.
+
+To migrate a Z-Wave network to a new controller, follow these steps:
+
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Z-Wave** integration. Then, select **Configure**.
+3. Under **Backup and restore**, select **Migrate controller**.
+4. Select **Migrate to a new controller**.
+   - To confirm device reset, select **Submit**.
+   - **Info**: This will initiate a backup of the network information and factory reset the controller. All the stored network information will be removed.
+5. When the **Unplug your controller** dialog shows up, unplug your old controller.
+   - Connect the new controller.
+   - Confirm that you connected the new controller by selecting **Submit**.
+6. Follow the steps on screen.
+
 ## Special Z-Wave entities
 
 The Z-Wave integration provides several special entities, some of which are available for every Z-Wave device, and some of which are conditional based on the device.
