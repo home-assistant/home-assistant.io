@@ -1065,7 +1065,7 @@ For some of the concepts, the terminology used in Home Assistant does not corres
 
 ## Removing Z-Wave JS from Home Assistant
 
-Do this if you no longer want to use Z-Wave JS in your Home Assistant. This removes all paired Z-Wave devices and their entities, the Z-Wave JS add-on, and the Z-Wave integration from Home Assistant.
+This removes all paired Z-Wave devices and their entities, the Z-Wave JS add-on, and the Z-Wave integration from Home Assistant.
 
 ### To remove Z-Wave JS from Home Assistant
 
