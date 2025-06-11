@@ -279,9 +279,6 @@ user experience.
 This release, we celebrate several {% term integrations %} that have improved
 their quality scale:
 
-- **1 integration reached platinum** 🏆
-  - [Miele], thanks to [@astrandb]
-
 - **1 integration reached gold** 🥇
   - [SwitchBot], thanks to [@zerzhang]
 
