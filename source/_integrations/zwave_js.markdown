@@ -82,7 +82,7 @@ For more Z-Wave term definitions, refer to the [terminology section](#z-wave-ter
 To run a Z-Wave network, you need the following elements:
 
 - A [supported Z-Wave controller](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). First-time user? For recommendations on what to buy, go [here](#which-z-wave-controller-should-i-buy).
-- A running Z-Wave JS server.
+- A running [Z-Wave JS server](#setting-up-a-z-wave-js-server).
 - An installed Z-Wave integration in Home Assistant.
 
 ### Setting up a Z-Wave JS server
@@ -154,6 +154,8 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 2. **Do not initiate device inclusion from the Z-Wave stick itself.** This is no longer supported.
 
 ### Removing a device from the Z-Wave network
+
+Do this before using the device with another controller, or when you don't use the device anymore. It removes the device from the Z-Wave network stored on the controller. It also removes the device and all its entities from Home Assistant. You can not join a device to a new network if it is still paired with a controller.
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Z-Wave** integration. Then, select **Configure**.
