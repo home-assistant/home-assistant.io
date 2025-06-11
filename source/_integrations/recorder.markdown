@@ -274,8 +274,8 @@ data:
   statistic_ids:
     - sensor.energy_meter
     - sensor.water_usage
-  start_time: "2025-06-10T00:00:00Z"
-  end_time: "2025-06-11T00:00:00Z"
+  start_time: "2025-06-10 00:00:00"
+  end_time: "2025-06-11 23:00:00"
   period: hour
   types:
     - sum
