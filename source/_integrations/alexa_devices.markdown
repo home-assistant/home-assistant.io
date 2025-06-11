@@ -1,11 +1,11 @@
 ---
-title: Amazon Devices
-description: Instructions on how to integrate Amazon Devices into Home Assistant.
+title: Alexa Devices
+description: Instructions on how to integrate Alexa Devices into Home Assistant.
 ha_category:
   - Binary Sensor
   - Notify
 ha_release: '2025.6'
-ha_domain: amazon_devices
+ha_domain: alexa_devices
 ha_config_flow: true
 ha_codeowners:
   - '@chemelli74'
@@ -17,7 +17,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Amazon Devices** {% term integration %} lets you control Alexa-enabled devices connected to your Amazon account.
+The **Alexa Devices** {% term integration %} lets you control Alexa-enabled devices connected to your Amazon account.
 
 The integration provides information on connected devices and enables control of the main features.
 
@@ -109,7 +109,7 @@ This integration {% term polling polls %} data from the device every 30 seconds 
 
 ## Supported functionality
 
-The **Amazon Devices** {% term integration %} provides the following entities:
+The **Alexa Devices** {% term integration %} provides the following entities:
 
 - Binary sensor - main and Bluetooth connectivity
 - Notify - Speak and Announce notifications
