@@ -63,7 +63,7 @@ For more complex network setups (e.g. VLANs), reference the [following documenta
 
 {% include integrations/config_flow.md %}
 
-It is recommend to supply your Xiaomi Home credentials during configuration
+It is recommended to supply your Xiaomi Home credentials during configuration
 to automatically connect to your devices. You need to specify the server region
 you used in the Xiaomi Home App (where you initially setup the device). There are
 6 servers: `cn`, `de`, `i2`, `ru`, `sg` and `us`; please see
