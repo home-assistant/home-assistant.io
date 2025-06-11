@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "2025.6: Getting picky about Bluetooth"
-description: "Beta release notes for Home Assistant 2025.6"
-date: 2025-05-26 00:00:00
+description: "Great new Bluetooth connection graphs, all pickers have been revamped, sidebar management improvements, (un)group media players straight from you dashboards, and more!"
+date: 2025-06-11 00:00:00
 date_formatted: "June 11, 2025"
 author: Franck Nijhof
 author_twitter: frenck
@@ -10,82 +10,26 @@ comments: true
 categories:
   - Release-Notes
   - Core
-og_image: /images/blog/2025-06/social.jpg
+og_image: /images/blog/2025-06/social.png
 ---
 
 <lite-youtube videoid="fcqXortXBVk" videotitle="Home Assistant 2025.6 Release Party"></lite-youtube>
 
-{% note %}
-
-**Welcome to the beta release notes for Home Assistant 2025.6** 🎉
-
-<br />
-
-Please note that these release notes are a work in progress. 👷‍♀️ We will be
-completing them over the next couple of days. Not all features might be final
-yet, and some features _**may not** make it into the final release_.
-
-<br />
-
-**Want to help test the beta?** Awesome! ❤️ We have documented how you
-[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
-
-<br />
-
-While running the beta, we highly recommend joining our _#beta_ channel on
-the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
-testers are in this channel during the beta period to share experiences, ideas,
-and iterate over new features, fine-tuning them before the final release.
-It's a really fun place to hang out. 😎
-
-<br />
-
-**Reporting issues**: As this is a beta test, you might encounter unexpected
-behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
-You can find our issue trackers and the reported issues during beta here:
-
-<br />
-
-- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/132)
-- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/743)
-- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/139)
-
-🙏 When reporting issues, **make sure to mention the exact beta version you are
-running** in the issue description. This will help us identify and track the
-issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
-
-<br />
-
-Issues introduced in the beta are processed with priority. 🔝
-
-{% endnote %}
-
-{% important %}
-
-**The final release of Home Assistant 2025.6 is scheduled for June 11th!**
-
-We are extending the beta testing period for the 2025.6 release! Instead of releasing our monthly build on the first Wednesday, we’ll be releasing 2025.6 a week later on June 11th.
-
-This means 11 extra days of beta testing! 🙌🏻
-
-**Why the change?**
-
-Well, the Open Home Foundation is hosting a summit in Dublin, Ireland during the first week of June! 😎 We didn’t want to skip this release because of it, but we also didn’t want to make it feel rushed as we gather together in person. We felt like that wouldn’t be fair to y’all.
-
-{% endimportant %}
-
-{% tip %}
-
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=fcqXortXBVk) on
-June 11, 2025, at 20:00 GMT / 12:00 PT / 21:00 CEST!
-
-{% endtip %}
-
 Home Assistant 2025.6! 🎉
 
-Enjoy the (beta) release!
+We are already half way through 2025, can you believe it? I personally can't, as it feels like we just started the year. Not just that, there are so many exciting things to still come this year, and I can't wait to share them with you!
+
+Anyway, the June release is here! A week later that usual, but it also means we had an extra week to polish and beta test this release. Like the [previous release](/blog/2025/05/07/release-20255/), this release is packed with quality-of-life improvements!
+
+Last release my favorite feature was the new entity picker, this release, improve ALL other pickers! No surprise that this, again, makes it to my top favorite this release. Although the ability to group media players directly from the media player card is a close second. It is so nice to see how Home Assistant keeps getting better and better, and how our community keeps contributing to it. 😍
+
+If you are leveraging Bluetooth in your Home Assistant setup, you will also love the new Bluetooth connection graph that shows how your Bluetooth devices are connected, including Bluetooth proxies. Troubleshooting Bluetooth has become so much easier now!
+
+Enjoy the release!
 
 ../Frenck
+
+_PS: We will pick up the regular release schedule again now, so expect the next release on the first Wednesday of July (July 2nd)._
 
 <!--more-->
 
@@ -116,7 +60,7 @@ Even better, that same improved search experience now comes to the area, categor
 
 And the device picker? It now has a fresh look to match, complete with manufacturer logos and styling inspired by the entity picker.
 
-<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-new-device-picker.png" />
+<img class="no-shadow" alt="Screenshot showing the new device picker, including the area and integration that provides them." src="/images/blog/2025-06/new-device-picker.png" />
 
 ## Making sense of Bluetooth
 
@@ -124,7 +68,7 @@ Home Assistant has powerful [Bluetooth capabilities], and with the use of someth
 
 The Bluetooth integration now provides a visualization that shows how your Bluetooth devices are connected to your Home Assistant instance, whether that's directly to your system or through a Bluetooth proxy.
 
-<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-bluetooth-connection-graph.png" />
+<img class="no-shadow" alt="Screenshot showcasing the new Bluetooth connection graph; Even Bluetooth proxies are show in the map." src="/images/blog/2025-06/bluetooth-connection-graph.png" />
 
 It not only shows the actively connected devices, but also the devices that are in range, but not yet known to Home Assistant. This is a great way to see what devices are around you and where they can be potentially connected.
 
@@ -144,7 +88,7 @@ We added a new "Actions" section that includes scripts, automations, and scenes.
 
 Finally, we renamed the "Entertainment" section to "Media players". This makes it clearer that this section is specifically for your players, and may not include your DIY arcade machine 👾.
 
-<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-areas-dashboard.png" />
+<img class="no-shadow" alt="Screenshot of the new areas dashboard; showcasing the new Actions section." src="/images/blog/2025-06/areas-dashboard.png" />
 
 ## Deprecating installation methods and 32-bit architectures
 
@@ -313,7 +257,7 @@ of this release:
 
 There are many more improvements in this release; here are some of the other noteworthy changes:
 
-- And a small but neat one: [@balloob] made it so discoveries shown on an integration page are now sorted by title. Helpful!
+- A small but neat one: [@balloob] made it so discoveries shown on an integration page are now sorted by title. Helpful!
 - The [Home Assistant Cloud] integration will now raise a repair issue when your subscription has expired, helping make sure you’re aware and not caught off guard. Nice one, [@ludeeus]!
 - More backup improvements! 🎉
   - Home Assistant will now raise a repair issue if not all add-ons or folders were successfully backed up. Thanks, [@emontnemery]!
@@ -331,7 +275,7 @@ There are many more improvements in this release; here are some of the other not
   - A new unit for **energy distance (Wh/km)** has been added. Thanks, [@frenck]!
   - Sensors now support **mg/m³** as a concentration unit—another nice addition by [@frenck]!
   - [@Arnie97] added support for **liters** as a unit for gas sensors. Much appreciated!
-- The new `recorder.get_statistics` service lets you query statistics directly
+- The new `recorder.get_statistics` action lets you query statistics directly
   from the recorder. Powerful stuff, [@Hypfer]!
 
 [@agners]: https://github.com/agners
@@ -356,7 +300,7 @@ If you didn't know yet, you can actually adjust the contents of your Home&nbsp;A
 
 This release brings a couple of much-needed improvements to this feature. When you customize the sidebar, it will now bring up a nice and clean dialog that allows you to drag and drop items to change their order, or hide them by clicking the eye icon next to them.
 
-<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-sidebar-customization.png" />
+<img class="no-shadow" alt="Screenshot of the new dialog that can be used to order or hide the items in the sidebar." src="/images/blog/2025-06/sidebar-customization.png" />
 
 The biggest improvement is actually found somewhere else! Previously, the customization of the sidebar was only applied to the device you made the changes on; and even more annoying, sometimes it would lose the changes, or it would magically forget your settings on our [mobile companion apps] when you switched between your home network (and thus the internal URL). 🥲
 
@@ -370,7 +314,7 @@ Now, [@AlexGustafsson] changed that! 🎉
 
 You can now use the media player card to join or unjoin groups of media players. This is a great way to control your media players and their groups directly from the UI.
 
-<img class="no-shadow" alt="TODO: Replace." src="/images/blog/2025-06/temp-group-media-players-from-media-player-card.png" />
+<img class="no-shadow" alt="Screenshot of the media player card providing controls to group media player with the current used media player." src="/images/blog/2025-06/group-media-players-from-media-player-card.png" />
 
 Please note that, you can only join or unjoin groups of media players that support this feature. Unfortunately, not all media players support this, so it might not be available for all your media players.
 
@@ -382,10 +326,9 @@ Anyhow, amazing contribution Alex! 👏
 
 You can now restore the ID of an entity to its original value. This is useful if you have renamed an entity and want to revert it back to its original entity ID.
 
-This feature is available in the entity configuration page, where you can now find a "Reset entity ID" button. When clicked, it will restore the entity ID to its original value. Additionally, there is the option to reset all entity IDs of a device to their original values, which can be found in the device configuration page.
+This feature is available in the entity configuration dialog, where you can now find a "Reset" icon on the entity ID field. When clicked, it will restore the entity ID to its original value. Additionally, there is the option called "Recreated entity IDs" in the top right three-dotted menu on the device page, to reset all entity IDs of a device to their original values.
 
-**TODO**: Make the above actual factual to match the UI experience
-**TODO**: Add screenshot
+<img class="no-shadow" alt="Screenshot showing the reset option of the entity ID in the entity configuration dialog." src="/images/blog/2025-06/reset-entity-id.png" />
 
 ## Need help? Join the community!
 
