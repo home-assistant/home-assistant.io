@@ -400,6 +400,35 @@ Minimum recommended assignments:
     Note that this configuration (bus 003, device 003) is just an example, your dongle could be on another bus and/or with another device ID.
     Please check the correct IDs of your USB dongle with `lsusb`.
 
+- title: KVM/Proxmox
+  content: |
+
+    ```bash
+    qm create 9999 --name haos --memory 4096 --cores 2 --bios ovmf --machine q35 --ostype l26 --scsihw virtio-scsi-pci --scsi0 <PATH TO QCOW2 File> --boot order=scsi0 --efidisk0 <STORAGE>:0,format=raw,efitype=4m,pre-enrolled-keys=1 --serial0 socket --vga serial0
+    ```
+
+    {% icon "mdi:alert-outline" %} If you have a USB
+    dongle to attach, you need to add the option `--usb<ID> host=busID.deviceId`. You can
+    discover these IDs via the `lsusb` command. As example, if `lsusb` output is:
+
+    ```bash
+       Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+       Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+       Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+       Bus 001 Device 004: ID 1a86:55d4 QinHeng Electronics SONOFF Zigbee 3.0 USB Dongle Plus V2
+       Bus 001 Device 003: ID 05e3:0610 Genesys Logic, Inc. Hub
+       Bus 001 Device 002: ID 05e3:0608 Genesys Logic, Inc. Hub
+       Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+    ```
+
+    You can recognize the Sonoff dongle at `Bus 001 Device 004`. So the command to install the VM will become:
+
+    ```bash
+    qm create 9999 --name Home Assistent OS --memory 4096 --cores 2 --bios ovmf --machine q35  --ostype l26 --scsihw virtio-scsi-pci --scsi0 nvme:0,import-from=rbnas03-proxmox:import/haos_ova-11.4.qcow2 --boot order=scsi0 --efidisk0 nvme:0,format=raw,efitype=4m,pre-enrolled-keys=1 --serial0 socket --vga serial0 --usb0: host=1a86:55d4
+    ```
+
+    Note that this configuration (bus 003, device 003) is just an example, your dongle could be on another bus and/or with another device ID.
+    Please check the correct IDs of your USB dongle with `lsusb`.
 {% endunless %}
 
 {% if page.installation_type == 'windows' %}
