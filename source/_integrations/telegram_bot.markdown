@@ -408,7 +408,7 @@ Sets the bot's reaction for a given message.
 | `config_entry_id`   | yes      | The config entry representing the Telegram bot to set the message reaction. Required if you have multiple Telegram bots. |
 | `message_id`        | no       | Id of the message to react to.                                   |
 | `chat_id`           | no       | Id of the chat containing the message.                           |
-| `reaction`          | no       | Emoji to react to the message with (currently only one allowed). |
+| `reaction`          | no       | Emoji to react to the message with. |
 | `is_big`            | yes      | Whether to use a large variant of the reaction animation.        |
 
 ## Telegram notification platform
