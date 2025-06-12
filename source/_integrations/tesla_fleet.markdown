@@ -50,6 +50,9 @@ You need to configure developer credentials and host a public key file to allow 
 {% note %}
 The setup process involves creating encryption keys, registering a Tesla Developer Application, and connecting your Tesla account to Home Assistant. Tesla requires a publicly accessible domain with a valid certificate to verify your application's identity.
 {% endnote %}
+{% warning %}
+The China region is currently not supported by this {% term integration %}.
+{% endnote %}
 
 ## Configuration
 
@@ -156,7 +159,7 @@ Use this method if you have your own web hosting or prefer using a third-party s
 6. **Copy the private key** to your Home Assistant configuration directory:
 
    ```shell
-   cp tesla_fleet.key /path/to/homeassistant/config/tesla_fleet.key
+   cp tesla_fleet.key /config/tesla_fleet.key
    ```
 
 7. **Backup both key files** in a safe location for future use.
@@ -233,9 +236,6 @@ The following steps involve sensitive credentials. Never share your Client Secre
    - **North America/Asia-Pacific**: `https://fleet-api.prd.na.vn.cloud.tesla.com`
    - **Europe/Middle East/Africa**: `https://fleet-api.prd.eu.vn.cloud.tesla.com`
 
-   {% note %}
-   The China region is currently not supported by this {% term integration %}.
-   {% endnote %}
 
 3. **Get your access token** by running this command (replace the variables):
 
