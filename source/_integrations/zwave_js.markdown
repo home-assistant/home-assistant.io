@@ -186,7 +186,7 @@ To migrate a Z-Wave network to a new controller, follow these steps:
 
 ## Backing up your Z-Wave network
 
-It's recommended to create a backup before making any major changes to your Z-Wave network. For example, before migrating from one controller to another, or before resetting your controller. The backup stores your Z-Wave controller's non-volatile memory (NVM). The NVM contains your network information including paired devices. It is stored in a binary file that you can download.
+It's recommended to create a backup before making any major changes to your Z-Wave network. For example, before migrating from one controller to another, or before resetting your controller. The backup stores your Z-Wave controller's non-volatile memory (NVM), which contains your network information including paired devices. It is stored in a binary file that you can download.
 
 ### Prerequisites
 
