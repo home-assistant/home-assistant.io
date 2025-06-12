@@ -4,6 +4,7 @@ description: Instructions on how to integrate Alexa Devices into Home Assistant.
 ha_category:
   - Binary Sensor
   - Notify
+  - Switch
 ha_release: '2025.6'
 ha_domain: alexa_devices
 ha_config_flow: true
@@ -16,7 +17,6 @@ ha_platforms:
   - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
-ha_dhcp: true
 ---
 
 The **Alexa Devices** {% term integration %} lets you control Alexa-enabled devices connected to your Amazon account.
@@ -33,7 +33,7 @@ There is support for the following device families within Home Assistant:
 - **Amazon Echo Plus**
 - **Amazon Echo Show**
 - **Amazon Fire TV Stick**
-- **Fire Tablet**
+- **Amazon Fire Tablet**
 
 and all 3rd party that has Alexa capabilities built-in
 
@@ -115,6 +115,7 @@ The **Alexa Devices** {% term integration %} provides the following entities:
 
 - Binary sensor - main and Bluetooth connectivity
 - Notify - Speak and Announce notifications
+- Switch - Do not disturb
 
 ## Removing the integration
 
