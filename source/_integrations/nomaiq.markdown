@@ -18,7 +18,7 @@ The {{ page.title }} {% term integration %} provides support for devices control
 
 ## Supported devices
 
-This integration was only tested with a Garage Door Opener. At the moment it only loads the Light entity.
+This integration was only tested with a Garage Door Opener. Currently it only loads the Light entity.
 
 If you don't see a light entity loaded, then this integration doesn't support your device yet. Please reach out so I can work on it for you (or open a PR yourself).
 
@@ -33,4 +33,5 @@ To configure this integration, you will need the credentials (login and password
 
 This integration supports the following functionalities:
 
-- [`turn on/off`](/integrations/light#action-lightturn_on)
+- [`turn_on`](/integrations/light#action-light-turn-on)
+- [`turn_off`](/integrations/light#action-light-turn-off)
