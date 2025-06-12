@@ -186,14 +186,17 @@ To migrate a Z-Wave network to a new controller, follow these steps:
 
 ## Resetting a Z-Wave controller
 
-Exercise extreme caution when factory resetting the device! Once initiated, your controller will be reset to factory settings.
+It is recommended to back up your Z-Wave network before resetting the device.
 
 - The controller will forget all devices it is paired with.
-- It will establish a new network ID that will prevent any recovery of your old network.
 - All Z-Wave devices for this network will be removed from Home Assistant.
 - If there are any devices still paired with the controller when it is reset, they will have to go through the exclusion process before they can be re-paired.
 - The device firmware will remain on the device.
 - The Wi-Fi credentials will not be removed, as they are not stored on the device in the first place.
+
+### Prerequisites
+
+- Administrator rights on Home Assistant
 
 ### To reset a Z-Wave controller
 
