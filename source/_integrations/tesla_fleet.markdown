@@ -52,7 +52,7 @@ The setup process involves creating encryption keys, registering a Tesla Develop
 {% endnote %}
 {% warning %}
 The China region is currently not supported by this {% term integration %}.
-{% endnote %}
+{% endwarning %}
 
 ## Configuration
 
