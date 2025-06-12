@@ -297,25 +297,3 @@ The unit of measurement returned by the above query is `MiB`, please configure t
 Set the device class to `Data size` so you can use UI unit conversion.
 {% endtip %}
 
-#### MS SQL
-
-Use the same Database URL as for the `recorder` integration. Change `DB_NAME` to the name that you use as the database name, to ensure that your sensor will work properly. Be sure `username` has enough rights to access the sys tables.
-
-Example Database URL: `"mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=FreeTDS"`
-
-{% note %}
-Connecting with MSSQL requires "pyodbc" to be installed on your system, which can only be done on systems using the Home Assistant Core installation type to be able to install the necessary dependencies.
-  
-"pyodbc" has special requirements which need to be pre-installed before installation, see the ["pyodbc" wiki](https://github.com/mkleehammer/pyodbc/wiki/Install) for installation instructions
-{% endnote %}
-
-```sql
-SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';
-```
-Use `size` as column for value.
-
-{% tip %}
-The unit of measurement returned by the above query is `MiB`, please configure this correctly.
-
-Set the device class to `Data size` so you can use UI unit conversion.
-{% endtip %}

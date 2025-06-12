@@ -72,6 +72,13 @@ If an entity listed below has an asterisk (*) next to its name, it means it is d
 If an entity listed below has a plus (+) next to its name, it means this entity supports push updates. These entities will have almost instant state changes. 
 For redundancy, the state of all entities is also polled every 60 seconds. For entities without a plus (+), this is the only update method. Therefore, a device's state change can take up to 60 seconds to be reflected in Home Assistant.
 An exception is the firmware update entity, which is polled every 12 hours.
+Another exception are battery cameras, most {% term entities %} are still {% term polling polls %} every 60 seconds. However, the entities that would cause the camera to wake from sleep will only be polled during the following events:
+
+- The camera wakes by itself (PIR event) and the last update was more than 1 hour ago.
+- The camera did not wake for more than 6 hours.
+- All battery cameras have not been awake at the same time for more than 12 hours.
+
+A full update of all entities, which will wake all battery cameras connected to the same hub/NVR, can be performed by calling the `homeassistant.update_entity` action on a single Reolink entity of a camera (for example the motion detection binary sensor).
 
 ## Supported functionality
 
@@ -278,6 +285,7 @@ Depending on the supported features of the camera, switch entities are added for
 - PIR enabled*
 - PIR reduce false alarm*
 - Chime LED
+- Hardwired chime enabled*
 
 When the **Privacy mode** is ON, almost all other entities will be unavailable because the camera shuts down the API and camera streams. When turning OFF the **Privacy mode**, all entities will become available again. Take this into consideration when making automations; ensure the **Privacy mode** is OFF before changing camera settings using other entities.
 
@@ -295,6 +303,8 @@ The Push-notification in the Reolink app is independent of the Home Assistant se
 The **PTZ patrol** positions first need to be configured using the Reolink [app](https://support.reolink.com/hc/en-us/articles/360008746833/)/[windows](https://support.reolink.com/hc/en-us/articles/900003738126/)/web client. When no positions are configured, the PTZ patrol entity will not be added. When adding patrol positions for the first time, you need to restart the Reolink integration.
 
 The **Manual record** switch will turn off automatically after 10 minutes. Therefore the recording will end as soon as the manual record switch is turned off, or 10 minutes have passed.
+
+Polling the status of the **Hardwired chime enabled** switch can make the hardwired chime rattle a bit depending on the model of the chime. Therefore the status of this switch is only polled one time (about 1 minute after the integration starts). The rattle at startup can only happen if you chose to enable this switch.
 
 ### Light entities
 
