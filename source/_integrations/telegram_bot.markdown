@@ -72,7 +72,16 @@ If your Home Assistant is behind a publicly accessible reverse proxy (for exampl
 2. Configure the [HTTP integration](/integrations/http) to allow Home Assistant to accept connections from your reverse proxy:
    - Set `use_x_forwarded_for` to `true`.
    - Add the IP address of the reverse proxy to `trusted_proxies`.
-  
+
+Example `configuration.yaml`:
+
+```yaml
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 192.168.0.0/16
+```
+
 #### Direct
 
 If your Home Assistant is publicly accessible, do the following:
