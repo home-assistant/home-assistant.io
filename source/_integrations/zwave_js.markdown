@@ -200,6 +200,28 @@ It's recommended to create a backup before making any major changes to your Z-Wa
    - **Result**: The backup file is downloaded to the device from which you initiated the download.
 4. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
 
+## Resetting a Z-Wave controller
+
+It is recommended to back up your Z-Wave network before resetting the device.
+
+- The controller will forget all devices it is paired with.
+- All Z-Wave devices for this network will be removed from Home Assistant.
+- If there are any devices still paired with the controller when it is reset, they will have to go through the exclusion process before they can be re-paired.
+- The device firmware will remain on the device.
+
+### Prerequisites
+
+- Administrator rights on Home Assistant
+
+### To reset a Z-Wave controller
+
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Z-Wave** integration. Then, select the controller.
+3. Under **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
+
+    ![Screenshot showing the device panel of a Z-Wave controller](/images/integrations/z-wave/z-wave-controller-commands.png)
+4. Once the process is finished, you can use this controller to start a new network, or pass it on to someone else.
+
 ## Special Z-Wave entities
 
 The Z-Wave integration provides several special entities, some of which are available for every Z-Wave device, and some of which are conditional based on the device.
@@ -238,19 +260,6 @@ Some features can be accessed from the menu of integration itself. As they are n
 ![Z-Wave integration configuration panel](/images/integrations/z-wave/z-wave-integration-menu.png)
 
 - **[Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics):** Exports a JSON file describing the entities of all devices registered with this integration.
-
-### Device panel
-
-#### Controller
-
-The following features can be accessed from the device panel of a Z-Wave controller:
-
-- **Factory reset:** Exercise extreme caution when using this action! Once initiated, your controller will be reset to factory settings, it will forget all devices it is paired with, it will establish a new network ID that will prevent any recovery of your old network, and all Z-Wave devices for this network will be removed from Home Assistant. If there are any devices still paired with the controller when it is reset, they will have to go through the exclusion process before they can be re-paired.
-
-<p class='img'>
-<img src='/images/integrations/z-wave/z-wave-controller-commands.png' alt='Screenshot showing the device panel of a Z-Wave controller' />
-Screenshot showing the device panel of a Z-Wave controller.
-</p>
 
 #### Network devices
 
@@ -984,7 +993,7 @@ If the interview is complete, then the device does not yet have a device file fo
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow these steps:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration. Then, select the three dots.
+2. Select the **Z-Wave** integration. Then, select the three dots {% icon "mdi:dots-vertical" %} menu.
 3. From the dropdown menu, select **Download diagnostics**.
 
 ### How do I address interference issues?
