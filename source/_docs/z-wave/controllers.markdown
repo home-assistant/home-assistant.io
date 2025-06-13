@@ -1,6 +1,9 @@
 ---
 title: "Z-Wave Controllers"
 description: "Extended instructions how to setup Z-Wave."
+related:
+  - docs: /integrations/zwave_js/
+    title: Z-Wave integration
 ---
 
 ## Supported Z-Wave USB Sticks & Hardware Modules
