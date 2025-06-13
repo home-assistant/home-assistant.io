@@ -24,6 +24,18 @@ The {% term integration %} provides the public market prices displayed on the [N
 
 Most European energy is traded via the Nord Pool Group marketplace. If your energy provider doesn't have a dedicated Home Assistant integration and you have a spot-price-based contract, you can use the **Nord Pool** {% term integration %}. This integration provides spot prices for your selected market, which you can, as an example, use in a {% term template %} to calculate prices for your [energy dashboard](#energy-dashboard).
 
+{% important %}
+
+The energy market is transitioning to 15-minute <abbr title="market time unit">MTU</abbr> instead of 60-minute MTU.
+
+When this finally occurs, the **Nord Pool** {% term integration %} will automatically switch and use the 15-minute <abbr title="market time unit">MTU</abbr>. This means during the transition, you may have a current price which is hourly based and a future price that is a 15-minute price.
+
+If you use this integration to calculate your own energy cost, it is advisable to see how this affects you. Check if any automations, templates, or other settings might need to be modified accordingly.
+
+You can read more and monitor the timeline [on the page about the transition to 15-minute MTU by Nordpool](https://www.nordpoolgroup.com/en/trading/transition-to-15-minute-market-time-unit-mtu/)
+
+{% endimportant %}
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -97,7 +109,7 @@ The block price sensors are not enabled by default.
 | Sensor                    | Type              | Description                                                                       |
 | ------------------------- | ----------------- | --------------------------------------------------------------------------------- |
 | Currency                  | [Currency]        | The configured currency.                                                          |
-| Exchange rate             | Integer           | The exchange rate between the configure currency and Euro's.                      |
+| Exchange rate             | Decimal           | The exchange rate between the configure currency and Euro's.                      |
 | Last updated              | Datetime          | The time when the market prices were last updated.                                |
 
 ## Actions
@@ -125,9 +137,15 @@ Currency:
 
 The public API only allows us to see past pricing information for up to 2 months.
 
-Tomorrow's prices are typically released around 13:00 CET, and trying to get them before that time will generate an error that needs to be considered in such a case.
+Although Nord Pool operates in the CET/CEST timezone, all data is returned in UTC. Depending on how the data is consumed or manipulated, you may need to consider this.
+
+Tomorrow's prices are typically released around 13:00 CET/CEST, and trying to get them before that time will generate an error that needs to be considered in such a case.
 
 {% endnote %}
+
+{% tip %}
+You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
+{% endtip %}
 
 #### Example action with data
 
@@ -193,10 +211,14 @@ template:
 Using a trigger template, you can create a template sensor to calculate tomorrow's lowest price which also puts the list of all prices in the attributes of the sensor. All prices are returned in [Currency]/MWh.
 
 {% note %}
-You need to replace the `config_entry` with your own Nord Pool config entry id.
 
 Below example will convert the action call response to kWh prices in the selected currency and add all prices for tomorrow as a list in an attribute.
+
 {% endnote %}
+
+{% tip %}
+You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
+{% endtip %}
 
 {% raw %}
 
@@ -219,26 +241,18 @@ template:
       - name: Tomorrow lowest price
         unique_id: se3_tomorrow_low_price
         state: >
-          {% if not tomorrow_price %}
-            unavailable
-          {% else %}
-            {% set data = namespace(prices=[]) %}
-            {% for state in tomorrow_price['SE3'] %}
-              {% set data.prices = data.prices + [(state.price / 1000)] %}
-            {% endfor %}
-            {{min(data.prices)}}
-          {% endif %}
+          {% set data = namespace(prices=[]) %}
+          {% for state in tomorrow_price['SE3'] %}
+            {% set data.prices = data.prices + [(state.price / 1000)] %}
+          {% endfor %}
+          {{min(data.prices)}}
         attributes:
           data: >
-            {% if not tomorrow_price %}
-              []
-            {% else %}
-              {% set data = namespace(prices=[]) %}
-              {% for state in tomorrow_price['SE3'] %}
-                {% set data.prices = data.prices + [{'start':state.start, 'end':state.end, 'price': state.price/1000}] %}
-              {% endfor %}
-              {{data.prices}}
-            {% endif %}
+            {% set data = namespace(prices=[]) %}
+            {% for state in tomorrow_price['SE3'] %}
+              {% set data.prices = data.prices + [{'start':state.start, 'end':state.end, 'price': state.price/1000}] %}
+            {% endfor %}
+            {{data.prices}}
 ```
 
 {% endraw %}

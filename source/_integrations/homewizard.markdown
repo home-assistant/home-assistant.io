@@ -181,7 +181,7 @@ It may happen that you can't find your devices or they won't show up in the inte
 
 Some sensors are disabled by default. You can enable them in the integration setup. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) documentation for more information.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal.
 

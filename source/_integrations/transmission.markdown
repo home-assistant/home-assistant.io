@@ -136,7 +136,7 @@ content: >
 
   {% for torrent in payload.items() %} {% set name = torrent[0] %} {% set data = torrent[1] %}
 
-  {{ name|truncate(20) }} is {{ data.percent_done }}% complete, {{ data.eta }} remaining {% endfor %}
+  {{ name|truncate(20) }} is {{ data.percent_done }}% complete, with {{ data.ratio }} ratio, {{ data.eta }} remaining {% endfor %}
 type: markdown
 ```
 

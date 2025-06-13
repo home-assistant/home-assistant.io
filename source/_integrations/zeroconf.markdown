@@ -33,6 +33,13 @@ IPv6 will automatically be enabled if one of the selected interfaces has an IPv6
 
 ## Troubleshooting
 
+### Zeroconf Browser
+
+The **Zeroconf Browser** shows devices discovered by Home Assistant using Zeroconf (also known as mDNS or Bonjour). This method allows devices to advertise their services on the local network without needing a central directory. Home Assistant actively searches for specific services using Zeroconf, and any matching devices will appear in this browser.
+
+To open the Zeroconf Browser, go to:
+{% my config_zeroconf title="**Settings** > **System** > **Network** > **Zeroconf Browser**" %}
+
 ### Integrations relying on Zeroconf traffic are unresponsive
 
 Some integrations rely on Zeroconf traffic to work, for example, the [HomeKit](/integrations/homekit/) integration.

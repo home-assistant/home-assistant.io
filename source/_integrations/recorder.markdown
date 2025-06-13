@@ -253,6 +253,39 @@ Perform the action `recorder.disable` to stop saving events and states to the da
 
 Perform the action `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
 
+### Action `get_statistics`
+
+Perform the action `recorder.get_statistics` to retrieve statistics for one or more entities from the recorder database. This action is useful for automations or scripts that need to access historical statistics, such as mean, min, max, or sum values, for supported entities like sensors.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `statistic_ids`| no      | The entity IDs or statistic IDs to get statistics for. |
+| `start_time`   | no      | The start time for the statistics query. |
+| `end_time`     | yes      | The end time for the statistics query. If omitted, returns all statistics from start time onward. |
+| `period`       | no      | The time period to group statistics by (`5minute`, `hour`, `day`, `week`, or `month`). |
+| `types`        | no      | The types of statistics values to return (`change`, `last_reset`, `max`, `mean`, `min`, `state`, or `sum`). |
+| `units`        | yes      | Optional unit conversion mapping. An object where keys are [device classes](https://www.home-assistant.io/integrations/sensor#device-class) and values are the desired target units. This allows retrieving statistics converted to different units than what's stored in the database. |
+
+#### Example using get_statistics
+
+```yaml
+action: recorder.get_statistics
+data:
+  statistic_ids:
+    - sensor.energy_meter
+    - sensor.water_usage
+  start_time: "2025-06-10 00:00:00"
+  end_time: "2025-06-11 23:00:00"
+  period: hour
+  types:
+    - sum
+    - mean
+  units:
+    energy: kWh
+    volume: L
+response_variable: consumption_stats
+```
+
 ## Handling disk corruption and hardware failures
 
 When using SQLite, if the system encounters unrecoverable disk corruption, it will move the database aside and create a new database to keep the system online. In this case, having at least 2.5x the database size available in free disk space is essential. Starting a new database is the system's last resort recovery option and is usually caused by failing flash storage, an inadequate power supply, an unclean shutdown, or another hardware failure.

@@ -2,7 +2,7 @@
 
 {% assign current_version = site.current_major_version | append: "." | append: site.current_minor_version | append: "." | append: site.current_patch_version  %}
 
-{% if page.installation != "os" and page.installation != "supervised" %}
+{% if page.installation != "os" %}
 
 To see which version your system is running, go to {% my info title="**Settings** > **About**" %}.
 
@@ -10,7 +10,7 @@ In the event that a Home Assistant Core version doesn't play well with your hard
 
 {% endif %}
 
-{% if page.installation == "os" or page.installation == "supervised" %}
+{% if page.installation == "os"%}
 
 To upgrade to a specific version, you can use the CLI. The example below shows how to upgrade to `{{current_version}}`.
 
@@ -29,29 +29,5 @@ docker pull {{ site.installation.container }}:{{current_version}}
 ```
 
 **[You then need to recreate the container with the new image.](/installation/linux#install-home-assistant-container)**
-
-{% elsif page.installation == "core" %}
-
-1. Stop the Home Assistant service.
-
-2. Switch to the user that is running Home Assistant.
-
-    ```bash
-    sudo -u homeassistant -H -s
-    ```
-
-3. Activate the virtual environment that Home Assistant is running in.
-
-    ```bash
-    source /srv/homeassistant/bin/activate
-    ```
-
-4. Download and install the version you want.
-
-    ```bash
-    pip3 install homeassistant=={{current_version}}
-    ```
-
-5. When that is complete start the service again for it to use the new files.
 
 {% endif %}

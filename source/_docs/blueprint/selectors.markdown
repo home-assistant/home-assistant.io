@@ -83,8 +83,7 @@ The output of this selector is a list of actions. For example:
 
 ## Add-on selector
 
-This can only be used on an installation with a Supervisor. For installations
-that do not have that, an error will be displayed.
+This can only be used on a {% term "Home Assistant Operating System" %} installation. For {% term "Home Assistant Container" %} installations, an error will be displayed.
 
 The add-on selector allows the user to input an add-on slug.
 On the user interface, it will list all installed add-ons and use the slug of the
@@ -173,7 +172,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of areas that provide entities of a certain domain(s),
+        Limits the list of areas that provide entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection to.
@@ -276,8 +275,8 @@ assist_pipeline:
 
 ## Backup location selector
 
-This can only be used on an installation with a Supervisor (Operating System or
-Supervised). For installations of type {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}, an error
+This can only be used on an installation with a {% term "Home Assistant Operating System" %}. For {% term "Home Assistant Container" %} installations, an error
+
 will be displayed.
 
 The backup location selector shows a list of places a backup could go, depending
@@ -521,7 +520,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of devices that provide entities of a certain domain(s),
+        Limits the list of devices that provide entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection
@@ -694,7 +693,7 @@ filter:
       required: false
     domain:
       description: >
-        Limits the list of entities to entities of a certain domain(s), for example,
+        Limits the list of entities to entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains), for example,
         [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection
@@ -826,7 +825,7 @@ entity:
       required: false
     domain:
       description: >
-        When set, the list only includes floors that have entities of certain domains,
+        When set, the list only includes floors that have entities of certain [domains](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection to.
@@ -1380,7 +1379,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the targets to entities of a certain domain(s),
+        Limits the targets to entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a
         with a single domain, or a list of string domains to limit the
