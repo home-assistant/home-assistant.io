@@ -52,7 +52,8 @@ The paring of the device may require a [factory reset](#factory-reset) before it
 
 ### Limitations
 
-Irrigation valves are currently untested, but expected to work.
+- Irrigation valves are currently untested, but expected to work.
+- Irrigation Valve 9 V Bluetooth requires firmware version 1.7.23.29 or newer (update via Gardena Bluetooth App).
 
 ## Lawn mowers
 

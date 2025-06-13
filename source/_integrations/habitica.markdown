@@ -97,6 +97,8 @@ Verify SSL certificate:
 - **Saddles**: Indicates the number of saddles owned, used for instantly raising pets to mounts.
 - **Hatching potions**: Shows the total count of available hatching potions. The sensor's attributes detail each potion type and quantity. Pour them on an egg to hatch a pet.
 - **Quest scrolls**: Displays the total number of quest scrolls in your inventory. A list of each quest scroll and its quantity is provided in the sensor's attributes.
+- **Pending damage**: Total damage accumulated during the day by completing your tasks. The quest boss is then attacked for this amount at the end of the day.
+- **Pending quest items**: Quest items found during the day when completing tasks. The total is counted towards the quest objective at the end of the day.
 
 ## Binary sensors
 
@@ -412,6 +414,26 @@ Updates a specific daily for the selected Habitica character.
 | `streak`       | yes      | Adjust or reset the streak counter of the daily.                                             |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
+### Action `habitica.create_daily`
+
+Creates a daily for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to create a daily.                                               |
+| `name`         | no       | The title for the Habitica daily.                                                            |
+| `notes`        | yes      | The new notes for the Habitica daily.                                                        |
+| `add_checklist_item` | yes | The items to add to the daily's checklist.                                                  |
+| `priority`     | yes      | The difficulty of a daily. Valid values: `trivial`, `easy`, `medium`, `hard`             |
+| `start_date`   | yes      | The date when the daily becomes active and specifies the exact weekday or day of the month it repeats on. |
+| `frequency`    | yes      | The repetition interval of a daily. Valid values: `daily`, `weekly`, `monthly`, `yearly`.    |
+| `every_x`      | yes      | The number of intervals (`days`, `weeks`, `months`, or `years`) after which the daily repeats, based on the chosen repetition interval. A value of 0 makes the daily inactive (a *Gray Daily*). |
+| `repeat`       | yes      | The days of the week the daily repeats. Applicable when the repetition interval is set to weekly. |
+| `repeat_monthly` | yes    | Whether a monthly recurring task repeats on the same calendar day each month (`day_of_month`), or on the same weekday and week of the month (`day_of_week`), based on the start date. Applicable when the repetition interval is set to monthly. |
+| `reminder`     | yes      | Add reminders to a Habitica daily.                                                           |
+| `tag`          | yes      | Add tags to the Habitica daily. If a tag does not already exist, a new one will be created.  |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
@@ -554,7 +576,7 @@ The Habitica integration relies on an active internet connection to communicate 
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

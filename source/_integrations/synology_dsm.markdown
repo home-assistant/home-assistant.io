@@ -47,7 +47,9 @@ When SSDP is activated on a NAS with two or more NICs with different IP addresse
 
 ## Separate User Configuration
 
-You must grant the user admin rights in order to access utilization information since it's stored in the core module.
+{% note %}
+You must grant the user administrator rights, as the basic functions of this integration require them due to the structure of the Synology DSM API.
+{% endnote %}
 
 When creating the user, it is possible to deny access to all locations and applications. By doing this, the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
 
@@ -170,3 +172,13 @@ This media browser supports multiple Synology Photos instances. `<unique_id>` is
 To find the `<album_id>` you need to go to the album in your photos instance, and the id will be in the URL ex: `https://192.168.0.100:5001/#/album/19`, where 19 is the album id. An `<album_id>` of 0 will contain all images.
 
 For performance reasons, a maximum of 1000 images will be shown in the Media Browser.
+
+## Troubleshooting
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+
+## Remove the integration
+
+{% include integrations/remove_device_service.md %}
+
+If you don't use the separate created user anymore (_see [Separate User Configuration](#separate-user-configuration) above_), then remove it from the NAS under to **Control Panel** > **User & Group** > **User**. Don't forget to backup any data from the users home directory, if you want to keep them (_eq. Home Assistant backups_)

@@ -122,7 +122,14 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 <a name="configuration-via-subentries"></a>
 {% details "Configuration of MQTT components via Subentries" %}
 
+- [Binary sensor](/integrations/binary_sensor.mqtt/)
+- [Button](/integrations/button.mqtt/)
+- [Cover](/integrations/cover.mqtt/)
+- [Fan](/integrations/fan.mqtt/)
+- [Light](/integrations/light.mqtt/)
 - [Notify](/integrations/notify.mqtt/)
+- [Sensor](/integrations/sensor.mqtt/)
+- [Switch](/integrations/switch.mqtt/)
 
 To add an MQTT device via a Subentry, follow these steps:
 
@@ -738,6 +745,7 @@ support_url:
     'evt_typ':             'event_types',
     'exp_aft':             'expire_after',
     'fanspd_lst':          'fan_speed_list',
+    'flsh':                'flash',
     'flsh_tlng':           'flash_time_long',
     'flsh_tsht':           'flash_time_short',
     'fx_cmd_t':            'effect_command_topic',
@@ -838,6 +846,7 @@ support_url:
     'pl_rst_pct':          'payload_reset_percentage',
     'pl_rst_pr_mode':      'payload_reset_preset_mode',
     'pl_stop':             'payload_stop',
+    'pl_stop_tilt':        'payload_stop_tilt',
     'pl_stpa':             'payload_start_pause',
     'pl_strt':             'payload_start',
     'pl_toff':             'payload_turn_off',
@@ -930,6 +939,7 @@ support_url:
     'tilt_status_t':       'tilt_status_topic',
     'tilt_status_tpl':     'tilt_status_template',
     'tit':                 'title',
+    'trns':                'transition',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
     'url_t':               'url_topic',
@@ -1046,7 +1056,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_topic:
@@ -1059,7 +1069,7 @@ availability_mode:
    type: string
    default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 payload_available:
@@ -1376,7 +1386,7 @@ Compatibility and features will vary, and not all devices may work.
 
 ## Manual configured MQTT items
 
-Support to add manual items is added for the MQTT Notify entities, other platforms will follow later.
+Support to allow [adding manual items as a subentry via a config flow](#configuration), is work in progress. Not all entity platforms are supported yet.
 
 For most integrations, it is also possible to manually set up MQTT items in {% term "`configuration.yaml`" %}. Read more [about configuration in YAML](/docs/configuration/yaml).
 
@@ -1414,6 +1424,18 @@ If you have a large number of manually configured items, you might want to consi
 {% note %}
 Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
 {% endnote %}
+
+## Entity state updates
+
+Entities receive state updates via MQTT subscriptions. The payloads received on the state topics are processed to determine whether there is a significant change. If a change is detected, the entity will be updated.
+
+Note that MQTT device payloads often contain information for updating multiple entities that subscribe to the same topics. For example, a light status update might include information about link quality. This data can update a link quality sensor but is not used to update the light itself. MQTT filters out entity state updates when there are no changes.
+
+### The last reported state attribute
+
+Because MQTT state updates are often repeated frequently, even when no actual changes exist, it is up to the MQTT subscriber to determine whether a status update was received. If the latest update is missed, it might take some time before the next one arrives. If a retained payload exists at the broker, that value will be replayed first, but it will be an update of a previous last state. 
+
+MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
 
 ## Using Templates
 
@@ -1479,7 +1501,7 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
 {% note %}
-When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
+When `payload` is rendered from [template](/docs/configuration/templating/#using-value-templates-with-mqtt) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
 {% endnote %}
 
 ```yaml

@@ -19,7 +19,7 @@ related:
 The map card allows you to display your home zone, entities, and other predefined zones on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
 <p class='img'>
-<img src='/images/dashboards/map_card.png' alt='Screenshot of the map card'>
+<img src='/images/dashboards/map_card.webp' alt='Screenshot of the map card'>
 Screenshot of the map card.
 </p>
 
@@ -102,6 +102,11 @@ hours_to_show:
   description: Shows a path of previous locations. Hours to show as path on the map.
   type: integer
   default: 0
+cluster:
+  required: false
+  description: 'When set to `false`, the map will not cluster the markers. This is useful when you want to see all markers at once, but it may cause performance issues with a large number of markers.'
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% important %}
@@ -130,7 +135,15 @@ name:
 label_mode:
   required: false
   default: name
-  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state` or `attribute`, renders the entity's state or attribute as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  type: string
+attribute:
+  required: false
+  description: An entity's attribute when `label_mode` set to `attribute`.
+  type: string
+unit:
+  required: false
+  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
   type: string
 focus:
   required: false
@@ -151,8 +164,16 @@ source:
 label_mode:
   required: false
   default: name
-  description: When set to `icon`, renders the geolocation entity's icon in the marker instead of text. When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. 
-  type: string    
+  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state` or `attribute`, renders the entity's state or attribute as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  type: string
+attribute:
+  required: false
+  description: An entity's attribute when `label_mode` set to `attribute`.
+  type: string
+unit:
+  required: false
+  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
+  type: string
 focus:
   required: false
   default: true

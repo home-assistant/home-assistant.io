@@ -18,6 +18,8 @@ related:
     title: Configuration file
 ---
 
+The sun {% term integration %} calculates all sun-related times (sunrise, sunset, dawn, dusk, etc.) based on your configured home location. This means that all time-based calculations and triggers will be accurate for your specific location, as defined in your [basic configuration](/docs/configuration/basic/).
+
 The sun {% term integration %} will use the location as
 {% my general title="configured in your Home Assistant configuration" %} to
 track if the sun is above or below the horizon. The sun can be used within
@@ -96,3 +98,11 @@ The sensors are also available as attributes on the `sun.sun` entity for backwar
 | Elevation     | Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon. |
 | Azimuth       | Solar azimuth. The angle is shown clockwise from north.                                                                |
 | `rising`      | True if the Sun is currently rising, after solar midnight and before solar noon.                                       |
+
+## Binary sensors
+
+The binary sensors are also available as attributes on the `sun.sun` entity for backwards compatibility reasons.
+
+| Sensors       | Description                                                                                                            |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Solar rising  | True if the Sun is currently rising, after solar midnight and before solar noon.                                       |
