@@ -75,6 +75,11 @@ sensor_classes:
   type: list
   default: "temperature, humidity"
   description: A list of sensor device classes which will display their averaged sensor readings for the area. 
+show_name:
+  required: false
+  type: boolean
+  default: true
+  description: Show the name of the area on the card.
 {% endconfiguration %}
 
 ### Example
@@ -93,5 +98,6 @@ type: area
 area: bedroom
 navigation_path: my_bedroom
 show_camera: true
+show_name: false
 theme: green
 ```
