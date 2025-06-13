@@ -80,19 +80,19 @@ This method works if you have the [NGINX Home Assistant SSL proxy Add-on](https:
 
 ### Set up the keys for Home Assistant
 
-4. **Copy the private key** to your Home Assistant configuration:
+1. Copy the private key to your Home Assistant configuration:
 
    ```shell
    cp tesla_fleet.key /config/tesla_fleet.key
    ```
 
-5. **Create the directory** for the public key:
+2. Create the directory for the public key:
 
    ```shell
    mkdir -p /share/tesla/.well-known/appspecific/
    ```
 
-6. **Copy the public key** to the web-accessible location:
+3. Copy the public key to the web-accessible location:
 
    ```shell
    cp public-key.pem /share/tesla/.well-known/appspecific/com.tesla.3p.public-key.pem
@@ -100,7 +100,7 @@ This method works if you have the [NGINX Home Assistant SSL proxy Add-on](https:
 
 ### Configure NGINX
 
-7. **Create the NGINX configuration**:
+1. Create the NGINX configuration:
 
    ```shell
    echo 'location /.well-known/appspecific/com.tesla.3p.public-key.pem {
@@ -108,15 +108,15 @@ This method works if you have the [NGINX Home Assistant SSL proxy Add-on](https:
    }' > /share/nginx_proxy_default_tesla.conf
    ```
 
-8. **Configure the NGINX Add-on**:
+2. Configure the NGINX Add-on:
    - Go to **Settings** > **Add-ons** > **NGINX Home Assistant SSL proxy** > **Configuration**
    - Change `customize.active` from `false` to `true`
    - Leave `config.default` at its default value: `nginx_proxy_default*.conf`
 
-9. **Restart the NGINX Add-on** and verify your public key is accessible at:
+3. Restart the NGINX Add-on and verify your public key is accessible at:
    `https://yourdomain.com/.well-known/appspecific/com.tesla.3p.public-key.pem`
 
-10. **Backup your keys** in a safe location for future use.
+4. Backup your keys in a safe location for future use.
 
 {% enddetails %}
 
