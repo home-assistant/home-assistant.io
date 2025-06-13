@@ -184,6 +184,22 @@ To migrate a Z-Wave network to a new controller, follow these steps:
    - Confirm that you connected the new controller by selecting **Submit**.
 6. Follow the steps on screen.
 
+## Backing up your Z-Wave network
+
+It's recommended to create a backup before making any major changes to your Z-Wave network. For example, before migrating from one controller to another, or before resetting your controller. The backup stores your Z-Wave controller's non-volatile memory (NVM), which contains your network information including paired devices. It is stored in a binary file that you can download.
+
+### Prerequisites
+
+- Administrator rights in Home Assistant
+
+### To backup your Z-Wave network
+
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Z-Wave** integration. Then, select **Configure**.
+3. Under **Backup and restore**, select **Download backup**.
+   - **Result**: The backup file is downloaded to the device from which you initiated the download.
+4. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
+
 ## Special Z-Wave entities
 
 The Z-Wave integration provides several special entities, some of which are available for every Z-Wave device, and some of which are conditional based on the device.
