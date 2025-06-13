@@ -67,15 +67,12 @@ Choose the method that matches your hosting setup:
 
 This method works if you have the [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) running for external access to Home Assistant.
 
-1. **Open an SSH Terminal** using the [Terminal & SSH Add-on](https://www.home-assistant.io/common-tasks/os#installing-and-using-the-ssh-add-on).
+1. Open an SSH Terminal using the [Terminal & SSH Add-on](https://www.home-assistant.io/common-tasks/os#installing-and-using-the-ssh-add-on).
 
-2. **Create your private key**:
+2. Create your private key:
 
    ```shell
    openssl ecparam -name prime256v1 -genkey -noout -out tesla_fleet.key
-   ```
-
-3. **Create the public key**:
 
    ```shell
    openssl ec -in tesla_fleet.key -pubout -out public-key.pem
