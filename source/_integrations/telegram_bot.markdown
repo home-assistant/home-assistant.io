@@ -39,7 +39,24 @@ This implementation allows Telegram to push updates directly to your server and 
 
 Create your Telegram bot and [retrieve the API key](/integrations/telegram). The `api_key` will be used for adding the bot to Home Assistant during integration setup.
 
+### Allow Telegram bot to access your Home Assistant files (Optional)
+
+To enable Telegram bot to send local files, you must grant access to it by adding the file's folder to [`allowlist_external_dirs`](https://www.home-assistant.io/integrations/homeassistant/#allowlist_external_dirs).
+
+Example `configuration.yaml`:
+
+```yaml
+homeassistant:
+  allowlist_external_dirs:
+    - "/media"
+```
+
 ### Allow Telegram to connect to your Home Assistant (Webhooks platform only)
+
+{% note %}
+This integration currently does not support self-signed certificates for HTTPS.
+If you are using the *Reverse proxy* or *Direct* method, please ensure that your certificates are signed by a public Certificate Authority (CA).
+{% endnote %}
 
 If you plan to use the `Webhooks` platform, you will need to allow Telegram to connect to your Home Assistant using one of the following methods:
 
@@ -85,7 +102,7 @@ If you have selected the `Webhooks` Telegram bot type, the integration setup wil
 URL:
   description: Allow to overwrite the external URL from the Home Assistant [configuration](/integrations/homeassistant/#editing-the-general-settings-in-yaml) for different setups (`https://<public_url>:<port>`).
 Trusted networks:
-  description: Telegram server access ACL as list.
+  description: Telegram server access ACL as list. Default is `149.154.160.0/20, 91.108.4.0/22`.
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
@@ -94,7 +111,7 @@ The integration can be configured to use a default parse mode for messages.
 
 {% configuration_basic %}
 Parse mode:
-  description: Default parser for messages if not explicit in message data, either `markdown` (legacy), `markdownv2` or `html`. Refer to Telegram's [formatting options](https://core.telegram.org/bots/api#formatting-options) for more information.
+  description: Default parser for messages if not explicit in message data, either `markdown` (legacy), `markdownv2`, `html` or `plain_text`. Refer to Telegram's [formatting options](https://core.telegram.org/bots/api#formatting-options) for more information.
 {% endconfiguration_basic %}
 
 ## Allowlisting chat IDs via Subentries
