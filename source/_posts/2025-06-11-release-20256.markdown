@@ -46,6 +46,8 @@ _PS: We will pick up the regular release schedule again now, so expect the next 
 - [Sidebar improvements](#sidebar-improvements)
 - [Join/unjoin groups of media players](#joinunjoin-groups-of-media-players)
 - [Reset/restore entity IDs](#resetrestore-entity-ids)
+- [Patch releases](#patch-releases)
+  - [2025.6.1 - June 13](#202561---june-13)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -329,6 +331,63 @@ You can now restore the ID of an entity to its original value. This is useful if
 This feature is available in the entity configuration dialog, where you can now find a "Reset" icon on the entity ID field. When clicked, it will restore the entity ID to its original value. Additionally, there is the option called "Recreate entity IDs" in the top right three-dotted menu on the device page, to reset all entity IDs of a device to their original values.
 
 <img class="no-shadow" alt="Screenshot showing the reset option of the entity ID in the entity configuration dialog." src="/images/blog/2025-06/reset-entity-id.png" />
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2025.6 in June.
+These patch releases only contain bug fixes. Our goal is to release a patch
+release every Friday.
+
+### 2025.6.1 - June 13
+
+- Fix palette handling for LIFX Ceiling SKY effect ([@Djelibeybi] - [#146582])
+- Fix fan is_on status in xiaomi_miio ([@epenet] - [#146592])
+- Drop HostKeyAlgorithms in aruba ([@aethrvmn] - [#146619])
+- Update frontend to 20250531.3 ([@piitaya] - [#146638])
+- Fix cookies with aiohttp >= 3.12.7 for Vodafone Station ([@chemelli74] - [#146647])
+- Bump wakeonlan to 3.1.0 ([@epenet] - [#146655])
+- Bump hdate to 1.1.2 ([@tsvi] - [#146659])
+- Bump linkplay to v0.2.12 ([@silamon] - [#146669])
+- Filter speak notify entity for WHA devices in Alexa Devices ([@chemelli74] - [#146688])
+- Bump aioamazondevices to 3.1.2 ([@chemelli74] - [#146690])
+- Fix opower to work with aiohttp>=3.12.7 by disabling cookie quoting ([@tronikos] - [#146697])
+- Revert scan interval change in local calendar ([@allenporter] - [#146700])
+- Partial revert of update to remote calendar to fix issue where calendar does not update ([@allenporter] - [#146702])
+- Ignore lingering pycares shutdown thread ([@cdce8p] - [#146733])
+- Bump aiodns to 3.5.0 ([@bdraco] - [#146758])
+- Fix throttling issue in HomematicIP Cloud ([@hahn-th] - [#146683])
+
+[#145650]: https://github.com/home-assistant/core/pull/145650
+[#146582]: https://github.com/home-assistant/core/pull/146582
+[#146592]: https://github.com/home-assistant/core/pull/146592
+[#146619]: https://github.com/home-assistant/core/pull/146619
+[#146638]: https://github.com/home-assistant/core/pull/146638
+[#146647]: https://github.com/home-assistant/core/pull/146647
+[#146655]: https://github.com/home-assistant/core/pull/146655
+[#146659]: https://github.com/home-assistant/core/pull/146659
+[#146669]: https://github.com/home-assistant/core/pull/146669
+[#146683]: https://github.com/home-assistant/core/pull/146683
+[#146688]: https://github.com/home-assistant/core/pull/146688
+[#146690]: https://github.com/home-assistant/core/pull/146690
+[#146697]: https://github.com/home-assistant/core/pull/146697
+[#146700]: https://github.com/home-assistant/core/pull/146700
+[#146702]: https://github.com/home-assistant/core/pull/146702
+[#146733]: https://github.com/home-assistant/core/pull/146733
+[#146758]: https://github.com/home-assistant/core/pull/146758
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@aethrvmn]: https://github.com/aethrvmn
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@chemelli74]: https://github.com/chemelli74
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@hahn-th]: https://github.com/hahn-th
+[@piitaya]: https://github.com/piitaya
+[@silamon]: https://github.com/silamon
+[@tronikos]: https://github.com/tronikos
+[@tsvi]: https://github.com/tsvi
+
 
 ## Need help? Join the community!
 
