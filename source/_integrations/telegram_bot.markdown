@@ -41,7 +41,7 @@ Create your Telegram bot and [retrieve the API key](/integrations/telegram). The
 
 ### Allow Telegram bot to access your Home Assistant files (Optional)
 
-To enable Telegram bot to send local files, you must grant access to it by adding the file's folder to [`allowlist_external_dirs`](https://www.home-assistant.io/integrations/homeassistant/#allowlist_external_dirs).
+To enable Telegram bot to send local files, you must grant access to it by adding the file's folder to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs).
 
 Example `configuration.yaml`:
 
