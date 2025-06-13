@@ -136,6 +136,7 @@ Depending on the supported features of the camera, number entities are added for
 - Optical zoom control
 - Focus control
 - Floodlight turn on brightness
+- Infrared light brightness
 - Volume (Camera)
 - Alarm volume (Home Hub)
 - Message volume (Home Hub)
