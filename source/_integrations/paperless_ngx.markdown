@@ -46,6 +46,8 @@ URL:
   description: "URL to connect to the Paperless-ngx instance."
 API key:
   description: "API key to connect to the Paperless-ngx API."
+Verify SSL certificate:
+  description: "Verify the SSL certificate of the Paperless-ngx instance. Disable this option if you're using a self-signed certificate."
 {% endconfiguration_basic %}
 
 ## Sensors
