@@ -167,29 +167,29 @@ Use this method if you have your own web hosting or prefer using a third-party s
 
 Now you'll create a Tesla Developer Application to connect Home Assistant with Tesla's API.
 
-1. **Set up your Tesla Developer account** at [developer.tesla.com](https://developer.tesla.com/teslaaccount):
+1. Set up your Tesla Developer account at [developer.tesla.com](https://developer.tesla.com/teslaaccount):
    - Verify your email address
    - Enable multi-factor authentication (optional)
 
-2. **Create a new application**:
+2. Create a new application:
    - Go to [developer.tesla.com/request](https://developer.tesla.com/request)
    - Start the application request process
 
-3. **Complete registration**:
-   - **Select your account**: Choose your Tesla account from the dropdown
+3. Complete registration:
+   - Select your account: Choose your Tesla account from the dropdown
 
-4. **Enter application details**:
-   - **Application name**: A name to identify the application
-   - **Description**: Enter a brief description of your integration
-   - **Purpose of Usage**: Explain how you'll use the API (e.g., "Home automation integration")
+4. Enter application details:
+   - Application name: A name to identify the application
+   - Description: Enter a brief description of your integration
+   - Purpose of Usage: Explain how you'll use the API (e.g., "Home automation integration")
 
-5. **Configure client details**:
-   - **OAuth Grant Type**: Select **Authorization Code and Machine-to-Machine**
-   - **Allowed Origin URL(s)**: Enter your domain (example: `https://yourdomain.com/`)
-   - **Allowed Redirect URI**: Enter `https://my.home-assistant.io/redirect/oauth`
-   - **Allowed Returned URL(s)**: Leave this field empty (not required)
+5. Configure client details:
+   - OAuth Grant Type: Select **Authorization Code and Machine-to-Machine**
+   - Allowed Origin URL(s): Enter your domain (example: `https://yourdomain.com/`)
+   - Allowed Redirect URI: Enter `https://my.home-assistant.io/redirect/oauth`
+   - Allowed Returned URL(s): Leave this field empty (not required)
 
-6. **Select API scopes**:
+6. Select API scopes:
 
    {% important %}
    You must select at least **Vehicle Information** OR **Energy Product Information** for the {% term integration %} to work.
@@ -206,12 +206,12 @@ Now you'll create a Tesla Developer Application to connect Home Assistant with T
    You can change scopes later, but you'll need to reconfigure the entire integration.
    {% endnote %}
 
-7. **Set up billing** (optional):
+7. Set up billing (optional):
    - Tesla provides $10 monthly credit for personal use
    - Most personal usage stays within the free tier
    - You can add billing details later if needed
 
-8. **Save your credentials**:
+8. Save your credentials:
    - After creating the application, go to **View Details** > **Credentials & APIs**
    - Note your **Client ID** and **Client Secret** - you'll need these for Home Assistant
 
@@ -225,16 +225,16 @@ The following steps involve sensitive credentials. Never share your Client Secre
 
 ### Get an access token
 
-1. **Prepare your credentials** from the Tesla Developer Dashboard:
-   - **Client ID**
-   - **Client Secret**
+1. Prepare your credentials from the Tesla Developer Dashboard:
+   - Client ID
+   - Client Secret
 
-2. **Choose your region URL**:
-   - **North America/Asia-Pacific**: `https://fleet-api.prd.na.vn.cloud.tesla.com`
-   - **Europe/Middle East/Africa**: `https://fleet-api.prd.eu.vn.cloud.tesla.com`
+2. Choose your region URL:
+   - North America/Asia-Pacific: `https://fleet-api.prd.na.vn.cloud.tesla.com`
+   - Europe/Middle East/Africa: `https://fleet-api.prd.eu.vn.cloud.tesla.com`
 
 
-3. **Get your access token** by running this command (replace the variables):
+3. Get your access token by running this command (replace the variables):
 
    ```shell
    curl --request POST \
@@ -251,7 +251,7 @@ The following steps involve sensitive credentials. Never share your Client Secre
    If your Client Secret contains `!` or `$` characters, you may need to escape them depending on your terminal.
    {% endnote %}
 
-4. **Copy the access token** from the response:
+4. Copy the access token from the response:
 
    ```json
    {"access_token":"YOUR_ACCESS_TOKEN","expires_in":28800,"token_type":"Bearer"}
@@ -259,7 +259,7 @@ The following steps involve sensitive credentials. Never share your Client Secre
 
 ### Register as a partner
 
-5. **Register your domain** with Tesla (replace YOUR_ACCESS_TOKEN and your domain):
+5. Register your domain with Tesla (replace YOUR_ACCESS_TOKEN and your domain):
 
    ```shell
    curl --location 'YOUR_REGION_URL/api/1/partner_accounts' \
@@ -270,27 +270,27 @@ The following steps involve sensitive credentials. Never share your Client Secre
    }'
    ```
 
-6. **Verify success** - you should see a response with your application details and pricing information.
+6. Verify success - you should see a response with your application details and pricing information.
 
 ### Step 4: Connect to Home Assistant
 
 {% include integrations/config_flow.md %}
 
-1. **Start the integration setup**:
+1. Start the integration setup:
    - In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}
    - Select **Add Integration** and search for **Tesla Fleet**
 
-2. **Enter your application details**:
+2. Enter your application details:
    - **Application name**: Enter the name you used when creating your Tesla Developer Application
-   - **Client ID**: From your Tesla Developer Dashboard
+   - **Client ID: From** your Tesla Developer Dashboard
    - **Client Secret**: From your Tesla Developer Dashboard
 
-3. **Authenticate with Tesla**:
+3. Authenticate with Tesla:
    - You'll be redirected to Tesla's login page
    - Enter your Tesla account credentials
    - On the authorization page, select **Select All** and then **Allow**
 
-4. **Complete the setup**:
+4. Complete the setup:
    - Confirm you want to **Link account to Home Assistant**
    - The {% term integration %} will automatically discover your Tesla vehicles and energy products
 
