@@ -18,6 +18,13 @@ The Snapcast integration allows you to control [Snapcast](https://github.com/bad
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Create entities for groups:
+  description: "Create media player entities for each Snapcast group"
+{% endconfiguration_basic %}
+
 ## Actions
 
 The snapcast integration provides a few actions registered under the media_player integration.
@@ -37,23 +44,6 @@ Restore a previously taken snapshot of one or more speakers.
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that should have their snapshot restored.
-
-### Action `snapcast.join`
-
-Group players together under a single group.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `master` | no | Entity ID of the player to synchronize to.
-| `entity_id` | yes | String or list of `entity_id`s to join to the master.
-
-### Action `snapcast.unjoin`
-
-Remove one or more speakers from their group of speakers.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of `entity_id`s to separate from their coordinator speaker.
 
 ### Action `snapcast.set_latency`
 
