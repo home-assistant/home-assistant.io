@@ -35,14 +35,16 @@ You need to register for an API key: [Sign up here](https://home.openweathermap.
 There are currently two types of OpenWeatherMap services supported by this integration, with several corresponding modes.
 
 ### [One Call API 3.0](https://openweathermap.org/price#onecall)
- * `v3.0` : current weather, hourly forecast for 48 hours, daily forecast for 8 days
+
+- `v3.0` : current weather, hourly forecast for 48 hours, daily forecast for 8 days
 
 The One Call API 3.0 services requires a [subscription](https://openweathermap.org/api/one-call-3). The subscription has a free tier with 1000 calls/day. Consider setting the limit on the OpenWeatherMap website to stay under the threshold where API usage incurs a cost. This is done in the [Billing plans](https://home.openweathermap.org/subscriptions) page, under "Calls per day".
 
 ### [Free](https://openweathermap.org/price#freeaccess)
- * `current` : current weather 
- * `forecast` : weather forecast, in 3-hour steps for 5 days
- * `air_pollution` : current air pollution
+
+- `current` : current weather 
+- `forecast` : weather forecast, in 3-hour steps for 5 days
+- `air_pollution` : current air pollution
 
 The Free services require a registration but no subscription. Once signed up, the API key can be found from your profiles' [My API keys](https://home.openweathermap.org/api_keys) page. 
 
