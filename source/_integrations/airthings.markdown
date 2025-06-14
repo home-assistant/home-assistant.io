@@ -26,7 +26,7 @@ While this integration works without an Airthings SmartLink hub, using one will 
 
 Requires Airthings hardware and a valid Airthings Dashboard login.
 
-{% tip %} Initially, the radon sensor not published by the Airthings API (it is considered "unknown"), and so you may have to wait 24 hours to see the radon sensor appear for a new device.{% endtip %}
+{% tip %} Initially, the radon sensor may not be published by the Airthings API (at device startup the value is considered "unknown"), and so you may have to wait for the radon sensor appear for a new device.{% endtip %}
 
 
 
