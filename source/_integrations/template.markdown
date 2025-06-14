@@ -81,7 +81,7 @@ Entities (alarm control panels, binary sensors, buttons, covers, fans, images, l
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template alarm control panels, binary sensors, buttons, covers, fans, images, lights, numbers, selects, sensors, switches, vacuums, and weathers
+### State-based template (all platforms / domains)
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -139,6 +139,14 @@ template:
 ### Configuration reference
 
 {% configuration %}
+actions:
+  description: Define actions to be executed when the trigger fires (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  required: false
+  type: list
+conditions:
+  description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed (for trigger-based entities only). Optional. [See condition documentation](/docs/automation/condition).
+  required: false
+  type: list
 triggers:
   description: Define one or multiple automation triggers to update the entities. Optional. If omitted will update based on referenced entities. [See trigger documentation](/docs/automation/trigger).
   required: false
@@ -147,16 +155,8 @@ unique_id:
   description: The unique ID for this config block. This will be prefixed to all unique IDs of all entities in this block.
   required: false
   type: string
-conditions:
-  description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed (for trigger-based entities only). Optional. [See condition documentation](/docs/automation/condition).
-  required: false
-  type: list
-actions:
-  description: Define actions to be executed when the trigger fires (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
-  required: false
-  type: list
 variables:
-  description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints.
+  description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints. With State-based template entities, variables are only resolved when the configuration is loaded or reloaded.  Trigger based template entities resolve variables between triggers and actions.
   required: false
   type: map
   keys:
@@ -164,62 +164,39 @@ variables:
       description: The variable name and corresponding value.
       required: true
       type: string
-sensor:
-  description: List of sensors
-  required: true
-  type: list
-  keys:
-    state:
-      description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
-      required: true
-      type: template
-    unit_of_measurement:
-      description: "Defines the units of measurement of the sensor, if any. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
-      required: false
-      type: string
-      default: None
-    state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in long-term statistics, include this key and assign it the appropriate value"
-      required: false
-      type: string
-      default: None
-    last_reset:
-      description: "Defines a template that describes when the state of the sensor was last reset. Must render to a valid `datetime`. Only available when `state_class` is set to `total`"
-      required: false
-      type: template
-      default: None
-binary_sensor:
-  description: List of binary sensors
-  required: true
-  type: list
-  keys:
-    state:
-      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
-      required: true
-      type: template
-    delay_on:
-      description: The amount of time (e.g. `0:00:05`) the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
-      required: false
-      type: time
-    delay_off:
-      description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`. This can also be a template.
-      required: false
-      type: time
-    auto_off:
-      description: "**Requires a trigger.** After how much time the entity should turn off after it rendered 'on'."
-      required: false
-      type: time
-"[both sensor and binary_sensor entities]":
-  description: Fields that can be used above for both sensors and binary sensors.
+"[all sensor, binary sensor, button, image, light, number, select, switch, weather entities]":
+  description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map
   keys:
+    availability:
+      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison is not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+      required: false
+      type: template
+      default: true
+    icon:
+      description: Defines a template for the icon of the entity.
+      required: false
+      type: template
     picture:
       description: Defines a template for the entity picture of the sensor.
       required: false
       type: template
+    name:
+      description: Defines a template to get the name of the entity.
+      required: false
+      type: template
+    unique_id:
+      description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+      required: false
+      type: string
+"[all binary_sensor, sensor, vacuum entities]":
+  description: Fields that can be used above for binary sensors, sensors, and vacuums.
+  required: false
+  type: map
+  keys:
     attributes:
-      description: Defines templates for attributes of the sensor.
+      description: Defines templates for attributes of the entity.
       required: false
       type: map
       keys:
@@ -227,26 +204,17 @@ binary_sensor:
           description: The attribute and corresponding template.
           required: true
           type: template
-    device_class:
-      description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
-      required: false
-      type: device_class
-      default: None
 alarm_control_panel:
   description: List of alarm control panels
   required: true
   type: map
   keys:
-    state:
-      description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
-      required: false
-      type: template
-    disarm:
-      description: Defines an action to run when the alarm is disarmed.
-      required: false
-      type: action
     arm_away:
       description: Defines an action to run when the alarm is armed to away mode.
+      required: false
+      type: action
+    arm_custom_bypass:
+      description: Defines an action to run when the alarm is armed to custom bypass mode.
       required: false
       type: action
     arm_home:
@@ -261,14 +229,6 @@ alarm_control_panel:
       description: Defines an action to run when the alarm is armed to vacation mode.
       required: false
       type: action
-    arm_custom_bypass:
-      description: Defines an action to run when the alarm is armed to custom bypass mode.
-      required: false
-      type: action
-    trigger:
-      description: Defines an action to run when the alarm is triggered.
-      required: false
-      type: action
     code_arm_required:
       description: If true, the code is required to arm the alarm.
       required: false
@@ -279,65 +239,44 @@ alarm_control_panel:
       required: false
       type: string
       default: number
-number:
-  description: List of numbers
-  required: true
-  type: map
-  keys:
-    state:
-      description: Template for the number's current value.
-      required: true
-      type: template
-    unit_of_measurement:
-      description: Defines the units of measurement of the number, if any.
+    disarm:
+      description: Defines an action to run when the alarm is disarmed.
       required: false
-      type: string
+      type: action
+    state:
+      description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
+      required: false
+      type: template
+    trigger:
+      description: Defines an action to run when the alarm is triggered.
+      required: false
+      type: action
+binary_sensor:
+  description: List of binary sensors
+  required: true
+  type: list
+  keys:
+    auto_off:
+      description: "**Requires a trigger.** After how much time the entity should turn off after it rendered 'on'."
+      required: false
+      type: time
+    delay_off:
+      description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`. This can also be a template.
+      required: false
+      type: time
+    delay_on:
+      description: The amount of time (e.g. `0:00:05`) the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
+      required: false
+      type: time
+    device_class:
+      description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+      required: false
+      type: device_class
       default: None
-    set_value:
-      description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
-      required: true
-      type: action
-    step:
-      description: Template for the number's increment/decrement step.
-      required: true
-      type: template
-    min:
-      description: Template for the number's minimum value.
-      required: false
-      type: template
-      default: 0.0
-    max:
-      description: Template for the number's maximum value.
-      required: false
-      type: template
-      default: 100.0
-    optimistic:
-      description: Flag that defines if number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
-      required: false
-      type: boolean
-      default: false
-select:
-  description: List of selects
-  required: true
-  type: map
-  keys:
     state:
-      description: Template for the select's current value.
+      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
       required: true
       type: template
-    select_option:
-      description: Defines actions to run to select an option from the `options` list. The variable `option` will contain the option selected.
-      required: true
-      type: action
-    options:
-      description: Template for the select's available options.
-      required: true
-      type: template
-    optimistic:
-      description: Flag that defines if select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
-      required: false
-      type: boolean
-      default: false
 button:
   description: List of buttons
   required: true
@@ -351,14 +290,10 @@ cover:
   description: Characteristics of a cover
   type: map
   keys:
-    state:
-      description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `state` and a `position` template](/integrations/cover.template/#combining-value_template-and-position_template) are specified, only `opening` and `closing` are set from the `state` template. If the template produces a `None` value the state will be set to `unknown`.
-      required: false
-      type: template
-    position:
-      description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value the current position will be set to `unknown`.
-      required: false
-      type: template
+    close_cover:
+      description: Defines an action to close the cover.
+      required: inclusive
+      type: action
     device_class:
       description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
       required: false
@@ -367,14 +302,15 @@ cover:
       description: Defines an action to open the cover. If [`open_cover`](#open_cover) is specified, [`close_cover`](#close_cover) must also be specified. At least one of [`open_cover`](#open_cover) and [`set_cover_position`](#set_cover_position) must be specified.
       required: inclusive
       type: action
-    close_cover:
-      description: Defines an action to close the cover.
-      required: inclusive
-      type: action
-    stop_cover:
-      description: Defines an action to stop the cover.
+    optimistic:
+      description: Force cover position to use [optimistic mode](#optimistic-mode).
       required: false
-      type: action
+      type: boolean
+      default: false
+    position:
+      description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value the current position will be set to `unknown`.
+      required: false
+      type: template
     set_cover_position:
       description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` will contain the entity's set position.
       required: false
@@ -383,28 +319,35 @@ cover:
       description: Defines an action to set the tilt of a cover (between `0` and `100`). The variable `tilt` will contain the entity's set tilt position.
       required: false
       type: action
-    optimistic:
-      description: Force cover position to use [optimistic mode](#optimistic-mode).
+    state:
+      description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `state` and a `position` template](/integrations/cover.template/#combining-value_template-and-position_template) are specified, only `opening` and `closing` are set from the `state` template. If the template produces a `None` value the state will be set to `unknown`.
       required: false
-      type: boolean
-      default: false
+      type: template
+    stop_cover:
+      description: Defines an action to stop the cover.
+      required: false
+      type: action
+    tilt:
+      description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).  If the template produces a `None` value, the current tilt state will be set to `unknown`.
+      required: false
+      type: template
     tilt_optimistic:
       description: Force cover tilt position to use [optimistic mode](#optimistic-mode).
       required: false
       type: boolean
       default: false
-    tilt:
-      description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).  If the template produces a `None` value, the current tilt state will be set to `unknown`.
-      required: false
-      type: template
 fan:
   description: List of fans
   required: true
   type: map
   keys:
-    state:
-      description: "Defines a template to get the state of the fan. Valid values: `on`, `off`."
-      required: true
+    oscillating:
+      description: "Defines a template to get the osc state of the fan. Valid values: `true`, `false`."
+      required: false
+      type: template
+    direction:
+      description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`."
+      required: false
       type: template
     percentage:
       description: Defines a template to get the speed percentage of the fan.
@@ -414,22 +357,11 @@ fan:
       description: Defines a template to get the preset mode of the fan.
       required: false
       type: template
-    oscillating:
-      description: "Defines a template to get the osc state of the fan. Valid values: `true`, `false`."
+    preset_modes:
+      description: List of preset modes the fan is capable of. This is an arbitrary list of strings and must not contain any speeds.
       required: false
-      type: template
-    direction:
-      description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`."
-      required: false
-      type: template
-    turn_on:
-      description: Defines an action to run when the fan is turned on.
-      required: true
-      type: action
-    turn_off:
-      description: Defines an action to run when the fan is turned off.
-      required: true
-      type: action
+      type: [string, list]
+      default: []
     set_percentage:
       description: Defines an action to run when the fan is given a speed percentage command.
       required: false
@@ -446,16 +378,23 @@ fan:
       description: Defines an action to run when the fan is given a direction command.
       required: false
       type: action
-    preset_modes:
-      description: List of preset modes the fan is capable of. This is an arbitrary list of strings and must not contain any speeds.
-      required: false
-      type: [string, list]
-      default: []
     speed_count:
       description: The number of speeds the fan supports. Used to calculate the percentage step for the `fan.increase_speed` and `fan.decrease_speed` actions.
       required: false
       type: integer
       default: 100
+    state:
+      description: "Defines a template to get the state of the fan. Valid values: `on`, `off`."
+      required: true
+      type: template
+    turn_on:
+      description: Defines an action to run when the fan is turned on.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action to run when the fan is turned off.
+      required: true
+      type: action
 image:
   description: List of images
   required: true
@@ -475,8 +414,18 @@ light:
   required: true
   type: map
   keys:
-    state:
-      description: Defines a template to set the state of the light. If not defined, the switch will optimistically assume all commands are successful.
+    effect:
+      description: Defines a template to get the effect of the light.
+      required: inclusive
+      type: template
+      default: optimistic
+    effect_list:
+      description: Defines a template to get the list of supported effects. Must render a list.
+      required: inclusive
+      type: template
+      default: optimistic
+    hs:
+      description: Defines a template to get the HS color of the light. Must render a tuple (hue, saturation).
       required: false
       type: template
       default: optimistic
@@ -485,13 +434,13 @@ light:
       required: false
       type: template
       default: optimistic
-    temperature:
-      description: Defines a template to get the color temperature of the light.
+    min_mireds:
+      description: Defines a template to get the minimum mired value of the light.
       required: false
       type: template
       default: optimistic
-    hs:
-      description: Defines a template to get the HS color of the light. Must render a tuple (hue, saturation).
+    max_mireds:
+      description: Defines a template to get the maximum mired value of the light.
       required: false
       type: template
       default: optimistic
@@ -510,38 +459,9 @@ light:
       required: false
       type: template
       default: optimistic
-    supports_transition:
-      description: Defines a template to get if the light supports transition. Should return a boolean value (True/False). If this value is `True`, the transition parameter in a `turn on` or `turn off` call will be passed as a named parameter `transition` in either of the scripts.
-      required: false
-      type: template
-      default: false
-    effect_list:
-      description: Defines a template to get the list of supported effects. Must render a list.
+    set_effect:
+      description: Defines an action to run when the light is given an effect command. Receives the variable `effect`. May also receive the variables `brightness`, and/or  `transition`.
       required: inclusive
-      type: template
-      default: optimistic
-    effect:
-      description: Defines a template to get the effect of the light.
-      required: inclusive
-      type: template
-      default: optimistic
-    min_mireds:
-      description: Defines a template to get the minimum mired value of the light.
-      required: false
-      type: template
-      default: optimistic
-    max_mireds:
-      description: Defines a template to get the maximum mired value of the light.
-      required: false
-      type: template
-      default: optimistic
-    turn_on:
-      description: Defines an action to run when the light is turned on. May receive the variables `brightness` and/or `transition`.
-      required: true
-      type: action
-    turn_off:
-      description: Defines an action to run when the light is turned off. May receive the variable `transition`.
-      required: true
       type: action
     set_level:
       description: Defines an action to run when the light is given a brightness command. The script will only be called if the `turn_on` call only ha brightness, and optionally transition. Receives variables `brightness` and, optionally, `transition`.
@@ -567,19 +487,34 @@ light:
       description: "Defines an action to run when the light is given an RGBWW color command. Available variables: `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`  `b`, `cw` and `ww`."
       required: false
       type: action
-    set_effect:
-      description: Defines an action to run when the light is given an effect command. Receives the variable `effect`. May also receive the variables `brightness`, and/or  `transition`.
-      required: inclusive
+    state:
+      description: Defines a template to set the state of the light. If not defined, the switch will optimistically assume all commands are successful.
+      required: false
+      type: template
+      default: optimistic
+    supports_transition:
+      description: Defines a template to get if the light supports transition. Should return a boolean value (True/False). If this value is `True`, the transition parameter in a `turn on` or `turn off` call will be passed as a named parameter `transition` in either of the scripts.
+      required: false
+      type: template
+      default: false
+    temperature:
+      description: Defines a template to get the color temperature of the light.
+      required: false
+      type: template
+      default: optimistic
+    turn_on:
+      description: Defines an action to run when the light is turned on. May receive the variables `brightness` and/or `transition`.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action to run when the light is turned off. May receive the variable `transition`.
+      required: true
       type: action
 lock:
   description: List of locks
   required: true
   type: map
   keys:
-    state:
-      description: Defines a template to set the state of the lock.
-      required: true
-      type: template
     code_format:
       description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code will be matched against the regular expression, and the lock/unlock actions will be executed only if they match. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity will be unavailable. If the template fails to render for other reasons or if the regular expression is invalid, no code will be accepted, and the lock/unlock actions will never be invoked.
       required: false
@@ -587,10 +522,6 @@ lock:
       default: None
     lock:
       description: Defines an action to run when the lock is locked.
-      required: true
-      type: action
-    unlock:
-      description: Defines an action to run when the lock is unlocked.
       required: true
       type: action
     open:
@@ -602,6 +533,97 @@ lock:
       required: false
       type: boolean
       default: false
+    state:
+      description: Defines a template to set the state of the lock.
+      required: true
+      type: template
+    unlock:
+      description: Defines an action to run when the lock is unlocked.
+      required: true
+      type: action
+number:
+  description: List of numbers
+  required: true
+  type: map
+  keys:
+    max:
+      description: Template for the number's maximum value.
+      required: false
+      type: template
+      default: 100.0
+    min:
+      description: Template for the number's minimum value.
+      required: false
+      type: template
+      default: 0.0
+    optimistic:
+      description: Flag that defines if number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
+    set_value:
+      description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
+      required: true
+      type: action
+    state:
+      description: Template for the number's current value.
+      required: true
+      type: template
+    unit_of_measurement:
+      description: Defines the units of measurement of the number, if any.
+      required: false
+      type: string
+      default: None
+    step:
+      description: Template for the number's increment/decrement step.
+      required: true
+      type: template
+select:
+  description: List of selects
+  required: true
+  type: map
+  keys:
+    optimistic:
+      description: Flag that defines if select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
+    options:
+      description: Template for the select's available options.
+      required: true
+      type: template
+    select_option:
+      description: Defines actions to run to select an option from the `options` list. The variable `option` will contain the option selected.
+      required: true
+      type: action
+    state:
+      description: Template for the select's current value.
+      required: true
+      type: template
+sensor:
+  description: List of sensors
+  required: true
+  type: list
+  keys:
+    last_reset:
+      description: "Defines a template that describes when the state of the sensor was last reset. Must render to a valid `datetime`. Only available when `state_class` is set to `total`"
+      required: false
+      type: template
+      default: None
+    state:
+      description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
+      required: true
+      type: template
+    state_class:
+      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in long-term statistics, include this key and assign it the appropriate value"
+      required: false
+      type: string
+      default: None
+    unit_of_measurement:
+      description: "Defines the units of measurement of the sensor, if any. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
+      required: false
+      type: string
+      default: None
 switch:
   description: List of switches
   required: true
@@ -612,12 +634,12 @@ switch:
       required: false
       type: template
       default: optimistic
-    turn_on:
-      description: Defines an action or list of actions to run when the switch is turned on.
-      required: true
-      type: action
     turn_off:
       description: Defines an action or list of actions to run when the switch is turned off.
+      required: true
+      type: action
+    turn_on:
+      description: Defines an action or list of actions to run when the switch is turned on.
       required: true
       type: action
 vacuum:
@@ -625,128 +647,71 @@ vacuum:
   required: true
   type: map
   keys:
-    state:
-      description: "Defines a template to get the state of the vacuum. Valid value: `docked`/`cleaning`/`idle`/`paused`/`returning`/`error`"
-      required: false
-      type: template
     battery_level:
       description: "Defines a template to get the battery level of the vacuum. Legal values are numbers between `0` and `100`."
       required: false
       type: template
+    clean_spot:
+      description: Defines an action to run when the vacuum is given a clean spot command.
+      required: false
+      type: action
     fan_speed:
       description: Defines a template to get the fan speed of the vacuum.
       required: false
       type: template
-    attributes:
-      description: Defines templates for attributes of the sensor.
+    fan_speeds:
+      description: List of fan speeds supported by the vacuum.
       required: false
-      type: map
-      keys:
-        "attribute: template":
-          description: The attribute and corresponding template.
-          required: true
-          type: template
-    start:
-      description: Defines an action to run when the vacuum is started.
-      required: true
+      type: [string, list]
+    locate:
+      description: Defines an action to run when the vacuum is given a locate command.
+      required: false
       type: action
     pause:
       description: Defines an action to run when the vacuum is paused.
-      required: false
-      type: action
-    stop:
-      description: Defines an action to run when the vacuum is stopped.
       required: false
       type: action
     return_to_base:
       description: Defines an action to run when the vacuum is given a return to base command.
       required: false
       type: action
-    clean_spot:
-      description: Defines an action to run when the vacuum is given a clean spot command.
-      required: false
-      type: action
-    locate:
-      description: Defines an action to run when the vacuum is given a locate command.
-      required: false
-      type: action
     set_fan_speed:
       description: Defines an action to run when the vacuum is given a command to set the fan speed.
       required: false
       type: action
-    fan_speeds:
-      description: List of fan speeds supported by the vacuum.
+    start:
+      description: Defines an action to run when the vacuum is started.
+      required: true
+      type: action
+    state:
+      description: "Defines a template to get the state of the vacuum. Valid value: `docked`/`cleaning`/`idle`/`paused`/`returning`/`error`"
       required: false
-      type: [string, list]
+      type: template
+    stop:
+      description: Defines an action to run when the vacuum is stopped.
+      required: false
+      type: action
 weather:
   description: List of weather entities
   required: true
   type: map
   keys:
-    condition_template:
-      description: The current weather condition.
-      required: true
-      type: template
-    temperature_template:
-      description: The current temperature.
-      required: true
-      type: template
-    dew_point_template:
-      description: The current dew point.
-      required: false
-      type: template
     apparent_temperature_template:
       description: The current apparent (feels-like) temperature.
-      required: false
-      type: template
-    temperature_unit:
-      description: Unit for temperature_template output. Valid options are °C, °F, and K.
-      required: false
-      type: string
-    humidity_template:
-      description: The current humidity.
-      required: true
-      type: template
-    pressure_template:
-      description: The current air pressure.
-      required: false
-      type: template
-    pressure_unit:
-      description: Unit for pressure_template output. Valid options are Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, psi.
-      required: false
-      type: string
-    wind_speed_template:
-      description: The current wind speed.
-      required: false
-      type: template
-    wind_gust_speed_template:
-      description: The current wind gust speed.
-      required: false
-      type: template
-    wind_speed_unit:
-      description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, and in/h.
-      required: false
-      type: string
-    wind_bearing_template:
-      description: The current wind bearing.
-      required: false
-      type: template
-    ozone_template:
-      description: The current ozone level.
       required: false
       type: template
     cloud_coverage_template:
       description: The current cloud coverage.
       required: false
       type: template
-    visibility_template:
-      description: The current visibility.
+    condition_template:
+      description: The current weather condition.
+      required: true
+      type: template
+    dew_point_template:
+      description: The current dew point.
       required: false
       type: template
-    visibility_unit:
-      description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
-      required: false
-      type: string
     forecast_daily_template:
       description: Daily forecast data.
       required: false
@@ -759,32 +724,58 @@ weather:
       description: Twice daily forecast data.
       required: false
       type: template
+    humidity_template:
+      description: The current humidity.
+      required: true
+      type: template
+    ozone_template:
+      description: The current ozone level.
+      required: false
+      type: template
     precipitation_unit:
       description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-"[all sensor, binary sensor, button, image, light, number, select, switch, weather entities]":
-  description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
-  required: false
-  type: map
-  keys:
-    name:
-      description: Defines a template to get the name of the entity.
+    pressure_template:
+      description: The current air pressure.
       required: false
       type: template
-    unique_id:
-      description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+    pressure_unit:
+      description: Unit for pressure_template output. Valid options are Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, psi.
       required: false
       type: string
-    icon:
-      description: Defines a template for the icon of the entity.
+    temperature_template:
+      description: The current temperature.
+      required: true
+      type: template
+    temperature_unit:
+      description: Unit for temperature_template output. Valid options are °C, °F, and K.
+      required: false
+      type: string
+    visibility_template:
+      description: The current visibility.
       required: false
       type: template
-    availability:
-      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison is not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+    visibility_unit:
+      description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+      required: false
+      type: string
+    wind_gust_speed_template:
+      description: The current wind gust speed.
       required: false
       type: template
-      default: true
+    wind_speed_template:
+      description: The current wind speed.
+      required: false
+      type: template
+    wind_speed_unit:
+      description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, and in/h.
+      required: false
+      type: string
+    wind_bearing_template:
+      description: The current wind bearing.
+      required: false
+      type: template
 
 {% endconfiguration %}
 
