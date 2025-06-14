@@ -64,9 +64,9 @@ To continue using the service if you were previously using API V2.5:
 For more details, set limits on your usage to avoid charges at [OpenWeatherMap Subscriptions](https://home.openweathermap.org/subscriptions).
 
 {% important %}
-If you register a new API key with OpenWeatherMap, it will be activated automatically, this typically takes between 10 minutes and 2 hours
-after your successful registration. Keep in mind when configuring this integration, that your new API key might
-not be activated yet. Invalid API-key errors might also occur if your API key is not used with one of the corresponding  modes (One Call API 3.0 versus Free).
+If you register a new API key with OpenWeatherMap, it will be activated automatically. This typically takes between 10 minutes and 2 hours.  
+Keep in mind when configuring this integration that your new API key might not be active yet.  
+Invalid API-key errors can also occur if you use a key which doesn't match the corresponding service (One Call API 3.0 versus Free).
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
