@@ -26,6 +26,10 @@ While this integration works without an Airthings SmartLink hub, using one will 
 
 Requires Airthings hardware and a valid Airthings Dashboard login.
 
+{% tip %} Initally, the radon sensor not published from the Airthings API (it is considered "unknown"), and so you may have to wait 24 hours to see the radon sensor appear for a new device.{% endtip %}
+
+
+
 ## Prerequisites
 
 Airthings API setup (needed to acquire the required ID and Secret for the Home Assistant Airthings Integration).
