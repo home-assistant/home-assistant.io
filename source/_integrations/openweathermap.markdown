@@ -283,3 +283,5 @@ weather.openweathermap:
 | `sulphur_dioxide`   | Concentration of SO2 (Sulphur dioxide), µg/m³.                                          |
 | `pm2_5`             | Concentration of PM2.5 (Fine particulate matter), µg/m³.                                |
 | `pm10`              | Concentration of PM10 (Coarse particulate matter), µg/m³.                               |
+
+More details can be found at the OpenWeatherMap [Air Pollution API documentation](https://openweathermap.org/api/air-pollution).
