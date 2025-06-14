@@ -23,11 +23,5 @@ Name/address search:
   description: Enter a search string to find a station. Typically, this will be a suburb, street, or postcode.
 Select station:
   description: Choose a station from the list matching the search. Note that not all will have every fuel type. Some are EV charger only.
-Choose fuel types:
-  description: Select which fuel types you'd like to create entities for. Only fuels sold at the selected station are displayed.
 {% endconfiguration_basic %}
 
-## Changing station fuel types
-
-It's currently not possible to add or remove fuel types from a station that has already been added. You will
-need to remove all entries for that station and re-add them.
