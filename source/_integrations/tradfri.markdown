@@ -53,14 +53,6 @@ After updating your IKEA Trådfri Gateway firmware it might be necessary to repe
 
 Then restart Home Assistant. When prompted, enter the security key and click *configure*, just like during initial setup.
 
-### Compilation issues
-
-{% note %}
-This does not apply to Home Assistant running in Docker Containers, including the default Home Assistant install.
-{% endnote %}
-
-Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this integration. Also, installing some dependencies might take considerable time (more than one hour) on slow devices.
-
 ## Known limitations
 
 - The TRÅDFRI Shortcut button, Remotes and motion sensor only send information about their battery status, no events, to Home Assistant and thus can't be used to automate with. If you want to automate with these devices, you need to use something like [ZHA](/integrations/zha/), or the [HomeKit device](/integrations/homekit_controller) integration as mentioned above.

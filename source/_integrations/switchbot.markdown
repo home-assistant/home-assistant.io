@@ -4,10 +4,12 @@ description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary sensor
   - Cover
+  - Fan
   - Light
   - Lock
   - Sensor
   - Switch
+  - Vacuum
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
@@ -16,6 +18,7 @@ ha_codeowners:
   - '@murtas'
   - '@Eloston'
   - '@dsypniewski'
+  - '@zerzhang'
 ha_domain: switchbot
 ha_bluetooth: true
 ha_platforms:
@@ -28,8 +31,10 @@ ha_platforms:
   - lock
   - sensor
   - switch
+  - vacuum
 ha_config_flow: true
 ha_integration_type: integration
+ha_quality_scale: gold
 ---
 
 The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, hubs and etc.
@@ -119,6 +124,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
+- [Lock Ultra (WoLockUltra)](https://www.switch-bot.com/products/switchbot-lock-ultra)
+- [Lock Lite (WoLockLite)](https://www.switchbot.jp/products/switchbot-lock-lite)
 
 ### Humidifiers
 
@@ -140,10 +147,23 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
 - [Hub Mini Matter Enabled](https://www.switch-bot.com/products/switchbot-hub-mini-matter-enabled)(currently only supports retrieving sensor data, does not yet support device control)
+- [Hub 3 (WoHub3)](https://www.switch-bot.com/products/switchbot-hub-3)(currently only supports retrieving sensor data, does not yet support device control)
 
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+
+### Vacuums
+- [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
+- [K10+ Pro](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10-pro)
+- [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
+- [K20](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
+- [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
+
+### Air purifiers
+
+- [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
+- [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 
 ## Supported functionality
 
@@ -402,6 +422,30 @@ Features:
 - calibration state
 - get battery level
 
+#### Lock Ultra
+
+This is an encrypted device.
+
+Features:
+
+- Lock or unlock
+- open or closed state
+- auto-lock paused state
+- calibration state
+- get battery level
+
+#### Lock Lite
+
+This is an encrypted device.
+
+Features:
+
+- Lock or unlock
+- open or closed state
+- auto-lock paused state
+- calibration state
+- get battery level
+
 ### Hubs
 
 Some of the hubs can be served as a bridge while the sensor data can be retrieved via Bluetooth connection. Hub 2 displays temperature and humidity through a sensor cable. Without a digital display, Hub Mini Matter Enabled can also read from a sensor cable.
@@ -421,9 +465,20 @@ Features:
 - get temperature
 - get humidity
 
+#### Hub3
+
+Features:
+
+- get temperature
+- get humidity
+- get light level
+- motion detection state
+
 ### Fans
 
-Fan entities are added for Circulator Fan.
+Fan entities are added for Circulator Fan, Air Purifier, and Air Purifier Table
+
+#### Circulator Fan
 
 Features:
 
@@ -433,6 +488,35 @@ Features:
 - set mode
 - oscillate left and right
 
+#### Air Purifier
+
+This is an encrypted device.
+
+Features:
+
+- turn on
+- turn off
+- set mode
+
+#### Air Purifier Table
+
+This is an encrypted device.
+
+Features:
+
+- turn on
+- turn off
+- set mode
+
+### Vacuums
+
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10.
+
+Features:
+
+- start
+- return to base
+- get battery
 
 ## Data updates
 

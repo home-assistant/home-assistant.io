@@ -55,10 +55,8 @@ For Bluetooth to function on Linux systems:
 
 - Home Assistant Operating System: Upgrade to Home Assistant OS version 9.0 or later.
 - Home Assistant Container: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
-- Home Assistant Supervised: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
-- Home Assistant Core: The system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant.
 
-### Additional details for Container, Core, and Supervised installs
+### Additional details for Container
 
 {% details "Making the DBus socket available in the Docker container" %}
 
@@ -173,7 +171,7 @@ The following requirements must be met for an adapter to be labeled as High Perf
 - Establish a connection in about 1s or less
 - Process at least one advertisement per second from a device without dropping data
 - 95% of connection attempts are successful within two tries
-- Meets the above requirements with Home Assistant Core 2022.11.1 or later and Home Assistant Operating System 9.3 or later
+- Meets the above requirements with Home Assistant 2022.11.1 or later and Home Assistant Operating System 9.3 or later
 - Must be able to hold five (5) connections at the same time
 
 Performance testing used the following hardware:

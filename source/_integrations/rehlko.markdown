@@ -12,6 +12,7 @@ ha_codeowners:
 ha_dhcp: true
 ha_domain: rehlko
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: integration
 ha_quality_scale: silver
@@ -35,6 +36,19 @@ password:
 {% endconfiguration_basic %}
 
 The integration uses your generator's name as the device name and within your entity names. To change this name, it is recommended to do so in the Kohler app before configuring the integration.
+
+## Binary sensors
+
+This integration provides the following binary sensors to help you keep track of your generator's key states:
+
+- **Auto run**  
+  Lets you know if your generator will automatically start when there is a power outage.
+
+- **Connectivity**  
+  Shows whether your generator is currently connected to the Rehlko cloud.
+
+- **Oil pressure**  
+  Monitors the oil pressure sensor. If this sensor is *on*, it means there is a problem with the oil pressure.
 
 ## Sensors
 

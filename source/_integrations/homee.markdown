@@ -10,10 +10,13 @@ ha_codeowners:
   - '@Taraman17'
 ha_domain: homee
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - climate
   - cover
+  - event
+  - fan
   - light
   - lock
   - number

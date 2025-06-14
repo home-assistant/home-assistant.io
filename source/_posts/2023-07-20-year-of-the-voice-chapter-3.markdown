@@ -29,7 +29,7 @@ _To watch the video presentation of this blog post, including live demos, check 
 [Year of the Voice]: https://www.home-assistant.io/blog/2022/12/20/year-of-voice/
 [Chapter 1]: https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/
 [Chapter 2]: https://www.home-assistant.io/blog/2023/04/27/year-of-the-voice-chapter-2/
-[50 languages]: https://home-assistant.github.io/intents/
+[50 languages]: https://ohf-voice.github.io/intents/
 [live-stream]: https://youtube.com/live/sXzItFksYFA?feature=share
 [Assist]: /voice_control/
 [ESPHome]: /voice_control/thirteen-usd-voice-remote/

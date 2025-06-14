@@ -3,6 +3,7 @@ title: Squeezebox (Lyrion Music Server)
 description: Instructions on how to integrate Squeezebox players and a Lyrion Music Server (LMS) into Home Assistant.
 ha_category:
   - Media player
+  - Update
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: squeezebox
@@ -17,6 +18,8 @@ ha_platforms:
   - button
   - media_player
   - sensor
+  - switch
+  - update
 ha_integration_type: integration
 ---
 
@@ -164,6 +167,11 @@ data:
 
 ## Supported functionality
 
+### Switches
+
+- **Alarm**: Enables a scheduled alarm to sound. Alarms must also be enabled on the associated player for the alarm to sound, using the Alarms Enabled switch or directly on the Lyrion Music Server for that player.
+- **Alarms Enabled**: Enables a player to sound alarms. Disabling will prevent all alarms from sounding on that player, regardless of whether the individual alarm is enabled
+
 ### Binary sensors
 
 The integration provides the following entities.
@@ -218,6 +226,11 @@ The integration provides the following entities.
 
 - **Total songs**
   - **Description**: Total number of music files currently in service.
+
+### Updates
+
+-- **Lyrion Music Server**: Update of the server software is available.
+-- **Updated plugins**: Named Plugins will be updated on the next restart. For some installation types, the service will be restarted automatically after the **Install** button has been selected. Allow enough time for the service to restart. It will become briefly unavailable.
 
 ### Actions
 
