@@ -72,6 +72,13 @@ If an entity listed below has an asterisk (*) next to its name, it means it is d
 If an entity listed below has a plus (+) next to its name, it means this entity supports push updates. These entities will have almost instant state changes. 
 For redundancy, the state of all entities is also polled every 60 seconds. For entities without a plus (+), this is the only update method. Therefore, a device's state change can take up to 60 seconds to be reflected in Home Assistant.
 An exception is the firmware update entity, which is polled every 12 hours.
+Another exception are battery cameras, most {% term entities %} are still {% term polling polls %} every 60 seconds. However, the entities that would cause the camera to wake from sleep will only be polled during the following events:
+
+- The camera wakes by itself (PIR event) and the last update was more than 1 hour ago.
+- The camera did not wake for more than 6 hours.
+- All battery cameras have not been awake at the same time for more than 12 hours.
+
+A full update of all entities, which will wake all battery cameras connected to the same hub/NVR, can be performed by calling the `homeassistant.update_entity` action on a single Reolink entity of a camera (for example the motion detection binary sensor).
 
 ## Supported functionality
 
@@ -129,6 +136,7 @@ Depending on the supported features of the camera, number entities are added for
 - Optical zoom control
 - Focus control
 - Floodlight turn on brightness
+- Infrared light brightness
 - Volume (Camera)
 - Alarm volume (Home Hub)
 - Message volume (Home Hub)
@@ -157,6 +165,7 @@ Depending on the supported features of the camera, number entities are added for
 - AI linger delay+ (up to 3 zones)
 - AI item forgotten delay+ (up to 3 zones)
 - AI item taken delay+ (up to 3 zones)
+- Baby cry sensitivity
 - Auto quick reply time
 - Auto track limit left
 - Auto track limit right
