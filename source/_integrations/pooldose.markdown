@@ -87,4 +87,4 @@ The serial number and API version are automatically retrieved and validated.
 - This integration is fully local and requires no cloud account.
 - Cached values are used when the API is temporarily unavailable.
 - The dosing configuration is exposed via sensors and selects.
-- The password for the Web Interface must be set to default (deactivated), i.e., 0000
+- The password for the Web Interface must be set to default (deactivated), i.e., 0000.
