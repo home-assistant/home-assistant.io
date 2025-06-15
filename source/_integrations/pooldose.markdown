@@ -19,8 +19,19 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `Pooldose` integration connects a [Seko](https://www.seko.com/) Pooldosing system with Home Assistant using its undocumented local HTTP API.  
-It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as status information and control over the dosing logic.
+The `Pooldose` integration connects a [Seko](https://www.seko.com/) Pooldosing system with Home Assistant. Seko is a manufacturer of various devices for Pools and Spas.
+
+This integration is using an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as status information and control over the dosing logic.
+
+## Prerequisites
+
+1. Install and set-up the PoolDose devices according to the user manual.
+   1. In particular, connect the device to your WiFi network.
+   2. Identify the IP address resp. hostname of the device.
+2. Browser to the IP/hostname (default port 80).
+   1. Try to log-in the web interface with default password (0000).
+   2. Check availability of data in the web interface.
+3. Optionally: Block the device from internet access to ensure cloudless-only operation.
 
 {% include integrations/config_flow.md %}
 
@@ -34,7 +45,19 @@ During setup, you will be asked for:
 
 The serial number and API version are automatically retrieved and validated.
 
-## Sensors
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+## Notes
+
+- This integration is fully local and requires no cloud account.
+- The device lacks in stability of it's network connection. Cached values are used when the API is temporarily unavailable.
+- The password for the Web Interface must be set to default (deactivated), i.e., 0000.
+
+## Entities
 
 | Entity ID                      | Unit | Description                            |
 |--------------------------------|------|----------------------------------------|
@@ -81,10 +104,3 @@ The serial number and API version are automatically retrieved and validated.
 | Entity ID                   | Description                       | Options           |
 |----------------------------|-----------------------------------|-------------------|
 | `select.pool_water_meter_unit` | Water meter display unit          | `m³`, `liters`     |
-
-## Notes
-
-- This integration is fully local and requires no cloud account.
-- Cached values are used when the API is temporarily unavailable.
-- The dosing configuration is exposed via sensors and selects.
-- The password for the Web Interface must be set to default (deactivated), i.e., 0000.
