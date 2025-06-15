@@ -37,11 +37,16 @@ This integration is using an undocumented local HTTP API. It provides live readi
 
 ## Configuration options
 
-During setup, you will be asked for:
+{% include integrations/option_flow.md %}
 
-- **Host**: The IP address of your Seko Pooldose controller
-- **Scan Interval**: Optional; defaults to 600 seconds
-- **Timeout**: Optional; defaults to 30 seconds
+{% configuration_basic %}
+Host:
+  description: The IP address resp. hostname of your Pooldose device. Identify the IP address resp. hostname in the web interface of the device or of your router.
+Scan Interval:
+  description: Interval for polling the device. Optional; defaults to 600 seconds.
+Timeout:
+  description: Connection timeout for data requests. Optional; defaults to 30 seconds.
+{% endconfiguration_basic %}
 
 The serial number and API version are automatically retrieved and validated.
 
@@ -59,7 +64,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Entities
 
-| Entity ID                      | Unit | Description                            |
+| Entity ID (simplified)                      | Unit | Description                            |
 |--------------------------------|------|----------------------------------------|
 | `sensor.pool_temp_actual`      | °C   | Pool water temperature                 |
 | `sensor.pool_ph_actual`        | pH   | Current pH level                       |
