@@ -107,8 +107,8 @@ response_variable: generated_image
 ```
 {% endraw %}
 
-The response data field `url` will contain a URL to the generated image.
-The image will be saved into local media files and can be used as a [media source](/integrations/media_source/). If you have a configured `media_dir` named `openai_conversation`, then it will be used. If not, the first available `media_dir` will be selected. Make sure the folder is writable for Home Assistant.
+The response data field `url` will contain a URL to the generated image. Up to 20 recent images will be kept for up to 1 hour.
+The image can also be used as a [media source](/integrations/media_source/).
 
 #### Organization verification
 
