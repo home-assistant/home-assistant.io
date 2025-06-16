@@ -186,9 +186,9 @@ To migrate a Z-Wave network to a new controller, follow these steps:
 
 ## Setting the radio frequency region of the controller in the Z-Wave JS add-on
 
-The frequency used by Z-Wave devices depends on your region. For each country or region, the Z-Wave product has to apply the standard Z-Wave frequency approved for that region. This means that when you buy a Z-Wave product, you need to make sure it is approved for your region.
+The frequency used by Z-Wave devices depends on your region. For 700 and 800 series controllers, this frequency can be changed. The frequency of end devices cannot, so you need to make sure to buy devices specific to your region.
 
-If you are using the Z-Wave JS add-on, the country of your Home Assistant is used to determine the radio frequency region. If needed, you can change the radio frequency region for your controller. However, the region of end devices cannot be changed. They only work in the frequency region they were specified for.
+If you are using the Z-Wave JS add-on, Home Assistant automatically changes the radio frequency region to match the region/country you're in. If needed, you can override this setting.
 
 ### Prerequisites
 
