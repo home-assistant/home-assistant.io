@@ -1,6 +1,6 @@
 ---
-title: Seko Pooldose
-description: Connect your Seko Pooldose water treatment system to Home Assistant.
+title: SEKO PoolDose
+description: Connect your SEKO PoolDose water treatment system to Home Assistant.
 ha_category:
   - Water
   - Pool
@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `Pooldose` integration connects a [Seko](https://www.seko.com/) Pooldosing system with Home Assistant. Seko is a manufacturer of various monitoring and control devices for Pools and Spas.
+The `PoolDose` integration connects a [SEKO](https://www.seko.com/) Pooldosing system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for Pools and Spas.
 
 This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as status information and control over the dosing logic.
 
@@ -27,9 +27,9 @@ This integration uses an undocumented local HTTP API. It provides live readings 
 
 1. Install and set-up the PoolDose devices according to the user manual.
    1. In particular, connect the device to your WiFi network.
-   2. Identify the IP address resp. hostname of the device.
-2. Browser to the IP/hostname (default port 80).
-   1. Try to log-in the web interface with default password (0000).
+   2. Identify the IP address or hostname of the device.
+2. Browse to the IP address or hostname (default port: 80).
+   1. Try to log in to the web interface with the default password (0000).
    2. Check availability of data in the web interface.
 3. Optionally: Block the device from internet access to ensure cloudless-only operation.
 
@@ -41,7 +41,7 @@ This integration uses an undocumented local HTTP API. It provides live readings 
 
 {% configuration_basic %}
 Host:
-  description: The IP address resp. hostname of your Pooldose device. Identify the IP address resp. hostname in the web interface of the device or of your router.
+  description: The IP address resp. hostname of your PoolDose device. Identify the IP address resp. hostname in the web interface of the device or of your router.
 Scan Interval:
   description: Interval for polling the device. Optional; defaults to 600 seconds.
 Timeout:
@@ -59,7 +59,7 @@ This integration follows standard integration removal. No extra steps are requir
 ## Notes
 
 - This integration is fully local and requires no cloud account.
-- The device lacks in stability of it's network connection. Cached values are used when the API is temporarily unavailable.
+- The device lacks stability in its network connection. Cached values are used when the API is temporarily unavailable.
 - The password for the Web Interface must be set to default (deactivated), i.e., 0000.
 
 ## Entities
@@ -69,13 +69,13 @@ This integration follows standard integration removal. No extra steps are requir
 | `sensor.pool_temp_actual`      | °C   | Pool water temperature                 |
 | `sensor.pool_ph_actual`        | pH   | Current pH level                       |
 | `sensor.pool_orp_actual`       | mV   | Current ORP (Redox) value              |
-| `sensor.pool_ph_type_dosing`   |      | pH dosing type                         |
-| `sensor.pool_orp_type_dosing`  |      | ORP dosing type                        |
-| `sensor.pool_ownerid`          |      | Owner ID                               |
-| `sensor.pool_ssid`             |      | Current Wi-Fi SSID                     |
-| `sensor.pool_ap_ssid`          |      | Access point SSID                      |
-| `sensor.pool_ap_key`           |      | Access point password/key              |
-| `sensor.pool_api_version`      |      | Gateway API version                    |
+| `sensor.pool_ph_type_dosing`   | —    | pH dosing type                         |
+| `sensor.pool_orp_type_dosing`  | —    | ORP dosing type                        |
+| `sensor.pool_ownerid`          | —    | Owner ID                               |
+| `sensor.pool_ssid`             | —    | Current Wi-Fi SSID                     |
+| `sensor.pool_ap_ssid`          | —    | Access point SSID                      |
+| `sensor.pool_ap_key`           | —    | Access point password/key              |
+| `sensor.pool_api_version`      | —    | Gateway API version                    |
 
 ## Binary Sensors
 
