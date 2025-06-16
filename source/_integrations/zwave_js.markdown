@@ -196,7 +196,7 @@ If you are using the Z-Wave JS add-on, Home Assistant automatically changes the 
 - All your Z-Wave devices must be specified for that region
 - Note: this procedure only applies if your controller is [set up using the Z-Wave JS add-on](#setting-up-a-z-wave-js-server)
 
-### To change the radio frequency region of your Z-Wave controller
+### Overriding the radio frequency region of your Z-Wave controller
 
 1. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.
 2. Open the **Configuration** tab.
