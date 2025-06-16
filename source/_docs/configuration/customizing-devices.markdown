@@ -24,8 +24,16 @@ To change entity attributes, follow these steps:
      - You can use lowercase letters, numbers, and underscores.
      - The ID must not start or end with an underscore.
      - To undo the change and revert the ID to the default, select the {% icon "mdi:restore" %} icon.
+       - **Note**: You can only reset the ID to the default ID for entities with a unique ID.
+         - IDs of entities that are disabled or for which the integration is not set up cannot be reverted.
      - To revert all the entity IDs for a device, on the device page, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Recreate entity IDs**.
      - **Result**: This resets the entity ID and applies the current default naming convention.
+       - The renaming is prioritized in the following order:
+         1. If you changed the friendly name of the entity, the friendly name will be used.
+         2. The entity ID suggested by the integration (just a few integrations do this).
+         3. The default name in the user language, if using latin script.
+            - If the user language is not using latin script, the entity ID is based on the english default name.
+            - This is because entity IDs must use lower case alphanumeric characters in the range of [a-z,1-9].
 
         ![revert all entity IDs for a device from the device page](/images/docs/configuration/device-page-revert-entity-id.png)
 
