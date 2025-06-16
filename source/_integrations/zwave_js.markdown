@@ -171,7 +171,14 @@ Do this before using the device with another controller, or when you don't use t
 
 Do this if you have an existing Z-Wave network and want to use a new controller. This will reset your current controller (remove all network information from it) and remove the controller from Home Assistant. The Z-Wave integration with all its entities will stay in Home Assistant. The new controller is added to Home Assistant and paired with the existing network.
 
-To migrate a Z-Wave network to a new controller, follow these steps:
+### Prerequisites
+
+- Administrator rights in Home Assistant
+- If you want to migrate from a 500 series controller, before starting migration, update the controller to SDK 6.61+
+  - Check the documentation of your device to see if and how they can be updated.
+  - [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
+
+### To migrate a Z-Wave network to a new controller
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Z-Wave** integration. Then, select **Configure**.
