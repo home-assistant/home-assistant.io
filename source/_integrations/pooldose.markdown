@@ -19,9 +19,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `Pooldose` integration connects a [Seko](https://www.seko.com/) Pooldosing system with Home Assistant. Seko is a manufacturer of various devices for Pools and Spas.
+The `Pooldose` integration connects a [Seko](https://www.seko.com/) Pooldosing system with Home Assistant. Seko is a manufacturer of various monitoring and control devices for Pools and Spas.
 
-This integration is using an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as status information and control over the dosing logic.
+This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as status information and control over the dosing logic.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Entities
 
-| Entity ID (simplified)                      | Unit | Description                            |
+| Entity ID (w/o serialnumber prefix)                      | Unit | Description                            |
 |--------------------------------|------|----------------------------------------|
 | `sensor.pool_temp_actual`      | °C   | Pool water temperature                 |
 | `sensor.pool_ph_actual`        | pH   | Current pH level                       |
