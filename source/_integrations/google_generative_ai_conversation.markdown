@@ -79,7 +79,7 @@ Enable Google Search tool:
 ## Google Search
 
 Due to an API limitation we cannot have the [Google Search tool](https://ai.google.dev/gemini-api/docs/grounding) together with other tools. Request fails with `400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Tool use with function calling is unsupported', 'status': 'INVALID_ARGUMENT'}}`.
-But you can do the following workaround that exposes a script to voice assistants. The script calls a Google Generative AI Conversation that only has the Google Search tool enabled. 
+But you can do the following workaround that exposes a script to voice assistants. The script calls a Google Generative AI Conversation that only has the Google Search tool enabled.
 
 {% details "Workaround for Google Search tool" %}
 
@@ -123,6 +123,7 @@ fields:
     description: The query to search Google for
     required: true
 ```
+
 {% endraw %}
 
 11. Select **Save script**
@@ -148,10 +149,10 @@ This action isn't tied to any integration entry, so it won't use the model, prom
 Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally attachments (images, PDFs, etc.).
 This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the generated content.
 
-| Data attribute | Optional | Description                                     | Example             |
-| ---------------------- | -------- | ----------------------------------------------- | ------------------- |
-| `prompt`               | no       | The prompt for generating the content.          | Describe this image |
-| `filenames`            | yes      | File names for attachments to include in the prompt. | /tmp/image.jpg      |
+| Data attribute | Optional | Description                                          | Example             |
+| -------------- | -------- | ---------------------------------------------------- | ------------------- |
+| `prompt`       | no       | The prompt for generating the content.               | Describe this image |
+| `filenames`    | yes      | File names for attachments to include in the prompt. | /tmp/image.jpg      |
 
 {% raw %}
 
@@ -210,11 +211,20 @@ data:
   media_player_entity_id: media_player.tv
   message: Say cheerfully: Have a wonderful day!
   options:
-    voice: <voice-id>
+    voice: <voice-name>
     model: <model-id>
 ```
 
 {% endraw %}
+
+You can configure the following options:
+
+| Option attribute | Optional | Description                                                                                                                                                                    | Example                      |
+| ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
+| `voice`          | yes      | The [voice name](https://ai.google.dev/gemini-api/docs/speech-generation#voices) to be used for the generated speech. The default is `zephyr`.                                 | `achernar`                   |
+| `model`          | yes      | The [model](https://ai.google.dev/gemini-api/docs/speech-generation#supported-models) to use for the text-to-speech conversion. The default is `gemini-2.5-flash-preview-tts`. | `gemini-2.5-pro-preview-tts` |
+
+The input language is detected automatically. Check the [Google AI documentation](https://ai.google.dev/gemini-api/docs/speech-generation#languages) for the supported languages.
 
 ## Video tutorial
 
