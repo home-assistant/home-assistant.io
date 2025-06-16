@@ -202,7 +202,8 @@ If you are using the Z-Wave JS add-on, Home Assistant automatically changes the 
 2. Open the **Configuration** tab.
 3. In the **Options** section, select the **Radio Frequency Region**.
 4. To apply your changes, select **Save**.
-   - Your Z-Wave controller is now ready to communicate with devices that were specified for that region.
+   - Your Z-Wave controller is now ready to communicate with devices that were specified for your chosen region.
+5. To return to the default setting and use the region defined by Home Assistant, under **Radio Frequency Region** choose **Automatic**.
 
 ## Backing up your Z-Wave network
 
