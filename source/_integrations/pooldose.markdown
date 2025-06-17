@@ -64,7 +64,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Entities
 
-| Entity ID (w/o serialnumber prefix)                      | Unit | Description                            |
+| Entity ID (w/o prefix) | Unit | Description                            |
 |--------------------------------|------|----------------------------------------|
 | `sensor.pool_temp_actual`      | °C   | Pool water temperature                 |
 | `sensor.pool_ph_actual`        | pH   | Current pH level                       |
@@ -79,7 +79,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Binary Sensors
 
-| Entity ID                         | Description                          |
+| Entity ID (w/o prefix)   | Description                          |
 |----------------------------------|--------------------------------------|
 | `binary_sensor.pool_circulation_state` | Circulation pump running status     |
 | `binary_sensor.pool_ph_level_ok`      | pH level within safe range          |
@@ -91,7 +91,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Switches
 
-| Entity ID                     | Description                            |
+| Entity ID (w/o prefix)                    | Description                            |
 |------------------------------|----------------------------------------|
 | `switch.stop_pool_dosing`    | Stop all dosing (manual override)      |
 | `switch.circulation_detection` | Enable/disable circulation pump detection  |
@@ -99,13 +99,13 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Number (Slider)
 
-| Entity ID              | Unit | Description                      |
+| Entity ID (w/o prefix)             | Unit | Description                      |
 |------------------------|------|----------------------------------|
 | `number.pool_ph_target`  | pH   | Set target pH value             |
 | `number.pool_orp_target` | mV   | Set target ORP (Redox) value    |
 
 ## Select
 
-| Entity ID                   | Description                       | Options           |
+| Entity ID (w/o prefix)                  | Description                       | Options           |
 |----------------------------|-----------------------------------|-------------------|
 | `select.pool_water_meter_unit` | Water meter display unit          | `m³`, `liters`     |
