@@ -55,11 +55,12 @@ Separate sensors are created for each of the following conditions:
 | `wind_gust`              | Wind gust speed, m/s.                                                                                                           |
 | `wind_direction`         | Wind direction, degrees.                                                                                                        |
 | `visibility`             | Visibility distance in meters.                                                                                                  |
-| `uv         `            | UV index.                                                                                                                       |
+| `uv`                     | UV index.                                                                                                                       |
 | `precipitation`          | Probability of precipitation, %.                                                                                                |
-| `name       `            | Name of the weather station.                                                                                                    |
+| `name`                   | Name of the weather station.                                                                                                    |
 
 Entity IDs follow the following format:
+
 `sensor.<integration name>_<condition>`
 
 Only the probability of precipitation, temperature, weather and wind speed sensors are enabled by default.
