@@ -57,7 +57,7 @@ UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware [`
 
 ### Software support
 
-The absolute **minimal** software version is [`v1.20.0`](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011) for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
+The **absolute minimum** software version is [`v1.20.0`](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011) for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect are supported.
 
 {% important %}
 **Early Access and Release Candidate versions are not supported by Home Assistant.**
