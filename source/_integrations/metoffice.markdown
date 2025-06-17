@@ -27,7 +27,7 @@ Details about the API are available in the [DataHub API documentation](https://d
 
 {% include integrations/config_flow.md %}
 
-| Parameter | Value                                                      |
+| Option    | Description                                                |
 | :-------- | :--------------------------------------------------------- |
 | API Key   | API Key for MetOffice DataHub                              |
 | Latitude  | Latitude of the location, defaults to your home latitude   |
@@ -37,33 +37,31 @@ Details about the API are available in the [DataHub API documentation](https://d
 
 ### Weather
 
-| Entity ID                    | Description                                                                                       |
-| :--------------------------- | :------------------------------------------------------------------------------------------------ |
-| `weather.<integration name>` | Main weather entity for the given location. Daily, hourly and twice-daily forecasts are available |
+| Entity ID                 | Description                                                                                       |
+| :------------------------ | :------------------------------------------------------------------------------------------------ |
+| `weather.<location name>` | Main weather entity for the given location. Daily, hourly and twice-daily forecasts are available |
 
 ### Sensor
 
-Separate sensors are created for each of the following conditions:
+Separate sensors are created for each of the following weather conditions:
 
-| Condition                | Description                                                                                                                     |
-| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------ |
-| `weather`                | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition). |
-| `temperature`            | Temperature, ºC.                                                                                                                |
-| `feels_like_temperature` | Temperature accounting for the human perception of weather, ºC.                                                                 |
-| `humidity`               | Relative humidity, %.                                                                                                           |
-| `wind_speed`             | Wind speed, m/s.                                                                                                                |
-| `wind_gust`              | Wind gust speed, m/s.                                                                                                           |
-| `wind_direction`         | Wind direction, degrees.                                                                                                        |
-| `visibility`             | Visibility distance in meters.                                                                                                  |
-| `uv`                     | UV index.                                                                                                                       |
-| `precipitation`          | Probability of precipitation, %.                                                                                                |
-| `name`                   | Name of the weather station.                                                                                                    |
+| Condition                | Description                                                                                                                     | Enabled by default |
+| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| `weather`                | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition). | Yes                |
+| `temperature`            | Temperature, ºC.                                                                                                                | Yes                |
+| `feels_like_temperature` | Temperature accounting for the human perception of weather, ºC.                                                                 | No                 |
+| `humidity`               | Relative humidity, %.                                                                                                           | No                 |
+| `wind_speed`             | Wind speed, m/s.                                                                                                                | Yes                |
+| `wind_gust`              | Wind gust speed, m/s.                                                                                                           | No                 |
+| `wind_direction`         | Wind direction, degrees.                                                                                                        | No                 |
+| `visibility`             | Visibility distance in meters.                                                                                                  | No                 |
+| `uv`                     | UV index.                                                                                                                       | No                 |
+| `precipitation`          | Probability of precipitation, %.                                                                                                | Yes                |
+| `name`                   | Name of the weather station.                                                                                                    | No                 |
 
-Entity IDs follow the following format:
+Entity IDs follow the format:
 
-`sensor.<integration name>_<condition>`
-
-Only the probability of precipitation, temperature, weather and wind speed sensors are enabled by default.
+`sensor.<location name>_<condition>`
 
 ## Removing the integration
 
