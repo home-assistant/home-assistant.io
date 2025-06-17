@@ -59,7 +59,7 @@ This integration supports
 - **Lock uncalibrated** (disabled by default): Shows when the lock is in an "uncalibrated state".
 
 {% note %}
-The `lock.open` service will only pull the spring if the lock is configured with "auto pull-spring enabled" in the tedee app. That is due to a limitation in tedee's API.
+The `lock.open` service will only pull the spring if the lock is configured with "**auto pull-spring enabled**" in the tedee app. That is due to a limitation in tedee's API.
 {% endnote %}
 
 ## Sensors
