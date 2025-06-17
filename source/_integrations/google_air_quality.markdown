@@ -62,7 +62,6 @@ You are always self aware of the costs.
 The integration will create the following sensors:
 For your local air quality you can find more details [here](https://developers.google.com/maps/documentation/air-quality/laqis)
 
-<<<<<<< HEAD
 - **Universal Air Quality Index (UAQI)**  
   *The global air quality index provided by Google. Ranges from 0 (worst) to 100 (best).*
 
@@ -98,16 +97,10 @@ For your local air quality you can find more details [here](https://developers.g
 
 - **Carbon Monoxide (CO)**  
   *Carbon monoxide concentration.*
-=======
-- **Universal Air Quality Index**: Google's AQI. `100` is the best air quality and `0` the worst.
-- **Category**: The current air quality in words. Possible values: **Excellent air quality**, **Good air quality**, **Moderate air quality**, **Low air quality**, **Poor air quality**.
-- **PM10**: Inhalable particulate matter (<10µm).
-- **PM2.5**: Fine particulate matter (<2.5µm).
 
 ## Troubleshooting
 
 If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
->>>>>>> 16464a0bdd4ec72ac9c0077c3dbedbed4a17e6c9
 
 ## Removing the integration
 
