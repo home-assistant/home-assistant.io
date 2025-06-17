@@ -6,7 +6,7 @@ ha_category:
   - Pool
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_release: "2025.6.1"
+ha_release: "2025.7"
 ha_codeowners:
   - '@lmaertin'
 ha_domain: pooldose
