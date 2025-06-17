@@ -222,9 +222,6 @@ The template alarm control panel platform allows you to create a alarm control p
 
 Alarm control panel entities can be created from the frontend in the Helpers section or via YAML. Alarm control panel entities do not support trigger-based configurations.
 
-<a name="configuration-alarm-control-panel-yaml"></a>
-{% details "Configuration of Template alarm control panel entities via YAML" %}
-
 {% raw %}
 
 ```yaml
@@ -310,16 +307,11 @@ alarm_control_panel:
       type: action
 {% endconfiguration %}
 
-{% enddetails %}
-
 ## Binary Sensor
 
 The template binary sensor platform allows you to create binary sensors with templates to define the state and attributes.
 
 Binary sensor entities can be created from the frontend in the Helpers section or via YAML.
-
-<a name="configuration-binary-sensor-yaml"></a>
-{% details "Configuration of Template binary sensor entities via YAML" %}
 
 {% raw %}
 
@@ -384,8 +376,6 @@ binary_sensor:
       type: template
 
 {% endconfiguration %}
-
-{% enddetails %}
 
 ### State based binary sensor - Washing Machine Running
 
@@ -518,9 +508,6 @@ The template button platform allows you to create button entities with scripts t
 
 Button entities can be created from the frontend in the Helpers section or via YAML.
 
-<a name="configuration-binary-sensor-yaml"></a>
-{% details "Configuration of Template binary sensor entities via YAML" %}
-
 {% raw %}
 
 ```yaml
@@ -550,16 +537,11 @@ button:
       type: action
 {% endconfiguration %}
 
-{% enddetails %}
-
 ## Cover
 
 The template cover platform allows you to create covers with templates to define the state and scripts to define each action.
 
 Cover entities can only be created from YAML.
-
-<a name="configuration-cover-yaml"></a>
-{% details "Configuration of Template cover entities via YAML" %}
 
 {% raw %}
 
@@ -652,8 +634,6 @@ cover:
 
 {% endconfiguration %}
 
-{% enddetails %}
-
 ### Cover Optimistic Mode
 
 In optimistic mode, the cover position state is maintained internally. This mode is automatically enabled if neither `state` or `position` are specified. Note that this is unlikely to be very reliable without some feedback mechanism, since there is otherwise no way to know if the cover is moving properly. The cover can be forced into optimistic mode by using the `optimistic` attribute. There is an equivalent mode for `tilt_position` that is enabled when `tilt` is not specified or when the `tilt_optimistic` attribute is used.
@@ -744,9 +724,6 @@ template:
 The template fan platform allows you to create fans with templates to define the state and scripts to define each action.
 
 Fan entities can only be created from YAML. Fan entities do not support trigger-based configurations.
-
-<a name="configuration-fan-yaml"></a>
-{% details "Configuration of Template fan entities via YAML" %}
 
 {% raw %}
 
@@ -851,8 +828,6 @@ fan:
       type: action
 
 {% endconfiguration %}
-
-{% enddetails %}
 
 ### Converting from speeds to percentage
 
@@ -967,8 +942,6 @@ template:
 The template image platform allows you to create image entities with templates to define the image URL.
 
 Image entities can be created from the frontend in the Helpers section or via YAML.
-<a name="configuration-image-yaml"></a>
-{% details "Configuration of Template image entities via YAML" %}
 
 {% raw %}
 
@@ -1016,16 +989,11 @@ image:
       default: true
 {% endconfiguration %}
 
-{% enddetails %}
-
 ## Light
 
 The template light platform allows you to create lights with templates to define the state and scripts to define each action.
 
 Light entities can only be created from YAML.
-
-<a name="configuration-light-yaml"></a>
-{% details "Configuration of Template light entities via YAML" %}
 
 {% raw %}
 
@@ -1242,8 +1210,6 @@ light:
 
 {% endconfiguration %}
 
-{% enddetails %}
-
 ### Light Considerations
 
 Transition doesn't have its own script, it will instead be passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts. Brightness will be passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts if the corresponding parameter is also in the call. In this case, the brightness script (`set_level`) will not be called. If only brightness is passed to `light.turn_on` action, then `set_level` script is called.
@@ -1360,9 +1326,6 @@ The template lock platform allows you to create locks with templates to define t
 
 Lock entities can only be created from YAML. Lock entities do not support trigger-based configurations.
 
-<a name="configuration-lock-yaml"></a>
-{% details "Configuration of Template lock entities via YAML" %}
-
 {% raw %}
 
 ```yaml
@@ -1416,8 +1379,6 @@ lock:
       required: true
       type: action
 {% endconfiguration %}
-
-{% enddetails %}
 
 ### State based lock - Lock from a switch
 
@@ -1531,8 +1492,6 @@ garage_door_pin: "1234"
 The template number platform allows you to create number entities with templates to define the state and scripts to define each action.
 
 Number entities can be created from the frontend in the Helpers section or via YAML.
-<a name="configuration-number-yaml"></a>
-{% details "Configuration of Template number entities via YAML" %}
 
 {% raw %}
 
@@ -1616,8 +1575,6 @@ number:
 
 {% endconfiguration %}
 
-{% enddetails %}
-
 ### State based number - Changing the unit of measurement of another number
 
 This example demonstrates the usage of a template number with a unit of measurement set to change a unit-less value of another number entity.
@@ -1650,9 +1607,6 @@ template:
 The template select platform allows you to create select entities with templates to define the state and scripts to define each action.
 
 Select entities can be created from the frontend in the Helpers section or via YAML.
-
-<a name="configuration-select-yaml"></a>
-{% details "Configuration of Template select entities via YAML" %}
 
 {% raw %}
 
@@ -1713,8 +1667,6 @@ select:
       type: template
 {% endconfiguration %}
 
-{% enddetails %}
-
 ### State based select - Control Day/Night mode of a camera
 
 This show how a state based template select can be used to perform an action.
@@ -1743,9 +1695,6 @@ template:
 The template sensor platform allows you to create sensors with templates to define the state and attributes.
 
 Sensor entities can be created from the frontend in the Helpers section or via YAML.
-
-<a name="configuration-sensor-yaml"></a>
-{% details "Configuration of Template sensor entities via YAML" %}
 
 {% raw %}
 
@@ -1818,8 +1767,6 @@ sensor:
       default: None
 
 {% endconfiguration %}
-
-{% enddetails %}
 
 ### State based sensor - Exposing sun angle
 
@@ -1908,9 +1855,6 @@ The template switch platform allows you to create switches with templates to def
 
 Switch entities can be created from the frontend in the Helpers section or via YAML.
 
-<a name="configuration-switch-yaml"></a>
-{% details "Configuration of Template switch entities via YAML" %}
-
 {% raw %}
 
 ```yaml
@@ -1971,8 +1915,6 @@ switch:
       type: action
 
 {% endconfiguration %}
-
-{% enddetails %}
 
 ### State based switch - Invert a Switch
 
@@ -2072,9 +2014,6 @@ The template vacuum platform allows you to create vacuum entities with templates
 
 Vacuum entities can only be created via YAML. Vacuum entities do not support trigger-based configurations.
 
-<a name="configuration-vacuum-yaml"></a>
-{% details "Configuration of Template vacuum entities via YAML" %}
-
 {% raw %}
 
 ```yaml
@@ -2149,8 +2088,6 @@ vacuum:
       type: action
 {% endconfiguration %}
 
-{% enddetails %}
-
 ### State based vacuum - Control vacuum with Harmony Hub
 
 This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote integration](/integrations/harmony).
@@ -2215,9 +2152,6 @@ vacuum:
 The template weather platform allows you to create weather entities with templates to define the state and attributes.
 
 Weather entities can only be created via YAML.
-
-<a name="configuration-weather-yaml"></a>
-{% details "Configuration of Template weather entities via YAML" %}
 
 {% raw %}
 
@@ -2341,8 +2275,6 @@ weather:
       type: template
 
 {% endconfiguration %}
-
-{% enddetails %}
 
 ### Trigger based weather - Weather Forecast from response data
 
