@@ -463,39 +463,9 @@ action:
       title: "Fingerprint Scan Notification"
 ```
 
-**Warning:**
-
+{% warning %}
 Similar to NFC, an event is triggered when a fingerprint is recognized and not recognized. However, unlike NFC, at the time of implementation, no fingerprint ID is included in the event if the fingerprint is unknown. When the device becomes unavailable and becomes available again in Home Assistant, repeated event processing can occur. The state change is not an issue with the integration but should be considered, mainly if the device is used for actions such as unlocking doors.
-
-#### Example G4 Doorbell Fingerprint Identified Automation
-
-```yaml
-alias: G4 Doorbell Fingerprint Identified Automation
-description: Automation that triggers when a fingerprint is successfully identified on the G4 Doorbell Pro
-trigger:
-  - platform: event
-    event_type: state_changed
-    event_data:
-      entity_id: event.g4_doorbell_pro_poe_fingerprint # Replace with your doorbell entity
-condition:
-  - condition: template
-    value_template: >
-      {% raw %}{{ 
-         trigger.event.data.new_state is not none and
-         trigger.event.data.new_state.attributes.event_type == 'identified' and
-         (trigger.event.data.new_state.attributes.ulp_id|default('')) != '' and
-         trigger.event.data.new_state.attributes.ulp_id in ['ALLOWED_ID1', 'ALLOWED_ID2']
-       }}{% endraw %}
-action:
-  - service: notify.mobile_app_your_device # Replace with your notification target
-    data:
-      {% raw %}message: "Fingerprint identified with ID: {{ trigger.event.data.new_state.attributes.ulp_id }}"{% endraw %}
-      title: "Fingerprint Scan Notification"
-```
-
-**Warning:**
-
-Similar to NFC, an event is triggered when a fingerprint is recognized and not recognized. However, unlike NFC, at the time of implementation, no fingerprint ID is included in the event if the fingerprint is unknown.
+{% endwarning %}
 
 ## Troubleshooting
 
