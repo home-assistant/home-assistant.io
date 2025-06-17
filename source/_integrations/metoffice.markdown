@@ -35,24 +35,34 @@ Details about the API are available in the [DataHub API documentation](https://d
 
 ## Entities
 
-This integration creates the following entities:
+### Weather
 
-| Entity type | Entity ID                                          | Description                                                                                                                     |
-| :---------- | :------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------ |
-| weather     | `weather.<integration name>`                       | Main weather entity for the given location. Daily, hourly and twice-daily forecasts are available                               |
-| sensor      | `sensor.<integration name>.weather`                | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition). |
-| sensor      | `sensor.<integration name>.temperature`            | Temperature, ºC.                                                                                                                |
-| sensor      | `sensor.<integration name>.feels_like_temperature` | Temperature accounting for the human perception of weather, ºC.                                                                 |
-| sensor      | `sensor.<integration name>.humidity`               | Relative humidity, %.                                                                                                           |
-| sensor      | `sensor.<integration name>.wind_speed`             | Wind speed, m/s.                                                                                                                |
-| sensor      | `sensor.<integration name>.wind_gust`              | Wind gust speed, m/s.                                                                                                           |
-| sensor      | `sensor.<integration name>.wind_direction`         | Wind direction, degrees.                                                                                                        |
-| sensor      | `sensor.<integration name>.visibility`             | Visibility distance in meters.                                                                                                  |
-| sensor      | `sensor.<integration name>.uv         `            | UV index.                                                                                                                       |
-| sensor      | `sensor.<integration name>.precipitation`          | Probability of precipitation, %.                                                                                                |
-| sensor      | `sensor.<integration name>.name       `            | Name of the weather station.                                                                                                    |
+| Entity ID                    | Description                                                                                       |
+| :--------------------------- | :------------------------------------------------------------------------------------------------ |
+| `weather.<integration name>` | Main weather entity for the given location. Daily, hourly and twice-daily forecasts are available |
 
-Only the main weather entity, probability of precipitation, temperature, weather and wind speed sensors are enabled by default.
+### Sensor
+
+Separate sensors are created for each of the following conditions:
+
+| Condition                | Description                                                                                                                     |
+| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------ |
+| `weather`                | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition). |
+| `temperature`            | Temperature, ºC.                                                                                                                |
+| `feels_like_temperature` | Temperature accounting for the human perception of weather, ºC.                                                                 |
+| `humidity`               | Relative humidity, %.                                                                                                           |
+| `wind_speed`             | Wind speed, m/s.                                                                                                                |
+| `wind_gust`              | Wind gust speed, m/s.                                                                                                           |
+| `wind_direction`         | Wind direction, degrees.                                                                                                        |
+| `visibility`             | Visibility distance in meters.                                                                                                  |
+| `uv         `            | UV index.                                                                                                                       |
+| `precipitation`          | Probability of precipitation, %.                                                                                                |
+| `name       `            | Name of the weather station.                                                                                                    |
+
+Entity IDs follow the following format:
+`sensor.<integration name>_<condition>`
+
+Only the probability of precipitation, temperature, weather and wind speed sensors are enabled by default.
 
 ## Removing the integration
 
