@@ -44,7 +44,7 @@ You must have:
 
 - A [Tesla](https://tesla.com) account
 - A [Developer Application](https://developer.tesla.com/en_US/dashboard)
-- A web domain and host that you can serve your public key file from. Some free options include:
+- A web domain and host that you can serve your public key file from. Either locally (see [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) instructions below), or alternatively, with some free web-options (ordered from easier to more complex):
   - [FleetKey.cc](https://fleetkey.cc)
   - [MyTeslamate.com](https://app.myteslamate.com/fleet)
   - [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
@@ -53,19 +53,6 @@ You must have:
 
 
 {% include integrations/config_flow.md %}
-
-{% details "Hosting a Public/Private Key Pair" %}
-
-While the [Tesla Fleet API documentation Step 3](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-3-generate-a-public-private-key-pair) mentions this as a later step, it is recommended that you do this first to ensure key reachability before the rest of the integration.
-
-1. Open a new terminal on your computer.
-2. Run this command to create a private key: `openssl ecparam -name prime256v1 -genkey -noout -out private-key.pem`
-3. Run this command to create and associate a public key with it: `openssl ec -in private-key.pem -pubout -out public-key.pem`
-4. Rename the public key file to `com.tesla.3p.public-key.pem`. This needs to be exactly this for Tesla's API to partner with your account correctly.
-5. Backup both these files somewhere safe and private for access later.
-6. Upload the public key file to your domain at the path `/.well-known/appspecific/com.tesla.3p.public-key.pem`. For example, if your domain is `https://my.domain.com`, the public key file must be accessible at `https://my.domain.com/.well-known/appspecific/com.tesla.3p.public-key.pem`. Do not use redirection logic to handle this, or the Tesla API will not recognize your app later in the process.
-
-{% enddetails %}
 
 {% details "Setting up the Developer Application" %}
 
@@ -91,58 +78,24 @@ These steps are also summarized in the [Tesla Fleet API documentation Step 2](ht
 
 {% enddetails %}
 
-{% details "Register your application as a Fleet API partner" %}
+{% details "Hosting a Public/Private Key Pair with the NGINX Home Assistant SSL proxy Add-on" %}
 
-These steps are also summarized in the [Tesla Fleet API documentation Step 4](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-4-call-the-register-endpoint), but the steps below provide easier copy-pasteable code and additional checks.
+With this method, it is assumed that the [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) is running as a reverse proxy for external access to your Home Assistant installation.
 
-{% warning %}
-The following steps involve sensitive credentials. Never share your `Client Secret` or access token with anyone directly, and ensure you're working in a secure environment.
-{% endwarning %}
+1. **Open an SSH Terminal** on your Home Assistant installation using the [Terminal & SSH Add-on](https://www.home-assistant.io/common-tasks/os#installing-and-using-the-ssh-add-on).
+2. During the integration setup, you will be provided your public key. Copy this content to a file at `/share/tesla/.well-known/appspecific/com.tesla.3p.public-key.pem`.
+3. Create a **NGINX configuration file** `nginx_proxy_default_tesla.conf` in `/share` with: `echo 'location /.well-known/appspecific/com.tesla.3p.public-key.pem {\n  root /share/tesla;\n}' > /share/nginx_proxy_default_tesla.conf`
+4. Close the Terminal and go to **Settings** >**Add-Ons** > **NGINX Home Assistant SSL proxy** > Configuration page. Change the `customize.active` option from the default `false` to `true`. Leave the `config.default` option at its default value: `nginx_proxy_default*.conf`.
+5. **Restart the NGINX Home Assistant SSL proxy Add-on** on the **Settings** > **Add-Ons** > **NGINX Home Assistant SSL proxy** > **Info** page and test if the public key file is accessible at `https://my.domain.com/.well-known/appspecific/com.tesla.3p.public-key.pem`
 
-1. Get your OAuth details by going to your [Developer dashboard](https://developer.tesla.com/en_US/dashboard). Under the app you set up for Home Assistant integration select **View Details**. Then, select the **Credentials & APIs** tab. Note the `Client ID` and `Client Secret` strings.
+{% enddetails %}
 
-2. Run this CURL request, replacing the variable values as specified in the notes below:
+{% details "Hosting a Public/Private Key Pair" %}
 
-   ```shell
-   CLIENT_ID=REPLACE_THIS_WITH_YOUR_CLIENT_ID
-   CLIENT_SECRET=REPLACE_THIS_WITH_YOUR_CLIENT_SECRET
-   AUDIENCE="https://fleet-api.prd.na.vn.cloud.tesla.com"
-   curl --request POST \
-     --header 'Content-Type: application/x-www-form-urlencoded' \
-     --data-urlencode 'grant_type=client_credentials' \
-     --data-urlencode "client_id=$CLIENT_ID" \
-     --data-urlencode "client_secret=$CLIENT_SECRET" \
-     --data-urlencode 'scope=openid vehicle_device_data vehicle_cmds vehicle_charging_cmds' \
-     --data-urlencode "audience=$AUDIENCE" \
-     'https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/token'
-   ```
+While the [Tesla Fleet API documentation Step 3](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-3-generate-a-public-private-key-pair) mentions this as a later step, it is recommended that you do this first to ensure key reachability before the rest of the integration.
 
-   Notes about the variable values:
-   - For the `CLIENT_SECRET` value, depending on your terminal environment, you may need to escape any `!` and `$` characters in the string, or the curl request will fail.
-   - Replace the `AUDIENCE` value with your region-specific URL. The URL in the example is for users in North America and Asia-Pacific (excluding China). Refer to the [Base URLs documentation](https://developer.tesla.com/docs/fleet-api/getting-started/base-urls) for the URLs for other regions.
-   - For the `scope=...` line, replace the values with a space-delimited list of [the official scope keywords](https://developer.tesla.com/docs/fleet-api/authentication/overview#scopes), as you defined them earlier in your app.
-3. The CURL request should return a response that looks something like:
-
-   ```json
-   {"access_token":"ACCESS_TOKEN","expires_in":28800,"token_type":"Bearer"}
-   ```
-
-   This is your access token. Copy everything between the double-quotes to be used next.
-4. Run this CURL request, replacing the variable values as specified in the notes below:
-
-   ```shell
-   curl --location 'https://fleet-api.prd.na.vn.cloud.tesla.com/api/1/partner_accounts' \
-   --header 'Content-Type: application/json' \
-   --header 'Authorization: Bearer ACCESS_TOKEN' \
-   --data '{
-       "domain": "my.domain.com"
-   }'
-   ```
-
-   - If you had to change the `AUDIENCE` URL for your region in step 2, update the main domain of the `--location` arg.
-   - Replace `ACCESS_TOKEN` with the access token that you copied in the previous step.
-   - In the `domain:` line, enter your domain without the leading `https://` and the trailing `/`.
-5. You should see a response that contains information about your Tesla Fleet developer app, pricing info, and such. This confirms that the Tesla Fleet API has successfully registered your developer application as a partner. The hard part is over.
+1. During the integration setup, you will be provided your public key. Save this as `com.tesla.3p.public-key.pem`
+2. Host this file on your domain at the path `/.well-known/appspecific/com.tesla.3p.public-key.pem`. Do not use redirection logic to handle this, or the Tesla API will not recognize your app later in the process.
 
 {% enddetails %}
 
@@ -186,12 +139,10 @@ Note that Tesla does not support billing in all countries yet. **Developers in c
 
 ## Command signing
 
-Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. All actions on vehicle entities will fail with an error if this is required and the key has not been setup correctly.
-
-The integration expects your private key to be located at `config/tesla_fleet.key`.
+Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. All actions on vehicle entities will fail with an error if this is required and the key has not been setup correctly.W
 
 Your public key must be added to each of your vehicles by visiting https://tesla.com/_ak/YOUR.DOMAIN and following the instructions in the Tesla app.
-If you're using an iPhone, you may need to use Safari to open the webpage and finish the setup. 
+If you're using an iPhone, you may need to use Safari to open the webpage and finish the setup.
 
 For more details see [Tesla Fleet API vehicle commands documentation](https://developer.tesla.com/docs/fleet-api/endpoints/vehicle-commands#key-pairing).
 

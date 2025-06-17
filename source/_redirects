@@ -33,8 +33,7 @@ layout: null
 /energy /home-energy-management
 /integrations/energy /docs/energy 301!
 
-/amber https://yellow.home-assistant.io
-/yellow https://yellow.home-assistant.io
+/amber https://support.nabucasa.com/hc/en-us/categories/24734575925149-Home-Assistant-Yellow 301!
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
 # Design & User research
@@ -153,9 +152,9 @@ layout: null
 /components/switch.mysensors /integrations/mysensors#switch
 /components/switch.rest /integrations/switch.rest
 /components/switch.template /integrations/switch.template
-/components/telegram_bot.broadcast /integrations/telegram_broadcast
-/components/telegram_bot.polling /integrations/telegram_polling
-/components/telegram_bot.webhooks /integrations/telegram_webhooks
+/components/telegram_bot.broadcast /integrations/telegram_bot
+/components/telegram_bot.polling /integrations/telegram_bot
+/components/telegram_bot.webhooks /integrations/telegram_bot
 /components/vacuum.mqtt /integrations/vacuum.mqtt
 /components/vacuum.template /integrations/vacuum.template
 /integrations/binary_sensor.group /integrations/group
@@ -208,6 +207,9 @@ layout: null
 /integrations/switch.xiaomi_aqara/ /integrations/xiaomi_aqara/#switches
 /integrations/switch.pca /integrations/elv/
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wifi-socket-and-smart-power-strip
+/integrations/telegram_broadcast /integrations/telegram_bot
+/integrations/telegram_polling /integrations/telegram_bot
+/integrations/telegram_webhooks /integrations/telegram_bot
 /integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-mi-robot-vacuum
 
 /components/air_pollutants.* /integrations/:splat
@@ -531,15 +533,20 @@ layout: null
 /integrations/coinmarketcap /more-info/removed-integration 301
 /integrations/coronavirus /more-info/removed-integration 301
 /integrations/crimereports /more-info/removed-integration 301
+/integrations/cups /more-info/removed-integration 301
 /integrations/darksky /more-info/removed-integration 301
+/integrations/decora /more-info/removed-integration 301
 /integrations/deutsche_bahn /more-info/removed-integration 301
 /integrations/device_tracker.trackr /more-info/removed-integration 301
 /integrations/dht /more-info/removed-integration 301
 /integrations/digitalloggers /more-info/removed-integration 301
 /integrations/discovery /more-info/removed-integration 301
+/integrations/dlib_face_detect /more-info/removed-integration 301
+/integrations/dlib_face_identify /more-info/removed-integration 301
 /integrations/dte_energy_bridge /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dyson /more-info/removed-integration 301
+/integrations/eddystone_temperature /more-info/removed-integration 301
 /integrations/edp_redy /more-info/removed-integration 301
 /integrations/ee_brightbox /more-info/removed-integration 301
 /integrations/eight_sleep /more-info/removed-integration 301
@@ -559,6 +566,7 @@ layout: null
 /integrations/google_domains /more-info/removed-integration 301
 /integrations/gpmdp /more-info/removed-integration 301
 /integrations/griddy /more-info/removed-integration 301
+/integrations/gstreamer /more-info/removed-integration 301
 /integrations/hangouts /more-info/removed-integration 301
 /integrations/history_graph /more-info/removed-integration 301
 /integrations/htu21d /more-info/removed-integration 301
@@ -566,6 +574,8 @@ layout: null
 /integrations/hydroquebec /more-info/removed-integration 301
 /integrations/ialarm_xr /more-info/removed-integration 301
 /integrations/iota /more-info/removed-integration 301
+/integrations/keyboard /more-info/removed-integration 301
+/integrations/lirc /more-info/removed-integration 301
 /integrations/life360 /more-info/removed-integration 301
 /integrations/lifx_legacy /more-info/removed-integration 301
 /integrations/linksys_ap /more-info/removed-integration 301
@@ -596,6 +606,7 @@ layout: null
 /integrations/opencv /more-info/removed-integration 301
 /integrations/orangepi_gpio /more-info/removed-integration 301
 /integrations/ozw /more-info/removed-integration 301
+/integrations/pandora /more-info/removed-integration 301
 /integrations/panel_iframe /more-info/removed-integration 301
 /integrations/pcal9535a /more-info/removed-integration 301
 /integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
@@ -618,6 +629,8 @@ layout: null
 /integrations/simple_alarm /more-info/removed-integration 301
 /integrations/simulated /more-info/removed-integration 301
 /integrations/smarthab /more-info/removed-integration 301
+/integrations/sms /more-info/removed-integration 301
+/integrations/snips /more-info/removed-integration 301
 /integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
 /integrations/somfy /more-info/removed-integration 301
@@ -629,6 +642,7 @@ layout: null
 /integrations/sytadin /more-info/removed-integration 301
 /integrations/sunweg /more-info/removed-integration 301
 /integrations/tahoma /more-info/removed-integration 301
+/integrations/tensorflow /more-info/removed-integration 301
 /integrations/teksavvy /more-info/removed-integration 301
 /integrations/tesla /more-info/removed-integration 301
 /integrations/tof /more-info/removed-integration 301
