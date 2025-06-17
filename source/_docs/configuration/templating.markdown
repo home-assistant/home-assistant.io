@@ -97,7 +97,7 @@ In your automations, you could then reuse this macro by importing it:
 {{ format_entity('sensor.temperature') }}
 ```
 
-{$ endraw %}
+{% endraw %}
 
 Home Assistant also allows you to write macros with non-string return values by
 taking a named argument called `returns` and calling it with a return value.  Once created,
