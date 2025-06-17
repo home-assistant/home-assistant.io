@@ -64,15 +64,43 @@ If you have an error with your credentials, you can delete them in the [Applicat
 ### Sensor
 
 The integration will create the following sensors:
+For your local air quality you can find more details [here](https://developers.google.com/maps/documentation/air-quality/laqis)
 
-- Universal Air Quality Index
-  *Googles AQI. 100 is the best air quality and 0 the worst*
-- Category
-  *The current air quality in words. Possible values: Excellent air quality, Good air quality, Moderate air quality, Low air quality, Poor air quality
-- PM10
-  *Fine particulate matter (<2.5µm)*
-- PM2.5
-  *Inhalable particulate matter (<10µm)*
+- **Universal Air Quality Index (UAQI)**  
+  *The global air quality index provided by Google. Ranges from 0 (worst) to 100 (best).*
+
+- **UAQI Category**  
+  *Descriptive category for UAQI. Possible values include: Excellent air quality, Good air quality, Moderate air quality, Low air quality, Poor air quality.*
+
+- **UAQI Dominant Pollutant**  
+  *The pollutant that most significantly influences the UAQI value. Possible values include: PM2.5, PM10, Ozone (O₃), Nitrogen Dioxide (NO₂), Sulphur Dioxide (SO₂) Carbon Monoxide (CO)*
+
+- **Local Air Quality Index**  
+  *A regionally calibrated AQI value, where available.*
+
+- **Local Category**  
+  *Descriptive category for the local AQI. The values can differ from the ones set as UAQI Category.*
+
+- **Local Dominant Pollutant**  
+  *The pollutant that most significantly influences the local AQI. The values can differ from the ones set as UAQI Dominant Pollutant.*
+
+- **PM2.5**  
+  *Particulate matter smaller than 2.5 µm in diameter.*
+
+- **PM10**  
+  *Particulate matter smaller than 10 µm in diameter.*
+
+- **Ozone (O₃)**  
+  *Ground-level ozone concentration.*
+
+- **Nitrogen Dioxide (NO₂)**  
+  *Nitrogen dioxide concentration.*
+
+- **Sulphur Dioxide (SO₂)**  
+  *Sulphur dioxide concentration.*
+
+- **Carbon Monoxide (CO)**  
+  *Carbon monoxide concentration.*
 
 ## Removing the integration
 
