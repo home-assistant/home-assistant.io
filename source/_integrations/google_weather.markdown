@@ -31,10 +31,10 @@ It will be free as long as you stay under 10,000 requests per month.
 
 The integration fetches:
 - current weather conditions every 15 minutes
-- daily weather forecast every 2 hours
-- hourly weather forecast every 2 hours
+- daily weather forecast every 1 hour
+- hourly weather forecast every 1 hour
 
-This results in 3,720 requests per month, well under the free usage cap.
+This results in 4,464 requests per month, well under the free usage cap.
 
 ## Removing the integration
 
