@@ -28,12 +28,12 @@ To change entity attributes, follow these steps:
          - IDs of entities that are disabled or for which the integration is not set up cannot be reverted.
      - To revert all the entity IDs for a device, on the device page, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Recreate entity IDs**.
      - **Result**: This resets the entity ID and applies the current default naming convention.
-       - Which labels are used to generate the entity ID depends on a few factors. Prioritization is as follows:
+       - The terms used to generate the entity ID depends on a few factors. Prioritization is as follows:
          1. If you changed the friendly name of the entity, the friendly name will be used.
          2. The entity ID suggested by the integration (just a few integrations do this).
-         3. The default name in the user language, if using latin script.
-            - If the user language is not using latin script, the entity ID is based on the english default name.
-            - This is because entity IDs must use lower case alphanumeric characters in the range of [a-z,1-9].
+         3. The default name in the user language, if using Latin script.
+            - If the something other than Latin script is used, the entity ID is based on the English default name.
+            - This is because entity IDs must use lowercase alphanumeric characters in the range of [a-z,1-9].
 
         ![revert all entity IDs for a device from the device page](/images/docs/configuration/device-page-revert-entity-id.png)
 
