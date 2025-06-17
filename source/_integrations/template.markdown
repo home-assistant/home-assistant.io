@@ -158,7 +158,7 @@ unique_id:
   required: false
   type: string
 variables:
-  description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints. With State-based template entities, variables are only resolved when the configuration is loaded or reloaded.  Trigger based template entities resolve variables between triggers and actions.
+  description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints. With State-based template entities, variables are only resolved when the configuration is loaded or reloaded. Trigger based template entities resolve variables between triggers and actions.
   required: false
   type: map
   keys:
@@ -173,6 +173,8 @@ variables:
 
 Each entity platform has its own set of configuration options, but there are some common options that can be used across all entity platforms.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 template:
@@ -186,6 +188,8 @@ template:
       state: "{{ states('sensor.watts') | float > 100}}"
       device_class: problem
 ```
+
+{% endraw %}
 
 {% configuration %}
   availability:
@@ -216,7 +220,7 @@ template:
 
 The template alarm control panel platform allows you to create a alarm control panels with templates to define the state and scripts to define each actions.
 
-Alarm control panel entities can be created from the frontend in the Helpers section or via YAML.
+Alarm control panel entities can be created from the frontend in the Helpers section or via YAML. Alarm control panel entities do not support trigger-based configurations.
 
 <a name="configuration-alarm-control-panel-yaml"></a>
 {% details "Configuration of Template alarm control panel entities via YAML" %}
@@ -637,7 +641,7 @@ cover:
       required: false
       type: action
     tilt:
-      description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).  If the template produces a `None` value, the current tilt state will be set to `unknown`.
+      description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value, the current tilt state will be set to `unknown`.
       required: false
       type: template
     tilt_optimistic:
@@ -739,7 +743,7 @@ template:
 
 The template fan platform allows you to create fans with templates to define the state and scripts to define each action.
 
-Fan entities can only be created from YAML.
+Fan entities can only be created from YAML. Fan entities do not support trigger-based configurations.
 
 <a name="configuration-fan-yaml"></a>
 {% details "Configuration of Template fan entities via YAML" %}
@@ -750,51 +754,6 @@ Fan entities can only be created from YAML.
 # Example state-based configuration.yaml entry
 template:
   - fan:
-      - name: "Bedroom fan"
-        state: "{{ states('input_boolean.state') }}"
-        percentage: "{{ states('input_number.percentage') }}"
-        preset_mode: "{{ states('input_select.preset_mode') }}"
-        oscillating: "{{ states('input_select.osc') }}"
-        direction: "{{ states('input_select.direction') }}"
-        turn_on:
-          action: script.fan_on
-        turn_off:
-          action: script.fan_off
-        set_percentage:
-          action: script.fans_set_speed
-          data:
-            percentage: "{{ percentage }}"
-        set_preset_mode:
-          action: script.fans_set_preset_mode
-          data:
-            preset_mode: "{{ preset_mode }}"
-        set_oscillating:
-          action: script.fan_oscillating
-          data:
-            oscillating: "{{ oscillating }}"
-        set_direction:
-          action: script.fan_direction
-          data:
-            direction: "{{ direction }}"
-        speed_count: 6
-        preset_modes:
-          - 'auto'
-          - 'smart'
-          - 'whoosh'
-```
-
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id:
-          - input_boolean.state
-          - input_number.percentage
-          - input_select.preset_mode
-          - input_select.osc
-          - input_select.direction
-    fan:
       - name: "Bedroom fan"
         state: "{{ states('input_boolean.state') }}"
         percentage: "{{ states('input_number.percentage') }}"
@@ -1399,7 +1358,7 @@ template:
 
 The template lock platform allows you to create locks with templates to define the state and scripts to define each action.
 
-Lock entities can only be created from YAML.
+Lock entities can only be created from YAML. Lock entities do not support trigger-based configurations.
 
 <a name="configuration-lock-yaml"></a>
 {% details "Configuration of Template lock entities via YAML" %}
@@ -1410,25 +1369,6 @@ Lock entities can only be created from YAML.
 # Example state-based configuration.yaml entry
 template:
   - lock:
-      - name: Garage door
-        state: "{{ is_state('sensor.door', 'on') }}"
-        lock:
-          action: switch.turn_on
-          target:
-            entity_id: switch.door
-        unlock:
-          action: switch.turn_off
-          target:
-            entity_id: switch.door
-```
-
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id: sensor.door
-    lock:
       - name: Garage door
         state: "{{ is_state('sensor.door', 'on') }}"
         lock:
@@ -2130,7 +2070,7 @@ template:
 
 The template vacuum platform allows you to create vacuum entities with templates to define the state and scripts to define each action.
 
-Vacuum entities can only be created via YAML.
+Vacuum entities can only be created via YAML. Vacuum entities do not support trigger-based configurations.
 
 <a name="configuration-vacuum-yaml"></a>
 {% details "Configuration of Template vacuum entities via YAML" %}
@@ -2142,19 +2082,6 @@ Vacuum entities can only be created via YAML.
 template:
   - vacuum:
     - name: Living Room Vacuum
-      start:
-        action: script.vacuum_start
-```
-
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id: input_select.vacuum_state
-    vacuum:
-    - name: Living Room Vacuum
-      state: "{{ states('input_select.vacuum_state') }}"
       start:
         action: script.vacuum_start
 ```
@@ -2939,7 +2866,7 @@ cover:
         type: boolean
         default: false
       tilt_template:
-        description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).  If the template produces a `None` value the current tilt state will be set to `unknown`.
+        description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value the current tilt state will be set to `unknown`.
         required: false
         type: template
 {% endconfiguration %}
