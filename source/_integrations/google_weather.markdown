@@ -1,0 +1,49 @@
+---
+title: Google Weather
+description: Instructions on how to integrate Google Weather within Home Assistant.
+ha_category:
+  - Weather
+ha_release: '2025.7'
+ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_domain: google_weather
+ha_codeowners:
+  - '@tronikos'
+ha_integration_type: service
+ha_quality_scale: bronze
+ha_platforms:
+  - weather
+---
+
+This {% term integration %} uses [Google Weather](https://developers.google.com/maps/documentation/weather) as a source for weather data for your location.
+
+## Prerequisites
+
+You need an API key. Follow instructions [here](https://developers.google.com/maps/documentation/weather/get-api-key) for creating an API key.
+
+The Weather API is in the pre-GA Preview stage, and there is no charge for API usage during Preview.
+For pricing once it's in GA see [here](https://developers.google.com/maps/documentation/weather/usage-and-billing).
+It will be free as long as you stay under 10,000 requests per month.
+
+{% include integrations/config_flow.md %}
+
+## Data updates
+
+The integration fetches:
+- current weather conditions every 15 minutes
+- daily weather forecast every 2 hours
+- hourly weather forecast every 2 hours
+
+This results in 3,720 requests per month, well under the free usage cap.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+## Known limitations
+
+- Google weather forecast information isn't currently available in South Korea and Japan. See [here](https://support.google.com/websearch/answer/13687874).
+
+## Troubleshooting
+
+- Enable debug logging and attach logs before opening an issue.
