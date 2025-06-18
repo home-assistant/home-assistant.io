@@ -240,6 +240,7 @@ Controllers and devices with the Firmware Update Metadata Command Class allow yo
 4. Under **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
 
     ![Screenshot showing the device panel of a Z-Wave controller](/images/integrations/z-wave/z-wave-update-controller-firmware.png)
+5. Select the firmware file that you previously downloaded to your computer and follow the steps on screen.
 
 ## Resetting a Z-Wave controller
 
