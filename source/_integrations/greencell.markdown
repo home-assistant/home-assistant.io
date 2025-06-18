@@ -48,6 +48,7 @@ Greencell offers three levels of integration with Home Assistant to suit differe
 - **Voltage Phase L2** – Voltage measurement for phase L2 (V).
 - **Voltage Phase L3** – Voltage measurement for phase L3 (V).
 - **EVSE State** – Current state of the EVSE. Possible values:
+  - `OFFLINE`
   - `IDLE`
   - `CONNECTED`
   - `WAITING_FOR_CAR`
