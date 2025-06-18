@@ -191,7 +191,7 @@ Do this if you have an existing Z-Wave network and want to use a new controller.
    - Confirm that you connected the new controller by selecting **Submit**.
 6. Follow the steps on screen.
 
-## Setting the radio frequency region of the controller in the Z-Wave JS add-on
+## Overriding the radio frequency region of the controller in the Z-Wave JS add-on
 
 The frequency used by Z-Wave devices depends on your region. For 700 and 800 series controllers, this frequency can be changed. The frequency of end devices cannot, so you need to make sure to buy devices specific to your region.
 
@@ -203,7 +203,7 @@ If you are using the Z-Wave JS add-on, Home Assistant automatically changes the 
 - All your Z-Wave devices must be specified for that region
 - Note: this procedure only applies if your controller is [set up using the Z-Wave JS add-on](#setting-up-a-z-wave-js-server)
 
-### Overriding the radio frequency region of your Z-Wave controller
+### To override the radio frequency region of your Z-Wave controller
 
 1. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.
 2. Open the **Configuration** tab.
