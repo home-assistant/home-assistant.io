@@ -260,7 +260,7 @@ The close button will close the blinds to the closest closed position (either 0%
 
 ##### Simple cover template entity
 
-Some integrations may expose your SwitchBot Blind Tilt to other actions which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/cover.template), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
+Some integrations may expose your SwitchBot Blind Tilt to other actions which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/template/#cover), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
 
 {% raw %}
 
