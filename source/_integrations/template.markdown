@@ -1731,6 +1731,8 @@ template:
         state: "{{ (states('sensor.outside_temperature') | float - 32) * 5/9 }}"
 ```
 
+{% endraw %}
+
 {% configuration %}
 sensor:
   description: List of sensors
