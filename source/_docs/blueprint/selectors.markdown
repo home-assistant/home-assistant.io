@@ -1322,10 +1322,10 @@ or an external statistic ID (like `external:temperature`).
 
 ![Screenshot of a statistic selector](/images/blueprints/selector-statistic.png)
 
-{% configuration state %}
+{% configuration statistic %}
 multiple:
   description: >
-    If set to true, selector returns a list of statistic IDs.
+    If set to true, the selector returns a list of statistic IDs.
   type: boolean
   default: false
   required: false
