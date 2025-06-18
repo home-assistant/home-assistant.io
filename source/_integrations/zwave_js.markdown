@@ -228,6 +228,19 @@ It's recommended to create a backup before making any major changes to your Z-Wa
    - **Result**: The backup file is downloaded to the device from which you initiated the download.
 4. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
 
+## Updating the firmware of your Z-Wave device
+
+Controllers and devices with the Firmware Update Metadata Command Class allow you to update the firmware by uploading a firmware file. In those cases, you can start the firmware update from the device page in Home Assistant. Refer to the documentation of the device manufacturer to find the corresponding firmware file. An example of such firmware are the [firmware files by Zooz](https://www.support.getzooz.com/kb/article/1158-zooz-ota-firmware-files/).
+
+## To update firmware of a Z-Wave device
+
+1. Download the firmware file from the manufacturer website.
+2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. Select the **Z-Wave** integration. Then, select **Configure** and select the controller.
+4. Under **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
+
+    ![Screenshot showing the device panel of a Z-Wave controller](/images/integrations/z-wave/z-wave-update-controller-firmware.png)
+
 ## Resetting a Z-Wave controller
 
 It is recommended to back up your Z-Wave network before resetting the device.
