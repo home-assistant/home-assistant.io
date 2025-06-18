@@ -88,4 +88,5 @@ Start a new charge session. When no charging card ID is provided, the default ch
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
+| `entity_id` | no | Start charge session button ID |
 | `charging_card_id` | yes | Charging card ID that will be used to start a charge session. |
