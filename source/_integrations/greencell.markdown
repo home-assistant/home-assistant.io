@@ -148,7 +148,7 @@ The message contains the total momentary power (in watts).
 #### /greencell/evse/{SERIAL}/status
 
 The message contains the current charging state of a connected electric/PHEV car. Possible states are:
-`IDLE`, `CONNECTED`, `WAITING_FOR_CAR`, `CHARGING`, `FINISHED`, `ERROR_CAR`, `ERROR_EVSE`
+`OFFLINE`, `IDLE`, `CONNECTED`, `WAITING_FOR_CAR`, `CHARGING`, `FINISHED`, `ERROR_CAR`, `ERROR_EVSE`
 
 ```json
 {
