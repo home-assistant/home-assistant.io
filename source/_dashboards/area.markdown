@@ -17,8 +17,8 @@ related:
 The area card lets you control and monitor an individual {% term area %}.
 
 <p class='img'>
-  <img src='/images/dashboards/area-card.png' alt='Screenshot of the area card'>
-  Screenshot of the area card.
+  <img src='/images/dashboards/area-cards.png' alt='Screenshot of the area cards'>
+  Screenshot of the area cards.
 </p>
 
 {% include dashboard/edit_dashboard.md %}
@@ -77,7 +77,7 @@ sensor_classes:
   description: A list of sensor device classes which will display their averaged sensor readings for the area.
 features:
   required: false
-  description: Additional widgets to control your area. See [available features](/dashboards/features).
+  description: Additional widgets to control entities in the area. See [available features](/dashboards/features).
   type: list
 features_position:
   required: false
