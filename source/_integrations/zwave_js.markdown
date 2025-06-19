@@ -261,7 +261,7 @@ The Home Assistant and Z-Wave JS teams do not take any responsibility for any da
        - An incorrect firmware file can damage your device.
      - Once you start the update process, you must wait for the update to complete.
        - An interrupted update can damage your device.
-5. Select **Begin firmware update**.
+5. Select **Begin firmware update** and wait for it to complete.
 
 ## Resetting a Z-Wave controller
 
