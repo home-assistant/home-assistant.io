@@ -220,7 +220,7 @@ template:
 
 The template alarm control panel platform allows you to create a alarm control panels with templates to define the state and scripts to define each actions.
 
-Alarm control panel entities can be created from the frontend in the Helpers section or via YAML. Alarm control panel entities do not support trigger-based configurations.
+Alarm control panel entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
@@ -723,7 +723,7 @@ template:
 
 The template fan platform allows you to create fans with templates to define the state and scripts to define each action.
 
-Fan entities can only be created from YAML. Fan entities do not support trigger-based configurations.
+Fan entities can only be created from YAML.
 
 {% raw %}
 
@@ -731,6 +731,51 @@ Fan entities can only be created from YAML. Fan entities do not support trigger-
 # Example state-based configuration.yaml entry
 template:
   - fan:
+      - name: "Bedroom fan"
+        state: "{{ states('input_boolean.state') }}"
+        percentage: "{{ states('input_number.percentage') }}"
+        preset_mode: "{{ states('input_select.preset_mode') }}"
+        oscillating: "{{ states('input_select.osc') }}"
+        direction: "{{ states('input_select.direction') }}"
+        turn_on:
+          action: script.fan_on
+        turn_off:
+          action: script.fan_off
+        set_percentage:
+          action: script.fans_set_speed
+          data:
+            percentage: "{{ percentage }}"
+        set_preset_mode:
+          action: script.fans_set_preset_mode
+          data:
+            preset_mode: "{{ preset_mode }}"
+        set_oscillating:
+          action: script.fan_oscillating
+          data:
+            oscillating: "{{ oscillating }}"
+        set_direction:
+          action: script.fan_direction
+          data:
+            direction: "{{ direction }}"
+        speed_count: 6
+        preset_modes:
+          - 'auto'
+          - 'smart'
+          - 'whoosh'
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id:
+          - input_boolean.state
+          - input_number.percentage
+          - input_select.preset_mode
+          - input_select.osc
+          - input_select.direction
+    fan:
       - name: "Bedroom fan"
         state: "{{ states('input_boolean.state') }}"
         percentage: "{{ states('input_number.percentage') }}"
@@ -1324,7 +1369,7 @@ template:
 
 The template lock platform allows you to create locks with templates to define the state and scripts to define each action.
 
-Lock entities can only be created from YAML. Lock entities do not support trigger-based configurations.
+Lock entities can only be created from YAML.
 
 {% raw %}
 
@@ -1334,6 +1379,25 @@ template:
   - lock:
       - name: Garage door
         state: "{{ is_state('sensor.door', 'on') }}"
+        lock:
+          action: switch.turn_on
+          target:
+            entity_id: switch.door
+        unlock:
+          action: switch.turn_off
+          target:
+            entity_id: switch.door
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id: sensor.door
+    lock:
+      - name: Garage door
+        state: "{{ trigger.to_state.state == 'on' }}"
         lock:
           action: switch.turn_on
           target:
@@ -2014,7 +2078,7 @@ template:
 
 The template vacuum platform allows you to create vacuum entities with templates to define the state and scripts to define each action.
 
-Vacuum entities can only be created via YAML. Vacuum entities do not support trigger-based configurations.
+Vacuum entities can only be created via YAML.
 
 {% raw %}
 
@@ -2022,9 +2086,22 @@ Vacuum entities can only be created via YAML. Vacuum entities do not support tri
 # Example state-based configuration.yaml entry
 template:
   - vacuum:
-    - name: Living Room Vacuum
-      start:
-        action: script.vacuum_start
+      - name: Living Room Vacuum
+        start:
+          action: script.vacuum_start
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id: sensor.living_room_vacuum_state
+    vacuum:
+      - name: Living Room Vacuum
+        state: "{{ states('sensor.living_room_vacuum_state') }}"
+        start:
+          action: script.vacuum_start
 ```
 
 {% endraw %}
