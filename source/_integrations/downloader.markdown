@@ -31,6 +31,9 @@ This will download the file from the given URL.
 | Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `url`                  |       no | The URL of the file to download.               |
+| `digest_auth`          |      yes | Whether to use digest authentication.          |
+| `username`             |      yes | Username to use with digest authentication.    |
+| `password`             |      yes | Password to use with digest authentication.    |
 | `subdir`               |      yes | Download into subdirectory of **download_dir** |
 | `filename`             |      yes | Determine the filename.                        |
 | `overwrite`            |      yes | Whether to overwrite the file or not, defaults to `false`. |
