@@ -52,7 +52,7 @@ password:
   required: true
   type: string
 homeserver:
-  description: "The full URL for your homeserver. If you use the default matrix.org homeserver, this is 'https://matrix.org'."
+  description: "The full URL for your homeserver. If you use the default matrix.org homeserver, this is '<https://matrix.org>'."
   required: true
   type: string
 verify_ssl:
@@ -72,11 +72,15 @@ commands:
   default: empty
   keys:
     word:
-      description: "Specifies a word that the bot should listen for. If you specify 'my_command' here, the bot will react to any message starting with '!my_command'."
+      description: "Specifies a word that the bot should listen for. If you specify 'my_command' here, the bot will handle any message starting with '!my_command'."
       required: false
       type: string
     expression:
-      description: "Specifies a regular expression (in Python regexp syntax) that the bot should listen to. The bot will react to any message that matches the regular expression."
+      description: "Specifies a regular expression (in Python regexp syntax) that the bot should listen to. The bot will handle any message that matches the regular expression."
+      required: false
+      type: string
+    reaction:
+      description: "Specifies an emoji reaction that the bot should listen to. The bot will handle any message that is reacted to with this emoji."
       required: false
       type: string
     name:
@@ -122,6 +126,8 @@ matrix:
         - "#someothertest:matrix.org"
     - expression: "My name is (?P<name>.*)"
       name: introduction
+    - reaction: 👍
+      name: thumbsup
 
 notify:
   - name: matrix_notify
@@ -129,7 +135,7 @@ notify:
     default_room: "#hasstest:matrix.org"
 
 automation:
-  - alias: "React to !testword"
+  - alias: "Respond to !testword"
     triggers:
       - trigger: event
         event_type: matrix_command
@@ -140,7 +146,7 @@ automation:
         data:
           message: "It looks like you wrote !testword"
 
-  - alias: "React to an introduction"
+  - alias: "Respond to an introduction"
     triggers:
       - trigger: event
         event_type: matrix_command
@@ -150,14 +156,41 @@ automation:
       - action: notify.matrix_notify
         data:
           message: "Hello {{trigger.event.data.args['name']}}"
+
+  - alias: "Respond to a reaction in a thread"
+    triggers:
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: thumbsup
+    actions:
+      - action: notify.matrix_notify
+        data:
+          message: "I saw that {{trigger.event.data.args['reaction']}} -- glad you appreciated this!"
+          data:
+            thread_id: "{{trigger.event.data.thread_parent | default(trigger.event.data.event_id)}}"
+
+  - alias: "React to a command"
+    triggers:
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: testword
+    actions:
+      - action: matrix.react
+        data:
+          reaction: "✅"
+          room: "{{trigger.event.data.room}}"
+          message_id: "{{trigger.event.data.event_id}}"
 ```
 
 {% endraw %}
 
 This configuration will:
 
-- Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel.
+- Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel and also place a ✅ reaction on the original message.
 - Listen in both rooms for any message matching "My name is <any string>" and answer with "Hello <the string>" into "#hasstest:matrix.org".
+- Listen in both rooms for messages reacted to with 👍 and answer in a thread with "I saw that 👍 -- glad you appreciated this!"
 
 ## Notifications
 
@@ -188,7 +221,6 @@ default_room:
 The target room has to be precreated, the room id can be obtained from the rooms settings dialog. Rooms by default have a canonical id of the form `"!<randomid>:homeserver.tld"`, but can also be allocated aliases like `"#roomname:homeserver.tld"`. Make sure to use quotes around the room id or alias to escape special characters (`!`, and `#`) in YAML. The notifying account may need to be invited to the room, depending on the individual rooms policies.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
-
 
 ### Message formats
 
@@ -232,4 +264,35 @@ homeassistant:
   allowlist_external_dirs:
     - /tmp
 ```
+
 {% endimportant %}
+
+### Replying in threads
+
+The `matrix_command` event will contain an `event_id` field that represents the message identifier for the received message.
+If the message was inside of a thread, the event will also contain a `thread_parent` field that contains the message
+identifier of the root message of the thread.
+
+To reply inside of a thread, pass the correct message identifier of the root message into `data.thread_id` when sending
+a reply message. For example:
+
+```yaml
+action: notify.matrix_notify
+data:
+  message: "Reply message goes here"
+  data:
+    thread_id: |
+      {{ trigger.event.data.thread_parent | default(trigger.event.data.event_id) }}
+```
+
+### Reacting to messages
+
+To react to a message with an emoji reaction, use the `matrix.react` action:
+
+```yaml
+action: matrix.react
+data:
+  reaction: "✅"
+  room: "{{ trigger.event.data.room }}"
+  message_id: "{{ trigger.event.data.event_id }}"
+```
