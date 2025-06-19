@@ -252,7 +252,7 @@ The Home Assistant and Z-Wave JS teams do not take any responsibility for any da
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Z-Wave** integration. Then, select **Configure** and select the controller.
-3. Under **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
+3. Under **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Update firmware**.
 
     ![Screenshot showing the device panel of a Z-Wave controller](/images/integrations/z-wave/z-wave-update-controller-firmware.png)
 4. Select the firmware file that you previously downloaded to your computer and follow the steps on screen.
