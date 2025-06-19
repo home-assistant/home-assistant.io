@@ -107,6 +107,12 @@ script:
 
 Network receivers from Onkyo and Integra are supported starting with models from the year 2011. Pioneer network receivers are supported starting with models from 2016.
 
+## Troubleshooting
+
+### No entities created
+
+Restart your receiver (power cycle).
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
