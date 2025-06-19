@@ -97,6 +97,8 @@ While the [Tesla Fleet API documentation Step 3](https://developer.tesla.com/doc
 1. During the integration setup, you will be provided your public key. Save this as `com.tesla.3p.public-key.pem`
 2. Host this file on your domain at the path `/.well-known/appspecific/com.tesla.3p.public-key.pem`. Do not use redirection logic to handle this, or the Tesla API will not recognize your app later in the process.
 
+{% enddetails %}
+
 ### Step 4: Connect to Home Assistant
 
 {% include integrations/config_flow.md %}
