@@ -31,6 +31,11 @@ Generates text using AI.
 | `instructions`         | no       | String containing the specific instructions for the AI to follow when generating the text.                      |
 | `entity_id`            | yes      | String that points at an `entity_id` of an LLM task entity. If not specified, uses the default LLM task.       |
 
+Response variable is a dictionary with the following keys:
+
+- `text`: The generated text.
+- `conversation_id`: The ID of the conversation used for the task.
+
 ```yaml
 # Example: Generate a notification when garage door is left open
 automation:
