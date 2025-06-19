@@ -181,11 +181,13 @@ template:
   binary_sensor:
       # Common configuration options
     - unique_id: my_unique_sensor_id
-      availability: "{{ 'sensor.watts' | has_value }}"
-      icon: "{{ 'mdi:flash-alert' if states('sensor.watts') | float > 100 else 'mdi:flash' }}"
-      name: "{{ states('sensor.watts') }} Alert"
+      variables:
+        my_entity: sensor.watts
+      availability: "{{ my_entity | has_value }}"
+      icon: "{{ 'mdi:flash-alert' if states(my_entity) | float > 100 else 'mdi:flash' }}"
+      name: "{{ states(my_entity) }} Alert"
       # Entity specific configuration options
-      state: "{{ states('sensor.watts') | float > 100}}"
+      state: "{{ states(my_entity) | float > 100}}"
       device_class: problem
 ```
 
@@ -213,6 +215,15 @@ template:
     description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
     required: false
     type: string
+  variables:
+    description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints. With State-based template entities, variables are only resolved when the configuration is loaded or reloaded. Trigger based template entities resolve variables between triggers and actions.
+    required: false
+    type: map
+    keys:
+      "variable_name: value":
+        description: The variable name and corresponding value.
+        required: true
+        type: string
 
 {% endconfiguration %}
 
