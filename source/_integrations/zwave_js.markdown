@@ -232,15 +232,36 @@ It's recommended to create a backup before making any major changes to your Z-Wa
 
 Controllers and devices with the Firmware Update Metadata Command Class allow you to update the firmware by uploading a firmware file. In those cases, you can start the firmware update from the device page in Home Assistant. Refer to the documentation of the device manufacturer to find the corresponding firmware file. An example is the [firmware page by Zooz](https://www.support.getzooz.com/kb/article/1158-zooz-ota-firmware-files/).
 
+{% caution %}
+**Risk of damage to the device due to firmware update**
+
+A firmware update can damage your Z-Wave device.
+
+- Before updating your Z-Wave device, make sure an update is necessary, and that you have the correct firmware file matching your device.
+- Once you have started the update process, you must not interrupt the update process but let it complete.
+
+The Home Assistant and Z-Wave JS teams do not take any responsibility for any damages to your device as a result of the firmware update and will not be able to help you if you render your device useless due to firmware update.
+{% endcaution %}
+
+### Prerequisites
+
+- Administrator rights in Home Assistant
+- Downloaded the firmware file from the manufacturer website
+
 ### To update firmware of a Z-Wave device
 
-1. Download the firmware file from the manufacturer website.
-2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-3. Select the **Z-Wave** integration. Then, select **Configure** and select the controller.
-4. Under **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Z-Wave** integration. Then, select **Configure** and select the controller.
+3. Under **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
 
     ![Screenshot showing the device panel of a Z-Wave controller](/images/integrations/z-wave/z-wave-update-controller-firmware.png)
-5. Select the firmware file that you previously downloaded to your computer and follow the steps on screen.
+4. Select the firmware file that you previously downloaded to your computer and follow the steps on screen.
+   - **Caution: Risk of damage to the device**
+     - Make sure you select the correct firmware file.
+       - An incorrect firmware file can damage your device.
+     - Once you start the update process, you must wait for the update to complete.
+       - An interrupted update can damage your device.
+5. Select **Begin firmware update**.
 
 ## Resetting a Z-Wave controller
 
