@@ -1152,13 +1152,15 @@ When used with a `schema`, the selector will force the object to be in this form
 ```yaml
 object:
   label_key: name
-  description: percentage
+  description_key: percentage
   multiple: true
-  schema:
-    - name: name
+  fields:
+    name:
+      label: Name
       selector: 
         text:
-    - name: percentage
+    percentage:
+      label: Percentage
       selector:
         number:
           unit_of_measurement: "%"
@@ -1167,33 +1169,42 @@ object:
 The output of this selector is a YAML object.
 
 {% configuration qr_code %}
-schema:
+fields:
   description: >
-    List of properties of the object.
+    List of fields of the object.
   type: map
-  required: true
+  required: false
   keys:
-    name:
-      description: The name of the property
-      required: true
+    label:
+      description: The label of the field
+      required: false
       type: string
     selector:
-      description: The selector to use for this property. I can be any available selector.
+      description: The selector to use for this field. It can be any available selector.
       required: true
       type: string
-label_key:
+label_field:
   description: >
-    The property to use as a label. By default, it will be the first property defined in the schema. This option is only available if a `schema` is set.
+    The field to use as a label. By default, it will be the first field defined. This option is only used if `fields` option set.
   type: string
   required: false
-description_key:
+description_field:
   description: >
-    The property to use as a description. This option is only available if a `schema` is set.
+    The field to use as a description. This option is only used if `fields` option set.
+  type: string
+  required: false
+translation_key:
+  description: >
+    Allows translations provided by an integration where `translation_key`
+    is the translation key that is providing the selector option strings
+    translation. See the documentation on
+    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    for more information.
   type: string
   required: false
 multiple:
   description: >
-    Allows selecting multiple options. If set to `true`, the resulting value of this selector will be a list instead of a single string value. This option is only available if a `schema` is set.
+    Allows selecting multiple options. If set to `true`, the resulting value of this selector will be a list instead of a single string value. This option is only used if `fields` option set.
   type: boolean
   required: false
   default: false
