@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@rytilahti'
   - '@shenxn'
+  - '@YoshiWalsh'
 ha_domain: songpal
 ha_ssdp: true
 ha_platforms:
@@ -33,9 +34,18 @@ A few notes:
 
 See [python-songpal's documentation](https://github.com/rytilahti/python-songpal#locating-the-endpoint) how to get your API endpoint.
 
+## Entities
+
+The platform will create a media player entity, which can be used to control the power-state, volume, source, and sound mode for your device.
+If your device supports additional sound settings, Bluetooth settings, or miscellaneous settings, various other entities will be created
+to allow controlling these. Which settings are available depends on the capabilities of your specific Songpal compatible device.
+
 ## Actions
 
-In addition to the general [media player actions](/integrations/media_player/#actions), the following actions are provided:
+For backwards compatibility purposes the integration provides actions for manually changing settings. The use of these is no longer recommended,
+as the various entities should allow for easier control over these settings.
+
+The available manual actions are:
 
 ### Action `songpal/set_sound_setting`
 
