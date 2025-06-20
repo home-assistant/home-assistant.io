@@ -168,7 +168,7 @@ automation:
         data:
           message: "I saw that {{trigger.event.data.args['reaction']}} -- glad you appreciated this!"
           data:
-            thread_id: "{{trigger.event.data.thread_parent | default(trigger.event.data.event_id)}}"
+            thread_id: "{{trigger.event.data.thread_parent}}"
 
   - alias: "React to a command"
     triggers:
@@ -270,8 +270,9 @@ homeassistant:
 ### Replying in threads
 
 The `matrix_command` event will contain an `event_id` field that represents the message identifier for the received message.
-If the message was inside of a thread, the event will also contain a `thread_parent` field that contains the message
-identifier of the root message of the thread.
+It will also contain a `thread_parent` field that contains the message identifier for the parent message of the thread.
+If the message was inside of a thread, `thread_parent` will be the identifier of the root message of the thread. If it
+is not inside of a thread, `thread_parent` will be the same as `event_id`.
 
 To reply inside of a thread, pass the correct message identifier of the root message into `data.thread_id` when sending
 a reply message. For example:
@@ -282,7 +283,7 @@ data:
   message: "Reply message goes here"
   data:
     thread_id: |
-      {{ trigger.event.data.thread_parent | default(trigger.event.data.event_id) }}
+      {{ trigger.event.data.thread_parent }}
 ```
 
 ### Reacting to messages
