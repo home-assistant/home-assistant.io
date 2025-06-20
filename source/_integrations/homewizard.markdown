@@ -179,7 +179,7 @@ It may happen that you can't find your devices or they won't show up in the inte
 1. During setup, you may be asked to press a button on your device to authenticate it with Home Assistant.  
     - **P1 Meter**: Press the white button on the front of the P1 Meter.  
     - **Plug-In Battery**: Press the black touch button on the front of the device. You will hear a beep.
-    - **kWh Meter**: Press and hold the button with the wifi icon for two seconds. Release the button before the display shows "AP".
+    - **kWh Meter**: Press and hold the button with the Wi‑Fi icon for two seconds. Release the button before the display shows "AP".
     - **Energy Socket** and **Water Meter**: they do not require this step.
 2. After pressing the button, you must select **Continue** within 30 seconds to complete the setup. 
     - If the setup times out, you may need to press the button again.
