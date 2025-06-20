@@ -77,16 +77,16 @@ The Blue Current integration provides the following buttons:
 - Reboot
 - Stop charge session
 - Start charge session
-  - You can select the default charging card used to start a charge session via the configuration flow in the integration settings.
+  - Select the default charging card in the integration settings to use when starting a session.
 
 ## Actions
 The following actions are provided by the Blue Current integration:
 
 ### Action start_charge_session
 
-Start a new charge session. When no charging card ID is provided, the default charging card from the configuration flow will be used.
+Start a new charge session. When no charging card ID is provided, the default charging card from the integration settings will be used.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
-| `entity_id` | no | Start charge session button ID |
+| `device_id` | no | Charge point device ID |
 | `charging_card_id` | yes | Charging card ID that will be used to start a charge session. |
