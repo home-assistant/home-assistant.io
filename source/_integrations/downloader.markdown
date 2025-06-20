@@ -29,13 +29,13 @@ Go to the "Developer Tools", then to "Actions", and choose `downloader.download_
 This will download the file from the given URL.
 
 | Data attribute | Optional | Description                                    |
-| ---------------------- | -------- | ---------------------------------------------- |
-| `url`                  |       no | The URL of the file to download.               |
-| `digest_auth`          |      yes | Whether to use digest authentication.          |
-| `username`             |      yes | Username to use with digest authentication.    |
-| `password`             |      yes | Password to use with digest authentication.    |
-| `subdir`               |      yes | Download into subdirectory of **download_dir** |
-| `filename`             |      yes | Determine the filename.                        |
+| ---------------------- | -------- | ------------------------------------------------- |
+| `url`                  |       no | The URL of the file to download.                  |
+| `auth_type`            |      yes | Authentication type to use (`basic` or `digest`). |
+| `auth_username`        |      yes | Username to use with authentication.              |
+| `auth_password`        |      yes | Password to use with authentication.              |
+| `subdir`               |      yes | Download into subdirectory of **download_dir**    |
+| `filename`             |      yes | Determine the filename.                           |
 | `overwrite`            |      yes | Whether to overwrite the file or not, defaults to `false`. |
 
 ### Download status events
