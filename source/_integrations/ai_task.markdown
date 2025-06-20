@@ -11,11 +11,11 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-This integration allows Home Assistant to use AI to help you configure it.
+The **AI Task** {% term integration %} allows you to use AI to help you configure Home Assistant.
 
 {% include integrations/building_block_integration.md %}
 
-Users are able to set preferred AI task entity for each task in the frontend. This allows users to have different AI models for different purposes, such as generating text, summarizing information, or even controlling devices. When the entity ID is omitted in the action, the preferred AI task entity will be used.
+For each task, you can set a preferred AI task entity. This allows you to use different AI models for different purposes, such as generating text, summarizing information, or even controlling devices. When the entity ID is omitted in the action, the preferred AI task entity will be used.
 
 ## The state of an AI task entity
 
@@ -27,11 +27,11 @@ Generates text using AI.
 
 | Data attribute | Optional | Description                                                                                                     |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `task_name`            | no       | String that identifies the type of text generation task (e.g., "home summary", "alert notification").           |
+| `task_name`            | no       | String that identifies the type of text generation task (for example, "home summary", "alert notification").           |
 | `instructions`         | no       | String containing the specific instructions for the AI to follow when generating the text.                      |
 | `entity_id`            | yes      | String that points at an `entity_id` of an LLM task entity. If not specified, uses the default LLM task.       |
 
-Response variable is a dictionary with the following keys:
+The response variable is a dictionary with the following keys:
 
 - `text`: The generated text.
 - `conversation_id`: The ID of the conversation used for the task.
