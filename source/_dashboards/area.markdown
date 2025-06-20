@@ -81,7 +81,7 @@ features:
   type: list
 features_position:
   required: false
-  description: Position of the features on the tile card. Can be `bottom` or `inline`. Only the first feature will be displayed when the option is set to `inline`.
+  description: Position of the features on the area card. Can be `bottom` or `inline`. Only the first feature will be displayed when the option is set to `inline`.
   type: string
   default: bottom
 {% endconfiguration %}
