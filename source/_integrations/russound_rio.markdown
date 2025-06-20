@@ -61,7 +61,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 The integration provides a few entities to configure the device settings. The following entities are supported:
 
-- Bass & Treble
+- Bass and Treble
 - Balance
 - Turn on volume
 
