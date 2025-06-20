@@ -57,6 +57,14 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
+## Available configuration entities
+
+The integration provides a few entities to configure the device settings. The following entities are supported:
+
+- Bass & Treble
+- Balance
+- Turn on volume
+
 ## Troubleshooting
 
 ### There is a delay on getting the current status
