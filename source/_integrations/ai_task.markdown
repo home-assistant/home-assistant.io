@@ -57,3 +57,4 @@ automation:
       data:
         message: "{{ generated_text.result }}"
 ```
+{% endraw %}
