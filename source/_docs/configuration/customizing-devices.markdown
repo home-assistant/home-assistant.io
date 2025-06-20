@@ -20,7 +20,6 @@ To change entity attributes, follow these steps:
 
 3. Enter or edit the attributes:
    - For example, the entity ID here could be shortened to `binary_sensor.lumi_sensor_aq2_opening`.
-     - Do not change the domain of the entity - the part before the `.` (binary_sensor, in this example).
      - You can use lowercase letters, numbers, and underscores.
      - The ID must not start or end with an underscore.
      - To undo the change and revert the ID to the default, select the {% icon "mdi:restore" %} icon.
