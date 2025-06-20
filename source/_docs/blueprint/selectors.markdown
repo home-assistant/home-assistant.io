@@ -52,7 +52,6 @@ The following selectors are currently available:
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
 - [Trigger selector](#trigger-selector)
-  - [Example - Merging with existing triggers](#example---merging-with-existing-triggers)
 
 Interactive demos of each of these selectors can be found on the
 [Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
