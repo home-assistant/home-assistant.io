@@ -19,7 +19,7 @@ For each task, you can set a preferred AI task entity. This allows you to use di
 
 ## The state of an AI task entity
 
-The state of an AI task {% term entity %} is a timestamp showing the date and time when AI task was last used.
+The {% term state %} of an AI task {% term entity %} is a timestamp showing the date and time when the AI task was last used.
 
 ## Action `ai_task.generate_text`
 
