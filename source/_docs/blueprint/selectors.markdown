@@ -52,6 +52,7 @@ The following selectors are currently available:
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
 - [Trigger selector](#trigger-selector)
+  - [Example - Merging with existing triggers](#example---merging-with-existing-triggers)
 
 Interactive demos of each of these selectors can be found on the
 [Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
@@ -1136,15 +1137,67 @@ number:
 
 The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries containing data for actions. The value of the input will contain the provided data.
 
-![Screenshot of an object selector](/images/blueprints/selector-object.png)
+When used without options, the selector will accept a free form object.
 
-This selector does not have any other options; therefore, it only has its key.
+![Screenshot of an object selector](/images/blueprints/selector-object.png)
 
 ```yaml
 object:
 ```
 
+When used with a `schema`, the selector will force the object to be in this format by displaying a form.
+
+![Screenshot of an object selector](/images/blueprints/selector-object-schema.png)
+
+```yaml
+object:
+  label_key: name
+  description: percentage
+  multiple: true
+  schema:
+    - name: name
+      selector: 
+        text:
+    - name: percentage
+      selector:
+        number:
+          unit_of_measurement: "%"
+```
+
 The output of this selector is a YAML object.
+
+{% configuration qr_code %}
+schema:
+  description: >
+    List of properties of the object.
+  type: map
+  required: true
+  keys:
+    name:
+      description: The name of the property
+      required: true
+      type: string
+    selector:
+      description: The selector to use for this property. I can be any available selector.
+      required: true
+      type: string
+label_key:
+  description: >
+    The property to use as a label. By default, it will be the first property defined in the schema. This option is only available if a `schema` is set.
+  type: string
+  required: false
+description_key:
+  description: >
+    The property to use as a description. This option is only available if a `schema` is set.
+  type: string
+  required: false
+multiple:
+  description: >
+    Allows selecting multiple options. If set to `true`, the resulting value of this selector will be a list instead of a single string value. This option is only available if a `schema` is set.
+  type: boolean
+  required: false
+  default: false
+{% endconfiguration %}
 
 ## QR code selector
 
