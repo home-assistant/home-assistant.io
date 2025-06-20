@@ -35,7 +35,7 @@ The response variable is a dictionary with the following keys:
 
 - `text`: The generated text.
 - `conversation_id`: The ID of the conversation used for the task.
-
+## Example
 {% raw %}
 ```yaml
 # Example: Generate a notification when garage door is left open
