@@ -37,7 +37,7 @@ To change entity attributes, follow these steps:
         ![revert all entity IDs for a device from the device page](/images/docs/configuration/device-page-revert-entity-id.png)
 
    - Enter or edit the friendly name.
-     - In this example, the would change "Opening".
+     - In this example, this would change "Opening".
    - If needed, from the **Shown as** menu, you can select a different [device class](/integrations/homeassistant/#device-class).
    - If you like, add a [label](/docs/organizing/labels/).
 
