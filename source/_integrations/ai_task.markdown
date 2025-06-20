@@ -15,11 +15,11 @@ This integration allows Home Assistant to use AI to help you configure it.
 
 {% include integrations/building_block_integration.md %}
 
-Users are able to set per task their preferred AI task entity. This allows users to have different AI models for different purposes, such as generating text, summarizing information, or even controlling devices. When the entity ID is omitted in the action, the preferred AI task entity will be used.
+Users are able to set preferred AI task entity for each task in the frontend. This allows users to have different AI models for different purposes, such as generating text, summarizing information, or even controlling devices. When the entity ID is omitted in the action, the preferred AI task entity will be used.
 
 ## The state of an AI task entity
 
-The state of a text-to-speech {% term entity %} is a timestamp showing the date and time when text-to-speech was last used.
+The state of an AI task {% term entity %} is a timestamp showing the date and time when AI task was last used.
 
 ## Action `ai_task.generate_text`
 
@@ -36,6 +36,7 @@ Response variable is a dictionary with the following keys:
 - `text`: The generated text.
 - `conversation_id`: The ID of the conversation used for the task.
 
+{% raw %}
 ```yaml
 # Example: Generate a notification when garage door is left open
 automation:
@@ -50,7 +51,7 @@ automation:
     - action: ai_task.generate_text
       data:
         task_name: "garage door left open comment"
-        instructions: "Funny notification that garage door left open"
+        instructions: "Generate a funny notification that garage door was left open"
       response_variable: generated_text
     - action: notify.mobile_app
       data:
