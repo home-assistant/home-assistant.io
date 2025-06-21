@@ -62,7 +62,7 @@ The following {% term sensors %} are created. For some of those the API key need
 
 ## Update entity
 
-An {% term update %} entity is created to inform about a new available Immich server version (_requires Immich server v1.134.0_)
+An {% term update %} entity is created to inform about a new available Immich server version (_requires Immich server v1.134.0_).
 
 ## Troubleshooting
 
