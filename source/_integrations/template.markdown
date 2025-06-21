@@ -105,7 +105,7 @@ template:
 
 {% endraw %}
 
-### Trigger-based template binary sensors, images, lights, numbers, selects, sensors, switches, and weathers
+### Trigger-based template entities
 
 If you want more control over when an entity updates, you can define triggers. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
