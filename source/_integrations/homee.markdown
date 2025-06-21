@@ -9,7 +9,6 @@ ha_category:
   - Cover
   - Event
   - Fan
-  - Hub
   - Light
   - Lock
   - Number
