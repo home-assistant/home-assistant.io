@@ -68,7 +68,7 @@ This action allows you to upload a media file to your Immich instance. It takes 
 | --- | --- | --- | --- |
 | Immich instance | `config_entry_id` | yes | Select the Immich instance where to upload the file. |
 | File | `file` | yes | The path to the file to be uploaded.<br>_This path must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/integrations/homeassistant/) section of your {% term "`configuration.yaml`" %} file._  |
-| Album id | `album_id` | no | The album where to put the file in after upload.<br>_To get the album id, open the Immich instance webui in a browser and navigate to the corresponding album, the album id can now be found ion the URL `https://your-immich-instance/albums/<ALBUM-ID>`_ |
+| Album id | `album_id` | no | The album where to put the file in after upload.<br>_To get the album id, open the Immich instance webui in a browser and navigate to the corresponding album, the album id can now be found in the URL `https://your-immich-instance/albums/<ALBUM-ID>`_ |
 
 #### Example script
 
