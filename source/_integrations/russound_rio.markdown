@@ -10,6 +10,7 @@ ha_platforms:
   - diagnostics
   - media_player
   - number
+  - switch
 ha_codeowners:
   - '@noahhusby'
 ha_config_flow: true
@@ -64,6 +65,7 @@ The integration provides a few entities to configure the device settings. The fo
 
 - Bass and Treble
 - Balance
+- Loudness
 - Turn on volume
 
 ## Troubleshooting
