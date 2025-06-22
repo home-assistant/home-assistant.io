@@ -58,6 +58,42 @@ The following {% term sensors %} are created. For some of those the API key need
 | **Disk used by photos** | Used disk space by photos (_admin only_) | ❌ |
 | **Disk used by videos** | Used disk space by videos (_admin only_) | ❌ |
 
+## Actions
+
+### Upload file
+
+This action allows you to upload a media file to your Immich instance. It takes the following arguments:
+
+| Argument Name | Argument key | Required | Description |
+| --- | --- | --- | --- |
+| Immich instance | `config_entry_id` | yes | Select the Immich instance where to upload the file. |
+| File | `file` | yes | The path to the file to be uploaded.<br>_This path must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/integrations/homeassistant/) section of your {% term "`configuration.yaml`" %} file._  |
+| Album id | `album_id` | no | The album where to put the file in after upload.<br>_To get the album id, open the Immich instance webui in a browser and navigate to the corresponding album, the album id can now be found ion the URL `https://your-immich-instance/albums/<ALBUM-ID>`_ |
+
+#### Example script
+
+Take a snapshot of a camera entity via the [`camera.snapshot`](/integrations/camera/#action-snapshot) action and upload it to the Immich instance in a specific album.
+
+{% raw %}
+
+```yaml
+sequence:
+  - variables:
+      file_name: /tmp/camera.yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg
+  - action: camera.snapshot
+    data:
+      filename: "{{ file_name }}"
+    target:
+      entity_id: camera.yourcamera
+  - action: immich.upload_file
+    data:
+      config_entry_id: 01JVJ0RA387MWA938VE8HGXBMJ
+      file: "{{ file_name }}"
+      album_id: f2de0ede-d7d4-4db3-afe3-7288f4e65bb1
+```
+
+{% endraw %}
+
 ## Troubleshooting
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs, stop the debug logging again (_download of debug log file will start automatically_). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics/) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
