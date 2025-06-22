@@ -131,7 +131,7 @@ The Envoy reports individual micro-inverter device production data. SN is the mi
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> last reported**: Time when Envoy last received a data update from the inverter. Typical update rate for an inverter to the Envoy is every 5 to 15 minutes. This entity is disabled by default for all inverters.
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> Lifetime maximum power**: Maximum power production measured by the inverter (W). This entity is disabled by default for all inverters.
 
-Based on the Envoy firmware version, the Envoy may provide inverter device data as well. If that is the case, additional entities are available. These are disabled by default for all inverters, enable these as desired.
+Based on the Envoy firmware version, the Envoy may provide inverter device data as well. If that is the case, additional entities are available. These are disabled by default for all inverters. Enable these as desired.
 
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> DC voltage**: DC voltage measured by the inverter (V).
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> DC current**: DC current measured by the inverter (A).
@@ -140,7 +140,7 @@ Based on the Envoy firmware version, the Envoy may provide inverter device data 
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> Frequency**: Frequency measured by the inverter (Hz).
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> Temperature**: Temperature measured by the inverter (°C).
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> Energy produced**: Energy produced by the inverter during last report cycle (mWh).
-- **Inverter <abbr title="micro-inverter serial number">SN</abbr> Energy today**: Energy produced today by the inverter (wh).
+- **Inverter <abbr title="micro-inverter serial number">SN</abbr> Energy today**: Energy produced today by the inverter (Wh).
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> Lifetime energy**: Total energy produced during inverter lifetime (Wh).
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> Report duration**: Time in seconds covered by the last report data.
 
