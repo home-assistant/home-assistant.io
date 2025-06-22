@@ -178,7 +178,7 @@ Each entity platform has its own set of configuration options, but there are som
 ```yaml
 # Example configuration.yaml entry
 template:
-  binary_sensor:
+  - binary_sensor:
       # Common configuration options
     - unique_id: my_unique_sensor_id
       availability: "{{ 'sensor.watts' | has_value }}"
