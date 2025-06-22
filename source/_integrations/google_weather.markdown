@@ -21,9 +21,11 @@ This {% term integration %} uses [Google Weather](https://developers.google.com/
 
 You need an API key. Follow instructions [here](https://developers.google.com/maps/documentation/weather/get-api-key) for creating an API key.
 
+{% note %}
 The Weather API is in the pre-GA Preview stage, and there is no charge for API usage during Preview.
 For pricing once it's in GA see [here](https://developers.google.com/maps/documentation/weather/usage-and-billing).
 It will be free as long as you stay under 10,000 requests per month.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
