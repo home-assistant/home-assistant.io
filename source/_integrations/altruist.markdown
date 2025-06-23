@@ -5,7 +5,7 @@ ha_category:
   - Health
   - Sensor
 ha_config_flow: true
-ha_release: 2025.5
+ha_release: 2025.7
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@airalab'
