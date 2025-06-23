@@ -41,8 +41,6 @@ using the [Tilt Hydrometer integration](/integrations/tilt_ble).
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
-Name:
-    description: "The friendly name for the Tilt Pi."
 Host:
     description: "The hostname or IP address of the Tilt Pi."
 Port:
