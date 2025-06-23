@@ -8,7 +8,7 @@ ha_release: 2025.7
 ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
-ha_domain: sleep
+ha_domain: sleep_as_android
 ha_integration_type: integration
 ha_platforms:
   - event
