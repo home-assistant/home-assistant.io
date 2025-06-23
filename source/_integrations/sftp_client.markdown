@@ -22,7 +22,7 @@ This {% term integration %} allows you to perform Home Assistant backups to a se
 
 {% include integrations/remove_device_service.md %}
 
-- If you remove the integration, the Assistant Home folder on your server is not automatically deleted. You must delete it manually.
+If you remove the integration, the Home Assistant folder on your server is not automatically deleted. You must delete it manually.
 
 ## Known limitations
 
