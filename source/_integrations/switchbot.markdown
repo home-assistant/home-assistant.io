@@ -4,12 +4,12 @@ description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary sensor
   - Cover
+  - Fan
   - Light
   - Lock
   - Sensor
   - Switch
   - Vacuum
-  - Fan
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
@@ -18,6 +18,7 @@ ha_codeowners:
   - '@murtas'
   - '@Eloston'
   - '@dsypniewski'
+  - '@zerzhang'
 ha_domain: switchbot
 ha_bluetooth: true
 ha_platforms:
@@ -33,6 +34,7 @@ ha_platforms:
   - vacuum
 ha_config_flow: true
 ha_integration_type: integration
+ha_quality_scale: gold
 ---
 
 The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, hubs and etc.
@@ -258,7 +260,7 @@ The close button will close the blinds to the closest closed position (either 0%
 
 ##### Simple cover template entity
 
-Some integrations may expose your SwitchBot Blind Tilt to other actions which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/cover.template), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
+Some integrations may expose your SwitchBot Blind Tilt to other actions which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/template/#cover), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
 
 {% raw %}
 

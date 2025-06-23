@@ -45,6 +45,7 @@ The following selectors are currently available:
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
+- [Statistic selector](#statistic-selector)
 - [Target selector](#target-selector)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
@@ -1312,6 +1313,26 @@ The output of this selector is the select state (not the translated or
 prettified name shown in the frontend).
 
 For example: `heat_cool`.
+
+## Statistic selector
+
+The statistic selector selects the statistic ID of an entity that records
+long-term statistics. It may resemble an entity ID (like `sensor.temperature`),
+or an external statistic ID (like `external:temperature`).
+
+![Screenshot of a statistic selector](/images/blueprints/selector-statistic.png)
+
+{% configuration statistic %}
+multiple:
+  description: >
+    If set to true, the selector returns a list of statistic IDs.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is a string representing a statistic ID, or
+a list of statistic IDs if `multiple` is set to `true`.
 
 ## Target selector
 
