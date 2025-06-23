@@ -805,6 +805,7 @@ source/_integrations/serial.markdown @fabaff
 source/_integrations/seven_segments.markdown @fabaff
 source/_integrations/seventeentrack.markdown @shaiu
 source/_integrations/sfr_box.markdown @epenet
+source/_integrations/sftp_client.markdown @cyr-ius
 source/_integrations/sharkiq.markdown @JeffResc @funkybunch
 source/_integrations/shell_command.markdown @home-assistant/core
 source/_integrations/shelly.markdown @balloob @bieniu @thecode @chemelli74 @bdraco
