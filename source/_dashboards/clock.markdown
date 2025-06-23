@@ -42,7 +42,7 @@ time_format:
 time_zone:
   description: Change the timezone used for the time on a per-card level. Defaults to the user profile setting.
   type: string (optional)
-{% endconfiguration_basic %}
+{% endconfiguration %}
 
 ### Examples
 
