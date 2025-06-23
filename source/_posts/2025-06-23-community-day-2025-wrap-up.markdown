@@ -18,9 +18,9 @@ So much happened in such a short window of time, so let's talk about how this ye
 
 ## It started with a question...
 
-Home Assistant Community Day was born from a conversation last year where we asked, "Would the community even want this?" We dropped hints here and there to test how y'all would react to a worldwide event, and after weeks of planning, the response to the event announcement was overwhelmingly positive. 🤩
+Home Assistant Community Day was born from a conversation last year where we asked, "Would the community even *want* this?" We dropped hints here and there to test how y'all would react to a worldwide event, and after weeks of planning, the response to the event announcement was overwhelmingly positive. 🤩
 
-First, THANK YOU 🙏🏻 to all the hosts for their local coordination, community members who showed up, and the venues that made all this possible. I learned so much with your help, and it will make next year's Community Day one to remember.
+First, **THANK YOU** 🙏🏻 to all **the hosts** for their local coordination, **community members** who showed up, and **the venues** that made all this possible. I learned so much with your help, and it will make next year's Community Day one to remember.
 
 ## ...that turned into a movement...
 
