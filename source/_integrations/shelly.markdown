@@ -43,6 +43,7 @@ ha_platforms:
   - update
   - valve
 ha_integration_type: device
+ha_quality_scale: silver
 ---
 
 Integrate [Shelly devices](https://shelly.com) into Home Assistant.

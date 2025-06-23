@@ -16,7 +16,7 @@ This year is Home Assistant’s [Year of the Voice](https://www.home-assistant.i
 
 We’ve got great news: wake words are finally here! After 4 chapters, we now have the final building block for voice in Home Assistant.
 
-In [Chapter 1](https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/), we started with text commands such as “turn on the kitchen light” and “open garage door”. We now [support 56 languages](https://home-assistant.github.io/intents/) and have 188 contributors helping to translate common smart home commands for everyone.
+In [Chapter 1](https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/), we started with text commands such as “turn on the kitchen light” and “open garage door”. We now [support 56 languages](https://ohf-voice.github.io/intents/) and have 188 contributors helping to translate common smart home commands for everyone.
 
 [Chapter 2](https://www.home-assistant.io/blog/2023/04/27/year-of-the-voice-chapter-2/) introduced audio for voice commands: both speech-to-text and text-to-speech. This included local options for maximum privacy as well as support for Home Assistant Cloud for incredible speed and language coverage. Lastly in [Chapter 3](https://www.home-assistant.io/blog/2023/07/20/year-of-the-voice-chapter-3/), we added the ability to set Home Assistant as your default assistant on Android phones and watches.
 

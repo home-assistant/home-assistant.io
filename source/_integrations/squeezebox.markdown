@@ -3,6 +3,7 @@ title: Squeezebox (Lyrion Music Server)
 description: Instructions on how to integrate Squeezebox players and a Lyrion Music Server (LMS) into Home Assistant.
 ha_category:
   - Media player
+  - Update
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: squeezebox

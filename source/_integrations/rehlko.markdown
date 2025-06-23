@@ -12,6 +12,7 @@ ha_codeowners:
 ha_dhcp: true
 ha_domain: rehlko
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: integration
 ha_quality_scale: silver
