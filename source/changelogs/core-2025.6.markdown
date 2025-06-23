@@ -745,6 +745,157 @@ For a summary in a more readable format:
 [@tronikos]: https://github.com/tronikos
 [@tsvi]: https://github.com/tsvi
 
+## Release 2025.6.2 - June 23
+
+- Remove address info from Rachio calendar events ([@brg468] - [#145896])
+- Bump uiprotect to 7.12.0 ([@RaHehl] - [#146337])
+- Bump uiprotect to 7.13.0 ([@RaHehl] - [#146410])
+- Bump reolink-aio to 0.14.0 ([@starkillerOG] - [#146566])
+- Bump pypck to 0.8.7 ([@alengwenus] - [#146657])
+- Update rokuecp to 0.19.5 ([@ctalkington] - [#146788])
+- Use Shelly main device area as suggested area for sub-devices ([@bieniu] - [#146810])
+- Fix blocking open in Minecraft Server ([@elmurato] - [#146820])
+- Bump aioamazondevices to 3.1.3 ([@chemelli74] - [#146828])
+- Bump aiohttp to 3.12.13 ([@bdraco] - [#146830])
+- Bump motion blinds to 0.6.28 ([@starkillerOG] - [#146831])
+- Bump pypck to 0.8.8 ([@alengwenus] - [#146841])
+- Fix missing key for ecosmart in older Wallbox models ([@hesselonline] - [#146847])
+- Bump bthome-ble to 3.13.1 ([@Ernst79] - [#146871])
+- Bump reolink-aio to 0.14.1 ([@starkillerOG] - [#146903])
+- Add debug log for update in onedrive ([@zweckj] - [#146907])
+- Switchbot Cloud: Fix device type filtering in sensor ([@SeraphicRav] - [#146945])
+- Bump pySmartThings to 3.2.5 ([@joostlek] - [#146983])
+- Bump ical to 10.0.4 ([@allenporter] - [#147005])
+- Fix incorrect use of zip in service.async_get_all_descriptions ([@emontnemery] - [#147013])
+- Disable Z-Wave indidator CC entities by default ([@MartinHjelmare] - [#147018])
+- Fix Shelly entity names for gen1 sleeping devices ([@bieniu] - [#147019])
+- Disable Z-Wave idle notification button ([@MartinHjelmare] - [#147026])
+- Fix log in onedrive ([@zweckj] - [#147029])
+- Bump holidays lib to 0.75 ([@gjohansson-ST] - [#147043])
+- Bump aiohomeconnect to 0.18.0 ([@Diegorro98] - [#147044])
+- Bump ZHA to 0.0.60 ([@puddly] - [#147045])
+- Bump pylamarzocco to 2.0.9 ([@zweckj] - [#147046])
+- Handle missing widget in lamarzocco ([@zweckj] - [#147047])
+- Bump aioamazondevices to 3.1.4 ([@chemelli74] - [#146883])
+- Bump aioamazondevices to 3.1.12 ([@chemelli74] - [#147055])
+- Bump uiprotect to version 7.14.0 ([@RaHehl] - [#147102])
+- Improve advanced Z-Wave battery discovery ([@MartinHjelmare] - [#147127])
+- Fix Charge Cable binary sensor in Teslemetry ([@Bre77] - [#147136])
+- [ci] Bump cache key version ([@cdce8p] - [#147148])
+- Bump homematicip to 2.0.6 ([@hahn-th] - [#147151])
+- Wallbox fix too many requests by API ([@hesselonline] - [#147197])
+- Bump deebot-client to 13.4.0 ([@edenhaus] - [#147221])
+- Handle the new JSON payload from traccar clients ([@ludeeus] - [#147254])
+- Bump aioamazondevices to 3.1.14 ([@chemelli74] - [#147257])
+- Bump uiprotect to version 7.14.1 ([@RaHehl] - [#147280])
+- Bump aioesphomeapi to 32.2.4 ([@synesthesiam] - [#147100])
+- Bump aioesphomeapi to 33.0.0 ([@bdraco] - [#147296])
+- Fix reload for Shelly devices with no script support ([@chemelli74] - [#147344])
+- Add Matter protocol to Switchbot ([@joostlek] - [#147356])
+
+[#145650]: https://github.com/home-assistant/core/pull/145650
+[#145896]: https://github.com/home-assistant/core/pull/145896
+[#146337]: https://github.com/home-assistant/core/pull/146337
+[#146410]: https://github.com/home-assistant/core/pull/146410
+[#146566]: https://github.com/home-assistant/core/pull/146566
+[#146657]: https://github.com/home-assistant/core/pull/146657
+[#146764]: https://github.com/home-assistant/core/pull/146764
+[#146788]: https://github.com/home-assistant/core/pull/146788
+[#146810]: https://github.com/home-assistant/core/pull/146810
+[#146820]: https://github.com/home-assistant/core/pull/146820
+[#146828]: https://github.com/home-assistant/core/pull/146828
+[#146830]: https://github.com/home-assistant/core/pull/146830
+[#146831]: https://github.com/home-assistant/core/pull/146831
+[#146841]: https://github.com/home-assistant/core/pull/146841
+[#146847]: https://github.com/home-assistant/core/pull/146847
+[#146871]: https://github.com/home-assistant/core/pull/146871
+[#146883]: https://github.com/home-assistant/core/pull/146883
+[#146903]: https://github.com/home-assistant/core/pull/146903
+[#146907]: https://github.com/home-assistant/core/pull/146907
+[#146945]: https://github.com/home-assistant/core/pull/146945
+[#146983]: https://github.com/home-assistant/core/pull/146983
+[#147005]: https://github.com/home-assistant/core/pull/147005
+[#147013]: https://github.com/home-assistant/core/pull/147013
+[#147018]: https://github.com/home-assistant/core/pull/147018
+[#147019]: https://github.com/home-assistant/core/pull/147019
+[#147026]: https://github.com/home-assistant/core/pull/147026
+[#147029]: https://github.com/home-assistant/core/pull/147029
+[#147043]: https://github.com/home-assistant/core/pull/147043
+[#147044]: https://github.com/home-assistant/core/pull/147044
+[#147045]: https://github.com/home-assistant/core/pull/147045
+[#147046]: https://github.com/home-assistant/core/pull/147046
+[#147047]: https://github.com/home-assistant/core/pull/147047
+[#147055]: https://github.com/home-assistant/core/pull/147055
+[#147100]: https://github.com/home-assistant/core/pull/147100
+[#147102]: https://github.com/home-assistant/core/pull/147102
+[#147127]: https://github.com/home-assistant/core/pull/147127
+[#147136]: https://github.com/home-assistant/core/pull/147136
+[#147148]: https://github.com/home-assistant/core/pull/147148
+[#147151]: https://github.com/home-assistant/core/pull/147151
+[#147197]: https://github.com/home-assistant/core/pull/147197
+[#147221]: https://github.com/home-assistant/core/pull/147221
+[#147254]: https://github.com/home-assistant/core/pull/147254
+[#147257]: https://github.com/home-assistant/core/pull/147257
+[#147280]: https://github.com/home-assistant/core/pull/147280
+[#147296]: https://github.com/home-assistant/core/pull/147296
+[#147344]: https://github.com/home-assistant/core/pull/147344
+[#147356]: https://github.com/home-assistant/core/pull/147356
+[@Bre77]: https://github.com/Bre77
+[@Diegorro98]: https://github.com/Diegorro98
+[@Ernst79]: https://github.com/Ernst79
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@RaHehl]: https://github.com/RaHehl
+[@SeraphicRav]: https://github.com/SeraphicRav
+[@alengwenus]: https://github.com/alengwenus
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@brg468]: https://github.com/brg468
+[@cdce8p]: https://github.com/cdce8p
+[@chemelli74]: https://github.com/chemelli74
+[@ctalkington]: https://github.com/ctalkington
+[@edenhaus]: https://github.com/edenhaus
+[@elmurato]: https://github.com/elmurato
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@hahn-th]: https://github.com/hahn-th
+[@hesselonline]: https://github.com/hesselonline
+[@joostlek]: https://github.com/joostlek
+[@ludeeus]: https://github.com/ludeeus
+[@puddly]: https://github.com/puddly
+[@starkillerOG]: https://github.com/starkillerOG
+[@synesthesiam]: https://github.com/synesthesiam
+[@zweckj]: https://github.com/zweckj
+[alexa_devices docs]: /integrations/alexa_devices/
+[bthome docs]: /integrations/bthome/
+[ecovacs docs]: /integrations/ecovacs/
+[esphome docs]: /integrations/esphome/
+[holiday docs]: /integrations/holiday/
+[home_connect docs]: /integrations/home_connect/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[lamarzocco docs]: /integrations/lamarzocco/
+[lcn docs]: /integrations/lcn/
+[local_calendar docs]: /integrations/local_calendar/
+[local_todo docs]: /integrations/local_todo/
+[minecraft_server docs]: /integrations/minecraft_server/
+[motion_blinds docs]: /integrations/motion_blinds/
+[onedrive docs]: /integrations/onedrive/
+[rachio docs]: /integrations/rachio/
+[remote_calendar docs]: /integrations/remote_calendar/
+[reolink docs]: /integrations/reolink/
+[roku docs]: /integrations/roku/
+[shelly docs]: /integrations/shelly/
+[smartthings docs]: /integrations/smartthings/
+[switchbot_cloud docs]: /integrations/switchbot_cloud/
+[teslemetry docs]: /integrations/teslemetry/
+[traccar docs]: /integrations/traccar/
+[unifiprotect docs]: /integrations/unifiprotect/
+[wallbox docs]: /integrations/wallbox/
+[workday docs]: /integrations/workday/
+[zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js
+
 [#123284]: https://github.com/home-assistant/core/pull/123284
 [#125764]: https://github.com/home-assistant/core/pull/125764
 [#129456]: https://github.com/home-assistant/core/pull/129456
