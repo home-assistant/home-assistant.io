@@ -9,6 +9,7 @@ ha_domain: russound_rio
 ha_platforms:
   - diagnostics
   - media_player
+  - number
 ha_codeowners:
   - '@noahhusby'
 ha_config_flow: true
@@ -56,6 +57,14 @@ Russound RIO devices push data directly to Home Assistant, enabling immediate up
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
+## Available configuration entities
+
+The integration provides a few entities to configure the device settings. The following entities are supported:
+
+- Bass and Treble
+- Balance
+- Turn on volume
 
 ## Troubleshooting
 

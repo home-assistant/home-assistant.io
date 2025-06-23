@@ -58,6 +58,10 @@ This integration supports
 - **Semi locked**: indicates whether the lock is in a "semi-locked" position. "Semi-locked" means the lock has been turned manually and is between its normal end positions. The lock itself will be unavailable in this position.
 - **Lock uncalibrated** (disabled by default): Shows when the lock is in an "uncalibrated state".
 
+{% note %}
+The `lock.open` service will only pull the spring if the lock is configured with "**auto pull-spring enabled**" in the tedee app. That is due to a limitation in tedee's API.
+{% endnote %}
+
 ## Sensors
 
 The integration currently offers two sensors: A **battery** sensor, indicating the charge of your lock, and a **"pull spring duration"** sensor, indicating how long (in seconds) your latch will stay pulled after a pull operation (if supported).

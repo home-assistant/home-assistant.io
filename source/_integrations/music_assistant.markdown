@@ -28,10 +28,13 @@ The `media_content_id` payload for `media_player.play_media` can be any of the f
 - The name of a track, artist, or album. For example, `Queen`.
 - A track or album combined with the artist's name. For example, `Queen - Innuendo`.
 - A streaming provider URI. For example, `spotify://artist/12345`.
+- A streaming provider URL. For example, `https://open.spotify.com/track/31cWPvM99ZHxMl3mdgiw4I`.
 
 The `media_content_id` payload for `media_player.browse_media` must be a URI of the form `library://artist/1`, `library://album/20`, or `spotify://album/5zj4Ej0FrlJQaSo0d6cttH`. The type of item that the URI refers to must be an album or artist.
 
 These URIs can be obtained from, for example, the output of the `get_library` or `search` actions described below or the `media_player.browse_media` action from Home Assistant. 
+
+Streaming provider URLs can be obtained from the web interface of the provider.
 
 {% include integrations/config_flow.md %}
 

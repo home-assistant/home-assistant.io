@@ -95,8 +95,11 @@ Follow these steps:
 
 1. Open the Home Assistant user interface.
 2. Plug the Z-Wave dongle into the device running Home Assistant.
-   - Most likely, your dongle will be recognized automatically. On the user interface, you will be asked if you want to set up this device with the Z-Wave JS add-on. Select **Submit**.
-   - If your dongle is not recognized, follow these steps:
+   - Most likely, your dongle will be recognized automatically.
+   - In the dialog, select **Recommended installation**.
+     - This will install the Z-Wave JS add-on on the Home Assistant server.
+   - Add the device to an {% term area %} and select **Finish**.
+   - **Troubleshooting**: If your dongle is not recognized, follow these steps:
 
 {% details "Manual setup steps" %}
 Use this My button:
@@ -113,7 +116,7 @@ Use this My button:
 {% enddetails %}
 
 3. Wait for the installation to complete.
-4. You are prompted for network security keys.
+4. Depending on your Home Assistant version, you may be prompted for network security keys.
    - If you are using Z-Wave for the first time, leave all the fields empty and select **Submit**. The system will generate network security keys for you.
    - If this Z-Wave dongle has already been paired with secure devices, you need to enter the previously used network key as the S0 network key. S2 security keys will be automatically generated for you.
    - Make sure that you keep a backup of these keys in a safe place in case you need to move your Z-Wave dongle to another device. Copy and paste them somewhere safe.
@@ -168,7 +171,14 @@ Do this before using the device with another controller, or when you don't use t
 
 Do this if you have an existing Z-Wave network and want to use a new controller. This will reset your current controller (remove all network information from it) and remove the controller from Home Assistant. The Z-Wave integration with all its entities will stay in Home Assistant. The new controller is added to Home Assistant and paired with the existing network.
 
-To migrate a Z-Wave network to a new controller, follow these steps:
+### Prerequisites
+
+- Administrator rights in Home Assistant
+- If you want to migrate from a 500 series controller, before starting migration, update the controller to SDK 6.61+
+  - Check the documentation of your device to see if and how they can be updated.
+  - [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
+
+### To migrate a Z-Wave network to a new controller
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Z-Wave** integration. Then, select **Configure**.
@@ -180,6 +190,98 @@ To migrate a Z-Wave network to a new controller, follow these steps:
    - Connect the new controller.
    - Confirm that you connected the new controller by selecting **Submit**.
 6. Follow the steps on screen.
+
+## Overriding the radio frequency region of the controller in the Z-Wave JS add-on
+
+The frequency used by Z-Wave devices depends on your region. For 700 and 800 series controllers, this frequency can be changed. The frequency of end devices cannot, so you need to make sure to buy devices specific to your region.
+
+If you are using the Z-Wave JS add-on, Home Assistant automatically changes the radio frequency region to match the region/country you're in. If needed, you can override this setting.
+
+### Prerequisites
+
+- Administrator rights in Home Assistant
+- All your Z-Wave devices must be specified for that region
+- Note: this procedure only applies if your controller is [set up using the Z-Wave JS add-on](#setting-up-a-z-wave-js-server)
+
+### To override the radio frequency region of your Z-Wave controller
+
+1. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.
+2. Open the **Configuration** tab.
+3. In the **Options** section, select the **Radio Frequency Region**.
+4. To apply your changes, select **Save**.
+   - Your Z-Wave controller is now ready to communicate with devices that were specified for your chosen region.
+5. To return to the default setting and use the region defined by Home Assistant, under **Radio Frequency Region** choose **Automatic**.
+
+## Backing up your Z-Wave network
+
+It's recommended to create a backup before making any major changes to your Z-Wave network. For example, before migrating from one controller to another, or before resetting your controller. The backup stores your Z-Wave controller's non-volatile memory (NVM), which contains your network information including paired devices. It is stored in a binary file that you can download.
+
+### Prerequisites
+
+- Administrator rights in Home Assistant
+
+### To backup your Z-Wave network
+
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Z-Wave** integration. Then, select **Configure**.
+3. Under **Backup and restore**, select **Download backup**.
+   - **Result**: The backup file is downloaded to the device from which you initiated the download.
+4. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
+
+## Updating the firmware of your Z-Wave device
+
+Controllers and devices with the Firmware Update Metadata Command Class allow you to update the firmware by uploading a firmware file. In those cases, you can start the firmware update from the device page in Home Assistant. Refer to the documentation of the device manufacturer to find the corresponding firmware file. An example is the [firmware page by Zooz](https://www.support.getzooz.com/kb/article/1158-zooz-ota-firmware-files/).
+
+{% caution %}
+**Risk of damage to the device due to firmware update**
+
+A firmware update can damage your Z-Wave device.
+
+- Before updating your Z-Wave device, make sure an update is necessary, and that you have the correct firmware file matching your device.
+- Once you have started the update process, you must not interrupt the update process but let it complete.
+
+The Home Assistant and Z-Wave JS teams do not take any responsibility for any damages to your device as a result of the firmware update and will not be able to help you if you render your device useless due to firmware update.
+{% endcaution %}
+
+### Prerequisites
+
+- Administrator rights in Home Assistant
+- Downloaded the firmware file from the manufacturer website
+
+### To update firmware of a Z-Wave device
+
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Z-Wave** integration. Then, select **Configure** and select the controller.
+3. Under **Device info**, select **Update**.
+4. Select the firmware file that you previously downloaded to your computer.
+   - **Caution: Risk of damage to the device**
+     - Make sure you select the correct firmware file.
+       - An incorrect firmware file can damage your device.
+     - Once you start the update process, you must wait for the update to complete.
+       - An interrupted update can damage your device.
+5. Select **Begin firmware update** and wait for it to complete.
+
+## Resetting a Z-Wave controller
+
+It is recommended to back up your Z-Wave network before resetting the device.
+
+- The controller will forget all devices it is paired with.
+- All Z-Wave devices for this network will be removed from Home Assistant.
+- If there are any devices still paired with the controller when it is reset, they will have to go through the exclusion process before they can be re-paired.
+- The device firmware will remain on the device.
+
+### Prerequisites
+
+- Administrator rights on Home Assistant
+
+### To reset a Z-Wave controller
+
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Z-Wave** integration. Then, select the controller.
+3. Under **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
+
+    ![Screenshot showing the device panel of a Z-Wave controller](/images/integrations/z-wave/z-wave-controller-commands.png)
+4. Once the process is finished, you can use this controller to start a new network, or pass it on to someone else.
 
 ## Special Z-Wave entities
 
@@ -219,19 +321,6 @@ Some features can be accessed from the menu of integration itself. As they are n
 ![Z-Wave integration configuration panel](/images/integrations/z-wave/z-wave-integration-menu.png)
 
 - **[Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics):** Exports a JSON file describing the entities of all devices registered with this integration.
-
-### Device panel
-
-#### Controller
-
-The following features can be accessed from the device panel of a Z-Wave controller:
-
-- **Factory reset:** Exercise extreme caution when using this action! Once initiated, your controller will be reset to factory settings, it will forget all devices it is paired with, it will establish a new network ID that will prevent any recovery of your old network, and all Z-Wave devices for this network will be removed from Home Assistant. If there are any devices still paired with the controller when it is reset, they will have to go through the exclusion process before they can be re-paired.
-
-<p class='img'>
-<img src='/images/integrations/z-wave/z-wave-controller-commands.png' alt='Screenshot showing the device panel of a Z-Wave controller' />
-Screenshot showing the device panel of a Z-Wave controller.
-</p>
 
 #### Network devices
 
@@ -838,7 +927,7 @@ You can also keep track of the road map for the Z-Wave integration [here](https:
 
 ### Which Z-Wave controller should I buy?
 
-Z-Wave supports all known 500 and 700 series Z-Wave controllers. If you are just starting out, we recommend that you purchase a 700 series controller (with firmware updated to >=7.17.2).
+Z-Wave supports all known 500-, 700-, and 800-series Z-Wave controllers. If you are just starting out, we recommend that you purchase a 800-series controller (with firmware updated to >=7.23.2).
 
 For more information, see [Supported Z-Wave dongles](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules)
 
@@ -965,7 +1054,7 @@ If the interview is complete, then the device does not yet have a device file fo
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow these steps:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration. Then, select the three dots.
+2. Select the **Z-Wave** integration. Then, select the three dots {% icon "mdi:dots-vertical" %} menu.
 3. From the dropdown menu, select **Download diagnostics**.
 
 ### How do I address interference issues?

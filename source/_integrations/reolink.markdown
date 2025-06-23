@@ -165,6 +165,7 @@ Depending on the supported features of the camera, number entities are added for
 - AI linger delay+ (up to 3 zones)
 - AI item forgotten delay+ (up to 3 zones)
 - AI item taken delay+ (up to 3 zones)
+- Baby cry sensitivity
 - Auto quick reply time
 - Auto track limit left
 - Auto track limit right
@@ -279,6 +280,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Record
 - Manual record+
 - Privacy mode+
+- Privacy mask
 - Push notifications
 - Hub ringtone on event
 - Email on event
@@ -289,6 +291,8 @@ Depending on the supported features of the camera, switch entities are added for
 - Hardwired chime enabled*
 
 When the **Privacy mode** is ON, almost all other entities will be unavailable because the camera shuts down the API and camera streams. When turning OFF the **Privacy mode**, all entities will become available again. Take this into consideration when making automations; ensure the **Privacy mode** is OFF before changing camera settings using other entities.
+
+The **Privacy mask** switch will only be added when the privacy mask is configured in the Reolink app/client under **settings** (gear icon) > **Display** > **Privacy Mask**. After adding the privacy mask, the reolink integration in Home Assistant needs to be reloaded for the **Privacy mask** switch to show up.
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
 

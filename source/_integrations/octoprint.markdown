@@ -61,10 +61,14 @@ The OctoPrint integration lets you monitor various states of your 3D printer and
 
 Supported sensors:
 
+- Actual Bed Temperature
+- Actual Tool (Nozzle) Temperature
 - Current Printer State
-- Job Completed Percentage
 - Estimated Finish Time
+- Job Completed Percentage
 - Estimated Start Time
+- Target Bed Temperature
+- Target Tool (Nozzle) Temperature
 
 ## Camera
 
@@ -75,11 +79,11 @@ The OctoPrint integration provides a camera feed if one is configured in OctoPri
 The OctoPrint integration provides the following buttons:
 
 - Pause Job
-- Resume Job
-- Stop Job
-- Shutdown System
 - Reboot System
 - Restart Octoprint
+- Resume Job
+- Shutdown System
+- Stop Job
 
 ## Troubleshooting
 
