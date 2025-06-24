@@ -40,13 +40,13 @@ There is currently support for the following platforms within Home Assistant:
 
 The VegeHub can be connected to Wi-Fi *without* the need for additional apps or cloud accounts. When powered on, the VegeHub creates a Wi-Fi access point called "Vege_XX_XX" where the XX are different for each device. Connect to this network from a phone, tablet, or other similar device. The default passphrase to connect to the access point is `vegetronix`. This can (and should) be changed in the Wi-Fi settings.
 
-Once connected to the network, you should automatically be directed by your device to log in to the network. Follow the prompt to be directed to the VegeHub's WiFi setup page, where you can scan for available networks, put in your WiFi network's credentials, change the device's name, and change the access point password.
+Once connected to the network, you should automatically be directed by your device to log in to the network. Follow the prompt to be directed to the VegeHub's Wi-Fi setup page, where you can scan for available networks, enter your Wi-Fi network's credentials, change the device's name, and change the access point password.
 
-{% warning %}
-It is crucial to change the default access point password. If you don't, anyone can easily access your VegeHub and potentially compromise your WiFi network credentials.
-{% endwarning %}
+{% important %}
+It is crucial to change the default access point password. If you don't, anyone can easily access your VegeHub and potentially compromise your Wi-Fi network credentials.
+{% endimportant %}
 
-Press "Apply" and your VegeHub will reset the network connection and try to connect to the credentials you put in.
+Select **Apply** and your VegeHub will reset the network connection and try to connect to the credentials you put in.
 
 {% include integrations/config_flow.md %}
 
