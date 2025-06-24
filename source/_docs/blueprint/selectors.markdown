@@ -155,7 +155,7 @@ device:
         When set, the list of areas is limited to areas with devices that have
         the set model ID.
       type: string
-      required: false      
+      required: false
 entity:
   description: >
     When entity options are provided, the list of areas is filtered by areas
@@ -571,7 +571,7 @@ filter:
       description: >
         When set, the list of devices is limited to devices that have the set model ID.
       type: string
-      required: false      
+      required: false
 multiple:
   description: >
     Allows selecting multiple devices. If set to `true`, the resulting value of
@@ -608,7 +608,7 @@ device:
   filter:
     - integration: deconz
       manufacturer: Philips
-      model: RWL021  
+      model: RWL021
   entity:
     - domain: sensor
       device_class: battery
@@ -635,7 +635,7 @@ enable_millisecond:
   description: When `true`, the duration selector will allow selecting milliseconds.
   type: boolean
   default: false
-  required: false  
+  required: false
 {% endconfiguration %}
 
 The output of this selector is a mapping of the time values the user selected.
@@ -757,7 +757,7 @@ entity:
 
 ## Floor selector
 
-The floor selector shows a floor finder that can pick 
+The floor selector shows a floor finder that can pick
 floors based on the selector configuration. The value of the input will be the
 floor ID. If `multiple` is set to `true`, the value is a list of floor IDs.
 
@@ -808,7 +808,7 @@ device:
         When set, the list only includes floors with devices that have
         the set model ID.
       type: string
-      required: false      
+      required: false
 entity:
   description: >
     When entity options are provided, the list only includes floors
@@ -1025,13 +1025,21 @@ The media selector is a powerful selector that allows a user to easily select
 media to play on a media device. Media can be a lot of things, for example,
 cameras, local media, text-to-speech, Home Assistant Dashboards, and many more.
 
-The user selects the device to play media on, and automatically limits the
-selectable media suitable for the selected device.
+The selector is by default configured to ask the user to select the device to
+play media on, which will automatically limit the selectable media to media
+suitable for the selected device.
 
 ![Screenshot of the Media selector](/images/blueprints/selector-media.png)
 
 ```yaml
 media:
+```
+
+```yaml
+# Do not ask for a device but manually specify a filter for the media.
+media:
+  accept:
+    - image/*
 ```
 
 The output of the media selector, is an mapping with information about
@@ -1043,6 +1051,25 @@ Example output:
 
 ```yaml
 entity_id: media_player.living_room
+media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+media_content_type: provider
+metadata:
+  title: TTS Message
+  thumbnail: https://brands.home-assistant.io/_/cloud/logo.png
+  media_class: app
+  children_media_class: null
+  navigateIds:
+    - {}
+    - media_content_type: app
+      media_content_id: media-source://tts
+    - media_content_type: provider
+      media_content_id: >-
+        media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+```
+
+Example output if accept filter is used. Note that the `entity_id` is not present:
+
+```yaml
 media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
 media_content_type: provider
 metadata:
@@ -1382,7 +1409,7 @@ device:
     model_id:
       description: When set, the targets are limited to devices that have the set model ID.
       type: string
-      required: false      
+      required: false
 entity:
   description: >
     When entity options are provided, the targets are limited by entities
