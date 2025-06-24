@@ -54,6 +54,10 @@ payload:
   description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
   required: false
   type: string
+payload_template:
+  description: The payload to send with a POST request with template support.
+  required: false
+  type: template
 verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false

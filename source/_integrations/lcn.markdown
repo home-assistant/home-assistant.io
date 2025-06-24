@@ -39,6 +39,27 @@ The `lcn` integration allows connections to more than one hardware coupler. For 
 
 {% include integrations/config_flow.md %}
 
+To set up the integration, you need to provide the following information:
+
+{% configuration_basic %}
+Name:
+  description: "Name to identify the integration entry"
+IP address:
+  description: "IP address or hostname of the PCHK server"
+Port:
+  description: "Port used by the PCHK server"
+Username:
+  description: "Username for authorization on the PCHK server"
+Password:
+  description: "Password for authorization on the PCHK server"
+Segment coupler scan attempts:
+  description: "Number of attempts to find a segment coupler in your installation. Increase this number, if not all segment couplers are identified correctly. If no segment coupler is in your installation, leave this number at 0."
+Dimming mode:
+  description: "The number of steps used for dimming outputs of all LCN modules. This setting is system-specific and depends on the capabilities of the installed LCN modules."
+Request acknowledgement from modules:
+  description: "LCN modules can transmit a confirmation message for received commands. Commands are resent if this confirmation is not received. However, the activation of acknowledgements increases the bus traffic, which can lead to message losses if there are many modules in the installation."
+{% endconfiguration_basic %}
+
 ## Supported device types
 
 There is currently support for the following device types within Home Assistant:

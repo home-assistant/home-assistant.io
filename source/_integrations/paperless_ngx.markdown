@@ -15,11 +15,18 @@ ha_quality_scale: silver
 related:
   - url: https://docs.paperless-ngx.com/
     title: Paperless-ngx
+ha_platforms:
+  - diagnostics
+  - sensor
 ---
 
 The **Paperless-ngx** {% term integration %} allows you to connect your [Paperless-ngx](https://docs.paperless-ngx.com/) instance to Home Assistant and monitor its status and activity.
 
 ## Prerequisites
+
+{% important %}
+This integration is only fully supported with **Paperless-ngx version 2.15 or later**. Earlier versions are not supported.
+{% endimportant %}
 
 To ensure full functionality of this integration, you must have **read permissions** for all document-related resources, including documents, tags, document types, and correspondents.
 
@@ -42,6 +49,8 @@ URL:
   description: "URL to connect to the Paperless-ngx instance."
 API key:
   description: "API key to connect to the Paperless-ngx API."
+Verify SSL certificate:
+  description: "Verify the SSL certificate of the Paperless-ngx instance. Disable this option if you're using a self-signed certificate."
 {% endconfiguration_basic %}
 
 ## Sensors
