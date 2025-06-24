@@ -11,6 +11,7 @@ ha_platforms:
 ha_codeowners:
   - '@jackjpowell'
 ha_config_flow: true
+ha_quality_scale: bronze
 ha_integration_type: integration
 related:
   - url: https://playstation.com/
@@ -47,7 +48,7 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 
 ### Media players
 
-- **PlayStation Console**: One Media Player will be created for any PlayStation 5 and one Media Player will be created for any PlayStation 4 console you have connected to the PlayStation Network. The artwork and title of the currently playing game will be populated.
+- **PlayStation Console**: One Media Player will be created for any [supported PlayStation console](#supported-devices) you have connected to the PlayStation Network. The artwork and title of the currently playing game will be populated.
 
 ## Data updates
 
@@ -69,19 +70,20 @@ The following devices are known to be supported by the integration:
 
 - PlayStation 5
 - PlayStation 4
+- PlayStation 3
+- PlayStation PC
 
 ## Unsupported devices
 
 The following devices are not supported by the integration:
 
-- PlayStation 3
 - PlayStation Vita
 - PlayStation Portable
 - Other PlayStation system variants (PlayStation TV) or older systems that do not support the PlayStation Network
 
 ## Use cases
 
-You can display your currently playing game as artwork on your dashboard. You can also send notifications of your currently playing game to others inviting them to join you.
+You can display your currently playing game as artwork on your dashboard.
 
 ## Remove integration
 
