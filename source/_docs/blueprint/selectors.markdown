@@ -1045,7 +1045,7 @@ media:
     - image/*
 ```
 
-{% configuration area %}
+{% configuration media %}
 accept:
   description: >
     List of media types the user is allowed to select.
