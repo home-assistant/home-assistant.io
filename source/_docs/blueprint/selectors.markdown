@@ -1025,9 +1025,7 @@ The media selector is a powerful selector that allows a user to easily select
 media to play on a media device. Media can be a lot of things, for example,
 cameras, local media, text-to-speech, Home Assistant Dashboards, and many more.
 
-The selector is by default configured to ask the user to select the device to
-play media on, which will automatically limit the selectable media to media
-suitable for the selected device.
+You are prompted to select the device used to play media. Once the device is selected, the media selector only shows media that is suitable for this device.
 
 ![Screenshot of the Media selector](/images/blueprints/selector-media.png)
 
