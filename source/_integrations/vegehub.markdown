@@ -54,7 +54,7 @@ Press "Apply" and your VegeHub will reset the network connection and try to conn
 
 In the VegeHub integration page, if you click "1 device" under your VegeHub's listing, you will be taken to your Device Info page. Here you will see all the entities available from this VegeHub, and you can click the "Visit" link to be taken directly to the VegeHub's device settings interface. Here you can directly change setting on the VegeHub.
 
-## Power Management
+## Power management
 
 The VegeHub has two power modes:
 
