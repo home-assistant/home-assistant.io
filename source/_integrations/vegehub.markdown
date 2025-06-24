@@ -14,6 +14,13 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - url: https://www.vegetronix.com/Products/VG-HUB-RELAY/
+    title: VegeHub product page
+  - url: https://www.vegetronix.com/Products/VG-HUB-GEN2/QuickStart
+    title: VegeHub Quick Start Guide
+  - url: https://vegetronix.com/Products/VG-HUB-GEN2/Manual
+    title: VegeHub Manual
 ---
 
 The **Vegetronix VegeHub** {% term integration %} allows you to control your [VegeHub](https://www.vegetronix.com/Products/VG-HUB-RELAY/) and gather data from its attached sensors.
@@ -89,8 +96,3 @@ If the device is unresponsive, wake it up using one of these methods:
   - Ensure the VegeHub is awake (see Device Wake-Up section)
   - Consider switching to [power adapter mode](#power-management) for consistent response
 
-## Further Information
-
-- [VegeHub Product Page](https://www.vegetronix.com/Products/VG-HUB-RELAY/)
-- [VegeHub Quick Start Guide](https://www.vegetronix.com/Products/VG-HUB-GEN2/QuickStart)
-- [VegeHub Manual](https://vegetronix.com/Products/VG-HUB-GEN2/Manual)
