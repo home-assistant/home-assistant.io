@@ -73,10 +73,6 @@ When in Power Adapter mode, the device will use significantly more power, so thi
 
 To change the power mode, visit the [Hub's settings interface](#device-settings), go to the "Settings" page, and change the "Power source" to "Power adapter".
 
-## Device Removal
-
-To remove a VegeHub from Home Assistant, find and click on the VegeHub integration on the "Devices and Services" page, click the menu dots next to the device you want to remove, and select "Delete"
-
 ## Troubleshooting
 
 ### Device Wake-Up
@@ -98,3 +94,8 @@ If the device is unresponsive, wake it up using one of these methods:
   - Ensure the VegeHub is awake (see Device Wake-Up section).
   - Consider switching to [power adapter mode](#power-management) for consistent response.
 
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
