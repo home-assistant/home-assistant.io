@@ -63,7 +63,7 @@ The VegeHub has two power modes:
 
 When in Power Adapter mode, the device will use significantly more power, so this mode should not be used when powering from batteries, as they will quickly be drained.
 
-To change the power mode, visit the [Hub's settings interface](#device-settings), go to the "Settings" page, and change the "Power source" to "Power adapter".
+To change the power mode, visit the [Hub's settings interface](#device-settings), go to the **Settings** page, and change the **Power source** to **Power adapter**.
 
 ## Troubleshooting
 
