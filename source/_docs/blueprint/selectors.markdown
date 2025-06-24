@@ -1029,16 +1029,29 @@ You are prompted to select the device used to play media. Once the device is sel
 
 ![Screenshot of the Media selector](/images/blueprints/selector-media.png)
 
+To ask the user to select a media device and suitable media, you can use the
+media selector without any options:
+
 ```yaml
 media:
 ```
 
+You can also use the media selector with an optional `accept` filter to limit the
+media types that can be selected. The user will not be asked to pick a device.
+
 ```yaml
-# Do not ask for a device but manually specify a filter for the media.
 media:
   accept:
     - image/*
 ```
+
+{% configuration area %}
+accept:
+  description: >
+    List of media types the user is allowed to select.
+  type: list
+  required: false
+{% endconfiguration %}
 
 The output of the media selector, is an mapping with information about
 the selected media device and the selected media to play. There is also
@@ -1181,7 +1194,7 @@ object:
   fields:
     name:
       label: Name
-      selector: 
+      selector:
         text:
     percentage:
       label: Percentage
