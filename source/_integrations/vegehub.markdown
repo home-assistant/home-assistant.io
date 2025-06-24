@@ -50,7 +50,7 @@ Select **Apply** and your VegeHub will reset the network connection and try to c
 
 {% include integrations/config_flow.md %}
 
-### Device Settings
+### Device settings
 
 To open the VegeHub's device settings interface on their website, go to {% my integrations title="Settings > Devices & services" %}, and on the integration card, select 1 device to open the device page. Under Device info, select Visit to open the website with the settings.
 
