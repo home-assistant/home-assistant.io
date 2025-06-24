@@ -79,7 +79,7 @@ automation:
       data:
         message: Welcome home Simone
       target:
-        entity_id: notify.announce_echo_dot_livingroom
+        entity_id: notify.echo_dot_livingroom_announce
 ```
 
 ### Automation: Start Radio on all Echo dots
@@ -102,7 +102,7 @@ automation:
       data:
         message: Play B.B.C. on Tunein
       target:
-        entity_id: notify.custom_everywhere
+        entity_id: notify.everywhere_announce
 ```
 
 ## Data updates

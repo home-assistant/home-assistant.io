@@ -49,6 +49,7 @@ _PS: We will pick up the regular release schedule again now, so expect the next 
 - [Patch releases](#patch-releases)
   - [2025.6.1 - June 13](#202561---june-13)
   - [2025.6.2 - June 23](#202562---june-23)
+  - [2025.6.3 - June 24](#202563---june-24)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -539,6 +540,13 @@ release every Friday.
 [workday docs]: /integrations/workday/
 [zha docs]: /integrations/zha/
 [zwave_js docs]: /integrations/zwave_js
+
+### 2025.6.3 - June 24
+
+- Update frontend to 20250531.4 ([@bramkragten] - [#147414])
+
+[#147414]: https://github.com/home-assistant/core/pull/147414
+[@bramkragten]: https://github.com/bramkragten
 
 ## Need help? Join the community!
 
