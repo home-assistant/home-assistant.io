@@ -67,7 +67,7 @@ To change the power mode, visit the [Hub's settings interface](#device-settings)
 
 ## Troubleshooting
 
-### Device Wake-Up
+### Device is unresponsive
 
 If the device is unresponsive, wake it up using one of these methods:
 
