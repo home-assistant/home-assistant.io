@@ -75,6 +75,7 @@ If the device is unresponsive, wake it up using one of these methods:
 - Disconnect and reconnect power.
 
 ### Setup is failing
+
   - Ensure the VegeHub is awake (see Device Wake-Up section)
 
 ### [Hub's settings interface](#device-settings) is not accessible
