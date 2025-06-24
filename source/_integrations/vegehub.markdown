@@ -36,11 +36,10 @@ There is currently support for the following platforms within Home Assistant:
 
 - [Vegetronix VegeHub](https://www.vegetronix.com/Products/VG-HUB-RELAY/) - Firmware **4.0 or later** - All variants
 
-## Setup
+## Prerequisites
 
-### WiFi
 
-The VegeHub can be connected to WiFi *without* the need of additional apps or cloud accounts. When powered on, the VegeHub creates a WiFi access point called "Vege_XX_XX" where the XX are different for each device. Simply connect to this network from a phone, tablet, or other similar device. The default passphrase to connect to the access point is `vegetronix`. This can (and should) be changed in the WiFi settings.
+The VegeHub can be connected to Wi-Fi *without* the need for additional apps or cloud accounts. When powered on, the VegeHub creates a Wi-Fi access point called "Vege_XX_XX" where the XX are different for each device. Connect to this network from a phone, tablet, or other similar device. The default passphrase to connect to the access point is `vegetronix`. This can (and should) be changed in the Wi-Fi settings.
 
 Once connected to the network, you should automatically be directed by your device to log in to the network. Follow the prompt to be directed to the VegeHub's WiFi setup page, where you can scan for available networks, put in your WiFi network's credentials, change the device's name, and change the access point password.
 
@@ -50,13 +49,7 @@ It is crucial to change the default access point password. If you don't, anyone 
 
 Press "Apply" and your VegeHub will reset the network connection and try to connect to the credentials you put in.
 
-### Integration
-
-The VegeHub integration will automatically detect VegeHub devices that are connected to the same network as your Home Assistant, and will present them in `Settings->Devices and Services`.
-
-Alternatively, a VegeHub can be added manually by going to `Settings->Devices and Services`, then click the "Add Integration" button, search for the VegeHub integration, and click on it. If your VegeHub is not already listed here, click "Setup another instance of Vegetronix VegeHub" where you will be prompted for the device's IP address in order to continue setup.
-
-There is currently no way to set up a VegeHub using {% term YAML %} in the `configuration.yaml` file.
+{% include integrations/config_flow.md %}
 
 ### Device Settings
 
