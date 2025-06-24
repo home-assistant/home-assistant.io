@@ -3,7 +3,7 @@ title: PlayStation Network
 description: Instructions on enabling PlayStation Network support for your Home Assistant
 ha_category:
   - Media player
-ha_release: 2025.1
+ha_release: 2025.7
 ha_iot_class: Cloud Polling
 ha_domain: playstation_network
 ha_platforms:
