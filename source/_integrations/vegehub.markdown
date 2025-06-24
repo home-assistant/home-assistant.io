@@ -86,8 +86,6 @@ If the device is unresponsive, wake it up using one of these methods:
 - Press the button on the board
 - Disconnect and reconnect power
 
-## Troubleshooting
-
 ### Setup is failing
   - Ensure the VegeHub is awake (see Device Wake-Up section)
 
