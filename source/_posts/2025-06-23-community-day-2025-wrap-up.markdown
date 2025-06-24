@@ -2,8 +2,8 @@
 layout: post
 title: "Community Day 2025 Wrap-up"
 description: "We highlight the best moments, what we learned, and how we will keep supporting meetups worldwide."
-date: 2025-06-23 00:00:01
-date_formatted: "June 23, 2025"
+date: 2025-06-24 00:00:01
+date_formatted: "June 24, 2025"
 author: Missy Quarry
 comments: true
 categories: Announcements
