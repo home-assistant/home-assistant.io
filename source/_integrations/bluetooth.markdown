@@ -55,10 +55,8 @@ For Bluetooth to function on Linux systems:
 
 - Home Assistant Operating System: Upgrade to Home Assistant OS version 9.0 or later.
 - Home Assistant Container: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
-- Home Assistant Supervised: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
-- Home Assistant Core: The system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant.
 
-### Additional details for Container, Core, and Supervised installs
+### Additional details for Container
 
 {% details "Making the DBus socket available in the Docker container" %}
 
@@ -90,6 +88,8 @@ On Debian based host systems, the `sudo apt-get -y install bluez` command will i
 Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
 
 If you experience an unreliable Bluetooth connection, installing a short USB extension cable between your Bluetooth adapter and your Home Assistant server may improve reliability.
+
+For development and testing, the developers of this Bluetooth integration primarily use a [Feasycom FSC-BP119](https://www.feasycom.com/datasheet/fsc-bp119.pdf) (CSR8510A10) 📶.
 
 ### Known working high-performance adapters
 
@@ -133,6 +133,8 @@ These adapters may require additional patch files available at <a href="https://
   
 There is currently no supported method to install these patch files when using Home Assistant Operating System.
 {% endwarning %}
+
+{% details "Broadcom (BCM) based adapters" %}
   
 - ASUS USB-BT400 (BCM20702A0)
 - Cable Matters 604002-BLK (BCM20702A0)
@@ -146,6 +148,8 @@ There is currently no supported method to install these patch files when using H
 - SoundBot SB342 (BCM20702A0)
 - StarTech USBBT2EDR4 (BCM20702A0)
 - Targus ACB10US1 (BCM20702A0)
+
+{% enddetails %}
 
 📶 Denotes external antenna
 
@@ -167,7 +171,7 @@ The following requirements must be met for an adapter to be labeled as High Perf
 - Establish a connection in about 1s or less
 - Process at least one advertisement per second from a device without dropping data
 - 95% of connection attempts are successful within two tries
-- Meets the above requirements with Home Assistant Core 2022.11.1 or later and Home Assistant Operating System 9.3 or later
+- Meets the above requirements with Home Assistant 2022.11.1 or later and Home Assistant Operating System 9.3 or later
 - Must be able to hold five (5) connections at the same time
 
 Performance testing used the following hardware:
@@ -185,8 +189,10 @@ Known working adapters list adapters that do not meet high-performance requireme
 #### Realtek RTL8761BU adapters
 
 {% warning %}
-These adapters do not have a reset pin. If they stop responding, there is currently no way for the kernel to reset them automatically. A generic USB reset for these adapters has been introduced in Linux kernel 6.1 and later.
+These adapters do not have a reset pin. When they stop responding, there is currently no way for the kernel to reset them automatically, and they may have to be physically unplugged and replugged to restore operation.
 {% endwarning %}
+
+{% details "Realtek RTL8761BU adapters" %}
 
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)
@@ -206,27 +212,36 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - ZEXMTE Z01 (RTL8761BU) 📶
 - ZETSAGE BH451A (RTL8761BU) 📶
 
+{% enddetails %}
+
 📶 Denotes external antenna
 
 ### Unsupported adapters
 
+{% details "Unsupported adapters" %}
+
 - Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
 - BASEUS BR8651A01 BA04 - Advertisement drops out
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
-- Bluegiga BLED112 - No driver available yet for USB id 2458:0001
+- Bluegiga BLED112 - No driver available yet for USB ID `2458:0001`
 - EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
 - EDUP EP-AC1661 (RTL8821CU) - Frequent connection failures and drop outs
-- eppfun AK3040G (ATS2851) - No driver available yet for USB id 10d7:b012
-- eppfun AK3040A (ATS2851) - No driver available yet for USB id 10d7:b012
+- eppfun AK3040G (ATS2851) - No driver available yet for USB ID `10d7:b012`
+- eppfun AK3040A (ATS2851) - No driver available yet for USB ID `10d7:b012`
 - KOAMTAC KBD 401G (CSR8510A10) - Adapter is unstable and drops out
 - TRIPP-LITE CU885A/U261-001-BT4 (CSR8510A10) - Adapter is unstable and drops out
 - QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
-- UGREEEN CM591 (ATS2851) - No driver available yet for USB id 10d7:b012
+- UGREEEN CM591 (ATS2851) - No driver available yet for USB ID `10d7:b012`
+- UGREEEN CM749 (Barrot chipset) 📶 - No driver available yet for USB ID `33fa:0010`
 - tp-link UB400 (CSR4) - Frequent connection failures with active connections
 - tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
-- CSR 4.0 clones with USB id 0a12:0001 - Unrecoverable driver failure: These clones will usually show a message like `CSR: Unbranded CSR clone detected; adding workarounds and force-suspending once...` in the system log when they are plugged in.
+- CSR 4.0 clones with USB ID `0a12:0001` - Unrecoverable driver failure: These clones will usually show a message like `CSR: Unbranded CSR clone detected; adding workarounds and force-suspending once...` in the system log when they are plugged in.
   - Multiple unbranded adapters labeled with CSR 4.0
   - 5 CORE CSR 4.0
+
+{% enddetails %}
+
+📶 Denotes external antenna
 
 ## Multiple adapters
 
@@ -257,6 +272,14 @@ The Bluetooth integration supports receiving advertisement data from external ad
 
 When adding multiple remote adapters to increase range or available connection slots, separate them enough to avoid interference with each other.
 
+For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/index.html).
+
+{% tip %}
+- The `-EA` variant offers significantly better RF performance compared to the standard non-`EA` model.  
+- If the `ESP32-POE-ISO-EA` is out of stock, the `ESP32-POE-ISO-EA-IND` is a good alternative.  
+- The `ESP32-POE-ISO-WROVER-EA` model is **not recommended**, as it uses a different pin configuration and is not compatible with ESPHome ready-made projects.
+{% endtip %}
+
 The following remote adapters are supported:
 
 - [ESPHome](https://esphome.io/projects/?type=bluetooth)
@@ -265,8 +288,8 @@ The following remote adapters are supported:
   - Single active connection: ESPHome ESP32 device with firmware 2022.9.3 or later
   - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
 - [Shelly](/integrations/shelly/)
-  - Bluetooth advertisement listening: Shelly v2 device with firmware 12.0 or later
-  - Bluetooth advertisement bundling: Shelly v2 device with firmware 12.0 or later
+  - Bluetooth advertisement listening: Shelly Gen2+ device
+  - Bluetooth advertisement bundling: Shelly Gen2+ device
   - Single active connection: not supported
   - Multiple active connections: not supported
 
@@ -274,9 +297,23 @@ Bluetooth advertisement bundling reduces traffic between Home Assistant and the 
 
 ## Troubleshooting
 
+### Advertisement monitor
+
+Once Bluetooth is configured, the {% my bluetooth_advertisement_monitor %} will allow you to view devices in range that are advertising.
+
+### Connection monitor
+
+Once Bluetooth is configured, the {% my bluetooth_connection_monitor %} will allow you to view currently connected devices.
+
 ### Improving connection times
 
-The connection time and performance vary greatly based on the Bluetooth adapter and interference. The below adapters are listed from best-performing to worst-performing:
+Connection time and performance vary greatly depending on the Bluetooth adapter and interference. 
+
+{% warning %}
+When switching to an adapter with better performance, disable the old, less performant adapters. The best signal and available connection slots are considered when making connections, and performance will be limited to the worst-performing adapter with the best signal to reach the remote device.
+{% endwarning %}
+
+The below adapters are listed from best-performing to worst-performing:
 
 - [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
 - [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#passive-scanning)

@@ -151,17 +151,8 @@ apple_tv_sleep:
       target:
         entity_id: remote.lounge_appletv
       data:
-        hold_secs: 1
-        delay_secs: 1
         command:
-          - home
-    - action: remote.send_command
-      target:
-        entity_id: remote.lounge_appletv
-      data:
-        delay_secs: 1
-        command:
-          - select
+          - suspend
     - action: media_player.turn_off
       target:
         entity_id: media_player.lounge_appletv

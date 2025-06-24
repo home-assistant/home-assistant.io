@@ -45,6 +45,7 @@ The following selectors are currently available:
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
+- [Statistic selector](#statistic-selector)
 - [Target selector](#target-selector)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
@@ -83,8 +84,7 @@ The output of this selector is a list of actions. For example:
 
 ## Add-on selector
 
-This can only be used on an installation with a Supervisor. For installations
-that do not have that, an error will be displayed.
+This can only be used on a {% term "Home Assistant Operating System" %} installation. For {% term "Home Assistant Container" %} installations, an error will be displayed.
 
 The add-on selector allows the user to input an add-on slug.
 On the user interface, it will list all installed add-ons and use the slug of the
@@ -150,6 +150,12 @@ device:
         the set model.
       type: string
       required: false
+    model_id:
+      description: >
+        When set, the list of areas is limited to areas with devices that have
+        the set model ID.
+      type: string
+      required: false      
 entity:
   description: >
     When entity options are provided, the list of areas is filtered by areas
@@ -167,7 +173,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of areas that provide entities of a certain domain(s),
+        Limits the list of areas that provide entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection to.
@@ -270,8 +276,8 @@ assist_pipeline:
 
 ## Backup location selector
 
-This can only be used on an installation with a Supervisor (Operating System or
-Supervised). For installations of type {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}, an error
+This can only be used on an installation with a {% term "Home Assistant Operating System" %}. For {% term "Home Assistant Container" %} installations, an error
+
 will be displayed.
 
 The backup location selector shows a list of places a backup could go, depending
@@ -485,7 +491,7 @@ devices based on the selector configuration. The value of the input will contain
 the device ID or a list of device IDs, based on if `multiple` is set to `true`.
 
 A device selector can filter the list of devices, based on things like the
-manufacturer or model of the device, the entities the device provides or based
+manufacturer, model, or model ID of the device, the entities the device provides or based
 on the domain that provided the device.
 
 ![Screenshot of a device selector](/images/blueprints/selector-device.png)
@@ -515,7 +521,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of devices that provide entities of a certain domain(s),
+        Limits the list of devices that provide entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection
@@ -561,6 +567,11 @@ filter:
         When set, it limits the list of devices to devices that have the set model.
       type: string
       required: false
+    model_id:
+      description: >
+        When set, the list of devices is limited to devices that have the set model ID.
+      type: string
+      required: false      
 multiple:
   description: >
     Allows selecting multiple devices. If set to `true`, the resulting value of
@@ -683,7 +694,7 @@ filter:
       required: false
     domain:
       description: >
-        Limits the list of entities to entities of a certain domain(s), for example,
+        Limits the list of entities to entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains), for example,
         [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection
@@ -792,6 +803,12 @@ device:
         the set model.
       type: string
       required: false
+    model_id:
+      description: >
+        When set, the list only includes floors with devices that have
+        the set model ID.
+      type: string
+      required: false      
 entity:
   description: >
     When entity options are provided, the list only includes floors
@@ -809,7 +826,7 @@ entity:
       required: false
     domain:
       description: >
-        When set, the list only includes floors that have entities of certain domains,
+        When set, the list only includes floors that have entities of certain [domains](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection to.
@@ -1297,6 +1314,26 @@ prettified name shown in the frontend).
 
 For example: `heat_cool`.
 
+## Statistic selector
+
+The statistic selector selects the statistic ID of an entity that records
+long-term statistics. It may resemble an entity ID (like `sensor.temperature`),
+or an external statistic ID (like `external:temperature`).
+
+![Screenshot of a statistic selector](/images/blueprints/selector-statistic.png)
+
+{% configuration statistic %}
+multiple:
+  description: >
+    If set to true, the selector returns a list of statistic IDs.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is a string representing a statistic ID, or
+a list of statistic IDs if `multiple` is set to `true`.
+
 ## Target selector
 
 The target selector is a rather special selector, allowing the user to select
@@ -1342,6 +1379,10 @@ device:
       description: When set, it limits the targets to devices by the set model.
       type: string
       required: false
+    model_id:
+      description: When set, the targets are limited to devices that have the set model ID.
+      type: string
+      required: false      
 entity:
   description: >
     When entity options are provided, the targets are limited by entities
@@ -1359,7 +1400,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the targets to entities of a certain domain(s),
+        Limits the targets to entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a
         with a single domain, or a list of string domains to limit the
@@ -1538,4 +1579,20 @@ The output of this selector is a list of triggers. For example:
 - trigger: numeric_state
   entity_id: "sensor.outside_temperature"
   below: 20
+```
+
+### Example - Merging with existing triggers
+
+If the trigger(s) should exist within a blueprint that already has some default triggers defined, and an additional customizable trigger should be merged, you need to use the `- triggers` syntax in the blueprint.
+
+```yaml
+# Example trigger selector
+input:
+  my_trigger_input:
+    selector:
+      trigger:
+triggers:
+  - triggers: !input my_trigger_input
+  - platform: numeric_state
+  [...]
 ```

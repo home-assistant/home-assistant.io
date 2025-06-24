@@ -6,7 +6,6 @@ ha_category:
 ha_release: 0.43
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_quality_scale: silver
 ha_codeowners:
   - '@frenck'
   - '@joostlek'
@@ -15,7 +14,6 @@ ha_zeroconf: true
 ha_platforms:
   - diagnostics
   - media_player
-  - sensor
 ha_integration_type: service
 ---
 
@@ -31,7 +29,7 @@ library from Home Assistant.
 - Spotify compatible playback [source](#selecting-output-source) device
 - A Spotify Developer application. Instructions for that are in
   the next step.
- 
+
 ### Create a Spotify application
 
 For Home Assistant to communicate with Spotify, we need to create
@@ -47,17 +45,17 @@ to allow you to log in with your Spotify account.
 
 3. Select the [**Create app**](https://developer.spotify.com/dashboard/create) button in the top right.
   
-  ![Spotify Developer Dashboard](/images/integrations/spotify/create-spotify-application.png)
-   
+    ![Spotify Developer Dashboard](/images/integrations/spotify/create-spotify-application.png)
+
 4. Enter a name and description; feel free to use any name and description you like.
 
-   Set the _"Redirect URI"_ to the following:
-   
-   `https://my.home-assistant.io/redirect/oauth`
+   - Set the _"Redirect URI"_ to the following:
 
-   Please copy and paste the exact URL above. You **do not** have to change it.
+    `https://my.home-assistant.io/redirect/oauth`
 
-  ![Creating a Spotify Application](/images/integrations/spotify/create-spotify-application.png)
+    - Please copy and paste the exact URL above. You **do not** have to change it.
+
+    ![Creating a Spotify Application](/images/integrations/spotify/create-spotify-application.png)
 
 5. Select Web API.
 
@@ -67,22 +65,22 @@ to allow you to log in with your Spotify account.
 7. Spotify will now show the new application you have just created. Select
    the **Settings** button in the top right to configure it.
 
-  ![Edit the Spotify Application settings](/images/integrations/spotify/edit-settings.png)
+   ![Edit the Spotify Application settings](/images/integrations/spotify/edit-settings.png)
 
 8. Before we can start configuring Home Assistant, we need to grab the application
    credentials Home Assistant needs.
 
-  Select on the **View client secret** button to reveal the client secret.
+   - Select on the **View client secret** button to reveal the client secret.
 
-  ![Show the client secret of the Spotify Application](/images/integrations/spotify/show-client-secret.png)
+   ![Show the client secret of the Spotify Application](/images/integrations/spotify/show-client-secret.png)
 
 9. The _"Client ID"_ and _"Client secret"_ are the two pieces of information
    that Home Assistant needs to communicate with Spotify and is what we
    call: Application credentials.
 
-  ![Get the application credentials from the Spotify Application](/images/integrations/spotify/application-credentials.png)
+   ![Get the application credentials from the Spotify Application](/images/integrations/spotify/application-credentials.png)
 
-   You will need the _"Client ID"_ and _"Client secret"_ during the Spotify
+   - You will need the _"Client ID"_ and _"Client secret"_ during the Spotify
    integration setup process in Home Assistant.
 
 You can now continue with the next chapter to configure the Spotify integration
@@ -102,6 +100,11 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 {% enddetails %}
 
 {% include integrations/config_flow.md %}
+
+## Data updates
+
+The integration {% term polling polls %} at least every 30 seconds.
+If the track that is playing ends in less than 30 seconds, the integration will poll again after the track has ended to update the state again.
 
 ## Using multiple Spotify accounts
 
@@ -153,20 +156,4 @@ The `media_content_id` value can be obtained from the Spotify desktop app by cli
 
 ## Unsupported devices
 
-- **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API.
-
-## Sensors
-
-Spotify provides sensors that display information about the song that is currently being played. The following sensors are available:
-
-- **Song acousticness**: Indicates how much the sound is free from electronic modification. 100% indicates it not electronically modified.
-- **Song danceability**. In percent. Describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. The higher the value, the more danceable.
-- **Song energy**. In percent.  A measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy. A higher number means more energetic.
-- **Song instrumentalness**: In percent. Describes whether a track contains no vocals. “Ooh” and “aah” sounds are treated as instrumental in this context. Rap or spoken word tracks are clearly “vocal”. The higher the value the more instrumental the song is. 
-- **Song key**: The estimated overall key of the track. If no key was detected, the value is unknown. For example, C sharp or E flat.
-- **Song liveness**: In percent.  Describes the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live.
-- **Song mode**: The modality (major or minor) of a song.
-- **Song speechiness**: In percent. Describes the presence of spoken words in a song. The more exclusively speech-like the recording (for example, talk show, audio book, poetry), the higher the value.
-- **Song tempo**: The speed of the piece of music that is currently playing, in beats per minute (bpm).
-- **Song time signature**: The time signature (meter) is a notational convention to specify how many beats are in each bar (or measure). For example: 4/4, 6/8.
-- **Song valence**. In percent. Tracks with high valence sound more positive (happy, cheerful, euphoric), while tracks with low valence sound more negative (sad, depressed, angry).
+- **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API. One workaround to use Sonos players with Spotify is through [Music Assistant](https://www.music-assistant.io/) using the action `music_assistant.play_media`. Music Assistant creates another media_player entity named after the original media_player, which you can use to play from Spotify.

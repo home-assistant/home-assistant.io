@@ -25,6 +25,7 @@ Triggers from all platforms will include the following data.
 
 | Template variable | Data |
 | ---- | ---- |
+| `trigger.alias` | Alias of the trigger.
 | `trigger.id` | The [`id` of the trigger](/docs/automation/trigger/#trigger-id).
 | `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
 
@@ -47,7 +48,7 @@ These are the properties available for a [Calendar trigger](/docs/automation/tri
 
 ### Device
 
-These are the properties available for a [Device trigger](/docs/automation/trigger/#device-trigger).
+These are the properties available for a [Device trigger](/docs/automation/trigger/#device-triggers).
 
 Inherites template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
 

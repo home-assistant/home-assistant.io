@@ -58,6 +58,11 @@ show_empty:
   description: By default, an empty card will still be shown (resulting in a small empty box). Setting this to `false` hides that empty card instead.
   default: true
   type: boolean
+text_only:
+  required: false
+  description: Display the card without border, background, padding and title. 
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 ### Example

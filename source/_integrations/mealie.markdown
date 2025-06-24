@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Mealie integration will fetch data from your [Mealie instance](https://mealie.io/).
+[Mealie](https://mealie.io/) is an open source, self-hosted recipe manager, meal planner, and shopping list. The Mealie {% term integration %} will fetch and allow you to create and update data held in your Mealie instance.
 
 ## Prerequisites
 
@@ -33,6 +33,15 @@ You create your API token on your Mealie installation:
 6. Copy the token that now appears so that you can later paste it into Home Assistant.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+URL:
+  description: The URL of your Mealie installation.
+API token:
+  description: The API token for your Mealie installation you generated in the prerequisites.
+Verify SSL certificate:
+  description: Enable this unless you are using a self-signed certificate on your Mealie installation.
+{% endconfiguration_basic %}
 
 ## Available calendars
 
@@ -154,3 +163,9 @@ template:
 {% endraw %}
 
 {% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal, once the integration is removed you can remove the API token (assuming it was only used by this integration) by going to your Account in the Mealie web interface, then to **Manage Your API Tokens** and deleting the token you created for Home Assistant.
+
+{% include integrations/remove_device_service.md %}

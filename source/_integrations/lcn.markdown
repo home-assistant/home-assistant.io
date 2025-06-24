@@ -39,6 +39,27 @@ The `lcn` integration allows connections to more than one hardware coupler. For 
 
 {% include integrations/config_flow.md %}
 
+To set up the integration, you need to provide the following information:
+
+{% configuration_basic %}
+Name:
+  description: "Name to identify the integration entry"
+IP address:
+  description: "IP address or hostname of the PCHK server"
+Port:
+  description: "Port used by the PCHK server"
+Username:
+  description: "Username for authorization on the PCHK server"
+Password:
+  description: "Password for authorization on the PCHK server"
+Segment coupler scan attempts:
+  description: "Number of attempts to find a segment coupler in your installation. Increase this number, if not all segment couplers are identified correctly. If no segment coupler is in your installation, leave this number at 0."
+Dimming mode:
+  description: "The number of steps used for dimming outputs of all LCN modules. This setting is system-specific and depends on the capabilities of the installed LCN modules."
+Request acknowledgement from modules:
+  description: "LCN modules can transmit a confirmation message for received commands. Commands are resent if this confirmation is not received. However, the activation of acknowledgements increases the bus traffic, which can lead to message losses if there are many modules in the installation."
+{% endconfiguration_basic %}
+
 ## Supported device types
 
 There is currently support for the following device types within Home Assistant:
@@ -106,10 +127,10 @@ To delete multiple devices at once, enable selection mode.  Select the desired e
 
 ### Configuring entities
 
-Entities configured for all devices are listed on the **Entities** tab. 
+Entities configured for all devices are listed on the **Entities** tab.
 
 To view entities for a specific device (module or group), in the **Modules / Groups** tab, select the device entry.
-  - **Result**: The **Entities** tab opens, showing entities of the selected device. 
+  - **Result**: The **Entities** tab opens, showing entities of the selected device.
   - To apply custom filters, enable the filter option.
 
   ![Create module/group dialog](/images/integrations/lcn/lcn_entities_page.png)
@@ -128,13 +149,13 @@ To view entities for a specific device (module or group), in the **Modules / Gro
 #### Deleting entities
 
 To delete a single entity, select the trash can icon next to it.
-- **Result**: This removes the entity from the list and from Home Assistant. 
+- **Result**: This removes the entity from the list and from Home Assistant.
 
 To delete multiple entities, enable selection mode, select the desired entries, and select **Delete Selected** in the upper right.
 
 #### Displaying entity properties
 
-Once an entity is created, you can view and configure its properties. 
+Once an entity is created, you can view and configure its properties.
 
 Select the entity in the entity list.
   - This opens the Home Assistant dialog for entity properties, allowing you to configure the entity as you would from the general Home Assistant entity configuration panel.
@@ -431,13 +452,29 @@ For an explanation of the attributes refer to the corresponding [events](#events
 In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following actions can be used.
 Refer to the [Performing actions](/docs/scripts/service-calls) page for examples on how to use them.
 
+When actions are linked to a particular device, the device is identified by its `device_id`. This `device_id` is a unique identifier supplied by Home Assistant.
+
+{% tip %}
+A simple method to obtain the `device_id` for LCN modules in automations and scripts is to use a template with the `device_id()` function as detailed [here](/docs/configuration/templating/#devices). This allows for finding the `device_id` using the module name as shown in the frontend or configured in the LCN-PRO software.
+
+{% raw %}
+```yaml
+action: lcn.pck
+data:
+  device_id: "{{ device_id('Module name') }}"
+  pck: PIN4
+```
+{% endraw %}
+
+{% endtip %}
+
 ### Action: `output_abs`
 
 Set absolute brightness of output port in percent.
 
-| Data attribute | Optional | Description                       | Values                |
+| Data attribute         | Optional | Description                       | Values                |
 | ---------------------- | -------- | --------------------------------- | --------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses)     |
+| `device_id`            | No       | Home Assistant device id          ||
 | `output`               | No       | Output port of module             | [OUTPUT_PORT](#ports) |
 | `brightness`           | Yes      | Absolute brightness in percent    | 0..100                |
 | `transition`           | Yes      | Transition (ramp) time in seconds | 0..486                |
@@ -447,7 +484,7 @@ Example:
 ```yaml
 action: lcn.output_abs
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   output: output1
   brightness: 100
   transition: 0
@@ -457,9 +494,9 @@ data:
 
 Set relative brightness of output port in percent.
 
-| Data attribute | Optional | Description                       | Values                |
+| Data attribute         | Optional | Description                       | Values                |
 | ---------------------- | -------- | --------------------------------- | --------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses)     |
+| `device_id`            | No       | Home Assistant device id          ||
 | `output`               | No       | Output port of module             | [OUTPUT_PORT](#ports) |
 | `brightness`           | Yes      | Relative brightness in percent    | -100..100             |
 | `transition`           | Yes      | Transition (ramp) time in seconds | 0..486                |
@@ -469,7 +506,7 @@ Example:
 ```yaml
 action: lcn.output_rel
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   output: output1
   brightness: 30
 ```
@@ -478,9 +515,9 @@ data:
 
 Toggle output port.
 
-| Data attribute | Optional | Description                       | Values                |
+| Data attribute         | Optional | Description                       | Values                |
 | ---------------------- | -------- | --------------------------------- | --------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses)     |
+| `device_id`            | No       | Home Assistant device id          ||
 | `output`               | No       | Output port of module             | [OUTPUT_PORT](#ports) |
 | `transition`           | Yes      | Transition (ramp) time in seconds | 0..486                |
 
@@ -489,7 +526,7 @@ Example:
 ```yaml
 action: lcn.output_toggle
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   output: output1
   transition: 0
 ```
@@ -501,17 +538,17 @@ Each character represents the state change of a relay (1=on, 0=off, t=toggle, -=
 
 Example states:  `t---001-`
 
-| Data attribute | Optional | Description                   | Values |
+| Data attribute         | Optional | Description                   | Values |
 | ---------------------- | -------- | ----------------------------- | ------ |
-| `address`              | No       | [LCN address](#lcn-addresses) |
-| `state`                | No       | Relay states as string        |
+| `device_id`            | No       | Home Assistant device id      ||
+| `state`                | No       | Relay states as string        ||
 
 Example:
 
 ```yaml
 action: lcn.relays
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   state: t---001-
 ```
 
@@ -519,9 +556,9 @@ data:
 
 Set the LED status.
 
-| Data attribute | Optional | Description                   | Values               |
+| Data attribute         | Optional | Description                   | Values               |
 | ---------------------- | -------- | ----------------------------- | -------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses) |
+| `device_id`            | No       | Home Assistant device id      ||
 | `state`                | No       | LED state as string           | [LED_STATE](#states) |
 
 Example:
@@ -529,7 +566,7 @@ Example:
 ```yaml
 action: lcn.led
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   led: led6
   state: blink
 ```
@@ -540,9 +577,9 @@ Set the absolute value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
 If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
-| Data attribute | Optional | Description                   | Values                                                             |
+| Data attribute         | Optional | Description                   | Values                                                             |
 | ---------------------- | -------- | ----------------------------- | ------------------------------------------------------------------ |
-| `address`              | No       | [LCN address](#lcn-addresses) |
+| `device_id`            | No       | Home Assistant device id      ||
 | `variable`             | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
 | `value`                | Yes      | Variable value                | _any positive number_                                              |
 | `unit_of_measurement`  | Yes      | Variable unit                 | [VAR_UNIT](#variables-and-units)                                   |
@@ -552,7 +589,7 @@ Example:
 ```yaml
 action: lcn.var_abs
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   variable: var1
   value: 75
   unit_of_measurement: %
@@ -569,9 +606,9 @@ Set the relative value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
 If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
-| Data attribute | Optional | Description                   | Values                                                                                                |
+| Data attribute         | Optional | Description                   | Values                                                                                                |
 | ---------------------- | -------- | ----------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses) |
+| `device_id`            | No       | Home Assistant device id      ||
 | `variable`             | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units), [THRESHOLD](#variables-and-units) |
 | `value`                | Yes      | Variable value                | _any positive or negative number_                                                                     |
 | `unit_of_measurement`  | Yes      | Variable unit                 | [VAR_UNIT](#variables-and-units)                                                                      |
@@ -581,7 +618,7 @@ Example:
 ```yaml
 action: lcn.var_rel
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   variable: var1
   value: 10
   unit_of_measurement: %
@@ -596,9 +633,9 @@ Otherwise the module might show unexpected behavior or return error messages.
 
 Reset value of variable or setpoint.
 
-| Data attribute | Optional | Description                   | Values                                                             |
+| Data attribute         | Optional | Description                   | Values                                                             |
 | ---------------------- | -------- | ----------------------------- | ------------------------------------------------------------------ |
-| `address`              | No       | [LCN address](#lcn-addresses) |
+| `device_id`            | No       | Home Assistant device id          ||
 | `variable`             | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
 
 Example:
@@ -606,7 +643,7 @@ Example:
 ```yaml
 action: lcn.var_reset
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   variable: var1
 ```
 
@@ -620,9 +657,9 @@ Otherwise the module might show unexpected behavior or return error messages.
 Locks a regulator setpoint.
 If `state` is not defined, it is assumed to be `False`.
 
-| Data attribute | Optional | Description                   | Values                           |
+| Data attribute         | Optional | Description                   | Values                           |
 | ---------------------- | -------- | ----------------------------- | -------------------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses) |
+| `device_id`            | No       | Home Assistant device id      ||
 | `setpoint`             | No       | Setpoint name                 | [SETPOINT](#variables-and-units) |
 | `state`                | Yes      | Lock state                    | true, false                      |
 
@@ -631,7 +668,7 @@ Example:
 ```yaml
 action: lcn.lock_regulator
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   setpoint: r1varsetpoint
   state: true
 ```
@@ -644,9 +681,9 @@ If `state` is not defined, it is assumed to be `hit`.
 The command allows the sending of keys immediately or deferred. For a deferred sending the attributes `time` and `time_unit` have to be specified. For deferred sending, the only key state allowed is `hit`.
 If `time_unit` is not defined, it is assumed to be `seconds`.
 
-| Data attribute | Optional | Description                   | Values                            |
+| Data attribute         | Optional | Description                   | Values                            |
 | ---------------------- | -------- | ----------------------------- | --------------------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses) |
+| `device_id`            | No       | Home Assistant device id      ||
 | `keys`                 | No       | Keys string                   |
 | `state`                | Yes      | Keys state                    | [KEY_STATE](#states)              |
 | `time`                 | Yes      | Deferred time                 | 0..                               |
@@ -658,7 +695,7 @@ Send keys immediately:
 ```yaml
 action: lcn.send_keys
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   keys: a1a5d8
   state: hit
 ```
@@ -667,7 +704,7 @@ Send keys deferred:
 ```yaml
 action: lcn.send_keys
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   keys: a1a5d8
   time: 5
   time_unit: s
@@ -681,10 +718,10 @@ The key lock states are defined as a string with eight characters. Each characte
 The command allows the locking of keys for a specified time period. For a time period, the attributes `time` and `time_unit` have to be specified. For a time period, only table `a` is allowed.
 If `time_unit` is not defined, it is assumed to be `seconds`.
 
-| Data attribute | Optional | Description                   | Values                            |
+| Data attribute         | Optional | Description                   | Values                            |
 | ---------------------- | -------- | ----------------------------- | --------------------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses) |
-| `table`                | Yes      | Table with keys to lock       |
+| `device_id`            | No       | Home Assistant device id      ||
+| `table`                | Yes      | Table with keys to lock       ||
 | `state`                | No       | Key lock states as string     | [KEY_STATE](#states)              |
 | `time`                 | Yes      | Time period to lock           | 0..                               |
 | `time_unit`            | Yes      | Time unit                     | [TIME_UNIT](#variables-and-units) |
@@ -695,7 +732,7 @@ Lock keys forever:
 ```yaml
 action: lcn.lock_keys
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   table: a
   state: 1---t0--
 ```
@@ -704,7 +741,7 @@ Lock keys for a specified time period:
 ```yaml
 action: lcn.lock_keys
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   state: 1---t0--
   time: 10
   time_unit: s
@@ -716,19 +753,18 @@ Send dynamic text to LCN-GTxD displays.
 The displays support four rows for text messages.
 Each row can be set independently and can store up to 60 characters (encoded in UTF-8).
 
-
-| Data attribute | Optional | Description                        | Values |
+| Data attribute         | Optional | Description                        | Values |
 | ---------------------- | -------- | ---------------------------------- | ------ |
-| `address`              | No       | [LCN address](#lcn-addresses)      |
-| `row`                  | No       | Text row 1..4                      |
-| `text`                 | No       | Text to send for the specified row |
+| `device_id`            | No       | Home Assistant device id           ||
+| `row`                  | No       | Text row 1-4                      ||
+| `text`                 | No       | Text to send for the specified row ||
 
 Example:
 
 ```yaml
 action: lcn.dyn_text
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   row: 1
   text: "text in row 1"
 ```
@@ -737,17 +773,17 @@ data:
 
 Send arbitrary PCK command. Only the command part of the PCK command has to be specified in the `pck` string.
 
-| Data attribute | Optional | Description                   | Values |
+| Data attribute         | Optional | Description                   | Values |
 | ---------------------- | -------- | ----------------------------- | ------ |
-| `address`              | No       | [LCN address](#lcn-addresses) |
-| `pck`                  | No       | PCK command                   |
+| `device_id`            | No       | Home Assistant device id      ||
+| `pck`                  | No       | PCK command                   ||
 
 Example:
 
 ```yaml
 action: lcn.pck
 data:
-  address: myhome.0.7
+  device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
   pck: PIN4
 ```
 
@@ -797,3 +833,15 @@ The motor values specify which hardware relay or outputs configuration will be u
 
 Whenever a key has to be provided, it is defined by a joint string consisting of the table identifier (`a`, `b`, `c`, `d`) and the corresponding key number.
 Examples: `a1`, `a5`, `d8`.
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+{% warning %}
+
+Removing the integration will delete all device and entity configuration done via the UI panel.
+
+{% endwarning %}

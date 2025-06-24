@@ -15,6 +15,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `remote_rpi_gpio` {% term integration %} is the base for all related GPIO platforms in Home Assistant. For the platform configurations, please check their corresponding sections.

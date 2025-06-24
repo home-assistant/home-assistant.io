@@ -560,7 +560,7 @@ Time condition windows can span across the midnight threshold if **both** `after
 A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).
 {% endtip %}
 
-For the `after` and `before` options a time helper (`input_datetime` entity)
+For the `after` and `before` options a time helper (`input_datetime` entity), a `time` entity, 
 or another `sensor` entity containing a timestamp with the "timestamp" device
 class, can be used instead.
 
@@ -570,6 +570,9 @@ conditions:
     condition: time
     after: input_datetime.house_silent_hours_start
     before: input_datetime.house_silent_hours_end
+
+  - alias: "Example referencing a time entity"
+    before: time.dnd_start
 
   - alias: "Example referencing another sensor"
     after: sensor.groceries_delivery_time
