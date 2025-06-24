@@ -52,7 +52,7 @@ Select **Apply** and your VegeHub will reset the network connection and try to c
 
 ### Device Settings
 
-In the VegeHub integration page, if you click "1 device" under your VegeHub's listing, you will be taken to your Device Info page. Here you will see all the entities available from this VegeHub, and you can click the "Visit" link to be taken directly to the VegeHub's device settings interface. Here you can directly change setting on the VegeHub.
+To open the VegeHub's device settings interface on their website, go to {% my integrations title="Settings > Devices & services" %}, and on the integration card, select 1 device to open the device page. Under Device info, select Visit to open the website with the settings.
 
 ## Power management
 
