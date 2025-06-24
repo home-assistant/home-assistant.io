@@ -86,13 +86,17 @@ If the device is unresponsive, wake it up using one of these methods:
 - Press the button on the board
 - Disconnect and reconnect power
 
-### Common Issues
+## Troubleshooting
 
-- Setup is failing
+### Setup is failing
   - Ensure the VegeHub is awake (see Device Wake-Up section)
-- [Hub's settings interface](#device-settings) is not accessible
+
+### [Hub's settings interface](#device-settings) is not accessible
+
   - Ensure the VegeHub is awake (see Device Wake-Up section)
-- Actuators are not responding
+
+### Actuators are not responding
+
   - Ensure the VegeHub is awake (see Device Wake-Up section)
   - Consider switching to [power adapter mode](#power-management) for consistent response
 
