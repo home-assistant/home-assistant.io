@@ -52,6 +52,7 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 | Sleep mode start time         | `sensor`        | When sleep mode is enabled, displays the current or next sleep mode start time.                             |
 | Sleep mode end time           | `sensor`        | When sleep mode is enabled, displays the current or last sleep mode end time.                               |
 | Status code                   | `sensor`        | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc.).                               |
+| Total cycles                  | `sensor`        | Displays the total cycles.                                                                                  |
 | Waste drawer                  | `sensor`        | Displays the current waste drawer level.                                                                    |
 | Power status                  | `binary_sensor` | Indicates whether power is currently connected.                                                             |
 | Sleep mode                    | `binary_sensor` | Indicates whether sleep mode is enabled.                                                                    |
