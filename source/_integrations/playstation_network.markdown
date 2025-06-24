@@ -17,7 +17,7 @@ related:
     title: Playstation
 ---
 
-The PlayStation Network {% term integration %} enables you to seamlessly integrate information from your currently playing game in Home Assistant.
+The **PlayStation Network** {% term integration %} enables you to seamlessly integrate information from your currently playing game in Home Assistant.
 
 ## About PlayStation Network
 
@@ -25,9 +25,9 @@ PlayStation Network (PSN) is a digital media entertainment service provided by [
 
 ## How you can use this integration
 
-The PlayStation Network integration lets you integrate information about your currently playing game into Home Assistant. You can display the game title and cover art in your Home Assistant dashboards.
+The **PlayStation Network** {% term integration %} lets you integrate information about your currently playing game into Home Assistant. You can display the game title and cover art in your Home Assistant dashboards.
 
-## Prerequisites for PlayStation Network integration
+## Prerequisites
 
 - To set up the PlayStation Network integration, you must first have an active PlayStation Network account. You can register for an account at the [Official PlayStation® Site](https://playstation.com/).
 - During the setup process in Home Assistant, you will be asked to provide your NPSSO token. You will need to be logged into [playstation.com](https://playstation.com/) to access the token in your browser. You will find a link to retrieve the token in the config flow.
@@ -43,9 +43,9 @@ The PlayStation Network integration lets you integrate information about your cu
   type: string
 {% endconfiguration_basic %}
 
-## Supported Functionality
+## Supported functionality
 
-### Media Players
+### Media players
 
 - **PlayStation Console**: One Media Player will be created for any PlayStation 5 and one Media Player will be created for any PlayStation 4 console you have connected to the PlayStation Network. The artwork and title of the currently playing game will be populated.
 
@@ -79,7 +79,7 @@ The following devices are not supported by the integration:
 - PlayStation Portable
 - Other PlayStation system variants (PlayStation TV) or older systems that do not support the PlayStation Network
 
-## Use Cases
+## Use cases
 
 You can display your currently playing game as artwork on your dashboard. You can also send notifications of your currently playing game to others inviting them to join you.
 
