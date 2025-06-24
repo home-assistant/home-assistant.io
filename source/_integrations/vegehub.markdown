@@ -83,18 +83,18 @@ To remove a VegeHub from Home Assistant, find and click on the VegeHub integrati
 
 If the device is unresponsive, wake it up using one of these methods:
 
-- Press the button on the board
-- Disconnect and reconnect power
+- Press the button on the board.
+- Disconnect and reconnect power.
 
 ### Setup is failing
   - Ensure the VegeHub is awake (see Device Wake-Up section)
 
 ### [Hub's settings interface](#device-settings) is not accessible
 
-  - Ensure the VegeHub is awake (see Device Wake-Up section)
+  - Ensure the VegeHub is awake (see Device Wake-Up section).
 
 ### Actuators are not responding
 
-  - Ensure the VegeHub is awake (see Device Wake-Up section)
-  - Consider switching to [power adapter mode](#power-management) for consistent response
+  - Ensure the VegeHub is awake (see Device Wake-Up section).
+  - Consider switching to [power adapter mode](#power-management) for consistent response.
 
