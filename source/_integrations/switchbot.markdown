@@ -412,7 +412,7 @@ Features:
 
 Options:
 
-- Force Nightlatch operation mode, navigate to Settings > Devices & services > Configured > SwitchBot Bluetooth and tap CONFIGURE under Integration entries
+- To enable nightlatch operation mode, navigate to Settings > Devices & services > Configured > SwitchBot Bluetooth and tap CONFIGURE under Integration entries
 
 #### Lock Pro
 
@@ -428,7 +428,7 @@ Features:
 
 Options:
 
-- Force Nightlatch operation mode, navigate to Settings > Devices & services > Configured > SwitchBot Bluetooth and tap CONFIGURE under Integration entries
+- To enable nightlatch operation mode, navigate to Settings > Devices & services > Configured > SwitchBot Bluetooth and tap CONFIGURE under Integration entries
 
 
 
@@ -446,7 +446,7 @@ Features:
 
 Options:
 
-- Force Nightlatch operation mode, navigate to Settings > Devices & services > Configured > SwitchBot Bluetooth and tap CONFIGURE under Integration entries
+- To enable nightlatch operation mode, navigate to Settings > Devices & services > Configured > SwitchBot Bluetooth and tap CONFIGURE under Integration entries
 
 #### Lock Lite
 
