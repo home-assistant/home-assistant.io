@@ -84,7 +84,7 @@ features_position:
   default: bottom
 exclude_entities:
   required: false
-  description: A list of entities that will be excluded from the card. It will affect sensor_classes, alert_classes and features.
+  description: A list of entities that will be excluded from the card. It will affect sensor_classes, alert_classes, and features.
   type: list
 {% endconfiguration %}
 
@@ -116,4 +116,4 @@ features:
 
 ## Available colors
 
-You want to colorize the area card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
+You want to colorize the area card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, and `white`.
