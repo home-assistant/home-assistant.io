@@ -12,15 +12,15 @@ ha_codeowners:
 ha_domain: actronair
 ha_platforms:
   - climate
-  - select  
+  - select
 ha_integration_type: integration
 ---
 
-The **ActronAir** {% term integration %} allows you to control [ActronAir Neo](https://actronair.com.au/products/residential/residential-controls/neo/) Air Conditioning controllers into Home Assistant.
+The **ActronAir** {% term integration %} allows you to control [ActronAir Neo](https://actronair.com.au/products/residential/residential-controls/neo/) Air Conditioning in Home Assistant.
 
 ## Prerequisites
 
-The premium wall-mounted touchscreen control system [NEO](https://actronair.com.au/products/residential/residential-controls/neo/),must be configured with a user account and connected to the cloud. The user credentails should be entered on the integrations page in Home Assistant.
+The premium wall-mounted touchscreen control system [NEO](https://actronair.com.au/products/residential/residential-controls/neo/),must be configured with a user account and connected to the cloud. The user credentials should be entered on the integrations page in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -30,9 +30,9 @@ If a user has multiple A/C systems associated to their account, every zones and 
 
 ### Climate
 
-The integration creats a climate entity for the master controller as well as each of the zones.
+The integration creates a climate entity for the master controller as well as each of the zones.
 Based on the zone capability such as temperature-controlled, controls are enabled for each of the enabled zones.
 
-Master controller provides ability to change the AC Mode and Fan Speed besides master temperature set point.
-Zone controller provides ability to turn ON/OFF a zone. Depending on the availability of zone sensor/controller, option to change the set point temperature is provided.
+The master controller provides the ability to change the AC Mode, Fan Speed, and the master temperature set point.
+The zone controller provides the ability to turn a zone ON/OFF. Depending on the availability of a zone sensor/controller, the option to change the set point temperature is provided.
 
