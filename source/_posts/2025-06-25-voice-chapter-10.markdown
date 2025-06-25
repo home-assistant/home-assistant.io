@@ -93,7 +93,7 @@ Finally, of course, not everyone wants to (or can) be reliant on the cloud, and 
 
 - ***Cloud*** - Home Assistant Cloud
 - ***Focused Local*** - Speech-to-Phrase and Piper
-- ***Fully Local*** - Whisper and Piper
+- ***Full Local*** - Whisper and Piper
 
 Each category is given a score from 0 to 3, with 0 meaning it is unsupported and 3 meaning it is fully supported. Users who choose Home Assistant Cloud can look at the Cloud score to determine the level of language support. For users wanting a local voice assistant, they will need to decide between Focused Local (limited commands for low-powered hardware) and Fully Local (open-ended commands for high-powered hardware). Importantly, these scores take into account the availability of voice commands translated by our language leaders. A language's score in every category will be lowered if it has minimal coverage of useful voice commands.
 
