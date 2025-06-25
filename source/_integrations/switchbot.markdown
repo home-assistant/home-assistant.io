@@ -412,7 +412,9 @@ Features:
 
 Options:
 
-- To enable nightlatch operation mode, navigate to Settings > Devices & services > Configured > SwitchBot Bluetooth and tap CONFIGURE under Integration entries
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
 
 #### Lock Pro
 
@@ -428,7 +430,9 @@ Features:
 
 Options:
 
-- To enable nightlatch operation mode, navigate to Settings > Devices & services > Configured > SwitchBot Bluetooth and tap CONFIGURE under Integration entries
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
 
 
 
@@ -446,7 +450,9 @@ Features:
 
 Options:
 
-- To enable nightlatch operation mode, navigate to Settings > Devices & services > Configured > SwitchBot Bluetooth and tap CONFIGURE under Integration entries
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
 
 #### Lock Lite
 
@@ -561,6 +567,7 @@ Refer to the latest version of the [OpenAPI doc](https://github.com/OpenWonderLa
 The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
 
 ### Vacuum state
+
 For robot vacuum K10+ and K10+ Pro, due to firmware implementation, it only returns these states, `cleaning` and `docked`
 
 ## Troubleshooting
