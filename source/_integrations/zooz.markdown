@@ -13,4 +13,8 @@ ha_iot_standard: matter
 ha_brand: true
 ---
 
-{% include integrations/wwha.md url="https://www.getzooz.com/" %}
+Zooz Z-Wave devices work locally and integrate seamlessly with the Z-Wave integration in Home Assistant (Z-Wave stick required). As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.
+
+{% my add_zwave_device badge domain=page.ha_domain %}
+
+[Learn more about Z-Wave in Home Assistant.](/integrations/zwave_js/)
