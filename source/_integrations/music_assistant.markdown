@@ -51,7 +51,7 @@ The Music Assistant integration creates media player entities for all players an
 
 ### Favorite current song button
 
-The Music Assistant integration creates a button entity per player to favorite the current song. Pressing this button entity manually or by an automation, will attempt to add the currently playing song to your Music Assistant favorites. This will work for local playing songs, tracks from streaming providers and if/when remote content such as Spotify Connect, AirPlay or even a radio station is playing, as long as the external source provides an artist and title combination (and optionally the album). Note that the button will be marked as unavailable if there is no content playable that could be favorited.
+The Music Assistant integration creates a button entity per player to favorite the current song. Pressing this button entity manually or by an automation will attempt to add the currently playing song to your Music Assistant favorites. This will work for local playing songs, tracks from streaming providers and if/when remote content such as Spotify Connect, AirPlay or even a radio station is playing, as long as the external source provides an artist and title combination (and optionally the album). Note that the button will be marked as unavailable if there is no content playable that could be favorited.
 
 
 ## Actions
