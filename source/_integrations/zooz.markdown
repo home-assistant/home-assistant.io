@@ -9,7 +9,7 @@ ha_domain: zooz
 ha_integration_type: brand
 ha_platforms:
   - lock
-ha_iot_standard: matter
+ha_iot_standard: zwave
 ha_brand: true
 ---
 
