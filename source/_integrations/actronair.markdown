@@ -26,10 +26,7 @@ The premium wall-mounted touchscreen control system [NEO](https://actronair.com.
 
 ## Entities
 
-### Select
-
-If a user has multiple A/C systems associated to their account, all of them are listed with their names and serial numbers. 
-User has an option to choose from the list. The first system is chosen by default to start with.
+If a user has multiple A/C systems associated to their account, every zones and wall controller is treated as individual climate device.
 
 ### Climate
 
