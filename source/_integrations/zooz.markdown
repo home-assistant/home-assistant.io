@@ -6,7 +6,7 @@ ha_iot_class: Local Push
 ha_category:
   - Lock
 ha_domain: zooz
-ha_integration_type: virtual
+ha_integration_type: brand
 ha_platforms:
   - lock
 ha_iot_standard: matter
