@@ -18,7 +18,7 @@ Welcome to Voice chapter 10 🎉, [a series](/blog/categories/assist/) where we 
 
 Before we get going, we just want to say that Voice Chapter 10 isn't just a broadcast; **it's an invitation** ✉️. Our **public Voice project board** lives on GitHub, and it shows what we're fixing, currently building, and what we'll work on next. Every card is open for comments, so please feel free to have a look and participate in the discussion.
 
-👉 **Project board**: [https://github.com/orgs/OHF-Voice/projects/2](https://github.com/orgs/OHF-Voice/projects/2)
+👉 **Project board**: [https://github.com/orgs/OHF-Voice/projects/2](https://github.com/orgs/OHF-Voice/projects/2)<!--more-->
 
 ## ESPHome gains a voice
 
