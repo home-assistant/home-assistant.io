@@ -212,7 +212,6 @@ data:
   message: Say cheerfully: Have a wonderful day!
   options:
     voice: <voice-name>
-    model: <model-id>
 ```
 
 {% endraw %}
@@ -222,7 +221,6 @@ You can configure the following options:
 | Option attribute | Optional | Description                                                                                                                                                                    | Example                      |
 | ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
 | `voice`          | yes      | The [voice name](https://ai.google.dev/gemini-api/docs/speech-generation#voices) to be used for the generated speech. The default is `zephyr`.                                 | `achernar`                   |
-| `model`          | yes      | The [model](https://ai.google.dev/gemini-api/docs/speech-generation#supported-models) to use for the text-to-speech conversion. The default is `gemini-2.5-flash-preview-tts`. | `gemini-2.5-pro-preview-tts` |
 
 The input language is detected automatically. Check the [Google AI documentation](https://ai.google.dev/gemini-api/docs/speech-generation#languages) for the supported languages.
 
