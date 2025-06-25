@@ -68,7 +68,7 @@ If you change the configuration, you have to restart the server. To do that you 
 `docker compose` should [already be installed](https://www.docker.com/blog/announcing-compose-v2-general-availability/) on your system. If not, you can [manually](https://docs.docker.com/compose/install/linux/) install it.
 {% endtip %}
 
-As the Docker command becomes more complex, switching to `docker compose` can be preferable and support automatically restarting on failure or system restart. Create a `compose.yml` file:
+As the Docker command becomes more complex, switching to `docker compose` can be preferable and support automatically restarting on failure or system restart. Create a `compose.yaml` file:
 
 {% include installation/container/compose.md %}
 

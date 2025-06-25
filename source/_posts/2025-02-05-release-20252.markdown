@@ -252,7 +252,7 @@ and did not make it this release)._
 You can now broadcast messages to every other voice assistant in your home.
 Try it by saying _"Broadcast it is time for dinner"_.
 As always with new intents, support may vary
-[depending on your language](https://home-assistant.github.io/intents/),
+[depending on your language](https://ohf-voice.github.io/intents/),
 but our language leaders are working hard on making sure it will be supported
 soon in your language!
 

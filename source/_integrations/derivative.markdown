@@ -37,6 +37,8 @@ Metric Prefix:
   description: Metric unit to prefix the derivative result ([Wikipedia](https://en.wikipedia.org/wiki/Unit_prefix)).
 Time unit:
   description: SI unit of time of the derivative. If this parameter is set, the unit of measurement will be set to **x/y** where **x** is the unit of the source sensor and **y** is the value of this parameter.
+Max sub-interval:
+  description: Normally, the derivative is calculated each time the source sensor updates. If a time is specified for this option, the derivative will also be recalculated if this amount of time elapses without an update of the source sensor.
 {% endconfiguration_basic %}
 
 ## YAML configuration
@@ -86,6 +88,11 @@ time_window:
   default: 0
   required: false
   type: time
+max_sub_interval:
+  description: Normally, the derivative is calculated each time the source sensor updates. If a time is specified for this option, the derivative will also be recalculated if this amount of time elapses without an update of the source sensor.
+  required: false
+  type: time
+  default: 0
 {% endconfiguration %}
 
 ## Temperature example

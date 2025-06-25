@@ -17,8 +17,8 @@ related:
 The area card lets you control and monitor an individual {% term area %}.
 
 <p class='img'>
-  <img src='/images/dashboards/area-card.png' alt='Screenshot of the area card'>
-  Screenshot of the area card.
+  <img src='/images/dashboards/area-cards.png' alt='Screenshot of the area cards'>
+  Screenshot of the area cards.
 </p>
 
 {% include dashboard/edit_dashboard.md %}
@@ -42,14 +42,14 @@ area:
   required: true
   description: ID of the `area`.
   type: string
-show_camera: 
+display_type:
   required: false
-  description: Changes the area picture to a live feed of the camera set for the area.
-  type: boolean
-  default: false
+  description: Defines the card's display style. Options include `compact` (a minimal layout), `icon` (shows an area icon), `picture` (displays an image of the area), or `camera` (shows the live camera feed).
+  type: string
+  default: "picture"
 camera_view:
   required: false
-  description: 'If showing a camera, "live" will show the live view if `stream` is enabled.'
+  description: 'If showing a camera, `live` will show the live view if `stream` is enabled.'
   default: auto
   type: string
 aspect_ratio:
@@ -69,12 +69,21 @@ alert_classes:
   required: false
   type: list
   default: "moisture, motion"
-  description: A list of binary sensor device classes which will populate alert icons in the card when the state is on.
+  description: A list of binary sensor device classes which will populate alert icons in the card when the state is on. If the display type is set to `compact`, only the first alert icon will be displayed.
 sensor_classes:
   required: false
   type: list
   default: "temperature, humidity"
-  description: A list of sensor device classes which will display their averaged sensor readings for the area. 
+  description: A list of sensor device classes which will display their averaged sensor readings for the area.
+features:
+  required: false
+  description: Additional widgets to control entities in the area. See [available features](/dashboards/features).
+  type: list
+features_position:
+  required: false
+  description: Position of the features on the area card. Can be `bottom` or `inline`. Only the first feature will be displayed when the option is set to `inline`.
+  type: string
+  default: bottom
 {% endconfiguration %}
 
 ### Example

@@ -49,11 +49,12 @@ ha_quality_scale: platinum
 
 ## Overview
 
-This integration allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).
+The **ESPHome** {% term integration %} allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).
 
 ESPHome is a firmware generator and configuration system that enables the transformation of microcontrollers into fully customizable smart home devices. Using a simple YAML configuration file, ESPHome allows users to define hardware components like sensors, actuators, and peripherals. These configurations are then compiled into custom firmware that can be flashed onto the target device.
 
-### Key Features
+### Key features
+
 - **YAML Configuration**: Specify hardware components, sensors, actuators, and integrations using a clean and straightforward YAML syntax.
 - **Custom Firmware Generation**: ESPHome compiles the provided configuration into a highly optimized, device-specific firmware image that is ready to be flashed onto microcontrollers.
 - **Seamless Integration**: After flashing, ESPHome devices can integrate seamlessly with Home Assistant using the ESPHome native API. This documentation page focuses on the [native API](https://esphome.io/components/api.html), which allows devices to communicate directly with Home Assistant for real-time automation and monitoring. For other integrations, such as MQTT or HTTP, please refer to the relevant sections of the [ESPHome documentation](https://esphome.io/).
@@ -95,12 +96,6 @@ password:
 
 For more information, see the [ESPHome Native API Component documentation](https://esphome.io/components/api.html).
 
-## Removing the integration
-
-This integration follows the standard integration removal process; no extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
 {% include integrations/option_flow.md %}
 
 These options are disabled by default and not required—only set them if specifically needed.
@@ -114,25 +109,26 @@ Subscribe to logs from the device:
 
 ## Supported devices
 
-The ESPHome integration works with devices that run ESPHome firmware and expose their functionality through the [native ESPHome API](https://esphome.io/components/api.html). This API is designed for tight, efficient integration with Home Assistant, enabling ESPHome devices to push updates directly to Home Assistant in **near real time**.
+The ESPHome {% term integration %} works with devices that run ESPHome firmware and expose their functionality through the [native ESPHome API](https://esphome.io/components/api.html). This API is designed for tight, efficient integration with Home Assistant, enabling ESPHome devices to push updates directly to Home Assistant in **near real time**.
 
 ## Updating data
 
 Rather than polling for sensor values or device states, Home Assistant maintains a persistent connection to each ESPHome device using the native API. This allows state changes—such as a temperature sensor update, a button press, or a binary sensor trigger—to be sent immediately as they happen, reducing latency and improving responsiveness in automations.
 
-### Additional Technical Details
+### Additional technical details
+
 - **Efficient Communication Protocol**: ESPHome uses a lightweight, bi-directional protocol over TCP, optimized for microcontrollers. This protocol is implemented in [aioesphomeapi](https://github.com/esphome/aioesphomeapi), the async Python library used by Home Assistant to handle real-time communication with ESPHome devices. It enables low-latency updates and near instant command execution.
 - **Automatic Reconnection**: Home Assistant maintains a persistent connection to each ESPHome device and will automatically attempt to reconnect if the connection is lost. This includes support for "sleepy" or battery-powered devices that periodically wake from deep sleep. When such a device comes online, Home Assistant quickly re-establishes the connection—especially when **mDNS** (Multicast DNS) is available—allowing the device to be discovered and connected without requiring static IPs or manual configuration.
 
 This real-time behavior enables fast, reactive automations and a smooth user experience compared to traditional polling-based integrations.
 
-## Supported Functionality
+## Supported functionality
 
 ### Entities
 
 The available entities depend on the components defined in the ESPHome YAML configuration for each device. These entities are exposed through the [Native API Component](https://esphome.io/components/api.html).
 
-### Firing Events on the Home Assistant Event Bus
+### Firing events on the Home Assistant event bus
 
 When using the native API with Home Assistant, you can trigger events on the Home Assistant event bus directly from ESPHome. For more details, see the [homeassistant.event Action](https://esphome.io/components/api.html#homeassistant-event-action).
 
@@ -140,15 +136,15 @@ When using the native API with Home Assistant, you can trigger events on the Hom
 
 Each device can define Home Assistant Actions based on its ESPHome YAML configuration. For more information, refer to the [Actions](https://esphome.io/components/api.html#actions) section in the [Native API Component](https://esphome.io/components/api.html) documentation.
 
-### Retrieving Data from Home Assistant
+### Retrieving data from Home Assistant
 
 ESPHome can retrieve the state of Home Assistant entities using the [Native API](https://esphome.io/components/api.html) with [User-Defined Actions](https://esphome.io/components/api.html#user-defined-actions).
 
-### Home Assistant Actions
+### Home Assistant actions
 
 ESPHome devices can call any [Home Assistant Action](https://esphome.io/components/api.html#homeassistant-service-action). This feature is not enabled by default for newly added devices but can be enabled through the options flow on a per-device basis.
 
-### Tag Scanning Support
+### Tag scanning support
 
 The [Native API Component](https://esphome.io/components/api.html) also supports sending tag scan events to Home Assistant. See the [homeassistant.tag_scanned Action](https://esphome.io/components/api.html#homeassistant-tag-scanned-action) for more information.
 
@@ -184,18 +180,20 @@ The entity will be named `livingroomdesk Temperature` and will default to having
 
 ## Troubleshooting
 
-### Viewing Live Logs
+### Viewing live logs
 
 To troubleshoot your ESPHome devices, you can easily view live logs, whether you're using the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) or the **ESPHome CLI**. The logs contain detailed information such as Wi-Fi connection status, errors, and debug messages, which can help you identify and resolve issues with your device.
 
 #### Using the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon)
+
 1. In the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) add-on, find the device you're working with.
 2. Click the **LOGS** button to open the log view.
 
 #### Using the **ESPHome CLI**
+
 If you're using the **ESPHome CLI**, follow the instructions for the [logs Command](https://esphome.io/guides/cli.html#logs-command) to access the logs.
 
-### Obtaining Logs from the Device
+### Obtaining logs from the device
 
 If you want the device to send logs without requiring you to be actively monitoring, follow these steps:
 
@@ -216,7 +214,7 @@ If you want the device to send logs without requiring you to be actively monitor
 
 This integration supports reconfiguration, allowing you to make changes—such as updating the IP address—even after a device has already been set up.
 
-### Name Conflict Resolution
+### Name conflict resolution
 
 If Home Assistant detects multiple devices with the same [**name**](https://esphome.io/components/esphome.html#configuration-variables), it will automatically initiate **Name Conflict Resolution**. This process is designed to help you seamlessly replace a failed or retired device with new hardware, while preserving your existing configuration if desired.
 
@@ -232,7 +230,7 @@ If you’re using the same YAML file on the new device, choose **Migrate**. If i
 
 ---
 
-### Requirements for Name Conflict Resolution
+### Requirements for name conflict resolution
 
 To trigger Name Conflict Resolution, all of the following must be true:
 
@@ -242,7 +240,7 @@ To trigger Name Conflict Resolution, all of the following must be true:
 
 ---
 
-### How to Trigger Name Conflict Resolution
+### How to trigger name conflict resolution
 
 You can trigger Name Conflict Resolution in several ways:
 
@@ -251,8 +249,14 @@ You can trigger Name Conflict Resolution in several ways:
 - Configuring a **newly discovered device** that uses the same name.
 - **Manually adding** a device with the same name via the integration setup.
 
-## Known Limitations
+## Known limitations
 
 Each ESPHome device must have a **unique name**. This name is important for mDNS announcements, ensuring that the device can be properly discovered, quickly reconnected when it comes online or wakes from deep sleep (for devices that support deep sleep), and correctly linked to the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon). It's also crucial for **DHCP discovery** if mDNS is not available.
 
 Using duplicate names can lead to connection issues, failed discovery, and unexpected behavior with both the integration and the add-on.
+
+## Removing the integration
+
+This integration follows the standard integration removal process; no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

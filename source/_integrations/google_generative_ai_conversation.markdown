@@ -3,6 +3,7 @@ title: Google Generative AI
 description: Instructions on how to integrate Google Generative AI as a conversation agent
 ha_category:
   - Voice
+  - Text-to-speech
 ha_release: 2023.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_integration_type: service
 ha_platforms:
   - conversation
   - diagnostics
+  - tts
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -25,7 +27,7 @@ related:
     title: Google Generative AI
 ---
 
-The Google Generative AI integration adds a conversation agent powered by [Google Generative AI](https://ai.google.dev/) in Home Assistant. It can optionally be allowed to control Home Assistant.
+The Google Generative AI integration adds a conversation agent and text-to-speech engine powered by [Google Generative AI](https://ai.google.dev/) to Home Assistant. It can optionally be allowed to control Home Assistant.
 
 Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
 
@@ -77,7 +79,7 @@ Enable Google Search tool:
 ## Google Search
 
 Due to an API limitation we cannot have the [Google Search tool](https://ai.google.dev/gemini-api/docs/grounding) together with other tools. Request fails with `400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Tool use with function calling is unsupported', 'status': 'INVALID_ARGUMENT'}}`.
-But you can do the following workaround that exposes a script to voice assistants. The script calls a Google Generative AI Conversation that only has the Google Search tool enabled. 
+But you can do the following workaround that exposes a script to voice assistants. The script calls a Google Generative AI Conversation that only has the Google Search tool enabled.
 
 {% details "Workaround for Google Search tool" %}
 
@@ -121,6 +123,7 @@ fields:
     description: The query to search Google for
     required: true
 ```
+
 {% endraw %}
 
 11. Select **Save script**
@@ -146,10 +149,10 @@ This action isn't tied to any integration entry, so it won't use the model, prom
 Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally attachments (images, PDFs, etc.).
 This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the generated content.
 
-| Data attribute | Optional | Description                                     | Example             |
-| ---------------------- | -------- | ----------------------------------------------- | ------------------- |
-| `prompt`               | no       | The prompt for generating the content.          | Describe this image |
-| `filenames`            | yes      | File names for attachments to include in the prompt. | /tmp/image.jpg      |
+| Data attribute | Optional | Description                                          | Example             |
+| -------------- | -------- | ---------------------------------------------------- | ------------------- |
+| `prompt`       | no       | The prompt for generating the content.               | Describe this image |
+| `filenames`    | yes      | File names for attachments to include in the prompt. | /tmp/image.jpg      |
 
 {% raw %}
 
@@ -187,6 +190,41 @@ response_variable: generated_content
 ```
 
 {% endraw %}
+
+### Speak
+
+The `tts.speak` action is the modern way to use TTS. Add the `speak` action, select the Google Generative AI TTS entity, select the media player entity or group to send the TTS audio to, and enter the message to speak.
+
+Text-to-speech (TTS) generation is controllable, meaning you can use natural language to structure interactions and guide the style, accent, pace, and tone of the audio. You can change the way the text is spoken directly in the message by, e.g. entering "Say cheerfully: Have a wonderful day" instead of just "Have a wonderful day".
+
+For more options about `speak`, see the Speak section on the main [TTS](/integrations/tts/#service-speak) building block page.
+
+In YAML, your action will look like this:
+
+{% raw %}
+
+```yaml
+action: tts.speak
+target:
+  entity_id: tts.google_generative_ai_tts
+data:
+  media_player_entity_id: media_player.tv
+  message: Say cheerfully: Have a wonderful day!
+  options:
+    voice: <voice-name>
+    model: <model-id>
+```
+
+{% endraw %}
+
+You can configure the following options:
+
+| Option attribute | Optional | Description                                                                                                                                                                    | Example                      |
+| ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
+| `voice`          | yes      | The [voice name](https://ai.google.dev/gemini-api/docs/speech-generation#voices) to be used for the generated speech. The default is `zephyr`.                                 | `achernar`                   |
+| `model`          | yes      | The [model](https://ai.google.dev/gemini-api/docs/speech-generation#supported-models) to use for the text-to-speech conversion. The default is `gemini-2.5-flash-preview-tts`. | `gemini-2.5-pro-preview-tts` |
+
+The input language is detected automatically. Check the [Google AI documentation](https://ai.google.dev/gemini-api/docs/speech-generation#languages) for the supported languages.
 
 ## Video tutorial
 

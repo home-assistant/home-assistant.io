@@ -72,6 +72,13 @@ If an entity listed below has an asterisk (*) next to its name, it means it is d
 If an entity listed below has a plus (+) next to its name, it means this entity supports push updates. These entities will have almost instant state changes. 
 For redundancy, the state of all entities is also polled every 60 seconds. For entities without a plus (+), this is the only update method. Therefore, a device's state change can take up to 60 seconds to be reflected in Home Assistant.
 An exception is the firmware update entity, which is polled every 12 hours.
+Another exception are battery cameras, most {% term entities %} are still {% term polling polls %} every 60 seconds. However, the entities that would cause the camera to wake from sleep will only be polled during the following events:
+
+- The camera wakes by itself (PIR event) and the last update was more than 1 hour ago.
+- The camera did not wake for more than 6 hours.
+- All battery cameras have not been awake at the same time for more than 12 hours.
+
+A full update of all entities, which will wake all battery cameras connected to the same hub/NVR, can be performed by calling the `homeassistant.update_entity` action on a single Reolink entity of a camera (for example the motion detection binary sensor).
 
 ## Supported functionality
 
@@ -128,7 +135,8 @@ Depending on the supported features of the camera, number entities are added for
 
 - Optical zoom control
 - Focus control
-- Floodlight turn on brightness
+- Floodlight turn on brightness+
+- Infrared light brightness
 - Volume (Camera)
 - Alarm volume (Home Hub)
 - Message volume (Home Hub)
@@ -157,6 +165,7 @@ Depending on the supported features of the camera, number entities are added for
 - AI linger delay+ (up to 3 zones)
 - AI item forgotten delay+ (up to 3 zones)
 - AI item taken delay+ (up to 3 zones)
+- Baby cry sensitivity
 - Auto quick reply time
 - Auto track limit left
 - Auto track limit right
@@ -271,6 +280,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Record
 - Manual record+
 - Privacy mode+
+- Privacy mask
 - Push notifications
 - Hub ringtone on event
 - Email on event
@@ -281,6 +291,8 @@ Depending on the supported features of the camera, switch entities are added for
 - Hardwired chime enabled*
 
 When the **Privacy mode** is ON, almost all other entities will be unavailable because the camera shuts down the API and camera streams. When turning OFF the **Privacy mode**, all entities will become available again. Take this into consideration when making automations; ensure the **Privacy mode** is OFF before changing camera settings using other entities.
+
+The **Privacy mask** switch will only be added when the privacy mask is configured in the Reolink app/client under **settings** (gear icon) > **Display** > **Privacy Mask**. After adding the privacy mask, the reolink integration in Home Assistant needs to be reloaded for the **Privacy mask** switch to show up.
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
 
@@ -389,6 +401,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - **[Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)**
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
+- [Reolink Floodlight PoE and Wi-Fi*](https://reolink.com/product/reolink-floodlight/)
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
 - **[Reolink TrackMix PoE](https://reolink.com/product/reolink-trackmix-poe/)**
