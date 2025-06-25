@@ -489,6 +489,7 @@ Features:
 ### Fans
 
 Fan entities are added for Battery Circulator Fan/Circulator Fan, Air Purifier, and Air Purifier Table
+
 #### Battery Circulator Fan/Circulator Fan
 
 Features:
@@ -497,7 +498,7 @@ Features:
 - set speed
 - set mode
 - oscillate left and right
-- get battery, only applicable for Battery Circulator Fan
+- get battery level (Battery Circulator Fan only)
 
 #### Air Purifier
 
@@ -546,7 +547,12 @@ Device names configured in the SwitchBot app are not transferred into Home Assis
 
 ### Battery level
 
-Due to firmware implementation, early models such as Lock and Lock Lite' battery level is divided into ranges instead of accurate value, <10%, shown as 10; 10%~20%, shown as 20; 20%~60%, shown as 60; ≥60%, shown as 100
+Due to firmware limitations, early models such as **Lock** and **Lock Lite** report the battery level in coarse ranges rather than an exact value:
+
+- < 10 %  → 10  
+- 10 % – 20 % → 20  
+- 20 % – 60 % → 60  
+- ≥ 60 % → 100
 
 Refer to the latest version of the [OpenAPI doc](https://github.com/OpenWonderLabs/SwitchBotAPI) for precise definitions.
 
