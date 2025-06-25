@@ -3,11 +3,13 @@ title: PlayStation Network
 description: Instructions on enabling PlayStation Network support for your Home Assistant
 ha_category:
   - Media player
+  - Sensor
 ha_release: 2025.7
 ha_iot_class: Cloud Polling
 ha_domain: playstation_network
 ha_platforms:
   - media_player
+  - sensor
 ha_codeowners:
   - '@jackjpowell'
 ha_config_flow: true
@@ -49,6 +51,16 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 ### Media players
 
 - **PlayStation Console**: One Media Player will be created for any [supported PlayStation console](#supported-devices) you have connected to the PlayStation Network. The artwork and title of the currently playing game will be populated.
+
+### Sensors
+
+- **Online-ID**: Shows your PlayStation Network ID and current profile picture.
+- **Trophy level**: Displays your current PlayStation trophy level.
+- **Next Level**: Shows your progress toward the next PlayStation trophy level as a percentage.
+- **Platinum trophies**: Shows the total number of Platinum trophies you’ve earned. These are awarded for unlocking all other trophies in a game.
+- **Gold trophies**: Displays your total count of Gold trophies, earned for major achievements within games.
+- **Silver trophies**: Indicates the number of Silver trophies you've collected, typically for mid-level accomplishments.
+- **Bronze trophies**: Shows how many Bronze trophies you've earned, usually for basic or early-game achievements.
 
 ## Data updates
 
