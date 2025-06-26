@@ -120,12 +120,15 @@ article.page h3 {
   display: block;
 }
 
+.vpe-main .nice-select .nice-select-dropdown {
+  width: 100%;
+}
 .vpe-main .nice-select .list {
   margin: 0;
 }
 
 .vpe-main .nice-select {
-  --grid-width: 6;
+  --grid-width: 8;
   box-shadow: 0 4px 12px 0px rgba(0, 35, 50, 0.2);
   border: unset;
   border-radius: 40px;
@@ -175,18 +178,19 @@ article.page h3 {
 
   --price: 170;
   --price-mobile: 60;
-  
+
   --wrapper-radius: 0px;
-  
+
   isolation: isolate;
   position: relative;
 }
 
 @media only screen and (min-width: 875px) {
-  :root{
-  --price-mobile: 120;
+  :root {
+    --price-mobile: 120;
   }
 }
+
 @media only screen and (min-width: 2180px) {
   .vpe-main {
     --wrapper-radius: 40px;
@@ -2509,7 +2513,7 @@ section#hero .bg-gradient {
   background-color: #ffffff;
   border-radius: 20px;
   padding: 30px 20px 40px 20px;
-  height: calc(var(--grid-m) * 18);
+  height: calc(var(--grid-m) * 20);
   text-align: center;
 }
 
@@ -2543,39 +2547,51 @@ section#hero .bg-gradient {
 
 .vpe-main #language-support .supported-cards {
   display: flex;
-  gap: 20px 40px;
+  gap: 10px;
   flex-wrap: wrap;
   width: 100%;
   margin-top: 40px;
   justify-content: center;
+  flex-direction: column;
 }
 
 .vpe-main #language-support .supported-card {
   border-radius: 12px;
-  align-items: center;
   color: #002332;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  height: 74px;
+  flex-grow: 1;
+  flex-basis: 0;
+  border: 2px solid #efefef;
+  height: calc(var(--grid-m) * 5);
   /* margin-top: 19px; */
-  max-width: 164px;
-  margin: 0 12px;
+  padding: 20px;
+  text-align: left;
   opacity: 1;
   position: relative;
   transition: border-color .2s, background-color .2s, opacity .2s;
-  width: 100%;
+}
+
+.vpe-main #language-support .supported-card:before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 29px;
+  width: 29px;
+  background-size: 100%;
+  background-position: center;
 }
 
 .vpe-main #language-support .supported-card .heading {
-  align-items: center;
-  display: flex;
   gap: 12px;
   line-height: 1;
+  margin-bottom: 8px;
 }
 
 .vpe-main #language-support .supported-card .heading span {
-  font-size: 1rem;
+  font-size: 24px;
   font-weight: 600;
 }
 
@@ -2618,22 +2634,30 @@ section#hero .bg-gradient {
   transition: opacity .5s ease-out;
 }
 
-.vpe-main #language-support .supported-card[data-state="1"] .state-bar span:nth-child(1):after,
-.vpe-main #language-support .supported-card[data-state="2"] .state-bar span:nth-child(1):after,
-.vpe-main #language-support .supported-card[data-state="3"] .state-bar span:nth-child(1):after {
-  background: linear-gradient(90deg, #BA1B1B 0%, #FF6B02 100%);
-  opacity: 1;
+.vpe-main #language-support .supported-card[data-state="2"],
+.vpe-main #language-support .supported-card[data-state="3"] {
+  border-color: #008142;
 }
 
-.vpe-main #language-support .supported-card[data-state="2"] .state-bar span:nth-child(2):after,
-.vpe-main #language-support .supported-card[data-state="3"] .state-bar span:nth-child(2):after {
-  background: linear-gradient(90deg, #FF6B02 0%, #FE0 100%);
-  opacity: 1;
+.vpe-main #language-support .supported-card[data-state="2"]:before,
+.vpe-main #language-support .supported-card[data-state="3"]:before {
+  background-image: url("data:image/svg+xml,%3Csvg width='29' height='29' viewBox='0 0 29 29' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_1914_181' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='29' height='29'%3E%3Crect width='29' height='29' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_1914_181)'%3E%3Cpath d='M12.47 21.17L22.6925 10.9475L20.6625 8.9175L12.47 17.11L8.3375 12.9775L6.3075 15.0075L12.47 21.17ZM14.5 29C12.4942 29 10.6092 28.6194 8.845 27.8581C7.08083 27.0969 5.54625 26.0638 4.24125 24.7588C2.93625 23.4538 1.90313 21.9192 1.14188 20.155C0.380625 18.3908 0 16.5058 0 14.5C0 12.4942 0.380625 10.6092 1.14188 8.845C1.90313 7.08083 2.93625 5.54625 4.24125 4.24125C5.54625 2.93625 7.08083 1.90313 8.845 1.14188C10.6092 0.380625 12.4942 0 14.5 0C16.5058 0 18.3908 0.380625 20.155 1.14188C21.9192 1.90313 23.4538 2.93625 24.7588 4.24125C26.0638 5.54625 27.0969 7.08083 27.8581 8.845C28.6194 10.6092 29 12.4942 29 14.5C29 16.5058 28.6194 18.3908 27.8581 20.155C27.0969 21.9192 26.0638 23.4538 24.7588 24.7588C23.4538 26.0638 21.9192 27.0969 20.155 27.8581C18.3908 28.6194 16.5058 29 14.5 29Z' fill='%23008142'/%3E%3C/g%3E%3C/svg%3E%0A");
 }
 
-.vpe-main #language-support .supported-card[data-state="3"] .state-bar span:nth-child(3):after {
-  background: linear-gradient(90deg, #FE0 0%, #16F3BE 100%);
-  opacity: 1;
+.vpe-main #language-support .supported-card[data-state="1"] {
+  border-color: #DB582E;
+}
+
+.vpe-main #language-support .supported-card[data-state="1"]:before {
+  background-image: url("data:image/svg+xml,%3Csvg width='29' height='29' viewBox='0 0 29 29' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.5 29C14.1143 29 13.7467 28.9277 13.3971 28.783C13.0476 28.6384 12.7282 28.4335 12.4389 28.1683L0.831671 16.5611C0.5665 16.2718 0.361596 15.9524 0.216958 15.6029C0.0723192 15.2533 0 14.8857 0 14.5C0 14.1143 0.0723192 13.7406 0.216958 13.3791C0.361596 13.0175 0.5665 12.7041 0.831671 12.4389L12.4389 0.831671C12.7282 0.542394 13.0476 0.331463 13.3971 0.198878C13.7467 0.0662926 14.1143 0 14.5 0C14.8857 0 15.2594 0.0662926 15.6209 0.198878C15.9825 0.331463 16.2959 0.542394 16.5611 0.831671L28.1683 12.4389C28.4576 12.7041 28.6685 13.0175 28.8011 13.3791C28.9337 13.7406 29 14.1143 29 14.5C29 14.8857 28.9337 15.2533 28.8011 15.6029C28.6685 15.9524 28.4576 16.2718 28.1683 16.5611L16.5611 28.1683C16.2959 28.4335 15.9825 28.6384 15.6209 28.783C15.2594 28.9277 14.8857 29 14.5 29ZM13.0536 15.9464H15.9464V7.26808H13.0536V15.9464ZM14.5 20.2855C14.9098 20.2855 15.2533 20.1469 15.5305 19.8697C15.8078 19.5925 15.9464 19.249 15.9464 18.8392C15.9464 18.4293 15.8078 18.0858 15.5305 17.8086C15.2533 17.5314 14.9098 17.3928 14.5 17.3928C14.0902 17.3928 13.7467 17.5314 13.4695 17.8086C13.1922 18.0858 13.0536 18.4293 13.0536 18.8392C13.0536 19.249 13.1922 19.5925 13.4695 19.8697C13.7467 20.1469 14.0902 20.2855 14.5 20.2855Z' fill='%23DB582E'/%3E%3C/svg%3E%0A");
+}
+
+.vpe-main #language-support .supported-card[data-state="0"] {
+  border-color: #BA1B1B;
+}
+
+.vpe-main #language-support .supported-card[data-state="0"]:before {
+  background-image: url("data:image/svg+xml,%3Csvg width='29' height='29' viewBox='0 0 29 29' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.28 21.75L14.5 16.53L19.72 21.75L21.75 19.72L16.53 14.5L21.75 9.28L19.72 7.25L14.5 12.47L9.28 7.25L7.25 9.28L12.47 14.5L7.25 19.72L9.28 21.75ZM14.5 29C12.4942 29 10.6092 28.6194 8.845 27.8581C7.08083 27.0969 5.54625 26.0638 4.24125 24.7588C2.93625 23.4538 1.90313 21.9192 1.14188 20.155C0.380625 18.3908 0 16.5058 0 14.5C0 12.4942 0.380625 10.6092 1.14188 8.845C1.90313 7.08083 2.93625 5.54625 4.24125 4.24125C5.54625 2.93625 7.08083 1.90313 8.845 1.14188C10.6092 0.380625 12.4942 0 14.5 0C16.5058 0 18.3908 0.380625 20.155 1.14188C21.9192 1.90313 23.4538 2.93625 24.7588 4.24125C26.0638 5.54625 27.0969 7.08083 27.8581 8.845C28.6194 10.6092 29 12.4942 29 14.5C29 16.5058 28.6194 18.3908 27.8581 20.155C27.0969 21.9192 26.0638 23.4538 24.7588 24.7588C23.4538 26.0638 21.9192 27.0969 20.155 27.8581C18.3908 28.6194 16.5058 29 14.5 29Z' fill='%23BA1B1B'/%3E%3C/svg%3E%0A");
 }
 
 .vpe-main #language-support .supported-card .state-bar:before {
@@ -3005,6 +3029,7 @@ section#hero .bg-gradient {
   --draw: var(--draw-cable, 0);
   position: absolute;
 }
+
 .vpe-main #controls .controls-heading .cable svg.mobile {
   top: -50%;
   right: 0;
@@ -4484,7 +4509,7 @@ section#hero .bg-gradient {
   }
 
   .vpe-main #language-support .language-card {
-    height: calc(var(--grid-m) * 15);
+    height: calc(var(--grid-m) * 20);
   }
 
   .vpe-main #community-image .wrapper {
@@ -4904,6 +4929,7 @@ section#hero .bg-gradient {
     margin-bottom: -10px;
   }
 }
+
 @media (min-width: 940px) {
   .vpe-main {
     --columns: 11;
@@ -5172,8 +5198,17 @@ section#hero .bg-gradient {
   }
 
   .vpe-main #language-support .language-card {
-    padding: 52px 80px 40px;
+    padding: 52px 40px 40px;
+    height: calc(var(--grid-m) * 15);
     border-radius: 40px;
+  }
+
+  .vpe-main #language-support .supported-cards {
+    flex-direction: row;
+  }
+
+  .vpe-main #language-support .supported-cards .supported-card {
+    height: calc(var(--grid-m) * 4);
   }
 
   .vpe-main #language-support .form-title {

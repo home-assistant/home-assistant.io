@@ -113,3 +113,14 @@ task :version_data do
     file.write(JSON.generate(remote_data))
   end
 end
+
+desc "Download supported language data from ohf-voice.github.io"
+task :version_data do
+  uri = URI('https://ohf-voice.github.io/intents/language_scores.json')
+
+  remote_data = JSON.parse(Net::HTTP.get(uri))
+
+  File.open("#{source_dir}/_data/language_scores.json", "w") do |file|
+    file.write(JSON.generate(remote_data))
+  end
+end
