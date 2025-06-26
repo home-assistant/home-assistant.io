@@ -267,7 +267,7 @@ It is recommended to back up your Z-Wave network before resetting the device.
 
 - The controller will forget all devices it is paired with.
 - All Z-Wave devices for this network will be removed from Home Assistant.
-- If there are any devices still paired with the controller when it is reset, they will have to be removed from the network before they can be re-paired.
+- If there are any devices still paired with the controller when it is reset, they will have to be removed from their old network before they can be re-paired.
 - The device firmware will remain on the device.
 
 ### Prerequisites
