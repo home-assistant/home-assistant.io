@@ -18,6 +18,7 @@ related:
 
 The **SFTP Client** {% term integration %} allows you to perform Home Assistant backups to a server via <abbr title="secure file transfer protocol">SFTP</abbr>. Once this integration is configured, your server contains a new folder called backup where all backups will be stored. If you delete the folder, it will be automatically recreated as long as the {% term integration %} is enabled.
 
+{% include integrations/config_flow.md %}
 
 ## Known limitations
 
