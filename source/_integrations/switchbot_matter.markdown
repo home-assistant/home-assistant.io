@@ -10,6 +10,8 @@ ha_category:
   - Switch
 ha_domain: switchbot
 ha_integration_type: brand
+works_with:
+  - matter
 ha_platforms:
   - binary_sensor
   - cover
