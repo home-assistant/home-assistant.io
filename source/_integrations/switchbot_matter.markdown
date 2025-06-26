@@ -26,9 +26,9 @@ ha_brand: true
 
 ## Supported devices
 
-- [SwitchBot Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
-- [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
-- [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
+SwitchBot also has Matter devices that are certified for use via one of their Matter hubs: either the [SwitchBot Hub 2](https://www.switch-bot.com/products/switchbot-hub-2) or the [Hub 3](https://www.switch-bot.com/products/switchbot-hub-3). Some are also certified via Matter-over-WiFi as standalone devices.
+
+Via a Matter Hub
 - [SwitchBot Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 - [SwitchBot Meter](https://www.switch-bot.com/products/switchbot-meter)
 - [SwitchBot Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
@@ -38,4 +38,8 @@ ha_brand: true
 - [SwitchBot Contact Sensor](https://www.switch-bot.com/products/contact-sensor)
 - [SwitchBot Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
 - [SwitchBot Lock Pro](https://www.switch-bot.com/products/switchbot-lock-pro)
+
+Matter-Over-WiFi (standalone, without requiring a hub)
+- [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
+- [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 - [SwitchBot Multitasking Robot K20 + Pro](https://www.switch-bot.com/products/switchbot-multitasking-household-robot-k20-pro)
