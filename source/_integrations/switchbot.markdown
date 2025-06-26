@@ -20,6 +20,8 @@ ha_codeowners:
   - '@dsypniewski'
   - '@zerzhang'
 ha_domain: switchbot
+works_with:
+  - bluetooth
 ha_bluetooth: true
 ha_platforms:
   - binary_sensor
@@ -164,6 +166,27 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
+
+## Works with Home Assistant
+
+SwitchBot is committed to making sure their products are up-to-date and ready to use in Home Assistant.
+Devices are certified for both Bluetooth and Matter.
+
+The following devices are certified for Bluetooth:
+- [SwitchBot Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
+- [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
+- [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
+- [SwitchBot Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
+- [SwitchBot Meter](https://www.switch-bot.com/products/switchbot-meter)
+- [SwitchBot Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
+- [SwitchBot Meter Pro CO2](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
+- [SwitchBot Indoor/Outdoor Thermo-Hygrometer](https://www.switch-bot.com/products/switchbot-indoor-outdoor-thermo-hygrometer)
+- [SwitchBot Curtain 3](https://www.switch-bot.com/products/switchbot-curtain-3)
+- [SwitchBot Contact Sensor](https://www.switch-bot.com/products/contact-sensor)
+- [SwitchBot Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+- [SwitchBot Lock Pro](https://www.switch-bot.com/products/switchbot-lock-pro)
+
+To see the list of SwitchBot Matter certified devices, visit the [SwitchBot Matter](switchbot_matter.markdown) page.
 
 ## Supported functionality
 
@@ -581,8 +604,6 @@ Possible custom integration conflict, using a different version of PySwitchbot; 
 {% details "No unconfigured devices found" %}
 Make sure your devices are powered on and are in range.
 {% enddetails %}
-
-
 
 ## Examples
 
