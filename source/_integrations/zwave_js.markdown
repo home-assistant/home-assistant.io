@@ -232,7 +232,7 @@ It's recommended to create a backup before making any major changes to your Z-Wa
 
 Controllers and devices with the Firmware Update Metadata Command Class allow you to update the firmware by uploading a firmware file. In those cases, you can start the firmware update from the device page in Home Assistant. Refer to the documentation of the device manufacturer to find the corresponding firmware file. An example is the [firmware page by Zooz](https://www.support.getzooz.com/kb/article/1158-zooz-ota-firmware-files/).
 
-{% caution %}
+{% note %}
 **Risk of damage to the device due to firmware update**
 
 A firmware update can damage your Z-Wave device.
@@ -241,7 +241,7 @@ A firmware update can damage your Z-Wave device.
 - Once you have started the update process, you must not interrupt the update process but let it complete.
 
 The Home Assistant and Z-Wave JS teams do not take any responsibility for any damages to your device as a result of the firmware update and will not be able to help you if you render your device useless due to firmware update.
-{% endcaution %}
+{% endnote %}
 
 ### Prerequisites
 
@@ -254,7 +254,7 @@ The Home Assistant and Z-Wave JS teams do not take any responsibility for any da
 2. Select the **Z-Wave** integration. Then, select **Configure** and select the controller.
 3. Under **Device info**, select **Update**.
 4. Select the firmware file that you previously downloaded to your computer.
-   - **Caution: Risk of damage to the device**
+   - **Notice: Risk of damage to the device**
      - Make sure you select the correct firmware file.
        - An incorrect firmware file can damage your device.
      - Once you start the update process, you must wait for the update to complete.
