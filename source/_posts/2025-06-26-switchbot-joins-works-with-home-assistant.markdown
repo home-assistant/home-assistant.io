@@ -66,13 +66,17 @@ These devices are the first certified items, but SwitchBot is working to get man
 ## FAQs
 
 ***Q: If I have a device that is not listed under 'Works with Home Assistant' does this mean it's not supported?***
+
 A: No! It just means that it hasn't gone through a testing schedule with our team or doesn't fit the requirements of the program. It might work fine and be added to our testing later down the road. Though it might only have limited functions that are being worked on, or use a connectivity type we don't currently test for in the program.
 
 ***Q: Ok, so what's the point of the Works with program?***
+
 A: It highlights the devices we know work well with Home Assistant and the brands that make a long-term commitment to keeping support for these devices going. The certification agreement specifies that the devices must have full functionality within Home Assistant, operate locally without the need for cloud, and will continue to do so long-term.
 
 ***Q: How were these devices tested?***
+
 A: The Bluetooth devices in this list were tested using a standard Home Assistant Green Hub and the SwitchBot Bluetooth Integration. The Matter-over-WiFi devices were also tested with Home Assistant Green and our [certified Matter Integration](/integrations/matter/). If you have another hardware setup or integration, that’s not a problem, but we test against these as they are the most effective way for our team to certify within our ecosystem.
 
 ***Q: Will you be adding more SwitchBot devices to the program?***
+
 A: Absolutely! SwitchBot has a quickly growing set of product lines that we're working to certify together, subject to the integrations fully covering all the functions.
