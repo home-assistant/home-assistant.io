@@ -177,13 +177,13 @@ For performance reasons, a maximum of 1000 images will be shown in the Media Bro
 
 This integration does not directly support the UPS systems connected to the NAS, but it can be achieved with the [Network UPS Tools (NUT)](/integrations/nut) integration. You need to enable UPS support in your NAS settings, as described in the official Synology [UPS](https://kb.synology.com/en-me/DSM/help/DSM/AdminCenter/system_hardware_ups) documentation, and then integrate the NAS as a UPS server via the NUT integration. Here is a rough step-by-step guide:
 
-1. Activate **Enable UPS support** in the NAS settings under **Control Panel > Hardware & Power > UPS**
-2. Activate **Enable network UPS server**
-3. Click on **Permitted Synology NAS Devices** and add the IP address of your HA instance
-4. Set up the [Network UPS Tools (NUT)](/integrations/nut) integration
-   - **Host**: the IP address or hostname of your NAS
-   - **Port**: keep the default (_3493_)
-   - **Username** and **Password**: keep empty as the NAS doesn't support credentials for the NUT server
+1. Activate **Enable UPS support** in the NAS settings under **Control Panel** > **Hardware & Power** > **UPS**.
+2. Activate **Enable network UPS server**.
+3. Select **Permitted Synology NAS Devices** and add the IP address of your HA instance.
+4. Set up the [Network UPS Tools (NUT)](/integrations/nut) integration.
+   - **Host**: the IP address or hostname of your NAS.
+   - **Port**: keep the default (_3493_).
+   - **Username** and **Password**: keep empty as the NAS doesn't support credentials for the NUT server.
 
 ## Troubleshooting
 
