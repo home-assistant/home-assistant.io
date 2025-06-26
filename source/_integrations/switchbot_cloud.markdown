@@ -17,7 +17,6 @@ ha_codeowners:
   - '@SeraphicRav'
   - '@laurence-presland'
   - '@Gigatrappeur'
-  - '@XiaoLing-git''
 ha_domain: switchbot_cloud
 ha_platforms:
   - binary_sensor
