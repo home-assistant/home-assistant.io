@@ -179,7 +179,7 @@ This integration does not directly support the UPS systems connected to the NAS,
 
 1. Activate **Enable UPS support** in the NAS settings under **Control Panel** > **Hardware & Power** > **UPS**.
 2. Activate **Enable network UPS server**.
-3. Select **Permitted Synology NAS Devices** and add the IP address of your HA instance.
+3. Select **Permitted Synology NAS Devices** and add the IP address of your Home Assistant instance.
 4. Set up the [Network UPS Tools (NUT)](/integrations/nut) integration.
    - **Host**: the IP address or hostname of your NAS.
    - **Port**: keep the default (_3493_).
