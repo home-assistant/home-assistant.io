@@ -16,15 +16,16 @@ related:
     title: Creating backups in Home Assistant
 ---
 
-This {% term integration %} allows you to perform Home Assistant backups to a server via SFTP. Once this integration is configured, your server will contain a new folder called backup where all backups will be stored. If you delete the folder, it will be automatically recreated as long as the {% term integration %} is enabled.
+The **SFTP Client** {% term integration %} allows you to perform Home Assistant backups to a server via <abbr title="secure file transfer protocol">SFTP</abbr>. Once this integration is configured, your server contains a new folder called backup where all backups will be stored. If you delete the folder, it will be automatically recreated as long as the {% term integration %} is enabled.
+
+
+## Known limitations
+
+- The integration can only access files that it creates in the Home Assistant folder. It cannot access or modify any other files.
 
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 
 If you remove the integration, the Home Assistant folder on your server is not automatically deleted. You must delete it manually.
-
-## Known limitations
-
-- The integration can only access files that it creates in the Home Assistant folder. It cannot access or modify any other files.
 
