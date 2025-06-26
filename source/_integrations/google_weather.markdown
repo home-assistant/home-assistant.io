@@ -19,11 +19,12 @@ This {% term integration %} uses [Google Weather](https://developers.google.com/
 
 ## Prerequisites
 
-You need an API key. Follow instructions [here](https://developers.google.com/maps/documentation/weather/get-api-key) for creating an API key.
+You need an API key. Follow instructions [in the Google developer documentation](https://developers.google.com/maps/documentation/weather/get-api-key) for creating an API key.
 
 {% note %}
 The Weather API is in the pre-GA Preview stage, and there is no charge for API usage during Preview.
-For pricing once it's in GA see [here](https://developers.google.com/maps/documentation/weather/usage-and-billing).
+For pricing once it's in GA refer to the [billing section in the Google developer documentation](https://developers.google.com/maps/documentation/weather/usage-and-billing).
+
 It will be free as long as you stay under 10,000 requests per month.
 {% endnote %}
 
@@ -39,10 +40,6 @@ The integration fetches:
 
 This results in 4,464 requests per month, meaning you could have up to 2 locations and still stay under the 10,000 free usage cap.
 
-## Removing the integration
-
-{% include integrations/remove_device_service.md %}
-
 ## Known limitations
 
 - Weather forecast information isn't currently available in South Korea and Japan. See [here](https://support.google.com/websearch/answer/13687874).
@@ -50,3 +47,7 @@ This results in 4,464 requests per month, meaning you could have up to 2 locatio
 ## Troubleshooting
 
 - Enable debug logging and attach logs before opening an issue.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
