@@ -274,7 +274,8 @@ It is recommended to back up your Z-Wave network before resetting the device.
 
 - Administrator rights on Home Assistant
 - [Backup your Z-Wave network](#backing-up-your-z-wave-network)
-- [Remove all devices that are paired with your controller from the network](#removing-a-device-from-the-z-wave-network)
+- [Remove all devices that are paired with your controller from the network](#removing-a-device-from-the-z-wave-network).
+  - Removing can be done by any controller, not just the one that originally managed the network. In theory, this could also be done later.
 
 ### To reset a Z-Wave controller
 
