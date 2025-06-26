@@ -12,7 +12,7 @@ og_image: /images/blog/2025-06-switchbot/art.jpg
 
 <img src='/images/blog/2025-06-switchbot/art.jpg' style='border: 0;box-shadow: none;' alt="SwitchBot Joins Works with Home Assistant">
 
-Please welcome the latest addition to the [Works with Home Assistant](https://works-with.home-assistant.io/) program, [SwitchBot!](https://www.switch-bot.com/) This year has seen a lot of 'firsts' within the program, and this launch certainly keeps up this trend. Read on to see the first *Air Purifiers* and *Vacuums / Cleaning Robots*! What's more, SwitchBot is bringing this first set of devices into the program with multiple connectivity options. Pick from their [Bluetooth integration](/integrations/switchbot/), Matter via a hub, or standalone Matter devices as well. All this gives you even more choice in how you set up your Smart Home, while providing the best experience with Home Assistant.<!--more-->
+Please welcome the latest addition to the [Works with Home Assistant](https://works-with.home-assistant.io/) program, [SwitchBot!](https://www.switch-bot.com/) This year has seen a lot of 'firsts' within the program, and this launch certainly keeps up this trend. Read on to see the first *Air Purifiers* and *Vacuums / Cleaning Robots*! What's more, SwitchBot is bringing this first set of devices into the program with multiple connectivity options. Pick from their [Bluetooth integration](/integrations/switchbot/), Matter via a hub, or standalone Matter devices as well. All this gives you even more choice in how you set up your smart home, while providing the best experience with Home Assistant.<!--more-->
 
 ## Making the Switch...Bot
 
