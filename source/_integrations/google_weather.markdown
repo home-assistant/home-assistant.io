@@ -40,7 +40,6 @@ The integration fetches:
 
 This results in 4,464 requests per month, meaning you could have up to 2 locations and still stay under the 10,000 free usage cap.
 
-
 ## Known limitations
 
 - Weather forecast information isn't currently available in South Korea and Japan. See [here](https://support.google.com/websearch/answer/13687874).
