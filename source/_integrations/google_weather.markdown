@@ -48,7 +48,6 @@ This results in 4,464 requests per month, meaning you could have up to 2 locatio
 
 - Enable debug logging and attach logs before opening an issue.
 
-
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
