@@ -22,10 +22,12 @@ This {% term integration %} uses [Google Weather](https://developers.google.com/
 
 You need an API key. Follow instructions [in the Google developer documentation](https://developers.google.com/maps/documentation/weather/get-api-key) for creating an API key.
 
+{% note %}
 The Weather API is in the pre-GA Preview stage, and there is no charge for API usage during Preview.
-For pricing once it's in GA refer to the  [billing section in the Google developer documentation](https://developers.google.com/maps/documentation/weather/usage-and-billing).
+For pricing once it's in GA refer to the [billing section in the Google developer documentation](https://developers.google.com/maps/documentation/weather/usage-and-billing).
 
 It will be free as long as you stay under 10,000 requests per month.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -50,4 +52,3 @@ This results in 4,464 requests per month, meaning you could have up to 2 locatio
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
-
