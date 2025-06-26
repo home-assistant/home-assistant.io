@@ -62,7 +62,7 @@ publish_states_host:
   description: The host that will receive the state changes from Home Assistant. It needs to be manually created in Zabbix first and have the template associated with it (see above).
   required: false
   type: string
-include_strings:
+publish_string_states:
   description: Also publish string states, i.e. states which cannot be cast to a numeric value.
   required: false
   type: boolean
@@ -114,7 +114,7 @@ zabbix:
   username: USERNAME
   password: PASSWORD
   publish_states_host: homeassistant
-  include_strings: true
+  publish_string_states: true
   exclude:
     domains:
       - device_tracker
