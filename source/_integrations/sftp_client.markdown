@@ -4,7 +4,7 @@ description: Instructions on how to use  SFTP Client in Home Assistant.
 ha_category:
   - Backup
 ha_iot_class: Local Polling
-ha_release: '2025.2'
+ha_release: '2025.8'
 ha_config_flow: true
 ha_domain: sftp_client
 ha_codeowners:
