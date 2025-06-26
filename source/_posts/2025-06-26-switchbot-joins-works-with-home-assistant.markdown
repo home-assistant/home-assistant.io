@@ -29,29 +29,32 @@ SwitchBot even got involved with [Community Day](/blog/2025/06/24/community-day-
 
 In case you didn't know, Works with Home Assistant differs from other certification programs as products are rigorously tested in-house to ensure they work seamlessly out of the box with Home Assistant. Any company joining also commits to providing long-term support and firmware updates while being a positive force in the Home Assistant community. Works with Home Assistant is operated by the [Open Home Foundation](https://www.openhomefoundation.org/), and the support of [Home Assistant Cloud](/cloud/) subscribers funds this work.
 
-The SwitchBot team have put special focus on integrating specifically for Home Assistant and have been working hard on their [Bluetooth integration](/integrations/switchbot/). One of the terms of the 'Works with' program is that Bluetooth devices must connect over an integration that is kept up to a certain code quality (we call this our ['Gold tier'](/docs/quality_scale/) on our quality scale). It also must be maintained by the manufacturers themselves, rather than overly relying on community members to do the hard work. This puts the responsibility on the shoulders of the manufacturers to make sure they're responding to bugs and keeping the integration up long term.
+The SwitchBot team have put special focus on integrating specifically for Home Assistant and have been working hard on their [Bluetooth integration](/integrations/switchbot/). Though the community played a central role in the development of the integration, and SwitchBot is very thankful for this work, they took a more active role in its development.
 
-If you prefer Matter, SwitchBot also has devices that are certified for use with one of their Matter hubs: either the [SwitchBot Hub 2](https://www.switch-bot.com/products/switchbot-hub-2) or the [Hub 3](https://www.switch-bot.com/products/switchbot-hub-3). There are also some that can work via Matter-over-WiFi as standalone devices.
+One of the terms of the 'Works with' program is that Bluetooth devices must connect over an integration that is kept up to a certain code quality (we call this our ['Gold tier'](/docs/quality_scale/) on our quality scale). It also must be maintained by the manufacturers themselves, rather than overly relying on community members to do the hard work. This puts the responsibility on the shoulders of the manufacturers to make sure they're responding to bugs and keeping the integration up long term. If you’re interested in SwitchBot’s Bluetooth products but your Home Assistant system doesn’t have built-in Bluetooth, the easiest way to connect them is by using a [Bluetooth Proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies).
+
+If you prefer Matter, SwitchBot also has devices that are certified for use with one of their Matter hubs: either the [SwitchBot Hub 2](https://www.switch-bot.com/products/switchbot-hub-2) or the [Hub 3](https://www.switch-bot.com/products/switchbot-hub-3). There are also some that can work via Matter-over-WiFi as standalone devices. We are currently testing even more of SwitchBot’s Matter devices for the program.
 
 **Bluetooth**
 - [SwitchBot Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
 - [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 - [SwitchBot Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector) - also works using Matter via a hub
-- [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1) - also works using Matter via a hub
-- [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm) - also works using Matter via a hub
-- [Relay Switch 2PM](https://www.switch-bot.com/products/switchbot-relay-switch-2pm) - also works using Matter via a hub
-- [Meter Pro CO2](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor) - also works using Matter via a hub
+- [SwitchBot Meter](https://www.switch-bot.com/products/switchbot-meter)  - also works using Matter via a hub 
+- [SwitchBot Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro) - also works using Matter via a hub
+- [SwitchBot Meter Pro CO2](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor) - also works using Matter via a hub
+- [SwitchBot Indoor/Outdoor Thermo-Hygrometer](https://www.switch-bot.com/products/switchbot-indoor-outdoor-thermo-hygrometer) - also works using Matter via a hub
 - [SwitchBot Curtain 3](https://www.switch-bot.com/products/switchbot-curtain-3) - also works using Matter via a hub
 - [SwitchBot Contact Sensor](https://www.switch-bot.com/products/contact-sensor) - also works using Matter via a hub
 - [SwitchBot Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade) - also works using Matter via a hub
 - [SwitchBot Lock Pro](https://www.switch-bot.com/products/switchbot-lock-pro) - also works using Matter via a hub
 
 **Matter-Over-WiFi (standalone, without requiring a hub)**
-- [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
-- [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
-- [SwitchBot Floor Cleaning Robot S20](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s20)
+- [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
+- [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 - [SwitchBot Multitasking Robot K20 + Pro](https://www.switch-bot.com/products/switchbot-multitasking-household-robot-k20-pro)
+
+* *Note: Home Assistant Container does not support Matter, and requires Home Assistant OS.*
 
 ## A smart home is a clean home
 
@@ -75,7 +78,7 @@ A: It highlights the devices we know work well with Home Assistant and the brand
 
 ***Q: How were these devices tested?***
 
-A: The Bluetooth devices in this list were tested using a standard Home Assistant Green Hub and the SwitchBot Bluetooth Integration. The Matter-over-WiFi devices were also tested with Home Assistant Green and our [certified Matter Integration](/integrations/matter/). If you have another hardware setup or integration, that’s not a problem, but we test against these as they are the most effective way for our team to certify within our ecosystem.
+A:  The Bluetooth devices in this list were tested using a standard Home Assistant Green Hub, the SwitchBot Bluetooth Integration, a USB Bluetooth adapter, and an ESPHome Bluetooth Proxy. The Matter-over-WiFi devices were also tested with Home Assistant Green and our [certified Matter Integration](/integrations/matter/). If you have another hardware setup or integration, that is often not a problem, but we test against these as they are the most effective way for our team to certify within our ecosystem.
 
 ***Q: Will you be adding more SwitchBot devices to the program?***
 
