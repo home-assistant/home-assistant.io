@@ -123,16 +123,16 @@ Audio from the user's response is transcribed using the [speech-to-text](/integr
 
 The `answers` are given as a list of objects with the following structure:
 
-* `id` - unique id of the answer
-* `sentences` - list of [sentence templates](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax)
+- `id` - unique id of the answer
+- `sentences` - list of [sentence templates](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax)
 
 Sentence templates may contain wildcard `{slots}` that will be stored in the answer's `slots` field. For example, `play {album} by {artist}` will match "play the white album by the beatles" with "white album" stored in `slots.album` and "the beatles" in `slots.artist`.
 
 The matched answer will be stored in a `response_variable` with the structure:
 
-* `id` - unique id of the matching answer (or `None` if no match)
-* `sentence` - response text from user
-* `slots` - values of wildcard `{slots}` from matching answer
+- `id` - unique id of the matching answer (or `None` if no match)
+- `sentence` - response text from user
+- `slots` - values of wildcard `{slots}` from matching answer
 
 {% my developer_call_service badge service="assist_satellite.ask_question" %}
 
