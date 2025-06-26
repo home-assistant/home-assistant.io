@@ -184,7 +184,7 @@ response_variable: answer
 ```
 
 ```yaml
-action: assist_satellite.start_conversation
+action: assist_satellite.ask_question
 data:
   entity_id: assist_satellite.my_entity
   preannounce: false  # chime disabled
@@ -198,7 +198,7 @@ If `answers` is omitted, the response text from the user will be available in th
 Examples in YAML:
 
 ```yaml
-action: assist_satellite.start_conversation
+action: assist_satellite.ask_question
 data:
   entity_id: assist_satellite.my_entity
   question: QUESTION
