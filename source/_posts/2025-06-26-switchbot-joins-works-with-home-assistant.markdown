@@ -54,7 +54,7 @@ If you prefer Matter, SwitchBot also has devices that are certified for use with
 - [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 - [SwitchBot Multitasking Robot K20 + Pro](https://www.switch-bot.com/products/switchbot-multitasking-household-robot-k20-pro)
 
-* *Note: Home Assistant Container does not support Matter, and requires Home Assistant OS.*
+***Note:*** *Home Assistant Container does not support Matter, and requires Home Assistant OS.*
 
 ## A smart home is a clean home
 
