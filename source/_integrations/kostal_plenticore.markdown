@@ -196,7 +196,7 @@ The Battery Smart Control sensor appears as a select field labeled "Battery Char
 
 #### Battery Manual Charge
 
-The Battery Manual Charge sensor allows to force charge the battery to 100% regardless of PV generation or home usage.
+The Battery Manual Charge sensor allows you to force charge the battery to 100%, regardless of PV generation or home usage.
 This setting is available when using installer access and should therefore only be used with the same caution as using installer access.
 More on [Installer Access](#installer-access)
 
