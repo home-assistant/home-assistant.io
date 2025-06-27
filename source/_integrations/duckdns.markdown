@@ -7,9 +7,6 @@ ha_iot_class: Cloud Polling
 ha_release: 0.55
 ha_domain: duckdns
 ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ha_quality_scale: legacy
 ---
 
