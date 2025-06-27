@@ -73,6 +73,9 @@ This method works if you have the [NGINX Home Assistant SSL proxy Add-on](https:
 
    ```shell
    openssl ecparam -name prime256v1 -genkey -noout -out tesla_fleet.key
+   ```
+
+3. Create your public key:
 
    ```shell
    openssl ec -in tesla_fleet.key -pubout -out public-key.pem
