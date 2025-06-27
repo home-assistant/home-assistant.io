@@ -155,9 +155,9 @@ If you're using an iPhone, you may need to use Safari to open the webpage and fi
 
 For more details see [Tesla Fleet API vehicle commands documentation](https://developer.tesla.com/docs/fleet-api/endpoints/vehicle-commands#key-pairing).
 
-## Changing the Private key
+## Generating your own key pair
 
-The {% term integration %} expects your private key to be located at `config/tesla_fleet.key`, and must be the private key of the public key hosted on your domain. You can generate your own key pair following [Tesla's documentation](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-3-generate-a-public-private-key-pair) but this is not supported due to the significant complexity and potential issues it can cause, making troubleshooting difficult.
+The {% term integration %} generates a private key automatically at `config/tesla_fleet.key`. You can replace it with your own key (such as one from another Home Assistant instance) before configuring the integration. You can generate your own key pair following [Tesla's documentation](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-3-generate-a-public-private-key-pair) but this is not recommended as its difficult to troubleshoot.
 
 ## Entities
 
