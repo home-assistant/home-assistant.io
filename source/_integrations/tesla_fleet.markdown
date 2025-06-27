@@ -66,7 +66,7 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
 
 3. Configure client details:
    - OAuth Grant Type: Select **Authorization Code and Machine-to-Machine**
-   - Allowed Origin URL(s): Enter your domains URL, for example `https://yourdomain.com/`
+   - Allowed Origin URL(s): Enter your domain's URL, for example `https://yourdomain.com/`
    - Allowed Redirect URI: Enter `https://my.home-assistant.io/redirect/oauth`
    - Allowed Returned URL(s): Leave this field empty (not required)
 
@@ -157,7 +157,7 @@ For more details see [Tesla Fleet API vehicle commands documentation](https://de
 
 ## Generating your own key pair
 
-The {% term integration %} generates a private key automatically at `config/tesla_fleet.key`. You can replace it with your own key (such as one from another Home Assistant instance) before configuring the integration. You can generate your own key pair following [Tesla's documentation](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-3-generate-a-public-private-key-pair) but this is not recommended as its difficult to troubleshoot.
+The {% term integration %} generates a private key automatically at `config/tesla_fleet.key`. You can replace it with your own key (such as one from another Home Assistant instance) before configuring the integration. You can generate your own key pair following [Tesla's documentation](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-3-generate-a-public-private-key-pair) but this is not recommended as it's difficult to troubleshoot.
 
 ## Entities
 
