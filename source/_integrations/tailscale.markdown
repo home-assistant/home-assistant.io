@@ -57,7 +57,7 @@ Tailnet:
 
 ### Sensors
 
-The integration provides {% term sensors %} for monitoring your Tailscale network:
+The integration provides sensors for monitoring your Tailscale network:
 
 #### Device information sensors
 
@@ -78,7 +78,7 @@ For each device in your Tailnet:
 
 ### Binary sensors
 
-The integration creates {% term "binary sensors" %} for:
+The integration creates binary sensors for:
 
 #### Network status
 
