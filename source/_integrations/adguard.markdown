@@ -48,7 +48,7 @@ Verify SSL certificate:
 
 ### Sensors
 
-This integration provides {% term sensors %} for the following information from AdGuard Home:
+This integration provides sensors for the following information from AdGuard Home:
 
 - Number of DNS queries.
 - Number of blocked DNS queries.
@@ -206,7 +206,7 @@ automation:
 
 ## Data updates
 
-The AdGuard Home integration {% term polls %} for updates every 10 seconds to provide near real-time statistics and ensure switch states remain synchronized.
+The AdGuard Home integration polls for updates every 10 seconds to provide near real-time statistics and ensure switch states remain synchronized.
 
 ## Troubleshooting
 
