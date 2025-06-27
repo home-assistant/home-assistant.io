@@ -118,7 +118,7 @@ automation:
 
 ## Data updates
 
-The Tailscale integration {% term polls %} the Tailscale API every minute to check device status and network information.
+The Tailscale integration polls the Tailscale API every minute to check device status and network information.
 
 ## Troubleshooting
 
