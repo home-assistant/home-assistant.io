@@ -30,7 +30,7 @@ SwitchBot also has Matter devices that are certified for use via one of their Ma
 
 ### Via a Matter Hub
 
-- [SwitchBot Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
+- [SwitchBot Lock Ultra](https://www.switch-bot.com/products/switchbot-lock_ultra)
 - [SwitchBot Meter](https://www.switch-bot.com/products/switchbot-meter)
 - [SwitchBot Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
 - [SwitchBot Meter Pro CO2](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
