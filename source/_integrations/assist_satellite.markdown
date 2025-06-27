@@ -115,7 +115,7 @@ target:
 
 ### Action `assist_satellite.ask_question`
 
-The {% my developer_call_service service="assist_satellite.ask_question" %} action asks a question on the satellite, listens for a response, and matches it against a pre-defined list of possible answers. Information about the matched answer is stored in a `response_variable` so the appropriate next steps can be taken in your automation or script.
+The {% my developer_call_service service="assist_satellite.ask_question" %} action asks a question on the satellite, listens for a response, and matches it against a predefined list of possible answers. Information about the matched answer is stored in a `response_variable` so the appropriate next steps can be taken in your automation or script.
 
 The question may be provided as text or a media id. If text is used, it will first be converted to a media id using the [text-to-speech](/integrations/tts) system of the satellite's configured [pipeline](/voice_control/voice_remote_local_assistant/).
 
