@@ -94,9 +94,9 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
 1. Add application credentials
    - Enter your application Client ID and Client Secret from step 1.8
 
-{% note %}
-This step will be skipped if you already have [application credentials](/integrations/application_credentials/) configured
-{% endnote %}
+  {% note %}
+  This step will be skipped if you already have [application credentials](/integrations/application_credentials/) configured
+  {% endnote %}
 
 2. Authenticate with Tesla:
    - You'll be redirected to Tesla's login page
