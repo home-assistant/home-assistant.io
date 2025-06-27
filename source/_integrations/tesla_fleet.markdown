@@ -122,7 +122,7 @@ This step will be skipped if you already have [application credentials](/integra
 6. Register public key
    - Upload the public key shown to the domain you entered in step 5 at `.well-known/appspecific/com.tesla.3p.public-key.pem`
 
-{% details Hosting with NGINX Add-on %}
+{% details "Hosting with NGINX Add-on" %}
 
 1. Create the NGINX configuration:
 
