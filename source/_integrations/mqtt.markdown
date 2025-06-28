@@ -370,7 +370,7 @@ Supported shared options are:
 - `qos`
 - `encoding`
 
-The component specific options are placed as mappings under the `components` key (abbreviated as `cmp`) like:
+The component specific options are placed as mappings under the `components` key (abbreviated as `cmps`) like:
 
 ```json
 {
