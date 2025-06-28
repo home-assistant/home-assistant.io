@@ -82,29 +82,6 @@ automation:
         entity_id: notify.echo_dot_livingroom_announce
 ```
 
-### Automation: Start Radio on all Echo dots
-
-```yaml
-automation:
-- alias: Start Radio B.B.C.
-  id: "start_radio_bbc"
-  trigger:
-   - platform: sun
-     event: sunset
-  condition:
-    conditions:
-      - alias: "condition alias (home)"
-        condition: state
-        entity_id: group.person_family
-        state: "home"
-  action:
-    - action: notify.send_message
-      data:
-        message: Play B.B.C. on Tunein
-      target:
-        entity_id: notify.everywhere_announce
-```
-
 ## Data updates
 
 This integration {% term polling polls %} data from the device every 30 seconds by default.
