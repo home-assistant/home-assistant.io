@@ -9,7 +9,6 @@ ha_iot_class: Cloud Polling
 ha_domain: ezviz
 ha_codeowners:
   - '@RenierM26'
-  - '@baqs'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel

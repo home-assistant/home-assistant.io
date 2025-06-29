@@ -136,7 +136,7 @@ Not yet implemented features (but possible):
 
 ### Supported subdevices
 
-These subdevices are fully implemented in HomeAssistant:
+These subdevices are fully implemented in Home Assistant:
 
 - **Weather sensor (WSDCGQ01LM)**
   - Zigbee ID: `lumi.sensor_ht`
@@ -1205,53 +1205,53 @@ Clean mode and Motor speed can only be set when the device is turned on.
 Set the target humidity.
 
 | Data attribute | Optional | Description                                           |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO humidifier entity. |
-| `humidity`             | no       | Target humidity                                       |
+| -------------- | -------- | ----------------------------------------------------- |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO humidifier entity. |
+| `humidity`     | no       | Target humidity                                       |
 
 ### Action `humidifier.set_mode`
 
 Set the humidifier operation mode.
 
 | Data attribute | Optional | Description                                           |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO humidifier entity. |
-| `mode`                 | no       | The Xiaomi miIO operation mode                        |
+| -------------- | -------- | ----------------------------------------------------- |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO humidifier entity. |
+| `mode`         | no       | The Xiaomi miIO operation mode                        |
 
 ### Action `fan.set_percentage`
 
 Set the fan speed percentage.
 
 | Data attribute | Optional | Description                                    |
-| ---------------------- | -------- | ---------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO fan entity. |
-| `percentage`           | no       | Fan speed. Percentage speed setting            |
+| -------------- | -------- | ---------------------------------------------- |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO fan entity. |
+| `percentage`   | no       | Fan speed. Percentage speed setting            |
 
 ### Action `fan.set_preset_mode`
 
 Set the fan operation mode.
 
 | Data attribute | Optional | Description                                    |
-| ---------------------- | -------- | ---------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO fan entity. |
-| `preset_mode`          | no       | The Xiaomi miIO operation mode                 |
+| -------------- | -------- | ---------------------------------------------- |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO fan entity. |
+| `preset_mode`  | no       | The Xiaomi miIO operation mode                 |
 
 ### Action `xiaomi_miio.fan_reset_filter` (Air Purifier 2 only)
 
 Reset the filter lifetime and usage.
 
 | Data attribute | Optional | Description                                    |
-| ---------------------- | -------- | ---------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO fan entity. |
+| -------------- | -------- | ---------------------------------------------- |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO fan entity. |
 
 ### Action `xiaomi_miio.fan_set_extra_features` (Air Purifier only)
 
 Set the extra features.
 
 | Data attribute | Optional | Description                                    |
-| ---------------------- | -------- | ---------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO fan entity. |
-| `features`             | no       | Integer, known values are 0 and 1.             |
+| -------------- | -------- | ---------------------------------------------- |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO fan entity. |
+| `features`     | no       | Integer, known values are 0 and 1.             |
 
 ## Xiaomi Air Quality Monitor
 
@@ -1654,16 +1654,16 @@ Note: If your vacuum is in motion and does not respond to the `xiaomi_miio.vacuu
 Start the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
 
 | Data attribute | Optional | Description                  |
-| ---------------------- | -------- | ---------------------------- |
-| `entity_id`            | no       | Only act on a specific robot |
+| -------------- | -------- | ---------------------------- |
+| `entity_id`    | no       | Only act on a specific robot |
 
 ### Action `xiaomi_miio.vacuum_remote_control_stop`
 
 Exit the remote control mode of the robot.
 
 | Data attribute | Optional | Description                  |
-| ---------------------- | -------- | ---------------------------- |
-| `entity_id`            | no       | Only act on a specific robot |
+| -------------- | -------- | ---------------------------- |
+| `entity_id`    | no       | Only act on a specific robot |
 
 ### Action `xiaomi_miio.vacuuNm_remote_control_move`
 
@@ -1923,66 +1923,66 @@ Supported models: `philips.light.moonlight`
 Set one of the 4 available fixed scenes.
 
 | Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
-| `scene`                | no       | Scene, between 1 and 4.                          |
+| -------------- | -------- | ------------------------------------------------ |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO light entity. |
+| `scene`        | no       | Scene, between 1 and 4.                          |
 
 ### Action `xiaomi_miio.light_set_delayed_turn_off`
 
 Delayed turn off.
 
 | Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
-| `time_period`          | no       | Time period for the delayed turn off.            |
+| -------------- | -------- | ------------------------------------------------ |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO light entity. |
+| `time_period`  | no       | Time period for the delayed turn off.            |
 
 ### Action `xiaomi_miio.light_reminder_on` (Eyecare Smart Lamp 2 only)
 
 Enable the eye fatigue reminder/notification.
 
 | Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
+| -------------- | -------- | ------------------------------------------------ |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO light entity. |
 
 ### Action `xiaomi_miio.light_reminder_off` (Eyecare Smart Lamp 2 only)
 
 Disable the eye fatigue reminder/notification.
 
 | Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
+| -------------- | -------- | ------------------------------------------------ |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO light entity. |
 
 ### Action `xiaomi_miio.light_night_light_mode_on` (Eyecare Smart Lamp 2 only)
 
 Turn the smart night light mode on.
 
 | Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
+| -------------- | -------- | ------------------------------------------------ |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO light entity. |
 
 ### Action `xiaomi_miio.light_night_light_mode_off` (Eyecare Smart Lamp 2 only)
 
 Turn the smart night light mode off.
 
 | Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
+| -------------- | -------- | ------------------------------------------------ |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO light entity. |
 
 ### Action `xiaomi_miio.light_eyecare_mode_on` (Eyecare Smart Lamp 2 only)
 
 Turn the eyecare mode on.
 
 | Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
+| -------------- | -------- | ------------------------------------------------ |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO light entity. |
 
 ### Action `xiaomi_miio.light_eyecare_mode_off` (Eyecare Smart Lamp 2 only)
 
 Turn the eyecare mode off.
 
 | Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
+| -------------- | -------- | ------------------------------------------------ |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO light entity. |
 
 ## Xiaomi Smart WiFi Socket and Smart Power Strip
 
@@ -2037,34 +2037,34 @@ Supported models: `lumi.acpartner.v3` (the socket of the `acpartner.v1` and `v2`
 Turn the wifi LED on.
 
 | Data attribute | Optional | Description                                       |
-| ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO switch entity. |
+| -------------- | -------- | ------------------------------------------------- |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO switch entity. |
 
 ### Action `xiaomi_miio.switch_set_wifi_led_off` (Power Strip only)
 
 Turn the wifi LED off.
 
 | Data attribute | Optional | Description                                       |
-| ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO switch entity. |
+| -------------- | -------- | ------------------------------------------------- |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO switch entity. |
 
 ### Action `xiaomi_miio.switch_set_power_price` (Power Strip)
 
 Set the power price.
 
 | Data attribute | Optional | Description                                       |
-| ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO switch entity. |
-| `price`                | no       | Power price, between 0 and 999.                   |
+| -------------- | -------- | ------------------------------------------------- |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO switch entity. |
+| `price`        | no       | Power price, between 0 and 999.                   |
 
 ### Action `xiaomi_miio.switch_set_power_mode` (Power Strip V1 only)
 
 Set the power mode.
 
 | Data attribute | Optional | Description                                       |
-| ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific Xiaomi miIO switch entity. |
-| `mode`                 | no       | Power mode, valid values are 'normal' and 'green' |
+| -------------- | -------- | ------------------------------------------------- |
+| `entity_id`    | no       | Only act on a specific Xiaomi miIO switch entity. |
+| `mode`         | no       | Power mode, valid values are 'normal' and 'green' |
 
 ## Retrieving the Access Token
 

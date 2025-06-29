@@ -27,6 +27,7 @@ This integration allows you to connect the following controllers:
 
 - Russound MBX-PRE
 - Russound MBX-AMP
+- Russound ACA-E5
 - Russound MCA-C3
 - Russound MCA-C5
 - Russound MCA-66

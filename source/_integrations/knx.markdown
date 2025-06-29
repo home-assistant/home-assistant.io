@@ -555,7 +555,7 @@ address:
   required: true
   type: [string, list]
 remove:
-  description: If `True` the group address will be removed.
+  description: If `true` the group address will be removed.
   required: false
   type: boolean
   default: false
@@ -571,7 +571,7 @@ The `knx.exposure_register` action can be used to register (or unregister) expos
 
 {% configuration %}
 remove:
-  description: In addition to the configuration variables of [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus) `remove` set to `True` can be used to remove exposures. Only `address` is required for removal.
+  description: In addition to the configuration variables of [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus) `remove` set to `true` can be used to remove exposures. Only `address` is required for removal.
   required: false
   type: boolean
   default: false
@@ -1141,6 +1141,11 @@ Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully o
 Home Assistant will, by default, `close` a cover by moving it in the `DOWN` direction in the KNX nomenclature, and `open` a cover by moving it in the `UP` direction.
 {% endnote %}
 
+Cover entities can be created from the frontend in the KNX panel or via YAML.
+
+<a name="configuration-cover-yaml"></a>
+{% details "Configuration of KNX cover entities via YAML" %}
+
 To use your KNX covers in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in your {% term "`configuration.yaml`" %}:
 
 ```yaml
@@ -1149,12 +1154,20 @@ knx:
   cover:
     - name: "Kitchen shutter"
       move_long_address: "3/0/0"
-      move_short_address: "3/0/1"
       stop_address: "3/0/4"
       position_address: "3/0/3"
       position_state_address: "3/0/2"
       travelling_time_down: 51
       travelling_time_up: 61
+    - name: "Bedroom blinds"
+      move_long_address: "3/1/1"
+      move_short_address: "3/1/4"
+      position_address: "3/1/3"
+      position_state_address: "3/1/2"
+      angle_address: "3/1/5"
+      angle_state_address: "3/1/6"
+      travelling_time_down: 40
+      travelling_time_up: 40
 ```
 
 {% configuration %}
@@ -1227,6 +1240,8 @@ entity_category:
   default: None
 {% endconfiguration %}
 
+{% enddetails %}
+
 ## Date
 
 The KNX date platform allows to send date values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
@@ -1264,7 +1279,7 @@ state_address:
   required: false
   type: [string, list]
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false
@@ -1331,7 +1346,7 @@ state_address:
   required: false
   type: [string, list]
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false
@@ -1735,7 +1750,7 @@ type:
   required: true
   type: [string, integer]
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false
@@ -1868,7 +1883,7 @@ options:
       required: true
       type: integer
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false
@@ -2204,7 +2219,7 @@ invert:
   type: boolean
   default: false
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false
@@ -2267,7 +2282,7 @@ type:
   type: [string, integer]
   default: latin_1
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false
@@ -2320,7 +2335,7 @@ state_address:
   required: false
   type: [string, list]
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false

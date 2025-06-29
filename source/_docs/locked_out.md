@@ -50,7 +50,7 @@ If you are the owner or have administrator, there are different methods to reset
 - [Reset an owner's password when logged out](#to-reset-an-owners-password-via-console)
 - [reset a user's password, via the container command line](#to-reset-a-users-password-via-the-container-command-line)
 
-#### To reset a password while still logged in (including Supervised)
+#### To reset a password while still logged in
 
 The method used to reset a password depends on your user rights:
 
@@ -118,7 +118,7 @@ If you lose the password associated with the owner account and the steps above d
 - If you have a Home Assistant Green, [reset the Green](https://support.nabucasa.com/hc/en-us/articles/25161225495837).
 - If you have a Home Assistant Yellow, [reset the Yellow](https://support.nabucasa.com/hc/en-us/articles/25463622043165).
 
-## Recovering data for Home Assistant (including Supervised)
+## Recovering data for Home Assistant
 
 Unless your SD card/data is corrupted, you can still get to your files or troubleshoot further.
 There are a few routes:

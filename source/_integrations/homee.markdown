@@ -2,7 +2,20 @@
 title: Homee
 description: Instructions on how to setup Homee devices in Home Assistant.
 ha_category:
+  - Alarm
+  - Binary sensor
+  - Button
+  - Climate
   - Cover
+  - Event
+  - Fan
+  - Light
+  - Lock
+  - Number
+  - Select
+  - Sensor
+  - Switch
+  - Valve
 ha_config_flow: true
 ha_release: 2025.2
 ha_iot_class: Local Push
@@ -10,10 +23,13 @@ ha_codeowners:
   - '@Taraman17'
 ha_domain: homee
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - climate
   - cover
+  - event
+  - fan
   - light
   - lock
   - number

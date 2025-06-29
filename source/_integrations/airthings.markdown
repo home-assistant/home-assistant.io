@@ -15,6 +15,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 Integrates Airthings sensors into Home Assistant.
