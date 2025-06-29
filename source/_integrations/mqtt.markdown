@@ -409,7 +409,7 @@ The component specific options are placed as mappings under the `components` key
 }
 ```
 
-The components id's under the `components` (`cmp`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
+The components id's under the `components` (`cmps`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
 
 To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
 
@@ -569,7 +569,7 @@ Check the logs to ensure this step is executed correctly.
 **Step 3: Publish the new device-based discovery configuration:**
 
 Discovery topic device: `homeassistant/device/0AFFD2/config`
-Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmp` in the discovery payload)*
+Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmps` in the discovery payload)*
 Discovery payload device:
 
 ```json
