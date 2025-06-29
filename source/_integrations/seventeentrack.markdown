@@ -108,7 +108,7 @@ The `seventeentrack.add_package` action allows you to add a package using the 17
 
 Create template sensors to display the packages data.
 
-### Packages sensor with response data
+## Packages sensor with response data
 
 To use the response data from the actions, you can create a template sensor that updates on state changes.
 
