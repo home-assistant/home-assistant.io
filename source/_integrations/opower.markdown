@@ -50,6 +50,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - National Grid NY Metro
   - National Grid NY Upstate
 - Pacific Gas & Electric (PG&E)
+  > Currently only works for old PG&E accounts prior to June 2025
 - Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
 - Sacramento Municipal Utility District (SMUD)
