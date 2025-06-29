@@ -49,24 +49,6 @@ Each package entry (for example, within a status sensor) contains the following 
 - package.tracking_info_language
 - package.tracking_number
 
-## Examples
-
-### Dashboard summary card
-
-Use the following templated Markdown card to list all packages in transit along with their status:
-
-{% raw %}
-
-```yaml
-type: markdown
-title: Number of packages delivered
-content: |
-  {{states.sensor['17track_delivered'].state}}
-
-```
-
-{% endraw %}
-
 ## Actions
 
 ### Action `seventeentrack.get_packages`
@@ -102,3 +84,60 @@ The `seventeentrack.archive_package` action allows you to archive a package usin
     config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
     package_tracking_number: RU0103445624A
 ```
+
+# Templates
+
+Create template sensors to display the packages data.
+
+### Packages sensor with response data
+
+To use the response data from the actions, you can create a template sensor that updates on state changes.
+
+{% raw %}
+
+```yaml
+template:
+    - triggers:
+        - trigger: state
+          entity_id: sensor.17track_in_transit
+        - trigger: state
+          entity_id: sensor.17track_delivered
+      actions:
+        - action: seventeentrack.get_packages
+          data:
+            package_state:
+              - in_transit
+              - delivered
+            config_entry_id: 01JY8MX7J0TPCQTTRMXV2P7123
+          response_variable: packages_var
+      sensor:
+        - name: packages_data
+          unique_id: packages_data
+          state: "{{ packages_var['packages']|length }}"
+          attributes:
+            packages: "{{ packages_var['packages']  }}"
+```
+
+{% endraw %}
+
+## Dashboard summary card
+
+Use the following templated Markdown card to list all packages in transit along with their status:
+
+{% raw %}
+
+```yaml
+type: markdown
+title: Packages in transit
+content: >
+  {% for package in
+  states.sensor.packages_data.attributes.packages %}
+
+  >- **{{ package.friendly_name }} ({{ package.tracking_number }}):** {{
+  package.info_text }}
+
+  {% endfor %}
+
+```
+
+{% endraw %}
