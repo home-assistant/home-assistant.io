@@ -12,6 +12,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@jackjpowell'
+  - '@tr4nt0r'
 ha_config_flow: true
 ha_quality_scale: bronze
 ha_integration_type: integration
@@ -61,6 +62,7 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 - **Gold trophies**: Displays your total count of Gold trophies, earned for major achievements within games.
 - **Silver trophies**: Indicates the number of Silver trophies you've collected, typically for mid-level accomplishments.
 - **Bronze trophies**: Shows how many Bronze trophies you've earned, usually for basic or early-game achievements.
+- **Last online**: Displays the time when you were last seen online.
 
 ## Data updates
 
