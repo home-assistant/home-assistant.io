@@ -178,7 +178,7 @@ actions:
           entity_id: assist_satellite.my_entity
 ```
 
-Instead of text, the question can also be a media id:
+Instead of text, the question can also be a media ID:
 
 ```yaml
 action: assist_satellite.ask_question
