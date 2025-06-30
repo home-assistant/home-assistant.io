@@ -132,7 +132,8 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 ### Adding a new device to the Z-Wave network
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the Z-Wave integration. Then select **Configure**.
+2. Select the Z-Wave integration.
+   - Then, on the entry of the hub, select {% icon "ic:baseline-arrow-forward-ios" %} to open the device info page.
 3. Select **Add device**.
    - The Z-Wave controller is now in inclusion mode.
 4. Check, if your device supports SmartStart:
@@ -161,7 +162,8 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 Do this before using the device with another controller, or when you don't use the device anymore. It removes the device from the Z-Wave network stored on the controller. It also removes the device and all its entities from Home Assistant. You can not join a device to a new network if it is still paired with a controller.
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration. Then, select **Configure**.
+2. Select the **Z-Wave** integration.
+   - Then, on the entry of the hub, select {% icon "ic:baseline-arrow-forward-ios" %} to open the device info page.
 3. Select **Remove device**, then **Start exclusion**.
    - The Z-Wave controller is now in exclusion mode.
 4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
@@ -181,7 +183,7 @@ Do this if you have an existing Z-Wave network and want to use a new controller.
 ### To migrate a Z-Wave network to a new controller
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration. Then, select **Configure**.
+2. Select the **Z-Wave** integration. Then, select the cogwheel {% icon "mdi:cog-outline" %}.
 3. Under **Backup and restore**, select **Migrate controller**.
 4. Select **Migrate to a new controller**.
    - To confirm device reset, select **Submit**.
@@ -223,7 +225,7 @@ It's recommended to create a backup before making any major changes to your Z-Wa
 ### To backup your Z-Wave network
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration. Then, select **Configure**.
+2. Select the **Z-Wave** integration.  Then, select the cogwheel {% icon "mdi:cog-outline" %}.
 3. Under **Backup and restore**, select **Download backup**.
    - **Result**: The backup file is downloaded to the device from which you initiated the download.
 4. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
@@ -251,7 +253,8 @@ The Home Assistant and Z-Wave JS teams do not take any responsibility for any da
 ### To update firmware of a Z-Wave device
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration. Then, select **Configure** and select the controller.
+2. Select the **Z-Wave** integration.
+   - Then, on the entry of the hub, select {% icon "ic:baseline-arrow-forward-ios" %} to open the device info page.
 3. Under **Device info**, select **Update**.
 4. Select the firmware file that you previously downloaded to your computer.
    - **Notice: Risk of damage to the device**
@@ -280,7 +283,8 @@ It is recommended to back up your Z-Wave network before resetting the device.
 ### To reset a Z-Wave controller
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration. Then, select the controller.
+2. Select the **Z-Wave** integration.
+   - Then, on the entry of the hub, select {% icon "ic:baseline-arrow-forward-ios" %} to open the device info page.
 3. Under **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
 
     ![Screenshot showing the device panel of a Z-Wave controller](/images/integrations/z-wave/z-wave-controller-commands.png)
