@@ -65,7 +65,7 @@ Next you need to create a Lambda function.
   - **US West (Oregon)** region for Japanese and English (AU) skills.
 - Click `Functions` in the left navigation bar, display list of your Lambda functions.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
-- Select *Python 3.* as `Runtime` (Python 3.9 was available at this time).
+- Select *Python 3.* as `Runtime`.
 - Select *Use an existing role* as `Execution role`, then select the role you just created from the `Existing role` list.
 - Click `Create function`, then you can configure the details of the Lambda function.
 - Under the `Configuration` tab, expand `Designer`, then click on `+ Add trigger` in the left part of the panel and select `Alexa Skills Kit` from the dropdown list to add an Alexa Skills Kit trigger to your Lambda function.
