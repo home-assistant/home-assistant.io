@@ -1446,7 +1446,7 @@ lock:
       type: boolean
       default: false
     state:
-      description: Defines a template to set the state of the lock.
+      description: Defines a template to set the state of the lock. Valid output values from the template are `locked`, `unlocked`, `open`, `locking`, `unlocking`, `opening` and `jammed` which are directly mapped to the corresponding states. In addition, `true` and `on` are valid as synonyms to `locked` while `false` and `off` are valid as synonyms to `unlocked`. If the template produces a `None` or an unsupported state, the state will be set to `unlocked`.
       required: true
       type: template
     unlock:
@@ -3471,7 +3471,7 @@ vacuum:
           "attribute: template":
             description: The attribute and corresponding template.
             required: true
-            type: template          
+            type: template
       availability_template:
         description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
         required: false
