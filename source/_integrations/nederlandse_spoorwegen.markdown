@@ -7,6 +7,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.57
 ha_codeowners:
   - '@YarmoM'
+  - '@heindrichpaul'
 ha_domain: nederlandse_spoorwegen
 ha_platforms:
   - sensor
@@ -14,14 +15,14 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
+ha_quality_scale: silver
 ---
 
 This {% term integration %} will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.
 
 To obtain an API key, create an account on the [NS API-Portaal](https://apiportal.ns.nl/) and obtain an API key for the `Reisinformatie` API which is part of the `Ns-App` product.
 
-The `nederlandse_spoorwegen` {% term integration %} can be configured using your {% term "`configuration.yaml`" %} file.
+The `nederlandse_spoorwegen` {% term integration %} can be configured using the UI or using your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -94,21 +95,3 @@ In this way, you can have multiple routes with specific trains before hitting th
 
 The data are coming from [Nederlandse Spoorwegen](https://www.ns.nl/).
 
-### Time format for `time` option
-
-The `time` option must be provided in the format `HH:MM:SS` (e.g., `08:06:00`). Other formats such as `08h06m` or `08:06` are not supported. If an invalid format is provided, the integration will log an error and ignore the time value for that route.
-
-### Config Flow and UI
-
-- The integration supports Home Assistant's config flow, allowing setup and management from the UI.
-- You can add, edit, or remove routes at any time using the integration options in the UI.
-- All user-facing forms and documentation require the time format to be `HH:MM:SS`.
-
-### Entity Unique IDs and Error Handling
-
-- All sensors created by this integration have a unique ID based on the config entry and route details. This ensures reliable state restoration and advanced Home Assistant features.
-- The integration will log clear errors if the API key is invalid, the NS API is unreachable, or station codes are incorrect.
-- Sensors will show as unavailable if data cannot be retrieved.
-- Double-check your API key and ensure it is for the correct NS API product.
-- Use the correct station codes (see link above).
-- If you see errors in the logs, check your configuration and network connection.
