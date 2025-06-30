@@ -220,25 +220,25 @@ When setting up the integration, you receive a connection error.
 
 1. Verify AdGuard Home is running:
 
-   - Access the AdGuard Home web interface at `http://YOUR_IP:3000`
-   - Check the service status on your server
+   - Access the AdGuard Home web interface at `http://YOUR_IP:3000`.
+   - Check the service status on your server.
 
 2. Check network connectivity:
 
-   - Ensure Home Assistant can reach the AdGuard Home instance
-   - Verify no firewall rules block port 3000
+   - Ensure Home Assistant can reach the AdGuard Home instance.
+   - Verify no firewall rules block port 3000.
 
 3. Confirm credentials:
-   - Test login via the AdGuard Home web interface
-   - Ensure you're using admin credentials
+   - Test login via the AdGuard Home web interface.
+   - Ensure you're using admin credentials.
 
 ### Sensors show unavailable
 
 If sensors display as unavailable:
 
-1. Check that **Query log** switch is enabled
-2. Verify AdGuard Home is processing DNS queries
-3. Ensure at least one device uses AdGuard Home as DNS server
+1. Check that **Query log** switch is enabled.
+2. Verify AdGuard Home is processing DNS queries.
+3. Ensure at least one device uses AdGuard Home as DNS server.
 
 ### Actions fail with "Filter URL not found"
 
