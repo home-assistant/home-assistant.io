@@ -70,7 +70,7 @@ routes:
       required: false
       type: string
     time:
-      description: Optional time to search for a specific train.
+      description: Optional time to search for a specific train (must be in HH:MM:SS format, e.g., 08:06:00).
       required: false
       type: time
 {% endconfiguration %}
@@ -93,3 +93,22 @@ The window is from half an hour before the chosen time until half an hour after 
 In this way, you can have multiple routes with specific trains before hitting the FUP threshold for using NS API.
 
 The data are coming from [Nederlandse Spoorwegen](https://www.ns.nl/).
+
+### Time format for `time` option
+
+The `time` option must be provided in the format `HH:MM:SS` (e.g., `08:06:00`). Other formats such as `08h06m` or `08:06` are not supported. If an invalid format is provided, the integration will log an error and ignore the time value for that route.
+
+### Config Flow and UI
+
+- The integration supports Home Assistant's config flow, allowing setup and management from the UI.
+- You can add, edit, or remove routes at any time using the integration options in the UI.
+- All user-facing forms and documentation require the time format to be `HH:MM:SS`.
+
+### Entity Unique IDs and Error Handling
+
+- All sensors created by this integration have a unique ID based on the config entry and route details. This ensures reliable state restoration and advanced Home Assistant features.
+- The integration will log clear errors if the API key is invalid, the NS API is unreachable, or station codes are incorrect.
+- Sensors will show as unavailable if data cannot be retrieved.
+- Double-check your API key and ensure it is for the correct NS API product.
+- Use the correct station codes (see link above).
+- If you see errors in the logs, check your configuration and network connection.
