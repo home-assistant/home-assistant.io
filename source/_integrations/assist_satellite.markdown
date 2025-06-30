@@ -139,26 +139,46 @@ The matched answer will be stored in a `response_variable` with the structure:
 Examples in YAML:
 
 ```yaml
-action: assist_satellite.ask_question
-data:
-  entity_id: assist_satellite.my_entity
-  question: "Welcome home! What kind of music would you like to listen to?"
-  answers:
-    - id: jazz
-      sentences:
-        - "[some] jazz [music] [please]"
-        - "something spicy"
-    - id: rock
-      sentences:
-        - "[some] rock [music] [please]"
-        - "something with a beat"
-    - id: nothing
-      sentences:
-        - "nothing [for now] [please]"
-        - "nevermind"
-        - "cancel"
-response_variable: answer
+actions:
+  - action: assist_satellite.ask_question
+    data:
+      question: "Welcome home! What kind of music would you like to listen to?"
+      entity_id: assist_satellite.my_entity
+      answers:
+        - id: jazz
+          sentences:
+            - "[some] jazz [music] [please]"
+            - "something spicy"
+        - id: rock
+          sentences:
+            - "[some] rock [music] [please]"
+            - "something with a beat"
+        - id: nothing
+          sentences:
+            - "nothing [for now] [please]"
+            - "nevermind"
+            - "cancel"
+    response_variable: answer
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ answer.id == 'jazz' }}"
+        sequence:
+          - action: play_jazz_action
+      - conditions:
+          - condition: template
+            value_template: "{{ answer.id == 'rock' }}"
+        sequence:
+          - action: play_rock_action
+    default:
+      - action: assist_satellite.announce
+        data:
+          message: "OK, maybe some other time."
+        target:
+          entity_id: assist_satellite.my_entity
 ```
+
+Instead of text, the question can also be a media id:
 
 ```yaml
 action: assist_satellite.ask_question
@@ -198,11 +218,15 @@ If `answers` is omitted, the response text from the user will be available in th
 Examples in YAML:
 
 ```yaml
-action: assist_satellite.ask_question
-data:
-  entity_id: assist_satellite.my_entity
-  question: QUESTION
-response_variable: answer
-
-# do something with answer.sentence
+actions:
+  - action: assist_satellite.ask_question
+    data:
+      question: "Say something"
+      entity_id: assist_satellite.my_entity
+    response_variable: answer
+  - action: assist_satellite.announce
+    data:
+      message: "You said {{ answer.sentence }}"
+    target:
+      entity_id: assist_satellite.my_entity
 ```
