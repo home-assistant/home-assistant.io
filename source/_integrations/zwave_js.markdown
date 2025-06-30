@@ -164,7 +164,7 @@ Do this before using the device with another controller, or when you don't use t
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Z-Wave** integration.
    - Then, on the entry of the hub, select {% icon "ic:baseline-arrow-forward-ios" %} to open the device info page.
-3. Select **Remove device**, then **Start exclusion**.
+3. Select **Remove a device**, then **Start exclusion**.
    - The Z-Wave controller is now in exclusion mode.
 4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
 5. The UI should confirm that the device was removed and the device and entities will be removed from Home Assistant.
