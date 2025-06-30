@@ -183,7 +183,8 @@ Do this if you have an existing Z-Wave network and want to use a new controller.
 ### To migrate a Z-Wave network to a new controller
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration. Then, select the cogwheel {% icon "mdi:cog-outline" %}.
+2. Select the **Z-Wave** integration.
+   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
 3. Under **Backup and restore**, select **Migrate controller**.
 4. Select **Migrate to a new controller**.
    - To confirm device reset, select **Submit**.
@@ -225,7 +226,8 @@ It's recommended to create a backup before making any major changes to your Z-Wa
 ### To backup your Z-Wave network
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration.  Then, select the cogwheel {% icon "mdi:cog-outline" %}.
+2. Select the **Z-Wave** integration.
+   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
 3. Under **Backup and restore**, select **Download backup**.
    - **Result**: The backup file is downloaded to the device from which you initiated the download.
 4. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
@@ -1061,7 +1063,8 @@ If the interview is complete, then the device does not yet have a device file fo
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow these steps:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration. Then, select the three dots {% icon "mdi:dots-vertical" %} menu.
+2. Select the **Z-Wave** integration.
+   - Then, select the three dots {% icon "mdi:dots-vertical" %} menu.
 3. From the dropdown menu, select **Download diagnostics**.
 
 ### How do I address interference issues?
