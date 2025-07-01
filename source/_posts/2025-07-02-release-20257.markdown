@@ -75,11 +75,11 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Let Assist ask a question!](#let-assist-ask-a-question)
+- [Let Assist ask the questions!](#let-assist-ask-the-questions)
 - [Redesigned Area card](#redesigned-area-card)
 - [Improving the Areas dashboard overview](#improving-the-areas-dashboard-overview)
-- [Integration sub entries](#integration-sub-entries)
-- [Integration page has seen an overhaul](#integration-page-has-seen-an-overhaul)
+- [Integration sub-entries](#integration-sub-entries)
+- [Integration page gets an overhaul](#integration-page-gets-an-overhaul)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -87,35 +87,30 @@ Enjoy the (beta) release!
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
   - [Farewell to the following](#farewell-to-the-following)
 - [Other noteworthy changes](#other-noteworthy-changes)
-- [Full screen code editors](#full-screen-code-editors)
+- [Full-screen code editors](#full-screen-code-editors)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
-## Let Assist ask a question!
+## Let Assist ask the questions!
 
-In our latest [roadmap](/blog/2025/05/09/roadmap-2025h1/), we shared our goal to make Assist more conversational.
-
-Until now, Assist was mostly transactional: say something, get a response, done (unless some LLM magic jumped in). With this release, we're taking a big step forward: meet the new Ask Question action.
+In our latest [roadmap](/blog/2025/05/09/roadmap-2025h1/), we shared our goal to make Assist more conversational. Until now, Assist was mostly transactional, meaning when you would say something, you would get a response or it would perform an action, and that would be the end of it (unless some LLM magic jumped in). With this release, we're taking a big step forward: meet the new Ask Question action.
 
 This lets you build custom conversations from the comfort of our automation engine. Ask a question, handle the answer, and keep the interaction going.
 
 <img class="no-shadow" alt="The new 'Ask Question' action" src="/images/blog/2025-07/ask_question.png" />
 
-This action even allows you to define expected answers so that our extremely fast speech engine Speech-to-Phrase can train on them.
-Yes! Fully local, custom conversations! Here is a video of what this allows you to build.
+This action even allows you to define expected answers so that our extremely fast speech engine, Speech-to-Phrase, can train on them. Yes, fully local, custom conversations!
 
-To help you get started, we are providing a blueprint that covers the most useful use-case: Asking a closed Yes/No question:
+To help you get started, we have provided a blueprint that covers the most common use case --- Asking a closed Yes/No question:
 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/blog/2025-07/ask_yes_no_question.yaml" %}
 
-This blueprint allows you to focus on what you want to do if you answer positively or negatively to any question your voice assistant will ask, the blueprint supports 50 different ways of saying "Yes" and "No". 
-
-Here it is in action!
+This blueprint allows you to focus on what you want to do if you answer positively or negatively to any question that your voice assistant will ask. The blueprint supports 50 different ways of saying “Yes” and “No” (including phrases like “Make it so” and “Let’s not”). Here it is in action!
 
 <lite-youtube videoid="m-Vgr-9DtUU" videotitle="Local conversations are supported with Assist"></lite-youtube>
 
-In case you want to dive deeper into conversation building, here is an example on how to ask question and process the different answers:
+In case you want to dive deeper into conversation building, here is an example on how to ask a question and process the different answers:
 
 {% details "Example YAML automation actions" %}
 
@@ -164,19 +159,19 @@ actions:
 
 ## Redesigned Area card
 
-Originally introduced a few years ago, the [Area card](/dashboards/area/) offered a way to display an {% term area %} overview within the dashboard. However, it wasn't fully compatible with the [sections](/dashboards/sections/), which limited its practical use in that context.
+Originally introduced a few years ago, the [Area card](/dashboards/area/) offered a way to display an {% term area %} overview within the dashboard. However, it wasn't fully compatible with the [Sections](/dashboards/sections/) dashboard, which limited its practical use in that context.
 
-The card has now been completely redesigned with a look and feel similar to the [Tile card](/dashboards/tile/). It integrates seamlessly into Sections thanks to its flexible layouts. You can choose between a compact version that shows only an icon and the area name, or a more detailed view featuring elements like your camera feed and buttons to toggle your lights or fans.
+The card has now been completely redesigned with a look and feel similar to the [Tile card](/dashboards/tile/). It integrates seamlessly into the Sections dashboard thanks to its flexible layouts. You can choose between a compact version that shows only an icon and the area name, or a more detailed view featuring elements like your camera feed and buttons to toggle your lights or fans.
 
 <img class="no-shadow" alt="TODO: Replace screenshot." src="/images/blog/2025-07/temp-area-card.png" />
 
-The control section itself has also been revamped, giving you the ability to choose which controls to include and to rearrange them as you want. As a result of these changes, you'll need to reconfigure the controls for your existing area cards.
+The control section itself has also been revamped, allowing you to choose which controls to include and rearrange them as you want. As a result of these changes, if you’re currently using the area cards, you’ll need to reconfigure the controls on them.
 
 Additionally, the card now supports controlling [cover](/integrations/cover/) {% term entities %}.
 
 ## Improving the Areas dashboard overview
 
-The April release introduced an experimental [Areas dashboard](/dashboards/dashboards/#areas-dashboard), designed to automatically generate a ready-to-use interface based on the configured areas within the home. But the preview could become cluttered if you have multiple devices.
+The April release introduced an experimental [Areas dashboard](/dashboards/dashboards/#areas-dashboard), designed to automatically generate a ready-to-use interface based on the configured areas within the home. However, the preview could become cluttered if you had a lot of devices in a room.
 
 This release introduces an all-new overview that leverages the redesigned Area card, making it easy to view and control your main devices by room with a single click. It also acts as a navigation hub, giving you quick access to detailed views of each area.
 
@@ -190,15 +185,15 @@ Please share your thoughts and experiences with the new design by filling out ou
 
 {% endtip %}
 
-## Integration sub entries
+## Integration sub-entries
 
-Ever wondered why you had to enter your API keys for every AI agent you created, while they were all using the same key? Or why you had to authenticate for every calendar you wanted to add for the same account? Or why you couldn't add MQTT devices from the UI?
+Ever wondered why you had to enter your API keys for every AI agent you created, even though they all used the same key? Or why you had to authenticate for every calendar you added, regardless of the fact that they all shared the same account? Or why you couldn’t add MQTT devices from the UI?
 
-This release solves that with the introduction of integration sub entries. This allows you to add a sub entry to an existing {% term integration %} entry. This means, for example, that your {% term integration %} entry has your credentials, and all the sub entries use these credentials. In the sub entry, you can then configure what should be done with these credentials, such as fetching a specific calendar, adding 3 AI agents with different prompts using the same OpenAI account, or in the case of MQTT, configuring devices that are connected to your broker.
+This release solves that with the introduction of integration sub-entries. This allows you to add a sub-entry to an existing {% term integration %} entry. In practice, this means that your {% term integration %} entry has your credentials, and all the sub-entries use these credentials. In the sub-entry, you can then configure what should be done with these credentials, such as fetching a specific calendar, adding three AI agents with different prompts using the same OpenAI account, or in the case of MQTT, configuring devices that are connected to your broker.
 
 <img class="no-shadow" alt="TODO: Replace screenshot." src="/images/blog/2025-07/temp-add-mqtt-device-using-sub-entry.png" />
 
-The following {% term integrations %} now support sub entries as of this release: [Anthropic], [Google Generative AI], [MQTT], [Ollama], [OpenAI Conversation], and [Telegram Bot].
+The following {% term integrations %} now support sub-entries as of this release: [Anthropic], [Google Generative AI], [MQTT], [Ollama], [OpenAI Conversation], and [Telegram Bot].
 
 [Anthropic]: /integrations/anthropic
 [Google Generative AI]: /integrations/google_generative_ai_conversation
@@ -207,11 +202,11 @@ The following {% term integrations %} now support sub entries as of this release
 [OpenAI Conversation]: /integrations/openai_conversation
 [Telegram Bot]: /integrations/telegram_bot
 
-## Integration page has seen an overhaul
+## Integration page gets an overhaul
 
-The {% term integration %} page got a big overhaul! It now has support for sub entries, allowing you to easily add a sub entry to an {% term integration %} entry and see which devices and services belong to which sub entry.
+The {% term integration %} page got a big overhaul! It now has support for sub-entries, allowing you to easily add a sub-entry to an {% term integration %} entry along with being able to see which devices and services belong to which sub-entry.
 
-But we took the opportunity to do more. Instead of just showing your {% term integration %} entries, it now also shows the devices and services that are provided by that configuration entry. This makes it much easier to manage your devices and see the relationship between your devices and their {% term integrations %} at a glance.
+But we took the opportunity to do more. Instead of just showing your {% term integration %} entries, it now also shows the devices and services provided by that configuration entry. This makes it much easier to manage your devices and see the relationship between your devices and their {% term integrations %} at a glance.
 
 <img class="no-shadow" alt="TODO: Replace screenshot." src="/images/blog/2025-07/temp-new-integrations-page.png" />
 
@@ -249,7 +244,7 @@ integrations are also being constantly improved. Here are some of the noteworthy
 changes to existing integrations:
 
 - Love that song? [@marcelveldt] added a button {% term entity %} to [Music Assistant] that lets you add the currently playing item to your favorites with a single click. It works with queues, external sources, and even radio stations!
-- [ESPHome] now supports sub devices! Thanks to [@bdraco], you can now represent multiple logical devices with a single ESP device in Home Assistant. This is particularly useful for RF bridges, modbus gateways, and other devices that can control multiple devices. This feature requires the soon-to-be-released ESPHome 2025.7. Awesome addition!
+- [ESPHome] now supports sub-devices! Thanks to [@bdraco], you can now represent multiple logical devices with a single ESP device in Home Assistant. This is particularly useful for RF bridges, Modbus gateways, and other devices that can control multiple devices. This feature requires the soon-to-be-released ESPHome 2025.7. Awesome addition!
 - [Paperless-ngx] now includes an update {% term entity %} to keep your document management system up to date. Thanks, [@fvgarrel]!
 - Battery management control has been added to [HomeWizard] with [@DCSBL] implementing battery group mode, allowing you to modify the charging and discharging behavior of your HomeWizard batteries!
 - [Reolink] cameras received a ton of love (again) from [@starkillerOG]! New features include IR brightness control, baby cry sensitivity adjustment, privacy mask switches, and full support for both PoE and WiFi floodlights with multiple command ID pushes. Impressive!
@@ -388,9 +383,9 @@ There are many more improvements in this release; here are some of the other not
 [go2rtc]: /integrations/go2rtc
 [Object selectors]: /docs/blueprint/selectors/#object-selector
 
-## Full screen code editors
+## Full-screen code editors
 
-Working with snippets of YAML or templates in Home Assistant just got better! We've added a new full screen mode for all code editors throughout the interface.
+Working with snippets of YAML or templates in Home Assistant just got a BIG improvement! We've added a new full-screen mode for all code editors throughout the interface.
 
 <lite-youtube videoid="VfwcYp7zQzo" videotitle="Full screen code editors in Home Assistant"></lite-youtube>
 
@@ -412,9 +407,8 @@ Found a bug or issue? Please report it in our [issue tracker](https://github.com
 to get it fixed! Or check [our help page](/help) for guidance on more
 places you can go.
 
-Are you more into email? [Sign up for our Building the Open Home Newsletter](/newsletter)
-to get the latest news about features, things happening in our community, and
-other news about building an Open Home straight into your inbox.
+Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter)
+to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
 
 ## Backward-incompatible changes
 
