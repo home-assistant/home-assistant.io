@@ -113,7 +113,7 @@ This blueprint allows you to focus on what you want to do if you answer positive
 
 Here it is in action!
 
-
+<lite-youtube videoid="m-Vgr-9DtUU" videotitle="Local conversations are supported with Assist"></lite-youtube>
 
 In case you want to dive deeper into conversation building, here is an example on how to ask question and process the different answers:
 
