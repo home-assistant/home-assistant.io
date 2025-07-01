@@ -1,5 +1,5 @@
 blueprint:
-  name: Ask a Yes//No question
+  name: Ask a Yes/No question
   description: |
     Ask a simple Yes/No question. Supports 50 different ways of confirming or rejecting the question. Supports retries.
   domain: script
