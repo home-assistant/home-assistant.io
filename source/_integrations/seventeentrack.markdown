@@ -104,11 +104,11 @@ The `seventeentrack.add_package` action allows you to add a package using the 17
     package_friendly_name: "Example Package"
 ```
 
-# Templates
+## Templates
 
-Create template sensors to display the packages data.
+Create template sensors to display package data.
 
-## Packages sensor with response data
+### Packages sensor with response data
 
 To use the response data from the actions, you can create a template sensor that updates on state changes.
 
@@ -139,7 +139,7 @@ template:
 
 {% endraw %}
 
-## Dashboard summary card
+### Dashboard summary card
 
 Use the following templated Markdown card to list all packages in transit along with their status:
 
@@ -150,7 +150,7 @@ type: markdown
 title: Packages in transit
 content: >
   {% for package in
-  states.sensor.packages_data.attributes.packages %}
+  state_attr('sensor.packages_data', 'packages') %}
 
   >- **{{ package.friendly_name }} ({{ package.tracking_number }}):** {{
   package.info_text }}
