@@ -26,9 +26,6 @@ While this integration works without an Airthings SmartLink hub, using one will 
 
 Requires Airthings hardware and a valid Airthings Dashboard login.
 
-{% tip %} Initially, the radon sensor may not be published by the Airthings API (at device startup the value is considered "unknown"), and so you may have to wait for the radon sensor appear for a new device.{% endtip %}
-
-
 
 ## Prerequisites
 
@@ -50,3 +47,10 @@ Upon saving the settings, you will be presented with a generated id and secret.
 The Airthings integration can now be activated using the generated id and secret that you have just created.
 
 {% include integrations/config_flow.md %}
+
+## Troubleshooting
+
+{% tip %} Initially, the radon sensor may not be published by the Airthings API (at device startup the value is considered "unknown"), and so you may have to wait for the radon sensor appear for a new device.{% endtip %}
+
+
+
