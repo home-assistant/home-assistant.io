@@ -278,7 +278,7 @@ It is recommended to back up your Z-Wave network before resetting the device.
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Z-Wave** integration. Then, select the controller.
-3. Under **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
+3. Under **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
 
     ![Screenshot showing the device panel of a Z-Wave controller](/images/integrations/z-wave/z-wave-controller-commands.png)
 4. Once the process is finished, you can use this controller to start a new network, or pass it on to someone else.
@@ -1054,7 +1054,7 @@ If the interview is complete, then the device does not yet have a device file fo
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow these steps:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration. Then, select the three dots {% icon "mdi:dots-vertical" %} menu.
+2. Select the **Z-Wave** integration. Then, select the three-dot {% icon "mdi:dots-vertical" %} menu.
 3. From the dropdown menu, select **Download diagnostics**.
 
 ### How do I address interference issues?
@@ -1068,16 +1068,16 @@ Many users have reported issues with interference when the USB stick was directl
 ##### Enable Z-Wave JS logging
 
 1. Go to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
-2. Select `Enable debug logging` on the left-hand side of the screen.
-
-The log level will be set to `debug` for the integration, library, and optionally the driver (if the driver log level is not already set to `verbose`, `debug`, or `silly`), and all Z-Wave JS logs will be added to the Home Assistant logs.
+2. In the top-right corner, select the three-dot {% icon "mdi:dots-vertical" %} menu and select **Enable debug logging**.
+   - **Result**: The log level will be set to `debug` for the integration, library, and optionally the driver (if the driver log level is not already set to `verbose`, `debug`, or `silly`), and all Z-Wave JS logs will be added to the Home Assistant logs.
+3. If you want to change the log level, on the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}, select the cogwheel {% icon "mdi:cog-outline" %}.
+   - Select the **Logs** tab, then select the log level.
 
 ##### Disable Z-Wave JS logging
 
 1. Go to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
-2. Select `Disable debug logging` on the left-hand side of the screen.
-
-The log level will be reset to its previous value for the integration, library, and driver, and the Home Assistant frontend will automatically send you the Z-Wave logs generated during that time period for download.
+2. In the top-right corner, select the three-dot {% icon "mdi:dots-vertical" %} menu and select **Disable debug logging**.
+   - **Result**: The log level will be reset to its previous value for the integration, library, and driver, and the Home Assistant frontend will automatically send you the Z-Wave logs generated during that time period for download.
 
 #### The advanced way
 
