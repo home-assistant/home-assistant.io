@@ -278,7 +278,7 @@ It is recommended to back up your Z-Wave network before resetting the device.
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Z-Wave** integration. Then, select the controller.
-3. Under **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
+3. Under **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
 
     ![Screenshot showing the device panel of a Z-Wave controller](/images/integrations/z-wave/z-wave-controller-commands.png)
 4. Once the process is finished, you can use this controller to start a new network, or pass it on to someone else.
@@ -1054,7 +1054,7 @@ If the interview is complete, then the device does not yet have a device file fo
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow these steps:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration. Then, select the three dots {% icon "mdi:dots-vertical" %} menu.
+2. Select the **Z-Wave** integration. Then, select the three-dot {% icon "mdi:dots-vertical" %} menu.
 3. From the dropdown menu, select **Download diagnostics**.
 
 ### How do I address interference issues?
