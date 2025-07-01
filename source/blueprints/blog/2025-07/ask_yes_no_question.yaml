@@ -5,7 +5,7 @@ blueprint:
   domain: script
   author: JLo
   homeassistant:
-    min_version: 2025.7
+    min_version: 2025.6.99
   input:
     voice_assistant:
       name: Voice assistant
