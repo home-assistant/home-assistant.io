@@ -264,6 +264,7 @@ changes to existing integrations:
 - YAML fans will appreciate [@frenck] adding unique ID support to [Trend] {% term integration %} configuration.
 - The [LaMetric] Time got an update {% term entity %} as well, thanks [@joostlek]!
 - [Google Generative AI] now defaults to the newer, faster Gemini 2.5 Flash model. A noteworthy performance boost by [@tronikos]!
+- [Google Generative AI] now supports text-to-speech (TTS) with 30 voices and 24 languages. It supports fine-grained control over style and sound, e.g. "Say cheerfully: Have a wonderful day!". Thanks [@lanthaler]!
 - [Enphase Envoy] users get detailed DC voltage and current readings from their solar panels thanks to [@Bidski]. This is perfect for monitoring individual panel health and optimizing production!
 - [@zerzhang] brought evaporative humidifier support to [SwitchBot], expanding your climate control options.
 
@@ -274,6 +275,7 @@ changes to existing integrations:
 [@frenck]: https://github.com/frenck
 [@fvgarrel]: https://github.com/fvgarrel
 [@joostlek]: https://github.com/joostlek
+[@lanthaler]: https://github.com/lanthaler
 [@lboue]: https://github.com/lboue
 [@marcelveldt]: https://github.com/marcelveldt
 [@mib1185]: https://github.com/mib1185
