@@ -100,12 +100,22 @@ Until now, Assist was mostly transactional: say something, get a response, done 
 
 This lets you build custom conversations from the comfort of our automation engine. Ask a question, handle the answer, and keep the interaction going.
 
-**TODO**: Screenshot of the ask question block in an automation
+<img class="no-shadow" alt="The new 'Ask Question' action" src="/images/blog/2025-07/ask_question.png" />
 
 This action even allows you to define expected answers so that our extremely fast speech engine Speech-to-Phrase can train on them.
 Yes! Fully local, custom conversations! Here is a video of what this allows you to build.
 
-**TODO:** Video of Ask Question in action
+To help you get started, we are providing a blueprint that covers the most useful use-case: Asking a closed Yes/No question:
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/blog/2025-07/ask_yes_no_question.yaml" %}
+
+This blueprint allows you to focus on what you want to do if you answer positively or negatively to any question your voice assistant will ask, the blueprint supports 50 different ways of saying "Yes" and "No". 
+
+Here it is in action!
+
+
+
+In case you want to dive deeper into conversation building, here is an example on how to ask question and process the different answers:
 
 {% details "Example YAML automation actions" %}
 
