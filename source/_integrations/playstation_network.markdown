@@ -63,6 +63,7 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 - **Silver trophies**: Indicates the number of Silver trophies you've collected, typically for mid-level accomplishments.
 - **Bronze trophies**: Shows how many Bronze trophies you've earned, usually for basic or early-game achievements.
 - **Last online**: Displays the time when you were last seen online.
+- **Online status**: Indicates your current availability on the PlayStation Network. Status options include *Online*, *Offline*, *Away*, and *Online on PS App*.
 
 ## Data updates
 
