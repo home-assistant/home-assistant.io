@@ -35,7 +35,7 @@ There is support for the following device families within Home Assistant:
 - **Amazon Fire TV Stick**
 - **Amazon Fire Tablet**
 
-and all 3rd party devices with built-in Alexa capabilities.
+- **Third-party devices** with built-in Alexa capabilities.
 
 {% warning %}
 
