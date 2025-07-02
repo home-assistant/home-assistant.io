@@ -50,6 +50,6 @@ The Airthings integration can now be activated using the generated id and secret
 ## Troubleshooting
 
 
- ### The radon sensor does not show up
+### The radon sensor does not show up
  
 Initially, the radon sensor may not be published by the Airthings API (at device startup, the value is considered "unknown"), and so you may have to wait for the radon sensor to appear for a new device.
