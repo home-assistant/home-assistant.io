@@ -13,6 +13,7 @@ ha_integration_type: integration
 ha_platforms:
   - diagnostics
   - notify
+  - sensor
 ha_quality_scale: bronze
 ---
 
@@ -100,6 +101,48 @@ data:
 {% endraw %}
 
 {% enddetails %}
+
+## Sensors
+
+The **ntfy** integration adds a device representing the service, along with various sensors that display your usage statistics and current account limits.
+
+### 📊 Message stats
+
+- **Messages published**: The total number of messages sent today.
+- **Messages remaining**: The number of messages that can still be sent before the daily limit is reached.
+- **Messages usage limit**: The maximum number of messages allowed per day on the account.
+- **Messages expiry duration**: The duration for which published messages are cached before automatic deletion.
+
+### ✉️ Email stats
+
+- **Emails sent**: The number of email notifications sent today.
+- **Emails remaining**: The number of email notifications that can still be sent today.
+- **Email usage limit**: The daily limit for email notifications on the account.
+
+### 📞 Phone call stats
+
+- **Phone calls made**: The total phone call alerts made today.
+- **Phone calls remaining**: The number of phone call alerts that can still be made today.
+- **Phone calls usage limit**: The maximum number of phone call alerts allowed per day on the account.
+
+### 🔒 Reserved topics
+
+- **Reserved topics**: The number of reserved topics currently assigned to the account.
+- **Reserved topics remaining**: The number of topics that can still be reserved.
+- **Reserved topics limit**: The maximum number of reserved topics allowed for the account.
+
+### 📎 Attachment stats
+
+- **Attachment storage**: The amount of storage space currently used by file attachments.
+- **Attachment storage remaining**: The remaining storage capacity available for attachments.
+- **Attachment storage limit**: The total storage quota allocated for attachments.
+- **Attachment expiry duration**: The duration attachments are retained before being automatically deleted.
+- **Attachment file size limit**: The maximum allowed size for a single attachment file.
+- **Attachment bandwidth limit**: The daily bandwidth cap for uploading and downloading attachments.
+
+### ⭐ Account
+
+- **Subscription tier**: The subscription plan currently assigned to the ntfy account.
 
 ## Known limitations
 
