@@ -3,7 +3,7 @@ title: "Autoskope"
 description: "Instructions on how to integrate Autoskope devices into Home Assistant."
 ha_category:
   - Device tracker
-ha_release: 2025.5
+ha_release: 2025.8
 ha_iot_class: cloud_polling
 ha_domain: autoskope
 ha_platforms:
@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_integration_type: integration
 ha_codeowners:
   - '@mcisk'
-ha_quality_scale: platinum
+ha_quality_scale: silver
 ---
 
 The **Autoskope** {% term integration %} allows you to integrate your [Autoskope](https://autoskope.de) vehicle tracking devices with Home Assistant. Autoskope provides GPS tracking devices and cloud services for vehicles and other assets, offering features like location tracking, voltage monitoring, and various alerts.
