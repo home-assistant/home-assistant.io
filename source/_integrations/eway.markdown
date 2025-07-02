@@ -154,7 +154,7 @@ The integration uses the following MQTT topic structure:
 ### Data Format
 Device data is published as JSON array:
 
-```
+```json
 [
   {
     "sort": 0,
@@ -172,7 +172,7 @@ Device data is published as JSON array:
 ]
 ```
 ### Device Information Format
-```
+```json
 {
   "netFirmVer": 1.2,
   "appFirmVer": 2.1,
