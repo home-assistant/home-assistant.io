@@ -95,19 +95,14 @@ After installation, you need to configure the integration:
 2. Click **Add Integration**
 3. Search for "Eway"
 4. Enter your MQTT configuration:
-   - **MQTT Host**: Your MQTT broker address
-   - **MQTT Port**: MQTT broker port (default:
-   1883)
-   - **MQTT Username**: Username for MQTT
-   authentication
-   - **MQTT Password**: Password for MQTT
-   authentication
-   - **Device ID**: Your Eway device identifier
-   - **Device Serial Number**: Your device's
-   serial number
-   - **Device Model**: Your device's model code
-   - **Scan Interval**: Data update interval in
-   seconds (default: 30)
+- **MQTT Host**: Your MQTT broker address
+- **MQTT Port**: MQTT broker port (default: 1883)  
+- **MQTT Username**: Username for MQTT authentication  
+- **MQTT Password**: Password for MQTT authentication
+- **Device ID**: Your Eway device identifier
+- **Device Serial Number**: Your device's serial number
+- **Device Model**: Your device's model code
+- **Scan Interval**: Data update interval in seconds (default: 30)
 
 ### Example MQTT Configuration
 
@@ -152,6 +147,7 @@ Device data is published as JSON array:
 ```
 
 ### Device Information Format
+
 ```json
 {
   "netFirmVer": 1.2,
@@ -163,6 +159,7 @@ Device data is published as JSON array:
   "board": []
 }
 ```
+
 ## Troubleshooting
 1. Ensure MQTT broker is running and accessible
 2. Check if device ID is correct
