@@ -833,7 +833,7 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 ### `zwave_js.event`
 
-This trigger platform can be used to trigger automations on any Z-Wave JS adapter, driver, or node event, including events that may not be handled by Home Assistant automatically. Refer to the linked [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/) to learn more about the available events and the data that is sent along with it.
+This trigger platform can be used to trigger automations on any Z-Wave JS controller, driver, or node event, including events that may not be handled by Home Assistant automatically. Refer to the linked [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/) to learn more about the available events and the data that is sent along with it.
 
 There is strict validation in place based on all known event types, so if you come across an event type that isn't supported, please open a GitHub issue in the `home-assistant/core` repository.
 
@@ -850,7 +850,7 @@ triggers:
       - lock.back_door
     config_entry_id:
     # `event_source` and `event` are required
-    event_source: node   # options are node, adapter, and driver
+    event_source: node   # options are node, controller, and driver
     event: "interview failed"  # event names can be retrieved from the Z-Wave JS docs (see links above)
     # `event_data` and `partial_dict_match` are optional. If `event_data` isn't included, all events of a given type for the given context will trigger the automation. When the `interview failed` event is fired, all argument live in a dictionary within the `event_data` dictionary under the `args` key. The default behavior is to require a full match of the event_data dictionary below and the dictionary that is passed to the event. By setting `partial_dict_match` to true, Home Assistant will check if the isFinal argument is true and ignore any other values in the dictionary. If this setting was false, this trigger would never fire because the dictionary always contains more keys than `isFinal` so the comparison check would never evaluate to true.
     event_data:
@@ -867,7 +867,7 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | ---------------------- | -------------------------------------------------------------------------------- |
 | `trigger.device_id`    | Device ID for the device in the device registry (only included for node events). |
 | `trigger.node_id`      | Z-Wave node ID (only included for node events).                                  |
-| `trigger.event_source` | Source of event (node, adapter, or driver).                                   |
+| `trigger.event_source` | Source of event (node, controller, or driver).                                   |
 | `trigger.event`        | Name of event.                                                                   |
 | `trigger.event_data`   | Any data included in the event.                                                  |
 
