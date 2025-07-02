@@ -2419,6 +2419,7 @@ section#hero .bg-gradient {
 
 .vpe-main #language-support {
   z-index: 2;
+  position: relative;
 }
 
 .vpe-main #language-support .bg-blue {
