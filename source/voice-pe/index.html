@@ -464,7 +464,7 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
         <div class="grid"></div>
       </div>
       <div class="wrapper">
-        <div class="fs-medium">Bringing<br>choice to<br>voice</div>
+        <div class="fs-medium">Bringing choice<br> to voice</div>
         <div class="subtitle">If you have powerful hardware, run voice fully locally, or offload speech processing to
           our privacy-first cloud for speedy performance.</div>
       </div>
@@ -476,27 +476,61 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
         <div class="grid"></div>
       </div>
       <div class="wrapper">
-        <div class="info-sides">
-          <div class="info-side">
-            <div class="side-info-wrapper">
-              <div class="side-info">
-                <span>Local</span>
-                <p>Your voice never leaves your home and the processing is pretty accurate, but is hardware-intensive.
-                </p>
+        <img src="/images/voice-pe/local-cloud/house.svg" class="house-bg" loading="lazy">
+        <div class="grapgic-wapper-revised">
+          <div class="graphic">
+            <div class="sides">
+              <div class="side local">
+                <div class="cards">
+                  <div class="graphic-card">
+                    <span>Focused local processing</span>
+                    <p>Limited to a set list of common home control phrases, this allows even low-powered hardware
+                      system to process speech locally and offline.</p>
+                    <div class="line">
+                      <span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="graphic-card">
+                    <span>Full local processing</span>
+                    <p>Full speech processing is done locally, requiring high processing power for adequate speed and
+                      accuracy.</p>
+                    <div class="line">
+                      <span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="devices">
+                  <div class="device device--voice-pe">
+                    <img loading="lazy" src="/images/voice-pe/local-cloud/vpe-graphic.svg"
+                      alt="Generic outline drawing of the Voice Preview Edition">
+                  </div>
+                  <div class="line-dashed"></div>
+                  <div class="device device--ha">
+                    <img loading="lazy" src="/images/voice-pe/local-cloud/ha-instance.svg"
+                      alt="Generic outline drawing of the Voice Preview Edition">
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="info-side">
-            <div class="side-info-wrapper">
-              <div class="side-info">
-                <span>Cloud</span>
-                <p>Your voice is processed on a private cloud, allowing Assist to run fast and very accurately on
-                  low-powered hardware.</p>
+              <div class="side cloud">
+                <div class="cards">
+                  <div class="graphic-card">
+                    <div class="h-line"></div>
+                    <span>Home Assistant Cloud</span>
+                    <p>Your voice is processed privately on Home Assistant Cloud, allowing Assist to run very accurately
+                      on low-powered hardware.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="graphic-wrapper">
+        <div class="graphic-wrapper" style="display: none;">
           <div class="house-bg" data-bg-image-lazy></div>
           <div class="graphic">
             <div class="sides" data-side="cloud">

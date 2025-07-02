@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
     registerCarousels();
     registerVideoModal();
     registerBurgerIcon();
-    registerCycleLocalCloud();
     registerLanguageSelectChange();
     registerFeatureCycle();
     registerFaqItems();
@@ -435,47 +434,6 @@ function registerBurgerIcon() {
             nav.classList.remove('mobile-open');
         });
     });
-}
-
-function registerCycleLocalCloud() {
-    // add intersection observer to #product-features. Only execute once
-    const sides = document.querySelector('#local-cloud .sides');
-    if (!sides) return;
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                observer.disconnect();
-                // set css variable for
-                let lastSide = 'cloud';
-                let interval = null;
-                interval = setInterval(() => {
-                    // toggle between data-side="local" and data-side="cloud"
-                    sides.setAttribute('data-side', '');
-                    setTimeout(() => {
-                        lastSide = lastSide === 'local' ? 'cloud' : 'local';
-                        sides.setAttribute('data-side', lastSide);
-                    }, 500);
-                }, 5000);
-
-                // if hover on left side, set to local
-                sides.querySelector('.side.local').addEventListener('mouseenter', function () {
-                    clearInterval(interval);
-                    sides.setAttribute('data-side', 'local');
-                });
-
-                // if hover on right side, set to cloud
-                sides.querySelector('.side.cloud').addEventListener('mouseenter', function () {
-                    clearInterval(interval);
-                    sides.setAttribute('data-side', 'cloud');
-                });
-            }
-        });
-    }, {
-        threshold: .5
-    });
-
-    observer.observe(sides);
 }
 
 function registerLanguageSelectChange() {
