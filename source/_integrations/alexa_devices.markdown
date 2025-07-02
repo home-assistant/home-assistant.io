@@ -35,11 +35,11 @@ There is support for the following device families within Home Assistant:
 - **Amazon Fire TV Stick**
 - **Amazon Fire Tablet**
 
-and all 3rd party that has Alexa capabilities built-in
+and all 3rd party devices with built-in Alexa capabilities.
 
 {% warning %}
 
-Currently, only MFA-protected Amazon accounts via the authenticator app are supported.
+This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 
 {% endwarning %}
 
