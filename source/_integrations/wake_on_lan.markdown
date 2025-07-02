@@ -151,7 +151,7 @@ from Home Assistant running on another Linux computer (the **server**).
 switch:
   - platform: wake_on_lan
     name: "TARGET"
-    ...
+    mac: XX:XX:XX:XX:XX:XX
     turn_off:
       action: shell_command.turn_off_TARGET
 
