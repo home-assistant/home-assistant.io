@@ -1109,7 +1109,7 @@ This sections lists functionality that is available in Z-Wave but that is not cu
 
 ### Setting the adapter into learn mode to receive network information
 
-In Home Assistant, it is currently not possible to set the Z-Wave adapter into learn mode to receive network information from another adapter.
+In Home Assistant, it is currently not possible to set the Z-Wave adapter into learn mode to receive network information from another controller.
 
 ### Including / excluding a adapter in an existing network using [classic inclusion](#classic-inclusion-versus-smartstart)
 
@@ -1178,7 +1178,7 @@ An _association group_ in Z-Wave terminology is a group of devices that another 
 
 ### SmartStart
 
-SmartStart enabled products can be added into a Z-Wave network by scanning the Z-Wave QR Code present on the product with an adapter providing SmartStart inclusion.
+SmartStart enabled products can be added into a Z-Wave network by scanning the Z-Wave QR Code present on the product with an adapter supporting SmartStart inclusion.
 No further action is required and the SmartStart product will be added automatically within 10 minutes of being switched on in the network vicinity. Not all devices support SmartStart. Some devices require [classic inclusion](#classic-inclusion-versus-smartstart). For documentation on adding a device to Home Assistant, refer to [adding a new device to the Z-Wave network](#adding-a-new-device-to-the-z-wave-network).
 
 ### Terminology mapping table
