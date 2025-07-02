@@ -20,7 +20,7 @@ The **Music Assistant** (MA) {% term integration %} allows you to connect Home A
 
 There is currently support for the following Home Assistant Platforms:
 
-- [Media player](#media-player)
+- [Media player](#media-player-entities)
 - [Button](#favorite-current-song-button)
 
 
