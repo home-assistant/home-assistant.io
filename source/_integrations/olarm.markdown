@@ -55,22 +55,27 @@ The **Olarm** {% term integration %} provides the following {% term entities %}.
 The integration creates various binary sensors depending on your alarm system configuration:
 
 #### Zone sensors
+
 - `binary_sensor.zone_XXX_<zone_name>`: Individual zone status for each configured zone
   - Device class automatically set based on zone type (door, window, motion)
   - Extra attribute: `bypassed` indicates if the zone is currently bypassed
 
 #### Zone bypass sensors (optional)
+
 - `binary_sensor.zone_XXX_bypass_<zone_name>`: Shows bypass status for each zone (only if bypass {% term entities %} are enabled during setup)
 
 #### System sensors
+
 - `binary_sensor.ac_power`: Indicates if AC power is available to the alarm panel
 
 #### LINK module sensors (if LINK modules are connected)
+
 - `binary_sensor.<link_name>_link_input_XX_<input_name>`: LINK input status
 - `binary_sensor.<link_name>_link_output_XX_<output_name>`: LINK output status (for outputs in latch mode)
 - `binary_sensor.<link_name>_link_relay_XX_<relay_name>`: LINK relay status (for relays in latch mode)
 
 #### MAX module sensors (if have an Olarm MAX)
+
 - `binary_sensor.max_input_XX_<input_name>`: MAX input status
 - `binary_sensor.max_output_XX_<output_name>`: MAX output status (for outputs in latch mode)
 
@@ -86,9 +91,6 @@ trigger:
   - platform: state
     entity_id: binary_sensor.zone_001_front_door
     to: "on"
-condition:
-  - condition: template
-    value_template: "{% raw %}{{ is_state('binary_sensor.zone_001_front_door', 'on') }}{% endraw %}"
 action:
   - service: notify.mobile_app
     data:
