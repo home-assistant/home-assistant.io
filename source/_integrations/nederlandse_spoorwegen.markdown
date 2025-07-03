@@ -26,7 +26,7 @@ This {% term integration %} provides real-time timetable information for [Nederl
 
 To use this integration, you need an API key from NS:
 
-1. Create an account on the [NS API-Portaal](https://apiportal.ns.nl/).
+1. Create an account on the [NS API Portal](https://apiportal.ns.nl/).
 2. Request an API key for the `Reisinformatie` API, which is part of the `Ns-App` product.
 
 ### Configuration Methods
@@ -38,7 +38,7 @@ You can set up the NS integration using either the Home Assistant UI or by editi
 1. Go to **Settings > Devices & Services** in Home Assistant.
 2. Click **Add Integration** and search for "Nederlandse Spoorwegen".
 3. Enter your NS API key when prompted.
-4. Add one or more train routes by specifying the departure station, arrival station, and optionally a via station or a specific departure time.
+4. Add one or more train routes by specifying the departure station, arrival station, and optionally a via station.
 5. Save your configuration. The integration will create sensors for each route.
 
 You can edit, add, or remove routes at any time using the integration's options flow in the UI. If your API key changes or expires, use the reauthentication flow to update it without removing your integration.
@@ -91,12 +91,14 @@ routes:
       required: false
       type: string
     time:
-      description: Optional time to search for a specific train (must be in HH:MM:SS format, e.g., 08:06:00).
+      description: Optional time to search for a specific train (format `hh:mm:ss`, for example `08:06:00`).
       required: false
       type: time
 {% endconfiguration %}
 
-Note: After adding or updating your configuration, restart Home Assistant to apply the changes.
+{% note %}
+After adding or updating your configuration, restart Home Assistant to apply the changes.
+{% endnote %}
 
 ### Station codes
 
@@ -115,14 +117,8 @@ Outside this window, the route sensor's state is `unknown`.
 The window is from half an hour before the chosen time until half an hour after the chosen time.
 In this way, you can have multiple routes with specific trains before hitting the FUP threshold for using NS API.
 
-### Data Source
+### Data source
 
 Data is provided by [Nederlandse Spoorwegen](https://www.ns.nl/).
 
-### Features and Quality
-
-- Supports configuration and reauthentication via the Home Assistant UI.
-- Allows adding, editing, and deleting routes at any time.
-- Handles unavailable or invalid API keys gracefully.
-- Parallel updates for multiple sensors are supported for improved performance.
-- Integration meets the Silver quality scale requirements.
+This integration meets the Silver quality scale requirements, ensuring reliable configuration via the Home Assistant UI and robust error handling.
