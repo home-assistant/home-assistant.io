@@ -105,7 +105,7 @@ template:
 
 {% endraw %}
 
-### Trigger-based template binary sensors, images, lights, numbers, selects, sensors, switches, and weathers
+### Trigger-based template entities
 
 If you want more control over when an entity updates, you can define triggers. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
@@ -181,11 +181,13 @@ template:
   - binary_sensor:
       # Common configuration options
     - unique_id: my_unique_sensor_id
-      availability: "{{ 'sensor.watts' | has_value }}"
-      icon: "{{ 'mdi:flash-alert' if states('sensor.watts') | float > 100 else 'mdi:flash' }}"
-      name: "{{ states('sensor.watts') }} Alert"
+      variables:
+        my_entity: sensor.watts
+      availability: "{{ my_entity | has_value }}"
+      icon: "{{ 'mdi:flash-alert' if states(my_entity) | float > 100 else 'mdi:flash' }}"
+      name: "{{ states(my_entity) }} Alert"
       # Entity specific configuration options
-      state: "{{ states('sensor.watts') | float > 100}}"
+      state: "{{ states(my_entity) | float > 100}}"
       device_class: problem
 ```
 
@@ -213,6 +215,15 @@ template:
     description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
     required: false
     type: string
+  variables:
+    description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints. With State-based template entities, variables are only resolved when the configuration is loaded or reloaded. Trigger based template entities resolve variables between triggers and actions.
+    required: false
+    type: map
+    keys:
+      "variable_name: value":
+        description: The variable name and corresponding value.
+        required: true
+        type: string
 
 {% endconfiguration %}
 
@@ -220,7 +231,7 @@ template:
 
 The template alarm control panel platform allows you to create a alarm control panels with templates to define the state and scripts to define each actions.
 
-Alarm control panel entities can be created from the frontend in the Helpers section or via YAML. Alarm control panel entities do not support trigger-based configurations.
+Alarm control panel entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
@@ -371,7 +382,7 @@ binary_sensor:
       type: device_class
       default: None
     state:
-      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
+      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. The sensor is `unknown` if the template evaluates as `None`. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
       required: true
       type: template
 
@@ -723,7 +734,7 @@ template:
 
 The template fan platform allows you to create fans with templates to define the state and scripts to define each action.
 
-Fan entities can only be created from YAML. Fan entities do not support trigger-based configurations.
+Fan entities can only be created from YAML.
 
 {% raw %}
 
@@ -731,6 +742,51 @@ Fan entities can only be created from YAML. Fan entities do not support trigger-
 # Example state-based configuration.yaml entry
 template:
   - fan:
+      - name: "Bedroom fan"
+        state: "{{ states('input_boolean.state') }}"
+        percentage: "{{ states('input_number.percentage') }}"
+        preset_mode: "{{ states('input_select.preset_mode') }}"
+        oscillating: "{{ states('input_select.osc') }}"
+        direction: "{{ states('input_select.direction') }}"
+        turn_on:
+          action: script.fan_on
+        turn_off:
+          action: script.fan_off
+        set_percentage:
+          action: script.fans_set_speed
+          data:
+            percentage: "{{ percentage }}"
+        set_preset_mode:
+          action: script.fans_set_preset_mode
+          data:
+            preset_mode: "{{ preset_mode }}"
+        set_oscillating:
+          action: script.fan_oscillating
+          data:
+            oscillating: "{{ oscillating }}"
+        set_direction:
+          action: script.fan_direction
+          data:
+            direction: "{{ direction }}"
+        speed_count: 6
+        preset_modes:
+          - 'auto'
+          - 'smart'
+          - 'whoosh'
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id:
+          - input_boolean.state
+          - input_number.percentage
+          - input_select.preset_mode
+          - input_select.osc
+          - input_select.direction
+    fan:
       - name: "Bedroom fan"
         state: "{{ states('input_boolean.state') }}"
         percentage: "{{ states('input_number.percentage') }}"
@@ -1324,7 +1380,7 @@ template:
 
 The template lock platform allows you to create locks with templates to define the state and scripts to define each action.
 
-Lock entities can only be created from YAML. Lock entities do not support trigger-based configurations.
+Lock entities can only be created from YAML.
 
 {% raw %}
 
@@ -1334,6 +1390,25 @@ template:
   - lock:
       - name: Garage door
         state: "{{ is_state('sensor.door', 'on') }}"
+        lock:
+          action: switch.turn_on
+          target:
+            entity_id: switch.door
+        unlock:
+          action: switch.turn_off
+          target:
+            entity_id: switch.door
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id: sensor.door
+    lock:
+      - name: Garage door
+        state: "{{ trigger.to_state.state == 'on' }}"
         lock:
           action: switch.turn_on
           target:
@@ -1371,7 +1446,7 @@ lock:
       type: boolean
       default: false
     state:
-      description: Defines a template to set the state of the lock.
+      description: Defines a template to set the state of the lock. Valid output values from the template are `locked`, `unlocked`, `open`, `locking`, `unlocking`, `opening`, and `jammed`, which are directly mapped to the corresponding states. In addition, `true` and `on` are valid as synonyms to `locked` while `false` and `off` are valid as synonyms to `unlocked`.
       required: true
       type: template
     unlock:
@@ -2014,7 +2089,7 @@ template:
 
 The template vacuum platform allows you to create vacuum entities with templates to define the state and scripts to define each action.
 
-Vacuum entities can only be created via YAML. Vacuum entities do not support trigger-based configurations.
+Vacuum entities can only be created via YAML.
 
 {% raw %}
 
@@ -2022,9 +2097,22 @@ Vacuum entities can only be created via YAML. Vacuum entities do not support tri
 # Example state-based configuration.yaml entry
 template:
   - vacuum:
-    - name: Living Room Vacuum
-      start:
-        action: script.vacuum_start
+      - name: Living Room Vacuum
+        start:
+          action: script.vacuum_start
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id: sensor.living_room_vacuum_state
+    vacuum:
+      - name: Living Room Vacuum
+        state: "{{ states('sensor.living_room_vacuum_state') }}"
+        start:
+          action: script.vacuum_start
 ```
 
 {% endraw %}
@@ -3383,7 +3471,7 @@ vacuum:
           "attribute: template":
             description: The attribute and corresponding template.
             required: true
-            type: template          
+            type: template
       availability_template:
         description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
         required: false

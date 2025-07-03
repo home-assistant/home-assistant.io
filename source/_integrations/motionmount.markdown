@@ -2,22 +2,24 @@
 title: Vogel's MotionMount
 description: Instructions on how to integrate Vogel's MotionMount into Home Assistant.
 ha_category:
+  - Binary sensor
   - Number
   - Select
-  - Binary sensor
   - Sensor
 ha_release: 2024.1
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - number
   - select
-  - binary_sensor
   - sensor
 ha_codeowners:
-  - '@RJPoelstra'
+  - '@laiho-vogels'
 ha_domain: motionmount
 ha_zeroconf: true
+ha_quality_scale: bronze
+ha_integration_type: device
 ---
 
 The `motionmount` {% term integration %} allows you to control the position of your [TVM 7675 Pro](https://www.vogels.com/p/tvm-7675-pro-motorized-tv-wall-mount-black) SIGNATURE MotionMount from Vogel's.
@@ -112,4 +114,3 @@ The following devices are *not* supported:
     - In case of doubt, perform a network reset by holding the reset button for approx. 5 seconds.
       - **Result**: The LED will start to blink slowly. This indicates that the network configuration is being reset to use DHCP.
       - **Important**: Don't hold the reset button for too long (approx. 10 s). Holding the button for 10 s or longer starts a factory reset. A factory reset is indicated by the LED blinking fast.
-

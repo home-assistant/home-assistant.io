@@ -5,6 +5,7 @@ ha_category:
   - Media source
   - Multimedia
   - Sensor
+  - Update
 ha_release: 2025.6
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -12,6 +13,7 @@ ha_domain: immich
 ha_platforms:
   - diagnostics
   - sensor
+  - update
 ha_codeowners:
   - '@mib1185'
 ha_integration_type: integration
@@ -57,6 +59,10 @@ The following {% term sensors %} are created. For some of those the API key need
 | **Videos count** | Count of stored videos (_admin only_) | ✅ |
 | **Disk used by photos** | Used disk space by photos (_admin only_) | ❌ |
 | **Disk used by videos** | Used disk space by videos (_admin only_) | ❌ |
+
+## Update entity
+
+An {% term update %} entity is created to inform about a new available Immich server version (_requires Immich server v1.134.0_).
 
 ## Troubleshooting
 

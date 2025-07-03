@@ -4,6 +4,7 @@ description: Instructions on how to integrate Alexa Devices into Home Assistant.
 ha_category:
   - Binary Sensor
   - Notify
+  - Sensor
   - Switch
 ha_release: '2025.6'
 ha_domain: alexa_devices
@@ -13,7 +14,9 @@ ha_codeowners:
 ha_iot_class: Cloud Polling
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - notify
+  - sensor
   - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -92,6 +95,7 @@ The **Alexa Devices** {% term integration %} provides the following entities:
 
 - Binary sensor - main and Bluetooth connectivity
 - Notify - Speak and Announce notifications
+- Sensor - temperature and illuminance sensors
 - Switch - Do not disturb
 
 ## Removing the integration
