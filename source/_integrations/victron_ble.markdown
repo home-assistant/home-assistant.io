@@ -21,7 +21,7 @@ The **Victron BLE** {% term integration %} integrates Victron Energy devices tha
 
 The Victron BLE integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-## Prerequisites
+## Adding a device
 
 To configure a discovered device, you will need to supply the per-device encryption key. For more information, see these [instructions](https://github.com/keshavdv/victron-ble/tree/main#fetching-keys).
 
