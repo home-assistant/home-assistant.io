@@ -4,7 +4,8 @@ description: Integrate Eway micro inverters via MQTT protocol
 ha_category:
   - Energy
   - Sensor
-ha_release: 2023.1
+# TODO: replace with the correct upcoming release once known
+ha_release: 2024.8
 ha_codeowners:
   - '@PuuuTao'
 ha_iot_class: Local Push
@@ -119,10 +120,10 @@ eway:
 
 The integration uses the following MQTT topic structure:
 
-- `{device_id}/{device_sn}/data/post` – Device data updates 
-- `{device_id}/{device_sn}/info/post` – Device information updates
-- `{device_id}/{device_sn}/data/request` – Request device data
-- `{device_id}/{device_sn}/info/request` – Request device information
+ - `{device_id}/{device_sn}/data/post` - Device data updates
+ - `{device_id}/{device_sn}/info/post` - Device information updates
+ - `{device_id}/{device_sn}/data/request` - Request device data
+ - `{device_id}/{device_sn}/info/request` - Request device information
 
 ### Data Format
 
