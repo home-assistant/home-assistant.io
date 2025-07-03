@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Integrates Victron Energy devices that support the BLE protocol into Home Assistant.
+The **Victron BLE** {% term integration %} integrates Victron Energy devices that support the BLE protocol into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
