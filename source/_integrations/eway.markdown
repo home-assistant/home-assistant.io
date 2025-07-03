@@ -22,6 +22,12 @@ ha_quality_scale: bronze
 
 The **Eway** {% term integration %} integrates Eway micro inverters into Home Assistant via MQTT protocol.
 
+
+## Prerequisites
+
+- aioeway library (automatically installed)
+- MQTT broker
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -42,11 +48,6 @@ Device Model:
 Scan Interval:
     description: "Data update interval in seconds (default: 30)."
 {% endconfiguration_basic %}
-
-## Prerequisites
-
-- aioeway library (automatically installed)
-- MQTT broker
 
 
 ## Supported functionality
