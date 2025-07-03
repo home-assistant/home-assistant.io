@@ -21,6 +21,7 @@ Features can be enabled on the following cards:
 - [Humidifier](/dashboards/humidifier/)
 - [Thermostat](/dashboards/thermostat/)
 - [Tile](/dashboards/tile/)
+- [Area](/dashboards/area/)
 
 ## Customizing features
 
@@ -720,3 +721,31 @@ operation_modes:
   type: list
 {% endconfiguration %}
 
+## Area control
+
+Widget that displays buttons to control different types of entity in your area.
+
+<p class='img'>
+  <img src='/images/dashboards/features/area_controls.png' alt='Screenshot of the area card with the area controls feature'>
+  Screenshot of the area card with the area controls feature
+</p>
+
+```yaml
+features:
+  - type: "area-controls"
+    controls:
+      - light
+      - fan
+      - switch
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`area-controls`"
+  type: string
+controls:
+  required: true
+  description: List of controls to show on the card. The list can contain `light`, `fan`, and `switch`.
+  type: list
+{% endconfiguration %}

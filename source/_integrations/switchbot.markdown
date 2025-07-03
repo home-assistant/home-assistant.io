@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Cover
   - Fan
+  - Humidifier
   - Light
   - Lock
   - Sensor
@@ -121,6 +122,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
 - [Smart Ceiling Light (WoCeiling)](https://www.switchbot.jp/products/switchbot-ceiling-light)
+- [Strip Light 3](https://www.switch-bot.com/products/switchbot-led-strip-light-3)
+- [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 
 ### Locks
 
@@ -132,6 +135,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Humidifiers
 
 - [Humidifier (WoHumi)](https://www.switchbot.jp/products/switchbot-smart-humidifier)
+- [Evaporative Humidifier](https://www.switch-bot.com/products/switchbot-evaporative-humidifier-auto-refill)
 
 ### Sensors
 
@@ -207,6 +211,7 @@ Switch entities are added for Bot, Plug Mini, and Relay Switch.
 Password protection: You can set a device password in the SwitchBot app to prevent people nearby take control of your device. When a password is set, you need to enter the correct password in order to add it to the integrations.
 
 Features:
+
 - turn on or off
 - press
 - get battery level
@@ -217,6 +222,7 @@ Attributes:
 #### Plug Mini
 
 Features:
+
 - turn on or off
 - get power consumption readings
 
@@ -225,6 +231,7 @@ Features:
 This is an encrypted device.
 
 Features:
+
 - turn on or off
 
 #### Relay Switch 1PM
@@ -232,6 +239,7 @@ Features:
 This is an encrypted device.
 
 Features:
+
 - turn on or off
 - get power
 - get voltage
@@ -244,6 +252,7 @@ Cover entities are added for Curtain, Curtain 3, Blind Tilt, and Roller Shade.
 #### Curtain
 
 Features:
+
 - open/close/pause
 - set position
 - get position
@@ -254,6 +263,7 @@ Features:
 #### Curtain 3
 
 Features:
+
 - open/close/pause
 - set position
 - get position
@@ -264,6 +274,7 @@ Features:
 #### Blind Tilt
 
 Features:
+
 - close up/close down/pause
 - set position
 - get position
@@ -328,6 +339,7 @@ The Roller Shade is exposed as a cover entity with control of the position only:
 | >20%     | Close              |
 
 Features:
+
 - open/close/pause
 - set position
 - get position
@@ -340,6 +352,7 @@ Sensor entiteis are added for thermometer and hygrometer devices, motion sensor,
 #### Meter
 
 Features:
+
 - get temperature
 - get humidity
 - get battery level
@@ -347,6 +360,7 @@ Features:
 #### Meter Plus
 
 Features:
+
 - get temperature
 - get humidity
 - get battery level
@@ -354,6 +368,7 @@ Features:
 #### Indoor/Outdoor Meter
 
 Features:
+
 - get temperature
 - get humidity
 - get battery level
@@ -361,6 +376,7 @@ Features:
 #### Meter Pro
 
 Features:
+
 - get temperature
 - get humidity
 - get battery level
@@ -368,6 +384,7 @@ Features:
 #### Meter Pro CO2 Monitor
 
 Features:
+
 - get temperature
 - get humidity
 - get carbon dioxide
@@ -387,10 +404,13 @@ Features:
 
 - motion detection state
 - get battery level
+
 #### Water Leak Detector
+
 This is an encrypted device.
 
 Features:
+
 - leak or dry state
 - get battery level
 
@@ -403,6 +423,14 @@ Features:
 
 Light entities are added for Color Bulb, LED Strip Light, and Ceiling Light.
 
+#### Ceiling Light
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+
 #### Color Bulb
 
 Features:
@@ -410,13 +438,40 @@ Features:
 - change brightness
 - change color temperature
 - change color
+- set effect
 
 #### LED Strip Light
 
 Features:
+
 - turn on or off
 - change brightness
 - change color
+- set effect
+
+#### Strip Light 3
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### Floor Lamp
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
 
 ### Locks
 
@@ -427,6 +482,7 @@ Note: The integration currently only uses the primary lock state; in dual lock m
 This is an encrypted device.
 
 Features:
+
 - Lock or unlock
 - open or closed state
 - auto-lock paused state
@@ -558,6 +614,31 @@ Features:
 - start
 - return to base
 - get battery
+
+### Humidifiers
+
+Humidifier entities are added for Humidifier and  Evaporative Humidifier.
+
+#### Humidifier
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
+
+#### Evaporative Humidifier
+
+This is an encrypted device.
+Note: Not all modes support unless you bind the temperature and humidity sensor.
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
 
 ## Data updates
 
