@@ -324,7 +324,7 @@ The following features can be accessed from the integration configuration panel:
 
 - **Add device:** Allows you to pre-provision a SmartStart device or start the inclusion process for adding a new device to your network.
 - **Remove device:** Starts the exclusion process for removing a device from your network.
-- **Rebuild network routes:** Forces your network to rediscover routes to the adapter from each device. This is useful when devices or the adapter have moved to a new location, or if you are having significant problems with your network, but it also generates a lot of network traffic and should be used sparingly.
+- **Rebuild network routes:** Discovers new routes between the adapter and the device. This is useful when devices or the adapter have moved to a new location, or if you are having significant problems with your network, but it also generates a lot of network traffic and should be used sparingly.
 - **[Adapter statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot):** Provides statistics about communication between the adapter and other devices, allowing you to troubleshoot your network's RF quality.
 - **Third-party data opt-in/out:** Allows you to opt-in or out of telemetry that the Z-Wave JS project collects to help inform development decisions, influence manufacturers, etc. This telemetry is disabled by default and has to be opted in to be activated.
 
@@ -1113,7 +1113,7 @@ In Home Assistant, it is currently not possible to set the Z-Wave adapter into l
 
 ### Including / excluding a adapter in an existing network using [classic inclusion](#classic-inclusion-versus-smartstart)
 
-A Z-Wave controller that manages an empty network can also join a different network and act as a secondary controller there. However, with Home Assistant, this is not possible. Home Assistant does not allow the Z-Wave adapter to join another network, because Home Assistant acts as the central hub.
+A Z-Wave controller that manages an empty network can also join a different network and act as a secondary controller there. However, with Home Assistant, this is not possible. Home Assistant does not allow the Z-Wave controller to join another network, because Home Assistant acts as the central hub.
 
 ## Z-Wave association groups
 
