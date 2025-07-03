@@ -49,34 +49,21 @@ compensation:
 ```
 
 {% configuration %}
-source:
-  description: The entity to monitor/compensate.
-  required: true
+attribute:
+  description: Attribute from the source to monitor/compensate. When omitted, the state value of the source will be used.
+  required: false
   type: string
 data_points:
   description: "The collection of data point conversions with the format `[uncompensated_value, compensated_value]`.  e.g., `[1.0, 2.1]`. The number of required data points is equal to the polynomial `degree` + 1. For example, a linear compensation (with `degree: 1`) requires at least 2 data points."
   required: true
   type: list
-unique_id:
-  description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
-  required: false
-  type: string
-attribute:
-  description: Attribute from the source to monitor/compensate. When omitted the state value of the source will be used.
-  required: false
-  type: string
 degree:
   description: "The degree of a polynomial. e.g., Linear compensation (y = x + 3) has 1 degree, Quadratic compensation (y = x<sup>2</sup> + x + 3) has 2 degrees, etc."
   required: false
   default: 1
   type: integer
-precision:
-  description: Defines the precision of the calculated values, through the argument of round().
-  required: false
-  default: 2
-  type: integer
-unit_of_measurement:
-  description: Defines the units of measurement of the sensor, if any.
+device_class:
+  description: Sets the [class of the device](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 lower_limit:
@@ -84,6 +71,31 @@ lower_limit:
   required: false
   type: boolean
   default: false
+name:
+  description: Name to use in the frontend.
+  required: false
+  type: string
+precision:
+  description: Defines the precision of the calculated values, through the argument of round().
+  required: false
+  default: 2
+  type: integer
+source:
+  description: The entity to monitor/compensate.
+  required: true
+  type: string
+state_class:
+  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
 upper_limit:
   description: "Enables an upper limit for the sensor. The upper limit is defined by the data collections (`data_points`) greatest `uncompensated_value`. For example, if the greatest `uncompensated_value` value is `5.0` and the paired `compensated_value` is `10.0`, any `source` state greater than `5.0` will produce a compensated state of `10.0`."
   required: false
