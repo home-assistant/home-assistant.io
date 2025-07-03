@@ -18,30 +18,52 @@ related:
 ha_quality_scale: silver
 ---
 
-This {% term integration %} will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.
+# Nederlandse Spoorwegen (NS) Integration
 
-To obtain an API key, create an account on the [NS API-Portaal](https://apiportal.ns.nl/) and obtain an API key for the `Reisinformatie` API which is part of the `Ns-App` product.
+This {% term integration %} provides real-time timetable information for [Nederlandse Spoorwegen](https://www.ns.nl/) (NS), the Dutch national railway, directly in Home Assistant.
 
-The `nederlandse_spoorwegen` {% term integration %} can be configured using the UI or using your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+## Getting Started
+
+### Obtain an API Key
+
+To use this integration, you need an API key from NS:
+
+1. Create an account on the [NS API-Portaal](https://apiportal.ns.nl/).
+2. Request an API key for the `Reisinformatie` API, which is part of the `Ns-App` product.
+
+### Configuration Methods
+
+You can set up the NS integration using either the Home Assistant UI or by editing your `configuration.yaml` file.
+
+#### UI Configuration Flow (Recommended)
+
+1. Go to **Settings > Devices & Services** in Home Assistant.
+2. Click **Add Integration** and search for "Nederlandse Spoorwegen".
+3. Enter your NS API key when prompted.
+4. Add one or more train routes by specifying the departure station, arrival station, and optionally a via station or a specific departure time.
+5. Save your configuration. The integration will create sensors for each route.
+
+You can edit, add, or remove routes at any time using the integration's options flow in the UI. If your API key changes or expires, use the reauthentication flow to update it without removing your integration.
+
+#### YAML Configuration (Advanced)
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-- platform: nederlandse_spoorwegen
-  api_key: NS_API_KEY
-  routes:
-    - name: Rotterdam-Amsterdam
-      from: Rtd
-      to: Asd
-    - name: Groningen-Zwolle-Maastricht
-      from: Gn
-      to: Mt
-      via: Zl
-    - name: "AlmereBuiten-Duivendrecht-the-08h06m-train"
-      from: Almb
-      to: Dvd
-      time: "08:06:00"
+  - platform: nederlandse_spoorwegen
+    api_key: NS_API_KEY
+    routes:
+      - name: Rotterdam-Amsterdam
+        from: Rtd
+        to: Asd
+      - name: Groningen-Zwolle-Maastricht
+        from: Gn
+        to: Mt
+        via: Zl
+      - name: "AlmereBuiten-Duivendrecht-the-08h06m-train"
+        from: Almb
+        to: Dvd
+        time: "08:06:00"
 ```
 
 {% configuration %}
@@ -76,6 +98,8 @@ routes:
       type: time
 {% endconfiguration %}
 
+Note: After adding or updating your configuration, restart Home Assistant to apply the changes.
+
 ### Station codes
 
 Station codes must be used and can be looked up [here](https://nl.wikipedia.org/wiki/Lijst_van_spoorwegstations_in_Nederland).
@@ -93,5 +117,12 @@ Outside this window, the route sensor's state is `unknown`.
 The window is from half an hour before the chosen time until half an hour after the chosen time.
 In this way, you can have multiple routes with specific trains before hitting the FUP threshold for using NS API.
 
+### Data Source
 The data are coming from [Nederlandse Spoorwegen](https://www.ns.nl/).
 
+### Features and Quality
+- Supports configuration and reauthentication via the Home Assistant UI.
+- Allows adding, editing, and deleting routes at any time.
+- Handles unavailable or invalid API keys gracefully.
+- Parallel updates for multiple sensors are supported for improved performance.
+- Integration meets the Silver quality scale requirements.
