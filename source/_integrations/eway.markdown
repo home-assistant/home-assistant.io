@@ -118,6 +118,7 @@ eway:
 ```
 
 ## MQTT Topics
+
 The integration uses the following MQTT topic structure:
 
 - {device_id}/{device_sn}/data/post - Device data updates
@@ -126,6 +127,7 @@ The integration uses the following MQTT topic structure:
 - {device_id}/{device_sn}/info/request - Request device information
 
 ### Data Format
+
 Device data is published as JSON array:
 
 ```json
@@ -168,4 +170,5 @@ Device data is published as JSON array:
 4. Check Home Assistant logs for detailed error information
 
 ## Support
+
 For issues, please visit: https://github.com/PuuuTao/aioeway
