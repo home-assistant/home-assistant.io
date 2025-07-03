@@ -1119,9 +1119,9 @@ A Z-Wave controller that manages an empty network can also join a different netw
 
 In Home Assistant, a single [association group](#association-group) is implemented:
 
-- **Group 1**: This is an association group that includes only one device. It is used after a [factory reset](#adapter), to send a **Device Reset Locally Notification**.
+- **Group 1**: This is an association group that includes only one device. It is used after a [factory reset](#resetting-a-z-wave-adapter), to send a **Device Reset Locally Notification**.
 
-This association group is used when Home Assistant [resets the Z-Wave adapter](#adapter).
+This association group is used when Home Assistant [resets the Z-Wave adapter](#resetting-a-z-wave-adapter).
 
 Under normal circumstances, it is not necessary to add a device to this group.
 
