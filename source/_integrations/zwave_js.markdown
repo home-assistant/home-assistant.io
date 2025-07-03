@@ -940,7 +940,7 @@ You can also keep track of the road map for the Z-Wave integration [here](https:
 
 ### Which Z-Wave adapter should I buy?
 
-Z-Wave supports all known 500-, 700-, and 800-series Z-Wave adapters. If you are just starting out, we recommend that you purchase a 800-series adapter (with firmware updated to >=7.23.2).
+Z-Wave supports all known 500, 700, and 800 series Z-Wave adapters. If you are just starting out, we recommend that you purchase a 800-series adapter (with firmware updated to >=7.23.2).
 
 For more information, see [Supported Z-Wave adapters](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules)
 
