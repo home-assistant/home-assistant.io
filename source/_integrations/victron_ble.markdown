@@ -26,7 +26,7 @@ The Victron BLE integration will automatically discover devices once the [Blueto
 To configure a discovered device, you will need to supply the per-device encryption key. For more information, see these [instructions](https://github.com/keshavdv/victron-ble/tree/main#fetching-keys).
 
 The simplest method is to use the VictronConnect app ([Android](https://play.google.com/store/apps/details?id=com.victronenergy.victronconnect), [iOS](https://apps.apple.com/us/app/victron-connect/id943840744), [Linux](https://www.victronenergy.com/support-and-downloads/software#victronconnect-app), [macOS](https://apps.apple.com/us/app/victronconnect/id1084677271?ls=1&mt=12), [Windows](https://www.victronenergy.com/support-and-downloads/software#victronconnect-app)):
-1. Install the **VictronConnect** app, ideally on the device you are using to setup this integration so you can simply cut and paste the key.
+1. Install the **VictronConnect** app, ideally on the device you are using to set up this integration so you can simply cut and paste the key.
 2. Open the app and pair with your device.
 3. Locate the device that you want to monitor in the list shown by the app and click on it.
 4. Click on the gear icon to open the **Settings** for that device.
