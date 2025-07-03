@@ -63,7 +63,7 @@ Throughout this documentation, Home Assistant terminology is used. For some of t
 | Z-Wave functionality | Home Assistant | Definition |
 | -------------------- | -------------- | ---------- |
 | barrier operator | cover | |
-| controller | adapter, when referring to the hardware device that provides the Z-Wave functionality. The term controller is still used when referring the network role (such as primary, secondary controller)  | |
+| controller | adapter, when referring to the hardware device that provides the Z-Wave functionality. The term controller is still used when referring to the network role (such as primary, secondary controller)  | |
 | exclusion | remove | The process of removing a node from the Z-Wave network |
 | inclusion | add | The process of adding a node to the Z-Wave network |
 | multilevel switch | represented by different entity types: light, fan etc. | |
@@ -1109,7 +1109,7 @@ This sections lists functionality that is available in Z-Wave but that is not cu
 
 ### Setting the adapter into learn mode to receive network information
 
-In Home Assistant, it is currently not possible to set the Z-Wave adapter into learn mode to receive network information from another controller.
+In Home Assistant, it is currently not possible to set the Z-Wave controller into learn mode to receive network information from another controller.
 
 ### Including / excluding a adapter in an existing network using [classic inclusion](#classic-inclusion-versus-smartstart)
 
