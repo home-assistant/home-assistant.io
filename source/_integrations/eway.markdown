@@ -76,7 +76,7 @@ The integration provides the following sensors:
 
 ## Requirements
 
-- Home Assistant 2023.1+
+- Home Assistant 2024.8+
 - aioeway library (automatically installed)
 - MQTT broker
 
@@ -120,10 +120,10 @@ eway:
 
 The integration uses the following MQTT topic structure:
 
- - `{device_id}/{device_sn}/data/post` - Device data updates
- - `{device_id}/{device_sn}/info/post` - Device information updates
- - `{device_id}/{device_sn}/data/request` - Request device data
- - `{device_id}/{device_sn}/info/request` - Request device information
+ -`{device_id}/{device_sn}/data/post` - Device data updates
+ -`{device_id}/{device_sn}/info/post` - Device information updates
+ -`{device_id}/{device_sn}/data/request` - Request device data
+ -`{device_id}/{device_sn}/info/request` - Request device information
 
 ### Data Format
 
