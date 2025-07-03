@@ -31,7 +31,7 @@ To enable this camera in your installation, add the following to your {% term "`
 rpi_camera:
 ```
 
-The whole set of configuration variables is documented [here](https://www.raspberrypi.com/documentation/computers/camera_software.html#rpicam-still).
+The whole set of configuration variables is documented in the [Raspberry Pi documentation of the camera software](https://www.raspberrypi.com/documentation/computers/camera_software.html#rpicam-still).
 They are not all wrapped by this `rpi_camera` platform.
 
 {% configuration %}
