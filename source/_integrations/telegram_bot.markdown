@@ -107,7 +107,7 @@ To allowlist the chat ID, [retrieve the chat ID](/integrations/telegram#methods-
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the Telegram bot integration.
-3. Next to the entry, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Add allowed chat ID**.
+3. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Add allowed chat ID**.
 
 {% configuration_basic %}
 Chat ID:

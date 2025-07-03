@@ -529,7 +529,7 @@ Removing a camera from a NVR/Home Hub can be done by deleting the device followi
 3. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
 4. From the list of integration entries, select the **x devices** underneath the integration instance of the NVR/Home Hub from which you want to remove a camera.
 5. Select the camera you want to remove from the list of devices
-6. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+6. Underneath the **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
 
 ### Removing a chime
 
@@ -538,7 +538,7 @@ Removing a chime from a doorbell can be done by deleting the chime following the
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
 2. From the list of integration entries, select the **x devices** underneath the integration instance of the Doorbell/NVR/Home Hub from which you want to remove a chime.
 3. Select the chime you want to remove from the list of devices
-4. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+4. Underneath the **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
 
 This will also decouple the chime from the doorbell in the Reolink app/client. Therefore, the chime will no longer ring when the doorbell is pressed.
 

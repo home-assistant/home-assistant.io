@@ -1082,7 +1082,7 @@ Many users have reported issues with interference when the adapter was directly 
 ##### Enable Z-Wave JS logging
 
 1. Go to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
-2. In the top-right corner, select the three-dot {% icon "mdi:dots-vertical" %} menu and select **Enable debug logging**.
+2. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Enable debug logging**.
    - **Result**: The log level will be set to `debug` for the integration, library, and optionally the driver (if the driver log level is not already set to `verbose`, `debug`, or `silly`), and all Z-Wave JS logs will be added to the Home Assistant logs.
 3. If you want to change the log level, on the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}, select the cogwheel {% icon "mdi:cog-outline" %}.
    - Select the **Logs** tab, then select the log level.
@@ -1090,7 +1090,7 @@ Many users have reported issues with interference when the adapter was directly 
 ##### Disable Z-Wave JS logging
 
 1. Go to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
-2. In the top-right corner, select the three-dot {% icon "mdi:dots-vertical" %} menu and select **Disable debug logging**.
+2. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Disable debug logging**.
    - **Result**: The log level will be reset to its previous value for the integration, library, and driver, and the Home Assistant frontend will automatically send you the Z-Wave logs generated during that time period for download.
 
 #### The advanced way
@@ -1198,7 +1198,7 @@ This removes all paired Z-Wave devices and their entities, the Z-Wave JS add-on,
      - This usually involves finding the device in your household and pressing a button.
 2. Remove the Z-Wave integration.
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
-   - Next to the integration entry, select the three-dot {% icon "mdi:dots-vertical" %} menu.
+   - Next to the integration entry, select the three dots {% icon "mdi:dots-vertical" %} menu.
    - Select **Delete**.
 3. If it hasn't been deleted automatically, remove the Z-Wave JS add-on.
    - Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.

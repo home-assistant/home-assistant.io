@@ -100,7 +100,7 @@ This integration supports reconfiguration, allowing you to change the IP address
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the homee integration card.
 2. From the list of hubs, select the one you want to reconfigure.
-3. Next to the entry, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Reconfigure**.
+3. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Reconfigure**.
 
 ## Removing the integration
 
