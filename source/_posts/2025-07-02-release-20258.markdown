@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2025.8: Beta release notes"
+title: "2025.8 Beta: A Betta title"
 description: "Beta release notes for Home Assistant Core 2025.8"
 date: 2025-08-06 00:00:00
 date_formatted: "August 8, 2025"
