@@ -49,7 +49,7 @@ You can edit, add, or remove routes at any time using the integration's options 
 # Example configuration.yaml entry
 sensor:
   - platform: nederlandse_spoorwegen
-    api_key: NS_API_KEY
+    api_key: !secret ns_api_key
     routes:
       - name: Rotterdam-Amsterdam
         from: Rtd
@@ -117,7 +117,7 @@ In this way, you can have multiple routes with specific trains before hitting th
 
 ### Data Source
 
-The data are coming from [Nederlandse Spoorwegen](https://www.ns.nl/).
+Data is provided by [Nederlandse Spoorwegen](https://www.ns.nl/).
 
 ### Features and Quality
 
