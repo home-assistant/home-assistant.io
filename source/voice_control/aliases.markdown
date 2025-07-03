@@ -33,7 +33,7 @@ There are multliple ways to add an alias of an entity:
 ## Adding an alias of a floor
 
 1. To add an alias for a floor, go to **Settings** > **Areas, labels & zones**.
-2. Next to the floor of interest, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Edit floor**.
+2. Next to the floor of interest, select the three dots {% icon "mdi:dots-vertical" %}, then select **Edit floor**.
 3. Select **Add alias** and enter the alias you want to use for that floor.
 4. **Save** your changes.
 
