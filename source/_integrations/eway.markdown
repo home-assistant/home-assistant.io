@@ -85,7 +85,6 @@ The integration provides the following sensors:
 
 No manual installation is required; this integration is included with Home Assistant.
 
-
 ## Configuration
 
 After installation, you need to configure the integration:
@@ -125,6 +124,7 @@ The integration uses the following MQTT topic structure:
 - {device_id}/{device_sn}/info/post - Device information updates
 - {device_id}/{device_sn}/data/request - Request device data
 - {device_id}/{device_sn}/info/request - Request device information
+
 ### Data Format
 Device data is published as JSON array:
 
@@ -133,7 +133,7 @@ Device data is published as JSON array:
   {
     "sort": 0,
     "inputVoltage": 35.2,
-    "InputCurrent": 7.1,
+    "inputCurrent": 7.1,
     "gridVoltage": 230.2,
     "gridFreq": 50.0,
     "genPower": 250.5,
@@ -161,6 +161,7 @@ Device data is published as JSON array:
 ```
 
 ## Troubleshooting
+
 1. Ensure MQTT broker is running and accessible
 2. Check if device ID is correct
 3. Verify MQTT topics and data format
