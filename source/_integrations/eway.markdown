@@ -42,7 +42,7 @@ Scan Interval:
     description: "Data update interval in seconds (default: 30)."
 {% endconfiguration_basic %}
 
-# Eway Home Assistant Integration
+## Overview
 
 This is a Home Assistant integration for Eway
 micro inverters that communicates with devices
@@ -94,29 +94,30 @@ After installation, you need to configure the integration:
 2. Click **Add Integration**
 3. Search for "Eway"
 4. Enter your MQTT configuration:
-- **MQTT Host**: Your MQTT broker address
-- **MQTT Port**: MQTT broker port (default: 1883)  
-- **MQTT Username**: Username for MQTT authentication  
-- **MQTT Password**: Password for MQTT authentication
-- **Device ID**: Your Eway device identifier
-- **Device Serial Number**: Your device's serial number
-- **Device Model**: Your device's model code
-- **Scan Interval**: Data update interval in seconds (default: 30)
+    - **MQTT Host**: Your MQTT broker address
+    - **MQTT Port**: MQTT broker port (default: 1883)
+    - **MQTT Username**: Username for MQTT authentication
+    - **MQTT Password**: Password for MQTT authentication
+    - **Device ID**: Your Eway device identifier
+    - **Device Serial Number**: Your device's serial number
+    - **Device Model**: Your device's model code
+    - **Scan Interval**: Data update interval in seconds (default: 30)
 
 ### Example MQTT Configuration
 
 ```yaml
 # Example configuration.yaml (if using YAML configuration)
 eway:
-  mqtt_host: "your-mqtt-broker.com"
-  mqtt_port: 1883
-  mqtt_username: "your_username"
-  mqtt_password: "your_password"
-  device_id: "your_device_id"
-  device_sn: "your_device_serial"
-  device_model: "your_device_model"
-  scan_interval: 30
+  mqtt_host: "your-mqtt-broker.com"
+  mqtt_port: 1883
+  mqtt_username: "your_username"
+  mqtt_password: "your_password"
+  device_id: "your_device_id"
+  device_sn: "your_device_serial"
+  device_model: "your_device_model"
+  scan_interval: 30
 ```
+
 ## MQTT Topics
 The integration uses the following MQTT topic structure:
 
