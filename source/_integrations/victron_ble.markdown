@@ -34,13 +34,13 @@ The simplest method is to use the VictronConnect app ([Android](https://play.goo
 6. Scroll down to Instant Readout via Bluetooth and enable the feature if it is not already enabled.
 7. Click the **Show** button next to Instant Readout Details to display the encryption key.
 
+## Data updates
+
+This integration subscribes to passive Bluetooth updates and will update the sensors
+as often as the updates are received.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-
-## Data updates
-
-This integration subscribes to passive Bluetooth updates and will update the sensors
-as often as the updates are received.
