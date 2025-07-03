@@ -1,0 +1,230 @@
+---
+layout: post
+title: "2025.8: Beta release notes"
+description: "Beta release notes for Home Assistant Core 2025.8"
+date: 2025-08-06 00:00:00
+date_formatted: "August 8, 2025"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2025-08/social.png
+---
+
+<lite-youtube videoid="#" videotitle="Home Assistant 2025.8 Release Party"></lite-youtube>
+
+{% note %}
+
+**Welcome to the beta release notes for Home Assistant 2025.8** 🎉
+
+<br />
+
+Please note that these release notes are a work in progress. 👷‍♀️ We will be
+completing them over the next couple of days. Not all features might be final
+yet, and some features _**may not** make it into the final release_.
+
+<br />
+
+**Want to help test the beta?** Awesome! ❤️ We have documented how you
+[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
+
+<br />
+
+While running the beta, we highly recommend joining our _#beta_ channel on
+the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
+testers are in this channel during the beta period to share experiences, ideas,
+and iterate over new features, fine-tuning them before the final release.
+It's a really fun place to hang out. 😎
+
+<br />
+
+**Reporting issues**: As this is a beta test, you might encounter unexpected
+behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
+You can find our issue trackers and the reported issues during beta here:
+
+<br />
+
+- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/134)
+- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/751)
+- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/141)
+
+🙏 When reporting issues, **make sure to mention the exact beta version you are
+running** in the issue description. This will help us identify and track the
+issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
+
+<br />
+
+Issues introduced in the beta are processed with priority. 🔝
+
+{% endnote %}
+
+{% tip %}
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=#) on
+August 6, 2025, at 20:00 GMT / 12:00 PT / 21:00 CEST!
+
+{% endtip %}
+
+Home Assistant 2025.8! 🎉
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Lorem ipsum](#lorem-ipsum)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integration quality scale achievements](#integration-quality-scale-achievements)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+  - [Farewell to the following](#farewell-to-the-following)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [Lorem ipsum](#lorem-ipsum-1)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+## Lorem ipsum
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Lorem]**, added by [@frenck]  
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+[@frenck]: https://github.com/Lorem
+[Lorem]: /integrations/lorem
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing
+integrations are also being constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+- [@frenck] added support for slipsum to [Lorem ipsum]! Nice!
+
+[@frenck]: https://github.com/frenck
+[Lorem ipsum]: /integrations/lorem
+
+### Integration quality scale achievements
+
+One thing we are incredibly proud of in Home Assistant is our
+[integration quality scale]. This scale helps us and our contributors to ensure
+integrations are of high quality, maintainable, and provide the best possible
+user experience.
+
+This release, we celebrate several {% term integrations %} that have improved
+their quality scale:
+
+- **1 integrations reached platinum** 🏆
+  - [Lorem], thanks to [@frenck]
+  
+- **1 integration reached gold** 🥇
+  - [Lorem], thanks to [@frenck]
+
+- **1 integration reached silver** 🥈
+  - [Lorem], thanks to [@frenck]
+
+- **1 integrations reached bronze** 🥉
+  - [Lorem], thanks to [@frenck]
+
+This is a huge achievement for these integrations and their maintainers. The
+effort and dedication required to reach these quality levels is significant,
+as it involves extensive testing, documentation, error handling, and often
+complete rewrites of parts of the integration.
+
+A big thank you to all the contributors involved! 👏
+
+[integration quality scale]: https://www.home-assistant.io/docs/quality_scale/
+[@frenck]: https://github.com/frenck
+[Lorem]: /integrations/lorem
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
+more integrations to the UI, making them more accessible for everyone
+to set up and use.
+
+The following integration is now available via the Home Assistant UI:
+
+- **[Lorem]**, done by [@frenck]
+
+[@frenck]: https://github.com/frenck
+[Lorem]: /integrations/lorem
+
+### Farewell to the following
+
+The following {% term integrations %} are also no longer available as
+of this release:
+
+- **Slipsum** has been removed it is now an option of Lorem ipsum.
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other noteworthy changes:
+
+- [@frenck] added support for slipsum to [Lorem ipsum]! Nice!
+  
+[@frenck]: https://github.com/frenck
+[Lorem ipsum]: /integrations/lorem
+
+## Lorem ipsum
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be,
+and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues)
+to get it fixed! Or check [our help page](/help) for guidance on more
+places you can go.
+
+Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter)
+to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might unexpectedly impact your Home Assistant installation. Unfortunately, sometimes, it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Lorem ipsum" %}
+
+Flipsum is now kinda broken.
+
+([@frenck] - [#12345]) ([flipsum docs])
+
+[@frenck]: https://github.com/frenck
+[#12345]: https://github.com/home-assistant/core/pull/12345
+[flipsum docs]: /integrations/flipsum
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog].
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2025.8](/changelogs/core-2025.8)
