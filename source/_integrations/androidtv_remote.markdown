@@ -31,6 +31,8 @@ For a quick introduction on how to get started with Android TV Remote, check out
 {% configuration_basic %}
 Configure Applications List:
   description: Here you can define applications where the keys are app IDs and the values are app names and icons that will be displayed in the UI.
+Enable IME:
+  description: Needed for getting the current app name and sending text as keyboard input. Disable for devices that show 'Use keyboard on mobile device screen' instead of the on screen keyboard.
 {% endconfiguration_basic %}
 
 ## Media player
@@ -568,6 +570,11 @@ cards:
 ```
 
 {% enddetails %}
+
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
 
 
 ## Limitations and known issues
