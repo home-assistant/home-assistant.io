@@ -157,3 +157,8 @@ Device data is published as JSON array:
 3. Verify MQTT topics and data format.
 4. Check Home Assistant logs for detailed error information.
 
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
