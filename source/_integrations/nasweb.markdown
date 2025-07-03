@@ -2,6 +2,7 @@
 title: NASweb
 description: Integrate NASweb devices
 ha_category:
+  - Sensor
   - Switch
 ha_release: '2024.12'
 ha_codeowners:
