@@ -152,8 +152,8 @@ Device data is published as JSON array:
 
 ## Troubleshooting
 
-1. Ensure MQTT broker is running and accessible
-2. Check if device ID is correct
-3. Verify MQTT topics and data format
-4. Check Home Assistant logs for detailed error information
+1. Ensure MQTT broker is running and accessible.
+2. Check if the device ID is correct.
+3. Verify MQTT topics and data format.
+4. Check Home Assistant logs for detailed error information.
 
