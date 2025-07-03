@@ -43,6 +43,23 @@ Scan Interval:
     description: "Data update interval in seconds (default: 30)."
 {% endconfiguration_basic %}
 
+## Prerequisites
+
+- aioeway library (automatically installed)
+- MQTT broker
+
+{% include integrations/config_flow.md %}
+
+4. Enter your MQTT configuration:
+    - **MQTT Host**: Your MQTT broker address
+    - **MQTT Port**: MQTT broker port (default: 1883)
+    - **MQTT Username**: Username for MQTT authentication
+    - **MQTT Password**: Password for MQTT authentication
+    - **Device ID**: Your Eway device identifier
+    - **Device Serial Number**: Your device's serial number
+    - **Device Model**: Your device's model code
+    - **Scan Interval**: Data update interval in seconds (default: 30)
+
 ## Supported functionality
 
 This is a Home Assistant integration for Eway micro inverters that communicates with devices via MQTT protocol.
@@ -73,22 +90,6 @@ The integration provides the following sensors:
 - **Error code**: Device error code (if any)
 - **Working duration**: Total working time (seconds)
 
-## Prerequisites
-
-- aioeway library (automatically installed)
-- MQTT broker
-
-{% include integrations/config_flow.md %}
-
-4. Enter your MQTT configuration:
-    - **MQTT Host**: Your MQTT broker address
-    - **MQTT Port**: MQTT broker port (default: 1883)
-    - **MQTT Username**: Username for MQTT authentication
-    - **MQTT Password**: Password for MQTT authentication
-    - **Device ID**: Your Eway device identifier
-    - **Device Serial Number**: Your device's serial number
-    - **Device Model**: Your device's model code
-    - **Scan Interval**: Data update interval in seconds (default: 30)
 
 ### Example MQTT Configuration
 
