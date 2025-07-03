@@ -20,7 +20,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-Integrate Eway micro inverters into Home Assistant via MQTT protocol.
+The **Eway** {% term integration %} integrates Eway micro inverters into Home Assistant via MQTT protocol.
 
 {% include integrations/config_flow.md %}
 
@@ -43,11 +43,10 @@ Scan Interval:
     description: "Data update interval in seconds (default: 30)."
 {% endconfiguration_basic %}
 
-## Overview
+## Supported functionality
 
 This is a Home Assistant integration for Eway micro inverters that communicates with devices via MQTT protocol.
 
-## Features
 
 - Real-time inverter data monitoring
 - Support for multiple sensor types:
@@ -59,38 +58,28 @@ This is a Home Assistant integration for Eway micro inverters that communicates 
   - Today's energy generation (kWh)
   - Total energy generation (kWh)
 
-## Sensors
+### Sensors
 
 The integration provides the following sensors:
 
-- **Generation Power**: Current power output (W)
-- **Grid Voltage**: Grid voltage (V)
-- **Input Voltage**: Input voltage from solar panels (V)
-- **Input Current**: Input current from solar panels (A)
-- **Grid Frequency**: Grid frequency (Hz)
+- **Generation power**: Current power output (W)
+- **Grid voltage**: Grid voltage (V)
+- **Input voltage**: Input voltage from solar panels (V)
+- **Input current**: Input current from solar panels (A)
+- **Grid frequency**: Grid frequency (Hz)
 - **Temperature**: Device temperature (°C)
-- **Energy Today**: Today's energy production (kWh)
-- **Energy Total**: Total energy production (kWh)
-- **Error Code**: Device error code (if any)
-- **Working Duration**: Total working time (seconds)
+- **Energy today**: Today's energy production (kWh)
+- **Energy total**: Total energy production (kWh)
+- **Error code**: Device error code (if any)
+- **Working duration**: Total working time (seconds)
 
-## Requirements
+## Prerequisites
 
-- Home Assistant 2024.8+
 - aioeway library (automatically installed)
 - MQTT broker
 
-## Installation
+{% include integrations/config_flow.md %}
 
-No manual installation is required; this integration is included with Home Assistant.
-
-## Configuration
-
-After installation, you need to configure the integration:
-
-1. Go to **Settings** > **Devices & Services**
-2. Click **Add Integration**
-3. Search for "Eway"
 4. Enter your MQTT configuration:
     - **MQTT Host**: Your MQTT broker address
     - **MQTT Port**: MQTT broker port (default: 1883)
@@ -168,6 +157,3 @@ Device data is published as JSON array:
 3. Verify MQTT topics and data format
 4. Check Home Assistant logs for detailed error information
 
-## Support
-
-For issues, please visit the [aioeway GitHub repository](https://github.com/PuuuTao/aioeway).
