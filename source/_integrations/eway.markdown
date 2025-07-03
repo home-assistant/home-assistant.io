@@ -44,9 +44,7 @@ Scan Interval:
 
 ## Overview
 
-This is a Home Assistant integration for Eway
-micro inverters that communicates with devices
-via MQTT protocol.
+This is a Home Assistant integration for Eway micro inverters that communicates with devices via MQTT protocol.
 
 ## Features
 
@@ -121,10 +119,10 @@ eway:
 
 The integration uses the following MQTT topic structure:
 
-- {device_id}/{device_sn}/data/post - Device data updates
-- {device_id}/{device_sn}/info/post - Device information updates
-- {device_id}/{device_sn}/data/request - Request device data
-- {device_id}/{device_sn}/info/request - Request device information
+- `{device_id}/{device_sn}/data/post` – Device data updates 
+- `{device_id}/{device_sn}/info/post` – Device information updates
+- `{device_id}/{device_sn}/data/request` – Request device data
+- `{device_id}/{device_sn}/info/request` – Request device information
 
 ### Data Format
 
@@ -139,7 +137,7 @@ Device data is published as JSON array:
     "gridVoltage": 230.2,
     "gridFreq": 50.0,
     "genPower": 250.5,
-    "genPowerToDay": 12500,
+    "genPowerToday": 12500,
     "genPowerTotal": 1250,
     "temperature": 45.2,
     "errCode": 0,
@@ -171,4 +169,4 @@ Device data is published as JSON array:
 
 ## Support
 
-For issues, please visit: https://github.com/PuuuTao/aioeway
+For issues, please visit the [aioeway GitHub repository](https://github.com/PuuuTao/aioeway).
