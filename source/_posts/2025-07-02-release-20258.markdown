@@ -118,6 +118,15 @@ changes to existing integrations:
 [@frenck]: https://github.com/frenck
 [Lorem ipsum]: /integrations/lorem
 
+Potential candidates, processed up to PR 148012
+
+- Matter TemperatureControl ([@lboue] - [#145706]) ([matter docs])
+- Add sensor last online to PlayStation Network integration ([@tr4nt0r] - [#147796]) ([playstation_network docs])
+- Add water_level sensor to Tuya pet fountain cwysj ([@FredrikM97] - [#146602]) ([tuya docs])
+- Add switch to enable/disable boost in IronOS integration ([@tr4nt0r] - [#147831]) ([iron_os docs])
+- Add sensor for online status to PlayStation Network ([@tr4nt0r] - [#147842]) ([playstation_network docs])
+- Allow LevelControl Cluster for Matter Pump devices ([@lboue] - [#145004]) ([matter docs])
+
 ### Integration quality scale achievements
 
 One thing we are incredibly proud of in Home Assistant is our
@@ -181,6 +190,11 @@ There are many more improvements in this release; here are some of the other not
 [@frenck]: https://github.com/frenck
 [Lorem ipsum]: /integrations/lorem
 
+Possible candidates:
+
+- Add support for opening state in template lock ([@nadimz] - [#147813]) ([template docs])
+- Allow trigger based numeric sensors to be set to unknown ([@Petro31] - [#137047]) ([template docs])
+
 ## Lorem ipsum
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -207,21 +221,36 @@ We do our best to avoid making changes to existing functionality that might unex
 We always make sure to document these changes to make the transition as easy as
 possible for you. This release has the following backward-incompatible changes:
 
-{% details "Lorem ipsum" %}
+{% details "Husqvarna Automower" %}
 
-Flipsum is now kinda broken.
+The summary field of calendar events provided by the Husqvarna Automower calendar platform has been updated to include the device name as a prefix. This change improves clarity when multiple mowers are used, but may affect automations relying on the previous summary format.
 
-([@frenck] - [#12345]) ([flipsum docs])
+([@Thomas55555] - [#147405]) ([documentation](/integrations/husqvarna_automower))
 
-[@frenck]: https://github.com/frenck
-[#12345]: https://github.com/home-assistant/core/pull/12345
-[flipsum docs]: /integrations/flipsum
+[@Thomas55555]: https://github.com/Thomas55555
+[#147405]: https://github.com/home-assistant/core/pull/147405
+
+{% enddetails %}
+
+{% details "Templates" %}
+
+Returning `None` from a template binary sensor's state template is now interpreted as `unknown` state instead of as `off` state.
+
+If this behavior is not desired, you need to adjust your templates to return `False` explicitly.
+
+([@epenet] - [#128861]) ([documentation](/integrations/template))
+
+[@epenet]: https://github.com/epenet
+[#128861]: https://github.com/home-assistant/core/pull/128861
 
 {% enddetails %}
 
 If you are a custom integration developer and want to learn about changes and
 new features available for your integration: Be sure to follow our
-[developer blog][devblog].
+[developer blog][devblog]. The following changes are the most notable for this
+release:
+
+- [Vacuum battery properties are deprecated](https://developers.home-assistant.io/blog/2025/07/02/vacuum-battery-properties-deprecated/)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
