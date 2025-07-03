@@ -297,3 +297,8 @@ data:
   room: "{{ trigger.event.data.room }}"
   message_id: "{{ trigger.event.data.event_id }}"
 ```
+
+{% tip %}
+Reactions do not have to be an emoji. They can be any valid string. However, emoji are the typical/traditional use
+case.
+{% endtip %}
