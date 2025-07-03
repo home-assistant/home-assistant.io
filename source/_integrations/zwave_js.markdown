@@ -190,7 +190,7 @@ Do this if you have an existing Z-Wave network and want to use a new adapter. Th
 4. Select **Migrate to a new adapter**.
 
    - To confirm device reset, select **Submit**.
-   - **Info**: This will initiate a backup of the network information and factory reset the adapter. All the stored network information will be removed.
+   - **Info**: This will initiate a backup of the network information. All the stored network information will be removed.
 5. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
    - Connect the new adapter.
    - Confirm that you connected the new adapter by selecting **Submit**.
