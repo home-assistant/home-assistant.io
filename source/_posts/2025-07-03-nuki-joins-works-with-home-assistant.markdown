@@ -67,4 +67,4 @@ A: All devices in this list were tested using a standard Home Assistant Yellow w
 
 ***Q: Will you be adding more Nuki devices to the program?***
 
-A: All of the main lock products Nuki currently sells are now represented here in the 'Works with' program. We're thrilled to foster a close relationship with the team at Nuki to work together on any upcoming releases or add in further products that are not yet listed here.
+A: All of the locks Nuki currently sells are now represented here in the 'Works with' program. We're thrilled to foster a close relationship with the team at Nuki to work together on any upcoming releases or add in further products that are not yet listed here.
