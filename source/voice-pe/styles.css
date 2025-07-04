@@ -2330,7 +2330,6 @@ section#hero .bg-gradient {
 
 .vpe-main #local-cloud .graphic-card:last-child .line {
   transform: rotateZ(0) rotateY(180deg);
-  bottom: unset;
   bottom: 0;
   right: calc((var(--grid-m) * 2) - 2px);
   left: unset;
