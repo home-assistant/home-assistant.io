@@ -241,3 +241,8 @@ logger:
     homeassistant.components.conversation.chat_log: debug
     homeassistant.components.google_generative_ai_conversation: debug
 ```
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
