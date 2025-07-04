@@ -115,7 +115,7 @@ task :version_data do
 end
 
 desc "Download supported language data from ohf-voice.github.io"
-task :version_data do
+task :language_scores_data do
   uri = URI('https://ohf-voice.github.io/intents/language_scores.json')
 
   remote_data = JSON.parse(Net::HTTP.get(uri))
