@@ -6,8 +6,8 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.57
 ha_codeowners:
-  - '@YarmoM'
   - '@heindrichpaul'
+  - '@YarmoM'
 ha_domain: nederlandse_spoorwegen
 ha_platforms:
   - sensor
@@ -41,64 +41,22 @@ You can set up the NS integration using either the Home Assistant UI or by editi
 4. Add one or more train routes by specifying the departure station, arrival station, and optionally a via station.
 5. Save your configuration. The integration will create sensors for each route.
 
-You can edit, add, or remove routes at any time using the integration's options flow in the UI. If your API key changes or expires, use the reauthentication flow to update it without removing your integration.
+You can edit, add, or remove routes at any time using the integration's options flow in the UI. If your API key changes or expires, use the reauthentication flow to update it. For other configuration changes, use the reconfiguration flow, both without removing your integration.
 
-#### YAML Configuration (Advanced)
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: nederlandse_spoorwegen
-    api_key: !secret ns_api_key
-    routes:
-      - name: Rotterdam-Amsterdam
-        from: Rtd
-        to: Asd
-      - name: Groningen-Zwolle-Maastricht
-        from: Gn
-        to: Mt
-        via: Zl
-      - name: "AlmereBuiten-Duivendrecht-the-08h06m-train"
-        from: Almb
-        to: Dvd
-        time: "08:06:00"
-```
-
-{% configuration %}
-api_key:
-  description: The API key provided by the Nederlandse Spoorwegen.
-  required: true
-  type: string
-routes:
-  description: List of travel routes.
-  required: false
-  type: list
-  keys:
-    name:
-      description: Name of the route.
-      required: true
-      type: string
-    from:
-      description: The departure station.
-      required: true
-      type: string
-    to:
-      description: The arrival station.
-      required: true
-      type: string
-    via:
-      description: A station the route needs to pass through.
-      required: false
-      type: string
-    time:
-      description: Optional time to search for a specific train (format `hh:mm:ss`, for example `08:06:00`).
-      required: false
-      type: time
-{% endconfiguration %}
-
-{% note %}
-After adding or updating your configuration, restart Home Assistant to apply the changes.
-{% endnote %}
+{% configuration_basic %}
+API key:
+    description: "The API key from NS API Portal for the Reisinformatie API."
+From station:
+    description: "The departure station code (for example `Rtd` for Rotterdam)."
+To station:
+    description: "The arrival station code (for example `Asd` for Amsterdam)."
+Via station:
+    description: "Optional intermediate station code the route should pass through."
+Route name:
+    description: "A descriptive name for this route (for example `Rotterdam-Amsterdam`)."
+{% endconfiguration_basic %}
 
 ### Station codes
 
