@@ -8,13 +8,12 @@ ha_category:
 ha_release: 2024.8
 ha_codeowners:
   - '@PuuuTao'
-ha_iot_class: Local Push
+ha_iot_class: local_push
 ha_domain: eway
 featured: false
 ha_config_flow: true
 ha_zeroconf: false
 ha_platforms:
-  - diagnostics
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
