@@ -18,7 +18,8 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The **Wallbox** {% term integration %} pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station. Data is refreshed once every minute, please note that this refresh rate has been chosen in conjunction with Wallbox to prevent overloading their infrastructure. Use this integration to monitor the charging of your car by the **Wallbox** charger and modify settings such as **Charging Power**, **Energy Price**, **Solar Charging** and **Pause/Resume**. The energy usage collected by this integration can be used in the [Energy dashboard](/home-energy-management).
+The **Wallbox** {% term integration %} pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station. 
+Data is refreshed **once every minute**, please note that this refresh rate has been chosen in conjunction with Wallbox to prevent overloading their infrastructure. Altering this refresh rate is not recommended. Use this integration to monitor the charging of your car by the **Wallbox** charger and modify settings such as **Charging Power**, **Energy Price**, **Solar Charging** and **Pause/Resume**. The energy usage collected by this integration can be used in the [Energy dashboard](/home-energy-management).
 
 {% include integrations/config_flow.md %}
 
