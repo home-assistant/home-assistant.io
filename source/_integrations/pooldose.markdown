@@ -2,8 +2,8 @@
 title: SEKO PoolDose
 description: Connect your SEKO PoolDose pool dosing system to Home Assistant.
 ha_category:
-  - Water
-  - Pool
+  - Water Management
+  - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: "2025.8"
