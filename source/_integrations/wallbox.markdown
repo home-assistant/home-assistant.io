@@ -18,7 +18,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The **Wallbox** {% term integration %} pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station.
+The **Wallbox** {% term integration %} pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station. Use this integration to monitor the charging of your car by the **Wallbox** charger and modify settings such as **Charging Power**, **Energy Price**, **Solar Charging** and **Pause/Resume**. The energy usage collected by this integration can be used in the [Energy dashboard](/home-energy-management).
 
 {% include integrations/config_flow.md %}
 
@@ -64,3 +64,13 @@ The {% term integration %} adds a select {% term entity %} to control solar char
 ## Switch
 
 The {% term integration %} adds a switch {% term entity %}, allowing you to pause/resume the charging process.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+## Troubleshooting
+
+- **Setup errors**: You can only use a regular login with this integration, Google or Apple logins are not supported. You can find the serial number of your charger in the Wallbox app or on the Wallbox Portal under the Chargers section.
+- **Connection failures**: People often report issues with the wifi reception of there charger, use a cable if possible. Check if the charger is communicating with the Wallbox portal.
+- **Other issues**: Always first check whether the data is being received by the Wallbox Portal as this integration uses the same API, many problems are related to connectivity of the charger.
