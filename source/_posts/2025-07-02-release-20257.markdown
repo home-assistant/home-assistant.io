@@ -47,6 +47,8 @@ Stay cool, and enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [Full-screen code editors](#full-screen-code-editors)
 - [Improved dashboard creation experience](#improved-dashboard-creation-experience)
+- [Patch releases](#patch-releases)
+  - [2025.7.1 - July 4](#202571---july-4)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -356,6 +358,58 @@ The dialog for adding a new dashboard has been redesigned with a cleaner interfa
 
 [@marcinbauer85]: https://github.com/marcinbauer85
 [@quinnter]: https://github.com/quinnter
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2025.7 in July.
+These patch releases only contain bug fixes. Our goal is to release a patch
+release every Friday.
+
+### 2025.7.1 - July 4
+
+Happy Fourth of July! 🇺🇸
+
+- Set timeout for remote calendar ([@Thomas55555] - [#147024])
+- Fix missing port in samsungtv ([@epenet] - [#147962])
+- Bump ZHA to 0.0.62 ([@puddly] - [#147966])
+- Bump aiounifi to v84 ([@Kane610] - [#147987])
+- Fix state being incorrectly reported in some situations on Music Assistant players ([@marcelveldt] - [#147997])
+- Bump hass-nabucasa from 0.104.0 to 0.105.0 ([@ludeeus] - [#148040])
+- Fix Telegram bots using plain text parser failing to load on restart ([@hanwg] - [#148050])
+- Bump pyenphase to 2.2.0 ([@catsmanac] - [#148070])
+- Cancel enphase mac verification on unload. ([@catsmanac] - [#148072])
+- Bump aioamazondevices to 3.2.3 ([@chemelli74] - [#148082])
+- Update frontend to 20250702.1 ([@bramkragten] - [#148131])
+- [ci] Fix typing issue with aiohttp and aiosignal ([@cdce8p] - [#148141])
+- Bump venstarcolortouch to 0.21 ([@mlfreeman2] - [#148152])
+
+[#147024]: https://github.com/home-assistant/core/pull/147024
+[#147533]: https://github.com/home-assistant/core/pull/147533
+[#147962]: https://github.com/home-assistant/core/pull/147962
+[#147966]: https://github.com/home-assistant/core/pull/147966
+[#147987]: https://github.com/home-assistant/core/pull/147987
+[#147997]: https://github.com/home-assistant/core/pull/147997
+[#148040]: https://github.com/home-assistant/core/pull/148040
+[#148050]: https://github.com/home-assistant/core/pull/148050
+[#148070]: https://github.com/home-assistant/core/pull/148070
+[#148072]: https://github.com/home-assistant/core/pull/148072
+[#148082]: https://github.com/home-assistant/core/pull/148082
+[#148131]: https://github.com/home-assistant/core/pull/148131
+[#148141]: https://github.com/home-assistant/core/pull/148141
+[#148152]: https://github.com/home-assistant/core/pull/148152
+[@Kane610]: https://github.com/Kane610
+[@Thomas55555]: https://github.com/Thomas55555
+[@bramkragten]: https://github.com/bramkragten
+[@catsmanac]: https://github.com/catsmanac
+[@cdce8p]: https://github.com/cdce8p
+[@chemelli74]: https://github.com/chemelli74
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@hanwg]: https://github.com/hanwg
+[@ludeeus]: https://github.com/ludeeus
+[@marcelveldt]: https://github.com/marcelveldt
+[@mlfreeman2]: https://github.com/mlfreeman2
+[@puddly]: https://github.com/puddly
 
 ## Need help? Join the community!
 
