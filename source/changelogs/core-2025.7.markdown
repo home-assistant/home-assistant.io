@@ -1417,7 +1417,7 @@ For a summary in a more readable format:
 [@chemelli74]: https://github.com/chemelli74
 [@christopherboyd]: https://github.com/christopherboyd
 [@crug80]: https://github.com/crug80
-p[@edenhaus]: https://github.com/edenhaus
+[@edenhaus]: https://github.com/edenhaus
 [@eifinger]: https://github.com/eifinger
 [@emontnemery]: https://github.com/emontnemery
 [@epenet]: https://github.com/epenet
