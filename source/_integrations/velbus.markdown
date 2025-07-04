@@ -33,16 +33,65 @@ The `velbus` integration is used to control [Velbus](https://www.velbus.eu/?lang
 
 The pushbutton LEDs of input modules are disabled by default. These can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
 
+## Configuration requirements
+
+To use the Velbus integration, you need a Velbus USB interface or a Velbus TCP/IP interface. The Velbus USB interface is connected to the USB port of your Home Assistant device, while the TCP/IP interface is connected to your network.
+In most cases the USB interface is automatically detected and shown in a list during the configuration process. The TCP/IP interface requires you to provide the hostname or IP address, port number, and password (if configured).
+
 {% include integrations/config_flow.md %}
 
-The port string used in the user interface or the configuration file can have 2 formats:
+In the popup:
+- select the connection type:
+  - **USB**: if you have a Velbus USB interface connected to your Home Assistant device
+  - **TCP/IP**: if you have a Velbus TCP/IP interface available in your network
+- submit
 
-- For a serial device: `/dev/ttyUSB00`
-- For a TCP/IP device: `127.0.0.1:3678`
-- For the VMBSIG module: `tls://192.168.1.9:27015`
+Press `Submit` and the integration will show you a list of available Velbus interfaces. If you selected USB, the list will contain the detected USB interfaces. If you selected TCP/IP, you will need to fill in the required parameters to connect to the Velbus bus.
 
-## Services
+If you have selected USB, the integration will automatically detect the Velbus USB interface and show it in a list. Select the correct USB interface from the list and press `Submit`.
 
+If you have selected TCP/IP, you will need to fill in the required parameters to connect to the Velbus bus. The parameters are:
+{% configuration_basic %}
+tls:
+  description: "Enable TLS connection to the Velbus TCP/IP interface. _(default: off)_"
+host:
+  description: "Hostname or IP address of the Velbus TCP/IP interface."
+port:
+  description: "Port number of the Velbus TCP/IP interface. _(default: 27015 for Signum, 6000 for Velser)_"
+password:
+  description: "Password to authenticate to the Velbus TCP/IP interface. _(default: empty)_"
+{% endconfiguration_basic %}
+
+Once you have selected the USB interface or filled in the required parameters for the TCP/IP interface, press `Submit` again.
+This will start the configuration process. If the connection is successful, the Velbus integration will be added to Home Assistant.
+
+### Example: signum
+
+- tls: yes
+- host: your signum IP address
+- port: 27015
+- password: your signum password (if configured)
+
+### Example: velserv
+
+- tls: no
+- host: your velser IP address
+- port: 6000
+- password: leave empty
+
+### Example: Home Assistant add-on
+
+- tls: depending on your configuration
+- host: your Home Assistant IP address
+- port: 27015 if you kept the default
+- password: leave empty
+
+{% note %}
+The pushbutton LEDs of input modules are disabled by default. These can be enabled from the **Devices** panel in the **Configuration** page of the web interface.
+{% endnote %}
+
+
+## Actions
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
 - `velbus.scan`: Scan the bus for new devices.
 - `velbus.set_memo_text`: Show memo text on Velbus display modules.
