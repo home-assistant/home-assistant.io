@@ -245,4 +245,3 @@ logger:
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
-
