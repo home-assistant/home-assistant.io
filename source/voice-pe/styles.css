@@ -2152,7 +2152,7 @@ section#hero .bg-gradient {
   width: auto;
   max-width: unset;
   bottom: calc(3.5 * var(--grid-m));
-  height: calc(var(--grid-m) * 16)
+  height: calc(var(--grid-m) * 16);
 }
 
 .vpe-main #local-cloud .sides .side,
