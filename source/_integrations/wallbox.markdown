@@ -22,6 +22,13 @@ The **Wallbox** {% term integration %} pulls data from the [MyWallbox Portal](ht
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Station Serial Number:
+  description: "The Serial number of your charger. You can find it in the Wallbox App or on the Wallbox Portal."
+Username:
+  description: "This integration only supports a regular / email login, Apple or Google accounts are not supported."
+{% endconfiguration_basic %}
+
 ## Sensors
 
 The {% term integration %} adds the following sensors:
