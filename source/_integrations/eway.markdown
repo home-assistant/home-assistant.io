@@ -22,6 +22,7 @@ ha_quality_scale: bronze
 
 The **Eway** {% term integration %} integrates Eway micro inverters into Home Assistant via MQTT protocol.
 
+
 ## Prerequisites
 
 - aioeway library (automatically installed)
@@ -63,9 +64,15 @@ This is a Home Assistant integration for Eway micro inverters that communicates 
   - Total energy generation (kWh)
 
 ### Sensors
+### Sensors
 
 The integration provides the following sensors:
 
+- **Generation power**: Current power output (W)
+- **Grid voltage**: Grid voltage (V)
+- **Input voltage**: Input voltage from solar panels (V)
+- **Input current**: Input current from solar panels (A)
+- **Grid frequency**: Grid frequency (Hz)
 - **Generation power**: Current power output (W)
 - **Grid voltage**: Grid voltage (V)
 - **Input voltage**: Input voltage from solar panels (V)
