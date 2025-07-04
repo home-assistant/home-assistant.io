@@ -461,6 +461,10 @@ const languageDescriptions = {
 
 function updateLanguageSupports(locale = null) {
     let data = window.language_scores;
+    if(!data || !locale) {
+        console.warn('No language data available or locale not provided.');
+        return;
+    }
 
     const localElem = document.querySelector('.supported-cards .supported-card.local');
     const cloudElem = document.querySelector('.supported-cards .supported-card.cloud');
