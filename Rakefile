@@ -31,7 +31,7 @@ task :generate do
   success = system "rake version_data"
   abort("Generating version data failed") unless success
   success = system "rake language_scores_data"
-  abort("Generating language scores failed") unless success
+  abort("Generating language scores data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   if ENV["CONTEXT"] != 'production'
