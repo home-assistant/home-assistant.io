@@ -8,7 +8,7 @@ ha_category:
 ha_release: 2024.8
 ha_codeowners:
   - '@PuuuTao'
-ha_iot_class: local_push
+ha_iot_class: Local Push
 ha_domain: eway
 featured: false
 ha_config_flow: true
