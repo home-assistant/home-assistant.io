@@ -30,6 +30,8 @@ task :generate do
   abort("Generating alerts data failed") unless success
   success = system "rake version_data"
   abort("Generating version data failed") unless success
+  success = system "rake language_scores_data"
+  abort("Generating language scores failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   if ENV["CONTEXT"] != 'production'
@@ -67,6 +69,7 @@ task :preview, :listen do |t, args|
   system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
   system "rake analytics_data"
   system "rake version_data"
+  system "rake language_scores_data"
   system "rake alerts_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   compassPid = Process.spawn("compass watch")
