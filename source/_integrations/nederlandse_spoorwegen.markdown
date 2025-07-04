@@ -29,11 +29,11 @@ To use this integration, you need an API key from NS:
 1. Create an account on the [NS API Portal](https://apiportal.ns.nl/).
 2. Request an API key for the `Reisinformatie` API, which is part of the `Ns-App` product.
 
-### Configuration Methods
+### Configuration
 
-You can set up the NS integration using either the Home Assistant UI or by editing your `configuration.yaml` file.
+You can set up the NS integration using the Home Assistant UI.
 
-#### UI Configuration Flow (Recommended)
+#### UI Configuration Flow
 
 1. Go to **Settings > Devices & Services** in Home Assistant.
 2. Click **Add Integration** and search for "Nederlandse Spoorwegen".
@@ -46,21 +46,21 @@ You can edit, add, or remove routes at any time using the integration's options 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-API key:
-    description: "The API key from NS API Portal for the Reisinformatie API."
-From station:
-    description: "The departure station code (for example `Rtd` for Rotterdam)."
-To station:
-    description: "The arrival station code (for example `Asd` for Amsterdam)."
-Via station:
-    description: "Optional intermediate station code the route should pass through."
-Route name:
-    description: "A descriptive name for this route (for example `Rotterdam-Amsterdam`)."
+api_key:
+    description: "API key obtained from the NS API Portal."
+from:
+    description: "Departure station code (for example `Rtd`)."
+to:
+    description: "Arrival station code (for example `Asd`)."
+via:
+    description: "Optional intermediate station code."
+name:
+    description: "A descriptive name for this route."
 {% endconfiguration_basic %}
 
 ### Station codes
 
-You must use station codes, which you can look up in the [list of railway stations in the Netherlands](https://nl.wikipedia.org/wiki/Lijst_van_spoorwegstations_in_Nederland).
+Station codes are required. You can look them up in the [list of railway stations in the Netherlands](https://nl.wikipedia.org/wiki/Lijst_van_spoorwegstations_in_Nederland).
 
 ### Searching a specific train vs. the next train
 
@@ -79,4 +79,4 @@ In this way, you can have multiple routes with specific trains before hitting th
 
 Data is provided by [Nederlandse Spoorwegen](https://www.ns.nl/).
 
-This integration meets the Silver quality scale requirements, ensuring reliable configuration via the Home Assistant UI and robust error handling.
+This integration meets the [Silver quality-scale requirements](https://developers.home-assistant.io/docs/integration_quality_scale_index/), ensuring reliable configuration via the Home Assistant UI and robust error handling.
