@@ -20,7 +20,12 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-Integrate Eway micro inverters into Home Assistant via MQTT protocol.
+The **Eway** {% term integration %} integrates Eway micro inverters into Home Assistant via MQTT protocol.
+
+## Prerequisites
+
+- aioeway library (automatically installed)
+- MQTT broker
 
 {% include integrations/config_flow.md %}
 
@@ -43,11 +48,9 @@ Scan Interval:
     description: "Data update interval in seconds (default: 30)."
 {% endconfiguration_basic %}
 
-## Overview
+## Supported functionality
 
 This is a Home Assistant integration for Eway micro inverters that communicates with devices via MQTT protocol.
-
-## Features
 
 - Real-time inverter data monitoring
 - Support for multiple sensor types:
@@ -59,71 +62,32 @@ This is a Home Assistant integration for Eway micro inverters that communicates 
   - Today's energy generation (kWh)
   - Total energy generation (kWh)
 
-## Sensors
+### Sensors
 
 The integration provides the following sensors:
 
-- **Generation Power**: Current power output (W)
-- **Grid Voltage**: Grid voltage (V)
-- **Input Voltage**: Input voltage from solar panels (V)
-- **Input Current**: Input current from solar panels (A)
-- **Grid Frequency**: Grid frequency (Hz)
+- **Generation power**: Current power output (W)
+- **Grid voltage**: Grid voltage (V)
+- **Input voltage**: Input voltage from solar panels (V)
+- **Input current**: Input current from solar panels (A)
+- **Grid frequency**: Grid frequency (Hz)
 - **Temperature**: Device temperature (°C)
-- **Energy Today**: Today's energy production (kWh)
-- **Energy Total**: Total energy production (kWh)
-- **Error Code**: Device error code (if any)
-- **Working Duration**: Total working time (seconds)
-
-## Requirements
-
-- Home Assistant 2024.8+
-- aioeway library (automatically installed)
-- MQTT broker
-
-## Installation
-
-No manual installation is required; this integration is included with Home Assistant.
-
-## Configuration
-
-After installation, you need to configure the integration:
-
-1. Go to **Settings** > **Devices & Services**
-2. Click **Add Integration**
-3. Search for "Eway"
-4. Enter your MQTT configuration:
-    - **MQTT Host**: Your MQTT broker address
-    - **MQTT Port**: MQTT broker port (default: 1883)
-    - **MQTT Username**: Username for MQTT authentication
-    - **MQTT Password**: Password for MQTT authentication
-    - **Device ID**: Your Eway device identifier
-    - **Device Serial Number**: Your device's serial number
-    - **Device Model**: Your device's model code
-    - **Scan Interval**: Data update interval in seconds (default: 30)
-
-### Example MQTT Configuration
-
-```yaml
-# Example configuration.yaml (if using YAML configuration)
-eway:
-  mqtt_host: "your-mqtt-broker.com"
-  mqtt_port: 1883
-  mqtt_username: "your_username"
-  mqtt_password: "your_password"
-  device_id: "your_device_id"
-  device_sn: "your_device_serial"
-  device_model: "your_device_model"
-  scan_interval: 30
-```
+- **Energy today**: Today's energy production (kWh)
+- **Energy total**: Total energy production (kWh)
+- **Error code**: Device error code (if any)
+- **Working duration**: Total working time (seconds)
+- **Device Serial Number**: Your device's serial number
+- **Device Model**: Your device's model code
+- **Scan Interval**: Data update interval in seconds (default: 30)
 
 ## MQTT Topics
 
 The integration uses the following MQTT topic structure:
 
- -`{device_id}/{device_sn}/data/post` - Device data updates
- -`{device_id}/{device_sn}/info/post` - Device information updates
- -`{device_id}/{device_sn}/data/request` - Request device data
- -`{device_id}/{device_sn}/info/request` - Request device information
+`{device_id}/{device_sn}/data/post`  - Device data updates  
+`{device_id}/{device_sn}/info/post`  - Device information updates  
+`{device_id}/{device_sn}/data/request`  - Request device data  
+`{device_id}/{device_sn}/info/request`  - Request device information
 
 ### Data Format
 
@@ -131,19 +95,19 @@ Device data is published as JSON array:
 
 ```json
 [
-  {
-    "sort": 0,
-    "inputVoltage": 35.2,
-    "inputCurrent": 7.1,
-    "gridVoltage": 230.2,
-    "gridFreq": 50.0,
-    "genPower": 250.5,
-    "genPowerToday": 12500,
-    "genPowerTotal": 1250,
-    "temperature": 45.2,
-    "errCode": 0,
-    "duration": 25200
-  }
+  {
+    "sort": 0,
+    "inputVoltage": 35.2,
+    "inputCurrent": 7.1,
+    "gridVoltage": 230.2,
+    "gridFreq": 50.0,
+    "genPower": 250.5,
+    "genPowerToday": 12500,
+    "genPowerTotal": 1250,
+    "temperature": 45.2,
+    "errCode": 0,
+    "duration": 25200
+  }
 ]
 ```
 
@@ -151,23 +115,29 @@ Device data is published as JSON array:
 
 ```json
 {
-  "netFirmVer": 1.2,
-  "appFirmVer": 2.1,
-  "wifiSsid": "MyWiFi",
-  "ip": "192.168.1.100",
-  "wifiIsNormal": 0,
-  "isLock": 0,
-  "board": []
+  "netFirmVer": 1.2,
+  "appFirmVer": 2.1,
+  "wifiSsid": "MyWiFi",
+  "ip": "192.168.1.100",
+  "wifiIsNormal": 0,
+  "isLock": 0,
+  "board": []
 }
 ```
 
 ## Troubleshooting
 
-1. Ensure MQTT broker is running and accessible
-2. Check if device ID is correct
-3. Verify MQTT topics and data format
-4. Check Home Assistant logs for detailed error information
+1. Ensure MQTT broker is running and accessible.
+2. Check if the device ID is correct.
+3. Verify MQTT topics and data format.
+4. Check Home Assistant logs for detailed error information.
 
 ## Support
 
 For issues, please visit the [aioeway GitHub repository](https://github.com/PuuuTao/aioeway).
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
