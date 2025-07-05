@@ -97,7 +97,7 @@ In your automations, you could then reuse this macro by importing it:
 {{ format_entity('sensor.temperature') }}
 ```
 
-{$ endraw %}
+{% endraw %}
 
 Home Assistant also allows you to write macros with non-string return values by
 taking a named argument called `returns` and calling it with a return value.  Once created,
@@ -623,6 +623,7 @@ If there is more than one entry with the same title, the entities for all the ma
 - `labels()` returns the full list of label IDs, or those for a given area ID, device ID, or entity ID.
 - `label_id(lookup_value)` returns the label ID for a given label name.
 - `label_name(lookup_value)` returns the label name for a given label ID.
+- `label_description(lookup_value)` returns the label description for a given label ID.
 - `label_areas(label_name_or_id)` returns the list of area IDs tied to a given label ID or name.
 - `label_devices(label_name_or_id)` returns the list of device IDs tied to a given label ID or name.
 - `label_entities(label_name_or_id)` returns the list of entity IDs tied to a given label ID or name.
@@ -898,6 +899,29 @@ The temperature is {{ temp.temperature }}{{ temp.unit }}
 
 ```text
 The temperature is 25°C
+```
+
+{% endraw %}
+
+`from_json(default)` function will attempt to convert the input to `json`. If that fails, returns the `default` value, or if omitted raises an error.
+
+#### Template
+
+{% raw %}
+
+```text
+{% set result = 'not json'|from_json('not json') %}
+The value is {{ result }}
+```
+
+{% endraw %}
+
+#### Output
+
+{% raw %}
+
+```text
+The value is not json
 ```
 
 {% endraw %}

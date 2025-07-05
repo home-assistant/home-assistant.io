@@ -11,6 +11,7 @@ ha_codeowners:
   - '@emontnemery'
 ha_domain: meater
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---
