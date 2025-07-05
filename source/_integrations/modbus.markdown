@@ -762,11 +762,87 @@ climates:
           required: true
           type: [integer, list]
         values:
-          description: "Mapping between the register values and Fan modes
-            This is typically used to control one of: Speed, Direction or On/Off state."
+          description: >
+            Mapping between the register values and Fan modes
+            You can provide either:
+            - a **flat mapping** directly in `values`, or
+            - separate mappings using `read_values` and `write_values`.
+            This is typically used to control one of: Speed, Direction, or On/Off state.
           required: true
           type: map
           keys:
+            # Optional nesting for advanced mapping
+            read_values:
+              description: "Mapping of values used when reading fan mode from the register."
+              required: false
+              type: map
+              keys:
+                state_fan_on:
+                  description: "Value corresponding to Fan On mode."
+                  type: integer
+                state_fan_off:
+                  description: "Value corresponding to Fan Off mode."
+                  type: integer
+                state_fan_low:
+                  description: "Value corresponding to Fan Low mode."
+                  type: integer
+                state_fan_medium:
+                  description: "Value corresponding to Fan Medium mode."
+                  type: integer
+                state_fan_high:
+                  description: "Value corresponding to Fan High mode."
+                  type: integer
+                state_fan_auto:
+                  description: "Value corresponding to Fan Auto mode."
+                  type: integer
+                state_fan_top:
+                  description: "Value corresponding to Fan Top mode."
+                  type: integer
+                state_fan_middle:
+                  description: "Value corresponding to Fan Middle mode."
+                  type: integer
+                state_fan_focus:
+                  description: "Value corresponding to Fan Focus mode."
+                  type: integer
+                state_fan_diffuse:
+                  description: "Value corresponding to Fan Diffuse mode."
+                  type: integer
+            write_values:
+              description: "Mapping of values used when writing fan mode to the register."
+              required: false
+              type: map
+              keys:
+                state_fan_on:
+                  description: "Value corresponding to Fan On mode."
+                  type: integer
+                state_fan_off:
+                  description: "Value corresponding to Fan Off mode."
+                  type: integer
+                state_fan_low:
+                  description: "Value corresponding to Fan Low mode."
+                  type: integer
+                state_fan_medium:
+                  description: "Value corresponding to Fan Medium mode."
+                  type: integer
+                state_fan_high:
+                  description: "Value corresponding to Fan High mode."
+                  type: integer
+                state_fan_auto:
+                  description: "Value corresponding to Fan Auto mode."
+                  type: integer
+                state_fan_top:
+                  description: "Value corresponding to Fan Top mode."
+                  type: integer
+                state_fan_middle:
+                  description: "Value corresponding to Fan Middle mode."
+                  type: integer
+                state_fan_focus:
+                  description: "Value corresponding to Fan Focus mode."
+                  type: integer
+                state_fan_diffuse:
+                  description: "Value corresponding to Fan Diffuse mode."
+                  type: integer
+            # Flat mapping fallback
             state_fan_on:
               description: "Value corresponding to Fan On mode."
               required: false
