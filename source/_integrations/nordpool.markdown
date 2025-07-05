@@ -168,7 +168,7 @@ data:
 
 The integration can also provide price indices for any date with published prices. Use the "Get price indices for date" action to retrieve pricing information with a custom resolution time.
 
-The areas, currency and resolution parameters are optional. If omitted, the values configured in the integration will be used and for resolution it will default to 60 minutes.
+The areas, currency, and resolution parameters are optional. If omitted, the values configured in the integration will be used and for resolution it will default to 60 minutes.
 
 {% configuration_basic %}
 Nord Pool configuration entry:
