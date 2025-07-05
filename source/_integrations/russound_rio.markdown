@@ -104,7 +104,7 @@ target:
   entity_id: media_player.russound_deck
 data:
   media_content_type: "preset"
-  media_content_id: 1,8"
+  media_content_id: "1,8"
 ```
 
 ## Troubleshooting
