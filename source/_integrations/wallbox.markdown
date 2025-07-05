@@ -72,6 +72,7 @@ The {% term integration %} adds a select {% term entity %} to control solar char
 ## Switch
 
 The {% term integration %} adds a switch {% term entity %}, allowing you to pause/resume the charging process.
+
 ## Data updates
 
 Data is refreshed once every minute. Note that this update interval has been chosen in conjunction with Wallbox to prevent overloading their infrastructure. Altering this refresh rate is not recommended.
