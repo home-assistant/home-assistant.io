@@ -71,7 +71,6 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 
 ### Binary sensors
 
-- **Online**: Indicates if you are actively using a device that is connected to the PlayStation Network.
 - **Subscribed to PlayStation Plus**: Indicates if you have an active PlayStation Plus membership.
 
 ## Data updates
