@@ -1055,7 +1055,7 @@ Light entities can only be created from YAML.
 
 ```yaml
 # Example state-based configuration.yaml entry
-light:
+template:
   - light:
       - name: "Theater Lights"
         level: "{{ state_attr('sensor.theater_brightness', 'lux')|int }}"
