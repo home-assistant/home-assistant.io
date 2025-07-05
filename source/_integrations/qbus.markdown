@@ -3,11 +3,14 @@ title: Qbus
 description: Instructions on how to integrate your Qbus installation with Home Assistant.
 ha_category:
   - Climate
+  - Cover
+  - Hub
   - Light
   - Scene
   - Switch
 ha_platforms:
   - climate
+  - cover
   - light
   - scene
   - switch
@@ -45,10 +48,11 @@ There is currently support for the following **Qbus** products within Home Assis
 
 ## Available entities
 
-- **Climate**: manages thermostats by setting temperature and choosing presets.
-- **Light**: controls dimmer lights, allowing both on/off functionality and brightness adjustment.
-- **Scene**: activates predefined scenes.
-- **Switch**: toggles on/off outputs.
+- **Climate**: manage thermostats by setting temperature and choosing presets.
+- **Cover**: operate covers with support for actions like open, close, stop, position adjustment, and tilt — depending on your setup.
+- **Light**: control dimmer lights, allowing both on/off functionality and brightness adjustment.
+- **Scene**: activate predefined scenes.
+- **Switch**: toggle on/off outputs.
 
 ## Removing the integration
 

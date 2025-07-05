@@ -45,6 +45,7 @@ The following selectors are currently available:
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
+- [Statistic selector](#statistic-selector)
 - [Target selector](#target-selector)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
@@ -154,7 +155,7 @@ device:
         When set, the list of areas is limited to areas with devices that have
         the set model ID.
       type: string
-      required: false      
+      required: false
 entity:
   description: >
     When entity options are provided, the list of areas is filtered by areas
@@ -570,7 +571,7 @@ filter:
       description: >
         When set, the list of devices is limited to devices that have the set model ID.
       type: string
-      required: false      
+      required: false
 multiple:
   description: >
     Allows selecting multiple devices. If set to `true`, the resulting value of
@@ -607,7 +608,7 @@ device:
   filter:
     - integration: deconz
       manufacturer: Philips
-      model: RWL021  
+      model: RWL021
   entity:
     - domain: sensor
       device_class: battery
@@ -634,7 +635,7 @@ enable_millisecond:
   description: When `true`, the duration selector will allow selecting milliseconds.
   type: boolean
   default: false
-  required: false  
+  required: false
 {% endconfiguration %}
 
 The output of this selector is a mapping of the time values the user selected.
@@ -756,7 +757,7 @@ entity:
 
 ## Floor selector
 
-The floor selector shows a floor finder that can pick 
+The floor selector shows a floor finder that can pick
 floors based on the selector configuration. The value of the input will be the
 floor ID. If `multiple` is set to `true`, the value is a list of floor IDs.
 
@@ -807,7 +808,7 @@ device:
         When set, the list only includes floors with devices that have
         the set model ID.
       type: string
-      required: false      
+      required: false
 entity:
   description: >
     When entity options are provided, the list only includes floors
@@ -1024,14 +1025,33 @@ The media selector is a powerful selector that allows a user to easily select
 media to play on a media device. Media can be a lot of things, for example,
 cameras, local media, text-to-speech, Home Assistant Dashboards, and many more.
 
-The user selects the device to play media on, and automatically limits the
-selectable media suitable for the selected device.
+You are prompted to select the device used to play media. Once the device is selected, the media selector only shows media that is suitable for this device.
 
 ![Screenshot of the Media selector](/images/blueprints/selector-media.png)
+
+To ask the user to select a media device and suitable media, you can use the
+media selector without any options:
 
 ```yaml
 media:
 ```
+
+You can also use the media selector with an optional `accept` filter to limit the
+media types that can be selected. The user will not be asked to pick a device.
+
+```yaml
+media:
+  accept:
+    - image/*
+```
+
+{% configuration media %}
+accept:
+  description: >
+    List of media types the user is allowed to select.
+  type: list
+  required: false
+{% endconfiguration %}
 
 The output of the media selector, is an mapping with information about
 the selected media device and the selected media to play. There is also
@@ -1042,6 +1062,25 @@ Example output:
 
 ```yaml
 entity_id: media_player.living_room
+media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+media_content_type: provider
+metadata:
+  title: TTS Message
+  thumbnail: https://brands.home-assistant.io/_/cloud/logo.png
+  media_class: app
+  children_media_class: null
+  navigateIds:
+    - {}
+    - media_content_type: app
+      media_content_id: media-source://tts
+    - media_content_type: provider
+      media_content_id: >-
+        media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+```
+
+Example output if accept filter is used. Note that the `entity_id` is not present:
+
+```yaml
 media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
 media_content_type: provider
 metadata:
@@ -1101,6 +1140,15 @@ mode:
   type: string
   required: false
   default: slider
+translation_key:
+  description: >
+    Allows translations provided by an integration where `translation_key`
+    is the translation key that is providing the unit_of_measurement string
+    translation. See the documentation on
+    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    for more information.
+  type: string
+  required: false    
 {% endconfiguration %}
 
 The output of this selector is a number, for example: `42`
@@ -1135,15 +1183,78 @@ number:
 
 The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries containing data for actions. The value of the input will contain the provided data.
 
-![Screenshot of an object selector](/images/blueprints/selector-object.png)
+When used without options, the selector will accept a free form object.
 
-This selector does not have any other options; therefore, it only has its key.
+![Screenshot of an object selector](/images/blueprints/selector-object.png)
 
 ```yaml
 object:
 ```
 
+When used with a `schema`, the selector will force the object to be in this format by displaying a form.
+
+![Screenshot of an object selector](/images/blueprints/selector-object-schema.png)
+
+```yaml
+object:
+  label_key: name
+  description_key: percentage
+  multiple: true
+  fields:
+    name:
+      label: Name
+      selector:
+        text:
+    percentage:
+      label: Percentage
+      selector:
+        number:
+          unit_of_measurement: "%"
+```
+
 The output of this selector is a YAML object.
+
+{% configuration qr_code %}
+fields:
+  description: >
+    List of fields of the object.
+  type: map
+  required: false
+  keys:
+    label:
+      description: The label of the field
+      required: false
+      type: string
+    selector:
+      description: The selector to use for this field. It can be any available selector.
+      required: true
+      type: string
+label_field:
+  description: >
+    The field to use as a label. By default, it will be the first field defined. This option is only used if `fields` option set.
+  type: string
+  required: false
+description_field:
+  description: >
+    The field to use as a description. This option is only used if `fields` option set.
+  type: string
+  required: false
+translation_key:
+  description: >
+    Allows translations provided by an integration where `translation_key`
+    is the translation key that is providing the selector option strings
+    translation. See the documentation on
+    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    for more information.
+  type: string
+  required: false
+multiple:
+  description: >
+    Allows selecting multiple options. If set to `true`, the resulting value of this selector will be a list instead of a single string value. This option is only used if `fields` option set.
+  type: boolean
+  required: false
+  default: false
+{% endconfiguration %}
 
 ## QR code selector
 
@@ -1313,6 +1424,26 @@ prettified name shown in the frontend).
 
 For example: `heat_cool`.
 
+## Statistic selector
+
+The statistic selector selects the statistic ID of an entity that records
+long-term statistics. It may resemble an entity ID (like `sensor.temperature`),
+or an external statistic ID (like `external:temperature`).
+
+![Screenshot of a statistic selector](/images/blueprints/selector-statistic.png)
+
+{% configuration statistic %}
+multiple:
+  description: >
+    If set to true, the selector returns a list of statistic IDs.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is a string representing a statistic ID, or
+a list of statistic IDs if `multiple` is set to `true`.
+
 ## Target selector
 
 The target selector is a rather special selector, allowing the user to select
@@ -1361,7 +1492,7 @@ device:
     model_id:
       description: When set, the targets are limited to devices that have the set model ID.
       type: string
-      required: false      
+      required: false
 entity:
   description: >
     When entity options are provided, the targets are limited by entities

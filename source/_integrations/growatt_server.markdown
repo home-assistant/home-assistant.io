@@ -24,4 +24,9 @@ Users keen to explore all current supported servers and configuration possibilit
 
 Once integrated, the sensor logs into the user's Growatt account and accesses the first "Plant." It then retrieves the inverters associated with this plant and generates sensors for these inverters, as well as overall plant sensors.
 
+## Prerequisites
+
+- Growatt account
+- Login credentials to that Growatt account, you will need them during setup of the integration
+
 {% include integrations/config_flow.md %}

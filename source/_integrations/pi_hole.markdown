@@ -22,7 +22,7 @@ ha_integration_type: integration
 ---
 
 The Pi-hole integration allows you to retrieve statistics and interact with a
-[Pi-hole](https://pi-hole.net/) system.
+[Pi-hole](https://pi-hole.net/) system (version < 6.0).
 
 {% include integrations/config_flow.md %}
 

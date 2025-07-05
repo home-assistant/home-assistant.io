@@ -825,6 +825,101 @@ blueprint:
 
 {% endraw %}
 
+### Weekday filtering
+
+Time triggers can be filtered to fire only on specific days of the week using the `weekday` option. This allows you to create automations that only run on certain days, such as weekdays or weekends.
+
+The `weekday` option accepts:
+- A single weekday as a string: `"mon"`, `"tue"`, `"wed"`, `"thu"`, `"fri"`, `"sat"`, `"sun"`
+- A list of weekdays using the expanded format
+
+#### Single weekday
+
+This example will turn on the lights only on Mondays at 8:00 AM:
+
+```yaml
+automation:
+  - triggers:
+      - trigger: time
+        at: "08:00:00"
+        weekday: "mon"
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: light.bedroom
+```
+
+#### Multiple weekdays
+
+This example will run a morning routine only on weekdays (Monday through Friday) at 6:30 AM:
+
+```yaml
+automation:
+  - triggers:
+      - trigger: time
+        at: "06:30:00"
+        weekday:
+          - "mon"
+          - "tue"
+          - "wed"
+          - "thu"
+          - "fri"
+    actions:
+      - action: script.morning_routine
+```
+
+#### Weekend example
+
+This example demonstrates a different wake-up time for weekends:
+
+```yaml
+automation:
+  - alias: "Weekday alarm"
+    triggers:
+      - trigger: time
+        at: "06:30:00"
+        weekday:
+          - "mon"
+          - "tue"
+          - "wed"
+          - "thu"
+          - "fri"
+    actions:
+      - action: script.weekday_morning
+
+  - alias: "Weekend alarm"
+    triggers:
+      - trigger: time
+        at: "08:00:00"
+        weekday:
+          - "sat"
+          - "sun"
+    actions:
+      - action: script.weekend_morning
+```
+
+#### Combined with input datetime
+
+The `weekday` option works with all time formats, including input datetime entities:
+
+```yaml
+automation:
+  - triggers:
+      - trigger: time
+        at: input_datetime.work_start_time
+        weekday:
+          - "mon"
+          - "tue"
+          - "wed"
+          - "thu"
+          - "fri"
+    actions:
+      - action: notify.mobile_app
+        data:
+          title: "Work Day!"
+          message: "Time to start working"
+```
+
 ## Time pattern trigger
 
 With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value (when using the web interface this is required, the fields cannot be left empty).
@@ -985,7 +1080,7 @@ additional event data available for use by an automation.
 
 ## Sentence trigger
 
-A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). Sentence triggers only work with Home Assistant Assist. External conversation agents such as OpenAI or Google Generative AI cannot be used to trigger automations.
+A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). Sentence triggers work with Home Assistant Assist. They will not work with external conversation agents such as OpenAI or Google Generative AI unless "Prefer handling commands locally" is enabled in the conversation agent settings.
 
 Sentences are allowed to use some basic [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax) like optional and alternative words. For example, `[it's ]party time` will match both "party time" and "it's party time".
 

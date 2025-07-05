@@ -40,25 +40,160 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 {% include integrations/config_flow.md %}
 
+
 ## Supported devices
 
+### Plugs and switches
+
+- [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)
+- [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
+- [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
+- [Plug Mini (WoPlug)](https://www.switch-bot.com/products/switchbot-plug-mini)
+- [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
 - Plug (Wi-Fi only, only available in Japan)
-- Plug Mini, both the original and HomeKit-enabled
+
+### Locks
+
+- [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
+- [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
+
+### Sensors
+
+- [Meter](https://switch-bot.com/pages/switchbot-meter)
+- [Meter Plus](https://switch-bot.com/pages/switchbot-meter-plus)
+- [Indoor/Outdoor Meter (WoIOSensorTH)](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) 
+- [Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
+- [Meter Pro CO2 Monitor](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
+
+### Hubs
+
+- [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
 - IR appliances exposed through the different hubs:
-  - ON/OFF for all appliance types excepted "Others"
-  - Air Conditioner
-- Lock
-- Lock Pro
-- Meter
-- MeterPlus
-- MeterPro
-- MeterPro (C02)
-- Outdoor Meter
-- Vacuum K10+, K10+ pro, S1, S1 Plus
-- Hub 2
-- Relay Switch 1
-- Relay Switch 1PM
-- Bot (as a Switch in `switchMode` and `customizeMode`, as a Button in `pressMode`)
+  - ON/OFF for all appliance types except for *Others*
+  - Change temperature and mode for *Air Conditioner*
+
+### Vacuums
+
+- [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
+- [K10+ Pro](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10-pro)
+- [S1](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner?&variant=41850919420079)
+- [S1 Plus](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner)
+
+## Supported functionality
+
+### Plugs and switches
+
+#### Bot
+
+Features:
+- acted as a Switch in `switchMode` and `customizeMode`, as a Button in `pressMode`
+- turn on or off
+- press
+- get battery level
+
+#### Plug Mini
+
+Features:
+- turn on or off
+- get power consumption readings
+
+#### Relay Switch 1
+
+Features:
+- turn on or off
+
+#### Relay Switch 1PM
+
+Features:
+- turn on or off
+- get power
+- get voltage
+- get current
+
+#### Plug
+
+Features:
+- turn on or off
+
+
+### Sensors
+
+#### Meter
+
+Features:
+- get temperature
+- get humidity
+- get battery level
+
+#### Meter Plus
+
+Features:
+- get temperature
+- get humidity
+- get battery level
+
+#### Indoor/Outdoor Meter
+
+Features:
+- get temperature
+- get humidity
+- get battery level
+
+#### Meter Pro
+
+Features:
+- get temperature
+- get humidity
+- get battery level
+
+#### Meter Pro CO2 Monitor
+
+Features:
+- get temperature
+- get humidity
+- get carbon dioxide
+- get battery level
+
+### Locks
+
+#### Lock
+
+Features:
+- Lock or unlock
+- open or closed state
+- calibration state
+- get battery level
+
+#### Lock Pro
+
+Features:
+- Lock or unlock
+- open or closed state
+- calibration state
+- get battery level
+
+### Hubs
+
+Some of the hubs can be served as a bridge while the sensor data can be retrieved. Hub 2 displays temperature and humidity through a sensor cable. Without a digital display, Hub Mini Matter Enabled can also read from a sensor cable.
+
+#### Hub 2
+
+Features:
+- get temperature
+- get humidity
+
+
+### Vacuums
+
+Vacuum entities are added for K10+, K10+ Pro, S1, S1 Plus.
+
+Features:
+- get states
+- start/clean
+- pause
+- set cleaning mode
+- return to base
+- get battery
 
 ## Important considerations
 

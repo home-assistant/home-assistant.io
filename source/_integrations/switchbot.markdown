@@ -4,12 +4,13 @@ description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary sensor
   - Cover
+  - Fan
+  - Humidifier
   - Light
   - Lock
   - Sensor
   - Switch
   - Vacuum
-  - Fan
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
@@ -18,7 +19,10 @@ ha_codeowners:
   - '@murtas'
   - '@Eloston'
   - '@dsypniewski'
+  - '@zerzhang'
 ha_domain: switchbot
+works_with:
+  - bluetooth
 ha_bluetooth: true
 ha_platforms:
   - binary_sensor
@@ -33,6 +37,7 @@ ha_platforms:
   - vacuum
 ha_config_flow: true
 ha_integration_type: integration
+ha_quality_scale: gold
 ---
 
 The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, hubs and etc.
@@ -117,6 +122,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
 - [Smart Ceiling Light (WoCeiling)](https://www.switchbot.jp/products/switchbot-ceiling-light)
+- [Strip Light 3](https://www.switch-bot.com/products/switchbot-led-strip-light-3)
+- [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 
 ### Locks
 
@@ -128,6 +135,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Humidifiers
 
 - [Humidifier (WoHumi)](https://www.switchbot.jp/products/switchbot-smart-humidifier)
+- [Evaporative Humidifier](https://www.switch-bot.com/products/switchbot-evaporative-humidifier-auto-refill)
 
 ### Sensors
 
@@ -163,6 +171,27 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 
+## Works with Home Assistant
+
+SwitchBot is committed to making sure their products are up-to-date and ready to use in Home Assistant.
+Devices are certified for both Bluetooth and Matter.
+
+The following devices are certified for Bluetooth:
+- [SwitchBot Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
+- [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
+- [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
+- [SwitchBot Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
+- [SwitchBot Meter](https://www.switch-bot.com/products/switchbot-meter)
+- [SwitchBot Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
+- [SwitchBot Meter Pro CO2](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
+- [SwitchBot Indoor/Outdoor Thermo-Hygrometer](https://www.switch-bot.com/products/switchbot-indoor-outdoor-thermo-hygrometer)
+- [SwitchBot Curtain 3](https://www.switch-bot.com/products/switchbot-curtain-3)
+- [SwitchBot Contact Sensor](https://www.switch-bot.com/products/contact-sensor)
+- [SwitchBot Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+- [SwitchBot Lock Pro](https://www.switch-bot.com/products/switchbot-lock-pro)
+
+To see the list of SwitchBot Matter certified devices, visit the [SwitchBot Matter](switchbot_matter.markdown) page.
+
 ## Supported functionality
 
 ### Common
@@ -182,6 +211,7 @@ Switch entities are added for Bot, Plug Mini, and Relay Switch.
 Password protection: You can set a device password in the SwitchBot app to prevent people nearby take control of your device. When a password is set, you need to enter the correct password in order to add it to the integrations.
 
 Features:
+
 - turn on or off
 - press
 - get battery level
@@ -192,6 +222,7 @@ Attributes:
 #### Plug Mini
 
 Features:
+
 - turn on or off
 - get power consumption readings
 
@@ -200,6 +231,7 @@ Features:
 This is an encrypted device.
 
 Features:
+
 - turn on or off
 
 #### Relay Switch 1PM
@@ -207,6 +239,7 @@ Features:
 This is an encrypted device.
 
 Features:
+
 - turn on or off
 - get power
 - get voltage
@@ -219,6 +252,7 @@ Cover entities are added for Curtain, Curtain 3, Blind Tilt, and Roller Shade.
 #### Curtain
 
 Features:
+
 - open/close/pause
 - set position
 - get position
@@ -229,6 +263,7 @@ Features:
 #### Curtain 3
 
 Features:
+
 - open/close/pause
 - set position
 - get position
@@ -239,6 +274,7 @@ Features:
 #### Blind Tilt
 
 Features:
+
 - close up/close down/pause
 - set position
 - get position
@@ -258,7 +294,7 @@ The close button will close the blinds to the closest closed position (either 0%
 
 ##### Simple cover template entity
 
-Some integrations may expose your SwitchBot Blind Tilt to other actions which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/cover.template), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
+Some integrations may expose your SwitchBot Blind Tilt to other actions which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/template/#cover), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
 
 {% raw %}
 
@@ -303,6 +339,7 @@ The Roller Shade is exposed as a cover entity with control of the position only:
 | >20%     | Close              |
 
 Features:
+
 - open/close/pause
 - set position
 - get position
@@ -315,6 +352,7 @@ Sensor entiteis are added for thermometer and hygrometer devices, motion sensor,
 #### Meter
 
 Features:
+
 - get temperature
 - get humidity
 - get battery level
@@ -322,6 +360,7 @@ Features:
 #### Meter Plus
 
 Features:
+
 - get temperature
 - get humidity
 - get battery level
@@ -329,6 +368,7 @@ Features:
 #### Indoor/Outdoor Meter
 
 Features:
+
 - get temperature
 - get humidity
 - get battery level
@@ -336,6 +376,7 @@ Features:
 #### Meter Pro
 
 Features:
+
 - get temperature
 - get humidity
 - get battery level
@@ -343,6 +384,7 @@ Features:
 #### Meter Pro CO2 Monitor
 
 Features:
+
 - get temperature
 - get humidity
 - get carbon dioxide
@@ -362,10 +404,13 @@ Features:
 
 - motion detection state
 - get battery level
+
 #### Water Leak Detector
+
 This is an encrypted device.
 
 Features:
+
 - leak or dry state
 - get battery level
 
@@ -378,6 +423,14 @@ Features:
 
 Light entities are added for Color Bulb, LED Strip Light, and Ceiling Light.
 
+#### Ceiling Light
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+
 #### Color Bulb
 
 Features:
@@ -385,13 +438,40 @@ Features:
 - change brightness
 - change color temperature
 - change color
+- set effect
 
 #### LED Strip Light
 
 Features:
+
 - turn on or off
 - change brightness
 - change color
+- set effect
+
+#### Strip Light 3
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### Floor Lamp
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
 
 ### Locks
 
@@ -402,11 +482,18 @@ Note: The integration currently only uses the primary lock state; in dual lock m
 This is an encrypted device.
 
 Features:
+
 - Lock or unlock
 - open or closed state
 - auto-lock paused state
 - calibration state
 - get battery level
+
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
 
 #### Lock Pro
 
@@ -420,6 +507,14 @@ Features:
 - calibration state
 - get battery level
 
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
+
+
+
 #### Lock Ultra
 
 This is an encrypted device.
@@ -432,6 +527,12 @@ Features:
 - calibration state
 - get battery level
 
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
+
 #### Lock Lite
 
 This is an encrypted device.
@@ -439,8 +540,6 @@ This is an encrypted device.
 Features:
 
 - Lock or unlock
-- open or closed state
-- auto-lock paused state
 - calibration state
 - get battery level
 
@@ -474,17 +573,17 @@ Features:
 
 ### Fans
 
-Fan entities are added for Circulator Fan, Air Purifier, and Air Purifier Table
+Fan entities are added for Battery Circulator Fan/Circulator Fan, Air Purifier, and Air Purifier Table
 
-#### Circulator Fan
+#### Battery Circulator Fan/Circulator Fan
 
 Features:
-
 - turn on
 - turn off
 - set speed
 - set mode
 - oscillate left and right
+- get battery level (Battery Circulator Fan only)
 
 #### Air Purifier
 
@@ -511,10 +610,35 @@ Features:
 Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10.
 
 Features:
-
+- get states, including `cleaning`, `docked`, `idle`, `paused`, `returning`, and `error`; refer to Known limitations for more details
 - start
 - return to base
 - get battery
+
+### Humidifiers
+
+Humidifier entities are added for Humidifier and  Evaporative Humidifier.
+
+#### Humidifier
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
+
+#### Evaporative Humidifier
+
+This is an encrypted device.
+Note: Not all modes support unless you bind the temperature and humidity sensor.
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
 
 ## Data updates
 
@@ -531,9 +655,24 @@ Move the device closer, or replace the Bluetooth adapter with a faster one. See 
 
 Device names configured in the SwitchBot app are not transferred into Home Assistant.
 
+### Battery level
+
+Due to firmware limitations, early models such as **Lock** and **Lock Lite** report the battery level in coarse ranges rather than an exact value:
+
+- < 10 %  → 10  
+- 10 % – 20 % → 20  
+- 20 % – 60 % → 60  
+- ≥ 60 % → 100
+
+Refer to the latest version of the [OpenAPI doc](https://github.com/OpenWonderLabs/SwitchBotAPI) for precise definitions.
+
 ### Lock state
 
 The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
+
+### Vacuum state
+
+For robot vacuum K10+ and K10+ Pro, due to firmware implementation, it only returns these states, `cleaning` and `docked`
 
 ## Troubleshooting
 
@@ -546,8 +685,6 @@ Possible custom integration conflict, using a different version of PySwitchbot; 
 {% details "No unconfigured devices found" %}
 Make sure your devices are powered on and are in range.
 {% enddetails %}
-
-
 
 ## Examples
 
