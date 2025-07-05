@@ -75,11 +75,22 @@ The {% term integration %} adds a switch {% term entity %}, allowing you to paus
 ## Data updates
 
 Data is refreshed once every minute. Note that this update interval has been chosen in conjunction with Wallbox to prevent overloading their infrastructure. Altering this refresh rate is not recommended.
+
 ## Troubleshooting
 
-- **Setup errors**: You can only use a regular login with this integration, Google or Apple logins are not supported. You can find the serial number of your charger in the Wallbox app or on the Wallbox Portal under the Chargers section.
-- **Connection failures**: Users often report issues with the Wi-Fi reception of their charger; use a wired connection if possible. Also verify that the charger is communicating with the Wallbox Portal.
-- **Other issues**: Always first check whether the data is being received by the Wallbox Portal as this integration uses the same API, many problems are related to connectivity of the charger.
+
+### Setup errors
+
+- You can only use a regular login with this integration. 
+- Google or Apple logins are not supported. 
+- You can find the serial number of your charger in the Wallbox app or on the Wallbox Portal under the Chargers section.
+
+### Connection failures
+Users often report issues with the Wi-Fi reception of their charger; use a wired connection if possible. Also verify that the charger is communicating with the Wallbox Portal.
+
+### Other issues
+
+Always first check whether the data is being received by the Wallbox Portal as this integration uses the same API. Many problems are related to the connectivity of the charger.
 
 ## Removing the integration
 
