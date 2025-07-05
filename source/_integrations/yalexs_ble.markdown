@@ -36,8 +36,8 @@ Devices must have a Yale Access module installed to function with this {% term i
 - YRD256 (Yale Assure Lock Keypad)
 - YRD420 (Yale Assure Lock 2)
 - YRD450 (Yale Assure Lock 2 Key Free)
-- YUR/SSDL/1/SIL (Yale Unity Screen Door Lock - Australia)
-- YUR/DEL/1/SIL (Yale Unity Entrance Lock - Australia)
+- YUR/SSDL/1/SIL and MBK (Yale Unity Screen Door Lock - Australia)
+- YUR/DEL/1/SIL and MBK (Yale Unity Entrance Lock - Australia)
 - IES-D210W-G0 (Yale Smart Safe)
 - YRSM-1 (Yale Smart Safe)
 - ASL-05 (August WiFi Smart Lock - Gen 4)
@@ -50,6 +50,10 @@ These devices do not send updates, but can be locked and unlocked.
 
 - MD-04I (Yale Conexis L1 (requires yale access module), Yale Conexis L2)
 - YRCB-490 (Yale Smart Cabinet Lock)
+
+## Deadlock support
+
+Some Yale locks support a deadlock function (secure mode) for locking both the inside and outside. A secure mode lock entity (initially disabled) is exposed for all locks and can be enabled where the lock is known to support this capability.
 
 ## Troubleshooting
 
@@ -77,11 +81,11 @@ The offline key and slot number are required to operate the lock. These credenti
 
 ### Yale Access, Yale Home, or August Cloud
 
-The [August](/integrations/august) {% term integration %} can automatically provision the offline key if the configured account has the key loaded. You may need to create or use a non-primary existing account with owner-level access to the lock, as not all accounts will have the key loaded. If the lock was not discovered by Home Assistant when the cloud {% term integration %} was loaded, reload the cloud {% term integration %} once the lock has been discovered.
+The [Yale](/integrations/yale) or [August](/integrations/august) cloud {% term integration %} can automatically provision the offline key if the configured account has the key loaded. You may need to create or use a non-primary existing account with owner-level access to the lock, as not all accounts will have the key loaded. If the lock was not discovered by Home Assistant when the cloud {% term integration %} was loaded, reload the cloud {% term integration %} once the lock has been discovered.
 
 If the offline key can automatically be provisioned, you will not be asked to enter it and the {% term integration %} should be automatically added, configured and running.
 
-Most Yale branded locks can use the August cloud to obtain the keys. Accessing the August cloud to receive the key may not work unless the lock was purchased in a market that sells under both brands.
+Most Yale branded locks can use the cloud {% term integration %} to obtain the offline key. Accessing the August cloud to receive the key may only work if the lock was purchased in a market that sells under both brands and the Yale cloud should be tried for other markets.
 
 ### iOS - Yale Access App or August App
 
@@ -106,6 +110,6 @@ Root access is required to copy the `ModelDatabase.sql` from `/data/data/com.ass
 
 ### Lock frequently requires re-authentication
 
-If you use the key from an iOS or Android device that you also frequently use to operate the lock, you may find that the key is rotated, and the integration can no longer authenticate. If you are using the [August](/integrations/august) integration to keep the key up to date, it may need to be reloaded to update the key. 
+If you use the key from an iOS or Android device that you also frequently use to operate the lock, you may find that the key is rotated, and the integration can no longer authenticate. If you are using the [Yale](/integrations/yale) or [August](/integrations/august) integration to keep the key up to date, it may need to be reloaded to update the key. 
 
-To avoid the problem, create a second owner account in the August app, log in to it once on your iOS or Android device, operate the locks, log out of the account, remove the August integration, and set up the August integration with the secondary owner account. This method avoids the problem because there is no longer an iOS or Android device logged into the secondary owner account that can rotate the key unexpectedly.
+To avoid the problem, create a second owner account in the Yale Home or August app, log in to it once on your iOS or Android device, operate the locks, log out of the account, remove the Yale or August integration from Home Assistant, and set up the integration again with the secondary owner account. This method avoids the problem because there is no longer an iOS or Android device logged into the secondary owner account that can rotate the key unexpectedly.

@@ -15,6 +15,7 @@ ha_platforms:
   - sensor
 ha_integration_type: device
 ha_zeroconf: true
+ha_quality_scale: bronze
 ---
 
 The **Altruist** {% term integration %} connects Home Assistant to [Air Quality Sensor “Altruist“](https://robonomics.network/devices/altruist/) — a device designed for decentralized environmental monitoring. It captures noise, dust, and temperature data from the sensor over HTTP, making it available as locally usable entities within Home Assistant.

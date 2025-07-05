@@ -11,6 +11,7 @@ ha_iot_class: Calculated
 ha_qa_scale: internal
 ha_codeowners:
   - '@afaucogney'
+  - '@karwosts'
 ha_domain: derivative
 ha_config_flow: true
 ha_platforms:

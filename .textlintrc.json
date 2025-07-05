@@ -1,6 +1,20 @@
 {
   "filters": {
-    "comments": true
+    "comments": true,
+    "allowlist": {
+      "allow": [
+        "2fa:",
+        "alexa:",
+        "homeassistant:",
+        "homekit:",
+        "led:",
+        "sms:",
+        "sql:",
+        "ssl:",
+        "twitter:",
+        "url:"
+      ]
+    }
   },
   "rules": {
     "common-misspellings": {

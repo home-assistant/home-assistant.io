@@ -8,7 +8,9 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: telegram_bot
 ha_integration_type: integration
-ha_quality_scale: legacy
+ha_quality_scale: bronze
+ha_codeowners:
+  - '@hanwg'
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
