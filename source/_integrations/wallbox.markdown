@@ -86,6 +86,7 @@ Data is refreshed once every minute. Note that this update interval has been cho
 - You can find the serial number of your charger in the Wallbox app or on the Wallbox Portal under the Chargers section.
 
 ### Connection failures
+
 Users often report issues with the Wi-Fi reception of their charger; use a wired connection if possible. Also verify that the charger is communicating with the Wallbox Portal.
 
 ### Other issues
