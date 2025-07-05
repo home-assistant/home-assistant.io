@@ -12,12 +12,13 @@ ha_config_flow: true
 ha_domain: ohme
 ha_platforms:
   - button
+  - diagnostics
   - number
   - select
   - sensor
   - switch
   - time
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_integration_type: device
 ---
 
@@ -103,6 +104,9 @@ The Ohme integration provides the following entities.
 
 #### Switches
 
+- **Price cap**
+  - **Description**: Prevents charging when the electricity price exceeds a defined threshold. The threshold can be set by the service `ohme.set_price_cap`. ***Not available with some energy providers and tariffs.***
+  - **Available for devices**: all
 - **Lock buttons**
   - **Description**: Disable the controls on the device.
   - **Available for devices**: all
@@ -131,6 +135,66 @@ The `ohme.list_charge_slots` action is used to fetch a list of charge slots from
 |------------------------|----------|--------------------------------------------------------------|
 | `config_entry`         | No       | The config entry of the account to get the charge list from. |
 
+### Action: Set price cap
+
+The `ohme.set_price_cap` action is used to set the price cap threshold. This can be toggled by the switch **Price cap**.
+
+| Data attribute         | Optional | Description                                                 |
+|------------------------|----------|-------------------------------------------------------------|
+| `config_entry`         | No       | The config entry of the account to apply the price cap to.  |
+| `price_cap`            | No       | Threshold in 1/100ths of your local currency.               |
+
+
+## Use cases
+
+This integration enables several use cases to optimise efficiency of a solar and/or battery storage system.
+
+### Solar charging
+Use the charger mode to maximize solar consumption:
+- Set the charger to "Paused" when solar production is low
+- Switch to "Max charge" during peak solar hours
+
+### Battery storage
+If you have a home battery system:
+- Charge your EV when the battery is above certain capacity
+- Pause EV charging when the battery needs replenishing
+
+## Examples
+
+### Send a notification on status change
+
+To be notified when the status of the charger changes, for example when a vehicle is plugged in, you can use an automation.
+
+{% raw %}
+```yaml
+# Example automation
+triggers:
+  - trigger: state
+    entity_id:
+      - sensor.ohme_home_pro_status
+    from: unplugged
+actions:
+  - action: notify.mobile_app_iphone
+    data:
+      message: "Vehicle plugged in"
+```
+{% endraw %}
+
+
+## Troubleshooting
+
+### Entities are shown as unavailable
+You may need to power cycle your charger. Please see the [manufactuer's guidance](https://ohme-ev.com/support/my-charger-is-offline/) for the procedure.
+
+## Data updates
+
+This integration fetches data every 30 seconds with the following exceptions:
+- CT readings are fetched every minute.
+- Device settings are fetched every 30 minutes.
+
+## Known limitations
+
+The integration does not provide the ability to manage vehicles or routines, which can instead be managed on the manufacturer's app.
 
 ## Removing the integration
 

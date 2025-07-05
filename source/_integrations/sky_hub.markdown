@@ -5,8 +5,6 @@ ha_category:
   - Presence detection
 ha_release: 0.37
 ha_domain: sky_hub
-ha_codeowners:
-  - '@rogerselwyn'
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker

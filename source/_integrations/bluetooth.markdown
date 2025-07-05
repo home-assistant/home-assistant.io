@@ -55,10 +55,8 @@ For Bluetooth to function on Linux systems:
 
 - Home Assistant Operating System: Upgrade to Home Assistant OS version 9.0 or later.
 - Home Assistant Container: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
-- Home Assistant Supervised: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
-- Home Assistant Core: The system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant.
 
-### Additional details for Container, Core, and Supervised installs
+### Additional details for Container
 
 {% details "Making the DBus socket available in the Docker container" %}
 
@@ -173,7 +171,7 @@ The following requirements must be met for an adapter to be labeled as High Perf
 - Establish a connection in about 1s or less
 - Process at least one advertisement per second from a device without dropping data
 - 95% of connection attempts are successful within two tries
-- Meets the above requirements with Home Assistant Core 2022.11.1 or later and Home Assistant Operating System 9.3 or later
+- Meets the above requirements with Home Assistant 2022.11.1 or later and Home Assistant Operating System 9.3 or later
 - Must be able to hold five (5) connections at the same time
 
 Performance testing used the following hardware:
@@ -274,6 +272,14 @@ The Bluetooth integration supports receiving advertisement data from external ad
 
 When adding multiple remote adapters to increase range or available connection slots, separate them enough to avoid interference with each other.
 
+For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/index.html).
+
+{% tip %}
+- The `-EA` variant offers significantly better RF performance compared to the standard non-`EA` model.  
+- If the `ESP32-POE-ISO-EA` is out of stock, the `ESP32-POE-ISO-EA-IND` is a good alternative.  
+- The `ESP32-POE-ISO-WROVER-EA` model is **not recommended**, as it uses a different pin configuration and is not compatible with ESPHome ready-made projects.
+{% endtip %}
+
 The following remote adapters are supported:
 
 - [ESPHome](https://esphome.io/projects/?type=bluetooth)
@@ -290,6 +296,14 @@ The following remote adapters are supported:
 Bluetooth advertisement bundling reduces traffic between Home Assistant and the proxy, significantly improving performance and reducing the time that Bluetooth and WiFi compete for air time for devices that share a radio.
 
 ## Troubleshooting
+
+### Advertisement monitor
+
+Once Bluetooth is configured, the {% my bluetooth_advertisement_monitor %} will allow you to view devices in range that are advertising.
+
+### Connection monitor
+
+Once Bluetooth is configured, the {% my bluetooth_connection_monitor %} will allow you to view currently connected devices.
 
 ### Improving connection times
 

@@ -9,7 +9,7 @@ ha_domain: system_log
 ha_integration_type: system
 ---
 
-The `system_log` integration stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to **Settings** -> **System** -> **Logs**. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.
+The `system_log` integration stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to {% my logs title="**Settings** > **System** > **Logs**" %} (condensed and full raw logs are available). In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored inside a condensed log. Older entries are automatically discarded from a condensed log; a full raw log keeps all records. It is possible to change the number of stored log entries in a condensed log using the parameter `max_entries`.
 
 ## Configuration
 
@@ -22,7 +22,7 @@ system_log:
 
 {% configuration %}
 max_entries:
-  description: Number of entries to store (older entries are discarded).
+  description: Number of entries to store in a condensed log (older entries are discarded).
   required: false
   type: integer
   default: 50

@@ -41,7 +41,7 @@ Password:
   description: "The password used to access the FYTA account."
 {% endconfiguration_basic %}
 
-## Configuration options
+## Configuration
 
 The integration has no additional configuration options.
 
@@ -62,7 +62,7 @@ The following binary sensors are currently available per plant:
 
 ### Image
 
-The picture created or chosen in the FYTA app is also exposed to Home Assistant.
+An image entity for both the generic plant image and the user image is added. You may use those for your dashboard.
 
 ### Sensors
 
@@ -115,7 +115,7 @@ The integration provides the data exposed by means of the plant API. The light m
 
 Please note that in order to be able to access your plant data over the API, you need a [FYTA hub](https://fyta.de/collections/all/products/single-hub) that uploads the data from the Beam sensor to the FYTA server. Alternatively, the mobile app can serve as a gateway to upload the data from the Beam to the server. No direct connection to the FYTA Beam is supported (as the Beam only provides raw data, that needs to be processed on the FYTA server).
 
-## Remove integration
+## Removing the integration
 
 For this integration the general process to remove integrations applies:
 

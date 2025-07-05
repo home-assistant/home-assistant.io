@@ -21,6 +21,26 @@ Features can be enabled on the following cards:
 - [Humidifier](/dashboards/humidifier/)
 - [Thermostat](/dashboards/thermostat/)
 - [Tile](/dashboards/tile/)
+- [Area](/dashboards/area/)
+
+## Customizing features
+
+1. Edit the card and open the **Features** section.
+2. To add an additional feature to your card, select **Add feature**.
+   - **Info**: The available options for a feature depend on the entity and type of feature.
+     - For example, not all entities have a [toggle](#toggle) or a [counter-action](#counter-actions).
+3. On tile cards, you can adjust the feature position.
+   - Under **Features** > **Feature position**, select **Bottom** or **Inline**:
+
+   ![Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.](/images/dashboards/features/tile-card-feature-position.png)
+
+4. Reordering features:
+   - Some features of the tile card, such as the presets or the HVAC modes of a thermostat, can show buttons.
+   - To reorder the buttons, enable **Customize** and drag and drop the buttons into position.
+   - If you don't like the buttons, you can replace them by a **Dropdown** instead.
+     - Under **Style**, select the **Dropdown** option.
+  
+    ![Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.](/images/blog/2024-05/tile-card-reorder-features.gif)
 
 ## Alarm modes
 
@@ -701,3 +721,31 @@ operation_modes:
   type: list
 {% endconfiguration %}
 
+## Area control
+
+Widget that displays buttons to control different types of entity in your area.
+
+<p class='img'>
+  <img src='/images/dashboards/features/area_controls.png' alt='Screenshot of the area card with the area controls feature'>
+  Screenshot of the area card with the area controls feature
+</p>
+
+```yaml
+features:
+  - type: "area-controls"
+    controls:
+      - light
+      - fan
+      - switch
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`area-controls`"
+  type: string
+controls:
+  required: true
+  description: List of controls to show on the card. The list can contain `light`, `fan`, and `switch`.
+  type: list
+{% endconfiguration %}

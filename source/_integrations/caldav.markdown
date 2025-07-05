@@ -196,16 +196,6 @@ actions that can be used in automations.
 
 ## Troubleshooting
 
-{% details "Home Assistant Core Installations" %}
-
-You might need some additional system packages to compile the Python CalDAV library. On a Debian based system, install them by:
-
-```bash
-sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev
-```
-
-{% enddetails %}
-
 {% details "iCloud" %}
 
 You may be required to use [app specific passwords](https://support.apple.com/en-us/102654)
