@@ -135,7 +135,7 @@ Depending on the supported features of the camera, number entities are added for
 
 - Optical zoom control
 - Focus control
-- Floodlight turn on brightness
+- Floodlight turn on brightness+
 - Infrared light brightness
 - Volume (Camera)
 - Alarm volume (Home Hub)
@@ -165,6 +165,7 @@ Depending on the supported features of the camera, number entities are added for
 - AI linger delay+ (up to 3 zones)
 - AI item forgotten delay+ (up to 3 zones)
 - AI item taken delay+ (up to 3 zones)
+- Baby cry sensitivity
 - Auto quick reply time
 - Auto track limit left
 - Auto track limit right
@@ -279,6 +280,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Record
 - Manual record+
 - Privacy mode+
+- Privacy mask
 - Push notifications
 - Hub ringtone on event
 - Email on event
@@ -289,6 +291,8 @@ Depending on the supported features of the camera, switch entities are added for
 - Hardwired chime enabled*
 
 When the **Privacy mode** is ON, almost all other entities will be unavailable because the camera shuts down the API and camera streams. When turning OFF the **Privacy mode**, all entities will become available again. Take this into consideration when making automations; ensure the **Privacy mode** is OFF before changing camera settings using other entities.
+
+The **Privacy mask** switch will only be added when the privacy mask is configured in the Reolink app/client under **settings** (gear icon) > **Display** > **Privacy Mask**. After adding the privacy mask, the reolink integration in Home Assistant needs to be reloaded for the **Privacy mask** switch to show up.
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
 
@@ -397,6 +401,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - **[Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)**
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
+- [Reolink Floodlight PoE and Wi-Fi*](https://reolink.com/product/reolink-floodlight/)
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
 - **[Reolink TrackMix PoE](https://reolink.com/product/reolink-trackmix-poe/)**
@@ -524,7 +529,7 @@ Removing a camera from a NVR/Home Hub can be done by deleting the device followi
 3. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
 4. From the list of integration entries, select the **x devices** underneath the integration instance of the NVR/Home Hub from which you want to remove a camera.
 5. Select the camera you want to remove from the list of devices
-6. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+6. Underneath the **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
 
 ### Removing a chime
 
@@ -533,7 +538,7 @@ Removing a chime from a doorbell can be done by deleting the chime following the
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
 2. From the list of integration entries, select the **x devices** underneath the integration instance of the Doorbell/NVR/Home Hub from which you want to remove a chime.
 3. Select the chime you want to remove from the list of devices
-4. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+4. Underneath the **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
 
 This will also decouple the chime from the doorbell in the Reolink app/client. Therefore, the chime will no longer ring when the doorbell is pressed.
 

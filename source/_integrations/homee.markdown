@@ -2,7 +2,20 @@
 title: Homee
 description: Instructions on how to setup Homee devices in Home Assistant.
 ha_category:
+  - Alarm
+  - Binary sensor
+  - Button
+  - Climate
   - Cover
+  - Event
+  - Fan
+  - Light
+  - Lock
+  - Number
+  - Select
+  - Sensor
+  - Switch
+  - Valve
 ha_config_flow: true
 ha_release: 2025.2
 ha_iot_class: Local Push
@@ -10,7 +23,7 @@ ha_codeowners:
   - '@Taraman17'
 ha_domain: homee
 ha_platforms:
-  - alarm-control-panel
+  - alarm_control_panel
   - binary_sensor
   - button
   - climate
@@ -87,7 +100,7 @@ This integration supports reconfiguration, allowing you to change the IP address
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the homee integration card.
 2. From the list of hubs, select the one you want to reconfigure.
-3. Next to the entry, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Reconfigure**.
+3. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Reconfigure**.
 
 ## Removing the integration
 

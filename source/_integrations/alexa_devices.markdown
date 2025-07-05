@@ -4,15 +4,20 @@ description: Instructions on how to integrate Alexa Devices into Home Assistant.
 ha_category:
   - Binary Sensor
   - Notify
+  - Sensor
+  - Switch
 ha_release: '2025.6'
 ha_domain: alexa_devices
 ha_config_flow: true
 ha_codeowners:
   - '@chemelli74'
-ha_iot_class: Local Polling
+ha_iot_class: Cloud Polling
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - notify
+  - sensor
+  - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -31,13 +36,13 @@ There is support for the following device families within Home Assistant:
 - **Amazon Echo Plus**
 - **Amazon Echo Show**
 - **Amazon Fire TV Stick**
-- **Fire Tablet**
+- **Amazon Fire Tablet**
 
-and all 3rd party that has Alexa capabilities built-in
+- **Third-party devices** with built-in Alexa capabilities.
 
 {% warning %}
 
-Currently, only MFA-protected Amazon accounts via the authenticator app are supported.
+This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 
 {% endwarning %}
 
@@ -77,30 +82,7 @@ automation:
       data:
         message: Welcome home Simone
       target:
-        entity_id: notify.announce_echo_dot_livingroom
-```
-
-### Automation: Start Radio on all Echo dots
-
-```yaml
-automation:
-- alias: Start Radio B.B.C.
-  id: "start_radio_bbc"
-  trigger:
-   - platform: sun
-     event: sunset
-  condition:
-    conditions:
-      - alias: "condition alias (home)"
-        condition: state
-        entity_id: group.person_family
-        state: "home"
-  action:
-    - action: notify.send_message
-      data:
-        message: Play B.B.C. on Tunein
-      target:
-        entity_id: notify.custom_everywhere
+        entity_id: notify.echo_dot_livingroom_announce
 ```
 
 ## Data updates
@@ -113,6 +95,8 @@ The **Alexa Devices** {% term integration %} provides the following entities:
 
 - Binary sensor - main and Bluetooth connectivity
 - Notify - Speak and Announce notifications
+- Sensor - temperature and illuminance sensors
+- Switch - Do not disturb
 
 ## Removing the integration
 

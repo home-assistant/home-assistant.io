@@ -2,6 +2,7 @@
 title: Google Gemini
 description: Instructions on how to integrate Google Gemini as a conversation agent
 ha_category:
+  - Text-to-speech
   - Voice
 ha_release: 2023.6
 ha_domain: google_gemini
@@ -15,6 +16,7 @@ ha_config_flow: true
 ha_platforms:
   - conversation
   - diagnostics
+  - tts
 ha_iot_class: Cloud Polling
 ---
 

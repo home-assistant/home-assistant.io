@@ -8,6 +8,7 @@ ha_category:
   - Switch
 ha_platforms:
   - climate
+  - cover
   - light
   - scene
   - switch

@@ -115,7 +115,7 @@ The response data field is a mapping of called target entities, each containing 
 
 {% details "Example template sensor using get_forecasts" %}
 
-Example template sensor that contains the hourly forecast
+Example [template sensor](/integrations/template#yaml-configuration) that contains the hourly forecast
 
 {% raw %}
 

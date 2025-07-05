@@ -5,6 +5,7 @@ ha_category:
   - Media source
   - Multimedia
   - Sensor
+  - Update
 ha_release: 2025.6
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -12,9 +13,11 @@ ha_domain: immich
 ha_platforms:
   - diagnostics
   - sensor
+  - update
 ha_codeowners:
   - '@mib1185'
-ha_integration_type: service
+ha_integration_type: integration
+ha_quality_scale: silver
 ---
 
 This integration allows adding an [Immich](https://immich.app/) user account to Home Assistant.
@@ -22,6 +25,10 @@ This integration allows adding an [Immich](https://immich.app/) user account to 
 ## Prerequisites
 
 You need to [obtain the API key](https://immich.app/docs/features/command-line-interface#obtain-the-api-key) for your user account in your Immich instance.
+
+### API key permissions
+
+For full functionality, enable the `album.read` permission when creating your API key. Without this permission, the media source integration will not work, but all monitoring sensors will continue to function normally.
 
 {% include integrations/config_flow.md %}
 
@@ -56,6 +63,10 @@ The following {% term sensors %} are created. For some of those the API key need
 | **Videos count** | Count of stored videos (_admin only_) | ✅ |
 | **Disk used by photos** | Used disk space by photos (_admin only_) | ❌ |
 | **Disk used by videos** | Used disk space by videos (_admin only_) | ❌ |
+
+## Update entity
+
+An {% term update %} entity is created to inform about a new available Immich server version (_requires Immich server v1.134.0_).
 
 ## Troubleshooting
 

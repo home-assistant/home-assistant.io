@@ -7,8 +7,8 @@ ha_release: 0.51
 ha_iot_class: Local Polling
 ha_domain: bluesound
 ha_platforms:
-  - media_player
   - button
+  - media_player
 ha_codeowners:
   - '@thrawnarn'
   - '@LouisChrist'

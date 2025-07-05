@@ -93,7 +93,7 @@ Follow these steps to delete an area. It will be removed from all the floors it 
 If you used this area in automations or script as targets, or with voice assistant, these will no longer work.
 
 1. Go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and select the area card.
-2. In the top right corner, select the three dot menu. Then, select **Delete**.
+2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
 
     ![Delete area](/images/organizing/area_delete.png)
 

@@ -50,6 +50,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - National Grid NY Metro
   - National Grid NY Upstate
 - Pacific Gas & Electric (PG&E)
+  > **Note:** Currently only works with PG&E accounts created **before June 2025** that do not require multi-factor authentication (MFA).
 - Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
 - Sacramento Municipal Utility District (SMUD)
@@ -169,3 +170,10 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 
 - Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
 - In your energy dashboard in Home Assistant, make sure you use the statistics and not the sensors.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+If you remove the integration, the statistics are not automatically deleted.
+You can find and delete the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "opower".

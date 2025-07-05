@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: jewish_calendar
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ha_config_flow: true
