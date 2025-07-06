@@ -16,6 +16,7 @@ ha_platforms:
   - cover
   - light
   - scene
+  - binary_sensor
 ha_integration_type: integration
 ha_dhcp: true
 ---
@@ -29,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 - Cover
 - Light
 - Scene
+- Binary Sensor
 
 {% include integrations/config_flow.md %}
 
