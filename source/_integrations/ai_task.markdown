@@ -30,15 +30,65 @@ Generates data using AI.
 | `task_name`            | no       | String that identifies the type of text generation task (for example, "home summary", "alert notification").           |
 | `instructions`         | no       | String containing the specific instructions for the AI to follow when generating the text.                      |
 | `entity_id`            | yes      | String that points at an `entity_id` of an LLM task entity. If not specified, uses the default LLM task.       |
+| `structure`            | yes      | Dictionary defining the structure of the output data. When set, the AI will return structured data with the specified fields. Each field can have a `description`, `selector`, and optional `required` property. |
 
 The response variable is a dictionary with the following keys:
 
-- `data`: The generated text.
+- `data`: The generated text or structured data (depending on whether `structure` is specified).
 - `conversation_id`: The ID of the conversation used for the task.
 
-## Example
+## Examples
+
+### Structured Output Example
 
 {% raw %}
+
+```yaml
+# Example: Generate structured user profile data
+script:
+- alias: "Create fake user profile"
+  sequence:
+    - action: ai_task.generate_data
+      data:
+        task_name: "user profile generation"
+        instructions: "Generate a profile for a new user"
+        structure:
+          name:
+            description: "First and last name of the user"
+            required: true
+            selector:
+              text:
+          age:
+            description: "Age of the user"
+            required: true
+            selector:
+              number:
+                min: 0
+                max: 120
+          interests:
+            description: "List of user interests"
+            required: true
+            selector:
+              select:
+                options:
+                  - "Technology"
+                  - "Sports"
+                  - "Music"
+                  - "Travel"
+                multiple: true
+      response_variable: user_profile
+    - action: notify.persistent_notification
+      data:
+        title: "New User Profile"
+        message: "Name: {{ user_profile.data.name }}, Age: {{ user_profile.data.age }}, Interests: {{ user_profile.data.interests | join(', ') }}"
+```
+
+{% endraw %}
+
+### Simple Text Generation Example
+
+{% raw %}
+
 ```yaml
 # Example: Generate a notification when garage door is left open
 automation:
@@ -55,8 +105,9 @@ automation:
         task_name: "garage door left open comment"
         instructions: "Generate a funny notification that garage door was left open"
       response_variable: generated_text
-    - action: notify.mobile_app
+    - action: notify.persistent_notification
       data:
         message: "{{ generated_text.data }}"
 ```
+
 {% endraw %}
