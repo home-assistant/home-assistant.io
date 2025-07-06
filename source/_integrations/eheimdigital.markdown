@@ -42,8 +42,7 @@ Host:
 
 ## Data updates
 
-The integration is connected locally via websocket to the EHEIM Digital main device, and requests data updates for all devices every 15 seconds by default.
-
+The integration connects locally via WebSocket to the EHEIM Digital main device and requests data updates for all devices every 15 seconds by default.
 ## How you can use this integration
 
 You can use this integration to control and monitor your EHEIM Digital aquarium devices directly from Home Assistant. This includes adjusting settings such as temperature, light brightness, and filter speed, as well as monitoring the status of your devices.
