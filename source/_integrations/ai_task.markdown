@@ -31,6 +31,7 @@ Generates data using AI.
 | `instructions`         | no       | String containing the specific instructions for the AI to follow when generating the text.                      |
 | `entity_id`            | yes      | String that points at an `entity_id` of an LLM task entity. If not specified, uses the default LLM task.       |
 | `structure`            | yes      | Dictionary defining the structure of the output data. When set, the AI will return structured data with the specified fields. Each field can have a `description`, `selector`, and optional `required` property. |
+| `attachments`          | yes      | List of attachments to include in the task. Each attachment is the output of the [Media Selector](https://www.home-assistant.io/docs/blueprint/selectors/#media-selector).
 
 The response variable is a dictionary with the following keys:
 
@@ -76,6 +77,9 @@ script:
                   - "Music"
                   - "Travel"
                 multiple: true
+      attachments:
+        - media_content_id: "media-source://user_profile_image.jpg"
+          media_content_type: "image/jpeg"
       response_variable: user_profile
     - action: notify.persistent_notification
       data:
