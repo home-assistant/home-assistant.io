@@ -1188,8 +1188,8 @@ When used with a `schema`, the selector will force the object to be in this form
 
 ```yaml
 object:
-  label_key: name
-  description_key: percentage
+  label_field: name
+  description_field: percentage
   multiple: true
   fields:
     name:
