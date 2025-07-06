@@ -6,7 +6,7 @@ ha_category:
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_codeowners:
-  - '@Swamp-Ig'
+  - '@home-assistant/core'
 ha_iot_class: Calculated
 ha_domain: sun
 ha_config_flow: true
@@ -17,6 +17,8 @@ related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
+
+The sun {% term integration %} calculates all sun-related times (sunrise, sunset, dawn, dusk, etc.) based on your configured home location. This means that all time-based calculations and triggers will be accurate for your specific location, as defined in your [basic configuration](/docs/configuration/basic/).
 
 The sun {% term integration %} will use the location as
 {% my general title="configured in your Home Assistant configuration" %} to
@@ -96,3 +98,11 @@ The sensors are also available as attributes on the `sun.sun` entity for backwar
 | Elevation     | Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon. |
 | Azimuth       | Solar azimuth. The angle is shown clockwise from north.                                                                |
 | `rising`      | True if the Sun is currently rising, after solar midnight and before solar noon.                                       |
+
+## Binary sensors
+
+The binary sensors are also available as attributes on the `sun.sun` entity for backwards compatibility reasons.
+
+| Sensors       | Description                                                                                                            |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Solar rising  | True if the Sun is currently rising, after solar midnight and before solar noon.                                       |

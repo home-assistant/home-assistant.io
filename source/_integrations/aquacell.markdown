@@ -53,6 +53,7 @@ This integration provides {% term sensors %} for the following information from 
 - Time remaining until 0% salt level is reached.
 - i-Lid battery level.
 - Wi-Fi signal strength.
+- Last update time. The time the softener last reported data to the cloud.
 
 ## Use cases
 
@@ -98,7 +99,7 @@ There are no known limitations for this integration.
 
 There are no commonly known issues with this integration.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 

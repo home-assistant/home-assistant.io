@@ -70,18 +70,15 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
    ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
 
-6. To add the newly discovered device, select the ATOM Echo from the list.
-   - Add your ATOM Echo to a room and select **Finish**.
-7. You should now see the **ESPHome** integration.
-   ![New ESPHome device discovered](/images/assist/m5stack-atom-echo-discovered-33.png)
-8. Select the **ESPHome** integration. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
-   ![ATOM Echo discovered](/images/assist/m5stack-atom-echo-discovered-new-03.png)
-   - Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
-9. Congratulations! You can now voice control Home Assistant. Now give some commands.
+6. This starts the a wizard to customize the your voice assistant.
+   - Follow the wizard steps to define the wake word and choose the voice.
+   - When you are finished, select **Done**.
+7. Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
+8. Congratulations! You can now voice control Home Assistant. Now give some commands.
 
 ## Controlling Home Assistant over the ATOM Echo
 
-1. Say your wake word. For this tutorial, use "OK, Nabu".
+1. Say the wake word you configured. For example, use "OK, Nabu".
    - Wait for the LED to start blinking in blue.
 2. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.
    - While you are speaking, the blue LED keeps pulsing.
@@ -93,8 +90,8 @@ Before you can use this device with Home Assistant, you need to install a bit of
 3. Your command is not supported? Add your own commands using [a sentence trigger](/voice_control/custom_sentences/).
 4. You find ATOM Echo takes too long to start processing your command?
    - Adjust the silence detection settings.
-   - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
-   - Under **M5Stack ATOM Echo**, select **1 device**. Under **Configuration**, change the **Finish speaking detection**.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **ESPHome** integration.
+   - Under **M5Stack ATOM Echo**, select **1 device**. Under **Configuration**, change the **Finished speaking detection**.
    - This setting defines how much silence is needed for Assist to find you're done speaking and it can start processing your command.
 
      ![Open My link](/images/assist/esp32-atom_silence_detection_01.png)
@@ -104,3 +101,21 @@ Before you can use this device with Home Assistant, you need to install a bit of
 Are things not working as expected?
 
 - Checkout the [general troubleshooting section for Assist](/voice_control/troubleshooting/).
+
+## Removing the Wi-Fi credentials from the ATOM Echo
+
+If you no longer use the device or want to pass it on to someone else, you can remove the Wi-Fi credentials that are stored on the device.
+
+1. Make sure this page is opened in a Chromium-based browser on a desktop. It does not work on a tablet or phone.
+   - Select the **Connect** button below. If your browser does not support web serial, you will see a warning instead of a button.
+
+      <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+      <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
+
+2. To connect the ATOM Echo to your computer, follow these steps:
+   - In the pop-up window, view the available ports.
+   - Plug the USB-C cable into the ATOM Echo and connect it to your computer.
+   - In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.
+3. In the dialog, select **Erase user data**.
+   - **Result**: Your Wi-Fi credentials are deleted from the device.
+   - The firmware stays on the device.

@@ -23,6 +23,8 @@ The **Control4** {% term integration %} allows you to control and monitor lights
 
 Before setting up, you should assign a static IP address/DHCP reservation on your router to your Control4 controller. Home Assistant must be able to communicate with the controller over the local network; 4Sight remote access is not supported.
 
+The username and password required for this integration are the same credentials you use to log in to the Control4 site at [https://my.control4.com/](https://my.control4.com/).
+
 {% include integrations/config_flow.md %}
 
 ## Options

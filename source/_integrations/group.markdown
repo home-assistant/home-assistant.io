@@ -354,7 +354,7 @@ notify:
       - action: html5
         data:
           target: "macbook"
-      - action: html5_nexus
+      - action: mobile_app_pauluus
 ```
 
 {% configuration %}
@@ -487,7 +487,7 @@ These are the attributes available for an old-style group.
 
 ### Actions
 
-This integration provides the following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself.
+The following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself. These actions are only available for old-style groups. They cannot be used with the new-style groups described above.
 
 | Action   | Data              | Description                                                                   |
 | -------- | ----------------- | ----------------------------------------------------------------------------- |

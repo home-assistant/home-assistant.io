@@ -464,3 +464,9 @@ sonos:
   media_player:
     advertise_addr: 192.0.2.1
 ```
+
+## Removing the integration
+
+This integration follows the standard integration removal process; no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

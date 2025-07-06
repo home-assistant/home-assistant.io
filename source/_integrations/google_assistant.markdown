@@ -76,7 +76,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     5. Go to **Keys** and **Add key**.
     6. Create a private key in JSON format.
     7. This will start a download of a JSON file.
-        1. Rename the file to `SERVICE_ACCOUNT.JSON`.
+        1. Rename the file to `SERVICE_ACCOUNT.json`.
         2. In Home Assistant, add this file to your config-folder. This will be the same folder as your {% term "`configuration.yaml`" %}.
     8. Go to the **Search (/) for resources, documentation, products, and more** at the top middle and search for **Homegraph API** and select it.
     9. Enable the HomeGraph API.
@@ -160,7 +160,7 @@ Now add your setup to your {% term "`configuration.yaml`" %} file, such as:
 # Example configuration.yaml entry
 google_assistant:
   project_id: YOUR_PROJECT_ID
-  service_account: !include SERVICE_ACCOUNT.JSON
+  service_account: !include SERVICE_ACCOUNT.json
   report_state: true
   exposed_domains:
     - switch
@@ -259,6 +259,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - input_button
 - input_select (option/setting/mode/value)
 - light (on/off/brightness/rgb color/color temp)
+- lawn_mower (dock/start/pause)
 - lock
 - media_player (on/off/set volume (via set volume)/source (via set input source)/control playback)
 - scene (on)

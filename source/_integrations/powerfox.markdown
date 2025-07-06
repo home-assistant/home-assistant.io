@@ -48,7 +48,7 @@ Not all Poweropti devices are supported currently. Check the list below to see i
 ## Data updates
 
 The integration will update its information by polling Powerfox every
-minute. This ensures the data in Home Assistant is up to date.
+10 seconds. This ensures the data in Home Assistant is up to date.
 
 ## Actions
 
@@ -92,7 +92,7 @@ It will create the following sensors:
 
 There are no commonly known issues with this integration.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 

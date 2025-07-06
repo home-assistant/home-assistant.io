@@ -42,9 +42,15 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - Delmarva Power
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
+- Glendale Water and Power (GWP)
 - Mercury NZ Limited
-- National Grid NY Upstate
+- National Grid US subsidiaries
+  - National Grid Massachusetts
+  - National Grid NY Long Island
+  - National Grid NY Metro
+  - National Grid NY Upstate
 - Pacific Gas & Electric (PG&E)
+  > **Note:** Currently only works with PG&E accounts created **before June 2025** that do not require multi-factor authentication (MFA).
 - Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
 - Sacramento Municipal Utility District (SMUD)
@@ -55,7 +61,7 @@ This is typically the same information needed to access your utility's website.
 
 ## Utility Authentication Requirements
 
-For many utilities, only a username and password are required to access your accounts. Some utilities requires additional authentication information.
+For many utilities, only a username and password are required to access your accounts. Some utilities require additional authentication information.
 It might be necessary to configure your utility account with an authentication method that is compatible with the Opower integration.
 Utility-specific authentication requirements are listed below:
 
@@ -80,7 +86,7 @@ Alternatively, you can create a new TOTP secret for your account and use the "no
 
 When using Opower with any of the Exelon subsidiaries, such as BGE, ComEd, PECO, Pepco, etc., you need to actively disable two-factor authentication.
 Before proceeding, make sure you understand the security implications of disabling 2FA.
-Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, disable it.
+Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, you most likely cannot disable it, which unfortunately means you cannot use this integration.
 
 {% include integrations/config_flow.md %}
 
@@ -121,10 +127,19 @@ In the configuration of the energy dashboard (**{% my config_energy title="Setti
 
 For electricity:
 
-1. Select **Add consumption** for the **Electricity grid**.
-2. Select **Opower {utility name} elec {account number} consumption** for the **consumed energy**.
+1. Select **Add consumption** under **Electricity grid**.
+2. Select **Opower {utility name} elec {account number} consumption** for **consumed energy**.
 3. Select the radio button to **Use an entity tracking the total costs**.
-4. Select **Opower {utility name} elec {account number} cost** for the **entity with the total costs**.
+4. Select **Opower {utility name} elec {account number} cost** for **entity with the total costs**.
+
+{% details "Track return to grid energy and compensation" %}
+
+1. Select **Add return** under **Electricity grid**.
+2. Select **Opower {utility name} elec {account number} return** for **energy returned to the grid**.
+3. Select the radio button to **Use an entity tracking the total received money**.
+4. Select **Opower {utility name} elec {account number} compensation** for **entity with the total compensation**.
+
+{% enddetails %}
 
 Your **Configure grid consumption** should now look like this:
 ![Screenshot configure grid consumption](/images/integrations/opower/configure_grid_consumption.png)
