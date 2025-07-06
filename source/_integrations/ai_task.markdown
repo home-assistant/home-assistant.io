@@ -21,9 +21,9 @@ For each task, you can set a preferred AI task entity. This allows you to use di
 
 The {% term state %} of an AI task {% term entity %} is a timestamp showing the date and time when the AI task was last used.
 
-## Action `ai_task.generate_text`
+## Action `ai_task.generate_data`
 
-Generates text using AI.
+Generates data using AI.
 
 | Data attribute | Optional | Description                                                                                                     |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
@@ -33,7 +33,7 @@ Generates text using AI.
 
 The response variable is a dictionary with the following keys:
 
-- `text`: The generated text.
+- `data`: The generated text.
 - `conversation_id`: The ID of the conversation used for the task.
 
 ## Example
@@ -50,13 +50,13 @@ automation:
       for:
         minutes: 10
   actions:
-    - action: ai_task.generate_text
+    - action: ai_task.generate_data
       data:
         task_name: "garage door left open comment"
         instructions: "Generate a funny notification that garage door was left open"
       response_variable: generated_text
     - action: notify.mobile_app
       data:
-        message: "{{ generated_text.result }}"
+        message: "{{ generated_text.data }}"
 ```
 {% endraw %}
