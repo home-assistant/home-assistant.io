@@ -124,7 +124,7 @@ Support for additional EHEIM Digital devices and entities will be added in futur
 
 You can set up an automation to notify you when the filter has an error. This example uses the `notify.notify` service to send a notification:
 
-{% details title="Example automation to notify about filter errors" %}
+{% details "Example automation to notify about filter errors" %}
 
 {% raw %}
 
