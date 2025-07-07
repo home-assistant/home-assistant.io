@@ -13,10 +13,10 @@ ha_codeowners:
   - '@pawlizio'
 ha_domain: velux
 ha_platforms:
+  - binary_sensor
   - cover
   - light
   - scene
-  - binary_sensor
 ha_integration_type: integration
 ha_dhcp: true
 ---
@@ -27,10 +27,10 @@ At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmw
 
 There is currently support for the following device types within Home Assistant:
 
+- Binary Sensor (reports rain detection for windows that support it)
 - Cover
 - Light
 - Scene
-- Binary Sensor
 
 {% include integrations/config_flow.md %}
 
