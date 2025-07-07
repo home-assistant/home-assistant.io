@@ -14,6 +14,6 @@ ha_integration_type: hub
 related:
 ---
 
-The `dobiss` {% term integration %} allows you to integrate your [Dobiss NXT](https://www.dobiss.com/) smart home system into Home Assistant.
+The **Dobiss** {% term integration %} allows you to integrate your [Dobiss NXT](https://www.dobiss.com/) smart home system into Home Assistant.
 
 {% include integrations/config_flow.md %}
