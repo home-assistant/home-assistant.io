@@ -12,8 +12,6 @@ ha_platforms:
   - light
 ha_integration_type: hub
 related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ---
 
 The `dobiss` {% term integration %} allows you to integrate your [Dobiss NXT](https://www.dobiss.com/) smart home system into Home Assistant.
