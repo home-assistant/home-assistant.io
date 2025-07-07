@@ -40,7 +40,7 @@ The response variable is a dictionary with the following keys:
 
 ## Examples
 
-### Structured Output Example
+### Structured output example
 
 {% raw %}
 
@@ -89,7 +89,7 @@ script:
 
 {% endraw %}
 
-### Simple Text Generation Example
+### Simple text generation example
 
 {% raw %}
 
