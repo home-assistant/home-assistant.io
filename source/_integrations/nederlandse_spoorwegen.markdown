@@ -72,7 +72,6 @@ In this way, you can have multiple routes with specific trains before hitting th
 
 Data is provided by [Nederlandse Spoorwegen](https://www.ns.nl/).
 
-
 ## Removing the integration
 
 This integration follows standard integration removal.
