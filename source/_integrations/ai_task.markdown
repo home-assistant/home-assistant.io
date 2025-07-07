@@ -45,46 +45,42 @@ The response variable is a dictionary with the following keys:
 {% raw %}
 
 ```yaml
-# Example: Generate structured user profile data
+# Example: Generate weather and indoor comfort report
 script:
-- alias: "Create fake user profile"
+- alias: "Weather and comfort report"
   sequence:
     - action: ai_task.generate_data
       data:
-        task_name: "user profile generation"
-        instructions: "Generate a profile for a new user"
+        task_name: "weather comfort report"
+        instructions: |
+          Based on the current conditions:
+          - Outdoor temperature: {{ states('sensor.outdoor_temperature') }}°C
+          - Weather condition: {{ states('weather.home') }}
+          - Indoor temperature: {{ states('sensor.living_room_temperature') }}°C
+          - Indoor humidity: {{ states('sensor.living_room_humidity') }}%
+
+          Generate a funny weather description and assess indoor comfort level.
         structure:
-          name:
-            description: "First and last name of the user"
+          weather_description:
+            description: "A humorous description of the current weather outside"
             required: true
             selector:
               text:
-          age:
-            description: "Age of the user"
+          indoor_comfort:
+            description: "Assessment of how comfortable it is inside compared to outside"
             required: true
             selector:
-              number:
-                min: 0
-                max: 120
-          interests:
-            description: "List of user interests"
-            required: true
-            selector:
-              select:
-                options:
-                  - "Technology"
-                  - "Sports"
-                  - "Music"
-                  - "Travel"
-                multiple: true
-      attachments:
-        - media_content_id: "media-source://user_profile_image.jpg"
-          media_content_type: "image/jpeg"
-      response_variable: user_profile
+              text:
+      response_variable: comfort_report
     - action: notify.persistent_notification
       data:
-        title: "New User Profile"
-        message: "Name: {{ user_profile.data.name }}, Age: {{ user_profile.data.age }}, Interests: {{ user_profile.data.interests | join(', ') }}"
+        title: "🏠 Home Climate Report"
+        message: |
+          🌤️ **Weather Outside:**
+          {{ comfort_report.data.weather_description }}
+
+          🛋️ **Indoor Comfort:**
+          {{ comfort_report.data.indoor_comfort }}
 ```
 
 {% endraw %}
