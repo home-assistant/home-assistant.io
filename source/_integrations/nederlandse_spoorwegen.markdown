@@ -28,10 +28,12 @@ To use this integration, you need an API key from NS:
 
 1. Create an account on the [NS API Portal](https://apiportal.ns.nl/).
 2. Request an API key for the `Reisinformatie` API, which is part of the `Ns-App` product.
+### Finding station codes
 
 Station codes are required. You can look them up in the [list of railway stations in the Netherlands](https://nl.wikipedia.org/wiki/Lijst_van_spoorwegstations_in_Nederland).
 
 {% include integrations/config_flow.md %}
+
 1. Enter your NS API key when prompted.
 2. Add one or more train routes by specifying the departure station, arrival station, and optionally a via station.
 3. Save your configuration. The integration will create sensors for each route.
