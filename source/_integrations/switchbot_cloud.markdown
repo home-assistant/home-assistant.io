@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Hub
+  - Light
   - Lock
   - Plug
   - Remote
@@ -22,6 +23,7 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
+  - light
   - lock
   - sensor
   - switch
@@ -51,6 +53,13 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Plug Mini (WoPlug)](https://www.switch-bot.com/products/switchbot-plug-mini)
 - [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
 - Plug (Wi-Fi only, only available in Japan)
+
+### Lights
+
+- [LED Strip Light 3](https://www.switch-bot.com/products/switchbot-led-strip-light-3)
+- [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
+- [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
+- [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
 
 ### Locks
 
@@ -153,6 +162,40 @@ Features:
 - get humidity
 - get carbon dioxide
 - get battery level
+
+### Lights
+
+#### LED Strip Light 3
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+
+
+#### Floor Lamp
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+
+#### Color Bulb
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+
+#### LED Strip Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
 
 ### Locks
 
