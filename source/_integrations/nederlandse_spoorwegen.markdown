@@ -22,12 +22,15 @@ The **Nederlandse Spoorwegen (NS)** {% term integration %} provides real-time ti
 
 ## Prerequisites
 
+To use this integration, you need an API key and station codes.
+
 ### Obtaining an API Key
 
 To use this integration, you need an API key from NS:
 
 1. Create an account on the [NS API Portal](https://apiportal.ns.nl/).
 2. Request an API key for the `Reisinformatie` API, which is part of the `Ns-App` product.
+
 ### Finding station codes
 
 Station codes are required. You can look them up in the [list of railway stations in the Netherlands](https://nl.wikipedia.org/wiki/Lijst_van_spoorwegstations_in_Nederland).
