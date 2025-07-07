@@ -82,6 +82,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [S1 Plus](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner)
 
 ### Fans
+
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
 
 ## Supported functionality
@@ -188,7 +189,9 @@ Features:
 - get humidity
 
 ### Fans
+
 #### Battery Circulator Fan/Circulator Fan
+
 Features:
 - turn on
 - turn off
