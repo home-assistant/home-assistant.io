@@ -72,7 +72,6 @@ In this way, you can have multiple routes with specific trains before hitting th
 
 Data is provided by [Nederlandse Spoorwegen](https://www.ns.nl/).
 
-This integration meets the [Silver quality-scale requirements](https://developers.home-assistant.io/docs/integration_quality_scale_index/), ensuring reliable configuration via the Home Assistant UI and robust error handling.
 
 ## Removing the integration
 
