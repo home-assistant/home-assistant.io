@@ -25,3 +25,10 @@ NextDNS is a DNS service that protects from all kinds of security threats, block
 To obtain API key go to the NextDNS site >> [Account section](https://my.nextdns.io/account).
 
 {% include integrations/config_flow.md %}
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
