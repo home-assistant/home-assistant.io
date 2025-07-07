@@ -3,7 +3,7 @@ title: TuneBlade Remote
 description: Integrate TuneBlade AirPlay-connected devices with Home Assistant.
 ha_category:
   - Media player
-ha_iot_class: Local Pull
+ha_iot_class: Local Polling
 ha_release: 2025.08.1
 ha_domain: tuneblade_remote
 ha_codeowners:
