@@ -178,7 +178,7 @@ Date:
 Areas:
   description: Select one market area to create output for. If omitted it will use the areas from the configuration entry.
 Currency:
-  description: Currency to display prices in. EUR is the base currency in Nord Pool prices.  If omitted it will use the currency from the configuration entry.
+  description: Currency to display prices in. EUR is the base currency in Nord Pool prices. If omitted, it will use the currency from the configuration entry.
 Resolution:
   description: Resolution time for price indices.
 {% endconfiguration_basic %}
