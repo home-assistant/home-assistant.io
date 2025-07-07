@@ -46,6 +46,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 ### Plugs and switches
 
 - [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)
+- [Garage Door Opener](https://www.switch-bot.com/products/switchbot-garage-door-opener)
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 - [Plug Mini (WoPlug)](https://www.switch-bot.com/products/switchbot-plug-mini)
@@ -96,6 +97,12 @@ Features:
 Features:
 - turn on or off
 - get power consumption readings
+
+#### Garage Door Opener
+
+Features:
+- turn on or off
+- get calibration state
 
 #### Relay Switch 1
 
