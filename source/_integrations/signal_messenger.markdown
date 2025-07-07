@@ -30,7 +30,22 @@ The requirements are:
 Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md), to set up the Signal Messenger REST API. 
 
 
-## Configuration
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+name:
+  description: This allows multiple notifiers to be created. The notifier will bind to the `notify.signal_NOTIFIER_NAME` action.
+url:
+  description: The URL where the Signal Messenger REST API listens for incoming requests.
+number:
+  description: The sender number.
+recipients:
+  description: A space-separated list of recipients. Can be either phone numbers, usernames or a single Signal Messenger group id.
+{% endconfiguration_basic %}
+
+To obtain the Signal Messenger group ids, follow [this guide]( https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md).
+
+### Deprecated manual configuration
 
 To send Signal Messenger notifications with Home Assistant, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
