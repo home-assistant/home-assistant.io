@@ -2,15 +2,13 @@
 title: Olarm
 description: Instructions on how to integrate Olarm devices into Home Assistant.
 ha_release: 2025.1
-ha_iot_class: Cloud Push
-ha_category:
-  - Binary sensor
-ha_codeowners:
+iot_class: Cloud Push
+codeowners:
   - '@olarmtech'
-ha_config_flow: true
-ha_domain: olarm
-ha_integration_type: integration
-ha_platforms:
+config_flow: true
+domain: olarm
+integration_type: integration
+platforms:
   - binary_sensor
 ---
 
