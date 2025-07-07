@@ -20,30 +20,23 @@ ha_quality_scale: silver
 
 The **Nederlandse Spoorwegen (NS)** {% term integration %} provides real-time timetable information for [Nederlandse Spoorwegen](https://www.ns.nl/) (NS), the Dutch national railway, directly in Home Assistant.
 
-## Getting Started
+## Prerequisites
 
-### Obtain an API Key
+### Obtaining an API Key
 
 To use this integration, you need an API key from NS:
 
 1. Create an account on the [NS API Portal](https://apiportal.ns.nl/).
 2. Request an API key for the `Reisinformatie` API, which is part of the `Ns-App` product.
 
-### Configuration
-
-You can set up the NS integration using the Home Assistant UI.
-
-#### UI Configuration Flow
-
-1. Go to **Settings > Devices & Services** in Home Assistant.
-2. Click **Add Integration** and search for "Nederlandse Spoorwegen".
-3. Enter your NS API key when prompted.
-4. Add one or more train routes by specifying the departure station, arrival station, and optionally a via station.
-5. Save your configuration. The integration will create sensors for each route.
-
-You can edit, add, or remove routes at any time using the integration's options flow in the UI. If your API key changes or expires, use the reauthentication flow to update it. For other configuration changes, use the reconfiguration flow, both without removing your integration.
+Station codes are required. You can look them up in the [list of railway stations in the Netherlands](https://nl.wikipedia.org/wiki/Lijst_van_spoorwegstations_in_Nederland).
 
 {% include integrations/config_flow.md %}
+1. Enter your NS API key when prompted.
+2. Add one or more train routes by specifying the departure station, arrival station, and optionally a via station.
+3. Save your configuration. The integration will create sensors for each route.
+
+You can edit, add, or remove routes at any time using the integration's options flow in the UI. If your API key changes or expires, use the reauthentication flow to update it. For other configuration changes, use the reconfiguration flow, both without removing your integration.
 
 {% configuration_basic %}
 api_key:
