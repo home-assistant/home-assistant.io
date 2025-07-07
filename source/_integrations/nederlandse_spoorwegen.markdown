@@ -52,7 +52,6 @@ name:
 {% endconfiguration_basic %}
 
 
-Station codes are required. You can look them up in the [list of railway stations in the Netherlands](https://nl.wikipedia.org/wiki/Lijst_van_spoorwegstations_in_Nederland).
 
 ### Searching a specific train vs. the next train
 
