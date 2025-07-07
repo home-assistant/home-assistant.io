@@ -32,7 +32,7 @@ There is currently support for the following device types within Home Assistant:
 - Light
 - Scene
 
-Rain sensors of supported windows do not report automatically but need to be polled every 5 minutes. For this reason they are disabled per default because polling will use more radio bandwidth and battery power than just regularly reporting of changed window positions. 
+Rain sensors of supported windows do not report automatically and must be polled every 5 minutes. For this reason, they are disabled by default, because polling uses more radio bandwidth and battery power than simply reporting changed window positions.
 
 {% include integrations/config_flow.md %}
 
