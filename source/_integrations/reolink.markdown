@@ -98,7 +98,7 @@ Dual lens cameras provide additional streams for the second lens.
 
 ### Binary sensors
 
-Depending on the supported features of the camera, binary sensors are added for:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), binary sensors are added for:
 
 - Motion detection++
 - Visitor++ (Doorbell presses)
@@ -131,7 +131,7 @@ For the **crossline**, **intrusion**, **linger**, **item forgotten**, and **item
 
 ### Number entities
 
-Depending on the supported features of the camera, number entities are added for:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), number entities are added for:
 
 - Optical zoom control
 - Focus control
@@ -190,7 +190,7 @@ If the **Auto tracking** switch entity is enabled, and a object disappears from 
 
 ### Button entities
 
-Depending on the supported features of the camera, button entities are added for:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), button entities are added for:
 
 - <abbr title="pan, tilt, and zoom">PTZ</abbr> stop
 - PTZ left
@@ -219,7 +219,7 @@ Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at di
 
 ### Select entities
 
-Depending on the supported features of the camera, select entities are added for:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), select entities are added for:
 
 - Floodlight mode (Off, Auto, Schedule)
 - Day night mode+ (Auto, Color, Black&White)
@@ -267,7 +267,7 @@ In some camera models, there is a delay of up to 5 seconds between the turn-off 
 
 ### Switch entities
 
-Depending on the supported features of the camera, switch entities are added for:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), switch entities are added for:
 
 - Infrared lights in night mode
 - Record audio
@@ -313,7 +313,7 @@ Polling the status of the **Hardwired chime enabled** switch can make the hardwi
 
 ### Light entities
 
-Depending on the supported features of the camera, light entities are added for:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), light entities are added for:
 
 - Floodlight+
 - Status LED
@@ -322,7 +322,7 @@ When the **floodlight** entity is ON always ON, when OFF controlled based on the
 
 ### Sensor entities
 
-Depending on the supported features of the camera, the following sensor entities are added:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), the following sensor entities are added:
 
 - PTZ pan position
 - PTZ tilt position
@@ -342,7 +342,7 @@ Therefore the update entity in Home Assistant can find and install a firmware up
 
 ### Media browser for playback of recordings
 
-Depending on the support of the camera, the Reolink integration will provide a media browser through which recorded videos of the camera can be accessed.
+If the camera supports recording to a SD card or NVR/Hub ([see specifications of the camera model on Reolink.com](#tested-models)), the Reolink integration will provide a media browser through which recorded videos of the camera can be accessed.
 In the sidebar, select "Media" > "Reolink" and select the **camera** of which you want to see recordings. Optionally, select if you want a high or low **resolution** stream and select the recording **date**. Here, all available video files of that day will be shown.
 Recordings up to 1 month old can be viewed in Home Assistant.
 
