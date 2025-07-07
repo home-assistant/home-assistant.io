@@ -95,13 +95,13 @@ The following devices are known to be supported by the integration:
 - PlayStation 5
 - PlayStation 4
 - PlayStation 3
+- PlayStation Vita
 - PlayStation PC
 
 ## Unsupported devices
 
 The following devices are not supported by the integration:
 
-- PlayStation Vita
 - PlayStation Portable
 - Other PlayStation system variants (PlayStation TV) or older systems that do not support the PlayStation Network
 
