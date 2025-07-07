@@ -27,7 +27,7 @@ At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmw
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor (reports rain detection for windows that support it)
+- Binary sensor (reports rain detection for windows that support it)
 - Cover
 - Light
 - Scene
