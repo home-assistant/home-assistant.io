@@ -135,7 +135,7 @@ the Todoist UI.
 
  - **location**: Not used.
 
- - **start_time**: The last time the Todoist integration got updated. Usually within the last 15 minutes.
+ - **start_time**: The last time the Todoist integration got updated. Usually within the last minute.
 
  - **end_time**: When the task is due.
 
