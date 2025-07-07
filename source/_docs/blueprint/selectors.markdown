@@ -1140,6 +1140,15 @@ mode:
   type: string
   required: false
   default: slider
+translation_key:
+  description: >
+    Allows translations provided by an integration where `translation_key`
+    is the translation key that is providing the unit_of_measurement string
+    translation. See the documentation on
+    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    for more information.
+  type: string
+  required: false    
 {% endconfiguration %}
 
 The output of this selector is a number, for example: `42`

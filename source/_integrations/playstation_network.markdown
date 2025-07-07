@@ -2,12 +2,14 @@
 title: PlayStation Network
 description: Instructions on enabling PlayStation Network support for your Home Assistant
 ha_category:
+  - Binary sensor
   - Media player
   - Sensor
 ha_release: 2025.7
 ha_iot_class: Cloud Polling
 ha_domain: playstation_network
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - media_player
   - sensor
@@ -66,6 +68,10 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 - **Bronze trophies**: Shows how many Bronze trophies you've earned, usually for basic or early-game achievements.
 - **Last online**: Displays the time when you were last seen online.
 - **Online status**: Indicates your current availability on the PlayStation Network. Status options include *Online*, *Offline*, *Away*, and *Online on PS App*.
+
+### Binary sensors
+
+- **Subscribed to PlayStation Plus**: Indicates if you have an active PlayStation Plus membership.
 
 ## Data updates
 
