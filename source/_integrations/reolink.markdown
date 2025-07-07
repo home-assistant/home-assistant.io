@@ -342,7 +342,7 @@ Therefore the update entity in Home Assistant can find and install a firmware up
 
 ### Media browser for playback of recordings
 
-If the camera supports recording to a SD card or NVR/Hub ([see specifications of the camera model on Reolink.com](#tested-models)), the Reolink integration will provide a media browser through which recorded videos of the camera can be accessed.
+If the camera supports recording to an SD card or NVR/Hub ([see specifications of the camera model on Reolink.com](#tested-models)), the Reolink integration will provide a media browser through which recorded videos of the camera can be accessed.
 In the sidebar, select "Media" > "Reolink" and select the **camera** of which you want to see recordings. Optionally, select if you want a high or low **resolution** stream and select the recording **date**. Here, all available video files of that day will be shown.
 Recordings up to 1 month old can be viewed in Home Assistant.
 
