@@ -51,7 +51,6 @@ name:
     description: "A descriptive name for this route."
 {% endconfiguration_basic %}
 
-### Station codes
 
 Station codes are required. You can look them up in the [list of railway stations in the Netherlands](https://nl.wikipedia.org/wiki/Lijst_van_spoorwegstations_in_Nederland).
 
