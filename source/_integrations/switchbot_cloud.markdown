@@ -59,7 +59,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 ### Sensors
 
-git - [Meter](https://switch-bot.com/pages/switchbot-meter)
+- [Meter](https://switch-bot.com/pages/switchbot-meter)
 - [Meter Plus](https://switch-bot.com/pages/switchbot-meter-plus)
 - [Indoor/Outdoor Meter (WoIOSensorTH)](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) 
 - [Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
