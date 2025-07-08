@@ -13,7 +13,7 @@ categories:
 og_image: /images/blog/2025-08/social.png
 ---
 
-<lite-youtube videoid="#" videotitle="Home Assistant 2025.8 Release Party"></lite-youtube>
+<lite-youtube videoid="gNtNOtsTH1w" videotitle="Home Assistant 2025.8 Release Party"></lite-youtube>
 
 {% note %}
 
@@ -62,7 +62,7 @@ Issues introduced in the beta are processed with priority. 🔝
 
 {% tip %}
 
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=#) on
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=gNtNOtsTH1w) on
 August 6, 2025, at 20:00 GMT / 12:00 PT / 21:00 CEST!
 
 {% endtip %}
