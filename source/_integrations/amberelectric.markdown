@@ -52,8 +52,7 @@ There are two additional sensors:
 - **Price Spike** - A binary sensor that indicates when the current price is over $3/kWh.
 - **Renewables** - The percentage of renewable energy currently in the grid.
 
--## Actions
-+## Services
+## Actions
 ### `get_forecasts`
 
 The `get_forecasts` action returns an array of forecasts for the requested channel type.
