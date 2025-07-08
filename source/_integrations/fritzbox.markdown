@@ -35,6 +35,7 @@ The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [
 - [FRITZ!Box 5590 Fiber][fritzbox_5590_fiber]
 - FRITZ!Box 6490 Cable
 - [FRITZ!Box 6591 Cable][fritzbox_6591_cable]
+- [FRITZ!Box 6690 Cable][fritzbox_6690_cable]
 - [FRITZ!Box 7590][fritzbox_7590]
 - [FRITZ!Box 7590 AX][fritzbox_7590_ax]
 - [FRITZ!Box 7530 AX][fritzbox_7530_ax]
@@ -49,6 +50,7 @@ The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [
 - [Magenta SmartHome LED E27 Color][magenta_led_e27_color]
 - Magenta SmartHome LED E27 warmwhite
 - [Rademacher RolloTron DECT 1213][rademacher_rollotron_dect_1213]
+- Homepilot RolloTron pure DECT (relabelled) to Rademacher RolloTron DECT 1213)
 
 ## Prerequisites
 
@@ -141,6 +143,7 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 
 [fritzbox_5590_fiber]: https://en.avm.de/products/fritzbox/fritzbox-5590-fiber
 [fritzbox_6591_cable]: https://en.avm.de/products/fritzbox/fritzbox-6591-cable
+[fritzbox_6690_cable]: https://en.avm.de/products/fritzbox/fritzbox-6690-cable
 [fritzbox_7590]: https://en.avm.de/products/fritzbox/fritzbox-7590
 [fritzbox_7590_ax]: https://en.avm.de/products/fritzbox/fritzbox-7590-ax
 [fritzbox_7530_ax]: https://en.avm.de/products/fritzbox/fritzbox-7530-ax
