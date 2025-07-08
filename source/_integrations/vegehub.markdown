@@ -24,7 +24,7 @@ related:
     title: VegeHub Manual
 ---
 
-The **[Vegetronix VegeHub](https://vegetronix.com/Products/ha/VG-HUB-RELAY/)** is a compact, network-connected device designed for agricultural monitoring and control. It supports a variety of environmental sensors—*including soil moisture, soil temperature, light, and more*—making it suitable for use in gardening, landscaping, and precision agriculture. In addition to monitoring, the VegeHub can also control actuators such as *relays, pumps, or water valves*, enabling automation of irrigation and other systems. This {% term integration %} allows Home Assistant to receive real-time data from VegeHub devices and optionally control connected outputs.
+The **[Vegetronix VegeHub](https://vegetronix.com/Products/ha/VG-HUB-RELAY/)** is a compact, network-connected device designed for agricultural monitoring and control. It supports a variety of environmental sensors—including *soil moisture, soil temperature, light, and more*—making it suitable for use in gardening, landscaping, and precision agriculture. In addition to monitoring, the VegeHub can also control actuators such as *relays, pumps, or water valves*, enabling automation of irrigation and other systems. This {% term integration %} allows Home Assistant to receive real-time data from VegeHub devices and optionally control connected outputs.
 
 The VegeHub is available in the [standard configurations](https://vegetronix.com/Products/ha/VG-HUB-RELAY/), as well as the [sprinkler control variation](https://vegetronix.com/Products/ha/VG-SPRINKLER-4L/). Both are supported by this integration.
 
