@@ -138,6 +138,10 @@ This release introduces an all-new overview that leverages the redesigned Area c
 
 <img class="no-shadow" alt="Screenshot showing the new area dashboard using the new area cards." src="/images/blog/2025-07/areas-dashboard.png" />
 
+Please note that this is experimental, meaning it is subject to change and may not always work as intended. We would love your feedback if you notice some aspects we can improve. The community’s dashboards, shared over the years, have helped shape this design, and we would love to see how it works with a wide variety of your homes. Even if you already have the perfect dashboard built for your home, try it!
+
+**Use [this feedback form](https://forms.clickup.com/2533032/f/2d9n8-32191/NK2MUOVKXQVH2L0NHI) to let us know your thoughts!**
+
 ## Integration sub-entries
 
 Ever wondered why you had to enter your API keys for every AI agent you created, even though they all used the same key? Or why you had to authenticate for every calendar you added, regardless of the fact that they all shared the same account? Or why you couldn’t add MQTT devices from the UI?
