@@ -46,6 +46,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 ### Plugs and switches
 
 - [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)
+- [Relay Switch 2PM](https://www.switch-bot.com/products/switchbot-relay-switch-2pm)
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 - [Plug Mini (WoPlug)](https://www.switch-bot.com/products/switchbot-plug-mini)
@@ -96,6 +97,16 @@ Features:
 Features:
 - turn on or off
 - get power consumption readings
+
+#### Relay Switch 2PM
+
+Features:
+displayed as two switches with the following properties or actions individually,
+- turn on or off
+- get power
+- get voltage
+- get current
+- get daily used electricity or power consumption
 
 #### Relay Switch 1
 
