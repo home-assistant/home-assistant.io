@@ -26,6 +26,13 @@ To obtain API key go to the NextDNS site >> [Account section](https://my.nextdns
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+API Key:
+    description: "The API key for your NextDNS account."
+Profile:
+    description: "The NextDNS configuration profile you want to integrate."
+{% endconfiguration_basic %}
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
