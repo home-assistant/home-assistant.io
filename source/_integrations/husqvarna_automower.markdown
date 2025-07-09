@@ -150,7 +150,7 @@ The integration will create the following sensors:
 - Error. For example: *Mower tilted*, *outside geofence*.
 - Downtime (if available)
 - Restricted reason. For example: *Week schedule*, *frost*, or *daily limit*.
-- Last error (if available). Values can be the same, like in the error sensor
+- Last error (if available). Values can be the same as the ones from the error sensor.
 - Mode
 - Next start
 - Number of charging cycles
