@@ -247,10 +247,10 @@ The example below shows a full configuration for a binary sensor:
 mqtt:
   - binary_sensor:
       name: "Window Contact Sensor"
-      state_topic: "home-assistant/window/contact"
+      state_topic: "bedroom/window/contact"
       payload_on: "ON"
       availability:
-        - topic: "home-assistant/window/availability"
+        - topic: "bedroom/window/availability"
           payload_available: "online"
           payload_not_available: "offline"
       qos: 0
