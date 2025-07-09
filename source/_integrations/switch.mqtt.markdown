@@ -28,7 +28,7 @@ mqtt:
       command_topic: "home/bedroom/switch1/set"
 ```
 
-Another, more advanced way, is to set up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:

@@ -23,7 +23,7 @@ mqtt:
       name: "Test Lawn Mower"
 ```
 
-Another, more advanced way, is to set up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 activity_state_topic:

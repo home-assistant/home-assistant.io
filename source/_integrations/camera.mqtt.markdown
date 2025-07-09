@@ -24,7 +24,7 @@ mqtt:
       topic: zanzito/shared_locations/my-device
 ```
 
-Another, more advanced way, is to set up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 The sample configuration above can be tested by publishing an image to the topic from the console:
 

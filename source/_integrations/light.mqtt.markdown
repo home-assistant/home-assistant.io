@@ -52,7 +52,7 @@ mqtt:
       command_topic: "office/rgb1/light/switch"
 ```
 
-Another, more advanced way, is to set up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -558,7 +558,7 @@ mqtt:
       command_topic: "home/rgb1/set"
 ```
 
-Another, more advanced way, is to set up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -971,7 +971,7 @@ mqtt:
       command_off_template: "off"
 ```
 
-Another, more advanced way, is to set up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
