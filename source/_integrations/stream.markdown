@@ -20,12 +20,12 @@ The stream integration provides a way to proxy live streams through Home Assista
 
 ## Configuration
 
-The `stream` integration is automatically loaded by `default_config` and enabled by the `camera` platforms that support it. If `default_config` is used, no separate {% term "`configuration.yaml`" %} entry is necessary. If the `default_config` is not used, the `stream` integration can be loaded by adding it to the {% term "`configuration.yaml`" %}. 
+The `stream` integration is automatically loaded by `default_config` and enabled by camera platforms that support it. If `default_config` is used, no separate {% term "`configuration.yaml`" %} entry is necessary. If `default_config` is **not** used, add the `stream` integration to {% term "`configuration.yaml`" %} to enable it.
 
 Example configuration:
 
 ```yaml
-# Enables the stream integraion when not using the default configuration
+# Enables the stream integration when not using the default configuration
 stream:
 ```
 
