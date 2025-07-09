@@ -21,7 +21,6 @@ Each AirPlay device connected to TuneBlade is exposed in Home Assistant as a [Me
 
 If the TuneBlade master control options are enabled, a separate "master" control is also available as an additional entity.
 
-
 {% include integrations/config_flow.md %}
 
 ## Requirements
