@@ -30,14 +30,14 @@ The VegeHub is available in the [standard configurations](https://vegetronix.com
 
 There is currently support for the following platforms within Home Assistant:
 
-- **Sensor** — Collects data from VegeHub sensor channels.
-- **Switch** — Shows actuator states and lets you control them.
+- Sensor: Collects data from VegeHub sensor channels.
+- Switch:  Shows actuator states and lets you control them.
 
 ## Supported devices
 
-- [Sensor Based WiFi Controller](https://vegetronix.com/Products/ha/VG-HUB-RELAY/) - Firmware **4.0 or later** - All variants
-- [Sensor Based WiFi Data Logger](https://vegetronix.com/Products/ha/VG-HUB/) - Firmware **4.0 or later** - All variants
-- [Sensor Based WiFi Sprinkler Valve Controller](https://vegetronix.com/Products/ha/VG-SPRINKLER-4L/) - Firmware **4.0 or later** - All variants
+- [Sensor Based WiFi Controller](https://vegetronix.com/Products/ha/VG-HUB-RELAY/) - Firmware 4.0 or later - All variants
+- [Sensor Based WiFi Data Logger](https://vegetronix.com/Products/ha/VG-HUB/) - Firmware 4.0 or later - All variants
+- [Sensor Based WiFi Sprinkler Valve Controller](https://vegetronix.com/Products/ha/VG-SPRINKLER-4L/) - Firmware 4.0 or later - All variants
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ Select **Apply**, and your VegeHub will reset its network connection and try to 
 
 ### Connecting to Home Assistant
 
-Home Assistant monitors your network for VegeHub devices. As soon as your VegeHub is connected to the same network as Home Assistant, it should be detected automatically. Go to {% my integrations title="Settings > Devices & services" %} in Home Assistant, where you should see your VegeHub listed under **Discovered** devices.
+Home Assistant monitors your network for VegeHub devices. As soon as your VegeHub is connected to the same network as Home Assistant, it should be detected automatically. Go to {% my integrations title="**Settings** > **Devices & services**" %} in Home Assistant, where you should see your VegeHub listed under **Discovered** devices.
 
 {% important %}
 The VegeHub device relies on your Home Assistant instance keeping the same IP address. If your Home Assistant device changes its IP address, the VegeHub will no longer be able to send updates until you update its configuration with the new IP address.
@@ -67,7 +67,7 @@ We recommend adding devices through Home Assistant's automatic detection, but yo
 
 ### Device settings
 
-To open the VegeHub settings page, navigate to {% my integrations title="Settings > Devices & Services" %}, choose the VegeHub device card, and under **Device info** select **Visit**.
+To open the VegeHub settings page, navigate to {% my integrations title="**Settings** > **Devices & services**" %}, choose the VegeHub device card, and under **Device info** select **Visit**.
 
 ## Power management
 
