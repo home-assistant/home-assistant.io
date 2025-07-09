@@ -1418,7 +1418,7 @@ For example: `heat_cool`.
 ## Statistic selector
 
 The statistic selector selects the statistic ID of an entity that records
-long-term statistics. It may resemble an entity ID (like `sensor.temperature`),
+{% term "Long-term statistics" %}. It may resemble an entity ID (like `sensor.temperature`),
 or an external statistic ID (like `external:temperature`).
 
 ![Screenshot of a statistic selector](/images/blueprints/selector-statistic.png)
