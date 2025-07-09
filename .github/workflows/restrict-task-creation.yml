@@ -45,7 +45,7 @@ jobs:
               // Check if the issue author is mentioned in CODEOWNERS
               // GitHub usernames in CODEOWNERS are prefixed with @
               if (codeownersContent.includes(`@${issueAuthor}`)) {
-                console.log(`✅ ${issueAuthor} is a integration code owner`);
+                console.log(`✅ ${issueAuthor} is an integration code owner`);
                 return; // Authorized
               }
             } catch (error) {
