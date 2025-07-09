@@ -1638,7 +1638,7 @@ number:
       description: Template for the number's current value.  When omitted, the state will be set to the `value` provided by the `set_value` action.
       required: false
       type: template
-      default: None
+      default: optimistic
     unit_of_measurement:
       description: Defines the units of measurement of the number, if any.
       required: false
