@@ -12,7 +12,7 @@ This `mqtt` sensor platform uses the MQTT message payload as the sensor value. I
 
 ## Configuration
 
-To use a MQTT sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

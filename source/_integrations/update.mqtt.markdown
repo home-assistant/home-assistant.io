@@ -12,7 +12,7 @@ The `mqtt` Update platform allows you to integrate devices that might expose fir
 
 ## Configuration
 
-To use a MQTT update entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT update entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

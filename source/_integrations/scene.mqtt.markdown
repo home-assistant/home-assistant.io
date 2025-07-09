@@ -12,7 +12,7 @@ The `mqtt` scene platform lets you control your MQTT enabled scenes.
 
 ## Configuration
 
-To use a MQTT scene entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT scene entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
