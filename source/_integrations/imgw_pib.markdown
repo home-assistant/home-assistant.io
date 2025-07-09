@@ -30,6 +30,7 @@ Hydrological station:
 Sensor entities added to Home Assistant:
 
 - Water level
+- Water flow (if a given hydrological station supports it)
 - Water temperature (if a given hydrological station supports it)
 
 ## Removing the integration
