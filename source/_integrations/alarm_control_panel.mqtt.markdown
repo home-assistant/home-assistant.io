@@ -30,7 +30,7 @@ The {% term integration %} can control your Alarm Panel by publishing to the `co
 
 ## Configuration
 
-To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+To use a MQTT alarm control panel in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -40,6 +40,8 @@ mqtt:
       state_topic: "home/alarm"
       command_topic: "home/alarm/set"
 ```
+
+Another, more advanced way, is to set up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:

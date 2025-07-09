@@ -12,7 +12,8 @@ This `mqtt` sensor platform uses the MQTT message payload as the sensor value. I
 
 ## Configuration
 
-To use your MQTT sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To use a MQTT sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -21,6 +22,8 @@ mqtt:
     - name: "Bedroom Temperature"
       state_topic: "home/bedroom/temperature"
 ```
+
+Another, more advanced way, is to set up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:

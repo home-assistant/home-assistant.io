@@ -12,7 +12,7 @@ The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
 
 ## Configuration
 
-To enable this climate platform in your installation, first add the following to your {% term "`configuration.yaml`" %} file.
+To use a MQTT climate in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -22,6 +22,8 @@ mqtt:
       name: Study
       mode_command_topic: "study/ac/mode/set"
 ```
+
+Another, more advanced way, is to set up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 action_template:

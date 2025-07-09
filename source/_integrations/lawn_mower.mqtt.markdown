@@ -12,7 +12,8 @@ The `mqtt` `lawn_mower` platform allows controlling a lawn mower over MQTT.
 
 ## Configuration
 
-To enable MQTT lawn mower in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To use a MQTT lawn mower in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -21,6 +22,8 @@ mqtt:
       command_topic: topic
       name: "Test Lawn Mower"
 ```
+
+Another, more advanced way, is to set up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 activity_state_topic:

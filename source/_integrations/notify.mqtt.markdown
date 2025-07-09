@@ -12,12 +12,17 @@ The **MQTT notify** platform lets you send an MQTT message when the `send_messag
 
 ## Configuration
 
+To use a MQTT notify entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
 ```yaml
 # Example configuration.yaml entry
 mqtt:
   - notify:
       command_topic: "home/living_room/status_screen/notifications"
 ```
+
+Another, more advanced way, is to set up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:

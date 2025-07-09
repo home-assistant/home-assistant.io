@@ -12,7 +12,8 @@ The `mqtt` scene platform lets you control your MQTT enabled scenes.
 
 ## Configuration
 
-To enable a MQTT scene in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To use a MQTT scene entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -20,6 +21,8 @@ mqtt:
   - scene:
       command_topic: zigbee2mqtt/living_room_group/set
 ```
+
+Another, more advanced way, is to set up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
