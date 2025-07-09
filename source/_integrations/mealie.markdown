@@ -8,8 +8,8 @@ ha_config_flow: true
 ha_release: 2024.7
 ha_iot_class: Local Polling
 ha_codeowners:
-  - "@joostlek"
-  - "@andrew-codechimp"
+  - '@joostlek'
+  - '@andrew-codechimp'
 ha_domain: mealie
 ha_platforms:
   - calendar
