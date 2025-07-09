@@ -21,9 +21,9 @@ Integrates [ThermoPro](https://buythermopro.com/) devices into Home Assistant.
 
 ## Supported devices
 
-- [TP359](https://buythermopro.com/product/thermopro-tp59-bluetooth-wireless-thermometer-hygrometer-humidity-monitor/)
 - [TP357](https://buythermopro.com/product/thermopro-tp357-bluetooth-digital-indoor-hygrometer-thermometer/)
 - [TP358](https://buythermopro.com/product/tp358/)
+- [TP359](https://buythermopro.com/product/thermopro-tp59-bluetooth-wireless-thermometer-hygrometer-humidity-monitor/)
 - [TP393](https://buythermopro.com/product/tp393/)
 - [TP960](https://buythermopro.com/product/tempspike/)
 - [TP962](https://buythermopro.com/twin-tempspike/)
