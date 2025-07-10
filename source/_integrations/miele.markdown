@@ -145,15 +145,6 @@ Climate entities are used to control target temperatures in refrigerators, freez
 - **Ambient light**: Some models of cooker hoods have ambient light that can be turned on and off.
 {% enddetails %}
 
-### Switch
-
-{% details "List of switch entities" %}
-
-- **Power**: The Power switch has slightly different characteristics depending on the appliance model. For some devices, it works more or less as a traditional power switch, while it behaves like a wake-up/sleep toggle on others. The availability of the switch is controlled by the API, depending on the operational state of the appliance.
-- **Supercooling**: The switch controls Supercooling mode for refrigerators.
-- **Superfreezing**: The switch controls Superfreezing mode for freezers.
-{% enddetails %}
-
 ### Sensor
 
 {% details "List of sensors" %}
@@ -179,6 +170,22 @@ Climate entities are used to control target temperatures in refrigerators, freez
   - **Plate**: Four to six sensors that show the current state of hob heating plates. The status mimics the display on the actual hob. For example, 0 is off, 5 is approximately 50% power, and "B" is power boost. Plates can only be monitored from Home Assistant, not controlled.
 {% enddetails %}
 
+### Switch
+
+{% details "List of switch entities" %}
+
+- **Power**: The Power switch has slightly different characteristics depending on the appliance model. For some devices, it works more or less as a traditional power switch, while it behaves like a wake-up/sleep toggle on others. The availability of the switch is controlled by the API, depending on the operational state of the appliance.
+- **Supercooling**: The switch controls Supercooling mode for refrigerators.
+- **Superfreezing**: The switch controls Superfreezing mode for freezers.
+{% enddetails %}
+
+### Vacuum
+
+{% details "List of vacuum entities" %}
+
+- **Robot vacuum cleaner**: Miele robot vacuum cleaners can be monitored and controlled to a limited extent. The device can be started, stopped, and paused. The fan speed can also be set.
+{% enddetails %}
+
 ## Actions
 
 ### Action `miele.set_program`
@@ -192,13 +199,6 @@ The service action can be set up by UI in Automations editor or Developer tools.
 | `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to fetch a diagnostic download while running the actual program. Use the value from the key  `state::programId::value_raw`.|
 | `duration`     | yes      |  Set desired program duration in minutes for ovens.                                                               |
 | `temperature`  | yes      |  Set desired target temperature for oven program.                                                                 |
-
-### Vacuum
-
-{% details "List of vacuum entities" %}
-
-- **Robot vacuum cleaner**: Miele robot vacuum cleaners can be monitored and controlled to a limited extent. The device can be started, stopped, and paused. The fan speed can also be set.
-{% enddetails %}
 
 ## Automation examples
 
