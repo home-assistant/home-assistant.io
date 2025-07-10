@@ -195,6 +195,10 @@ Do this if you have an existing Z-Wave network and want to replace its adapter w
    - Connect the new adapter.
    - Confirm that you connected the new adapter by selecting **Submit**.
 6. Follow the steps on screen.
+7. Once the migration completed, check if you want to rename the adapter. The new adapter will keep the name of the old adapter.
+   - In the top-left corner, select the back button to go back to the integration page.
+   - In the list of devices, check the device name.
+   - To change the device name, select  the {% icon "mdi:pencil" %} button.
 
 ## Overriding the radio frequency region of the adapter in the Z-Wave JS add-on
 
