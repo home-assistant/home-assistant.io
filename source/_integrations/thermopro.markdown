@@ -27,7 +27,7 @@ Integrates [ThermoPro](https://buythermopro.com/) devices into Home Assistant.
 - [TP393](https://device.report/manual/3622300)
 - [TP960](https://buythermopro.com/products/tp960-tempspike-bluetooth-meat-thermometer)
 - [TP962](https://buythermopro.com/products/tp962-twin-tempspike-bluetooth-meat-thermometer)
-- [TP970](https://buythermopro.com/products/tp970-tempspike-plus-bluetooth-meat-thermometer/)
+- [TP970](https://buythermopro.com/products/tp970-tempspike-plus-bluetooth-meat-thermometer)
 
 The ThermoPro integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
