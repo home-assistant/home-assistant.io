@@ -92,6 +92,14 @@ The `totalconnect.arm_away_instant` action puts the alarm panel in "arm away" wi
 |------------------------|----------|------------------------------------------------------|
 | `entity_id`            | No       | The ID of the alarm panel to arm.                    |
 
+### Action: Bypass all
+
+The `totalconnect.bypass_all` action bypasses all bypassable faulted zones. 
+
+| Data attribute         | Optional | Description                                          |
+|------------------------|----------|------------------------------------------------------|
+| `entity_id`            | No       | The ID of the alarm panel to arm.                    |
+
 ## Diagnostic Sensors
 
 The following diagnostic sensors are available:
