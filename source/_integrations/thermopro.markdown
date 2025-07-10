@@ -21,13 +21,13 @@ Integrates [ThermoPro](https://buythermopro.com/) devices into Home Assistant.
 
 ## Supported devices
 
-- [TP357](https://buythermopro.com/products/tp357-bluetooth-hygrometer-thermometer)
-- [TP358](https://buythermopro.com/products/tp358-bluetooth-indoor-thermometer-hygrometer)
-- [TP359](https://buythermopro.com/products/tp359-bluetooth-indoor-hygrometer-thermometer)
-- [TP393](https://device.report/manual/3622300)
-- [TP960](https://buythermopro.com/products/tp960-tempspike-bluetooth-meat-thermometer)
-- [TP962](https://buythermopro.com/products/tp962-twin-tempspike-bluetooth-meat-thermometer)
-- [TP970](https://buythermopro.com/products/tp970-tempspike-plus-bluetooth-meat-thermometer)
+- [TP357 Bluetooth Indoor Thermometer Hygrometer](https://buythermopro.com/products/tp357-bluetooth-hygrometer-thermometer)
+- [TP358 Bluetooth Indoor Thermometer Hygrometer](https://buythermopro.com/products/tp358-bluetooth-indoor-thermometer-hygrometer)
+- [TP359 Bluetooth Indoor Thermometer Hygrometer](https://buythermopro.com/products/tp359-bluetooth-indoor-hygrometer-thermometer)
+- [TP393 Bluetooth Indoor Thermometer Hygrometer](https://device.report/manual/3622300)
+- [TP960 TempSpike Bluetooth Meat Thermometer](https://buythermopro.com/products/tp960-tempspike-bluetooth-meat-thermometer)
+- [TP962 Twin TempSpike Bluetooth Meat Thermometer](https://buythermopro.com/products/tp962-twin-tempspike-bluetooth-meat-thermometer)
+- [TP970 TempSpike Plus Bluetooth Meat Thermometer](https://buythermopro.com/products/tp970-tempspike-plus-bluetooth-meat-thermometer)
 
 The ThermoPro integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
