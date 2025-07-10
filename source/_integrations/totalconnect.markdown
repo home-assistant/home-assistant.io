@@ -98,7 +98,7 @@ The `totalconnect.bypass_all` action bypasses all bypassable zones that are curr
 
 | Data attribute         | Optional | Description                                          |
 |------------------------|----------|------------------------------------------------------|
-| `entity_id`            | No       | The ID of the alarm panel to arm.                    |
+| `entity_id`            | No       | The ID of the alarm panel for which to bypass zones. |
 
 ## Diagnostic Sensors
 
