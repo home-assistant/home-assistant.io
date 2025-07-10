@@ -138,6 +138,22 @@ Notes:
     duration: 15 
 ```
 
+## Known limitations
+
+- Some of the features may require a subscription such as the *Pack EV Remote Control* and/or the *Pack Smart Navigation* subscription.
+- Newer vehicles use new endpoints for some actions, which are not yet supported by the underlying library. The corresponding actions will currently fail with error code `err.func.wired.forbidden`.
+
+## Troubleshooting
+
+The **Renault** integration relies on:
+
+- A stable internet connection.
+- Renault server availability (unexpected downtime or scheduled maintenance).
+
+You can quickly verify service status by opening the official Android/iOS app.
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

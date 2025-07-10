@@ -174,14 +174,19 @@ article.page h3 {
   --subtitle-medium-mobile: 24;
 
   --price: 170;
-  --price-mobile: 120;
-
+  --price-mobile: 60;
+  
   --wrapper-radius: 0px;
-
+  
   isolation: isolate;
   position: relative;
 }
 
+@media only screen and (min-width: 875px) {
+  :root{
+  --price-mobile: 120;
+  }
+}
 @media only screen and (min-width: 2180px) {
   .vpe-main {
     --wrapper-radius: 40px;
@@ -2881,7 +2886,7 @@ section#hero .bg-gradient {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: -20px;
+  margin-bottom: -10px;
   display: flex;
   margin-top: 8px;
 }
@@ -4895,6 +4900,11 @@ section#hero .bg-gradient {
 }
 
 @media (min-width: 940px) {
+  .vpe-main #pricing .fs-price {
+    margin-bottom: -10px;
+  }
+}
+@media (min-width: 940px) {
   .vpe-main {
     --columns: 11;
     --columns-outer: 11;
@@ -5190,7 +5200,7 @@ section#hero .bg-gradient {
   }
 
   .vpe-main #pricing .fs-price {
-    margin-bottom: -26px;
+    margin-bottom: -20px;
     margin-top: 20px;
   }
 

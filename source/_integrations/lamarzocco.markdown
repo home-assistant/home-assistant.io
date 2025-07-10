@@ -35,8 +35,6 @@ This integration interacts with [La Marzocco](https://lamarzocco.com/it/en/) cof
 
 If your Home Assistant host can perform [DHCP discovery](https://www.home-assistant.io/integrations/dhcp/), your machine will be discovered automatically. Otherwise, if your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered as well.
 
-By default, this integration will receive push updates from the cloud and otherwise query your machine every 30 seconds for an update, every 5 minutes for new statistics, and every hour for a firmware update. If configure the optional local connection, your machine will receive immediate push updates about its state for everything except statistics and firmware updates.
-
 ## Prerequisites
 
 - To be able to configure your machine in Home Assistant, your machine needs to be added to your account using the official La Marzocco app first.
@@ -58,6 +56,10 @@ Password:
 Use Bluetooth:
   description: Allows you to manually disable Bluetooth communication with the machine (if available). This can be used to avoid longer timeouts, e.g., when your machine is only sometimes in range.
 {% endconfiguration_basic %}
+
+## Data updates
+
+By default, this integration will receive push updates from the cloud about its general status. If that is not possible it will query the cloud every 15 seconds for an update of general machine information, every 15 minutes for new statistics, every 30 minutes for updated schedules and every 8 hours for a firmware update.
 
 # Available platforms & entities
 
@@ -104,8 +106,10 @@ Use Bluetooth:
 |------------------- |-------------| ---------------------- | ----------------- | ------- |
 | **Coffee boiler ready time** | Indicates when the coffee boiler will be ready for brewing. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Steam boiler ready time** | Indicates when the steam boiler will be ready for brewing. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
+| **Brew start time** | If a brew is running, tells the exact start time of that brew. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
+| **Total coffees made** | How many coffees have been made in total. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
+| **Total flushes done** | How often the machine has been flushed. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Last cleaning time** | Indicates when the machine was last cleaned with a **Backflush**. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
-
 
 ## Updates
 
@@ -190,9 +194,4 @@ This integration follows standard integration removal. No extra steps are requir
 {% details "Problem: Connection to machine is not possible" %}
 
 Check the La Marzocco Home app to see if you can connect to your machine there. If not, remove the machine and add it again (follow the instructions in the La Marzocco App).
-{% enddetails %}
-
-{% details "Real time updates are not available" %}
-
-Check the La Marzocco Home app to see if your machine is connected to Wi-Fi. Ensure Home Assistant can reach the machine. Ensure you configured the host option in the integration options.
 {% enddetails %}

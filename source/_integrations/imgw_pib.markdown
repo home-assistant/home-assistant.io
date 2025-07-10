@@ -13,6 +13,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: integration
+ha_quality_scale: silver
 ---
 
 IMGW-PIB {% term integration %} uses hydrological data from [Institute of Meteorology and Water Management - National Research Institute](https://hydro.imgw.pl) to present information about rivers and water reservoirs in Poland.
@@ -29,6 +30,7 @@ Hydrological station:
 Sensor entities added to Home Assistant:
 
 - Water level
+- Water flow (if a given hydrological station supports it)
 - Water temperature (if a given hydrological station supports it)
 
 ## Removing the integration

@@ -486,3 +486,8 @@ voice-pe:
       ship_to: Europe
       url: https://www.pi-shop.ch/home-assistant-voice-preview-edition
       logo: /images/distributors/pi-shop.webp
+    - name: ROBBshop
+      ship_from: Netherlands
+      ship_to: Europe
+      url: https://www.robbshop.nl/home-assistant-voice-preview-edition
+      logo: /images/distributors/robb.webp
