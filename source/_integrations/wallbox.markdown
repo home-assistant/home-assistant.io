@@ -90,6 +90,12 @@ Data is refreshed once every minute. Note that this update interval has been cho
 
 Users often report issues with the Wi-Fi reception of their charger; use a wired connection if possible. Also verify that the charger is communicating with the Wallbox Portal.
 
+
+### Insufficient Rights
+
+This integrations needs admin credentials to function properly. Please assign the user appropriate permissions in the Wallbox portal.
+
+
 ### Other issues
 
 Always first check whether the data is being received by the Wallbox Portal as this integration uses the same API. Many problems are related to the connectivity of the charger.
