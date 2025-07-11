@@ -10,11 +10,14 @@ ha_codeowners:
 ha_domain: huum
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - climate
+  - light
+  - sensor
 ha_integration_type: integration
 ---
 
-Integrates [Huum](https://huum.eu/) saunas into Home Assistant.
+Integrates [Huum](https://huum.eu/) saunas into Home Assistant. Allows you to control the heater, light and show the door status.
 
 You’ll need your username (which is usually your email) and password to configure the integration.
 
