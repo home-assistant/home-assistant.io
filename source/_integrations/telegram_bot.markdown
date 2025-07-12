@@ -438,10 +438,17 @@ args: "<any other text following the command>"
 from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
 user_id: "<id of the sender>"
+id: "<message id>"
 chat_id: "<origin chat id>"
 chat: "<chat info>"
 date: "<message timestamp>"
 message_thread_id: "<message thread id>"
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  id: "<id of the bot>"
+  first_name: "<first name of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
 ```
 
 Any other message not starting with `/` will be processed as simple text, firing a `telegram_text` event on the event bus with the following `event_data`:
@@ -451,10 +458,16 @@ text: "some text received"
 from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
 user_id: "<id of the sender>"
+id: "<message id>"
 chat_id: "<origin chat id>"
-chat: "<chat info>"
 date: "<message timestamp>"
 message_thread_id: "<message thread id>"
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  id: "<id of the bot>"
+  first_name: "<first name of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
 ```
 
 If the message is sent from a [press from an inline button](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), for example, a callback query is received, and Home Assistant will fire a `telegram_callback` event with:
@@ -468,6 +481,12 @@ user_id: "<id of the sender>"
 id: "<unique id of the callback>"
 chat_instance: "<chat instance>"
 chat_id: "<origin chat id>"
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  id: "<id of the bot>"
+  first_name: "<first name of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
 ```
 
 ### Configuration samples
