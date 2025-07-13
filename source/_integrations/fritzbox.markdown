@@ -45,7 +45,7 @@ The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [
 - FRITZ!SmartHome devices
   - [FRITZ!Smart Energy 200][fritzdect_200] (_former FRITZ!DECT 200_)
   - [FRITZ!Smart Energy 210][fritzdect_210] (_former FRITZ!DECT 210_)
-  - FRITZ!DECT 301
+  - FRITZ!Smart Thermo 301 (_former FRITZ!DECT 301_)
   - [FRITZ!Smart Thermo 302][fritzdect_302] (_former FRITZ!DECT 302_)
   - FRITZ!DECT 500
 - Smart home devices from other vendors
@@ -115,7 +115,7 @@ Self defined [templates](https://en.fritz.com/guide/three-smart-home-templates-t
 
 ### Thermostats
 
-Thermostats like the FRITZ!DECT 301, [FRITZ!Smart Thermo 302][fritzdect_302] or Eurotronic Comet DECT will be integrated as {% term climate %} entities.
+Thermostats like the FRITZ!Smart Thermo series or Eurotronic Comet DECT will be integrated as {% term climate %} entities.
 
 Further there are additional {% term sensor %} and {% term binary_sensor "binary sensor" %} entities created for each device which can be useful for {% term automations %} and {% term templates %}, based on its capabilities:
 
