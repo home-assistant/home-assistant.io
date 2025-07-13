@@ -154,7 +154,7 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 [fritzdect_210]: https://en.fritz.com/products/smart-home/fritzsmart-energy-210
 [fritzdect_302]: https://en.fritz.com/products/smart-home/fritzsmart-thermo-302
 [fritzdect_350]: https://en.fritz.com/products/smart-home/fritzsmart-control-350
-[fritzdect_440]: https://en.fritz.com/products/smart-home/fritzsmart-control-350
+[fritzdect_440]: https://en.fritz.com/products/smart-home/fritzsmart-control-440
 [fritz_smart_gateway]: https://en.fritz.com/products/smart-home/fritzsmart-gateway
 [rademacher_rollotron_dect_1213]: https://www.rademacher.de/shop/rollladen-sonnenschutz/elektrischer-gurtwickler/rollotron-dect-1213
 
