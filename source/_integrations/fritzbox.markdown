@@ -32,23 +32,27 @@ The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [
 
 #### Tested devices
 
-- [FRITZ!Box 5590 Fiber][fritzbox_5590_fiber]
-- FRITZ!Box 6490 Cable
-- [FRITZ!Box 6591 Cable][fritzbox_6591_cable]
-- [FRITZ!Box 7590][fritzbox_7590]
-- [FRITZ!Box 7590 AX][fritzbox_7590_ax]
-- [FRITZ!Box 7530 AX][fritzbox_7530_ax]
-- FRITZ!Box 7490
-- FRITZ!Box 7430
-- [FRITZ!DECT 200][fritzdect_200]
-- [FRITZ!DECT 210][fritzdect_210]
-- [FRITZ!DECT 301][fritzdect_301]
-- [FRITZ!DECT 302][fritzdect_302]
-- [FRITZ!DECT 500][fritzdect_500]
-- [Eurotronic Comet DECT][eurotronic_comet_dect]
-- [Magenta SmartHome LED E27 Color][magenta_led_e27_color]
-- Magenta SmartHome LED E27 warmwhite
-- [Rademacher RolloTron DECT 1213][rademacher_rollotron_dect_1213]
+- FRITZ!Box routers
+  - [FRITZ!Box 5590 Fiber][fritzbox_5590_fiber]
+  - FRITZ!Box 6490 Cable
+  - FRITZ!Box 6591 Cable
+  - FRITZ!Box 7590
+  - FRITZ!Box 7490
+  - FRITZ!Box 7430
+  - [FRITZ!Box 7590 AX][fritzbox_7590_ax]
+  - [FRITZ!Box 7530 AX][fritzbox_7530_ax]
+- [FRITZ!Smart Gateway][fritz_smart_gateway]
+- FRITZ!SmartHome devices
+  - [FRITZ!Smart Energy 200][fritzdect_200] (_former FRITZ!DECT 200_)
+  - [FRITZ!Smart Energy 210][fritzdect_210] (_former FRITZ!DECT 210_)
+  - FRITZ!DECT 301
+  - [FRITZ!Smart Thermo 302][fritzdect_302] (_former FRITZ!DECT 302_)
+  - FRITZ!DECT 500
+- Smart home devices from other vendors
+  - Eurotronic Comet DECT
+  - Magenta SmartHome LED E27 Color
+  - Magenta SmartHome LED E27 warmwhite
+  - [Homepilot RolloTron DECT 1213][rademacher_rollotron_dect_1213] (_former Rademacher RolloTron DECT 1213_)
 
 ## Prerequisites
 
@@ -75,21 +79,21 @@ Password:
 
 ## Data fetching and limitations
 
-Since the API of the FRITZ!Box does not provide a push mechanism, this integration polls the data every 30 seconds from the FRITZ!Box. Because of this, the integration can't support the main features of event-based devices like the [FRITZ!DECT 350][fritzdect_350] door/window contact sensors or the [FRITZ!DECT 440][fritzdect_440] buttons (_see the [other devices](#other-devices) section for details_).
+Since the API of the FRITZ!Box does not provide a push mechanism, this integration polls the data every 30 seconds from the FRITZ!Box. Because of this, the integration can't support the main features of event-based devices like the [FRITZ!Smart Control 350][fritzdect_350] door/window contact sensors or the [FRITZ!Smart Control 440][fritzdect_440] buttons (_see the [other devices](#other-devices) section for details_).
 
 ## Devices
 
 ### Light bulbs
 
-Light bulbs like the [FRITZ!DECT 500][fritzdect_500] or [Magenta SmartHome LED E27 Color][magenta_led_e27_color] will be integrated as {% term light %} entities.
+Light bulbs like the FRITZ!DECT 500 or Magenta SmartHome LED E27 Color will be integrated as {% term light %} entities.
 
 {% note %}
-The [FRITZ!DECT 500][fritzdect_500] light bulb supports only 36 colors. When a color is picked in Home Assistant that is not supported by the device, a color that comes close will be activated.
+The FRITZ!DECT 500 light bulb supports only 36 colors. When a color is picked in Home Assistant that is not supported by the device, a color that comes close will be activated.
 {% endnote %}
 
 ### Plugs
 
-Plugs like the [FRITZ!DECT 200][fritzdect_200] or [FRITZ!DECT 210][fritzdect_210] will be integrated as {% term switch %} entities.
+Plugs like the [FRITZ!Smart Energy 200][fritzdect_200] or [FRITZ!Smart Energy 210][fritzdect_210] will be integrated as {% term switch %} entities.
 
 Further there are additional {% term sensor %} and {% term binary_sensor "binary sensor" %} entities created for each device, based on its capabilities:
 
@@ -103,7 +107,7 @@ Further there are additional {% term sensor %} and {% term binary_sensor "binary
 
 ### Shutter drivers
 
-Shutter drivers like the [Rademacher RolloTron DECT 1213][rademacher_rollotron_dect_1213] will be integrated as {% term cover %} entities.
+Shutter drivers like the [Homepilot RolloTron DECT 1213][rademacher_rollotron_dect_1213] will be integrated as {% term cover %} entities.
 
 ### Templates
 
@@ -111,7 +115,7 @@ Self defined [templates](https://en.fritz.com/guide/three-smart-home-templates-t
 
 ### Thermostats
 
-Thermostats like the [FRITZ!DECT 301][fritzdect_301], [FRITZ!DECT 302][fritzdect_302] or [Eurotronic Comet DECT][eurotronic_comet_dect] will be integrated as {% term climate %} entities.
+Thermostats like the FRITZ!DECT 301, [FRITZ!Smart Thermo 302][fritzdect_302] or Eurotronic Comet DECT will be integrated as {% term climate %} entities.
 
 Further there are additional {% term sensor %} and {% term binary_sensor "binary sensor" %} entities created for each device which can be useful for {% term automations %} and {% term templates %}, based on its capabilities:
 
@@ -131,7 +135,7 @@ Further there are additional {% term sensor %} and {% term binary_sensor "binary
 
 ### Other devices
 
-Some devices like the [FRITZ!DECT 350][fritzdect_350] or the [FRITZ!DECT 440][fritzdect_440] can't be controlled via this integration, but its sensors can still be integrated.
+Event based devices like motion detection sensors or window/door contacts or buttons (_eq. [FRITZ!Smart Control 350][fritzdect_350] or the [FRITZ!Smart Control 440][fritzdect_440]_) can't be controlled nor used via this integration, but its sensors can still be integrated.
 
 The availability of these {% term sensor %} and {% term binary_sensor "binary sensor" %} entities depends on the features and capabilities of the connected device and can be one or multiple of:
 
@@ -144,19 +148,14 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 - Temperature
 
 [fritzbox_5590_fiber]: https://en.fritz.com/products/fritzbox/fritzbox-5590-fiber
-[fritzbox_6591_cable]: https://en.fritz.com/products/fritzbox/fritzbox-6591-cable
-[fritzbox_7590]: https://en.fritz.com/products/fritzbox/fritzbox-7590
 [fritzbox_7590_ax]: https://en.fritz.com/products/fritzbox/fritzbox-7590-ax
 [fritzbox_7530_ax]: https://en.fritz.com/products/fritzbox/fritzbox-7530-ax
-[fritzdect_200]: https://en.fritz.com/products/smart-home/fritzdect-200
-[fritzdect_210]: https://en.fritz.com/products/smart-home/fritzdect-210
-[fritzdect_301]: https://en.fritz.com/products/smart-home/fritzdect-301
-[fritzdect_302]: https://en.fritz.com/products/smart-home/fritzdect-302
-[fritzdect_350]: https://en.fritz.com/products/smart-home/fritzdect-350
-[fritzdect_440]: https://en.fritz.com/products/smart-home/fritzdect-440
-[fritzdect_500]: https://en.fritz.com/products/smart-home/fritzdect-500
-[eurotronic_comet_dect]: https://eurotronic.org/produkte/dect-ule-heizkoerperthermostat/comet-dect
-[magenta_led_e27_color]: https://www.smarthome.de/geraete/smarthome-led-lampe-e27-farbig-weiss
+[fritzdect_200]: https://en.fritz.com/products/smart-home/fritzsmart-energy-200
+[fritzdect_210]: https://en.fritz.com/products/smart-home/fritzsmart-energy-210
+[fritzdect_302]: https://en.fritz.com/products/smart-home/fritzsmart-thermo-302
+[fritzdect_350]: https://en.fritz.com/products/smart-home/fritzsmart-control-350
+[fritzdect_440]: https://en.fritz.com/products/smart-home/fritzsmart-control-350
+[fritz_smart_gateway]: https://en.fritz.com/products/smart-home/fritzsmart-gateway
 [rademacher_rollotron_dect_1213]: https://www.rademacher.de/shop/rollladen-sonnenschutz/elektrischer-gurtwickler/rollotron-dect-1213
 
 ## Troubleshooting
