@@ -52,6 +52,10 @@ The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [
 
 ## Prerequisites
 
+Please note that in a [mesh](https://en.avm.de/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) setup, only the FRITZ!Box with the mesh master role should be added with the AVM FRITZ!SmartHome integration.
+
+### Username
+
 It is recommended to create a separate user to connect Home Assistant to your FRITZ!Box. To create a user, in the FRITZ!Box go to **System** > **FRITZ!Box Users** > **Users** > **Add User**. Make sure the user has the **Smart Home** permission.
 
 {% note %}
@@ -64,9 +68,9 @@ If you still want to use the predefined user, please note that as of FRITZ!OS 7.
 Host:
   description: "The hostname or IP address of your FRITZ!Box router."
 Username:
-  description: "Name of the user to connect Home Assistant to your FRITZ!Box (_see [prerequisites](#prerequisites)_)"
+  description: "Name of the user to connect Home Assistant to your FRITZ!Box (_see [Username](#username)_)"
 Password:
-  description: "Password for the user to connect Home Assistant to your FRITZ!Box (_see [prerequisites](#prerequisites)_)"
+  description: "Password for the user to connect Home Assistant to your FRITZ!Box (_see [Username](#username)_)"
 {% endconfiguration_basic %}
 
 ## Data fetching and limitations
