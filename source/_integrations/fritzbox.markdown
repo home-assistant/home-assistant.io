@@ -28,7 +28,7 @@ ha_codeowners:
 ha_integration_type: hub
 ---
 
-The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [AVM Smart Home](https://en.avm.de/products/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).
+The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [AVM Smart Home](https://en.fritz.com/products/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).
 
 #### Tested devices
 
@@ -52,7 +52,7 @@ The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [
 
 ## Prerequisites
 
-Please note that in a [mesh](https://en.avm.de/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) setup, only the FRITZ!Box with the mesh master role should be added with the AVM FRITZ!SmartHome integration.
+Please note that in a [mesh](https://en.fritz.com/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) setup, only the FRITZ!Box with the mesh master role should be added with the AVM FRITZ!SmartHome integration.
 
 ### Username
 
@@ -107,7 +107,7 @@ Shutter drivers like the [Rademacher RolloTron DECT 1213][rademacher_rollotron_d
 
 ### Templates
 
-Self defined [templates](https://en.avm.de/guide/three-smart-home-templates-that-will-make-your-life-easier) within the FRITZ!Box smart home configuration menu, will be integrated as {% term button %} entities and those can be triggered from within Home Assistant.
+Self defined [templates](https://en.fritz.com/guide/three-smart-home-templates-that-will-make-your-life-easier) within the FRITZ!Box smart home configuration menu, will be integrated as {% term button %} entities and those can be triggered from within Home Assistant.
 
 ### Thermostats
 
@@ -143,18 +143,18 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 - Open window detected
 - Temperature
 
-[fritzbox_5590_fiber]: https://en.avm.de/products/fritzbox/fritzbox-5590-fiber
-[fritzbox_6591_cable]: https://en.avm.de/products/fritzbox/fritzbox-6591-cable
-[fritzbox_7590]: https://en.avm.de/products/fritzbox/fritzbox-7590
-[fritzbox_7590_ax]: https://en.avm.de/products/fritzbox/fritzbox-7590-ax
-[fritzbox_7530_ax]: https://en.avm.de/products/fritzbox/fritzbox-7530-ax
-[fritzdect_200]: https://en.avm.de/products/smart-home/fritzdect-200
-[fritzdect_210]: https://en.avm.de/products/smart-home/fritzdect-210
-[fritzdect_301]: https://en.avm.de/products/smart-home/fritzdect-301
-[fritzdect_302]: https://en.avm.de/products/smart-home/fritzdect-302
-[fritzdect_350]: https://en.avm.de/products/smart-home/fritzdect-350
-[fritzdect_440]: https://en.avm.de/products/smart-home/fritzdect-440
-[fritzdect_500]: https://en.avm.de/products/smart-home/fritzdect-500
+[fritzbox_5590_fiber]: https://en.fritz.com/products/fritzbox/fritzbox-5590-fiber
+[fritzbox_6591_cable]: https://en.fritz.com/products/fritzbox/fritzbox-6591-cable
+[fritzbox_7590]: https://en.fritz.com/products/fritzbox/fritzbox-7590
+[fritzbox_7590_ax]: https://en.fritz.com/products/fritzbox/fritzbox-7590-ax
+[fritzbox_7530_ax]: https://en.fritz.com/products/fritzbox/fritzbox-7530-ax
+[fritzdect_200]: https://en.fritz.com/products/smart-home/fritzdect-200
+[fritzdect_210]: https://en.fritz.com/products/smart-home/fritzdect-210
+[fritzdect_301]: https://en.fritz.com/products/smart-home/fritzdect-301
+[fritzdect_302]: https://en.fritz.com/products/smart-home/fritzdect-302
+[fritzdect_350]: https://en.fritz.com/products/smart-home/fritzdect-350
+[fritzdect_440]: https://en.fritz.com/products/smart-home/fritzdect-440
+[fritzdect_500]: https://en.fritz.com/products/smart-home/fritzdect-500
 [eurotronic_comet_dect]: https://eurotronic.org/produkte/dect-ule-heizkoerperthermostat/comet-dect
 [magenta_led_e27_color]: https://www.smarthome.de/geraete/smarthome-led-lampe-e27-farbig-weiss
 [rademacher_rollotron_dect_1213]: https://www.rademacher.de/shop/rollladen-sonnenschutz/elektrischer-gurtwickler/rollotron-dect-1213
