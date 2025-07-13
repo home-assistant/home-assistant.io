@@ -135,7 +135,7 @@ Further there are additional {% term sensor %} and {% term binary_sensor "binary
 
 ### Other devices
 
-Event based devices like motion detection sensors or window/door contacts or buttons (_eq. [FRITZ!Smart Control 350][fritzdect_350] or the [FRITZ!Smart Control 440][fritzdect_440]_) can not be controlled or used via this integration, but its sensors can still be integrated.
+Event based devices like motion detection sensors or window/door contacts or buttons (_for example, [FRITZ!Smart Control 350][fritzdect_350] or the [FRITZ!Smart Control 440][fritzdect_440]_) cannot be controlled or used via this integration, but its sensors can still be integrated.
 
 The availability of these {% term sensor %} and {% term binary_sensor "binary sensor" %} entities depends on the features and capabilities of the connected device and can be one or multiple of:
 
