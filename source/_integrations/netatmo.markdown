@@ -62,9 +62,11 @@ In the dialog, it is possible to create, edit and remove public weather sensors.
 
 To edit an existing area, enter its name and follow the dialog.
 
+By default, the opening entity appears as a generic binary sensor. You can manually set the device class to better reflect your appliance as door, window, etc.
+
 ## Binary sensor
 
-The `netatmo` binary sensor platform is showing the connectivity for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
+The `netatmo` binary sensor platform is showing the connectivity for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station). Also showing [Netatmo Smart Door/Window Tag](https://www.netatmo.com/smart-door-and-window-sensors) devices as opening binary sensors (open/closed) with connectivity and battery level.
 
 ## Button
 
