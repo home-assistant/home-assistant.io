@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Integrates [Huum](https://huum.eu/) saunas into Home Assistant, allowing you to control the heater, light and show the door status.
+Integrates [Huum](https://huum.eu/) saunas into Home Assistant, allowing you to control the heater, light, and show the door status.
 
 You’ll need your username (which is usually your email) and password to configure the integration.
 
