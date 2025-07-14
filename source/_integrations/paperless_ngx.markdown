@@ -139,7 +139,7 @@ This integration follows standard integration removal. No extra steps are requir
 ## Troubleshooting
 
 {% details "Invalid hostname or IP address" %}
-Make sure you enter a complete URL, such as `https://192.168.178.11:8011`.
+Make sure you enter a complete URL, such as `https://paperless.example.com` or `http://192.168.178.11:8011`.
 
 SSL is enabled by default. If you're using an unencrypted connection, you must explicitly use `http://` instead of `https://` in the URL.
 
@@ -150,7 +150,7 @@ If you're using a self-signed certificate, disable the **Verify SSL certificate*
 In this case, verify whether the token is still valid and correctly assigned to the user.
 
 You can also test the token using the Swagger interface available at
-`https://example.com/api/schema/view/`
+`https://paperless.example.com/api/schema/view/`
 
 Click on **"Authorize"** in the Swagger UI to enter your token at **tokenAuth (apiKey)**, then try accessing the relevant endpoints like `/api/statistics/` to ensure they respond as expected.
 
