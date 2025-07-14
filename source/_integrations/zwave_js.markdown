@@ -967,11 +967,11 @@ Zwavejs2Mqtt was renamed Z-Wave JS UI in September 2022. They are synonymous wit
 
 ### Can I switch between Z-Wave JS and Z-Wave JS UI?
 
-You can switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on. However, but you cannot run them both at the same time. Only one of them can be active at the same time.
+You can switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on. However, you cannot run them both at the same time. Only one of them can be active at the same time.
 
-### How to switch between Z-Wave JS and Z-Wave JS UI?
+### How to switch from Z-Wave JS to the Z-Wave JS UI add-on?
 
-To switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on, follow these steps:
+You can switch from the official **Z-Wave JS** add-on to the **Z-Wave JS UI** add-on. However, you cannot run them both at the same time. Only one of the add-ons can be active at the same time.
 
 Switching does not require renaming your devices.
 
@@ -983,7 +983,12 @@ Switching does not require renaming your devices.
 
 4. Configure the Z-Wave JS UI add-on with the added control panel, including setting the location of your Z-Wave device and the network security keys.
 
-5. Add the Z-Wave integration again (even though it is still installed), and uncheck the "Use the Z-Wave JS Supervisor add-on". Enter the correct address for the community add-on in the URL field in the next step.
+5. Add the Z-Wave integration again (even though it is still installed).
+   - Select the **Z-Wave** integration and select the three-dot {% icon "mdi:dots-vertical" %} menu.
+   - From the menu, select **Reconfigure**, then **Reconfigure current adapter**.
+   - Uncheck the **Use the Z-Wave JS Supervisor add-on**.
+   - Under **Websocket URL**, enter the correct address for the community add-on.
+     - To find the URL, in the Z-Wave JS UI add-on, open the **Documentation** tab. The URL is listed in the section on "Setting up the Home Assistant Z-Wave JS integration".
 
 6. Uninstall the official Z-Wave JS add-on.
 
@@ -991,10 +996,10 @@ Switching does not require renaming your devices.
 
 ### What's the benefit of using Z-Wave JS UI add-on?
 
-You might wonder what the benefit is of using the Z-Wave JS UI add-on instead of the official add-on.
-The official add-on provides the Z-Wave Server in its bare minimum variant, just enough to serve the Home Assistant integration.
+You might wonder what the benefit is of using the [Z-Wave JS UI](https://zwave-js.github.io/zwave-js-ui/#/README) add-on instead of the official **Z-Wave JS** add-on.
+The official **Z-Wave JS** add-on provides the Z-Wave Server in its bare minimum variant, just enough to serve the Home Assistant integration.
 
-The Z-Wave JS UI project includes the Z-Wave JS Server for convenience but also provides a Z-Wave control panel and the ability to serve your Z-Wave network to MQTT. This allows you to use the control panel, and if you so choose, to also use MQTT at the same time. For example, some users may use MQTT to interact with Z-Wave from other devices, while the Home Assistant integration still works (as long as you keep the WS Server enabled in Z-Wave JS UI).
+The **Z-Wave JS UI** project includes the Z-Wave JS Server for convenience but also provides a Z-Wave control panel and the ability to serve your Z-Wave network to MQTT. This allows you to use the control panel, and if you so choose, to also use MQTT at the same time. For example, some users may use MQTT to interact with Z-Wave from other devices, while the Home Assistant integration still works (as long as you keep the WS Server enabled in Z-Wave JS UI).
 
 ### Z-Wave JS UI provides discovery of HA devices on its own too, now I'm confused
 
