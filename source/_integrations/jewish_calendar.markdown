@@ -16,7 +16,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The Jewish Calendar {% term integration %} displays various information related to the Jewish Calendar as various sensors.
+The Jewish Calendar {% term integration %} exposes Jewish-calendar information through multiple sensors.
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
