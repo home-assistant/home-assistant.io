@@ -268,3 +268,21 @@ The Tesla Fleet API only provides power data for Powerwall and Solar products. T
 Energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
 The `Load power`, `Solar power`, and the templated sensors can then use a [Riemann Sum](/integrations/integration/) to convert their instant power (kW) values into cumulative energy values (kWh),
 which then can be used within the energy dashboard.
+
+## Actions
+
+Tessie provides some actions to interact with the Tesla Fleet API.
+
+### Share
+
+`tessie.share`
+
+Only addresses, GPS coordinates or YouTube video URLs can be shared. More details on [Tessie's doc](https://developer.tessie.com/reference/share-1).
+
+| Field               | Description                                                            | Example                          |
+|---------------------|------------------------------------------------------------------------|----------------------------------|
+| device_id           | The vehicle's device ID                                                | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
+| value               | Content to share to the vehicle                                        | 48.858364,2.2946128              |
+| locale              | The locale to use (`en-US`)                                            | fr-FR                            |
+| retry_duration      | The amount of time to retry if the command fails (`40`)                | 153.4081865                      |
+| wait_for_completion | Wait for the car to confirm the command or return immediately (`true`) | false                            |
