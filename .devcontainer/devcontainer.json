@@ -9,6 +9,10 @@
     }
   },
   "appPort": [4000],
+  // network host
+  "runArgs": [
+    "--network=host"
+  ],
   "onCreateCommand": "bundle install && npm install",
   "containerEnv": { 
     "DEVCONTAINER": "true",

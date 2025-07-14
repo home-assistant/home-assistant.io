@@ -5,6 +5,9 @@ ARG NODE_VERSION="lts/*"
 RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"
 RUN su vscode -c "/usr/local/rvm/bin/rvm fix-permissions"
 
+# forward port 4000 to the host
+EXPOSE 4000
+
 # Locale env vars
 ENV \
     LANG=en_US.UTF-8 \

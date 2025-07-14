@@ -1,0 +1,16 @@
+.ha-connect{
+    // Navigation
+    .connect-nav{
+        .container{
+            align-items: center;
+            display: flex;
+        }
+
+        .logo{
+            display: grid;
+            img{
+                grid-area: 1/1;                
+            }
+        }
+    }
+}

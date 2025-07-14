@@ -1,0 +1,21 @@
+
+.hero-background {
+    background: #001A35;
+    position: absolute;
+    inset: 0;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        inset: 0;
+    }
+
+    &:before {
+        background: linear-gradient(84deg, rgba(0, 26, 53, 0.00) 33.14%, #005FBE 116.82%);
+    }
+
+    &:after {
+        background: radial-gradient(123.89% 49.86% at 48.4% 45.49%, rgba(0, 26, 53, 0.00) 0%, #0F121F 100%);
+    }
+}

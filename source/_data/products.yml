@@ -491,3 +491,12 @@ voice-pe:
       ship_to: Europe
       url: https://www.robbshop.nl/home-assistant-voice-preview-edition
       logo: /images/distributors/robb.webp
+zwa-2:
+  name: "<strong>Home Assistant Connect ZWA-2</strong>"
+  distributors:
+      # America
+    - name: ameriDroid
+      ship_from: US
+      ship_to: America
+      url: https://ameridroid.com/products/home-assistant-connect-zwa-2
+      logo: /images/distributors/ameridroid.webp
