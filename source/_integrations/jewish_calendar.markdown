@@ -33,14 +33,13 @@ Latitude, Longitude, Time Zone and Elevation:
 
 ## Advanced Options
 
-### Minutes before sunset for candle lighting
+{% configuration_basic %}
+Minutes before sunset for candle lighting:
+  description: How many minutes before sunset is considered candle-lighting time. In Israel, this is usually 20, 30, or 40 minutes depending on your location. Outside of Israel, it's customary to use either 18 or 24. *The default is set to 18 minutes.*
 
-Default: 18 minutes
-This defines how many minutes before sunset is considered candle-lighting time. In Israel, this is usually 20/30/40 depending on your location. Outside of Israel, you probably want to use 18/24.
-
-### Minutes after sunset for Havdalah
-
-By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static offset past the time of sunset.
+Minutes after sunset for Havdalah:
+  description: By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static time offset relative to sunset.
+{% endconfiguration_basic %}
 
 ## Sensor list
 
