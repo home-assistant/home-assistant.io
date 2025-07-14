@@ -139,7 +139,7 @@ This integration follows standard integration removal. No extra steps are requir
 ## Troubleshooting
 
 {% details "Invalid hostname or IP address" %}
-Make sure you enter a complete URL, such as `https://​paperless.example.com` or `https://​192.168.178.11:8011`.
+Make sure you enter a complete URL, such as `https://paperless.example.com/` or `https://192.168.178.11:8011/`.
 
 SSL is enabled by default. If you're using an unencrypted connection, you must explicitly use `http://` instead of `https://` in the URL.
 
