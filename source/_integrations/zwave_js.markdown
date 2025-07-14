@@ -987,7 +987,7 @@ Switching does not require renaming your devices.
    - Select the **Z-Wave** integration and select the three-dot {% icon "mdi:dots-vertical" %} menu.
    - From the menu, select **Reconfigure**, then **Reconfigure current adapter**.
    - Uncheck the **Use the Z-Wave JS Supervisor add-on**.
-   - Under **Websocket URL**, enter the correct address for the community add-on.
+   - Under **WebSocket URL**, enter the correct address for the community add-on.
      - To find the URL, in the Z-Wave JS UI add-on, open the **Documentation** tab. The URL is listed in the section "Setting up the Home Assistant Z-Wave JS integration".
 
 6. Uninstall the official Z-Wave JS add-on.
