@@ -61,7 +61,7 @@ The update sensor could notify you if a new paperless-ngx version is available.
 
 ## Supported functionality
 
-The Paperless-ngx intergation provides statistic and diagnostic entities to Home Assistant.
+The Paperless-ngx integration provides statistic and diagnostic entities to Home Assistant.
 Below is an overview of these entities and their function.
 
 ## Sensors
