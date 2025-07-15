@@ -1,5 +1,5 @@
 export const ZWA2Animations = {
-    frameCount: 102,
+    frameCount: 403,
     images: [],
     airpods: { frame: 0 },
     canvas: null,

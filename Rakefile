@@ -159,7 +159,7 @@ task :extract_video_frames do
       # Extract frames to temp dir
       temp_dir = File.join(output_dir, "tmp_#{base}")
       FileUtils.mkdir_p(temp_dir)
-      system("ffmpeg -c:v libvpx-vp9 -i #{Shellwords.escape(webm_file)} -c:v libwebp -y #{temp_dir}/frame-%03d.webp")
+      system("ffmpeg -c:v libvpx-vp9 -i #{Shellwords.escape(webm_file)} -lossless 1 -c:v libwebp -y #{temp_dir}/frame-%03d.webp")
       # Move and rename frames to output dir
       Dir.glob(File.join(temp_dir, 'frame-*.webp')).sort.each do |frame_file|
         new_name = sprintf("%s-%03d.webp", base, frame_idx)

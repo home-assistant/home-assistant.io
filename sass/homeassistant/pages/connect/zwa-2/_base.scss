@@ -25,36 +25,12 @@
     }
 }
 
-
-.animation-wrapper {
-    position: relative;
-
-    &-inner {
-        position: absolute;
-        inset: 0;
-
-    }
-
-    canvas {
-        aspect-ratio: 13/9;
-        position: sticky;
-        top: 0;
-        z-index: 1;
-        max-width: 400%;
-        max-height: calc(100vh - 88px);
-        object-position: center;
-        object-fit: contain;
-        transform: translateX(-50%);
-        margin-left: 50%;
-    }
-}
-
 section {
     height: 150vh;
     position: relative;
+}
 
-    canvas {
-        position: sticky;
-        top: 0
-    }
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
 }
