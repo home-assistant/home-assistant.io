@@ -91,7 +91,7 @@ Zooz has had a large group of devices certified, one of the largest number of de
 
 [ZSE70 Outdoor Motion Sensor](https://www.getzooz.com/zse70-outdoor-motion-sensor/)
 
-## Frequencies and Firmware
+## Frequencies and firmware
 
 If you’re based in North America, all new devices will come with Z-Wave Long Range (ZWLR) as standard. If you are based elsewhere, like in Europe, Long Range won’t be enabled quite yet. The reason is that even though the Z-Wave Long Range protocol has been available for some time in North America, it was only released in Europe in April 2025, as certification took a bit longer. The nice thing about Zooz’s Z-Wave 700 and newer devices is that ZWLR can be enabled via an over-the-air (OTA) firmware update, so hopefully everyone will be taking part in the Z-Wave Long Range revolution soon. Watch this space for a not-so-secret Home Assistant Z-Wave hardware announcement coming your way…
 
