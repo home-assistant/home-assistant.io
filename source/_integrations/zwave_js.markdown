@@ -975,24 +975,22 @@ You can switch from the official **Z-Wave JS** add-on to the **Z-Wave JS UI** ad
 
 Switching does not require renaming your devices.
 
-1. Disable the Z-Wave integration. **Do not remove the Z-Wave integration or you will lose all device and entity naming.** This will automatically stop the official Z-Wave JS add-on.
+1. Note your network security keys from the official add-on.
 
-2. Note your network security keys from the official add-on.
+2. Install and start the Z-Wave JS UI add-on.
 
-3. Install and start the Z-Wave JS UI add-on.
+3. Configure the Z-Wave JS UI add-on with the added control panel, including setting the location of your Z-Wave device and the network security keys.
 
-4. Configure the Z-Wave JS UI add-on with the added control panel, including setting the location of your Z-Wave device and the network security keys.
-
-5. Add the Z-Wave integration again (even though it is still installed).
+4. Reconfigure the adapter.
    - Select the **Z-Wave** integration and select the three-dot {% icon "mdi:dots-vertical" %} menu.
    - From the menu, select **Reconfigure**, then **Reconfigure current adapter**.
    - Uncheck the **Use the Z-Wave JS Supervisor add-on**.
    - Under **WebSocket URL**, enter the correct address for the community add-on.
      - To find the URL, in the Z-Wave JS UI add-on, open the **Documentation** tab. The URL is listed in the section "Setting up the Home Assistant Z-Wave JS integration".
 
-6. Uninstall the official Z-Wave JS add-on.
+5. Uninstall the official Z-Wave JS add-on.
 
-7. Enable the Z-Wave integration.
+6. Enable the Z-Wave integration.
 
 ### What's the benefit of using Z-Wave JS UI add-on?
 
