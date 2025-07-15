@@ -3,8 +3,6 @@ title: "Duplicate Home Assistant OS installation"
 description: "How to resolve issues caused by having multiple Home Assistant OS installations on the same system."
 ---
 
-# Duplicate Home Assistant OS installation
-
 ## The issue
 
 Multiple Home Assistant OS installations have been detected, which can cause serious system stability issues. This problem typically occurs when you have installed Home Assistant OS multiple times on different storage devices (like SD cards, USB drives, or internal storage) that are all connected to the same device. This mismatch can lead to:
