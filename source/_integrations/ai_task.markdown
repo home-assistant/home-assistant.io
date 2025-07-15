@@ -40,6 +40,43 @@ The response variable is a dictionary with the following keys:
 
 ## Examples
 
+### Template entity counting items on a camera
+
+{% raw %}
+
+```yaml
+template:
+  - triggers:
+      - trigger: homeassistant
+        event: start
+      - trigger: time_pattern
+        minutes: "/5"  # update every 5 minutes
+    actions:
+      - action: ai_task.generate_data
+        data:
+          task_name: "{{ this.entity_id }}"
+          instructions: >-
+            This is the inside of my goose coop. How many birds (chickens, geese, and
+            ducks) are inside the coop?
+          structure:
+            birds:
+              selector:
+                number:
+                  mode: box
+          attachments:
+            media_content_id: media-source://camera/camera.chicken_coop
+            media_content_type: image/jpeg
+        response_variable: result
+    sensor:
+      - name: "Chickens"
+        state: "{{ result.data.birds }}"
+        state_class: total
+```
+
+{% endraw %}
+
+Alternative ideas: detect number of parking spots available, count people in a room, or detect if a door is open.
+
 ### Structured output example
 
 {% raw %}
