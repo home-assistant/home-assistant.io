@@ -64,7 +64,7 @@ port:
   type: integer
 support_home_arm: 
   description: Allow Alarm Panel to display "Arm Home"
-  requied: false
+  required: false
   default: true
   type: boolean
 scan_interval:
