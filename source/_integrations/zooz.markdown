@@ -34,7 +34,7 @@ The following devices are certified for Works with Home Assistant:
 
 ### Leak Protection
 
-[Titan Water Valve Actuator](https://www.getzooz.com/zooz-zac36-titan-water-valve-actuator/)
+[ZAC36 Titan Water Valve Actuator](https://www.getzooz.com/zooz-zac36-titan-water-valve-actuator/)
 
 ### Plugs
 
