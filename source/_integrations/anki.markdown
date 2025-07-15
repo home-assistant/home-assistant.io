@@ -6,7 +6,7 @@ ha_iot_class: Cloud Polling
 ha_domain: anki
 ha_integration_type: service
 ha_platforms:
-- sensor
+  - sensor
 ---
 
 The **Anki** {% term integration %} displays the number of [Anki flashcards](https://apps.ankiweb.net) to review for the current day.
@@ -25,7 +25,7 @@ The **Anki** {% term integration %} displays the number of [Anki flashcards](htt
 Username:
     description: "Your email address or username on the Anki sync server."
 Password:
-    description: "Your password on the Anki sync server".
+    description: "Your password on the Anki sync server."
 Host:
     description: "The URL of the Anki sync server. If you created an account on AnkiWeb, leave it to the default value of `https://sync.ankiweb.net`."
 {% endconfiguration_basic %}
