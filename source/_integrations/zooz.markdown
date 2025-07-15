@@ -40,29 +40,21 @@ The following devices are certified for Works with Home Assistant:
 
 [ZEN04 Smart Plug](https://www.getzooz.com/zooz-zen04-smart-plug/)
 [ZEN05 Outdoor Plug](https://www.getzooz.com/zooz-zen05-outdoor-smart-plug/%20)
-[ZEN14 Double Outdoor Plug](https://www.getzooz.com/zooz-zen14-double-outdoor-plug/)
-[ZEN15 Heavy Duty Power Switch](https://www.getzooz.com/zooz-zen15-power-switch/)
-[ZEN20 Power Strip](https://www.getzooz.com/zooz-zen20-power-strip/)
 
 ### Relays
 
 [ZEN16 Multi Relay](https://www.getzooz.com/zooz-zen16-multirelay/)
-[ZEN17 Universal Relay](https://www.getzooz.com/zooz-zen17-universal-relay/)
 [ZEN51 Dry Contact Relay](https://www.getzooz.com/zooz-zen51-dry-contact-relay/)
 [ZEN52 Double Relay](https://www.getzooz.com/zooz-zen52-double-relay/)
 [ZEN52 DC Motor Controller](https://www.getzooz.com/zooz-zen53-dc-motor-controller/)
-[ZEN55 DC Signal Sensor](https://www.getzooz.com/zooz-zen53-dc-motor-controller/)
 
 ### Lighting Switches
 
 [ZEN30 Double Switch](https://www.getzooz.com/zooz-zen30-double-switch/)
-[ZEN31 RGBW Dimmer](https://www.getzooz.com/zooz-zen31-rgbw-dimmer/)
 [ZEN32 Scene Controller](https://www.getzooz.com/zooz-zen32-scene-controller/)
 [ZEN71 On Off Switch](https://www.getzooz.com/zooz-zen71-on-off-switch/)
 [ZEN72 Dimmer](https://www.getzooz.com/zooz-zen72-dimmer/)
-[ZEN73 On Off Toggle Switch](https://www.getzooz.com/zooz-zen73-s2-toggle-switch/)
 [ZEN74 Toggle Dimmer](https://www.getzooz.com/zooz-zen74-s2-toggle-dimmer/)
-[ZEN75 Heavy Duty Wall Switch](https://www.getzooz.com/zen75-heavy-duty-wall-switch/)
 [ZEN76 S2 On Off Switch](https://www.getzooz.com/zooz-zen76-s2-700-series-switch/)
 [ZEN77 S2 Dimmer](https://www.getzooz.com/zooz-zen77-s2-dimmer/)
 
