@@ -1,3 +1,8 @@
+/**
+ * Using FFMPEG, we can convert 3D rendered video frames into a sequence of images.
+ * ffmpeg -c:v libvpx-vp9 -i {file.webm} -vf 'scale=1920:1080' -lossless 1 -c:v libwebp -y {output_dir}/frame-%03d.webp
+ */
+
 export const ZWA2Animations = {
     frameCount: 160,
     images: [],
