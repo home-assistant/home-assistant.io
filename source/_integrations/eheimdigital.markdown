@@ -151,7 +151,7 @@ actions:
 
 ## Known limitations
 
-- The integration does not support other EHEIM Digital devices than those listed above. More devices will be added in future updates. It is however supported to have an unsupported device as the main device and supported devices as sub devices, even though the unsupported device will not have any entities shown in Home Assistant.
+- The integration does not support other EHEIM Digital devices than those listed above. More devices will be added in future updates. It is, however, supported to have an unsupported device as the main device and supported devices as sub-devices, even though the unsupported device will not have any entities shown in Home Assistant.
 
 ## Removing the integration
 
