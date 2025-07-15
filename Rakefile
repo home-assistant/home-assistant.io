@@ -128,30 +128,3 @@ task :language_scores_data do
     file.write(JSON.generate(remote_data))
   end
 end
-
-desc "Extract frames from webm videos and save as individual webp images (one frameset per video)"
-task :extract_video_frames do
-  require 'fileutils'
-  require 'shellwords'
-  source_dir = File.expand_path('source/connect/zwa-2/source-video', Dir.pwd)
-  output_dir = File.expand_path('source/connect/zwa-2/video-frames', Dir.pwd)
-  FileUtils.mkdir_p(output_dir)
-
-  Dir.glob(File.join(source_dir, '*.webm')).each do |webm_file|
-    basename = File.basename(webm_file, '.webm')
-    temp_dir = File.join(output_dir, "tmp_#{basename}")
-    FileUtils.mkdir_p(temp_dir)
-    # Extract frames for each video into its own set
-    system("ffmpeg -c:v libvpx-vp9 -i #{Shellwords.escape(webm_file)} -vf 'scale=1920:1080,fps=25' -lossless 1 -c:v libwebp -y #{temp_dir}/frame-%03d.webp")
-    # Move and rename frames to output dir
-    Dir.glob(File.join(temp_dir, 'frame-*.webp')).sort.each_with_index do |frame_file, idx|
-      new_name = sprintf("%s-%03d.webp", basename, idx + 1)
-      FileUtils.mv(frame_file, File.join(output_dir, new_name))
-    end
-    FileUtils.rm_rf(temp_dir)
-  end
-end
-
-# Add extract_video_frames to the build process
-desc "Generate jekyll site and extract video frames"
-task :generate_with_frames => [:generate, :extract_video_frames]
