@@ -238,6 +238,24 @@ It's recommended to create a backup before making any major changes to your Z-Wa
    - **Result**: The backup file is downloaded to the device from which you initiated the download.
 4. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
 
+## Restoring your Z-Wave network from a backup
+
+You can restore your Z-Wave network from a backup.
+
+### Prerequisites
+
+- Administrator rights in Home Assistant
+- Have a [backup](#backing-up-your-z-wave-network) downloaded
+
+### Restoring a Z-Wave network from backup
+
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Z-Wave** integration.
+   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
+3. Under **Backup and restore**, select **Restore from backup**.
+   - Select the backup you want to restore from.
+   - **Result**: The Z-Wave network is being restored and the devices that were part of the network should show up again.
+
 ## Updating the firmware of your Z-Wave device
 
 Adapters and devices with the Firmware Update Metadata Command Class allow you to update the firmware by uploading a firmware file. In those cases, you can start the firmware update from the device page in Home Assistant. Refer to the documentation of the device manufacturer to find the corresponding firmware file. An example is the [firmware page by Zooz](https://www.support.getzooz.com/kb/article/1158-zooz-ota-firmware-files/).
