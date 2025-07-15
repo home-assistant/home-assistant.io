@@ -38,6 +38,7 @@ A `ness_alarm` section must be present in the {% term "`configuration.yaml`" %} 
 ness_alarm:
   host: alarm.local
   port: 2401
+  support_home_arm: true
   zones:
     - name: Garage
       id: 1
@@ -61,6 +62,11 @@ port:
   description: The port on which the IP232 module listens for clients.
   required: true
   type: integer
+support_home_arm: 
+  description: Allow Alarm Panel to display "Arm Home"
+  requied: false
+  default: true
+  type: boolean
 scan_interval:
   description: "Time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
   required: false
