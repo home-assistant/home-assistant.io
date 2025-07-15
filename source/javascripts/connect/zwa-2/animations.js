@@ -1,6 +1,9 @@
 /**
  * Using FFMPEG, we can convert 3D rendered video frames into a sequence of images.
  * ffmpeg -c:v libvpx-vp9 -i {file.webm} -vf 'scale=1920:1080' -lossless 1 -c:v libwebp -y {output_dir}/frame-%03d.webp
+ * 
+ * Alternatively, use the script `process.sh` to automate the conversion.
+ * e.g. `/workspaces/home-assistant.io/source/connect/zwa-2/source-video/process.sh ./hero.webm ../video-frames/hero`
  */
 
 export const ZWA2Animations = {

@@ -27,7 +27,7 @@ if ! command -v ffmpeg &> /dev/null; then
     exit 1
 fi
 
-ffmpeg -c:v libvpx-vp9 -i "$input_video" -vf 'scale=1920:1080' -lossless 1 -c:v libwebp -y "$output_directory"/%03d.webp
+ffmpeg -c:v libvpx-vp9 -i "$input_video" -vf 'scale=1920:1080' -pix_fmt bgra -lossless 1 -c:v libwebp -y "$output_directory"/%03d.webp
 if [ $? -ne 0 ]; then
     echo "Error processing video file: $input_video"
     exit 1
