@@ -12,7 +12,7 @@ og_image: /images/blog/2025-07-zooz/art.jpg
 
 <img src='/images/blog/2025-07-zooz/art.jpg' style='border: 0;box-shadow: none;' alt="Zooz joins Works with Home Assistant">
 
-Our [Works with Home Assistant](https://works-with.home-assistant.io/) program is expanding once again, and this time we’re excited to announce Zooz is joining us! We have tested many new devices of all different types, ensuring they provide the best experience possible with Home Assistant.  As well as classic staples for the smart home, they also bring some very cool flood protection devices to help safeguard your home.
+Our [Works with Home Assistant](https://works-with.home-assistant.io/) program is expanding once again, and this time we’re excited to announce Zooz is joining us! We have tested many new devices of all different types, ensuring they provide the best experience possible with Home Assistant. As well as classic staples for the smart home, they also bring some very cool flood protection devices to help safeguard your home.
 
 These will be the first certified [Z-Wave](/integrations/zwave_js/) devices added to the program in some time, and are just part of the exciting future the Home Assistant community and Zooz sees for this smart home protocol..<!--more-->
 
