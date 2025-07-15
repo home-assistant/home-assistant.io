@@ -42,26 +42,6 @@ The **Anki** integration provides the following entities.
 - **Anki learning cards**: The cards that you haven't finished reviewing.
 - **Anki review cards**: The cards that you reviewed in the past but that you must review again today.
 
-## Examples
-
-### Turning off the LEDs during the night
-
-The status LEDs on the device can be quite bright.
-To tackle this, you can use this blueprint to easily automate the LEDs turning off when the sun goes down.
-
-link to the blueprint on the [blueprints
-    exchange](https://community.home-assistant.io/c/blueprints-exchange/53)
-
-## Data updates
-
-The **My integration** integration {% term polling polls %} data from the device every 5 minutes by default.
-Newer devices (the ones running MyOS) have the possibility to push data.
-In this case, pushing data is enabled when the integration is started. If enabling data push fails, the integration uses data {% term polling %}.
-
-## Known limitations
-
-The integration does not provide the ability to reboot, which can instead be done via the manufacturer's app.
-
 ## Troubleshooting
 
 ### Invalid credentials
