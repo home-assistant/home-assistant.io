@@ -1,12 +1,14 @@
 export const ZWA2Animations = {
-    frameCount: 403,
+    frameCount: 160,
     images: [],
     airpods: { frame: 0 },
     canvas: null,
     context: null,
+    trigger: null,
+    filename: null,
 
     currentFrame(index) {
-        return `/connect/zwa-2/video-frames/hero-${(index + 1).toString().padStart(3, '0')}.webp`;
+        return `/connect/zwa-2/video-frames/${this.filename}-${(index + 1).toString().padStart(3, '0')}.webp`;
     },
 
     loadImages() {
@@ -42,7 +44,7 @@ export const ZWA2Animations = {
             snap: "frame",
             ease: "none",
             scrollTrigger: {
-                trigger: document.querySelector(".animation-wrapper"),
+                trigger: document.querySelector(this.trigger),
                 start: "top top",
                 end: "bottom bottom",
                 scrub: 1,
@@ -51,9 +53,10 @@ export const ZWA2Animations = {
         });
     },
 
-    init() {
-        console.clear();
-        this.canvas = document.querySelector("canvas.render-scroller#scene1")
+    init(filename, elem, trigger) {
+        this.trigger = trigger;
+        this.filename = filename;
+        this.canvas = document.querySelector(elem)
         this.context = this.canvas.getContext("2d");
         this.canvas.width = 1920;
         this.canvas.height = 1080;

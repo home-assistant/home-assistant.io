@@ -2,8 +2,9 @@
 .animation-wrapper {
     position: relative;
     pointer-events: none;
-
+    
     &-inner {
+        display: grid;
         position: absolute;
         inset: 0;
     }
@@ -17,6 +18,7 @@
         height: 100%;
         max-height: calc(100vh - 68px);
         object-position: center;
+        grid-area: 1/1;
         object-fit: contain;
         transform: translateX(-50%);
         margin-left: 50%;
