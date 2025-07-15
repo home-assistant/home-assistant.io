@@ -41,7 +41,7 @@ Zooz has had a large group of devices certified, one of the largest number of de
 
 **Leak Protection**
 
-[ZAC Titan Water Valve Actuator](https://www.getzooz.com/zooz-zac36-titan-water-valve-actuator/)
+[ZAC36 Titan Water Valve Actuator](https://www.getzooz.com/zooz-zac36-titan-water-valve-actuator/)
 
 **Plugs**
 
