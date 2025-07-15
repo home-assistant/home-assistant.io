@@ -977,18 +977,23 @@ Switching does not require renaming your devices.
 
 1. Note your network security keys from the official add-on.
 
-2. Install and start the Z-Wave JS UI add-on.
+2. Install and start the **Z-Wave JS UI** add-on.
+   - It may take a while for the add-on to start up.
 
-3. Configure the Z-Wave JS UI add-on with the added control panel, including setting the location of your Z-Wave device and the network security keys.
+3. Configure the **Z-Wave JS UI** add-on with the added control panel, including setting the location of your Z-Wave device and the network security keys.
+   - Open the **Z-Wave JS UI** web UI and go to **Settings** > **UI** > **Z-Wave**.
+   - Enter the security keys and region.
+   - Save your changes and in the top-right corner, select the {% icon "solar:restart-outline" %} restart button to reload the add-on configuration.
+   - Open the **Documentation** tab and copy the URL listed in the section **Setting up the Home Assistant Z-Wave JS integration**. You will need it in the next step.
 
 4. Reconfigure the adapter.
    - Select the **Z-Wave** integration and select the three-dot {% icon "mdi:dots-vertical" %} menu.
    - From the menu, select **Reconfigure**, then **Reconfigure current adapter**.
    - Uncheck the **Use the Z-Wave JS Supervisor add-on**.
-   - Under **WebSocket URL**, enter the correct address for the community add-on.
-     - To find the URL, in the Z-Wave JS UI add-on, open the **Documentation** tab. The URL is listed in the section "Setting up the Home Assistant Z-Wave JS integration".
+   - Under **WebSocket URL**, enter the URL you copied before.
+     - **Troubleshooting**: If it fails to connect although you pasted the right URL, check if you pasted all the security keys in the **Z-Wave JS UI** configuration.
 
-5. Uninstall the official Z-Wave JS add-on.
+5. Uninstall the official **Z-Wave JS** add-on.
 
 6. Enable the Z-Wave integration.
 
