@@ -13,7 +13,7 @@ Multiple Home Assistant OS installations have been detected, which can cause ser
 
 ## The solution
 
-The solution is to ensure you have only one Home Assistant OS installation on your system. To do that, follow these steps:
+Make sure you have only one Home Assistant OS installation on your system. To do that, follow these steps:
 
 1. Create a [full backup][backup] of your system.
 2. Store the backup safely on another device. 
