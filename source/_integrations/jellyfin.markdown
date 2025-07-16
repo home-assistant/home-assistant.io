@@ -68,7 +68,7 @@ Audio Codec:
 
 ## Actions
 
-### Action `media_player.browse_media`
+### Action browse media
 
 `browse_media` can be used to step through your Jellyfin library to find media you want to play.
 
@@ -115,9 +115,9 @@ media_player.jellyfin:
         https://jellyfin
 ```
 
-### Action `media_player.search_media`
+### Action search media
 
-You can use the `search_media` action to find media you want to play.
+You can use the `media_player.search_media` action to find media you want to play.
 
 | Data attribute        | Description                                       |
 | --------------------- | ------------------------------------------------- |
@@ -164,7 +164,7 @@ media_player.jellyfin:
       not_shown: 0
       children: []
 ```
-### Action `media_player.play_media`
+### Action play media
 
 To play media on any player you first need to find the `media_content_id` of the content you want to play, through either [browsing to the media](#action-media_playerbrowse_media) or [searching media](#action-media_playersearch_media).
 
