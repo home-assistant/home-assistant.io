@@ -80,8 +80,8 @@ Note that this doesn't mean the meter data itself is new every 30 seconds. The f
 
 The total consumption and production sensors provided by this integration are fully compatible with the [Home Assistant Energy Dashboard](/docs/energy/).
 
-- `sensor.example_street_11_total_consumption` (total consumption) can be added to the "Grid consumption" field.
-- `sensor.example_street_11_total_production` (total production) can be added to the "Return to grid" field.
+- `sensor.electricity_example_street_11_total_consumption` (total consumption) can be added to the "Grid consumption" field.
+- `sensor.electricity_example_street_11_total_production` (total production) can be added to the "Return to grid" field.
 
 ### Automations
 
