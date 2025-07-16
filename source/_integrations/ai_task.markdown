@@ -62,7 +62,6 @@ template:
             birds:
               selector:
                 number:
-                  mode: box
           attachments:
             media_content_id: media-source://camera/camera.chicken_coop
             media_content_type: image/jpeg
