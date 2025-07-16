@@ -44,16 +44,20 @@ By default, the sensors for phase-specific current active power usage are disabl
 
 In case you have a bidirectional meter for consumption and production, the all-time total production is added as well.
 
-### Provided Sensors
+## Gas meter
+
+A Sensor {% term entity %} is being added for total gas consumption.
+
+## Provided sensors
 
 Depending on your meter type, different sensors are available:
 
-**Main sensors:**
+**Electricity - Main sensors:**
 - `sensor.electricity_<street>_<number>_total_power`: Current power consumption in watts
 - `sensor.electricity_<street>_<number>_total_consumption`: Total energy consumption in kWh
 - `sensor.electricity_<street>_<number>_total_production`: Total energy production in kWh (bidirectional meters only)
 
-**Optional sensors (disabled by default):**
+**Electricity - Optional sensors (disabled by default):**
 - `sensor.electricity_<street>_<number>_phase_1_power`: Power consumption phase 1 in watts
 - `sensor.electricity_<street>_<number>_phase_2_power`: Power consumption phase 2 in watts
 - `sensor.electricity_<street>_<number>_phase_3_power`: Power consumption phase 3 in watts
@@ -61,12 +65,7 @@ Depending on your meter type, different sensors are available:
 - `sensor.electricity_<street>_<number>_phase_2_voltage`: Voltage phase 2 in volts
 - `sensor.electricity_<street>_<number>_phase_3_voltage`: Voltage phase 3 in volts
 
-## Gas meter
-
-A Sensor {% term entity %} is being added for total gas consumption.
-
-### Provided Sensors
-
+**Gas:**
 - `sensor.gas_<street>_<number>_total_gas_consumption`: Total gas consumption in cubic meters
 
 ## Data update
@@ -142,12 +141,12 @@ If your sensors are not showing data or values are stale, check the following:
 
 3. **API Rate Limits**: The inexogy API has rate limits. Although the integration is designed to stay within these limits, frequent Home Assistant restarts or other tools using the API might lead to temporary blocks.
 
-### Missing Sensors
+### Missing sensors
 
 - **Production sensors**: The electricity production sensor is only available for bidirectional meters. If you have such a meter but don't see it, check your data in the inexogy portal.
 - **Phase sensors**: Per-phase power and voltage sensors are disabled by default and not available for all meters. You can enable them on the integration page under "Entities".
 
-### Network Issues
+### Network issues
 
 If you see connection errors, ensure that Home Assistant has a stable internet connection. The integration needs access to `api.inexogy.com` over HTTPS (port 443).
 
