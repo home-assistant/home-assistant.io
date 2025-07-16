@@ -13,6 +13,7 @@ ha_integration_type: integration
 ha_platforms:
   - diagnostics
   - notify
+  - sensor
 ha_quality_scale: bronze
 ---
 

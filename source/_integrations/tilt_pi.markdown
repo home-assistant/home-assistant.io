@@ -5,16 +5,17 @@ ha_category:
   - Sensor
 ha_release: '2025.7'
 ha_iot_class: Local Polling
-ha_quality_scale: Bronze
+ha_quality_scale: bronze
 ha_config_flow: true
 ha_codeowners:
   - '@michaelheyman'
 ha_domain: tilt_pi
 ha_platforms:
-   - sensor
+  - sensor
 related:
   - url: https://tilthydrometer.com/collections/tilt-pi
     title: Tilt Pi product page
+ha_integration_type: integration
 ---
 
 The **Tilt Pi** {% term integration %} allows you to connect a Tilt Pi to Home Assistant to

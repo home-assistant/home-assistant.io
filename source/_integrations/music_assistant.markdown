@@ -10,6 +10,7 @@ ha_codeowners:
   - '@music-assistant'
 ha_domain: music_assistant
 ha_platforms:
+  - button
   - media_player
 ha_zeroconf: true
 ha_integration_type: integration

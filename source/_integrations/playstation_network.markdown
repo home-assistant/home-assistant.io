@@ -2,22 +2,27 @@
 title: PlayStation Network
 description: Instructions on enabling PlayStation Network support for your Home Assistant
 ha_category:
+  - Binary sensor
   - Media player
   - Sensor
 ha_release: 2025.7
 ha_iot_class: Cloud Polling
 ha_domain: playstation_network
 ha_platforms:
+  - binary_sensor
+  - diagnostics
   - media_player
   - sensor
 ha_codeowners:
   - '@jackjpowell'
+  - '@tr4nt0r'
 ha_config_flow: true
 ha_quality_scale: bronze
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - url: https://playstation.com/
     title: Playstation
+ha_dhcp: true
 ---
 
 The **PlayStation Network** {% term integration %} enables you to seamlessly integrate information from your currently playing game in Home Assistant.
@@ -61,6 +66,12 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 - **Gold trophies**: Displays your total count of Gold trophies, earned for major achievements within games.
 - **Silver trophies**: Indicates the number of Silver trophies you've collected, typically for mid-level accomplishments.
 - **Bronze trophies**: Shows how many Bronze trophies you've earned, usually for basic or early-game achievements.
+- **Last online**: Displays the time when you were last seen online.
+- **Online status**: Indicates your current availability on the PlayStation Network. Status options include *Online*, *Offline*, *Away*, and *Online on PS App*.
+
+### Binary sensors
+
+- **Subscribed to PlayStation Plus**: Indicates if you have an active PlayStation Plus membership.
 
 ## Data updates
 
@@ -83,13 +94,13 @@ The following devices are known to be supported by the integration:
 - PlayStation 5
 - PlayStation 4
 - PlayStation 3
+- PlayStation Vita
 - PlayStation PC
 
 ## Unsupported devices
 
 The following devices are not supported by the integration:
 
-- PlayStation Vita
 - PlayStation Portable
 - Other PlayStation system variants (PlayStation TV) or older systems that do not support the PlayStation Network
 

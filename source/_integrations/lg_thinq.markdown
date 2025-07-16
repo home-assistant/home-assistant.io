@@ -23,6 +23,7 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@LG-ThinQ-Integration'
+ha_dhcp: true
 ---
 
 The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
