@@ -67,11 +67,11 @@ A Sensor {% term entity %} is being added for total gas consumption.
 
 ### Provided Sensors
 
-- `sensor.gas_example_street_11_total_gas_consumption`: Total gas consumption in cubic meters
+- `sensor.gas_<street>_<number>_total_gas_consumption`: Total gas consumption in cubic meters
 
 ## Update Rate
 
-The sensors are updated every 30 seconds with the latest data available from the inexogy API.
+The sensors are updated every 30 seconds. This pulls the latest data available from the inexogy API.
 Note that this doesn't mean the meter data itself is new every 30 seconds. The frequency at which your meter sends new data to inexogy depends on your meter model and measurement concept.
 
 ## Use Cases and Examples
@@ -116,7 +116,6 @@ automation:
       - condition: numeric_state
         entity_id: sensor.electricity_example_street_11_total_power
         above: 0  # Positive value means grid consumption
-        value_template: "{{ states('sensor.electricity_example_street_11_total_power') | float }}"
     action:
       - service: switch.turn_off
         target:
