@@ -110,12 +110,12 @@ script:
       response_variable: comfort_report
     - action: notify.persistent_notification
       data:
-        title: "🏠 Home Climate Report"
+        title: "🏠 Home climate report"
         message: |
-          🌤️ **Weather Outside:**
+          🌤️ **Weather outside:**
           {{ comfort_report.data.weather_description }}
 
-          🛋️ **Indoor Comfort:**
+          🛋️ **Indoor comfort:**
           {{ comfort_report.data.indoor_comfort }}
 ```
 
