@@ -69,14 +69,14 @@ A Sensor {% term entity %} is being added for total gas consumption.
 
 - `sensor.gas_<street>_<number>_total_gas_consumption`: Total gas consumption in cubic meters
 
-## Update Rate
+## Data update
 
 The sensors are updated every 30 seconds. This pulls the latest data available from the inexogy API.
 Note that this doesn't mean the meter data itself is new every 30 seconds. The frequency at which your meter sends new data to inexogy depends on your meter model and measurement concept.
 
-## Use Cases and Examples
+## Use cases and examples
 
-### Energy Dashboard
+### Energy dashboard
 
 The total consumption and production sensors provided by this integration are fully compatible with the [Home Assistant Energy Dashboard](/docs/energy/).
 
@@ -132,7 +132,7 @@ automation:
 
 ## Troubleshooting
 
-### No Data or Stale Sensors
+### No data or stale sensors
 
 If your sensors are not showing data or values are stale, check the following:
 
