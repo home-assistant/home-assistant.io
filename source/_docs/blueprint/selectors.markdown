@@ -1139,7 +1139,7 @@ mode:
   description: This can be either `box` or `slider` mode.
   type: string
   required: false
-  default: slider
+  default: slider if min and max set, else box
 translation_key:
   description: >
     Allows translations provided by an integration where `translation_key`
