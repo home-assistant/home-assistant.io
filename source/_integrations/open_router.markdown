@@ -14,7 +14,7 @@ ha_platforms:
   - conversation
 ---
 
-The [OpenRouter](https://openrouter.ai/) integration allows you to use the OpenRouter API as a conversation agent in Home Assistant.
+The [OpenRouter](https://openrouter.ai/) {% term integration %} allows you to use the OpenRouter API as a conversation agent in Home Assistant.
 
 This integration provides a way to interact with a wide range of AI models available on OpenRouter, while billing is handled by OpenRouter.
 You can even use your own third-party (like OpenAI) API key.
@@ -26,8 +26,9 @@ You can even use your own third-party (like OpenAI) API key.
 The API key is used to authenticate requests to OpenRouter. To generate an API key take the following steps:
 
 - Log in to [OpenRouter](https://openrouter.ai/) or sign up for an account.
-- Navigate to the "API Keys" section in your account settings.
-- Press "Create API Key" to generate a new key and give the key a name, and be sure to set up billing limits.
+- Go to the **API Keys** section in your account settings.
+- To generate a new key, select **Create API Key**.
+- Give the key a name, and be sure to set up billing limits.
 
 ## Removing the integration
 
