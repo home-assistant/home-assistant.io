@@ -5,7 +5,7 @@ description: "How to resolve issues caused by having multiple Home Assistant OS 
 
 ## The issue
 
-Multiple Home Assistant OS installations have been detected, which can cause serious system stability issues. This problem typically occurs when you have installed Home Assistant OS multiple times on different storage devices (like SD cards, USB drives, or internal storage) that are all connected to the same device. This mismatch can lead to:
+Multiple Home Assistant OS installations have been detected, which can lead to non-bootable systems, especially after updates. This problem typically occurs when you have installed Home Assistant OS multiple times on different storage devices (like SD cards, USB drives, or internal storage) that are all connected to the same device. This mismatch can lead to:
 
 - Your system booting into an old version of Home Assistant OS even after updating.
 - Complete boot failure, leaving your system unable to start.
