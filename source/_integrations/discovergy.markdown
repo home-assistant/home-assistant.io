@@ -85,7 +85,7 @@ The total consumption and production sensors provided by this integration are fu
 
 ### Automations
 
-You can use the current power sensor (`sensor.example_street_11_total_power`) to trigger automations based on your electricity usage.
+You can use the current power sensor (`sensor.electricity_example_street_11_total_power`) to trigger automations based on your electricity usage.
 
 Example: Send a notification when power consumption exceeds 3000W for 5 minutes.
 
@@ -94,14 +94,14 @@ automation:
   - alias: High Power Consumption Detected
     trigger:
       - platform: numeric_state
-        entity_id: sensor.example_street_11_total_power
+        entity_id: sensor.electricity_example_street_11_total_power
         above: 3000
         for:
           minutes: 5
     action:
       - service: notify.mobile_app_your_device
         data:
-          message: "High power consumption detected: {{ states('sensor.example_street_11_total_power') }} W"
+          message: "High power consumption detected: {{ states('sensor.electricity_example_street_11_total_power') }} W"
 ```
 
 Example: Turn off high-power devices when photovoltaic production is insufficient (for bidirectional meters).
@@ -111,12 +111,12 @@ automation:
   - alias: Consumption Control Based on PV Output
     trigger:
       - platform: state
-        entity_id: sensor.example_street_11_total_power
+        entity_id: sensor.electricity_example_street_11_total_power
     condition:
       - condition: numeric_state
-        entity_id: sensor.example_street_11_total_power
+        entity_id: sensor.electricity_example_street_11_total_power
         above: 0  # Positive value means grid consumption
-        value_template: "{{ states('sensor.example_street_11_total_power') | float }}"
+        value_template: "{{ states('sensor.electricity_example_street_11_total_power') | float }}"
     action:
       - service: switch.turn_off
         target:
