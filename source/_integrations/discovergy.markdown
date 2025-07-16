@@ -52,12 +52,12 @@ A Sensor {% term entity %} is being added for total gas consumption.
 
 Depending on your meter type, different sensors are available:
 
-**Electricity - Main sensors:**
+### Electricity - Main sensors
 - `sensor.electricity_<street>_<number>_total_power`: Current power consumption in watts
 - `sensor.electricity_<street>_<number>_total_consumption`: Total energy consumption in kWh
 - `sensor.electricity_<street>_<number>_total_production`: Total energy production in kWh (bidirectional meters only)
 
-**Electricity - Optional sensors (disabled by default):**
+### Electricity - Optional sensors (disabled by default)
 - `sensor.electricity_<street>_<number>_phase_1_power`: Power consumption phase 1 in watts
 - `sensor.electricity_<street>_<number>_phase_2_power`: Power consumption phase 2 in watts
 - `sensor.electricity_<street>_<number>_phase_3_power`: Power consumption phase 3 in watts
@@ -65,7 +65,7 @@ Depending on your meter type, different sensors are available:
 - `sensor.electricity_<street>_<number>_phase_2_voltage`: Voltage phase 2 in volts
 - `sensor.electricity_<street>_<number>_phase_3_voltage`: Voltage phase 3 in volts
 
-**Gas:**
+### Gas
 - `sensor.gas_<street>_<number>_total_gas_consumption`: Total gas consumption in cubic meters
 
 ## Data update
@@ -86,7 +86,7 @@ The total consumption and production sensors provided by this integration are fu
 
 You can use the current power sensor (`sensor.electricity_example_street_11_total_power`) to trigger automations based on your electricity usage.
 
-Example: Send a notification when power consumption exceeds 3000W for 5 minutes.
+Example: Send a notification when power consumption exceeds 3000&nbsp;W for 5 minutes.
 
 {% raw %}
 
