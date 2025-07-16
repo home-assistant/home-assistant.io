@@ -70,7 +70,7 @@ Audio Codec:
 
 ### Action browse media
 
-`browse_media` can be used to step through your Jellyfin library to find media you want to play.
+You can use he `media_player.browse_media` action to step through your Jellyfin library to find media you want to play.
 
 | Data attribute        | Description                                                             |
 | --------------------- | ----------------------------------------------------------------------- |
@@ -176,7 +176,7 @@ To play media on any player you first need to find the `media_content_id` of the
 
 #### Examples:
 
-Play a movie on one of the Jellyfin clients that supports playback
+Play a movie on one of the Jellyfin clients that supports playback.
 
 ```yaml
 action: media_player.play_media
