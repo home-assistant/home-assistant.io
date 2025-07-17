@@ -1023,7 +1023,7 @@ If you are currently using [Z-Wave JS UI](https://zwave-js.github.io/zwave-js-ui
 1. Before starting migration, disable the **Z-Wave** integration.
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the Z-Wave integration and select the three dots {% icon "mdi:dots-vertical" %} menu and select **Disable**.
 2. Do the migration in Z-Wave JS UI.
-   - Go to {% my supervisor_addon addon="core_zwave_jsa0d7b954_zwavejs2mqtt" title="**Settings** > **Add-ons** > **Z-Wave JS UI**" %}
+   - If you are using the **Z-Wave JS UI** add-on, go to {% my supervisor_addon addon="core_zwave_jsa0d7b954_zwavejs2mqtt" title="**Settings** > **Add-ons** > **Z-Wave JS UI**" %}
    - Open the Z-Wave JS UI control panel and in the bottom-right corner, select the purple **Advanced actions** button.
    - Under **NVM Management**, select **Backup**.
    - Unplug the current adapter and connect the new adapter.
