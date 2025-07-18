@@ -60,6 +60,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 - [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+- [Garage Door Opener](https://www.switch-bot.com/products/switchbot-garage-door-opener)
 
 ### Locks
 
@@ -162,6 +163,13 @@ Features:
 - get battery level
 - get calibration state
 
+#### Garage Door Opener
+
+Features:
+- open/close
+- set position
+- get position
+- get calibration state
 
 ### Sensors
 
