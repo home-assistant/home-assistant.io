@@ -1027,7 +1027,9 @@ If you are currently using [Z-Wave JS UI](https://zwave-js.github.io/zwave-js-ui
    - Open the Z-Wave JS UI control panel and in the bottom-right corner, select the purple **Advanced actions** button.
    - Under **NVM Management**, select **Backup**.
    - Unplug the current adapter and connect the new adapter.
-   - Under **Settings** > **UI** > **Z-Wave**, enter the region and save.
+   - Go to **Settings** > **UI** > **Z-Wave**.
+     - Under **Serial port**, update the device path to show your new device (for example, `/dev/serial/by-id/usb-XXXX`).
+     - Under **Default radio configuration** enter the region you're in and save.
    - In the control panel, select the purple {% icon "mdi:magic" %} advanced actions button and under **NVM Management**, select **Restore**.
 3. Rebuild all routes.
    - Select the purple {% icon "mdi:magic" %} advanced actions button and under **Rebuild routes**, select **Begin**.
