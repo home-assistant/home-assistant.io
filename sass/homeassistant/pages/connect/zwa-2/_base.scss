@@ -1,36 +1,13 @@
-// Reset any styles
-#landingpage {
-    .page-content {
-        overflow-x: clip;
-    }
-
-    .grid-wrapper {
-        max-width: unset;
-        min-height: unset;
-    }
-
-    .content {
-        max-width: unset;
-        margin: unset;
-        color: #002332;
-        font-family: Figtree, sans-serif;
-        font-weight: 400;
-        line-height: 1.5;
-
-        img {
-            box-shadow: unset;
-            border: unset;
-            max-width: 100%;
-        }
-    }
-}
-
 section {
-    height: 150vh;
-    position: relative;
-}
+    color: #ffffff;
 
-.container{
-    max-width: 1200px;
-    margin: 0 auto;
+    .section-inner {
+        position: sticky;
+        top: 0;
+    }
+
+    .section-inner-content {
+        position: absolute;
+        inset: calc(var(--header-height-small) * 2) 0 var(--header-height-small);
+    }
 }

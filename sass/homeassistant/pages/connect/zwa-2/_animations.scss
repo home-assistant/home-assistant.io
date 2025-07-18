@@ -1,27 +1,27 @@
-
 .animation-wrapper {
     position: relative;
-    pointer-events: none;
     
     &-inner {
         display: grid;
         position: absolute;
         inset: 0;
+        top: var(--header-height-small);
+        pointer-events: none;
     }
 
     canvas {
         aspect-ratio: 16/9;
         position: sticky;
-        top: 68px;
+        top: 80px;
         z-index: 1;
         max-width: 400%;
         height: 100%;
-        max-height: calc(100vh - 68px);
+        max-height: calc(100vh - 80px);
         object-position: center;
         grid-area: 1/1;
         object-fit: contain;
         transform: translateX(-50%);
         margin-left: 50%;
-        
+
     }
 }

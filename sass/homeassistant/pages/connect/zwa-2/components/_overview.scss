@@ -1,0 +1,23 @@
+section#overview {
+    height: 100vh;
+    
+    &:after{
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0, 26, 53, 0.00) 11.04%, #012244 100%);
+        background-size: 200%;
+    }
+
+
+    .cols {
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .section-inner-content {
+        height: 64vh;
+    }
+
+    .background {}
+}

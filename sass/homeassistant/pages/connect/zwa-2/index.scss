@@ -1,6 +1,11 @@
+@import "homeassistant/pages/connect/variables.scss";
+@import "homeassistant/pages/connect/base.scss";
 @import "homeassistant/pages/connect/header.scss";
 
 // ZWA-2 specific styles
+@import "homeassistant/pages/connect/zwa-2/variables.scss";
 @import "homeassistant/pages/connect/zwa-2/base.scss";
 @import "homeassistant/pages/connect/zwa-2/animations.scss";
-@import "homeassistant/pages/connect/zwa-2/hero.scss";
+
+@import "homeassistant/pages/connect/zwa-2/components/hero.scss";
+@import "homeassistant/pages/connect/zwa-2/components/overview.scss"; 

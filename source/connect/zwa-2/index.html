@@ -11,43 +11,20 @@ frontpage_image: /images/frontpage/zwa-2-frontpage.jpg
 {% include custom/buy-dialog.html product="zwa-2" %}
 
 <main class="ha-connect" id="connect-zwa-2">
-  <div class="connect-nav">
-    <div class="container">
-      <div class="logo-wrapper">
-        <div class="logo">
-          <img src="/images/connect/zwa-2/logo.svg" width="280" height="34" alt="Home Assistant Connect ZWA-2">
-          <img src="/images/connect/zwa-2/logo-dark.svg" width="280" height="34" alt="Home Assistant Connect ZWA-2">
-        </div>
-      </div>
-      <div class="nav-links">
-        <a href="#overview">Overview</a>
-        <a href="#specs">Specs</a>
-        <a href="#faq">FAQ</a>
-        <a href="https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition"
-          target="_blank" rel="noopener">Docs</a>
-        <a href="#" class="cta buy">Buy now</a>
-      </div>
-    </div>
-  </div>
+  {% include_relative components/_header.html %}
   <div class="animation-wrapper">
     <div class="animation-wrapper-inner">
       <canvas class="render-scroller" id="scene-hero" width="1920" height="1080"></canvas>
     </div>
-    <section id="hero">
-      <div class="hero-background"></div>
-    </section>
-    <section id="hero-2">
-      <div class="hero-background"></div>
-    </section>
-    <section id="hero">
-      <div class="hero-background"></div>
-    </section>
+    {% include_relative components/_hero.html %}
+    {% include_relative components/_overview.html %}
   </div>
 </main>
 
 <script type="importmap">
   {
     "imports": {
+      "header": "/javascripts/connect/header.js",
       "animations": "/javascripts/connect/zwa-2/animations.js"
     }
   }

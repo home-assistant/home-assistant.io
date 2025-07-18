@@ -1,6 +1,6 @@
 # /bin/bash
 # This script processes a video file by extracting frames and saving them in a specified directory.
-# Usage: ./process.sh <input_video> <output_directory>
+# Usage: /workspaces/home-assistant.io/source/connect/zwa-2/source-video/process.sh <input_video> <output_directory>
 # Runs: ffmpeg -c:v libvpx-vp9 -i {file.webm} -vf 'scale=1920:1080' -lossless 1 -c:v libwebp -y {output_dir}/frame-%03d.webp
 
 if [ "$#" -ne 2 ]; then

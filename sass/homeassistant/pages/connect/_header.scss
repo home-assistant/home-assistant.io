@@ -1,16 +1,131 @@
-.ha-connect{
-    // Navigation
-    .connect-nav{
-        .container{
-            align-items: center;
-            display: flex;
-        }
+.ha-connect {
+    --header-height-large: 120px;
+    --header-height-small: 80px;
+    --header-height: var(--header-height-large);
 
-        .logo{
-            display: grid;
-            img{
-                grid-area: 1/1;                
+    &.sticky-header {
+        --header-height: var(--header-height-small);
+
+        .connect-nav {
+            &-inner {
+
+                backdrop-filter: blur(10px);
+                background-color: rgba(255, 255, 255, 0.2);
             }
         }
+    }
+
+    // Navigation
+    .connect-nav {
+        height: var(--header-height-large);
+        margin-bottom: calc(-1 * var(--header-height-large));
+        pointer-events: none;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+
+        &-inner {
+
+            background-color: rgba(255, 255, 255, 0);
+            display: flex;
+            height: var(--header-height);
+            pointer-events: all;
+            transition: height 0.3s ease-out, background-color 0.3s ease-out;
+            width: 100%;
+        }
+
+        .container {
+            align-items: center;
+            height: 100%;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: grid;
+
+            img {
+                grid-area: 1/1;
+                height: 20px;
+                width: auto;
+            }
+        }
+
+        .nav-links {
+            align-items: center;
+            display: flex;
+            gap: 40px;
+
+            &-items {
+                align-items: center;
+                display: flex;
+                gap: 24px;
+
+                a {
+                    position: relative;
+
+                    &:after {
+                        content: '';
+                        height: 8px;
+                        left: 0;
+                        opacity: 0;
+                        transition: background-position-x 0.3s ease-out, opacity 0.3s ease-out;
+                        position: absolute;
+                        bottom: -6px;
+                        background-image: url("data:image/svg+xml,%3Csvg width='116' height='4' viewBox='0 0 116 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M116 1C113.375 1 113.532 3 110.728 3C108.103 3 108.26 1 105.456 1C102.831 1 102.988 3 100.184 3C97.5585 3 97.716 1 94.9115 1C92.2863 1 92.4439 3 89.6393 3C87.0142 3 87.1717 1 84.3672 1C81.7421 1 81.8996 3 79.0951 3C76.47 3 76.6275 1 73.823 1C71.1978 1 71.3553 3 68.5508 3C65.9257 3 66.0832 1 63.2787 1C60.6536 1 60.8111 3 58.0066 3C55.3814 3 55.5389 1 52.7344 1C50.1093 1 50.2668 3 47.4623 3C44.8372 3 44.9947 1 42.1902 1C39.565 1 39.7226 3 36.918 3C34.2929 3 34.4504 1 31.6459 1C29.0208 1 29.1783 3 26.3738 3C23.7487 3 23.9062 1 21.1016 1C18.4765 1 18.634 3 15.8295 3C13.2044 3 13.3619 1 10.5574 1C7.93226 1 8.08977 3 5.28526 3C2.647 3 2.80451 1 0 1' stroke='white' stroke-miterlimit='10'/%3E%3C/svg%3E%0A");
+                        background-repeat: repeat-x;
+                        background-size: auto 75%;
+                        width: 100%;
+                        animation: underlineWaveMove 1s linear infinite;
+
+                        @media(prefers-reduced-motion: reduce) {
+                            animation: none;
+                        }
+                    }
+
+                    &:hover:after {
+                        opacity: .5;
+                    }
+
+                }
+            }
+
+            &-ctas {
+                display: flex;
+                gap: 24px;
+                align-items: center;
+
+                .cta {
+                    align-items: center;
+                    background-color: var(--connect-line-blue);
+                    border-radius: 20px;
+                    display: flex;
+                    height: 40px;
+                    padding: 8px 30px;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: #ffffff;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.site-header {
+    position: relative;
+    margin-bottom: 0;
+}
+
+@keyframes underlineWaveMove {
+    0% {
+        background-position-x: 0px;
+    }
+
+    100% {
+        background-position-x: 32px;
     }
 }
