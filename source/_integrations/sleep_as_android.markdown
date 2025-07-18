@@ -55,7 +55,7 @@ If you scroll to the top and click on *Events* you can individually select and d
 
 ## Events
 
-The integration offers various event entities that will display the most recent events from Sleep as Android. The event attributes provide additional details depending on the event type.
+The integration offers various event entities that will display the most recent events from Sleep as Android.
 
 ### Alarm clock
 
