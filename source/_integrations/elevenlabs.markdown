@@ -79,7 +79,6 @@ model:
   required: false
   type: string
 Speech-to-text model:
-model:
   description: "Model ID for the speech-to-text model to use. Will override the default model of the entity!"
   required: false
   type: string
