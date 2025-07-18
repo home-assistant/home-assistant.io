@@ -22,8 +22,6 @@ desc "Generate jekyll site"
 task :generate do
   raise "### You haven't set anything up yet. First run `rake install`." unless File.directory?(source_dir)
   puts "## Generating Site with Jekyll"
-  success = system "compass compile --css-dir #{source_dir}/stylesheets"
-  abort("Generating CSS failed") unless success
   success = system "rake analytics_data"
   abort("Generating analytics data failed") unless success
   success = system "rake alerts_data"
@@ -34,6 +32,8 @@ task :generate do
   abort("Generating language scores data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
+  success = system "compass compile --css-dir #{source_dir}/stylesheets"
+  abort("Generating CSS failed") unless success
   if ENV["CONTEXT"] != 'production'
     File.open("#{public_dir}robots.txt", 'w') do |f|
       f.write "User-agent: *\n"
