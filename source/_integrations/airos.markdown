@@ -64,10 +64,6 @@ These sensors show the actual data transfer rate (receive and transmit) for this
 
 Performance in decibels of the devices antenna. See [Gain](https://en.wikipedia.org/wiki/Gain_(antenna)) on Wikipedia.
 
-### Remote hostname
-
-Shows the hostname of the *first* connected device
-
 ## Data updates
 
 Data is polled from devices every 60 seconds.
