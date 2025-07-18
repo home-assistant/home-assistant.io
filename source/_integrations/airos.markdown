@@ -12,7 +12,7 @@ ha_domain: airos
 ha_zeroconf: false
 ha_platforms:
   - sensor
-ha_integration_type: hub
+ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
