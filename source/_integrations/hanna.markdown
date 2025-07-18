@@ -32,7 +32,7 @@ password:
 
 ## Data updates
 
-The integration will update its sensors by polling the [HannaCloud](https://www.hannacloud.com) account every 5 seconds for new values. 
+The integration will update its sensors by {% term polling %} the [HannaCloud](https://www.hannacloud.com) account every 5 seconds for new values. 
 
 
 ## Available sensors
