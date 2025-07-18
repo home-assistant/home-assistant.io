@@ -382,7 +382,7 @@ binary_sensor:
       type: device_class
       default: None
     state:
-      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
+      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. The sensor is `unknown` if the template evaluates as `None`. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
       required: true
       type: template
 
@@ -1446,7 +1446,7 @@ lock:
       type: boolean
       default: false
     state:
-      description: Defines a template to set the state of the lock.
+      description: Defines a template to set the state of the lock. Valid output values from the template are `locked`, `unlocked`, `open`, `locking`, `unlocking`, `opening`, and `jammed`, which are directly mapped to the corresponding states. In addition, `true` and `on` are valid as synonyms to `locked` while `false` and `off` are valid as synonyms to `unlocked`.
       required: true
       type: template
     unlock:
@@ -1737,9 +1737,10 @@ select:
       required: true
       type: action
     state:
-      description: Template for the select's current value.
-      required: true
+      description: Template for the select's current value. When omitted, the state will be set to the `option` provided by the `select_option` action.
+      required: false
       type: template
+      default: optimistic
 {% endconfiguration %}
 
 ### State based select - Control Day/Night mode of a camera
@@ -3471,7 +3472,7 @@ vacuum:
           "attribute: template":
             description: The attribute and corresponding template.
             required: true
-            type: template          
+            type: template
       availability_template:
         description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
         required: false

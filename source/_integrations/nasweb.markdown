@@ -2,6 +2,7 @@
 title: NASweb
 description: Integrate NASweb devices
 ha_category:
+  - Sensor
   - Switch
 ha_release: '2024.12'
 ha_codeowners:
@@ -10,6 +11,7 @@ ha_iot_class: Local Push
 ha_domain: nasweb
 ha_config_flow: true
 ha_platforms:
+  - sensor
   - switch
 ha_integration_type: hub
 ---

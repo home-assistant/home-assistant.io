@@ -2,11 +2,14 @@
 title: PlayStation Network
 description: Instructions on enabling PlayStation Network support for your Home Assistant
 ha_category:
+  - Binary sensor
   - Media player
+  - Sensor
 ha_release: 2025.7
 ha_iot_class: Cloud Polling
 ha_domain: playstation_network
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - media_player
   - sensor
@@ -54,6 +57,22 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 
 - **PlayStation Console**: One Media Player will be created for any [supported PlayStation console](#supported-devices) you have connected to the PlayStation Network. The artwork and title of the currently playing game will be populated.
 
+### Sensors
+
+- **Online-ID**: Shows your PlayStation Network ID and current profile picture.
+- **Trophy level**: Displays your current PlayStation trophy level.
+- **Next Level**: Shows your progress toward the next PlayStation trophy level as a percentage.
+- **Platinum trophies**: Shows the total number of Platinum trophies you’ve earned. These are awarded for unlocking all other trophies in a game.
+- **Gold trophies**: Displays your total count of Gold trophies, earned for major achievements within games.
+- **Silver trophies**: Indicates the number of Silver trophies you've collected, typically for mid-level accomplishments.
+- **Bronze trophies**: Shows how many Bronze trophies you've earned, usually for basic or early-game achievements.
+- **Last online**: Displays the time when you were last seen online.
+- **Online status**: Indicates your current availability on the PlayStation Network. Status options include *Online*, *Offline*, *Away*, and *Online on PS App*.
+
+### Binary sensors
+
+- **Subscribed to PlayStation Plus**: Indicates if you have an active PlayStation Plus membership.
+
 ## Data updates
 
 This integration retrieves data from the PlayStation Network every 30 seconds to ensure timely updates.
@@ -75,13 +94,13 @@ The following devices are known to be supported by the integration:
 - PlayStation 5
 - PlayStation 4
 - PlayStation 3
+- PlayStation Vita
 - PlayStation PC
 
 ## Unsupported devices
 
 The following devices are not supported by the integration:
 
-- PlayStation Vita
 - PlayStation Portable
 - Other PlayStation system variants (PlayStation TV) or older systems that do not support the PlayStation Network
 
