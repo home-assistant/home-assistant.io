@@ -73,6 +73,11 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 
 - **Subscribed to PlayStation Plus**: Indicates if you have an active PlayStation Plus membership.
 
+### Image
+
+- **Avatar**: Displays your current avatar.
+- **Share profile**: Generates a QR code with a shareable link to your profile.
+
 ## Data updates
 
 This integration retrieves data from the PlayStation Network every 30 seconds to ensure timely updates.
@@ -94,13 +99,13 @@ The following devices are known to be supported by the integration:
 - PlayStation 5
 - PlayStation 4
 - PlayStation 3
+- PlayStation Vita
 - PlayStation PC
 
 ## Unsupported devices
 
 The following devices are not supported by the integration:
 
-- PlayStation Vita
 - PlayStation Portable
 - Other PlayStation system variants (PlayStation TV) or older systems that do not support the PlayStation Network
 

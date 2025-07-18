@@ -91,7 +91,8 @@ The following controls allow you to customize the settings and options for your 
 
 ### Basic settings
 
-- **Boost temperature:** Sets the temperature for boost mode, which temporarily overrides the soldering temperature when the front button is held down.
+- **Boost:** Enables or disables the boost feature. When enabled, holding the front button temporarily raises the tip to the boost temperature.
+- **Boost temperature:** Defines the temporary temperature increase activated when holding the front button.
 - **Sleep temperature:** The temperature the device drops to after a specified period of inactivity (no movement or button presses).
 - **Sleep timeout:** The duration of inactivity required before the device enters sleep mode and drops to the sleep temperature.
 

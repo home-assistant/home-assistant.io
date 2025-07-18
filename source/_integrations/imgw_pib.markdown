@@ -32,6 +32,7 @@ Sensor entities added to Home Assistant:
 - Water level
 - Water flow (if a given hydrological station supports it)
 - Water temperature (if a given hydrological station supports it)
+- Hydrological alert (provides information on hydrological alerts for a given river and area)
 
 ## Removing the integration
 
