@@ -1737,9 +1737,10 @@ select:
       required: true
       type: action
     state:
-      description: Template for the select's current value.
-      required: true
+      description: Template for the select's current value. When omitted, the state will be set to the `option` provided by the `select_option` action.
+      required: false
       type: template
+      default: optimistic
 {% endconfiguration %}
 
 ### State based select - Control Day/Night mode of a camera

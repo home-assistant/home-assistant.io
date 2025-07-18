@@ -1121,11 +1121,11 @@ number:
 min:
   description: The minimum user-settable number value.
   type: [integer, float]
-  required: true
+  required: false
 max:
   description: The maximum user-settable number value.
   type: [integer, float]
-  required: true
+  required: false
 step:
   description: The step size of the number value. Set to `"any"` to allow any number.
   type: [integer, float, "any"]
@@ -1139,7 +1139,7 @@ mode:
   description: This can be either `box` or `slider` mode.
   type: string
   required: false
-  default: slider
+  default: slider if min and max are set, otherwise box
 translation_key:
   description: >
     Allows translations provided by an integration where `translation_key`
