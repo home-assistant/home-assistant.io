@@ -1018,7 +1018,7 @@ Switching does not require renaming your devices.
 
 ### How to migrate from one adapter to a new adapter using Z-Wave JS UI?
 
-If you are currently using [Z-Wave JS UI](https://zwave-js.github.io/zwave-js-ui/#/) instead of the official **Z-Wave JS** add-on and want to start using a new adapter, you can migrate your network inside the **Z-Wave JS UI** add-on.
+If you are currently using [Z-Wave JS UI](https://zwave-js.github.io/zwave-js-ui/#/) instead of the official **Z-Wave JS** add-on and want to start using a new adapter, you can migrate your network inside **Z-Wave JS UI**.
 
 1. Before starting migration, disable the **Z-Wave** integration.
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the Z-Wave integration and select the three dots {% icon "mdi:dots-vertical" %} menu and select **Disable**.
