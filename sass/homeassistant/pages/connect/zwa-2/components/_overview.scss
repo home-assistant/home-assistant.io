@@ -1,7 +1,7 @@
 section#overview {
     height: 100vh;
-    
-    &:after{
+
+    &:after {
         content: '';
         position: absolute;
         inset: 0;
@@ -19,5 +19,20 @@ section#overview {
         height: 64vh;
     }
 
+    .waves-wrapper {
+        position: relative;
+        width: 100%;
+        svg {
+            position: absolute;
+            left: -64px;
+            right: -64px;
+            mask-image: linear-gradient(to right, transparent 0%, white 20%, white 80%, transparent 100%);
+        }
+    }
+
     .background {}
+
+    .container {
+        display: block;
+    }
 }
