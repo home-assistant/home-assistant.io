@@ -18,6 +18,13 @@ ha_platforms:
 
 The **Hanna** {% term integration %} fetches data from your [Hanna Pool Controller](https://www.hannainstruments.be/en/Applicatons-measure-analyze/swimming-pool/ph-chlorine-control/systems/) device, by connecting to your [HannaCloud](https://www.hannacloud.com) account.
 
+## Prerequisites
+
+Before you can add the Hanna integration, you need:
+
+- A [HannaCloud](https://www.hannacloud.com) account
+- Your HannaCloud login credentials (email and password)
+- A Hanna Pool Controller device that is connected to your HannaCloud account
 
 {% include integrations/config_flow.md %}
 
