@@ -87,6 +87,7 @@ Auto-detect language:
   description: "Should speech-to-text auto-detect the language spoken, overrides the language selected in voice assistant!"
   required: false
   type: boolean
+  default: false
 
 {% endconfiguration %}
 
