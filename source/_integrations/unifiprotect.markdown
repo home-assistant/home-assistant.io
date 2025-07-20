@@ -47,22 +47,21 @@ The **UniFi Protect** {% term integration %} adds support for retrieving camera 
 
 ### Hardware support
 
-This {% term integration %} supports all UniFi OS Consoles that can run UniFi Protect. Currently, this includes:
-
-- Any UniFi Protect Network Video Recorder (**[UNVR](https://store.ui.com/collections/unifi-protect-nvr/products/unvr)** or **[UNVRPRO](https://store.ui.com/collections/unifi-protect-nvr/products/unvr-pro)**)
-- Any UniFi "Dream" device (**[UDMPRO](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/udm-pro)**, **[UDR](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-router)**, or **[UDMSE](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-machine-se)**), _except the base UniFi Dream Machine/UDM_
-- UniFi Cloud Key Gen2 Plus (**[UCKP](https://store.ui.com/collections/unifi-protect-nvr/products/unifi-cloudkey-plus)**) firmware version v2.0.24+
-
-UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware [`v2.0.24`](https://community.ui.com/releases/UniFi-Cloud-Key-Firmware-2-0-24/b6684f1e-8542-4660-bc0b-74e0634448e8) or newer.
+This {% term integration %} supports all UniFi OS Consoles that can run UniFi Protect.
 
 ### Software support
 
-The **absolute minimum** software version is [`v1.20.0`](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011) for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect are supported.
+The **absolute minimum** software version is `v6.0.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. 
 
+### No EA support
 {% important %}
 **Early Access and Release Candidate versions are not supported by Home Assistant.**
 
 Using Early Access Release Candidate versions of UniFi Protect or UniFi OS will likely cause your UniFi Protect {% term integration %} to break unexpectedly. If you choose to opt into either the Early Access or the Release Candidate release channel and anything breaks in Home Assistant, you will need to wait until that version goes to the official Stable Release channel before it is expected to work.
+
+It is OK to open Early Access (EA) issues—it's actually encouraged as an early warning that something might soon break. However, it is very important to understand:
+This does not mean that everything reported from EA channels will be fixed immediately. Please, before opening a new issue, check thoroughly if there is already an open or closed issue or pull request regarding your problem.
+Also, make sure your report is reproducible and provides all necessary context: always include the Protect version, and if your issue concerns specific cameras, please mention the model(s) as well. Whenever possible, also provide relevant excerpts from the error log.
 {% endimportant %}
 
 ### Local user
