@@ -3607,10 +3607,6 @@ cloud_coverage_template:
   description: The current cloud coverage.
   required: false
   type: template
-uv_index_template:
-  description: The current UV index.
-  required: false
-  type: template
 visibility_template:
   description: The current visibility.
   required: false
