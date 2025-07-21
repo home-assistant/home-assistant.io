@@ -76,8 +76,6 @@ The Blue Current integration provides the following buttons:
 - Reset
 - Reboot
 - Stop charge session
-- Start charge session
-  - Select the default charging card in the integration settings to use when starting a session.
 
 ## Actions
 The following actions are provided by the Blue Current integration:
