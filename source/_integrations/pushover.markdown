@@ -84,6 +84,43 @@ To use the highest priority, which repeats the notification every x seconds (`re
       retry: 30
 ```
 
+Optionally, provide one or more tags with a priority-2 notification to enable later cancellation of its retries, eliminating the need for manual dismissal:
+
+```yaml
+- action: notify.entity_id
+  data:
+    message: "This message can be canceled automatically."
+    title: "Title of message"
+    target:
+      - iphone11pro
+    data:
+      priority: 2
+      sound: "siren"
+      expire: 300
+      retry: 30
+      tags:
+        - washingmachine
+        - appliances
+```
+
+Canceling any message with a certain tag is possible with a call to the `pushover.cancel` action:
+
+```yaml
+action: pushover.cancel
+metadata: {}
+data:
+  data:
+    tag: appliances
+```
+
+If the tag is omitted, all active priority-2 notifications that were sent with at least one tag are canceled:
+
+```yaml
+action: pushover.cancel
+metadata: {}
+data: {}
+```
+
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 When sending a notification, optional parameters can also be set as per the Pushover [API documentation](https://pushover.net/api).
