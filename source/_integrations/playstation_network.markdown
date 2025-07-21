@@ -73,6 +73,11 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 
 - **Subscribed to PlayStation Plus**: Indicates if you have an active PlayStation Plus membership.
 
+### Image
+
+- **Avatar**: Displays your current avatar.
+- **Share profile**: Generates a QR code with a shareable link to your profile.
+
 ## Data updates
 
 This integration retrieves data from the PlayStation Network every 30 seconds to ensure timely updates.

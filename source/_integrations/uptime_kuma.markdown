@@ -51,6 +51,68 @@ You can create an API key by logging into your Uptime Kuma instance, navigating 
 - **Monitored port**: The port number used by the monitored service (if applicable).
 - **Monitored URL**: The full URL of the monitored service (if applicable).
 
+## Automations
+
+Get started with this automation example to create an Uptime Kuma warning light that changes color based on the monitor's status.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+actions:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: sensor.uptime_kuma_my_service
+            state: down
+        sequence:
+          - action: light.turn_on
+            data:
+              color_name: red
+            target:
+              entity_id: light.warning_light
+      - conditions:
+          - condition: state
+            entity_id: sensor.uptime_kuma_my_service
+            state: pending
+        sequence:
+          - action: light.turn_on
+            data:
+              color_name: yellow
+            target:
+              entity_id: light.warning_light
+      - conditions:
+          - condition: state
+            entity_id: sensor.uptime_kuma_my_service
+            state: maintenance
+        sequence:
+          - action: light.turn_on
+            data:
+              color_name: blue
+            target:
+              entity_id: light.warning_light
+      - conditions:
+          - condition: state
+            entity_id: sensor.uptime_kuma_my_service
+            state: up
+        sequence:
+          - action: light.turn_on
+            data:
+              color_name: green
+            target:
+              entity_id:
+                - light.warning_light
+triggers:
+  - trigger: state
+    entity_id:
+      - sensor.uptime_kuma_my_service
+```
+
+{% endraw %}
+
+{% enddetails %}
+
 ## Data updates
 
 This integration retrieves data from your Uptime Kuma instance every 30 seconds.
@@ -58,6 +120,12 @@ This integration retrieves data from your Uptime Kuma instance every 30 seconds.
 ## Known limitations
 
 - Uptime Kuma's API does not expose unique identifiers for monitors. Because of this, using the same name for multiple monitors will cause only one of them to appear in Home Assistant. Renaming a monitor will result in new entities being created, while the old (stale) entities will remain unless manually removed.
+
+## Troubleshooting
+
+The **Uptime Kuma** integration relies on an active internet connection to communicate with your Uptime Kuma instance, unless it's running locally. If you encounter issues, verify that your network connection is stable and your Uptime Kuma instance is accessible.
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
 ## Removing the integration
 
