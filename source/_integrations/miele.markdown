@@ -197,8 +197,6 @@ The service action can be set up by UI in Automations editor or Developer tools.
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
 | `device_id`    | no       |  Select device in GUI mode, then switch to YAML mode to see the device_id.                                        |
 | `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to fetch a diagnostic download while running the actual program. Use the value from the key  `state::programId::value_raw`.|
-| `duration`     | yes      |  Set desired program duration in minutes for ovens.                                                               |
-| `temperature`  | yes      |  Set desired target temperature for oven program.                                                                 |
 
 ## Automation examples
 
