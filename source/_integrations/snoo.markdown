@@ -4,8 +4,8 @@ description: Instructions on how to integrate Snoo into Home Assistant
 ha_category:
   - Binary Sensor
   - Event
-  - Sensor
   - Select
+  - Sensor
   - Switch
 ha_iot_class: Cloud Push
 ha_release: 2025.3
@@ -16,8 +16,8 @@ ha_domain: snoo
 ha_platforms:
   - binary_sensor
   - event
-  - sensor
   - select
+  - sensor
   - switch
 ha_integration_type: integration
 ha_quality_scale: bronze

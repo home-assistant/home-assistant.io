@@ -32,6 +32,9 @@ Variants without pre-installed Home Assistant:
 - [ODROID-C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e)
 - [ODROID-M1](https://ameridroid.com/products/odroid-M1?ref=eeb6nfw07e)
 - ODROID-M1S, [4 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396474135?ref=eeb6nfw07e) or [8 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396506903?ref=eeb6nfw07e)
+
+Related components:
+
 - [Power Supply](https://ameridroid.com/products/12v-2a-power-supply-plug?ref=eeb6nfw07e)
 - [CR2032 Coin Cell](https://ameridroid.com/products/rtc-bios-battery?ref=eeb6nfw07e)
 - [eMMC Module](https://ameridroid.com/products/emmc-module-n2-linux-red-dot?ref=eeb6nfw07e)
@@ -99,7 +102,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 - Computer
 - The target x86-64 hardware, on which you want to install the {% term "Home Assistant Operating System" %} (HAOS)
-- USB flash drive (USB thumb drive is sufficient, it should be at least 4&nbsp;GB in size)
+- USB flash drive (USB thumb drive is sufficient, it should be at least 8&nbsp;GB in size)
 - Internet connection
 
 #### To install HAOS via Ubuntu from a USB flash drive
@@ -274,8 +277,10 @@ If you are running an older Windows version or have a stricter network configura
 
 ### Download the appropriate image
 
-- [VirtualBox][vdi] (.vdi)
-{% if page.installation_type == 'linux' %}
+- [VirtualBox (Intel chip)][vdi] (.vdi)
+{% if page.installation_type == 'macos' %}
+- [VirtualBox (Apple Silicon chip)][vmdk_arch64] (.vmdk)
+{% elsif page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
 {% elsif page.installation_type == 'alternative' %}
 - [KVM/Proxmox][qcow2] (.qcow2)
@@ -314,14 +319,11 @@ Minimum recommended assignments:
 - title: VirtualBox
   content: |
     1. Create a new virtual machine.
-    2. Select type **Linux** and version **Linux 2.6 / 3.x / 4.x (64-bit)**.
+    2. Select type **Linux**, subtype **Oracle Linux** and version **Oracle Linux (ARM 64-bit)**.
     3. Under **Hardware**, select the amount of memory and number of CPUs. Then, select **Enable EFI**.
        - Make sure **EFI** is enabled. If EFI is not enabled, HAOS won't boot.
     4. Under **Hard Disk**, select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
-    5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter.  
-      {% icon "mdi:alert-outline" %} Please keep in mind that the bridged
-      adapter only functions over a hardwired Ethernet connection.
-      Using Wi-Fi on your VirtualBox host is unsupported.
+    5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter (i.e. `en0:Wi-Fi`).  
     6. Then go to <b>Audio</b> and choose <b>Intel HD Audio</b> as audio controller.
 
     {% icon "mdi:alert-outline" %}  By default, VirtualBox does not
@@ -441,7 +443,7 @@ Minimum recommended assignments:
 
 - title: VMware ESXi/vSphere
   content: |
-    Use the “E1001” or “E1001E” virtual network adapter. There are confirmed mDNS/Multicast discovery issues when using VMware’s “VMXnet3” virtual network adapter.
+    Use the `E1000` or `E1000E` virtual network adapter. There are confirmed mDNS/Multicast discovery issues when using VMware’s `VMXnet3` virtual network adapter.
 {% endif %}
 {% if page.installation_type == 'windows' %}
 - title: Hyper-V
@@ -481,6 +483,7 @@ With the Home Assistant Operating System installed and accessible, you can conti
 
 [generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['generic-x86-64']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
 [vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip
+[vmdk_arch64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-aarch64-{{site.data.version_data.hassos['ova']}}.vmdk.zip
 [vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.zip
 [vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [qcow2]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.qcow2.xz

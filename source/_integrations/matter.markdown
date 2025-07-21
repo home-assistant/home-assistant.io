@@ -11,12 +11,14 @@ ha_category:
   - Light
   - Lock
   - Number
+  - Pump
   - Select
   - Sensor
   - Switch
   - Update
   - Vacuum
   - Valve
+  - Water heater
 featured: true
 ha_release: '2022.12'
 ha_iot_class: Local Push
@@ -41,6 +43,7 @@ ha_platforms:
   - update
   - vacuum
   - valve
+  - water_heater
 ha_integration_type: integration
 related:
   - docs: /integrations/thread/
@@ -106,8 +109,6 @@ It is recommended to run the Matter add-on on Home Assistant OS. This is current
 
 If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
 
-Running Matter on a Home Assistant Core installation is not supported.
-
 ## Adding a Matter device to Home Assistant
 
 Each Matter network is called a fabric. Each home automation controller that controls Matter devices has its own "fabric". You can add devices directly to the fabric of your Home Assistant instance, or share them from another fabric (for example from Google or Apple) to Home Assistant's fabric. We're going to explore all these options below.
@@ -137,7 +138,7 @@ Make sure you have all these components ready before trying to add a Matter devi
 - On the device packaging, check for both the Matter logo and for either the Wi-Fi or the {% term Thread %} logo.
 - Check if the QR code or the numeric setup code is on the device.
   - If you reset your device you'll need the QR code *or* numeric setup code to {% term commission %} that device again! Without this information, commissioning won't be possible.
-  - If the QR code or the numeric setup code is only in accompanied documentation, it is good practice to snap a picture of the QR code and/or numeric setup code as a backup, ideally along with the device for reference, and store the code in a safe place.
+  - If the QR code or the numeric setup code is only in accompanied documentation, it is a good practice to snap a picture of the QR code and/or numeric setup code as a backup, ideally along with the device for reference, and store it in a safe place.
 
 #### Prepare Android or iPhone
 
@@ -385,7 +386,7 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 ### General recommendations
 
-- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Not using Home Assistant OS is at your own risk. We do provide some [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) on how to run the Matter Server as a Docker container. The documentation includes a description of the host and networking requirements.
+- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Home Assistant OS with the Matter Server add-on is the supported path for using Matter with Home Assistant. Running Matter Server as a standalone Docker container is unsupported, but we provide [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) including a description of the host and networking requirements.
 
 - To use {% term Thread %} devices you will need a {% term Thread %} network with at least one Thread border router in your network nearby the {% term Thread %} device(s). Apple users, for example, need the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub (2nd Gen). Use the Thread integration in Home Assistant to diagnose your {% term Thread %} network(s).
 

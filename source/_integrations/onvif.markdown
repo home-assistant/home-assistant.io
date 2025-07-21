@@ -30,10 +30,6 @@ The ONVIF camera integration allows you to use an [ONVIF](https://www.onvif.org/
 It is recommended that you create a user on your device specifically for Home Assistant. For all current functionality, it is enough to create a standard user.
 {% endtip %}
 
-{% note %}
-If running Home Assistant Core in a venv, ensure that libxml2 and libxslt Python interfaces are installed via your package manager.
-{% endnote %}
-
 ### Configuration notes
 
 Most of the ONVIF devices support more than one audio/video profile. Each profile provides different image quality, or in the case of an NVR, separate connected cameras. This integration will add entities for all compatible profiles with the video encoding set to H.264. Usually, the first profile has the highest quality and it is the profile used by default. However, you may want to use a lower quality image. You may disable unwanted entities through the Home Assistant UI.

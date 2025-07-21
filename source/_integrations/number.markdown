@@ -39,6 +39,7 @@ In addition, the entity can have the following states:
 The following device classes are supported for numbers:
 
 - **None**: Generic number. This is the default and doesn't need to be set.
+- **absolute_humidity**: Absolute humidity in g/m³, mg/m³.
 - **apparent_power**: Apparent power in VA.
 - **aqi**: Air Quality Index (unitless).
 - **area**: Area in m², cm², km², mm², in², ft², yd², mi², ac, ha
@@ -53,10 +54,10 @@ The following device classes are supported for numbers:
 - **distance**: Generic distance in km, m, cm, mm, mi, nmi, yd, or in
 - **duration**: Duration in d, h, min, s, ms, or µs
 - **energy**: Energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
-- **energy_distance**: Energy per distance in kWh/100km, mi/kWh or km/kWh.
+- **energy_distance**: Energy per distance in kWh/100km, Wh/km, mi/kWh, or km/kWh.
 - **energy_storage**: Stored energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
-- **gas**: Gasvolume in m³, ft³ or CCF
+- **gas**: Gas volume in L, m³, ft³ or CCF
 - **humidity**: Percentage of humidity in the air in %
 - **illuminance**: The current light level in lx
 - **irradiance**: Irradiance in W/m² or BTU/(h⋅ft²)
@@ -75,13 +76,14 @@ The following device classes are supported for numbers:
 - **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d or mm/h
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg or psi
+- **reactive_energy**: Reactive energy in varh or kvarh
 - **reactive_power**: Reactive power in var or kvar
 - **signal_strength**: Signal strength in dB or dBm
 - **sound_pressure**: Sound pressure in dB or dBA
 - **speed**: Generic speed in ft/s, in/d, in/h, in/s, km/h, kn, m/s, mph, mm/d, or mm/s
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C, °F or K
-- **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
+- **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³ or mg/m³
 - **volatile_organic_compounds_parts**: Ratio of volatile organic compounds in ppm or ppb
 - **voltage**: Voltage in V, mV, µV, kV, MV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF

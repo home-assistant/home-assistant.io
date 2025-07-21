@@ -19,6 +19,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - cover
+  - diagnostics
   - event
   - light
   - lock

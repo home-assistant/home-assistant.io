@@ -286,7 +286,7 @@ name:
   type: string
   default: MQTT Light
 object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   required: false
   type: string
 on_command_type:
@@ -717,7 +717,7 @@ name:
   type: string
   default: MQTT JSON Light
 object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   required: false
   type: string
 optimistic:
@@ -759,7 +759,7 @@ state_topic:
   required: false
   type: string
 supported_color_modes:
-  description: A list of color modes supported by the list. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`. Note that if `onoff` **or** `brightness` are used, that must be the _only_ value in the list.
+  description: A list of color modes supported by the light. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`. Note that if `onoff` **or** `brightness` are used, that must be the _only_ value in the list.
   required: false
   type: list
 transition:
@@ -1123,7 +1123,7 @@ name:
   type: string
   default: MQTT Template Light
 object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   required: false
   type: string
 optimistic:

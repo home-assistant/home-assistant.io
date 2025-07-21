@@ -13,6 +13,7 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: '0.110'
 ha_domain: home_connect
+ha_quality_scale: platinum
 ha_codeowners:
   - '@DavidMStraub'
   - '@Diegorro98'
@@ -27,7 +28,10 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
 ha_integration_type: integration
+ha_zeroconf: true
+ha_dhcp: true
 ---
 
 The Home Connect integration allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
@@ -93,6 +97,7 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 {% note %}
 
 - The entities availability depends on the appliance type, but the appliance might not support all the entities for its type.
+- The program option entities will not be provided by the integration until they are available in the selected or active program.
 - Some appliances don't report data while they are turned off, so corresponding entities will not appear in the Home Connect integration after loading until the appliances are turned on.
 {% endnote %}
 
@@ -721,7 +726,7 @@ Both entities can use these options, but the availability of these will depend o
 
 ### Sensor
 
-{% details "List of binary sensors" %}
+{% details "List of sensors" %}
 
 - **Finish time**:
   - **Description**: Represents the time when the program will end.
@@ -1175,7 +1180,7 @@ To solve the above issue, follow these steps:
 
 ### Missing options at the "active program" and "selected program" entities
 
-#### Symptom: "Although I have options, some programs that are available on the app are not in the list of options at the "active program" and "selected program" entities"
+#### Symptom: "Although I have options, some programs that are available on the app are not in the list of options at the "active program" and "selected program" entities or the entities don't show up"
 
 Some programs that are available to select on the app, on the physical device or in the diagnostics file from the device are missing at the "active program" and "selected program" entities.
 
@@ -1187,9 +1192,9 @@ If you see programs in the app or the physical device that are missing in the in
 
 The program key needs to be added to the integration. To help with that, you can open an issue at [aiohomeconnect](https://github.com/MartinHjelmare/aiohomeconnect) about the missing program key.
 
-#### Symptom: "No programs available at the "active program" and "selected program" entities nor in the diagnostics file"
+#### Symptom: "the "active program" and "selected program" entities are not provided by the integration"
 
-There are no programs available to select at the "active program" and "selected program" entities, and the downloaded device diagnostics file does not list any programs.
+The "active program" and "selected program" entities are not provided by the integration, and the downloaded device diagnostics file does not list any programs.
 
 ##### Description
 
@@ -1200,7 +1205,7 @@ The Home Connect API is not sending any programs to the integration.
 There's no solution for this issue. The only thing that can be done is reporting the issue to Home Connect through these channels:
 
 - [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
-- [Home Connect developer Help & Support](https://developer.home-connect.com/support)
+- [Home Connect developer Help & Support](https://developer.home-connect.com/support/contact)
 
 ### Unavailable entities for a device
 
@@ -1243,7 +1248,7 @@ To try to solve the above issues, follow these steps:
       - If the line between the appliance and the cloud is green, the appliance is connected to the cloud.
 4. If everything is correct and the issue persists, contact Home Connect support.
    - [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
-   - [Home Connect developer Help & Support](https://developer.home-connect.com/support)
+   - [Home Connect developer Help & Support](https://developer.home-connect.com/support/contact)
 
 ## Removing the integration
 

@@ -14,6 +14,7 @@ ha_domain: knocki
 ha_platforms:
   - event
 ha_integration_type: hub
+ha_dhcp: true
 ---
 
 The **Knocki** {% term integration %} allows you to trigger your favorite automations simply by tapping custom patterns (such as triple taps) on ordinary surfaces.

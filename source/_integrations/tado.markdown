@@ -6,6 +6,7 @@ ha_category:
   - Climate
   - Hub
   - Presence detection
+  - Select
   - Sensor
   - Switch
   - Water heater
@@ -21,6 +22,8 @@ ha_platforms:
   - binary_sensor
   - climate
   - device_tracker
+  - diagnostics
+  - select
   - sensor
   - switch
   - water_heater
@@ -36,9 +39,10 @@ There is currently support for the following device types within Home Assistant:
 - Climate - for every Tado zone.
 - Water heater - for water heater zones.
 - [Presence detection](#presence-detection)
+- Select - for controlling the heating circuit of a zone.
 - Sensor - for some additional information of the zones.
 - Weather - for information about the current weather at the location of your Tado home.
-- Switch - for controlling child lock on supported devices
+- Switch - for controlling child lock on supported devices.
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 

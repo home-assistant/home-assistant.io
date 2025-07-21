@@ -4,7 +4,7 @@
 These below instructions are for an installation of {% term "Home Assistant Container" %} running in your own container environment, which you manage yourself. Any [OCI](https://opencontainers.org/) compatible runtime can be used, however this guide will focus on installing it with Docker.
 
 {% note %}
-This installation method **does not have access to add-ons**. If you want to use add-ons, you need to use another installation method. The recommended method is {% term "Home Assistant Operating System" %}. Checkout the [overview table of installation types](https://www.home-assistant.io/installation/#advanced-installation-methods) to see the differences.
+This installation method **does not have access to add-ons**. If you want to use add-ons, you need to use another installation method. The recommended method is {% term "Home Assistant Operating System" %}. Checkout the [overview table of installation types](https://www.home-assistant.io/installation/#about-installation-methods) to see the differences.
 {% endnote %}
 
 {% important %}
@@ -68,7 +68,7 @@ If you change the configuration, you have to restart the server. To do that you 
 `docker compose` should [already be installed](https://www.docker.com/blog/announcing-compose-v2-general-availability/) on your system. If not, you can [manually](https://docs.docker.com/compose/install/linux/) install it.
 {% endtip %}
 
-As the Docker command becomes more complex, switching to `docker compose` can be preferable and support automatically restarting on failure or system restart. Create a `compose.yml` file:
+As the Docker command becomes more complex, switching to `docker compose` can be preferable and support automatically restarting on failure or system restart. Create a `compose.yaml` file:
 
 {% include installation/container/compose.md %}
 
