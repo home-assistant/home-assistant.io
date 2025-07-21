@@ -18,6 +18,7 @@ related:
 ha_platforms:
   - diagnostics
   - sensor
+  - update
 ---
 
 The **Paperless-ngx** {% term integration %} allows you to connect your [Paperless-ngx](https://docs.paperless-ngx.com/) instance to Home Assistant and monitor its status and activity.

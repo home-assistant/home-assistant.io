@@ -90,7 +90,7 @@ An example to call the integration from developer tools using the `remote.send_c
 
 Note: Global Cache devices expect data in their own format of "sendir...". This integration converts hex code to Global Cache IR form.
 
-API Docs:
+API Documentation:
 
 - [iTach](https://www.globalcache.com/files/docs/API-iTach.pdf)
 - [GC-100](https://www.globalcache.com/files/docs/API-GC-100.pdf)

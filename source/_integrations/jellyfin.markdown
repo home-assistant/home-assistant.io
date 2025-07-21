@@ -65,3 +65,126 @@ Password:
 Audio Codec:
   description: Sets the audio encoding codec to a Jellyfin API supported codec (aac, mp3, vorbis, wma)
 {% endconfiguration_basic %}
+
+## Actions
+
+### Action browse media
+
+You can use the `media_player.browse_media` action to step through your Jellyfin library to find media you want to play.
+
+| Data attribute        | Description                                                             |
+| --------------------- | ----------------------------------------------------------------------- |
+| `entity_id`           | `entity_id` of the media player                                         |
+| `media_content_id`    | **(optional)** Unique identifier of the content you want to browse into |
+
+To start your browsing you don't set `media_content_id` to browse the root node.
+
+#### Examples:
+```yaml
+action: media_player.browse_media
+target:
+  entity_id: media_player.jellyfin
+data:
+  media_content_id: a656b907eb3a73532e40e44b968d0225
+```
+
+#### Response
+```yaml
+media_player.jellyfin:
+  title: Series
+  media_class: directory
+  media_content_type: None
+  media_content_id: a656b907eb3a73532e40e44b968d0225
+  children_media_class: directory
+  can_play: false
+  can_expand: true
+  can_search: false
+  thumbnail: >-
+    https://jellyfin
+  not_shown: 0
+  children:
+    - title: "Tales of the Jedi"
+      media_class: directory
+      media_content_type: tvshow
+      media_content_id: 34361f3855c9c0ac39b0f7503fe86be0
+      children_media_class: null
+      can_play: false
+      can_expand: true
+      can_search: false
+      thumbnail: >-
+        https://jellyfin
+```
+
+### Action search media
+
+You can use the `media_player.search_media` action to find media you want to play.
+
+| Data attribute        | Description                                       |
+| --------------------- | ------------------------------------------------- |
+| `entity_id`           | `entity_id` of the media player                   |
+| `search_query`        | The search term                                   |
+
+#### Examples:
+
+```yaml
+action: media_player.search_media
+target:
+  entity_id:
+    - media_player.jellyfin
+data:
+  search_query: star
+```
+#### Response
+```yaml
+media_player.jellyfin:
+  version: 1
+  result:
+    - title: Star Wars
+      media_class: directory
+      media_content_type: Video
+      media_content_id: 895dc4e1066da92847d48f9be28eb77c
+      children_media_class: null
+      can_play: false
+      can_expand: false
+      can_search: false
+      thumbnail: >-
+        https://jellyfin
+      not_shown: 0
+      children: []
+    - title: Star Trek
+      media_class: directory
+      media_content_type: Video
+      media_content_id: 5ae55567cae75c26671a0a6b027bdd5b
+      children_media_class: null
+      can_play: false
+      can_expand: false
+      can_search: false
+      thumbnail: >-
+        https://jellyfin
+      not_shown: 0
+      children: []
+```
+### Action play media
+
+To play media on any player you first need to find the `media_content_id` of the content you want to play, through either [browsing to the media](#action-browse-media) or [searching media](#action-search-media).
+
+| Data attribute        | Description                                       |
+| --------------------- | ------------------------------------------------- |
+| `entity_id`           | `entity_id` of the media player                   |
+| `media_content_id`    | Unique identifier of the content you want to play |
+| `media_content_type`  | `movie` or `tvshow`                               |
+
+#### Examples:
+
+Play a movie on one of the Jellyfin clients that supports playback.
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id:
+    - media_player.jellyfin
+data:
+  media_content_id: a982a31451450daeda02c89952e6d7cf
+  media_content_type: movie
+```
+

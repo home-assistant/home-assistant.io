@@ -135,7 +135,7 @@ Depending on the supported features of the camera, number entities are added for
 
 - Optical zoom control
 - Focus control
-- Floodlight turn on brightness
+- Floodlight turn on brightness+
 - Infrared light brightness
 - Volume (Camera)
 - Alarm volume (Home Hub)
@@ -401,6 +401,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - **[Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)**
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
+- [Reolink Floodlight PoE and Wi-Fi*](https://reolink.com/product/reolink-floodlight/)
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
 - **[Reolink TrackMix PoE](https://reolink.com/product/reolink-trackmix-poe/)**

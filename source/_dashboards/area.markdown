@@ -4,8 +4,6 @@ title: "Area card"
 sidebar_label: Area
 description: "The area card gives control of your entities in a specified area."
 related:
-  - docs: /integrations/frontend/
-    title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
   - docs: /dashboards/dashboards/#areas-dashboard
@@ -42,6 +40,10 @@ area:
   required: true
   description: ID of the `area`.
   type: string
+color:
+  required: false
+  description: Set the color for the icon and the hover/focus state. It accepts [color token](/dashboards/area/#available-colors) or hex color code.
+  type: string
 display_type:
   required: false
   description: Defines the card's display style. Options include `compact` (a minimal layout), `icon` (shows an area icon), `picture` (displays an image of the area), or `camera` (shows the live camera feed).
@@ -60,10 +62,6 @@ aspect_ratio:
 navigation_path:
   required: false
   description: link to view. For more information about views, see the [view documentation](/dashboards/views/)
-  type: string
-theme:
-  required: false
-  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 alert_classes:
   required: false
@@ -84,6 +82,10 @@ features_position:
   description: Position of the features on the area card. Can be `bottom` or `inline`. Only the first feature will be displayed when the option is set to `inline`.
   type: string
   default: bottom
+exclude_entities:
+  required: false
+  description: A list of entities that will be excluded from the card. It will affect sensor_classes, alert_classes, and features.
+  type: list
 {% endconfiguration %}
 
 ### Example
@@ -100,7 +102,18 @@ Complex example
 ```yaml
 type: area
 area: bedroom
+display_type: picture
 navigation_path: my_bedroom
-show_camera: true
-theme: green
+sensor_classes: 
+  - temperature
+  - humidity
+alert_classes:
+  - moisture
+  - motion
+features:
+  - type: area-controls
 ```
+
+## Available colors
+
+You want to colorize the area card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, and `white`.

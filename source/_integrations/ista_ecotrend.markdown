@@ -13,6 +13,7 @@ ha_platforms:
   - sensor
 ha_config_flow: true
 ha_integration_type: integration
+ha_quality_scale: gold
 ---
 
 The **ista EcoTrend** {% term integration %} for Home Assistant allows you to import your monthly meter readings from the [ista EcoTrend](https://ecotrend.ista.de) service.

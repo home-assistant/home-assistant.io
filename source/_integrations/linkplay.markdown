@@ -5,14 +5,15 @@ ha_category:
   - Media player
 ha_domain: linkplay
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_release: 2024.8
 ha_codeowners:
   - '@Velleman'
 ha_config_flow: true
 ha_platforms:
-  - media_player
   - button
+  - diagnostics
+  - media_player
 ha_iot_class: Local Polling
 ---
 
