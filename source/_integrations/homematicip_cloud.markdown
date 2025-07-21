@@ -211,7 +211,7 @@ Currently, the **HmIP-DLD** can only be used in Home Assistant without a PIN. En
   - Switch Actuator - 2x channels (*HmIP-BS2*)
 
 - homematicip_cloud.valve
-  - Watering Valve (*ELV-SH-WSM*)
+  - Smart Watering Actuator (*ELV-SH-WSM*)
 
 - homematicip_cloud.weather
   - Weather Sensor – basic (*HmIP-SWO-B*)
