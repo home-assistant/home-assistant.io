@@ -107,3 +107,14 @@ title: New York 🦅
 <img src='/images/dashboards/clock_card_new_york.png' alt='Screenshot of a medium sized, 12 hour clock showing am/pm and seconds based in New York along with a title'>
 Screenshot of a medium sized, 12 hour clock showing am/pm and seconds based in New York along with a title
 </p>
+
+A medium-sized, using an entity as time_zone.
+Note: It is important that the entity entered has a correct state format: e.g. 'Europe/Amsterdam'.
+
+```yaml
+type: clock
+clock_size: medium
+time_zone: sensor.johns_timezone
+title: John
+
+```
