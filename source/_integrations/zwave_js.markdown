@@ -190,8 +190,14 @@ You cannot run two Z-Wave adapters simultaneously using the same add-on. If you 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Connect your new adapter.
    - Plug in your new adapter.
-   - **Result**: it should be discovered and show up in the **Discovered section**.
+   - **Result**: The adapter should be discovered and show up in the **Discovered section**.
    - Select **Add** and follow the instructions on screen.
+   - **Troubleshooting**: Not all devices can be discovered automatically. If your device does not show up, follow these steps:
+     1. Select the **Z-Wave** integration.
+     2. Then, select the cogwheel {% icon "mdi:cog-outline" %}.
+     3. Under **Backup and restore**, select **Migrate adapter**.
+     4. Select **Migrate to a new adapter**.
+        - To confirm, select **Submit**.
 3. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
    - It is important to remove the old device now, as it might interfere with the new one. Even though it might not throw an error immediately, it might cause issues.
 4. Follow the steps on screen.
