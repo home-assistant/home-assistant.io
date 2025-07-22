@@ -108,7 +108,11 @@ title: New York 🦅
 Screenshot of a medium sized, 12 hour clock showing am/pm and seconds based in New York along with a title
 </p>
 
-Example of using an {% term entity %} as time_zone. Note: the state of this entity needs to be in the correct format (`Continent/City`).
+Example of using an {% term entity %} as time_zone. 
+
+{% important %}
+The state of this entity needs to be in the correct format (`Continent/City`).
+{% endimportant %}
 
 ```yaml
 type: clock
