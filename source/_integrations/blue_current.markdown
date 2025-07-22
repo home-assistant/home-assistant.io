@@ -82,7 +82,7 @@ The following actions are provided by the Blue Current integration:
 
 ### Action start_charge_session
 
-Start a new charge session. When no charging card ID is provided, the default charging card from the integration settings will be used.
+Start a new charge session. When no charging card ID is provided, no charging card will be used.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
