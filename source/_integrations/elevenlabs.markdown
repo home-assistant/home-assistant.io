@@ -25,8 +25,8 @@ The **ElevenLabs** {% term integrations %} adds support for [ElevenLabs](https:/
 - Your API key requires the following permissions:
   - Text to Speech
   - Speech to Text
-  - Voices (Read Only)
-  - Models (Read Only)
+  - Voices (Read only)
+  - Models (Read only)
 
 {% include integrations/config_flow.md %}
 
