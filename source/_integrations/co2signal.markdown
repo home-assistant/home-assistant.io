@@ -58,7 +58,7 @@ When configuring the location based on latitude/longitude, you will be prompted 
 Latitude:
   description: The latitude of your home location.
 Longitude:
-    description: The longitude of your home location.
+  description: The longitude of your home location.
 {% endconfiguration_basic %}
 
 When configuring the location based on a country code, you will be prompted to enter the following:
@@ -157,7 +157,7 @@ The integration polls data from the Electricity Maps API every 15 minutes by def
 
 ## Known limitations
 
-- The Free Tier API is limited to one location, you need to specify the country when creating your account.
+- The Free Tier API is limited to one location. You need to specify the country when creating your account.
 - The Free Tier API has a limit of 50 requests per hour, but the integration is designed to poll at a rate that won't exceed this limit.
 - Not all geographic regions are supported by Electricity Maps. Check their app to see if your region has coverage.
 
@@ -177,7 +177,7 @@ If you see an invalid token error during setup, your API key may be invalid or e
 
 #### Symptom: "No data available for selected location" during setup
 
-If you receive an "No data available for selected location" error, the coordinates or country code you provided might not be supported by Electricity Maps.
+If you receive a "No data available for selected location" error, the coordinates or country code you provided might not be supported by Electricity Maps.
 
 ##### Resolution
 
