@@ -92,7 +92,7 @@ features:
 {% configuration features %}
 type:
   required: true
-  description: "`climate-hvac-modes`"
+  description: "`button`"
   type: string
 action_name:
   required: false
