@@ -32,7 +32,7 @@ Display Seconds:
 Time Format:
   description: Allows the time format to be changed on a per-card level. Defaults to the user profile setting.
 Time Zone:
-  description: Change the timezone used for the time on a per-card level. Defaults to the user profile setting.
+  description: Change the timezone used for the time on a per-card level. Also supports entities with the state mathcing the correct state: "Continent/City". Defaults to the user profile setting.
 {% endconfiguration_basic %}
 
 ### Examples
@@ -108,8 +108,9 @@ title: New York 🦅
 Screenshot of a medium sized, 12 hour clock showing am/pm and seconds based in New York along with a title
 </p>
 
-A medium-sized, using an entity as time_zone.
-Note: It is important that the entity entered has a correct state format: e.g. 'Europe/Amsterdam'.
+### Advanced card settings
+
+The clock card also support an entity in the `time_zone` option. It is important that the entity entered has a correct state format: e.g. 'Europe/Amsterdam'.
 
 ```yaml
 type: clock
