@@ -46,17 +46,17 @@ The integration will update its sensors by {% term polling %} the [HannaCloud](h
 
 The following sensors are supported:
 
-- Air temperature: Air temperature reported by the device
-- Alarms: Binary sensor with alarm and warning details as attributes
-- Chlorine flow rate: Monitors chlorine dosing rate
-- Chlorine ORP value: Measures oxidation-reduction potential with calibration data as attributes
-- Chlorine pump status: Indicates if the pump is running or not
-- pH Acid/base flow rate: Monitors acid/base (pH-) chemical dosing rate
-- pH Pump status: Indicates if the pump is running or not
-- pH value: Measures pH level with calibration data as attributes
-- Service status: Reports the condition of the device's service light
-- System status: Reports the overall system status
-- Water temperature: Water temperature reported by the device
+- **Air temperature**: Air temperature reported by the device
+- **Alarms**: Binary sensor with alarm and warning details as attributes
+- **Chlorine flow rate**: Monitors chlorine dosing rate
+- **Chlorine ORP value**: Measures oxidation-reduction potential with calibration data as attributes
+- **Chlorine pump status**: Indicates if the pump is running or not
+- **pH Acid/base flow rate**: Monitors acid/base (pH-) chemical dosing rate
+- **pH Pump status**: Indicates if the pump is running or not
+- **pH value**: Measures pH level with calibration data as attributes
+- **Service status**: Reports the condition of the device's service light
+- **System status**: Reports the overall system status
+- **Water temperature**: Water temperature reported by the device
 
 All sensors include a `last_updated` attribute with the timestamp of the last data update.
 
