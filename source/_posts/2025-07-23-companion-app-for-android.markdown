@@ -52,11 +52,11 @@ Like I said at the top, it's been a long time (over two years 🫢) since we’v
 
 - Wear OS has had its Tile capabilities improved.
 
-- More Android Auto sensors, like speed and remaining range.
+- There are now more Android Auto sensors, like speed and remaining range.
 
 - A simpler way to connect Wi-Fi compatible devices to your home network (such as the Home Assistant Voice Preview Edition) using [Improv Wi-Fi](https://www.improv-wifi.com/) over Bluetooth (an open standard for connecting devices to Wi-Fi using Bluetooth, built by the Open Home Foundation).
 
-- Improved Z-Wave device onboarding with the addition of a QR code scanner.
+- The Z-Wave device onboarding experience has been improved with the addition of a QR code scanner.
 
 - We’ve also improved the speed and stability of the app.
 
