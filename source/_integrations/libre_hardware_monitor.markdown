@@ -25,11 +25,11 @@ Libre Hardware Monitor, a fork of Open Hardware Monitor, is free software that c
 - Libre Hardware Monitor must be running during setup.
 - In Libre Hardware Monitor, make sure **Remote web server** is active.
 - Make sure to open the inbound port (8085 by default) on the host system's firewall.
-- In Libre Hardware Monitor go to **File** → **Hardware** and check the devices you want to monitor.
+- In Libre Hardware Monitor, go to **File** > **Hardware** and check the devices you want to monitor.
 
 ### To open a port (on Windows Firewall)
 
-1. In Windows, navigate to **Control Panel** → **System and Security** → **Windows Defender Firewall**.
+1. In Windows, navigate to **Control Panel** > **System and Security** > **Windows Defender Firewall**.
 2. Select **Advanced settings** and highlight **Inbound Rules** in the left pane.
 3. Right-click **Inbound Rules** and select **New Rule**.
 4. Add the port you need to open and select **Next**.
