@@ -80,7 +80,7 @@ One significant change on the horizon is ending support for Android 5.0 and 5.1 
 
 ## Let’s work together
 
-We want to make it easier for you to contribute, whether you are a seasoned developer or just getting started. This includes making the contribution journey smoother and giving people an easy place to start. We’ve even compiled a list of [“first issues” to tackle for prospective developers](https://github.com/home-assistant/android/issues/5450) looking to help out. We’ve started work on dedicated [Android developer documentation](https://developers.home-assistant.io/docs/android), which will give in-depth information about the inner workings of this app.
+We want to make it easier for you to contribute, whether you are a seasoned developer or just getting started. This includes making the contribution journey smoother and giving people an easy place to start. We’ve even compiled a list of [“first issues” to tackle for prospective developers](https://github.com/home-assistant/android/contribute) looking to help out. We’ve started work on dedicated [Android developer documentation](https://developers.home-assistant.io/docs/android), which will give in-depth information about the inner workings of this app.
 
 We’ve made many behind-the-scenes changes to improve the developer experience (defining best practices, linters for faster/automated feedback, and continuous integration for quicker feedback on PRs). Our focus is always on improving stability, reducing crash rates, and catching issues early. One example of this is our new fail-fast [approach](https://developers.home-assistant.io/docs/android/best_practices/?_highlight=failfa#fail-fast), which has already helped us catch and fix issues early.
 
