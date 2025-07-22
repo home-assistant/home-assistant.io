@@ -34,8 +34,8 @@ There is currently support for the following device types within Home Assistant:
 
 Before setting up the Lunatone integration, ensure you have:
 
-1. Your gateway device powered and connected to your network
-2. The IP address or hostname of your device
+1. Your gateway device powered and connected to your network.
+2. The IP address or hostname of your device.
 
 {% include integrations/config_flow.md %}
 
