@@ -32,6 +32,15 @@ This integration only supports devices running airOS 8 and already configured us
 
 {% include integrations/config_flow.md %}
 
+## Supported devices
+
+### airOS 8
+
+While there is no known limitation to which devices running airOS 8 are supported, success has been reported on:
+
+- PowerBeam 5AC gen2
+- Nanostation 5AC (LOCO5AC) 
+
 ## Sensor
 
 This integration exposes the following sensor entities for your airOS devices:
