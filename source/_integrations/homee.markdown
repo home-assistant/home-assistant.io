@@ -2,7 +2,20 @@
 title: Homee
 description: Instructions on how to setup Homee devices in Home Assistant.
 ha_category:
+  - Alarm
+  - Binary sensor
+  - Button
+  - Climate
   - Cover
+  - Event
+  - Fan
+  - Light
+  - Lock
+  - Number
+  - Select
+  - Sensor
+  - Switch
+  - Valve
 ha_config_flow: true
 ha_release: 2025.2
 ha_iot_class: Local Push
@@ -10,11 +23,12 @@ ha_codeowners:
   - '@Taraman17'
 ha_domain: homee
 ha_platforms:
-  - alarm-control-panel
+  - alarm_control_panel
   - binary_sensor
   - button
   - climate
   - cover
+  - diagnostics
   - event
   - fan
   - light
@@ -61,6 +75,22 @@ New devices added to Homee will be automatically discovered after a restart of H
 ## Limitations
 
 Changed values are reported from Homee in defined time intervals and not always in realtime. For example, while a cover moves, the position is updated only every few seconds and intermediate states may be missed by Home Assistant.
+
+## Troubleshooting
+
+First, see the general [Home Assistant troubleshooting guide](/docs/configuration/troubleshooting/).
+
+The **homee** integration supports [debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+
+### Homee device not working as expected
+
+Make sure, the {% term device %} works as expected in homee.
+If a homee device shows up in Home Assistant, but does not work as expected or is missing {% term entities %}, open a [report](https://github.com/home-assistant/core/issues) and attach error logs and the device's {% term diagnostics %} data.
+
+### Integration not loading or homee device not showing up in HA
+
+Check that the homee-user, used for Home Assistant, is allowed to see the device.
+If that is the case, open a [report](https://github.com/home-assistant/core/issues) and attach error logs and the diagnostic data of the {% term integration %}.
 
 ## Reconfiguration
 

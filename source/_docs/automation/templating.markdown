@@ -1,30 +1,37 @@
 ---
-title: "Automation trigger variables"
-description: "List all available variables made available by triggers."
+title: "Automation Templates"
+description: "List all trigger variables available to templates."
 ---
 
-Automations support [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` and `this` template variables are available.
+Automations support the advanced features of [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` and `this` template variables are available for automations.
 
-The template variable `this` is also available when evaluating any `trigger_variables` declared in the configuration.
+Example of variables used in templates:
 
-## Available `this` data
+```jinja
+ {{ this.name }} is the name of the automation executing from this trigger
+ {{ trigger.platform }} is the type of trigger object, like `calendar`
+ ```
 
-The variable `this` is the [state object](/docs/configuration/state_object) of the automation at the moment of triggering the actions. State objects also contain context data which can be used to identify the user that caused a {% term script %} or {% term automation %} to execute. Note that `this` will not change while executing the {% term actions %}.
+## Available state data
+
+The template variable `this` is an object that contains the [state](/docs/configuration/state_object) of the automation at the moment of triggering the actions and can be used to evaluate [`trigger_variables`](/docs/automation/trigger/#trigger-variables) declared in the configuration of the active {% term trigger %}.
+State objects also contain context data which can be used to identify the user that caused a {% term script %} or {% term automation %} to execute. Note that `this` will not change while executing the {% term actions %}.
 
 ## Available trigger data
 
-The variable `trigger` is an object that contains details about which {% term trigger %} triggered the automation.
+The template variable `trigger` is an object that contains details about which {% term platform %} triggered the automation. The `platform` property contains the name of the {% term platform %} whose event triggered the automation.
 
 Templates can use the data to modify the actions performed by the automation or displayed in a message. For example, you could create an automation that multiple sensors can trigger and then use the sensor's location to specify a light to activate; or you could send a notification containing the friendly name of the sensor that triggered it.
 
-Each [trigger platform](/docs/automation/trigger/#event-trigger) can include additional data specific to that platform.
+Each [trigger](/docs/automation/trigger/#event-trigger) platform includes additional data specific to that {% term platform %}.
 
 ### All
 
-Triggers from all platforms will include the following data.
+Triggers from all platforms will include the following properties.
 
 | Template variable | Data |
 | ---- | ---- |
+| `trigger.platform` | Trigger object type.
 | `trigger.alias` | Alias of the trigger.
 | `trigger.id` | The [`id` of the trigger](/docs/automation/trigger/#trigger-id).
 | `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
@@ -33,18 +40,18 @@ Triggers from all platforms will include the following data.
 
 These are the properties available for a [Calendar trigger](/docs/automation/trigger/#calendar-trigger).
 
-| Template variable                    | Data                                                                                                                            |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| `trigger.platform`                   | Hardcoded: `calendar`                                                                                                           |
-| `trigger.event`                      | The trigger event type, either `start`  or `end`                                                                                |
-| `trigger.calendar_event`             | The calendar event object matched.                                                                                              |
-| `trigger.calendar_event.summary`     | The title or summary of the calendar event.                                                                                     |
-| `trigger.calendar_event.start`       | String representation of the start date or date time of the calendar event e.g. `2022-04-10`, or `2022-04-10 11:30:00-07:00`    |
-| `trigger.calendar_event.end`         | String representation of the end time of date time the calendar event in UTC  e.g. `2022-04-11`, or `2022-04-10 11:45:00-07:00` |
-| `trigger.calendar_event.all_day`     | Indicates the event spans the entire day.                                                                                       |
-| `trigger.calendar_event.description` | A detailed description of the calendar event, if available.                                                                     |
-| `trigger.calendar_event.location`    | Location information for the calendar event, if available.                                                                      |
-| `trigger.offset`                     | Timedelta object with offset to the event, if any |
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform`                   | Hardcoded: `calendar`
+| `trigger.event`                      | The trigger event type, either `start`  or `end`.
+| `trigger.calendar_event`             | The calendar event object matched. 
+| `trigger.calendar_event.summary`     | The title or summary of the calendar event.
+| `trigger.calendar_event.start`       | String representation of the start date or date time of the calendar event e.g. `2022-04-10`, or `2022-04-10 11:30:00-07:00`
+| `trigger.calendar_event.end`         | String representation of the end time of date time the calendar event in UTC  e.g. `2022-04-11`, or `2022-04-10 11:45:00-07:00`
+| `trigger.calendar_event.all_day`     | Indicates the event spans the entire day.
+| `trigger.calendar_event.description` | A detailed description of the calendar event, if available.
+| `trigger.calendar_event.location`    | Location information for the calendar event, if available. 
+| `trigger.offset`                     | Timedelta object with offset to the event, if any.
 
 ### Device
 
@@ -54,18 +61,42 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 
 | Template variable | Data |
 | ---- | ---- |
-| `trigger.platform` | Hardcoded: `device`.
+| `trigger.platform` | Hardcoded: `device`
 
 ### Event
 
-These are the properties available for a [Event trigger](/docs/automation/trigger/#event-trigger).
+An [Event](/docs/configuration/events/) trigger is fired each time an {% term entity %} state changes or an event matching the configured event_type occurs.
+
+These are the properties available for an [Event trigger](/docs/automation/trigger/#event-trigger). 
 
 | Template variable | Data |
 | ---- | ---- |
-| `trigger.platform` | Hardcoded: `event`.
-| `trigger.event` | Event object that matched.
+| `trigger.platform`       | Hardcoded: `event`
+| `trigger.event`          | Event object that matched.
 | `trigger.event.event_type` | Event type.
-| `trigger.event.data` | Optional event data.
+| `trigger.event.data`     | Optional event data.
+
+### Geolocation
+
+These are the properties available for a [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger). 
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `geo_location`
+| `trigger.event` | The trigger event type, either `enter`  or `leave`.
+| `trigger.source` | The Geolocation platform creating the trigger event.
+| `trigger.zone` | State object of the zone.
+
+### Home Assistant
+
+The Home Assistant trigger is recommended for automations instead of [homeassistant_start or homeassistant_stop events](/docs/configuration/events/#homeassistant_start-homeassistant_started).
+
+These are the properties available for a [Home Assistant trigger](/docs/automation/trigger/#home-assistant-trigger). 
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `homeassistant`
+| `trigger.event` | The trigger event type, either `start`  or `shutdown`.
 
 ### MQTT
 
@@ -73,7 +104,7 @@ These are the properties available for a [MQTT trigger](/docs/automation/trigger
 
 | Template variable | Data |
 | ---- | ---- |
-| `trigger.platform` | Hardcoded: `mqtt`.
+| `trigger.platform` | Hardcoded: `mqtt`
 | `trigger.topic` | Topic that received payload.
 | `trigger.payload` | Payload.
 | `trigger.payload_json` | Dictionary of the JSON parsed payload.
@@ -100,9 +131,9 @@ These are the properties available for a [Sentence trigger](/docs/automation/tri
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `conversation`
-| `trigger.sentence` | Text of the sentence that was matched
-| `trigger.slots`    | Object with matched slot values
-| `trigger.details` | Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains: <ul><li>`name` - name of the slot</li><li>`text` - matched text</li><li>`value` - output value (see [lists](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#lists))</li></ul>
+| `trigger.sentence` | Text of the sentence that was matched.
+| `trigger.slots`    | Object with matched slot values.
+| `trigger.details`  | Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains: <ul><li>`name` - name of the slot</li><li>`text` - matched text</li><li>`value` - output value (see [lists](/docs/voice/intent-recognition/template-sentence-syntax/#lists))</li></ul>.
 | `trigger.device_id` | The device ID that captured the command, if any.
 
 ### State
@@ -126,6 +157,16 @@ These are the properties available for a [Sun trigger](/docs/automation/trigger/
 | `trigger.platform` | Hardcoded: `sun`
 | `trigger.event` | The event that just happened: `sunset` or `sunrise`.
 | `trigger.offset` | Timedelta object with offset to the event, if any.
+
+### Tag
+
+These are the properties available for a [Tag trigger](/docs/automation/trigger/#tag-trigger).
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `tag`
+| `trigger.tag_id` | The tag ID captured.
+| `trigger.device_id` | Optional device ID that captured the tag.
 
 ### Template
 
@@ -166,9 +207,9 @@ These properties are available for a [persistent notification trigger](/docs/aut
 | `trigger.platform` | Hardcoded: `persistent_notification`
 | `trigger.update_type` | Type of persistent notification update `added`, `removed`, `current`, or `updated`.
 | `trigger.notification` | Notification object that triggered the persistent notification trigger.
-| `trigger.notification.notification_id` | The notification ID
-| `trigger.notification.title` | Title of the notification
-| `trigger.notification.message` | Message of the notification
+| `trigger.notification.notification_id` | The notification ID.
+| `trigger.notification.title` | Title of the notification.
+| `trigger.notification.message` | Message of the notification.
 | `trigger.notification.created_at` | DateTime object indicating when the notification was created.
 
 ### Webhook
@@ -193,7 +234,7 @@ These are the properties available for a [Zone trigger](/docs/automation/trigger
 | `trigger.entity_id` | Entity ID that we are observing.
 | `trigger.from_state` | Previous [state object] of the entity.
 | `trigger.to_state` | New [state object] of the entity.
-| `trigger.zone` | State object of zone
+| `trigger.zone` | State object of the zone.
 | `trigger.event` | Event that trigger observed: `enter` or `leave`.
 
 ## Examples

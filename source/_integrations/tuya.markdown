@@ -56,6 +56,10 @@ All Home Assistant platforms are supported by the Tuya integration, except the l
 You need to have the Tuya Smart or Smart Life app installed, with an account created and
 at least one device added to that account.
 
+During the setup process, you will need:
+- A second screen (such as a phone, tablet, or another computer) to display the QR code that appears during configuration
+- The Smart Life or Tuya Smart app installed on your mobile device to scan the QR code
+
 ### Obtaining User Code for sign-in
 
 To sign-in, you will need to get your **User Code** from the Smart Life /
@@ -67,6 +71,21 @@ Tuya Smart app. You can find it by opening the app and:
 4. At the bottom, **User Code** will be shown; you need to when setting up this integration.
 
 {% include integrations/config_flow.md %}
+
+### Scanning the QR code
+
+To scan the QR code in the Smart Life app:
+1. Open the Smart Life app
+2. Tap the **+** button or **Add Device**
+3. Select **Scan** or look for the QR code scanner option
+4. Scan the QR code displayed on your Home Assistant screen
+
+After adding new devices to your Tuya account through the Smart Life or Tuya Smart app, you need to reload the Tuya integration in Home Assistant for the new devices to appear:
+
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**
+2. Find the Tuya integration
+3. Click the three dots menu
+4. Select **Reload**
 
 ## Scenes
 

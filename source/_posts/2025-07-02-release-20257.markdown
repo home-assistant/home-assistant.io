@@ -1,0 +1,471 @@
+---
+layout: post
+title: "2025.7: That's the question"
+description: "Assist can now ask you questions! Enjoy the completely redesigned Area card with flexible layouts, the birth of integration sub-entries, full-screen code editors for better YAML and template editing, an overhauled integration page, and the improved Areas dashboard overview. Of course, tons of quality-of-life improvements!"
+date: 2025-07-02 00:00:00
+date_formatted: "July 2, 2025"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2025-07/social.png
+---
+
+<lite-youtube videoid="3MlaIzfRxCg" videotitle="Home Assistant 2025.7 Release Party"></lite-youtube>
+
+Home Assistant 2025.7! 🎉
+
+Whew! It's hot out there! 🌡️ While most of Europe is dealing with a heat wave right now, we're here to cool things down with an exciting July release that's packed with features I'm genuinely excited about.
+
+Before we dive in, if you missed it, we recently published [Voice Chapter 10](/blog/2025/06/25/voice-chapter-10/) where we explored moving beyond reactive voice assistants that only respond when you talk to them. Instead, we envisioned a future where your voice assistant can be conversational and initiate conversations. Speaking of that, this release delivers on that vision in a big way!
+
+I'm absolutely stoked about the new Ask Question action for Assist! 🗣️ This is something that sets Home Assistant apart from every other voice assistant out there. Finally, your voice assistant can take the initiative and ask *you* what your smart home should do. No more waiting for wake words, your assistant can start the conversation when it makes sense. It's the kind of feature that gets me really excited thinking about all the possibilities.
+
+The redesigned Area card is another winner! 🏠 I'll probably be replacing a few tile cards I've been using to navigate to my area dashboards with this new, more flexible version. It integrates beautifully with the Sections dashboard and gives you so many more options for controlling your spaces.
+
+And that's just the beginning! We've got integration sub-entries making integrations even more extensible, full-screen code editors for those lengthy YAML and template edits, and tons of quality-of-life improvements throughout.
+
+Stay cool, and enjoy the release!
+
+../Frenck
+
+<!--more-->
+
+- [Let Assist ask the questions!](#let-assist-ask-the-questions)
+- [Redesigned Area card](#redesigned-area-card)
+- [Improving the Areas dashboard overview](#improving-the-areas-dashboard-overview)
+- [Integration sub-entries](#integration-sub-entries)
+- [Integration page gets an overhaul](#integration-page-gets-an-overhaul)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integration quality scale achievements](#integration-quality-scale-achievements)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+  - [Farewell to the following](#farewell-to-the-following)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [Full-screen code editors](#full-screen-code-editors)
+- [Improved dashboard creation experience](#improved-dashboard-creation-experience)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+## Let Assist ask the questions!
+
+In our latest [roadmap](/blog/2025/05/09/roadmap-2025h1/), we shared our goal to make Assist more conversational. Until now, Assist was mostly transactional, meaning when you would say something, you would get a response or it would perform an action, and that would be the end of it (unless some LLM magic jumped in). With this release, we're taking a big step forward: meet the new Ask Question action.
+
+This lets you build custom conversations from the comfort of our automation engine. Ask a question, handle the answer, and keep the interaction going.
+
+<img class="no-shadow" alt="The new 'Ask Question' action" src="/images/blog/2025-07/ask_question.png" />
+
+This action even allows you to define expected answers so that our extremely fast speech engine, Speech-to-Phrase, can train on them. Yes, fully local, custom conversations!
+
+To help you get started, we have provided a blueprint that covers the most common use case --- Asking a closed Yes/No question:
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/blog/2025-07/ask_yes_no_question.yaml" %}
+
+This blueprint allows you to focus on what you want to do if you answer positively or negatively to any question that your voice assistant will ask. The blueprint supports 50 different ways of saying “Yes” and “No” (including phrases like “Make it so” and “Let’s not”). Here it is in action!
+
+<lite-youtube videoid="m-Vgr-9DtUU" videotitle="Local conversations are supported with Assist"></lite-youtube>
+
+In case you want to dive deeper into conversation building, here is an example on how to ask a question and process the different answers:
+
+{% details "Example YAML automation actions" %}
+
+This example asks the user what kind of music they want to listen to, and then plays the selected genre or artist on a media player.
+
+{% raw %}
+
+```yaml
+actions:
+  - action: assist_satellite.ask_question
+    data:
+      entity_id: assist_satellite.living_room_voice_assistant
+      preannounce: true   # optional
+      preannounce_media_id: media-source://...   # optional
+      question: "What kind of music do you want to listen to?"
+      answers:
+        - id: genre
+          sentences:
+            - "genre {genre}"
+        - id: artist
+          sentences:
+            - "artist {artist}"
+    response_variable: answer
+  - choose:
+      - conditions: "{{ answer.id == 'genre' }}"
+        sequence:
+          - action: music_assistant.play_media
+            data:
+              media_id: "My {{ answer.slots.genre }} playlist"
+              media_type: playlist
+            target:
+              entity_id: media_player.living_room_speakers
+      - conditions: "{{ answer.id == 'artist' }}"
+        sequence:
+          - action: music_assistant.play_media
+            data:
+              media_id: "{{ answer.slots.artist }}"
+              media_type: artist
+            target:
+              entity_id: media_player.living_room_speakers
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+## Redesigned Area card
+
+Originally introduced a few years ago, the [Area card](/dashboards/area/) offered a way to display an {% term area %} overview within the dashboard. However, it wasn't fully compatible with the [Sections](/dashboards/sections/) dashboard, which limited its practical use in that context.
+
+The card has now been completely redesigned with a look and feel similar to the [Tile card](/dashboards/tile/). It integrates seamlessly into the Sections dashboard thanks to its flexible layouts. You can choose between a compact version that shows only an icon and the area name, or a more detailed view featuring elements like your camera feed and buttons to toggle your lights or fans.
+
+<img class="no-shadow" alt="Screenshot showing multiple configurations of the revamped area card." src="/images/blog/2025-07/area-card.png" />
+
+The control section itself has also been revamped, allowing you to choose which controls to include and rearrange them as you want. As a result of these changes, if you’re currently using the area cards, you’ll need to reconfigure the controls on them.
+
+Additionally, the card now supports controlling [cover](/integrations/cover/) {% term entities %}.
+
+## Improving the Areas dashboard overview
+
+The April release introduced an experimental [Areas dashboard](/dashboards/dashboards/#areas-dashboard), designed to automatically generate a ready-to-use interface based on the configured areas within the home. However, the preview could become cluttered if you had a lot of devices in a room.
+
+This release introduces an all-new overview that leverages the redesigned Area card, making it easy to view and control your main devices by room with a single click. It also acts as a navigation hub, giving you quick access to detailed views of each area.
+
+<img class="no-shadow" alt="Screenshot showing the new area dashboard using the new area cards." src="/images/blog/2025-07/areas-dashboard.png" />
+
+## Integration sub-entries
+
+Ever wondered why you had to enter your API keys for every AI agent you created, even though they all used the same key? Or why you had to authenticate for every calendar you added, regardless of the fact that they all shared the same account? Or why you couldn’t add MQTT devices from the UI?
+
+This release solves that with the introduction of integration sub-entries. This allows you to add a sub-entry to an existing {% term integration %} entry. In practice, this means that your {% term integration %} entry has your credentials, and all the sub-entries use these credentials. In the sub-entry, you can then configure what should be done with these credentials, such as fetching a specific calendar, adding three AI agents with different prompts using the same OpenAI account, or in the case of MQTT, configuring devices that are connected to your MQTT broker.
+
+<img class="no-shadow" alt="Screenshot showing how you can now add MQTT devices directly through the user interface." src="/images/blog/2025-07/add-mqtt-device-using-sub-entry.png" />
+
+The following {% term integrations %} now support sub-entries as of this release: [Anthropic], [Google Generative AI], [MQTT], [Ollama], [OpenAI Conversation], and [Telegram Bot].
+
+[Anthropic]: /integrations/anthropic
+[Google Generative AI]: /integrations/google_generative_ai_conversation
+[MQTT]: /integrations/mqtt
+[Ollama]: /integrations/ollama
+[OpenAI Conversation]: /integrations/openai_conversation
+[Telegram Bot]: /integrations/telegram_bot
+
+## Integration page gets an overhaul
+
+The {% term integration %} page got a big overhaul! It now has support for sub-entries, allowing you to easily add a sub-entry to an {% term integration %} entry along with being able to see which devices and services belong to which sub-entry.
+
+But we took the opportunity to do more. Instead of just showing your {% term integration %} entries, it now also shows the devices and services provided by that configuration entry. This makes it much easier to manage your devices and see the relationship between your devices and their {% term integrations %} at a glance.
+
+<img class="no-shadow" alt="Screenshot showing the overhauled integration page, showcasing multiple personalities for the OpenAI Conversation integration." src="/images/blog/2025-07/new-integrations-page.png" />
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Altruist]**, added by [@LoSk-p]  
+  Monitor air quality and environmental conditions with the Altruist sensor, providing local data for temperature, humidity, PM2.5/PM10, CO2, noise levels, and more.
+- **[PlayStation Network]**, added by [@JackJPowell]  
+  Integrate with the PlayStation Network to track your currently playing games and display game information on your dashboard.
+- **[Tilt Pi]**, added by [@michaelheyman]  
+  Monitor your Tilt Pi hydrometer for brewing temperature and specific gravity measurements during your brewing process.
+- **[VegeHub]**, added by [@Thulrus]  
+  Monitor and control your garden with the Vegetronix VegeHub, gathering sensor data and controlling irrigation relays for automated plant care.
+
+[@JackJPowell]: https://github.com/JackJPowell
+[@LoSk-p]: https://github.com/LoSk-p
+[@michaelheyman]: https://github.com/michaelheyman
+[@Thulrus]: https://github.com/Thulrus
+[Altruist]: /integrations/altruist
+[PlayStation Network]: /integrations/playstation_network
+[Tilt Pi]: /integrations/tilt_pi
+[VegeHub]: /integrations/vegehub
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing
+integrations are also being constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+- Love that song? [@marcelveldt] added a button {% term entity %} to [Music Assistant] that lets you add the currently playing item to your favorites with a single click. It works with queues, external sources, and even radio stations!
+- [ESPHome] now supports sub-devices! Thanks to [@bdraco], you can now represent multiple logical devices with a single ESP device in Home Assistant. This is particularly useful for RF bridges, Modbus gateways, and other devices that can control multiple devices. This feature requires the soon-to-be-released ESPHome 2025.7. Awesome addition!
+- [Paperless-ngx] now includes an update {% term entity %} to keep your document management system up to date. Thanks, [@fvgarrel]!
+- Battery management control has been added to [HomeWizard] with [@DCSBL] implementing battery group mode, allowing you to modify the charging and discharging behavior of your HomeWizard batteries!
+- [Reolink] cameras received a ton of love (again) from [@starkillerOG]! New features include IR brightness control, baby cry sensitivity adjustment, privacy mask switches, and full support for both PoE and WiFi floodlights with multiple command ID pushes. Impressive!
+- [@mib1185] added an update {% term entity %} to the [Immich] {% term integration %}. Nice!
+- The [Homee] {% term integration %} expanded significantly! [@Taraman17] added a siren platform for security alerts and support for the HeatIt Thermostat TF056. Nice!
+- Energy monitoring got better in [Adax] with [@parholmdahl] adding energy sensors, so you can track your heating consumption!
+- [@ViViDboarder] made [Ollama] more flexible by adding a config option for controlling the think parameter. More control over your local AI!
+- Samsung refrigerator owners! [@mswilson] added ice bites control and water filter replacement/usage sensors to the [SmartThings] {% term integration %}.
+- [Russound RIO] got a major upgrade from [@noahhusby], adding sub-device support plus new number and switch {% term entities %} for enhanced zone control.
+- [@chemelli74] expanded [Alexa Devices] with sensor platforms and additional binary sensors. Now you can get more data from your Echo devices!
+- [Matter] keeps growing! [@lboue] added dishwasher alarm support and battery storage capabilities. Thanks!
+- YAML fans will appreciate [@frenck] adding unique ID support to [Trend] {% term integration %} configuration.
+- The [LaMetric] Time got an update {% term entity %} as well, thanks [@joostlek]!
+- [Google Generative AI] now defaults to the newer, faster Gemini 2.5 Flash model. A noteworthy performance boost by [@tronikos]!
+- [Google Generative AI] now supports text-to-speech (TTS) with 30 voices and 24 languages. It supports fine-grained control over style and sound, for example, "Say cheerfully: Have a wonderful day!". Thanks [@lanthaler]!
+- [Enphase Envoy] users get detailed DC voltage and current readings from their solar panels thanks to [@Bidski]. This is perfect for monitoring individual panel health and optimizing production!
+- [@zerzhang] brought evaporative humidifier support to [SwitchBot], expanding your climate control options.
+
+[@bdraco]: https://github.com/bdraco
+[@Bidski]: https://github.com/Bidski
+[@chemelli74]: https://github.com/chemelli74
+[@DCSBL]: https://github.com/DCSBL
+[@frenck]: https://github.com/frenck
+[@fvgarrel]: https://github.com/fvgarrel
+[@joostlek]: https://github.com/joostlek
+[@lanthaler]: https://github.com/lanthaler
+[@lboue]: https://github.com/lboue
+[@marcelveldt]: https://github.com/marcelveldt
+[@mib1185]: https://github.com/mib1185
+[@mswilson]: https://github.com/mswilson
+[@noahhusby]: https://github.com/noahhusby
+[@parholmdahl]: https://github.com/parholmdahl
+[@starkillerOG]: https://github.com/starkillerOG
+[@Taraman17]: https://github.com/Taraman17
+[@tronikos]: https://github.com/tronikos
+[@ViViDboarder]: https://github.com/ViViDboarder
+[@zerzhang]: https://github.com/zerzhang
+[Adax]: /integrations/adax
+[Alexa Devices]: /integrations/alexa_devices
+[Enphase Envoy]: /integrations/enphase_envoy
+[ESPHome]: /integrations/esphome
+[Google Generative AI]: /integrations/google_generative_ai_conversation
+[Homee]: /integrations/homee
+[HomeWizard]: /integrations/homewizard
+[Immich]: /integrations/immich
+[LaMetric]: /integrations/lametric
+[Matter]: /integrations/matter
+[Music Assistant]: /integrations/music_assistant
+[Ollama]: /integrations/ollama
+[Paperless-ngx]: /integrations/paperless_ngx
+[Reolink]: /integrations/reolink
+[Russound RIO]: /integrations/russound_rio
+[SmartThings]: /integrations/smartthings
+[SwitchBot]: /integrations/switchbot
+[Trend]: /integrations/trend
+
+### Integration quality scale achievements
+
+One thing we are incredibly proud of in Home Assistant is our
+[integration quality scale]. This scale helps us and our contributors to ensure
+integrations are of high quality, maintainable, and provide the best possible
+user experience.
+
+This release, we celebrate several {% term integrations %} that have improved
+their quality scale:
+
+- **2 integrations reached platinum** 🏆
+  - [Bosch Alarm], thanks to [@sanjay900]
+  - [Home Connect], thanks to [@Diegorro98]
+
+- **1 integration reached gold** 🥇
+  - [ista EcoTrend], thanks to [@tr4nt0r]
+
+- **1 integration reached silver** 🥈
+  - [KNX], thanks to [@farmio]
+
+- **2 integrations reached bronze** 🥉
+  - [Samsung TV], thanks to [@chemelli74]
+  - [Telegram Bot], thanks to [@hanwg]
+
+This is a huge achievement for these integrations and their maintainers. The
+effort and dedication required to reach these quality levels is significant,
+as it involves extensive testing, documentation, error handling, and often
+complete rewrites of parts of the integration.
+
+A big thank you to all the contributors involved! 👏
+
+[integration quality scale]: https://www.home-assistant.io/docs/quality_scale/
+[@chemelli74]: https://github.com/chemelli74
+[@Diegorro98]: https://github.com/Diegorro98
+[@farmio]: https://github.com/farmio
+[@hanwg]: https://github.com/hanwg
+[@sanjay900]: https://github.com/sanjay900
+[@tr4nt0r]: https://github.com/tr4nt0r
+[Bosch Alarm]: /integrations/bosch_alarm
+[Home Connect]: /integrations/home_connect
+[ista EcoTrend]: /integrations/ista_ecotrend
+[KNX]: /integrations/knx
+[Samsung TV]: /integrations/samsungtv
+[Telegram Bot]: /integrations/telegram_bot
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
+more integrations to the UI, making them more accessible for everyone
+to set up and use.
+
+The following integration is now available via the Home Assistant UI:
+
+- **[Telegram Bot]**, done by [@hanwg]
+
+### Farewell to the following
+
+The following {% term integrations %} are also no longer available as
+of this release:
+
+- **JuiceNet** has been removed as they shut down their API services.
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other noteworthy changes:
+
+- [Shopping list] now has a complete intent function that allows you to check off or mark items on your shopping list as completed, making it easier to interact with your shopping lists using voice commands. Thanks, [@Lesekater]!
+- Device and {% term entity %} management got better! [@emontnemery] made it so Home Assistant now restores user customizations when you re-add deleted devices or {% term entities %}. No more losing your carefully crafted names and settings!
+- The [Template] {% term integration %} received a major boost from [@Petro31]! You can now use variables, icons, and pictures across all compatible template platforms, create trigger-based template alarm control panels, locks, vacuum {% term entities %}, and fans. Plus, there's a new `label_description` template method that allows you to dynamically fetch the description you've added to a label from your templates. This is a noteworthy enhancement for better template organization.
+- Camera snapshots just got better! [@edenhaus] added support for taking snapshots via [go2rtc]. There is nothing for you to do on this one, it works out of the box, but it is nice to know snapshots are now faster and take fewer resources from your system.
+- [Object selectors] now support fields and multiple selections, thanks to [@piitaya]. These additions are particularly interesting for {% term integration %} and blueprint developers, as they provide much more flexibility in your UI representations.
+- Wind direction sensors got a visual upgrade with [@edenhaus] adding range icons for the `wind_direction` sensor device class. Different icons are now shown depending on the state of wind direction sensors, which is indeed a nice visual upgrade!
+
+[@Lesekater]: https://github.com/Lesekater
+[@emontnemery]: https://github.com/emontnemery
+[@Petro31]: https://github.com/Petro31
+[@edenhaus]: https://github.com/edenhaus
+[@piitaya]: https://github.com/piitaya
+[Shopping list]: /integrations/shopping_list
+[Template]: /integrations/template
+[go2rtc]: /integrations/go2rtc
+[Object selectors]: /docs/blueprint/selectors/#object-selector
+
+## Full-screen code editors
+
+Working with snippets of YAML or templates in Home Assistant just got a BIG improvement! We've added a new full-screen mode for all code editors throughout the interface.
+
+<lite-youtube videoid="VfwcYp7zQzo" videotitle="Full screen code editors in Home Assistant"></lite-youtube>
+
+Whether you're editing automations, scripts, templates, or any other YAML configuration, you can now expand the code editor to take up your entire screen. This is especially helpful when working with longer configurations or when you need more space to see your code clearly.
+
+Simply click the maximize button in the top-right corner of any code editor to enter full screen mode. Press the button again to return to the normal view.
+
+This makes building a more complex and advanced smart home more comfortable and productive, especially on smaller mobile or tablet screens where every pixel of editing space counts!
+
+## Improved dashboard creation experience
+
+The dialog for adding a new dashboard has been redesigned with a cleaner interface that matches recent redesigns we've seen to other dialogs. This improvement was designed by [@marcinbauer85] and implemented by [@quinnter]. Great teamwork!
+
+<img class="no-shadow" alt="Screenshot showing the new and improved add dashboard dialog" src="/images/blog/2025-07/improved-add-dashboard-dialog.png" />
+
+[@marcinbauer85]: https://github.com/marcinbauer85
+[@quinnter]: https://github.com/quinnter
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be,
+and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues)
+to get it fixed! Or check [our help page](/help) for guidance on more
+places you can go.
+
+Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter)
+to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might unexpectedly impact your Home Assistant installation. Unfortunately, sometimes, it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Google Calendar" %}
+
+The previously deprecated Google Calendar `add_event` {% term action %} has been removed and replaced by the `create_event` entity-based {% term action %}.
+
+If you use the `add_event` {% term action %} in your automations or scripts, you will need to update them to use the new `create_event` {% term action %} instead.
+
+([@epenet] - [#146432]) ([google docs])
+
+[@epenet]: https://github.com/epenet
+[#146432]: https://github.com/home-assistant/core/pull/146432
+[google docs]: /integrations/google
+
+{% enddetails %}
+
+{% details "Meater" %}
+
+The states of the Meater probe cook state have been changed to
+support translations and make them more consistent with other integrations.
+
+The following states have been changed:
+
+- `Not Started` -> `not_started`
+- `Configured` -> `configured`
+- `Started` -> `started`
+- `Ready For Resting` -> `ready_for_resting`
+- `Resting` -> `resting`
+- `Slightly Underdone` -> `slightly_underdone`
+- `Finished` -> `finished`
+- `Slightly Overdone` -> `slightly_overdone`
+- `OVERCOOK!` -> `overcooked`
+
+If you use these states in your automations or scripts, you will need to update them to use the new state values.
+
+([@joostlek] - [#146958]) ([meater docs])
+
+[@joostlek]: https://github.com/joostlek
+[#146958]: https://github.com/home-assistant/core/pull/146958
+[meater docs]: /integrations/meater
+
+{% enddetails %}
+
+{% details "Miele" %}
+
+The internal representation of states for hob plates has changed. This is a breaking change when these states are used in automations or templates.
+
+No user action is needed if these hob state sensors are used for visual display only.
+
+Please review and update applicable automations and templates according to the following state changes:
+
+- `0` -> `plate_step_0`
+- `1` -> `plate_step_1`
+- ...
+- `18` -> `plate_step_18`
+- `110` -> `plate_step_warm`
+- `117` -> `plate_step_boost`
+- `118` -> `plate_step_boost`
+- `217` -> `plate_step_boost`
+- `220` -> `plate_step_warm`
+
+If you use these states in your automations or scripts, you will need to update them to use the new state values.
+
+([@astrandb] - [#144992]) ([miele docs])
+
+[@astrandb]: https://github.com/astrandb
+[#144992]: https://github.com/home-assistant/core/pull/144992
+[miele docs]: /integrations/miele
+
+{% enddetails %}
+
+{% details "Plex Media Server" %}
+
+The previously deprecated `plex.scan_for_clients` {% term action %} has been removed in favor of the "Scan Clients" `button` {% term entity %}. If you use this {% term action %} in your automations or scripts, you will need to update them to use the new {% term entity %} instead.
+
+([@epenet] - [#146608]) ([plex docs])
+
+[@epenet]: https://github.com/epenet
+[#146608]: https://github.com/home-assistant/core/pull/146608
+[plex docs]: /integrations/plex
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog].
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2025.7](/changelogs/core-2025.7)

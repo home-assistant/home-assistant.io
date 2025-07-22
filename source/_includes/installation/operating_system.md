@@ -102,7 +102,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 - Computer
 - The target x86-64 hardware, on which you want to install the {% term "Home Assistant Operating System" %} (HAOS)
-- USB flash drive (USB thumb drive is sufficient, it should be at least 4&nbsp;GB in size)
+- USB flash drive (USB thumb drive is sufficient, it should be at least 8&nbsp;GB in size)
 - Internet connection
 
 #### To install HAOS via Ubuntu from a USB flash drive

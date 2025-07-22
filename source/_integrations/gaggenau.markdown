@@ -31,6 +31,8 @@ ha_platforms:
   - switch
   - time
 ha_iot_class: Cloud Push
+ha_dhcp: true
+ha_zeroconf: true
 ---
 
 {% include integrations/supported_brand.md %}

@@ -17,6 +17,7 @@ ha_platforms:
   - sensor
   - todo
 ha_integration_type: service
+ha_quality_scale: silver
 ---
 
 [Mealie](https://mealie.io/) is an open source, self-hosted recipe manager, meal planner, and shopping list. The Mealie {% term integration %} will fetch and allow you to create and update data held in your Mealie instance.

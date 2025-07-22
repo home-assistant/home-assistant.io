@@ -13,6 +13,7 @@ ha_codeowners:
   - '@jtodorova23'
 ha_domain: blue_current
 ha_platforms:
+  - button
   - sensor
 ha_integration_type: integration
 ---

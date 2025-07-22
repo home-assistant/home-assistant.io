@@ -57,7 +57,7 @@ UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware [`
 
 ### Software support
 
-The absolute **minimal** software version is [`v1.20.0`](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011) for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
+The **absolute minimum** software version is [`v1.20.0`](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011) for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect are supported.
 
 {% important %}
 **Early Access and Release Candidate versions are not supported by Home Assistant.**
@@ -420,9 +420,9 @@ actions:
 
 You can obtain the `nfc_id` using the [Action unifiprotect.get_user_keyring_info](#action-unifiprotectget_user_keyring_info).
 
-**Warning:**
-
+{% warning %}
 When processing NFC scans, always validate the scanned ID. Unknown NFC cards also trigger the scan event. Additionally, this event was developed using third-party cards, as the developer did not have access to official UniFi cards at the time. With third-party cards, the scan relies on the card's serial number. While this approach is not uncommon, it is essential to note that the card's serial number is generally not considered a secure identifier and can be duplicated relatively easily. When the device becomes unavailable and becomes available again in Home Assistant, repeated event processing can occur. The state change is not an issue with the integration but should be considered, mainly if the device is used for actions such as unlocking doors.
+{% endwarning %}
 
 ### Fingerprint Identified Event
 
@@ -463,39 +463,9 @@ action:
       title: "Fingerprint Scan Notification"
 ```
 
-**Warning:**
-
+{% warning %}
 Similar to NFC, an event is triggered when a fingerprint is recognized and not recognized. However, unlike NFC, at the time of implementation, no fingerprint ID is included in the event if the fingerprint is unknown. When the device becomes unavailable and becomes available again in Home Assistant, repeated event processing can occur. The state change is not an issue with the integration but should be considered, mainly if the device is used for actions such as unlocking doors.
-
-#### Example G4 Doorbell Fingerprint Identified Automation
-
-```yaml
-alias: G4 Doorbell Fingerprint Identified Automation
-description: Automation that triggers when a fingerprint is successfully identified on the G4 Doorbell Pro
-trigger:
-  - platform: event
-    event_type: state_changed
-    event_data:
-      entity_id: event.g4_doorbell_pro_poe_fingerprint # Replace with your doorbell entity
-condition:
-  - condition: template
-    value_template: >
-      {% raw %}{{ 
-         trigger.event.data.new_state is not none and
-         trigger.event.data.new_state.attributes.event_type == 'identified' and
-         (trigger.event.data.new_state.attributes.ulp_id|default('')) != '' and
-         trigger.event.data.new_state.attributes.ulp_id in ['ALLOWED_ID1', 'ALLOWED_ID2']
-       }}{% endraw %}
-action:
-  - service: notify.mobile_app_your_device # Replace with your notification target
-    data:
-      {% raw %}message: "Fingerprint identified with ID: {{ trigger.event.data.new_state.attributes.ulp_id }}"{% endraw %}
-      title: "Fingerprint Scan Notification"
-```
-
-**Warning:**
-
-Similar to NFC, an event is triggered when a fingerprint is recognized and not recognized. However, unlike NFC, at the time of implementation, no fingerprint ID is included in the event if the fingerprint is unknown.
+{% endwarning %}
 
 ## Troubleshooting
 
