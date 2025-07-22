@@ -108,4 +108,3 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
-3. You can inspect the downloaded file or, when requested, upload it to your issue report.
