@@ -69,14 +69,6 @@ Performance in decibels of the devices antenna. See [Gain](https://en.wikipedia.
 Data is polled from devices every 60 seconds.
 
 
-### Supported devices
-
-### airOS 8
-
-While there is no known limitation to which devices running airOS 8 are supported, success has been reported on:
-
-- PowerBeam 5AC gen2
-- Nanostation 5AC (LOCO5AC) 
 
 ## Troubleshooting
 
