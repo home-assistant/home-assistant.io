@@ -66,7 +66,9 @@ Make sure you can see and refresh the data there.
 ### Sensors change to `unavailable` status
 
 This is expected behavior when the system you are monitoring is not reachable. Usually, because it is turned off.
-Sensors will resume their data readings once the system is reachable again.
+Sensors will resume their data readings once the system is reachable again.  
+Note that connection loss to the host will not trigger error logs. If you want to be notified in case the connection is lost,
+you can create an automation that triggers if a sensor's state switches to `unavailable`.
 
 ### Integration stops working
 
