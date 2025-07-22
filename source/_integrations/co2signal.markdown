@@ -19,7 +19,7 @@ ha_codeowners:
 ---
 
 The **Electricity Maps** {% term integration %} (formerly known as CO2Signal) queries the [Electricity Maps](https://www.electricitymaps.com/) API for the CO2 intensity of a specific region. 
-Data can be collected for your home by using the home location, latitude/longitude or a country code.
+Data can be collected for your home by using the home location, latitude/longitude, or a country code.
 
 This API uses the same data as shown on the [Electricity Maps app](https://app.electricitymaps.com). 
 Not all countries/regions in the world are supported, so please check the app to verify local availability before setting up the integration.
@@ -28,11 +28,11 @@ Not all countries/regions in the world are supported, so please check the app to
 
 The Electricity Maps integration helps you understand the carbon intensity of your electricity grid in real-time. This information can be valuable for:
 
-- Timing energy-intensive tasks (like charging electric vehicles or running appliances) during periods of lower carbon intensity
-- Creating automations that respond to changing grid conditions
-- Visualizing your region's progress towards cleaner energy
-- Understanding how weather conditions affect renewable energy availability in your area
-- Tracking the carbon impact of your home's energy usage in the {% my energy title="**Energy Dashboard**" %}
+- Timing energy-intensive tasks (like charging electric vehicles or running appliances) during periods of lower carbon intensity.
+- Creating automations that respond to changing grid conditions.
+- Visualizing your region's progress towards cleaner energy.
+- Understanding how weather conditions affect renewable energy availability in your area.
+- Tracking the carbon impact of your home's energy usage in the {% my energy title="**Energy Dashboard**" %}.
 
 ## Prerequisites
 
@@ -148,16 +148,16 @@ The Electricity Maps integration is automatically used on the Energy Dashboard w
 You don't need to manually configure anything - the integration is automatically detected and used by the Energy Dashboard to calculate and display your home's carbon emissions based on your energy consumption and the current grid carbon intensity.
 
 To view this information:
-1. Navigate to the {% my energy title="**Energy Dashboard**" %}
-2. Look for the carbon intensity gauge in the dashboard
+1. Navigate to the {% my energy title="**Energy Dashboard**" %}.
+2. Look for the carbon intensity gauge in the dashboard.
 
 If you don't see the carbon information in your Energy Dashboard:
-1. Make sure the Electricity Maps integration is properly set up and working
-2. Verify that you have energy monitoring configured in Home Assistant
+1. Make sure the Electricity Maps integration is properly set up and working.
+2. Verify that you have energy monitoring configured in Home Assistant.
 
 ## Data updates
 
-The integration polls data from the Electricity Maps API every 15 minutes by default. The actual update frequency may be limited by your API tier's rate limits.
+The integration {% term polling polls %} data from the Electricity Maps API every 15 minutes by default. The actual update frequency may be limited by your API tier's rate limits.
 
 ## Known limitations
 
