@@ -74,7 +74,7 @@ Android has many different screen sizes and layouts, and we’re working to bett
 
 ## Important changes for Android users
 
-<p class="img"><img src='/images/blog/2025-07-android-companion/download-growth.png' alt="Pie chart of installations over different Android versions"/>A huge percentage of our users are on pretty new versions of Android, but we want to support as many older devices as possible.</p>
+<p class="img"><img src='/images/blog/2025-07-android-companion/android-distribution.png' alt="Pie chart of installations over different Android versions"/>A huge percentage of our users are on pretty new versions of Android, but we want to support as many older devices as possible.</p>
 
 One significant change on the horizon is ending support for Android 5.0 and 5.1 (also known as Android Lollipop, released in 2014… it had a good run 🫡). [Google has announced](https://developer.android.com/jetpack/androidx/versions/all-channel#:~:text=Note%3A%20Starting%20in%20June%202025%2C%20new%20releases%20of%20many%20AndroidX%20libraries%20previously%20targeting%20minSdk%2021%20will%20be%20updated%20to%20require%20minSdk%2023.%20Some%20libraries%20won%27t%20be%20re%2Dreleased%20and%20will%20therefore%20continue%20to%20support%20minSdk%2021.) that starting in June 2025, many AndroidX libraries will require a minimum of Android API 23. This means we will need to stop supporting Android 5.0 and 5.1 (API 21 and 22) to keep up with new features and security updates. Less than 0.3% of installs are on Android versions below API 23 (Android 6.0), and we always work to keep older devices working, but sometimes our hand is forced. If you are using an older device, the app will not be removed, but you will not receive new updates once we make this change.
 
