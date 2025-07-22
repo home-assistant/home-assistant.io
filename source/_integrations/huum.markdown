@@ -49,4 +49,4 @@ The climate entity controls the sauna heater and offers the following capabiliti
 
 ### Light
 
-- **Light**: Sauna light (or ventilation) control (on or off).
+- **Light**: Sauna light control (on or off).
