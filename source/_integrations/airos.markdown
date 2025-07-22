@@ -68,11 +68,6 @@ Performance in decibels of the devices antenna. See [Gain](https://en.wikipedia.
 
 Data is polled from devices every 60 seconds.
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required within Home Assistant or on your devices running airOS.
-
-{% include integrations/remove_device_service.md %}
 
 ### Supported devices
 
@@ -106,4 +101,11 @@ If you need to create an issue to report a bug or want to inspect diagnostic dat
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration and device.
 2. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
    - Then, select **Download diagnostics** and a JSON file will be downloaded.
+   
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required within Home Assistant or on your devices running airOS.
+
+{% include integrations/remove_device_service.md %}
+
 3. You can inspect the downloaded file or, when requested, upload it to your issue report.
