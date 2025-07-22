@@ -77,10 +77,22 @@ use has.
 2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (e.g. _192.168.1.1/admins/_).
 3. Click on **+** in the top right corner and select **Add Admin**.
 4. Select **Restrict to local access only** and enter a new _username_ and _password_.
-5. Select **Full Management** for the _Protect_ role. 
+5. Select **Full Management** for the _Protect_ role.
 6. Click **Add** in the bottom right.
 
 ![UniFi OS User Creation](/images/integrations/unifiprotect/user.png)
+
+In addition to the username and password, you now need to create an API key for Home Assistant.
+
+1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
+2. Go to **Settings** > **Control Plane** > **Integrations**.
+3. Enter a new name for the API key, like "Home Assistant".
+4. Click **Create API Key** and copy the generated key.
+5. Use this API key together with your username and password when setting up the UniFi Protect integration in Home Assistant.
+
+{% tip %}
+Currently, creating an API key requires you to be logged in as an administrator.
+{% endtip %}
 
 ### Camera streams
 
