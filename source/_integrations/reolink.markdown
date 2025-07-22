@@ -242,6 +242,7 @@ Depending on the supported features of the camera, select entities are added for
 - Hub visitor ringtone
 - Hub scene mode (Off, Disarmed, Home, Away)
 - Recording packing time
+- Post-recording time
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 

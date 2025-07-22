@@ -2340,6 +2340,10 @@ weather:
       description: Unit for temperature_template output. Valid options are °C, °F, and K.
       required: false
       type: string
+    uv_index_template:
+      description: The current UV index.
+      required: false
+      type: template
     visibility_template:
       description: The current visibility.
       required: false
