@@ -37,7 +37,7 @@ The Electricity Maps integration helps you understand the carbon intensity of yo
 ## Prerequisites
 
 To configure and use this integration, you need to obtain a free API key from Electricity Maps by signing up to the Free Tier product on the [Electricity Maps API Portal](https://electricitymaps.com/free-tier).
-Please be aware that the Free Tier API is limited to one location called zones, you need to specify the zone of your home location when creating your account.
+Please be aware that the Free Tier API is limited to one location (called a zone). You need to specify the zone for your home location when creating your account.
 
 ## Configuration
 
