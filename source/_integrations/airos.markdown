@@ -101,6 +101,7 @@ If you need to create an issue to report a bug or want to inspect diagnostic dat
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration and device.
 2. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
    - Then, select **Download diagnostics** and a JSON file will be downloaded.
+ 3. You can inspect the downloaded file or, when requested, upload it to your issue report.
    
 ## Removing the integration
 
