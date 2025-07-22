@@ -17,6 +17,7 @@ ha_integration_type: integration
 
 The **Lunatone** {% term integration %} is used to integrate with the devices of [Lunatone](https://www.lunatone.com) that offer a REST API.
 
+## Supported devices
 Right now the following devices are supported:
 
 - [DALI-2 IoT Gateway (v1.14.1 or later)](https://www.lunatone.com/produkt/dali-2-iot-gateway/)
