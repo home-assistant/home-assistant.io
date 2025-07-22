@@ -22,9 +22,9 @@ The **Hanna** {% term integration %} fetches data from your [Hanna Pool Controll
 
 Before you can add the Hanna integration, you need:
 
-- A [HannaCloud](https://www.hannacloud.com) account
-- Your HannaCloud login credentials (email and password)
-- A Hanna Pool Controller device that is connected to your HannaCloud account
+- A [HannaCloud](https://www.hannacloud.com) account.
+- Your HannaCloud login credentials (email and password).
+- A Hanna Pool Controller device that is connected to your HannaCloud account.
 
 {% include integrations/config_flow.md %}
 
