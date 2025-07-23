@@ -50,7 +50,7 @@ Like I said at the top, it's been a long time (over two years 🫢) since we’v
 
 - We’ve updated our widgets to support some of the new features, like To-do lists.
 
-- Wear OS has had its Tile capabilities improved.
+- Wear OS has had its Tile capabilities improved and a new thermostat tile was added.
 
 - There are now more Android Auto sensors, like speed and remaining range.
 
