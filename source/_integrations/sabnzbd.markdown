@@ -28,20 +28,20 @@ SABnzbd is a popular newsgroup binary downloader that automates the downloading,
 
 Here are some practical ways you can use the SABnzbd integration:
 
-- **Download completion notifications**: Get notified on your phone or smart display when downloads finish
-- **Bandwidth management**: Automatically pause downloads during peak internet usage hours or when streaming services are active
-- **Disk space monitoring**: Set up alerts when your download drive is running low on space
-- **Smart scheduling**: Automatically start downloads during off-peak hours when internet is faster or cheaper
-- **Home theater integration**: Pause downloads when movie night starts to ensure smooth streaming
-- **Security monitoring**: Get alerted if SABnzbd goes offline or becomes unreachable
+- **Download completion notifications**: Get notified on your phone or smart display when downloads finish.
+- **Bandwidth management**: Automatically pause downloads during peak internet usage hours or when streaming services are active.
+- **Disk space monitoring**: Set up alerts when your download drive is running low on space.
+- **Smart scheduling**: Automatically start downloads during off-peak hours when internet is faster or cheaper.
+- **Home theater integration**: Pause downloads when movie night starts to ensure smooth streaming.
+- **Security monitoring**: Get alerted if SABnzbd goes offline or becomes unreachable.
 
 ## Prerequisites
 
 You need to grab your API key from your SABnzbd instance in order to configure this integration:
 
-1. Navigate to your SABnzbd web interface
-2. Click **Config** {% icon "mdi:settings" %}, then click **General**
-3. Copy your API key under **Security**
+1. Navigate to your SABnzbd web interface.
+2. Select *Config** {% icon "mdi:settings" %}, then **General**.
+3. Copy your API key under **Security**.
 
 {% include integrations/config_flow.md %}
 
@@ -56,7 +56,7 @@ API key:
 
 ### Binary sensors
 
-- **Warnings**: Indicates if SABnzbd has any warnings (e.g., disk space low, download errors)
+- **Warnings**: Indicates if SABnzbd has any warnings (for example, disk space low, download errors)
 
 ### Buttons
 
@@ -78,7 +78,7 @@ This integration creates the following sensors to monitor your SABnzbd instance:
 
 ### Numbers
 
-- **Speed limit**: Set the download speed limit (as a percentage of your configured maximum speed)
+- **Speed limit**: Set the download speed limit (as a percentage of your configured maximum speed).
 
 ## Examples
 
@@ -231,20 +231,20 @@ The SABnzbd integration {% term polling polls %} data from your SABnzbd server e
 
 ### SABnzbd not found or unreachable
 
-1. **Verify SABnzbd is running**: Check that SABnzbd is running and accessible via its web interface
-2. **Check the URL**: Ensure you're using the correct URL format including the port (typically `http://localhost:8080`)
-3. **Test API key**: Verify your API key is correct by comparing it in the SABnzbd web interface
+1. **Verify SABnzbd is running**: Check that SABnzbd is running and accessible via its web interface.
+2. **Check the URL**: Ensure you're using the correct URL format including the port (typically `http://localhost:8080`).
+3. **Test API key**: Verify your API key is correct by comparing it in the SABnzbd web interface.
 4. **Network connectivity**: If SABnzbd is on another device, ensure Home Assistant can reach it over the network
-5. **Firewall settings**: Check that your firewall allows connections to SABnzbd's port
+5. **Firewall settings**: Check that your firewall allows connections to SABnzbd's port.
 6. **Enable debug logging**: Temporarily enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for the SABnzbd integration to get more detailed error messages.
 
 ### SABnzbd add-on specific issues
 
 If you're using the SABnzbd Home Assistant add-on:
 
-1. **Use internal URL**: Use `http://a02368d7-sabnzbd:8080` instead of `localhost`
-2. **Check add-on logs**: Review the SABnzbd add-on logs for any error messages
-3. **Add-on configuration**: Ensure the add-on is properly configured and started
+1. **Use internal URL**: Use `http://a02368d7-sabnzbd:8080` instead of `localhost`.
+2. **Check add-on logs**: Review the SABnzbd add-on logs for any error messages.
+3. **Add-on configuration**: Ensure the add-on is properly configured and started.
 
 ## Removing the integration
 
