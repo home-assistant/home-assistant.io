@@ -231,20 +231,20 @@ The SABnzbd integration {% term polling polls %} data from your SABnzbd server e
 
 ### SABnzbd not found or unreachable
 
-1. **Verify SABnzbd is running**: Check that SABnzbd is running and accessible via its web interface.
-2. **Check the URL**: Ensure you're using the correct URL format including the port (typically `http://localhost:8080`).
-3. **Test API key**: Verify your API key is correct by comparing it in the SABnzbd web interface.
-4. **Network connectivity**: If SABnzbd is on another device, ensure Home Assistant can reach it over the network
-5. **Firewall settings**: Check that your firewall allows connections to SABnzbd's port.
-6. **Enable debug logging**: Temporarily enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for the SABnzbd integration to get more detailed error messages.
+1. Verify SABnzbd is running: Check that SABnzbd is running and accessible via its web interface.
+2. Check the URL: Ensure you're using the correct URL format including the port (typically `http://localhost:8080`).
+3. Test API key: Verify your API key is correct by comparing it in the SABnzbd web interface.
+4. Network connectivity: If SABnzbd is on another device, ensure Home Assistant can reach it over the network
+5. Firewall settings: Check that your firewall allows connections to SABnzbd's port.
+6. Enable debug logging: Temporarily enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for the SABnzbd integration to get more detailed error messages.
 
 ### SABnzbd add-on specific issues
 
 If you're using the SABnzbd Home Assistant add-on:
 
-1. **Use internal URL**: Use `http://a02368d7-sabnzbd:8080` instead of `localhost`.
-2. **Check add-on logs**: Review the SABnzbd add-on logs for any error messages.
-3. **Add-on configuration**: Ensure the add-on is properly configured and started.
+1. Use internal URL: Use `http://a02368d7-sabnzbd:8080` instead of `localhost`.
+2. Check add-on logs: Review the SABnzbd add-on logs for any error messages.
+3. Add-on configuration: Ensure the add-on is properly configured and started.
 
 ## Removing the integration
 
