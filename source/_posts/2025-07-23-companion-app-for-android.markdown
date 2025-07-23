@@ -42,7 +42,7 @@ I’d also like to thank you! Your support (by subscribing to [Home Assistant Cl
 
 Like I said at the top, it's been a long time (over two years 🫢) since we’ve published a blog highlighting the improvements made to the Android app. You’ve probably been enjoying these new features for some time, but in case you missed it, here are some of the biggest improvements made by the community over that time.
 
-- Google Health Connect sensors linked to your Android phone have been added, including heart rate, fitness data, and glucose levels (as always, you have complete control over what you share with your Home Assistant instance, and that data stays local).
+- Health Connect sensors linked to your Android phone have been added, including heart rate, fitness data, and glucose levels (as always, you have complete control over what you share with your Home Assistant instance, and that data stays local).
 
 - By working with Android [natively](/blog/2023/07/20/year-of-the-voice-chapter-3/#native-assist-on-android), Assist can now replace your phone’s (or Wear OS devices') assistant.
 
