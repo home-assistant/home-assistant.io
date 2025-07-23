@@ -174,6 +174,10 @@ Do this before using the device with another adapter, or when you don't use the 
 
 Do this if you have an existing Z-Wave network and want to replace its adapter with a new adapter. The Z-Wave integration with all its entities will stay in Home Assistant. The new adapter is added to Home Assistant and paired with the existing network.
 
+{% tip %}
+You cannot run two Z-Wave adapters simultaneously using the same add-on. If you only run one add-on, you need to migrate the network. If you want to run two adapters, you would need to install another add-on, such as Z-Wave JS UI.
+{% endtip %}
+
 ### Prerequisites
 
 - Administrator rights in Home Assistant
@@ -184,18 +188,20 @@ Do this if you have an existing Z-Wave network and want to replace its adapter w
 ### To migrate a Z-Wave network to a new adapter
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration.
-   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
-3. Under **Backup and restore**, select **Migrate adapter**.
-4. Select **Migrate to a new adapter**.
-
-   - To confirm, select **Submit**.
-   - **Info**: This will initiate a backup of the network information.
-5. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
-   - Connect the new adapter.
-   - Confirm that you connected the new adapter by selecting **Submit**.
-6. Follow the steps on screen.
-7. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
+2. Connect your new adapter.
+   - Plug in your new adapter.
+   - **Result**: The adapter should be discovered and show up in the **Discovered section**.
+   - Select **Add** and follow the instructions on screen.
+   - **Troubleshooting**: Not all devices can be discovered automatically. If your device does not show up, follow these steps:
+     1. Select the **Z-Wave** integration.
+     2. Then, select the cogwheel {% icon "mdi:cog-outline" %}.
+     3. Under **Backup and restore**, select **Migrate adapter**.
+     4. Select **Migrate to a new adapter**.
+        - To confirm, select **Submit**.
+3. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
+   - It is important to remove the old device now, as it might interfere with the new one. Even though it might not throw an error immediately, it might cause issues.
+4. Follow the steps on screen.
+5. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
    - In the top-left corner, select the back button to go back to the integration page.
    - In the list of devices, check the device name.
    - To change the device name, select the {% icon "mdi:pencil" %} button.

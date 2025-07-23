@@ -50,6 +50,7 @@ Stay cool, and enjoy the release!
 - [Patch releases](#patch-releases)
   - [2025.7.1 - July 4](#202571---july-4)
   - [2025.7.2 - July 14](#202572---july-14)
+  - [2025.7.3 - July 18](#202573---july-18)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -536,6 +537,58 @@ Happy Fourth of July! 🇺🇸
 [@tl-sl]: https://github.com/tl-sl
 [@zerzhang]: https://github.com/zerzhang
 [@zweckj]: https://github.com/zweckj
+
+### 2025.7.3 - July 18
+
+- Handle connection issues after websocket reconnected in homematicip_cloud ([@hahn-th] - [#147731])
+- Fix Shelly `n_current` sensor removal condition ([@bieniu] - [#148740])
+- Bump pySmartThings to 3.2.8 ([@joostlek] - [#148761])
+- Bump Tesla Fleet API to 1.2.2 ([@Bre77] - [#148776])
+- Use ffmpeg for generic cameras in go2rtc ([@edenhaus] - [#148818])
+- Add guard to prevent exception in Sonos Favorites ([@PeteRager] - [#148854])
+- Fix button platform parent class in Teslemetry ([@Bre77] - [#148863])
+- Bump pyenphase to 2.2.2 ([@catsmanac] - [#148870])
+- Bump gios to version 6.1.1 ([@bieniu] - [#148414])
+- Bump `gios` to version 6.1.2 ([@bieniu] - [#148884])
+- Bump async-upnp-client to 0.45.0 ([@StevenLooman] - [#148961])
+- Pass Syncthru entry to coordinator ([@joostlek] - [#148974])
+- Update frontend to 20250702.3 ([@bramkragten] - [#148994])
+- Bump PySwitchbot to 0.68.2 ([@bdraco] - [#148996])
+- Ignore MQTT sensor unit of measurement if it is an empty string ([@jbouwh] - [#149006])
+- Bump aioamazondevices to 3.5.0 ([@chemelli74] - [#149011])
+
+[#147533]: https://github.com/home-assistant/core/pull/147533
+[#147731]: https://github.com/home-assistant/core/pull/147731
+[#148171]: https://github.com/home-assistant/core/pull/148171
+[#148414]: https://github.com/home-assistant/core/pull/148414
+[#148725]: https://github.com/home-assistant/core/pull/148725
+[#148740]: https://github.com/home-assistant/core/pull/148740
+[#148761]: https://github.com/home-assistant/core/pull/148761
+[#148776]: https://github.com/home-assistant/core/pull/148776
+[#148818]: https://github.com/home-assistant/core/pull/148818
+[#148854]: https://github.com/home-assistant/core/pull/148854
+[#148863]: https://github.com/home-assistant/core/pull/148863
+[#148870]: https://github.com/home-assistant/core/pull/148870
+[#148884]: https://github.com/home-assistant/core/pull/148884
+[#148961]: https://github.com/home-assistant/core/pull/148961
+[#148974]: https://github.com/home-assistant/core/pull/148974
+[#148994]: https://github.com/home-assistant/core/pull/148994
+[#148996]: https://github.com/home-assistant/core/pull/148996
+[#149006]: https://github.com/home-assistant/core/pull/149006
+[#149011]: https://github.com/home-assistant/core/pull/149011
+[@Bre77]: https://github.com/Bre77
+[@PeteRager]: https://github.com/PeteRager
+[@StevenLooman]: https://github.com/StevenLooman
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@catsmanac]: https://github.com/catsmanac
+[@chemelli74]: https://github.com/chemelli74
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@hahn-th]: https://github.com/hahn-th
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
 
 ## Need help? Join the community!
 
