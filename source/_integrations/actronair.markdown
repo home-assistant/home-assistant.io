@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - "@kclif9"
-ha_domain: actronair_neo
+ha_domain: actronair
 ha_platforms:
   - climate
 ha_integration_type: integration
