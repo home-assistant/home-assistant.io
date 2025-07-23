@@ -1,6 +1,6 @@
 ---
-title: Ubiquiti airOS
-description: Ubiquiti airOS integration.
+title: Ubiquiti UISP airOS
+description: Ubiquiti UISP airOS integration.
 ha_category:
   - Sensor
 ha_iot_class: Local Polling
