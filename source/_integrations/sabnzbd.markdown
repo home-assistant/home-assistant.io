@@ -137,7 +137,7 @@ Automatically pause downloads when your media players are active:
   conditions:
     - condition: state
       entity_id: sensor.sabnzbd_status
-      state: "Idle"
+      state: "Downloading"
   actions:
     - action: button.press
       target:
