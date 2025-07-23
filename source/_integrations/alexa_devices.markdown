@@ -111,7 +111,7 @@ When trying to set up the integration, the form shows the message "Wrong Country
 This means that the settings in your Amazon account are not aligned to the country you specified.
 To fix it, please go to <https://www.amazon.XX/hz/mycd/preferences/myx#/home/settings/payment> (replace XX with your country domain. For example **co.uk**):
 
-- "Kindle payment": check your default address is in your country as well.
+- "Kindle payment": check your default address is in your country
 - "Country/Region": check your country
 
 #### Symptom: "Not found"
