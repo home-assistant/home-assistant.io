@@ -4,7 +4,7 @@ title: "Companion app for Android: It’s been a while"
 description: "The app will now have a dedicated developer. We recap the two years of development and the future of the app."
 date: 2025-07-23 00:00:01
 date_formatted: "July 23, 2025"
-author: Timothy Nibeadeau
+author: Timothy Nibeaudeau
 comments: true
 categories: Android
 og_image: /images/blog/2025-07-android-companion/art.png
