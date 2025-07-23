@@ -28,12 +28,12 @@ SABnzbd is a popular newsgroup binary downloader that automates the downloading,
 
 Here are some practical ways you can use the SABnzbd integration:
 
-- **Download completion notifications**: Get notified on your phone or smart display when downloads finish.
-- **Bandwidth management**: Automatically pause downloads during peak internet usage hours or when streaming services are active.
-- **Disk space monitoring**: Set up alerts when your download drive is running low on space.
-- **Smart scheduling**: Automatically start downloads during off-peak hours when internet is faster or cheaper.
-- **Home theater integration**: Pause downloads when movie night starts to ensure smooth streaming.
-- **Security monitoring**: Get alerted if SABnzbd goes offline or becomes unreachable.
+- Download completion notifications: Get notified on your phone or smart display when downloads finish.
+- Bandwidth management: Automatically pause downloads during peak internet usage hours or when streaming services are active.
+- Disk space monitoring: Set up alerts when your download drive is running low on space.
+- Smart scheduling: Automatically start downloads during off-peak hours when internet is faster or cheaper.
+- Home theater integration: Pause downloads when movie night starts to ensure smooth streaming.
+- Security monitoring: Get alerted if SABnzbd goes offline or becomes unreachable.
 
 ## Prerequisites
 
