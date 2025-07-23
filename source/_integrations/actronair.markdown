@@ -1,9 +1,9 @@
 ---
-title: Actron Air Neo
-description: Instructions on how to integrate the Actron Air Neo A/C controller into Home Assistant.
+title: Actron Air
+description: Instructions on how to integrate the Actron Air A/C controller into Home Assistant.
 ha_category:
   - Climate
-ha_release: 2025.03
+ha_release: 2025.08
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -14,11 +14,13 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Actron Air Neo** {% term integration %} allows you to control [Actron Air](https://www.actronair.com.au/) Neo Air Conditioning controllers into Home Assistant.
+The **Actron Air** {% term integration %} allows you to control [Actron Air](https://www.actronair.com.au/) Air Conditioning controllers into Home Assistant.
 
 ## Prerequisites
 
-You must have an Actron Air Air-Conditioner with the Neo tablet wall controller installed, and registered to an email address.
+You must have an Actron Air Air-Conditioner with the Neo tablet wall controller, an active internet connection, and registered to an email address.
+
+This integration currently supports the Actron Air Neo controller, however other units are intended to be supported soon.
 
 {% include integrations/config_flow.md %}
 
