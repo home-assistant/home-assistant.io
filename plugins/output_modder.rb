@@ -41,28 +41,26 @@ module Jekyll
                 link.set_attribute('rel', rel.join(' ').strip)
             end
 
-            # Find all headers, make them linkable with hierarchical slug names
-            slug_parts = {}
+            # Find all headers, make them linkable with unique slug names
+            used_slugs = {}
             
             dom.css('h2,h3,h4,h5,h6,h7,h8').each do |header|
-
               # Skip linked headers
               next if header.at_css('a')
 
               title = header.content
-              level = header.name[1].to_i  # Extract number from h2, h3, etc.
               
-              # Clean the title to create a slug part
-              slug_part = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+              # Clean the title to create a slug
+              base_slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
               
-              # Reset deeper levels when we encounter a higher level header
-              slug_parts.delete_if { |key, _| key > level }
-              
-              # Set the current level
-              slug_parts[level] = slug_part
-              
-              # Build the full slug from all current levels
-              slug = slug_parts.sort.map { |_, part| part }.join('-')
+              # Make slug unique by adding counter if needed
+              if used_slugs[base_slug]
+                used_slugs[base_slug] += 1
+                slug = "#{base_slug}-#{used_slugs[base_slug] - 1}"
+              else
+                used_slugs[base_slug] = 1
+                slug = base_slug
+              end
               
               header.children = "#{title} <a class='title-link' name='#{slug}' href='\##{slug}'></a>"
             end
