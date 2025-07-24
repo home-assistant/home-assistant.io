@@ -87,10 +87,12 @@ input_number:
 This integration provides the following actions to modify the state of the `input_number` and an action to reload the
 configuration without restarting Home Assistant itself.
 
-| Service     | Data                                      | Description                                                       |
+| Action      | Data                                      | Description                                                       |
 | ----------- | ----------------------------------------- | ----------------------------------------------------------------- |
 | `decrement` | `entity_id(s)`<br>`area_id(s)`            | Decrement the value of specific `input_number` entities by `step` |
 | `increment` | `entity_id(s)`<br>`area_id(s)`            | Increment the value of specific `input_number` entities by `step` |
+| `max`       |                                           | Set an `input_number` entity to its minimum value                 |
+| `min`       |                                           | Set an `input_number` entity to its maximum value                 |
 | `reload`    |                                           | Reload `input_number` configuration                               |
 | `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_number` entities                 |
 

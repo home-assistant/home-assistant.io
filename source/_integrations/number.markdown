@@ -88,8 +88,15 @@ The following device classes are supported for numbers:
  
 ## Actions
 
-The Number entities registers the following actions:
+This integration provides the following actions to modify the state of the `number` and an action to reload the
+configuration without restarting Home Assistant itself.
 
-| Action      | Data                                      | Description                                 |
-| ----------- | ----------------------------------------- | ------------------------------------------- |
-| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `number` entities |
+
+| Action      | Data                                      | Description                                                 |
+| ----------- | ----------------------------------------- | ----------------------------------------------------------- |
+| `decrement` | `entity_id(s)`<br>`area_id(s)`            | Decrement the value of specific `number` entities by `step` |
+| `increment` | `entity_id(s)`<br>`area_id(s)`            | Increment the value of specific `number` entities by `step` |
+| `max`       |                                           | Set an `number` entity to its minimum value                 |
+| `min`       |                                           | Set an `number` entity to its maximum value                 |
+| `reload`    |                                           | Reload `number` configuration                               |
+| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `number` entities                 |
