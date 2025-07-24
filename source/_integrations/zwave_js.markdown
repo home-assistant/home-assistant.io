@@ -181,9 +181,19 @@ You cannot run two Z-Wave adapters simultaneously using the same add-on. If you 
 ### Network migration - Prerequisites
 
 - Administrator rights in Home Assistant
+
+#### Device specific prerequisites
+
 - **Important**: If you want to migrate from a **500 series** adapter, before starting migration, you need to update the adapter to SDK 6.61+
   - Check the documentation of your device to see if and how they can be updated.
   - [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
+
+- If you want to migrate from a **Nortek HUSBZB-1**:
+
+  - There is no easy way to update that device.
+  - You need to set up a new network.
+  - If you are comfortable with soldering: some users have reported that they were able to upgrade the firmware of the **Nortek HUSBZB-1** with [this update procedure (requires soldering)](https://community.hubitat.com/t/guide-nortek-husbzb-1-nvm-backup-restore-and-updating-z-wave-firmware/48012).
+    - The procedure is very involved. Most likely, starting from scratch is quicker.
 
 ### To migrate a Z-Wave network to a new adapter
 
