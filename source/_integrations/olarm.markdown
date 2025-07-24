@@ -18,6 +18,12 @@ Olarm upgrades traditional alarm panels with remote access, real-time notificati
 
 Learn more and view supported alarm systems: [Olarm](https://www.olarm.com)
 
+## Use cases
+
+- Get real-time alerts for alarm events and zone activity  
+- Monitor alarm system health
+- Integrate LINK modules for expanded I/O capabilities
+
 ## Supported devices
 
 The following devices are known to be supported by the {% term integration %}:
@@ -119,9 +125,3 @@ action:
 - Zone bypass {% term entities %} are optional and must be enabled during setup
 - LINK binary sensors {% term entities %} only available if the respective modules are connected to your system
 - MAX binary sensors only available if you have an Olarm MAX
-
-## Use cases
-
-- Get real-time alerts for alarm events and zone activity  
-- Monitor alarm system health
-- Integrate LINK modules for expanded I/O capabilities
