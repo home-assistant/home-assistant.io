@@ -73,6 +73,7 @@ The Mealie integration has the following actions:
 
 - `mealie.get_mealplan`
 - `mealie.get_recipe`
+- `mealie.get_recipes`
 - `mealie.import_recipe`
 - `mealie.set_mealplan`
 - `mealie.set_random_mealplan`
@@ -95,6 +96,16 @@ Get the recipe for a specified recipe ID or slug.
 |------------------------|----------|-----------------------------------------------------|
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from. |
 | `recipe_id`            | No       | The ID or the slug of the recipe to get.            |
+
+### Action `mealie.get_recipes`
+
+Get a list of recipes that match your search terms. You can use this action to find the recipe ID or slug. The response includes a brief description of each recipe. To view full details and steps for a specific recipe, use the `mealie.get_recipe` action afterwards.
+
+| Data attribute    | Optional | Description                                                                 |
+|-------------------|----------|-----------------------------------------------------------------------------|
+| `config_entry_id` | No       | The ID of the Mealie config entry to get data from.                         |
+| `search_terms`    | Yes      | Search terms to filter recipes, like name, ingredient, or category.         |
+| `result_limit`    | Yes      | The maximum number of recipes to return.                                    |
 
 ### Action `mealie.import_recipe`
 
