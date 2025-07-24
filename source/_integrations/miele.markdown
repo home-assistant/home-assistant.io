@@ -186,6 +186,18 @@ Climate entities are used to control target temperatures in refrigerators, freez
 - **Robot vacuum cleaner**: Miele robot vacuum cleaners can be monitored and controlled to a limited extent. The device can be started, stopped, and paused. The fan speed can also be set.
 {% enddetails %}
 
+## Actions
+
+### Action `miele.set_program`
+
+Set and start a program for applicable appliances. Note that the device must be in a state where it will accept a new program, for example, most washing machines must be in state `on` and many appliances must be set manually to 'MobileStart' or 'MobileControl' in advance. An error message is displayed if the device did not accept the action command.
+The action can be set up by UI in Automations editor. It can also be executed in Developer tools.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `device_id`    | no       |  Select device in GUI mode, then switch to YAML mode to see the device_id.                                        |
+| `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to fetch a diagnostic download while running the actual program. Use the value from the key  `state.programId.value_raw`.|
+
 ## Automation examples
 
 Get started with these automation examples
