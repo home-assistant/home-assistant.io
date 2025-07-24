@@ -189,7 +189,7 @@ You cannot run two Z-Wave adapters simultaneously using the same add-on. If you 
 
 1. If you want to migrate from a **500 series** adapter, before starting migration, you need to update the adapter to SDK 6.61+
    - Check the documentation of your device to see if and how they can be updated.
-   - [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update)
+   - [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
 2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 3. Connect your new adapter.
    - Plug in your new adapter.
