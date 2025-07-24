@@ -78,7 +78,7 @@ Home Assistant supports both _classic inclusion_ and _SmartStart_. _Classic incl
 
 For more Z-Wave term definitions, refer to the [terminology section](#z-wave-terminology).
 
-### Getting started with Z-Wave - Prerequisites
+### Prerequisites
 
 To run a Z-Wave network, you need the following elements:
 
@@ -178,7 +178,7 @@ Do this if you have an existing Z-Wave network and want to replace its adapter w
 You cannot run two Z-Wave adapters simultaneously using the same add-on. If you only run one add-on, you need to migrate the network. If you want to run two adapters, you would need to install another add-on, such as Z-Wave JS UI.
 {% endtip %}
 
-### Network migration - Prerequisites
+### Prerequisites
 
 - Administrator rights in Home Assistant
 - **Important**: If you want to migrate from a **500 series** adapter, before starting migration, you need to update the adapter to SDK 6.61+
@@ -215,7 +215,7 @@ The frequency used by Z-Wave devices depends on your region. For 700 and 800 ser
 
 If you are using the Z-Wave JS add-on, Home Assistant automatically changes the radio frequency region to match the region/country you're in. If needed, you can override this setting.
 
-### Overriding the frequency region - Prerequisites
+### Prerequisites
 
 - Administrator rights in Home Assistant
 - All your Z-Wave devices must be specified for that region
@@ -234,7 +234,7 @@ If you are using the Z-Wave JS add-on, Home Assistant automatically changes the 
 
 It's recommended to create a backup before making any major changes to your Z-Wave network. For example, before migrating from one adapter to another, or before resetting your adapter. The backup stores your Z-Wave adapter's non-volatile memory (NVM), which contains your network information including paired devices. It is stored in a binary file that you can download.
 
-### Backup - Prerequisites
+### Prerequisites
 
 - Administrator rights in Home Assistant
 
@@ -251,7 +251,7 @@ It's recommended to create a backup before making any major changes to your Z-Wa
 
 You can restore your Z-Wave network from a backup.
 
-### Restore network - Prerequisites
+### Prerequisites
 
 - Administrator rights in Home Assistant
 - Have a [backup](#backing-up-your-z-wave-network) downloaded
@@ -280,7 +280,7 @@ A firmware update can damage your Z-Wave device.
 The Home Assistant and Z-Wave JS teams do not take any responsibility for any damages to your device as a result of the firmware update and will not be able to help you if you render your device useless due to firmware update.
 {% endnote %}
 
-### Firmware update - Prerequisites
+### Prerequisites
 
 - Administrator rights in Home Assistant
 - Downloaded the firmware file from the manufacturer website
@@ -309,7 +309,7 @@ It is recommended to back up your Z-Wave network before resetting the device.
 - If there are any devices still paired with the adapter when it is reset, they will have to go through the exclusion process before they can be re-paired.
 - The device firmware will remain on the device.
 
-### Reset - Prerequisites
+### Prerequisites
 
 - Administrator rights on Home Assistant
 - [Backup your Z-Wave network](#backing-up-your-z-wave-network)
