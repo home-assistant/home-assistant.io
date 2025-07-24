@@ -75,7 +75,7 @@ room:
   required: false
   type: string
 title:
-  description: Default message title. To make it empty set it to `""`.
+  description: Default message title. To make it empty, set it to `""`.
   required: false
   type: string
   default: "Home Assistant"
@@ -95,7 +95,7 @@ You can send text messages and images as well as other files through Jabber.
 Here are some examples on how to set up a script, that can be run from an automation.
 
 Number 1 shows a classical, text-only message. The Title is optional, although if omitted,
-it will be set to the components' `title` configuration variable. To keep it empty set it to `""`.
+it will be set to the component's `title` configuration variable. To keep it empty, set it to `""`.
 
 ```yaml
 # Example script.yaml entry
