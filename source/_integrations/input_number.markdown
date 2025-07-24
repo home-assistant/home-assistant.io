@@ -91,8 +91,8 @@ configuration without restarting Home Assistant itself.
 | ----------- | ----------------------------------------- | ----------------------------------------------------------------- |
 | `decrement` | `entity_id(s)`<br>`area_id(s)`            | Decrement the value of specific `input_number` entities by `step` |
 | `increment` | `entity_id(s)`<br>`area_id(s)`            | Increment the value of specific `input_number` entities by `step` |
-| `max`       |                                           | Set an `input_number` entity to its minimum value                 |
-| `min`       |                                           | Set an `input_number` entity to its maximum value                 |
+| `max`       | `entity_id(s)`<br>`area_id(s)`            | Set an `input_number` entity to its minimum value                 |
+| `min`       | `entity_id(s)`<br>`area_id(s)`            | Set an `input_number` entity to its maximum value                 |
 | `reload`    |                                           | Reload `input_number` configuration                               |
 | `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_number` entities                 |
 
