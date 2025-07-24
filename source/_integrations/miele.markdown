@@ -200,11 +200,11 @@ The action can be set up by UI in Automations editor. It can also be executed in
 
 ### Action `miele.get_programs`
 
-Get list of available programs and associated parameters for applicable appliances. The API will return an empty list if the device doesn't support programs (e.g. freezers). Same requirements on device state as described for `set_program` action above.
+Get the list of available programs and associated parameters for applicable appliances. The API will return an empty list if the device doesn't support programs (for example, freezers). Same requirements on device state as described for `set_program` action above.
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `device_id`    | no       |  Select device in GUI mode, then switch to YAML mode to see the device_id.                                        |
+| `device_id`    | no       |  Select the device in GUI mode, then switch to YAML mode to see the device_id.                                        |
 
 ## Automation examples
 
