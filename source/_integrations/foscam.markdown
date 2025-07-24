@@ -73,10 +73,11 @@ elements:
       right: 25px
       bottom: 50px
     tap_action:
-      action: call-service
-      action: foscam.ptz
-      data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: up
   - type: icon
     icon: "mdi:arrow-down"
@@ -85,10 +86,11 @@ elements:
       right: 25px
       bottom: 0px
     tap_action:
-      action: call-service
-      action: foscam.ptz
-      data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: down
   - type: icon
     icon: "mdi:arrow-left"
@@ -97,10 +99,11 @@ elements:
       right: 50px
       bottom: 25px
     tap_action:
-      action: call-service
-      action: foscam.ptz
-      data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: left
   - type: icon
     icon: "mdi:arrow-right"
@@ -109,10 +112,11 @@ elements:
       right: 0px
       bottom: 25px
     tap_action:
-      action: call-service
-      action: foscam.ptz
-      data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: right
   - type: icon
     icon: "mdi:arrow-top-left"
@@ -121,10 +125,11 @@ elements:
       right: 50px
       bottom: 50px
     tap_action:
-      action: call-service
-      action: foscam.ptz
-      data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: top_left
   - type: icon
     icon: "mdi:arrow-top-right"
@@ -133,10 +138,11 @@ elements:
       right: 0px
       bottom: 50px
     tap_action:
-      action: call-service
-      action: foscam.ptz
-      data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: top_right
   - type: icon
     icon: "mdi:arrow-bottom-left"
@@ -145,10 +151,11 @@ elements:
       right: 50px
       bottom: 0px
     tap_action:
-      action: call-service
-      action: foscam.ptz
-      data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: bottom_left
   - type: icon
     icon: "mdi:arrow-bottom-right"
@@ -157,10 +164,11 @@ elements:
       right: 0px
       bottom: 0px
     tap_action:
-      action: call-service
-      action: foscam.ptz
-      data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: bottom_right
 ```
 

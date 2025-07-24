@@ -13,6 +13,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `oasa_telematics` {% term integration %} will provide you with bus and trolley arrival times for Greek public transport for Athens, using real-time data from [OASA Telematics](http://telematics.oasa.gr/en/).

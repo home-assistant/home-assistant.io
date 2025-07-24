@@ -15,7 +15,7 @@ ha_zeroconf: true
 related:
   - docs: /yellow/
     title: Home Assistant Yellow - hub
-  - docs: /skyconnect/
+  - docs: /connectzbt1/
     title: Home Assistant Connect ZBT-1 - Zigbee/Thread USB stick
   - docs: /integrations/matter/
     title: Matter
@@ -25,9 +25,9 @@ related:
     title: Adding a Matter device to Home Assistant
   - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
     title: Adding an Apple HomeKit device through Thread
-  - url: https://connectzbt1.home-assistant.io/procedures/enable-thread/
+  - url: https://support.nabucasa.com/hc/en-us/articles/26124710072861
     title: Enabling Thread on Connect ZBT-1
-  - url: https://yellow.home-assistant.io/procedures/enable-thread/
+  - url: https://support.nabucasa.com/hc/en-us/articles/25742476767517
     title: Enabling Thread on Yellow
 ---
 
@@ -83,7 +83,7 @@ Unlike other protocols, Thread can use multiple border routers in a single netwo
 
 OpenThread is an open source implementation of Thread, originally released by Google. Almost all commercially available Thread border routers are based on the open source implementation. However, the configuration of <abbr title="Thread border routers">TBRs</abbr> is not part of the Thread standard. This means that Google and Apple <abbr title="Thread border routers">TBRs</abbr> implementation setup and configured by their respective ecosystems.
 
-While Home Assistant can *use* any border router, it can *configure* and *control* only OpenThread border routers built with the REST API available in the open source implementation. The OpenThread Border Router add-on (as well as the OpenThread Border Router bundled in the experimental Silicon Labs Multiprotocol add-on) are built from this open source OpenThread code and have the REST API enabled.
+While Home Assistant can *use* any border router, it can *configure* and *control* only OpenThread border routers built with the REST API available in the open source implementation. The OpenThread Border Router add-on is built from this open source OpenThread code and has the REST API enabled.
 
 ### List of Thread border router devices
 
@@ -140,8 +140,8 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
 #### To make Home Assistant your first Thread network
 
 1. To enable Thread support on your Home Assistant Yellow or Connect&nbsp;ZBT-1, you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
-   - [Enable Thread on Home Assistant Yellow](https://yellow.home-assistant.io/procedures/enable-thread/).
-   - [Enable Thread on Home Assistant Connect ZBT-1](https://connectzbt1.home-assistant.io/procedures/enable-thread/).
+   - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517).
+   - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/articles/26124710072861).
 
 2. Make sure the Home Assistant Thread network is defined as preferred network.
    - This should happen automatically, but check to be sure.
@@ -194,8 +194,8 @@ Note: the steps and images here show the process with a Google Thread network. B
    ![image](/images/integrations/thread/thread-google-br.png)
 
 5. To enable Thread support on your Home Assistant Yellow or Connect ZBT-1, you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
-   - [Enable Thread on Home Assistant Yellow](https://yellow.home-assistant.io/procedures/enable-thread/).
-   - [Enable Thread on Home Assistant Connect ZBT-1](https://connectzbt1.home-assistant.io/procedures/enable-thread/).
+   - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517).
+   - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/articles/26124710072861).
    - **Result**: The network now shows as the preferred network, joined with the third-party network.
 
    ![image](/images/integrations/thread/thread-ha-preferred.png)

@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 This `openerz` sensor {% term integration %} uses [OpenERZ](http://openerz.metaodi.ch/) API to access data from Entsorgung und Recycling Zürich (ERZ). It reports the next pickup date for the specified zip and waste type.

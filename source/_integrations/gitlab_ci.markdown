@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `gitlab_ci` sensor {% term integration %} integrates results reported by CI/CD Pipeline Jobs in [GitLab](https://gitlab.com/).

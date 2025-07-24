@@ -15,9 +15,11 @@ ha_platforms:
   - button
   - diagnostics
   - number
+  - select
   - sensor
   - switch
 ha_iot_class: Local Polling
+ha_dhcp: true
 ha_zeroconf: true
 ---
 

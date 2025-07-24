@@ -1,11 +1,13 @@
 ---
-title: "Exposing devices"
+title: "Exposing entities to Assist"
 description: Step-by-step instructions on exposing entities to an assistant such as Assist, Google Assistant, or Alexa.
 related:
   - docs: /voice_control/voice_remote_cloud_assistant/
     title: Creating a Cloud assistant
   - docs: /voice_control/voice_remote_local_assistant/
     title: Creating a local assistant
+  - docs: /voice_control/best_practices/
+    title: Best practices with Assist
 ---
 
 To be able to control your devices over a voice command, you must expose your entities to Assist.

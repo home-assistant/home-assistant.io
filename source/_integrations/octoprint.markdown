@@ -29,35 +29,20 @@ ha_integration_type: integration
 {% configuration_basic %}
 username:
   description: Username for the server.
-  required: true
-  type: string
 host:
-  description: Address of the server, e.g., 192.168.1.32.
-  required: true
-  type: string
+  description: Address of the server, e.g., `192.168.1.32`.
 port:
   description:  Port of the server.
-  required: false
-  type: string
-  default: 80
 path:
   description: URL path of the server
-  required: false
-  type: string
-  default: /
 ssl:
   description: Whether to use SSL or not when communicating.
-  required: false
-  type: boolean
-  default: false
 verify ssl:
   description: Should the SSL certificate be validated.
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration_basic %}
 
 ### API key
+
 For the integration to work, please check that in Octoprint, the [Discovery Plugin](https://docs.octoprint.org/en/master/bundledplugins/discovery.html) is enabled and in the **Settings** -> **Printer Notifications** menu that **Enable popups** is checked.
 The Octoprint integration will attempt to register itself via the [Application Keys Plugin](https://docs.octoprint.org/en/master/bundledplugins/appkeys.html). After submitting the configuration UI in Home Assistant, log in to Octoprint as the user whose credentials you just entered in Home Assistant, and select **Allow** on the prompt.
 
@@ -76,10 +61,14 @@ The OctoPrint integration lets you monitor various states of your 3D printer and
 
 Supported sensors:
 
+- Actual Bed Temperature
+- Actual Tool (Nozzle) Temperature
 - Current Printer State
-- Job Completed Percentage
 - Estimated Finish Time
+- Job Completed Percentage
 - Estimated Start Time
+- Target Bed Temperature
+- Target Tool (Nozzle) Temperature
 
 ## Camera
 
@@ -90,11 +79,11 @@ The OctoPrint integration provides a camera feed if one is configured in OctoPri
 The OctoPrint integration provides the following buttons:
 
 - Pause Job
-- Resume Job
-- Stop Job
-- Shutdown System
 - Reboot System
 - Restart Octoprint
+- Resume Job
+- Shutdown System
+- Stop Job
 
 ## Troubleshooting
 

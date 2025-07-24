@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `Xeoma` camera {% term integration %} allows you to view the video feeds from a [Xeoma](https://felenasoft.com/xeoma) video surveillance server.

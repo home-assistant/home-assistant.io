@@ -14,7 +14,6 @@ ha_integration_type: service
 ha_platforms:
   - diagnostics
   - notify
-ha_quality_scale: platinum
 google_dev_console_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
 api: Google Assistant API
 api_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
@@ -141,6 +140,7 @@ The easiest way to check if the integration is working is to check [My Google Ac
 - If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity), the integration is working fine. If the commands don't have the expected outcome, don't open an issue in the Home Assistant Core project or the [underlying library](https://github.com/tronikos/gassist_text). You should instead report the issue directly to Google [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
   - Media playback commands (other than play news, play podcast, play white noise, or play rain sounds) don't work.
   - Routines don't work.
+  - Google Assistant automations that use `assistant.event.OkGoogle` as a starter cannot be triggered.
   - Broadcast to specific rooms often doesn't work for non-English languages.
   - Commands that need to verify your identity through voice match do not work.
 
@@ -246,3 +246,8 @@ Then you can converse with Google Assistant by tapping the Assist icon at the to
 Or by calling the `conversation.process` action.
 
 Note: due to a bug in the Google Assistant API, not all responses contain text, especially for home control commands, like turn on the lights. These will be shown as `<empty response>`. For those, Google Assistant responds with HTML and Home Assistant integrations are [not allowed](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md) to parse HTML.
+
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}

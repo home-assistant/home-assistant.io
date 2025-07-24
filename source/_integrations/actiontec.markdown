@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **Actiontec** {% term integration %} allows you to detect presence by looking at devices connected to an [Actiontec](https://www.actiontec.com/) device.

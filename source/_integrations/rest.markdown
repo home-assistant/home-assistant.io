@@ -189,3 +189,6 @@ binary_sensor:
 {% important %}
 Use either `resource` or `resource_template`.
 {% endimportant %}
+
+
+{% include integrations/using_templates.md %}

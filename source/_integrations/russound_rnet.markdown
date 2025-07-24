@@ -12,6 +12,9 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
+ha_codeowners:
+  - '@noahhusby'
 ---
 
 The `russound_rnet` {% term integration %} allows you to control Russound devices that make use of the RNET protocol.
@@ -24,7 +27,6 @@ Connecting to the Russound device is only possible by TCP, you can make use of a
 
 This integration allows you to connect the following controllers:
 
-- Russound ACA-E5
 - Russound CAS44
 - Russound CAA66
 - Russound CAM6.6

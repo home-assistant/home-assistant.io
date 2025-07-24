@@ -9,6 +9,7 @@ ha_codeowners:
   - '@tkislan'
 ha_domain: minio
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 This integration adds interaction with [Minio](https://min.io).

@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `fixer` {% term integration %}  will show you the current exchange rate from [Fixer.io](https://fixer.io/) which is using data from the [European Central Bank (ECB)](https://www.ecb.europa.eu).

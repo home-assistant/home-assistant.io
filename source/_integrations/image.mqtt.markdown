@@ -18,7 +18,8 @@ An alternative setup is to use the `url_topic` option to receive an image URL fo
 
 ## Configuration
 
-To enable this image in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To use an MQTT image entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,6 +27,8 @@ mqtt:
   - image:
       url_topic: mynas/status/url
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -48,7 +51,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -57,7 +60,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -153,7 +156,7 @@ image_topic:
   required: exclusive
   type: string
 json_attributes_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`.
+  description: Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`.
   required: false
   type: template
 json_attributes_topic:
@@ -173,7 +176,7 @@ unique_id:
   required: false
   type: string
 url_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the image URL from a message received at `url_topic`.
+  description: Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the image URL from a message received at `url_topic`.
   required: false
   type: template
 url_topic:

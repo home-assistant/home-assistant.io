@@ -120,6 +120,17 @@ sql:
       type: template
 {% endconfiguration %}
 
+## Data updates
+
+By default, the integration executes the SQL query to update the sensor every 30 seconds.
+If you wish to update at a different interval, you can disable the automatic refresh in the integration’s system options (**Enable polling for updates**) and create your own automation with your desired frequency.
+
+For more detailed steps on how to define a custom interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}
+
 ## Information
 
 See [supported engines](/integrations/recorder/#custom-database-engines) for which you can connect with this integration.
@@ -129,6 +140,8 @@ The SQL integration will connect to the Home Assistant Recorder database if "Dat
 There is no explicit configuration required for attributes. The integration will set all columns returned by the query as attributes.
 
 Note that in all cases only the first row returned will be used.
+
+{% include integrations/using_templates.md %}
 
 ## Examples
 
@@ -284,25 +297,3 @@ The unit of measurement returned by the above query is `MiB`, please configure t
 Set the device class to `Data size` so you can use UI unit conversion.
 {% endtip %}
 
-#### MS SQL
-
-Use the same Database URL as for the `recorder` integration. Change `DB_NAME` to the name that you use as the database name, to ensure that your sensor will work properly. Be sure `username` has enough rights to access the sys tables.
-
-Example Database URL: `"mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=FreeTDS"`
-
-{% note %}
-Connecting with MSSQL requires "pyodbc" to be installed on your system, which can only be done on systems using the Home Assistant Core installation type to be able to install the necessary dependencies.
-  
-"pyodbc" has special requirements which need to be pre-installed before installation, see the ["pyodbc" wiki](https://github.com/mkleehammer/pyodbc/wiki/Install) for installation instructions
-{% endnote %}
-
-```sql
-SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';
-```
-Use `size` as column for value.
-
-{% tip %}
-The unit of measurement returned by the above query is `MiB`, please configure this correctly.
-
-Set the device class to `Data size` so you can use UI unit conversion.
-{% endtip %}

@@ -64,6 +64,11 @@ device_class:
   description: Sets the [class of the device](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+encoding:
+  description: The character encoding to use if none provided in the header of the shared data.
+  required: false
+  type: string
+  default: UTF-8
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   required: false
@@ -164,21 +169,28 @@ $ curl -X GET http://192.168.1.31/temperature/
 
 The response is expected to be a dictionary or a list with a dictionary as its 0th element.
 
+{% include integrations/using_templates.md %}
+
 ## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
 ### External IP address
 
-You can find your external IP address using the service [JSON Test](https://www.jsontest.com/) at their [http://ip.jsontest.com/](http://ip.jsontest.com/) URL.
+You can find your external IP address using the [ipify](https://www.ipify.org) service for both IPv4 and IPv6.
 
 {% raw %}
 
 ```yaml
 sensor:
   - platform: rest
-    resource: http://ip.jsontest.com
-    name: External IP
+    name: "External IP"
+    resource: "https://api.ipify.org/?format=json"
+    value_template: "{{ value_json.ip }}"
+
+  - platform: rest
+    name: "External IPv6"
+    resource: "https://api6.ipify.org/?format=json"
     value_template: "{{ value_json.ip }}"
 ```
 
@@ -307,7 +319,7 @@ rest:
 
 {% endraw %}
 
-[JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath. If the endpoint returns XML, it will be converted to JSON using `xmltodict` before searching for attributes. You may find the [XMLtoDict debug tool](https://xmltodict-debugger.glitch.me/) helpful for testing how your XML converts to JSON.
+[JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath. If the endpoint returns XML, it will be converted to JSON using `xmltodict` before searching for attributes. You may find this [XML to JSON Converter](https://www.freeformatter.com/xml-to-json-converter.html) helpful for testing how your XML converts to JSON.
 
 {% raw %}
 

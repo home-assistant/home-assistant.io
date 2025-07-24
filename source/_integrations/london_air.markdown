@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `london_air` {% term integration %} [queries](https://api.erg.kcl.ac.uk/AirQuality/Hourly/MonitoringIndex/GroupName=London/Json) the London air quality [data feed](https://www.londonair.org.uk/LondonAir/API/) provided by Kings College London. A single sensor will be added for each `location` ([local authority district or borough](https://en.wikipedia.org/wiki/List_of_London_boroughs)) specified in the configuration file. The state of each sensor is the overall air quality in that borough. Note that only 28 of the 32 boroughs have data available.

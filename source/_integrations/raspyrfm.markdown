@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `raspyrfm` {% term integration %} adds support for cheap RC 433 MHz outlets via one of the supported gateways.

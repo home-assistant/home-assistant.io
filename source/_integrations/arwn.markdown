@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `arwn` sensor platform is a client for the [Ambient Radio Weather Network](https://github.com/sdague/arwn) project. This collects weather station data and makes it available in an MQTT subtree.

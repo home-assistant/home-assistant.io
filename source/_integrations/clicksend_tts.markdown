@@ -9,6 +9,7 @@ ha_domain: clicksend_tts
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `clicksend_tts` platform uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
