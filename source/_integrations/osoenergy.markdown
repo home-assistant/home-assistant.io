@@ -26,6 +26,49 @@ This OSO Energy integration uses a subscription key, which a user can create for
 
 ## Services
 
+### Service `osoenergy.disable_holiday_mode`
+
+You can use the service `osoenergy.disable_holiday_mode` to disable Holiday Mode for a water heater.
+
+| Service data attribute | Optional | Description                                        |
+| ---------------------- | -------- | -------------------------------------------------- |
+| `entity_id`            | no       | String, name of entity. For example: `water_heater.heater` |
+
+Example:
+
+```yaml
+# Example script to enable Holiday Mode for a water heater.
+script:
+  disable_holiday_mode:
+    sequence:
+      - service: osoenergy.disable_holiday_mode
+        target:
+          entity_id: water_heater.heater
+```
+
+### Service `osoenergy.enable_holiday_mode`
+
+You can use the service `osoenergy.enable_holiday_mode` to enable Holiday Mode for a water heater for a period of time in the range from 1 to 365 days.
+
+| Service data attribute | Optional | Description                                        |
+| ---------------------- | -------- | -------------------------------------------------- |
+| `entity_id`            | no       | String, name of entity. For example: `water_heater.heater` |
+| `duration_days`        | yes      | Number of days to keep Holiday Mode active (1-365). Default: `365` |
+
+Example:
+
+```yaml
+# Example script to enable Holiday Mode for a water heater.
+script:
+  enable_holiday_mode:
+    sequence:
+      - service: osoenergy.enable_holiday_mode
+        target:
+          entity_id: water_heater.heater
+        data:
+          duration_days: 7
+```
+
 ### Service `osoenergy.get_profile`
 
 You can use the service `osoenergy.get_profile` to get the temperature profile for a water heater. Each temperature corresponds to a given local hour during the current day. For example, a temperature at index 1 corresponds to 01:00 local time.
