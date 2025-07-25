@@ -12,11 +12,19 @@ ha_domain: greencell
 ha_integration_type: integration
 ---
 
-The Greencell EVSE [HabuDen](https://greencell.global/en/555-ev-chargers#/power-22kw_8_stage_regulation) integration for Home Assistant enables:
+The Greencell integration allows to integrate Greencell electric vehicles charging devices into Home Assistant.
+
+## Supported devices
+
+Currently integration support only [HabuDen](https://greencell.global/en/555-ev-chargers#/power-22kw_8_stage_regulation).
+
+## Base functionalities
 
 - Monitoring of the device status
 - Measurement of electrical parameters (voltage, current, power)
-- Basic control of the electric vehicle charging process
+- We plan to add charging control process
+
+## Communication
 
 Communication is handled via MQTT, and the integration supports:
 
@@ -26,29 +34,29 @@ Communication is handled via MQTT, and the integration supports:
 
 {% include integrations/config_flow.md %}
 
-## Integration Modes
+## Integration modes
 
 Greencell offers three levels of integration with Home Assistant to suit different user needs:
 
 | Mode      | Description                                                                                         |
 |:----------|:-----------------------------------------------------------------------------------------------------|
-| **DISABLE** | Integration Disabled – the device does not connect to the MQTT broker, and all entities are disabled. |
-| **READ**    | Read Only – the device sends measurement data (voltage, current, power), states and ignores commands received on the relevant topic except for the `QUERY` command. Buttons and Number entities are disabled. |
-| **EXECUTE** | Full Access – the device sends measurement data and responds to commands (`START`, `STOP`, `SET_CURRENT`, `QUERY`) received on the relevant topic. All supported entities are enabled. |
+| **DISABLE** | Integration disabled – the device does not connect to the MQTT broker, and all entities are disabled. |
+| **READ**    | Read only – the device sends measurement data (voltage, current, power), states and ignores commands received on the relevant topic except for the `QUERY` command. Buttons and Number entities are disabled. |
+| **EXECUTE** | Full access – the device sends measurement data and responds to commands (`START`, `STOP`, `SET_CURRENT`, `QUERY`) received on the relevant topic. All supported entities are enabled. |
 
-## Supported Entities
+## Supported entities
 
 ### Sensors
 
-- **Charging Power** – Instantaneous charging power of the EVSE (W).
-- **Current Phase L1** – Current measurement for phase L1 (A).
-- **Current Phase L2** – Current measurement for phase L2 (A).
-- **Current Phase L3** – Current measurement for phase L3 (A).
-- **Voltage Phase L1** – Voltage measurement for phase L1 (V).
-- **Voltage Phase L2** – Voltage measurement for phase L2 (V).
-- **Voltage Phase L3** – Voltage measurement for phase L3 (V).
-- **EVSE State** – Current state of the EVSE. Possible values:
-  - `OFFLINE`
+- **Charging power** – Instantaneous charging power of the EVSE (W).
+- **Current phase L1** – Current measurement for phase L1 (A).
+- **Current phase L2** – Current measurement for phase L2 (A).
+- **Current phase L3** – Current measurement for phase L3 (A).
+- **Voltage phase L1** – Voltage measurement for phase L1 (V).
+- **Voltage phase L2** – Voltage measurement for phase L2 (V).
+- **Voltage phase L3** – Voltage measurement for phase L3 (V).
+- **EVSE state** – Current state of the EVSE. Possible values:
+  - `UNAVAILABLE`
   - `IDLE`
   - `CONNECTED`
   - `WAITING_FOR_CAR`
@@ -57,16 +65,7 @@ Greencell offers three levels of integration with Home Assistant to suit differe
   - `ERROR_CAR`
   - `ERROR_EVSE`
 
-### Buttons
-
-- **Start Charging** – Sends a command to start charging when the vehicle is ready.
-- **Stop Charging** – Sends a command to stop charging; a new charging session will not start until the Start command is sent again.
-
-### Number
-
-- **EVSE Max Current** – Sets the maximum current the EVSE can supply to the vehicle (A). The minimum value is always 6 A. The maximum value is set by the device installer using the potentiometer on the device, and can range from 6 A to 32 A.
-
-## Adding a New Device
+## Adding a new device
 
 To add a new device:
 
@@ -74,7 +73,7 @@ To add a new device:
 2. Add the MQTT broker to Home Assistant via the MQTT integration.
 3. The device should automatically be discovered, and all available entities created.
 
-## MQTT Description
+## MQTT description
 
 ### MQTT topic names
 
@@ -148,7 +147,7 @@ The message contains the total momentary power (in watts).
 #### /greencell/evse/{SERIAL}/status
 
 The message contains the current charging state of a connected electric/PHEV car. Possible states are:
-`OFFLINE`, `IDLE`, `CONNECTED`, `WAITING_FOR_CAR`, `CHARGING`, `FINISHED`, `ERROR_CAR`, `ERROR_EVSE`
+`UNAVAILABLE`, `IDLE`, `CONNECTED`, `WAITING_FOR_CAR`, `CHARGING`, `FINISHED`, `ERROR_CAR`, `ERROR_EVSE`
 
 ```json
 {
