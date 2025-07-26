@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `PoolDose` integration connects a [SEKO](https://www.seko.com/) pool dosing system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for Pools and Spas.
+The `PoolDose` integration connects a [SEKO](https://www.seko.com/) pool dosing system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
 
 This integration uses an undocumented local HTTP API, implemented in the PyPi project ```python-pooldose```. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as status information and control over the dosing logic.
 
