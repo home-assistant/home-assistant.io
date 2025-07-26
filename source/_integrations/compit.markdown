@@ -3,12 +3,7 @@ title: Compit
 description: Instructions on how to integrate Compit devices within Home Assistant.
 ha_category:
   - Climate
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Water heater
-ha_release: 2024.12
+ha_release: 2025.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -43,40 +38,43 @@ If you encounter any issues during installation, refer to the [Home Assistant do
 
 **This component supports the following Compit devices.**
 
-| Device        | Type                       | Description                                                                                                                                                                   |
-| ------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 - [Nano Color 2](https://compit.pl/produkty/termostaty-pokojowe/88-termostat-pokojowy-nano-color-2.html?ic=1) - Room thermostat
-| Nano Color    | Room thermostat            |                                                                                                                                                                               |
-| Nano One      | Room thermostat            | [Product page](https://compit.pl/produkty/termostaty-pokojowe/24-termostat-pokojowy-nano-one.html?ic=1)                                                                       |
-| R900          | Heat Pump Controller       | [Product page](https://compit.pl/produkty/sterowniki-pomp-ciepla/89-r900.html?ic=1)                                                                                           |
-| R810          | Heat Pump Controller       | [Product page](https://compit.pl/produkty/sterowniki-instalacji/43-pogodowy-regulator-temperatury-obiegu-grzewczego-r810.html?ic=1)                                           |
-| R490          | Heat Pump Controller       | [Product page](https://compit.pl/produkty/sterowniki-pomp-ciepla/12-sterownik-pompy-ciepla-r490-one.html?ic=1)                                                                |
-| R480          | Heat Pump Controller       |                                                                                                                                                                               |
-| R470          | Heat Pump Controller       | [Product page](https://compit.pl/produkty/sterowniki-pomp-ciepla/10-sterownik-pompy-ciepla-r470-one.html?ic=1)                                                                |
-| R770RS R771RS | Rotor boiler controller    | [Product page](https://compit.pl/produkty/sterowniki-do-kotlow/83-pogodowy-regulator-kotla-retortowego-i-instalacji-grzewczej-r771-2.html?ic=1)                               |
-| BWC310        | Mixing valve controller    |                                                                                                                                                                               |
-| BioMax775     | Pellet boiler controller   |                                                                                                                                                                               |
-| BioMax772     | Pellet boiler controller   |                                                                                                                                                                               |
-| BioMax742     | Pellet boiler controller   |                                                                                                                                                                               |
-| SHC           | Carbon dioxide sensor      | [Product page](https://compit.pl/produkty/osprzet/67-czujnik-stezenia-dwutlenku-wegla-wilgotnosci-i-temperatury-w-pomieszczeniach-shc.html?ic=1)                              |
-| SPM           | Air quality sensor         | [Product page](https://compit.pl/produkty/osprzet/87-czujnik-jakosci-powietrza-spm.html?ic=1)                                                                                 |
-| L2            | Floor heating controller   | [Product page](https://compit.pl/produkty/sterowniki-ogrzewania-podlogowego/40-sterownik-ogrzewania-podlogowego-l2.html?ic=1)                                                 |
-| COMBO         | Combo module               | [Product page](https://compit.pl/produkty/osprzet/92-combo.html?ic=1)                                                                                                         |
-| EL750         | Electric boiler controller | [Product page](https://compit.pl/produkty/sterowniki-do-kotlow/73-sterownik-kotla-elektrycznego-el750-1.html?ic=1)                                                            |
-| R350.M        | Universal controller       | [Product page](https://compit.pl/produkty/sterowniki-uniwerslane/85-pogodowy-regulator-temperatury-obiegu-grzewczego-z-mieszaczem-r350m.html?ic=1)                            |
-| R350 T3       | Universal controller       | [Product page](https://compit.pl/produkty/sterowniki-instalacji/42-dwustopniowy-sterownik-temperatury-regulator-pi-regulator-krokowy-sterowanie-3-punktowe-r350-07.html?ic=1) |
-| R350.CWU      | Universal controller       | [Product page](https://compit.pl/produkty/sterowniki-uniwerslane/78-sterownik-do-podgrzewania-wody-r350-cwu.html?ic=1)                                                        |
-| AF-1          | Anti-freeze system         | [Product page](https://compit.pl/produkty/osprzet/91-af-1.html?ic=1)                                                                                                          |
+- [Nano Color](https://compit.pl/produkty/termostaty-pokojowe/88-termostat-pokojowy-nano-color-2.html?ic=1) - Room thermostat
+- [Nano One](https://compit.pl/produkty/termostaty-pokojowe/24-termostat-pokojowy-nano-one.html?ic=1) - Room thermostat
+- [R900](https://compit.pl/produkty/sterowniki-pomp-ciepla/89-r900.html?ic=1) - Heat Pump Controller
+- [R810](https://compit.pl/produkty/sterowniki-instalacji/43-pogodowy-regulator-temperatury-obiegu-grzewczego-r810.html?ic=1) - Heat Pump Controller
+- [R490](https://compit.pl/produkty/sterowniki-pomp-ciepla/12-sterownik-pompy-ciepla-r490-one.html?ic=1) - Heat Pump Controller
+- [R480](https://compit.pl/produkty/sterowniki-pomp-ciepla/10-sterownik-pompy-ciepla-r470-one.html?ic=1) - Heat Pump Controller
+- [R470](https://compit.pl/produkty/sterowniki-pomp-ciepla/10-sterownik-pompy-ciepla-r470-one.html?ic=1) - Heat Pump Controller
+- [R770RS R771RS](https://compit.pl/produkty/sterowniki-do-kotlow/83-pogodowy-regulator-kotla-retortowego-i-instalacji-grzewczej-r771-2.html?ic=1) - Rotor boiler controller
+- [BWC310](https://compit.pl/produkty/sterowniki-ogrzewania-podlogowego/40-sterownik-ogrzewania-podlogowego-l2.html?ic=1) - Mixing valve controller
+- [BioMax775](https://compit.pl/produkty/sterowniki-do-kotlow/73-sterownik-kotla-elektrycznego-el750-1.html?ic=1) - Pellet boiler controller
+- [BioMax772](https://compit.pl/produkty/sterowniki-uniwerslane/85-pogodowy-regulator-temperatury-obiegu-grzewczego-z-mieszaczem-r350m.html?ic=1) - Pellet boiler controller
+- [BioMax742](https://compit.pl/produkty/sterowniki-uniwerslane/85-pogodowy-regulator-temperatury-obiegu-grzewczego-z-mieszaczem-r350m.html?ic=1) - Pellet boiler controller
+- [SHC](https://compit.pl/produkty/osprzet/67-czujnik-stezenia-dwutlenku-wegla-wilgotnosci-i-temperatury-w-pomieszczeniach-shc.html?ic=1) - Carbon dioxide sensor
+- [SPM](https://compit.pl/produkty/osprzet/87-czujnik-jakosci-powietrza-spm.html?ic=1) - Air quality sensor
+- [L2](https://compit.pl/produkty/sterowniki-ogrzewania-podlogowego/40-sterownik-ogrzewania-podlogowego-l2.html?ic=1) - Floor heating controller
+- [COMBO](https://compit.pl/produkty/osprzet/92-combo.html?ic=1) - Combo module
+- [EL750](https://compit.pl/produkty/sterowniki-do-kotlow/73-sterownik-kotla-elektrycznego-el750-1.html?ic=1) - Electric boiler controller
+- [R350.M](https://compit.pl/produkty/sterowniki-uniwerslane/85-pogodowy-regulator-temperatury-obiegu-grzewczego-z-mieszaczem-r350m.html?ic=1) - Universal controller
+- [R350 T3](https://compit.pl/produkty/sterowniki-instalacji/42-dwustopniowy-sterownik-temperatury-regulator-pi-regulator-krokowy-sterowanie-3-punktowe-r350-07.html?ic=1) - Universal controller
+- [R350.CWU](https://compit.pl/produkty/sterowniki-uniwerslane/78-sterownik-do-podgrzewania-wody-r350-cwu.html?ic=1) - Universal controller
+- [AF-1](https://compit.pl/produkty/osprzet/91-af-1.html?ic=1) - Anti-freeze system
 
-## Configuration in the UI
+## Configuration
 
-| Parameter  | Description                                               |
-| ---------- | --------------------------------------------------------- |
-| `Email`    | User email for [inext.compit.pl](https://inext.compit.pl) |
-| `Password` | Password for the account                                  |
+{% configuration %}
+Email:
+  description: User email for [inext.compit.pl](https://inext.compit.pl).
+  required: true
+  type: string
+Password:
+  description: Password for the account.
+  required: true
+  type: integer
+{% endconfiguration %}
 
 ## Removal instructions
 
-This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
