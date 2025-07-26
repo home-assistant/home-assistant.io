@@ -10,8 +10,6 @@ ha_domain: google_photos
 ha_codeowners:
   - '@allenporter'
 ha_integration_type: integration
-ha_platforms:
-  - media_source
 related:
   - docs: /integrations/media_source
     title: Media source integration documentation

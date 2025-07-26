@@ -241,6 +241,11 @@ automation:
 
 {% endraw %}
 
+{% note %}
+Listing above and below together means the numeric_state has to be between the two values.
+In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (above 17 and below 25). It will only fire again, once it has left the defined range and enters it again.
+{% endnote %}
+
 When the `attribute` option is specified the trigger is compared to the given `attribute` instead of the state of the entity.
 
 {% raw %}
@@ -287,11 +292,6 @@ automation:
 ```
 
 {% endraw %}
-
-{% note %}
-Listing above and below together means the numeric_state has to be between the two values.
-In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (above 17 and below 25). It will only fire again, once it has left the defined range and enters it again.
-{% endnote %}
 
 Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities
 that contain a numeric value, can be used in the `above` and `below` thresholds.
@@ -696,7 +696,7 @@ A string that represents a time to fire on each day. Can be specified as `HH:MM`
 automation:
   - triggers:
     - trigger: time
-      # Military time format. This trigger will fire at 3:32 PM
+      # 24-hour time format. This trigger will fire at 3:32 PM
       at: "15:32:00"
 ```
 
@@ -797,6 +797,8 @@ automation:
 
 It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) for times.
 
+{% raw %}
+
 ```yaml
 blueprint:
   input:
@@ -819,6 +821,103 @@ blueprint:
       at:
       - "sensor.{{ my_alarm | slugify }}_time"
       - "{{ my_hour }}:30:00"
+```
+
+{% endraw %}
+
+### Weekday filtering
+
+Time triggers can be filtered to fire only on specific days of the week using the `weekday` option. This allows you to create automations that only run on certain days, such as weekdays or weekends.
+
+The `weekday` option accepts:
+- A single weekday as a string: `"mon"`, `"tue"`, `"wed"`, `"thu"`, `"fri"`, `"sat"`, `"sun"`
+- A list of weekdays using the expanded format
+
+#### Single weekday
+
+This example will turn on the lights only on Mondays at 8:00 AM:
+
+```yaml
+automation:
+  - triggers:
+      - trigger: time
+        at: "08:00:00"
+        weekday: "mon"
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: light.bedroom
+```
+
+#### Multiple weekdays
+
+This example will run a morning routine only on weekdays (Monday through Friday) at 6:30 AM:
+
+```yaml
+automation:
+  - triggers:
+      - trigger: time
+        at: "06:30:00"
+        weekday:
+          - "mon"
+          - "tue"
+          - "wed"
+          - "thu"
+          - "fri"
+    actions:
+      - action: script.morning_routine
+```
+
+#### Weekend example
+
+This example demonstrates a different wake-up time for weekends:
+
+```yaml
+automation:
+  - alias: "Weekday alarm"
+    triggers:
+      - trigger: time
+        at: "06:30:00"
+        weekday:
+          - "mon"
+          - "tue"
+          - "wed"
+          - "thu"
+          - "fri"
+    actions:
+      - action: script.weekday_morning
+
+  - alias: "Weekend alarm"
+    triggers:
+      - trigger: time
+        at: "08:00:00"
+        weekday:
+          - "sat"
+          - "sun"
+    actions:
+      - action: script.weekend_morning
+```
+
+#### Combined with input datetime
+
+The `weekday` option works with all time formats, including input datetime entities:
+
+```yaml
+automation:
+  - triggers:
+      - trigger: time
+        at: input_datetime.work_start_time
+        weekday:
+          - "mon"
+          - "tue"
+          - "wed"
+          - "thu"
+          - "fri"
+    actions:
+      - action: notify.mobile_app
+        data:
+          title: "Work Day!"
+          message: "Time to start working"
 ```
 
 ## Time pattern trigger
@@ -981,7 +1080,7 @@ additional event data available for use by an automation.
 
 ## Sentence trigger
 
-A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). Sentence triggers only work with Home Assistant Assist. External conversation agents such as OpenAI or Google Generative AI cannot be used to trigger automations.
+A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). Sentence triggers work with Home Assistant Assist. They will not work with external conversation agents such as OpenAI or Google Generative AI unless "Prefer handling commands locally" is enabled in the conversation agent settings.
 
 Sentences are allowed to use some basic [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax) like optional and alternative words. For example, `[it's ]party time` will match both "party time" and "it's party time".
 
@@ -1108,7 +1207,7 @@ blueprint:
 ## Merging lists of triggers
 
 {% caution %}
-This feature requires Home Assistant version 2024.10 or later. If using this in a blueprint, set the `min_version` for the blueprint to at least this version.
+This feature requires Home Assistant version 2024.10 or later. If using this in a blueprint, set the `min_version` for the blueprint to at least this version. See the [blueprint schema documentation](/docs/blueprint/schema/#min_version) for more details.
 {% endcaution %}
 
 In some advanced cases (like for blueprints with trigger selectors), it may be necessary to insert a second list of triggers into the main trigger list. This can be done by adding a dictionary in the main trigger list with the sole key `triggers`, and the value for that key contains a second list of triggers. These will then be flattened into a single list of triggers. For example:

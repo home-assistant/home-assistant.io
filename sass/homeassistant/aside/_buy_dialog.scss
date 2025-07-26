@@ -1,0 +1,218 @@
+// More specificity
+#landingpage .page-content .content {
+    .ha-buy-dialog {
+        background: rgba(0, 0, 0, 0.4);
+        display: none;
+        inset: 0;
+        padding: 40px;
+        place-items: center;
+        position: fixed;
+        z-index: 1200;
+
+        &.open {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-inner {
+            background-color: #ffffff;
+            border-radius: 8px;
+            display: grid;
+            gap: 20px;
+            max-width: 624px;
+            padding: 20px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        &-header {
+            align-items: center;
+            display: flex;
+
+            .product-name {
+                flex-grow: 1;
+                font-size: 20px;
+
+                @media (min-width: 704px) {
+                    font-size: 28px;
+                }
+            }
+
+            .close {
+                align-items: center;
+                cursor: pointer;
+                display: flex;
+                flex-shrink: 0;
+            }
+        }
+
+        &-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-height: 100%;
+            overflow: hidden;
+
+            @media (min-width: 704px) {
+                flex-direction: row;
+            }
+        }
+
+        &-sidebar {
+            background-color: #F0F0F3;
+            border-radius: 8px;
+            min-width: 140px;
+            padding: 12px;
+
+            &-label {
+                font-size: 14px;
+                font-weight: 700;
+                padding-bottom: 8px;
+            }
+
+            &-tabs {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 4px;
+
+                @media (min-width: 704px) {
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+                }
+            }
+
+            &-tab {
+                background-color: transparent;
+                border-radius: 4px;
+                color: #4F606E;
+                cursor: pointer;
+                flex-basis: 40%;
+                flex-grow: 1;
+                font-size: 16px;
+                padding: 8px;
+                text-align: center;
+                transition: background-color 0.1s;
+                user-select: none;
+
+                @media (min-width: 704px) {
+                    flex-basis: unset;
+                    text-align: left;
+                }
+
+                &:hover {
+                    background-color: #e1e1e1;
+                }
+
+                &.active {
+                    background-color: #FCFCFF;
+                    color: #000;
+                    pointer-events: none;
+                }
+            }
+        }
+
+        &-tab {
+            &-content-wrapper {
+                flex-grow: 1;
+                height: 100%;
+                max-height: 475px;
+                overflow-y: auto;
+            }
+
+            &-content {
+                display: none;
+                flex-direction: column;
+                gap: 32px;
+
+                &.active {
+                    display: flex;
+                }
+            }
+        }
+
+        &-distributor {
+            &-countries {
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            &-country {
+                &-name {
+                    align-items: center;
+                    display: flex;
+                    font-size: 14px;
+                    font-weight: 700;
+                    gap: 10px;
+                    padding-bottom: 12px;
+                }
+
+                &-flag {
+                    border-radius: 0;
+                    height: 8px;
+                }
+
+                $letters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                @for $i from 1 through 26 {
+                    $letter: str-slice($letters, $i, $i);
+                
+                    &[data-sort="#{$letter}"] {
+                        order: $i;
+                    }
+                }
+            }
+
+            &-items {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                justify-content: center;
+                
+                @media (min-width: 704px) {
+                    gap: 20px;
+                    justify-content: flex-start;
+                    max-width: 400px;
+                }
+            }
+
+            &-item {
+                border: 1px solid #F0F0F3;
+                border-radius: 8px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                height: 60px;
+                padding: 4px 16px;
+                place-items: center;
+                text-align: center;
+                text-decoration: none;
+                transition: background-color 0.1s;
+                width: 120px;
+
+                span {
+                    color: #4F606E;
+                    font-size: 10px;
+                    height: 14px;
+                    line-height: 1;
+                    white-space: nowrap;
+                }
+
+                &:hover {
+                    background-color: #F0F0F3;
+                }
+            }
+
+            &-logo {
+                border: unset;
+                border-radius: 0;
+                box-shadow: unset;
+                flex-grow: 1;
+                height: 100%;
+                max-height: 50px;
+                object-fit: contain;
+                overflow: hidden;
+            }
+        }
+    }
+}

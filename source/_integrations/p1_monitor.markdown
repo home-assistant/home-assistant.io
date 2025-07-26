@@ -12,13 +12,16 @@ ha_domain: p1_monitor
 ha_platforms:
   - diagnostics
   - sensor
-ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 
 The **P1 Monitor** {% term integration %} allows you to gather data from your [P1 Monitor](https://www.ztatz.nl/p1-monitor/) device and use it in Home Assistant.
 
 P1 Monitor is a piece of software that can be installed on a Raspberry Pi or other Linux-based system. It reads the data from your smart meter via the serial port (P1), such as your energy consumption, but also that of gas or a water meter.
+
+{% note %}
+If you’re not using **P1 Monitor** software, you’re likely looking for the [DSMR Smart Meter](/integrations/dsmr/) integration, which connects directly to DSMR-compatible smart meters.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -80,8 +83,8 @@ You can use the rates set in P1 Monitor for your calculations in Home Assistant.
 - Energy Consumption Price Low/High
 - Energy Production Price Low/High
 
-## Remove integration
+## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}

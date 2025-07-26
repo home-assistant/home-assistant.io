@@ -2,18 +2,19 @@
 title: NASweb
 description: Integrate NASweb devices
 ha_category:
+  - Sensor
   - Switch
-ha_release: '2024.11'
+ha_release: '2024.12'
 ha_codeowners:
   - '@nasWebio'
 ha_iot_class: Local Push
 ha_domain: nasweb
 ha_config_flow: true
 ha_platforms:
+  - sensor
   - switch
 ha_integration_type: hub
 ---
-
 
 The **NASweb** {% term integration %} brings the device's smart home features into **Home Assistant**, converting them into {% term entities %} that users can monitor, control, and incorporate into {% term scripts %} and {% term automations %}.
 

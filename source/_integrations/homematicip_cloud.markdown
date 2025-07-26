@@ -7,15 +7,16 @@ ha_category:
   - Button
   - Climate
   - Cover
+  - Event
   - Hub
   - Light
   - Lock
   - Sensor
   - Switch
+  - Valve
 ha_iot_class: Cloud Push
 ha_release: 0.66
 ha_config_flow: true
-ha_quality_scale: silver
 ha_domain: homematicip_cloud
 ha_platforms:
   - alarm_control_panel
@@ -23,10 +24,12 @@ ha_platforms:
   - button
   - climate
   - cover
+  - event
   - light
   - lock
   - sensor
   - switch
+  - valve
   - weather
 ha_integration_type: integration
 ha_codeowners:
@@ -42,10 +45,12 @@ There is currently support for the following device types within Home Assistant:
 - Button
 - Climate
 - Cover
+- Event
 - Light
 - Lock
 - Sensor
 - Switch
+- Valve
 - Weather
 
 {% include integrations/config_flow.md %}
@@ -88,6 +93,14 @@ Devices and groups are instantly removed from Home Assistant when removed in the
 Groups are instantly created in Home Assistant when created in the native HomematicIP APP.
 Devices are created with a delay of 30 seconds in Home Assistant when created in the native HomematicIP APP.
 Within this delay the device registration should be completed in the App, otherwise the device name will be a default one based on the device type. This can easily be fixed in the Home Assistant entity registry afterwards.
+
+## Use HmIP-DLD Door Lock Drive in Home Assistant
+
+If you are unable to control the **HmIP-DLD** device via Home Assistant, you may need to allow the Home Assistant device to control the **HmIP-DLD** in the HomematicIP app.
+
+To do this, navigate to the **Access Control** section in your HomematicIP app and enable the necessary permissions.
+
+Currently, the **HmIP-DLD** can only be used in Home Assistant without a PIN. Ensure that no PIN is set for the device in the HomematicIP app.
 
 ## Implemented and tested devices
 
@@ -150,6 +163,9 @@ Within this delay the device registration should be completed in the App, otherw
   - Module for Hoermann drives (*HMIP-MOD-HO*)
   - Hunter Douglas & erfal window blinds (*HMIP-HDM1*)
 
+- homematicip_cloud.event
+  - Doorbell Event for devices *HmIP-DSD-PCB* and others where ChannelRole equals DOOR_BELL_INPUT 
+
 - homematicip_cloud.light
   - Switch actuator and meter for brand switches (*HmIP-BSM*)
   - Dimming actuator for brand switches (*HmIP-BDT*)
@@ -193,6 +209,9 @@ Within this delay the device registration should be completed in the App, otherw
   - Switch Actuator for DIN rail mount – 4x channels (*HMIP-DRSI4*)
   - Switch Actuator for DIN rail mount – 1x channels (*HMIP-DRSI1*)
   - Switch Actuator - 2x channels (*HmIP-BS2*)
+
+- homematicip_cloud.valve
+  - Smart Watering Actuator (*ELV-SH-WSM*)
 
 - homematicip_cloud.weather
   - Weather Sensor – basic (*HmIP-SWO-B*)

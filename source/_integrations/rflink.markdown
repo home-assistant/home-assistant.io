@@ -2,9 +2,9 @@
 title: RFLink
 description: Instructions on how to integrate RFLink gateway into Home Assistant.
 ha_category:
-  - Hub
-  - Cover
   - Binary sensor
+  - Cover
+  - Hub
   - Light
   - Sensor
   - Switch
@@ -23,6 +23,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `rflink` {% term integration %} supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
@@ -950,5 +951,3 @@ switch:
       conrad_00785c_0a:
         name: Motion sensor kitchen
 ```
-
-

@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The Starling Bank sensor {% term integration %} allows you to monitor your account balance data as sensors in Home Assistant.

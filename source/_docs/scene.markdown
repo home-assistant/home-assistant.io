@@ -36,10 +36,6 @@ name:
   description: Friendly name of the scene.
   required: true
   type: string
-description:
-  description: Description of the scene.
-  required: false
-  type: string
 entities:
   description: Entities to control and their desired state.
   required: true

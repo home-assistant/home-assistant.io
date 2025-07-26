@@ -71,6 +71,11 @@ service_name:
       required: false
       type: boolean
       default: true
+    insecure_cipher:
+      description: Allow insecure ciphers for the request. This is useful for older servers/devices that do not support modern ciphers.
+      required: false
+      type: boolean
+      default: false
 {% endconfiguration %}
 
 ## Examples
@@ -95,7 +100,8 @@ rest_command:
 
 ### Using REST command Response in automations
 
-REST commands provide an action response in a dictionary containing `status` (containing the HTTP response code) and `content` containing the response body as text or JSON. This response can be accessed in automations using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+REST commands provide an action response in a dictionary containing `status` (containing the HTTP response code), `content` containing the response body as text or JSON and `headers` containing the response headers.
+This response can be accessed in automations using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
 
 The following example shows how the REST command response may be used in automations. In this case, checking the [Traefik API](https://doc.traefik.io/traefik/operations/api/) for errors.
 

@@ -17,11 +17,14 @@ ha_codeowners:
   - '@lellky'
   - '@piotrbulinski'
 ha_config_flow: true
+ha_quality_scale: silver
 ---
 
 Integrates [Flexit](https://www.flexit.no/en/) Nordic series air handling unit into Home Assistant.
 
 ## Prerequisites
+
+Your Flexit device should be equipped with an ethernet port, and no additional modules should be required. This integration communicates with the BACnet protocol over Ethernet.
 
 To configure the integration, you need to obtain the IP address and Device ID for the unit.
 
@@ -31,6 +34,15 @@ To configure the integration, you need to obtain the IP address and Device ID fo
 4. Enter the installer code (default: 1000) and select **Login**.
 5. Go to **More** > **Installer** > **Communication**  > **BACnet settings**.
 6. Note down the **IP address** and **Device ID**.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+IP address:
+  description: "The IP address of your Flexit Nordic device."
+Device ID:
+  description: "The Device ID of your Flexit Nordic device. This is usually 2."
+{% endconfiguration_basic %}
 
 ## Platforms
 
@@ -74,9 +86,16 @@ The integration adds entities for setting setpoints for the fan in the respectiv
  - High
  - Cooker hood
 
+The integration adds entities for setting remaining time in minutes for:
+
+ - Fireplace mode runtime (in minutes)
+
 ### Switch
 
-The integration adds an entity for a switch called _Electric heater_ that controls the heating element in the unit.
+The integration adds the following switches:
+
+- _Electric heater_ that controls the heating element in the unit.
+- _Fireplace mode_ that enables or disables the Fireplace mode.
 
 ### A note about shutting down the device
  
@@ -88,4 +107,12 @@ If you need to shut down the unit, make sure to take all necessary precautions, 
 
 Furthermore, Flexit recommends unplugging the unit from the power socket before replacing a filter. To prevent damage, always initiate a controlled shutdown from the control panel (or, in the future, from an action in Home Assistant) before unplugging the device.
 
-{% include integrations/config_flow.md %}
+## Data updates
+
+The integration {% term polling polls %} data from the Flexit device every 60 seconds by default. This interval is not configurable.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

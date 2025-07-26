@@ -17,7 +17,6 @@ ha_codeowners:
   - '@joshs85'
   - '@marciogranzotto'
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_zeroconf: true
 ha_platforms:
   - button
@@ -27,6 +26,7 @@ ha_platforms:
   - light
   - switch
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 The **Bond** {% term integration %} allows you to control appliances through your [Bond Bridge](https://bondhome.io/). Duplicates your RF remote control.

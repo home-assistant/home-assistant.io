@@ -10,7 +10,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@tronikos'
   - '@Drafteed'
-ha_quality_scale: platinum
 ha_domain: androidtv_remote
 ha_zeroconf: true
 ha_platforms:
@@ -157,7 +156,7 @@ media_player:
 
 ## Remote
 
-The remote allows you to send key commands to your Android TV device with the `remote.send_command` action.
+The remote allows you to send key commands and text as input to your Android TV device with the `remote.send_command` action.
 The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
 You can pass the application ID shown in this `current_activity` as `activity` in the `remote.turn_on` action to launch that app.
 
@@ -243,6 +242,8 @@ Other:
 
 {% enddetails %}
 
+To send text as keyboard input use the `remote.send_command` and prefix the text to send with `text:`, e.g. `command: text:hello world` to type "hello world" in the selected input field.
+
 If `activity` is specified in `remote.turn_on` it will open the specified URL or the application with the given package name. See [Launching apps section](#launching-apps).
 
 Example actions:
@@ -262,6 +263,15 @@ action: remote.send_command
 data:
   command: DPAD_CENTER
   hold_secs: 0.5
+target:
+  entity_id: remote.living_room_tv
+```
+
+```yaml
+# Send "Never Gonna Give You Up" as keyboard input text to the selected input field
+action: remote.send_command
+data:
+  command: text:Never Gonna Give You Up
 target:
   entity_id: remote.living_room_tv
 ```
@@ -570,3 +580,4 @@ cards:
 - Some devices experience disconnects every 15 seconds. This is typically resolved by rebooting the Android TV device after the initial setup of the integration.
 - If you are not able to connect to the Android TV device, or are asked to pair it again and again, try force-stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to **Settings** > **Apps** > **Show system apps**. Then, select **Android TV Remote Service** > **Storage** > **Clear storage**. You will have to pair again.
 - Some onscreen keyboards enabled by TV manufacturers do not support concurrent virtual and onscreen keyboard use. This presents whenever a text field is selected, such as "search" where a constant **use the keyboard on your mobile device** will show, preventing you from opening the onscreen keyboard to type. This can be overcome by either disabling your 3rd party keyboard and using the default Gboard keyboard or by deselecting **Enable IME** in the **Configure** page of the integration.
+- If you can't turn on your Nvidia Shield device, go to **Settings** > **Remotes & accessories** > **Simplified wake buttons** and disable the following options: **SHIELD 2019 Remote: Wake on power and Netflix buttons only** and **Controllers: Wake on NVIDIA or logo buttons only**.

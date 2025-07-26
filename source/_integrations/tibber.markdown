@@ -7,7 +7,6 @@ ha_category:
   - Sensor
 ha_release: 0.8
 ha_iot_class: Cloud Polling
-ha_quality_scale: silver
 ha_codeowners:
   - '@danielhiversen'
 ha_domain: tibber

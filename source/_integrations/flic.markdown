@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `flic` {% term integration %} allows you to receive click events from [flic](https://flic.io) smart buttons.

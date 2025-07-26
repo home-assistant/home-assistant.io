@@ -29,6 +29,7 @@ ha_platforms:
   - switch
 ha_integration_type: integration
 ha_domain: husqvarna_automower
+ha_quality_scale: silver
 ---
 
 The Husqvarna Automower integration provides connectivity with Husqvarna Automowers lawn mowers through Husqvarna's cloud API. Only mowers with *Automower® Connect* or with the *Automower® Connect Module* are supported.
@@ -78,11 +79,11 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% configuration_basic %}
 Name:
-    description: "Enter the name for the provided credentials. You can choose your favorite name."
+  description: "Enter the name for the provided credentials. You can choose your favorite name."
 OAuth Client ID:
-    description: "Enter the Application key from your Husqvarna developer application."
+  description: "Enter the Application key from your Husqvarna developer application."
 OAuth Client Secret:
-    description: "Enter the Application secret from your Husqvarna developer application."
+  description: "Enter the Application secret from your Husqvarna developer application."
 {% endconfiguration_basic %}
 
 ## Troubleshooting
@@ -147,6 +148,8 @@ The integration will create the following sensors:
 - Battery level
 - Cutting blade usage time (if available)
 - Error. For example: *Mower tilted*, *outside geofence*.
+- Downtime (if available)
+- Inactive reason (if available). For example: *Searching for satellites* or *planning*.
 - Restricted reason. For example: *Week schedule*, *frost*, or *daily limit*.
 - Mode
 - Next start
@@ -157,6 +160,7 @@ The integration will create the following sensors:
 - Total drive distance
 - Total running time
 - Total searching time
+- Uptime (if available)
 - Work area (if available). For example: *My lawn*, *Front lawn*, *Back lawn*
 
 For each work area with activated systematic mowing these sensors are created:
@@ -223,7 +227,7 @@ data:
 - The mower can only be started using the `lawn_mower.start_mowing` action during the schedules configured in the Automower Connect App. To start the mower outside the scheduled times, use the `husqvarna_automower.override_schedule` action. In both cases, the battery must be fully charged beforehand.
 - Stay-out zone handling is not supported for mowers equipped with EPOS technology.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

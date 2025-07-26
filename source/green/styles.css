@@ -1628,7 +1628,7 @@ h4.heading-small {
   text-transform: uppercase !important;
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 24em;
+  font-size: 14em;
   font-weight: 300;
   line-height: 0.84;
   display: flex;
@@ -2489,7 +2489,7 @@ h4.heading-small {
   }
 
   .uppercase-xxl {
-    font-size: 10em;
+    font-size: 7em;
   }
 
   #w-node-_89c945ba-f261-0dc0-ba82-c8df58a88488-3f61e7c1,
@@ -3047,7 +3047,7 @@ h4.heading-small {
   }
 
   .uppercase-xxl {
-    font-size: 80px;
+    font-size: 70px;
   }
 
   .spin-section {

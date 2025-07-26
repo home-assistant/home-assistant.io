@@ -21,7 +21,6 @@ ha_platforms:
   - sensor
   - switch
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 
@@ -58,6 +57,8 @@ Devices that require a token:
 If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
 
 ## Prerequisites
+
+Before the integration can find a device, you need to connect it to your network using the Switcher app.
 
 To enhance security, certain Switcher devices require a token for operation. In order to integrate your token-based Switcher devices with Home Assistant, you'll need the following information:
 
@@ -104,6 +105,10 @@ For Switcher Breeze the integration provides the following sensor:
 | Sensor Name           | Description                                            | Example           |
 | --------------------- | ------------------------------------------------------ | ----------------- |
 | `Current temperature` | The current temperature in celsius                     | 25.0 °C           |
+
+## Switches
+
+For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switcher Runner S12), the integration allows you to control its child lock state; ON means locked, and OFF means unlocked.
 
 ## Actions
 
