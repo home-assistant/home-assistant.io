@@ -107,7 +107,7 @@ conditions:
         false
       {% endif %}
 actions:
-  - action: notify.mobile_app_
+  - action: notify.mobile_app_iphone
     metadata: {}
     data:
       message: A new document is available.
@@ -127,6 +127,7 @@ This integration retrieves data using a pull-based mechanism.
 ## Known limitations
 
 There are a few known limitations for using the integration:
+
 - This integration is only fully supported with **Paperless-ngx version 2.15 or later**. Earlier versions are not supported.
 - To enable monitoring of diagnostic sensors, you must have **administrator permissions**. Without administrator rights, specific API endpoints cannot be accessed, and the sensor states will not be available.
 
@@ -139,14 +140,17 @@ This integration follows standard integration removal. No extra steps are requir
 ## Troubleshooting
 
 {% details "Invalid hostname or IP address" %}
-Make sure you enter a complete URL, such as `https://paperless.example.com/` or `https://192.168.178.11:8011/`.
+
+Make sure you enter a complete URL, such as `https://paperless.example.com` or `https://192.168.178.11:8011`.
 
 SSL is enabled by default. If you're using an unencrypted connection, you must explicitly use `http://` instead of `https://` in the URL.
 
 If you're using a self-signed certificate, disable the **Verify SSL certificate** option.
+
 {% enddetails %}
 
 {% details "The token does not have permission to access the API" %}
+
 In this case, verify whether the token is still valid and correctly assigned to the user.
 
 You can also test the token using the Swagger interface available at
@@ -155,4 +159,5 @@ You can also test the token using the Swagger interface available at
 Click on **"Authorize"** in the Swagger UI to enter your token at **tokenAuth (apiKey)**, then try accessing the relevant endpoints like `/api/statistics/` to ensure they respond as expected.
 
 If everything works correctly in Swagger but the integration still fails, check whether a reverse proxy (e.g., NGINX) is returning an **HTTP 403 error**. If so, the integration may also report this as a permission issue.
+
 {% enddetails %}
