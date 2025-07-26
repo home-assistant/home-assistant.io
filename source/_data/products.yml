@@ -161,7 +161,7 @@ green:
       url: https://www.inet.se/produkt/8310063/home-assistant-green
       logo: /images/distributors/inet.webp
     - name: Bol.com
-      ships_from: Netherlands
+      ship_from: Netherlands
       ship_to: Europe
       url: https://www.bol.com/nl/nl/p/home-assistant-green/9300000176417344/
       logo: /images/distributors/bol.webp
@@ -375,7 +375,7 @@ zbt-1:
       url: https://www.inet.se/produkt/8310064/home-assistant-connect-zbt-1
       logo: /images/distributors/inet.webp
     - name: Bol.com
-      ships_from: Netherlands
+      ship_from: Netherlands
       ship_to: Europe
       url: https://www.bol.com/nl/nl/p/home-assistant-skyconnect/9300000159336119/
       logo: /images/distributors/bol.webp
@@ -502,7 +502,7 @@ voice-pe:
       url: https://www.robbshop.nl/home-assistant-voice-preview-edition
       logo: /images/distributors/robb.webp
     - name: Bol.com
-      ships_from: Netherlands
+      ship_from: Netherlands
       ship_to: Europe
       url: https://www.bol.com/nl/nl/p/home-assistant-voice-preview-edition/9300000224517156/
       logo: /images/distributors/bol.webp
