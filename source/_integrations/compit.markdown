@@ -17,14 +17,10 @@ ha_codeowners:
 ha_domain: compit
 ha_platforms:
   - climate
-  - number
-  - select
-  - sensor
-  - switch
 ha_integration_type: integration
 ---
 
-This integration is created by [Compit](https://compit.pl/) to integrate air conditioning, ventilation and heating controllers with Home Assistant. This integration needs Compit iNext account setup at [inext.compit.pl](https://inext.compit.pl).
+The **Compit** {% term integration %} allows you to integrate air conditioning, ventilation and heating controllers with Home Assistant. This integration needs a Compit iNext account to be setup at [inext.compit.pl](https://inext.compit.pl).
 
 ## Prerequisites
 
@@ -49,7 +45,7 @@ If you encounter any issues during installation, refer to the [Home Assistant do
 
 | Device        | Type                       | Description                                                                                                                                                                   |
 | ------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nano Color 2  | Room thermostat            | [Product page](https://compit.pl/produkty/termostaty-pokojowe/88-termostat-pokojowy-nano-color-2.html?ic=1)                                                                   |
+- [Nano Color 2](https://compit.pl/produkty/termostaty-pokojowe/88-termostat-pokojowy-nano-color-2.html?ic=1) - Room thermostat
 | Nano Color    | Room thermostat            |                                                                                                                                                                               |
 | Nano One      | Room thermostat            | [Product page](https://compit.pl/produkty/termostaty-pokojowe/24-termostat-pokojowy-nano-one.html?ic=1)                                                                       |
 | R900          | Heat Pump Controller       | [Product page](https://compit.pl/produkty/sterowniki-pomp-ciepla/89-r900.html?ic=1)                                                                                           |
