@@ -31,6 +31,18 @@ This integration is created by [Compit](https://compit.pl/) to integrate air con
 - Create an account on [inext.compit.pl](https://inext.compit.pl).
 - Configure your Compit devices within the account.
 
+## Installation instructions
+
+- Open Home Assistant and navigate to **Settings** > **Devices & Services**.
+- Click the **Add Integration** button in the bottom-right corner.
+- Search for **Compit** in the list of available integrations.
+- Select **Compit** and follow the on-screen instructions:
+  - Enter your **Email** and **Password** for your [inext.compit.pl](https://inext.compit.pl) account.
+- Once authenticated, Home Assistant will automatically discover and add your Compit devices.
+- Configure the devices as needed in the Home Assistant UI.
+
+If you encounter any issues during installation, refer to the [Home Assistant documentation](https://www.home-assistant.io/help/) or contact [Compit support](https://compit.pl/).
+
 ## Supported devices
 
 **This component supports the following Compit devices.**
@@ -66,3 +78,9 @@ This integration is created by [Compit](https://compit.pl/) to integrate air con
 | ---------- | --------------------------------------------------------- |
 | `Email`    | User email for [inext.compit.pl](https://inext.compit.pl) |
 | `Password` | Password for the account                                  |
+
+## Removal instructions
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
