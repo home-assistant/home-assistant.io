@@ -386,7 +386,7 @@ temperature_high_command_topic:
   required: false
   type: string
 temperature_high_state_template:
-  description: A template to render the value received on the `temperature_high_state_topic` with. A `"None"` value received will reset the upper temperature set point. Empty values (`""'`) will be ignored.
+  description: A template to render the value received on the `temperature_high_state_topic` with. A `"None"` value received will reset the upper temperature setpoint. Empty values (`""'`) will be ignored.
   required: false
   type: template
 temperature_high_state_topic:
@@ -402,11 +402,11 @@ temperature_low_command_topic:
   required: false
   type: string
 temperature_low_state_template:
-  description: A template to render the value received on the `temperature_low_state_topic` with. A `"None"` value received will reset the lower temperature set point. Empty values (`""`) will be ignored.
+  description: A template to render the value received on the `temperature_low_state_topic` with. A `"None"` value received will reset the lower temperature setpoint. Empty values (`""`) will be ignored.
   required: false
   type: template
 temperature_low_state_topic:
-  description: The MQTT topic to subscribe for changes in the lower target temperature. If this is not set, the lower target ltemperature works in optimistic mode (see below).
+  description: The MQTT topic to subscribe for changes in the lower target temperature. If this is not set, the lower target temperature works in optimistic mode (see below).
   required: false
   type: string
 temperature_state_template:
