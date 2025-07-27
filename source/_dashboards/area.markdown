@@ -4,8 +4,6 @@ title: "Area card"
 sidebar_label: Area
 description: "The area card gives control of your entities in a specified area."
 related:
-  - docs: /integrations/frontend/
-    title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
   - docs: /dashboards/dashboards/#areas-dashboard
@@ -17,8 +15,8 @@ related:
 The area card lets you control and monitor an individual {% term area %}.
 
 <p class='img'>
-  <img src='/images/dashboards/area-card.png' alt='Screenshot of the area card'>
-  Screenshot of the area card.
+  <img src='/images/dashboards/area-cards.png' alt='Screenshot of the area cards'>
+  Screenshot of the area cards.
 </p>
 
 {% include dashboard/edit_dashboard.md %}
@@ -42,14 +40,18 @@ area:
   required: true
   description: ID of the `area`.
   type: string
-show_camera: 
+color:
   required: false
-  description: Changes the area picture to a live feed of the camera set for the area.
-  type: boolean
-  default: false
+  description: Set the color for the icon and the hover/focus state. It accepts [color token](/dashboards/area/#available-colors) or hex color code.
+  type: string
+display_type:
+  required: false
+  description: Defines the card's display style. Options include `compact` (a minimal layout), `icon` (shows an area icon), `picture` (displays an image of the area), or `camera` (shows the live camera feed).
+  type: string
+  default: "picture"
 camera_view:
   required: false
-  description: 'If showing a camera, "live" will show the live view if `stream` is enabled.'
+  description: 'If showing a camera, `live` will show the live view if `stream` is enabled.'
   default: auto
   type: string
 aspect_ratio:
@@ -61,20 +63,29 @@ navigation_path:
   required: false
   description: link to view. For more information about views, see the [view documentation](/dashboards/views/)
   type: string
-theme:
-  required: false
-  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
-  type: string
 alert_classes:
   required: false
   type: list
   default: "moisture, motion"
-  description: A list of binary sensor device classes which will populate alert icons in the card when the state is on.
+  description: A list of binary sensor device classes which will populate alert icons in the card when the state is on. If the display type is set to `compact`, only the first alert icon will be displayed.
 sensor_classes:
   required: false
   type: list
   default: "temperature, humidity"
-  description: A list of sensor device classes which will display their averaged sensor readings for the area. 
+  description: A list of sensor device classes which will display their averaged sensor readings for the area.
+features:
+  required: false
+  description: Additional widgets to control entities in the area. See [available features](/dashboards/features).
+  type: list
+features_position:
+  required: false
+  description: Position of the features on the area card. Can be `bottom` or `inline`. Only the first feature will be displayed when the option is set to `inline`.
+  type: string
+  default: bottom
+exclude_entities:
+  required: false
+  description: A list of entities that will be excluded from the card. It will affect sensor_classes, alert_classes, and features.
+  type: list
 {% endconfiguration %}
 
 ### Example
@@ -91,7 +102,18 @@ Complex example
 ```yaml
 type: area
 area: bedroom
+display_type: picture
 navigation_path: my_bedroom
-show_camera: true
-theme: green
+sensor_classes: 
+  - temperature
+  - humidity
+alert_classes:
+  - moisture
+  - motion
+features:
+  - type: area-controls
 ```
+
+## Available colors
+
+You want to colorize the area card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, and `white`.

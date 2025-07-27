@@ -6,7 +6,7 @@ ha_category:
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_codeowners:
-  - '@Swamp-Ig'
+  - '@home-assistant/core'
 ha_iot_class: Calculated
 ha_domain: sun
 ha_config_flow: true

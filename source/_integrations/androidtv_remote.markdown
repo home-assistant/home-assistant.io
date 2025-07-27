@@ -156,7 +156,7 @@ media_player:
 
 ## Remote
 
-The remote allows you to send key commands to your Android TV device with the `remote.send_command` action.
+The remote allows you to send key commands and text as input to your Android TV device with the `remote.send_command` action.
 The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
 You can pass the application ID shown in this `current_activity` as `activity` in the `remote.turn_on` action to launch that app.
 
@@ -242,6 +242,8 @@ Other:
 
 {% enddetails %}
 
+To send text as keyboard input use the `remote.send_command` and prefix the text to send with `text:`, e.g. `command: text:hello world` to type "hello world" in the selected input field.
+
 If `activity` is specified in `remote.turn_on` it will open the specified URL or the application with the given package name. See [Launching apps section](#launching-apps).
 
 Example actions:
@@ -261,6 +263,15 @@ action: remote.send_command
 data:
   command: DPAD_CENTER
   hold_secs: 0.5
+target:
+  entity_id: remote.living_room_tv
+```
+
+```yaml
+# Send "Never Gonna Give You Up" as keyboard input text to the selected input field
+action: remote.send_command
+data:
+  command: text:Never Gonna Give You Up
 target:
   entity_id: remote.living_room_tv
 ```
