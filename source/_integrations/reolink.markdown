@@ -177,6 +177,8 @@ Depending on the supported features of the camera, number entities are added for
 - Image saturation*+ (default 128)
 - Image sharpness*+ (default 128)
 - Image hue*+ (default 128)
+- Pre-recording time*
+- Pre-recording battery stop*
 
 **Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
@@ -242,6 +244,7 @@ Depending on the supported features of the camera, select entities are added for
 - Hub visitor ringtone
 - Hub scene mode (Off, Disarmed, Home, Away)
 - Recording packing time
+- Pre-recording frame rate*
 - Post-recording time
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
@@ -280,6 +283,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Doorbell button sound
 - Record
 - Manual record+
+- Pre-recording
 - Privacy mode+
 - Privacy mask
 - Push notifications
