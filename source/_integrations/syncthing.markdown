@@ -30,8 +30,9 @@ the key on the right of the settings dialog.
   
 ## Integration entities
 
-The Syncthing integration adds one sensor per syncing folder:
+The Syncthing integration adds one sensor per syncing folder, as well as a sensor per connected client device to relfect connectivity status:
 
 ![Syncthing Sensors](/images/integrations/syncthing/sensors.png)
 
 ![Syncthing Sensors](/images/integrations/syncthing/sensor.png)
+
