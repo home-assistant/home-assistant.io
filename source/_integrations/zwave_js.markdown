@@ -1010,45 +1010,45 @@ You can switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on
 
 You can switch from the official **Z-Wave JS** add-on to the community **Z-Wave JS UI** add-on. However, you cannot run them both at the same time. Only one of the add-ons can be active at the same time.
 
-All of your HA devices and entities will remain unchanged if you follow these steps:
+Both add-ons communicate with Home Assistant via the same **Z-Wave** {% term integration %}.  So your devices and entities will remain unchanged if you follow these steps:
 
 1. Note your network security keys from the official add-on.
-   - In your browser, open **Settings** -> **Add-ons** -> **Z-Wave JS** -> **Configuration**.  ([direct link](http://homeassistant.local:8123/hassio/addon/core_zwave_js/config))
+   - In your browser, open **Settings** -> **Add-ons** -> **Z-Wave JS** -> [**Configuration**](http://homeassistant.local:8123/hassio/addon/core_zwave_js/config).  
    - From the three-dot {% icon "mdi:dots-vertical" %} menu, pick **Edit in YAML**.
    - You should see about 12 lines of YAML, including items like `device: xxx` and `s2_access_control_key: xxx`.  Select all and copy somewhere safe.  You will need them later.
 
 2. Install and start the community **Z-Wave JS UI** add-on.
-   - In your browser, open **Settings** -> **Add-ons** -> **Add-on Store** -> **Z-Wave JS UI**.  ([direct link](http://homeassistant.local:8123/hassio/addon/a0d7b954_zwavejs2mqtt/info))
-   - Click **Install**, then **Start**.
+   - In your browser, open **Settings** -> **Add-ons** -> **Add-on Store** -> [**Z-Wave JS UI**](http://homeassistant.local:8123/hassio/addon/a0d7b954_zwavejs2mqtt/info).
+   - Press **Install**, then **Start**.
    - It may take a while for the add-on to start up.
 
-3. Note the WebSocket URL that the HA integration will use to communicate with Z-Wave JS.
-    - Within the same **Z-Wave JS UI** add-on from step 2, open the [Documentation tab](http://homeassistant.local:8123/hassio/addon/a0d7b954_zwavejs2mqtt/documentation).
+3. Note the WebSocket URL that the integration will use to communicate with Z-Wave JS.
+    - Within the same **Z-Wave JS UI** add-on from step 2, open the [**Documentation tab**](http://homeassistant.local:8123/hassio/addon/a0d7b954_zwavejs2mqtt/documentation).
     - Search (Ctrl-F) for a link that begins with "ws://".  For example, `ws://a0d7b954-zwavejs2mqtt:3000`.
     - Copy that URL somewhere safe.  You will need it later.
 
-4. Start reconfiguring the adapter.
+4. Start reconfiguring the integration.
    - Open a new browser tab.
-   - Navigate to **Settings** -> **Devices & services** -> **Z-Wave**.  ([direct link](http://homeassistant.local:8123/config/integrations/integration/zwave_js))
-   - Click the three-dot {% icon "mdi:dots-vertical" %} menu next to the **Z-Wave JS** top row.
+   - Navigate to **Settings** -> **Devices & services** -> [**Z-Wave**](http://homeassistant.local:8123/config/integrations/integration/zwave_js).  
+   - Press the three-dot {% icon "mdi:dots-vertical" %} menu next to the **Z-Wave JS** top row.
    - From the menu, select **Reconfigure**, then **Reconfigure current adapter**.
    - Uncheck **Use the Z-Wave JS Supervisor add-on**.
    - Keep this tab open.
 
 5. Configure the new add-on using the information saved in step 1.
    - Switch back to your initial browser tab.
-   - Within the **Z-Wave JS UI** add-on, switch back to the [Info tab](http://homeassistant.local:8123/hassio/addon/a0d7b954_zwavejs2mqtt/info) and click **Open Web UI**.
+   - Within the **Z-Wave JS UI** add-on, switch back to the [**Info tab**](http://homeassistant.local:8123/hassio/addon/a0d7b954_zwavejs2mqtt/info) and press **Open Web UI**.
    - Open the **Settings** {% icon "mdi:cog" %} page and expand the **Z-Wave** section.
    - Fill out the subsections for **Serial Port**, **Security Keys**, and **RF Region**.
    - Save your changes.
 
-6. Finish reconfiguring the HA integration.
+6. Finish reconfiguring the integration.
    - Switch back to the tab from step 4.
    - Under **WebSocket URL**, enter the URL you saved in step 3.
 
 7. Uninstall the official add-on.
-   - Navigate to **Settings** -> *Add-ons** -> **Z-Wave JS**. ([direct link](http://homeassistant.local:8123/hassio/addon/core_zwave_js/info))
-   - Click **Uninstall**.
+   - Navigate to **Settings** -> **Add-ons** -> [**Z-Wave JS**](http://homeassistant.local:8123/hassio/addon/core_zwave_js/info).
+   - Press **Uninstall**.
    - When asked if you want to delete the related data, keep it if you think you might switch back to the **Z-Wave JS** add-on later.
 
 ### How to migrate from one adapter to a new adapter using Z-Wave JS UI?
