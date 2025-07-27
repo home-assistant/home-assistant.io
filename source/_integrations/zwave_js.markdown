@@ -1022,7 +1022,7 @@ All of your HA devices and entities will remain unchanged if you follow these st
    - Click **Install**, then **Start**.
    - It may take a while for the add-on to start up.
 
-3. Note the websocket URL that the HA integration will use to communicate with Z-Wave JS.
+3. Note the WebSocket URL that the HA integration will use to communicate with Z-Wave JS.
     - Within the same **Z-Wave JS UI** add-on from step 2, open the [Documentation tab](http://homeassistant.local:8123/hassio/addon/a0d7b954_zwavejs2mqtt/documentation).
     - Search (Ctrl-F) for a link that begins with "ws://".  For example, `ws://a0d7b954-zwavejs2mqtt:3000`.
     - Copy that URL somewhere safe.  You will need it later.
