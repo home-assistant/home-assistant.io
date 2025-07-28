@@ -364,6 +364,8 @@ The following models have been tested and confirmed to work with a direct link t
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
 - [E1 Outdoor Pro](https://reolink.com/product/e1-outdoor-pro/)
 - [Elite Floodlight WiFi](https://reolink.com/product/elite-floodlight-wifi/)
+- [FE-P](https://reolink.com/product/fe-p/)
+- [FE-W](https://reolink.com/product/fe-w/)
 - [Lumus Pro](https://reolink.com/product/lumus-pro/)
 - RLC-410*
 - [RLC-410W](https://reolink.com/product/rlc-410w/)
