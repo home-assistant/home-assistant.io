@@ -51,7 +51,7 @@ Stay cool, and enjoy the release!
   - [2025.7.1 - July 4](#202571---july-4)
   - [2025.7.2 - July 14](#202572---july-14)
   - [2025.7.3 - July 18](#202573---july-18)
-  - [2025.7.4 - July 27](#202574---july-27)
+  - [2025.7.4 - July 28](#202574---july-28)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -591,7 +591,7 @@ Happy Fourth of July! 🇺🇸
 [@jbouwh]: https://github.com/jbouwh
 [@joostlek]: https://github.com/joostlek
 
-### 2025.7.4 - July 27
+### 2025.7.4 - July 28
 
 - Keep entities of dead Z-Wave devices available ([@AlCalzone] - [#148611])
 - Fix warning about failure to get action during setup phase ([@mback2k] - [#148923])

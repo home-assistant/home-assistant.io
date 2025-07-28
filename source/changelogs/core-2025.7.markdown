@@ -880,7 +880,7 @@ For a summary in a more readable format:
 [@jbouwh]: https://github.com/jbouwh
 [@joostlek]: https://github.com/joostlek
 
-## Release 2025.7.4 - July 27
+## Release 2025.7.4 - July 28
 
 - Keep entities of dead Z-Wave devices available ([@AlCalzone] - [#148611])
 - Fix warning about failure to get action during setup phase ([@mback2k] - [#148923])
