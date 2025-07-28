@@ -51,6 +51,7 @@ Stay cool, and enjoy the release!
   - [2025.7.1 - July 4](#202571---july-4)
   - [2025.7.2 - July 14](#202572---july-14)
   - [2025.7.3 - July 18](#202573---july-18)
+  - [2025.7.4 - July 28](#202574---july-28)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -589,6 +590,57 @@ Happy Fourth of July! 🇺🇸
 [@hahn-th]: https://github.com/hahn-th
 [@jbouwh]: https://github.com/jbouwh
 [@joostlek]: https://github.com/joostlek
+
+### 2025.7.4 - July 28
+
+- Keep entities of dead Z-Wave devices available ([@AlCalzone] - [#148611])
+- Fix warning about failure to get action during setup phase ([@mback2k] - [#148923])
+- Fix a bug in rainbird device migration that results in additional devices ([@allenporter] - [#149078])
+- Fix multiple webhook secrets for Telegram bot ([@hanwg] - [#149103])
+- Bump pyschlage to 2025.7.2 ([@dknowles2] - [#149148])
+- Fix Matter light get brightness ([@jvmahon] - [#149186])
+- Fix brightness_step and brightness_step_pct via lifx.set_state ([@Djelibeybi] - [#149217])
+- Add Z-Wave USB migration confirm step ([@MartinHjelmare] - [#149243])
+- Add fan off mode to the supported fan modes to fujitsu_fglair ([@crevetor] - [#149277])
+- Update Tesla OAuth Server in Tesla Fleet ([@Bre77] - [#149280])
+- Update slixmpp to 1.10.0 ([@gaaf] - [#149374])
+- Bump aioamazondevices to 3.5.1 ([@chemelli74] - [#149385])
+- Bump pysuezV2 to 2.0.7 ([@jb101010-2] - [#149436])
+- Bump habiticalib to v0.4.1 ([@tr4nt0r] - [#149523])
+
+[#147533]: https://github.com/home-assistant/core/pull/147533
+[#148171]: https://github.com/home-assistant/core/pull/148171
+[#148611]: https://github.com/home-assistant/core/pull/148611
+[#148725]: https://github.com/home-assistant/core/pull/148725
+[#148923]: https://github.com/home-assistant/core/pull/148923
+[#149024]: https://github.com/home-assistant/core/pull/149024
+[#149078]: https://github.com/home-assistant/core/pull/149078
+[#149103]: https://github.com/home-assistant/core/pull/149103
+[#149148]: https://github.com/home-assistant/core/pull/149148
+[#149186]: https://github.com/home-assistant/core/pull/149186
+[#149217]: https://github.com/home-assistant/core/pull/149217
+[#149243]: https://github.com/home-assistant/core/pull/149243
+[#149277]: https://github.com/home-assistant/core/pull/149277
+[#149280]: https://github.com/home-assistant/core/pull/149280
+[#149374]: https://github.com/home-assistant/core/pull/149374
+[#149385]: https://github.com/home-assistant/core/pull/149385
+[#149436]: https://github.com/home-assistant/core/pull/149436
+[#149523]: https://github.com/home-assistant/core/pull/149523
+[@AlCalzone]: https://github.com/AlCalzone
+[@Bre77]: https://github.com/Bre77
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@allenporter]: https://github.com/allenporter
+[@chemelli74]: https://github.com/chemelli74
+[@crevetor]: https://github.com/crevetor
+[@dknowles2]: https://github.com/dknowles2
+[@frenck]: https://github.com/frenck
+[@gaaf]: https://github.com/gaaf
+[@hanwg]: https://github.com/hanwg
+[@jb101010-2]: https://github.com/jb101010-2
+[@jvmahon]: https://github.com/jvmahon
+[@mback2k]: https://github.com/mback2k
+[@tr4nt0r]: https://github.com/tr4nt0r
 
 ## Need help? Join the community!
 
