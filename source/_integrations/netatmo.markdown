@@ -66,7 +66,7 @@ By default, the opening entity shows up as a generic binary sensor. You can manu
 
 ## Binary sensor
 
-The `netatmo` binary sensor platform shows connectivity entities for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
+The binary sensor platform shows connectivity entities for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
 It also exposes [Netatmo Smart Door and Window Sensors](https://www.netatmo.com/smart-door-and-window-sensors) as *opening* binary sensors (open/closed) and provides additional connectivity and battery-level entities.
 
 ## Button
