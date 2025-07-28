@@ -26,6 +26,10 @@ This integration allows adding an [Immich](https://immich.app/) user account to 
 
 You need to [obtain the API key](https://immich.app/docs/features/command-line-interface#obtain-the-api-key) for your user account in your Immich instance.
 
+### API key permissions
+
+For full functionality, enable the `album.read` permission when creating your API key. Without this permission, the media source integration will not work, but all monitoring sensors will continue to function normally.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}

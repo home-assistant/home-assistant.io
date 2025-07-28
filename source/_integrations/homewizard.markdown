@@ -39,7 +39,13 @@ Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It
 You have to enable the local API to allow Home Assistant to communicate with your device. Do this in the HomeWizard Energy app:
 
 {% tip %}
-You can skip this step if you are configuring your Wi-Fi P1 Meter with firmware version 6 or higher, or your Plug-In Battery. These products use a different authentication method that doesn't require enabling the local API.
+You can skip this step if you are configuring one of the following devices:
+
+- Wi-Fi P1 Meter with firmware version 6 or higher
+- Wi-Fi kWh Meter with firmware version 5 or higher
+- Plug-In Battery
+
+These products use a different authentication method that doesn't require enabling the local API.
 {% endtip %}
 
   1. Go to Settings (gear icon in the upper-right).
@@ -183,8 +189,9 @@ It may happen that you can't find your devices or they won't show up in the inte
 
 1. During setup, you may be asked to press a button on your device to authenticate it with Home Assistant.  
     - **P1 Meter**: Press the white button on the front of the P1 Meter.  
-    - **Plug-In Battery**: Press the black touch button on the front of the device. You will hear a beep. 
-    - **Energy Socket**, **Water Meter** and **kWh Meter**: they do not require this step.
+    - **Plug-In Battery**: Press the black touch button on the front of the device. You will hear a beep.
+    - **kWh Meter**: Press and hold the button with the Wi‑Fi icon for two seconds. Release the button before the display shows "AP".
+    - **Energy Socket** and **Water Meter**: they do not require this step.
 2. After pressing the button, you must select **Continue** within 30 seconds to complete the setup. 
     - If the setup times out, you may need to press the button again.
     

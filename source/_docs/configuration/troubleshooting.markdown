@@ -127,7 +127,7 @@ Once you enable debug logging, you ideally need to make the error happen. Run yo
 
 ### Download diagnostics
 
-After you download logs, you will also want to download the diagnostics for the integration giving you trouble. If the integration provides diagnostics, it will appear in the three dot menu next to the integration configuration.
+After you download logs, you will also want to download the diagnostics for the integration giving you trouble. If the integration provides diagnostics, it will appear in the three dots {% icon "mdi:dots-vertical" %} menu next to the integration configuration.
 
 <p class='img'>
   <img src='/images/docs/configuration/download-diagnostics.png' alt='Example of Download Diagnostics'>

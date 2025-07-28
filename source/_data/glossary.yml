@@ -636,3 +636,7 @@
   link: /integrations/zone/
   aliases:
     - zones
+- term: Long-term statistics
+  definition: >-
+    Home Assistant saves long-term statistics for a sensor if the entity has a state_class of measurement, total, or total_increasing. For short-term statistics, a snapshot is taken every 5 minutes. For long-term statistics, an hourly aggregate is stored of the short-term statistics. Short-term statistics are automatically purged after a predefined period (default is 10 days). Long-term statistics are never purged.
+  link: /blog/2021/08/04/release-20218/#long-term-statistics

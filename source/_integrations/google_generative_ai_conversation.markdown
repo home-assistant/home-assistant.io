@@ -2,8 +2,9 @@
 title: Google Generative AI
 description: Instructions on how to integrate Google Generative AI as a conversation agent
 ha_category:
-  - Voice
+  - Speech-to-text
   - Text-to-speech
+  - Voice
 ha_release: 2023.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -15,6 +16,7 @@ ha_integration_type: service
 ha_platforms:
   - conversation
   - diagnostics
+  - stt
   - tts
 related:
   - docs: /voice_control/voice_remote_expose_devices/
@@ -27,7 +29,7 @@ related:
     title: Google Generative AI
 ---
 
-The Google Generative AI integration adds a conversation agent and text-to-speech engine powered by [Google Generative AI](https://ai.google.dev/) to Home Assistant. It can optionally be allowed to control Home Assistant.
+The Google Generative AI integration adds a conversation agent, speech-to-text, and text-to-speech entities powered by [Google Generative AI](https://ai.google.dev/) to Home Assistant. The conversation agent can optionally be allowed to control Home Assistant.
 
 Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
 
@@ -212,7 +214,6 @@ data:
   message: Say cheerfully: Have a wonderful day!
   options:
     voice: <voice-name>
-    model: <model-id>
 ```
 
 {% endraw %}
@@ -222,7 +223,6 @@ You can configure the following options:
 | Option attribute | Optional | Description                                                                                                                                                                    | Example                      |
 | ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
 | `voice`          | yes      | The [voice name](https://ai.google.dev/gemini-api/docs/speech-generation#voices) to be used for the generated speech. The default is `zephyr`.                                 | `achernar`                   |
-| `model`          | yes      | The [model](https://ai.google.dev/gemini-api/docs/speech-generation#supported-models) to use for the text-to-speech conversion. The default is `gemini-2.5-flash-preview-tts`. | `gemini-2.5-pro-preview-tts` |
 
 The input language is detected automatically. Check the [Google AI documentation](https://ai.google.dev/gemini-api/docs/speech-generation#languages) for the supported languages.
 
@@ -243,3 +243,7 @@ logger:
     homeassistant.components.conversation.chat_log: debug
     homeassistant.components.google_generative_ai_conversation: debug
 ```
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}

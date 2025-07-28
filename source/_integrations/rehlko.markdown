@@ -105,6 +105,7 @@ These are the generator models that have been tested:
 - [20RESA](https://resources.kohler.com/power/kohler/residential/pdf/tp6804.pdf)
 - [20RCA](https://www.kohlerhomeenergy.rehlko.com/products/home+generators/20rca)
 - [14RESA](https://www.kohler.com/content/dam/kohler-com-NA/Lifestyle/PDF/PDF-tp6803.pdf)
+- [30RCL](https://www.kohlerhomeenergy.rehlko.com/products/home+generators/30rcla)
 
 ## Removing the integration
 

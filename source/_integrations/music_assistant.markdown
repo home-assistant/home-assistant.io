@@ -10,6 +10,7 @@ ha_codeowners:
   - '@music-assistant'
 ha_domain: music_assistant
 ha_platforms:
+  - button
   - media_player
 ha_zeroconf: true
 ha_integration_type: integration
@@ -19,7 +20,9 @@ The **Music Assistant** (MA) {% term integration %} allows you to connect Home A
 
 There is currently support for the following Home Assistant Platforms:
 
-- [Media player](#media-player)
+- [Media player](#media-player-entities)
+- [Button](#favorite-current-song-button)
+
 
 All of the Home Assistant [Media Player Control Actions](https://www.home-assistant.io/integrations/media_player/#media-control-actions) are supported.
 
@@ -47,6 +50,11 @@ Under normal circumstances, Home Assistant automatically discovers your running 
 ### Media player entities
 
 The Music Assistant integration creates media player entities for all players and groups available in MA, including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. This full functionality includes transfer of the playing queue of music from one player to another, automatic pausing of playback during announcements, and richer options for selecting the media for playback. These entities will display media information, playback progress, and playback controls.
+
+### Favorite current song button
+
+The Music Assistant integration creates a button entity for each player to favorite the current song. Pressing this button (manually or by automation) adds the current song to your Music Assistant favorites. This works for songs stored locally as well as for tracks from streaming providers. It also works with remote content such as Spotify Connect, AirPlay, or a radio station, as long as the external source provides an artist and title combination (and optionally the album). 
+
 
 ## Actions
 

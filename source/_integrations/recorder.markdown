@@ -257,6 +257,10 @@ Perform the action `recorder.enable` to start again saving events and states to 
 
 Perform the action `recorder.get_statistics` to retrieve statistics for one or more entities from the recorder database. This action is useful for automations or scripts that need to access historical statistics, such as mean, min, max, or sum values, for supported entities like sensors.
 
+{% note %}
+Statistics are only available for entities that store {% term "Long-term statistics" %}
+{% endnote %}
+
 | Data attribute | Optional | Description |
 | -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `statistic_ids`| no      | The entity IDs or statistic IDs to get statistics for. |

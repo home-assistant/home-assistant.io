@@ -258,6 +258,11 @@ The **OSO Energy** integration exposes OSO Energy data as a sensor. It provides 
 
 The OSO Energy water heater integration integrates your OSO Energy devices into Home Assistant.
 
+The water heater entity offers the following capabilities:
+
+- Adjust target temperature
+- Enable/disable away mode (will activate the "Holiday Mode" of the water heater)
+
 It supports the following OSO Energy devices:
 
 - Water Heaters
