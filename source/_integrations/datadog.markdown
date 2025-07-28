@@ -40,24 +40,12 @@ In the [Datadog Agent configuration](https://github.com/DataDog/datadog-agent/bl
 {% configuration_basic %}
 host:
   description: The IP address or hostname of your Datadog host, e.g., 192.168.1.23.
-  required: false
-  default: localhost
-  type: string
 port:
   description: Port to use.
-  required: false
-  default: 8125
-  type: integer
 prefix:
   description: Metric prefix to use.
-  required: false
-  default: "`hass`"
-  type: string
 rate:
   description: The sample rate of UDP packets sent to Datadog.
-  required: false
-  default: 1
-  type: integer
 {% endconfiguration_basic %}
 
 ## Removing the integration
