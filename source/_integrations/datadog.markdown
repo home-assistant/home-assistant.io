@@ -37,7 +37,7 @@ In the [Datadog Agent configuration](https://github.com/DataDog/datadog-agent/bl
 
 {% include integrations/config_flow.md %}
 
-{% configuration %}
+{% configuration_basic %}
 host:
   description: The IP address or hostname of your Datadog host, e.g., 192.168.1.23.
   required: false
@@ -58,7 +58,7 @@ rate:
   required: false
   default: 1
   type: integer
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 ## Removing the integration
 
