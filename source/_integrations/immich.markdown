@@ -28,7 +28,10 @@ You need to [obtain the API key](https://immich.app/docs/features/command-line-i
 
 ### API key permissions
 
-For full functionality, enable the `album.read` permission when creating your API key. Without this permission, the media source integration will not work, but all monitoring sensors will continue to function normally.
+{% important %}
+The immich project is under very active development. Therefore some changes in the API key permissions of the immich server (_beginning from [v1.136](https://github.com/immich-app/immich/releases/tag/v1.136.0)_) makes it necessary to enable the `all` permission when creating your API key.
+This hint will be replaced by a detailed needed permissions table, when the api key permissions allows it.
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
