@@ -4,6 +4,7 @@ description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary Sensor
   - Button
+  - Fan
   - Hub
   - Lock
   - Plug
@@ -22,6 +23,7 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
+  - fan
   - lock
   - sensor
   - switch
@@ -78,6 +80,10 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [K10+ Pro](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10-pro)
 - [S1](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner?&variant=41850919420079)
 - [S1 Plus](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner)
+
+### Fans
+
+- [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
 
 ## Supported functionality
 
@@ -181,6 +187,17 @@ Some of the hubs can be served as a bridge while the sensor data can be retrieve
 Features:
 - get temperature
 - get humidity
+
+### Fans
+
+#### Battery Circulator Fan/Circulator Fan
+
+Features:
+- turn on
+- turn off
+- set speed, only applicable for [direct mode]
+- set mode
+- get battery, only applicable for [Battery Circulator Fan]
 
 
 ### Vacuums

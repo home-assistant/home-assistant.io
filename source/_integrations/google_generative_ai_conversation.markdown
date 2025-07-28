@@ -2,6 +2,7 @@
 title: Google Generative AI
 description: Instructions on how to integrate Google Generative AI as a conversation agent
 ha_category:
+  - Speech-to-text
   - Text-to-speech
   - Voice
 ha_release: 2023.6
@@ -15,6 +16,7 @@ ha_integration_type: service
 ha_platforms:
   - conversation
   - diagnostics
+  - stt
   - tts
 related:
   - docs: /voice_control/voice_remote_expose_devices/
@@ -27,7 +29,7 @@ related:
     title: Google Generative AI
 ---
 
-The Google Generative AI integration adds a conversation agent and text-to-speech engine powered by [Google Generative AI](https://ai.google.dev/) to Home Assistant. It can optionally be allowed to control Home Assistant.
+The Google Generative AI integration adds a conversation agent, speech-to-text, and text-to-speech entities powered by [Google Generative AI](https://ai.google.dev/) to Home Assistant. The conversation agent can optionally be allowed to control Home Assistant.
 
 Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
 

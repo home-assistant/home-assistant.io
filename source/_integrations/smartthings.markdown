@@ -19,6 +19,7 @@ ha_category:
   - Sensor
   - Switch
   - Update
+  - Vacuum
   - Valve
   - Water heater
 ha_release: 0.87
@@ -42,6 +43,7 @@ ha_platforms:
   - sensor
   - switch
   - update
+  - vacuum
   - valve
   - water_heater
 ha_dhcp: true
@@ -77,6 +79,7 @@ SmartThings represents devices as a set of [capabilities](https://developer.smar
 - [Sensor](#sensor)
 - [Scene](#scene)
 - [Switch](#switch)
+- [Vacuum](#vacuum)
 - [Valve](#valve)
 - [Water heater](#water-heater)
 
@@ -272,6 +275,10 @@ It will also create switches for the following capabilities:
 ### Update
 
 The SmartThings update platform lets you update the firmware of devices that have the [`firmwareUpdate`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#firmwareUpdate) capability.
+
+### Vacuum
+
+The SmartThings Vacuum platform lets you control devices that have the `samsungce.robotCleanerOperatingState` capability, showing the vacuum status and controlling the device.
 
 ### Valve
 
