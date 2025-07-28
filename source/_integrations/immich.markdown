@@ -47,7 +47,7 @@ The integration polls data every 60 seconds.
 
 ## Media source
 
-A [media source](/integrations/media_source/) is provided for your [Immich](https://immich.app/) albums. It shows only the albums you own or that are shared with you. If you have multiple Immich integrations in Home Assistant (_one integration for each Immich user_), only the albums for that specific user are shown.
+A [media source](/integrations/media_source/) is provided for your [Immich](https://immich.app/) albums. It shows only the assets you own or that are shared with you. If you have multiple Immich integrations in Home Assistant (_one integration for each Immich user_), only the assets for that specific user are shown. The assets are grouped by albums, people, and tags.
 
 ## Sensors
 
