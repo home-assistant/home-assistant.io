@@ -178,7 +178,7 @@ Depending on the supported features of the camera, number entities are added for
 - Image sharpness*+ (default 128)
 - Image hue*+ (default 128)
 - Pre-recording time*
-- Pre-recording battery stop*
+- Pre-recording stop battery level*
 
 **Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
