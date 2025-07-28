@@ -98,7 +98,7 @@ Dual lens cameras provide additional streams for the second lens.
 
 ### Binary sensors
 
-Depending on the supported features of the camera, binary sensors are added for:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), binary sensors are added for:
 
 - Motion detection++
 - Visitor++ (Doorbell presses)
@@ -131,7 +131,7 @@ For the **crossline**, **intrusion**, **linger**, **item forgotten**, and **item
 
 ### Number entities
 
-Depending on the supported features of the camera, number entities are added for:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), number entities are added for:
 
 - Optical zoom control
 - Focus control
@@ -192,7 +192,7 @@ If the **Auto tracking** switch entity is enabled, and a object disappears from 
 
 ### Button entities
 
-Depending on the supported features of the camera, button entities are added for:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), button entities are added for:
 
 - <abbr title="pan, tilt, and zoom">PTZ</abbr> stop
 - PTZ left
@@ -221,7 +221,7 @@ Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at di
 
 ### Select entities
 
-Depending on the supported features of the camera, select entities are added for:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), select entities are added for:
 
 - Floodlight mode (Off, Auto, Schedule)
 - Day night mode+ (Auto, Color, Black&White)
@@ -271,7 +271,7 @@ In some camera models, there is a delay of up to 5 seconds between the turn-off 
 
 ### Switch entities
 
-Depending on the supported features of the camera, switch entities are added for:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), switch entities are added for:
 
 - Infrared lights in night mode
 - Record audio
@@ -318,7 +318,7 @@ Polling the status of the **Hardwired chime enabled** switch can make the hardwi
 
 ### Light entities
 
-Depending on the supported features of the camera, light entities are added for:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), light entities are added for:
 
 - Floodlight+
 - Status LED
@@ -327,7 +327,7 @@ When the **floodlight** entity is ON always ON, when OFF controlled based on the
 
 ### Sensor entities
 
-Depending on the supported features of the camera, the following sensor entities are added:
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), the following sensor entities are added:
 
 - PTZ pan position
 - PTZ tilt position
@@ -347,7 +347,7 @@ Therefore the update entity in Home Assistant can find and install a firmware up
 
 ### Media browser for playback of recordings
 
-Depending on the support of the camera, the Reolink integration will provide a media browser through which recorded videos of the camera can be accessed.
+If the camera supports recording to an SD card or NVR/Hub ([see specifications of the camera model on Reolink.com](#tested-models)), the Reolink integration will provide a media browser through which recorded videos of the camera can be accessed.
 In the sidebar, select "Media" > "Reolink" and select the **camera** of which you want to see recordings. Optionally, select if you want a high or low **resolution** stream and select the recording **date**. Here, all available video files of that day will be shown.
 Recordings up to 1 month old can be viewed in Home Assistant.
 
@@ -368,6 +368,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
 - [E1 Outdoor Pro](https://reolink.com/product/e1-outdoor-pro/)
+- [Elite Floodlight WiFi](https://reolink.com/product/elite-floodlight-wifi/)
 - [Lumus Pro](https://reolink.com/product/lumus-pro/)
 - RLC-410*
 - [RLC-410W](https://reolink.com/product/rlc-410w/)
@@ -406,6 +407,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - **[Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)**
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
+- [Reolink Elite WiFi](https://reolink.com/product/elite-wifi/)
 - [Reolink Floodlight PoE and Wi-Fi*](https://reolink.com/product/reolink-floodlight/)
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
@@ -438,6 +440,8 @@ The following battery-powered models have been tested and confirmed to work thro
 - [Argus Eco Ultra](https://reolink.com/product/argus-eco-ultra/)
 - [Argus PT](https://reolink.com/product/argus-pt/)
 - **[Argus Track](https://reolink.com/product/argus-track/)**
+- [Reolink Altas](https://reolink.com/product/reolink-altas/)
+- [Reolink Altas PT Ultra](https://reolink.com/product/altas-pt-ultra/)
 - **[Reolink Doorbell Battery](https://reolink.com/roadmap/)**
 
 Reolink provides [this larger list of battery camera models](https://support.reolink.com/hc/en-us/articles/32379509281561-Reolink-Home-Hub-Compatibility/) which are compatible with the Home Hub and should work with Home Assistant.
@@ -534,7 +538,7 @@ Removing a camera from a NVR/Home Hub can be done by deleting the device followi
 3. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
 4. From the list of integration entries, select the **x devices** underneath the integration instance of the NVR/Home Hub from which you want to remove a camera.
 5. Select the camera you want to remove from the list of devices
-6. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+6. Underneath the **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
 
 ### Removing a chime
 
@@ -543,7 +547,7 @@ Removing a chime from a doorbell can be done by deleting the chime following the
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
 2. From the list of integration entries, select the **x devices** underneath the integration instance of the Doorbell/NVR/Home Hub from which you want to remove a chime.
 3. Select the chime you want to remove from the list of devices
-4. Underneath the **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+4. Underneath the **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
 
 This will also decouple the chime from the doorbell in the Reolink app/client. Therefore, the chime will no longer ring when the doorbell is pressed.
 

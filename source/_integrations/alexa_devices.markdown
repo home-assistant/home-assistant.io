@@ -38,11 +38,11 @@ There is support for the following device families within Home Assistant:
 - **Amazon Fire TV Stick**
 - **Amazon Fire Tablet**
 
-and all 3rd party that has Alexa capabilities built-in
+- **Third-party devices** with built-in Alexa capabilities.
 
 {% warning %}
 
-Currently, only MFA-protected Amazon accounts via the authenticator app are supported.
+This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 
 {% endwarning %}
 
@@ -97,6 +97,32 @@ The **Alexa Devices** {% term integration %} provides the following entities:
 - Notify - Speak and Announce notifications
 - Sensor - temperature and illuminance sensors
 - Switch - Do not disturb
+
+## Troubleshooting
+
+### Can’t set up the integration
+
+#### Symptom: "Wrong Country"
+
+When trying to set up the integration, the form shows the message "Wrong Country".
+
+##### Description
+
+This means that the settings in your Amazon account are not aligned to the country you specified.
+To fix it, please go to <https://www.amazon.XX/hz/mycd/preferences/myx#/home/settings/payment> (replace XX with your country domain. For example **co.uk**):
+
+- "Kindle payment": check your default address is in your country
+- "Country/Region": check your country
+
+#### Symptom: "Not found"
+
+When trying to set up the integration, the form shows the message "Not found".
+
+##### Description
+
+This appears to indicate that your Alexa devices aren't owned by you, but are connected through Amazon Family.
+This setup isn't supported by the Alexa Mobile app, so it's not supported by this integration.
+Move the devices to your primary account.
 
 ## Removing the integration
 
