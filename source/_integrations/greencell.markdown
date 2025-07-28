@@ -2,10 +2,8 @@
 title: Greencell
 description: Instructions on how to use the Greencell EVSE integration in Home Assistant.
 ha_category:
-  - Button
-  - Number
   - Sensor
-ha_release: 2025.5.1
+ha_release: 2025.8
 ha_codeowners:
   - '@BrzezowskiGC'
 ha_domain: greencell
