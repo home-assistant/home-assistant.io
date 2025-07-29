@@ -130,7 +130,7 @@ Every poll operation accounts for about a dozen calls (depends on model).
 
 ## Known limitations
 
-The official Volvo app has access to a more feature-rich API. As a result, this integration cannot provide live updates, display tyre pressure values, start air purifying, schedule climatization, show climatization status, and so on.
+The official Volvo app has access to a more feature-rich API. As a result, this integration cannot provide live updates, display tire pressure values, start air purifying, schedule climatization, show climatization status, and so on.
 
 ## Troubleshooting
 
