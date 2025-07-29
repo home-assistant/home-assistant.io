@@ -78,6 +78,13 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 - **Avatar**: Displays your current avatar.
 - **Share profile**: Generates a QR code with a shareable link to your profile.
 
+### Notifiers
+
+The **PlayStation Network** integration creates a notify entity for each group you are a member of.  
+You can send messages to a group using the `notify.send_message` {% term action %}.
+
+For more information on using notifications, refer to the [Getting Started with Automation](/getting-started/automation/) page.
+
 ## Data updates
 
 This integration retrieves data from the PlayStation Network every 30 seconds to ensure timely updates.

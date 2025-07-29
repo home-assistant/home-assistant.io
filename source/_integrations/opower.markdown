@@ -170,3 +170,10 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 
 - Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
 - In your energy dashboard in Home Assistant, make sure you use the statistics and not the sensors.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+If you remove the integration, the statistics are not automatically deleted.
+You can find and delete the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "opower".
