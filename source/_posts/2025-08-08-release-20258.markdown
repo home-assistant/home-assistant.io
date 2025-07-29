@@ -234,17 +234,20 @@ user experience.
 This release, we celebrate several {% term integrations %} that have improved
 their quality scale:
 
-- **1 integrations reached platinum** 🏆
-  - [Lorem], thanks to [@frenck]
+- **5 integrations reached platinum** 🏆
+  - [AirGradient], thanks to [@joostlek]
+  - [Discovergy], thanks to [@jpbede]
+  - [EHEIM Digital], thanks to [@autinerd]
+  - [Pegel Online], thanks to [@mib1185]
   
-- **1 integration reached gold** 🥇
-  - [Lorem], thanks to [@frenck]
+- **5 integrations reached silver** 🥈
+  - [Amazon Alexa Devices], thanks to [@chemelli74]
+  - [Homee], thanks to [@Taraman17]
+  - [Mealie], thanks to [@andrew-codechimp]
+  - [Tankerkönig], thanks to [@mib1185]
 
-- **1 integration reached silver** 🥈
-  - [Lorem], thanks to [@frenck]
-
-- **1 integrations reached bronze** 🥉
-  - [Lorem], thanks to [@frenck]
+- **2 integrations reached bronze** 🥉
+  - [Onkyo], thanks to [@arturpragacz]
 
 This is a huge achievement for these integrations and their maintainers. The
 effort and dedication required to reach these quality levels is significant,
@@ -254,8 +257,23 @@ complete rewrites of parts of the integration.
 A big thank you to all the contributors involved! 👏
 
 [integration quality scale]: https://www.home-assistant.io/docs/quality_scale/
-[@frenck]: https://github.com/frenck
-[Lorem]: /integrations/lorem
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@arturpragacz]: https://github.com/arturpragacz
+[@autinerd]: https://github.com/autinerd
+[@chemelli74]: https://github.com/chemelli74
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@mib1185]: https://github.com/mib1185
+[@Taraman17]: https://github.com/Taraman17
+[AirGradient]: /integrations/airgradient
+[Amazon Alexa Devices]: /integrations/alexa_devices
+[Discovergy]: /integrations/discovergy
+[EHEIM Digital]: /integrations/eheimdigital
+[Homee]: /integrations/homee
+[Mealie]: /integrations/mealie
+[Onkyo]: /integrations/onkyo
+[Pegel Online]: /integrations/pegel_online
+[Tankerkönig]: /integrations/tankerkoenig
 
 ### Now available to set up from the UI
 
