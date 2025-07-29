@@ -125,7 +125,7 @@ Set the **Device class** to **Timestamp** and optionally choose your vehicle for
 ## Data updates
 
 The **Volvo** integration fetches data from the API every 135 seconds by default.
-If you decide to define a custom polling interval, beware that there is a maximum of 10.000 requests per day.
+If you decide to define a custom polling interval, beware that there is a maximum of 10,000 requests per day.
 Every poll operation accounts for about a dozen calls (depends on model).
 
 ## Known limitations
