@@ -81,9 +81,9 @@ File:
   description: Use the [MediaSelector](/docs/blueprint/selectors/#media-selector) to define the file to be uploaded.
   keys:
     media_content_id:
-      description: The [media source](/integrations/media_source) url.
+      description: The [media source](/integrations/media_source) URL.
     media_content_type:
-      description: The mime type of the file to be uploaded.
+      description: The MIME type of the file to be uploaded.
 Album ID:
   description: The album in which the file should be placed after uploading. To get the album ID, open the Immich instance web UI in a browser and navigate to the corresponding album, the album ID can now be found in the URL `https://your-immich-instance/albums/<ALBUM-ID>`
 {% endconfiguration_basic %}
