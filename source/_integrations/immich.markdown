@@ -78,7 +78,7 @@ This action allows you to upload a media file to your Immich instance. It takes 
 | --- | --- | --- | --- |
 | Immich instance | `config_entry_id` | yes | The Immich instance where to upload the file. |
 | File | `file` | yes | Use the [MediaSelector](/docs/blueprint/selectors/#media-selector) to define the file to be uploaded. |
-| Album ID | `album_id` | no | The album in which the file should be placed after uploading.<br>_To get the album id, open the Immich instance webui in a browser and navigate to the corresponding album, the album ID can now be found in the URL `https://your-immich-instance/albums/<ALBUM-ID>`_ |
+| Album ID | `album_id` | no | The album in which the file should be placed after uploading.<br>_To get the album ID, open the Immich instance web UI in a browser and navigate to the corresponding album, the album ID can now be found in the URL `https://your-immich-instance/albums/<ALBUM-ID>`_ |
 
 #### Example script
 
