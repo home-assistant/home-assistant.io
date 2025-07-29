@@ -128,3 +128,18 @@ If you need to configure the device directly, you can find the link to your devi
 Please note that the [default intervals](#data-updates) are considered best practice. Updating too frequently may induce considerable load on your bridge(s) resulting in unexpected results or missing data.
 
 {% include common-tasks/define_custom_polling.md %}
+
+### Diagnostic data
+
+If you need to create an issue to report a bug or want to inspect diagnostic data, use the below method to retrieve diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration and device.
+2. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
+   - Then, select **Download diagnostics** and a JSON file will be downloaded.
+3. You can inspect the downloaded file or, when requested, upload it to your issue report.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required within Home Assistant or on your devices running airOS.
+
+{% include integrations/remove_device_service.md %}
