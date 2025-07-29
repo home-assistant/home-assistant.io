@@ -215,7 +215,7 @@ changes to existing integrations:
 [@frenck]: https://github.com/frenck
 [Lorem ipsum]: /integrations/lorem
 
-Potential candidates, processed up to PR 148012
+Potential candidates, processed up to PR 149626
 
 - Matter TemperatureControl ([@lboue] - [#145706]) ([matter docs])
 - Add sensor last online to PlayStation Network integration ([@tr4nt0r] - [#147796]) ([playstation_network docs])
@@ -223,6 +223,32 @@ Potential candidates, processed up to PR 148012
 - Add switch to enable/disable boost in IronOS integration ([@tr4nt0r] - [#147831]) ([iron_os docs])
 - Add sensor for online status to PlayStation Network ([@tr4nt0r] - [#147842]) ([playstation_network docs])
 - Allow LevelControl Cluster for Matter Pump devices ([@lboue] - [#145004]) ([matter docs])
+- Enable Pihole API v6 ([@HarvsG] - [#145890]) ([pi_hole docs])
+- Add binary sensor platform to PlayStation Network Integration ([@JackJPowell] - [#147639]) ([playstation_network docs]) (new-platform)
+- Add service in Nord Pool for fetching normalized price indices ([@gjohansson-ST] - [#147979]) ([nordpool docs])
+- Add play media support to Russound RIO ([@noahhusby] - [#148240]) ([russound_rio docs])
+- Add dew point to Awair integration ([@ricohageman] - [#148403]) ([awair docs])
+- Add new sensors to GIOS integration ([@bieniu] - [#148510]) ([gios docs])
+- Add `water flow` sensor to IMGW PIB integration ([@bieniu] - [#148517]) ([imgw_pib docs])
+- Add YS8009 support to Yolink ([@matrixd2] - [#148538]) ([yolink docs]) (dependency)
+- Add YoLink YS7A12 support ([@matrixd2] - [#148588]) ([yolink docs])
+- OpenAI: Add attachment support to AI task ([@balloob] - [#148676]) ([openai_conversation docs])
+- Add assumed optimistic state to template select ([@Petro31] - [#148513]) ([template docs])
+- Allow AI Task to handle camera attachments ([@balloob] - [#148753]) ([ai_task docs])
+- Fan support in WiZ ([@arturpragacz] - [#146440]) ([wiz docs]) (new-platform)
+- Add Fan platform to Switchbot cloud ([@XiaoLing-git] - [#148304]) ([switchbot_cloud docs]) (new-platform)
+- Add forecast service to amberelectric ([@madpilot] - [#144848]) ([amberelectric docs])
+- Add Reolink wifi signal sensor for IPC cams ([@starkillerOG] - [#149200]) ([reolink docs])
+- Add Reolink post recording time select entity ([@starkillerOG] - [#149201]) ([reolink docs])
+- Matter MicrowaveOven device ([@lboue] - [#148219]) ([matter docs])
+- Add upload_file action to immich integration ([@mib1185] - [#147295]) ([immich docs])
+- Add binary sensor for rain detection for Velux windows that have them ([@wollew] - [#148275]) ([velux docs]) (new-platform)
+- Add Vacuum support to smartthings ([@jennoian] - [#148724]) ([smartthings docs]) (new-platform) (noteworthy)
+- Osoenergy holiday mode services ([@osohotwateriot] - [#149430]) ([osoenergy docs])
+- Add Reolink pre-recording entities ([@starkillerOG] - [#149522]) ([reolink docs])
+- Add notify platform to PlayStation Network integration ([@tr4nt0r] - [#149557]) ([playstation_network docs]) (new-platform)
+- Add YoLink YS6614 support. ([@matrixd2] - [#149153]) ([yolink docs])
+- Add OSO Energy Custom Away Mode Service ([@osohotwateriot] - [#149612]) ([osoenergy docs])
 
 ### Integration quality scale achievements
 
@@ -302,6 +328,22 @@ Possible candidates:
 
 - Add support for opening state in template lock ([@nadimz] - [#147813]) ([template docs])
 - Allow trigger based numeric sensors to be set to unknown ([@Petro31] - [#137047]) ([template docs])
+- Set assist_satellite preannounce default to True ([@abmantis] - [#148060]) ([assist_satellite docs])
+- Add AI task structured output ([@allenporter] - [#148083]) ([ai_task docs])
+- Add weekdays to time trigger ([@frenck] - [#147505]) ([homeassistant docs])
+- Add a preview to history_stats options flow ([@karwosts] - [#145721]) ([history_stats docs])
+- Support all Energy units in Energy integration ([@karwosts] - [#148566]) ([energy docs])
+- Add new device class for absolute humidity ([@mib1185] - [#148567]) ([sensor docs]) ([number docs]) (noteworthy)
+- Add a preview to template config flow for alarm control panel, image, and select platforms ([@Petro31] - [#148441]) 
+- Add availability template to template helper config flow ([@Petro31] - [#147623]) ([template docs])
+- Allow downloading a device analytics dump ([@balloob] - [#149376]) ([analytics docs])
+- Allow to reorder members within a group ([@piitaya] - [#149003]) ([group docs])
+- Add assumed optimistic functionality to lock platform ([@Petro31] - [#149397]) ([template docs])
+- Add optimistic option to switch yaml ([@Petro31] - [#149402]) ([template docs])
+- Add optimism to vacuum platform ([@Petro31] - [#149425]) ([template docs])
+- Add optimistic option to fan yaml ([@Petro31] - [#149390]) ([template docs])
+- Add optimistic option to light yaml ([@Petro31] - [#149395]) ([template docs])
+- Add optimistic option to alarm control panel yaml ([@Petro31] - [#149334]) ([template docs])
 
 ## Lorem ipsum
 
