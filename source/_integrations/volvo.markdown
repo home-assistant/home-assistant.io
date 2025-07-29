@@ -43,15 +43,6 @@ VIN:
     description: "If you have more than one car under this account, then you can select the Vehicle Identification Number of the vehicle you wish to add."
 {% endconfiguration_basic %}
 
-## Configuration options
-
-You have the following configuration options if your model has a combustion engine:
-
-{% configuration_basic %}
-Fuel consumption unit:
-  description: You can specify in which unit (L/100 km, mpg (UK), or mpg (US)) the fuel consumption should be displayed.
-{% endconfiguration_basic %}
-
 ## Supported functionality
 
 The **Volvo** integration provides the following entities.
@@ -62,21 +53,21 @@ The **Volvo** integration provides the following entities.
 
 - **Car connection**: Connectivity of the car
 - **Distance to service**: Remaining distance until the next service maintenance
-- **Engine time to service**: Remaining engine-hours until the next service maintenance
 - **Odometer**: Odometer
-- **TA avg. speed**: Average speed on the automatic trip meter
-- **TA distance**: Total distance on the automatic trip meter
+- **Time to engine service**: Remaining engine-hours until the next service maintenance
 - **Time to service**: Remaining time until the next service maintenance
-- **TM avg. speed**: Average speed on the manual trip meter
-- **TM distance**: Total distance on the manual trip meter
+- **Trip automatic average speed**: Average speed on the automatic trip meter
+- **Trip automatic distance**: Total distance on the automatic trip meter
+- **Trip manual average speed**: Average speed on the manual trip meter
+- **Trip manual distance**: Total distance on the manual trip meter
 
 ### Battery-only and plug-in hybrid
 
 #### Sensors
 
-- **Avg. energy consumption since charge**: Average energy consumption since the last charge of the battery
+- **Average energy consumption since charge**: Average energy consumption since the last charge of the battery
+- **Battery**: Current state of charge of the battery
 - **Battery capacity**: Total capacity of the battery
-- **Battery charge level**: Current state of charge of the battery
 - **Distance to empty battery**: Electric range
 
 #### Sensors for specific models
@@ -85,11 +76,14 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 
 - **Charging connection status**: Charging connection status
 - **Charging limit**: Charging limit configured in the car
+- **Charging power**: Current charging power
+- **Charging power status**: Indication if power is being provided
 - **Charging status**: Indication if the car is charging or not
-- **Est. charging time**: Estimated charging time to reach the target battery charge level
-- **TA avg. energy consumption**: Average energy consumption on the automatic trip meter
+- **Charging type**: AC or DC
+- **Estimated charging time**: Estimated charging time to reach the target battery charge level
+- **Trip automatic average energy consumption**: Average energy consumption on the automatic trip meter
 - **Target battery charge level**: Target battery charge level configured in the car
-- **TM avg. energy consumption**: Average energy consumption on the manual trip meter
+- **Trip manual average energy consumption**: Average energy consumption on the manual trip meter
 
 ### Fuel-only and plug-in hybrid
 
@@ -97,8 +91,8 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 
 - **Distance to empty tank**: Fuel range
 - **Fuel amount**: Remaining fuel
-- **TA avg. fuel consumption**: Average fuel consumption on the automatic trip meter
-- **TM avg. fuel consumption**: Average fuel consumption on the manual trip meter
+- **Trip automatic average fuel consumption**: Average fuel consumption on the automatic trip meter
+- **Trip manual average fuel consumption**: Average fuel consumption on the manual trip meter
 
 ## Examples
 
@@ -124,7 +118,12 @@ Set the **Device class** to **Timestamp** and optionally choose your vehicle for
 
 ## Data updates
 
-The **Volvo** integration fetches data from the API every 135 seconds by default.
+The **Volvo** integration fetches data from the API at different intervals:
+
+- **Every 60 minutes**: diagnostics, odometer, and statistics
+- **Every 15 minutes**: car connectivity, and fuel status
+- **Every 2 minutes**: energy data (for battery cars)
+
 If you decide to define a custom polling interval, beware that there is a maximum of 10,000 requests per day.
 Every poll operation accounts for about a dozen calls (depends on model).
 
