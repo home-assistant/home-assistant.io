@@ -1,0 +1,558 @@
+---
+layout: post
+title: "2025.8 Beta: A Betta title"
+description: "Beta release notes for Home Assistant Core 2025.8"
+date: 2025-07-29 00:00:00
+date_formatted: "August 8, 2025"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2025-08/social.png
+---
+
+<lite-youtube videoid="gNtNOtsTH1w" videotitle="Home Assistant 2025.8 Release Party"></lite-youtube>
+
+{% note %}
+
+**Welcome to the beta release notes for Home Assistant 2025.8** 🎉
+
+<br />
+
+Please note that these release notes are a work in progress. 👷‍♀️ We will be
+completing them over the next couple of days. Not all features might be final
+yet, and some features _**may not** make it into the final release_.
+
+<br />
+
+**Want to help test the beta?** Awesome! ❤️ We have documented how you
+[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
+
+<br />
+
+While running the beta, we highly recommend joining our _#beta_ channel on
+the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
+testers are in this channel during the beta period to share experiences, ideas,
+and iterate over new features, fine-tuning them before the final release.
+It's a really fun place to hang out. 😎
+
+<br />
+
+**Reporting issues**: As this is a beta test, you might encounter unexpected
+behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
+You can find our issue trackers and the reported issues during beta here:
+
+<br />
+
+- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/134)
+- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/751)
+- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/141)
+
+🙏 When reporting issues, **make sure to mention the exact beta version you are
+running** in the issue description. This will help us identify and track the
+issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
+
+<br />
+
+Issues introduced in the beta are processed with priority. 🔝
+
+{% endnote %}
+
+{% tip %}
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=gNtNOtsTH1w) on
+August 6, 2025, at 20:00 GMT / 12:00 PT / 21:00 CEST!
+
+{% endtip %}
+
+Home Assistant 2025.8! 🎉
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [AI in Home Assistant in 2025](#ai-in-home-assistant-in-2025)
+  - [Streaming Text-to-Speech for Home Assistant Cloud](#streaming-text-to-speech-for-home-assistant-cloud)
+  - [Integrate AI into your workflow using AI Task](#integrate-ai-into-your-workflow-using-ai-task)
+  - [Work faster with Suggest with AI buttons](#work-faster-with-suggest-with-ai-buttons)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integration quality scale achievements](#integration-quality-scale-achievements)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [Lorem ipsum](#lorem-ipsum)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+## AI in Home Assistant in 2025
+
+We introduced our first AI integration in Home Assistant 2023.2 in which users could let OpenAI handle their interactions with Home Assistant Voice. Since that time, AI has seen a big surge in popularity within the Home Assistant community for *all kind* of use cases. Funny notifications when the laundry is done, analyzing what’s happening on a camera or skipping the song when AI determines [it’s a country song](https://www.reddit.com/r/homeautomation/comments/1at0re0/out_of_my_42_automations_this_is_my_best_one_by/) 😅
+
+Last year we sat down to determine how all these use cases, all complicated to achieve, could be made accessible to everyone. The first thing that came out of this was [integration sub-entries](/blog/2025/07/02/release-20257/#integration-sub-entries), which we shipped last release. It allows users to configure their Ollama server or API key for OpenAI *once*, and create many different agents using different models or configuration underneath. This release we’re building two things on top of that: AI tasks and Suggest with AI. We’re also introducing a new integration, OpenRouter, which is a unified LLM interface giving access to over 400 extra LLM models.
+
+Big thanks to our AI community contributors: [@AllenPorter], [@shulyaka], [@tronikos], [@IvanLH], and [@JoostLek]!
+
+[@AllenPorter]: https://github.com/AllenPorter
+[@shulyaka]: https://github.com/shulyaka
+[@tronikos]: https://github.com/tronikos
+[@IvanLH]: https://github.com/IvanLH
+[@JoostLek]: https://github.com/JoostLek
+
+### Streaming Text-to-Speech for Home Assistant Cloud
+
+When you use Home Assistant Voice to talk to an AI, you can do a lot more than just control your home. LLMs can summarize the state of your home, and when using LLMs from Google and OpenAI, it can search the web to answer your questions with up to date information. This is great, but also, such answers can become quite long.
+
+When a user waits for Home Assistant Voice to respond, long wait times really hurt the experience. We have overhauled Home Assistant so our Text-to-Speech system can start generating the response audio before the full response is done generating. Last release we launched this for Piper, our local Text-to-Speech system. This release we’re making this available to the voices included in [Home Assistant Cloud](https://www.nabucasa.com) – the premier way of supporting the Home Assistant project.
+
+**TODO**: insert video or benchmark here
+
+This improvement will especially benefit users that use local AI (can be slow in generating responses) or users that play long announcements on their speakers.
+
+### Integrate AI into your workflow using AI Task
+
+AI tasks is a new integration that allows you to generate data using AI. You can attach files, or cameras, and ask it what is happening. The output can either be text, or formatted in a data structure of your choice. This is all accessible from the new `ai_task.generate_data` action, which can be embedded in automations, scripts and template entities.
+
+Below an example of a template entity that updates every 5 minutes and counts the number of chickens in the coop. [Example inspired by this blog post.](https://houndhillhomestead.com/google-gemini-powered-goose-coop-door/)
+
+```yaml
+template:
+  - triggers:
+      - trigger: homeassistant
+        event: start
+      - trigger: time_pattern
+        minutes: "/5"
+    actions:
+      - action: ai_task.generate_data
+        data:
+          task_name: Count chickens
+          instructions: >-
+            This is the inside of my goose coop. How many birds (chickens, geese, and
+            ducks) are inside the coop?
+          structure:
+            birds:
+              selector:
+                number:
+          attachments:
+            media_content_id: media-source://camera/camera.chicken_coop
+            media_content_type: image/jpeg
+        response_variable: result
+    sensor:
+      - name: "Chickens"
+        state: "{{ result.data.birds }}"
+        state_class: total
+```
+
+To help get started with AI task, we’ve prepared a blueprint to analyze camera footage:
+
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/ai-camera-analysis/911634" %}
+
+
+### Work faster with Suggest with AI buttons
+
+The AI task integration has one extra feature under its belt: default entities. You can go to [Settings \-\> System \-\> General](https://my.home-assistant.io/redirect/config_ai_task/) and configure what AI task entity you want to use as the default. With a default set, you no longer have to specify an entity when generating data, making it easier to share blueprints.
+
+<img class="no-shadow" alt="TODO: Replace image" src="/images/blog/2025-08/ask_question.png" />
+
+Setting a default also does more: When a default is configured, and only then, a new type of button will start showing up in different places in Home Assistant: ![Suggest with AI](/images/blog/2025-08/suggest-with-ai.png).
+
+For this release, the button has been added to the save dialog for automations and scripts. It helps users come up with a name, description, category and label taking your existing automations/script into account.
+
+<img class="no-shadow" alt="TODO: Replace image" src="/images/blog/2025-08/temp-save-automation.png" />
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[OpenRouter]**, added by [@joostlek]  
+  Access over 400 different large language models through the OpenRouter API, providing a unified interface for AI integrations in your automations.
+- **[Ubiquiti UISP airOS]**, added by [@CoMPaTech]  
+  Monitor and manage your Ubiquiti airOS devices through the UISP platform, providing network performance metrics and device status information for your wireless infrastructure.
+- **[Uptime Kuma]**, added by [@tr4nt0r]  
+  Monitor the uptime and status of your services and websites with Uptime Kuma, keeping track of your infrastructure health directly in Home Assistant.
+- **[Volvo]**, added by [@thomasddn]  
+  Connect your Volvo vehicle to Home Assistant for remote monitoring of battery status, location, and other vehicle information.
+
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@joostlek]: https://github.com/joostlek
+[@thomasddn]: https://github.com/thomasddn
+[@tr4nt0r]: https://github.com/tr4nt0r
+[OpenRouter]: /integrations/open_router
+[Ubiquiti UISP airOS]: /integrations/airos
+[Uptime Kuma]: /integrations/uptime_kuma
+[Volvo]: /integrations/volvo
+
+This release also has new virtual integrations. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. These ones are new:
+
+- **[Bauknecht]**, provided by [Whirlpool Appliances], added by [@thost96]
+- **[Z-Box Hub]**, provided by [Fibaro], added by [@rappenze]
+
+[@rappenze]: https://github.com/rappenze
+[@thost96]: https://github.com/thost96
+[Bauknecht]: /integrations/bauknecht
+[Fibaro]: /integrations/fibaro
+[Whirlpool Appliances]: /integrations/whirlpool
+[Z-Box Hub]: /integrations/zbox_hub
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing
+integrations are also being constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+- [@frenck] added support for slipsum to [Lorem ipsum]! Nice!
+
+[@frenck]: https://github.com/frenck
+[Lorem ipsum]: /integrations/lorem
+
+Potential candidates, processed up to PR 148012
+
+- Matter TemperatureControl ([@lboue] - [#145706]) ([matter docs])
+- Add sensor last online to PlayStation Network integration ([@tr4nt0r] - [#147796]) ([playstation_network docs])
+- Add water_level sensor to Tuya pet fountain cwysj ([@FredrikM97] - [#146602]) ([tuya docs])
+- Add switch to enable/disable boost in IronOS integration ([@tr4nt0r] - [#147831]) ([iron_os docs])
+- Add sensor for online status to PlayStation Network ([@tr4nt0r] - [#147842]) ([playstation_network docs])
+- Allow LevelControl Cluster for Matter Pump devices ([@lboue] - [#145004]) ([matter docs])
+
+### Integration quality scale achievements
+
+One thing we are incredibly proud of in Home Assistant is our
+[integration quality scale]. This scale helps us and our contributors to ensure
+integrations are of high quality, maintainable, and provide the best possible
+user experience.
+
+This release, we celebrate several {% term integrations %} that have improved
+their quality scale:
+
+- **1 integrations reached platinum** 🏆
+  - [Lorem], thanks to [@frenck]
+  
+- **1 integration reached gold** 🥇
+  - [Lorem], thanks to [@frenck]
+
+- **1 integration reached silver** 🥈
+  - [Lorem], thanks to [@frenck]
+
+- **1 integrations reached bronze** 🥉
+  - [Lorem], thanks to [@frenck]
+
+This is a huge achievement for these integrations and their maintainers. The
+effort and dedication required to reach these quality levels is significant,
+as it involves extensive testing, documentation, error handling, and often
+complete rewrites of parts of the integration.
+
+A big thank you to all the contributors involved! 👏
+
+[integration quality scale]: https://www.home-assistant.io/docs/quality_scale/
+[@frenck]: https://github.com/frenck
+[Lorem]: /integrations/lorem
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
+more integrations to the UI, making them more accessible for everyone
+to set up and use.
+
+The following integration is now available via the Home Assistant UI:
+
+- **[Datadog]**, done by [@avedor]
+
+[@avedor]: https://github.com/avedor
+[Datadog]: /integrations/datadog
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other noteworthy changes:
+
+- [@frenck] added support for slipsum to [Lorem ipsum]! Nice!
+  
+[@frenck]: https://github.com/frenck
+[Lorem ipsum]: /integrations/lorem
+
+Possible candidates:
+
+- Add support for opening state in template lock ([@nadimz] - [#147813]) ([template docs])
+- Allow trigger based numeric sensors to be set to unknown ([@Petro31] - [#137047]) ([template docs])
+
+## Lorem ipsum
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be,
+and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues)
+to get it fixed! Or check [our help page](/help) for guidance on more
+places you can go.
+
+Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter)
+to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might unexpectedly impact your Home Assistant installation. Unfortunately, sometimes, it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Android Debug Bridge (ADB)" %}
+
+Android Debug Bridge media players entities now report to be off where they previously reported to be in standby state.
+
+If you have automations or scripts that rely on the Android Debug Bridge media player reporting standby state, you will need to update them to use the new `off` state.
+
+([@emontnemery] - [#148130]) ([documentation](/integrations/androidtv))
+
+[@emontnemery]: https://github.com/emontnemery
+[#148130]: https://github.com/home-assistant/core/pull/148130
+
+{% enddetails %}
+
+{% details "Apple TV" %}
+
+Apple TV media players entities now report to be off where they previously reported to be in standby state.
+
+If you have automations or scripts that rely on the Apple TV media player reporting standby state, you will need to update them to use the new `off` state.
+
+([@emontnemery] - [#148132]) ([documentation](/integrations/apple_tv))
+
+[@emontnemery]: https://github.com/emontnemery
+[#148132]: https://github.com/home-assistant/core/pull/148132
+
+{% enddetails %}
+
+{% details "Cambridge Audio" %}
+
+Cambridge Audio media players entities now report to be off where they previously reported to be in standby state.
+
+If you have automations or scripts that rely on the Cambridge Audio media player reporting standby state, you will need to update them to use the new `off` state.
+
+([@emontnemery] - [#148133]) ([documentation](/integrations/cambridge_audio))
+
+[@emontnemery]: https://github.com/emontnemery
+[#148133]: https://github.com/home-assistant/core/pull/148133
+
+{% enddetails %}
+
+{% details "Ecovacs" %}
+
+The battery properties of the legacy vacuum entity are removed and migrated into separate Battery and Charging entities.
+
+([@mib1185] - [#149084]) ([documentation](/integrations/ecovacs))
+
+[@mib1185]: https://github.com/mib1185
+[#149084]: https://github.com/home-assistant/core/pull/149084
+
+{% enddetails %}
+
+{% details "Husqvarna Automower" %}
+
+The summary field of calendar events provided by the Husqvarna Automower calendar platform has been updated to include the device name as a prefix. This change improves clarity when multiple mowers are used, but may affect automations relying on the previous summary format.
+
+([@Thomas55555] - [#147405]) ([documentation](/integrations/husqvarna_automower))
+
+[@Thomas55555]: https://github.com/Thomas55555
+[#147405]: https://github.com/home-assistant/core/pull/147405
+
+{% enddetails %}
+
+{% details "LOOKin" %}
+
+LOOKin media players entities now report to be off where they previously reported to be in standby state.
+
+If you have automations or scripts that rely on the LOOKin media player reporting standby state, you will need to update them to use the new `off` state.
+
+([@emontnemery] - [#148134]) ([documentation](/integrations/lookin))
+
+[@emontnemery]: https://github.com/emontnemery
+[#148134]: https://github.com/home-assistant/core/pull/148134
+
+{% enddetails %}
+
+{% details "Mediaroom" %}
+
+Mediaroom media players entities now report to be off where they previously reported to be in standby state.
+
+If you have automations or scripts that rely on the Mediaroom media player reporting standby state, you will need to update them to use the new `off` state.
+
+([@emontnemery] - [#148135]) ([documentation](/integrations/mediaroom))
+
+[@emontnemery]: https://github.com/emontnemery
+[#148135]: https://github.com/home-assistant/core/pull/148135
+
+{% enddetails %}
+
+{% details "Miele" %}
+
+The battery property on vacuum entities is being removed in Home Assistant. Therefore, this property is now removed from this integration and is replaced by a battery level sensor.
+
+Please review your automations, scripts or cards using the battery property and update the code to use the battery sensor instead.
+
+([@astrandb] - [#148765]) ([documentation](/integrations/miele))
+
+[@astrandb]: https://github.com/astrandb
+[#148765]: https://github.com/home-assistant/core/pull/148765
+
+{% enddetails %}
+
+{% details "Reolink" %}
+
+The Reolink Wi-Fi signal strength sensor has changed from a indicator value between 0 and 4 (amount of bars) to a value in dBm between -85 dBm and -30 dBm.
+
+Note that all values in this range are possible, but roughly the old values can be converted like this:
+
+- 0 > -85 dBm
+- 1 > -75 dBm
+- 2 > -65 dBm
+- 3 > -55 dBm
+- 4 > -45 dBm
+
+([@starkillerOG] - [#149191]) ([documentation](/integrations/reolink))
+
+[@starkillerOG]: https://github.com/starkillerOG
+[#149191]: https://github.com/home-assistant/core/pull/149191
+
+{% enddetails %}
+
+{% details "Roku" %}
+
+Roku media players entities now report to be off where they previously reported to be in standby state.
+
+If you have automations or scripts that rely on the Roku media player reporting standby state, you will need to update them to use the new `off` state.
+
+([@emontnemery] - [#148137]) ([documentation](/integrations/roku))
+
+[@emontnemery]: https://github.com/emontnemery
+[#148137]: https://github.com/home-assistant/core/pull/148137
+
+{% enddetails %}
+
+{% details "Snapcast" %}
+
+Snapcast media players entities now report to be off where they previously reported to be in standby state.
+
+If you have automations or scripts that rely on the Snapcast media player reporting standby state, you will need to update them to use the new `off` state.
+
+([@emontnemery] - [#148138]) ([documentation](/integrations/snapcast))
+
+[@emontnemery]: https://github.com/emontnemery
+[#148138]: https://github.com/home-assistant/core/pull/148138
+
+{% enddetails %}
+
+{% details "Sony PlayStation 4" %}
+
+Sony PlayStation 4 media players entities now report to be off where they previously reported to be in standby state.
+
+If you have automations or scripts that rely on the Sony PlayStation 4 media player reporting standby state, you will need to update them to use the new `off` state.
+
+([@emontnemery] - [#148136]) ([documentation](/integrations/ps4))
+
+[@emontnemery]: https://github.com/emontnemery
+[#148136]: https://github.com/home-assistant/core/pull/148136
+
+{% enddetails %}
+
+{% details "Templates" %}
+
+Returning `None` from a template binary sensor's state template is now interpreted as `unknown` state instead of as `off` state.
+
+If this behavior is not desired, you need to adjust your templates to return `False` explicitly.
+
+([@epenet] - [#128861]) ([documentation](/integrations/template))
+
+[@epenet]: https://github.com/epenet
+[#128861]: https://github.com/home-assistant/core/pull/128861
+
+{% enddetails %}
+
+{% details "UniFi Protect" %}
+
+Support for UniFi Protect installations running on versions below 6.0.0 has been removed.
+
+This change is necessary as we are migrating the Home Assistant integration to use the new UniFi Protect Public API, which is only available in current versions.
+
+If you are running an older version of UniFi Protect, you will need to upgrade to at least version 6.0.0 in order to continue using this integration.
+
+You can read more about the 6.0 release in Ubiquiti’s official blog post:
+🔗 [Introducing Protect 6.0](https://blog.ui.com/article/introducing-protect-6-0)
+
+Note on future updates:
+The Public API is still under active development and may change over time. As we continue to migrate more features of the integration to use the Public API, it is likely that the minimum required version of UniFi Protect will increase further in upcoming Home Assistant releases. We will make these changes step by step as the API evolves and new capabilities become available.
+
+**What do I need to do?**
+
+Upgrade your UniFi Protect installation to version 6.0.0 or later.
+
+Be prepared for possible further minimum version increases in the future.
+
+If you are already using version 6.0.0 or newer, and the user in use has sufficient permissions, the integration will attempt to automatically create a new API key. If this succeeds, no further action is required. If it fails, a reauthentication will be triggered, requiring you to re-enter your password and provide your API key manually.
+
+([@RaHehl] - [#149126]) ([documentation](/integrations/unifiprotect))
+
+[@RaHehl]: https://github.com/RaHehl
+[#149126]: https://github.com/home-assistant/core/pull/149126
+
+{% enddetails %}
+
+{% details "Whirlpool Appliances" %}
+
+The door state for washer/dryer machines is now reported as a binary sensor instead of being part of the main machine state sensor, which now reports only the cycle states. Users relying on this state in automations or scripts will need to update their configurations to use the new binary sensor.
+
+- Remove door state from Whirlpool machine state sensor ([@abmantis] - [#144078]) ([whirlpool docs]) (breaking-change)
+
+([@abmantis] - [#144078]) ([documentation](/integrations/whirlpool))
+
+[@abmantis]: https://github.com/abmantis
+[#144078]: https://github.com/home-assistant/core/pull/144078
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+With this release, you will need to update your zwave-js-server instance. You must use zwave-js-server 3.2.1 or greater (schema 44).
+
+- If you use the Z-Wave JS add-on, you need at least version 0.20.0.
+TODO: Update breaking change note
+~~- If you use the Z-Wave JS UI add-on, you need at least version [3.17.0](https://github.com/hassio-addons/addon-zwave-js-ui/releases/tag/v3.17.0).~~
+- If you use the Z-Wave JS UI Docker container, you need at least version [10.11.0](https://github.com/zwave-js/zwave-js-ui/releases/tag/v10.11.0).
+- If you run your own Docker container or some other installation method, you will need to update your zwave-js-server instance to at least 3.2.1.
+
+([@MartinHjelmare] - [#149616]) ([documentation](/integrations/zwave_js))
+
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[#149616]: https://github.com/home-assistant/core/pull/149616
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following changes are the most notable for this
+release:
+
+- [Handling open file limit in add-ons since OS 16](https://developers.home-assistant.io/blog/2025/07/14/home-assistant-os-16-open-file-limit/)
+- [The media player STANDBY state is deprecated](https://developers.home-assistant.io/blog/2025/07/16/media-player-standby-state-deprecated)
+- [Updated guidelines for helper integrations linking to other integration's device](https://developers.home-assistant.io/blog/2025/07/18/updated-pattern-for-helpers-linking-to-devices)
+- [Vacuum battery properties are deprecated](https://developers.home-assistant.io/blog/2025/07/02/vacuum-battery-properties-deprecated/)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2025.8](/changelogs/core-2025.8)
