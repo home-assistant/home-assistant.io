@@ -32,7 +32,7 @@ type:
   type: string
 image:
   required: true
-  description: "The URL of an image. When you want to store images in your Home Assistant installation use the [hosting files documentation](/integrations/http/#hosting-files). After storing your files, use the `/local` path, for example, `/local/filename.jpg`." To use an image from an existing [media](/integrations/media_source/) directory, provide the full media-source identifier (see examples). 
+  description: "The URL of an image. When you want to store images in your Home Assistant installation use the [hosting files documentation](/integrations/http/#hosting-files). After storing your files, use the `/local` path, for example, `/local/filename.jpg`. To use an image from an existing [media](/integrations/media_source/) directory, provide the full media-source identifier (see examples)."
   type: string
 image_entity:
   required: false
