@@ -1010,7 +1010,7 @@ You can switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on
 
 You can switch from the official **Z-Wave JS** add-on to the community **Z-Wave JS UI** add-on. However, you cannot run them both at the same time. Only one of the add-ons can be active at the same time.
 
-Both add-ons communicate with Home Assistant via the same **Z-Wave** {% term integration %}.  So your devices and entities will remain unchanged if you follow these steps:
+Both add-ons communicate with Home Assistant via the same **Z-Wave** {% term integration %}.
 
 1. Note your network security keys from the official add-on.
    - In your browser, open {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.  
