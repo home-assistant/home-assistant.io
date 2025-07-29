@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: eol_tracker
 ha_config_flow: true
 ha_integration_type: integration
+ha_release: "2025.7"
 ---
 
 The **EOL Tracker** {% term integration %} allows you to track whether a device or software is nearing or past its end-of-life (EOL). This helps users stay proactive with software and hardware support lifecycles, especially for security- or compliance-sensitive setups.
