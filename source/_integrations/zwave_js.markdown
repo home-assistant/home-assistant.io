@@ -1008,32 +1008,48 @@ You can switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on
 
 ### How to switch from Z-Wave JS to the Z-Wave JS UI add-on?
 
-You can switch from the official **Z-Wave JS** add-on to the **Z-Wave JS UI** add-on. However, you cannot run them both at the same time. Only one of the add-ons can be active at the same time.
+You can switch from the official **Z-Wave JS** add-on to the community **Z-Wave JS UI** add-on. However, you cannot run them both at the same time. Only one of the add-ons can be active at the same time.
 
-Switching does not require renaming your devices.
+Both add-ons communicate with Home Assistant via the same **Z-Wave** {% term integration %}.
 
 1. Note your network security keys from the official add-on.
+   - In your browser, open {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.  
+   - From the three dots {% icon "mdi:dots-vertical" %} menu, select **Edit in YAML**.
+   - You should see about 12 lines of YAML, including items like `device: xxx` and `s2_access_control_key: xxx`.  Select all and copy them somewhere safe.  You will need them later.
 
-2. Install and start the **Z-Wave JS UI** add-on.
+2. Install and start the community **Z-Wave JS UI** add-on.
+   - In your browser, open {% my supervisor_store title="**Settings** > **Add-ons** > **Add-on Store**" %}.
+   - Select **Install**, then **Start**.
    - It may take a while for the add-on to start up.
 
-3. Open the **Documentation** tab and copy the URL listed in the section **Setting up the Home Assistant Z-Wave JS integration**. You will need it later.
-4. Start reconfiguring the adapter.
-   - In your browser, open Home Assistant in a new tab.
-   - Select the **Z-Wave** integration and select the three-dot {% icon "mdi:dots-vertical" %} menu.
+3. Note the WebSocket URL that the integration will use to communicate with Z-Wave JS.
+    - Within the same **Z-Wave JS UI** add-on from step 2, open the **Documentation** tab.
+    - Search (Ctrl-F) for a link that begins with "ws://".  For example, `ws://a0d7b954-zwavejs2mqtt:3000`.
+    - Copy that URL somewhere safe.  You will need it later.
+
+4. Start reconfiguring the integration.
+   - Open a new browser tab.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Z-Wave** integration.  
+   - Select the three-dot {% icon "mdi:dots-vertical" %} menu next to the **Z-Wave JS** top row.
    - From the menu, select **Reconfigure**, then **Reconfigure current adapter**.
-   - Uncheck the **Use the Z-Wave JS Supervisor add-on**.
-   - Keep that tab open.
-5. Switch to the other tab to configure the **Z-Wave JS UI** add-on with the added control panel, including setting the location of your Z-Wave device and the network security keys.
-   - Open the **Z-Wave JS UI** web UI and go to **Settings** > **UI** > **Z-Wave**.
-   - Enter the security keys and region.
+   - Uncheck **Use the Z-Wave JS Supervisor add-on**.
+   - Keep this tab open.
+
+5. Configure the new add-on using the information saved in step 1.
+   - Switch back to your initial browser tab.
+   - Within the **Z-Wave JS UI** add-on, switch back to the **Info tab** and select **Open Web UI**.
+   - Open the **Settings** {% icon "mdi:cog" %} page and expand the **Z-Wave** section.
+   - Fill out the subsections for **Serial Port**, **Security Keys**, and **RF Region**.
    - Save your changes.
 
-6. Switch back to the tab where you started the reconfiguration of the integration.
-   - Under **WebSocket URL**, enter the URL you copied before.
+6. Finish reconfiguring the integration.
+   - Switch back to the tab from step 4.
+   - Under **WebSocket URL**, enter the URL you saved in step 3.
 
-7. Uninstall the official **Z-Wave JS** add-on.
-   - You are asked if you want to delete the related data. Keep it if you think you might switch back to the **Z-Wave JS** add-on later.
+7. Uninstall the official add-on.
+   - Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %} and select **Uninstall**.
+   - You are asked if you want to delete the related data. 
+   - Keep it if you think you might switch back to the **Z-Wave JS** add-on later.
 
 ### How to migrate from one adapter to a new adapter using Z-Wave JS UI?
 
