@@ -1047,8 +1047,7 @@ Both add-ons communicate with Home Assistant via the same **Z-Wave** {% term int
    - Under **WebSocket URL**, enter the URL you saved in step 3.
 
 7. Uninstall the official add-on.
-   - Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.
-   - Select **Uninstall**.
+   - Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %} and select **Uninstall**.
    - You are asked if you want to delete the related data. 
    - Keep it if you think you might switch back to the **Z-Wave JS** add-on later.
 
