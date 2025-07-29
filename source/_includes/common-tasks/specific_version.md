@@ -12,7 +12,7 @@ In the event that a Home Assistant Core version doesn't play well with your hard
 
 {% if page.installation == "os"%}
 
-To upgrade to a specific version, you can use the CLI. The example below shows how to upgrade to `{{current_version}}`.
+To upgrade to a specific version, you can use the command line (CLI). The example below shows how to upgrade to `{{current_version}}`. To learn how to get started with the command line in Home Assistant, refer to the [SSH add-on setup instructions](/common-tasks/os/#installing-and-using-the-ssh-add-on).
 
 ```bash
 ha core update --version {{current_version}} --backup

@@ -40,7 +40,7 @@ ha_platforms:
   - switch
   - valve
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 [Homee](https://hom.ee) is a smart home system, able to integrate various protocols such as Z-Wave, Zigbee, EnOcean, and more. The Homee {% term integration %} will let you use the {% term devices %} from your Homee in Home Assistant.
@@ -100,7 +100,7 @@ This integration supports reconfiguration, allowing you to change the IP address
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the homee integration card.
 2. From the list of hubs, select the one you want to reconfigure.
-3. Next to the entry, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Reconfigure**.
+3. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Reconfigure**.
 
 ## Removing the integration
 

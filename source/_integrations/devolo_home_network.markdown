@@ -101,6 +101,7 @@ Currently, the following entities within Home Assistant are supported.
 
 The list of supported devolo devices depends on the device firmware and the device features. The following devices were tested running firmware 5.6.0:
 
+- Magic 2 WiFi 6 next
 - Magic 2 WiFi 6
 - Magic 2 WiFi next
 - Magic 2 WiFi 2-1

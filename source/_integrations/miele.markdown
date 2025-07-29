@@ -196,7 +196,15 @@ The action can be set up by UI in Automations editor. It can also be executed in
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
 | `device_id`    | no       |  Select device in GUI mode, then switch to YAML mode to see the device_id.                                        |
-| `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to fetch a diagnostic download while running the actual program. Use the value from the key  `state.programId.value_raw`.|
+| `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to use the `get_programs` action from developer tools. It can also be found by fetching a diagnostic download while running the actual program. Use the value from the key  `state.programId.value_raw`.|
+
+### Action `miele.get_programs`
+
+Get the list of available programs and associated parameters for applicable appliances. The API will return an empty list if the device doesn't support programs (for example, freezers). Same requirements on device state as described for `set_program` action above.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `device_id`    | no       |  Select the device in GUI mode, then switch to YAML mode to see the device_id.                                        |
 
 ## Automation examples
 

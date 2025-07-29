@@ -20,15 +20,17 @@ Stateless devices such as buttons, remote controls etc are better represented by
 
 The `mqtt` binary sensor platform optionally supports a list of  `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT sensor device goes offline (i.e., publishes `payload_not_available` to an `availability` topic), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability` topic is defined, Home Assistant will consider the MQTT device to be `available` and will display its state.
 
-To use an MQTT binary sensor in your installation,
-add the following to your {% term "`configuration.yaml`" %} file:
+To use an MQTT binary sensor in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
   - binary_sensor:
-      state_topic: "home-assistant/window/contact"
+      state_topic: "basement/window/contact"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -245,10 +247,10 @@ The example below shows a full configuration for a binary sensor:
 mqtt:
   - binary_sensor:
       name: "Window Contact Sensor"
-      state_topic: "home-assistant/window/contact"
+      state_topic: "bedroom/window/contact"
       payload_on: "ON"
       availability:
-        - topic: "home-assistant/window/availability"
+        - topic: "bedroom/window/availability"
           payload_available: "online"
           payload_not_available: "offline"
       qos: 0

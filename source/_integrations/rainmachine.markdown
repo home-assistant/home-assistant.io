@@ -104,7 +104,7 @@ See details of RainMachine API here:
 | `minrh`                | no       | Min Relative Humidity (%RH)                                                                                           |
 | `maxrh`                | no       | Max Relative Humidity (%RH)                                                                                           |
 | `condition`            | no       | Current weather condition code (WNUM). See [here][wnum reference] for options.                                        |
-| `pressure`             | no       | Barametric Pressure (kPa)                                                                                             |
+| `pressure`             | no       | Barometric Pressure (kPa)                                                                                             |
 | `dewpoint`             | no       | Dew Point (°C)                                                                                                        |
 
 ### `rainmachine.restrict_watering`

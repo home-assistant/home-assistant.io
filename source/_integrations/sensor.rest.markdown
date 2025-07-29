@@ -64,6 +64,11 @@ device_class:
   description: Sets the [class of the device](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+encoding:
+  description: The character encoding to use if none provided in the header of the shared data.
+  required: false
+  type: string
+  default: UTF-8
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   required: false

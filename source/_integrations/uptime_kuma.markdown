@@ -51,6 +51,10 @@ You can create an API key by logging into your Uptime Kuma instance, navigating 
 - **Monitored port**: The port number used by the monitored service (if applicable).
 - **Monitored URL**: The full URL of the monitored service (if applicable).
 
+## Update
+
+- **Uptime Kuma version**: The update entity indicates if Uptime Kuma is up-to-date or if there is a newer Uptime Kuma version available. For more information on how to update your Uptime Kuma instance, please refer to the [documentation](https://github.com/louislam/uptime-kuma/wiki/%F0%9F%86%99-How-to-Update). If you are using the Uptime Kuma community add-on, you will receive an update notification in Home Assistant as soon as the add-on is updated.
+
 ## Automations
 
 Get started with this automation example to create an Uptime Kuma warning light that changes color based on the monitor's status.
