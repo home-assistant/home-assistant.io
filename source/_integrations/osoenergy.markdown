@@ -175,7 +175,7 @@ You can use the service `osoenergy.turn_away_mode_on` to enable Away Mode for a 
 | Service data attribute | Optional | Description                                        |
 | ---------------------- | -------- | -------------------------------------------------- |
 | `entity_id`            | no       | String, name of entity. For example: `water_heater.heater` |
-| `duration_days`        | yes      | Number of days to keep Away Mode active (1-365). Default: `365` |
+| `duration_days`        | no       | Number of days to keep Away Mode active (1-365).   |
 
 Example:
 
