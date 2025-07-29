@@ -140,7 +140,9 @@ The integration will create a device tracker entity to show the position of the 
 - Send a notification when the mower is lifted or stuck.
 - Show last error location on a map
 
-ℹ️ **Info:** The entity will only be created when a new message is received. If a mower hasn’t reported any errors yet, the entity won't show up.
+{% note %}
+The entity will only be created when a new message is received. If a mower hasn’t reported any errors yet, the entity won't show up.
+{% endnote %}
 
 ### Lawn mower
 
