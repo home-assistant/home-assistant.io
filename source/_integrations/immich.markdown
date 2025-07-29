@@ -74,11 +74,19 @@ An {% term update %} entity is created to inform about a new available Immich se
 
 This action allows you to upload a media file to your Immich instance. It takes the following arguments:
 
-| Argument Name | Argument key | Required | Description |
-| --- | --- | --- | --- |
-| Immich instance | `config_entry_id` | yes | The Immich instance where to upload the file. |
-| File | `file` | yes | Use the [MediaSelector](/docs/blueprint/selectors/#media-selector) to define the file to be uploaded. |
-| Album ID | `album_id` | no | The album in which the file should be placed after uploading.<br>_To get the album ID, open the Immich instance web UI in a browser and navigate to the corresponding album, the album ID can now be found in the URL `https://your-immich-instance/albums/<ALBUM-ID>`_ |
+{% configuration_basic %}
+Immich instance:
+  description: The config entry of the Immich instance where to upload the file.
+File:
+  description: Use the [MediaSelector](/docs/blueprint/selectors/#media-selector) to define the file to be uploaded.
+  keys:
+    media_content_id:
+      description: The [media source](/integrations/media_source) url.
+    media_content_type:
+      description: The mime type of the file to be uploaded.
+Album ID:
+  description: The album in which the file should be placed after uploading. To get the album ID, open the Immich instance web UI in a browser and navigate to the corresponding album, the album ID can now be found in the URL `https://your-immich-instance/albums/<ALBUM-ID>`
+{% endconfiguration_basic %}
 
 #### Example script
 
