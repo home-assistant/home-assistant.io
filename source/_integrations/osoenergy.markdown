@@ -168,6 +168,29 @@ script:
           v40_min: 240
 ```
 
+### Service `osoenergy.turn_away_mode_on`
+
+You can use the service `osoenergy.turn_away_mode_on` to enable Away Mode for a water heater for a period of time in the range from 1 to 365 days.
+
+| Service data attribute | Optional | Description                                        |
+| ---------------------- | -------- | -------------------------------------------------- |
+| `entity_id`            | no       | String, name of entity. For example: `water_heater.heater` |
+| `duration_days`        | no       | Number of days to keep Away Mode active (1-365).   |
+
+Example:
+
+```yaml
+# Example script to enable Away Mode for a water heater.
+script:
+  turn_away_mode_on:
+    sequence:
+      - service: osoenergy.turn_away_mode_on
+        target:
+          entity_id: water_heater.heater
+        data:
+          duration_days: 7
+```
+
 ### Service `osoenergy.turn_off`
 
 You can use the service `osoenergy.turn_off` to turn off the heating on your device for one hour or until the minimum temperature is reached.
