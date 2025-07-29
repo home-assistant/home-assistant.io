@@ -122,8 +122,7 @@ The integration will create a device tracker entity to show the position of the 
 
 ### Event (if available)
 
-- Reports mower issues in real-time.
-- Triggers an event using the error `code` as `event_type`.
+- Shows the last error as event.
 - Includes additional context: `severity`, `latitude`, `longitude`, and `date_time`.
 
 #### Example Attributes
@@ -140,9 +139,8 @@ The integration will create a device tracker entity to show the position of the 
 
 - Send a notification when the mower is lifted or stuck.
 - Show last error location on a map
-- Log mower issues with location and timestamp.
 
-> Note: The entity only triggers when a new message is received. If a mower hasn’t reported any errors yet, the entity will remain inactive.
+ℹ️ **Info:** The entity will only be created when a new message is received. If a mower hasn’t reported any errors yet, the entity won't show up.
 
 ### Lawn mower
 
