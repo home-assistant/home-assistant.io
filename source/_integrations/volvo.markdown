@@ -1,7 +1,7 @@
 ---
 title: Volvo
 description: Instructions on setting up Volvo within Home Assistant.
-ha_release: 2025.6
+ha_release: 2025.8
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@thomasddn'
