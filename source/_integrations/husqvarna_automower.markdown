@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Calendar
   - Device tracker
+  - Event
   - Lawn Mower
   - Number
   - Select
@@ -22,6 +23,7 @@ ha_platforms:
   - calendar
   - device_tracker
   - diagnostics
+  - event
   - lawn_mower
   - number
   - select
@@ -118,6 +120,30 @@ The integration will create a calendar entity for all mowers. The calendar shows
 
 The integration will create a device tracker entity to show the position of the mower.
 
+### Event (if available)
+
+- Reports mower issues in real-time.
+- Triggers an event using the error `code` as `event_type`.
+- Includes additional context: `severity`, `latitude`, `longitude`, and `date_time`.
+
+#### Example Attributes
+
+| Attribute     | Description                            |
+|---------------|----------------------------------------|
+| `event_type`  | Error code (e.g., `tilt_error`)        |
+| `severity`    | Error severity (e.g., `error`, `warning`) |
+| `latitude`    | Latitude where the error occurred      |
+| `longitude`   | Longitude where the error occurred     |
+| `date_time`   | Timestamp of the error                 |
+
+#### Use Cases
+
+- Send a notification when the mower is lifted or stuck.
+- Show last error location on a map
+- Log mower issues with location and timestamp.
+
+> Note: The entity only triggers when a new message is received. If a mower hasn’t reported any errors yet, the entity will remain inactive.
+
 ### Lawn mower
 
 The integration will create a lawn mower entity to control the mower. This entity can:
@@ -150,7 +176,6 @@ The integration will create the following sensors:
 - Error. For example: *Mower tilted*, *outside geofence*.
 - Downtime (if available)
 - Restricted reason. For example: *Week schedule*, *frost*, or *daily limit*.
-- Last error (if available). Values can be the same as the ones from the error sensor.
 - Mode
 - Next start
 - Number of charging cycles
