@@ -125,17 +125,17 @@ The integration will create a device tracker entity to show the position of the 
 - Shows the last error as event.
 - Includes additional context: `severity`, `latitude`, `longitude`, and `date_time`.
 
-#### Example Attributes
+#### Example attributes
 
 | Attribute     | Description                            |
 |---------------|----------------------------------------|
-| `event_type`  | Error code (e.g., `tilt_error`)        |
-| `severity`    | Error severity (e.g., `error`, `warning`) |
+| `event_type`  | Error code (for example, `tilt_error`)        |
+| `severity`    | Error severity (for example, `error`, `warning`) |
 | `latitude`    | Latitude where the error occurred      |
 | `longitude`   | Longitude where the error occurred     |
 | `date_time`   | Timestamp of the error                 |
 
-#### Use Cases
+#### Use cases
 
 - Send a notification when the mower is lifted or stuck.
 - Show last error location on a map
