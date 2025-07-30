@@ -107,19 +107,19 @@ Big thanks to our AI community contributors: [@AllenPorter], [@shulyaka], [@tron
 
 ### Streaming Text-to-Speech for Home Assistant Cloud
 
-When you use Home Assistant Voice to talk to an AI, you can do a lot more than just control your home. LLMs can summarize the state of your home, and when using LLMs from Google and OpenAI, it can search the web to answer your questions with up to date information. This is great, but also, such answers can become quite long.
+When you use Home Assistant Voice to talk to an AI, you can do a lot more than just control your home. LLMs can summarize the state of your home, and when using LLMs from Google and OpenAI, they can search the web to answer your questions with up-to-date information. This is great, but such answers can become quite long.
 
 When a user waits for Home Assistant Voice to respond, long wait times really hurt the experience. We have overhauled Home Assistant so our Text-to-Speech system can start generating the response audio before the full response is done generating. Last release we launched this for Piper, our local Text-to-Speech system. This release we’re making this available to the voices included in [Home Assistant Cloud](https://www.nabucasa.com) – the premier way of supporting the Home Assistant project.
 
 **TODO**: insert video or benchmark here
 
-This improvement will especially benefit users that use local AI (can be slow in generating responses) or users that play long announcements on their speakers.
+This improvement will especially benefit users who use local AI (which can be slow in generating responses) or users who play long announcements on their speakers.
 
 ### Integrate AI into your workflow using AI Task
 
-AI tasks is a new integration that allows you to generate data using AI. You can attach files, or cameras, and ask it what is happening. The output can either be text, or formatted in a data structure of your choice. This is all accessible from the new `ai_task.generate_data` action, which can be embedded in automations, scripts and template entities.
+AI Task is a new integration that allows you to generate data using AI. You can attach files or cameras and ask it what is happening. The output can either be text or formatted in a data structure of your choice. This is all accessible from the new `ai_task.generate_data` action, which can be embedded in automations, scripts, and template entities.
 
-Below an example of a template entity that updates every 5 minutes and counts the number of chickens in the coop. [Example inspired by this blog post.](https://houndhillhomestead.com/google-gemini-powered-goose-coop-door/)
+Below is an example of a template entity that updates every 5 minutes and counts the number of chickens in the coop. [Example inspired by this blog post.](https://houndhillhomestead.com/google-gemini-powered-goose-coop-door/)
 
 ```yaml
 template:
@@ -155,13 +155,13 @@ To help get started with AI task, we’ve prepared a blueprint to analyze camera
 
 ### Work faster with Suggest with AI buttons
 
-The AI task integration has one extra feature under its belt: default entities. You can go to [Settings \-\> System \-\> General](https://my.home-assistant.io/redirect/config_ai_task/) and configure what AI task entity you want to use as the default. With a default set, you no longer have to specify an entity when generating data, making it easier to share blueprints.
+The AI Task integration has one extra feature under its belt: default entities. You can go to {% my general title="**Settings** > **System** > **General**" %} and configure what AI Task entity you want to use as the default. With a default set, you no longer have to specify an entity when generating data, making it easier to share blueprints.
 
 <img class="no-shadow" alt="TODO: Replace image" src="/images/blog/2025-08/ask_question.png" />
 
 Setting a default also does more: When a default is configured, and only then, a new type of button will start showing up in different places in Home Assistant: ![Suggest with AI](/images/blog/2025-08/suggest-with-ai.png).
 
-For this release, the button has been added to the save dialog for automations and scripts. It helps users come up with a name, description, category and label taking your existing automations/script into account.
+For this release, the button has been added to the save dialog for automations and scripts. It helps users come up with a name, description, category, and label taking your existing automations/scripts into account.
 
 <img class="no-shadow" alt="TODO: Replace image" src="/images/blog/2025-08/temp-save-automation.png" />
 
@@ -276,19 +276,19 @@ user experience.
 This release, we celebrate several {% term integrations %} that have improved
 their quality scale:
 
-- **5 integrations reached platinum** 🏆
+- **4 integrations reached platinum** 🏆
   - [AirGradient], thanks to [@joostlek]
   - [Discovergy], thanks to [@jpbede]
   - [EHEIM Digital], thanks to [@autinerd]
   - [Pegel Online], thanks to [@mib1185]
   
-- **5 integrations reached silver** 🥈
+- **4 integrations reached silver** 🥈
   - [Amazon Alexa Devices], thanks to [@chemelli74]
   - [Homee], thanks to [@Taraman17]
   - [Mealie], thanks to [@andrew-codechimp]
   - [Tankerkönig], thanks to [@mib1185]
 
-- **2 integrations reached bronze** 🥉
+- **1 integration reached bronze** 🥉
   - [Onkyo], thanks to [@arturpragacz]
 
 This is a huge achievement for these integrations and their maintainers. The
@@ -335,7 +335,7 @@ The following integration is now available via the Home Assistant UI:
 
 There are many more improvements in this release; here are some of the other noteworthy changes:
 
-[@mib1185] added a new device class for **absolute humidity** with support for both sensor and number {% term entities %}. Nice!
+- [@mib1185] added a new device class for **absolute humidity** with support for both sensor and number {% term entities %}. Nice!
 - Group management was improved by [@piitaya], who added the ability to reorder members within a group, making it easier to organize your device groups exactly how you want them. Thanks!
 - System diagnostics was extended by [@balloob] with the addition of a device analytics dump download feature. Awesome!
 - The [History Stats] {% term integration %} now includes a preview in the options flow, thanks to [@karwosts]. This makes it easier to configure your history statistics.
@@ -367,7 +367,7 @@ So, for this release, [@MindFreeze] improved the entity information dialog to sh
 ### Weekdays in time trigger
 
 The [time trigger](/docs/automation/trigger/#time-trigger) is already very
-useful, but [@hmmbob] had [a feature request] that could imrpove it even more.
+useful, but [@hmmbob] had [a feature request] that could improve it even more.
 
 He suggested to add the ability to specify weekdays in the time trigger,
 allowing users to create automations that only trigger on a specific time
