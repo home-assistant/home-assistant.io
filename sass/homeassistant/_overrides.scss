@@ -1191,7 +1191,7 @@ article.listing {
     text-decoration: underline;
     overflow-wrap: break-word;
 
-    &.external{
+    &[rel*="external"] {
       white-space: nowrap;
     }
 
