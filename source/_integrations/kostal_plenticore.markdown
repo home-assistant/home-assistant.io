@@ -30,14 +30,14 @@ The integration supports installer-level access using a Master key and Service C
 
 Using installer credentials:
 
-- Should only be done if you fully understand the implications 
-- May void your warranty 
-- Could potentially damage your device if settings are incorrectly configured 
-- Should be done with extreme caution 
+- Should only be done if you fully understand the implications
+- May void your warranty
+- Could potentially damage your device if settings are incorrectly configured
+- Should be done with extreme caution
 
-{% endwarning %} 
+{% endwarning %}
 
-To enable installer access, set your Master Key as the password and fill in the Service Code in the configuration when adding the integration. 
+To enable installer access, set your Master Key as the password and fill in the Service Code in the configuration when adding the integration.
 
 For information about obtaining installer credentials, please consult your device documentation or contact a certified installer.
 
@@ -170,6 +170,12 @@ The following sensors are available in the library:
 | Battery Strategy        |      | RW | Battery strategy. |
 | Shadow Management       |      | RW | PV string shadow management. |
 
+If you use installer access to connect, you also have access to the following sensors:
+
+| Name                    | Unit | RW | Description   |
+|-------------------------|------|----|:--------------|
+| Battery Manual Charge   |      | RW | Force the battery to charge. |
+
 {% note %}
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
 {% endnote %}
@@ -187,6 +193,12 @@ The Battery Smart Control sensor appears as a select field labeled "Battery Char
 - **None**: the battery is loaded immediately when there is PV energy spare.
 - **Battery:SmartBatteryControl:Enable**: the battery loading optimizes grid feed-in and battery loading. This setting is recommended when the grid feed-in is limited to, for example, 70% of the Plenticore Plus peak power.
 - **Battery:TimeControl:Enable**: battery charging/discharging can be configured flexibly at different times (tariff periods). Detailed settings must be done on the web frontend of the Kostal Plenticore Plus inverter. This option activates the time-controlled battery usage mode.
+
+#### Battery Manual Charge
+
+The Battery Manual Charge sensor allows you to force charge the battery to 100%, regardless of PV generation or home usage.
+This setting is available when using installer access and should therefore only be used with the same caution as using installer access.
+More on [Installer Access](#installer-access)
 
 ## Number
 

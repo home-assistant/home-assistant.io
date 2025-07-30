@@ -48,11 +48,13 @@ Max history messages:
   description: Maximum number of messages to keep for each conversation (0 = no limit). Limiting this value will cause older messages in a conversation to be dropped.
 Keep alive:
   description: Duration in seconds for the Ollama host to keep the model in memory after receiving a message (-1 = no limit, 0 = no retention). Default value is -1.
+Think before responding:
+  description: If the AI should think about its response before responding. This will cause the AI to take longer to respond, but may result in better responses. Default value is `false`. Thinking is not supported by all models and displaying thinking content is not supported by frontend clients yet.
 {% endconfiguration_basic %}
 
 ## Controlling Home Assistant
 
-If you want to experiment with local LLMs using Home Assistant, we currently recommend using the `llama3.1:8b` model and exposing fewer than 25 entities. Note that smaller models are more likely to make mistakes than larger models.
+If you want to experiment with local LLMs using Home Assistant, we recommend exposing fewer than 25 entities. Note that smaller models are more likely to make mistakes than larger models.
 
 Only models that support [Tools](https://ollama.com/search?c=tools) may control Home Assistant.
 

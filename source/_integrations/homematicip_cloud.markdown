@@ -13,6 +13,7 @@ ha_category:
   - Lock
   - Sensor
   - Switch
+  - Valve
 ha_iot_class: Cloud Push
 ha_release: 0.66
 ha_config_flow: true
@@ -28,6 +29,7 @@ ha_platforms:
   - lock
   - sensor
   - switch
+  - valve
   - weather
 ha_integration_type: integration
 ha_codeowners:
@@ -48,6 +50,7 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 - Sensor
 - Switch
+- Valve
 - Weather
 
 {% include integrations/config_flow.md %}
@@ -206,6 +209,9 @@ Currently, the **HmIP-DLD** can only be used in Home Assistant without a PIN. En
   - Switch Actuator for DIN rail mount – 4x channels (*HMIP-DRSI4*)
   - Switch Actuator for DIN rail mount – 1x channels (*HMIP-DRSI1*)
   - Switch Actuator - 2x channels (*HmIP-BS2*)
+
+- homematicip_cloud.valve
+  - Smart Watering Actuator (*ELV-SH-WSM*)
 
 - homematicip_cloud.weather
   - Weather Sensor – basic (*HmIP-SWO-B*)

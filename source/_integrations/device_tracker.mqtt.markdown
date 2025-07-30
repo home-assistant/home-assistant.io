@@ -16,7 +16,8 @@ The `mqtt` device tracker {% term integration %} allows you to define new device
 
 ## Configuration
 
-To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To use an MQTT device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -28,6 +29,8 @@ mqtt:
       name: "paulus_oneplus"
       state_topic: "location/paulus"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -139,7 +142,7 @@ name:
   required: false
   type: string
 object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   required: false
   type: string
 payload_available:

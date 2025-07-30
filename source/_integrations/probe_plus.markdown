@@ -4,7 +4,7 @@ description: Instructions on how to integrate Probe Plus food temperature probes
 ha_release: 2025.6
 ha_category:
   - Sensor
-ha_iot_class: local_push
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: probe_plus
 ha_platforms:

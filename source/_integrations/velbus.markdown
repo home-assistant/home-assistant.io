@@ -103,7 +103,6 @@ You can use the `velbus.sync_clock` action to synchronize the clock of the Velbu
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `config_entry`         | no       | The config_entry to send the command to. |
 
 ### Action `velbus.scan`
@@ -112,7 +111,6 @@ You can use the `velbus.scan` action to synchronize the modules between the bus 
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `config_entry`         | no       | The config_entry to send the command to. |
 
 
@@ -122,7 +120,6 @@ You can use the `velbus.set_memo_text` action to provide the memo text to be dis
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `config_entry`         | no       | The config_entry to send the command to. |
 | `address`              | no       | The module address in decimal format, which is displayed at the device list at the integration page. |
 | `memo_text`            | yes      | Text to be displayed on module. When no memo text is supplied the memo text will be cleared. |
@@ -148,7 +145,6 @@ Use this action when you make changes to your configuration via velbuslink.
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `config_entry`         | no       | The config_entry to send the command to. |
 | `address`              | no       | The module address in decimal format, which is displayed on the device list on the integration page, if provided the service will only clear the cache for this model, without an address, the full velbuscache will be cleared. |
 

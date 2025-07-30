@@ -32,7 +32,7 @@ Listening modes:
   description: List of listening modes supported by the receiver.
 {% endconfiguration_basic %}
 
-The above settings can also be adjusted later. To change **Host** or **Volume Resolution**, select the three-dot menu on the integration entry and select **Reconfigure**.
+The above settings can also be adjusted later. To change **Host** or **Volume Resolution**, select the three dots {% icon "mdi:dots-vertical" %} menu on the integration entry and select **Reconfigure**.
 
 {% include integrations/option_flow.md %}
 
@@ -106,6 +106,12 @@ script:
 ## Supported devices
 
 Network receivers from Onkyo and Integra are supported starting with models from the year 2011. Pioneer network receivers are supported starting with models from 2016.
+
+## Troubleshooting
+
+### No entities created
+
+Restart your receiver (power cycle).
 
 ## Removing the integration
 

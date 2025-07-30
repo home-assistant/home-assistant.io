@@ -105,7 +105,7 @@ Even though most Overkiz hubs support adding Zigbee, Z-Wave, Hue, and Sonos devi
 
 ### Stateless RTS covers 
 
-RTS covers do not report their state back to the hub, so Home Assistant cannot track their state after they are controlled. If you only control your RTS cover from Home Assistant, you can use the [template cover](/integrations/cover.template/) to create a stateful cover entity. This will help you track the current state (open or closed) and use the cover in automations and scenes.
+RTS covers do not report their state back to the hub, so Home Assistant cannot track their state after they are controlled. If you only control your RTS cover from Home Assistant, you can use the [template cover](/integrations/template/#cover) to create a stateful cover entity. This will help you track the current state (open or closed) and use the cover in automations and scenes.
 
 ```yaml
 cover:
