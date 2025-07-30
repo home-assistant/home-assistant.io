@@ -85,7 +85,7 @@ Enjoy the (beta) release!
   - [Integration quality scale achievements](#integration-quality-scale-achievements)
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
 - [Other noteworthy changes](#other-noteworthy-changes)
-- [Lorem ipsum](#lorem-ipsum)
+  - [Weekdays in time trigger](#weekdays-in-time-trigger)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -96,13 +96,13 @@ We introduced our first AI integration in Home Assistant 2023.2 in which users c
 
 Last year we sat down to determine how all these use cases, all complicated to achieve, could be made accessible to everyone. The first thing that came out of this was [integration sub-entries](/blog/2025/07/02/release-20257/#integration-sub-entries), which we shipped last release. It allows users to configure their Ollama server or API key for OpenAI *once*, and create many different agents using different models or configuration underneath. This release we’re building two things on top of that: AI tasks and Suggest with AI. We’re also introducing a new integration, OpenRouter, which is a unified LLM interface giving access to over 400 extra LLM models.
 
-Big thanks to our AI community contributors: [@AllenPorter], [@shulyaka], [@tronikos], [@IvanLH], and [@JoostLek]!
+Big thanks to our AI community contributors: [@AllenPorter], [@shulyaka], [@tronikos], [@IvanLH], and [@joostlek]!
 
 [@AllenPorter]: https://github.com/AllenPorter
 [@shulyaka]: https://github.com/shulyaka
 [@tronikos]: https://github.com/tronikos
 [@IvanLH]: https://github.com/IvanLH
-[@JoostLek]: https://github.com/JoostLek
+[@joostlek]: https://github.com/joostlek
 
 ### Streaming Text-to-Speech for Home Assistant Cloud
 
@@ -151,7 +151,6 @@ template:
 To help get started with AI task, we’ve prepared a blueprint to analyze camera footage:
 
 {% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/ai-camera-analysis/911634" %}
-
 
 ### Work faster with Suggest with AI buttons
 
@@ -249,6 +248,11 @@ Potential candidates, processed up to PR 149626
 - Add notify platform to PlayStation Network integration ([@tr4nt0r] - [#149557]) ([playstation_network docs]) (new-platform)
 - Add YoLink YS6614 support. ([@matrixd2] - [#149153]) ([yolink docs])
 - Add OSO Energy Custom Away Mode Service ([@osohotwateriot] - [#149612]) ([osoenergy docs])
+- Allow picture card to serve media images (#26291) @karwosts
+- Add download device info button (#26278) @balloob
+- Improve ZHA routes vizualization (#26270) @MindFreeze
+- Add handle to axis pointer in charts on mobile (#26088) @MindFreeze
+- Add features to light & cover groups more-info (#26187) @MindFreeze
 
 ### Integration quality scale achievements
 
@@ -319,35 +323,41 @@ The following integration is now available via the Home Assistant UI:
 
 There are many more improvements in this release; here are some of the other noteworthy changes:
 
-- [@frenck] added support for slipsum to [Lorem ipsum]! Nice!
-  
-[@frenck]: https://github.com/frenck
-[Lorem ipsum]: /integrations/lorem
+[@mib1185] added a new device class for **absolute humidity** with support for both sensor and number {% term entities %}. Nice!
+- Group management was improved by [@piitaya], who added the ability to reorder members within a group, making it easier to organize your device groups exactly how you want them. Thanks!
+- System diagnostics was extended by [@balloob] with the addition of a device analytics dump download feature. Awesome!
+- The [History Stats] {% term integration %} now includes a preview in the options flow, thanks to [@karwosts]. This makes it easier to configure your history statistics.
+- The [Template] {% term integration %} received a massive update from [@Petro31]! Here's what's new:
+  - Trigger-based numeric sensors can now be set to unknown state
+  - Availability templates are now supported in the template helper config flow
+  - Preview functionality has been added to the config flow for alarm control panel, image, and select platforms
+  - Template locks now support the opening state
+  - Optimistic options have been added to YAML configuration for multiple platforms: switches, vacuums, fans, lights, locks, and alarm control panels
 
-Possible candidates:
+[@balloob]: https://github.com/balloob
+[@karwosts]: https://github.com/karwosts
+[@Petro31]: https://github.com/Petro31
+[@piitaya]: https://github.com/piitaya
+[History Stats]: /integrations/history_stats
+[Template]: /integrations/template
 
-- Add support for opening state in template lock ([@nadimz] - [#147813]) ([template docs])
-- Allow trigger based numeric sensors to be set to unknown ([@Petro31] - [#137047]) ([template docs])
-- Set assist_satellite preannounce default to True ([@abmantis] - [#148060]) ([assist_satellite docs])
-- Add AI task structured output ([@allenporter] - [#148083]) ([ai_task docs])
-- Add weekdays to time trigger ([@frenck] - [#147505]) ([homeassistant docs])
-- Add a preview to history_stats options flow ([@karwosts] - [#145721]) ([history_stats docs])
-- Support all Energy units in Energy integration ([@karwosts] - [#148566]) ([energy docs])
-- Add new device class for absolute humidity ([@mib1185] - [#148567]) ([sensor docs]) ([number docs]) (noteworthy)
-- Add a preview to template config flow for alarm control panel, image, and select platforms ([@Petro31] - [#148441]) 
-- Add availability template to template helper config flow ([@Petro31] - [#147623]) ([template docs])
-- Allow downloading a device analytics dump ([@balloob] - [#149376]) ([analytics docs])
-- Allow to reorder members within a group ([@piitaya] - [#149003]) ([group docs])
-- Add assumed optimistic functionality to lock platform ([@Petro31] - [#149397]) ([template docs])
-- Add optimistic option to switch yaml ([@Petro31] - [#149402]) ([template docs])
-- Add optimism to vacuum platform ([@Petro31] - [#149425]) ([template docs])
-- Add optimistic option to fan yaml ([@Petro31] - [#149390]) ([template docs])
-- Add optimistic option to light yaml ([@Petro31] - [#149395]) ([template docs])
-- Add optimistic option to alarm control panel yaml ([@Petro31] - [#149334]) ([template docs])
+### Weekdays in time trigger
 
-## Lorem ipsum
+The [time trigger](/docs/automation/trigger/#time-trigger) is already very
+useful, but [@hmmbob] had [a feature request] that could imrpove it even more.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+He suggested to add the ability to specify weekdays in the time trigger,
+allowing users to create automations that only trigger on a specific time
+on specific days of the week.
+
+<img class="no-shadow" alt="TODO: Replace image" src="/images/blog/2025-08/temp-time-trigger-weekday.png" />
+
+This feature has been implemented in this release, allowing you to specify
+the weekdays in the time trigger. This is especially useful for automations
+that need to run on specific days, such as weekdays or weekends.
+
+[a feature request]: https://github.com/orgs/home-assistant/discussions/26
+[@hmmbob]: https://github.com/hmmbob
 
 ## Need help? Join the community!
 
