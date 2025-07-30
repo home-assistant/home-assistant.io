@@ -200,8 +200,8 @@ The action can be set up by UI in Automations editor. It can also be executed in
 
 ### Action `miele.set_program_oven`
 
-Set and start a program for oven appliances. Note that the device must be in a state where it will accept a new program, for example, most ovens must be in state `on` and many appliances must be set manually to 'MobileStart' or 'MobileControl' in advance. An error message is displayed if the device did not accept the action command.
-The action can be set up by UI in Automations editor. It can also be executed in Developer tools.
+Set and start a program for oven appliances. Note that the device must be in a state that will accept a new program. For example, most ovens must be in the state `on`, and many appliances must be set manually to 'MobileStart' or 'MobileControl' in advance. An error message is displayed if the device does not accept the action command.
+The action can be set up by UI in the **Automations** editor. It can also be executed in the **Developer tools**.
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
