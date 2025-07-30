@@ -4,6 +4,7 @@ description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary Sensor
   - Button
+  - Fan
   - Hub
   - Light
   - Lock
@@ -24,6 +25,7 @@ ha_platforms:
   - button
   - climate
   - light
+  - fan
   - lock
   - sensor
   - switch
@@ -85,8 +87,16 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
 - [K10+ Pro](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10-pro)
+- [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
+- [K20+ Pro](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
+- [S20](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s20)
+- [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
 - [S1](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner?&variant=41850919420079)
 - [S1 Plus](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner)
+
+### Fans
+
+- [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
 
 ## Supported functionality
 
@@ -225,10 +235,21 @@ Features:
 - get temperature
 - get humidity
 
+### Fans
+
+#### Battery Circulator Fan/Circulator Fan
+
+Features:
+- turn on
+- turn off
+- set speed, only applicable for [direct mode]
+- set mode
+- get battery, only applicable for [Battery Circulator Fan]
+
 
 ### Vacuums
 
-Vacuum entities are added for K10+, K10+ Pro, S1, S1 Plus.
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20+ Pro, S10, S20.
 
 Features:
 - get states

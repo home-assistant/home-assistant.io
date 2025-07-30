@@ -14,12 +14,16 @@ ha_iot_class: Local Push
 ha_integration_type: virtual
 ha_iot_standard:
   - matter
+works_with:
+  - matter
 ---
 
-[Nuki](https://nuki.io) is committed to making sure their products are up-to-date and ready to use in Home Assistant.
+{% include integrations/wwha.md url="https://nuki.io" name="Nuki" %}
 
-Nuki Matter devices work locally and integrate seamlessly with the Matter integration in Home Assistant. As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.
+## Supported devices
 
-{% my add_matter_device badge domain=page.ha_domain %}
+The following devices are supported:
 
-[Learn more about Matter in Home Assistant.](/integrations/matter/)
+- [Nuki Smart Lock Go](https://nuki.io/en-uk/products/smart-lock-go)
+- [Nuki Smart Lock Pro](https://nuki.io/en-uk/products/smart-lock-pro-5th-gen)
+- [Nuki Smart Lock Ultra](https://nuki.io/en-uk/products/smart-lock-ultra)

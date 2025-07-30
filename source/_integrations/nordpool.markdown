@@ -164,6 +164,56 @@ data:
 
 {% endraw %}
 
+### Get price indices for date
+
+The integration can also provide price indices for any date with published prices. Use the "Get price indices for date" action to retrieve pricing information with a custom resolution time.
+
+The areas, currency, and resolution parameters are optional. If omitted, the values configured in the integration will be used and for resolution it will default to 60 minutes.
+
+{% configuration_basic %}
+Nord Pool configuration entry:
+  description: Select the Nord Pool configuration entry to target.
+Date:
+  description: Pick the date to fetch prices for (see note about possible dates below).
+Areas:
+  description: Select one market area to create output for. If omitted it will use the areas from the configuration entry.
+Currency:
+  description: Currency to display prices in. EUR is the base currency in Nord Pool prices. If omitted, it will use the currency from the configuration entry.
+Resolution:
+  description: Resolution time for price indices.
+{% endconfiguration_basic %}
+
+{% note %}
+
+The public API only allows us to see past pricing information for up to 2 months.
+
+Although Nord Pool operates in the CET/CEST timezone, all data is returned in UTC. Depending on how the data is consumed or manipulated, you may need to consider this.
+
+Tomorrow's prices are typically released around 13:00 CET/CEST, and trying to get them before that time will generate an error that needs to be considered in such a case.
+
+{% endnote %}
+
+{% tip %}
+You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
+{% endtip %}
+
+#### Example action with data
+
+{% raw %}
+
+```yaml
+action: nordpool.get_prices_for_date
+data:
+  config_entry: 1234567890a
+  date: "2024-11-10"
+  areas:
+    - SE3
+    - SE4
+  currency: SEK
+```
+
+{% endraw %}
+
 ## Examples
 
 A template sensor to add VAT and fixed cost is useful to get the actual energy cost in the energy dashboard.

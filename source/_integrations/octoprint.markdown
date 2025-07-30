@@ -69,6 +69,8 @@ Supported sensors:
 - Estimated Start Time
 - Target Bed Temperature
 - Target Tool (Nozzle) Temperature
+- Current File Name
+- Current File Size
 
 ## Camera
 

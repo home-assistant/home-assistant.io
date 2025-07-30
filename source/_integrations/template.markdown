@@ -140,7 +140,7 @@ template:
 
 ### Configuration reference
 
-{% configuration %}
+{% configuration trigger-based %}
 actions:
   description: Define actions to be executed when the trigger fires (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
   required: false
@@ -193,7 +193,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration device %}
   availability:
     description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison is not case sensitive; `"TrUe"` and `"yEs"` are allowed.
     required: false
@@ -268,7 +268,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration alarm_control_panel %}
 alarm_control_panel:
   description: List of alarm control panels
   required: true
@@ -349,7 +349,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration binary-sensor %}
 binary_sensor:
   description: List of binary sensors
   required: true
@@ -536,7 +536,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration button %}
 button:
   description: List of buttons
   required: true
@@ -591,7 +591,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration cover %}
 cover:
   description: Characteristics of a cover
   type: map
@@ -822,7 +822,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration fan %}
 fan:
   description: List of fans
   required: true
@@ -1028,7 +1028,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration image %}
 image:
   description: List of images
   required: true
@@ -1055,7 +1055,7 @@ Light entities can only be created from YAML.
 
 ```yaml
 # Example state-based configuration.yaml entry
-light:
+template:
   - light:
       - name: "Theater Lights"
         level: "{{ state_attr('sensor.theater_brightness', 'lux')|int }}"
@@ -1161,7 +1161,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration light %}
 light:
   description: List of your lights.
   required: true
@@ -1421,7 +1421,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration lock %}
 lock:
   description: List of locks
   required: true
@@ -1609,7 +1609,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration number %}
 number:
   description: List of numbers
   required: true
@@ -1635,9 +1635,10 @@ number:
       required: true
       type: action
     state:
-      description: Template for the number's current value.
-      required: true
+      description: Template for the number's current value.  When omitted, the state will be set to the `value` provided by the `set_value` action.
+      required: false
       type: template
+      default: optimistic
     unit_of_measurement:
       description: Defines the units of measurement of the number, if any.
       required: false
@@ -1645,8 +1646,9 @@ number:
       default: None
     step:
       description: Template for the number's increment/decrement step.
-      required: true
+      required: false
       type: template
+      default: 1.0
 
 {% endconfiguration %}
 
@@ -1717,7 +1719,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration select %}
 select:
   description: List of selects
   required: true
@@ -1737,9 +1739,10 @@ select:
       required: true
       type: action
     state:
-      description: Template for the select's current value.
-      required: true
+      description: Template for the select's current value. When omitted, the state will be set to the `option` provided by the `select_option` action.
+      required: false
       type: template
+      default: optimistic
 {% endconfiguration %}
 
 ### State based select - Control Day/Night mode of a camera
@@ -1808,7 +1811,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration sensor %}
 sensor:
   description: List of sensors
   required: true
@@ -1833,7 +1836,7 @@ sensor:
       required: true
       type: template
     state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in long-term statistics, include this key and assign it the appropriate value"
+      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign it the appropriate value"
       required: false
       type: string
       default: None
@@ -1971,7 +1974,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration switch %}
 switch:
   description: List of switches
   required: true
@@ -2117,7 +2120,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration vacuum %}
 vacuum:
   description: List of vacuum entities
   required: true
@@ -2277,7 +2280,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration weather %}
 weather:
   description: List of weather entities
   required: true
@@ -2339,6 +2342,10 @@ weather:
       description: Unit for temperature_template output. Valid options are °C, °F, and K.
       required: false
       type: string
+    uv_index_template:
+      description: The current UV index.
+      required: false
+      type: template
     visibility_template:
       description: The current visibility.
       required: false
@@ -2647,7 +2654,7 @@ alarm_control_panel:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_alarm_control_panel %}
 panels:
   description: List of your panels.
   required: true
@@ -2731,7 +2738,7 @@ binary_sensor:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_binary_sensor %}
 sensors:
   description: List of your sensors.
   required: true
@@ -2818,7 +2825,7 @@ cover:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_cover %}
   covers:
     description: List of your covers.
     required: true
@@ -2942,7 +2949,7 @@ fan:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_fan %}
   fans:
     description: List of your fans.
     required: true
@@ -3078,7 +3085,7 @@ light:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_light %}
   lights:
     description: List of your lights.
     required: true
@@ -3225,7 +3232,7 @@ lock:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_lock %}
   name:
     description: Name to use in the frontend.
     required: false
@@ -3292,7 +3299,7 @@ sensor:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_sensor %}
   sensors:
     description: Map of your sensors.
     required: true
@@ -3375,7 +3382,7 @@ switch:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_switch %}
   switches:
     description: List of your switches.
     required: true
@@ -3437,7 +3444,7 @@ vacuum:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_vacuum %}
   vacuums:
     description: List of your vacuums.
     required: true
@@ -3533,7 +3540,7 @@ weather:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_weather %}
 name:
   description: Name to use in the frontend.
   required: true
