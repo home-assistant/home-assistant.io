@@ -7,7 +7,7 @@ description: "More information on why CGroup version marks the installation as u
 
 Supervisor prefers CGroups version 2 as it depends on its features to work properly.
 
-It seems that on your system CGroups is not available or an unknown CGroups verison is in use.
+It seems that on your system CGroups is not available or an unknown CGroups version is in use.
 
 ## The solution
 
