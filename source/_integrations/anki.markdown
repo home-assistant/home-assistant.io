@@ -1,7 +1,7 @@
 ---
 title: Anki
 description: See the number of Anki flashcards to review
-ha_release: 2025.7
+ha_release: 2025.9
 ha_iot_class: Cloud Polling
 ha_domain: anki
 ha_integration_type: service
@@ -32,11 +32,9 @@ Host:
 
 ## Supported functionality
 
-### Entities
-
 The **Anki** integration provides the following entities.
 
-#### Sensors
+### Sensors
 
 - **Anki new cards**: The cards that you haven't seen.
 - **Anki learning cards**: The cards that you haven't finished reviewing.
@@ -44,7 +42,7 @@ The **Anki** integration provides the following entities.
 
 ## Troubleshooting
 
-### Invalid credentials
+### Symptom: Invalid credentials
 
 #### Description
 
@@ -54,15 +52,15 @@ The AnkiWeb credentials aren't accepted by the integration.
 
 Double-check your email address and password. You may have changed them recently.
 
-### (AnkiWeb) You must verify your email address.
+### Symptom: (AnkiWeb) You must verify your email address.
 
 #### Description
 
-Once a year, AnkiWeb asks its users to verify their email address. Until they do so, the sync can't be done.
+Once a year, AnkiWeb asks you to verify your email address. The sync cannot be completed until the address is verified.
 
 #### Resolution
 
-Check an email from AnkiWeb in your inbox and click on the link.
+Check your inbox for an email from AnkiWeb in your inbox and select the link.
 
 ## Removing the integration
 
