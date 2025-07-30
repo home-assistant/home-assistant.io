@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: open_router
 ha_integration_type: service
 ha_platforms:
+  - ai_task
   - conversation
 ---
 
@@ -29,6 +30,12 @@ The API key is used to authenticate requests to OpenRouter. To generate an API k
 - Go to the **API Keys** section in your account settings.
 - To generate a new key, select **Create API Key**.
 - Give the key a name, and be sure to set up billing limits.
+
+# Supported functionality
+
+## Generating data with AI
+
+The OpenRouter integration allows you to generate data using AI models available on OpenRouter. You can use this functionality in automations, scripts, or directly in the Home Assistant UI.
 
 ## Removing the integration
 
