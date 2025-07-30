@@ -198,6 +198,18 @@ The action can be set up by UI in Automations editor. It can also be executed in
 | `device_id`    | no       |  Select device in GUI mode, then switch to YAML mode to see the device_id.                                        |
 | `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to use the `get_programs` action from developer tools. It can also be found by fetching a diagnostic download while running the actual program. Use the value from the key  `state.programId.value_raw`.|
 
+### Action `miele.set_program_oven`
+
+Set and start a program for oven appliances. Note that the device must be in a state that will accept a new program. For example, most ovens must be in the state `on`, and many appliances must be set manually to 'MobileStart' or 'MobileControl' in advance. An error message is displayed if the device does not accept the action command.
+The action can be set up by UI in the **Automations** editor. It can also be executed in the **Developer tools**.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `device_id`    | no       |  Select device in GUI mode, then switch to YAML mode to see the device_id.                                        |
+| `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to use the `get_programs` action from developer tools. It can also be found by fetching a diagnostic download while running the actual program. Use the value from the key  `state.programId.value_raw`.|
+| `duration`     | yes      |  Set an optional duration for the oven program.|
+| `temperature`  | yes      |  Set an optional target temperature for the oven program.|
+
 ### Action `miele.get_programs`
 
 Get the list of available programs and associated parameters for applicable appliances. The API will return an empty list if the device doesn't support programs (for example, freezers). Same requirements on device state as described for `set_program` action above.

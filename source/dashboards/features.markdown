@@ -74,6 +74,33 @@ modes:
   type: list
 {% endconfiguration %}
 
+## Button
+
+Widget that displays buttons to control [button](/integrations/button) or [script](/integrations/script).
+
+<p class='img'>
+  <img src='/images/dashboards/features/button.png' alt='Screenshot of the tile card with the button feature'>
+  Screenshot of the tile card with the button feature
+</p>
+
+```yaml
+features:
+  - type: "button"
+    action_name: "Click the button"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`button`"
+  type: string
+action_name:
+  required: false
+  type: string
+  description: Text inside the button.
+  type: string
+{% endconfiguration %}
+
 ## Climate fan modes
 
 Widget that displays buttons or icons to control the fan mode for a [climate](/integrations/climate) device.

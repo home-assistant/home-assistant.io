@@ -98,6 +98,10 @@ The **Alexa Devices** {% term integration %} provides the following entities:
 - Sensor - temperature and illuminance sensors
 - Switch - Do not disturb
 
+## Known limitations
+
+This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
+
 ## Troubleshooting
 
 ### Can’t set up the integration

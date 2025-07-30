@@ -15,11 +15,15 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-Ubiquiti's [UISP](https://techspecs.ui.com/uisp/wireless) (Ubiquity Internet Service Provider) product line includes various devices designed for interconnecting locations. This integration provides monitoring capabilities for devices running the airOS opearting system.
+Ubiquiti's [UISP](https://techspecs.ui.com/uisp/wireless) (Ubiquity Internet Service Provider) product line offers a comprehensive suite of devices specifically designed for interconnecting various locations. Even their most cost-effective NanoStations achieve up to 450 Mbps real TCP/IP throughput and maintain reliable links up 10km range!
 
-There is currently support for the following device types within Home Assistant:
+A common use-case is establishing wireless point-to-point (PtP) or multi-point-to-point (PtMP) links between buildings, remote sites or even neighbours. This is highly advantageous when traditional fiber-optic or Ethernet is either impractical or distance is too much for copper cabling. With line-of-sight (LOS) between airOS devices, a stable and high-bandwidth "beam" can be established, eliminating any need for additional infrastructure. While regular WiFi Access Points can be used, e.g. with meshing, for extending the network range, this also reduces capacity and performance of you WiFi network.
+
+There is currently support for the following plaforms within Home Assistant:
 
 - [Sensor](#sensor)
+
+This integration allows users to pull network metrics and statuses directly into their Home Assistant dashboards, enabling advanced automation, notifications, and comprehensive network oversight within their smart home ecosystem.
 
 {% note %}
 Ubiquiti UISP products cannot be managed from their popular [UniFi](/integrations/unifi/) software. They are typically configured using a web browser, the UISP Mobile App, or the UISP Cloud/Self-Hosted platform.
@@ -75,6 +79,39 @@ Performance in decibels of the devices antenna. See [Gain](https://en.wikipedia.
 ## Data updates
 
 Data is polled from devices every 60 seconds.
+
+## Examples
+
+### Detect link degradation
+
+As both stations need to maintain line-of-sight (LOS) between each other, the greater their distance, the more likely something will occasionally obstruct the path. A construction site crane might be in the way, or your local window cleaners might have slightly tapped your Access Point, causing its antenna to become misaligned. While the link might still be operational, it will definitely not be providing the capacity it had before. This automation example will notify you of an unexpected change in your link's capacity bandwidth.
+
+This automation triggers when either the download or upload capacity reported by your NanoStation drops significantly below its expected performance level.
+
+```yaml
+automation:
+  alias: 'UISP NanoStation Link Capacity Warning'
+  triggers:
+  - trigger: numeric_state
+    entity_id:
+      - sensor.nanostation_5ac_access_point_download_capacity
+      - sensor.nanostation_5ac_access_point_upload_capacity
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    above: 360000
+  conditions: []
+  actions:
+    - action: notify.send_message
+      metadata: {}
+      data:
+        message: "Point-to-Point capacity loss, please check your wireless links"
+      target:
+        entity_id: notify.notifier
+```
+
+The above currently caters for a 25% degradation of 450 Mbit/s. If you want to consider your actual capacity dynamically we suggest looking into the [Statistics](/integrations/statistics/) integration.
 
 ## Troubleshooting
 

@@ -1635,9 +1635,10 @@ number:
       required: true
       type: action
     state:
-      description: Template for the number's current value.
-      required: true
+      description: Template for the number's current value.  When omitted, the state will be set to the `value` provided by the `set_value` action.
+      required: false
       type: template
+      default: optimistic
     unit_of_measurement:
       description: Defines the units of measurement of the number, if any.
       required: false
@@ -1645,8 +1646,9 @@ number:
       default: None
     step:
       description: Template for the number's increment/decrement step.
-      required: true
+      required: false
       type: template
+      default: 1.0
 
 {% endconfiguration %}
 

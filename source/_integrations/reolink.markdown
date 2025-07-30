@@ -369,6 +369,8 @@ The following models have been tested and confirmed to work with a direct link t
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
 - [E1 Outdoor Pro](https://reolink.com/product/e1-outdoor-pro/)
 - [Elite Floodlight WiFi](https://reolink.com/product/elite-floodlight-wifi/)
+- [FE-P](https://reolink.com/product/fe-p/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
+- [FE-W](https://reolink.com/product/fe-w/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
 - [Lumus Pro](https://reolink.com/product/lumus-pro/)
 - RLC-410*
 - [RLC-410W](https://reolink.com/product/rlc-410w/)
