@@ -121,6 +121,8 @@ AI Task is a new integration that allows you to generate data using AI. You can 
 
 Below is an example of a template entity that updates every 5 minutes and counts the number of chickens in the coop. [Example inspired by this blog post.](https://houndhillhomestead.com/google-gemini-powered-goose-coop-door/)
 
+{% raw %}
+
 ```yaml
 template:
   - triggers:
@@ -148,6 +150,8 @@ template:
         state: "{{ result.data.birds }}"
         state_class: total
 ```
+
+{% endraw %}
 
 To help get started with AI task, we’ve prepared a blueprint to analyze camera footage:
 
