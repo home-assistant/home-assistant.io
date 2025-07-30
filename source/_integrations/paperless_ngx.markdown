@@ -116,7 +116,7 @@ actions:
 {% endraw %}
 {% enddetails %}
 
-## Data Updates
+## Data updates
 
 This integration retrieves data using a pull-based mechanism.
 
@@ -139,25 +139,25 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Troubleshooting
 
-{% details "Invalid hostname or IP address" %}
+{% details "If you get the message 'Invalid hostname or IP address', try the following steps:"" %}
 
-Make sure you enter a complete URL, such as `https://paperless.example.com` or `https://192.168.178.11:8011`.
+1. Make sure you enter a complete URL, such as `https://paperless.example.com` or `https://192.168.178.11:8011`.
 
-SSL is enabled by default. If you're using an unencrypted connection, you must explicitly use `http://` instead of `https://` in the URL.
+2. SSL is enabled by default. If you're using an unencrypted connection, you must explicitly use `http://` instead of `https://` in the URL.
 
-If you're using a self-signed certificate, disable the **Verify SSL certificate** option.
+3. If you're using a self-signed certificate, disable the **Verify SSL certificate** option.
 
 {% enddetails %}
 
-{% details "The token does not have permission to access the API" %}
+{% details "If you get the message 'The token does not have permission to access the API', try the following steps:" %}
 
-In this case, verify whether the token is still valid and correctly assigned to the user.
+1. Verify whether the token is still valid and correctly assigned to the user.
 
-You can also test the token using the Swagger interface available at
+2. Test the token using the Swagger interface available at
 `https://paperless.example.com/api/schema/view/`
+   - Click on **"Authorize"** in the Swagger UI to enter your token at **tokenAuth (apiKey)**.
+   - Then, try accessing the relevant endpoints like `/api/statistics/` to ensure they respond as expected.
 
-Click on **"Authorize"** in the Swagger UI to enter your token at **tokenAuth (apiKey)**, then try accessing the relevant endpoints like `/api/statistics/` to ensure they respond as expected.
-
-If everything works correctly in Swagger but the integration still fails, check whether a reverse proxy (e.g., NGINX) is returning an **HTTP 403 error**. If so, the integration may also report this as a permission issue.
+3. If everything works correctly in Swagger but the integration still fails, check whether a reverse proxy (e.g., NGINX) is returning an **HTTP 403 error**. If so, the integration may also report this as a permission issue.
 
 {% enddetails %}
