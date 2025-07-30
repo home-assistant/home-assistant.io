@@ -1425,7 +1425,7 @@ h4.heading-small {
 
 .sub-hero-section {
   height: auto;
-  min-height: 100vh;
+  min-//height: 100vh;
   background-color: #f2f4f9;
   flex-direction: column;
   justify-content: center;
@@ -1691,7 +1691,7 @@ h4.heading-small {
 }
 
 .section-hero-inner-exp {
-  min-height: 100vh;
+  min-//height: 100vh;
   flex-direction: column;
   background-image: radial-gradient(
     circle closest-side,

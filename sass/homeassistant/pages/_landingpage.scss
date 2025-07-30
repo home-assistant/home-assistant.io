@@ -792,7 +792,7 @@ $ha__primary_color: #03a9f4;
     left: 0;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    //height: 100vh;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
 
@@ -1229,7 +1229,7 @@ $ha__primary_color: #03a9f4;
 
       .dialog-content {
         border-radius: 0;
-        height: 100vh;
+        //height: 100vh;
         width: 100vw;
         padding-bottom: 64px;
         display: block;

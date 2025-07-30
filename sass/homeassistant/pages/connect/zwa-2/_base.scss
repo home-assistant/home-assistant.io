@@ -1,4 +1,7 @@
 section {
+    
+    //min-height: 100%;
+    
     color: #ffffff;
 
     .section-inner {
@@ -6,10 +9,17 @@ section {
         position: sticky;
         top: 0;
         z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .section-inner-content {
-        position: absolute;
-        inset: calc(var(--header-height-small) * 2) 0 var(--header-height-small);
+        padding: 120px 0;
+        width: 100%;
+
+        //position: absolute;
+        //inset: calc(var(--header-height-small) * 2) 0 var(--header-height-small); old
+        //inset: var(--header-height-small) 0;
     }
 }

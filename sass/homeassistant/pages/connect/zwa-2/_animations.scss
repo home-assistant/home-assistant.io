@@ -17,12 +17,16 @@
         z-index: 1;
         max-width: 400%;
         height: 100%;
-        max-height: calc(100vh - 80px);
+        max-height: calc(60vh - 80px);
         object-position: center;
         grid-area: 1/1;
         object-fit: contain;
         transform: translateX(-50%);
         margin-left: 50%;
+        
+        @include bp(desktop) {
+            max-height: calc(100vh - 80px);
+        }
 
     }
 }

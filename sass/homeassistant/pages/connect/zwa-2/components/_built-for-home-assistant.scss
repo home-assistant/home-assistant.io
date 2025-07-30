@@ -1,0 +1,40 @@
+section#built-for-home-assistant {
+        //height: 100vh;
+
+    .cols {
+        justify-content: space-between;
+        align-items: center;
+        align-self: center;
+        gap: 40px;
+
+        .col{
+            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            gap: 20px;
+            flex-basis: 0;
+
+            h2{
+                margin: 0;
+            }
+        }
+
+        .col:first-child{
+            align-items: flex-end;
+            text-align: right;
+        }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, #FFF 30%, #DADDE2 100%);
+        background-size: 200%;
+    }
+
+    .section-inner-content {
+        //height: 64vh;
+    }
+}

@@ -1,0 +1,10 @@
+section#light{
+    >.container-full{
+        width: calc(100% - 80px);
+    }
+
+    .light-wrapper{
+        border-radius: 20px;
+        overflow: hidden;
+    }
+}

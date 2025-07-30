@@ -1,0 +1,142 @@
+section#plug-and-play {
+    //height: 100vh;
+    background-color: #DADDE2;
+
+    .cols {
+        align-items: flex-end;
+        justify-content: space-between;
+
+        .col {
+            flex-grow: 1;
+            flex-basis: 0;
+
+            &:first-child {
+                @include bp(desktop) {
+                    max-width: 560px;
+                }
+            }
+
+            &:last-child {
+                @include bp(desktop) {
+                    max-width: 520px;
+                }
+            }
+        }
+    }
+
+    .section-inner-content {
+        //height: 64vh;
+    }
+
+    .config-cards {
+        display: flex;
+        flex-direction: column;
+        padding: 16px 20px;
+        gap: 16px;
+        border-radius: 12px;
+        border: 1px solid #ffffff;
+        background-color: rgba(255, 255, 255, 0.5);
+
+        .config-card {
+            display: grid;
+            justify-content: space-between;
+            grid-template-areas: 
+                'content icon'
+                'progress progress';
+
+            &.complete{
+                .config-card-progress {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+
+                .config-card-icon {
+                    &:after {
+                        opacity: .2;
+                    }
+                    .check {
+                        display: block;
+                    }
+                }
+            }
+
+            &-content {
+                grid-area: content;
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            &-description{
+                font-size: 16px;
+            }
+
+            &-icon {
+                border: 1px solid rgba(255, 255, 255, 0.5);
+                grid-area: icon;
+                width: 74px;
+                height: 74px;
+                display: grid;
+                place-items: center;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.5);
+                position: relative;
+                overflow: hidden;
+
+                &:after{
+                    content: '';
+                    inset: 0;
+                    position: absolute;
+                    background-color: var(--connect-line-blue);
+                    opacity: 0;
+                }
+
+                .check{
+                    display: none;
+                    background-color: var(--connect-line-blue);
+                    border-radius: 50%;
+                    height: 40px;
+                    width: 40px;
+                    background-image: url("data:image/svg+xml,%3Csvg width='20' height='15' viewBox='0 0 20 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.52212 15L20 2.48521L17.5221 0L7.52212 10.0296L2.47788 4.97041L0 7.45562L7.52212 15Z' fill='white'/%3E%3C/svg%3E%0A");
+                    background-size: 20px 15px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    position: relative;
+                    z-index: 1;
+                }
+            }
+
+            &-progress {
+                grid-area: progress;
+                margin-top: 8px;
+                margin-bottom: 6px;
+                height: 1px;
+                position: relative;
+                isolation: isolate;
+
+                &:after {
+                    content: '';
+                    height: 1px;
+                    top: 1px;
+                    left: 0;
+                    right: 0;
+                    background-color: #ffffff;
+                    position: absolute;
+                    z-index: -1;
+                }
+
+                &:before {
+                    content: '';
+                    height: 3px;
+                    left: 0;
+                    width: 0%;
+                    background-color: var(--connect-line-blue);
+                    position: absolute;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}

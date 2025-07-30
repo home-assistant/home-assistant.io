@@ -1,7 +1,7 @@
+html {
 
-html{
     // Center line for render alignment checks
-    &:before{
+    &:before {
         //content: '';
         left: 50%;
         position: fixed;
@@ -13,16 +13,30 @@ html{
     }
 }
 
+article.page {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 0;
+        line-height: initial;
+    }
+}
+
 #landingpage {
     .page-content {
         overflow-x: clip;
     }
 
     .site-header {
-        .grid-wrapper{
+        .grid-wrapper {
             max-width: calc(var(--container-max-width) + (var(--container-gutters) * 2)) !important;
         }
     }
+
     .grid-wrapper {
         max-width: unset;
         min-height: unset;
@@ -43,6 +57,56 @@ html{
             border-radius: 0;
         }
     }
+
+    .ha-connect {
+
+        h1,.h1 {
+            font-size: var(--typography-h1-font-size);
+            font-weight: var(--typography-h1-font-weight);
+            line-height: var(--typography-h1-line-height);
+        }
+
+        h2,.h2 {
+            font-size: var(--typography-h2-font-size);
+            font-weight: var(--typography-h2-font-weight);
+            line-height: var(--typography-h2-line-height);
+        }
+
+        h3,.h3 {
+            font-size: var(--typography-h3-font-size);
+            font-weight: var(--typography-h3-font-weight);
+            line-height: var(--typography-h3-line-height);
+        }
+
+        h4,.h4 {
+            font-size: var(--typography-h4-font-size);
+            font-weight: var(--typography-h4-font-weight);
+            line-height: var(--typography-h4-line-height);
+        }
+
+        h5,.h5 {
+            font-size: var(--typography-h5-font-size);
+            font-weight: var(--typography-h5-font-weight);
+            line-height: var(--typography-h5-line-height);
+        }
+
+        h6,.h6 {
+            font-size: var(--typography-h6-font-size);
+            font-weight: var(--typography-h6-font-weight);
+            line-height: var(--typography-h6-line-height);
+        }
+
+        p {
+            color: var(--typography-paragraph-color);
+            font-size: var(--typography-paragraph-font-size);
+            font-weight: var(--typography-paragraph-font-weight);
+            line-height: var(--typography-paragraph-line-height);
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
 }
 
 html.disable-scroll {
@@ -50,7 +114,7 @@ html.disable-scroll {
     height: 100vh !important;
 }
 
-.ha-connect{
+.ha-connect {
     background-color: #0F121F;
 }
 
@@ -58,67 +122,30 @@ section {
     position: relative;
 }
 
-.container{
+.container {
     display: flex;
     margin: 0 auto;
     max-width: calc(var(--container-max-width) + (var(--container-gutters) * 2));
     padding: 0 var(--container-gutters);
     width: 100%;
     height: 100%;
+
+    &-full {
+        margin: 0 auto;
+        max-width: 2600px;
+    }
 }
 
-.page-content{
+.page-content {
     padding-top: 0;
 }
 
-h1 {
-    font-size: var(--typography-h1-font-size);
-    font-weight: var(--typography-h1-font-weight);
-    line-height: var(--typography-h1-line-height);
-}
-
-h2 {
-    font-size: var(--typography-h2-font-size);
-    font-weight: var(--typography-h2-font-weight);
-    line-height: var(--typography-h2-line-height);
-}
-
-h3 {
-    font-size: var(--typography-h3-font-size);
-    font-weight: var(--typography-h3-font-weight);
-    line-height: var(--typography-h3-line-height);
-}
-
-h4 {
-    font-size: var(--typography-h4-font-size);
-    font-weight: var(--typography-h4-font-weight);
-    line-height: var(--typography-h4-line-height);
-}
-
-h5 {
-    font-size: var(--typography-h5-font-size);
-    font-weight: var(--typography-h5-font-weight);
-    line-height: var(--typography-h5-line-height);
-}
-
-h6 {
-    font-size: var(--typography-h6-font-size);
-    font-weight: var(--typography-h6-font-weight);
-    line-height: var(--typography-h6-line-height);
-}
-
-p{
-    font-size: var(--typography-paragraph-font-size);
-    font-weight: var(--typography-paragraph-font-weight);
-    line-height: var(--typography-paragraph-line-height);
-}
-
-.cols{
+.cols {
     display: flex;
     width: 100%;
 }
 
-.vline{
+.vline {
     height: 45px;
     width: 1px;
     background: #ffffff;

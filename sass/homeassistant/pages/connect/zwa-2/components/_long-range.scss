@@ -1,0 +1,63 @@
+section#long-range {
+    //height: 100vh;
+
+    svg.range-waves {
+        position: absolute;
+        max-width: 3000px;
+        width: 400vw;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        --enter: 1;
+
+        @include bp(desktop) {
+            width: 200vw;
+        }
+    }
+
+    .container-full {
+        height: 0;
+    }
+
+    .cols {
+        height: fit-content;
+        height: 25vh;
+        text-align: center;
+
+        .col {
+            max-width: 440px;
+        }
+    }
+
+    .section-inner {
+        display: flex;
+        
+
+        .section-inner-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 90vh;
+        }
+    }
+
+    .waves-wrapper {
+        position: relative;
+        width: 100%;
+
+        svg {
+            position: absolute;
+            left: -64px;
+            right: -64px;
+            height: auto;
+            width: -webkit-fill-available;
+            mask-image: linear-gradient(to right, transparent 0%, white 20%, white 80%, transparent 100%);
+        }
+    }
+
+    .container {
+        display: block;
+    }
+}

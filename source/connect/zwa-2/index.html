@@ -14,11 +14,31 @@ frontpage_image: /images/frontpage/zwa-2-frontpage.jpg
   {% include_relative components/_header.html %}
   <div class="animation-wrapper">
     <div class="animation-wrapper-inner">
-      <canvas class="render-scroller" id="scene-hero" width="1920" height="1080"></canvas>
+      <canvas class="render-scroller" id="scene-one" width="1920" height="1080"></canvas>
     </div>
     {% include_relative components/_hero.html %}
     {% include_relative components/_overview.html %}
+    {% include_relative components/_chipset.html %}
+    {% include_relative components/_long-range.html %}
   </div>
+  {% include_relative components/_second-generation-platform.html %}
+  <section id="light" class="light">
+    <div class="container-full">
+      <div class="light-wrapper">
+        <div class="animation-wrapper">
+          <div class="animation-wrapper-inner">
+            <canvas class="render-scroller" id="scene-two" width="1920" height="1080"></canvas>
+          </div>
+          {% include_relative components/_built-for-home-assistant.html %}
+          {% include_relative components/_plug-and-play.html %}
+          {% include_relative components/_buy.html %}
+        </div>
+      </div>
+    </div>
+  </section>
+  {% include_relative components/_zwave-range.html %}
+  {% include_relative components/_specs.html %}
+  {% include_relative components/_faq.html %}
 </main>
 
 <script type="importmap">
