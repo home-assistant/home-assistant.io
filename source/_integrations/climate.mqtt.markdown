@@ -23,6 +23,8 @@ mqtt:
       mode_command_topic: "study/ac/mode/set"
 ```
 
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+
 {% configuration %}
 action_template:
   description: A template to render the value received on the `action_topic` with.

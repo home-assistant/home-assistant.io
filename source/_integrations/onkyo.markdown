@@ -32,7 +32,7 @@ Listening modes:
   description: List of listening modes supported by the receiver.
 {% endconfiguration_basic %}
 
-The above settings can also be adjusted later. To change **Host** or **Volume Resolution**, select the three-dot menu on the integration entry and select **Reconfigure**.
+The above settings can also be adjusted later. To change **Host** or **Volume Resolution**, select the three dots {% icon "mdi:dots-vertical" %} menu on the integration entry and select **Reconfigure**.
 
 {% include integrations/option_flow.md %}
 

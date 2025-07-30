@@ -558,7 +558,7 @@ Prerequisites and steps can vary depending on the device type, manufacturer, and
 {% endnote %}
 
 1. Navigate to the Zigbee device's configuration page,
-2. In the options menu (the "three-dots" icon), select **Manage Zigbee device**,
+2. In the options menu (the "three dots" icon), select **Manage Zigbee device**,
 3. Select the **Bindings** tab in the pop-up dialog,
 4. Choose the device from the dropdown list of _Bindable devices_ (or _Bindable groups_),
 5. Confirm the Bind or Unbind action:

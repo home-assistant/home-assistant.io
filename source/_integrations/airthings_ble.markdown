@@ -20,7 +20,7 @@ ha_integration_type: integration
 
 Integrates Airthings BLE {% term sensors %} into Home Assistant.
 
-[Airthings](https://www.airthings.com/) provide different {% term devices %} for measuring the air quality. Initially focusing on radon gas sensors, each device provides a number of different sensors to monitor typical contaminants that's presence contributes to bad air quality in the home.
+[Airthings](https://www.airthings.com/) provide different {% term devices %} for measuring the air quality. Initially focusing on radon gas sensors, each device provides a number of different sensors to monitor typical contaminants whose presence contributes to bad air quality in the home.
 
 Requires Airthings hardware and a compatible Bluetooth dongle.
 

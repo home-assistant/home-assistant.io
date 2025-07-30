@@ -12,7 +12,18 @@ The initial state of the MQTT vacuum {% term entity %} will set to `unknown` and
 
 ## Configuration
 
-MQTT vacuum configuration section.
+To use an MQTT vacuum in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  - vacuum:
+      state_topic: state-topic
+      command_topic: command-topic
+```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
