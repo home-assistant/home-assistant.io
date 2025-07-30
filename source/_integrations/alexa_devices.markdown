@@ -19,7 +19,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Alexa Devices** {% term integration %} lets you control Alexa-enabled devices connected to your Amazon account.

@@ -6,7 +6,7 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@thomasddn'
 ha_domain: volvo
-ha_integration_type: integration
+ha_integration_type: device
 ha_config_flow: true
 ha_category:
   - Sensor

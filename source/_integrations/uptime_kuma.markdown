@@ -3,7 +3,8 @@ title: Uptime Kuma
 description: Instructions on how to integrate Uptime Kuma with Home Assistant.
 ha_category:
   - Sensor
-ha_iot_class: Cloud polling
+  - Update
+ha_iot_class: Cloud Polling
 ha_release: 2025.8
 ha_config_flow: true
 ha_codeowners:
@@ -11,7 +12,10 @@ ha_codeowners:
 ha_domain: uptime_kuma
 ha_integration_type: integration
 ha_platforms:
+  - diagnostics
   - sensor
+  - update
+ha_quality_scale: bronze
 ---
 
 The **Uptime Kuma** {% term integration %} connects Home Assistant with your Uptime Kuma monitoring tool.

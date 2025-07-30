@@ -13,7 +13,6 @@ ha_supporting_integration: ESPHome
 works_with:
   - local
 ha_codeowners:
-  - '@OttoWinter'
   - '@jesserockz'
   - '@kbx81'
   - '@bdraco'

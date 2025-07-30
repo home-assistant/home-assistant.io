@@ -20,6 +20,7 @@ related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
 The `tankerkoenig` integration allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.

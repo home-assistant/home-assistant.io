@@ -25,7 +25,7 @@ ha_platforms:
   - sensor
   - switch
   - time
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_zeroconf: true
 ---
 
