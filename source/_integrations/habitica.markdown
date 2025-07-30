@@ -170,7 +170,7 @@ If you’re part of a party, the integration creates a device with these entitie
 - **Collected quest items**: Displays the total number of items collected. Attributes include a breakdown of each required item type, showing both collected and required amounts.
 - **Group leader**: The username of your party's leader.
 - **Member count**: The current number of members in your party.
-- **Quest**: TShows the name of the current quest your party is engaged in.
+- **Quest**: Shows the name of the current quest your party is engaged in.
 - **Quest boss**: The name and image of the foe your party is currently battling.
 
 {% note %}
