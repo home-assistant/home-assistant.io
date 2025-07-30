@@ -85,6 +85,7 @@ Enjoy the (beta) release!
   - [Integration quality scale achievements](#integration-quality-scale-achievements)
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
 - [Other noteworthy changes](#other-noteworthy-changes)
+  - [Control individual members of a group](#control-individual-members-of-a-group)
   - [Weekdays in time trigger](#weekdays-in-time-trigger)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
@@ -340,6 +341,17 @@ There are many more improvements in this release; here are some of the other not
 [@piitaya]: https://github.com/piitaya
 [History Stats]: /integrations/history_stats
 [Template]: /integrations/template
+
+### Control individual members of a group
+
+[Groups](/integrations/group) are a great way to control multiple {% term entities %}
+at once, but sometimes you want to control individual members of a group.
+
+So, for this release, [@MindFreeze] improved the entity information dialog to show the individual members of a light and cover group, allowing you to control them directly from that dialog. Super useful!
+
+<img class="no-shadow" alt="TODO: Replace image" src="/images/blog/2025-08/temp-group-control-more-info.png" />
+
+[@MindFreeze]: https://github.com/MindFreeze
 
 ### Weekdays in time trigger
 
