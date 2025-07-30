@@ -215,6 +215,7 @@ integrations are also being constantly improved. Here are some of the noteworthy
 changes to existing integrations:
 
 - The [PlayStation Network] integration received major updates from [@tr4nt0r] and [@JackJPowell], adding sensors to track your and your friends' online status, currently playing game, and last online time. Also a binary sensor for your PS Plus subscription status, and a notification platform. PS Vita is now supported as well!
+- [Reolink] cameras got multiple enhancements from [@starkillerOG]: WiFi signal sensors for IP cameras, post-recording time controls, and pre-recording entities.
 - The [AI Task] and [OpenAI Conversation] integrations now support camera and file attachments, thanks to [@balloob].
 - [YoLink] device support expanded with [@matrixd2] adding support for the YS8009, YS7A12, and YS6614 devices.
 - [@ricohageman] added dew point sensors to the [Awair] integration.
