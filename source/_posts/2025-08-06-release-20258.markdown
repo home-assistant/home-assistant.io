@@ -626,8 +626,7 @@ The door state for washer/dryer machines is now reported as a binary sensor inst
 With this release, you will need to update your zwave-js-server instance. You must use zwave-js-server 3.2.1 or greater (schema 44).
 
 - If you use the Z-Wave JS add-on, you need at least version 0.20.0.
-TODO: Update breaking change note
-~~- If you use the Z-Wave JS UI add-on, you need at least version [3.17.0](https://github.com/hassio-addons/addon-zwave-js-ui/releases/tag/v3.17.0).~~
+- If you use the Z-Wave JS UI add-on, you need at least version [4.8.0](https://github.com/hassio-addons/addon-zwave-js-ui/releases/tag/v4.8.0).
 - If you use the Z-Wave JS UI Docker container, you need at least version [10.11.0](https://github.com/zwave-js/zwave-js-ui/releases/tag/v10.11.0).
 - If you run your own Docker container or some other installation method, you will need to update your zwave-js-server instance to at least 3.2.1.
 
