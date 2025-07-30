@@ -56,12 +56,6 @@ You can use this integration to control and monitor your EHEIM Digital aquarium 
 
 Currently, the following devices and entities are supported:
 
-### All devices
-
-#### Number
-
-- **System LED brightness**: Controlling the brightness of the system LED
-
 ### [EHEIM classicLEDcontrol+e](https://eheim.com/en_GB/aquatics/technology/lighting-control/classicledcontrol-e/classicledcontrol-e)
 
 #### Lights
@@ -116,7 +110,11 @@ Currently, the following devices and entities are supported:
 - **Day start time**: Setting the start time for the day pump speed in Bio mode
 - **Night start time**: Setting the start time for the night pump speed in Bio mode
 
-Support for additional EHEIM Digital devices and entities will be added in future updates.
+### All supported devices
+
+#### Number
+
+- **System LED brightness**: Controlling the brightness of the system LED
 
 ## Automations
 
@@ -150,6 +148,10 @@ actions:
 {% endraw %}
 
 {% enddetails %}
+
+## Known limitations
+
+- The integration does not support other EHEIM Digital devices than those listed above. More devices will be added in future updates. It is, however, supported to have an unsupported device as the main device and supported devices as sub-devices, even though the unsupported device will not have any entities shown in Home Assistant.
 
 ## Removing the integration
 

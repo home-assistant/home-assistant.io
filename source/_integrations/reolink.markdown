@@ -363,6 +363,9 @@ The following models have been tested and confirmed to work with a direct link t
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
 - [E1 Outdoor Pro](https://reolink.com/product/e1-outdoor-pro/)
+- [Elite Floodlight WiFi](https://reolink.com/product/elite-floodlight-wifi/)
+- [FE-P](https://reolink.com/product/fe-p/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
+- [FE-W](https://reolink.com/product/fe-w/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
 - [Lumus Pro](https://reolink.com/product/lumus-pro/)
 - RLC-410*
 - [RLC-410W](https://reolink.com/product/rlc-410w/)
@@ -401,6 +404,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - **[Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)**
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
+- [Reolink Elite WiFi](https://reolink.com/product/elite-wifi/)
 - [Reolink Floodlight PoE and Wi-Fi*](https://reolink.com/product/reolink-floodlight/)
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
@@ -433,6 +437,8 @@ The following battery-powered models have been tested and confirmed to work thro
 - [Argus Eco Ultra](https://reolink.com/product/argus-eco-ultra/)
 - [Argus PT](https://reolink.com/product/argus-pt/)
 - **[Argus Track](https://reolink.com/product/argus-track/)**
+- [Reolink Altas](https://reolink.com/product/reolink-altas/)
+- [Reolink Altas PT Ultra](https://reolink.com/product/altas-pt-ultra/)
 - **[Reolink Doorbell Battery](https://reolink.com/roadmap/)**
 
 Reolink provides [this larger list of battery camera models](https://support.reolink.com/hc/en-us/articles/32379509281561-Reolink-Home-Hub-Compatibility/) which are compatible with the Home Hub and should work with Home Assistant.

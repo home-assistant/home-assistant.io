@@ -108,6 +108,10 @@ Proxy URL:
 
 ### Webhooks configuration
 
+{% note %}
+If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field as IP address of incoming requests are not forwarded to your Home Assistant.
+{% endnote %}
+
 If you have selected the `Webhooks` Telegram bot type, the integration setup will continue with the webhooks configuration step.
 {% configuration_basic %}
 URL:

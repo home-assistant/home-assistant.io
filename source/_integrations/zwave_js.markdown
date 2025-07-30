@@ -174,28 +174,47 @@ Do this before using the device with another adapter, or when you don't use the 
 
 Do this if you have an existing Z-Wave network and want to replace its adapter with a new adapter. The Z-Wave integration with all its entities will stay in Home Assistant. The new adapter is added to Home Assistant and paired with the existing network.
 
+{% tip %}
+You cannot run two Z-Wave adapters simultaneously using the same add-on. If you only run one add-on, you need to migrate the network. If you want to run two adapters, you would need to install another add-on, such as Z-Wave JS UI.
+{% endtip %}
+
 ### Prerequisites
 
 - Administrator rights in Home Assistant
-- If you want to migrate from a 500 series adapter, before starting migration, update the adapter to SDK 6.61+
+
+#### Device specific prerequisites
+
+- **Important**: If you want to migrate from a **500 series** adapter, before starting migration, you need to update the adapter to SDK 6.61+
   - Check the documentation of your device to see if and how they can be updated.
   - [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
 
+- If you want to migrate from a **Nortek HUSBZB-1**:
+
+  - There is no easy way to update that device.
+  - You need to set up a new network.
+  - If you are comfortable with soldering: some users have reported that they were able to upgrade the firmware of the **Nortek HUSBZB-1** with [this update procedure (requires soldering)](https://community.hubitat.com/t/guide-nortek-husbzb-1-nvm-backup-restore-and-updating-z-wave-firmware/48012).
+    - The procedure is very involved. Most likely, starting from scratch is quicker.
+
 ### To migrate a Z-Wave network to a new adapter
 
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration.
-   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
-3. Under **Backup and restore**, select **Migrate adapter**.
-4. Select **Migrate to a new adapter**.
-
-   - To confirm, select **Submit**.
-   - **Info**: This will initiate a backup of the network information.
-5. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
-   - Connect the new adapter.
-   - Confirm that you connected the new adapter by selecting **Submit**.
-6. Follow the steps on screen.
-7. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
+1. If you want to migrate from a **500 series** adapter, before starting migration, you need to update the adapter to SDK 6.61+
+   - Check the documentation of your device to see if and how they can be updated.
+   - [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
+2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. Connect your new adapter.
+   - Plug in your new adapter.
+   - **Result**: The adapter should be discovered and show up in the **Discovered section**.
+   - Select **Add** and follow the instructions on screen.
+   - **Troubleshooting**: Not all devices can be discovered automatically. If your device does not show up, follow these steps:
+     1. Select the **Z-Wave** integration.
+     2. Then, select the cogwheel {% icon "mdi:cog-outline" %}.
+     3. Under **Backup and restore**, select **Migrate adapter**.
+     4. Select **Migrate to a new adapter**.
+        - To confirm, select **Submit**.
+4. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
+   - It is important to remove the old device now, as it might interfere with the new one. Even though it might not throw an error immediately, it might cause issues.
+5. Follow the steps on screen.
+6. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
    - In the top-left corner, select the back button to go back to the integration page.
    - In the list of devices, check the device name.
    - To change the device name, select the {% icon "mdi:pencil" %} button.
@@ -237,6 +256,24 @@ It's recommended to create a backup before making any major changes to your Z-Wa
 3. Under **Backup and restore**, select **Download backup**.
    - **Result**: The backup file is downloaded to the device from which you initiated the download.
 4. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
+
+## Restoring your Z-Wave network from a backup
+
+You can restore your Z-Wave network from a backup.
+
+### Prerequisites
+
+- Administrator rights in Home Assistant
+- Have a [backup](#backing-up-your-z-wave-network) downloaded
+
+### Restoring a Z-Wave network from backup
+
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Z-Wave** integration.
+   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
+3. Under **Backup and restore**, select **Restore from backup**.
+   - Select the backup you want to restore from.
+   - **Result**: The Z-Wave network is being restored and the devices that were part of the network should show up again.
 
 ## Updating the firmware of your Z-Wave device
 
@@ -967,34 +1004,79 @@ Zwavejs2Mqtt was renamed Z-Wave JS UI in September 2022. They are synonymous wit
 
 ### Can I switch between Z-Wave JS and Z-Wave JS UI?
 
-You can switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on. However, but you cannot run them both at the same time. Only one of them can be active at the same time.
+You can switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on. However, you cannot run them both at the same time. Only one of them can be active at the same time.
 
-### How to switch between Z-Wave JS and Z-Wave JS UI?
+### How to switch from Z-Wave JS to the Z-Wave JS UI add-on?
 
-To switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on, follow these steps:
+You can switch from the official **Z-Wave JS** add-on to the community **Z-Wave JS UI** add-on. However, you cannot run them both at the same time. Only one of the add-ons can be active at the same time.
 
-Switching does not require renaming your devices.
+Both add-ons communicate with Home Assistant via the same **Z-Wave** {% term integration %}.
 
-1. Disable the Z-Wave integration. **Do not remove the Z-Wave integration or you will lose all device and entity naming.** This will automatically stop the official Z-Wave JS add-on.
+1. Note your network security keys from the official add-on.
+   - In your browser, open {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.  
+   - From the three dots {% icon "mdi:dots-vertical" %} menu, select **Edit in YAML**.
+   - You should see about 12 lines of YAML, including items like `device: xxx` and `s2_access_control_key: xxx`.  Select all and copy them somewhere safe.  You will need them later.
 
-2. Note your network security keys from the official add-on.
+2. Install and start the community **Z-Wave JS UI** add-on.
+   - In your browser, open {% my supervisor_store title="**Settings** > **Add-ons** > **Add-on Store**" %}.
+   - Select **Install**, then **Start**.
+   - It may take a while for the add-on to start up.
 
-3. Install and start the Z-Wave JS UI add-on.
+3. Note the WebSocket URL that the integration will use to communicate with Z-Wave JS.
+    - Within the same **Z-Wave JS UI** add-on from step 2, open the **Documentation** tab.
+    - Search (Ctrl-F) for a link that begins with "ws://".  For example, `ws://a0d7b954-zwavejs2mqtt:3000`.
+    - Copy that URL somewhere safe.  You will need it later.
 
-4. Configure the Z-Wave JS UI add-on with the added control panel, including setting the location of your Z-Wave device and the network security keys.
+4. Start reconfiguring the integration.
+   - Open a new browser tab.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Z-Wave** integration.  
+   - Select the three-dot {% icon "mdi:dots-vertical" %} menu next to the **Z-Wave JS** top row.
+   - From the menu, select **Reconfigure**, then **Reconfigure current adapter**.
+   - Uncheck **Use the Z-Wave JS Supervisor add-on**.
+   - Keep this tab open.
 
-5. Add the Z-Wave integration again (even though it is still installed), and uncheck the "Use the Z-Wave JS Supervisor add-on". Enter the correct address for the community add-on in the URL field in the next step.
+5. Configure the new add-on using the information saved in step 1.
+   - Switch back to your initial browser tab.
+   - Within the **Z-Wave JS UI** add-on, switch back to the **Info tab** and select **Open Web UI**.
+   - Open the **Settings** {% icon "mdi:cog" %} page and expand the **Z-Wave** section.
+   - Fill out the subsections for **Serial Port**, **Security Keys**, and **RF Region**.
+   - Save your changes.
 
-6. Uninstall the official Z-Wave JS add-on.
+6. Finish reconfiguring the integration.
+   - Switch back to the tab from step 4.
+   - Under **WebSocket URL**, enter the URL you saved in step 3.
 
-7. Enable the Z-Wave integration.
+7. Uninstall the official add-on.
+   - Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %} and select **Uninstall**.
+   - You are asked if you want to delete the related data. 
+   - Keep it if you think you might switch back to the **Z-Wave JS** add-on later.
+
+### How to migrate from one adapter to a new adapter using Z-Wave JS UI?
+
+If you are currently using [Z-Wave JS UI](https://zwave-js.github.io/zwave-js-ui/#/) instead of the official **Z-Wave JS** add-on and want to start using a new adapter, you can migrate your network inside **Z-Wave JS UI**.
+
+1. Before starting migration, disable the **Z-Wave** integration.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the Z-Wave integration and select the three dots {% icon "mdi:dots-vertical" %} menu and select **Disable**.
+2. Do the migration in Z-Wave JS UI.
+   - If you are using the **Z-Wave JS UI** add-on, go to {% my supervisor_addon addon="core_zwave_jsa0d7b954_zwavejs2mqtt" title="**Settings** > **Add-ons** > **Z-Wave JS UI**" %}
+   - Open the Z-Wave JS UI control panel and in the bottom-right corner, select the purple **Advanced actions** button.
+   - Under **NVM Management**, select **Backup**.
+   - Unplug the current adapter and connect the new adapter.
+   - Go to **Settings** > **UI** > **Z-Wave**.
+     - Under **Serial port**, update the device path to show your new device (for example, `/dev/serial/by-id/usb-XXXX`).
+     - Under **Default radio configuration** enter the region you're in and save.
+   - In the control panel, select the purple {% icon "mdi:magic" %} advanced actions button and under **NVM Management**, select **Restore**.
+3. Rebuild all routes.
+   - Select the purple {% icon "mdi:magic" %} advanced actions button and under **Rebuild routes**, select **Begin**.
+
+4. Enable the Z-Wave integration again.
 
 ### What's the benefit of using Z-Wave JS UI add-on?
 
-You might wonder what the benefit is of using the Z-Wave JS UI add-on instead of the official add-on.
-The official add-on provides the Z-Wave Server in its bare minimum variant, just enough to serve the Home Assistant integration.
+You might wonder what the benefit is of using the [Z-Wave JS UI](https://zwave-js.github.io/zwave-js-ui/#/README) add-on instead of the official **Z-Wave JS** add-on.
+The official **Z-Wave JS** add-on provides the Z-Wave Server in its bare minimum variant, just enough to serve the Home Assistant integration.
 
-The Z-Wave JS UI project includes the Z-Wave JS Server for convenience but also provides a Z-Wave control panel and the ability to serve your Z-Wave network to MQTT. This allows you to use the control panel, and if you so choose, to also use MQTT at the same time. For example, some users may use MQTT to interact with Z-Wave from other devices, while the Home Assistant integration still works (as long as you keep the WS Server enabled in Z-Wave JS UI).
+The **Z-Wave JS UI** project includes the Z-Wave JS Server for convenience but also provides a Z-Wave control panel and the ability to serve your Z-Wave network to MQTT. This allows you to use the control panel, and if you so choose, to also use MQTT at the same time. For example, some users may use MQTT to interact with Z-Wave from other devices, while the Home Assistant integration still works (as long as you keep the WS Server enabled in Z-Wave JS UI).
 
 ### Z-Wave JS UI provides discovery of HA devices on its own too, now I'm confused
 
