@@ -134,7 +134,7 @@ This integration establishes a persistent TCP connection with the EVT800 in **TC
 
 ## Troubleshooting
 
-### Problem: “data not available”
+### Problem: data shows “Unvailable”
 
 **Cause**:
 Incorrect configuration or the device is not powered.
