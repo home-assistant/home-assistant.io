@@ -76,3 +76,22 @@ The Blue Current integration provides the following buttons:
 - Reset
 - Reboot
 - Stop charge session
+
+## Triggers
+The following triggers are available for automations:
+
+### Charge point triggers
+Triggers for when the charge point status changes to:
+* available
+* charging
+* unavailable
+* error
+* offline
+
+### Vehicle triggers
+Triggers for when the vehicle status changes to:
+* standby
+* vehicle_detected
+* ready
+* no_power
+* vehicle_error
