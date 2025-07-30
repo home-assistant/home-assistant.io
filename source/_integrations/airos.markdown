@@ -17,7 +17,7 @@ ha_quality_scale: bronze
 
 Ubiquiti's [UISP](https://techspecs.ui.com/uisp/wireless) (Ubiquity Internet Service Provider) product line offers a comprehensive suite of devices specifically designed for interconnecting various locations. Even their most cost-effective NanoStations achieve up to 450 Mbps real TCP/IP throughput and maintain reliable links up 10km range!
 
-A common use-case is establishing wireless point-to-point (PtP) or multi-point-to-point (PtMP) links between buildings, remote sites or even neighbours. This is highly advantageous when traditional fiber-optic or Ethernet is either impractical or distance is too much for copper cabling. With line-of-sight (LOS) between airOS devices, a stable and high-bandwith "beam" can be established, eliminating any need for additional infrastructure. While regular WiFi Access Points can be used, e.g. with meshing, for extending the network range, this also reduces capacity and performance of you WiFi network.
+A common use-case is establishing wireless point-to-point (PtP) or multi-point-to-point (PtMP) links between buildings, remote sites or even neighbours. This is highly advantageous when traditional fiber-optic or Ethernet is either impractical or distance is too much for copper cabling. With line-of-sight (LOS) between airOS devices, a stable and high-bandwidth "beam" can be established, eliminating any need for additional infrastructure. While regular WiFi Access Points can be used, e.g. with meshing, for extending the network range, this also reduces capacity and performance of you WiFi network.
 
 There is currently support for the following plaforms within Home Assistant:
 
@@ -82,7 +82,7 @@ Data is polled from devices every 60 seconds.
 
 ## Examples
 
-#### Detect link degradation
+### Detect link degradation
 
 As both stations need to maintain line-of-sight (LOS) between each other, the greater their distance, the more likely something will occasionally obstruct the path. A construction site crane might be in the way, or your local window cleaners might have slightly tapped your Access Point, causing its antenna to become misaligned. While the link might still be operational, it will definitely not be providing the capacity it had before. This automation example will notify you of an unexpected change in your link's capacity bandwidth.
 
