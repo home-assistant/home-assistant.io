@@ -1,0 +1,3 @@
+items:
+  - question: "What is the difference between Home Assistant Yellow and Home Assistant Green?"
+    answer: "<p>The most obvious difference is that Home Assistant Green is a plug-and-play system. It is designed to be used as-is. Home Assistant Yellow is designed to be extended by more RAM or more storage by adding an NVMe SSD. But extending also means you have to open the housing, install the additional hardware, and go through more complex installation steps.</p><p>The other big difference is that Yellow comes with support for Zigbee 3.0 and Matter-over-Thread. But Green can also use these protocols by adding a Connect ZBT-1.</p>"
