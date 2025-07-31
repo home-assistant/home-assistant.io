@@ -54,7 +54,7 @@ This integration retrieves data from Emoncms every 60 seconds.
 
 ## Troubleshooting
 
-The Emoncms integration relies on an active internet connection to communicate with your local or cloud based version of Emoncms. If you encounter issues, verify that your network connection is stable.
+The Emoncms integration relies on an active local network or internet connection to communicate with your local or cloud based version of Emoncms. If you encounter issues, verify that your connection is stable.
 
 ## Removing the integration
 
