@@ -75,7 +75,7 @@ The quickest way to get these changes, is by re-importing the blueprint. This wi
 ### To re-import a blueprint
 
 1. Go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
-2. On the blueprint that you want to re-import, select the three-dot menu, and select **Re-import blueprint**.
+2. On the blueprint that you want to re-import, select the three dots {% icon "mdi:dots-vertical" %} menu, and select **Re-import blueprint**.
 
 ## Updating an imported blueprint in YAML
 

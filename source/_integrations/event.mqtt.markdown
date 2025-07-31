@@ -12,6 +12,9 @@ The `mqtt` event platform allows you to process event info from an MQTT message.
 
 ## Configuration
 
+To use an MQTT event entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -20,6 +23,8 @@ mqtt:
       event_types:
         - press
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -155,7 +160,7 @@ name:
   type: string
   default: MQTT Event
 object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   required: false
   type: string
 payload_available:

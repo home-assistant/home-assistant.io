@@ -25,7 +25,7 @@ The statistics sensor can use either the numeric sensor or binary_sensor as its 
 Assuming the [`recorder`](/integrations/recorder/) integration is running, historical sensor data is read from the database on startup and is available immediately after a restart of the platform. If the [`recorder`](/integrations/recorder/) integration is *not* running, it can take some time for the sensor to start reporting data because some characteristics calculations require more than one source sensor value.
 
 {% tip %}
-The statistics integration is different from [Long-term Statistics](https://developers.home-assistant.io/docs/core/entity/sensor/#long-term-statistics). More details on the differences can be found in the [2021.8.0 release notes](/blog/2021/08/04/release-20218/#long-term-statistics).
+The statistics integration is different from {% term "Long-term statistics" %}.
 {% endtip %}
 
 The statistics sensor has an internal buffer that stores the values it needs for the computation of the various functions (for example, average step). The sensor is updated whenever new values are added to the buffer or when elements are removed. This is triggered either by a change of the source sensor (which may or may not change its actual value) or by values expiring (in cases where max age was specified). This means that the buffer can hold a sequence of identical values in cases where values are not changing over time.

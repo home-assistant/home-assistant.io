@@ -13,6 +13,8 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+works_with:
+  - zwave
 ha_iot_standard: zwave
 ha_brand: true
 ---
@@ -25,6 +27,8 @@ ha_brand: true
 
 ## Supported devices
 
-- [Shelly Wave 1PM Mini](https://www.shelly.com/products/shelly-qubino-wave-1pm-mini)
 - [Shelly Wave PM Mini](https://www.shelly.com/products/shelly-qubino-wave-pm-mini)
 - [Shelly Wave i4](https://www.shelly.com/products/shelly-qubino-wave-i4)
+- [Shelly Wave 1PM Mini](https://www.shelly.com/products/shelly-qubino-wave-1pm-mini)
+- [Shelly Wave 2PM](https://www.shelly.com/products/shelly-qubino-wave-2pm)
+- [Shelly Wave Pro 1PM](https://www.shelly.com/products/shelly-wave-pro-1-pm)
