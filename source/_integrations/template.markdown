@@ -308,6 +308,11 @@ alarm_control_panel:
       description: Defines an action to run when the alarm is disarmed.
       required: false
       type: action
+    optimistic:
+      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the alarm control panel will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
     state:
       description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
       required: false
@@ -828,12 +833,17 @@ fan:
   required: true
   type: map
   keys:
-    oscillating:
-      description: "Defines a template to get the osc state of the fan. Valid values: `true`, `false`."
-      required: false
-      type: template
     direction:
       description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`."
+      required: false
+      type: template
+    optimistic:
+      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the fan will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
+    oscillating:
+      description: "Defines a template to get the osc state of the fan. Valid values: `true`, `false`."
       required: false
       type: template
     percentage:
@@ -1197,6 +1207,11 @@ light:
       required: false
       type: template
       default: optimistic
+    optimistic:
+      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the light will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
     rgb:
       description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
       required: false
@@ -1441,13 +1456,14 @@ lock:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the lock works in optimistic mode.
+      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the lock will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
     state:
       description: Defines a template to set the state of the lock. Valid output values from the template are `locked`, `unlocked`, `open`, `locking`, `unlocking`, `opening`, and `jammed`, which are directly mapped to the corresponding states. In addition, `true` and `on` are valid as synonyms to `locked` while `false` and `off` are valid as synonyms to `unlocked`.
-      required: true
+      required: false
+      default: optimistic
       type: template
     unlock:
       description: Defines an action to run when the lock is unlocked.
@@ -1626,7 +1642,7 @@ number:
       type: template
       default: 0.0
     optimistic:
-      description: Flag that defines if number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
+      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1724,7 +1740,7 @@ select:
   type: map
   keys:
     optimistic:
-      description: Flag that defines if select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
+      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1977,6 +1993,11 @@ switch:
   required: true
   type: map
   keys:
+    optimistic:
+      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the switch will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
     state:
       description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
       required: false
@@ -2152,6 +2173,11 @@ vacuum:
       description: Defines an action to run when the vacuum is given a locate command.
       required: false
       type: action
+    optimistic:
+      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the vacuum will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
     pause:
       description: Defines an action to run when the vacuum is paused.
       required: false
@@ -2171,6 +2197,7 @@ vacuum:
     state:
       description: "Defines a template to get the state of the vacuum. Valid value: `docked`/`cleaning`/`idle`/`paused`/`returning`/`error`"
       required: false
+      default: optimistic
       type: template
     stop:
       description: Defines an action to run when the vacuum is stopped.
