@@ -843,7 +843,7 @@ fan:
       type: boolean
       default: false
     oscillating:
-      description: "Defines a template to get the osc state of the fan. Valid values: `true`, `false`."
+      description: "Defines a template to get the oscillation state of the fan. Valid values: `true`, `false`."
       required: false
       type: template
     percentage:
