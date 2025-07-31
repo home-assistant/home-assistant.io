@@ -231,6 +231,7 @@ changes to existing integrations:
 - [@noahhusby] added play media support to [Russound RIO].
 - [Pi-hole] users can now leverage API v6 functionality, enabled by [@HarvsG].
 - [Immich] users can now upload files directly through a new action, implemented by [@mib1185].
+- [KNX] now includes a new group monitor with improved filtering and search options, thanks to [@philippwaller].
 
 [@arturpragacz]: https://github.com/arturpragacz
 [@balloob]: https://github.com/balloob
@@ -245,6 +246,7 @@ changes to existing integrations:
 [@mib1185]: https://github.com/mib1185
 [@noahhusby]: https://github.com/noahhusby
 [@osohotwateriot]: https://github.com/osohotwateriot
+[@philippwaller]: https://github.com/philippwaller
 [@ricohageman]: https://github.com/ricohageman
 [@starkillerOG]: https://github.com/starkillerOG
 [@tr4nt0r]: https://github.com/tr4nt0r
@@ -256,6 +258,7 @@ changes to existing integrations:
 [GIOS]: /integrations/gios
 [Immich]: /integrations/immich
 [IMGW PIB]: /integrations/imgw_pib
+[KNX]: /integrations/knx
 [Matter]: /integrations/matter
 [Nord Pool]: /integrations/nordpool
 [OpenAI Conversation]: /integrations/openai_conversation
