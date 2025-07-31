@@ -7,7 +7,7 @@ replace_regex: \s\(\[?[a-z0-9\-\s_]+\]?\)$
 These are all the changes included in the Home Assistant Core 2025.1 release.
 
 For a summary in a more readable format:
-[Release notes blog for this release](/blog/2024/01/03/release-20251/).
+[Release notes blog for this release](/blog/2025/01/03/release-20251/).
 
 - Bump version to 2025.1.0dev0 ([@cdce8p] - [#131751])
 - Remove unreachable code in Habitica ([@tr4nt0r] - [#131778])

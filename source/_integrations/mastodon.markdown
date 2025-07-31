@@ -12,6 +12,7 @@ ha_domain: mastodon
 ha_iot_class: Cloud Polling
 ha_platforms:
   - diagnostics
+  - notify
   - sensor
 ha_integration_type: service
 ha_config_flow: true

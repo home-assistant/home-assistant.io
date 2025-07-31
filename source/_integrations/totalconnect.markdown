@@ -50,16 +50,6 @@ Log in to the [Total Connect website](https://totalconnect2.com) and create a "s
 
 Give the user access to your Location, along with a user code, usually a 4 digit number.
 
-{% details "Notes for Home Assistant Core Installations" %}
-
-If you have issues running this integration, you may require `libxml2-dev` and `libxmlsec1-dev` packages. To install these on Raspbian, run the command:
-
-```bash
-sudo apt install libxml2-dev libxmlsec1-dev
-```
-
-{% enddetails %}
-
 {% include integrations/config_flow.md %}
 
 ## Configuration Options
@@ -71,12 +61,6 @@ sudo apt install libxml2-dev libxmlsec1-dev
 ## Alarm control panel
 
 The integration provides an alarm control panel for each Total Connect location. It uses the name of your location from Total Connect.  For example, if your location name in Total Connect is "Home", Home Assistant will use `alarm_control_panel.home`.
-
-The `triggered` state also provides a state attribute called `triggered_source` giving more detail on what triggered the alarm:
-
-- `Police/Medical` is when sensors detected a burglar and/or the Police or Medical button was pressed
-- `Fire/Smoke` is when fire or smoke is detected, and/or the Fire button was pressed
-- `Carbon Monoxide` is when carbon monoxide is detected
 
 ## Binary sensor
 

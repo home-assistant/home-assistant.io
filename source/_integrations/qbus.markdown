@@ -2,8 +2,17 @@
 title: Qbus
 description: Instructions on how to integrate your Qbus installation with Home Assistant.
 ha_category:
+  - Climate
+  - Cover
+  - Hub
+  - Light
+  - Scene
   - Switch
 ha_platforms:
+  - climate
+  - cover
+  - light
+  - scene
   - switch
 ha_iot_class: Local Push
 ha_codeowners:
@@ -34,14 +43,16 @@ Once the Qbus controller is connected to the MQTT server, you need to set up an 
 
 There is currently support for the following **Qbus** products within Home Assistant:
 
-- **CTD 3.0**: main controller.
-- **CTD 3.5**: main controller.
-- **Toggle**: toggle outputs on controllers.
+- **CTD01E to CTD03E (CTD 3.0)**: main controllers (yellow).
+- **CTD10 to CTDMax (CTD 3.5)**: main controllers (black).
 
 ## Available entities
 
-- **Switch**: toggles on/off outputs.
-- **Light**: controls dimmer lights, allowing both on/off functionality and brightness adjustment.
+- **Climate**: manage thermostats by setting temperature and choosing presets.
+- **Cover**: operate covers with support for actions like open, close, stop, position adjustment, and tilt — depending on your setup.
+- **Light**: control dimmer lights, allowing both on/off functionality and brightness adjustment.
+- **Scene**: activate predefined scenes.
+- **Switch**: toggle on/off outputs.
 
 ## Removing the integration
 
@@ -52,6 +63,38 @@ This integration follows standard integration removal. No extra steps are requir
 ## Data updates
 
 All data from **Qbus** entities are pushed to Home Assistant over MQTT.
+
+## Examples
+
+### Automation to activate Qbus scene
+
+This automation will activate the **Watching TV** Qbus scene when turning on your TV.
+
+Replace `media_player.my_tv` with your TV entity and `scene.ctd_000001_watching_tv` with your Qbus scene entity.
+
+{% raw %}
+
+```yaml
+alias: Activate TV scene when turning on TV
+description: ""
+mode: single
+triggers:
+  - entity_id:
+      - media_player.my_tv
+    from: "off"
+    to: "on"
+    trigger: state
+conditions: []
+actions:
+  - target:
+      entity_id: scene.ctd_000001_watching_tv
+    metadata: {}
+    alias: Activate TV scene
+    action: scene.turn_on
+    data: {}
+```
+
+{% endraw %}
 
 ## Known limitations
 

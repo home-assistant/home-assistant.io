@@ -53,7 +53,7 @@ The **Bang & Olufsen** integration uses the [Mozart API](https://bang-olufsen.gi
 
 ## Supported features
 
-Currently, a single device with a `media_player` entity is created for each added physical device. For advanced automations, [events](#automations) are fired in Home Assistant.
+Currently, for each added physical device, a single device is created that includes a `media_player` entity and, if available, `event` entities.
 
 ### Media player
 
@@ -70,6 +70,32 @@ A number of features are available through the media player entity:
      - Expand sessions to all discovered devices.
      - Connect to, expand to or unexpand devices.
      - Set all connected Beolink devices to standby.
+
+### Events
+
+Event entities are created for each of the physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
+Available event entities:
+
+- Bluetooth
+- Microphone
+- Next
+- Play / Pause
+- Favourite 1
+- Favourite 2
+- Favourite 3
+- Favourite 4
+- Previous
+- Volume
+
+All of these event entities support the following event types:
+
+- Release of short press
+- Long press
+- Release of long press
+- Very long press
+- Release of very long press
+
+All devices except the [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) support device controls.
 
 ## Limitations
 
@@ -483,30 +509,6 @@ target:
 ## Automations
 
 WebSocket notifications received from the device are fired as events in Home Assistant. These can be received by listening to `bang_olufsen_websocket_event` event types, where `device_id` or `serial_number` can be used to differentiate devices.
-
-### Events
-
-Event entities are created for each of the physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
-Available event entities:
-- Bluetooth
-- Microphone
-- Next
-- Play / Pause
-- Favourite 1
-- Favourite 2
-- Favourite 3
-- Favourite 4
-- Previous
-- Volume
-
-All of these event entities support the following event types:
-- Release of short press
-- Long press
-- Release of long press
-- Very long press
-- Release of very long press
-
-All devices except the [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) support device controls.
 
 ### Getting Deezer URIs
 

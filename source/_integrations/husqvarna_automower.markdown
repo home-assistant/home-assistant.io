@@ -148,6 +148,8 @@ The integration will create the following sensors:
 - Battery level
 - Cutting blade usage time (if available)
 - Error. For example: *Mower tilted*, *outside geofence*.
+- Downtime (if available)
+- Inactive reason (if available). For example: *Searching for satellites* or *planning*.
 - Restricted reason. For example: *Week schedule*, *frost*, or *daily limit*.
 - Mode
 - Next start
@@ -158,6 +160,7 @@ The integration will create the following sensors:
 - Total drive distance
 - Total running time
 - Total searching time
+- Uptime (if available)
 - Work area (if available). For example: *My lawn*, *Front lawn*, *Back lawn*
 
 For each work area with activated systematic mowing these sensors are created:
@@ -224,7 +227,7 @@ data:
 - The mower can only be started using the `lawn_mower.start_mowing` action during the schedules configured in the Automower Connect App. To start the mower outside the scheduled times, use the `husqvarna_automower.override_schedule` action. In both cases, the battery must be fully charged beforehand.
 - Stay-out zone handling is not supported for mowers equipped with EPOS technology.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 
