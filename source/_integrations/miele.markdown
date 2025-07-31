@@ -244,6 +244,30 @@ actions:
 {% endraw %}
 {% enddetails %}
 
+### Set program and start washing machine
+
+Load your washing machine and manually activate mobile start or remote control mode on the machine.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: "Wash cottons early in the morning"
+description: "Set cottons program and start washing machine early in the morning"
+triggers:
+  - trigger: time
+    at: "04:00:00"
+actions:
+  - action: miele.set_program
+    data:
+      device_id: <Your washing machine's device_id>
+      program_id: 1
+```
+
+{% endraw %}
+{% enddetails %}
+
 ## Data updates
 
 This integration uses server-sent events from the Miele API to receive live updates from the appliances.
