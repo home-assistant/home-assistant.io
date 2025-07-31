@@ -3,7 +3,7 @@ import { ZWA2Animations } from "animations";
 import { ConnectHeader } from "header";
 
 new ZWA2RenderAnimation("scene1", "canvas.render-scroller#scene-one", ".animation-wrapper", 554);
-new ZWA2RenderAnimation("scene2", "canvas.render-scroller#scene-two", ".animation-wrapper", 554);
+//new ZWA2RenderAnimation("scene2", "canvas.render-scroller#scene-two", ".animation-wrapper", 554);
 new ConnectHeader();
 
 // if ?hide, display none on animation-wrapper
