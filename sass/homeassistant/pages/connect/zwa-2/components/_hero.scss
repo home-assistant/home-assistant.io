@@ -1,5 +1,5 @@
 section#hero {
-    height: 100vh;
+    height: calc(100vh - 68px);
 
     .section-inner{
         align-items: flex-end;

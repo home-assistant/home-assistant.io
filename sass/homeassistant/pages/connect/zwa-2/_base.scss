@@ -1,7 +1,4 @@
-section {
-    
-    //min-height: 100%;
-    
+section {   
     color: #ffffff;
 
     .section-inner {
@@ -15,11 +12,15 @@ section {
     }
 
     .section-inner-content {
-        padding: 120px 0;
+        padding: 40px 0;
         width: 100%;
 
-        //position: absolute;
-        //inset: calc(var(--header-height-small) * 2) 0 var(--header-height-small); old
-        //inset: var(--header-height-small) 0;
+        @include bp(tablet) {
+            padding: 80px 0;
+        }
+
+        @include bp(desktop) {
+            padding: 120px 0;
+        }
     }
 }

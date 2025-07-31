@@ -19,12 +19,20 @@ section#overview {
         height: fit-content;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
 
         .col{
             max-width: 400px;
 
+            svg{
+                width: 100%;
+            }
+
             .connect-badge{
-                margin-bottom: 40px;
+                margin-bottom: 12px;
+                @include bp(desktop) {
+                    margin-bottom: 40px;
+                }
             }
         }
     }

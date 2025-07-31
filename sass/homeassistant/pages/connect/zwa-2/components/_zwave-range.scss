@@ -4,15 +4,18 @@ section#zwave-range {
     .cols {
         gap: 40px;
         flex-wrap: wrap;
-        .col{
-            @include bp(desktop){
-            flex-grow: 1;
-            flex-basis: 0;
-        }
+
+        .col {
+            width: 100%;
+
+            @include bp(desktop) {
+                flex-grow: 1;
+                flex-basis: 0;
+            }
         }
     }
 
-    .container{
+    .container {
         flex-direction: column;
         gap: 40px;
     }
@@ -21,36 +24,44 @@ section#zwave-range {
         //height: 64vh;
     }
 
-    .feature-cards{
+    .feature-cards {}
 
-
-    }
-
-    .feature-card{
+    .feature-card {
         background-color: rgba(2, 35, 68, 0.2);
         border-radius: 20px;
         overflow: hidden;
         display: flex;
+        height: 100%;
+        justify-content: space-between;
         flex-direction: column;
-        aspect-ratio: 10/9;
         isolation: isolate;
 
-        &#silence-the-noise{
-            .feature-card-content{
+        &#silence-the-noise {
+            .feature-card-content {
                 padding-bottom: 20px;
             }
-            .feature-card-title{
+
+            .feature-card-title {
                 flex-shrink: 0;
                 white-space: nowrap;
             }
+
+            .feature-card-image{
+                aspect-ratio: 760/315;
+                svg{
+                    height: 100%;
+                }
+            }
         }
 
-        &#best-listener{
+        &#best-listener {
             height: 100%;
-            .feature-card-image{
+
+            .feature-card-image {
                 height: 100%;
                 position: relative;
-                svg{
+
+                svg {
                     position: absolute;
                     top: 50%;
                     transform: translateY(-50%);
@@ -59,29 +70,40 @@ section#zwave-range {
             }
         }
 
-        &--framed{
-            .feature-card-content{
-                padding: 60px 60px 20px 60px;
+        &--framed {
+            .feature-card-content {
+                padding: 30px 30px 20px 30px;
+
+                @include bp(tablet) {
+                    padding: 60px 60px 20px 60px;
+                }
             }
         }
 
-        &-content{
+        &-content {
             display: flex;
+            flex-wrap: wrap;
             gap: 24px;
-            padding: 60px;
+            padding: 30px;
+
+            @include bp(tablet) {
+                padding: 60px;
+            }
         }
-        
-        &-title{
+
+        &-title {
             min-width: 160px;
         }
 
-        &-description{
+        &-description {
             font-size: 16px;
         }
 
-        &-image{
+        &-image {
+            aspect-ratio: 16/9;
             z-index: -1;
-            img{
+
+            img, svg {
                 width: 100%;
             }
         }

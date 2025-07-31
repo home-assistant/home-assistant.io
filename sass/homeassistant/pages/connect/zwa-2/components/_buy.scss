@@ -7,9 +7,12 @@ section#buy {
         justify-content: center;
     }
 
-    .container{
+    .container {
         justify-content: center;
         text-align: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 80px;
     }
 
 
@@ -19,26 +22,19 @@ section#buy {
         justify-content: center;
     }
 
-    .price{
+    .price {
         font-size: 128px;
         font-weight: 700;
 
-        span{
+        span {
             opacity: .4;
         }
     }
 
 
-    .terms{
-        width: 100%;
+    .terms {
         padding: 0 16px;
         max-width: 520px;
-        position: absolute;
-        bottom: 40px;
         font-size: 16px;
-
-        @include bp(desktop) {
-            bottom: 80px;
-        }
     }
 }
