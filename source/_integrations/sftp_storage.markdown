@@ -1,11 +1,11 @@
 ---
-title: SFTP Backup
+title: SFTP Storage
 description: Allows storing backups created with Backup system onto remote SFTP host.
 ha_category:
   - Other
 ha_release: 2023.3
 ha_quality_scale: internal
-ha_domain: backup_sftp
+ha_domain: sftp_storage
 ha_codeowners:
   - '@maretodoric'
 ha_iot_class: Local Push
@@ -15,10 +15,10 @@ related:
   - docs: /common-tasks/general/#backups
     title: Backups
   - docs: /more-info/backup-emergency-kit/
-    title: backup emergency kit
+    title: Backup emergency kit
 ---
 
-The **SFTP Backup** {% term integration %} is used by core [Backup](/integrations/backup) integration to automatically store manual or automatic backups to remote SSH/SFTP Server if you have enabled **SFTP Backup Storage** in **Locations** section of your [Backup](/integrations/backup) integration settings.
+The **SFTP Storage** {% term integration %} works with the core [Backup](/integrations/backup) integration. When you enable **SFTP Storage** in the **Locations** section of your [Backup](/integrations/backup) integration settings, Home Assistant automatically stores manual and automatic backups on your remote SSH/SFTP server.
 
 To learn how to create and restore a backup, refer to the backup section under [common tasks](/common-tasks/general/#backups).
 
@@ -39,13 +39,13 @@ Username:
   required: true
   type: string
 Password:
-  description: Password to authenticate with. Provide this or Private Key File.
+  description: Password to authenticate with. Provide this or a private key file.
   required: true
   type: string
 Private Key File:
-  description: Location to the private key file to authenticate with. File must be uploaded to the Home Assistant `/config` folder. If file name provided here does not start with `/` (to designate full path to private key file), `/config` is automatically prepended to file name. Provide this or password.
+  description: Upload a private key file used for authentication. Provide this or password.
   required: true
-  type: string
+  type: selector
 Remote path:
   description: Remote path where to upload backups. Directory must already exist and user provided in `Username` must have write access to it.
   required: true
@@ -60,4 +60,4 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
-- If you remove the integration, all previous Home Assistant backups that were previously stored on remote server are not automatically deleted. You have to manually delete them from remote filesystem.
+- After you remove the integration, all Home Assistant backups stored on the remote server are not automatically deleted. You need to manually delete them from the remote filesystem.
