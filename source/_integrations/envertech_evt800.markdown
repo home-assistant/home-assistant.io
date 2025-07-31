@@ -134,12 +134,13 @@ This integration establishes a persistent TCP connection with the EVT800 in **TC
 
 ## Troubleshooting
 
-### Problem: data shows “Unvailable”
+### Symptom: data shows “Unvailable”
 
-**Cause**:
+#### Cause
+
 Incorrect configuration or the device is not powered.
 
-**Steps to resolve**:
+#### Resolution
 
 1. Ensure the EVT800 is receiving enough sunlight to power on.
 2. Verify that your Home Assistant instance is on the same local network as the EVT800.
