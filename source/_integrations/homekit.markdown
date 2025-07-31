@@ -195,7 +195,7 @@ homekit:
               required: false
               type: string
             linked_valve_duration:
-              description: The `entity_id` of a `input_number` entity to use as the default run time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. Minimum value `300` seconds. Maximum value `3600` seconds. Step size `300` seconds. Changes in HomeKit will change the sensor state (and vice versa).
+              description: The `entity_id` of an `input_number` entity to use as the default run time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. Minimum value `300` seconds. Maximum value `3600` seconds. Step size `300` seconds. Changes in HomeKit will change the sensor state (and vice versa).
               required: false
               type: string
             linked_valve_end_time:
