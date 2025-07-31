@@ -218,6 +218,14 @@ Get the list of available programs and associated parameters for applicable appl
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
 | `device_id`    | no       |  Select the device in GUI mode, then switch to YAML mode to see the device_id.                                        |
 
+### Action `miele.get_rooms`
+
+Get the list of currently available maps and rooms for robot vacuum cleaners. Same requirements on device state as described for `set_program` action above.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `device_id`    | no       |  Select the device in GUI mode, then switch to YAML mode to see the device_id. Note that only Miele robot vacuum cleaners will be selectable |
+
 ## Automation examples
 
 Get started with these automation examples
