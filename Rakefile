@@ -72,7 +72,7 @@ task :preview, :listen do |t, args|
   system "rake version_data"
   system "rake language_scores_data"
   system "rake alerts_data"
-  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental --limit_posts 0")
+  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   compassPid = Process.spawn("compass watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
 
