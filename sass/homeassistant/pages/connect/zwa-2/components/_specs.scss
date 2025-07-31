@@ -1,12 +1,128 @@
 section#specs {
     //height: 100vh;
 
-    .cols {
-        align-items: flex-end;
-        justify-content: space-between;
+    .cols:first-child {
+        gap: 80px;
+
+        >.col:first-child {
+            flex-grow: 1;
+            flex-basis: unset;
+        }
+    }
+
+    .container>.cols {
+        >.col {
+            &:last-child {
+                display: none;
+
+                @include bp(tablet) {
+                    display: flex;
+                }
+            }
+        }
     }
 
     .section-inner-content {
         //height: 64vh;
+    }
+
+    img#exploded-diagram-m {
+        @include bp(tablet) {
+            display: none;
+        }
+    }
+
+    img#exploded-diagram-d {
+        display: none;
+        height: auto;
+        max-height: calc(100vh - 160px);
+        width: 100%;
+        position: sticky;
+        top: calc(var(--header-height) + 40px);
+
+        @include bp(tablet) {
+            display: block;
+        }
+    }
+
+    .specs-list {
+        .spec-list-top-mobile {
+            margin-bottom: 40px;
+
+            h4:not(:first-child) {
+                margin-top: 40px;
+            }
+
+            @include bp(tablet) {
+                display: none;
+            }
+
+            >.cols {
+                align-items: flex-end;
+                gap: 24px;
+
+                >.col {
+                    flex-basis: 0;
+                    flex-grow: 1;
+
+
+                   
+                }
+            }
+        }
+
+        .spec-list-top-desktop {
+            margin-bottom: 40px;
+
+            @include bp(tablet) {
+                display: block;
+            }
+
+            display: none;
+        }
+
+        .cols {
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+            
+            @include bp(desktop) {
+                gap: 40px;
+                &:not(:last-child) {
+                    margin-bottom: 40px;
+                }
+            }
+
+
+
+            .col {
+                flex-grow: 1;
+                flex-basis: 0;
+            }
+        }
+
+        h4 {
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .spec-title {
+            font-size: 16px;
+            font-weight: 600;
+            border-bottom: 1px solid #72787E;
+            padding: 8px 0;
+            margin-bottom: 16px;
+            white-space: nowrap;
+        }
+
+        .spec-value {
+            font-size: 12px;
+            color: #B7C9D9;
+        }
+
     }
 }
