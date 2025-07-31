@@ -163,3 +163,9 @@ If you get the message **The token does not have permission to access the API**,
 3. If everything works correctly in Swagger but the integration still fails, check whether a reverse proxy (e.g., NGINX) is returning an **HTTP 403 error**. If so, the integration may also report this as a permission issue.
 
 {% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
