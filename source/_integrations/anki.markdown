@@ -62,7 +62,7 @@ Once a year, AnkiWeb asks you to verify your email address. The sync cannot be c
 
 #### Resolution
 
-Check your inbox for an email from AnkiWeb in your inbox and select the link.
+Check your inbox for an email from AnkiWeb and select the link.
 
 ## Removing the integration
 
