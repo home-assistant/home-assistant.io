@@ -139,8 +139,9 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Troubleshooting
 
-{% details "If you get the message 'Invalid hostname or IP address', try the following steps:"" %}
+{% details "Message: 'Invalid hostname or IP address'" %}
 
+If you get the message **Invalid hostname or IP address**, try the following steps:
 1. Make sure you enter a complete URL, such as `https://paperless.example.com` or `https://192.168.178.11:8011`.
 
 2. SSL is enabled by default. If you're using an unencrypted connection, you must explicitly use `http://` instead of `https://` in the URL.
@@ -149,8 +150,9 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% enddetails %}
 
-{% details "If you get the message 'The token does not have permission to access the API', try the following steps:" %}
+{% details "Message: 'The token does not have permission to access the API'" %}
 
+If you get the message **The token does not have permission to access the API**, try the following steps:
 1. Verify whether the token is still valid and correctly assigned to the user.
 
 2. Test the token using the Swagger interface available at
