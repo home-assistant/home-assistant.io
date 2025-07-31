@@ -11,7 +11,9 @@ ha_platforms:
 
 The **Anki** {% term integration %} displays the number of [Anki flashcards](https://apps.ankiweb.net) to review for the current day.
 
-**An AnkiWeb account** (or a custom sync server) **is mandatory to use this integration.**
+{% important %}
+An AnkiWeb account (or a custom sync server) is mandatory to use this integration.
+{% endimportant %}
 
 ## Prerequisites
 
