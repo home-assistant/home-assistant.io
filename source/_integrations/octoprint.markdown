@@ -6,6 +6,7 @@ ha_category:
   - Binary sensor
   - Button
   - Sensor
+  - Service
 ha_config_flow: true
 ha_release: 0.19
 ha_codeowners:
@@ -19,6 +20,7 @@ ha_platforms:
   - button
   - camera
   - sensor
+  - service
 ha_integration_type: integration
 ---
 
@@ -86,6 +88,14 @@ The OctoPrint integration provides the following buttons:
 - Resume Job
 - Shutdown System
 - Stop Job
+
+## Service
+
+The OctoPrint integration provides the following services, which may be invoked from automation, scripts, or as a button interaction.
+
+- Connect to printer
+- Set bed temperature
+- Set tool temperature
 
 ## Troubleshooting
 
