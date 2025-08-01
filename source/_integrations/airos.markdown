@@ -21,6 +21,7 @@ A common use-case is establishing wireless point-to-point (PtP) or multi-point-t
 
 There is currently support for the following plaforms within Home Assistant:
 
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
 This integration allows users to pull network metrics and statuses directly into their Home Assistant dashboards, enabling advanced automation, notifications, and comprehensive network oversight within their smart home ecosystem.
@@ -35,18 +36,50 @@ This integration only supports devices running airOS 8 and already configured us
 
 {% include integrations/config_flow.md %}
 
+## Operating roles
+
+Depending on the device's placement, it will be configured as either an 'Access Point' (AP) acting as the central device or a 'Station' connecting as a client. An AP can have multiple stations connected to it, whereas a station will only connect to a single AP.
+
+For stations in particular, they can operate in either a 'Bridge' or 'Router' role:
+
+- In 'Bridge' mode, which is the default and most common configuration, the airOS device simply bridges the wireless and Ethernet connections. In simplistic terms, it functions as a transparent network cable, making it invisible to the devices on both the station and AP sides.
+
+- In 'Router' mode, the airOS device acts as a small router, performing Network Address Translation (NAT) as well as providing DHCP services for devices connected to its LAN port. The airOS device in this mode can also operate as a PPPoE client, authenticating with a central PPPoE server to receive its IP address, gateway, and other network settings.
+
 ## Supported devices
 
-### airOS 8
+### airOS firmware 8
 
-While there is no known limitation to which devices running airOS 8 are supported, success has been reported on:
+While there is no known limitation to which devices running airOS firmware version 8 are supported, success has been reported on:
 
 - PowerBeam 5AC gen2
 - Nanostation 5AC (LOCO5AC) 
 
-## Sensor
+Do you have a device that works? We’d love to hear [your experience](#feedback_section) so we can add it to this list!
 
-This integration exposes the following sensor entities for your airOS devices:
+## Binary Sensor
+
+### Port Forwarding
+
+Active if any port forwarding is enabled when operating in 'router' mode.
+
+### DHCP Client
+
+Active if the device configured to use DHCP for it's network settings, inactive if IP address is statically assigned.
+
+### DHCP Server
+
+Active if the device itself is configured as a DHCP server.
+
+### DHCPv6 Server
+
+Active if the device itself is configured as a DHCP server for IPv6.
+
+### PPPoE
+
+Active if the device is configured for PPPoE.
+
+## Sensor
 
 ### Network Role
 
