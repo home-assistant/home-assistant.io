@@ -1,3 +1,19 @@
 items:
-  - question: "What is the difference between Home Assistant Yellow and Home Assistant Green?"
-    answer: "<p>The most obvious difference is that Home Assistant Green is a plug-and-play system. It is designed to be used as-is. Home Assistant Yellow is designed to be extended by more RAM or more storage by adding an NVMe SSD. But extending also means you have to open the housing, install the additional hardware, and go through more complex installation steps.</p><p>The other big difference is that Yellow comes with support for Zigbee 3.0 and Matter-over-Thread. But Green can also use these protocols by adding a Connect ZBT-1.</p>"
+    - question: Why is the Connect ZWA-2 so big?
+      answer: The Connect ZWA-2 was designed from the ground up to be perfectly tuned to the wavelength used by the Z-Wave standard. Many other Z-Wave adapters were designed to fit the smaller form factor of a USB-stick, resulting in antennas that limit the potential of the Z-Wave standard. We started from first principles and built an antenna that worked best for the radio frequency Z-Wave uses, then built a case around it.
+    - question: Why is this called the Connect ZWA-2?
+      answer: This Z-Wave adapter is based around an entirely new technical platform from the Home Assistant brand, that is unrelated to the platform used for the Connect ZBT-1. To make sure there was no confusion, we updated the numbering to indicate how new this platform is!
+    - question: Do I have to pick between Z-Wave Classic or Z-Wave Long Range when using Connect ZWA-2?
+      answer: No, the Connect ZWA-2 can run both Z-Wave Classic and the new Z-Wave Long Range at the same time. This dual-mode operation allows you to have the best of both worlds - a strong mesh network based on older devices, and the reach of Long Range for the newest devices that support the latest standard. You can pick which mode to support while setting up a new Z-Wave device.
+    - question: Can I migrate from any other Z-Wave stick?
+      answer: You will be able to automatically migrate from most modern Z-Wave sticks. You can find more detailed instructions, including compatible sticks and procedures, in our documentation. 
+    - question: What regions does the Connect ZWA-2 support?
+      answer: The Connect ZWA-2 can be set to any of the available Z-Wave regions. By default, all Connect ZWA-2 adapters are set to European settings for frequency and transmit power out of the box.
+    - question: Can I use the Connect ZWA-2 with a smart home platform other than Home Assistant, or with a custom Z-Wave addon (for example, Z-Wave JS UI)?
+      answer: Yes, you can. However, Connect ZWA-2 is optimized to work with the Home Assistant platform and standard Z-Wave JS. If you use it with another smart home platform or custom Z-Wave add-on, you will miss out on Home Assistant-specific features such as easy migration or automated region setting. You will need to set up the adapter manually in the platform or add-on of your choice.
+    - question: Will this work if I use Z-Wave JS UI instead of Z-Wave JS?
+      answer: Connect ZWA-2 can work with Z-Wave JS UI, but Home Assistant will not be able to migrate your existing network, nor change frequency or transmit power settings for you automatically. You will need to manually set up your adapter.
+    - question: Does the Connect ZWA-2 run on ESPHome?
+      answer: No, while the Connect ZWA-2 does contain an ESP32 chip, it does not run an ESPHome-based firmware and can not be modified by the user via ESPHome.
+    - question: Who manufactures the Connect ZWA-2?
+      answer: Nabu Casa, a commercial partner of the Open Home Foundation, is the manufacturer of the Connect ZWA-2. A significant part of Nabu Casa’s revenue on Home Assistant-branded products is paid to the Open Home Foundation as a partnership fee. Purchasing products from commercial partners supports the Open Home Foundation and the development of all its projects, such as Home Assistant.

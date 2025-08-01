@@ -8,9 +8,27 @@
 
         .connect-nav {
             &-inner {
-
                 backdrop-filter: blur(10px);
-                background-color: rgba(255, 255, 255, 0.2);
+                background-color: rgba(255, 255, 255, 0.5);
+
+                .logo {
+                    img {
+                        &.light {
+                            opacity: 0;
+                        }
+
+                        &.dark {
+                            opacity: 1;
+                        }
+                    }
+
+                }
+            }
+
+            .nav-links{
+                a:not(.button){
+                    color: #002332;
+                }
             }
         }
     }
@@ -25,7 +43,6 @@
         z-index: 1000;
 
         &-inner {
-
             background-color: rgba(255, 255, 255, 0);
             display: flex;
             height: var(--header-height);
@@ -47,6 +64,11 @@
                 grid-area: 1/1;
                 height: 20px;
                 width: auto;
+                transition: opacity .2s;
+
+                &.dark {
+                    opacity: 0;
+                }
             }
         }
 
@@ -95,7 +117,7 @@
                 align-items: center;
             }
 
-            a {
+            a:not(.button) {
                 text-decoration: none;
                 color: #ffffff;
                 font-size: 14px;
