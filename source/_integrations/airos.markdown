@@ -69,15 +69,15 @@ Active if the device configured to use DHCP for it's network settings, inactive 
 
 ### DHCP Server
 
-Active if the device itself is configured as a DHCP server.
+Active if the device itself is configured and acting as a DHCP server.
 
 ### DHCPv6 Server
 
-Active if the device itself is configured as a DHCP server for IPv6.
+Active if the device itself is configured and acting as a DHCP server for IPv6.
 
 ### PPPoE
 
-Active if the device is configured for PPPoE.
+Active if the device is configured for PPPoE and the PPPoE link state is active.
 
 ## Sensor
 
