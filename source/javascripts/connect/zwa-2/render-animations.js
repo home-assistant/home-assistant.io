@@ -72,61 +72,15 @@ export class ZWA2RenderAnimation {
         this.trigger = trigger;
         this.filename = filename;
         this.frameCount = frames;
-        this.canvas = document.querySelector(elem)
+        this.canvas = document.querySelector(elem);
         this.context = this.canvas.getContext("2d");
         this.canvas.width = 1920;
         this.canvas.height = 1080;
         this.loadImages();
-        let initialAnimationDone = false;
-        let playTimeout = null;
-        let scrollHandler = () => {
-            if (!initialAnimationDone) {
-                // Calculate the frame based on current scroll position
-                const triggerElem = document.querySelector(this.trigger);
-                const rect = triggerElem.getBoundingClientRect();
-                const scrollTop = window.scrollY || window.pageYOffset;
-                const elemTop = rect.top + scrollTop;
-                const elemHeight = triggerElem.offsetHeight;
-                const scrollPos = window.scrollY || window.pageYOffset;
-                const progress = Math.min(Math.max((scrollPos - elemTop) / (elemHeight - window.innerHeight), 0), 1);
-                const frame = Math.round(progress * (this.frameCount - 1));
-                this.meta.frame = frame;
-                this.render();
-                initialAnimationDone = true;
-                window.removeEventListener('scroll', scrollHandler);
-                if (playTimeout) clearTimeout(playTimeout);
-                this._stopInitialAnimation = true;
-                this.setupAnimation();
-            }
-        };
         this.images[0].onload = () => {
-            window.addEventListener('scroll', scrollHandler);
-            this.playInitialFrames(150, 24, () => {
-                if (!initialAnimationDone) {
-                    initialAnimationDone = true;
-                    window.removeEventListener('scroll', scrollHandler);
-                    this.setupAnimation();
-                }
-            }, (timeoutId) => { playTimeout = timeoutId; }, () => this._stopInitialAnimation);
+            this.setupAnimation();
         };
     }
 
-    playInitialFrames(frameLimit = 50, fps = 24, onComplete, onTimeout, shouldStop) {
-        let frame = 0;
-        const totalFrames = Math.min(frameLimit, this.frameCount);
-        const interval = 10 / fps;
-        const play = () => {
-            if (shouldStop && shouldStop()) return;
-            this.meta.frame = frame;
-            this.render();
-            frame++;
-            if (frame < totalFrames) {
-                const timeoutId = setTimeout(play, interval);
-                if (onTimeout) onTimeout(timeoutId);
-            } else {
-                if (typeof onComplete === 'function') onComplete();
-            }
-        };
-        play();
-    }
+    // Removed playInitialFrames; no initial animation needed
 }
