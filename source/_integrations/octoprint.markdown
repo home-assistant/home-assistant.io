@@ -6,7 +6,6 @@ ha_category:
   - Binary sensor
   - Button
   - Sensor
-  - Service
 ha_config_flow: true
 ha_release: 0.19
 ha_codeowners:
@@ -20,7 +19,6 @@ ha_platforms:
   - button
   - camera
   - sensor
-  - service
 ha_integration_type: integration
 ---
 
