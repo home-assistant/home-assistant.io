@@ -22,7 +22,7 @@ The **Droplet** {% term integration %} seamlessly connects your Home Assistant s
 
 Before connecting to Home Assistant, it is necessary to enable the integration on your Droplet.
 
-In the Droplet app, navigate to Settings > API Integration > Home Assistant Core Integration. Enable the integration and copy the token that appears on the screen. You will need to enter this in the configuration step.
+In the Droplet app, navigate to Settings > API Integration > Home Assistant. Enable the integration and copy the token that appears on the screen. You will need to enter this in the configuration step.
 
 ## Configuration
 
@@ -77,6 +77,8 @@ Screenshot of the energy dashboard
 
 ## Removing the integration
 
-This integration follows standard integration removal process; no extra steps are required.
+This integration follows standard integration removal process.
 
 {% include integrations/remove_device_service.md %}
+
+To prevent Droplet from showing up as a discovered device after its removal, disable local API in the Droplet app under Settings > API Integration.
