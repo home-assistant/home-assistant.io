@@ -105,6 +105,10 @@ After adding a friend, a new device will be created with the following entities:
 - **Avatar**: Displays the friend's current avatar.
 - **Now playing**: Displays the current game title image if the friend is playing a game.
 
+### Notifier
+
+- **Direct message**: Sends a private message to your friend through the PlayStation Network
+
 ## Data updates
 
 This integration retrieves data from the PlayStation Network every 30 seconds to ensure timely updates.
