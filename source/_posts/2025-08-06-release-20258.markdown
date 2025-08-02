@@ -181,7 +181,7 @@ We welcome the following new integrations in this release:
 - **[OpenRouter]**, added by [@joostlek]  
   Access over 400 different large language models through the OpenRouter API, providing a unified interface for AI integrations in your automations.
 - **[Ubiquiti UISP airOS]**, added by [@CoMPaTech]  
-  Monitor and manage your Ubiquiti airOS devices through the UISP platform, providing network performance metrics and device status information for your wireless infrastructure.
+  Monitor and manage airOS devices through their local API, providing performance metrics and device status information of your wireless point-to-point infrastructure.
 - **[Uptime Kuma]**, added by [@tr4nt0r]  
   Monitor the uptime and status of your services and websites with Uptime Kuma, keeping track of your infrastructure health directly in Home Assistant.
 - **[Volvo]**, added by [@thomasddn]  
