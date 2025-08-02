@@ -38,7 +38,7 @@ Enable the following permissions when creating your API key. Without these permi
 - `server.about`
 - `server.statistics` (_admin-only_)
 - `server.storage`
-- `server.versionCheck` (_admin-only_)
+- `server.versionCheck`
 - `tag.read`
 - `user.read`
 
