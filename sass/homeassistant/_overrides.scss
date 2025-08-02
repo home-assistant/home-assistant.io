@@ -574,6 +574,14 @@ a.material-card:hover {
     font-weight: 400;
     text-transform: none;
   }
+
+  .links ul {
+    list-style: none
+}
+
+  .links li {
+    display: inline
+}
 }
 
 .installation-survey {
