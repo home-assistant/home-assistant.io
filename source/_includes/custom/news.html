@@ -1,6 +1,25 @@
 <!--  Left column begins -->
 <div class="grid__item one-third lap-one-half palm-one-whole">
 
+  <a href="https://www.youtube.com/watch?v=Z-pUkM6XIuA" class="material-card picture-promo"
+    target="_blank" rel="noopener noreferrer" aria-label="Join our live stream on August 13th to see why Z-Wave isn't dead!" style="
+      background-image: url(/images/frontpage/feature-zwave.webp);
+      background-size: cover;
+      aspect-ratio: 900/600;
+    ">
+    <div class="caption">
+      <div>
+        <div class="title">
+          Product launch incoming
+        </div>
+        <div class="subtitle">
+          Join our live stream to see why Z-Wave isn't dead! <br />
+          August 13th @ 12PM Pacific / 3PM Eastern / 21:00 CEST
+        </div>
+      </div>
+    </div>
+  </a>
+
   {% assign releases_post_limit = 2 %}
   {% assign blog_post_limit = 4 %}
   <!-- Home Assistant updates posts -->
@@ -11,21 +30,21 @@
       {% assign current = 0 %}
 
       {% for post in site.posts %}
-        {% if post.categories contains "Release-Notes" %}
-          {% assign current = current | plus: 1 %}
-          
-          {% if current > releases_post_limit %}
-            {% break %}
-          {% endif %}
+      {% if post.categories contains "Release-Notes" %}
+      {% assign current = current | plus: 1 %}
 
-          {% assign post_date = post.date | date: "%Y-%m-%d" %}
-          {% assign post_date_formatted = post_date | date: "%B %d, %Y" %}
-          {% assign post.date_formatted = post_date_formatted %}
-          <li class="post" style="display: grid; font-size: 16px">
-            <a href="{{ post.url }}">{{ post.title }}</a>
-            <small class="blog-date">{{ post.date_formatted }}</small>
-          </li>
-        {% endif %}       
+      {% if current > releases_post_limit %}
+      {% break %}
+      {% endif %}
+
+      {% assign post_date = post.date | date: "%Y-%m-%d" %}
+      {% assign post_date_formatted = post_date | date: "%B %d, %Y" %}
+      {% assign post.date_formatted = post_date_formatted %}
+      <li class="post" style="display: grid; font-size: 16px">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <small class="blog-date">{{ post.date_formatted }}</small>
+      </li>
+      {% endif %}
       {% endfor %}
     </ol>
   </div>
@@ -38,27 +57,27 @@
       {% assign current = 0 %}
 
       {% for post in site.posts %}
-        {% if post.categories contains "Release-Notes" %}    
-        {% else %}
-          {% assign current = current | plus: 1 %}
-          
-          {% if current > blog_post_limit %}
-            {% break %}
-          {% endif %}
-  
-          {% assign post_date = post.date | date: "%Y-%m-%d" %}
-          {% assign post_date_formatted = post_date | date: "%B %d, %Y" %}
-          {% assign post.date_formatted = post_date_formatted %}
-          <li class="post" style="display: grid; font-size: 16px">
-            <a href="{{ post.url }}">{{ post.title }}</a>
-            <small class="blog-date">{{ post.date_formatted }}</small>
-          </li>
-        {% endif %}
+      {% if post.categories contains "Release-Notes" %}
+      {% else %}
+      {% assign current = current | plus: 1 %}
+
+      {% if current > blog_post_limit %}
+      {% break %}
+      {% endif %}
+
+      {% assign post_date = post.date | date: "%Y-%m-%d" %}
+      {% assign post_date_formatted = post_date | date: "%B %d, %Y" %}
+      {% assign post.date_formatted = post_date_formatted %}
+      <li class="post" style="display: grid; font-size: 16px">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <small class="blog-date">{{ post.date_formatted }}</small>
+      </li>
+      {% endif %}
       {% endfor %}
     </ol>
   </div>
 
-    <!-- Community Day 2025 - To move on/after event -->
+  <!-- Community Day 2025 - To move on/after event -->
   <a href="https://lu.ma/homeassistant" class="material-card picture-promo" target="_blank" style="
         background-image: url(/images/frontpage/community-meetup.webp);
         aspect-ratio: 500/263;
@@ -182,21 +201,21 @@
       </div>
     </div>
   </a>
-
-  <!-- Merch store -->
-  <a class="material-card picture-promo" href="https://home-assistant-store.creator-spring.com/"
-    style="background-image: url(/images/merchandise/shirt-frontpage.jpg)">
+  <a class="material-card picture-promo" href="/home-energy-management/" style="
+      background-image: url(/images/frontpage/energy-frontpage.jpg);
+      background-size: cover;
+      padding-top: 35%;
+    ">
     <div class="caption">
       <div>
         <div class="title">
-          Join the Home Assistant t-shirt revolution!
+          Home Energy Management
         </div>
         <div class="subtitle">
-          Look sharp in blue, black or gray. Wearing a HA t-shirt is okay.
+          Monitor your energy usage, transition to sustainable energy and save money
         </div>
       </div>
     </div>
   </a>
-
 </div>
 <!-- Right content ends -->
