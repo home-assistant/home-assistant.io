@@ -28,9 +28,22 @@ You need to [obtain the API key](https://immich.app/docs/features/command-line-i
 
 ### API key permissions
 
+Enable the following permissions when creating your API key. Without these permissions, the integration may not work properly. The "admin-only" permissions are only available when your API key belongs to an administrative user.
+
+- `album.read`
+- `albumAsset.create`
+- `asset.upload`
+- `asset.view`
+- `person.read`
+- `server.about`
+- `server.statistics` (_admin-only_)
+- `server.storage`
+- `server.versionCheck` (_admin-only_)
+- `tag.read`
+- `user.read`
+
 {% important %}
-The immich project is under very active development. Therefore some changes in the API key permissions of the immich server (_beginning from [v1.136](https://github.com/immich-app/immich/releases/tag/v1.136.0)_) makes it necessary to enable the `all` permission when creating your API key.
-This hint will be replaced by a detailed needed permissions table, when the api key permissions allows it.
+Prior to immich server version 1.138.0 the `all` permission is necessary for your API key.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
