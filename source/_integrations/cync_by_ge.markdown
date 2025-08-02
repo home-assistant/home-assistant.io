@@ -1,7 +1,7 @@
 ---
 title: Cync by GE
 description: Instructions on how to integrate Cync by GE devices into Home Assistant.
-ha_release: 2025.3
+ha_release: 2025.8
 ha_iot_class: Cloud Push
 ha_category:
   - Light
