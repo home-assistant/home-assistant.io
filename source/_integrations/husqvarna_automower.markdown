@@ -108,6 +108,7 @@ The integration will create the following binary sensors:
 The integration will create the following buttons:
 
 - **Confirm Error** (if available): For confirming minor mower errors.
+- **Reset cutting blade usage time** (if available): Resets the cutting blade usage time.
 - **Sync clock**: Syncs the clock of the mower with the time set in Home Assistant.
 
 ### Calendar
