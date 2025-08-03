@@ -89,7 +89,8 @@ Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If yo
 
 ### Pacific Gas & Electric (PG&E)
 
-PG&E requires the [Opower Login Service](https://github.com/tronikos/opower-login-service) which can run as either an Add-on or a Docker container. If you are running it as a Home Assistant Add-on, you will need to specify `http://7ef69028-opower-login-service` when you are asked for the **URL of the Opower Login Service**.
+The integration properly supports Multi-Factor Authentication (MFA) for PG&E via either email or phone.
+You will be asked to re-authenticate via MFA every 180 days.
 
 {% include integrations/config_flow.md %}
 
