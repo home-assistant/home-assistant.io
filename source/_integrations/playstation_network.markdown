@@ -107,7 +107,7 @@ After adding a friend, a new device will be created with the following entities:
 
 ### Notifier
 
-- **Direct message**: Sends a private message to your friend through the PlayStation Network
+- **Direct message**: Sends a private message to your friend through the PlayStation Network.
 
 ## Data updates
 
