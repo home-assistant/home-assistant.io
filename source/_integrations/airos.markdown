@@ -19,7 +19,7 @@ Ubiquiti's [UISP](https://techspecs.ui.com/uisp/wireless) (Ubiquity Internet Ser
 
 A common use-case is establishing wireless point-to-point (PtP) or multi-point-to-point (PtMP) links between buildings, remote sites or even neighbours. This is highly advantageous when traditional fiber-optic or Ethernet is either impractical or distance is too much for copper cabling. With line-of-sight (LOS) between airOS devices, a stable and high-bandwidth "beam" can be established, eliminating any need for additional infrastructure. While regular WiFi Access Points can be used, e.g. with meshing, for extending the network range, this also reduces capacity and performance of you WiFi network.
 
-There is currently support for the following plaforms within Home Assistant:
+There is currently support for the following platforms within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
