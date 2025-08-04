@@ -97,6 +97,7 @@ The monitored metrics are:
 - Upload and download rates (in KB/s)
 - Free partition space of used disks
 - Number of missed calls
+- SFP RX/TX power (FTTH only)
 
 ## Binary sensor
 
