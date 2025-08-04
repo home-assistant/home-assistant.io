@@ -16,7 +16,11 @@ ha_zeroconf: true
 ha_quality_scale: bronze
 ---
 
-The **Droplet** {% term integration %} seamlessly connects your Home Assistant setup to [Droplet](https://shop.hydrificwater.com/pages/buy-droplet) -- an advanced all-in-one smart home water sensor. Leveraging cutting-edge ultrasonic sensing technology, Droplet accurately monitors your home's water usage in real time. It safeguards your property from potential water damage and empowers you to make informed decisions about water conservation and identify anomalies early. Stay in control of your home's water system efficiently and intelligently with Droplet and Home Assistant.
+The **Droplet** {% term integration %} seamlessly connects your Home Assistant setup to [Droplet](https://shop.hydrificwater.com/pages/buy-droplet) -- an advanced all-in-one smart home water sensor.
+
+Leveraging cutting-edge ultrasonic sensing technology, Droplet accurately monitors your home's water usage in real time. It safeguards your property from potential water damage and empowers you to make informed decisions about water conservation and identify anomalies early.
+
+Stay in control of your home's water system efficiently and intelligently with Droplet and Home Assistant.
 
 ## Prerequisites
 
