@@ -84,7 +84,7 @@ GEM
     logger (1.7.0)
     mercenary (0.4.0)
     multi_json (1.17.0)
-    mustermann (3.0.3)
+    mustermann (3.0.4)
       ruby2_keywords (~> 0.0.1)
     nokogiri (1.18.9-arm64-darwin)
       racc (~> 1.4)
