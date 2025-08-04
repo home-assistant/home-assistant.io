@@ -224,7 +224,7 @@ Get the list of currently available maps and rooms for robot vacuum cleaners. Sa
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `device_id`    | no       |  Select the device in GUI mode, then switch to YAML mode to see the device_id. Note that only Miele robot vacuum cleaners will be selectable |
+| `device_id`    | no       |  Select the device in GUI mode, then switch to YAML mode to see the device_id. Note that only Miele robot vacuum cleaners will be selectable. |
 
 ## Automation examples
 
