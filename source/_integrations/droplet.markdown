@@ -26,7 +26,7 @@ Stay in control of your home's water system efficiently and intelligently with D
 
 Before connecting to Home Assistant, it is necessary to enable the integration on your Droplet.
 
-In the Droplet app, navigate to Settings > API Integration > Home Assistant. Enable the integration and copy the token that appears on the screen. You will need to enter this in the configuration step.
+In the Droplet app, navigate to Settings > Smart Home Integrations > Home Assistant. Enable the integration and copy the token that appears on the screen. You will need to enter this in the configuration step.
 
 ## Configuration
 
@@ -36,7 +36,7 @@ The only parameter required for Droplet setup with auto-discovery is the token, 
 
 {% configuration_basic %}
 Token:
-  description: "Token to authenticate with Droplet device. You can find it on the Droplet app under settings > API Integration > Home Assistant."
+  description: "Token to authenticate with Droplet device. You can find it on the Droplet app under settings > Smart Home Integratios > Home Assistant."
 {% endconfiguration_basic %}
 
 ## Supported Functionality
@@ -85,4 +85,4 @@ This integration follows standard integration removal process.
 
 {% include integrations/remove_device_service.md %}
 
-To prevent Droplet from showing up as a discovered device after its removal, disable local API in the Droplet app under Settings > API Integration.
+To prevent Droplet from showing up as a discovered device after its removal, disable local API in the Droplet app under Settings > Smart Home Integrations > Home Assistant.
