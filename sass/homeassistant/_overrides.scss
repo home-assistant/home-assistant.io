@@ -1191,6 +1191,10 @@ article.listing {
     text-decoration: underline;
     overflow-wrap: break-word;
 
+    &[rel*="external"] {
+      white-space: nowrap;
+    }
+
     &.btn {
       font-size: 1.1em;
       text-decoration: none;
