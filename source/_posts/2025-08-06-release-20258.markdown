@@ -348,10 +348,11 @@ There are many more improvements in this release; here are some of the other not
 - The [History Stats] {% term integration %} now includes a preview in the options flow, thanks to [@karwosts]. This makes it easier to configure your history statistics.
 - The [Template] {% term integration %} received a massive update from [@Petro31]! Here's what's new:
   - Trigger-based numeric sensors can now be set to unknown state
-  - Availability templates are now supported in the template helper config flow
-  - Preview functionality has been added to the config flow for alarm control panel, image, and select platforms
+  - The cover, fan, light, lock, and vacuum platforms are now supported in the UI
+  - Availability templates are now supported in the UI for all available platforms
+  - Preview entity has been added to the UI for alarm control panel and select platforms
   - Template locks now support the opening state
-  - Optimistic options have been added to YAML configuration for multiple platforms: switches, vacuums, fans, lights, locks, and alarm control panels
+  - The alarm control panel, fan, light, lock, switch, and vacuum platforms now support all optimistic YAML modes
 
 [@balloob]: https://github.com/balloob
 [@karwosts]: https://github.com/karwosts
