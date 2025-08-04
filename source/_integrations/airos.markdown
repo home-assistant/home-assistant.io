@@ -56,10 +56,6 @@ Indicates the role of the device in your network, either 'bridge' or 'router'.
 
 The base frequency set for this device.
 
-### Wireless Mode
-
-ndicates the device's role in the wireless link, typically 'ap-ptp' (Access Point Point-to-Point) or 'sta-ptp' (Station Point-to-Point).
-
 ### Wireless SSID
 
 The SSID (wireless network name) used by this device.
