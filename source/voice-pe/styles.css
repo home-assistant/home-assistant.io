@@ -2202,6 +2202,9 @@ section#hero .bg-gradient {
   z-index: 1;
 }
 
+.vpe-main #local-cloud .side .device.device--voice-pe {
+  position: relative;
+}
 .vpe-main #local-cloud .side .device.device--voice-pe img {
   height: 80px;
 }
