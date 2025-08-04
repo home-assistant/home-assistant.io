@@ -15,9 +15,9 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-Ubiquiti's [UISP](https://techspecs.ui.com/uisp/wireless) (Ubiquity Internet Service Provider) product line offers a comprehensive suite of devices specifically designed for interconnecting various locations. Even their most cost-effective NanoStations achieve up to 450 Mbps real TCP/IP throughput and maintain reliable links up 10km range!
+Ubiquiti's <abbr title="Ubiquity Internet Service Provider">UISP</abbr> wireless [product line](https://techspecs.ui.com/uisp/wireless) offers a comprehensive suite of devices specifically designed for interconnecting various locations. Even their most cost-effective achieve up to 450 Mbps real TCP/IP throughput and maintain reliable links up 10km range!
 
-A common use-case is establishing wireless point-to-point (PtP) or multi-point-to-point (PtMP) links between buildings, remote sites or even neighbours. This is highly advantageous when traditional fiber-optic or Ethernet is either impractical or distance is too much for copper cabling. With line-of-sight (LOS) between airOS devices, a stable and high-bandwidth "beam" can be established, eliminating any need for additional infrastructure. While regular WiFi Access Points can be used, e.g. with meshing, for extending the network range, this also reduces capacity and performance of you WiFi network.
+A common use-case is establishing wireless <abbr title="Point-to-Point">PtP</abbr> or <abbr title="Point-to-Multi-Point">PtMP</abbr> links between buildings, remote sites or even neighbours. This is highly advantageous when traditional fiber-optic or Ethernet is either impractical or distance is too much for copper cabling. With <abbr title="Line-of-sight">LoS</abbr> between airOS devices, a stable and high-bandwidth "beam" can be established, eliminating any need for additional infrastructure. This can be an improvement over extending your WiFi coverage using meshing of Access Points, as meshing potentially reduces the capacity and performance of your WiFi network.
 
 There is currently support for the following plaforms within Home Assistant:
 
@@ -41,8 +41,8 @@ This integration only supports devices running airOS 8 and already configured us
 
 While there is no known limitation to which devices running airOS 8 are supported, success has been reported on:
 
-- PowerBeam 5AC gen2
-- Nanostation 5AC (LOCO5AC) 
+- Nanostation 5AC Loco (Loco5AC) 
+- PowerBeam 5AC (PBE-5AC-Gen2)
 
 ## Sensor
 
@@ -50,7 +50,7 @@ This integration exposes the following sensor entities for your airOS devices:
 
 ### Network Role
 
-Indicates the role of the device in your network, either 'bridge' or 'router'.
+Indicates the role of the device in your network, either 'bridge' or 'router' (see [operating roles](#operating-roles) for more information.
 
 ### Wireless Frequency
 
@@ -58,7 +58,7 @@ The base frequency set for this device.
 
 ### Wireless SSID
 
-The SSID (wireless network name) used by this device.
+The <abbr title="Service Set Identifier">SSID</abbr> (i.e. the wireless network name) used by this device.
 
 ### Download capacity & Upload capacity
 
@@ -70,7 +70,7 @@ These sensors show the actual data transfer rate (receive and transmit) for this
 
 ### Antenna gain
 
-Performance in decibels of the devices antenna. See [Gain](https://en.wikipedia.org/wiki/Gain_(antenna)) on Wikipedia.
+Performance in <abbr title="decibels">dB</abbr> for the device antenna. See [Gain](https://en.wikipedia.org/wiki/Gain_(antenna)) on Wikipedia.
 
 ## Data updates
 
@@ -80,7 +80,7 @@ Data is polled from devices every 60 seconds.
 
 ### Detect link degradation
 
-As both stations need to maintain line-of-sight (LOS) between each other, the greater their distance, the more likely something will occasionally obstruct the path. A construction site crane might be in the way, or your local window cleaners might have slightly tapped your Access Point, causing its antenna to become misaligned. While the link might still be operational, it will definitely not be providing the capacity it had before. This automation example will notify you of an unexpected change in your link's capacity bandwidth.
+As both stations need to maintain <abbr title="Line-of-Sight">LoS</abbr> between each other, the greater their distance, the more likely something will occasionally obstruct the path. A construction site crane might be in the way, or your local window cleaners might have slightly tapped your Access Point, causing its antenna to become misaligned. While the link might still be operational, it will definitely not be providing the capacity it had before. This automation example will notify you of an unexpected change in your link's capacity bandwidth.
 
 This automation triggers when either the download or upload capacity reported by your NanoStation drops significantly below its expected performance level.
 
@@ -107,7 +107,7 @@ automation:
         entity_id: notify.notifier
 ```
 
-The above currently caters for a 25% degradation of 450 Mbit/s. If you want to consider your actual capacity dynamically we suggest looking into the [Statistics](/integrations/statistics/) integration.
+The above currently caters for a 25% degradation of 450 Mbit/s. If you want to consider your actual capacity in a dynamic approach, we suggest looking into the [Statistics](/integrations/statistics/) integration.
 
 ## Troubleshooting
 
@@ -121,7 +121,7 @@ If you need to configure the device directly, you can find the link to your devi
 
 ### Adjusting the update interval
 
-Please note that the [default intervals](#data-updates) are considered best practice. Updating too frequently may induce considerable load on your bridge(s) resulting in unexpected results or missing data.
+Please note that the [default interval](#data-updates) is considered best practice. Updating too frequently may induce considerable load on your bridge(s) resulting in unexpected results or missing data.
 
 {% include common-tasks/define_custom_polling.md %}
 
