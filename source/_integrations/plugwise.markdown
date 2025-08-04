@@ -160,14 +160,6 @@ The interval at which the integration fetches data from the gateway depends on t
 | Energy and gas entities |10 seconds|
 | Stretch entities |60 seconds|
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required within Home Assistant or on your Plugwise devices.
-
-{% include integrations/remove_device_service.md %}
-
-This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.
-
 ## Actions
 
 ### Climate control actions
@@ -426,3 +418,11 @@ Also, there's a pause-mode that disables the active schedule and sets the away-p
 ### Idling climate actions
 
 You can only stop climate actions on an Adam, see [turn on / turn off](#turn-on--turn-off). An alternative could be to adjust your [preset mode](#set-preset-mode) to `no_frost` to stop any heating actions.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required within Home Assistant or on your Plugwise devices.
+
+{% include integrations/remove_device_service.md %}
+
+This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.

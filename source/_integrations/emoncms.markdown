@@ -35,6 +35,8 @@ API key:
   description: The 32-character read-only API key needed for authentication is found under "My Account > Read Only API Key" in Emoncms. The key should be a hexadecimal string. The read-and-write API key is not needed as this integration reads data from Emoncms. If you receive authentication errors, verify that you've copied the entire key correctly.
 {% endconfiguration_basic %}
 
+{% include integrations/option_flow.md %}
+
 ## Sensors
 
 - **energy** in Wh, kWh
@@ -45,3 +47,17 @@ API key:
 - **temperature** in °C, °F or K
 - **frequency** in Hz
 - **pressure** in hPa
+
+## Data updates
+
+This integration retrieves data from Emoncms every 60 seconds.
+
+## Troubleshooting
+
+The Emoncms integration relies on an active local network or internet connection to communicate with your local or cloud based version of Emoncms. If you encounter issues, verify that your connection is stable.
+
+## Removing the integration
+
+This integration can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}
