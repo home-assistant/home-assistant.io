@@ -36,7 +36,7 @@ The only parameter required for Droplet setup with auto-discovery is the token, 
 
 {% configuration_basic %}
 Token:
-  description: "Token to authenticate with Droplet device. You can find it on the Droplet app under settings > Smart Home Integratios > Home Assistant."
+  description: "Token to authenticate with Droplet device. You can find it on the Droplet app under settings > Smart Home Integrations > Home Assistant."
 {% endconfiguration_basic %}
 
 ## Supported Functionality
