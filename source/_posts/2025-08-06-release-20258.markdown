@@ -295,8 +295,9 @@ their quality scale:
   - [Mealie], thanks to [@andrew-codechimp]
   - [Tankerkönig], thanks to [@mib1185]
 
-- **1 integration reached bronze** 🥉
+- **2 integrations reached bronze** 🥉
   - [Onkyo], thanks to [@arturpragacz]
+  - [Ring], thanks to [@sdb9696]
 
 This is a huge achievement for these integrations and their maintainers. The
 effort and dedication required to reach these quality levels is significant,
@@ -313,6 +314,7 @@ A big thank you to all the contributors involved! 👏
 [@joostlek]: https://github.com/joostlek
 [@jpbede]: https://github.com/jpbede
 [@mib1185]: https://github.com/mib1185
+[@sdb9696]: https://github.com/sdb9696
 [@Taraman17]: https://github.com/Taraman17
 [AirGradient]: /integrations/airgradient
 [Amazon Alexa Devices]: /integrations/alexa_devices
@@ -322,6 +324,7 @@ A big thank you to all the contributors involved! 👏
 [Mealie]: /integrations/mealie
 [Onkyo]: /integrations/onkyo
 [Pegel Online]: /integrations/pegel_online
+[Ring]: /integrations/ring
 [Tankerkönig]: /integrations/tankerkoenig
 
 ### Now available to set up from the UI
