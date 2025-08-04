@@ -18,19 +18,6 @@ The **EOL Tracker** {% term integration %} allows you to track whether a device 
 
 {% include integrations/config_flow.md %}
 
-## Configuration
-
-This integration is configured through the Home Assistant UI — no YAML configuration is required.
-
-1. Go to **Settings → Devices & Services**
-
-2. Click **Add Integration**
-
-3. Search for **EOL Tracker**
-
-4. Select **Add Entry**
-
-5. Follow the prompts to add your product or device
 
 ## Entities
 
