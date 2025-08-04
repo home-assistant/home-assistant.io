@@ -25,10 +25,6 @@ It required that `hddtemp` is started or running in daemon mode on a local or re
 hddtemp -dF
 ```
 
-{% important %}
-You can't use this sensor in a container (only Home Assistant Core is supported) as it requires access to `hddtemp` which is not available in a container-based setup.
-{% endimportant %}
-
 ## Configuration
 
 To setup a HDDTemp to your installation, add the following to your {% term "`configuration.yaml`" %} file.

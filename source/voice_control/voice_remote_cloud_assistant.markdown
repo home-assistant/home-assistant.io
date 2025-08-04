@@ -9,7 +9,7 @@ related:
     title: Creating a local assistant
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing devices to Assist
-  - url: https://voice-pe.home-assistant.io/documentation/
+  - url: https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition
     title: Voice Preview Edition - Documentation
 ---
 
@@ -50,6 +50,6 @@ To have the fastest processing voice assistant experience, follow these steps:
 
 
 ## Next steps
-Once Assist is configured, now can now start using it. You can now talk through your device ([Android](/voice_control/android/), [iOS](/voice_control/apple/) or [Voice Preview edition](https://voice-pe.home-assistant.io/getting-started/)).
+Once Assist is configured, now can now start using it. You can now talk through your device ([Android](/voice_control/android/), [iOS](/voice_control/apple/) or [Voice Preview edition](https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition).
 
 To get the best out of the voice interaction, don't forget to check the [best practices](/voice_control/best_practices/).

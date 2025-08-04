@@ -11,6 +11,7 @@ ha_category:
   - Light
   - Lock
   - Number
+  - Pump
   - Select
   - Sensor
   - Switch
@@ -107,8 +108,6 @@ For devices where Home Assistant provides a native integration (with local API),
 It is recommended to run the Matter add-on on Home Assistant OS. This is currently the only supported option. Other installation types are without support and at your own risk.
 
 If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
-
-Running Matter on a Home Assistant Core installation is not supported.
 
 ## Adding a Matter device to Home Assistant
 
@@ -314,11 +313,11 @@ Follow these steps if you want to remove a device from a particular Matter contr
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
 2. From the list of devices, select the device you want to remove from a controller.
-3. In the **Device info** section, next to **Share device**, select the three-dot menu. Then, select **Manage fabrics**.
+3. In the **Device info** section, next to **Share device**, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Manage fabrics**.
 4. From the list, remove the controller of interest.
    - If you want to remove Apple Home, also remove the Apple Keychain entry.
    ![image](/images/integrations/matter/matter-remove-from-network.png)
-5. If you want to remove the device from Home Assistant itself, select the three-dot menu and select **Delete**.
+5. If you want to remove the device from Home Assistant itself, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
 
 ## About Matter device information
 
@@ -387,7 +386,7 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 ### General recommendations
 
-- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Not using Home Assistant OS is at your own risk. We do provide some [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) on how to run the Matter Server as a Docker container. The documentation includes a description of the host and networking requirements.
+- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Home Assistant OS with the Matter Server add-on is the supported path for using Matter with Home Assistant. Running Matter Server as a standalone Docker container is unsupported, but we provide [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) including a description of the host and networking requirements.
 
 - To use {% term Thread %} devices you will need a {% term Thread %} network with at least one Thread border router in your network nearby the {% term Thread %} device(s). Apple users, for example, need the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub (2nd Gen). Use the Thread integration in Home Assistant to diagnose your {% term Thread %} network(s).
 

@@ -14,6 +14,16 @@ jobs:
         with:
           node-version: 20
           cache: "npm"
+      - name: Check for .md files and suggest renaming
+        run: |
+          echo "Checking for .md files in source/_integrations..."
+          MD_FILES=$(find source/_integrations -type f -name "*.md")
+          if [ -n "$MD_FILES" ]; then
+            echo "Found the following .md files:"
+            echo "$MD_FILES"
+            echo "⚠️ Please rename these files from .md to .markdown"
+            exit 1
+          fi
       - name: Install dependencies
         run: npm install
         env:

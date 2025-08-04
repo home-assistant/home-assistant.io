@@ -52,8 +52,8 @@ There are a few very important rules to remember when adding templates to YAML:
 
 1. You **must** surround single-line templates with double quotes (`"`) or single quotes (`'`).
 2. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.default), or both.
-3. It is advised that when comparing numbers, you convert the number(s) to a [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) or an [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) by using the respective [filter](https://jinja.palletsprojects.com/en/latest/templates/#list-of-builtin-filters).
-4. While the [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) and [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
+3. It is advised that when comparing numbers, you convert the number(s) to a [`float`](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.float) or an [`int`](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.int) by using the respective [filter](https://jinja.palletsprojects.com/en/latest/templates/#list-of-builtin-filters).
+4. While the [`float`](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.float) and [`int`](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
@@ -63,7 +63,8 @@ Jinja supports a set of language extensions that add new functionality to the la
 To improve the experience of writing Jinja templates, we have enabled the following
 extensions:
 
-- [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+- [Loop Controls](https://jinja.palletsprojects.com/en/stable/extensions/#loop-controls) (`break` and `continue`)
+- [Expression Statement](https://jinja.palletsprojects.com/en/stable/extensions/#expression-statement) (`do`)
 
 ### Reusing templates
 
@@ -79,7 +80,7 @@ For example, you might define a macro in a template in `config/custom_templates/
 
 {% raw %}
 
-```text
+```jinja
 {% macro format_entity(entity_id) %}
 {{ state_attr(entity_id, 'friendly_name') }} - {{ states(entity_id) }}
 {% endmacro %}
@@ -91,12 +92,31 @@ In your automations, you could then reuse this macro by importing it:
 
 {% raw %}
 
-```text
+```jinja
 {% from 'formatter.jinja' import format_entity %}
 {{ format_entity('sensor.temperature') }}
 ```
 
 {% endraw %}
+
+Home Assistant also allows you to write macros with non-string return values by
+taking a named argument called `returns` and calling it with a return value.  Once created,
+pass the macro into the `as_function` filter to use the returned value:
+
+{% raw %}
+
+```jinja
+{%- macro macro_is_switch(entity_name, returns) -%}
+  {%- do returns(entity_name.startswith('switch.')) -%}
+{%- endmacro -%}
+{%- set is_switch = macro_is_switch | as_function -%}
+{{ "It's a switch!" if is_switch("switch.my_switch") else "Not a switch!" }}
+```
+
+{% endraw %}
+
+In this way, you can export utility functions that return scalar or complex values rather than
+just macros that render to strings.
 
 ## Home Assistant template extensions
 
@@ -603,6 +623,7 @@ If there is more than one entry with the same title, the entities for all the ma
 - `labels()` returns the full list of label IDs, or those for a given area ID, device ID, or entity ID.
 - `label_id(lookup_value)` returns the label ID for a given label name.
 - `label_name(lookup_value)` returns the label name for a given label ID.
+- `label_description(lookup_value)` returns the label description for a given label ID.
 - `label_areas(label_name_or_id)` returns the list of area IDs tied to a given label ID or name.
 - `label_devices(label_name_or_id)` returns the list of device IDs tied to a given label ID or name.
 - `label_entities(label_name_or_id)` returns the list of entity IDs tied to a given label ID or name.
@@ -754,7 +775,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
   {% endraw %}
 
-- `as_datetime(value, default)` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error. When the input is already a datetime object it will be returned as is. in case the input is a datetime.date object, midnight will be added as time. This function can also be used as a filter.
+- `as_datetime(value, default)` converts a string containing a timestamp or a valid UNIX timestamp to a datetime object. If conversion fails, the function returns the `default` value. If no `default` is provided and the input is a string that cannot be converted to a datetime, it returns `None`. For other invalid inputs (e.g., a list, dictionary, or a numeric value too large to convert), it raises an error when no `default` is supplied. In case the input is already a datetime object, it is returned unchanged. If the input is a `datetime.date` object, midnight is added as the time. This function can also be used as a filter.
 - `as_timestamp(value, default)` converts a datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts a datetime object to local time. This function can also be used as a filter.
 - `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
@@ -878,6 +899,29 @@ The temperature is {{ temp.temperature }}{{ temp.unit }}
 
 ```text
 The temperature is 25°C
+```
+
+{% endraw %}
+
+`from_json(default)` function will attempt to convert the input to `json`. If that fails, returns the `default` value, or if omitted raises an error.
+
+#### Template
+
+{% raw %}
+
+```text
+{% set result = 'not json'|from_json('not json') %}
+The value is {{ result }}
+```
+
+{% endraw %}
+
+#### Output
+
+{% raw %}
+
+```text
+The value is not json
 ```
 
 {% endraw %}
@@ -1174,6 +1218,8 @@ Some examples:
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
 - Filter `slugify(separator="_")` will convert a given string into a "slug".
 - Filter `ordinal` will convert an integer into a number defining a position in a series (e.g., `1st`, `2nd`, `3rd`, `4th`, etc).
+- Filter `value | from_hex` Decodes a hex string to raw bytes.
+- Filter `value | base64_encode` Encodes a string or bytes to a base 64 string.
 - Filter `value | base64_decode` Decodes a base 64 string to a string, by default utf-8 encoding is used.
 - Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ascii encoding.
 - Filter `value | base64_decode(None)` Decodes a base 64 string to raw bytes.
@@ -1182,9 +1228,11 @@ Some examples:
 
 Some examples:
 {% raw %}
-
+- `{{ "homeassistant" | base64_encode }}` - renders as `aG9tZWFzc2lzdGFudA==`
 - `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode }}` - renders as `homeassistant`
 - `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode(None) }}` - renders as `b'homeassistant'`
+- `{{ "0F010003" | from_hex }}` - renders as `b'\x0f\x01\x00\x03'`
+- `{{ "0F010003" | from_hex | base64_encode }}` - renders as `DwEAAw==`
 
 {% endraw %}
 
@@ -1354,6 +1402,26 @@ Some examples:
 
 - `{{ combine({'a': 1, 'b': {'x': 1}}, {'b': {'y': 2}, 'c': 4}, recursive=True) }}` - renders as `{'a': 1, 'b': {'x': 1, 'y': 2}, 'c': 4}`
 - `{{ combine({'a': 1, 'b': {'x': 1}}, {'b': {'y': 2}, 'c': 4}) }}` - renders as `{'a': 1, 'b': {'y': 2}, 'c': 4}`
+
+{% endraw %}
+
+### Working with macros
+
+Home Assistant provides two additional functions that make macros much more powerful.
+
+{% raw %}
+
+- `apply` is both a filter and a test that allows you to use any callable (macros or functions) wherever
+you can use other filters and tests. `apply` also passes along any additional parameters to the function.
+For example, if you had a function called `double`, you could call
+`{{ [1, 2, 3, 4] | map('apply', double) | list }}`, which would render as `[2, 4, 6, 8]`.  
+Alternatively, if you had a function called `is_multiple_of`, you could call
+`{{ [1, 2, 3, 4] | select('apply', is_multiple_of, 2) | list }}`, which would render as `[2, 4]`.
+- `as_function` is a filter that takes a macro that has a named parameter called `returns`. The macro can
+then call `{%- do returns(return_value) -%}`. After passing this macro into `as_function`, the resulting
+function returns your return value directly, preserving the underlying data type rather than rendering
+a string. You can return dictionaries, numbers, `True`/`False` (allowing you to write your own tests when
+used with `apply`), or any other value your code might produce.
 
 {% endraw %}
 

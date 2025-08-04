@@ -27,7 +27,7 @@ The **Met Office** weather {% term integration %} uses the Met Office's [DataHub
 
 ## Entities
 
-This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast (daily and hourly), and sensor entities for individual reporting on each of the individual measurements. Note that only some of the sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration.
+This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast (daily, hourly, and twice-daily), and sensor entities for individual reporting on each of the individual measurements. Note that only some of the sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration.
 
 The available sensor entities:
 

@@ -12,7 +12,8 @@ The `mqtt` Number platform allows you to integrate devices that might expose con
 
 ## Configuration
 
-To enable MQTT Number in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To use an MQTT number entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -20,6 +21,8 @@ mqtt:
   - number:
       command_topic: my-device/threshold
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -165,7 +168,7 @@ name:
   required: false
   type: string
 object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   required: false
   type: string
 optimistic:

@@ -48,6 +48,7 @@ Example of various device class icons for sensors.
 The following device classes are supported for sensors:
 
 - **None**: Generic sensor. This is the default and doesn't need to be set.
+- **absolute_humidity**: Absolute humidity in g/m³, mg/m³.
 - **apparent_power**: Apparent power in VA.
 - **aqi**: Air Quality Index (unitless).
 - **area**: Area in m², cm², km², mm², in², ft², yd², mi², ac, ha
@@ -94,7 +95,7 @@ The following device classes are supported for sensors:
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C, °F or K
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
-- **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
+- **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³ or mg/m³
 - **volatile_organic_compounds_parts**: Ratio of volatile organic compounds in ppm or ppb
 - **voltage**: Voltage in V, mV, µV, kV, MV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF

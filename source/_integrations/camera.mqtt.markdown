@@ -14,7 +14,8 @@ This can be used with an application or a service capable of sending images thro
 
 ## Configuration
 
-To enable this camera in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To use an MQTT camera in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -22,6 +23,8 @@ mqtt:
   - camera:
       topic: zanzito/shared_locations/my-device
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 The sample configuration above can be tested by publishing an image to the topic from the console:
 
@@ -158,7 +161,7 @@ name:
   required: false
   type: string
 object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   required: false
   type: string
 topic:

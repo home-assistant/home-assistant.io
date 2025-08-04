@@ -15,8 +15,8 @@ The Open Thread Border Router integration allows calling an Open Thread Border R
 
 This integration is installed automatically when the **Open Thread Border Router** add-on is installed. For  Home Assistant Yellow or Connect&nbsp;ZBT-1 refer to the following procedures:
 
-- [Enabling Thread on Home Assistant Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
-- [Enabling Thread on Home Assistant Connect ZBT-1](https://connectzbt1.home-assistant.io/procedures/enable-thread/)
+- [Enabling Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517)
+- [Enabling Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/articles/26124710072861)
 
 Installing this integration manually is an advanced use case, for example if you run your own border router. If you do have such a use case, follow these steps:
 
