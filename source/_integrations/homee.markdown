@@ -17,6 +17,7 @@ ha_category:
   - Switch
   - Valve
 ha_config_flow: true
+ha_zeroconf: true
 ha_release: 2025.2
 ha_iot_class: Local Push
 ha_codeowners:
