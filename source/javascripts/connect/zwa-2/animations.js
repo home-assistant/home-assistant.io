@@ -16,7 +16,7 @@ export class ZWA2Animations {
         gsap.registerPlugin(ScrollTrigger);
         ScrollTrigger.create({
             trigger: this.section,
-            start: "top-=75%",
+            start: "top=50%",
             end: "bottom",
             // markers
             markers: true,

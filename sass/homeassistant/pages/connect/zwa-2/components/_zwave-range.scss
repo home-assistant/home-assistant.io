@@ -5,6 +5,20 @@ section#zwave-range {
         gap: 40px;
         flex-wrap: wrap;
 
+        &:first-child {
+            @include bp(desktop) {
+                flex-wrap: nowrap;
+
+                .col {
+                    flex-basis: 33%;
+
+                    &:last-child {
+                        flex-basis: 66%;
+                    }
+                }
+            }
+        }
+
         .col {
             width: 100%;
 
@@ -12,6 +26,8 @@ section#zwave-range {
                 flex-grow: 1;
                 flex-basis: 0;
             }
+
+
         }
     }
 
@@ -43,12 +59,14 @@ section#zwave-range {
 
             .feature-card-title {
                 flex-shrink: 0;
+                line-height: 1;
                 white-space: nowrap;
             }
 
-            .feature-card-image{
+            .feature-card-image {
                 aspect-ratio: 760/315;
-                svg{
+
+                svg {
                     height: 100%;
                 }
             }
@@ -81,13 +99,16 @@ section#zwave-range {
         }
 
         &-content {
-            display: flex;
             flex-wrap: wrap;
+            display: flex;
             gap: 24px;
             padding: 30px;
-
+            
             @include bp(tablet) {
                 padding: 60px;
+            }
+            @include bp(desktop) {
+                flex-wrap: nowrap;
             }
         }
 
@@ -103,7 +124,8 @@ section#zwave-range {
             aspect-ratio: 16/9;
             z-index: -1;
 
-            img, svg {
+            img,
+            svg {
                 width: 100%;
             }
         }

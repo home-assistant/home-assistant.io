@@ -96,6 +96,10 @@ section#faq {
                     justify-content: space-between;
                     padding: 20px 0;
                     z-index: 1;
+                    
+                    @include bp(desktop){
+                        padding: 40px 0;
+                    }
                 }
 
                 &-title {

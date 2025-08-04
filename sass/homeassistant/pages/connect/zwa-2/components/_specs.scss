@@ -27,6 +27,7 @@ section#specs {
     }
 
     img#exploded-diagram-m {
+        max-height: 40rem;
         @include bp(tablet) {
             display: none;
         }
@@ -34,7 +35,7 @@ section#specs {
 
     img#exploded-diagram-d {
         display: none;
-        height: auto;
+        height: fit-content;
         max-height: calc(100vh - 160px);
         width: 100%;
         position: sticky;
@@ -64,6 +65,9 @@ section#specs {
                 >.col {
                     flex-basis: 0;
                     flex-grow: 1;                   
+                    &:last-child{
+                        text-align: center;
+                    }
                 }
             }
         }
