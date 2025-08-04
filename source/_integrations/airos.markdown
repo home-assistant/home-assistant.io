@@ -42,9 +42,9 @@ Depending on the device's placement, it will be configured as either an 'Access 
 
 For stations in particular, they can operate in either a 'Bridge' or 'Router' role:
 
-- In 'Bridge' mode, which is the default and most common configuration, the airOS device simply bridges the wireless and Ethernet connections. In simplistic terms, it functions as a transparent network cable, making it invisible to the devices on both the station and AP sides.
+- In 'Bridge' mode, which is the default and most common configuration, the airOS device simply bridges the wireless and Ethernet connections. In simplistic terms, it functions as a transparent network cable, making it invisible to the devices on both the station and <abbr title="Access Point">AP</abbr> sides.
 
-- In 'Router' mode, the airOS device acts as a small router, performing Network Address Translation (NAT) as well as providing DHCP services for devices connected to its LAN port. The airOS device in this mode can also operate as a PPPoE client, authenticating with a central PPPoE server to receive its IP address, gateway, and other network settings.
+- In 'Router' mode, the airOS device acts as a small router, performing Network Address Translation (NAT) as well as providing <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> services for devices connected to its <abbr title="Local Area Network">LAN</abbr> port. The airOS device in this mode can also operate as a <abbr title="Point-to-Point Protocol over Ethernet">PPPoE</abbr> client, authenticating with a central <abbr title="Point-to-Point Protocol over Ethernet">PPPoE</abbr> server to receive its IP address, gateway, and other network settings.
 
 ## Supported devices
 
