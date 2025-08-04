@@ -452,12 +452,14 @@ If you have automations or scripts that rely on the Cambridge Audio media player
 
 {% details "Ecovacs" %}
 
-The battery properties of the legacy vacuum entity are removed and migrated into separate Battery and Charging entities.
+The `battery_level` state attribute of the Ecovacs vacuum entity was removed, as Home Assistant has decided to remove support for battery state attributes on vacuum entities in general. If you're using the `battery_level` state attribute in automations or scripts, please update them to use the separate Battery sensor entity instead.
 
-([@mib1185] - [#149084]) ([documentation](/integrations/ecovacs))
+([@mib1185] - [#149084]) ([@edenhaus] - [#149581]) ([documentation](/integrations/ecovacs))
 
 [@mib1185]: https://github.com/mib1185
 [#149084]: https://github.com/home-assistant/core/pull/149084
+[@edenhaus]: https://github.com/edenhaus
+[#149581]: https://github.com/home-assistant/core/pull/149581
 
 {% enddetails %}
 
