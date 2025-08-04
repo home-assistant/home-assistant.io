@@ -97,7 +97,7 @@ The monitored metrics are:
 - Upload and download rates (in KB/s)
 - Free partition space of used disks
 - Number of missed calls
-- SFP RX power (dBm) and SFP TX power (dBm) — FTTH only
+- <abbr title="Small Form-factor Pluggable">SFP</abbr> <abbr title="Receive">RX</abbr> power (dBm) and <abbr title="Small Form-factor Pluggable">SFP</abbr> <abbr title="Transmit">TX</abbr> power (dBm) — <abbr title="Fiber to the Home">FTTH</abbr> only
 
 ## Binary sensor
 
