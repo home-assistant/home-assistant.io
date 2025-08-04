@@ -57,21 +57,21 @@ While there is no known limitation to which devices running airOS firmware versi
 
 Do you have a device that works? We’d love to hear [your experience](#feedback_section) so we can add it to this list!
 
-## Binary Sensor
+## Binary sensor
 
-### Port Forwarding
+### Port forwarding
 
 Active if any port forwarding is enabled when operating in 'router' mode.
 
-### DHCP Client
+### DHCP client
 
 Active if the device configured to use DHCP for it's network settings, inactive if IP address is statically assigned.
 
-### DHCP Server
+### DHCP server
 
 Active if the device itself is configured and acting as a DHCP server.
 
-### DHCPv6 Server
+### DHCPv6 server
 
 Active if the device itself is configured and acting as a DHCP server for IPv6.
 
