@@ -65,7 +65,7 @@ Active if any port forwarding is enabled when operating in 'router' mode.
 
 ### DHCP client
 
-Active if the device configured to use DHCP for it's network settings, inactive if IP address is statically assigned.
+Active if the device configured to use DHCP for its network settings, inactive if IP address is statically assigned.
 
 ### DHCP server
 
