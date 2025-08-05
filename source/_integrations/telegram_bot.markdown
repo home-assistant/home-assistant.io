@@ -465,6 +465,13 @@ Sets the bot's reaction for a given message.
 
 ## Telegram notification platform
 
+{% warning %}
+
+The notification platform has been marked as legacy and might be deprecated in the future.
+Please use [notifiers](./#notifiers) instead.
+
+{% endwarning %}
+
 The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents, and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag`, `disable_web_page_preview`, and `message_thread_id` are also supported.
 
 The required YAML configuration now reduces to:
