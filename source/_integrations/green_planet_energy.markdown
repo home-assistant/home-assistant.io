@@ -4,7 +4,7 @@ description: Instructions on how to integrate Green Planet Energy dynamic electr
 ha_category:
   - Energy
   - Sensor
-ha_release: 2025.8
+ha_release: 2025.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **Green Planet Energy** {% term integration %} provides real-time electricity pricing data from Green Planet Energy, a German renewable energy provider. It fetches hourly electricity prices and provides various sensors for energy optimization and monitoring. It was written for the purpose to visualize the prices so that you can adopt your power consumption and shift it to cheaper hours.
+The **Green Planet Energy** {% term integration %} provides real-time electricity pricing data from Green Planet Energy, a German renewable energy provider. It fetches hourly electricity prices and provides various sensors for energy optimization and monitoring. It visualizes the prices so that you can adapt your power consumption and shift it to cheaper hours.
 
 ## Prerequisites
 
