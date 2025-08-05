@@ -1,0 +1,28 @@
+section#built-for-the-home {
+        //height: 100vh;
+
+    .cols {
+        justify-content: space-between;
+        align-items: center;
+        align-self: center;
+        gap: 40px;
+
+        .col{
+            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            gap: 20px;
+            flex-basis: 0;
+
+            h2{
+                margin: 0;
+            }
+        }
+
+        .col:first-child{
+            align-items: flex-end;
+            text-align: right;
+        }
+    }
+}
