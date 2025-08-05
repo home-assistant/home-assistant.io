@@ -4,7 +4,7 @@ description: Instructions on how to integrate Green Planet Energy dynamic electr
 ha_category:
   - Energy
   - Sensor
-ha_release: 2025.8
+ha_release: 2025.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
