@@ -15,9 +15,9 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-Ubiquiti's <abbr title="Ubiquity Internet Service Provider">UISP</abbr> wireless [product line](https://techspecs.ui.com/uisp/wireless) offers a comprehensive suite of devices specifically designed for interconnecting various locations. Even their most cost-effective achieve up to 450 Mbps real TCP/IP throughput and maintain reliable links up 10km range!
+Ubiquiti <abbr title="Ubiquity Internet Service Provider">UISP</abbr>-range of [wireless](https://techspecs.ui.com/uisp/wireless) products offer a comprehensive suite of devices specifically designed for interconnecting various locations. As long as these airOS devices can 'see' each other without any (or limited) obstructions like buildings or trees, a stable and high-bandwidth "beam" can be established. Even their most cost-effective devices can achieve up to 450 Mbps real TCP/IP throughput and maintain reliable links up 10km range!
 
-A common use-case is establishing wireless <abbr title="Point-to-Point">PtP</abbr> or <abbr title="Point-to-Multi-Point">PtMP</abbr> links between buildings, remote sites or even neighbours. This is highly advantageous when traditional fiber-optic or Ethernet is either impractical or distance is too much for copper cabling. With <abbr title="Line-of-sight">LoS</abbr> between airOS devices, a stable and high-bandwidth "beam" can be established, eliminating any need for additional infrastructure. This can be an improvement over extending your WiFi coverage using meshing of Access Points, as meshing potentially reduces the capacity and performance of your WiFi network.
+A common use-case is establishing wireless <abbr title="Point-to-Point">PtP</abbr> or <abbr title="Point-to-Multi-Point">PtMP</abbr> links between buildings, remote sites, neighbours or even your shed. This is highly advantageous when traditional fiber-optic or copper network cabling is either impractical or the distance is too far for copper cabling. With <abbr title="Line-of-sight">LoS</abbr> between airOS devices, a stable and high-bandwidth "beam" can be established, eliminating any need for additional infrastructure. This can be an improvement over extending your WiFi coverage using meshing of Access Points, as meshing potentially reduces the capacity and performance of your WiFi network.
 
 There is currently support for the following plaforms within Home Assistant:
 
@@ -26,7 +26,7 @@ There is currently support for the following plaforms within Home Assistant:
 This integration allows users to pull network metrics and statuses directly into their Home Assistant dashboards, enabling advanced automation, notifications, and comprehensive network oversight within their smart home ecosystem.
 
 {% note %}
-Ubiquiti UISP products cannot be managed from their popular [UniFi](/integrations/unifi/) software. They are typically configured using a web browser, the UISP Mobile App, or the UISP Cloud/Self-Hosted platform.
+Ubiquiti UISP products cannot be managed from their popular [UniFi](/integrations/unifi/) software. They are typically configured using a web browser, the UISP Mobile App, or the UISP platform (either Cloud or [Self-Hosted](https://help.uisp.com/hc/en-us/articles/22591008678039-UISP-First-Time-Setup-Installation).
 {% endnote %}
 
 ## Prerequisites
@@ -37,12 +37,32 @@ This integration only supports devices running airOS 8 and already configured us
 
 ## Supported devices
 
-### airOS 8
+### airOS firmware 8
 
-While there is no known limitation to which devices running airOS 8 are supported, success has been reported on:
+While there is no known limitation to which devices running airOS firmware version 8 are supported, success has been reported on:
 
-- Nanostation 5AC Loco (Loco5AC) 
+- Nanostation 5AC Loco (Loco5AC)
 - PowerBeam 5AC (PBE-5AC-Gen2)
+
+Do you have a device that works? We’d love to hear [your experience](#feedback_section) so we can add it to this list!
+
+## Operating roles
+
+Depending on the device's placement, it will be configured as either an 'Access Point' (AP) acting as the central device or a 'Station' connecting as a client. An AP can have multiple stations connected to it, whereas a station typically connects to only a single AP.
+
+For stations in particular, they can operate in either a 'Bridge' or 'Router' role:
+
+- In 'Bridge' mode, the default and most common configuration
+
+  - The airOS device simply bridges the wireless and wired connections. In simplistic terms, it functions as a transparent network cable, making it invisible to the devices on both the station and <abbr title="Access Point">AP</abbr> sides.
+  - This mode is ideal for extending a network's reach without introducing new subnets or managing additional routing.
+
+- In 'Router' mode, the airOS device
+
+  - Acts as a small router, performing <abbr title="Network Address Translation">NAT</abbr> as well as providing <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> services for devices connected to its <abbr title="Local Area Network">LAN</abbr> port.
+  - Can also be configured as a <abbr title="Point-to-Point Protocol over Ethernet">PPPoE</abbr> client, authenticating with a central <abbr title="Point-to-Point Protocol over Ethernet">PPPoE</abbr> server to receive its IP address, gateway, and other network settings.
+
+The choice between Bridge and Router mode depends on the network architecture and whether the device is intended to extend an existing network (Bridge) or create a new subnet (Router).
 
 ## Sensor
 
