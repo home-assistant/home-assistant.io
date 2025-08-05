@@ -18,10 +18,10 @@ Make sure you have only one Home Assistant OS installation on your system. To do
 1. Create a [full backup][backup] of your system.
 2. Store the backup safely on another device. 
 3. Shut down your Home Assistant system and disconnect all storage devices.
-4. [Install Home Assistant OS][installation] on the storage device you want to use using, wiping the other devices.
+4. [Install Home Assistant OS][installation] on the storage device you want to use, wiping the other devices.
 5. Upload the backup during the [onboarding][onboarding] to restore your previous configuration.
 
-By following these steps, the Home Assistant Operating System should be installed on a single device only. In case you are using the [external data disk][data-disk] feature, wipe this disk as well prior to starting the device for the first time with this storage device connected.
+Following these steps ensures that Home Assistant OS is installed on only a single storage device. In case you are using the [external data disk][data-disk] feature, wipe this disk as well prior to starting the device for the first time with this storage device connected.
 
 ### Note on devices with non-removable storage
 
