@@ -19,7 +19,7 @@ The **Green Planet Energy** {% term integration %} provides real-time electricit
 
 ## Prerequisites
 
-You need to be a Green Planet Energy customer with a dynamic pricing tariff to use this integration.
+You **don't** need to have an account with Green Planet Energy for this integration to work. However the integration will probably only make sense if you are their customer with a dynamic energy tariff. For the setup no additional information is required.
 
 {% include integrations/config_flow.md %}
 
@@ -67,3 +67,9 @@ series:
       return entity.attributes.chart_data.map((entry) => {
         return [new Date(entry.datetime).getTime(), entry.price];
       });
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
