@@ -144,6 +144,26 @@ Chat ID:
   description: ID representing the user or group chat to which messages can be sent.
 {% endconfiguration_basic %}
 
+## Notifiers
+
+This integration will add a notify {% term entity %} for each configured chat ID.
+You can use the `notify.send_message` action to publish notifications.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+action: notify.send_message
+data:
+  message: "Reminder: Have you considered frogs?"
+  entity_id: notify.telegram_bot_chat
+```
+
+{% endraw %}
+
+{% enddetails %}
+
 ## Notification actions
 
 Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `edit_message`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
