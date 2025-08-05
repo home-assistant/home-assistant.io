@@ -96,7 +96,7 @@ Starts a new charge session. When no charging card ID is provided, no charging c
 
 The Blue Current integration provides the following switches:
 
-- Toggle Plug & Charge
+- Toggle **Plug & Charge**
   - Allows you to start a session without having to scan a card.
 - Toggle linked charging cards only
   - When enabled, visitors can't make use of the charge point. Only linked charging cards are allowed.
