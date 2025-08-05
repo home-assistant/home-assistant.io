@@ -126,13 +126,21 @@ section {
     display: flex;
     margin: 0 auto;
     max-width: calc(var(--container-max-width) + (var(--container-gutters) * 2));
-    padding: 0 var(--container-gutters);
+    padding: 0 calc(var(--container-gutters) / 2);
     width: 100%;
     height: 100%;
-
+    @include bp(desktop){
+        padding: 0 var(--container-gutters);
+    }
+    
     &-full {
         margin: 0 auto;
+        padding: 0 calc(var(--container-gutters) / 2);
         max-width: 2600px;
+        width: 100%;
+        @include bp(desktop){
+            padding: 0 var(--container-gutters);
+        }
     }
 }
 

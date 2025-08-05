@@ -1,8 +1,4 @@
 section#light-wrapper{
-    >.container-full{
-        width: calc(100% - (var(--container-gutters) * 2));
-    }
-
     .light{
         border-radius: 20px;
         overflow: hidden;
