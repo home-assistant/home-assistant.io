@@ -91,7 +91,7 @@ section#faq {
                 user-select: none;
                 
                 label{
-                    align-items: center;
+                    
                     display: flex;
                     justify-content: space-between;
                     padding: 20px 0;
@@ -104,8 +104,11 @@ section#faq {
 
                 &-title {
                     font-weight: 400;
-                    font-size: 24px;
+                    font-size: 20px;
                     color: #002332;
+                    @include bp(desktop){
+                        font-size: 24px;
+                    }
                 }
 
                 &-icon {
