@@ -35,13 +35,13 @@ Before setting up the AdGuard Home integration, ensure you have:
 Host:
   description: "The IP address or hostname of your AdGuard Home instance. For example: `192.168.1.100` or `adguard.local`."
 Port:
-  description: "The port AdGuard Home is running on. Default is `3000` for the web interface."
+  description: "The port AdGuard Home is running on. Default is `3000` for the web interface. If your web interface does not show a port, enter `80`."
 Username:
   description: "Your AdGuard Home admin username."
 Password:
   description: "Your AdGuard Home admin password."
 Verify SSL certificate:
-  description: "Enable SSL certificate verification when connecting via HTTPS."
+  description: "Enable SSL certificate verification when connecting via HTTPS. Untick, if using port `80`."
 {% endconfiguration_basic %}
 
 ## Supported functionality
