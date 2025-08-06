@@ -168,7 +168,7 @@ The AI Task integration has one extra feature under its belt: default entities. 
 
 Setting a default also does more: When a default is configured, and only then, a new type of button will start showing up in different places in Home Assistant: ![Suggest with AI](/images/blog/2025-08/suggest-with-ai.png).
 
-This button is not visible by default and will only appear if you enable it in the "AI suggestions" settings. For this release, the button has been added to the save dialog for automations and scripts. It helps users come up with a name, description, category, and label, while taking into account your current labels and other automation/script names. Keep in mind that generating this text sends the full contents of the automation or script, along with the names of your other automations/scripts, and labels, to the LLM. So, this may be a task you will want to relegate to your shiny new local LLM.
+This button is not visible by default and will only appear if you enable it in the "AI suggestions" settings. For this release, the button has been added to the save dialog for automations and scripts. It helps users come up with a name, description, category, and label, while taking into account your current labels and other automation/script names. Keep in mind that generating this text sends the full contents of the automation or script, along with the names of your other automations/scripts and labels, to the LLM. So, this may be a task you will want to relegate to your shiny new local LLM.
 
 <img class="no-shadow" alt="TODO: Replace image" src="/images/blog/2025-08/temp-save-automation.png" />
 
