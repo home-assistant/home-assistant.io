@@ -79,6 +79,7 @@ Enjoy the (beta) release!
   - [Streaming Text-to-Speech for Home Assistant Cloud](#streaming-text-to-speech-for-home-assistant-cloud)
   - [Integrate AI into your workflow using AI Task](#integrate-ai-into-your-workflow-using-ai-task)
   - [Work faster with Suggest with AI buttons](#work-faster-with-suggest-with-ai-buttons)
+- [Area dashboard improvements](#area-dashboard-improvements)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -168,6 +169,13 @@ Setting a default also does more: When a default is configured, and only then, a
 For this release, the button has been added to the save dialog for automations and scripts. It helps users come up with a name, description, category, and label taking your existing automations/scripts into account.
 
 <img class="no-shadow" alt="TODO: Replace image" src="/images/blog/2025-08/temp-save-automation.png" />
+
+## Area dashboard improvements
+
+We've added a small improvement to the areas dashboard based on your feedback. You can now choose to show the first camera in an area, or its image or icon, in the area dashboard editor.
+It's a simple way to make certain area cards stand out a bit more—especially handy if you want quicker visual access to specific spaces.
+
+<img class="no-shadow" alt="Screenrecording of area dashboard settings" src="/images/blog/2025-08/area-dashboard-settings.gif" />
 
 ## Integrations
 
