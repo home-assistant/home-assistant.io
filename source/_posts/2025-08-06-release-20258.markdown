@@ -94,9 +94,11 @@ Enjoy the (beta) release!
 
 ## AI in Home Assistant in 2025
 
-We introduced our first AI integration in Home Assistant 2023.2 in which users could let OpenAI handle their interactions with Home Assistant Voice. Since that time, AI has seen a big surge in popularity within the Home Assistant community for *all kind* of use cases. Funny notifications when the laundry is done, analyzing what’s happening on a camera or skipping the song when AI determines [it’s a country song](https://www.reddit.com/r/homeautomation/comments/1at0re0/out_of_my_42_automations_this_is_my_best_one_by/) 😅
+We introduced our first AI integration in Home Assistant 2023.2 where users could let OpenAI handle their interactions with Home Assistant Voice. Since that time, AI has seen a big surge in popularity within the Home Assistant community for *all kinds* of use cases. Funny notifications when the laundry is done, analyzing what’s happening on a camera or skipping the song when AI determines [it’s a country song](https://www.reddit.com/r/homeautomation/comments/1at0re0/out_of_my_42_automations_this_is_my_best_one_by/) 😅.
 
-Last year we sat down to determine how all these use cases, all complicated to achieve, could be made accessible to everyone. The first thing that came out of this was [integration sub-entries](/blog/2025/07/02/release-20257/#integration-sub-entries), which we shipped last release. It allows users to configure their Ollama server or API key for OpenAI *once*, and create many different agents using different models or configuration underneath. This release we’re building two things on top of that: AI tasks and Suggest with AI. We’re also introducing a new integration, OpenRouter, which is a unified LLM interface giving access to over 400 extra LLM models.
+Though AI gets many people excited, there are still people who would prefer not to have this technology in their smart homes. We want to accommodate everyone's choices, whether that’s to use AI or not. These features won’t appear unless you set up an AI integration and configure some specific settings.
+
+Last year, we sat down to determine how all these use cases, all complicated to achieve, could be made accessible to everyone. The first thing that came out of this was [integration sub-entries](/blog/2025/07/02/release-20257/#integration-sub-entries), which we shipped in the last release. It allows users to configure their Ollama server or API key for OpenAI *once*, and then create many different agents using different models or configuration underneath. In this release we’re building two new things you can optionally enable via these new sub-entries for AI integrations: *AI tasks* and *Suggest with AI*. We’re also introducing a new integration, OpenRouter, which is a unified LLM interface giving access to over 400 extra LLM models.
 
 Big thanks to our AI community contributors: [@AllenPorter], [@shulyaka], [@tronikos], [@IvanLH], and [@joostlek]!
 
@@ -108,9 +110,9 @@ Big thanks to our AI community contributors: [@AllenPorter], [@shulyaka], [@tron
 
 ### Streaming Text-to-Speech for Home Assistant Cloud
 
-When you use Home Assistant Voice to talk to an AI, you can do a lot more than just control your home. LLMs can summarize the state of your home, and when using LLMs from Google and OpenAI, they can search the web to answer your questions with up-to-date information. This is great, but such answers can become quite long.
+When you use Home Assistant Voice to talk to an AI, you can do a lot more than just control your home. LLMs can summarize the state of your home, and when using LLMs from Google and OpenAI, they can search the web to answer your questions with up-to-date information. This is great, but these answers can become quite long. Previously, voice responses wouldn’t begin until the AI had finished generating the entire answer, so longer replies meant a longer wait before anything was read aloud.
 
-When a user waits for Home Assistant Voice to respond, long wait times really hurt the experience. We have overhauled Home Assistant so our Text-to-Speech system can start generating the response audio before the full response is done generating. Last release we launched this for Piper, our local Text-to-Speech system. This release we’re making this available to the voices included in [Home Assistant Cloud](https://www.nabucasa.com) – the premier way of supporting the Home Assistant project.
+When a user waits for Home Assistant Voice to respond, long wait times really hurt the experience. We have overhauled Home Assistant so our Text-to-Speech system can start generating the response audio before the full response is done generating. Last release we launched this for [Piper](https://my.home-assistant.io/create-link/?redirect=supervisor_addon&addon=core_piper), our local Text-to-Speech system. In this release we’re making this available to the voices included in [Home Assistant Cloud](https://www.nabucasa.com) – the best way of supporting the Home Assistant project.
 
 **TODO**: insert video or benchmark here
 
@@ -118,9 +120,9 @@ This improvement will especially benefit users who use local AI (which can be sl
 
 ### Integrate AI into your workflow using AI Task
 
-AI Task is a new integration that allows you to generate data using AI. You can attach files or cameras and ask it what is happening. The output can either be text or formatted in a data structure of your choice. This is all accessible from the new `ai_task.generate_data` action, which can be embedded in automations, scripts, and template entities.
+AI Task is a new integration that allows you to generate data using AI. After you add the “AI Task” sub-entry in your AI of choice, the entity will appear in the integration. This allows you to attach files or cameras and ask it what is happening. The output can either be given in text or formatted in a data structure of your choice. This is all accessible from the new `ai_task.generate_data` action, which can be embedded in automations, scripts, and template entities.
 
-Below is an example of a template entity that updates every 5 minutes and counts the number of chickens in the coop. [Example inspired by this blog post.](https://houndhillhomestead.com/google-gemini-powered-goose-coop-door/)
+Below is an example of a template entity that updates every five minutes and counts the number of chickens in the coop. [Example inspired by this blog post.](https://houndhillhomestead.com/google-gemini-powered-goose-coop-door/)
 
 {% raw %}
 
@@ -166,7 +168,7 @@ The AI Task integration has one extra feature under its belt: default entities. 
 
 Setting a default also does more: When a default is configured, and only then, a new type of button will start showing up in different places in Home Assistant: ![Suggest with AI](/images/blog/2025-08/suggest-with-ai.png).
 
-For this release, the button has been added to the save dialog for automations and scripts. It helps users come up with a name, description, category, and label taking your existing automations/scripts into account.
+This button is not visible by default and will only appear if you enable it in the "AI suggestions" settings. For this release, the button has been added to the save dialog for automations and scripts. It helps users come up with a name, description, category, and label, while taking into account your current labels and other automation/script names. Keep in mind that generating this text sends the full contents of the automation or script, along with the names of your other automations/scripts, and labels, to the LLM. So, this may be a task you will want to relegate to your shiny new local LLM.
 
 <img class="no-shadow" alt="TODO: Replace image" src="/images/blog/2025-08/temp-save-automation.png" />
 
