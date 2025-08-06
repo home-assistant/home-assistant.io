@@ -262,7 +262,7 @@ their quality scale:
 
 - **5 integrations reached platinum** 🏆
   - [AirGradient], thanks to [@joostlek]
-  - [Discovergy], thanks to [@jpbede]
+  - [inexogy], thanks to [@jpbede]
   - [EHEIM Digital], thanks to [@autinerd]
   - [Pegel Online], thanks to [@mib1185]
   - [Tankerkönig], thanks to [@mib1185]
@@ -295,7 +295,7 @@ A big thank you to all the contributors involved! 👏
 [@Taraman17]: https://github.com/Taraman17
 [AirGradient]: /integrations/airgradient
 [Amazon Alexa Devices]: /integrations/alexa_devices
-[Discovergy]: /integrations/discovergy
+[inexogy]: /integrations/discovergy
 [EHEIM Digital]: /integrations/eheimdigital
 [Homee]: /integrations/homee
 [Mealie]: /integrations/mealie
