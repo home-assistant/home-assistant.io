@@ -41,7 +41,7 @@ Before setting up the Lunatone integration, ensure you have:
 
 {% configuration_basic %}
 URL:
-    description: "The URL to your gateway device. For example: http://10.0.0.131"
+    description: "The URL to your gateway device. For example: `http://10.0.0.131`"
 {% endconfiguration_basic %}
 
 ## Removing the integration
