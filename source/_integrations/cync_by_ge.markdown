@@ -43,18 +43,18 @@ The **Cync by GE** integration provides the following entities.
 - Supported operations:
   - On/Off
   - Brightness*
-  - Color Temperature*
-  - RGB Color*
+  - Color temperature*
+  - RGB color*
 
 *If supported by device.
 
 ## Known limitations
 
 - The following lighting features are not yet supported:
-  - Dynamic Effects
-  - Light Shows
-  - Music Shows
-  - LED Strip Segment Control
+  - Dynamic effects
+  - Light shows
+  - Music shows
+  - LED strip segment control
 - Cync servers only allow one instance of your account to connect at a time. If you open the Cync app while Home Assistant is running, the integration will briefly lose its connection. It will automatically reconnect after a 10 second waiting period.
 
 ## Removing the integration
