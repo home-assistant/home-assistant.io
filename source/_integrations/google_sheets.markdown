@@ -85,3 +85,31 @@ data:
 {% endraw %}
 
 {% enddetails %}
+
+
+### Action `google_sheets.fetch_sheet`
+
+You can use the `google_sheets.fetch_sheet` action to retrieve rows of data from a Sheets document.
+
+{% details "Create event action details" %}
+
+| Data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `config_entry` | no | Config entry to use. |
+| `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1 |
+| `rows` | no | Maximum number of rows of data to be retrieved from the worksheet.  | 2 |
+
+{% raw %}
+
+```yaml
+# Example action
+action: google_sheets.fetch_sheet
+data:
+  config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
+  worksheet: "Car Charging"
+  rows: 2
+```
+
+{% endraw %}
+
+{% enddetails %}
