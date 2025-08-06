@@ -428,18 +428,9 @@ If you have automations or scripts that rely on the Cambridge Audio media player
 
 {% details "Ecovacs" %}
 
-{% details "Ecovacs" %}
-
 The battery property on vacuum entities is being removed in Home Assistant. Therefore, this property is now removed from this integration and is replaced by a battery level sensor.
 
 Please review your automations, scripts or cards using the battery property and update the code to use the battery sensor instead.
-
-([@edenhaus] - [#149581]) ([documentation](/integrations/ecovacs))
-
-[@edenhaus]: https://github.com/edenhaus
-[#149581]: https://github.com/home-assistant/core/pull/149581
-
-{% enddetails %}
 
 ([@mib1185] - [#149084]) ([@edenhaus] - [#149581]) ([documentation](/integrations/ecovacs))
 
