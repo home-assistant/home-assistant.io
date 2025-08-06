@@ -71,7 +71,7 @@ If an entity listed below has an asterisk (*) next to its name, it means it is d
 
 If an entity listed below has a plus (+) next to its name, it means this entity supports push updates. These entities will have almost instant state changes. 
 For redundancy, the state of all entities is also polled every 60 seconds. For entities without a plus (+), this is the only update method. Therefore, a device's state change can take up to 60 seconds to be reflected in Home Assistant.
-An exception is the firmware update entity, which is polled every 12 hours.
+An exception is the firmware update entity, which is polled every 24 hours.
 Another exception are battery cameras, most {% term entities %} are still {% term polling polls %} every 60 seconds. However, the entities that would cause the camera to wake from sleep will only be polled during the following events:
 
 - The camera wakes by itself (PIR event) and the last update was more than 1 hour ago.
@@ -341,7 +341,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 
 ### Update entity
 
-An update entity is available that checks for firmware updates every 12 hours.
+An update entity is available that checks for firmware updates every 24 hours.
 Updates are checked both through the camera API and directly from the [Reolink download center](https://reolink.com/download-center/).
 Therefore the update entity in Home Assistant can find and install a firmware update from the [Reolink download center](https://reolink.com/download-center/) while the Reolink app/windows/web client does not always find this update.
 
