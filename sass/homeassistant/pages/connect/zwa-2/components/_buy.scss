@@ -22,15 +22,35 @@ section#buy {
         justify-content: center;
     }
 
+    .strap {
+        font-size: 18px;
+
+        @include bp(tablet) {
+            font-size: 24px;
+        }
+
+        @include bp(desktop) {
+            font-size: 32px;
+        }
+    }
+
     .price {
-        font-size: 128px;
+        font-size: 64px;
         font-weight: 700;
+
+        @include bp(tablet) {
+            font-size: 96px;
+        }
+
+        @include bp(desktop) {
+            font-size: 128px;
+        }
 
         span {
             opacity: .4;
         }
 
-        sup{
+        sup {
             font-size: 44px;
             vertical-align: unset;
             position: absolute;
@@ -43,6 +63,10 @@ section#buy {
     .terms {
         padding: 0 16px;
         max-width: 520px;
-        font-size: 16px;
+        font-size: 14px;
+        
+        @include bp(tablet){
+            font-size: 16px;
+        }
     }
 }

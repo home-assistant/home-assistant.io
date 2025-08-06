@@ -76,21 +76,3 @@
         --typography-hero-subtitle-line-height: 1;
     }
 }
-
-section.light{
-    --color: #1D2126;
-    background-color: #F2F4F9;
-    color: #1D2126;
-}
-
-.light{
-    color: #1D2126;
-    .connect-badge {
-        --background: #CCEFFE;
-        --color: #1D2126;
-    }
-
-    p {
-        --typography-paragraph-color: #4F606E;
-    }
-}

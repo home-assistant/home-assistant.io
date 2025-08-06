@@ -26,12 +26,13 @@
         }
 
         &-header {
-            align-items: center;
+            align-items: flex-start;
             display: flex;
 
             .product-name {
                 flex-grow: 1;
                 font-size: 20px;
+                line-height: 1.2;
 
                 @media (min-width: 704px) {
                     font-size: 28px;

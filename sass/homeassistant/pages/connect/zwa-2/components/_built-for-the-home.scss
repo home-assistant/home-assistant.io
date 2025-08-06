@@ -23,7 +23,14 @@ section#built-for-the-home {
         }
     }
 
-    .feature-image {
+    .featured-carousel{
+        display: grid;
+        .featured-image{
+            grid-area: 1/1;
+        }
+    }
+
+    .feature-image, .featured-carousel {
         position: relative;
         width: 100%;
         border-radius: 12px;
@@ -68,11 +75,15 @@ section#built-for-the-home {
         }
 
         img {
-            aspect-ratio: 2/1;
+            aspect-ratio: 1.5/1;
             grid-area: 1/1;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            
+            @include bp(desktop){
+                aspect-ratio: 2/1;
+            }
         }
     }
 }

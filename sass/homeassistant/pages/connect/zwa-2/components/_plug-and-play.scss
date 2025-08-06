@@ -5,6 +5,10 @@ section#plug-and-play {
     .cols {
         align-items: flex-end;
         justify-content: space-between;
+        flex-direction: column;
+        @include bp(tablet){
+            flex-direction: row;
+        }
 
         .col {
             flex-grow: 1;
@@ -17,6 +21,7 @@ section#plug-and-play {
             }
 
             &:last-child {
+                width: 100%;
                 @include bp(desktop) {
                     max-width: 520px;
                 }
@@ -31,18 +36,27 @@ section#plug-and-play {
     .config-cards {
         display: flex;
         flex-direction: column;
-        padding: 16px 20px;
-        gap: 16px;
+        padding: 10px 14px;
+        gap: 10px;
         border-radius: 12px;
         border: 1px solid #ffffff;
         background-color: rgba(255, 255, 255, 0.5);
+        
+        @include bp(tablet){
+            padding: 16px 20px;
+        }
 
         .config-card {
             display: grid;
             justify-content: space-between;
+            gap: 8px;
             grid-template-areas: 
                 'content icon'
                 'progress progress';
+
+            @include bp(tablet){
+                
+            }
 
             &.complete{
                 .config-card-progress {
@@ -61,6 +75,13 @@ section#plug-and-play {
                 }
             }
 
+            &-title{
+                font-size: 16px;
+                @include bp(tablet){
+                    font-size: var(--typography-h4-font-size);
+                }
+            }
+
             &-content {
                 grid-area: content;
                 justify-content: center;
@@ -70,20 +91,30 @@ section#plug-and-play {
             }
 
             &-description{
-                font-size: 16px;
+                font-size: 14px;
+                text-wrap: balance;
+                
+                @include bp(tablet){
+                    font-size: 16px;
+                }
             }
 
             &-icon {
                 border: 1px solid rgba(255, 255, 255, 0.5);
                 grid-area: icon;
-                width: 74px;
-                height: 74px;
+                width: 40px;
+                height: 40px;
                 display: grid;
                 place-items: center;
                 border-radius: 50%;
                 background-color: rgba(255, 255, 255, 0.5);
                 position: relative;
                 overflow: hidden;
+
+                @include bp(tablet){
+                    width: 74px;
+                    height: 74px;
+                }
 
                 &:after{
                     content: '';
@@ -97,24 +128,37 @@ section#plug-and-play {
                     display: none;
                     background-color: var(--connect-line-blue);
                     border-radius: 50%;
-                    height: 40px;
-                    width: 40px;
                     background-image: url("data:image/svg+xml,%3Csvg width='20' height='15' viewBox='0 0 20 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.52212 15L20 2.48521L17.5221 0L7.52212 10.0296L2.47788 4.97041L0 7.45562L7.52212 15Z' fill='white'/%3E%3C/svg%3E%0A");
-                    background-size: 20px 15px;
+                    background-size: 50%;
                     background-repeat: no-repeat;
                     background-position: center;
+                    height: 26px;
+                    width: 26px;
                     position: relative;
                     z-index: 1;
+                    
+                    @include bp(tablet){
+                        background-size: 20px 15px;
+                        height: 40px;
+                        width: 40px;
+
+                    }
                 }
             }
 
             &-progress {
                 grid-area: progress;
-                margin-top: 8px;
+                margin-top: -2px;
+                align-self: flex-end;
                 margin-bottom: 6px;
                 height: 1px;
                 position: relative;
                 isolation: isolate;
+                
+                @include bp(tablet){
+                    align-self: unset;
+                    margin-top: 8px;
+                }
 
                 &:after {
                     content: '';

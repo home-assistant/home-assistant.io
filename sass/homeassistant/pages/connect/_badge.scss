@@ -13,6 +13,7 @@
     line-height: .666;
     padding: 10px 16px;
     text-transform: uppercase;
+    white-space: nowrap;
 
     &:before{
         background-color: var(--color);
