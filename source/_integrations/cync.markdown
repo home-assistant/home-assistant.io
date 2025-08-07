@@ -34,7 +34,6 @@ Password:
 
 ## Supported functionality
 
-
 The **Cync** integration provides the following entities.
 
 ### Lights
