@@ -22,6 +22,7 @@ ha_platforms:
   - update
 ha_integration_type: device
 ha_zeroconf: true
+ha_quality_scale: platinum
 ---
 
 The AirGradient integration will fetch data from your [AirGradient devices](https://www.airgradient.com/).

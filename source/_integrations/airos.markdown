@@ -1,5 +1,5 @@
 ---
-title: Ubiquiti UISP airOS
+title: Ubiquiti airOS
 description: Ubiquiti UISP airOS integration.
 ha_category:
   - Sensor
@@ -11,7 +11,7 @@ ha_config_flow: true
 ha_domain: airos
 ha_platforms:
   - sensor
-ha_integration_type: device
+ha_integration_type: integration
 ha_quality_scale: bronze
 ---
 

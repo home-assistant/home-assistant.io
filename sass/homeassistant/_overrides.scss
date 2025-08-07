@@ -574,6 +574,15 @@ a.material-card:hover {
     font-weight: 400;
     text-transform: none;
   }
+
+  .links ul {
+    list-style: none;
+    margin: 0;
+}
+
+  .links li {
+    display: inline;
+}
 }
 
 .installation-survey {
@@ -1190,6 +1199,10 @@ article.listing {
   a {
     text-decoration: underline;
     overflow-wrap: break-word;
+
+    &[rel*="external"] {
+      white-space: nowrap;
+    }
 
     &.btn {
       font-size: 1.1em;

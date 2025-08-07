@@ -11,7 +11,9 @@ ha_domain: playstation_network
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - image
   - media_player
+  - notify
   - sensor
 ha_codeowners:
   - '@jackjpowell'
