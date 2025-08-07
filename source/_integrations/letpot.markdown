@@ -83,7 +83,7 @@ Binary sensors for issues are disabled by default. If you want to use them, you 
 
 #### Selects
 
-- **Light mode**: Set the built-in light mode to fruits/flowers (red and white LEDs enabled) or veggie/herbs (red, white and blue LEDs enabled).
+- **Light mode**: Set the built-in light mode to fruits/flowers (red and white LEDs enabled) or veggies/herbs (red, white and blue LEDs enabled).
 
 Depending on device support, more selects are available:
 
