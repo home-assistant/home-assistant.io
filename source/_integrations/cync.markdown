@@ -34,11 +34,10 @@ Password:
 
 ## Supported functionality
 
-### Entities
 
 The **Cync** integration provides the following entities.
 
-#### Lights
+### Lights
 
 - Supported operations:
   - On/Off
