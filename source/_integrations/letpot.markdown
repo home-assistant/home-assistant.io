@@ -87,10 +87,10 @@ Binary sensors for issues are disabled by default. If you want to use them, you 
 
 Depending on device support, more selects are available:
 
-- **Display temperature unit**: Set the temperature unit for the temperature shown on the device's display.
-  - Available for LetPot Max devices, excluding devices with a serial number starting with `LPH63`.
 - **Light brightness**: Set the built-in light brightness to low or high.
   - Available for LetPot Air devices, and some LetPot SE devices which support changing the brightness.
+- **Temperature unit on display**: Set the temperature unit for the temperature shown on the device's display.
+  - Available for LetPot Max devices, excluding devices with a serial number starting with `LPH63`.
 
 #### Sensors
 
