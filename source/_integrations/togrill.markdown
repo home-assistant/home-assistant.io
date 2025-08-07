@@ -16,7 +16,7 @@ ha_codeowners:
 ha_quality_scale: bronze
 ---
 
-The ToGrill {% term integration %} allows you to connect your ToGrill compatible Bluetooth grill thermometer
+The ToGrill {% term integration %} allows you to connect your ToGrill compatible Bluetooth grill thermometer.
 
 {% tip %}
 
@@ -34,7 +34,7 @@ When the Home Assistant integration is active, it will take exclusive control ov
 
 ## Known working devices
 
-Many ToGrill compatible devices exist from many different vendors only a subset have been tested successfully. These are known to work, other detected devices may work or may not work as expected.
+Many ToGrill compatible devices exist from many different vendors. Only a subset has been tested successfully. These are known to work. Other detected devices may work or may not work as expected.
 
 | Device                           | Model  |
 |----------------------------------|--------|
