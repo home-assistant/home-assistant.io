@@ -42,10 +42,7 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 
 ## Sensors
 
-{% configuration_basic %}
-Probe X:
-  description: The current temperature of the given temperature probe
-{% endconfiguration_basic %}
+**Probe X**: The current temperature of the given temperature probe
 
 ## Removing the integration
 
