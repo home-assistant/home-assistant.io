@@ -154,7 +154,7 @@ export class ZWA2RenderAnimation {
         };
         // Remove previous triggers if any
         if (window.ScrollTrigger && window.ScrollTrigger.getAll) {
-            window.ScrollTrigger.getAll().forEach(t => t.kill());
+            //window.ScrollTrigger.getAll().forEach(t => t.kill());
         }
 
         // Find the wrapper that contains all sections
@@ -184,14 +184,12 @@ export class ZWA2RenderAnimation {
                 trigger: triggerElem,
                 start: "top top",
                 end: "bottom bottom",
-                scrub: 0.5,
+                scrub: 2,
                 markers: true,
                 onUpdate: self => {
                     sectionData = getSectionData();
-                    // Interrupt autoplay if user scrolls
                     interruptAutoplay();
-                    // ...existing code...
-                    const scrollY = window.scrollY - triggerElem.offsetTop;
+                    const scrollY = window.scrollY - (triggerElem === document.body ? 0 : triggerElem.getBoundingClientRect().top + window.scrollY);
                     let prev = sectionData[0];
                     let next = sectionData[sectionData.length - 1];
                     for (let i = 0; i < sectionData.length - 1; i++) {
@@ -214,6 +212,7 @@ export class ZWA2RenderAnimation {
                     }
                     const frame = Math.round(prev.start + progress * (prev.end - prev.start));
                     this.meta.frame = frame;
+                    console.log(frame, sectionData[0].top, progress);
                     this.render();
                 }
             },

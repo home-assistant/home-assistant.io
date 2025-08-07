@@ -1,5 +1,5 @@
 section#plug-and-play {
-    //height: 100vh;
+    height: 80vh;
     background-color: #DADDE2;
 
     .cols {
@@ -29,8 +29,8 @@ section#plug-and-play {
         }
     }
 
-    .section-inner-content {
-        //height: 64vh;
+    .section-inner {
+        align-items: flex-end;
     }
 
     .config-cards {

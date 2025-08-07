@@ -1,48 +1,72 @@
-import { ZWA2RenderAnimation } from "render-animations";
+import { ZWA2RenderAnimation } from "./render-animations.js"; // Adjust path if needed
 import { ZWA2Animations } from "animations";
 import { ConnectHeader } from "header";
 
+// A flag to ensure animations are only initialized once.
 let animationsLoaded = false;
 
-maybeLoadAnimations();
-
-window.addEventListener('resize', maybeLoadAnimations);
-
+/**
+ * Checks the screen width and initializes the animations if the screen is
+ * large enough and they haven't been loaded yet.
+ */
 function maybeLoadAnimations() {
-  if (screen.width >= 1024 && !animationsLoaded) {
-    animationsLoaded = true;
-    window.removeEventListener('resize', maybeLoadAnimations);
-    //new ZWA2RenderAnimation("scene1-final", "canvas.render-scroller#scene-one", ".animation-wrapper", 379);
+    // Only run on larger screens to save resources on mobile.
+    if (window.innerWidth >= 1024 && !animationsLoaded) {
+        animationsLoaded = true;
+        // No need to remove the event listener, as the flag prevents re-initialization.
 
-    const sections = [
-      //{ selector: "#hero", start: 0, end: 186 },
-      { selector: "#hero", start: 186, end: 246, autoplay: { start: 0, end: 186, duration: 1000 } },
-      //{ selector: "#overview", start: 187, end: 246 },
-      { selector: "#overview", start: 247, end: 314 },
-      //{ selector: "#chipset", start: 247, end: 314 },
-      { selector: "#chipset", start: 315, end: 379 },
-      //{ selector: "#long-range", start: 315, end: 379 }
-      { selector: "#long-range", start: 379, end: 379 }
-    ];
-    new ZWA2RenderAnimation("scene1-final", "canvas.render-scroller#scene-one", sections, 379);
-  }
+        // --- Scene 1 Configuration ---
+        const scene1Sections = [
+            // The hero section autoplays from frame 0 to 186, then the user
+            // can scroll-animate it from frame 186 to 246.
+            { selector: "#hero", start: 0, end: 246, autoplay: { start: 0, end: 186, duration: 1200 } },
+            { selector: "#overview", start: 246, end: 314 },
+            { selector: "#chipset", start: 314, end: 379 },
+            // The last section just holds the final frame.
+            { selector: "#long-range", start: 379, end: 379 }
+        ];
+        const scene1TotalFrames = scene1Sections[scene1Sections.length - 1].end;
+        new ZWA2RenderAnimation("scene1-final", "canvas.render-scroller#scene-one", scene1Sections, scene1TotalFrames);
+
+        // --- Scene 2 Configuration ---
+        const scene2Sections = [
+            { selector: "#built-for-home-assistant", start: 0, end: 122 },
+            { selector: "#plug-and-play", start: 122, end: 182 },
+            { selector: "#buy", start: 182, end: 182 }
+        ];
+        const scene2TotalFrames = scene2Sections[scene2Sections.length - 1].end;
+        new ZWA2RenderAnimation("scene2", "canvas.render-scroller#scene-two", scene2Sections, scene2TotalFrames);
+    }
 }
 
+// --- Initial Setup ---
 
-//new ZWA2RenderAnimation("scene2", "canvas.render-scroller#scene-two", ".animation-wrapper", 554);
+// Initialize other page components.
 new ConnectHeader();
 
-// if ?hide, display none on animation-wrapper
+// A simple utility to hide the canvas for debugging purposes.
 if (window.location.search.includes("hide")) {
-  document.querySelector(".animation-wrapper canvas").style.display = "none";
+    document.querySelectorAll(".animation-wrapper canvas").forEach(canvas => {
+        canvas.style.display = "none";
+    });
 }
 
+// --- Additional Page Animations (Not part of the render animation) ---
 const overviewEntry = new ZWA2Animations("section#overview");
-window.overviewEntry = overviewEntry; // Make it available globally for debugging
+window.sceneOneOverviewEntry = overviewEntry; // Expose for debugging
+
 overviewEntry.onEnter(() => {
-  overviewEntry.el.querySelector(".waves-wrapper svg").style.setProperty("--enter", 1);
-});
-overviewEntry.onLeave(() => {
-  overviewEntry.el.querySelector(".waves-wrapper svg").style.setProperty("--enter", 0);
+    overviewEntry.el.querySelector(".waves-wrapper svg").style.setProperty("--enter", 1);
 });
 
+overviewEntry.onLeave(() => {
+    overviewEntry.el.querySelector(".waves-wrapper svg").style.setProperty("--enter", 0);
+});
+
+
+// --- Event Listeners ---
+
+// Attempt to load animations on initial page load.
+window.addEventListener('DOMContentLoaded', maybeLoadAnimations);
+// Also check on resize, in case the user rotates a tablet or resizes a browser window.
+window.addEventListener('resize', maybeLoadAnimations);

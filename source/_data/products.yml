@@ -494,9 +494,38 @@ voice-pe:
 zwa-2:
   name: "<strong>Home Assistant Connect ZWA-2</strong>"
   distributors:
-      # America
+    - name: Seeed Studio
+      ship_from: China
+      ship_to: Asia
+      url: https://www.seeedstudio.com/Home-Assistant-Connect-ZWA-2-p-6509.html
+      logo: /images/distributors/seeed-studio.webp
+    - name: Seeed Studio
+      ship_from: US
+      ship_to: America
+      url: https://www.seeedstudio.com/Home-Assistant-Connect-ZWA-2-p-6509.html
+      logo: /images/distributors/seeed-studio.webp
+    - name: Seeed Studio
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.seeedstudio.com/Home-Assistant-Connect-ZWA-2-p-6509.html
+      logo: /images/distributors/seeed-studio.webp
+    - name: Mauser.pt
+      ship_from: Portugal
+      ship_to: Europe
+      url: https://mauser.pt/catalog/product_info.php?products_id=095-6904
+      logo: /images/distributors/mauser.png
     - name: ameriDroid
       ship_from: US
       ship_to: America
       url: https://ameridroid.com/products/home-assistant-connect-zwa-2
       logo: /images/distributors/ameridroid.webp
+    - name: RaspberryPi.dk
+      ship_from: Denmark
+      ship_to: Europe
+      url: https://raspberrypi.dk/en/product/home-assistant-connect-zwa-2-stick/
+      logo: /images/distributors/RaspberryPi-dk.webp
+    - name: Pimoroni
+      ship_from: UK
+      ship_to: Europe
+      url: https://shop.pimoroni.com/products/home-assistant-connect-zwa-2
+      logo: /images/distributors/pimoroni.webp

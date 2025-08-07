@@ -1,6 +1,10 @@
-section#light-wrapper{
+div#light-wrapper{
     .light{
         border-radius: 20px;
-        overflow: hidden;
+        overflow: clip;
+    }
+
+    .animation-wrapper-inner{
+        top: 0;
     }
 }
