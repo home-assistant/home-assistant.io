@@ -38,6 +38,7 @@ The integration will fetch data from each device. The following sensors are supp
 
 - Temperature
 - Humidity
+- Dew point
 - Carbon dioxide
 - Total volatile organic compounds
 - PM2.5 density
