@@ -28,15 +28,13 @@ Before connecting to Home Assistant, it is necessary to enable the integration o
 
 In the Droplet app, navigate to **Settings** > **Smart Home Integrations** > **Home Assistant**. Enable the integration and copy the token that appears on the screen. You will need to enter this in the configuration step.
 
-## Configuration
-
-Droplet can be auto-discovered by Home Assistant. If an instance was found, it will be shown as Discovered. You can then set it up right away.
-
-The only parameter required for Droplet setup with auto-discovery is the token, generated in the prerequisite step.
+{% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Token:
-  description: "Token to authenticate with Droplet device. You can find it on the Droplet app under settings > Smart Home Integrations > Home Assistant."
+Hostname:
+  description: "If your Droplet has a fixed IP address, you can use it for manual configuration. This field is not required for auto discovery."
+Pairing code:
+  description: "Pairing code to authenticate with Droplet device. You can find it on the Droplet app under **Settings** > **Smart Home Integrations** > **Home Assistant**."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -45,13 +43,10 @@ Token:
 
 The following sensors values are available:
 
-- Flow Rate
-- Live Volume
-- Daily Volume
-- Weekly Volume
-- Monthly Volume
-- Server Connectivity
-- Signal Quality
+- Flow rate
+- Live volume
+- Server connectivity
+- Signal quality
 
 ## Data updates
 
@@ -61,23 +56,10 @@ Once the integration connects, Droplet will push data points as soon as they are
 
 ### Adding Droplet to your Energy Dashboard
 
-Open the edit menu of your energy dashboard. Select the water consumption tile.
-<p class='img'>
-<img src='/images/integrations/droplet/water_consumption.png' alt='Screenshot of water consumption tile'>
-Screenshot of water consumption tile
-</p>
-
-Select one of Droplet's volume sensors. Optionally, track your costs.
-<p class='img'>
-<img src='/images/integrations/droplet/configure_water_consumption.png' alt='Screenshot of water consumption source picker'>
-Screenshot of water consumption source picker
-</p>
-
-Water usage recorded by Droplet will now be incorporated into your energy dashboard.
-<p class='img'>
-<img src='/images/integrations/droplet/energy_dashboard.png' alt='Screenshot of a water sensor on the energy dashboard'>
-Screenshot of the energy dashboard
-</p>
+1. Open the edit menu of your energy dashboard.
+2. Select the water consumption tile. <img src='/images/integrations/droplet/water_consumption.png' alt='Screenshot of water consumption tile'>
+3. Select one of Droplet's volume sensors. Optionally, track your costs. <img src='/images/integrations/droplet/configure_water_consumption.png' alt='Screenshot of water consumption source picker'>
+4. Water usage recorded by Droplet will now be incorporated into your energy dashboard. <img src='/images/integrations/droplet/energy_dashboard.png' alt='Screenshot of a water sensor on the energy dashboard'>
 
 ## Removing the integration
 
