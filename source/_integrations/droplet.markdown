@@ -4,7 +4,7 @@ description: Instructions on how to setup Droplet in Home Assistant.
 ha_category:
   - Sensor
 ha_config_flow: true
-ha_release: 2025.8
+ha_release: 2025.9
 ha_iot_class: Local Push
 ha_codeowners:
   - '@sarahseidman'
@@ -26,7 +26,7 @@ Stay in control of your home's water system efficiently and intelligently with D
 
 Before connecting to Home Assistant, it is necessary to enable the integration on your Droplet.
 
-In the Droplet app, navigate to Settings > Smart Home Integrations > Home Assistant. Enable the integration and copy the token that appears on the screen. You will need to enter this in the configuration step.
+In the Droplet app, navigate to **Settings** > **Smart Home Integrations** > **Home Assistant**. Enable the integration and copy the token that appears on the screen. You will need to enter this in the configuration step.
 
 ## Configuration
 
@@ -39,7 +39,7 @@ Token:
   description: "Token to authenticate with Droplet device. You can find it on the Droplet app under settings > Smart Home Integrations > Home Assistant."
 {% endconfiguration_basic %}
 
-## Supported Functionality
+## Supported functionality
 
 ### Sensors
 
@@ -53,11 +53,11 @@ The following sensors values are available:
 - Server Connectivity
 - Signal Quality
 
-## Data Updates
+## Data updates
 
 Once the integration connects, Droplet will push data points as soon as they are available. During periods of increased activity, this may be as often as every 5 seconds. During periods of inactivity, it may be as seldom as every 30 seconds.
 
-## Use Cases
+## Use cases
 
 ### Adding Droplet to your Energy Dashboard
 
@@ -85,4 +85,4 @@ This integration follows standard integration removal process.
 
 {% include integrations/remove_device_service.md %}
 
-To prevent Droplet from showing up as a discovered device after its removal, disable local API in the Droplet app under Settings > Smart Home Integrations > Home Assistant.
+To prevent Droplet from showing up as a discovered device after its removal, disable the local API in the Droplet app under **Settings** > **Smart Home Integrations** > **Home Assistant**.
