@@ -30,12 +30,15 @@ function maybeLoadAnimations() {
 
         // --- Scene 2 Configuration ---
         const scene2Sections = [
-            { selector: "#built-for-home-assistant", start: 0, end: 122 },
-            { selector: "#plug-and-play", start: 122, end: 182 },
-            { selector: "#buy", start: 182, end: 182 }
+          // 0 - 60
+          // 65 - 125
+          // 130 - 190
+            { selector: "#built-for-home-assistant", start: 0, end: 125 },
+            { selector: "#plug-and-play", start: 130, end: 190 },
+            { selector: "#buy", start: 190, end: 190 }
         ];
         const scene2TotalFrames = scene2Sections[scene2Sections.length - 1].end;
-        new ZWA2RenderAnimation("scene2", "canvas.render-scroller#scene-two", scene2Sections, scene2TotalFrames);
+        new ZWA2RenderAnimation("scene2-final", "canvas.render-scroller#scene-two", scene2Sections, scene2TotalFrames);
     }
 }
 
