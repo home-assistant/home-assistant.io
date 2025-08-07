@@ -1,25 +1,25 @@
 ---
-title: Cync by GE
-description: Instructions on how to integrate Cync by GE devices into Home Assistant.
+title: Cync
+description: Instructions on how to integrate Cync devices into Home Assistant.
 ha_release: 2025.8
 ha_iot_class: Cloud Push
 ha_category:
   - Light
 ha_codeowners:
   - '@Kinachi249'
-ha_domain: cync_by_ge
+ha_domain: cync
 ha_integration_type: integration
 ha_platforms:
   - Light
 ha_quality_scale: bronze
 ---
 
-The **Cync by GE** {% term integration %} is used to integrate with smart devices sold by [GE Lighting](https://www.gelighting.com/). Cync, formerly known as "C by GE", is the name given to GE Lighting's line of smart devices.
+The **Cync** {% term integration %} is used to integrate with smart devices sold by [GE Lighting](https://www.gelighting.com/). Cync, formerly known as "C by GE", is the name given to GE Lighting's line of smart devices.
 
 ## Prerequisites
 
-- A Cync by GE account is required to use this integration.
-- Any device you wish to add to Home Assistant must first be set up via the Cync by GE app.
+- A Cync account is required to use this integration.
+- Any device you wish to add to Home Assistant must first be set up via the Cync app.
 - At least one Wi-Fi connected device is required to be set up in your Cync account.
   - Older, Bluetooth-only Cync devices may not be recognized by the integration without a Cync bridge device.
 
@@ -27,16 +27,16 @@ The **Cync by GE** {% term integration %} is used to integrate with smart device
 
 {% configuration_basic %}
 Email:
-    description: Your Cync by GE account's email address
+    description: Your Cync account's email address
 Password:
-    description: Your Cync by GE account's password
+    description: Your Cync account's password
 {% endconfiguration_basic %}
 
 ## Supported functionality
 
 ### Entities
 
-The **Cync by GE** integration provides the following entities.
+The **Cync** integration provides the following entities.
 
 #### Lights
 
