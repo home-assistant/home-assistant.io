@@ -5,13 +5,15 @@ description: "More information on why Home Assistant Operating System version ma
 
 ## The issue
 
-Only the last 4 major versions of Home Assistant Operating System are supported.
-Systems running a version older then that are no longer supported.
+Supervisor considers Home Assistant Operating System older than the last 4 major
+releases as unsupported. We generally recommend to always update to the latest
+Home Assistant Operating System.
 
 ## The solution
 
-You need to update the version of Home Assistant Operating System. Go to
-{% my updates title="**System** > **Updates**" %} to update the operating system.
+To resolve this issue, update your Home Assistant Operating System version. Go
+to {% my updates title="**System** > **Updates**" %} to update the operating
+system.
 
 If your system is significantly out of date you may need to update multiple times
 to get to the latest version. The next one will appear in the UI after the prior
