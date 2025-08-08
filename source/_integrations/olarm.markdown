@@ -1,7 +1,7 @@
 ---
 title: Olarm
 description: Instructions on how to integrate Olarm devices into Home Assistant.
-ha_release: 2025.1
+ha_release: 2025.9
 iot_class: cloud_push
 codeowners:
   - '@olarmtech'
