@@ -199,7 +199,7 @@ homekit:
               required: false
               type: string
             linked_valve_end_time:
-              description: The `entity_id` of a `sensor` (timestamp) entity to use for calculating the remaining time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. The end time has to be maintained in Home Assistant. HomeKit will not update the state of this sensor.
+              description: The `entity_id` of a `sensor` (timestamp) entity to use for calculating the remaining time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. The end time has to be maintained in Home Assistant. HomeKit will not update the state of this sensor. The maximum value is set based on the `input_number` of `linked_valve_duration`, or uses a default of 48 hours.
               required: false
               type: string
             low_battery_threshold:
