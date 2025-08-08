@@ -5,7 +5,7 @@ ha_category:
   - Sensor
 ha_platforms:
   - sensor
-ha_iot_class: Local Polling
+ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@joshsh02'
 ha_domain: eol_tracker
@@ -14,7 +14,7 @@ ha_integration_type: integration
 ha_release: "2025.9"
 ---
 
-The **EOL Tracker** {% term integration %} allows you to track whether a device or software is nearing or past its end-of-life (EOL). This helps users stay proactive with software and hardware support lifecycles, especially for security- or compliance-sensitive setups.
+The **EOL Tracker** {% term integration %} allows you to track whether a device or software is nearing or past its end-of-life (EOL). This helps users stay proactive with software and hardware support lifecycles, especially for security- or compliance-sensitive setups. All lifecycle metadata is retrieved directly from the public [endoflife.date](https://endoflife.date/) API. 
 
 {% include integrations/config_flow.md %}
 
