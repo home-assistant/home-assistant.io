@@ -44,6 +44,20 @@ URL:
     description: "The URL to your gateway device. For example: `http://10.0.0.131`"
 {% endconfiguration_basic %}
 
+## DALI device scan
+
+During configuration you have to choose between three DALI device scan methods:
+
+- `Refresh present devices` refreshes the already present devices with latest values from the DALI-bus.
+- `Find new devices` performs a device scan that can find new devices and addresses them but doesn't remove any existing DALI addresses.
+- `New installation` deletes the stored devices and all DALI addresses. Then it performs a device scan that addresses the devices on the DALI bus from scratch and stores the device information.
+
+{% warning %}
+
+Be cautious when using the `New installation` option, especially in an an existing DALI setup. Since DALI addresses are assigned randomly, resetting them may cause devices to receive new addresses that differ from their original ones. This can lead to system malfunctions, depending on the configuration.
+
+{% endwarning %}
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are
