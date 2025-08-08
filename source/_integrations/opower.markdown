@@ -54,6 +54,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
 - Puget Sound Energy (PSE)
 - Sacramento Municipal Utility District (SMUD)
 - Seattle City Light (SCL)
+- Southern Maryland Electric Cooperative (SMECO)
 
 When you add the Opower integration to Home Assistant, you will need to provide your utility account's authentication details to enable retrieving your energy data.
 This is typically the same information needed to access your utility's website.
