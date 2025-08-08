@@ -81,7 +81,7 @@ sql:
     query:
       description: An SQL QUERY string, should return 1 result at most.
       required: true
-      type: string
+      type: template
     column:
       description: The field name to select.
       required: true
