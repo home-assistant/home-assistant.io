@@ -39,7 +39,7 @@ Badges are widgets that sit at the top of a panel, above all the cards.
 ## Removing a badge
 
 1. Go to the dashboard edit the dashboard (steps 1-3 in [adding a badge](#adding-a-badge-to-your-dashboard)).
-2. Hover over the badge to remove. The overflow menu (3 dots) will appear.
+2. Hover over the badge to reveal the overflow menu (3 dots).
     ![Screenshot showing edit buttons](/images/dashboards/edit_badge.png)
 3. Click on the overflow menu and select **Delete**.
 
