@@ -1,17 +1,19 @@
 ---
-title: TFA.me integration
+title: TFA.me
 description: Instructions on how to integrate the TFA.me integration into Home Assistant.
-ha_release: 2025.3
+ha_release: 2025.9
 ha_iot_class: Local Poll
 ha_codeowners:
   - '@DrMatthiasBlaschke'
 ha_domain: a_tfa_me_1
-ha_integration_type: integration
+ha_integration_type: hub
 ha_category:
   - Sensor
 ha_platforms:
   - diagnostics
   - sensor
+works_with:
+  - local
 
 related:
   - url: https://developers.home-assistant.io/docs/documenting/standards
@@ -36,7 +38,7 @@ The **TFA.me system** offers a unique combination of professional, multi-day wea
 
 ## How it works
 
-Each **TFA.me station** measures temperature and humidity internally, and depending on the model, other measurement data as well. Each station also has an 868 MHz radio receiver that can receive external sensors such as temperature, humidity, wind and rain sensors. 
+Each **TFA.me station** measures temperature and humidity internally, and depending on the model, other measurement data as well. Each station also has an 868 MHz radio receiver that can receive external {% term sensors %} such as temperature, humidity, wind and rain sensors. 
 
 The internal and external measurement values ​​are partially displayed on the station's display and also transferred to the [**TFA.me cloud**](https://go.tfa.me). When measured values ​​are received station will add the current time stamp (UTC) and the 868 MHz RSSI (Radio Signal Strength Indicator) value to the data set. 
 
@@ -184,14 +186,14 @@ You also find the list under menu **Sensor table**.
 Please follow the configuration flow and make some basic setting.
 
 1. Mandatory: Enter the IP address of your device or the 9 digit serial number **"XXX-XXX-XXX"**. To get the IP address of your station press and hold the **"+"** key and wait until the IP is shown. The serial number is placed at the backside of your station.
-2. Optional: Change the interval time the integration should request data (default are 60 seconds)
+2. Optional: Change the interval time the integration should request data (default {% term polling %} time are 60 seconds)
 3. Optional: Checkbox  **"Multiple entities"**, when you only use one station leave this unchecked. Otherwise look at section **Entities** for more informations. 
 4. Mandatory: Press button **"OK"**. 
 
 The integration now requests sensor list & sensor measurement data once at start. When successful you will see a list with all sensors added. The integrationn also generates all entities (section **"Entities"**). 
 
 
-After completing the configuration flow, the TFA.me integration will be available.
+After completing the configuration flow, the **TFA.me** integration will be available.
 
 **Recommendations**
  
@@ -202,10 +204,7 @@ After completing the configuration flow, the TFA.me integration will be availabl
 - You can add the integration even when your TFA.me station if offline. Home Assistant tries cyclic to reach the station again.
 
 
-
-TODO: Explain config flow, how it works and what is going on and how entities are generated automatically, etc .......
-
-
+---
 ### Step 7: Change option(s) or perform actions at run time
 
 {% include integrations/option_flow.md %}
@@ -224,7 +223,7 @@ The following options or actions can be set or triggered:
 
 ### Single entities
 
-Typically, you have one station and multiple sensors. In this case, we recommend using the **Single entities** option. This creates exactly one entity for each sensor measurement.
+Typically, you have one station and multiple sensors. In this case, we recommend using the **Single entities** option. This creates exactly one {% term entity %} for each sensor measurement.
 
 The naming scheme is as follows:
 
