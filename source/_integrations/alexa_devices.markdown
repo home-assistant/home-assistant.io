@@ -76,12 +76,12 @@ Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_dev
 Devices with appropriate functionality will have speak and announce notify entities created. These can be used as the target for the `notify.send_message` action.
 
 {% tip %}
-When sending notifications to multiple devices you may experience delays due to rate limiting by Amazon.  You can avoid this by sending notifications to speaker groups created in Alexa.
+When sending notifications to multiple devices, you may experience delays due to rate limiting by Amazon. You can avoid this by sending notifications to speaker groups created in Alexa.
 {% endtip %}
 
 #### Action `alexa_devices.send_text_command`
 
-This action essentially allows you to control Alexa using text commands rather then speech. You should be able to request anything you would via speech using this action.
+This action essentially allows you to control Alexa using text commands rather than speech. You should be able to request anything you would via speech using this action.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
@@ -90,7 +90,7 @@ This action essentially allows you to control Alexa using text commands rather t
 
 #### Action `alexa_devices.send_sound`
 
-This action allows you to play one of the inbuilt Alexa sounds.  The full list of sounds and their variants is available in [Amazon's documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html)
+This action allows you to play one of the built-in Alexa sounds. The full list of sounds and their variants is available in [Amazon's documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html)
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
