@@ -259,7 +259,7 @@ title:
   type: string
 layout:
   required: false
-  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card". `auto` changes it based on the screen size.
+  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card. `auto` changes it based on the screen size."
   type: string
   default: auto
 group_by_area:
