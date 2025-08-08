@@ -110,13 +110,11 @@ action:
 - **Login issues**: Double-check your Olarm account credentials and ensure API access is enabled in the Olarm app
 - **LINK entities missing**: Ensure the modules are properly connected and configured in the Olarm system
 
-### Removal
+## Removing the integration
 
-{% my integrations badge %}
+This integration follows standard integration removal, no extra steps are required.
 
-1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**
-2. Locate the **Olarm** integration
-3. Select the integration, then select **Delete**
+{% include integrations/remove_device_service.md %}
 
 ## Known limitations
 
