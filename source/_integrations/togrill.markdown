@@ -43,6 +43,7 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 ## Sensors
 
 **Probe X**: The current temperature of the given temperature probe
+**Battery**: The current battery level of the device.
 
 ## Removing the integration
 
