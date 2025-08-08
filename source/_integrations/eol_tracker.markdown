@@ -29,7 +29,7 @@ Each product will generate a sensor entity that shows its EOL status and related
 
 #### Attributes
 
-- **Product Name**: Product or device name
+- **Product name**: Product or device name
 - **Release Date**: Original release date (e.g., `March 6, 2013`)
 - **Latest**: Most recent version name (e.g., `1.9.16`)
 - **Latest Version Date**: Release date of the most recent version (e.g., `2021-07-10`)
