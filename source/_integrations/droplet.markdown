@@ -57,9 +57,12 @@ Once the integration connects, Droplet will push data points as soon as they are
 ### Adding Droplet to your Energy Dashboard
 
 1. Open the edit menu of your energy dashboard.
-2. Select the water consumption tile. <img src='/images/integrations/droplet/water_consumption.png' alt='Screenshot of water consumption tile'>
-3. Select one of Droplet's volume sensors. Optionally, track your costs. <img src='/images/integrations/droplet/configure_water_consumption.png' alt='Screenshot of water consumption source picker'>
-4. Water usage recorded by Droplet will now be incorporated into your energy dashboard. <img src='/images/integrations/droplet/energy_dashboard.png' alt='Screenshot of a water sensor on the energy dashboard'>
+2. Select the water consumption tile.
+![Screenshot of water consumption tile](/images/integrations/droplet/water_consumption.png)
+3. Select one of Droplet's volume sensors. Optionally, track your costs.
+![Screenshot of water consumption source picker](/images/integrations/droplet/configure_water_consumption.png)
+4. Water usage recorded by Droplet will now be incorporated into your energy dashboard.
+![Screenshot of a water sensor on the energy dashboard](/images/integrations/droplet/energy_dashboard.png)
 
 ## Removing the integration
 
