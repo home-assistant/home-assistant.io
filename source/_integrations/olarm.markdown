@@ -41,7 +41,7 @@ The following devices are known to be supported by the {% term integration %}:
 - An active subscription for the device
 - The device has public API access enabled
 
-## Before Configuration
+### Before configuration
 
 Before adding the integration to Home Assistant:
 
