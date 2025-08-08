@@ -19,26 +19,26 @@ function maybeLoadAnimations() {
         const scene1Sections = [
             // The hero section autoplays from frame 0 to 186, then the user
             // can scroll-animate it from frame 186 to 246.
-            { selector: "#hero", start: 0, end: 246, autoplay: { start: 0, end: 186, duration: 1200 } },
+            { selector: "#hero", start: 186, end: 246, autoplay: { start: 0, end: 186, duration: 1200 } },
             { selector: "#overview", start: 246, end: 314 },
-            { selector: "#chipset", start: 314, end: 379 },
+            { selector: "#chipset", start: 314, end: 391 },
             // The last section just holds the final frame.
-            { selector: "#long-range", start: 379, end: 379 }
+            { selector: "#long-range", start: 391, end: 391 }
         ];
         const scene1TotalFrames = scene1Sections[scene1Sections.length - 1].end;
-        new ZWA2RenderAnimation("scene1-final", "canvas.render-scroller#scene-one", scene1Sections, scene1TotalFrames);
+        new ZWA2RenderAnimation("scene1", "canvas.render-scroller#scene-one", scene1Sections, scene1TotalFrames);
 
         // --- Scene 2 Configuration ---
         const scene2Sections = [
           // 0 - 60
           // 65 - 125
           // 130 - 190
-            { selector: "#built-for-home-assistant", start: 0, end: 125 },
-            { selector: "#plug-and-play", start: 130, end: 190 },
-            { selector: "#buy", start: 190, end: 190 }
+            { selector: "#built-for-home-assistant", start: 63, end: 135 },
+            { selector: "#plug-and-play", start: 135, end: 210 },
+            { selector: "#buy", start: 210, end: 210 }
         ];
         const scene2TotalFrames = scene2Sections[scene2Sections.length - 1].end;
-        new ZWA2RenderAnimation("scene2-final", "canvas.render-scroller#scene-two", scene2Sections, scene2TotalFrames);
+        new ZWA2RenderAnimation("scene2", "canvas.render-scroller#scene-two", scene2Sections, scene2TotalFrames);
     }
 }
 

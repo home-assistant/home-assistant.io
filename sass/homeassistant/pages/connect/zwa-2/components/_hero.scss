@@ -1,7 +1,10 @@
 section#hero {
     height: calc(100vh - 68px);
+    position: relative;
 
-    .section-inner{
+    
+
+    .section-inner {
         align-items: flex-end;
     }
 
@@ -9,8 +12,8 @@ section#hero {
         display: flex;
         flex-direction: column;
 
-        >span{
-           span {
+        >span {
+            span {
                 color: #001A35;
                 animation: letter-fade 2s forwards .2s;
                 opacity: 1;
@@ -39,7 +42,8 @@ section#hero {
             letter-spacing: -5px;
             line-height: var(--typography-hero-title-line-height);
             margin-top: 16px;
-            @include bp(desktop){
+
+            @include bp(desktop) {
                 margin-top: 40px;
             }
         }
@@ -50,7 +54,7 @@ section#hero {
         align-items: center;
         gap: 24px;
 
-        img{
+        img {
             max-width: 50%;
         }
     }
@@ -60,7 +64,7 @@ section#hero {
         justify-content: space-between;
         flex-wrap: wrap;
 
-        p{
+        p {
             color: #ffff;
         }
     }

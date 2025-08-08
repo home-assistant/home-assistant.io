@@ -16,6 +16,10 @@ section#buy {
     }
 
 
+    .section-inner {
+        position: relative;
+    }
+    
     .section-inner-content {
         //height: 64vh;
         align-items: center;
@@ -49,6 +53,22 @@ section#buy {
 
         span {
             opacity: .4;
+            position: relative;
+
+            &:before{
+                content: 'nice';
+                font-style: italic;
+                font-size: 8px;
+                position: absolute;
+                right: calc(100% + 8px);
+                bottom: 4px;
+                opacity: .25;
+                @include bp(desktop){
+                    bottom: 12px;
+                    right: calc(100% + 18px);
+                    font-size: 12px;
+                }
+            }
         }
 
         sup {

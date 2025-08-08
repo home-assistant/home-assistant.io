@@ -1,6 +1,8 @@
 section#chipset {
-    height: 80vh;
     z-index: 3;
+    @include bp(desktop){
+        height: 80vh;
+    }
 
     .container-full {
         height: 0;
@@ -14,41 +16,54 @@ section#chipset {
         align-self: center;
         height: fit-content;
         height: 100%;
-        justify-content: space-between;
-
+        justify-content: center;
+        flex-direction: column;
+        @include bp(desktop){
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        
         .col {
-            align-items: flex-start;
             display: flex;
             flex-direction: column;
-            max-width: 440px;
             gap: 32px;
             position: relative;            
-
+            @include bp(desktop){
+                max-width: 440px;
+                align-items: flex-start;
+            }
+            
             &:first-child {
-
                 
-
+                
+                
                 h2 {
                     margin: 0;
+                    text-wrap: balance;
+                    max-width: 25rem;
                 }
 
+                
                 >div {
                     //align-items: center;
                     display: flex;
                     gap: 1rem 2rem;
-
+                    
                     p {
                         margin: 0;
                     }
                 }
             }
-
+            
             &:last-child {
                 backdrop-filter: blur(10px);
+                align-items: flex-start;
                 padding: 1rem;
                 border-radius: 20px;
                 overflow: hidden;
+                @include bp(desktop){
                 align-self: flex-end;
+                }
                 >img {
                     mix-blend-mode: lighten;
                 }

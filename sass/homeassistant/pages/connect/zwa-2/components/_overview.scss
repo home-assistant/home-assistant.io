@@ -1,5 +1,12 @@
 section#overview {
-    height: 80vh;
+
+    @include bp(desktop){
+        height: 80vh;
+    }
+
+    .model-still{
+        
+    }
 
     .section-inner-content{
         display: flex;
@@ -9,6 +16,7 @@ section#overview {
 
     .container{
         height: auto;
+        flex-direction: column;
     }
     .container-full{
         height: 0;
@@ -19,10 +27,14 @@ section#overview {
         height: fit-content;
         align-items: center;
         justify-content: space-between;
-        flex-wrap: wrap;
+        flex-direction: column;
+        @include bp(desktop){
+            flex-direction: row;
+        }
 
         .col{
             max-width: 400px;
+            width: 100%;
 
             svg{
                 width: 100%;

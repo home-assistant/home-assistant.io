@@ -1,3 +1,4 @@
+
 section#plug-and-play {
     height: 80vh;
     background-color: #DADDE2;
@@ -6,7 +7,8 @@ section#plug-and-play {
         align-items: flex-end;
         justify-content: space-between;
         flex-direction: column;
-        @include bp(tablet){
+
+        @include bp(tablet) {
             flex-direction: row;
         }
 
@@ -15,6 +17,10 @@ section#plug-and-play {
             flex-basis: 0;
 
             &:first-child {
+                backdrop-filter: blur(10px);
+                padding: 1rem;
+                border-radius: 10px;
+                overflow: hidden;
                 @include bp(desktop) {
                     max-width: 560px;
                 }
@@ -22,6 +28,7 @@ section#plug-and-play {
 
             &:last-child {
                 width: 100%;
+
                 @include bp(desktop) {
                     max-width: 520px;
                 }
@@ -31,18 +38,24 @@ section#plug-and-play {
 
     .section-inner {
         align-items: flex-end;
+        z-index: 2;
+
+        &-content{
+            padding-bottom: 0;
+        }
     }
 
     .config-cards {
         display: flex;
         flex-direction: column;
+        backdrop-filter: blur(10px);
         padding: 10px 14px;
         gap: 10px;
         border-radius: 12px;
         border: 1px solid #ffffff;
         background-color: rgba(255, 255, 255, 0.5);
-        
-        @include bp(tablet){
+
+        @include bp(tablet) {
             padding: 16px 20px;
         }
 
@@ -50,15 +63,13 @@ section#plug-and-play {
             display: grid;
             justify-content: space-between;
             gap: 8px;
-            grid-template-areas: 
+            grid-template-areas:
                 'content icon'
                 'progress progress';
 
-            @include bp(tablet){
-                
-            }
+            @include bp(tablet) {}
 
-            &.complete{
+            &.complete {
                 .config-card-progress {
                     &:before {
                         width: 100%;
@@ -69,15 +80,17 @@ section#plug-and-play {
                     &:after {
                         opacity: .2;
                     }
+
                     .check {
                         display: block;
                     }
                 }
             }
 
-            &-title{
+            &-title {
                 font-size: 16px;
-                @include bp(tablet){
+
+                @include bp(tablet) {
                     font-size: var(--typography-h4-font-size);
                 }
             }
@@ -90,11 +103,11 @@ section#plug-and-play {
                 gap: 4px;
             }
 
-            &-description{
+            &-description {
                 font-size: 14px;
                 text-wrap: balance;
-                
-                @include bp(tablet){
+
+                @include bp(tablet) {
                     font-size: 16px;
                 }
             }
@@ -111,12 +124,12 @@ section#plug-and-play {
                 position: relative;
                 overflow: hidden;
 
-                @include bp(tablet){
+                @include bp(tablet) {
                     width: 74px;
                     height: 74px;
                 }
 
-                &:after{
+                &:after {
                     content: '';
                     inset: 0;
                     position: absolute;
@@ -124,7 +137,7 @@ section#plug-and-play {
                     opacity: 0;
                 }
 
-                .check{
+                .check {
                     display: none;
                     background-color: var(--connect-line-blue);
                     border-radius: 50%;
@@ -136,8 +149,8 @@ section#plug-and-play {
                     width: 26px;
                     position: relative;
                     z-index: 1;
-                    
-                    @include bp(tablet){
+
+                    @include bp(tablet) {
                         background-size: 20px 15px;
                         height: 40px;
                         width: 40px;
@@ -154,8 +167,8 @@ section#plug-and-play {
                 height: 1px;
                 position: relative;
                 isolation: isolate;
-                
-                @include bp(tablet){
+
+                @include bp(tablet) {
                     align-self: unset;
                     margin-top: 8px;
                 }
@@ -183,4 +196,16 @@ section#plug-and-play {
             }
         }
     }
+}
+
+
+:root {
+    --glass-drop-shadow-blur: 24px;
+    --glass-frost: 5px;
+    --glass-shadow-blur: 2px;
+    --glass-shadow-color: #ffffff;
+    --glass-shadow-offset: 0;
+    --glass-shadow-spread: 0px;
+    --glass-tint-color: 255, 255, 255;
+    --glass-tint-opacity: 0.1;
 }

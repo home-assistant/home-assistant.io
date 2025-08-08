@@ -6,5 +6,10 @@ div#light-wrapper{
 
     .animation-wrapper-inner{
         top: 0;
+
+        canvas{
+            width: 100%;
+            object-fit: cover;
+        }
     }
 }
