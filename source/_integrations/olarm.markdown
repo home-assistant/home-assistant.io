@@ -110,12 +110,6 @@ action:
 - **Login issues**: Double-check your Olarm account credentials and ensure API access is enabled in the Olarm app
 - **LINK entities missing**: Ensure the modules are properly connected and configured in the Olarm system
 
-## Removing the integration
-
-This integration follows standard integration removal, no extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
 ## Known limitations
 
 - A maximum of 5 Olarm {% term device %}s per {% term integration %} instance are currently supported
@@ -123,3 +117,11 @@ This integration follows standard integration removal, no extra steps are requir
 - Zone bypass {% term entities %} are optional and must be enabled during setup
 - LINK binary sensors {% term entities %} only available if the respective modules are connected to your system
 - MAX binary sensors only available if you have an Olarm MAX
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+
