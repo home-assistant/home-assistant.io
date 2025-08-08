@@ -45,8 +45,8 @@ The following devices are known to be supported by the {% term integration %}:
 
 Before adding the integration to Home Assistant:
 
-1. In the Olarm App: Go to **Profile** > **Device List** > **[Select Device]** > **Developer Settings**, then enable **API Access**
-2. Ensure your Olarm device is online and has an active subscription
+1. In the Olarm App: Go to **Profile** > **Device List** > **[Select Device]** > **Developer Settings**, then enable **API Access**.
+2. Ensure your Olarm device is online and has an active subscription.
 
 {% include integrations/config_flow.md %}
 
