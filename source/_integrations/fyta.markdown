@@ -41,7 +41,7 @@ Password:
   description: "The password used to access the FYTA account."
 {% endconfiguration_basic %}
 
-## Configuration options
+## Configuration
 
 The integration has no additional configuration options.
 
@@ -62,7 +62,7 @@ The following binary sensors are currently available per plant:
 
 ### Image
 
-The picture created or chosen in the FYTA app is also exposed to Home Assistant.
+An image entity for both the generic plant image and the user image is added. You may use those for your dashboard.
 
 ### Sensors
 

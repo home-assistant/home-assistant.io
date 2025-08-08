@@ -7,7 +7,7 @@ related:
     title: Custom sentences with Assist
   - url: https://www.nabucasa.com/config/
     title: Home Assistant Cloud
-  - url: https://voice-pe.home-assistant.io/
+  - url: https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition
     title: Voice Preview Edition
 ---
 

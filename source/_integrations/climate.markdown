@@ -213,7 +213,7 @@ Set swing operation mode for climate device
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
-| `swing_mode` | no | New value of swing mode
+| `swing_mode` | no | New value of swing mode: `off`, `horizontal`, `vertical` or `both`.
 
 #### Automation example
 
@@ -227,7 +227,7 @@ automation:
       target:
         entity_id: climate.kitchen
       data:
-        swing_mode: 1
+        swing_mode: both
 ```
 
 ### Action `climate.set_swing_horizontal_mode`

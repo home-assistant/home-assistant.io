@@ -14,7 +14,7 @@ related:
 
 Once you have more devices, you may want to target entire groups of devices in automations. It also becomes more challenging to find items in lists.
 
-There are a few tools to group your assets: [Areas](#areas), [floors](#floors), [labels](#labels), and [categories](#categories).
+There are a few tools to group your assets: [Areas](#area), [floors](#floor), [labels](#labels), and [categories](#category).
 
 | Taxonomy | Automation target                | Entity can have multiple         |
 | -------- | -------------------------------- | -------------------------------- |

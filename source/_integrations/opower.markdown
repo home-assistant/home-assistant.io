@@ -87,6 +87,11 @@ When using Opower with any of the Exelon subsidiaries, such as BGE, ComEd, PECO,
 Before proceeding, make sure you understand the security implications of disabling 2FA.
 Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, you most likely cannot disable it, which unfortunately means you cannot use this integration.
 
+### Pacific Gas & Electric (PG&E)
+
+The integration properly supports Multi-Factor Authentication (MFA) for PG&E via either email or phone.
+You will be asked to re-authenticate via MFA every 180 days.
+
 {% include integrations/config_flow.md %}
 
 ## Sensors
@@ -169,3 +174,10 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 
 - Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
 - In your energy dashboard in Home Assistant, make sure you use the statistics and not the sensors.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+If you remove the integration, the statistics are not automatically deleted.
+You can find and delete the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "opower".

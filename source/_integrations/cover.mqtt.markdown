@@ -27,14 +27,17 @@ Optimistic mode can be forced, even if a `state_topic` / `position_topic` is def
 
 The `mqtt` cover platform optionally supports a list of `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT cover device. During normal operation, if the MQTT cover device goes offline (i.e., publishes a matching `payload_not_available` to any `availability` topic), Home Assistant will display the cover as "unavailable". If these messages are published with the `retain` flag set, the cover will receive an instant update after subscription and Home Assistant will display correct availability state of the cover when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the cover as "unavailable" when Home Assistant starts up.
 
-To use your MQTT cover in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To use an MQTT cover in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
   - cover:
-      command_topic: "home-assistant/cover/set"
+      command_topic: "living-room-cover/set"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -170,7 +173,7 @@ name:
   type: string
   default: MQTT Cover
 object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   required: false
   type: string
 optimistic:
@@ -350,10 +353,10 @@ The example below shows a full configuration for a cover without tilt with state
 mqtt:
   - cover:
       name: "MQTT Cover"
-      command_topic: "home-assistant/cover/set"
-      state_topic: "home-assistant/cover/state"
+      command_topic: "living-room-cover/set"
+      state_topic: "living-room-cover/state"
       availability:
-        - topic: "home-assistant/cover/availability"
+        - topic: "living-room-cover/availability"
       qos: 0
       retain: true
       payload_open: "OPEN"
@@ -382,11 +385,11 @@ The example below shows a full configuration for a cover without tilt with posit
 mqtt:
   - cover:
       name: "MQTT Cover"
-      command_topic: "home-assistant/cover/set"
-      position_topic: "home-assistant/cover/position"
+      command_topic: "living-room-cover/set"
+      position_topic: "living-room-cover/position"
       availability:
-        - topic: "home-assistant/cover/availability"
-      set_position_topic: "home-assistant/cover/set_position"
+        - topic: "living-room-cover/availability"
+      set_position_topic: "living-room-cover/set_position"
       qos: 0
       retain: true
       payload_open: "OPEN"
@@ -413,11 +416,11 @@ The example below shows a full configuration for a cover with position, state & 
 mqtt:
   - cover:
       name: "MQTT Cover"
-      command_topic: "home-assistant/cover/set"
-      state_topic: "home-assistant/cover/state"
-      position_topic: "home-assistant/cover/position"
+      command_topic: "living-room-cover/set"
+      state_topic: "living-room-cover/state"
+      position_topic: "living-room-cover/position"
       availability:
-        - topic: "home-assistant/cover/availability"
+        - topic: "living-room-cover/availability"
       qos: 0
       retain: true
       payload_open: "OPEN"
@@ -432,8 +435,8 @@ mqtt:
       optimistic: false
       value_template: "{{ value.x }}"
       position_template: "{{ value.y }}"
-      tilt_command_topic: "home-assistant/cover/tilt"
-      tilt_status_topic: "home-assistant/cover/tilt-state"
+      tilt_command_topic: "living-room-cover/tilt"
+      tilt_status_topic: "living-room-cover/tilt-state"
       tilt_status_template: "{{ value_json["PWM"]["PWM1"] }}"
       tilt_min: 0
       tilt_max: 180
@@ -454,11 +457,11 @@ The example below shows a full configuration for a cover using stopped state.
 mqtt:
   - cover:
       name: "MQTT Cover"
-      command_topic: "home-assistant/cover/set"
-      state_topic: "home-assistant/cover/state"
-      position_topic: "home-assistant/cover/position"
+      command_topic: "living-room-cover/set"
+      state_topic: "living-room-cover/state"
+      position_topic: "living-room-cover/position"
       availability:
-        - topic: "home-assistant/cover/availability"
+        - topic: "living-room-cover/availability"
       qos: 0
       retain: true
       payload_open: "OPEN"
@@ -523,10 +526,10 @@ The example below shows an example of how to correct the state of the blind depe
 mqtt:
   - cover:
       name: "MQTT Cover"
-      command_topic: "home-assistant/cover/set"
-      state_topic: "home-assistant/cover/state"
-      position_topic: "home-assistant/cover/position"
-      set_position_topic: "home-assistant/cover/position/set"
+      command_topic: "living-room-cover/set"
+      state_topic: "living-room-cover/state"
+      position_topic: "living-room-cover/position"
+      set_position_topic: "living-room-cover/position/set"
       payload_open:  "open"
       payload_close: "close"
       payload_stop:  "stop"
@@ -569,11 +572,11 @@ Following variable might be used in `position_template`, `set_position_template`
 mqtt:
   - cover:
       name: "MQTT Cover"
-      command_topic: "home-assistant/cover/set"
-      state_topic: "home-assistant/cover/state"
-      position_topic: "home-assistant/cover/position"
-      set_position_topic: "home-assistant/cover/position/set"
-      tilt_command_topic: "home-assistant/cover/position/set" # same as `set_position_topic`
+      command_topic: "living-room-cover/set"
+      state_topic: "living-room-cover/state"
+      position_topic: "living-room-cover/position"
+      set_position_topic: "living-room-cover/position/set"
+      tilt_command_topic: "living-room-cover/position/set" # same as `set_position_topic`
       qos: 1
       retain: false
       payload_open:  "open"
@@ -625,5 +628,5 @@ mqtt:
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages. This allows you to operate your cover manually:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t home-assistant/cover/set -m "CLOSE"
+mosquitto_pub -h 127.0.0.1 -t living-room-cover/set -m "CLOSE"
 ```
