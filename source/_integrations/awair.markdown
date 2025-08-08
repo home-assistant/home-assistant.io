@@ -7,8 +7,8 @@ ha_config_flow: true
 ha_release: 0.84
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@ahayworth'
-  - '@danielsjf'
+  - "@ahayworth"
+  - "@danielsjf"
 ha_domain: awair
 ha_platforms:
   - sensor
@@ -39,6 +39,7 @@ The integration will fetch data from each device. The following sensors are supp
 - Temperature
 - Humidity
 - Dew point
+- Absolute humidity
 - Carbon dioxide
 - Total volatile organic compounds
 - PM2.5 density
