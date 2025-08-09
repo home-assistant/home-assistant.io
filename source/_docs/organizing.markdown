@@ -10,18 +10,21 @@ related:
     title: Labels
   - docs: /docs/organizing/categories/
     title: Categories
+  - docs: /integrations/group/
+    title: Group integration
 ---
 
 Once you have more devices, you may want to target entire groups of devices in automations. It also becomes more challenging to find items in lists.
 
-There are a few tools to group your assets: [Areas](#area), [floors](#floor), [labels](#labels), and [categories](#category).
+There are a few tools to group your assets: [Areas](#area), [floors](#floor), [labels](#labels), [categories](#category) and [group integration](#group-integration).
 
-| Taxonomy | Automation target                | Entity can have multiple         |
-| -------- | -------------------------------- | -------------------------------- |
-| Area     | {% icon "openmoji:check-mark" %} | {% icon "openmoji:cross-mark" %} |
-| Floor    | {% icon "openmoji:check-mark" %} | {% icon "openmoji:cross-mark" %} |
-| Label    | {% icon "openmoji:check-mark" %} | {% icon "openmoji:check-mark" %} |
-| Category | {% icon "openmoji:cross-mark" %} | {% icon "openmoji:cross-mark" %} |
+| Taxonomy          | Automation target                | Entity can have multiple         |
+| ----------------- | -------------------------------- | -------------------------------- |
+| Area              | {% icon "openmoji:check-mark" %} | {% icon "openmoji:cross-mark" %} |
+| Floor             | {% icon "openmoji:check-mark" %} | {% icon "openmoji:cross-mark" %} |
+| Label             | {% icon "openmoji:check-mark" %} | {% icon "openmoji:check-mark" %} |
+| Category          | {% icon "openmoji:cross-mark" %} | {% icon "openmoji:cross-mark" %} |
+| Group Integration | {% icon "openmoji:check-mark" %} | {% icon "openmoji:cross-mark" %} |
 
 ## Area
 
@@ -55,3 +58,9 @@ There are a few tools to group your assets: [Areas](#area), [floors](#floor), [l
 - Categories are unique for each table. The automations page can have different categories than the scene, scripts, or helpers settings page.
 
 <img class="no-shadow" src='/images/organizing/categories.png' alt='Screenshots the new categories. Automations are grouped into their categories, making it easier to get an overview or to filter them.'>
+
+## Group Integration
+  - Designed to combine multiple entities into one entity representing the group.
+  - The combined entity can also have an area and labels.
+  - Can be used in automations and scripts as a target for actions.
+  - Does not assist with organizing entities in the UI like the other methods above. For example, you cannot use group integration to sort or filter other entities.
