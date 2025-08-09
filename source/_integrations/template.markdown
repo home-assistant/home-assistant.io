@@ -557,8 +557,6 @@ button:
 
 The template cover platform allows you to create covers with templates to define the state and scripts to define each action.
 
-Cover entities can only be created from YAML.
-
 {% raw %}
 
 ```yaml
