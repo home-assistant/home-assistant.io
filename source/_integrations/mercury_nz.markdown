@@ -17,7 +17,8 @@ ha_platforms:
 ha_iot_class: Cloud Polling
 ---
 
-[!WARNING]
+**Deprecation Notice**
+
 This is no longer working as Mercury NZ Limited [recently transitioned from using Opower to an in-house solution](https://www.geekzone.co.nz/forums.asp?forumid=73&topicid=319506&page_no=1#3396187).
 This virtual integration will be removed in 2025.9.0
 
