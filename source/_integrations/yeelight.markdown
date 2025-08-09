@@ -296,7 +296,7 @@ Enable or disable music_mode.
 
 ### Device Discovery
 
-The Yeelight devices uses non-standard search parameters for SSDP so devices are not visible in **the SSDP/UPnP Browser**. 
+The Yeelight devices use non-standard search parameters for SSDP so devices are not visible in **the SSDP/UPnP Browser**. 
 
 If you want to check what devices are in your network, you can use [the `async-upnp-client` library](https://pypi.org/project/async-upnp-client/), and then run the following command:
 ```bash
@@ -307,4 +307,4 @@ upnp-client search \
     --search_target wifi_bulb
 ```
 
-You can also look at **the Zeroconf Browser** or **the DHCP Browser**, which correctly detects Yeelight devices.
+You can also look at **the Zeroconf Browser** or **the DHCP Browser**, which correctly detect Yeelight devices.
