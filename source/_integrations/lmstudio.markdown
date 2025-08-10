@@ -90,7 +90,7 @@ The LM Studio integration also supports Home Assistant's AI task platform, allow
 
 To run LM Studio as a service (headless), see: [https://lmstudio.ai/docs/app/api/headless](https://lmstudio.ai/docs/app/api/headless)
 
-Official "Get started": [https://lmstudio.ai/docs/app/basics](https://lmstudio.ai/docs/app/basics)
+For the official getting started guide, see: [https://lmstudio.ai/docs/app/basics](https://lmstudio.ai/docs/app/basics)
 
 ## Privacy and Performance
 
