@@ -47,22 +47,21 @@ The **UniFi Protect** {% term integration %} adds support for retrieving camera 
 
 ### Hardware support
 
-This {% term integration %} supports all UniFi OS Consoles that can run UniFi Protect. Currently, this includes:
-
-- Any UniFi Protect Network Video Recorder (**[UNVR](https://store.ui.com/collections/unifi-protect-nvr/products/unvr)** or **[UNVRPRO](https://store.ui.com/collections/unifi-protect-nvr/products/unvr-pro)**)
-- Any UniFi "Dream" device (**[UDMPRO](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/udm-pro)**, **[UDR](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-router)**, or **[UDMSE](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-machine-se)**), _except the base UniFi Dream Machine/UDM_
-- UniFi Cloud Key Gen2 Plus (**[UCKP](https://store.ui.com/collections/unifi-protect-nvr/products/unifi-cloudkey-plus)**) firmware version v2.0.24+
-
-UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware [`v2.0.24`](https://community.ui.com/releases/UniFi-Cloud-Key-Firmware-2-0-24/b6684f1e-8542-4660-bc0b-74e0634448e8) or newer.
+This {% term integration %} supports all UniFi OS Consoles that can run UniFi Protect.
 
 ### Software support
 
-The **absolute minimum** software version is [`v1.20.0`](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011) for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect are supported.
+The **absolute minimum** software version is `v6.0.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. 
 
+### No EA support
 {% important %}
 **Early Access and Release Candidate versions are not supported by Home Assistant.**
 
 Using Early Access Release Candidate versions of UniFi Protect or UniFi OS will likely cause your UniFi Protect {% term integration %} to break unexpectedly. If you choose to opt into either the Early Access or the Release Candidate release channel and anything breaks in Home Assistant, you will need to wait until that version goes to the official Stable Release channel before it is expected to work.
+
+It is OK to open Early Access (EA) issues—it's actually encouraged as an early warning that something might soon break. However, it is very important to understand:
+This does not mean that everything reported from EA channels will be fixed immediately. Please, before opening a new issue, check thoroughly if there is already an open or closed issue or pull request regarding your problem.
+Also, make sure your report is reproducible and provides all necessary context: always include the Protect version, and if your issue concerns specific cameras, please mention the model(s) as well. Whenever possible, also provide relevant excerpts from the error log.
 {% endimportant %}
 
 ### Local user
@@ -77,10 +76,22 @@ use has.
 2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (e.g. _192.168.1.1/admins/_).
 3. Click on **+** in the top right corner and select **Add Admin**.
 4. Select **Restrict to local access only** and enter a new _username_ and _password_.
-5. Select **Full Management** for the _Protect_ role. 
+5. Select **Full Management** for the _Protect_ role.
 6. Click **Add** in the bottom right.
 
 ![UniFi OS User Creation](/images/integrations/unifiprotect/user.png)
+
+In addition to the username and password, you now need to create an API key for Home Assistant.
+
+1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
+2. Go to **Settings** > **Control Plane** > **Integrations**.
+3. Enter a new name for the API key, like "Home Assistant".
+4. Select **Create API Key** and copy the generated key.
+5. Use this API key together with your username and password when setting up the UniFi Protect integration in Home Assistant.
+
+{% tip %}
+Currently, creating an API key requires you to be logged in as an administrator.
+{% endtip %}
 
 ### Camera streams
 

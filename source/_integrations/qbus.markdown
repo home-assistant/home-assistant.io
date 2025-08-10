@@ -7,12 +7,14 @@ ha_category:
   - Hub
   - Light
   - Scene
+  - Sensor
   - Switch
 ha_platforms:
   - climate
   - cover
   - light
   - scene
+  - sensor
   - switch
 ha_iot_class: Local Push
 ha_codeowners:
@@ -52,6 +54,7 @@ There is currently support for the following **Qbus** products within Home Assis
 - **Cover**: operate covers with support for actions like open, close, stop, position adjustment, and tilt — depending on your setup.
 - **Light**: control dimmer lights, allowing both on/off functionality and brightness adjustment.
 - **Scene**: activate predefined scenes.
+- **Sensor**: display sensor values from devices like gauges, humidity sensors, thermostats, ventilation, and weather stations.
 - **Switch**: toggle on/off outputs.
 
 ## Removing the integration

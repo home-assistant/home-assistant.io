@@ -126,13 +126,23 @@ Local IP interface:
 
 See [Connection](#connection) on how to get the files or keys needed for this configuration step.
 
-{% include integrations/option_flow.md %}
+## Reconfiguration
+
+You can change your KNX connection configuration at any time through the integration settings. This is useful when you need to update the Keyring file or switch to a different connection type.
+
+1. Go to {% my integrations icon title="**Settings** > **Devices & services**" %}.
+2. Select **KNX**.
+3. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
 
 ### Configure KNX interface
 
 Reconfigure your connection settings. See above for more information.
 
-### Communication settings
+### Import KNX Keyring
+
+Provide a new keyring file to be used by the integration. See [KNX Secure](#knx-secure) on how to get this file.
+
+{% include integrations/option_flow.md %}
 
 {% configuration_basic %}
 State updater:
@@ -142,10 +152,6 @@ Rate limit:
 Telegram history limit:
   description: "Number of Telegrams to keep in memory for the KNX panels group monitor."
 {% endconfiguration_basic %}
-
-### Import KNX Keyring
-
-Provide a (new) keyring file to be used by the integration. See [KNX Secure](#knx-secure) on how to get this file.
 
 ## Basic configuration
 
