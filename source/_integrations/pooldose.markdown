@@ -15,18 +15,19 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `PoolDose` integration connects a [SEKO](https://www.seko.com/) pool dosing system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
+The `PoolDose` integration connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
 
-This integration uses an undocumented local HTTP API, implemented in the PyPi project `python-pooldose`. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as status information.
+This integration uses an undocumented local HTTP API, implemented in the PyPi project `python-pooldose`. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as configuration  parameters.
 
 ## Prerequisites
 
-1. Install and set-up the PoolDose devices according to the user manual.
-   1. In particular, connect the device to your WiFi network.
+1. Install and set-up the PoolDose device according to its user manual.
+   1. In particular, connect the device to your Wi-Fi network.
    2. Identify the IP address or hostname of the device.
-2. Browse to the IP address or hostname (default port: 80).
-   1. Try to log in to the web interface with the default password (0000).
-   2. Check availability of data in the web interface.
+2. Browse to the IP address resp. hostname. Use HTTP and port 80.
+   1. Log in to the web interface.
+   2. Check availability of data.
+   3. Deactivate the device password, i.e., set it to 0000.
 3. Optional: Block the device’s internet access to guarantee fully local operation and prevent potentially breaking firmware updates.
 
 {% include integrations/config_flow.md %}
@@ -37,7 +38,7 @@ This integration uses an undocumented local HTTP API, implemented in the PyPi pr
 
 {% configuration_basic %}
 Host:
-  description: The IP address resp. hostname of your PoolDose device. Identify the IP address resp. hostname in the web interface of the device or of your router.
+  description: The IP address resp. hostname of your device. Identify the IP address resp. hostname in the web interface of the device or of your router.
 {% endconfiguration_basic %}
 
 ## Removing the integration
@@ -54,18 +55,20 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Sensor entities
 
-| Entity | Unit | Description | States |
+| Identifier | Unit | Description | States |
 |--------|------|-------------|--------|
+| **temperature** | °C/°F | water temperature | — |
+| **ph** | — | pH value | — |
 | **orp** | mV | Current ORP (Redox) value | — |
 | **ph_type_dosing** | — | Type of pH dosing being used | pH+, pH- |
 | **peristaltic_ph_dosing** | — | pH peristaltic dosing mode | Off, Proportional, On/Off, Timed |
-| **ofa_ph_value** | — | Time threshold for pH overfeed alerts | — |
+| **ofa_ph_value** | min | Time threshold for pH overfeed alerts | — |
 | **orp_type_dosing** | — | Type of ORP dosing being used | Low, High |
 | **peristaltic_orp_dosing** | — | ORP peristaltic dosing mode | Off, Proportional, On/Off, Timed |
-| **ofa_orp_value** | — | Time threshold for ORP overfeed alerts | — |
+| **ofa_orp_value** | min | Time threshold for ORP overfeed alerts | — |
 | **ph_calibration_type** | — | Type of pH calibration being used | Off, Reference, 1 point, 2 points |
-| **ph_calibration_offset** | — | pH calibration offset value | — |
-| **ph_calibration_slope** | — | pH calibration slope value | — |
+| **ph_calibration_offset** | mV | pH calibration offset value | — |
+| **ph_calibration_slope** | mV | pH calibration slope value | — |
 | **orp_calibration_type** | — | Type of ORP calibration being used | Off, Reference, 1 point |
-| **orp_calibration_offset** | — | ORP calibration offset value | — |
-| **orp_calibration_slope** | — | ORP calibration slope value | — |
+| **orp_calibration_offset** | mV | ORP calibration offset value | — |
+| **orp_calibration_slope** | mV | ORP calibration slope value | — |
