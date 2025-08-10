@@ -133,6 +133,11 @@ The official Volvo app has access to a more feature-rich API. As a result, this 
 
 ## Troubleshooting
 
+### The `charging_power_status` entity shows `fault` as value or is unavailable
+
+- Some models will report `fault` if no power is coming from the charger (e.g. paused the charger) while being connected.
+- This field is poorly documented in the API and as such we need to learn the possible values along the way. If an unknown value is detected, the entity will become `unavailable` and a warning will be logged. Please [open a ticket](https://github.com/home-assistant/core/issues/new?template=bug_report.yml) - if no one else has - with the value mentioned in the log.
+
 ### Recharge API
 
 #### Symptoms
