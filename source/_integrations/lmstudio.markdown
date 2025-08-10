@@ -27,8 +27,7 @@ The **LM Studio** {% term integration %} adds a conversation agent and AI task s
 Controlling Home Assistant is an experimental feature that provides the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
-
-This integration requires an external LM Studio server running locally. LM Studio is a desktop application that allows you to run Large Language Models (LLMs) locally on your machine with an OpenAI-compatible API. LMStudio is available for macOS, Linux, and Windows. Download and install LM Studio from their [official website](https://lmstudio.ai/). Once installed, start the local server in LM Studio and ensure it's accessible on your network (typically `http://localhost:1234`).
+To use this integration, you need to have an LM Studio server running on your local machine or on a computer on the local network. LM Studio is a desktop application that lets you run Large Language Models (LLMs) locally, using an API that is compatible with OpenAI. You can download LM Studio for macOS, Linux, or Windows from the [official website](https://lmstudio.ai/). After installing LM Studio, open the application and start the local server. Make sure the server is accessible on your network, usually at `http://YOUR_LOCAL_IP:1234`.
 
 {% include integrations/config_flow.md %}
 
@@ -61,7 +60,7 @@ If you want to experiment with local LLMs using Home Assistant, we recommend exp
 
 Only models that support function calling/tools may control Home Assistant. Most modern instruction-tuned models support this functionality, but check your specific model's capabilities.
 
-Smaller models may not reliably maintain a conversation when controlling Home Assistant is enabled. However, you may use multiple LM Studio configurations that share the same model, but use different prompts:
+Smaller models may not reliably maintain a conversation when controlling Home Assistant is enabled. However, you can use multiple LM Studio configurations that share the same model but use different prompts:
 
 - Add the LM Studio integration without enabling control of Home Assistant. You can use this conversation agent to have a conversation.
 - Add an additional LM Studio integration, using the same model, enabling control of Home Assistant. You can use this conversation agent to control Home Assistant.
@@ -79,13 +78,14 @@ The LM Studio integration also supports Home Assistant's AI task platform, allow
 
 1. Download and install [LM Studio](https://lmstudio.ai/) for your operating system (Windows, macOS, or Linux).
 2. Launch LM Studio and download your preferred model from the built-in model browser.
-3. Go to the "Local Server" tab in LM Studio. ( if you do not see this option, you need to select "Power User" on the bottom left of the window )
+3. Go to the **Local Server** tab in LM Studio. If you do not see this option, select **Power User** at the bottom left of the window.
 4. Configure the server settings:
    - Set the port (default is 1234)
    - Choose your model
-   - select "Serve on Local Network" if accessing from different machines
+   - Select "Serve on Local Network" if accessing from different machines
    - Optionally set up CORS settings if accessing from different machines
-5. Click "Start Server" to begin the local API server.
+5. Click **"Start Server"** to begin the local API server.
+   - Optionally set up CORS settings if accessing from different machines
 6. The server will be available at `http://localhost:1234` and `http://YOUR_LOCAL_IP:1234` (or your configured address).
 
 To run LM Studio as a service (headless), see: [https://lmstudio.ai/docs/app/api/headless](https://lmstudio.ai/docs/app/api/headless)
