@@ -43,7 +43,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
 - Glendale Water and Power (GWP)
-- ~Mercury NZ Limited~ (no longer supported, will be removed in 2025.9.0)
+- ~Mercury NZ Limited~ (no longer working as it [recently transitioned from using Opower to an in-house solution](https://www.geekzone.co.nz/forums.asp?forumid=73&topicid=319506&page_no=1#3396187), will be removed in 2025.9.0)
 - National Grid US subsidiaries
   - National Grid Massachusetts
   - National Grid NY Long Island
