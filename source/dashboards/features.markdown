@@ -322,6 +322,27 @@ type:
   type: string
 {% endconfiguration %}
 
+## Fan direction
+
+Widget that displays controls to change direction for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_direction.png' alt='Screenshot of the tile card with the fan direction feature'>
+  Screenshot of the tile card with the fan direction feature
+</p>
+
+```yaml
+features:
+  - type: "fan-direction"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-direction`"
+  type: string
+{% endconfiguration %}
+
 ## Fan preset modes
 
 Widget that displays buttons or icons to control the preset mode for a [fan](/integrations/fan).
