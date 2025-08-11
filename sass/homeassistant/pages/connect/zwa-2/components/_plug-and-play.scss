@@ -73,6 +73,7 @@ section#plug-and-play {
     }
 
     .config-cards {
+        --enter: 0;
         display: flex;
         flex-direction: column;
         backdrop-filter: blur(10px);
@@ -96,29 +97,11 @@ section#plug-and-play {
 
             @include bp(tablet) {}
 
-            &.complete {
-                .config-card-progress {
-                    &:before {
-                        width: 100%;
-                    }
-                }
-
-                .config-card-icon {
-                    &:after {
-                        opacity: .2;
-                    }
-
-                    .check {
-                        display: block;
-                    }
-                }
-            }
-
             &-title {
                 font-size: 16px;
 
                 @include bp(tablet) {
-                    font-size: var(--typography-h4-font-size);
+                    font-size: 24px;
                 }
             }
 
@@ -161,11 +144,11 @@ section#plug-and-play {
                     inset: 0;
                     position: absolute;
                     background-color: var(--connect-line-blue);
-                    opacity: 0;
+                    opacity: calc(.2 * var(--enter));
+                    transition: opacity .3s ease-out;
                 }
-
+                
                 .check {
-                    display: none;
                     background-color: var(--connect-line-blue);
                     border-radius: 50%;
                     background-image: url("data:image/svg+xml,%3Csvg width='20' height='15' viewBox='0 0 20 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.52212 15L20 2.48521L17.5221 0L7.52212 10.0296L2.47788 4.97041L0 7.45562L7.52212 15Z' fill='white'/%3E%3C/svg%3E%0A");
@@ -176,6 +159,9 @@ section#plug-and-play {
                     width: 26px;
                     position: relative;
                     z-index: 1;
+                    opacity: var(--enter);
+                    scale: calc(0.8 + (var(--enter) * .2));
+                    transition: opacity .3s ease-out .125s,scale .3s ease-out .125s;
 
                     @include bp(tablet) {
                         background-size: 20px 15px;
@@ -215,24 +201,13 @@ section#plug-and-play {
                     content: '';
                     height: 3px;
                     left: 0;
-                    width: 0%;
+                    width: calc(100% * var(--enter));
                     background-color: var(--connect-line-blue);
                     position: absolute;
                     border-radius: 4px;
+                    transition: width .5s ease-out;
                 }
             }
         }
     }
-}
-
-
-:root {
-    --glass-drop-shadow-blur: 24px;
-    --glass-frost: 5px;
-    --glass-shadow-blur: 2px;
-    --glass-shadow-color: #ffffff;
-    --glass-shadow-offset: 0;
-    --glass-shadow-spread: 0px;
-    --glass-tint-color: 255, 255, 255;
-    --glass-tint-opacity: 0.1;
 }

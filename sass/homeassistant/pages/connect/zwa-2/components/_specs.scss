@@ -1,6 +1,10 @@
 section#specs {
     //height: 100vh;
 
+    h2{
+        margin-bottom: 24px;
+    }
+
     .cols:first-child {
         gap: 80px;
 
@@ -27,7 +31,7 @@ section#specs {
     }
 
     img#exploded-diagram-m {
-        max-height: 40rem;
+        max-height: 30rem;
         @include bp(tablet) {
             display: none;
         }

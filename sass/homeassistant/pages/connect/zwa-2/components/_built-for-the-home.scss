@@ -9,20 +9,36 @@ section#built-for-the-home {
 
     .featured-images {
         display: grid;
-        gap: 20px;
+        gap: calc(var(--container-gutters) / 2);
         grid-template-areas:
-            "a"
-            "b"
-            "b";
-    
-
+        "a a"
+        "b c";
+        
+        
         @include bp(desktop) {
+            gap: 20px;
             grid-template-areas:
                 "a a a"
                 "b b c";
         }
     }
 
+    .featured-images{
+
+        >.feature-image{
+             &:nth-of-type(1) {
+            grid-area: a;
+
+            aspect-ratio: 1/1;
+
+            @include bp(desktop) {
+                aspect-ratio: 1.5/1;
+            }
+
+        
+        }
+
+        }
 
     .feature-image {
         position: relative;
@@ -33,21 +49,18 @@ section#built-for-the-home {
         height: 100%;
         place-items: center;
 
-        .mobile{
-            @include bp(desktop){
+        .mobile {
+            @include bp(desktop) {
                 display: none;
             }
         }
 
-        .desktop{
+        .desktop {
             display: none;
-            @include bp(desktop){
+
+            @include bp(desktop) {
                 display: block;
             }
-        }
-
-        &:nth-child(1) {
-            grid-area: a;
         }
 
         &:nth-child(2) {
@@ -60,24 +73,38 @@ section#built-for-the-home {
 
         .right-content {
             position: absolute;
-            left: 55%;
+            left: 0;
             right: 0;
+            padding: 40px 20px;
             top: 0;
             bottom: 0;
-            padding: 80px 0;
             display: flex;
             flex-direction: column;
             gap: 20px;
-            max-width: 420px;
-            @include bp(2000px){
+            max-width: 280px;
+            
+            @include bp(desktop) {
+                left: 55%;
                 gap: 40px;
-                padding: 160px 0;
+                padding: 100px 0;
+                max-width: 420px;
+            }
+            @include bp(large-desktop) {
+                padding: 180px 0;
             }
 
-            .h2{
+            .h2 {
                 text-transform: unset;
                 line-height: 1;
                 //text-wrap: balance;
+            }
+
+            p {
+                max-width: 220px;
+
+                @include bp(tablet) {
+                    max-width: unset;
+                }
             }
         }
 
@@ -87,10 +114,11 @@ section#built-for-the-home {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            
-            @include bp(desktop){
+
+            @include bp(desktop) {
                 aspect-ratio: 2/1;
             }
+        }
         }
     }
 }

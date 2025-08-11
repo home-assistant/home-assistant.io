@@ -36,9 +36,9 @@ function maybeLoadAnimations() {
 
         // --- Scene 2 Configuration ---
         const scene2Sections = [
-          // 0 - 60
-          // 65 - 125
-          // 130 - 190
+            // 0 - 60
+            // 65 - 125
+            // 130 - 190
             { selector: "#built-for-home-assistant", start: 63, end: 135 },
             { selector: "#plug-and-play", start: 135, end: 201 },
             { selector: "#buy", start: 201, end: 201 }
@@ -62,7 +62,6 @@ if (window.location.search.includes("hide")) {
 
 // --- Additional Page Animations (Not part of the render animation) ---
 const overviewEntry = new ZWA2Animations("section#overview");
-window.sceneOneOverviewEntry = overviewEntry; // Expose for debugging
 
 overviewEntry.onEnter(() => {
     overviewEntry.el.querySelector(".waves-wrapper svg").style.setProperty("--enter", 1);
@@ -72,6 +71,56 @@ overviewEntry.onLeave(() => {
     overviewEntry.el.querySelector(".waves-wrapper svg").style.setProperty("--enter", 0);
 });
 
+const configCards = document.querySelector("section#plug-and-play .config-cards");
+const configCardItems = configCards.querySelectorAll('.config-card');
+
+// Use IntersectionObserver to trigger animation when top center enters viewport
+if (configCards) {
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Only fire once
+                configCardItems.forEach((configCardItem, index) => {
+                    setTimeout(() => {
+                        configCardItem.style.setProperty("--enter", 1);
+                    }, 400 * index);
+                });
+                observer.disconnect();
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.5,
+        rootMargin: "0px 0px -20% 0px" // Top center
+    });
+    observer.observe(configCards);
+}
+
+const longRange = document.querySelector("section#long-range svg.range-waves");
+const devices = document.querySelectorAll("section#long-range .devices .device");
+
+// Use IntersectionObserver to trigger animation when top center enters viewport
+if (longRange) {
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Only fire once
+                longRange.style.setProperty("--enter", 1);
+                [...devices].forEach(d => {
+                    setTimeout(() => {
+                        d.style.opacity = 1;
+                    }, 500 + (Math.floor(Math.random() * 1000)));
+                })
+                observer.disconnect();
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.5,
+        rootMargin: "0px 0px 5% 0px" // Top center
+    });
+    observer.observe(longRange);
+}
 
 // --- Event Listeners ---
 

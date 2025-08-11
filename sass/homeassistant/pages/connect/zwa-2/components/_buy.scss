@@ -1,19 +1,18 @@
 section#buy {
     background: linear-gradient(180deg, #DADDE2 25%, #FFF 100%);
+    height: 560px;
 
-    height: 530px;
     @include bp(desktop) {
         height: 100vh;
     }
 
-    
-    &:after{
+    &:after {
         content: '';
         position: absolute;
         background: linear-gradient(180deg, transparent 25%, rgba(218, 221, 226, 0.90) 50%, transparent 75%);
         inset: 0;
 
-        @include bp(desktop){
+        @include bp(desktop) {
             content: unset;
         }
     }
@@ -31,36 +30,40 @@ section#buy {
         gap: 80px;
         padding-top: 5rem;
 
-        @include bp(desktop){
+        @include bp(desktop) {
             padding-top: 0;
         }
     }
 
-    .model-still{
+    .model-still {
         height: 100%;
         position: absolute;
         inset: 0;
-        img{
-            width: 125%;
-            height: 125%;
+
+        img {
+            width: 100%;
+            height: 100%;
         }
     }
 
-
     .section-inner {
         position: relative;
+        z-index: unset;
     }
 
     .section-inner-content {
         //height: 64vh;
         align-items: center;
         justify-content: center;
-        position: relative;
+        //position: relative;
         padding: 0;
     }
 
     .strap {
         font-size: 18px;
+        text-wrap: balance;
+        position: relative;
+        z-index: 2;
 
         @include bp(tablet) {
             font-size: 24px;
@@ -80,7 +83,7 @@ section#buy {
         }
 
         @include bp(desktop) {
-            font-size: 128px;
+            font-size: 160px;
         }
 
         span {
@@ -119,13 +122,15 @@ section#buy {
         max-width: 520px;
         font-size: 14px;
         position: absolute;
-        top: 100%;
+        bottom: 20px;
         max-width: 22rem;
         margin-top: 5rem;
-        
+
         @include bp(desktop) {
+            bottom: 80px;
             font-size: 16px;
             margin-top: unset;
+            max-width: 33rem;
         }
     }
 }

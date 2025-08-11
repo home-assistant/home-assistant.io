@@ -54,7 +54,6 @@ section#long-range {
         }
 
         svg.range-waves {
-            --enter: 1;
             height: 100%;
             margin-left: 50%;
             max-width: 3000px;
@@ -82,6 +81,8 @@ section#long-range {
                 grid-area: 1/1;
                 position: absolute;
                 transform: translate(-50%, -50%);
+                transition: opacity 1s;
+                opacity: 0;
 
                 &:before {
                     background: white;
