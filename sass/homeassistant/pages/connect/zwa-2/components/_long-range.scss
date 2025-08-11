@@ -1,5 +1,9 @@
 section#long-range {
-    //height: 100vh;
+    background: linear-gradient(180deg, #030812 0%, #0F121F 80.49%);
+
+    @include bp(desktop) {
+        height: 100vh;
+    }
 
     .container-full {
         height: 0;
@@ -21,8 +25,20 @@ section#long-range {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            height: 90vh;
+            @include bp(desktop){
+                height: 90vh;
+            }
         }
+    }
+
+    .model-still {
+        position: absolute;
+        width: 175vw;
+        height: auto;
+        left: 50%;
+        max-width: 83rem;
+        transform: translateX(-50%);
+        z-index: 1;
     }
 
     .container {
@@ -33,6 +49,9 @@ section#long-range {
         position: relative;
         width: 100%;
         z-index: -1;
+        @include bp(desktop) {
+            transform: translateY(4rem);
+        }
 
         svg.range-waves {
             --enter: 1;
@@ -42,7 +61,7 @@ section#long-range {
             transform: translateX(-50%);
             width: 400vw;
 
-            @include bp(tablet) {
+            @include bp(desktop) {
                 width: 200vw;
             }
         }
@@ -53,8 +72,11 @@ section#long-range {
             place-items: center;
             position: absolute;
             top: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -60%);
             z-index: 1;
+            @include bp(desktop) {
+                transform: translate(-50%, -50%);
+            }
 
             .device {
                 grid-area: 1/1;
@@ -70,7 +92,7 @@ section#long-range {
                     top: 32px;
                     width: 1px;
 
-                    @include bp(tablet) {
+                    @include bp(desktop) {
                         top: 56px;
                     }
                 }
@@ -86,7 +108,7 @@ section#long-range {
                     transform: translateX(-3px);
                     width: 7px;
 
-                    @include bp(tablet) {
+                    @include bp(desktop) {
                         top: 82px;
                     }
                 }
@@ -100,12 +122,12 @@ section#long-range {
                     background-color: var(--connect-line-blue);
                     position: relative;
                     isolation: isolate;
-                    
-                    @include bp(tablet) {
+
+                    @include bp(desktop) {
                         width: 40px;
                         height: 40px;
                     }
-                        
+
 
                     &:before {
                         content: '';
@@ -120,7 +142,7 @@ section#long-range {
                         height: 40px;
                         z-index: -1;
 
-                        @include bp(tablet) {
+                        @include bp(desktop) {
                             width: 74px;
                             height: 74px;
                         }
@@ -130,7 +152,7 @@ section#long-range {
                         height: 10px;
                         width: auto;
 
-                        @include bp(tablet) {
+                        @include bp(desktop) {
                             height: 20px;
                         }
                     }
@@ -141,31 +163,31 @@ section#long-range {
                     top: 68%;
                 }
 
-                &--lamp{
+                &--lamp {
                     top: 20%;
                     left: 17.5%;
                 }
 
-                &--bulb{
+                &--bulb {
                     left: 35%;
                 }
 
-                &--window{
+                &--window {
                     top: 21%;
                     left: 65%;
                 }
 
-                &--door{
+                &--door {
                     top: 70%;
                     left: 72%;
                 }
 
-                &--garage{
+                &--garage {
                     top: 30%;
                     left: 85%;
                 }
 
-                &--sprinkler{
+                &--sprinkler {
                     top: 75%;
                     left: calc(100% - 37px - var(--container-gutters));
                 }

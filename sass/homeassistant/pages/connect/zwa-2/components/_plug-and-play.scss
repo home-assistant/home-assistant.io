@@ -1,20 +1,26 @@
 
 section#plug-and-play {
-    height: 80vh;
     background-color: #DADDE2;
+    
+    @include bp(desktop){
+        height: 80vh;
+    }
 
     .cols {
         align-items: flex-end;
         justify-content: space-between;
         flex-direction: column;
+        gap: 16px;
 
         @include bp(tablet) {
             flex-direction: row;
         }
 
         .col {
+            @include bp(tablet){
             flex-grow: 1;
             flex-basis: 0;
+            }
 
             &:first-child {
                 backdrop-filter: blur(10px);
@@ -36,12 +42,33 @@ section#plug-and-play {
         }
     }
 
+    .model-still{
+        overflow: visible;
+        aspect-ratio: 16/9;
+        height: auto;
+        margin-bottom: -20%;
+        position: relative
+        ;
+        &:after{
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(218, 221, 226, 0.00) 50%, #DADDE2 100%);
+        }
+        
+        img{
+            object-position: top;
+        }
+    }
+
+
     .section-inner {
         align-items: flex-end;
         z-index: 2;
 
         &-content{
-            padding-bottom: 0;
+            padding-top: 0;
+            padding-bottom: calc(var(--container-gutters) / 2);
         }
     }
 

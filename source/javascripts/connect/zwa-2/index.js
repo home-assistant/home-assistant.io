@@ -5,6 +5,11 @@ import { ConnectHeader } from "header";
 // A flag to ensure animations are only initialized once.
 let animationsLoaded = false;
 
+// let smoother = ScrollSmoother.create({
+//   smooth: 2, 
+//   effects: true
+// });
+
 /**
  * Checks the screen width and initializes the animations if the screen is
  * large enough and they haven't been loaded yet.
@@ -19,11 +24,12 @@ function maybeLoadAnimations() {
         const scene1Sections = [
             // The hero section autoplays from frame 0 to 186, then the user
             // can scroll-animate it from frame 186 to 246.
-            { selector: "#hero", start: 186, end: 246, autoplay: { start: 0, end: 186, duration: 1200 } },
+            //{ selector: "#hero", start: 186, end: 246, autoplay: { start: 0, end: 186, duration: 1200 } },
+            { selector: "#hero", start: 0, end: 246 },
             { selector: "#overview", start: 246, end: 314 },
-            { selector: "#chipset", start: 314, end: 391 },
+            { selector: "#chipset", start: 314, end: 386 },
             // The last section just holds the final frame.
-            { selector: "#long-range", start: 391, end: 391 }
+            { selector: "#long-range", start: 386, end: 386 }
         ];
         const scene1TotalFrames = scene1Sections[scene1Sections.length - 1].end;
         new ZWA2RenderAnimation("scene1", "canvas.render-scroller#scene-one", scene1Sections, scene1TotalFrames);
@@ -34,8 +40,8 @@ function maybeLoadAnimations() {
           // 65 - 125
           // 130 - 190
             { selector: "#built-for-home-assistant", start: 63, end: 135 },
-            { selector: "#plug-and-play", start: 135, end: 210 },
-            { selector: "#buy", start: 210, end: 210 }
+            { selector: "#plug-and-play", start: 135, end: 201 },
+            { selector: "#buy", start: 201, end: 201 }
         ];
         const scene2TotalFrames = scene2Sections[scene2Sections.length - 1].end;
         new ZWA2RenderAnimation("scene2", "canvas.render-scroller#scene-two", scene2Sections, scene2TotalFrames);
@@ -70,6 +76,9 @@ overviewEntry.onLeave(() => {
 // --- Event Listeners ---
 
 // Attempt to load animations on initial page load.
-window.addEventListener('DOMContentLoaded', maybeLoadAnimations);
+window.addEventListener('DOMContentLoaded', () => {
+    maybeLoadAnimations();
+    overviewEntry.checkInViewOnLoad();
+});
 // Also check on resize, in case the user rotates a tablet or resizes a browser window.
 window.addEventListener('resize', maybeLoadAnimations);

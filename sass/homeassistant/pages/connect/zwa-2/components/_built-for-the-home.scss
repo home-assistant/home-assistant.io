@@ -23,14 +23,8 @@ section#built-for-the-home {
         }
     }
 
-    .featured-carousel{
-        display: grid;
-        .featured-image{
-            grid-area: 1/1;
-        }
-    }
 
-    .feature-image, .featured-carousel {
+    .feature-image {
         position: relative;
         width: 100%;
         border-radius: 12px;
@@ -38,6 +32,19 @@ section#built-for-the-home {
         display: grid;
         height: 100%;
         place-items: center;
+
+        .mobile{
+            @include bp(desktop){
+                display: none;
+            }
+        }
+
+        .desktop{
+            display: none;
+            @include bp(desktop){
+                display: block;
+            }
+        }
 
         &:nth-child(1) {
             grid-area: a;

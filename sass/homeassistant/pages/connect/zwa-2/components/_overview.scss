@@ -1,11 +1,7 @@
 section#overview {
 
     @include bp(desktop){
-        height: 80vh;
-    }
-
-    .model-still{
-        
+        height: 100vh;
     }
 
     .section-inner-content{
@@ -19,7 +15,9 @@ section#overview {
         flex-direction: column;
     }
     .container-full{
-        height: 0;
+        @include bp(desktop){
+            height: 10rem;
+        }
     }
 
     .cols {
@@ -28,6 +26,7 @@ section#overview {
         align-items: center;
         justify-content: space-between;
         flex-direction: column;
+        gap: 1rem;
         @include bp(desktop){
             flex-direction: row;
         }
@@ -50,21 +49,29 @@ section#overview {
             .caption{
                 font-style: italic;
                 text-align: center;
+                font-size: 16px;
+                margin-top: 8px;
             }
         }
     }
 
     .waves-wrapper {
         position: relative;
+        pointer-events: none;
         width: 100%;
         svg {
             position: absolute;
             left: -64px;
             right: -64px;
             height: auto;
-            bottom: -96px;
+            bottom: -320px;
+            z-index: -1;
             width: -webkit-fill-available;
             mask-image: linear-gradient(to right, transparent 0%, white 20%, white 80%, transparent 100%);
+
+            @include bp(desktop){
+                //bottom: -96px;
+            }
         }
     }
 }

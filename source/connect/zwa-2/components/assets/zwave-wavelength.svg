@@ -1,7 +1,4 @@
-<svg width="760" height="315" viewBox="0 0 760 315" fill="none" xmlns="http://www.w3.org/2000/svg" style="--enter: 0;"><style>
-        :root {
-            --enter: 0;
-        }
+<svg width="760" height="315" viewBox="0 0 760 315" fill="none" xmlns="http://www.w3.org/2000/svg" style="--enter: 1;"><style>
         path {
             transition-property: opacity, transform;
 						transition-duration: 2s;

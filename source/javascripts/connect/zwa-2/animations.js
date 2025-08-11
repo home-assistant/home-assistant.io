@@ -18,8 +18,6 @@ export class ZWA2Animations {
             trigger: this.section,
             start: "top=50%",
             end: "bottom",
-            // markers
-            markers: true,
             onEnter: () => {
                 if (this.enterCallback) {
                     this.enterCallback();
@@ -47,5 +45,15 @@ export class ZWA2Animations {
     }
     onLeave(callback){
         this.leaveCallback = callback;
+    }
+    checkInViewOnLoad() {
+        if (!this.el) return;
+        const rect = this.el.getBoundingClientRect();
+        const inView =
+            rect.top < window.innerHeight &&
+            rect.bottom > 0;
+        if (inView && this.enterCallback) {
+            this.enterCallback();
+        }
     }
 }

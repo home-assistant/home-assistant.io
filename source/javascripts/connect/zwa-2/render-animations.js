@@ -17,7 +17,8 @@ export class ZWA2RenderAnimation {
     activeSection = 0;
 
     currentFrame(index) {
-        return `/connect/zwa-2/video-frames/${this.filename}/${(index + 1).toString().padStart(3, '0')}.webp`;
+        
+        return `/connect/zwa-2/video-frames/${this.filename}/${(Math.floor(index + 1)).toString().padStart(3, '0')}.webp`;
     }
 
     async loadImages(onFirstLoaded, autoplayRange) {
@@ -176,6 +177,36 @@ export class ZWA2RenderAnimation {
 
         let sectionData = getSectionData();
 
+        // Move onUpdate logic to its own function
+        const handleScrollUpdate = () => {
+            sectionData = getSectionData();
+            interruptAutoplay();
+            const scrollY = window.scrollY - (triggerElem === document.body ? 0 : triggerElem.getBoundingClientRect().top + window.scrollY);
+            let prev = sectionData[0];
+            let next = sectionData[sectionData.length - 1];
+            for (let i = 0; i < sectionData.length - 1; i++) {
+                if (scrollY >= sectionData[i].top && scrollY < sectionData[i + 1].top) {
+                    prev = sectionData[i];
+                    next = sectionData[i + 1];
+                    break;
+                }
+            }
+            if (scrollY < sectionData[0].top) {
+                prev = next = sectionData[0];
+            }
+            if (scrollY >= sectionData[sectionData.length - 1].top) {
+                prev = next = sectionData[sectionData.length - 1];
+            }
+            let progress = 0;
+            if (prev !== next) {
+                progress = (scrollY - prev.top) / (next.top - prev.top);
+                progress = Math.min(1, Math.max(0, progress));
+            }
+            const frame = Math.floor(Math.round(prev.start + progress * (prev.end - prev.start)));
+            this.meta.frame = frame;
+            this.render();
+        };
+
         // Set up a single ScrollTrigger for the wrapper
         gsap.to(this.meta, {
             frame: this.frameCount - 1,
@@ -185,38 +216,12 @@ export class ZWA2RenderAnimation {
                 start: "top top",
                 end: "bottom bottom",
                 scrub: 2,
-                markers: true,
-                onUpdate: self => {
-                    sectionData = getSectionData();
-                    interruptAutoplay();
-                    const scrollY = window.scrollY - (triggerElem === document.body ? 0 : triggerElem.getBoundingClientRect().top + window.scrollY);
-                    let prev = sectionData[0];
-                    let next = sectionData[sectionData.length - 1];
-                    for (let i = 0; i < sectionData.length - 1; i++) {
-                        if (scrollY >= sectionData[i].top && scrollY < sectionData[i + 1].top) {
-                            prev = sectionData[i];
-                            next = sectionData[i + 1];
-                            break;
-                        }
-                    }
-                    if (scrollY < sectionData[0].top) {
-                        prev = next = sectionData[0];
-                    }
-                    if (scrollY >= sectionData[sectionData.length - 1].top) {
-                        prev = next = sectionData[sectionData.length - 1];
-                    }
-                    let progress = 0;
-                    if (prev !== next) {
-                        progress = (scrollY - prev.top) / (next.top - prev.top);
-                        progress = Math.min(1, Math.max(0, progress));
-                    }
-                    const frame = Math.round(prev.start + progress * (prev.end - prev.start));
-                    this.meta.frame = frame;
-                    console.log(frame, sectionData[0].top, progress);
-                    this.render();
-                }
+                onUpdate: self => handleScrollUpdate(),
             },
         });
+
+        // Run the scroll update logic on page load to set the correct frame
+        handleScrollUpdate();
 
         // Listen for resize events to update sectionData and ScrollTrigger
         window.addEventListener('resize', () => {

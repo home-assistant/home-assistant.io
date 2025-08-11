@@ -1,6 +1,9 @@
 <section id="plug-and-play">
     <div class="section-inner">
         <div class="section-inner-content">
+            <div class="model-still">
+                <img src="/connect/zwa-2/video-frames/scene2/135.webp" />
+            </div>
             <div class="container">
                 <div class="cols">
                     <div class="col">
@@ -15,7 +18,9 @@
                                     <div class="h4 config-card-title">Device discovered</div>
                                     <p class="config-card-description">Ready to configure in Home Assistant</p>
                                 </div>
-                                <div class="config-card-icon"><div class="check"></div></div>
+                                <div class="config-card-icon">
+                                    <div class="check"></div>
+                                </div>
                                 <div class="config-card-progress"></div>
                             </div>
                             <div class="config-card">
@@ -23,15 +28,20 @@
                                     <div class="h4 config-card-title">Create or migrate your Z-Wave network</div>
                                     <p class="config-card-description">Choose how you want to setup the device</p>
                                 </div>
-                                <div class="config-card-icon"><div class="check"></div></div>
+                                <div class="config-card-icon">
+                                    <div class="check"></div>
+                                </div>
                                 <div class="config-card-progress"></div>
                             </div>
                             <div class="config-card">
                                 <div class="config-card-content">
                                     <div class="h4 config-card-title">You're all set</div>
-                                    <p class="config-card-description">Effortlessly control all of your Z-Wave devices</p>
+                                    <p class="config-card-description">Effortlessly control all of your Z-Wave devices
+                                    </p>
                                 </div>
-                                <div class="config-card-icon"><div class="check"></div></div>
+                                <div class="config-card-icon">
+                                    <div class="check"></div>
+                                </div>
                                 <div class="config-card-progress"></div>
                             </div>
                         </div>
@@ -41,14 +51,3 @@
         </div>
     </div>
 </section>
-<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute; overflow:hidden">
-	<defs>
-		<filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%">
-			<feTurbulence type="fractalNoise" baseFrequency="0.005 0.005" numOctaves="2" seed="902" result="noise">
-			</feTurbulence>
-			<feGaussianBlur in="noise" stdDeviation="2" result="blurred"></feGaussianBlur>
-			<feDisplacementMap in="SourceGraphic" in2="blurred" scale="135" xChannelSelector="R" yChannelSelector="G">
-			</feDisplacementMap>
-		</filter>
-	</defs>
-</svg>
