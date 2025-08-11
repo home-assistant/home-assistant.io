@@ -1,8 +1,10 @@
 section#buy {
     background: linear-gradient(180deg, #DADDE2 25%, #FFF 100%);
     height: 560px;
-
+    isolation: isolate;
+    
     @include bp(desktop) {
+        isolation: unset;
         height: 100vh;
     }
 
@@ -39,6 +41,7 @@ section#buy {
         height: 100%;
         position: absolute;
         inset: 0;
+        z-index: -1;
 
         img {
             width: 100%;
@@ -48,7 +51,12 @@ section#buy {
 
     .section-inner {
         position: relative;
-        z-index: unset;
+        z-index: 1;
+
+        @include bp(desktop) {
+            z-index: unset;
+        }
+
     }
 
     .section-inner-content {
