@@ -149,6 +149,49 @@ Events triggered when a specific sound is detected during sleep tracking.
 | `snore`    | Snoring              |
 | `talk`     | Talking              |
 
+## Automation
+
+Here’s an example automation: when your Sleep as Android alarm starts ringing, your bedroom blinds will automatically open.
+
+{% raw %}
+
+```yaml
+alias: Open window blinds on Alarm
+triggers:
+  - trigger: state
+    entity_id:
+      - event.sleep_as_android_alarm_clock
+    attribute: event_type
+    to: alert_start
+conditions:
+  - condition: state
+    entity_id: person.user1
+    state: home
+actions:
+  - action: cover.open_cover
+    target:
+      entity_id: cover.bedroom_blinds
+mode: single
+```
+
+{% endraw %}
+
+## Data updates
+
+This integration receives push updates from the Sleep as Android app whenever an event is triggered. If no events occur, the displayed data may become outdated.
+
+## Known limitations
+
+If Home Assistant is unreachable when an event is pushed, for example when you are away from your home network, the Sleep as Android integration will miss the update. The app does not retry sending it.
+
+The integration does not support controlling the Sleep as Android app, such as setting alarm times or turning off alarms.
+
+## Troubleshooting
+
+The **Sleep as Android** integration receives updates via a push from your Sleep as Android app to a webhook.  If you encounter issues, verify that your Home Assistant is reachable from your mobile phone.
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+
 ## Removing the integration
 
 This integration can be removed by following these steps:
