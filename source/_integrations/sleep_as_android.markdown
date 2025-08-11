@@ -55,6 +55,11 @@ If you scroll to the top and click on *Events* you can individually select and d
 
 {% include integrations/config_flow.md %}
 
+## Sensors
+
+- **Next alarm**: The scheduled time of your upcoming alarm.  
+- **Alarm label**: The label or description assigned to the next alarm.
+
 ## Events
 
 The integration offers various event entities that will display the most recent events from Sleep as Android.
