@@ -61,14 +61,14 @@ The integration offers various event entities that will display the most recent 
 
 Events related to the alarm clock feature.
 
-| Event type                | Description                |
-| ------------------------- | -------------------------- |
-| `alarm_alert_dismiss`     | Alarm dismissed            |
-| `alarm_alert_start`       | Alarm started              |
-| `alarm_rescheduled`       | Alarm rescheduled          |
-| `alarm_skip_next`         | Alarm skipped              |
-| `alarm_snooze_clicked`    | Snoozing                   |
-| `alarm_snooze_canceled`   | Snoozing canceled          |
+| Event type          | Description                |
+| ------------------- | -------------------------- |
+| `alert_dismiss`     | Alarm dismissed            |
+| `alert_start`       | Alarm started              |
+| `rescheduled`       | Alarm rescheduled          |
+| `skip_next`         | Alarm skipped              |
+| `snooze_clicked`    | Snoozing                   |
+| `snooze_canceled`   | Snoozing canceled          |
 
 ### Smart wake-up
 
@@ -85,7 +85,7 @@ Events related to user notifications.
 
 | Event type                | Description     |
 | ------------------------- | --------------- |
-| `alarm_wake_up_check`     | Wake-up check   |
+| `wake_up_check`           | Wake-up check   |
 | `show_skip_next_alarm`    | Skip next alarm |
 | `time_to_bed_alarm_alert` | Time to bed     |
 
@@ -102,11 +102,11 @@ Events related to sleep health.
 
 Events related to the Lullaby feature.
 
-| Event type            | Description                     |
-| --------------------- | ------------------------------- |
-| `lullaby_start`       | Lullaby started playing         |
-| `lullaby_stop`        | Lullaby stopped playing         |
-| `lullaby_volume_down` | Lullaby started lowering volume |
+| Event type    | Description                     |
+| ------------- | ------------------------------- |
+| `start`       | Lullaby started playing         |
+| `stop`        | Lullaby stopped playing         |
+| `volume_down` | Lullaby started lowering volume |
 
 ### Sleep phase
 
@@ -130,24 +130,24 @@ Be cautious when automating based on sleep phase events, especially deep and lig
 
 Events related to the sleep tracking feature.
 
-| Event type               | Description      |
-| ------------------------ | ---------------- |
-| `sleep_tracking_paused`  | Tracking paused  |
-| `sleep_tracking_resumed` | Tracking resumed |
-| `sleep_tracking_started` | Tracking started |
-| `sleep_tracking_stopped` | Tracking stopped |
+| Event type | Description      |
+| ---------- | ---------------- |
+| `paused`   | Tracking paused  |
+| `resumed`  | Tracking resumed |
+| `started`  | Tracking started |
+| `stopped`  | Tracking stopped |
 
 ### Sound recognition
 
 Events triggered when a specific sound is detected during sleep tracking.
 
-| Event type          | Description          |
-| ------------------- | -------------------- |
-| `sound_event_baby`  | Baby crying          |
-| `sound_event_cough` | Coughing or sneezing |
-| `sound_event_laugh` | Laughter             |
-| `sound_event_snore` | Snoring              |
-| `sound_event_talk`  | Talking              |
+| Event type | Description          |
+| ---------- | -------------------- |
+| `baby`     | Baby crying          |
+| `cough`    | Coughing or sneezing |
+| `laugh`    | Laughter             |
+| `snore`    | Snoring              |
+| `talk`     | Talking              |
 
 ## Removing the integration
 
