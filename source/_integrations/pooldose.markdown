@@ -47,13 +47,23 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
-## Notes
+## Data updates
 
-- This integration is fully local and requires no cloud account.
-- The device lacks stability in its network connection. Cached values are used when the API is temporarily unavailable.
-- The API does not support the non-standard login procedure of the device. Hence, the password for the web interface must be deactivated, i.e., set to its default (0000).
+This integration {% term polling polls %} data from the device every 10 minutes (600 seconds) by default. This polling interval is configured to balance data freshness with device stability:
 
-## Sensor entities
+- The device does not support frequent requests and may become unstable with shorter intervals
+- Physical water treatment values typically change slowly and do not require frequent monitoring
+- This interval provides adequate monitoring for pool water management while maintaining device reliability
+
+## Supported devices
+
+The following devices are known to be supported by the integration:
+
+- SEKO PoolDose Dual/Double (API v1)
+
+## Supported functionality
+
+### Sensor entities
 
 | Identifier | Unit | Description | States |
 |--------|------|-------------|--------|
@@ -72,3 +82,61 @@ This integration follows standard integration removal. No extra steps are requir
 | **orp_calibration_type** | — | Type of ORP calibration being used | Off, Reference, 1 point |
 | **orp_calibration_offset** | mV | ORP calibration offset value | — |
 | **orp_calibration_slope** | mV | ORP calibration slope value | — |
+
+## Troubleshooting
+
+### Device not found
+
+#### Symptom: "Device could not be found on the network"
+
+When trying to set up the integration, you receive an error that the device cannot be found.
+
+##### Description
+
+The device may not be properly connected to your network or may be using a different hostname than expected.
+
+##### Resolution
+
+To resolve this issue, try the following steps:
+
+1. Check that your device is powered on and connected to your Wi-Fi network.
+2. Look for a device called "kommspot" in your router's device list or DHCP client table.
+3. Use the IP address shown for "kommspot" in the integration setup.
+4. Ensure the device and Home Assistant are on the same network segment.
+
+### Connection refused
+
+#### Symptom: "Connection refused" or authentication errors
+
+The integration cannot connect to the device even though it's found on the network.
+
+##### Description
+
+This typically occurs when the device's web interface password is not set to the default value resp. deactivated.
+
+##### Resolution
+
+To resolve this issue:
+
+1. Browse to the device's IP address using a web browser.
+2. Log in to the web interface.
+3. Set the password to the default value (0000) or deactivate password protection.
+4. Try setting up the integration again.
+
+### Unstable connection
+
+#### Symptom: Entities frequently become unavailable
+
+Sensor entities show as "unavailable" intermittently, especially during certain times of day.
+
+##### Description
+
+This is normal behavior for the PoolDose device. When the circulation pump is not running, the device enters a kind of sleep mode and becomes less responsive to network requests.
+
+##### Resolution
+
+This behavior is expected and does not indicate a problem with the integration:
+
+1. The integration uses cached values when the device is temporarily unresponsive.
+2. Entities will return to normal once the device becomes responsive again.
+3. Consider this behavior when creating automations that depend on these sensors.
