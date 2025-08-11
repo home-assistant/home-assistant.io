@@ -74,6 +74,33 @@ modes:
   type: list
 {% endconfiguration %}
 
+## Button
+
+Widget that displays buttons to control [button](/integrations/button) or [script](/integrations/script).
+
+<p class='img'>
+  <img src='/images/dashboards/features/button.png' alt='Screenshot of the tile card with the button feature'>
+  Screenshot of the tile card with the button feature
+</p>
+
+```yaml
+features:
+  - type: "button"
+    action_name: "Click the button"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`button`"
+  type: string
+action_name:
+  required: false
+  type: string
+  description: Text inside the button.
+  type: string
+{% endconfiguration %}
+
 ## Climate fan modes
 
 Widget that displays buttons or icons to control the fan mode for a [climate](/integrations/climate) device.
@@ -292,6 +319,27 @@ features:
 type:
   required: true
   description: "`cover-tilt-position`"
+  type: string
+{% endconfiguration %}
+
+## Fan direction
+
+Widget that displays controls to change direction for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_direction.png' alt='Screenshot of the tile card with the fan direction feature'>
+  Screenshot of the tile card with the fan direction feature
+</p>
+
+```yaml
+features:
+  - type: "fan-direction"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-direction`"
   type: string
 {% endconfiguration %}
 

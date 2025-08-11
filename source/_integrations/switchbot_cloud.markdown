@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Fan
   - Hub
+  - Light
   - Lock
   - Plug
   - Remote
@@ -23,6 +24,7 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
+  - light
   - fan
   - lock
   - sensor
@@ -54,6 +56,13 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
 - Plug (Wi-Fi only, only available in Japan)
 
+### Lights
+
+- [LED Strip Light 3](https://www.switch-bot.com/products/switchbot-led-strip-light-3)
+- [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
+- [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
+- [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
+
 ### Locks
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
@@ -78,6 +87,10 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
 - [K10+ Pro](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10-pro)
+- [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
+- [K20+ Pro](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
+- [S20](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s20)
+- [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
 - [S1](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner?&variant=41850919420079)
 - [S1 Plus](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner)
 
@@ -160,6 +173,40 @@ Features:
 - get carbon dioxide
 - get battery level
 
+### Lights
+
+#### LED Strip Light 3
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+
+
+#### Floor Lamp
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+
+#### Color Bulb
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+
+#### LED Strip Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+
 ### Locks
 
 #### Lock
@@ -202,7 +249,7 @@ Features:
 
 ### Vacuums
 
-Vacuum entities are added for K10+, K10+ Pro, S1, S1 Plus.
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20+ Pro, S10, S20.
 
 Features:
 - get states

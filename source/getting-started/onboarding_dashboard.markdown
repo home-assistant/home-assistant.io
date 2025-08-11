@@ -122,7 +122,7 @@ In the following steps, we will create a new dashboard and edit some card settin
 12. Now let's delete the other weather card.
     - In the top right corner, select the pencil.
     ![Dashboard - edit the dashboard](/images/getting-started/onboarding_edit_dashboard_01.png)
-    - On the card, select the three-dot menu and select **Delete**.
+    - On the card, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
     ![Dashboard - delete card](/images/getting-started/onboarding_dashboard_delete_card.png)
 13. Finally, we want to move the weather card to the top left corner.
     - On the bottom of the card, select the number or use the minus button to enter `1`.

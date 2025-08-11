@@ -40,15 +40,21 @@ Host:
     type: string
 {% endconfiguration_basic %}
 
+## Data updates
+
+The integration connects locally via WebSocket to the EHEIM Digital main device and requests data updates for all devices every 15 seconds by default.
+
+## How you can use this integration
+
+You can use this integration to control and monitor your EHEIM Digital aquarium devices directly from Home Assistant. This includes adjusting settings such as temperature, light brightness, and filter speed, as well as monitoring the status of your devices.
+
+- **Receive notifications**: Get notified about important events, such as when the filter needs servicing or if there is an error with the device.
+- **More flexible day/night cycles**: Use Home Assistant's automation and scripting capabilities to create more complex day/night cycles for your aquarium devices than the native EHEIM Digital interface allows.
+- **Integrate with other devices**: While EHEIM Digital devices can interact with each other in a limited sense (for example, the EHEIM autofeeder can pause the filter pump after feeding), this integration allows you to automate and control your EHEIM Digital devices in conjunction with other smart home devices.
+
 ## Supported devices and entities
 
 Currently, the following devices and entities are supported:
-
-### All devices
-
-#### Number
-
-- **System LED brightness**: Controlling the brightness of the system LED
 
 ### [EHEIM classicLEDcontrol+e](https://eheim.com/en_GB/aquatics/technology/lighting-control/classicledcontrol-e/classicledcontrol-e)
 
@@ -104,7 +110,48 @@ Currently, the following devices and entities are supported:
 - **Day start time**: Setting the start time for the day pump speed in Bio mode
 - **Night start time**: Setting the start time for the night pump speed in Bio mode
 
-Support for additional EHEIM Digital devices and entities will be added in future updates.
+### All supported devices
+
+#### Number
+
+- **System LED brightness**: Controlling the brightness of the system LED
+
+## Automations
+
+### Send a notification when the filter has an error
+
+You can set up an automation to notify you when the filter has an error. This example uses the `notify.notify` service to send a notification:
+
+{% details "Example automation to notify about filter errors" %}
+
+{% raw %}
+
+```yaml
+alias: Notify about filter error
+description: "This automation sends a notification when the filter has an error."
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - sensor.aquarienfilter_error_code
+    to:
+      - rotor_stuck
+      - air_in_filter
+conditions: []
+actions:
+  - action: notify.notify
+    metadata: {}
+    data:
+      title: The filter has a problem!
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+## Known limitations
+
+- The integration does not support other EHEIM Digital devices than those listed above. More devices will be added in future updates. It is, however, supported to have an unsupported device as the main device and supported devices as sub-devices, even though the unsupported device will not have any entities shown in Home Assistant.
 
 ## Removing the integration
 

@@ -16,7 +16,8 @@ The `mqtt` device tracker {% term integration %} allows you to define new device
 
 ## Configuration
 
-To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To use an MQTT device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -28,6 +29,8 @@ mqtt:
       name: "paulus_oneplus"
       state_topic: "location/paulus"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
