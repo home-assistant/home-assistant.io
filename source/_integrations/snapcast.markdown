@@ -18,13 +18,6 @@ The Snapcast integration allows you to control [Snapcast](https://github.com/bad
 
 {% include integrations/config_flow.md %}
 
-{% include integrations/option_flow.md %}
-
-{% configuration_basic %}
-Create entities for groups:
-  description: "Create media player entities for each Snapcast group"
-{% endconfiguration_basic %}
-
 ## Actions
 
 The snapcast integration provides a few actions registered under the media_player integration.
