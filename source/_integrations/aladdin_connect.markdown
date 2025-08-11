@@ -23,8 +23,15 @@ Only doors that are owned by your Aladdin Connect account will be available. Doo
 
 {% include integrations/config_flow.md %}
 
+## Device Installation
+Garage doors are automatically discovered by the integration once they are on your account. To add a new garage door to your account, use the AladdinConnect
+app to install it. For help, see the [AladdinConnect documentation](https://www.geniecompany.com/aladdin-connect-support).
+
+## Device Deletion
+Garage doors can be removed from your account by using the AladdinConnect app. For help, see the [AladdinConnect documentation](https://www.geniecompany.com/aladdin-connect-support).
+
 ## Troubleshooting
 If you see the below attached screen instead of the login page, please ensure that your
-{% term "`configuration.yaml`" %} file includes either a [`default_config:`](/integrations/default_config/) or [`cloud:`](/integrations/cloud/) section.
+{% term "**configuration.yaml**" %} file includes either a [`default_config:`](/integrations/default_config/) or [`cloud:`](/integrations/cloud/) section.
 
 ![OAuth Error Screen](/images/integrations/aladdin_connect/oauth-screenshot.png)
