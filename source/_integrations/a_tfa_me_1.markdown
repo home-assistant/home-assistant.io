@@ -64,7 +64,10 @@ All stations deliver cyclic the following internal measurement values.
 | [02](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-02-35-8100) | Temperature | Humidity | - | 5 | No |[02]
 | [03](https://www.tfa-dostmann.de/en/produkt/wlan-funk-wetterstation-tfa-me-id-03-35-8101/) | Temperature | Humidity | - | 5 | No |
 | [04](https://www.tfa-dostmann.de/en/produkt/wlan-funk-wetterstation-tfa-me-id-04-35-8102/) | Temperature | Humidity | - | 5 | No |
-| 05 | Temperature | Humidity | Barometric<BR>Pressure | 5 | No |
+| [05](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-05-35-8106/) | Temperature | Humidity | Barometric<BR>Pressure | 5 | No |
+| [06](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-06-35-8108/) | Temperature | Humidity | - | 5 | No |
+| [07](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-07-35-8107/) | Temperature | Humidity | - | 5 | No |
+| [08](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-08-35-8105/) | Temperature | Humidity | - | 5 | No |
 
 
 
@@ -76,7 +79,7 @@ All 868 MHz sensors transmit cyclic the following measurement values in a data s
 |------|---------|---------|---------|--------------|--------|
 | [A0](https://www.tfa-dostmann.de/en/product/temperature-humidity-transmitter-id-a0-30-3900/) | Temperature | Humidity | - | 5 | No |
 | [A1](https://www.tfa-dostmann.de/en/product/rain-transmitter-tfa-me-id-a1-30-3903/) | Rain | - | - | 120 | Rain |
-| A2 | Wind direction | Wind speed | Wind gust | 5 | No |
+| [A2](https://www.tfa-dostmann.de/en/product/wind-meter-tfa-me-id-a2-30-3904/)| Wind direction | Wind speed | Wind gust | 5 | No |
 | [A3](https://www.tfa-dostmann.de/en/product/2-fold-temperature-transmitter-with-waterproof-cable-sensor-id-a3-30-3902/) | Temperature | Temperature probe | - | 5 | No |
 | [A4](https://www.tfa-dostmann.de/en/product/professional-temperature-humidity-transmitter-with-waterproof-cable-sensor-id-a4-30-3905/)| Temperature | Humidity | Temperature<BR> probe | 1 | No |
 | [A5](https://www.tfa-dostmann.de/en/product/temperature-transmitter-id-a5-30-3901/) | Temperature | - | - | 5 | No |
