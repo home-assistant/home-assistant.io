@@ -18,8 +18,6 @@ export class ZWA2Animations {
             trigger: this.section,
             start: "top=50%",
             end: "bottom",
-            // markers
-            markers: true,
             onEnter: () => {
                 if (this.enterCallback) {
                     this.enterCallback();
