@@ -41,7 +41,8 @@ This integration only supports devices running airOS 8 and already configured us
 
 While there is no known limitation to which devices running airOS firmware version 8 are supported, success has been reported on:
 
-- Nanostation 5AC Loco (Loco5AC)
+- NanoBeam 5AC (NBE-5AC-Gen2)
+- NanoStation 5AC Loco (Loco5AC)
 - PowerBeam 5AC: 620 (PBE-5AC-620) and Gen2 (PBE-5AC-Gen2)
 
 Do you have a device that works? We’d love to hear [your experience](#feedback_section) so we can add it to this list!
