@@ -96,6 +96,38 @@ Keep SNOO’s rhythms locked on your baby’s favorite level (Baseline, Level 1,
 
 Allows you to turn on SNOO’s soothing sounds before you put your baby in SNOO or after you took your baby out of SNOO for a diaper change or feeding.
 
+## Services
+
+### Service `snoo.log_diaper_change`
+
+Log a diaper change event for your baby. This service allows you to track diaper changes through the Snoo integration.
+
+{% my developer_call_service badge service="snoo.log_diaper_change" %}
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `baby_id` | no | The unique identifier for your baby. This can be found by using Home Assistant developer tools and just trying something random - a useful error message will be printed. |
+| `diaper_types` | no | List of diaper types. Valid values are: `Wet`, `Dirty`, or both (ends up as "Mixed" in the app). |
+| `note` | yes | Optional note about the diaper change. |
+| `start_time` | yes | When the diaper change occurred. If not specified, the current time is used. |
+
+#### Automation example
+
+```yaml
+automation:
+  - alias: "Log diaper change when baby is changed"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.baby_diaper_changed
+        to: "on"
+    action:
+      - service: snoo.log_diaper_change
+        data:
+          baby_id: "your_baby_id_here"
+          diaper_types: ["Wet", "Dirty"]
+          note: "(via Home Assistant)"
+```
+
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
