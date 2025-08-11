@@ -23,11 +23,12 @@ section#plug-and-play {
             }
 
             &:first-child {
-                backdrop-filter: blur(10px);
                 padding: 1rem;
-                border-radius: 10px;
                 overflow: hidden;
+                z-index: 1;
                 @include bp(desktop) {
+                    border-radius: 10px;
+                    backdrop-filter: blur(10px);
                     max-width: 560px;
                 }
             }
@@ -47,8 +48,8 @@ section#plug-and-play {
         aspect-ratio: 16/9;
         height: auto;
         margin-bottom: -20%;
-        position: relative
-        ;
+        position: relative;
+
         &:after{
             content: '';
             position: absolute;
