@@ -154,3 +154,5 @@ Events triggered when a specific sound is detected during sleep tracking.
 This integration can be removed by following these steps:
 
 {% include integrations/remove_device_service.md %}
+
+4. Open the Sleep as Android app and navigate to *{% icon "mdi:cog" %} Settings → Services → Automation → Webhooks*. Turn off webhooks and remove the URL.
