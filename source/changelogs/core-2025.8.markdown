@@ -1048,6 +1048,98 @@ For a summary in a more readable format:
 - Improve miele climate test coverage ([@astrandb] - [#149859])
 - Deprecate Roborock battery feature ([@luca-angemi] - [#150126])
 
+## Release 2025.8.1 - August 11
+
+- Make Tuya complex type handling explicit ([@epenet] - [#149677])
+- Fix Enigma2 startup hang ([@BlackBadPinguin] - [#149756])
+- Fix dialog enhancement switch for Sonos Arc Ultra ([@PeteRager] - [#150116])
+- Bump ZHA to 0.0.67 ([@puddly] - [#150132])
+- Bump airOS to 0.2.6 improving device class matching more devices ([@CoMPaTech] - [#150134])
+- Handle HusqvarnaWSClientError ([@Thomas55555] - [#150145])
+- Fix Progettihwsw config flow ([@gaspa85] - [#150149])
+- Bump imgw_pib to version 1.5.3 ([@bieniu] - [#150178])
+- Fix description of `button.press` action ([@NoRi2909] - [#150181])
+- Migrate unique_id only if monitor_id is present in Uptime Kuma ([@tr4nt0r] - [#150197])
+- Silence vacuum battery deprecation for built in integrations ([@MartinHjelmare] - [#150204])
+- Bump ZHA to 0.0.68 ([@puddly] - [#150208])
+- Bump hass-nabucasa from 0.111.1 to 0.111.2 ([@ludeeus] - [#150209])
+- Fix JSON serialization for ZHA diagnostics download ([@puddly] - [#150210])
+- Ignore MQTT vacuum battery warning ([@MartinHjelmare] - [#150211])
+- Handle Unifi Protect BadRequest exception during API key creation ([@RaHehl] - [#150223])
+- Fix Tibber coordinator ContextVar warning ([@MartinHjelmare] - [#150229])
+- Fix handing for zero volume error in Squeezebox ([@peteS-UK] - [#150265])
+- Fix error on startup when no Apps or Radio plugins are installed for Squeezebox ([@peteS-UK] - [#150267])
+- Volvo: fix missing charging power options ([@thomasddn] - [#150272])
+- Constraint num2words to 0.5.14 ([@edenhaus] - [#150276])
+- Volvo: fix distance to empty battery ([@thomasddn] - [#150278])
+- Add GPT-5 support ([@Shulyaka] - [#150281])
+- Volvo: Skip unsupported API fields ([@thomasddn] - [#150285])
+- Remove misleading "the" from Launch Library configuration ([@NoRi2909] - [#150288])
+- Set suggested display precision on Volvo energy/fuel consumption sensors ([@steinmn] - [#150296])
+- Bump airOS to 0.2.7 supporting firmware 8.7.11 ([@CoMPaTech] - [#150298])
+- Update knx-frontend to 2025.8.9.63154 ([@philippwaller] - [#150323])
+- Update frontend to 20250811.0 ([@bramkragten] - [#150404])
+- Handle empty electricity RAW sensors in Tuya ([@epenet] - [#150406])
+- Lower Z-Wave firmware check delay ([@MartinHjelmare] - [#150411])
+- Fix issue with Tuya suggested unit ([@epenet] - [#150414])
+
+[#149677]: https://github.com/home-assistant/core/pull/149677
+[#149756]: https://github.com/home-assistant/core/pull/149756
+[#150115]: https://github.com/home-assistant/core/pull/150115
+[#150116]: https://github.com/home-assistant/core/pull/150116
+[#150132]: https://github.com/home-assistant/core/pull/150132
+[#150134]: https://github.com/home-assistant/core/pull/150134
+[#150145]: https://github.com/home-assistant/core/pull/150145
+[#150149]: https://github.com/home-assistant/core/pull/150149
+[#150178]: https://github.com/home-assistant/core/pull/150178
+[#150181]: https://github.com/home-assistant/core/pull/150181
+[#150197]: https://github.com/home-assistant/core/pull/150197
+[#150204]: https://github.com/home-assistant/core/pull/150204
+[#150208]: https://github.com/home-assistant/core/pull/150208
+[#150209]: https://github.com/home-assistant/core/pull/150209
+[#150210]: https://github.com/home-assistant/core/pull/150210
+[#150211]: https://github.com/home-assistant/core/pull/150211
+[#150223]: https://github.com/home-assistant/core/pull/150223
+[#150229]: https://github.com/home-assistant/core/pull/150229
+[#150265]: https://github.com/home-assistant/core/pull/150265
+[#150267]: https://github.com/home-assistant/core/pull/150267
+[#150272]: https://github.com/home-assistant/core/pull/150272
+[#150276]: https://github.com/home-assistant/core/pull/150276
+[#150278]: https://github.com/home-assistant/core/pull/150278
+[#150281]: https://github.com/home-assistant/core/pull/150281
+[#150285]: https://github.com/home-assistant/core/pull/150285
+[#150288]: https://github.com/home-assistant/core/pull/150288
+[#150296]: https://github.com/home-assistant/core/pull/150296
+[#150298]: https://github.com/home-assistant/core/pull/150298
+[#150323]: https://github.com/home-assistant/core/pull/150323
+[#150339]: https://github.com/home-assistant/core/pull/150339
+[#150404]: https://github.com/home-assistant/core/pull/150404
+[#150406]: https://github.com/home-assistant/core/pull/150406
+[#150411]: https://github.com/home-assistant/core/pull/150411
+[#150414]: https://github.com/home-assistant/core/pull/150414
+[@BlackBadPinguin]: https://github.com/BlackBadPinguin
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@NoRi2909]: https://github.com/NoRi2909
+[@PeteRager]: https://github.com/PeteRager
+[@RaHehl]: https://github.com/RaHehl
+[@Shulyaka]: https://github.com/Shulyaka
+[@Thomas55555]: https://github.com/Thomas55555
+[@ThyMYthOS]: https://github.com/ThyMYthOS
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@edenhaus]: https://github.com/edenhaus
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@gaspa85]: https://github.com/gaspa85
+[@ludeeus]: https://github.com/ludeeus
+[@peteS-UK]: https://github.com/peteS-UK
+[@philippwaller]: https://github.com/philippwaller
+[@puddly]: https://github.com/puddly
+[@steinmn]: https://github.com/steinmn
+[@thomasddn]: https://github.com/thomasddn
+[@tr4nt0r]: https://github.com/tr4nt0r
+
 [#125611]: https://github.com/home-assistant/core/pull/125611
 [#126242]: https://github.com/home-assistant/core/pull/126242
 [#128122]: https://github.com/home-assistant/core/pull/128122
