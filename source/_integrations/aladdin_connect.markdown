@@ -21,17 +21,26 @@ The Aladdin Connect integration lets you control Genie Aladdin Connect garage do
 Only doors that are owned by your Aladdin Connect account will be available. Doors that your account has been granted shared access to are not yet supported.
 {% endnote %}
 
+## Prerequisites
+
+1. Open the app store and install the **AladdinConnect** app.
+2. Create an account.
+3. Add a device to the app.
+
+{% note %}
+For help with setup, see the [AladdinConnect documentation](https://www.geniecompany.com/aladdin-connect-support).
+{% endnote %}
+
 {% include integrations/config_flow.md %}
 
-## Device Installation
-Garage doors are automatically discovered by the integration once they are on your account. To add a new garage door to your account, use the AladdinConnect
-app to install it. For help, see the [AladdinConnect documentation](https://www.geniecompany.com/aladdin-connect-support).
+## Removing the integration
 
-## Device Deletion
-Garage doors can be removed from your account by using the AladdinConnect app. For help, see the [AladdinConnect documentation](https://www.geniecompany.com/aladdin-connect-support).
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Troubleshooting
 If you see the below attached screen instead of the login page, please ensure that your
-{% term "**configuration.yaml**" %} file includes either a [`default_config:`](/integrations/default_config/) or [`cloud:`](/integrations/cloud/) section.
+{% term "`configuration.yaml`" %} file includes either a [`default_config:`](/integrations/default_config/) or [`cloud:`](/integrations/cloud/) section.
 
 ![OAuth Error Screen](/images/integrations/aladdin_connect/oauth-screenshot.png)
