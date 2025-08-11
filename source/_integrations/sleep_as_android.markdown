@@ -36,6 +36,17 @@ Steps to set up the integration:
 3. Open the Sleep as Android app and navigate to *{% icon "mdi:cog" %} Settings → Services → Automation → Webhooks*.
 4. Turn on the switch to enable webhooks and paste the webhook URL from your clipboard into the URL field.
 
+{% note %}
+
+To receive updates from Sleep as Android while away from home, your Home Assistant instance must be remotely accessible.  
+You can enable this by configuring a remote URL for Home Assistant or by using Home Assistant Cloud.  
+
+When setting up the Sleep as Android integration, the webhook is created using your external or cloud URL if remote access is available at that time.  
+If your instance is not remotely accessible during setup, the webhook will use your internal URL instead.  
+In this case, you will need to manually update the webhook to use your remote URL once remote access is configured.
+
+{% endnote %}
+
 {% tip %}
 
 If you scroll to the top and click on *Events* you can individually select and deselect on which events the Sleep as Android app should trigger.
@@ -43,15 +54,6 @@ If you scroll to the top and click on *Events* you can individually select and d
 {% endtip %}
 
 {% include integrations/config_flow.md %}
-
-### Configuration parameters
-
-{% configuration_basic %}
-"Webhook ID":
-  description: "The ID for the webhook URL."
-"Cloudhook":
-  description: "Whether a Nabu Casa Cloudhook is used."
-{% endconfiguration_basic %}
 
 ## Events
 
@@ -164,14 +166,15 @@ triggers:
     attribute: event_type
     to: alert_start
 conditions:
-  - condition: state
-    entity_id: person.user1
-    state: home
-actions:
-  - action: cover.open_cover
-    target:
-      entity_id: cover.bedroom_blinds
-mode: single
+```yaml
+alias: Open window blinds on Alarm
+triggers:
+  - trigger: state
+    entity_id:
+      - event.sleep_as_android_alarm_clock
+    attribute: event_type
+    to: alert_start
+    not_from: unavailable
 ```
 
 {% endraw %}
@@ -182,9 +185,9 @@ This integration receives push updates from the Sleep as Android app whenever an
 
 ## Known limitations
 
-If Home Assistant is unreachable when an event is pushed, for example when you are away from your home network, the Sleep as Android integration will miss the update. The app does not retry sending it.
+- If Home Assistant is unreachable when an event is pushed, for example when you are away from your home network without remote access, the Sleep as Android integration will miss the update. The app does not retry sending it.
 
-The integration does not support controlling the Sleep as Android app, such as setting alarm times or turning off alarms.
+- The integration does not support controlling the Sleep as Android app, such as setting alarm times or turning off alarms.
 
 ## Troubleshooting
 
