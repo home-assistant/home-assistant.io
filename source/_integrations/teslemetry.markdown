@@ -51,6 +51,7 @@ Vehicles delivered in 2024 and later will require a [virtual key](https://teslem
 ## Entities
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
+Entities in the device tracker platform specifically require the `Vehicle location` scope, and will appear unavailable otherwise. 
 
 ### Vehicles
 
@@ -63,11 +64,14 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|BMS full charge|No|
 |Binary sensor|Brake pedal|No|
 |Binary sensor|Cabin overheat protection actively cooling|No|
+|Binary sensor|Cellular|Yes|
 |Binary sensor|Charge cable|Yes|
+|Binary sensor|Charge enable request|No|
 |Binary sensor|Charge port cold weather mode|No|
 |Binary sensor|Charger has multiple phases|No|
 |Binary sensor|Dashcam|No|
 |Binary sensor|DC DC|No|
+|Binary sensor|Defrost for preconditioning|No|
 |Binary sensor|Drive rail|No|
 |Binary sensor|Driver seat belt|No|
 |Binary sensor|Driver seat occupied|No|
@@ -80,7 +84,11 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Front passenger window|Yes|
 |Binary sensor|GPS state|No|
 |Binary sensor|Guest mode enabled|No|
+|Binary sensor|Hazard lights|No|
+|Binary sensor|High beams|No|
 |Binary sensor|Homelink nearby|No|
+|Binary sensor|HVAC auto mode|No|
+|Binary sensor|High voltage interlock loop fault|No|
 |Binary sensor|Located at favorite|Yes|
 |Binary sensor|Located at home|Yes|
 |Binary sensor|Located at work|Yes|
@@ -94,9 +102,12 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Rear driver window|Yes|
 |Binary sensor|Rear passenger door|Yes|
 |Binary sensor|Rear passenger window|Yes|
+|Binary sensor|Remote start|No|
 |Binary sensor|Right hand drive|No|
 |Binary sensor|Scheduled charging pending|No|
+|Binary sensor|Seat vent enabled|No|
 |Binary sensor|Service mode|No|
+|Binary sensor|Speed limited|No|
 |Binary sensor|Status|Yes|
 |Binary sensor|Supercharger session trip planner|No|
 |Binary sensor|Tire pressure warning front left|No|
@@ -105,6 +116,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
+|Binary sensor|Wi-Fi|Yes|
 |Binary sensor|Wiper heat|No|
 |Button|Flash lights|Yes|
 |Button|HomeLink|Yes|
@@ -138,6 +150,10 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Select|Steering wheel heater|Yes|
 |Sensor|Battery level|Yes|
 |Sensor|Battery range|Yes|
+|Sensor|BMS state|No|
+|Sensor|Brake pedal position|No|
+|Sensor|Brick voltage max|No|
+|Sensor|Brick voltage min|No|
 |Sensor|Charge cable|No|
 |Sensor|Charge energy added|Yes|
 |Sensor|Charge rate|Yes|
@@ -145,29 +161,69 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Charger power|Yes|
 |Sensor|Charger voltage|Yes|
 |Sensor|Charging|Yes|
+|Sensor|Cruise follow distance|No|
+|Sensor|Cruise set speed|No|
+|Sensor|Current speed limit|No|
+|Sensor|DC charging energy in|No|
+|Sensor|DC charging power|No|
 |Sensor|Distance to arrival|Yes|
 |Sensor|Driver temperature setting|No|
 |Sensor|Estimate battery range|No|
 |Sensor|Exterior color|No|
 |Sensor|Fast charger type|No|
+|Sensor|Front drive inverter axle speed|No|
+|Sensor|Front drive inverter battery voltage|No|
+|Sensor|Front drive inverter heatsink temperature|No|
+|Sensor|Front drive inverter motor current|No|
+|Sensor|Front drive inverter state|No|
+|Sensor|Front drive inverter temperature|No|
+|Sensor|Front drive unit actual torque|No|
+|Sensor|Front drive unit stator temperature|No|
+|Sensor|HVAC power state|No|
 |Sensor|Ideal battery range|No|
 |Sensor|Inside temperature|Yes|
+|Sensor|Left temperature request|No|
 |Sensor|Odometer|No|
 |Sensor|Outside temperature|Yes|
 |Sensor|Passenger temperature setting|No|
 |Sensor|Power|No|
+|Sensor|Rear drive inverter axle speed|No|
+|Sensor|Rear drive inverter battery voltage|No|
+|Sensor|Rear drive inverter heatsink temperature|No|
+|Sensor|Rear drive inverter motor current|No|
+|Sensor|Rear drive inverter state|No|
+|Sensor|Rear drive inverter temperature|No|
+|Sensor|Rear drive unit actual torque|No|
+|Sensor|Rear drive unit stator temperature|No|
+|Sensor|Rear left drive inverter axle speed|No|
+|Sensor|Rear left drive inverter battery voltage|No|
+|Sensor|Rear left drive inverter heatsink temperature|No|
+|Sensor|Rear left drive inverter motor current|No|
+|Sensor|Rear left drive inverter state|No|
+|Sensor|Rear left drive inverter temperature|No|
+|Sensor|Rear left drive unit actual torque|No|
+|Sensor|Rear left drive unit stator temperature|No|
+|Sensor|Rear right drive inverter axle speed|No|
+|Sensor|Rear right drive inverter battery voltage|No|
+|Sensor|Rear right drive inverter heatsink temperature|No|
+|Sensor|Rear right drive inverter motor current|No|
+|Sensor|Rear right drive inverter state|No|
+|Sensor|Rear right drive inverter temperature|No|
+|Sensor|Rear right drive unit actual torque|No|
+|Sensor|Rear right drive unit stator temperature|No|
+|Sensor|Right temperature request|No|
 |Sensor|Roof color|No|
 |Sensor|Scheduled charging mode|No|
 |Sensor|Scheduled charging start time|No|
 |Sensor|Scheduled departure time|No|
+|Sensor|Secondary drive unit torque command|No|
+|Sensor|Sentry mode|Yes|
 |Sensor|Shift state|No|
 |Sensor|Speed|No|
 |Sensor|State of charge at arrival|No|
 |Sensor|Time at arrival|Yes|
 |Sensor|Time at full charge|Yes|
 |Sensor|Time to arrival|Yes|
-|Sensor|Time to arrival|Yes|
-|Sensor|Time to full charge|Yes|
 |Sensor|Time to full charge|Yes|
 |Sensor|Tire pressure front left|No|
 |Sensor|Tire pressure front right|No|
@@ -179,12 +235,14 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Tire pressure rear right|No|
 |Sensor|Traffic delay|No|
 |Sensor|Usable Battery level|No|
+|Sensor|Drive unit torque command|No|
 |Switch|Auto seat climate left|Yes|
 |Switch|Auto seat climate right|Yes|
 |Switch|Auto steering wheel heater|Yes|
 |Switch|Charge|Yes|
 |Switch|Defrost|Yes|
 |Switch|Sentry mode|Yes|
+|Switch|Valet mode|Yes|
 |Update|Update|Yes|
 
 ### Energy sites
@@ -194,6 +252,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Backup capable|Yes|
 |Binary sensor|Grid services active|Yes|
 |Binary sensor|Grid services enabled|Yes|
+|Binary sensor|Grid status|Yes|
 |Binary sensor|Storm watch active|Yes|
 |Number|Backup reserve|Yes|
 |Number|Off grid reserve|Yes|
@@ -237,6 +296,12 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Power|Yes|
 |Sensor|State|Yes|
 |Sensor|Vehicle|Yes|
+
+### Metadata
+
+|Domain|Name|Enabled|
+|---|---|---|
+|Sensor|Teslemetry credits|Yes|
 
 ## Actions
 

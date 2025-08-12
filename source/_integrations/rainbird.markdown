@@ -137,12 +137,16 @@ than what is possible using the built in schedule in the Rain Bird app.
 
 ## Known Limitations
 
+The new Rain Bird 2.0 App and Firmware is not compatible with Home Assistant.
+The upgrade process will migrate devices to require use of the new Rain Bird
+IQ4 cloud, and Home Assistant will not be able to access the device.
+
 The Rain Bird LNK WiFi can only receive one incoming request at a time. It may
 not be possible for Home Assistant to send commands to the device while you
 are also using the Rain Bird App. Home Assistant tries to carefully limit
 connections to the device to avoid failures.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

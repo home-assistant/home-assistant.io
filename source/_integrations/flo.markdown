@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Sensor
   - Switch
+  - Water management
 ha_config_flow: true
 ha_codeowners:
   - '@dmulcahey'

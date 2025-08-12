@@ -6,7 +6,7 @@ description: The Conditional card displays another card based on conditions.
 related:
   - docs: /dashboards/cards/
     title: Dashboard cards
-  - docs: /dashboards/cards/#showing-or-hiding-a-card-conditionally
+  - docs: /dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally
     title: Conditional settings on the card's visibility tab
 ---
 
@@ -17,7 +17,7 @@ The conditional card displays another card based on conditions.
 {% include dashboard/edit_dashboard.md %}
 Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
 
-The conditional card can still be used. However, it is now possible to define a setting to show or hide a card conditionally directly on each card type, on its [Visibility](/dashboards/cards/#showing-or-hiding-a-card-conditionally) tab.
+The conditional card can still be used. However, it is now possible to define a setting to show or hide a card conditionally directly on each card type, on its [Visibility](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally) tab.
 
 Most options for this card can be configured via the user interface.
 

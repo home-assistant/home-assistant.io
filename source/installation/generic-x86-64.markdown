@@ -9,4 +9,3 @@ Included sections for this page is located under source/_includes/installation
 
 {% include installation/operating_system.md %}
 {% include installation/container.md %}
-{% include installation/core.md %}

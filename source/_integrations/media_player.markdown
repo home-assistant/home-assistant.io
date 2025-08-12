@@ -29,7 +29,6 @@ A media player can have the following states:
 - **Idle**: The media player is turned on and accepting commands, but currently not playing any media. Possibly at some idle home screen.
 - **Playing**: The media player is currently playing media.
 - **Paused**: The media player has an active media and is currently paused
-- **Standby**: The media player is in a low power state, accepting commands.
 - **Buffering**: The media player is preparing to start playback of media.
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
@@ -167,8 +166,6 @@ Currently only supported on [Denon AVR](/integrations/denonavr/) and  [Songpal](
 | `sound_mode`           |       no | Name of the sound mode to switch to. Platform dependent.|
 
 #### Action `media_player.shuffle_set`
-
-Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Roon](/integrations/roon), [OwnTone](/integrations/forked_daapd), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
 
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |

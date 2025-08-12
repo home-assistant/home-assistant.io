@@ -12,8 +12,8 @@ ha_platforms:
   - event
 ha_integration_type: integration
 related:
-  - docs: /docs/configuration/
-    title: Configuration file
+  - docs: /common-tasks/general/#defining-a-custom-polling-interval
+    title: Defining a custom polling interval
 ha_codeowners:
   - '@mib1185'
 ---
@@ -22,9 +22,23 @@ Add an RSS/Atom feed reader that polls feeds every hour and sends new entries in
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+URL:
+    description: The URL of the RSS/Atom feed you want to integrate.
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Maximum feed entries:
+  description: The maximum number of entries to extract from each feed.
+{% endconfiguration_basic %}
+
 ## Usage
 
-Feedreader events can be used out of the box to trigger automation actions, e.g.:
+### Automation
+
+Feedreader events can be used out of the box to {% term trigger %} automation actions, e.g.:
 
 ```yaml
 automation:
@@ -58,18 +72,28 @@ automation:
 
 {% endraw %}
 
-Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.
+The `trigger.event.data` variable contains at least the following keys, there might be more depending on the data the configured feed is providing.
 
-### Event
+| Key | Description |
+| --- | --- |
+| `trigger.event.data.link` | The URL to this feed entry. |
+| `trigger.event.data.title` | The title of this feed entry. |
+| `trigger.event.data.description` | The description of this feed entry. |
+| `trigger.event.data.content` | The content of this feed entry. |
 
-An event entity will be created for each configured feed which always represents the latest entry of the feed.
+### Event entity
+
+An {% term "Event entity" %} entity will be created for each configured feed which always represents the latest entry of the feed.
 
 ### Video tutorial
-This video tutorial explains how to set up the feedreader and show the latest news feed item on your dashboard in Home Assistant.
 
-<lite-youtube videoid="Va4JOKbesi0" videotitle="How to view RSS feeds on your Dashboard in Home Assistant" posterquality="maxresdefault"></lite-youtube>
+This video tutorial explains how to set up the feedreader and show a list of news feed items on your dashboard in Home Assistant.
 
-For more advanced use cases, a custom integration registering to the `feedreader` event type could be used instead:
+<lite-youtube videoid="wqmLnjWQ4eY" videotitle="Show RSS News feeds on your Dashboard in Home Assistant!" posterquality="maxresdefault"></lite-youtube>
+
+### Event listener
+
+For more advanced use cases, a custom integration registering to the `feedreader` {% term Event %} type could be used instead:
 
 ```python
 EVENT_FEEDREADER = "feedreader"
@@ -78,4 +102,10 @@ hass.bus.listen(EVENT_FEEDREADER, event_listener)
 
 To get started developing custom integrations, please refer to the [developers](/developers) documentation
 
+### Other examples
+
 For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/22c19375ac5dcb49e0648aa16c431537407aa5e4/config/packages/hasspodcast.yaml).
+
+## Remove the integration
+
+{% include integrations/remove_device_service.md %}
