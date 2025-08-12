@@ -26,7 +26,7 @@ function maybeLoadAnimations() {
             // can scroll-animate it from frame 186 to 246.
             //{ selector: "#hero", start: 186, end: 246, autoplay: { start: 0, end: 186, duration: 1200 } },
             { selector: "#hero", start: 0, end: 246 },
-            { selector: "#overview", start: 246, end: 314 },
+            { selector: "#features", start: 246, end: 314 },
             { selector: "#chipset", start: 314, end: 386 },
             // The last section just holds the final frame.
             { selector: "#long-range", start: 386, end: 386 }
@@ -61,14 +61,14 @@ if (window.location.search.includes("hide")) {
 }
 
 // --- Additional Page Animations (Not part of the render animation) ---
-const overviewEntry = new ZWA2Animations("section#overview");
+const featuresEntry = new ZWA2Animations("section#features");
 
-overviewEntry.onEnter(() => {
-    overviewEntry.el.querySelector(".waves-wrapper svg").style.setProperty("--enter", 1);
+featuresEntry.onEnter(() => {
+    featuresEntry.el.querySelector(".waves-wrapper svg").style.setProperty("--enter", 1);
 });
 
-overviewEntry.onLeave(() => {
-    overviewEntry.el.querySelector(".waves-wrapper svg").style.setProperty("--enter", 0);
+featuresEntry.onLeave(() => {
+    featuresEntry.el.querySelector(".waves-wrapper svg").style.setProperty("--enter", 0);
 });
 
 const configCards = document.querySelector("section#plug-and-play .config-cards");
@@ -101,9 +101,11 @@ const devices = document.querySelectorAll("section#long-range .devices .device")
 
 // Use IntersectionObserver to trigger animation when top center enters viewport
 if (longRange) {
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer1 = new IntersectionObserver((entries, observer1) => {
         entries.forEach(entry => {
+            console.log(0);
             if (entry.isIntersecting) {
+                console.log(1);
                 // Only fire once
                 longRange.style.setProperty("--enter", 1);
                 [...devices].forEach(d => {
@@ -111,7 +113,7 @@ if (longRange) {
                         d.style.opacity = 1;
                     }, 500 + (Math.floor(Math.random() * 1000)));
                 })
-                observer.disconnect();
+                observer1.disconnect();
             }
         });
     }, {
@@ -119,7 +121,7 @@ if (longRange) {
         threshold: 0.5,
         rootMargin: "0px 0px 5% 0px" // Top center
     });
-    observer.observe(longRange);
+    observer1.observe(longRange);
 }
 
 // --- Event Listeners ---
@@ -127,7 +129,7 @@ if (longRange) {
 // Attempt to load animations on initial page load.
 window.addEventListener('DOMContentLoaded', () => {
     maybeLoadAnimations();
-    overviewEntry.checkInViewOnLoad();
+    featuresEntry.checkInViewOnLoad();
 });
 // Also check on resize, in case the user rotates a tablet or resizes a browser window.
 window.addEventListener('resize', maybeLoadAnimations);
