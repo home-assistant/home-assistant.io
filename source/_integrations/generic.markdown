@@ -58,7 +58,7 @@ In this section, you find some real-life examples of how to use this camera plat
   </a>
 </p>
 
-The screenshot above shows `device_tracker.demo_paulus` on a map. Below the example YAML entry that was used to create it.
+The screenshot shows `device_tracker.demo_paulus` on a map. Below the example YAML entry that was used to create it.
 
 {% raw %}
 
