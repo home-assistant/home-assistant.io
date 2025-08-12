@@ -324,6 +324,7 @@ The following integration is now available via the Home Assistant UI:
 
 There are many more improvements in this release; here are some of the other noteworthy changes:
 
+- Home Assistant's interface has received a refresh for better accessibility! The primary color and button colors have been updated to meet [WCAG AA accessibility standards](https://www.w3.org/WAI/WCAG2AA-Conformance), improving contrast and readability throughout the interface. All buttons have been redesigned with distinct styles, sizes, and visual priority variants, making it much easier to distinguish between primary, secondary, and less prominent actions. This marks the beginning of a broader effort to update other UI components for improved accessibility and consistency across Home Assistant.
 - [@mib1185] added a new device class for **absolute humidity** with support for both sensor and number {% term entities %}. Nice!
 - Group management was improved by [@piitaya], who added the ability to reorder members within a group, making it easier to organize your device groups exactly how you want them. Thanks!
 - System diagnostics was extended by [@balloob] with the addition of a device analytics dump download feature. Awesome!
