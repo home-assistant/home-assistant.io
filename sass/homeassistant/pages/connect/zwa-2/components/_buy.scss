@@ -122,6 +122,9 @@ section#buy {
             bottom: 80px;
             font-size: 16px;
             margin-top: unset;
+            max-width: 26rem;
+        }
+        @include bp(large-desktop) {
             max-width: 33rem;
         }
     }
