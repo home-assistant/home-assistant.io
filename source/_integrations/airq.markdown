@@ -99,7 +99,7 @@ After the integration has been initialized, the user can configure any of the fo
 
 ## LED Control
 
-In addition to sensor readings, this integration exposes the brightness of the device’s LED strips as a `number` entity named `number.<device_name>_led_brightness`. You can set the brightness (0–10) manually from the Overview panel or in automations. Setting it to 0 will turn the LEDs off.
+In addition to sensor readings, this integration exposes the brightness of the device’s LED strips as a `number` entity named `number.<device_name>_led_brightness`. You can set the brightness (0–100) manually from the Overview panel or in automations. Setting it to 0 will turn the LEDs off.
 
 ## Troubleshooting
 
