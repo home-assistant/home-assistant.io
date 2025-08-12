@@ -48,31 +48,16 @@ Use wallclock as timestamps:
   description: ([Advanced Mode](/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ).
 {% endconfiguration_basic %}
 
-## Examples
-
-In this section, you find some real-life examples of how to use this camera platform.
-
-<p class='img'>  
+<p class='img'>
+  <a href='/examples/google_maps_card/'>
     <img src='/images/integrations/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
     Example showing the Generic camera platform pointing at a dynamic Google Map image.
   </a>
 </p>
 
-The screenshot shows `device_tracker.demo_paulus` on a map. Below the example YAML entry that was used to create it.
+## Examples
 
-{% raw %}
-
-```yaml
-camera:
-  name: Paulus
-  platform: generic
-  still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ state_attr('device_tracker.demo_paulus', 'latitude') }},{{ state_attr('device_tracker.demo_paulus', 'longitude') }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ state_attr('device_tracker.demo_paulus', 'latitude') }},{{ state_attr('device_tracker.demo_paulus', 'longitude') }}&key=YOUR_API_KEY
-  limit_refetch_to_url_change: true
-```
-
-{% endraw %}
-
-The `limit_refetch_to_url_change` option ensures that we do not make a lot of requests to the Google Maps API.
+In this section, you find some real-life examples of how to use this camera platform.
 
 ### Weather graph from USA National Weather Service
 
