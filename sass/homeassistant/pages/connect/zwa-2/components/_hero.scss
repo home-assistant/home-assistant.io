@@ -2,7 +2,9 @@ section#hero {
     height: calc(100vh - 68px);
     position: relative;
 
-    
+    .model-still {
+        z-index: 1;
+    }
 
     .section-inner {
         align-items: flex-end;
@@ -69,18 +71,20 @@ section#hero {
         }
     }
 
-    .section-inner-content {
-        //height: 64vh;
+    .section-inner {
+        position: relative;
+        z-index: unset;
+
+        &-content {
+            z-index: 2;
+        }
     }
 
     .background {
         background: #001A35;
-        //height: 100vh;
         inset: 0;
         isolation: isolate;
-        //position: sticky;
         position: absolute;
-        z-index: -1;
 
         &:before,
         &:after {

@@ -8,80 +8,110 @@
 
 export class ZWA2RenderAnimation {
     frameCount = null;
-    images = [];
-    meta = { frame: 0 };
+    images = []; // sparse array: only buffered frames get Image objects
+    meta = { frame: 0 }; // current frame metadata
     canvas = null;
     context = null;
     filename = null;
     sections = [];
     activeSection = 0;
+    bufferBackward = 50; // frames to keep behind current
+    bufferForward = 50;  // frames to keep ahead of current
+    loadingFrames = new Set(); // track frames currently loading
+    frameGap = 5; // Controls staggered frame loading order (1 = sequential). Change after instantiation if desired.
+    smoothingFactor = 0.18; // LERP factor for scroll smoothing (0..1)
+    targetFrame = 0; // desired frame from scroll
+    _smoothingRaf = null;
+    animatingScroll = false;
 
     currentFrame(index) {
-        
         return `/connect/zwa-2/video-frames/${this.filename}/${(Math.floor(index + 1)).toString().padStart(3, '0')}.webp`;
     }
 
-    async loadImages(onFirstLoaded, autoplayRange) {
-        // Preallocate image array
-        this.images = new Array(this.frameCount);
-
-        // Helper to load a single image as a Promise
-        const loadImageAsync = (index) => {
-            return new Promise((resolve) => {
-                const img = new Image();
-                img.src = this.currentFrame(index);
-                img._frameIndex = index;
-                img.onload = () => {
-                    // If the loaded frame is the current frame, re-render
-                    if (this.meta.frame === index) {
-                        this.render();
-                    }
-                    resolve(img);
-                };
-                this.images[index] = img;
-            });
+    /**
+     * Ensure a single frame is loaded (idempotent / deduped).
+     */
+    ensureFrameLoaded(index) {
+        if (index < 0 || index >= this.frameCount) return;
+        if (this.images[index] && this.images[index].complete) return;
+        if (this.loadingFrames.has(index)) return;
+        this.loadingFrames.add(index);
+        const img = new Image();
+        img.fetchPriority = 'high'; // prioritize loading for smooth scroll animation
+        img.src = this.currentFrame(index);
+        img._frameIndex = index;
+        img.onload = () => {
+            this.loadingFrames.delete(index);
+            // Re-render if this is the current frame
+            if (this.meta.frame === index) {
+                this.render();
+            }
         };
+        this.images[index] = img;
+    }
 
-        // Prioritize loading of autoplay frames
-        let autoplayPromises = [];
-        if (autoplayRange && typeof autoplayRange.start === 'number' && typeof autoplayRange.end === 'number') {
-            for (let i = autoplayRange.start; i <= autoplayRange.end; i++) {
-                autoplayPromises.push(loadImageAsync(i));
+    /**
+     * Ensure buffer of frames around current frame are loaded.
+     * Optionally skew forward (e.g., during autoplay) by passing forwardExtra.
+     */
+    ensureBufferLoaded(current, forwardExtra = 0) {
+        const start = Math.max(0, current - this.bufferBackward);
+        const end = Math.min(this.frameCount - 1, current + this.bufferForward + forwardExtra);
+        const needsLoad = [];
+        for (let i = start; i <= end; i++) {
+            if (!(this.images[i] && this.images[i].complete) && !this.loadingFrames.has(i)) {
+                needsLoad.push(i);
             }
         }
-        // Wait for all autoplay frames to load before starting animation
-        await Promise.all(autoplayPromises);
-        if (onFirstLoaded) onFirstLoaded();
+        if (!needsLoad.length) return;
+        if (this.frameGap > 1) {
+            const ordered = [];
+            for (let offset = 0; offset < this.frameGap; offset++) {
+                for (let f = start + offset; f <= end; f += this.frameGap) {
+                    if (needsLoad.includes(f)) ordered.push(f);
+                }
+            }
+            ordered.forEach(f => this.ensureFrameLoaded(f));
+        } else {
+            needsLoad.forEach(f => this.ensureFrameLoaded(f));
+        }
+    }
+
+    /**
+     * Initial image loading. Only load initial frame and its buffer.
+     * If autoplayRange provided and current frame inside, we skew forward prefetch.
+     */
+    async loadImages(initialFrame, autoplayRange, onReady) {
+        this.ensureFrameLoaded(initialFrame);
+        // If we are going to autoplay, bias forward prefetch (no await needed)
+        const forwardExtra = (autoplayRange && initialFrame >= autoplayRange.start && initialFrame <= autoplayRange.end) ? 20 : 0;
+        this.ensureBufferLoaded(initialFrame, forwardExtra);
+        if (onReady) onReady();
         this.render();
-
-        // Load the rest of the frames in parallel (excluding already loaded)
-        const restPromises = [];
-        for (let i = 0; i < this.frameCount; i++) {
-            if (!autoplayRange || i < autoplayRange.start || i > autoplayRange.end) {
-                restPromises.push(loadImageAsync(i));
-            }
-        }
-        Promise.all(restPromises);
     }
 
     render() {
+        if (!this.context) return;
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        // Use the correct frame for the current section
-        let frame = this.meta.frame;
-        // Clamp frame to valid range
-        frame = Math.max(0, Math.min(this.frameCount - 1, frame));
-        let img = this.images[frame];
-        // If the frame is not loaded, use the previous loaded frame
-        let fallbackFrame = frame;
-        while ((!img || !img.complete) && fallbackFrame > 0) {
-            fallbackFrame--;
-            img = this.images[fallbackFrame];
-        }
-        // If still not loaded, use frame 0
+        const frameIndex = Math.max(0, Math.min(this.frameCount - 1, Math.round(this.meta.frame)));
+        let img = this.images[frameIndex];
         if (!img || !img.complete) {
-            img = this.images[0];
+            let closestImg = null;
+            for (let offset = 1; offset < this.frameCount; offset++) {
+                const prevIndex = frameIndex - offset;
+                const nextIndex = frameIndex + offset;
+                const prevImg = prevIndex >= 0 ? this.images[prevIndex] : null;
+                const nextImg = nextIndex < this.frameCount ? this.images[nextIndex] : null;
+                const prevReady = prevImg && prevImg.complete;
+                const nextReady = nextImg && nextImg.complete;
+                if (prevReady || nextReady) {
+                    closestImg = nextReady ? nextImg : prevImg;
+                    break;
+                }
+            }
+            if (closestImg) img = closestImg; else img = this.images.find(im => im && im.complete) || null;
         }
-        if (!img) return; // nothing to draw
+        if (!img || !img.complete) return;
         const aspectRatio = img.width / img.height;
         const canvasAspectRatio = this.canvas.width / this.canvas.height;
         let drawWidth, drawHeight;
@@ -97,22 +127,21 @@ export class ZWA2RenderAnimation {
         this.context.drawImage(img, x, y, drawWidth, drawHeight);
     }
 
-    setupSectionAnimations() {
-        // Autoplay logic
+    setupSectionAnimations(initialFrame) {
         const autoplaySection = this.sections.find(s => s.autoplay);
         let autoplayActive = false;
-        let autoplayFrame = autoplaySection?.autoplay?.start ?? null;
         let autoplayEnd = autoplaySection?.autoplay?.end ?? null;
         let autoplayDuration = autoplaySection?.autoplay?.duration ?? 2000; // ms
         let autoplayRequest = null;
         let autoplayStartTime = null;
+        const autoplayStart = autoplaySection?.autoplay?.start;
 
         const startAutoplay = () => {
             if (!autoplaySection) return;
             autoplayActive = true;
-            autoplayFrame = autoplaySection.autoplay.start;
             autoplayStartTime = performance.now();
-            this.meta.frame = autoplayFrame;
+            this.meta.frame = autoplayStart;
+            this.ensureBufferLoaded(this.meta.frame, 30); // prefetch ahead for smoothness
             this.render();
             autoplayRequest = requestAnimationFrame(autoplayStep);
         };
@@ -120,10 +149,12 @@ export class ZWA2RenderAnimation {
         const autoplayStep = (now) => {
             if (!autoplayActive) return;
             const elapsed = now - autoplayStartTime;
-            const totalFrames = autoplayEnd - autoplayFrame;
             const progress = Math.min(1, elapsed / autoplayDuration);
-            const frame = Math.round(autoplaySection.autoplay.start + progress * (autoplayEnd - autoplaySection.autoplay.start));
+            const frame = Math.round(autoplayStart + progress * (autoplayEnd - autoplayStart));
             this.meta.frame = frame;
+            this.ensureBufferLoaded(frame, 30);
+            const status = this.computeBufferStatus(frame);
+            console.log(`[ZWA2][autoplay] frame=${frame} aheadLoaded=${status.aheadLoaded}/${this.bufferForward} behindLoaded=${status.behindLoaded}/${this.bufferBackward} aheadRemaining=${status.aheadRemaining} behindRemaining=${status.behindRemaining}`);
             this.render();
             if (progress < 1) {
                 autoplayRequest = requestAnimationFrame(autoplayStep);
@@ -132,56 +163,26 @@ export class ZWA2RenderAnimation {
             }
         };
 
-        // Interrupt autoplay on scroll and prioritize scroll frame loading
         const interruptAutoplay = () => {
             if (autoplayActive) {
                 autoplayActive = false;
                 if (autoplayRequest) cancelAnimationFrame(autoplayRequest);
-                // Prioritize loading the current scroll frame if not loaded
-                const frameToLoad = this.meta.frame;
-                if (!this.images[frameToLoad] || !this.images[frameToLoad].complete) {
-                    // Load the frame immediately
-                    const img = new Image();
-                    img.src = this.currentFrame(frameToLoad);
-                    img._frameIndex = frameToLoad;
-                    img.onload = () => {
-                        if (this.meta.frame === frameToLoad) {
-                            this.render();
-                        }
-                    };
-                    this.images[frameToLoad] = img;
-                }
             }
         };
-        // Remove previous triggers if any
-        if (window.ScrollTrigger && window.ScrollTrigger.getAll) {
-            //window.ScrollTrigger.getAll().forEach(t => t.kill());
-        }
 
-        // Find the wrapper that contains all sections
-        const wrapper = this.sections.length > 0 ? document.querySelector(this.sections[0].selector).closest('.animation-wrapper') : null;
+        const wrapper = this.sections.length > 0 ? document.querySelector(this.sections[0].selector)?.closest('.animation-wrapper') : null;
         const triggerElem = wrapper || document.body;
 
-        // Helper to recalculate section tops
         const getSectionData = () => this.sections.map(section => {
             const el = document.querySelector(section.selector);
-            const top = el.offsetTop;
-            const height = el.offsetHeight;
-            return {
-                ...section,
-                el,
-                top,
-                height
-            };
+            const top = el?.offsetTop || 0;
+            const height = el?.offsetHeight || 0;
+            return { ...section, el, top, height };
         });
 
         let sectionData = getSectionData();
 
-        // Move onUpdate logic to its own function
-        const handleScrollUpdate = () => {
-            sectionData = getSectionData();
-            interruptAutoplay();
-            const scrollY = window.scrollY - (triggerElem === document.body ? 0 : triggerElem.getBoundingClientRect().top + window.scrollY);
+        const computeFrameForScroll = (scrollY) => {
             let prev = sectionData[0];
             let next = sectionData[sectionData.length - 1];
             for (let i = 0; i < sectionData.length - 1; i++) {
@@ -191,56 +192,84 @@ export class ZWA2RenderAnimation {
                     break;
                 }
             }
-            if (scrollY < sectionData[0].top) {
-                prev = next = sectionData[0];
-            }
-            if (scrollY >= sectionData[sectionData.length - 1].top) {
-                prev = next = sectionData[sectionData.length - 1];
-            }
+            if (scrollY < sectionData[0].top) prev = next = sectionData[0];
+            if (scrollY >= sectionData[sectionData.length - 1].top) prev = next = sectionData[sectionData.length - 1];
             let progress = 0;
             if (prev !== next) {
                 progress = (scrollY - prev.top) / (next.top - prev.top);
                 progress = Math.min(1, Math.max(0, progress));
             }
-            const frame = Math.floor(Math.round(prev.start + progress * (prev.end - prev.start)));
-            this.meta.frame = frame;
-            this.render();
+            return Math.floor(Math.round(prev.start + progress * (prev.end - prev.start)));
         };
 
-        // Set up a single ScrollTrigger for the wrapper
-        gsap.to(this.meta, {
-            frame: this.frameCount - 1,
-            ease: "none",
-            scrollTrigger: {
+        const handleScrollUpdate = () => {
+            sectionData = getSectionData();
+            interruptAutoplay();
+            const baseOffset = (triggerElem === document.body ? 0 : triggerElem.getBoundingClientRect().top + window.scrollY);
+            const scrollY = window.scrollY - baseOffset;
+            const targetFrame = computeFrameForScroll(scrollY);
+            if (targetFrame !== this.targetFrame) {
+                this.targetFrame = targetFrame;
+                this.ensureBufferLoaded(targetFrame);
+                if (!this.animatingScroll) this.startScrollSmoothing();
+            }
+        };
+
+        if (window.ScrollTrigger && window.ScrollTrigger.create) {
+            window.ScrollTrigger.create({
                 trigger: triggerElem,
                 start: "top top",
                 end: "bottom bottom",
-                scrub: 2,
-                onUpdate: self => handleScrollUpdate(),
-            },
-        });
+                onUpdate: handleScrollUpdate,
+            });
+        } else {
+            window.addEventListener('scroll', handleScrollUpdate, { passive: true });
+        }
 
-        // Run the scroll update logic on page load to set the correct frame
-        handleScrollUpdate();
+        this.meta.frame = initialFrame;
+        this.targetFrame = initialFrame;
+        this.ensureBufferLoaded(initialFrame);
+        const initStatus = this.computeBufferStatus(initialFrame);
+        console.log(`[ZWA2][init] frame=${initialFrame} aheadLoaded=${initStatus.aheadLoaded}/${this.bufferForward} behindLoaded=${initStatus.behindLoaded}/${this.bufferBackward} aheadRemaining=${initStatus.aheadRemaining} behindRemaining=${initStatus.behindRemaining}`);
+        this.render();
 
-        // Listen for resize events to update sectionData and ScrollTrigger
         window.addEventListener('resize', () => {
             sectionData = getSectionData();
             if (window.ScrollTrigger && window.ScrollTrigger.refresh) {
                 window.ScrollTrigger.refresh();
             }
+            this.ensureBufferLoaded(this.meta.frame);
         });
 
-        // Initial render
-        if (autoplaySection) {
+        if (autoplaySection && window.scrollY < 5) {
             startAutoplay();
-        } else {
-            this.meta.frame = this.sections[0]?.start || 0;
-            this.render();
         }
         if (window.ScrollTrigger && window.ScrollTrigger.refresh) {
             window.ScrollTrigger.refresh();
         }
+        // Ensure initial scroll-derived target is set if user did not start at top.
+        handleScrollUpdate();
+    }
+
+    computeBufferStatus(frame) {
+        const maxAhead = Math.min(this.frameCount - 1, frame + this.bufferForward);
+        const maxBehind = Math.max(0, frame - this.bufferBackward);
+        let aheadLoaded = 0;
+        for (let i = frame + 1; i <= maxAhead; i++) {
+            const img = this.images[i];
+            if (img && img.complete) aheadLoaded++; else break;
+        }
+        let behindLoaded = 0;
+        for (let i = frame - 1; i >= maxBehind; i--) {
+            const img = this.images[i];
+            if (img && img.complete) behindLoaded++; else break;
+        }
+        return {
+            aheadLoaded,
+            behindLoaded,
+            aheadRemaining: this.bufferForward - aheadLoaded,
+            behindRemaining: this.bufferBackward - behindLoaded
+        };
     }
 
     /**
@@ -257,13 +286,50 @@ export class ZWA2RenderAnimation {
         this.context = this.canvas.getContext("2d");
         this.canvas.width = 1920;
         this.canvas.height = 1080;
-        // Use async/await to ensure autoplay frames load before setup
-        const autoplaySection = sections.find(s => s.autoplay);
+        // Determine initial frame (first section start or 0)
+        this._initialFrame = (sections[0] && typeof sections[0].start === 'number') ? sections[0].start : 0;
+        this.meta.frame = this._initialFrame;
+        this.targetFrame = this._initialFrame;
+        // Load only the very first frame (no buffers / listeners yet)
+        this.ensureFrameLoaded(this._initialFrame);
+        this.render();
+        this._started = false; // idempotent start flag
+    }
+
+    start() {
+        document.addEventListener('scroll', this.doStart.bind(this), { once: true, passive: true });
+        // all the other events, touchstart, mousemove, etc.
+        document.addEventListener('touchmove', this.doStart.bind(this), { once: true, passive: true });
+        document.addEventListener('touchstart', this.doStart.bind(this), { once: true, passive: true });
+        document.addEventListener('mousemove', this.doStart.bind(this), { once: true, passive: true });
+    }
+
+    doStart() {
+        if (this._started) return; // idempotent
+        this._started = true;
+        const autoplaySection = this.sections.find(s => s.autoplay);
         const autoplayRange = autoplaySection ? { start: autoplaySection.autoplay.start, end: autoplaySection.autoplay.end } : null;
-        (async () => {
-            await this.loadImages(() => {
-                this.setupSectionAnimations();
-            }, autoplayRange);
-        })();
+        // Load remaining buffer & then set up scroll/section animations
+        this.loadImages(this._initialFrame, autoplayRange, () => {
+            this.setupSectionAnimations(this._initialFrame);
+        });
+    }
+
+    startScrollSmoothing() {
+        this.animatingScroll = true;
+        const step = () => {
+            const diff = this.targetFrame - this.meta.frame;
+            if (Math.abs(diff) < 0.02) {
+                this.meta.frame = this.targetFrame;
+                this.animatingScroll = false;
+                this.render();
+                return;
+            }
+            this.meta.frame += diff * this.smoothingFactor;
+            this.ensureBufferLoaded(Math.round(this.meta.frame));
+            this.render();
+            this._smoothingRaf = requestAnimationFrame(step);
+        };
+        step();
     }
 }

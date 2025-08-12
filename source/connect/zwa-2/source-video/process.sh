@@ -1,7 +1,6 @@
-# /bin/bash
+#!/bin/bash
 # This script processes a video file by extracting frames and saving them in a specified directory.
-# Usage: /workspaces/home-assistant.io/source/connect/zwa-2/source-video/process.sh <input_video> <output_directory>
-# Runs: ffmpeg -c:v libvpx-vp9 -i {file.webm} -vf 'scale=1920:1080' -lossless 1 -c:v libwebp -y {output_dir}/frame-%03d.webp
+# Usage: process.sh <input_video> <output_directory>
 
 if [ "$#" -ne 2 ]; then
     echo "Usage: $0 <input_video> <output_directory>"
@@ -27,7 +26,14 @@ if ! command -v ffmpeg &> /dev/null; then
     exit 1
 fi
 
-ffmpeg -c:v libvpx-vp9 -i "$input_video" -vf 'scale=1920:1080' -pix_fmt bgra -lossless 1 -c:v libwebp -y "$output_directory"/%03d.webp
+# Keep transparency but optimise size by using lossy WebP
+ffmpeg -c:v libvpx-vp9 -i "$input_video" \
+    -vf 'scale=1920:1080' \
+    -pix_fmt bgra \
+    -lossless 1 \
+    -c:v libwebp \
+    -y "$output_directory"/%03d.webp
+
 if [ $? -ne 0 ]; then
     echo "Error processing video file: $input_video"
     exit 1

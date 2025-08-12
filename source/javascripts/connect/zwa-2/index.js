@@ -18,8 +18,6 @@ function maybeLoadAnimations() {
     // Only run on larger screens to save resources on mobile.
     if (window.innerWidth >= 1024 && !animationsLoaded) {
         animationsLoaded = true;
-        // No need to remove the event listener, as the flag prevents re-initialization.
-
         // --- Scene 1 Configuration ---
         const scene1Sections = [
             // The hero section autoplays from frame 0 to 186, then the user
@@ -32,19 +30,60 @@ function maybeLoadAnimations() {
             { selector: "#long-range", start: 386, end: 386 }
         ];
         const scene1TotalFrames = scene1Sections[scene1Sections.length - 1].end;
-        new ZWA2RenderAnimation("scene1", "canvas.render-scroller#scene-one", scene1Sections, scene1TotalFrames);
+        const scene1 = new ZWA2RenderAnimation("scene1", "canvas.render-scroller#scene-one", scene1Sections, scene1TotalFrames);
+        scene1.start();
 
-        // --- Scene 2 Configuration ---
+        // Deferred Scene 2 loading via IntersectionObserver
         const scene2Sections = [
-            // 0 - 60
-            // 65 - 125
-            // 130 - 190
             { selector: "#built-for-home-assistant", start: 63, end: 135 },
             { selector: "#plug-and-play", start: 135, end: 201 },
             { selector: "#buy", start: 201, end: 201 }
         ];
         const scene2TotalFrames = scene2Sections[scene2Sections.length - 1].end;
-        new ZWA2RenderAnimation("scene2", "canvas.render-scroller#scene-two", scene2Sections, scene2TotalFrames);
+        const scene2 = new ZWA2RenderAnimation("scene2", "canvas.render-scroller#scene-two", scene2Sections, scene2TotalFrames);
+        const initScene2 = () => {
+            if (initScene2._done) return; // idempotent
+            initScene2._done = true;
+            scene2.start();
+        };
+
+        const scene2Canvas = document.querySelector('#built-for-home-assistant');
+        if (scene2Canvas) {
+            // Trigger when the top of scene-two canvas reaches the bottom edge of the viewport
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        initScene2();
+                        obs.disconnect();
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0,
+                rootMargin: '0px 0px -100% 0px' // shrink root bottom by 100% viewport height
+            });
+            observer.observe(scene2Canvas);
+        } else {
+            // Fallback: if canvas not found yet, retry on next frame
+            requestAnimationFrame(() => {
+                const retryCanvas = document.querySelector('canvas.render-scroller#scene-two');
+                if (retryCanvas) {
+                    const observer = new IntersectionObserver((entries, obs) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                initScene2();
+                                obs.disconnect();
+                            }
+                        });
+                    }, {
+                        root: null,
+                        threshold: 0,
+                        rootMargin: '0px 0px -100% 0px'
+                    });
+                    observer.observe(retryCanvas);
+                }
+            });
+        }
     }
 }
 
@@ -127,7 +166,9 @@ if (longRange) {
 // --- Event Listeners ---
 
 // Attempt to load animations on initial page load.
-window.addEventListener('DOMContentLoaded', () => {
+
+maybeLoadAnimations();
+document.addEventListener('DOMContentLoaded', () => {
     maybeLoadAnimations();
     featuresEntry.checkInViewOnLoad();
 });

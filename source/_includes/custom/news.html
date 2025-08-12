@@ -123,7 +123,7 @@
   {% assign pages_by_date = site.pages | sort: "date" | reverse %} {% for
   page in pages_by_date %} {% if page.layout == "landingpage" and
   page.frontpage != false %}
-  <a class="material-card picture-promo" href="{{page.url}}" style="
+  <a class="material-card picture-promo {% if page.frontpage_content_top %}picture-top{% endif %}" href="{{page.url}}" style="
           background-image: url({{page.frontpage_image | default:page.og_image}});
           background-size: cover;
           background-color: #41bdf5;
