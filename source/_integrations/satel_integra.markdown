@@ -8,6 +8,9 @@ ha_category:
   - Switch
 ha_release: 0.54
 ha_iot_class: Local Push
+ha_config_flow: true
+ha_codeowners:
+  - '@Tommatheussen'
 ha_domain: satel_integra
 ha_platforms:
   - alarm_control_panel
@@ -25,7 +28,7 @@ The `satel_integra` {% term integration %} will allow Home Assistant users who o
 There is currently support for the following device types within Home Assistant:
 
 - Binary sensor: Reports on zone or output statuses
-- Switch: allows for setting states of selected outputs 
+- Switch: allows for setting states of selected outputs
 - Alarm control panel: represents the zones (in Polish: "strefa"). Reports its status, and can be used to arm/disarm the partition
 
 The module communicates via Satel's open TCP protocol published on their website. It subscribes for new events coming from alarm system and reacts to them immediately.
@@ -51,29 +54,12 @@ Code:
   description: Optional code that will be used to toggle switchable outputs.
 {% endconfiguration_basic %}
 
-## Settings
+## Partitions, zones, and outputs
 
-After setting up the connection details, partitions, zones, and outputs can be configured using the **Options** on the **Satel Integra** card on the {% my integrations title="**Settings** > **Devices & services**" %} page.
+After setting up the connection details, partitions, zones, and outputs can be configured as **Subentries** on the {% my integration domain="satel_integra" title="**Satel Integra**" %} integration page.
 
-### Partitions, zones, and outputs
-
-Partitions, zones, and outputs can be added, edited, and removed through the option forms.
-
+Click the 'Add partition', 'Add zone', 'Add output' or 'Add switchable output' buttons to create the respective entities and follow the config flow to set up the individual entities.
 Each partition will have its own alarm panel. Each zone and output will have a binary sensor, and a switch will be created for each switchable output.
-
-1. To get started, select which entry type you want to manage:
-
-   ![Start options flow](/images/integrations/satel_integra/satel_integra_options_flow.png)
-
-2. Then, select the partition/zone/output number you want to manage and the corresponding action. 
-    - The first action will always be to **Add** (unless a previous YAML configuration was imported).
-
-    ![Configure partitions](/images/integrations/satel_integra/satel_integra_partition_configuration.png)
-
-3. Afterward, fill in the required fields for each entry type. 
-    - Saving the options form should automatically generate and/or update the {%term entities %}.
-4. Deleting an entry removes the corresponding entry from the configuration, but the entity will still exist. 
-    - You will manually have to remove this entity from the list afterward.
 
 Having configured the zones and the outputs, you can use them for automation, such as to react on the movement in your bedroom.
 For example:
@@ -89,4 +75,3 @@ For example:
       target:
         entity_id: input_boolean.movement_detected
 ```
-
