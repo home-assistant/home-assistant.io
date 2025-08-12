@@ -1116,6 +1116,10 @@ article.listing {
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
     vertical-align: middle;
+
+    & + p{
+      margin-top: 1.5rem;
+    }
   }
 
   img.no-shadow {
@@ -1159,7 +1163,7 @@ article.listing {
     border-radius: 8px;
     border-width: 8px;
     text-align: center;
-    padding-bottom: 3px;
+    padding-bottom: 8px;
     font-size: 0.9rem;
     box-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
     border: 0;
@@ -1167,7 +1171,7 @@ article.listing {
     img {
       display: block;
       box-shadow: none;
-      margin: 0 auto;
+      margin: 0 auto 8px;
     }
   }
 
