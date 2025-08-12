@@ -17,6 +17,7 @@ ha_category:
   - Siren
   - Switch
   - Vacuum
+  - Valve
 ha_iot_class: Cloud Push
 ha_release: 0.74
 ha_config_flow: true
@@ -43,6 +44,7 @@ ha_platforms:
   - siren
   - switch
   - vacuum
+  - valve
 ha_dhcp: true
 ha_integration_type: hub
 ---
