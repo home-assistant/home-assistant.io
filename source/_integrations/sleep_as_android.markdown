@@ -4,7 +4,7 @@ description: Instructions on how to integrate Sleep as Android with Home Assista
 ha_category:
   - Event
 ha_iot_class: Local push
-ha_release: 2025.7
+ha_release: 2025.9
 ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
@@ -33,7 +33,7 @@ Steps to set up the integration:
 
 1. Preferably, open Home Assistant on the device you want to connect to the Sleep as Android integration and initiate the setup.
 2. You will be presented a URL during the setup process. Mark the URL and copy it to the clipboard.
-3. Open the Sleep as Android app and navigate to *{% icon "mdi:cog" %} Settings → Services → Automation → Webhooks*.
+3. Open the Sleep as Android app and go to {% icon "mdi:cog" %} **Settings** > **Services** > **Automation** > **Webhooks**.
 4. Turn on the switch to enable webhooks and paste the webhook URL from your clipboard into the URL field.
 
 {% note %}
@@ -49,7 +49,7 @@ In this case, you will need to manually update the webhook to use your remote UR
 
 {% tip %}
 
-If you scroll to the top and click on *Events* you can individually select and deselect on which events the Sleep as Android app should trigger.
+If you scroll to the top and select **Events**, you can individually select and deselect the events the Sleep as Android app should trigger.
 
 {% endtip %}
 
@@ -206,4 +206,4 @@ This integration can be removed by following these steps:
 
 {% include integrations/remove_device_service.md %}
 
-4. Open the Sleep as Android app and navigate to *{% icon "mdi:cog" %} Settings → Services → Automation → Webhooks*. Turn off webhooks and remove the URL.
+4. Open the Sleep as Android app and go to {% icon "mdi:cog" %} **Settings** > **Services** > **Automation** > **Webhooks**. Turn off webhooks and remove the URL.
