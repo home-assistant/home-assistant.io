@@ -736,6 +736,27 @@ commands:
   type: list
 {% endconfiguration %}
 
+## Valve open/close
+
+Widget that displays buttons to open, close, or stop a [valve](/integrations/valve).
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_open_close.png' alt='Screenshot of the tile card with open/close feature'>
+  Screenshot of the tile card with valve open/close feature
+</p>
+
+```yaml
+features:
+  - type: "valve-open-close"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-open-close`"
+  type: string
+{% endconfiguration %}
+
 ## Water heater operation modes
 
 Widget that displays buttons to control the operation mode of a [water heater](/integrations/water_heater).
