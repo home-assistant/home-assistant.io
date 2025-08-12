@@ -172,16 +172,16 @@ triggers:
       - event.sleep_as_android_alarm_clock
     attribute: event_type
     to: alert_start
-conditions:
-```yaml
-alias: Open window blinds on Alarm
-triggers:
-  - trigger: state
-    entity_id:
-      - event.sleep_as_android_alarm_clock
-    attribute: event_type
-    to: alert_start
     not_from: unavailable
+conditions:
+  - condition: state
+    entity_id: person.user1
+    state: home
+actions:
+  - action: cover.open_cover
+    target:
+      entity_id: cover.bedroom_blinds
+mode: single
 ```
 
 {% endraw %}
