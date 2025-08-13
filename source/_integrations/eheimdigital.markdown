@@ -153,39 +153,6 @@ actions:
 
 - The integration does not support other EHEIM Digital devices than those listed above. More devices will be added in future updates. It is, however, supported to have an unsupported device as the main device and supported devices as sub-devices, even though the unsupported device will not have any entities shown in Home Assistant.
 
-## Automations
-
-### Send a notification when the filter has an error
-
-You can set up an automation to notify you when the filter has an error. This example uses the `notify.notify` service to send a notification:
-
-{% details "Example automation to notify about filter errors" %}
-
-{% raw %}
-
-```yaml
-alias: Notify about filter error
-description: "This automation sends a notification when the filter has an error."
-mode: single
-triggers:
-  - trigger: state
-    entity_id:
-      - sensor.aquarienfilter_error_code
-    to:
-      - rotor_stuck
-      - air_in_filter
-conditions: []
-actions:
-  - action: notify.notify
-    metadata: {}
-    data:
-      title: The filter has a problem!
-```
-
-{% endraw %}
-
-{% enddetails %}
-
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
