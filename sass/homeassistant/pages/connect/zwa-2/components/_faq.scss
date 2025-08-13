@@ -211,8 +211,6 @@ section#faq {
             }
 
             &-content {
-                display: flex;
-                flex-direction: column;
                 gap: 20px;
                 grid-template-rows: 0fr;
                 justify-content: center;
