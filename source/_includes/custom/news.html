@@ -7,7 +7,7 @@
       aspect-ratio: 580/386;
     " aria-label="State of the Open Home - Saturday April 12th 2025">
     <div
-      style="position: absolute; pointer-events: none; inset: 0; opacity: 0; transition: opacity 1s; overflow: hidden; padding-bottom: 56.25%; border-style: none;">
+      style="position: absolute; pointer-events: none; inset: 0; opacity: 0; transition: opacity 1s; overflow: hidden; border-style: none;">
       <iframe
         style="aspect-ratio: 16/9; position: absolute; top:0; left: 50%; transform: translateX(-50%); height: 100%; border: 0; object-fit: cover;"
         data-src="https://www.youtube-nocookie.com/embed/{{ video_id }}?autoplay=1&mute=1&fs=0&controls=0&modestbranding=1"></iframe>
@@ -229,7 +229,9 @@
       iframes.forEach(iframe => {
         iframe.src = iframe.getAttribute('data-src');
         iframe.removeAttribute('data-src');
-        iframe.parentElement.style.opacity = 1;
+        setTimeout(() => {
+          iframe.parentElement.style.opacity = 1;
+        }, 500);
       });
     };
 
