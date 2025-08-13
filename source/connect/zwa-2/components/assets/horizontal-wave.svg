@@ -162,7 +162,7 @@
             <feGaussianBlur stdDeviation="6"></feGaussianBlur>
             <feComposite in2="hardAlpha" operator="out"></feComposite>
             <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.372549 0 0 0 0 0.745098 0 0 0 1 0"></feColorMatrix>
-            <feBlend mode="plus-lighter" in2="BackgroundImageFix" result="effect1_dropShadow_337_511"></feBlend>
+            <feBlend mode="lighten" in2="BackgroundImageFix" result="effect1_dropShadow_337_511"></feBlend>
             <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_337_511" result="shape"></feBlend>
         </filter>
         <clipPath id="clip0_337_511">

@@ -76,7 +76,7 @@
 <feGaussianBlur stdDeviation="7.35"/>
 <feComposite in2="hardAlpha" operator="out"/>
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.372549 0 0 0 0 0.745098 0 0 0 1 0"/>
-<feBlend mode="plus-lighter" in2="BackgroundImageFix" result="effect1_dropShadow_650_315"/>
+<feBlend mode="lighten" in2="BackgroundImageFix" result="effect1_dropShadow_650_315"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_650_315" result="shape"/>
 </filter>
 <filter id="filter1_d_650_315" x="231.3" y="-1.60723" width="109.4" height="62.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -87,7 +87,7 @@
 <feGaussianBlur stdDeviation="7.35"/>
 <feComposite in2="hardAlpha" operator="out"/>
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.372549 0 0 0 0 0.745098 0 0 0 1 0"/>
-<feBlend mode="plus-lighter" in2="BackgroundImageFix" result="effect1_dropShadow_650_315"/>
+<feBlend mode="lighten" in2="BackgroundImageFix" result="effect1_dropShadow_650_315"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_650_315" result="shape"/>
 </filter>
 <filter id="filter2_d_650_315" x="231.3" y="31.3928" width="109.4" height="62.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -98,7 +98,7 @@
 <feGaussianBlur stdDeviation="7.35"/>
 <feComposite in2="hardAlpha" operator="out"/>
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.372549 0 0 0 0 0.745098 0 0 0 1 0"/>
-<feBlend mode="plus-lighter" in2="BackgroundImageFix" result="effect1_dropShadow_650_315"/>
+<feBlend mode="lighten" in2="BackgroundImageFix" result="effect1_dropShadow_650_315"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_650_315" result="shape"/>
 </filter>
 <filter id="filter3_d_650_315" x="231.3" y="64.3928" width="109.4" height="62.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -109,7 +109,7 @@
 <feGaussianBlur stdDeviation="7.35"/>
 <feComposite in2="hardAlpha" operator="out"/>
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.372549 0 0 0 0 0.745098 0 0 0 1 0"/>
-<feBlend mode="plus-lighter" in2="BackgroundImageFix" result="effect1_dropShadow_650_315"/>
+<feBlend mode="lighten" in2="BackgroundImageFix" result="effect1_dropShadow_650_315"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_650_315" result="shape"/>
 </filter>
 <filter id="filter4_d_650_315" x="231.3" y="97.3928" width="109.4" height="62.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -120,7 +120,7 @@
 <feGaussianBlur stdDeviation="7.35"/>
 <feComposite in2="hardAlpha" operator="out"/>
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.372549 0 0 0 0 0.745098 0 0 0 1 0"/>
-<feBlend mode="plus-lighter" in2="BackgroundImageFix" result="effect1_dropShadow_650_315"/>
+<feBlend mode="lighten" in2="BackgroundImageFix" result="effect1_dropShadow_650_315"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_650_315" result="shape"/>
 </filter>
 <linearGradient id="paint0_linear_650_315" x1="176.491" y1="236.093" x2="176.491" y2="182.593" gradientUnits="userSpaceOnUse">
