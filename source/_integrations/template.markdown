@@ -212,7 +212,7 @@ template:
     required: false
     type: template
   object_id:
-    description: Used `object_id` instead of name for automatic generation of entity_id.  When used without a `unique_id`, the entity id will update if the entity is available.  If the entity id already exists, the entity id will be created with a number at the end. When used with a `unique_id`, the `object_id` is only used when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
+    description: Use `object_id` instead of name for automatic generation of the entity id.  When used without a `unique_id`, the entity id will update during restart or reload if the entity id is available.  If the entity id already exists, the entity id will be created with a number at the end. When used with a `unique_id`, the `object_id` is only used when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   unique_id:
     description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
     required: false
