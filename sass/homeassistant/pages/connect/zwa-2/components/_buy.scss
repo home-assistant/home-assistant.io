@@ -124,8 +124,5 @@ section#buy {
             margin-top: unset;
             max-width: 26rem;
         }
-        @include bp(large-desktop) {
-            max-width: 33rem;
-        }
     }
 }

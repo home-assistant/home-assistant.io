@@ -25,7 +25,9 @@ section#long-range {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding-bottom: 80px;
             @include bp(desktop){
+                padding-bottom: 40px;
                 height: 90vh;
             }
         }
