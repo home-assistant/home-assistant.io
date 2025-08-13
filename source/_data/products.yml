@@ -524,7 +524,7 @@ zwa-2:
       logo: /images/distributors/seeed-studio.webp
     # Australia
     - name: Apollo Automation
-      ship_from: US & Canada
+      ship_from: Australia
       ship_to: Australia
       url: https://apolloautomation.com/products/home-assistant-connect-zwa-2
       logo: /images/distributors/apollo.webp
