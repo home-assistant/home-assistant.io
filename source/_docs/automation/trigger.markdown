@@ -825,6 +825,101 @@ blueprint:
 
 {% endraw %}
 
+### Weekday filtering
+
+Time triggers can be filtered to fire only on specific days of the week using the `weekday` option. This allows you to create automations that only run on certain days, such as weekdays or weekends.
+
+The `weekday` option accepts:
+- A single weekday as a string: `"mon"`, `"tue"`, `"wed"`, `"thu"`, `"fri"`, `"sat"`, `"sun"`
+- A list of weekdays using the expanded format
+
+#### Single weekday
+
+This example will turn on the lights only on Mondays at 8:00 AM:
+
+```yaml
+automation:
+  - triggers:
+      - trigger: time
+        at: "08:00:00"
+        weekday: "mon"
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: light.bedroom
+```
+
+#### Multiple weekdays
+
+This example will run a morning routine only on weekdays (Monday through Friday) at 6:30 AM:
+
+```yaml
+automation:
+  - triggers:
+      - trigger: time
+        at: "06:30:00"
+        weekday:
+          - "mon"
+          - "tue"
+          - "wed"
+          - "thu"
+          - "fri"
+    actions:
+      - action: script.morning_routine
+```
+
+#### Weekend example
+
+This example demonstrates a different wake-up time for weekends:
+
+```yaml
+automation:
+  - alias: "Weekday alarm"
+    triggers:
+      - trigger: time
+        at: "06:30:00"
+        weekday:
+          - "mon"
+          - "tue"
+          - "wed"
+          - "thu"
+          - "fri"
+    actions:
+      - action: script.weekday_morning
+
+  - alias: "Weekend alarm"
+    triggers:
+      - trigger: time
+        at: "08:00:00"
+        weekday:
+          - "sat"
+          - "sun"
+    actions:
+      - action: script.weekend_morning
+```
+
+#### Combined with input datetime
+
+The `weekday` option works with all time formats, including input datetime entities:
+
+```yaml
+automation:
+  - triggers:
+      - trigger: time
+        at: input_datetime.work_start_time
+        weekday:
+          - "mon"
+          - "tue"
+          - "wed"
+          - "thu"
+          - "fri"
+    actions:
+      - action: notify.mobile_app
+        data:
+          title: "Work Day!"
+          message: "Time to start working"
+```
+
 ## Time pattern trigger
 
 With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value (when using the web interface this is required, the fields cannot be left empty).

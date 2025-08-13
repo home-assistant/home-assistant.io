@@ -1,18 +1,18 @@
 ---
-title: "Z-Wave Controllers"
-description: "Extended instructions how to setup Z-Wave."
+title: "Z-Wave adapters"
+description: "Extended instructions how to set up Z-Wave."
 related:
   - docs: /integrations/zwave_js/
     title: Z-Wave integration
 ---
 
-## Supported Z-Wave USB Sticks & Hardware Modules
+## Supported Z-Wave adapters
 
-You need to have a compatible Z-Wave stick or module installed. The following devices have been confirmed to work with Z-Wave JS:
+You need to have a compatible Z-Wave adapter installed. The following devices have been confirmed to work with Z-Wave JS:
 
 {% warning %}
 
-The firmwares of 700 and 800 series Z-Wave controllers have several bugs which impact the stability of the mesh and can cause the controller to become unresponsive. Because there is no known firmware version that is completely fixed, it is recommended to choose a firmware based on the following criteria:
+The firmwares of 700 and 800 series Z-Wave adapters have several bugs which impact the stability of the mesh and can cause the adapter to become unresponsive. Because there is no known firmware version that is completely fixed, it is recommended to choose a firmware based on the following criteria:
 
 - 700 series:
   - prefer SDK versions 7.17.2 to 7.18.x or 7.21.6 and newer
@@ -32,7 +32,7 @@ The SDK version does not have to match the firmware version. If you are unsure w
 {% endnote %}
 
 {% important %}
-You should upgrade the firmware on all 700 and 800 series controllers to a recommended version.
+You should upgrade the firmware on all 700 and 800 series adapters to a recommended version.
 {% endimportant %}
 
 Firmware can be upgraded using the below directions:
@@ -44,11 +44,11 @@ Firmware can be upgraded using the below directions:
 
 {% endwarning %}
 
-- 800 series controllers (with some caveats, see notes)
+- 800 series USB adapters (with some caveats, see notes)
   - HomeSeer SmartStick G8
   - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
-- 700 series controllers
+- 700 series USB adapters
   - Aeotec Z-Stick 7 USB stick (ZWA010) (the EU version is not recommended due to RF performance issues)
   - HomeSeer SmartStick+ G3
   - HomeSeer Z-NET G3
@@ -56,7 +56,7 @@ Firmware can be upgraded using the below directions:
   - Zooz S2 Stick 700 (ZST10 700)
   - Z-Wave.Me Z-Station
 
-- 500 series controllers
+- 500 series USB adapters
   - Aeotec Z-Stick Gen5 (see note below)
   - Everspring USB stick - Gen 5
   - GoControl HUSBZB-1 stick
@@ -66,39 +66,34 @@ Firmware can be upgraded using the below directions:
   - HomeSeer SmartStick+ G2
   - HomeSeer Z-NET G2
 
-- Raspberry Pi modules
+- Raspberry Pi HAT adapters
   - Aeotec Z-Pi 7 Raspberry Pi HAT/Shield (ZWA025, 700 series)
   - Z-Wave.Me RaZberry 7 (ZME_RAZBERRY7, 700 series)
   - Z-Wave.Me RaZberry 7 Pro (ZMEERAZBERRY7_PRO or ZMEURAZBERRY7_PRO, 700 series)
   - Z-Wave.Me Razberry 2 (500 series)
   - Z-Wave.Me Razberry 1 (300 series)
 
-If you are just starting out, we recommend that you purchase a 700 series controller or a Raspberry Pi module. The 700 series controllers are the more recent version (when compared to the 500 series). The 700 series controllers support SmartStart, which allows you to add a device by scanning a QR code.
-
+If you are just starting out, we recommend that you purchase an 800 series adapter (with firmware updated to ≥ 7.23.2). The 800 series adapters are the most future-proof and offer the best RF performance.
 {% tip %}
 It's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
 {% endtip %}
 
-## Stick alternatives
+## Third-party hubs
 
-The alternative to a stick is a hub that supports Z-Wave. Home Assistant supports the following hubs with Z-Wave support:
+For the best experience, it is recommended to use an adapter directly with Home Assistant. If this doesn't work for you, you can use a hub that supports Z-Wave. Home Assistant supports the following third-party hubs with Z-Wave support:
 
 - [Vera](/integrations/vera/)
 - [Fibaro](/integrations/fibaro/)
 - [SmartThings](/integrations/smartthings/)
 - [Z-Wave.Me Z-Way](/integrations/zwave_me)
 
-## Controller notes
-
-### 800 Series Controllers
-
-Z-Wave JS does not support Z-Wave Long Range yet.
+## Adapter notes
 
 ### Aeotec Z-Stick
 
 {% note %}
 
-The Aeotec Z-Stick and some of its variants (e.g. Z-Wave.Me UZB1) are known to have compatibility issues with the Linux kernel because of their [non-compliant behavior](https://forums.raspberrypi.com/viewtopic.php?f=28&t=245031#p1502030). Plugging these controllers through a USB hub can serve as a workaround that sometimes mitigates the issue.
+The Aeotec Z-Stick and some of its variants (e.g. Z-Wave.Me UZB1) are known to have compatibility issues with the Linux kernel because of their [non-compliant behavior](https://forums.raspberrypi.com/viewtopic.php?f=28&t=245031#p1502030). Plugging these adapters through a USB hub can serve as a workaround that sometimes mitigates the issue.
 
 {% endnote %}
 

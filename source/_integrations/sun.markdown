@@ -12,6 +12,7 @@ ha_domain: sun
 ha_config_flow: true
 ha_integration_type: integration
 ha_platforms:
+  - binary_sensor
   - sensor
 related:
   - docs: /docs/configuration/

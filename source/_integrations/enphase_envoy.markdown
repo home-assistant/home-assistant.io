@@ -144,6 +144,10 @@ Based on the Envoy firmware version, the Envoy may provide inverter device data 
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> Lifetime energy**: Total energy produced during inverter lifetime (Wh).
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> Report duration**: Time in seconds covered by the last report data.
 
+{% note %}
+Due to a limitation in the Envoy firmware, the inverter device data is only available when 49 or fewer inverters are configured. When more than 49 inverters are configured, only the 3 power production entities are available for each inverter.
+{% endnote %}
+
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_inverter_device.png" alt="micro-inverter device">
   <figcaption>Micro-inverter device with solar production entities.</figcaption>
@@ -700,7 +704,9 @@ When using Envoy Metered with <abbr title="current transformers">CT</abbr>
 
 - not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data and unexpected spikes have been reported. In this case, best use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
 - not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported.
-- `Energy production today` has been reported not to reset to zero at the start of the day. Instead, it resets to a non-zero value that gradually increases over time. This issue has also been reported as starting suddenly overnight. For daily reporting, it is recommended to use a utility meter with the `Lifetime energy production` entity.
+- `Energy production today` and `Energy consumption today` have been reported not to reset to zero at the start of the day. Instead, it resets to a non-zero value that seems to gradually increase over time, although other values have been reported as well. This issue has also been reported as starting suddenly overnight. For daily reporting, it is recommended to use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity.
+
+- `Energy production today`, `Energy consumption today`, `Energy production last seven days` and `Energy consumption last seven days` have been reported not to reset to zero at the start of the day. Instead, it resets to zero at a later time, often 1 am. This seems to be daylight savings time change related.
 
 {% details "History examples for Today's energy production value not resetting to zero" %}
 
@@ -730,7 +736,7 @@ Envoy Metered without installed CT, running older firmware versions, reportedly 
 
 ### Lifetime energy production decreases by 1.2 MWh
 
-Envoy Standard (not Metered), running firmware 8.2.4264, reportedly decreases the **Lifetime energy production** value by 1.2 MWh at irregular times. The current hypothesis is that the step change occurs when one of the inverters exceeds a lifetime value of 1.2 MWh and resets to zero. This leads to the decrease with 1.2 MWh in the aggregated value for all inverters. It's not clear if this also happens for the metered Envoy.
+Envoy Standard (not Metered), running firmware 8.2.4264, reportedly decreases the **Lifetime energy production** value by 1.2 MWh at irregular times. The current hypothesis is that the step change occurs when one of the inverters exceeds an internal lifetime joules counter of 32 bit, which is 1.19 MWh, and resets to zero. This leads to a decrease of 1.2 MWh in the aggregated value for all inverters. It's not clear if this also happens for the metered Envoy.
 
 {% details "History example for Envoy Lifetime energy production value decrease" %}
 
@@ -741,6 +747,14 @@ The example below shows decreases when multiple inverters reach a 1.2 MWh lifeti
 </figure>
 
 {% enddetails %}
+
+### Missing inverter data
+
+If you are not seeing all your installed [inverters](#sensor-entities), and you have more than 49 inverters installed, and you are running HA 2025.7, 2025.7.1, or 2025.7.2, then upgrade HA to 2025.7.3 or newer. Due to a limitation in the Envoy firmware. Only the inverter details for 49 inverters are available. In the mentioned releases, any more inverters got dropped. The 2025.7.3 version fixed this by only using the inverter base data, which does not have this limitation.
+
+### Missing inverter details
+
+If you are not seeing [inverters](#sensor-entities) detail data, verify if you have more than 49 inverters installed. Due to a limitation in the Envoy firmware, the inverter device detail data is only available when 49 or fewer inverters are configured. When more than 49 inverters are configured, only the 3 power production entities are available for each inverter.
 
 ### Summed Voltage
 

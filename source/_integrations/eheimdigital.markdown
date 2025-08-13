@@ -25,7 +25,7 @@ ha_platforms:
   - sensor
   - switch
   - time
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_zeroconf: true
 ---
 
@@ -55,12 +55,6 @@ You can use this integration to control and monitor your EHEIM Digital aquarium 
 ## Supported devices and entities
 
 Currently, the following devices and entities are supported:
-
-### All devices
-
-#### Number
-
-- **System LED brightness**: Controlling the brightness of the system LED
 
 ### [EHEIM classicLEDcontrol+e](https://eheim.com/en_GB/aquatics/technology/lighting-control/classicledcontrol-e/classicledcontrol-e)
 
@@ -116,7 +110,48 @@ Currently, the following devices and entities are supported:
 - **Day start time**: Setting the start time for the day pump speed in Bio mode
 - **Night start time**: Setting the start time for the night pump speed in Bio mode
 
-Support for additional EHEIM Digital devices and entities will be added in future updates.
+### All supported devices
+
+#### Number
+
+- **System LED brightness**: Controlling the brightness of the system LED
+
+## Automations
+
+### Send a notification when the filter has an error
+
+You can set up an automation to notify you when the filter has an error. This example uses the `notify.notify` service to send a notification:
+
+{% details "Example automation to notify about filter errors" %}
+
+{% raw %}
+
+```yaml
+alias: Notify about filter error
+description: "This automation sends a notification when the filter has an error."
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - sensor.aquarienfilter_error_code
+    to:
+      - rotor_stuck
+      - air_in_filter
+conditions: []
+actions:
+  - action: notify.notify
+    metadata: {}
+    data:
+      title: The filter has a problem!
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+## Known limitations
+
+- The integration does not support other EHEIM Digital devices than those listed above. More devices will be added in future updates. It is, however, supported to have an unsupported device as the main device and supported devices as sub-devices, even though the unsupported device will not have any entities shown in Home Assistant.
 
 ## Automations
 
