@@ -2,6 +2,9 @@
 <div class="grid__item one-third lap-one-half palm-one-whole">
 
   {% assign video_id = "Z-pUkM6XIuA" %}
+  {% assign show_livestream = false %}
+
+  {% if show_livestream %}
   <a href="https://www.youtube.com/watch?v={{ video_id }}" class="material-card livestream-card" target="_blank" style="
       background-image: url(/images/frontpage/zwa-2-livestream.webp);
       aspect-ratio: 580/386;
@@ -18,6 +21,7 @@
       </div>
     </div>
   </a>
+  {% endif %}
 
   {% assign releases_post_limit = 2 %}
   {% assign blog_post_limit = 4 %}
