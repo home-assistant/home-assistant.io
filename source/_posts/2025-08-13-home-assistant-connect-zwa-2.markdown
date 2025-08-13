@@ -2,8 +2,8 @@
 layout: post
 title: "Z-Wave reborn - Home Assistant Connect ZWA-2"
 description: "Announcing the ultimate way to connect Z-Wave devices to Home Assistant"
-date: 2025-08-12 00:00:01
-date_formatted: "August 12, 2025"
+date: 2025-08-13 00:00:01
+date_formatted: "August 13, 2025"
 author: Paulus Schoutsen
 comments: true
 categories: Announcements Z-Wave
@@ -16,7 +16,7 @@ Introducing the [Home Assistant Connect ZWA-2](/connect/zwa-2/), the ultimate wa
 
 If you’re not using Z-Wave, it's time to take a second look, as Connect ZWA-2 is a different beast. It might be just what you need to reach that tricky spot in your home… or even beyond. Connect ZWA-2 supports Z-Wave Long Range, and this modern take on the standard delivers exceptional reach along with more responsive, battery-efficient devices. Every home is different, but our testers have managed connections in places they once thought impossible.
 
-Join the smart home range revolution for **$69 or €59**! For quick details, specs, and where to buy, visit our [Home Assistant Connect ZWA-2 page](/connect/zwa-2/). It's available for purchase today. Read on to learn what goes into the ultimate Z-Wave upgrade.
+Join the smart home range revolution for **$69 or €59** (that’s the recommended MSRP, and pricing will vary by retailer). For quick details, specs, and where to buy, visit our [Home Assistant Connect ZWA-2 page](/connect/zwa-2/). It's available for purchase today. Read on to learn what goes into the ultimate Z-Wave upgrade.
 
 <a href="/connect/zwa-2" style="display:block;text-align:center;"><img src='/images/blog/2025-08-home-assistant-connect-zwa-2/buy.webp' style='border: 0;box-shadow: none;' alt="Buy the Home Assistant Connect ZWA-2"></a>
 <!--more-->
