@@ -487,7 +487,8 @@ voice-pe:
       url: https://www.robbshop.nl/home-assistant-voice-preview-edition
       logo: /images/distributors/robb.webp
 zwa-2:
-  name: "<strong>Home Assistant Connect ZWA-2</strong>"
+  name: "<strong>Home Assistant</strong> Connect ZWA-2"
+  new: true
   distributors:
     # America
     - name: Apollo Automation
