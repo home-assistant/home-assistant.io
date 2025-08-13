@@ -1,5 +1,6 @@
 section#specs {
     //height: 100vh;
+    background: linear-gradient(180deg, #0F121F 0%, #082F5C 100%);
 
     h2{
         margin-bottom: 24px;
@@ -127,6 +128,10 @@ section#specs {
         .spec-value {
             font-size: 12px;
             color: #B7C9D9;
+
+            div:not(:last-child){
+                margin-bottom: 8px;
+            }
         }
 
     }

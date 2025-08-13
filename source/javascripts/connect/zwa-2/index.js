@@ -138,27 +138,27 @@ if (configCards) {
 const longRange = document.querySelector("section#long-range svg.range-waves");
 const devices = document.querySelectorAll("section#long-range .devices .device");
 
-// Use IntersectionObserver to trigger animation when top center enters viewport
+// Use IntersectionObserver to trigger animation when the top of the element is 20% into the viewport
 if (longRange) {
-    const observer1 = new IntersectionObserver((entries, observer1) => {
+    const observer1 = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
-            console.log(0);
             if (entry.isIntersecting) {
-                console.log(1);
                 // Only fire once
                 longRange.style.setProperty("--enter", 1);
-                [...devices].forEach(d => {
+                devices.forEach(d => {
                     setTimeout(() => {
                         d.style.opacity = 1;
-                    }, 500 + (Math.floor(Math.random() * 1000)));
-                })
-                observer1.disconnect();
+                    }, 500 + Math.floor(Math.random() * 1000));
+                });
+                obs.disconnect();
             }
         });
     }, {
         root: null,
-        threshold: 0.5,
-        rootMargin: "0px 0px 5% 0px" // Top center
+        threshold: 0, // trigger as soon as it enters the adjusted root area
+        // Shrink the root rectangle from the top by 20% of the viewport height so
+        // intersection occurs when the element's top has moved 20% into view.
+        rootMargin: "-50% 0px 0px 0px"
     });
     observer1.observe(longRange);
 }

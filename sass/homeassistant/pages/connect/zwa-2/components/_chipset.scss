@@ -20,6 +20,19 @@ section#chipset {
         }
     }
 
+    .model-still{
+        position: relative;
+        &:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10rem;
+            background: linear-gradient(180deg, #0f121f 0%, rgba(10, 19, 34, 0.00) 100%);
+        }
+    }
+
     &:after {
         content: '';
         position: absolute;

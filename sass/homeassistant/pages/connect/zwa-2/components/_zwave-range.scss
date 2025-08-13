@@ -26,8 +26,19 @@ section#zwave-range {
                 flex-grow: 1;
                 flex-basis: 0;
             }
+        }
+    }
 
+    .mobile{
+        @include bp(tablet) {
+            display: none;
+        }
+    }
 
+    .tablet{
+        display: none;
+        @include bp(tablet) {
+            display: block;
         }
     }
 
@@ -37,10 +48,8 @@ section#zwave-range {
     }
 
     .section-inner-content {
-        //height: 64vh;
+        padding-bottom: 0;
     }
-
-    .feature-cards {}
 
     .feature-card {
         background-color: rgba(2, 35, 68, 0.2);
