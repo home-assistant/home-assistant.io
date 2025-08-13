@@ -426,6 +426,11 @@ voice-pe:
       ship_to: Europe
       url: https://mediarath.de/products/home-assistant-voice-preview-edition-open-source-privacy-focused-voice-assistant-with-esphome
       logo: /images/distributors/mediarath.de.webp
+    - name: Seeed Studio
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.seeedstudio.com/Home-Assistant-Voice-p-6998.html
+      logo: /images/distributors/seeed-studio.webp
     - name: Dinamotech
       ship_from: Italy
       ship_to: Europe
