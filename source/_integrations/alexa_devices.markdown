@@ -19,7 +19,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Alexa Devices** {% term integration %} lets you control Alexa-enabled devices connected to your Amazon account.
@@ -65,9 +65,42 @@ This means that the specified country may need a special setting.
 Open a issue with all details to investigate
 {% endnote %}
 
+## Actions
+
+### Available Actions
+
+Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`
+
+#### Action `notify.send_message`
+
+Devices with appropriate functionality will have speak and announce notify entities created. These can be used as the target for the `notify.send_message` action.
+
+{% tip %}
+When sending notifications to multiple devices, you may experience delays due to rate limiting by Amazon. You can avoid this by sending notifications to speaker groups created in Alexa.
+{% endtip %}
+
+#### Action `alexa_devices.send_text_command`
+
+This action essentially allows you to control Alexa using text commands rather than speech. You should be able to request anything you would via speech using this action.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------------------------------------- |
+| `device_id` | no | Device on which you want to run action |
+| `text_command` | no | Command to send |
+
+#### Action `alexa_devices.send_sound`
+
+This action allows you to play one of the built-in Alexa sounds. The full list of sounds and their variants is available in [Amazon's documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html)
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------------------------------------- |
+| `device_id` | no | Device on which you want to play sound |
+| `sound_variant` | no | The variant you want to play (generally 1) |
+| `sound` | no | The name of the sound to play |
+
 ## Examples
 
-### Automation: Announce welcome when you arrive home
+### Send announcement when you arrive home
 
 ```yaml
 automation:
@@ -85,6 +118,44 @@ automation:
         entity_id: notify.echo_dot_livingroom_announce
 ```
 
+### Ask the time
+
+```yaml
+action: alexa_devices.send_text_command
+data:
+  device_id: 037d79c1af96c67ba57ebcae560fb18e
+  text_command: whats the time
+```
+
+### Play BBC Radio 6
+
+```yaml
+action: alexa_devices.send_text_command
+data:
+  device_id: 037d79c1af96c67ba57ebcae560fb18e
+  text_command: play BBC Radio 6
+```
+
+### Play a doorbell sound
+
+```yaml
+action: alexa_devices.send_sound
+data:
+  sound_variant: 1
+  sound: amzn_sfx_doorbell_chime
+  device_id: 037d79c1af96c67ba57ebcae560fb18e
+```
+
+### Play alternative doorbell sound
+
+```yaml
+action: alexa_devices.send_sound
+data:
+  sound_variant: 2
+  sound: amzn_sfx_doorbell_chime
+  device_id: 037d79c1af96c67ba57ebcae560fb18e
+```
+
 ## Data updates
 
 This integration {% term polling polls %} data from the device every 30 seconds by default.
@@ -97,6 +168,10 @@ The **Alexa Devices** {% term integration %} provides the following entities:
 - Notify - Speak and Announce notifications
 - Sensor - temperature and illuminance sensors
 - Switch - Do not disturb
+
+## Known limitations
+
+This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 
 ## Troubleshooting
 

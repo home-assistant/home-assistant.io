@@ -59,16 +59,7 @@ Endpoints for the new generations are not yet available and will be released in 
 
 ## Prerequisites
 
-{% details "Manual entry of authentication credentials" %}
-
-- Visit [https://www.miele.com/developer](https://www.miele.com/f/com/en/register_api.aspx) and sign up for a developer account.
-- Enter an arbitrary name for your connection and the email of your login for the original Miele app.
-- On success, you will get an email with an activation link. Press the **Activate** button. Make note of the client ID and secret - you will need them for the next step.
-You may be prompted to create an [Application - The provided Miele User Account email address must be all lowercase; otherwise, it will result in authentication failures.
-- The password should not contain any special characters. Even though it works in the Miele app, it may not work with the API.
-- Allow a couple of minutes to get the activation email. All changes in the developer portal take a couple of minutes before the change is implemented. Save your credentials as you will need them later.
-
-{% enddetails %}
+Make sure that you have your username, password, and country available for your Miele account.
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -85,7 +76,7 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% include integrations/config_flow.md %}
 
-The integration configuration may ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
+The integration configuration may ask for *Client ID* and *Client Secret*. See [Troubleshooting](/integrations/miele/#troubleshooting) below and [Application Credentials](/integrations/application_credentials) for more details.
 
 ## Supported functionality
 
@@ -159,10 +150,10 @@ Climate entities are used to control target temperatures in refrigerators, freez
   - **Energy forecast**: Shows the forecast percentage of the maximum energy the program will consume for a given cycle.
   - **Water consumption**: Shows the water consumption during the current program cycle. The value will be reset after finishing the program.
   - **Water forecast**: Shows the forecast percentage of the maximum water the program will consume for a given cycle.
-  - **Temperature**: Represents the current temperature in refrigerators, freezers, and ovens. Entities are created for up to 3 zones depending on the device capabilities.
+  - **Temperature**: Represents the current temperature in refrigerators, freezers, and ovens. Entities are created for up to 3 zones depending on the device capabilities. For zones 2 and 3, the temperature sensor is dynamically created when the appliance is turned on and a valid value is reported.
   - **Target temperature**: Shows the set target temperature for ovens and washing machines.
-  - **Core temperature**: Shows the core temperature of the food in ovens with an appropriate temperature probe.
-  - **Target core temperature**: Shows the set core target temperature for the food in ovens with an appropriate temperature probe.
+  - **Core temperature**: Shows the core temperature of the food in ovens with an appropriate temperature probe. This sensor is dynamically created when the appliance is turned on, a program is started and the temperature probe is connected to the appliance.
+  - **Target core temperature**: Shows the set core target temperature for the food in ovens with an appropriate temperature probe. This sensor is dynamically created when the appliance is turned on, a program is started and the core target temperature is set on the device.
   - **Drying step**: Shows the selected drying step on tumble dryers.
   - **Elapsed time**: Shows the number of minutes that the current program has been running.
   - **Remaining time**: Shows the estimated number of minutes remaining in the current program cycle. This value can fluctuate during a program cycle based on load dirtiness or water‑heating time.
@@ -185,6 +176,38 @@ Climate entities are used to control target temperatures in refrigerators, freez
 
 - **Robot vacuum cleaner**: Miele robot vacuum cleaners can be monitored and controlled to a limited extent. The device can be started, stopped, and paused. The fan speed can also be set.
 {% enddetails %}
+
+## Actions
+
+### Action `miele.set_program`
+
+Set and start a program for applicable appliances. Note that the device must be in a state where it will accept a new program, for example, most washing machines must be in state `on` and many appliances must be set manually to 'MobileStart' or 'MobileControl' in advance. An error message is displayed if the device did not accept the action command.
+The action can be set up by UI in Automations editor. It can also be executed in Developer tools.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `device_id`    | no       |  Select device in GUI mode, then switch to YAML mode to see the device_id.                                        |
+| `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to use the `get_programs` action from developer tools. It can also be found by fetching a diagnostic download while running the actual program. Use the value from the key  `state.programId.value_raw`.|
+
+### Action `miele.set_program_oven`
+
+Set and start a program for oven appliances. Note that the device must be in a state that will accept a new program. For example, most ovens must be in the state `on`, and many appliances must be set manually to 'MobileStart' or 'MobileControl' in advance. An error message is displayed if the device does not accept the action command.
+The action can be set up by UI in the **Automations** editor. It can also be executed in the **Developer tools**.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `device_id`    | no       |  Select device in GUI mode, then switch to YAML mode to see the device_id.                                        |
+| `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to use the `get_programs` action from developer tools. It can also be found by fetching a diagnostic download while running the actual program. Use the value from the key  `state.programId.value_raw`.|
+| `duration`     | yes      |  Set an optional duration for the oven program.|
+| `temperature`  | yes      |  Set an optional target temperature for the oven program.|
+
+### Action `miele.get_programs`
+
+Get the list of available programs and associated parameters for applicable appliances. The API will return an empty list if the device doesn't support programs (for example, freezers). Same requirements on device state as described for `set_program` action above.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `device_id`    | no       |  Select the device in GUI mode, then switch to YAML mode to see the device_id.                                        |
 
 ## Automation examples
 
@@ -212,6 +235,30 @@ actions:
 {% endraw %}
 {% enddetails %}
 
+### Set program and start washing machine
+
+Load your washing machine and manually activate mobile start or remote control mode on the machine.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: "Wash cottons early in the morning"
+description: "Set cottons program and start washing machine early in the morning"
+triggers:
+  - trigger: time
+    at: "04:00:00"
+actions:
+  - action: miele.set_program
+    data:
+      device_id: <Your washing machine's device_id>
+      program_id: 1
+```
+
+{% endraw %}
+{% enddetails %}
+
 ## Data updates
 
 This integration uses server-sent events from the Miele API to receive live updates from the appliances.
@@ -223,6 +270,19 @@ When the configuration entry is loaded or after a streaming error (for example a
 - This integration supports only one integration entry, as the Miele 3rd party API does not allow for the unique identification of an account.
 
 ## Troubleshooting
+
+{% details "Manual entry of authentication credentials" %}
+
+Follow these instructions if you are instructed to do so by a developer or by Miele support. It is not needed for normal use of the integration.
+
+- Visit [https://www.miele.com/developer](https://www.miele.com/f/com/en/register_api.aspx) and sign up for a developer account.
+- Enter an arbitrary name for your connection and the email of your login for the original Miele app.
+- On success, you will get an email with an activation link. Press the **Activate** button. Make note of the client ID and secret - you will need them for the next step.
+You may be prompted to create an [Application - The provided Miele User Account email address must be all lowercase; otherwise, it will result in authentication failures.
+- The password should not contain any special characters. Even though it works in the Miele app, it may not work with the API.
+- Allow a couple of minutes to get the activation email. All changes in the developer portal take a couple of minutes before the change is implemented. Save your credentials as you will need them later.
+
+{% enddetails %}
 
 {% details "Problem: Unavailable entities for a device" %}
 

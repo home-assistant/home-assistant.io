@@ -68,6 +68,45 @@ The integration provides a few entities to configure the device settings. The fo
 - Loudness
 - Turn on volume
 
+## Playing media
+
+Russound RIO supports recalling AM/FM and Sirius XM presets using the `media_player.play_media` action. 
+
+### Examples:
+
+Russound RIO can recall any stored presets saved on the device for a given source. The preset ID can be between 1-36. Some devices may display presets within banks of six presets total. The preset ID can be calculated by combining the current bank and preset. An example action using a preset for Bank 1, Preset 1:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.russound_deck
+data:
+  media_content_type: "preset"
+  media_content_id: "1"
+```
+
+An example action using a preset for Bank 2, Preset 1:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.russound_deck
+data:
+  media_content_type: "preset"
+  media_content_id: "7"
+```
+
+
+The action will only impact the current source for a zone. If you want to recall a preset on a specific source, you can use the format `source_id,preset_id`. For example, if you want to recall Bank 2, Preset 2 using Source 1:
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.russound_deck
+data:
+  media_content_type: "preset"
+  media_content_id: "1,8"
+```
+
 ## Troubleshooting
 
 ### There is a delay on getting the current status

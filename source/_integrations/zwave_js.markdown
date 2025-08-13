@@ -90,7 +90,7 @@ To run a Z-Wave network, you need the following elements:
 
 If you are running {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %}, the easiest way to get started is by using the built-in Z-Wave JS add-on in Home Assistant.
 
-For other ways to setup a Z-Wave server, refer to the [advanced installation instructions](#about-installation-instructions).
+For other ways to setup a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
 
 Follow these steps:
 
@@ -329,13 +329,14 @@ It is recommended to back up your Z-Wave network before resetting the device.
 ### To reset a Z-Wave adapter
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration.
-   - Then, on the entry of the hub, select {% icon "ic:baseline-arrow-forward-ios" %} to open the device info page.
-3. Under **Device info**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
+2. Select the **Z-Wave** integration. Then, select the controller.
+3. Under **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Factory reset**.
 
 
     ![Screenshot showing the device panel of a Z-Wave adapter](/images/integrations/z-wave/z-wave-controller-commands.png)
-4. Once the process is finished, you can use this adapter to start a new network, or pass it on to someone else.
+4. On the device info page, check the logbook. When you see that the status entity became unavailable, the reset process is finished.
+   - You can now unplug the adapter and use it to start a new network, or pass it on to someone else.
+5. If you no longer need the Z-Wave integration, you can [remove it](#removing-z-wave-js-from-home-assistant) from Home Assistant.
 
 ## Special Z-Wave entities
 
@@ -1008,32 +1009,48 @@ You can switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on
 
 ### How to switch from Z-Wave JS to the Z-Wave JS UI add-on?
 
-You can switch from the official **Z-Wave JS** add-on to the **Z-Wave JS UI** add-on. However, you cannot run them both at the same time. Only one of the add-ons can be active at the same time.
+You can switch from the official **Z-Wave JS** add-on to the community **Z-Wave JS UI** add-on. However, you cannot run them both at the same time. Only one of the add-ons can be active at the same time.
 
-Switching does not require renaming your devices.
+Both add-ons communicate with Home Assistant via the same **Z-Wave** {% term integration %}.
 
 1. Note your network security keys from the official add-on.
+   - In your browser, open {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.  
+   - From the three dots {% icon "mdi:dots-vertical" %} menu, select **Edit in YAML**.
+   - You should see about 12 lines of YAML, including items like `device: xxx` and `s2_access_control_key: xxx`.  Select all and copy them somewhere safe.  You will need them later.
 
-2. Install and start the **Z-Wave JS UI** add-on.
+2. Install and start the community **Z-Wave JS UI** add-on.
+   - In your browser, open {% my supervisor_store title="**Settings** > **Add-ons** > **Add-on Store**" %}.
+   - Select **Install**, then **Start**.
    - It may take a while for the add-on to start up.
 
-3. Open the **Documentation** tab and copy the URL listed in the section **Setting up the Home Assistant Z-Wave JS integration**. You will need it later.
-4. Start reconfiguring the adapter.
-   - In your browser, open Home Assistant in a new tab.
-   - Select the **Z-Wave** integration and select the three-dot {% icon "mdi:dots-vertical" %} menu.
+3. Note the WebSocket URL that the integration will use to communicate with Z-Wave JS.
+    - Within the same **Z-Wave JS UI** add-on from step 2, open the **Documentation** tab.
+    - Search (Ctrl-F) for a link that begins with "ws://".  For example, `ws://a0d7b954-zwavejs2mqtt:3000`.
+    - Copy that URL somewhere safe.  You will need it later.
+
+4. Start reconfiguring the integration.
+   - Open a new browser tab.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Z-Wave** integration.  
+   - Select the three-dot {% icon "mdi:dots-vertical" %} menu next to the **Z-Wave JS** top row.
    - From the menu, select **Reconfigure**, then **Reconfigure current adapter**.
-   - Uncheck the **Use the Z-Wave JS Supervisor add-on**.
-   - Keep that tab open.
-5. Switch to the other tab to configure the **Z-Wave JS UI** add-on with the added control panel, including setting the location of your Z-Wave device and the network security keys.
-   - Open the **Z-Wave JS UI** web UI and go to **Settings** > **UI** > **Z-Wave**.
-   - Enter the security keys and region.
+   - Uncheck **Use the Z-Wave JS Supervisor add-on**.
+   - Keep this tab open.
+
+5. Configure the new add-on using the information saved in step 1.
+   - Switch back to your initial browser tab.
+   - Within the **Z-Wave JS UI** add-on, switch back to the **Info tab** and select **Open Web UI**.
+   - Open the **Settings** {% icon "mdi:cog" %} page and expand the **Z-Wave** section.
+   - Fill out the subsections for **Serial Port**, **Security Keys**, and **RF Region**.
    - Save your changes.
 
-6. Switch back to the tab where you started the reconfiguration of the integration.
-   - Under **WebSocket URL**, enter the URL you copied before.
+6. Finish reconfiguring the integration.
+   - Switch back to the tab from step 4.
+   - Under **WebSocket URL**, enter the URL you saved in step 3.
 
-7. Uninstall the official **Z-Wave JS** add-on.
-   - You are asked if you want to delete the related data. Keep it if you think you might switch back to the **Z-Wave JS** add-on later.
+7. Uninstall the official add-on.
+   - Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %} and select **Uninstall**.
+   - You are asked if you want to delete the related data. 
+   - Keep it if you think you might switch back to the **Z-Wave JS** add-on later.
 
 ### How to migrate from one adapter to a new adapter using Z-Wave JS UI?
 
@@ -1137,8 +1154,7 @@ If the interview is complete, then the device does not yet have a device file fo
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow these steps:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration.
-   - Then, select the three dots {% icon "mdi:dots-vertical" %} menu.
+2. Select the **Z-Wave** integration. Then, select the three-dot {% icon "mdi:dots-vertical" %} menu.
 3. From the dropdown menu, select **Download diagnostics**.
 
 ### How do I address interference issues?

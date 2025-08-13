@@ -71,7 +71,7 @@ If an entity listed below has an asterisk (*) next to its name, it means it is d
 
 If an entity listed below has a plus (+) next to its name, it means this entity supports push updates. These entities will have almost instant state changes. 
 For redundancy, the state of all entities is also polled every 60 seconds. For entities without a plus (+), this is the only update method. Therefore, a device's state change can take up to 60 seconds to be reflected in Home Assistant.
-An exception is the firmware update entity, which is polled every 12 hours.
+An exception is the firmware update entity, which is polled every 24 hours.
 Another exception are battery cameras, most {% term entities %} are still {% term polling polls %} every 60 seconds. However, the entities that would cause the camera to wake from sleep will only be polled during the following events:
 
 - The camera wakes by itself (PIR event) and the last update was more than 1 hour ago.
@@ -177,6 +177,8 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Image saturation*+ (default 128)
 - Image sharpness*+ (default 128)
 - Image hue*+ (default 128)
+- Pre-recording time*
+- Pre-recording stop battery level*
 
 **Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
@@ -242,6 +244,8 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Hub visitor ringtone
 - Hub scene mode (Off, Disarmed, Home, Away)
 - Recording packing time
+- Pre-recording frame rate*
+- Post-recording time
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -279,6 +283,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Doorbell button sound
 - Record
 - Manual record+
+- Pre-recording
 - Privacy mode+
 - Privacy mask
 - Push notifications
@@ -336,7 +341,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 
 ### Update entity
 
-An update entity is available that checks for firmware updates every 12 hours.
+An update entity is available that checks for firmware updates every 24 hours.
 Updates are checked both through the camera API and directly from the [Reolink download center](https://reolink.com/download-center/).
 Therefore the update entity in Home Assistant can find and install a firmware update from the [Reolink download center](https://reolink.com/download-center/) while the Reolink app/windows/web client does not always find this update.
 
@@ -364,6 +369,8 @@ The following models have been tested and confirmed to work with a direct link t
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
 - [E1 Outdoor Pro](https://reolink.com/product/e1-outdoor-pro/)
 - [Elite Floodlight WiFi](https://reolink.com/product/elite-floodlight-wifi/)
+- [FE-P](https://reolink.com/product/fe-p/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
+- [FE-W](https://reolink.com/product/fe-w/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
 - [Lumus Pro](https://reolink.com/product/lumus-pro/)
 - RLC-410*
 - [RLC-410W](https://reolink.com/product/rlc-410w/)
