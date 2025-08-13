@@ -334,7 +334,12 @@ It is recommended to back up your Z-Wave network before resetting the device.
 
 
     ![Screenshot showing the device panel of a Z-Wave adapter](/images/integrations/z-wave/z-wave-controller-commands.png)
-4. Once the process is finished, you can use this adapter to start a new network, or pass it on to someone else.
+4. On the device info page, check the logbook. When you see that the firmware became unavailable, the reset process is finished.
+   - You can now unplug the adapter and use it to start a new network, or pass it on to someone else.
+5. If you no longer need the Z-Wave integration, you can remove it from Home Assistant.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
+     - Next to the integration entry, select the three dots {% icon "mdi:dots-vertical" %} menu.
+     - Select **Delete**.
 
 ## Special Z-Wave entities
 
