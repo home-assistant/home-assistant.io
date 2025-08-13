@@ -523,6 +523,11 @@ zwa-2:
       url: https://www.seeedstudio.com/Home-Assistant-Connect-ZWA-2-p-6509.html
       logo: /images/distributors/seeed-studio.webp
     # Australia
+    - name: Apollo Automation
+      ship_from: US & Canada
+      ship_to: Australia
+      url: https://apolloautomation.com/products/home-assistant-connect-zwa-2
+      logo: /images/distributors/apollo.webp
     # - name: Smart Home
     #   ship_from: Australia
     #   ship_to: Australia
@@ -534,6 +539,11 @@ zwa-2:
       ship_to: Europe
       url: https://www.seeedstudio.com/Home-Assistant-Connect-ZWA-2-p-6509.html
       logo: /images/distributors/seeed-studio.webp
+    - name: Alza.cz
+      ship_from: Czech Republic
+      ship_to: Europe
+      url: https://www.alza.cz/home-assistant-connect-zwa-2-d13044889.htm
+      logo: /images/distributors/alza-cz.webp
     - name: Mauser.pt
       ship_from: Portugal
       ship_to: Europe
@@ -589,11 +599,11 @@ zwa-2:
       ship_to: Europe
       url: https://mediarath.de/products/home-assistant-connect-zwa-2-antenne-z-wave-800-long-range-plus-plus-v2
       logo: /images/distributors/mediarath.de.webp
-    # - name: ROBBshop
-    #   ship_from: Netherlands
-    #   ship_to: Europe
-    #   url: PENDING
-    #   logo: /images/distributors/robb.webp
+    - name: SmarterHOME
+      ship_from: Czech Republic
+      ship_to: Europe
+      url: https://smarterhome.sk/cs/adaptery-moduly-a-softver/home-assistant-connect-zwa-2-z-wave-usb-adapter-1890.html
+      logo: /images/distributors/smarter-home.png
     - name: SmarterHOME
       ship_from: Slovakia
       ship_to: Europe
