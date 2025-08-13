@@ -22,4 +22,3 @@ source/.jekyll-metadata
 !.vscode/extensions.json
 !.vscode/tasks.json
 *.suo
-tags*
