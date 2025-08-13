@@ -13,8 +13,16 @@ section#long-range {
         flex-direction: column;
         text-align: center;
 
+        p{
+            max-width: 800px;
+            margin: 0 auto;
+            @include bp(desktop){
+                font-size: 20px;
+            }
+        }
         .col {
             max-width: 440px;
+
         }
     }
 
@@ -27,8 +35,6 @@ section#long-range {
             justify-content: center;
             padding-bottom: 80px;
             @include bp(desktop){
-                padding-bottom: 40px;
-                height: 90vh;
             }
         }
     }
@@ -119,8 +125,8 @@ section#long-range {
                 .icon {
                     border-radius: 50%;
                     display: grid;
-                    width: 24px;
-                    height: 24px;
+                    width: 26px;
+                    height: 26px;
                     place-items: center;
                     background-color: var(--connect-line-blue);
                     position: relative;
@@ -152,7 +158,7 @@ section#long-range {
                     }
 
                     svg {
-                        height: 10px;
+                        height: 14px;
                         width: auto;
 
                         @include bp(desktop) {
@@ -186,13 +192,17 @@ section#long-range {
                 }
 
                 &--garage {
-                    top: 30%;
+                    top: 35%;
                     left: 85%;
                 }
 
                 &--sprinkler {
                     top: 75%;
                     left: calc(100% - 37px - var(--container-gutters));
+                    display: none;
+                    @include bp(tablet) {
+                        display: block;
+                    }
                 }
             }
 

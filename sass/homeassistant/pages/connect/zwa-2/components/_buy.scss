@@ -5,7 +5,7 @@ section#buy {
     
     @include bp(desktop) {
         isolation: unset;
-        height: 100vh;
+        height: calc(100vh - var(--header-height));
     }
 
     &:after {
@@ -123,6 +123,9 @@ section#buy {
             font-size: 16px;
             margin-top: unset;
             max-width: 26rem;
+        }
+        @include bp(1750px) {
+            max-width: 33rem;
         }
     }
 }
