@@ -161,6 +161,11 @@ If you've unlocked the class system, button controls for casting player and part
 
 - **Rest in the Inn**: When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
 
+## Notifier
+
+- **Party chat**: Sends a message to your party's group chat.
+- **Private message**: Sends a private message to an individual party member. A separate notify entity is created for each member of your party.
+
 ## Party
 
 If you’re part of a party, the integration creates a device with these entities.
