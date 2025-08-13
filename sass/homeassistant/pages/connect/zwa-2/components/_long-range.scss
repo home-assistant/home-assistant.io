@@ -13,13 +13,15 @@ section#long-range {
         flex-direction: column;
         text-align: center;
 
-        p{
+        p {
             max-width: 800px;
             margin: 0 auto;
-            @include bp(desktop){
+
+            @include bp(desktop) {
                 font-size: 20px;
             }
         }
+
         .col {
             max-width: 440px;
 
@@ -34,8 +36,8 @@ section#long-range {
             flex-direction: column;
             justify-content: center;
             padding-bottom: 80px;
-            @include bp(desktop){
-            }
+
+            @include bp(desktop) {}
         }
     }
 
@@ -56,7 +58,7 @@ section#long-range {
     .waves-wrapper {
         position: relative;
         width: 100%;
-        z-index: -1;
+
         @include bp(desktop) {
             transform: translateY(4rem);
         }
@@ -67,6 +69,7 @@ section#long-range {
             max-width: 3000px;
             transform: translateX(-50%);
             width: 400vw;
+            pointer-events: none;
 
             @include bp(desktop) {
                 width: 200vw;
@@ -81,6 +84,7 @@ section#long-range {
             top: 50%;
             transform: translate(-50%, -60%);
             z-index: 1;
+
             @include bp(desktop) {
                 transform: translate(-50%, -50%);
             }
@@ -103,6 +107,14 @@ section#long-range {
 
                     @include bp(desktop) {
                         top: 56px;
+                    }
+                }
+
+                &.simon-active {
+                    .icon {
+                        &:before {
+                            background-color: #04ff00;
+                        }
                     }
                 }
 
@@ -147,9 +159,11 @@ section#long-range {
                         background-color: var(--connect-line-blue);
                         border-radius: 50%;
                         opacity: .5;
+                        transition: background-color .25s;
                         width: 40px;
                         height: 40px;
                         z-index: -1;
+
 
                         @include bp(desktop) {
                             width: 74px;
@@ -200,6 +214,7 @@ section#long-range {
                     top: 75%;
                     left: calc(100% - 37px - var(--container-gutters));
                     display: none;
+
                     @include bp(tablet) {
                         display: block;
                     }

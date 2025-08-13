@@ -1,10 +1,10 @@
 import { ZWA2RenderAnimation } from "./render-animations.js"; // Adjust path if needed
 import { ZWA2Animations } from "animations";
 import { ConnectHeader } from "header";
+import { Simon } from "simon";
 
 // A flag to ensure animations are only initialized once.
 let animationsLoaded = false;
-
 // let smoother = ScrollSmoother.create({
 //   smooth: 2, 
 //   effects: true
@@ -169,8 +169,10 @@ if (longRange) {
 
 maybeLoadAnimations();
 document.addEventListener('DOMContentLoaded', () => {
+    let simon = new Simon(document.querySelectorAll("section#long-range .devices .device"));
     maybeLoadAnimations();
     featuresEntry.checkInViewOnLoad();
+    console.log("Repeat after me. Let's see how *long* you can last. -Darren");
 });
 // Also check on resize, in case the user rotates a tablet or resizes a browser window.
 window.addEventListener('resize', maybeLoadAnimations);

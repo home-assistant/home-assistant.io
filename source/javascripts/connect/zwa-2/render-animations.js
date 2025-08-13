@@ -154,7 +154,6 @@ export class ZWA2RenderAnimation {
             this.meta.frame = frame;
             this.ensureBufferLoaded(frame, 30);
             const status = this.computeBufferStatus(frame);
-            console.log(`[ZWA2][autoplay] frame=${frame} aheadLoaded=${status.aheadLoaded}/${this.bufferForward} behindLoaded=${status.behindLoaded}/${this.bufferBackward} aheadRemaining=${status.aheadRemaining} behindRemaining=${status.behindRemaining}`);
             this.render();
             if (progress < 1) {
                 autoplayRequest = requestAnimationFrame(autoplayStep);
@@ -230,7 +229,6 @@ export class ZWA2RenderAnimation {
         this.targetFrame = initialFrame;
         this.ensureBufferLoaded(initialFrame);
         const initStatus = this.computeBufferStatus(initialFrame);
-        console.log(`[ZWA2][init] frame=${initialFrame} aheadLoaded=${initStatus.aheadLoaded}/${this.bufferForward} behindLoaded=${initStatus.behindLoaded}/${this.bufferBackward} aheadRemaining=${initStatus.aheadRemaining} behindRemaining=${initStatus.behindRemaining}`);
         this.render();
 
         window.addEventListener('resize', () => {
