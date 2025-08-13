@@ -7,10 +7,10 @@ date_formatted: "August 13, 2025"
 author: Paulus Schoutsen
 comments: true
 categories: Announcements Z-Wave
-og_image: /images/blog/2025-07-nuki/art.jpg
+og_image: /images/blog/2025-08-home-assistant-connect-zwa-2/art.webp
 ---
 
-<img src='/images/blog/2025-08-home-assistant-connect-zwa-2/art.webp' style='border: 0;box-shadow: none;' alt="Nuki Joins Works with Home Assistant">
+<img src='/images/blog/2025-08-home-assistant-connect-zwa-2/art.webp' style='border: 0;box-shadow: none;' alt="Z-Wave reborn - Home Assistant Connect ZWA-2">
 
 Introducing the [Home Assistant Connect ZWA-2](/connect/zwa-2/), the ultimate way to connect Z-Wave devices to Home Assistant. Between its optimized antenna and seamless integration with Home Assistant, it should be a big upgrade for anyone using Z-Wave today.
 

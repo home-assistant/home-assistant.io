@@ -15,6 +15,11 @@ section#hero {
         flex-direction: column;
 
         >span {
+            &:first-child{
+                span:last-child{
+                    font-weight: 400;
+                }
+            }
             span {
                 color: #001A35;
                 animation: letter-fade 2s forwards .2s;
