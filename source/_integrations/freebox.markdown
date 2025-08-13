@@ -4,6 +4,7 @@ description: Instructions on how to integrate Freebox routers into Home Assistan
 ha_category:
   - Alarm
   - Camera
+  - Light
   - Network
   - Presence detection
   - Sensor
@@ -21,6 +22,7 @@ ha_platforms:
   - button
   - camera
   - device_tracker
+  - light
   - sensor
   - switch
 ha_zeroconf: true
@@ -36,6 +38,7 @@ There is currently support for the following device types within Home Assistant:
 - [Device tracker](#presence-detection) for connected devices
 - [Switch](#switch) to control Wi-Fi
 - [Camera](#camera)
+- [Light](#light) to control the LED strip (brightness and effects)
 - [Binary sensors](#binary)
 - [Alarm_control_panel](#alarm-control-panel)
   
@@ -61,7 +64,7 @@ You must have set a password for your Freebox router web administration page. En
 
 The first time Home Assistant will connect to your Freebox, you will need to authorize it by pressing the right arrow on the facade of the Freebox when prompted to do so.
 
-To make the Wi-Fi switch and the reboot action working, you will have to add "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+To make the Wi-Fi switch, LED strip control and the reboot action working, you will have to add "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
 To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme et maison connectée" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
@@ -105,6 +108,24 @@ The health status of each RAID array can be monitored with a diagnostics binary 
 ## Camera
 
 Cameras are only available in Freebox V7 (also known as Freebox Delta).
+
+## Light
+
+The Freebox LED strip on the limited edition Freebox Ultra can be controlled as a light entity. This feature allows you to:
+
+- Turn the LED strip on/off
+- Adjust brightness levels
+- Select different visual effects
+
+The LED strip control requires the "Modification des réglages de la Freebox" permission to be granted to the Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+
+### Configuration
+
+The LED strip is automatically discovered once the integration is set up and the appropriate permissions are granted. No additional configuration is required.
+
+### Available Effects
+
+The LED strip supports various visual effects that can be selected through the light entity's effect attribute. The available effects may vary depending on your Freebox model.
 
 ## Binary
 This platform offers you sensors to monitor:
