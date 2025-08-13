@@ -12,6 +12,7 @@ ha_category:
   - Lock
   - Media player
   - Notifications
+  - Numbers
   - Organization
   - Sensor
   - Switch
@@ -31,6 +32,7 @@ ha_platforms:
   - light
   - lock
   - media_player
+  - number
   - notify
   - sensor
   - switch
@@ -287,6 +289,18 @@ sensor:
       - sensor.temperature_hallway
 ```
 
+Example YAML configuration of a number group:
+
+```yaml
+# Example configuration.yaml entry
+number:
+  - platform: group
+    type: mean
+    entities:
+      - input_number.brightness_livingroom
+      - input_number.brightness_diningroom
+```
+
 Example YAML configuration of a switch group:
 
 ```yaml
@@ -317,11 +331,11 @@ all:
   type: boolean
   default: false
 type:
-  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, `product`, `stdev`, or `sum`."
+  description: "Only available for `sensor` or `number` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, `product`, `stdev`, or `sum`."
   type: string
   required: true
 ignore_non_numeric:
-  description: Only available for `sensor` group. Set this to `true` if the group state should ignore sensors with non numeric values.
+  description: Only available for `sensor` or `number` group. Set this to `true` if the group state should ignore sensors with non numeric values.
   type: boolean
   required: false
   default: false
