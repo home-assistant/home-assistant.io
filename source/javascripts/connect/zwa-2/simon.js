@@ -21,7 +21,7 @@ export class Simon {
         // Web Audio
         this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         this.masterGain = this.audioCtx.createGain();
-        this.masterGain.gain.value = 0.05;
+        this.masterGain.gain.value = 0.1;
         this.masterGain.connect(this.audioCtx.destination);
 
         // Assign a stable unique random frequency to each pad
@@ -101,8 +101,16 @@ export class Simon {
 
     _nextLevel() {
         this.level += 1;
-        // Append random pad to sequence
-        const pad = this.pads[Math.floor(Math.random() * this.pads.length)];
+        // Append a random pad to sequence, ensuring it is not the same as the previous one
+        let pad;
+        const last = this.sequence[this.sequence.length - 1];
+        if (this.pads.length === 1) {
+            pad = this.pads[0]; // Edge case: only one pad available
+        } else {
+            do {
+                pad = this.pads[Math.floor(Math.random() * this.pads.length)];
+            } while (last && pad === last);
+        }
         this.sequence.push(pad);
         this.userProgress = 0;
         console.log(`[Simon] Level ${this.level}`);
