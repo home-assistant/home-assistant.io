@@ -101,7 +101,7 @@ For plant measurements, the following status scale is applied:
 - High
 - Too High
 
-For the measurements sensors (light, moisture, salinity and temperature) the maximal/minimal acceptable and maximal/minimal good value is saved as an extra attribute of the sensor, so that these values can be used for automations or visualizations on the dashboard.
+For the measurement sensors (light, moisture, salinity, and temperature), the maximal/minimal acceptable and maximal/minimal good values are saved as an extra attribute of the sensor, so that these values can be used for automations or visualizations on the dashboard.
 
 ## Data updates
 
