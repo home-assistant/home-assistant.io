@@ -170,9 +170,8 @@ Change station settings to activate Home Assistant:
 
 1. Go to menu **All settings**
 2. Set check box **"HA on"** to **"yes"**. This activates the Home Assistant functionality of your station. 
-3. Set check box **"HA pull on"** to **"yes"**. This gives the Home Assistant server access to the measurement data list hold in the station.
-4. Press button **"Submit"**.
-5. Select the maximum number of sensors the **TFA.me station** should hold. When you have one station and N external sensors, set the size to (N+1). Enter this value in text field **"Resize HA table"** and press button **"Resize"**.
+3. Press button **"Submit"**.
+4. Optional: Select the maximum number of sensors the **TFA.me station** should hold. When you have one station and N external sensors, set the size to (N+1). Enter this value in text field **"Resize HA table"** and press button **"Resize"**. The default value is set to 25, minimum is 2 & maximum is 75.
 
 Your station is now prepared for Home Assistant. It generates a table with all station & sensor measurement values. The list may be emtpy at start because the sensor values were not received. Just wait some minutes until you see all sensors. Normally this only takes 5 minutes which is the typically sensor & station transmission interval. 
 
@@ -237,8 +236,8 @@ The naming scheme is as follows:
 - `sensor.A01234567_temperature` 
 - `sensor.A01234567_humidity` 
 - `sensor.A01234567_rssi` 
-- `sensor.A01234567_low_batt` 
-
+- `sensor.A01234567_lowbatt` 
+- `sensor.A01234567_lowbatt_txt` 
 
 
 ### Multiple entities
@@ -254,14 +253,16 @@ The naming scheme is as follows:
 - `sensor.017654321_A01234567_temperature`
 - `sensor.017654321_A01234567_humidity`
 - `sensor.017654321_A01234567_rssi` 
-- `sensor.017654321_A01234567_low_batt` 
+- `sensor.017654321_A01234567_lowbatt` 
+- `sensor.017654321_A01234567_lowbatt_txt` 
 
 **Example**: T/H-Sensor A01-234-456 receiced via gateway 031-654-321:
 
 - `sensor.031654321_A01234567_temperature`
 - `sensor.031654321_A01234567_humidity`
 - `sensor.031654321_A01234567_rssi` 
-- `sensor.031654321_A01234567_low_batt` 
+- `sensor.031654321_A01234567_lowbatt` 
+- `sensor.031654321_A01234567_lowbatt_txt` 
 
 
 When **Single entities** is chosen and a sensor is received from more the one station/gateway, Home Assistant will remove one of then, because they have the same entity name.
@@ -272,44 +273,48 @@ When **Single entities** is chosen and a sensor is received from more the one st
 
 | ID | Prefix | Gateway-ID (*) | Sensor-ID | Measurements | 
 |----|--------|----------------|-----------|--------------|
-| 01 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `rssi`, `low_batt` | 
-| 02 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `rssi`, `low_batt` | 
-| 03 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `rssi`, `low_batt` | 
-| 04 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `rssi`, `low_batt` | 
-| 05 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `barometric_pressure`, `rssi`, `low_batt` | 
+| 01 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt` | 
+| 02 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt` | 
+| 03 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt` | 
+| 04 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt` | 
+| 05 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `barometric_pressure`, `rssi`, `lowbatt` | 
 |    |         |             |              | |
-| A0 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `rssi`, `low_batt` | 
-| A1 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `rain`, `rain_rel`, `rain_hour`, `rssi`, `low_batt` | 
-| A2 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `wind_direction`, `wind_speed`, `wind_gust`, `rssi`, `low_batt` | 
-| A3 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `temperature_probe`, `rssi`, `low_batt` | 
-| A4 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `temperature_probe`, `rssi`, `low_batt` | 
-| A5 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `rssi`, `low_batt` | 
-| A6 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `rssi`, `low_batt` | 
+| A0 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `rssi`, `low_batt`, `lowbatt_txt` | 
+| A1 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `rain`, `rain_rel`, `rain_1_hour`, `rain_24_hours`, `rssi`, `lowbatt`, `lowbatt_txt` | 
+| A2 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `wind_direction`, `wind_speed`, `wind_gust`, `rssi`, `lowbatt`, `lowbatt_txt` | 
+| A3 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `temperature_probe`, `rssi`, `lowbatt`, `lowbatt_txt` | 
+| A4 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `temperature_probe`, `rssi`, `lowbatt`, `lowbatt_txt` | 
+| A5 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `rssi`, `lowbatt`, `lowbatt_txt` | 
+| A6 |`sensor.`| `xxxxxxxxx_`| `yyyyyyyyy_` | `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt` | 
 
-(*) Optional
+(*) Only used if **Multiple entities** is chosen. 
 
 All units are metric.
 
 | Measurements | Unit | Comments |
 |---------------|------|----------|
-|`temperature`, `temperature_probe`|**°C**||
+|`temperature`, `temperature_probe`|**°C**|Temperature|
 |`humidity`|**%**|Relative humidity|
-|`barometric_pressure`|**hPa**||
+|`barometric_pressure`|**hPa**|Barometric pressure|
 |`rain`|**mm**| Rain fall, absolute value|
-|`rain_rel`, `rain_hour`|**mm**| Rain fall, relative value|
+|`rain_rel`, `rain_1_hour`, `rain_24_hours`|**mm**| Rain fall, relative value|
 |`rssi`|**1/256**| Theoretical range: 0(bad) ... 255(very good)<br>Practical range: 80(bad) ... 230(very good)|
-|`low_batt`|**-**| 0: battery good, 1: battery bad|
+|`lowbatt`|**-**| 0: battery good, 1: battery bad|
+|`lowbatt_txt`|**-**| No: battery good, Yes: battery bad|
 |`wind_speed`, `wind_gust `|**m/s**|Speed is the average speed of last measurement period, gust is the maximum.|
 |`wind_direction`|**-**|Value range: 0...15 for the 16 main directions:<BR> 0="N", 1="NNE", 2="NE", 3="ENE", 4="E", 5="ESE", 6="SE", 7="SSE", 8="S", 9="SSW",10="SW", 11="WSW", 12="W", 13="WNW", 14="NW", 15="NNW"|
+|`wind_direction_deg`|**degress**|Value range: 0...337.5 for the 16 main directions (step 22.5):<BR> 0.0="N", 22.5="NNE", 45.0="NE", ... 337.5="NNW"|
+|`wind_direction_txt`|**-**|Text values for the 16 main directions:<BR> "N", "NNE", "NE", "ENE", "E","ESE", "SE", "SSE","S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"|
 
 
 ### More informations to entities
 
 
 **Notes:**
-- `rain_rel` and `rain_hour` are generated entities and does not come from the rain sensor itself. 
+- `rain_rel`, `rain_1_hour` and `rain_24_hours` are generated entities and does not come from the rain sensor itself. 
 - `rain_rel` is the rain value since the integration was started or since last reset of this value. This value can be reset by option **"Reset all rain sensors**" 
-- `rain_hour` is the rain value of the last hour. For that integration holds the history of rainfall values ​​from the last hour.
+- `rain_1_hour` is the rain value of the last hour. For that integration holds the history of rainfall values ​​from the last hour.
+- `rain_24_hours` is the rain value of the last 24 hours. For that integration holds the history of rainfall values ​​from the last 24 hours.
 - `rssi` values for stations are set to 255. They are internal values and not received via 868 MHz.
 - Sensors not received longer then (2 * transmisson interval time + 1 minute) are marked as **unavailable**. A sensor that sends every 5 minutes is marked after (2 * 5 + 1) = 11 minutes.
 - Dynamically Icons: Icons for measurement values (entities) are some time depending on the measuerement value itself.
@@ -334,21 +339,20 @@ All units are metric.
 | lowbatt | full  | {% icon "mdi:battery" %} | 1 |
 | lowbatt | low   | {% icon "mdi:battery-alert" %} | 0 |
 | wind_direction | default   | {% icon "mdi:compass-outline" %} | |
-| wind_direction | N     | {% icon "mdi:arrow-down" %}     | 0, 1 |
-| wind_direction | NE    | {% icon "mdi:arrow-bottom-left" %}     | 2, 3 |
-| wind_direction | E     | {% icon "mdi:arrow-left" %}         | 4, 5 |
-| wind_direction | SE    | {% icon "mdi:arrow-top-left" %}  | 6, 7 |
-| wind_direction | S     | {% icon "mdi:arrow-up" %}          | 8, 9 |
-| wind_direction | SW    | {% icon "mdi:arrow-top-right" %}   | 10, 11 |
-| wind_direction | W     | {% icon "mdi:arrow-right" %}          | 12, 13 |
-| wind_direction | NW    | {% icon "mdi:arrow-bottom-right" %}      | 14, 15 |
-| wind_speed     | default   | {% icon "mdi:weather-windy-variant" %} | |
-| wind_gust      | default   | {% icon "mdi:weather-rainy" %} | |
-| rain | none     | {% icon "mdi:weather-sunny" %} | |
-| rain | light    | {% icon "mdi:weather-partly-rainy" %} | |
-| rain | moderate | {% icon "mdi:weather-partly-rainy" %} | |
-| rain | heavy    | {% icon "mdi:weather-pouring" %} | |
-
+| wind_direction | N, NNE | {% icon "mdi:arrow-down" %}     | 0, 1 |
+| wind_direction | NE, ENE| {% icon "mdi:arrow-bottom-left" %}     | 2, 3 |
+| wind_direction | E, ESE | {% icon "mdi:arrow-left" %}         | 4, 5 |
+| wind_direction | SE, SSE| {% icon "mdi:arrow-top-left" %}  | 6, 7 |
+| wind_direction | S, SSW | {% icon "mdi:arrow-up" %}          | 8, 9 |
+| wind_direction | SW, SSW| {% icon "mdi:arrow-top-right" %}   | 10, 11 |
+| wind_direction | W, WNW | {% icon "mdi:arrow-right" %}          | 12, 13 |
+| wind_direction | NW, NNW| {% icon "mdi:arrow-bottom-right" %}      | 14, 15 |
+| wind_speed     | default   | {% icon "mdi:weather-windy-variant" %} | | 
+| wind_gust      | default   | {% icon "mdi:weather-windy" %} | |
+| rain | none     | {% icon "mdi:weather-sunny" %} | (< 0.1 mm)/hour|
+| rain | light    | {% icon "mdi:weather-partly-rainy" %} | (0.1 mm ... < 0.5 mm)/hour|
+| rain | moderate | {% icon "mdi:weather-rainy" %} | (0.5 mm ... < 4.0 mm)/hour|
+| rain | heavy    | {% icon "mdi:weather-pouring" %} | (> 4.0 mm)/hour|
 
  
 ## Removing the integration
@@ -370,6 +374,8 @@ This integration follows the standard integration removal process; no extra step
 
 ## Troubleshooting
 
-If you have any problems with your **TFA.me system**, please contact TFAs support.
+If you have any problems with please join the [Home Assistant Help](https://www.home-assistant.io/help/) pages.
+
+TODO: Link to GitHub
 
 
