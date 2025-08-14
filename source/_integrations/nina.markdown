@@ -26,7 +26,7 @@ This integration may only work with an Internet connection that supports IPv4.
 
 ### Data updates
 
-The integration fetches the warning every 5 minutes.
+The integration checks for warnings every 5 minutes.
 
 ### Filter
 
