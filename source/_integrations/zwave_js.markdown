@@ -236,7 +236,7 @@ If you are using the Z-Wave JS add-on, Home Assistant automatically changes the 
 1. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.
 2. Open the **Configuration** tab.
 3. In the **Options** section, select the **Radio Frequency Region**.
-   - **Automatic** means it is setting the region based on the location defined under {% my general title="**Settings** > **System** > **General**" %}.
+   - **Automatic** sets the region based on the location defined under {% my general title="**Settings** > **System** > **General**" %}.
    - For regions where Long Range is available, it uses Long Range if the adapter supports it.
    - If you set regions manually, choose one of the Long Range options where available:
      - **Europe (Long Range)** or **USA (Long Range)**.
