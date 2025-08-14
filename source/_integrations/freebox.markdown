@@ -64,7 +64,7 @@ You must have set a password for your Freebox router web administration page. En
 
 The first time Home Assistant will connect to your Freebox, you will need to authorize it by pressing the right arrow on the facade of the Freebox when prompted to do so.
 
-To make the Wi-Fi switch, LED strip control and the reboot action working, you will have to add "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+To enable the Wi-Fi switch, LED strip control, and the reboot action working, you will have to add **Modification des réglages de la Freebox** permission to Home Assistant application in **Paramètres de la Freebox** > **Gestion des accès** > **Applications**.
 
 To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme et maison connectée" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
@@ -117,13 +117,13 @@ The Freebox LED strip on the limited edition Freebox Ultra can be controlled as 
 - Adjust brightness levels
 - Select different visual effects
 
-The LED strip control requires the "Modification des réglages de la Freebox" permission to be granted to the Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+To control the LED strip, you need to grant Home Assistant the **Modification des réglages de la Freebox** permission under **Paramètres de la Freebox** > **Gestion des accès** > **Applications**.
 
 ### Configuration
 
 The LED strip is automatically discovered once the integration is set up and the appropriate permissions are granted. No additional configuration is required.
 
-### Available Effects
+### Available effects
 
 The LED strip supports various visual effects that can be selected through the light entity's effect attribute. The available effects may vary depending on your Freebox model.
 
