@@ -1,4 +1,5 @@
 section#long-range {
+    min-height: 64rem;
     background: linear-gradient(180deg, #030812 0%, #0F121F 80.49%);
 
     @include bp(desktop) {
