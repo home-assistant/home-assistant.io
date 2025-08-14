@@ -30,12 +30,12 @@ The `sonos` integration allows you to control your [Sonos](https://www.sonos.com
 
 ## Feature controls & sensors
 
-Speaker-level controls are exposed as `number` or `switch` entities. Additionally, various `sensor` and `binary_sensor` entities are provided.
+Speaker-level controls are exposed as `number`, `select` or `switch` entities. Additionally, various `sensor` and `binary_sensor` entities are provided.
 
 ### Controllable features
 
 - **All devices**: Alarms, Bass, Treble, Loudness, Crossfade, Status Light, Touch Controls
-- **Home theater devices**: Audio Delay ("Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled, Surround Music Full Volume ("Full/Ambient"), Surround Level ("TV Level"), Music Surround Level
+- **Home theater devices**: Audio Delay ("Lip Sync"), Night Sound, Speech Enhancement Enabled, Surround Enabled, Surround Music Full Volume ("Full/Ambient"), Surround Level ("TV Level"), Music Surround Level
 - **When paired with a sub**: Subwoofer Enabled, Subwoofer Gain, Subwoofer Crossover Frequency (Sonos Amp only)
 
 ### Sensors
@@ -44,6 +44,14 @@ Speaker-level controls are exposed as `number` or `switch` entities. Additionall
 - **Devices with battery**: Battery level, Power state
 - **Home theater devices**: Audio Input Format
 - **Voice-enabled devices**: Microphone Enabled
+
+### Select
+
+The following select entities are created:
+
+- **Speech Enhancement**  
+  Lets you set the speech enhancement mode on your **Sonos Arc Ultra**. You can choose from None, Low, Medium, High, or Max.
+
 
 ### Battery support notes
 
