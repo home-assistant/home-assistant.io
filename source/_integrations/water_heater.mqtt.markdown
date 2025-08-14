@@ -12,7 +12,8 @@ The `mqtt` water heater platform lets you control your MQTT enabled water heater
 
 ## Configuration
 
-To enable this water heater platform in your installation, first add the following to your {% term "`configuration.yaml`" %} file:
+To use an MQTT water heater in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -21,6 +22,8 @@ mqtt:
       name: Boiler
       mode_command_topic: "basement/boiler/mode/set"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:

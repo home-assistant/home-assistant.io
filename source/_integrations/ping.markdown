@@ -59,6 +59,7 @@ The integration exposes the different round trip times milliseconds as entities:
 - `Round Trip Time Average` - the average round trip time
 - `Round Trip Time Minimum` - the shortest round trip time
 - `Round Trip Time Maximum` - the longest round trip time
+- `Jitter` - the variation in round trip times
 
 **These entities are disabled by default and can be enabled in the UI if needed.**
 

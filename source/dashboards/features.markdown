@@ -74,6 +74,33 @@ modes:
   type: list
 {% endconfiguration %}
 
+## Button
+
+Widget that displays buttons to control [button](/integrations/button) or [script](/integrations/script).
+
+<p class='img'>
+  <img src='/images/dashboards/features/button.png' alt='Screenshot of the tile card with the button feature'>
+  Screenshot of the tile card with the button feature
+</p>
+
+```yaml
+features:
+  - type: "button"
+    action_name: "Click the button"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`button`"
+  type: string
+action_name:
+  required: false
+  type: string
+  description: Text inside the button.
+  type: string
+{% endconfiguration %}
+
 ## Climate fan modes
 
 Widget that displays buttons or icons to control the fan mode for a [climate](/integrations/climate) device.
@@ -292,6 +319,27 @@ features:
 type:
   required: true
   description: "`cover-tilt-position`"
+  type: string
+{% endconfiguration %}
+
+## Fan direction
+
+Widget that displays controls to change direction for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_direction.png' alt='Screenshot of the tile card with the fan direction feature'>
+  Screenshot of the tile card with the fan direction feature
+</p>
+
+```yaml
+features:
+  - type: "fan-direction"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-direction`"
   type: string
 {% endconfiguration %}
 
@@ -686,6 +734,48 @@ commands:
   required: true
   description: List of commands to show on the card. The list can contain `start_pause`, `stop`, `clean_spot`, `locate`, and `return_home`.
   type: list
+{% endconfiguration %}
+
+## Valve open/close
+
+Widget that displays buttons to open, close, or stop a [valve](/integrations/valve).
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_open_close.png' alt='Screenshot of the tile card with open/close feature'>
+  Screenshot of the tile card with valve open/close feature
+</p>
+
+```yaml
+features:
+  - type: "valve-open-close"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-open-close`"
+  type: string
+{% endconfiguration %}
+
+## Valve position
+
+Widget that displays a slider to control the position for a [valve](/integrations/valve).
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_position.png' alt='Screenshot of the tile card with the valve position feature'>
+  Screenshot of the tile card with the valve position feature
+</p>
+
+```yaml
+features:
+  - type: "valve-position"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-position`"
+  type: string
 {% endconfiguration %}
 
 ## Water heater operation modes
