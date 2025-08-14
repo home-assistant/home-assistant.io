@@ -49,8 +49,8 @@ Speaker-level controls are exposed as `number`, `select` or `switch` entities. A
 
 The following select entities are created:
 
-- **Speech Enhancement**  
-  Lets you set the speech enhancement mode on your **Sonos Arc Ultra**. You can choose from None, Low, Medium, High, or Max.
+- **Dialog Level**  
+  Lets you set the dialog mode on your **Sonos Arc Ultra** soundbar. You can choose from None, Low, Medium, High, or Max.
 
 
 ### Battery support notes
