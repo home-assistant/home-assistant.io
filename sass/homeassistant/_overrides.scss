@@ -328,6 +328,9 @@ dd {
     display: flex;
     align-items: center;
     font-weight: normal;
+    @media only screen and (max-width: $menu-collapse) {
+      user-select: none;
+    }
   }
 
 }
