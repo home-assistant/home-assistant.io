@@ -6,6 +6,7 @@ ha_category:
   - Sensor
 ha_release: '2025.9'
 ha_iot_class: Cloud Polling
+ha_quality_scale: Silver
 ha_config_flow: true
 ha_codeowners:
   - '@luuuis'
