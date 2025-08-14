@@ -22,8 +22,12 @@ The **Volvo** {% term integration %} is used to integrate your [Volvo](https://w
 
 ## Supported vehicles
 
-- Car models starting from model year 2010. Features available depend on model and year.
+- Car models starting from model year 2010.
 - Cars located in Europe, Middle East, Africa, US, Canada, and Latin America regions. Or view the [full list of countries](https://developer.volvocars.com/terms-and-conditions/apis-supported-locations/).
+
+{% important %}
+Features available depend on model, year and location.
+{% endimportant %}
 
 ## Prerequisites
 
@@ -33,6 +37,23 @@ The **Volvo** {% term integration %} is used to integrate your [Volvo](https://w
 4. Create an **API application** and give it a meaningful name.
 
 It's recommended to add an API application per vehicle you want to add. There is a maximum on the number of requests that can be made per API key per day.
+
+{% note %}
+Home Assistant will use account linking provided by Nabu Casa for authenticating with Volvo, this service is provided for free and does not require a Nabu Casa subscription.
+
+If you want to use your own `client id` and `client secret`, or you have the [cloud integration](/integrations/cloud) disabled, proceed to "**Using custom application credentials**".
+{% endnote %}
+
+{% details "Using custom application credentials" icon="mdi:account-key" %}
+
+1. On Volvo's API application page, click the **Publish** button underneath your API application.
+2. Fill in all required fields in the screen that follows. Pay attention to:
+   - **Scopes**: Make sure to select them all (you need to expand the sections).
+   - **Redirect URI(s)**: Add `https://my.home-assistant.io/redirect/oauth`.
+3. Click **View summary** and **confirm**.
+4. Grab the `client id` and `client secret` from the confirmation page and add them to your [application credentials](/integrations/application_credentials).
+
+{% enddetails %}
 
 {% include integrations/config_flow.md %}
 
