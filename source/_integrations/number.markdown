@@ -77,7 +77,7 @@ The following device classes are supported for numbers:
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d or mm/h
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg or psi
 - **reactive_energy**: Reactive energy in varh or kvarh
-- **reactive_power**: Reactive power in var or kvar
+- **reactive_power**: Reactive power in mvar, var, or kvar
 - **signal_strength**: Signal strength in dB or dBm
 - **sound_pressure**: Sound pressure in dB or dBA
 - **speed**: Generic speed in ft/s, in/d, in/h, in/s, km/h, kn, m/s, mph, mm/d, or mm/s
