@@ -237,9 +237,10 @@ If you are using the Z-Wave JS add-on, Home Assistant automatically changes the 
 2. Open the **Configuration** tab.
 3. In the **Options** section, select the **Radio Frequency Region**.
    - **Automatic** means it is setting the region based on the location defined under {% my general title="**Settings** > **System** > **General**" %}.
-   - If you have devices that support Long Range, select one of the long range options:
+   - For regions where Long Range is available, it uses Long Range if the adapter supports it.
+   - If you set regions manually, choose one of the Long Range options where available:
      - **Europe (Long Range)** or **USA (Long Range)**.
-     - You can still add devices that don't support long range.
+   - Even with the Long Range option selected, you can still add devices that don't support Long Range.
 4. To apply your changes, select **Save**.
    - Your Z-Wave adapter is now ready to communicate with devices that were specified for your chosen region.
 5. To return to the default setting and use the region defined by Home Assistant, under **Radio Frequency Region** choose **Automatic**.
