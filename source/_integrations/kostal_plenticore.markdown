@@ -22,15 +22,34 @@ The Kostal Plenticore integration allows you to get data from [Kostal Plenticore
 
 The integration uses the REST-API interface which is also used by the integrated Web-UI and therefore uses the same password.
 
+## Installer access
+
+The integration supports installer-level access using a Master key and Service Code. This enables access to future additional settings that are normally restricted to certified installers.
+
+{% warning %}
+
+Using installer credentials:
+
+- Should only be done if you fully understand the implications
+- May void your warranty
+- Could potentially damage your device if settings are incorrectly configured
+- Should be done with extreme caution
+
+{% endwarning %}
+
+To enable installer access, set your Master Key as the password and fill in the Service Code in the configuration when adding the integration.
+
+For information about obtaining installer credentials, please consult your device documentation or contact a certified installer.
+
 {% include integrations/config_flow.md %}
 
 ## Sensors
 
 The integration disables most of the sensors per default. You can enable it in the *Entity* page. The sensors are split into two sets, one for the process data and one for the setting values.
 
-<div class='note'>
+{% note %}
 The Plenticore inverter provides much more data endpoints, some of them are also dependent of the version of the firmware. If you are missing process data values, open an issue with the necessary information or make an pull request.
-</div>
+{% endnote %}
 
 ### Process Data Sensors
 
@@ -122,9 +141,9 @@ The following sensors are available in the library:
 | Energy to Grid Total | kWh | Energy fed into the grid in total, since the system was installed. |
 | Sum power of all PV DC inputs | W | Total sum of power provided by all PV inputs together. |
 
-<div class='note'>
+{% note %}
 The inverter does not provide any data about the energy that is fed into the grid directly, but the `pykoplenti` library provides it via virtual process data.
-</div>
+{% endnote %}
 
 #### Configuration of the energy dashboard
 
@@ -136,9 +155,9 @@ The following sensors can be used in the [energy dashboard](/docs/energy/):
 | Solar production | Energy PV1 Total, Energy PV2 Total, Energy PV3 Total |
 | Battery systems  | Battery Discharge Total, Battery Charge from PV Total |
 
-<div class='note'>
+{% note %}
 Some of the energy is measured on the DC side and some on the AC side, so the values may differ slightly due to losses between DC and AC.
-</div>
+{% endnote %}
 
 ### Settings Sensors
 
@@ -151,9 +170,15 @@ The following sensors are available in the library:
 | Battery Strategy        |      | RW | Battery strategy. |
 | Shadow Management       |      | RW | PV string shadow management. |
 
-<div class='note'>
+If you use installer access to connect, you also have access to the following sensors:
+
+| Name                    | Unit | RW | Description   |
+|-------------------------|------|----|:--------------|
+| Battery Manual Charge   |      | RW | Force the battery to charge. |
+
+{% note %}
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
-</div>
+{% endnote %}
 
 #### Battery Strategy
 
@@ -169,6 +194,12 @@ The Battery Smart Control sensor appears as a select field labeled "Battery Char
 - **Battery:SmartBatteryControl:Enable**: the battery loading optimizes grid feed-in and battery loading. This setting is recommended when the grid feed-in is limited to, for example, 70% of the Plenticore Plus peak power.
 - **Battery:TimeControl:Enable**: battery charging/discharging can be configured flexibly at different times (tariff periods). Detailed settings must be done on the web frontend of the Kostal Plenticore Plus inverter. This option activates the time-controlled battery usage mode.
 
+#### Battery Manual Charge
+
+The Battery Manual Charge sensor allows you to force charge the battery to 100%, regardless of PV generation or home usage.
+This setting is available when using installer access and should therefore only be used with the same caution as using installer access.
+More on [Installer Access](#installer-access)
+
 ## Number
 
 The following Number entities are available. The values could also be change from Home Assistant.
@@ -177,3 +208,11 @@ The following Number entities are available. The values could also be change fro
 |-------------------------|------|----|:--------------|
 | Battery min Home Consumption | W    | RW | Min. home consumption power for battery. |
 | Battery min SoC         | %    | RW | Min. SoC of battery. |
+
+## Diagnostics
+
+The following diagnostic sensors are available.
+
+| Name                    | Data Type | Description   |
+|-------------------------|-----------|:-------------------------------------------|
+| Active Errors           | Integer   | Count of currently active errors. |

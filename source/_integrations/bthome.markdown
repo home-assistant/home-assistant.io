@@ -8,10 +8,12 @@ ha_release: 2022.9
 ha_iot_class: Local Push
 ha_codeowners:
   - '@Ernst79'
+  - '@thecode'
 ha_domain: bthome
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - event
   - sensor
 ha_integration_type: integration
 ---

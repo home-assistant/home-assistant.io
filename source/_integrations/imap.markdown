@@ -7,6 +7,7 @@ ha_release: 0.25
 ha_iot_class: Cloud Push
 ha_domain: imap
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ha_codeowners:
@@ -18,7 +19,15 @@ The IMAP integration is observing your [IMAP server](https://en.wikipedia.org/wi
 
 {% include integrations/config_flow.md %}
 
-### Gmail with App Password
+### IMAP services with App Passwords
+
+### Microsoft 365 and Live IMAP services
+
+Microsoft has removed support for direct use (App) passwords when accessing IMAP without modern verification. You can create an App password, but access is only allowed though OAUTH2 enabled mail clients authorized by Microsoft or via an App registration in Microsoft Entra ID (school or business).
+
+An OAUTH2 authentication flow is not supported for the IMAP integration. This means that unfortunately, it is not possible to use Home Assistant IMAP with Microsoft 365 IMAP services for school and business and the (free) personal Microsoft Live IMAP services.
+
+### Google Gmail IMAP service
 
 If you’re going to use Gmail, 2-step verification must be enabled on your Gmail account.  Once it is enabled, you need to create an [App Password](https://support.google.com/mail/answer/185833).
 
@@ -53,19 +62,12 @@ By default, this integration will count unread emails. By configuring the search
 
 ### Selecting a charset supported by the imap server
 
-Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US-ASCII` as charset:
+Some IMAP services, like Yahoo, require a `US-ASCII` charset to be configured.
 
-- Server: `outlook.office365.com`
-- Port: `993`
-- Username: Your full email address
-- Password: Your password
-- Charset: `US-ASCII`
+### Selecting message data to include in the IMAP event (advanced mode)
 
-<div class="note">
-
-Yahoo also requires the character set `US-ASCII`.
-
-</div>
+By default, the IMAP event won't include `text` or `headers` message data. If you want them to be included (`text` or `headers`, or both), you have to manually select them in the option flow. 
+Another way to process the `text` data, is to use the `imap.fetch` action. In this case, `text` won't be limited by size.
 
 ### Selecting an alternate SSL cipher list or disabling SSL verification (advanced mode)
 
@@ -74,21 +76,17 @@ The SSL cipher list option allows you to select the list of SSL ciphers to be ac
 
 If you are using self signed certificates, you can turn off SSL verification.
 
-<div class='note info'>
-
+{% important %}
 The SSL cipher list and verify SSL are advanced settings. The options are available only when advanced mode is enabled (see user settings).
-
-</div>
+{% endimportant %}
 
 ### Enable IMAP-Push
 
 IMAP-Push is enabled by default if your IMAP server supports it. If you use an unreliable IMAP service that periodically drops the connection and causes issues, you might consider turning off IMAP-Push. This will fall back to polling the IMAP server.
 
-<div class='note info'>
-
+{% important %}
 The enforce polling option is an advanced setting. The option is available only when advanced mode is enabled (see user settings).
-
-</div>
+{% endimportant %}
 
 ### Troubleshooting
 
@@ -103,23 +101,21 @@ The table below shows what attributes come with `trigger.event.data`. The data i
 
 The attributes shown in the table are also available as variables for the custom event data template. The [example](/integrations/imap/#example---custom-event-data-template) shows how to use this as an event filter.
 
-<div class='note info'>
-
+{% important %}
 The custom event data template is an advanced feature. The option is available only when advanced mode is enabled (see user settings). The `text` attribute is not size limited when used as a variable in the template.
-
-</div>
+{% endimportant %}
 
 {% configuration_basic %}
 server:
   description: The IMAP server name
 username:
-  description: The IMAP user name
+  description: The IMAP username
 search:
   description: The IMAP search configuration
 folder:
   description: The IMAP folder configuration
 text:
-  description: The email body `text` of the message. By default, only the first 2048 bytes of the body text will be available, the rest will be clipped off. You can increase the maximum text size of the body, but this is not advised and will never guarantee that the whole message text is available. A better practice is using a custom event data template (advanced settings) that can be used to parse the whole message, not limited by size. The rendered result will then be added as attribute `custom` to the event data to be used for automations.
+  description: The email body `text` of the message. By default, only the first 2048 bytes of the body text will be available, the rest will be clipped off. You can increase the maximum text size of the body, but this is not advised and will never guarantee that the whole message text is available. A better practice is using a custom event data template (advanced settings) that can be used to parse the whole message, not limited by size. The rendered result will then be added as attribute `custom` to the event data to be used for automations. `text` will be included if it is explicitly selected in the option flow.
 sender:
   description: The `sender` of the message
 subject:
@@ -127,36 +123,37 @@ subject:
 date:
   description: A `datetime` object of the `date` sent
 headers:
-  description: The `headers` of the message in the for of a dictionary. The values are iterable as headers can occur more than once.
+  description: The `headers` of the message in the for of a dictionary. The values are iterable as headers can occur more than once. `headers` will be included if it is explicitly selected in the option flow.
 custom:
   description: Holds the result of the custom event data [template](/docs/configuration/templating). All attributes are available as a variable in the template.
 initial:
   description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message received has not been changed, then an `imap_content` event is generated and the `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email, the `initial` property will always be set to `True`.
-
+uid:
+  description: Latest `uid` of the message.
 {% endconfiguration_basic %}
 
 The `event_type` for the custom event should be set to `imap_content`. The configuration below shows how you can use the event data in a template `sensor`.
 
 If the default maximum message size (2048 bytes) to be used in events is too small for your needs, then this maximum size setting can be increased. You need to have your profile set to _advanced_ mode to do this.
 
-<div class='note warning'>
-
+{% warning %}
 Increasing the default maximum message size (2048 bytes) could have a negative impact on performance as event data is also logged by the `recorder`. If the total event data size exceeds the maximum event size (32168 bytes), the event will be skipped.
-
-</div>
+{% endwarning %}
 
 {% raw %}
 
 ```yaml
 template:
   - trigger:
-      - platform: event
+      - trigger: event
         event_type: "imap_content"
         id: "custom_event"
     sensor:
       - name: imap_content
         state: "{{ trigger.event.data['subject'] }}"
         attributes:
+          Entry: "{{ trigger.event.data['entry_id'] }}"
+          UID: "{{ trigger.event.data['uid'] }}"
           Message: "{{ trigger.event.data['text'] }}"
           Server: "{{ trigger.event.data['server'] }}"
           Username: "{{ trigger.event.data['username'] }}"
@@ -174,6 +171,55 @@ template:
 
 {% endraw %}
 
+### Actions for post-processing
+
+The IMAP integration has some actions for post-pressing email messages. The actions are intended to be used in automations as actions after an "imap_content" event. The actions take the IMAP `entry_id` and the `uid` of the message's event data. You can use a template for the `entry_id` and the `uid`. When the action is set up as a trigger action, you can easily select the correct entry from the UI. You will find the `entry_id` in YAML mode. It is highly recommended you filter the events by the `entry_id`.
+
+Available actions are:
+
+- `seen`: Mark the message as seen.
+- `move`: Move the message to a `target_folder` and optionally mark the message `seen`.
+- `delete`: Delete the message.
+- `fetch`: Fetch the content of a message. Returns a dictionary containing `"text"`, `"subject"`, `"sender"` and `"uid""`. This allows to fetch and process the complete message text, not limited by size.
+
+{% caution %}
+When these actions are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these actions unless you know what you are doing.
+{% endcaution %}
+
+## Example - post-processing
+
+The example below filters the event trigger by `entry_id`, fetches the message and stores it in `message_text`. It then marks the message in the event as seen and finally, it adds a notification with the subject of the message. The `seen` action `entry_id` can be a template or literal string. In UI mode you can select the desired entry from a list as well.
+
+{% raw %}
+
+```yaml
+alias: "imap fetch and seen example"
+description: "Fetch and mark an incoming message as seen"
+triggers:
+  - trigger: event
+    event_type: imap_content
+    event_data:
+      entry_id: 91fadb3617c5a3ea692aeb62d92aa869
+conditions:
+  - condition: template
+    value_template: "{{ trigger.event.data['sender'] == 'info@example.com' }}"
+actions:
+  - action: imap.fetch
+    data:
+      entry: 91fadb3617c5a3ea692aeb62d92aa869
+      uid: "{{ trigger.event.data['uid'] }}"
+    response_variable: message_text
+  - action: imap.seen
+    data:
+      entry: 91fadb3617c5a3ea692aeb62d92aa869
+      uid: "{{ trigger.event.data['uid'] }}"
+  - action: persistent_notification.create
+    data:
+      message: "{{ message_text['subject'] }}"
+```
+
+{% endraw %}
+
 ## Example - keyword spotting
 
 The following example shows the usage of the IMAP email content sensor to scan the subject of an email for text, in this case, an email from the APC SmartConnect service, which tells whether the UPS is running on battery or not.
@@ -183,7 +229,7 @@ The following example shows the usage of the IMAP email content sensor to scan t
 ```yaml
 template:
   - trigger:
-      - platform: event
+      - trigger: event
         event_type: "imap_content"
         id: "custom_event"
         event_data:
@@ -221,7 +267,7 @@ Below is the template sensor which extracts the information from the body of the
 ```yaml
 template:
   - trigger:
-      - platform: event
+      - trigger: event
         event_type: "imap_content"
         id: "custom_event"
         event_data:
@@ -270,7 +316,7 @@ The example below will only set the state to the subject of the email of templat
 ```yaml
 template:
   - trigger:
-      - platform: event
+      - trigger: event
         event_type: "imap_content"
         id: "custom_event"
         event_data:
@@ -281,3 +327,9 @@ template:
 ```
 
 {% endraw %}
+
+## Remove an IMAP service
+
+This integration follows standard config entry removal.
+
+{% include integrations/remove_device_service.md %}

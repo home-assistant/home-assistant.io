@@ -2,6 +2,7 @@
 title: Filter
 description: Instructions on how to integrate Data Filter Sensors into Home Assistant.
 ha_category:
+  - Helper
   - Sensor
   - Utility
 ha_release: 0.65
@@ -10,12 +11,16 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
 ha_domain: filter
+ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `filter` platform enables sensors that process the states of other entities.
+The `filter` {% term integration %} enables sensors that process the states of other entities.
 
 `filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/dashboards/history-graph/) integration.
 
@@ -23,9 +28,41 @@ The `filter` platform enables sensors that process the states of other entities.
   <img src='/images/screenshots/filter-sensor.png' />
 </p>
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable Filter Sensors in your installation, add the following to your `configuration.yaml` file:
+{% note %}
+The UI configuration only supports setting one filter. For more advanced configurations where multiple filters are needed, please use the YAML configuration option to configure your filter sensor.
+{% endnote %}
+
+Further information about these configuration options can be found under the [YAML configuration](#yaml-configuration)
+
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have.
+Entity:
+  description: The entity that provides the input. Only `sensor` entities are supported.
+Filter:
+  description: Algorithm to be used to filter data. Available filters are  "Lowpass", "Outlier", "Range", "Throttle", "Time throttle" and "Moving Average (Time based)".
+Precision:
+  description: Defines the precision of the filtered state.
+Window size:
+  description: Size of the window of previous states. Time-based filters require a time period, while other filters require an integer.
+Time constant:
+  description: Loosely relates to the amount of time it takes for a state to influence the output.
+Radius:
+  description: Band radius from median of previous states.
+Type:
+  description: Defines the type of Simple Moving Average.
+Lower bound:
+  description: Lower bound for filter range.
+Upper bound:
+  description: Upper bound for filter range.
+{% endconfiguration_basic %}
+
+## YAML Configuration
+
+To enable Filter Sensors in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -115,11 +152,9 @@ filters:
       default: positive infinity
 {% endconfiguration %}
 
-<div class="note warning">
-
-When configuring a `window_size` that is not a time and with a value larger than the default of `1`, the database must examine nearly every stored state for that entity during Home Assistant startup. If you have modified the [Recorder `purge_keep_days`](/integrations/recorder/#purge_keep_days) value or have many states stored in the database for the filtered entity, this can cause your Home Assistant instance can to respond poorly during startup.
-
-</div>
+{% warning %}
+When configuring a `window_size` that is not a time and with a value larger than the default of `1`, the database must examine nearly every stored state for that entity during Home Assistant startup. If you have modified the [Recorder `purge_keep_days`](/integrations/recorder/#purge_keep_days) value or have many states stored in the database for the filtered entity, this can cause your Home Assistant instance to respond poorly during startup.
+{% endwarning %}
 
 ## Filters
 

@@ -9,6 +9,7 @@ ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `tomato` device tracker integration allows one to tracker devices which are
@@ -28,7 +29,7 @@ value can be obtained by logging in to the Tomato admin interface and search for
 ## Configuration
 
 To use this device tracker in your installation,
-add the following to your `configuration.yaml` file:
+add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

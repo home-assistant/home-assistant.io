@@ -1,13 +1,27 @@
 ---
 title: "Creating an automation blueprint"
 description: "Tutorial on creating an automation blueprint."
+related:
+  - docs: /docs/configuration/
+    title: "Editing the configuration file"
+  - docs: /docs/configuration/yaml/
+  - docs: /docs/automation/yaml/
+    title: "YAML used in automations"
+  - docs: /docs/scripts/
+    title: Scripts
+  - docs: /docs/blueprint/selectors/
+    title: Blueprint selectors
+  - docs: /docs/blueprint/schema/
+    title: Blueprint schema
+  - docs: /docs/blueprint/
+    title: About blueprints
+  - docs: /docs/automation/using_blueprints/
+    title: Using automation blueprints
 ---
 
-<div class='note'>
-
+{% tip %}
 While the tutorial only shows how to create an automation blueprint, {% term scripts %} also support blueprints in the same way.
-
-</div>
+{% endtip %}
 
 ## Creating an automation blueprint
 
@@ -30,26 +44,26 @@ The automation we're going to use in this tutorial controls a light based on a m
 {% raw %}
 
 ```yaml
-trigger:
-  platform: state
-  entity_id: binary_sensor.motion_kitchen
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.motion_kitchen
 
-action:
-  service: >
-    {% if trigger.to_state.state == "on" %}
-      light.turn_on
-    {% else %}
-      light.turn_off
-    {% endif %}
-  target:
-    entity_id: light.kitchen
+actions:
+  - action: >
+      {% if trigger.to_state.state == "on" %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    target:
+      entity_id: light.kitchen
 ```
 
 {% endraw %}
 
 The options that can be used with the `trigger` object are listed under [automation trigger variables](/docs/automation/templating/#available-trigger-data).
 In this example, a [state trigger](/docs/automation/templating/#state) is used.
-`turn_on` and `turn_off` are [`homeassistant` services](/docs/scripts/service-calls/#homeassistant-services). They are not tied to a specific domain. You can use them on lights, switches, and other domains.
+`turn_on` and `turn_off` are [`homeassistant` actions](/docs/scripts/perform-actions/#homeassistant-actions). They are not tied to a specific domain. You can use them on lights, switches, and other domains.
 
 ### Creating the blueprint file
 
@@ -77,26 +91,26 @@ Now we have to decide what steps we want to make configurable. We want to make i
 Configurable parts in blueprints are called [inputs](/docs/blueprint/schema/#blueprint-inputs). To make the motion sensor entity configurable, we're replacing the entity ID with a custom YAML tag `!input`. This YAML tag has to be combined with the name of the input:
 
 ```yaml
-trigger:
-  platform: state
-  entity_id: !input motion_sensor
+triggers:
+  - trigger: state
+    entity_id: !input motion_sensor
 ```
 
-For the light, we can offer some more flexibility. We want to allow the user to be able to define any device or area as the target. The `target` property in the service action can contain references to areas, devices and/or entities, so that's what we will use.
+For the light, we can offer some more flexibility. We want to allow the user to be able to define any device or area as the target. The `target` property in the action can contain references to areas, devices, and/or entities, so that's what we will use.
 
 Inputs are not limited to strings. They can contain complex objects too. So in this case, we're going to mark the whole `target` as input:
 
 {% raw %}
 
 ```yaml
-action:
-  service: >
-    {% if trigger.to_state.state == "on" %}
-      light.turn_on
-    {% else %}
-      light.turn_off
-    {% endif %}
-  target: !input target_light
+actions:
+  - action: >
+      {% if trigger.to_state.state == "on" %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    target: !input target_light
 ```
 
 {% endraw %}
@@ -121,7 +135,7 @@ For more information on blueprint inputs, refer to the documentation of the [blu
 
 With the bare minimum metadata added, your blueprint is ready to use.
 
-Open your `configuration.yaml` and add the following:
+Open your {% term "`configuration.yaml`" %} and add the following:
 
 ```yaml
 automation tutorial:
@@ -179,15 +193,14 @@ blueprint:
         entity:
           filter:
             - domain: binary_sensor
-            - device_class: motion
+              device_class: motion
     target_light:
       name: Lights
       description: The lights to keep in sync.
       selector:
         target:
           entity:
-            filter:
-              - domain: light
+            - domain: light
 ```
 
 By limiting our blueprint to working with lights and motion sensors, we unlock a couple of benefits: the UI will be able to limit suggested values to lights and motion sensors instead of all devices. It will also allow the user to pick an area to control the lights in.
@@ -211,22 +224,21 @@ blueprint:
         entity:
           filter:
             - domain: binary_sensor
-            - device_class: motion
+              device_class: motion
     target_light:
       name: Lights
       description: The lights to keep in sync.
       selector:
         target:
           entity:
-            filter:
-              - domain: light
+            - domain: light
 
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: !input motion_sensor
 
-action:
-  - service: >
+actions:
+  - action: >
       {% if trigger.to_state.state == "on" %}
         light.turn_on
       {% else %}
@@ -242,9 +254,9 @@ action:
 1. To configure your blueprint via the UI, go to {% my blueprints title="**Settings** > **Automations & Scenes** > **Blueprints**" %}.
 2. Find the **Motion Light Tutorial** blueprint and select **Create Automation**.
 
-<div class='note'>
+{% important %}
 Don't forget to reload automations after you make changes to your blueprint to have the UI and the automation integration pick up the latest blueprint changes.
-</div>
+{% endimportant %}
 
 ![Screenshot of the blueprint UI](/images/blueprints/tutorial-ui.png)
 
@@ -273,17 +285,3 @@ For this tutorial, we're going to share it on GitHub Gists. This is a good optio
 ### Share on the Blueprint Exchange
 
 If you follow the [Rules and format for posting](/get-blueprints), you can share your blueprint on the Home Assistant Blueprint Exchange forum. This option is accessible to the general Home Assistant community but recommended only for your original blueprints. Please don't post this tutorial to the Blueprint Exchange, but instead, remember this as an option for releasing your real blueprints.
-
-## Related topics
-
-**Prerequisites**
-- [Editing the configuration file](/docs/configuration/)
-- [YAML](/docs/configuration/yaml/), and specifically, [YAML used in automations](/docs/automation/yaml/)
-- [Scripts](/docs/scripts/)
-
-**Blueprints**
-
-- [Blueprint selectors](/docs/blueprint/selectors/)
-- [Blueprint schema](/docs/blueprint/schema/)
-- [About blueprints](/docs/blueprint/)
-- [Using automation blueprints](/docs/automation/using_blueprints/)

@@ -3,9 +3,17 @@ type: card
 title: "Vertical stack card"
 sidebar_label: Vertical stack
 description: "The vertical stack card allows you to group multiple cards so they always sit in the same column."
+related:
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The vertical stack card allows you to group multiple cards so they always sit in the same column.
+
+<p class='img'>
+<img src='/images/dashboards/edit-dashboard.webp' alt='Screencast showing how to edit a dashboard customize a vertical stack card'>
+Screencast showing how to edit a dashboard and customize a vertical stack card.
+</p>
 
 {% include dashboard/edit_dashboard.md %}
 
@@ -71,3 +79,4 @@ cards:
   <img src="/images/dashboards/vertical-horizontal-stack.png" alt="Create a grid layout using vertical and horizontal stack">
   Create a grid layout using vertical and horizontal stack.
 </p>
+

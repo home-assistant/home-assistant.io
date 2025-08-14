@@ -14,7 +14,6 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_zeroconf: true
-ha_dhcp: true
 ---
 
 The Awair integration will fetch data from your [Awair devices](https://getawair.com).
@@ -39,6 +38,7 @@ The integration will fetch data from each device. The following sensors are supp
 
 - Temperature
 - Humidity
+- Absolute humidity
 - Carbon dioxide
 - Total volatile organic compounds
 - PM2.5 density

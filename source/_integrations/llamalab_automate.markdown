@@ -9,9 +9,13 @@ ha_domain: llamalab_automate
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `llamalab_automate` platform uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.
+The `llamalab_automate` {% term integration %} uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.
 
 ## Prerequisites
 
@@ -19,7 +23,8 @@ Go to [https://llamalab.com/automate/cloud/](https://llamalab.com/automate/cloud
 
 ## Configuration
 
-To use this notification platform in your installation, add the following to your `configuration.yaml` file:
+To use this notification {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -32,7 +37,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
@@ -41,7 +46,7 @@ api_key:
   required: true
   type: string
 to:
-  description: E-Mail address the Automate-Fiber is configured for.
+  description: Email address the Automate-Fiber is configured for.
   required: true
   type: string
 device:
@@ -53,7 +58,7 @@ device:
 Example Automation:
 
 ```yaml
-- service: notify.entity_id
+- action: notify.entity_id
       data:
         message: "This is the message"
         data:
@@ -71,7 +76,7 @@ Receiving cloud messages in Automate:
 4. Connect OK from Flow beginning to IN of Cloud receive
 5. Connect OK from Cloud receive to Toast show
 6. Connect OK form Toast show to IN of Cloud receive
-7. Tap Cloud receive and select the E-Mail account as setup in your configuration
+7. Tap Cloud receive and select the email account as setup in your configuration
 8. Assign a variable name for the Payload
 9. Tap Toast show and set the message value to the variable you've specified
 

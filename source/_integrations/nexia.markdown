@@ -82,23 +82,41 @@ The scene platform lets you activate a nexia automation.
 
 ### Switch
 
-The switch platform lets you enable or disable hold mode for each thermostat.
+The following enable/disable switches are added for each thermostat:
 
-### Service `nexia.set_aircleaner_mode`
+- Emergency heat (if the device supports it)
+
+The following enable/disable switches are added for each thermostat zone:
+
+- Hold mode
+
+The following include/exclude {% term switch %} is added for each RoomIQ sensor (if the device supports
+[RoomIQ](https://support.asairhome.com/hc/en-us/articles/360045784651-RoomIQ-Overview-and-Usage)).
+
+- Include `YOUR_SENSOR_NAME` (with your sensor name)
+
+These switches allow you to select which RoomIQ sensors to include in a zone's average temperature.
+To change your selected sensors, set each switch to represent your choice.
+Several seconds after the last such change, the selection is sent to the manufacturer's web service.
+It usually takes 10–15 seconds to complete, depending on the web service.
+At least one sensor must be selected.
+If you exclude all sensors, the switches will revert to show the zone's settings.
+
+### Action `nexia.set_aircleaner_mode`
 
 Sets the air cleaner mode. Options include 'auto', 'quick', and 
 'allergy'. This setting will affect all zones on the same thermostat.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
 | `aircleaner_mode` | no | 'auto', 'quick', or 'allergy'
 
-### Service `nexia.set_humidify_setpoint`
+### Action `nexia.set_humidify_setpoint`
 
 Sets the humidify setpoint. This setting will affect all zones on the same thermostat.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
 | `humidity` | no | Humidify setpoint level, from 35 to 65.

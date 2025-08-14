@@ -25,7 +25,7 @@ _To watch the video presentation of this blog post, including live demos, check 
 
 [Year of the Voice]: https://www.home-assistant.io/blog/2022/12/20/year-of-voice/
 [Chapter 1]: https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/
-[45 languages]: https://home-assistant.github.io/intents/
+[45 languages]: https://ohf-voice.github.io/intents/
 [live-stream]: https://youtube.com/live/Tk-pnm7FY7c?feature=share
 [assist]: /voice_control/
 

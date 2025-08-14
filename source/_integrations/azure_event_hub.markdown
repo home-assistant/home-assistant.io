@@ -10,6 +10,9 @@ ha_codeowners:
 ha_domain: azure_event_hub
 ha_config_flow: true
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `Azure Event Hub` integration allows you to hook into the Home Assistant event bus and send events to [Azure Event Hub](https://azure.microsoft.com/products/event-hubs/) or to an [Azure IoT Hub](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin).
@@ -30,15 +33,15 @@ The final thing to consider is how often you want the integration to send messag
 
 {% include integrations/config_flow.md %}
 
-You can setup [filters](#filter-configuration) through the `configuration.yaml`.
+You can setup [filters](#filter-configuration) through the {% term "`configuration.yaml`" %}.
 
-<div class='note warning'>
+{% warning %}
 Not filtering domains or entities will send every event to Azure Event Hub, thus taking up a lot of space and bandwidth.
-</div>
+{% endwarning %}
 
-<div class='note warning'>
+{% note %}
 Event Hubs have a retention time of at most 7 days, if you do not capture or use the events they are deleted automatically from the Event Hub, the default retention is 1 day.
-</div>
+{% endnote %}
 
 ### Filter configuration
 

@@ -38,6 +38,8 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/option_flow.md %}
+
 ## Alarm control panel
 
 The Verisure alarm control panel platform allows you to control your [Verisure](https://www.verisure.com/) Alarms.
@@ -51,11 +53,11 @@ The `changed_by` attribute enables one to be able to take different actions depe
 ```yaml
 automation:
   - alias: "Alarm status changed"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: alarm_control_panel.alarm_1
-    action:
-      - service: notify.notify
+    actions:
+      - action: notify.notify
         data:
           message: >
             Alarm changed from {{ trigger.from_state.state }}
@@ -65,13 +67,17 @@ automation:
 
 {% endraw %}
 
-## Services
+## Actions
 
 | Service | Description |
 | ------- | ----------- |
 | disable_autolock | Disables autolock function for a specific lock. |
 | enable_autolock | Enables autolock function for a specific lock. |
 | smartcam_capture | Capture a new image from a specific smartcam. |
+
+## Binary sensor
+
+- Ethernet status
 
 ## Lock
 
@@ -82,3 +88,17 @@ automation:
 | code | Lock was unlocked by exterior code |
 | auto | Lock was locked/unlocked automatically by Verisure rule |
 | remote | Lock was locked/unlocked automatically by Verisure App |
+
+## Limitations and known issues
+
+Some users have reported that this integration currently doesn't work in the following countries:
+
+- France
+- Ireland
+- Italy
+- Spain
+- Sweden
+
+## Troubleshooting
+
+If you get an error message stating something like *"The code for lock.XXX doesn't match pattern `^\d{0}$`."*, make sure the number of digits for your code matches the number defined in the [configuration options](#options).

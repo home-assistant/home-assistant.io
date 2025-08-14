@@ -11,7 +11,7 @@ This page is intended to provide information about how to report security issues
 
 So, you have found a security vulnerability in Home Assistant? Please, be sure to [**responsibly disclose**](https://en.wikipedia.org/wiki/Coordinated_vulnerability_disclosure) it to us by [reporting a vulnerability using GitHub's Security Advisory](https://github.com/home-assistant/core/security/advisories/new).
 
-**DO NOT MAKE A PUBLIC ISSUES FOR SECURITY VULNERABILITIES!**
+**DO NOT MAKE A PUBLIC ISSUE FOR SECURITY VULNERABILITIES!**
 
 We are mostly interested in reports by actual Home Assistant users that are familiar with the platform, but all high quality contributions are welcome. Please do your best to describe a clear and realistic impact for your report.
 
@@ -61,6 +61,13 @@ As an open source project, Home Assistant cannot offer bounties for security vul
 ## Past advisories
 
 The following is a list of past security advisories that have been published by the Home Assistant project.
+
+**2025-02-18: SSL validation for outgoing requests in core and used libs not correct**  
+Severity: _High (CVSS: 7.0)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-m3pm-rpgg-5wj6)_  
+Assigned CVE: _[CVE-2025-25305](https://nvd.nist.gov/vuln/detail/CVE-2025-25305)_  
+Discovered by: _[ReneNulschDE](https://github.com/ReneNulschDE)_  
+Fixed in: _Home Assistant Core 2024.1.6_  
 
 **2023-12-14: User accounts disclosed to unauthenticated actors on the LAN**  
 Severity: _Moderate (CVSS: 4.2)_  

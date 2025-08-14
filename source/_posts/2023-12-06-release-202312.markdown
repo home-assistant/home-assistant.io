@@ -70,12 +70,10 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 ## A beautiful new login page
 
-<div class='note'>
-
+{% note %}
 This feature has been disabled in Home Assistant 2023.12.3.  
 [Read more about it here](/blog/2023/12/14/disabling-new-login-page-functionality/).
-
-</div>
+{% endnote %}
 
 
 The login page of Home Assistant has been redesigned to be more modern and
@@ -304,7 +302,7 @@ We welcome the following new integrations in this release:
 [Devialet]: /integrations/devialet
 [V2C]: /integrations/v2c
 [Linear Garage Door]: /integrations/linear_garage_door
-[MyPermobil]: /integrations/mypermobil
+[MyPermobil]: /integrations/permobil
 [OurGroceries]: /integrations/ourgroceries
 
 ## Integrations now available to set up from the UI

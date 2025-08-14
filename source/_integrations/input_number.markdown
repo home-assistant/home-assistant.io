@@ -1,6 +1,6 @@
 ---
-title: Input Number
-description: Instructions on how to integrate the Input Number integration into Home Assistant.
+title: Input number
+description: Instructions on how to integrate the input number integration into Home Assistant.
 ha_category:
   - Automation
   - Helper
@@ -12,14 +12,14 @@ ha_domain: input_number
 ha_integration_type: helper
 ---
 
-The `input_number` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
+The **Input number** {% term integration %} allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
-The preferred way to configure an input number is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_number" title="Number" %}** option.
+The preferred way to configure an input number is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_number" title="Number" %}** option.
 
-To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+To be able to add **Helpers** via the user interface you should have `default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by default unless you removed it.
 If you removed `default_config:` from you configuration, you must add `input_number:` to your `configuration.yaml` first, then you can use the UI.
 
-Input numbers can also be configured via `configuration.yaml`:
+Input numbers can also be configured via {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -82,17 +82,17 @@ input_number:
         type: icon
 {% endconfiguration %}
 
-### Services
+### Actions
 
-This integration provides the following services to modify the state of the `input_number` and a service to reload the
+This integration provides the following actions to modify the state of the `input_number` and an action to reload the
 configuration without restarting Home Assistant itself.
 
-| Service | Data | Description |
-| ------- | ---- | ----------- |
-| `decrement` | `entity_id(s)`<br>`area_id(s)` | Decrement the value of specific `input_number` entities by `step` 
-| `increment` | `entity_id(s)`<br>`area_id(s)` | Increment the value of specific `input_number` entities by `step`
-| `reload` | | Reload `input_number` configuration |
-| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_number` entities
+| Service     | Data                                      | Description                                                       |
+| ----------- | ----------------------------------------- | ----------------------------------------------------------------- |
+| `decrement` | `entity_id(s)`<br>`area_id(s)`            | Decrement the value of specific `input_number` entities by `step` |
+| `increment` | `entity_id(s)`<br>`area_id(s)`            | Increment the value of specific `input_number` entities by `step` |
+| `reload`    |                                           | Reload `input_number` configuration                               |
+| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_number` entities                 |
 
 ### Restore state
 
@@ -125,13 +125,14 @@ input_number:
     min: 0
     max: 254
     step: 1
+
 automation:
   - alias: "Bedroom Light - Adjust Brightness"
-    trigger:
-      platform: state
-      entity_id: input_number.bedroom_brightness
-    action:
-      - service: light.turn_on
+    triggers:
+      - trigger: state
+        entity_id: input_number.bedroom_brightness
+    actions:
+      - action: light.turn_on
         target:
           entity_id: light.bedroom
         data:
@@ -157,6 +158,7 @@ input_select:
       - Relax
       - 'OFF'
     initial: "Select"
+
 input_number:
   bedroom_brightness:
     name: Brightness
@@ -164,14 +166,15 @@ input_number:
     min: 0
     max: 254
     step: 1
+
 automation:
   - alias: "Bedroom Light - Custom"
-    trigger:
-      platform: state
-      entity_id: input_select.scene_bedroom
-      to: CUSTOM
-    action:
-      - service: light.turn_on
+    triggers:
+      - trigger: state
+        entity_id: input_select.scene_bedroom
+        to: "CUSTOM"
+    actions:
+      - action: light.turn_on
         target:
           entity_id: light.bedroom
         data:
@@ -199,28 +202,28 @@ input_number:
 # It sets the value slider on the GUI. This slides also had its own automation when the value is changed.
 automation:
   - alias: "Set temp slider"
-    trigger:
-      platform: mqtt
-      topic: "setTemperature"
-    action:
-      service: input_number.set_value
-      target:
-        entity_id: input_number.target_temp
-      data:
-        value: "{{ trigger.payload }}"
+    triggers:
+      - trigger: mqtt
+        topic: "setTemperature"
+    actions:
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.target_temp
+        data:
+          value: "{{ trigger.payload }}"
 
 # This second automation script runs when the target temperature slider is moved.
 # It publishes its value to the same MQTT topic it is also subscribed to.
   - alias: "Temp slider moved"
-    trigger:
-      platform: state
-      entity_id: input_number.target_temp
-    action:
-      service: mqtt.publish
-      data:
-        topic: "setTemperature"
-        retain: true
-        payload: "{{ states('input_number.target_temp') | int }}"
+    triggers:
+      - trigger: state
+        entity_id: input_number.target_temp
+    actions:
+      - action: mqtt.publish
+        data:
+          topic: "setTemperature"
+          retain: true
+          payload: "{{ states('input_number.target_temp') | int }}"
 ```
 
 {% endraw %}
@@ -249,16 +252,16 @@ input_number:
     step: 10
     
 automation:
- - alias: "turn something off after x time after turning it on"
-   trigger:
-     platform: state
-     entity_id: switch.something
-     to: "on"
-   action:
-     - delay: "00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}"
-     - service: switch.turn_off
-       target:
-         entity_id: switch.something
+  - alias: "turn something off after x time after turning it on"
+    triggers:
+      - trigger: state
+        entity_id: switch.something
+        to: "on"
+    actions:
+      - delay: "00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}"
+      - action: switch.turn_off
+        target:
+          entity_id: switch.something
 ```
 
 {% endraw %}

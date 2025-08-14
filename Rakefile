@@ -30,8 +30,8 @@ task :generate do
   abort("Generating alerts data failed") unless success
   success = system "rake version_data"
   abort("Generating version data failed") unless success
-  success = system "rake blueprint_exchange_data"
-  abort("Generating blueprint exchange data failed") unless success
+  success = system "rake language_scores_data"
+  abort("Generating language scores data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   if ENV["CONTEXT"] != 'production'
@@ -69,8 +69,8 @@ task :preview, :listen do |t, args|
   system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
   system "rake analytics_data"
   system "rake version_data"
+  system "rake language_scores_data"
   system "rake alerts_data"
-  system "rake blueprint_exchange_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   compassPid = Process.spawn("compass watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
@@ -117,13 +117,13 @@ task :version_data do
   end
 end
 
-desc "Download data from the blueprint exchange @ community.home-assistant.io"
-task :blueprint_exchange_data do
-  uri = URI('https://community.home-assistant.io/c/blueprints-exchange/53/l/top.json?period=all')
+desc "Download supported language data from ohf-voice.github.io"
+task :language_scores_data do
+  uri = URI('https://ohf-voice.github.io/intents/language_scores.json')
 
   remote_data = JSON.parse(Net::HTTP.get(uri))
 
-  File.open("#{source_dir}/_data/blueprint_exchange_data.json", "w") do |file|
-    file.write(JSON.generate(remote_data['topic_list']['topics']))
+  File.open("#{source_dir}/_data/language_scores.json", "w") do |file|
+    file.write(JSON.generate(remote_data))
   end
 end

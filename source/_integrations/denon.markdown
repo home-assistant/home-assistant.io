@@ -9,9 +9,13 @@ ha_domain: denon
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `denon` platform allows you to control a Denon Network Receiver from Home Assistant. It might be that your device is supported by the [Denon AVR] platform.
+The `denon` {% term integration %} allows you to control a Denon Network Receiver from Home Assistant. It might be that your device is supported by the [Denon AVR] platform.
 
 Supported devices:
 
@@ -20,7 +24,8 @@ Supported devices:
 - Denon RCD-N9 (partial support)
 - Denon AVR receivers with integrated Network support (partial support)
 
-To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
+To add a Denon Network Receiver to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ## Telnet platform
 

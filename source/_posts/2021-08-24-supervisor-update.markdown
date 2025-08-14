@@ -22,9 +22,9 @@ The functionality of it does not change, this is just a rename to make it more u
 
 ## Supervised installations
 
-<div class='note'>
+{% note %}
 Having a supervisor does not make it a supervised installation, Home Assistant Operating System also has this, the information below does not apply to Home Assistant Operating System.
-</div>
+{% endnote %}
 
 While we try not to break supervised installations, we do have a few things we need to change.
 These adjustments you have to manually apply to your installation. Without these adjustments you will start to see warnings in your logs, and your installation will eventually be marked as unsupported.

@@ -11,7 +11,9 @@ ha_codeowners:
   - '@ochlocracy'
   - '@jbouwh'
 ha_domain: alexa
-ha_integration_type: integration
+ha_integration_type: system
+ha_platforms:
+  - diagnostics
 ---
 
 ## Automatic setup via Home Assistant Cloud

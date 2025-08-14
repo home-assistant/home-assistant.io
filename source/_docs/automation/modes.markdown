@@ -31,9 +31,9 @@ Some automations you only want to run every 5 minutes. This can be achieved usin
 automation:
   - mode: single
     max_exceeded: silent
-    trigger:
+    triggers:
       - ...
-    action:
+    actions:
       - ...
       - delay: 300  # seconds (=5 minutes)
 ```
@@ -46,8 +46,8 @@ Sometimes an automation is doing an action on a device that does not support mul
 automation:
   - mode: queued
     max: 25
-    trigger:
+    triggers:
       - ...
-    action:
+    actions:
       - ...
 ```

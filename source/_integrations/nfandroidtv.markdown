@@ -22,11 +22,11 @@ When setting this up be aware, that there are two apps: one for your smartphone 
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
-The following options can be specified inside the data field for the notify service call:
+The following options can be specified inside the data field for the notify action:
 
-### Service `notify.[name_of_your_tv]`
+### Action `notify.[name_of_your_tv]`
 
 {% configuration %}
 duration:
@@ -59,7 +59,7 @@ interrupt:
   type: boolean
 {% endconfiguration %}
 
-This is a fully customized YAML you can use inside `data` to test how the final notification will look like (for using this inside a service call look at the service example at the end of this page):
+This is a fully customized YAML you can use inside `data` to test how the final notification will look like (for using this inside an action look at the example at the end of this page):
 
 ```yaml
 fontsize: "large"
@@ -70,68 +70,53 @@ color: "red"
 interrupt: 1
 ```
 
-## Service data for sending images and icons
+## Action data for sending images and icons
 
-The following attributes can be placed inside `data` to send images and icons.
-
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `image`                 |      yes | Groups the attributes for image upload. If present, either `url` or `path` have to be provided.
-| `icon`                 |      yes | Groups the attributes for icon upload. If present, either `url` or `path` have to be provided.
-| `path`                |      yes | Local path of an image file. Is placed inside `image`, `icon` or both.
+| `image`                |      yes | Groups the attributes for image upload. It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided. |
+| `icon`                 |      yes | Groups the attributes for icon upload.  It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided.  |
+| `path`                 |      yes | Local path of an image file. Is placed inside `image`, `icon`, or both.
 | `url`                  |      yes | URL of an image file. Is placed inside `image`, `icon` or both.
 | `username`             |      yes | Username if the URL requires authentication. Is placed inside `image`, `icon` or both`.
 | `password`             |      yes | Password if the URL requires authentication. Is placed inside `image`, `icon` or both.
 | `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing, HTTP-BASIC-Authentication is used and is placed inside `image`, `icon` or both.
 
-Example for posting image from URL:
+Example action data for both image and icons:
 
 ```yaml
+# If your urls do not require extra authentication
+icon: "http://[url to image file]"
+image: "http://[url to image file]"
+
+# Paths in most cases
+icon: "/you/path/location"
+image: "/you/path/location"
+# Or alternatively
+icon:
+  path: "/you/path/location"
+image:
+  path: "/you/path/location"
+
+# If your urls require extra authentication
 image:
   url: "http://[url to image file]"
-  username: "optional user, if necessary"
-  password: "optional password, if necessary"
-  auth: "digest"
-```
-
-Example for posting image from local path:
-
-```yaml
-image:
-  path: "/path/to/file.ext"
-```
-
-Example for posting icon from URL:
-
-```yaml
+  username: "optional user, if necessary" # Optional
+  password: "optional password, if necessary" # Optional 
+  auth: "digest" # Optional
 icon:
   url: "http://[url to image file]"
-  username: "optional user, if necessary"
-  password: "optional password, if necessary"
-  auth: "digest"
+  username: "optional user, if necessary" # Optional
+  password: "optional password, if necessary" # Optional
+  auth: "digest" # Optional
 ```
 
-Example for posting both image and icon from URL:
-
-```yaml
-image:
-  url: "http://[url to image file]"
-  username: "optional user, if necessary"
-  password: "optional password, if necessary"
-  auth: "digest"
-icon:
-  url: "http://[url to image file]"
-  username: "optional user, if necessary"
-  password: "optional password, if necessary"
-  auth: "digest"
-```
-
-Example of an automation with an service call, full configuration:
+Example of an automation with an action, full configuration:
 
 {% raw %}
 
 ```yaml
-service: notify.living_room_tv
+action: notify.living_room_tv
 data:
   title: "Thanks for the water!"
   message: "Nigel is {{ states('sensor.nigel_moisture') }}% moisture"
@@ -146,4 +131,4 @@ data:
 
 {% endraw %}
 
-Please note that `path` is validated against the `allowlist_external_dirs` in the `configuration.yaml`.
+Please note that `path` is validated against the `allowlist_external_dirs` in the {% term "`configuration.yaml`" %}.

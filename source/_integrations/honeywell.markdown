@@ -14,7 +14,9 @@ ha_domain: honeywell
 ha_platforms:
   - climate
   - diagnostics
+  - humidifier
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -25,6 +27,8 @@ If your system is compatible with this integration, then you will be able access
 - [Supported hardware](#supported-hardware)
 - [Climate](#climate)
 - [Sensor](#sensor)
+- [Switch](#switch)
+- [Humidifier](#humidifier)
 
 {% include integrations/config_flow.md %}
 
@@ -46,9 +50,35 @@ Other devices like Security systems are not currently supported by this integrat
 
 The climate platform integrates Honeywell US-based thermostats into Home Assistant, allowing control of the thermostat through the user interface. The current inside temperature, operating mode, and fan state are also displayed on the thermostat card.
 
-All [climate services](/integrations/climate) are supported except set_swing_mode.
+All [climate actions](/integrations/climate) are supported except `set_swing_mode`.
 
-There is a "known" issue related to setting the temperature from Home Assistant with some thermostats. If your instance receives errors when setting the temperature above or below some value, go to the Honeywell web page and set the temperature to the max or min for the mode you are using, then adjust from Home Assistant.
+Due to the instability of the Honeywell total connect system, actions within automations should repeat until success similar to the following example:
+
+```yaml
+alias: "No one home"
+description: "Everyone has left home"
+triggers:
+  - trigger: numeric_state
+    entity_id: zone.home
+    for:
+      minutes: 10
+    below: 1
+actions:
+  - repeat:
+      sequence:
+        - action: climate.set_temperature
+          target:
+            entity_id: climate.stat
+          data:
+            temperature: 64
+        - delay:
+            minutes: 1
+      until:
+        - condition: state
+          entity_id: climate.stat
+          attribute: temperature
+          state: 64
+```
 
 ## Sensor
 
@@ -61,3 +91,48 @@ This integration will add Home Assistant sensors for the following:
 |Outdoor humidity | Average humidity of all Honeywell Wireless Outdoor Sensors|
 |Indoor temperature | Current temperature as measured at the specific thermostat|
 |Indoor humidity | Current humidity as measured at the specific thermostat|
+
+## Switch
+
+The switch entity integrates the emergency heat option for each device.  If the thermostat supports emergency heat, the switch entity will be created.
+
+This integration will add a switch for the following:
+|Switch|Value|
+--- | ---
+|Emergency Heat | Activates second stage heat source as primary heat|
+
+## Humidifier
+
+If the discovered device supports humidity control, the integration will add a humidifier and/or dehumidifier for each device.
+
+### Available Actions
+
+| Action | Description |
+|--------|-------------|
+| `humidifier.set_humidity` | Set target humidity level |
+| `humidifier.turn_on` | Enable humidity control |
+| `humidifier.turn_off` | Disable humidity control |
+| `humidifier.toggle` | Toggle humidity control |
+
+For more details, see the [humidifier](/integrations/humidifier) integration documentation.
+
+### Configuration Example
+
+```yaml
+# Example configuration.yaml entry
+automation:
+  - alias: "Maintain Comfortable Humidity"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.indoor_humidity
+        below: 30 # Trigger when humidity drops below 30%
+    action:
+      - service: humidifier.turn_on
+        target:
+          entity_id: humidifier.living_room
+      - service: humidifier.set_humidity
+        target:
+          entity_id: humidifier.living_room
+        data:
+          humidity: 35 # Set target humidity to 35% (recommended for comfort)
+```

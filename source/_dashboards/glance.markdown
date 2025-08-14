@@ -3,6 +3,13 @@ type: card
 title: "Glance card"
 sidebar_label: Glance
 description: "The glance card is useful to group multiple sensors in a compact overview."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/dashboards/entity-filter/) cards to create dynamic cards.
@@ -106,15 +113,6 @@ double_tap_action:
   required: false
   description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
-{% endconfiguration %}
-
-### Options for exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: User ID that can see the view tab.
-  type: string
 {% endconfiguration %}
 
 ### Examples

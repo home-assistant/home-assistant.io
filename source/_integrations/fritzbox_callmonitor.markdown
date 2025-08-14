@@ -26,9 +26,11 @@ To use the FRITZ!Box call monitor in your installation, a user with at least `Vo
 3.  Navigate to **System** -> **FRITZ!Box User**.
 4.  Click the `Add User` button.
 5.  Enable the option `User account enabled`.
-6.  Enter a user name and password.
+6.  Enter a username and password.
 7.  Check the rights box next to `Voice messages, faxes, FRITZ!App Fon and call list`.
 8.  Click the `Apply` button.
+
+You also need network access from HA to your FRITZ!Box on port `tcp/1012` for the call monitoring, as well as *one time access* to port `tcp/80` for setting up the integration.
 
 ## Setup
 
@@ -50,11 +52,11 @@ This example shows how to send notifications whenever the sensor's state changes
 # Example configuration.yaml entry.
 automation:
   - alias: "Notify about phone state"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: sensor.phone
-    action:
-      - service: notify.notify
+    actions:
+      - action: notify.notify
         data:
           title: "Phone"
           message: >-

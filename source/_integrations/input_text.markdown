@@ -1,6 +1,6 @@
 ---
-title: Input Text
-description: Instructions on how to integrate the Input Text integration into Home Assistant.
+title: Input text
+description: Instructions on how to integrate the Input text integration into Home Assistant.
 ha_category:
   - Automation
   - Helper
@@ -12,14 +12,14 @@ ha_domain: input_text
 ha_integration_type: helper
 ---
 
-The `input_text` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
+The **Input text** {% term integration %} allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
 
-The preferred way to configure an input text is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_text" title="Text" %}** option.
+The preferred way to configure an input text is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_text" title="Text" %}** option.
 
-To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+To be able to add **Helpers** via the user interface you should have `default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by default unless you removed it.
 If you removed `default_config:` from your configuration, you must add `input_text:` to your `configuration.yaml` first, then you can use the UI.
 
-It can also be configured via `configuration.yaml`:
+It can also be configured via {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entries
@@ -79,14 +79,14 @@ input_text:
         default: text
 {% endconfiguration %}
 
-### Services
+### Actions
 
-This integration provides a service to modify the state of the `input_text` and a service to reload the `input_text` configuration without restarting Home Assistant itself.
+This integration provides an action to modify the state of the `input_text` and an action to reload the `input_text` configuration without restarting Home Assistant itself.
 
-| Service | Data | Description |
-| ------- | ---- | ----------- |
-| `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities.
-| `reload` | | Reload `input_text` configuration |
+| Action      | Data                      | Description                                       |
+| ----------- | ------------------------- | ------------------------------------------------- |
+| `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities. |
+| `reload`    |                           | Reload `input_text` configuration                 |
 
 ### Restore state
 
@@ -129,11 +129,11 @@ input_text:
     
 automation:
   - alias: "Bedroom Light - Custom"
-    trigger:
-      platform: state
-      entity_id: input_select.scene_bedroom
-    action:
-      - service: input_text.set_value
+    triggers:
+      - trigger: state
+        entity_id: input_select.scene_bedroom
+    actions:
+      - action: input_text.set_value
         target:
           entity_id: input_text.bedroom
         data:

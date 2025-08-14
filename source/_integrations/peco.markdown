@@ -19,15 +19,11 @@ PECO is a public utility company that provides electricity to the Philadelphia m
 
 To learn more about PECO, visit [**their about page**](https://www.peco.com/AboutUs/Pages/Default.aspx).
 
-<div class='note'>
-
+{% note %}
 This integration is only for PECO customers. To see if your county is supported, take a look at [**their outage map**](https://www.peco.com/Outages/CheckOutageStatus/Pages/OutageMap.aspx).
 
- 
-
 PECO Is a registered trademark of Exelon Business Services Co., LLC
-
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 

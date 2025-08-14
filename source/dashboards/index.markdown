@@ -1,32 +1,44 @@
 ---
 title: "Dashboards"
 description: "Powerful and configurable dashboards for Home Assistant."
+related:
+  - docs: /integrations/entity/
+    title: Dashboard themes
+  - docs: /dashboards/dashboards/#creating-a-new-dashboard
+    title: Creating a new dashboard
+  - docs: /dashboards/cards/
+    title: About cards
+  - url: https://demo.home-assistant.io
+    title: Interactive dashboard demo
+  - url: https://home-assistant-cards.bessarabov.com/
+    title: Home Assistant cards
+  - url: https://github.com/custom-cards
+    title: Community custom cards
 ---
 
-Home Assistant dashboards are a fast, customizable and powerful way for users to manage their home using their mobiles and desktops.
+Home Assistant dashboards allow you to display information about your smart home. Dashboards are customizable and provide a powerful way to manage your home from your mobile or desktop.
 
-- 29 different cards to place and configure as you like.
-- Dashboard Editor: Allows you to manage your dashboard by including a live preview when editing cards.
-- Fast: Using a static configuration allows us to build up the dashboard once.
-- Customizable:
-  - Cards have a number of options which help to configure your data as required.
-  - Themes (even at a per card basis).
-  - Ability to override names and icons of entities.
-  - Custom Cards from our amazing community are fully supported.
+You can customize your dashboard using various options:
 
-To start, go to the Home Assistant Overview page, click on the three dots at the top right of the screen and select 'Edit Dashboard'. Then click on the blue '+ Add Card' icon at the bottom right and select a card to add.
+- Different card types to visualize your data and control your smart home devices.
+- [Themes](/integrations/frontend/#defining-themes) (even at a per card basis).
+- Override names and icons of entities.
+- Use custom cards from our amazing community.
 
-<lite-youtube videoid="XY3R0xI45wA" videotitle="Editing the user interface" posterquality="maxresdefault"></lite-youtube>
+<p class='img'>
+  <img src="/images/dashboards/section_view_rearrange_cards.gif" alt="Screencast showing how to edit a dashboard in section view and how to rearrange cards"/>
+  Screencast showing how to edit a dashboard in section view and how to rearrange cards
+</p>
 
-To try it yourself, check out [the demo](https://demo.home-assistant.io).
+## Explore the interactive demo dashboard
+
+Try it yourself with [the interactive demo](https://demo.home-assistant.io).
+
+## Get started with your own dashboard
+
+To create your own dashboard, follow the steps on [creating a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard).
 
 ## Discuss dashboard
 
 - Suggestions are welcome in the [frontend repository](https://github.com/home-assistant/frontend/)
 - For help with dashboards, join the `#frontend` channel on [our chat](/join-chat/) or [our forums](https://community.home-assistant.io/c/projects/frontend)
-
-## Additional Resources
-
-- [Community Custom Cards](https://github.com/custom-cards)
-- [Home Assistant Cards](https://home-assistant-cards.bessarabov.com/)
-- [Material Design Icons](https://pictogrammers.com/library/mdi/)

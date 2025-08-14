@@ -10,6 +10,12 @@ ha_domain: zabbix
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
+ha_codeowners:
+  - '@kruton'
 ---
 
 The **Zabbix** {% term integration %} is the main {% term integration %} to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.
@@ -22,7 +28,8 @@ There is currently also support for the following device types within Home Assis
 
 ## Configuration
 
-To set the Zabbix {% term integration %} up, add the following information to your `configuration.yaml` file:
+To set the Zabbix {% term integration %} up, add the following information to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -57,6 +64,11 @@ publish_states_host:
   description: The host that will receive the state changes from Home Assistant. It needs to be manually created in Zabbix first and have the template associated with it (see above).
   required: false
   type: string
+publish_string_states:
+  description: Also publish string states, i.e. states which cannot be cast to a numeric value.
+  required: false
+  type: boolean
+  default: false
 exclude:
   type: list
   description: Configure which integrations should be excluded from being published to Zabbix. ([Configure Filter](#configure-filter))
@@ -104,6 +116,7 @@ zabbix:
   username: USERNAME
   password: PASSWORD
   publish_states_host: homeassistant
+  publish_string_states: true
   exclude:
     domains:
       - device_tracker
@@ -140,11 +153,11 @@ zabbix:
 
 The `zabbix` sensor platform let you monitor the current count of active triggers for your [Zabbix](https://www.zabbix.com/) monitoring instance.
 
-<div class='note'>
+{% important %}
 You must have the <a href="#configuration">Zabbix integration</a> configured to use those sensors.
-</div>
+{% endimportant %}
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

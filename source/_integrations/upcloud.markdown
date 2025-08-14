@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Upcloud** {% term integration %} allows you to access the information about your [UpCloud](https://upcloud.com/) servers from Home Assistant.
+The **UpCloud** {% term integration %} allows you to access the information about your [UpCloud](https://upcloud.com/) servers from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

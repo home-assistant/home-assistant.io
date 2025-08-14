@@ -9,6 +9,10 @@ ha_domain: limitlessled
 ha_platforms:
   - light
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 `limitlessled` can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.
@@ -23,7 +27,8 @@ An archive of the extensive API can be found [here](https://github.com/Fantasmos
 
 Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Next, discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([Android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [iTunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)).
 
-To add `limitlessled` to your installation, add the following to your `configuration.yaml` file:
+To add `limitlessled` to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -102,15 +107,15 @@ bridges:
 
 LimitlessLED has a `night` effect that can be used to dim the lights below `brightness: 1`. This night mode is meant to temporarily turn the lights into a nightlight. This mode can be especially helpful when wall switches are also being used. For example, when a light is using the `night` effect one way to return it to its previous brightness level (other than using Home Assistant) is to switch the lights off and then back on from the wall switch.
 
-Note that the `brightness`, `color` and `temperature` attributes cannot be used when using the `night` effect. You can turn on `night` effect by using the `effect` attribute of the normal `light.turn_on` service. Here is an example:
+Note that the `brightness`, `color` and `temperature` attributes cannot be used when using the `night` effect. You can turn on `night` effect by using the `effect` attribute of the normal `light.turn_on` action. Here is an example:
 
 ```yaml
 automation:
   - alias: "..."
-    trigger:
+    triggers:
       # ...
-    action:
-      - service: light.turn_on
+    actions:
+      - action: light.turn_on
         target:
           entity_id:
             - light.office

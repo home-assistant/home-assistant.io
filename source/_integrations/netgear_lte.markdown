@@ -29,17 +29,15 @@ There is currently support for the following device types within Home Assistant:
 
 The integration supports sending notifications with SMS, reporting incoming SMS with events and reporting the modem and connection state in a number of sensors and binary sensors.
 
-<div class='note'>
-
+{% note %}
 Splitting of long SMS messages is not supported so notifications can contain a maximum of 70 characters. Simple messages using the reduced GSM-7 alphabet can contain up to 160 characters. Most emojis are not supported.
-
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
-## Notification Service
+## Notification Actions
 
-The integration will create a `notify` service matching the name of the integration entry. This is the model name of the device by default.
+The integration will create a `notify` actions matching the name of the integration entry. This is the model name of the device by default.
 
 ## Events
 
@@ -54,38 +52,38 @@ Messages arriving in the modem inbox are sent as events of type `netgear_lte_sms
 | `from`               | The sender of the message.
 | `message`            | The SMS message content.
 
-## Services
+## Actions
 
-### Service `netgear_lte.connect_lte`
+### Action `netgear_lte.connect_lte`
 
-This service asks the modem to establish its LTE connection, useful if the modem does not autoconnect.
+This action asks the modem to establish its LTE connection, useful if the modem does not autoconnect.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `host`                 | yes      | The modem that should connect (optional when just one modem is configured).
 
-### Service `netgear_lte.disconnect_lte`
+### Action `netgear_lte.disconnect_lte`
 
-This service asks the modem to close its LTE connection.
+This action asks the modem to close its LTE connection.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `host`                 | yes      | The modem that should disconnect (optional when just one modem is configured).
 
-### Service `netgear_lte.delete_sms`
+### Action `netgear_lte.delete_sms`
 
-The integration makes a service available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
+The integration makes an action available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `host`                 | yes      | The modem that should have a message deleted (optional when just one modem is configured).
 | `sms_id`               | no       | Integer or list of integers with inbox IDs of messages to delete.
 
-### Service `netgear_lte.set_option`
+### Action `netgear_lte.set_option`
 
-This service can set modem configuration options (otherwise available in the modem web UI).
+This action can set modem configuration options (otherwise available in the modem web UI).
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `host`                 | yes      | The modem to set options on (optional when just one modem is configured).
 | `autoconnect`          | yes      | Autoconnect value: `never`/`home`/`always`, with `home` meaning "not roaming".
@@ -100,14 +98,14 @@ The following automation example processes incoming SMS messages with the [Conve
 ```yaml
 automation:
   - alias: "SMS conversation"
-    trigger:
-      - platform: event
+    triggers:
+      - trigger: event
         event_type: netgear_lte_sms
-    action:
-      - service: conversation.process
+    actions:
+      - action: conversation.process
         data:
           text: "{{ trigger.event.data.message }}"
-      - service: netgear_lte.delete_sms
+      - action: netgear_lte.delete_sms
         data:
           host: "{{ trigger.event.data.host }}"
           sms_id: "{{ trigger.event.data.sms_id }}"

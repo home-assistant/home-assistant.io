@@ -7,10 +7,6 @@ ha_category:
 ha_release: 0.116
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_codeowners:
-  - '@oliver84'
-  - '@djtimca'
-  - '@gentoosu'
 ha_domain: omnilogic
 ha_platforms:
   - sensor

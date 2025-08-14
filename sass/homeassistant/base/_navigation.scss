@@ -1,0 +1,217 @@
+/*
+ * Navigataur: A pure CSS responsive navigation menu
+ * Author: Mike King (@micjamking)
+ */
+
+/*--------------------------------
+ Functional Styles (Required)
+---------------------------------*/
+/* Tim Pietrusky advanced checkbox hack (Android <= 4.1.2) */
+body {
+  -webkit-animation: bugfix infinite 1s;
+}
+@-webkit-keyframes bugfix {
+  from {
+    padding: 0;
+  }
+  to {
+    padding: 0;
+  }
+}
+
+.header {
+  position: relative;
+}
+#toggle,
+.toggle {
+  display: none;
+}
+.menu li {
+  list-style: none;
+  float: left;
+}
+
+$menu-collapse: 1024px;
+
+// @media only screen and (max-width: $lap-end){
+@media only screen and (max-width: $menu-collapse) {
+  .menu {
+    display: none;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    right: 0;
+  }
+  .menu li {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+  .menu li a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .menu li a .icon {
+    display: none;
+  }
+  .toggle {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  #toggle:checked ~ .menu {
+    display: block;
+    opacity: 1;
+    z-index: 999;
+  }
+}
+
+/* support for submenus */
+ul.menu li {
+  position: relative;
+  margin: 0;
+
+  &:hover ul {
+    display: block;
+  }
+
+  ul {
+    display: none;
+
+    z-index: 10;
+    position: absolute;
+    top: 68px;
+
+    margin-left: 0;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 0 1px rgba(0,0,0,.5), 0 32px 64px rgba(0,0,0,.1);
+
+    li {
+      white-space: nowrap;
+      float: none;
+
+      a {
+        display: block;
+        padding: 16px 16px;
+        min-width: 150px;
+        margin: 8px;
+        border-radius: 8px;
+
+        &:hover,
+        &:focus {
+          background: rgba($primary-color, .1);
+        }
+      }
+    }
+  }
+}
+
+/*--------------------------------
+ Presentation Styles (Editable)
+---------------------------------*/
+header .grid {
+  height: 68px;
+}
+
+.menu {
+  margin: 0;
+  top: 68px;
+}
+
+.menu li a {
+  @include box-sizing(border-box);
+  display: block;
+  padding: 27px 12px;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.menu > li > a:hover,
+.menu > li > a:focus {
+  background: $site-background;
+  box-shadow: inset 0px 5px $primary-color;
+  color: $navigation-color;
+  padding-bottom: 32px;
+}
+
+.toggle {
+  z-index: 20;
+}
+
+@media only screen and (max-width: $menu-collapse) {
+  .menu {
+    background: $white;
+    box-shadow: 0px 64px 32px rgba(0,0,0,.1);
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+  }
+
+  .menu,
+  .menu li,
+  .menu li a {
+    height: auto;
+  }
+
+  .menu li a {
+    margin: 0 !important;
+    padding: 20px 24px !important;
+  }
+
+  .menu li a:hover,
+  .menu li a:focus {
+    background: rgba($primary-color, .1);
+    box-shadow: inset 5px 0px $primary-color;
+    padding: 15px 15px 15px 25px;
+  }
+
+  .toggle {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+  }
+
+  .toggle::after {
+    @include box-sizing(border-box);
+    @include transition(all 0.5s linear);
+    content: "☰";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background: $primary-color;
+    text-align: center;
+    font-family: $sans-serif;
+    color: $white;
+    white-space: nowrap;
+    border-radius: 24px;
+  }
+
+  .toggle:hover::after {
+    background: darken($primary-color, 25%);
+  }
+
+  #toggle:checked + .toggle::after {
+    content: attr(data-close);
+    padding-bottom: 2px;
+  }
+
+  /* submenus */
+  ul.menu li ul {
+    display: block;
+    position: relative;
+    top: 0;
+    box-shadow: none;
+    margin-left: 24px;
+  }
+}

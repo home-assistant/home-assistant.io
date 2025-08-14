@@ -25,11 +25,11 @@ The FireServiceRota integration provides you real-time information about inciden
 
 You will need a FireServiceRota or BrandweerRooster account.
 
-<div class='note'>
+{% caution %}
 
 A word of caution: Do not solely rely on this integration for your emergency calls!
 
-</div>
+{% endcaution %}
 
 This integration provides the following platforms:
 
@@ -83,7 +83,7 @@ This entity reflects the duty you have scheduled, the value can be `on` = on dut
 ### Incident response switch
 
 With this switch you can respond to an incident, either by manually controlling the switch via the GUI, or by using an automation action.
-It gets reset to `unknown` value with every incident received. Switching it to `on` means you send a response acknowledgement, switching it back `off` sends a response rejected.
+It gets reset to `unknown` value with every incident received. Switching it to `on` means you send a response acknowledgment, switching it back `off` sends a response rejected.
 
 The following attributes are available:
 
@@ -117,52 +117,52 @@ These are documented below.
 ```yaml
 automation:
   - alias: "Switch on a light when incident is received"
-    trigger:
-      platform: state
-      entity_id: sensor.incidents
-    action:
-      service: light.turn_on
-      target:
-        entity_id: light.bedroom
+    triggers:
+      - trigger: state
+        entity_id: sensor.incidents
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: light.bedroom
 
   - alias: "Play TTS incident details when incident is received"
-    trigger:
-      platform: state
-      entity_id: sensor.incidents
-      attribute: message_to_speech_url
-    condition:
+    triggers:
+      - trigger: state
+        entity_id: sensor.incidents
+        attribute: message_to_speech_url
+    conditions:
       - condition: not
         conditions:
           - condition: state
             entity_id: sensor.incidents
             attribute: message_to_speech_url
             state: None
-    action:
-      - service: media_player.play_media
-        data_template:
+    actions:
+      - action: media_player.play_media
+        data:
           entity_id: media_player.nest_hub_bedroom
           media_content_id: >
               {{ state_attr('sensor.incidents','message_to_speech_url') }}
           media_content_type: "audio/mp4"
 
   - alias: "Send response acknowledgement when a button is pressed"
-    trigger:
-      platform: state
-      entity_id: switch.response_button
-    action:
-      service: homeassistant.turn_on
-      target:
-        entity_id: switch.incident_response
+    triggers:
+      - trigger: state
+        entity_id: switch.response_button
+    actions:
+      - action: homeassistant.turn_on
+        target:
+          entity_id: switch.incident_response
 
   - alias: "Cast FireServiceRota dashboard to Nest Hub"
-    trigger: 
-      platform: homeassistant
-      event: start
-    action:
-      service: cast.show_lovelace_view
-      data: 
-        entity_id: media_player.nest_hub_bedroom
-        view_path: fsr
+    triggers: 
+      - trigger: homeassistant
+        event: start
+    actions:
+      - action: cast.show_lovelace_view
+        data: 
+          entity_id: media_player.nest_hub_bedroom
+          view_path: fsr
 ```
 
 
@@ -170,7 +170,6 @@ automation:
 
 ```yaml
 panel: true
-title: Home
 views:
   - badges: []
     cards:
@@ -215,7 +214,7 @@ This screenshot shows what a FireServiceRota dashboard can look like.
 
 ## Debugging
 
-The FireServiceRota integration will log additional information about WebSocket incidents received, response and duty status gathered, and other messages when the log level is set to `debug`. Add the relevant lines below to the `configuration.yaml`:
+The FireServiceRota integration will log additional information about WebSocket incidents received, response and duty status gathered, and other messages when the log level is set to `debug`. Add the relevant lines below to the {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:

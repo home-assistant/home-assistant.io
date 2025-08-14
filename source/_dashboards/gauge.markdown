@@ -1,8 +1,13 @@
 ---
 type: card
-title: "Gauge Card"
+title: "Gauge card"
 sidebar_label: Gauge
 description: "The gauge card is a basic card that allows visually seeing sensor data."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The gauge card is a basic card that allows visually seeing sensor data.
@@ -33,6 +38,10 @@ type:
 entity:
   required: true
   description: Entity ID to show.
+  type: string
+attribute:
+  required: false
+  description: Attribute from the selected entity to display
   type: string
 name:
   required: false
@@ -97,6 +106,18 @@ segments:
       required: false
       description: Label of the segment. This will be shown instead of the value.
       type: string
+tap_action:
+  required: false
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
+  type: map
+hold_action:
+  required: false
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  type: map      
 {% endconfiguration %}
 
 ### Examples
@@ -181,3 +202,14 @@ segments:
   - from: 65
     color: var(--error-color)
 ```
+
+Display attribute of an entity instead of its state:
+
+```yaml
+type: gauge
+entity: sensor.back_door_info
+attribute: battery_level
+unit: '%'
+max: 100
+```
+In this example, the card displays the `battery_level` attribute of the `sensor.back_door_info` entity.

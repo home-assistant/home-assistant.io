@@ -1,5 +1,10 @@
 ---
 title: "Troubleshooting the ESP32-S3-BOX-3"
+related:
+  - docs: /voice_control/s3_box_voice_assistant/
+    title: Creating a ESP32-S3-BOX-3 voice assistant
+  - url: https://esphome.io/projects/index.html
+    title: ESPHome projects website
 ---
 
 This section provides troubleshooting steps for the ESP32-S3-BOX-3 by Espressif.
@@ -70,15 +75,10 @@ This message indicates that the device could connect to the Wi-Fi, but is unable
 2. Make sure your device is on the same network as Home Assistant.
    - If you have a complex network setup with VLAN, make sure it is in the same VLAN.
 3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-   - If the device is shown as **Discovered**, select **Configure**.
+   - If the device is shown as **Discovered**, select **Add**.
      ![ESP32-S3-BOX-3 open config file](/images/assist/esp32-discovered.png)
    - If it was not discovered, select [**Add integration** > **ESPHome**](https://my.home-assistant.io/redirect/config_flow_start/?domain=esphome).
 4. If you see the screen below, but the ESP32-S3-BOX-3 is not listed, select **Setup another instance of ESPHome**.
 
    ![ESP32-S3-BOX-3 open config file](/images/assist/esp32-s3-box-not-discovered.png)
    - Go to your router, find the IP address or hostname of your device, and enter it.
-
-## Related topics
-
-- [Creating a ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/)
-- [ESPHome projects website](https://esphome.io/projects/index.html)

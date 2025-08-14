@@ -32,20 +32,37 @@ The Pentair ScreenLogic integration allows you to integrate your Pentair Intelli
 
 ## Options
 
-ScreenLogic options are set via **Settings** -> **Devices & Services** -> **Pentair ScreenLogic** -> **Options**.
+ScreenLogic options are set via **Settings** > **Devices & services** > **Pentair ScreenLogic** > **Options**.
 
 -= Seconds between scans - How many seconds between each polling of the ScreenLogic gateway.
 
-## Services
+## Actions
 
 ### `screenlogic.set_color_mode`
 
 Sets the operation of any connected color-capable lights.
 
-| Service data attribute | Optional | Description                                                                                                                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `target`               | no       | An `area` containing the ScreenLogic device, the ScreenLogic `device` itself, or any `entity` from the ScreenLogic device you wish to set the color mode on. |
-| `color_mode`           | no       | The color mode to set. Valid values are listed below.                                                                                                        |
+| Data attribute | Optional | Description                                                                         |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------- |
+| `config_entry`         | no       | Integration entry_id of the ScreenLogic instance you wish to set the color mode on. |
+| `color_mode`           | no       | The color mode to set. Valid values are listed below.                               |
+
+### `screenlogic.start_super_chlorination`
+
+Begins super chlorination, running for the specified period or 24 hours if none is specified.
+
+| Data attribute | Optional | Description                                                                               |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------- |
+| `config_entry`         | no       | Integration entry_id of the ScreenLogic instance you wish to start super chlorination on. |
+| `runtime`              | yes      | Number of hours to run super chlorination for. Defaults to 24 hours.                      |
+
+### `screenlogic.stop_super_chlorination`
+
+Stops super chlorination.
+
+| Data attribute | Optional | Description                                                                              |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------- |
+| `config_entry`         | no       | Integration entry_id of the ScreenLogic instance you wish to stop super chlorination on. |
 
 ## Reference
 

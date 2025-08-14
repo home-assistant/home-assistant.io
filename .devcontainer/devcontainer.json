@@ -21,7 +21,6 @@
         "editorconfig.editorconfig",
         "GitHub.vscode-pull-request-github",
         "mrmlnc.vscode-scss",
-        "Shopify.ruby-lsp",
         "streetsidesoftware.code-spell-checker",
         "taichi.vscode-textlint",
         "yzhang.markdown-all-in-one"
@@ -32,7 +31,8 @@
         "gitlens.showWelcomeOnInstall": false,
         "gitlens.showWhatsNewAfterUpgrades": false,
         "terminal.integrated.shell.linux": "/usr/bin/zsh",
-        "workbench.startupEditor": "none"
+        "workbench.startupEditor": "none",
+        "rubyLsp.rubyVersionManager": "none"
       }
     }
   }

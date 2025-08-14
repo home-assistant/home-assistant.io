@@ -10,7 +10,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@timmo001'
 ha_domain: lyric
-ha_quality_scale: silver
 ha_platforms:
   - climate
   - sensor
@@ -61,3 +60,10 @@ This integration provides the following sensors:
 | Outdoor Humidity    | Lyric's outdoor humidity                    |
 | Next Period Time    | The next time the thermostat will change    |
 | Setpoint Status     | A description of the setpoint of the device |
+
+Additional sensors will be created for each room sensor accessory assigned to a thermostat device, if applicable:
+
+| Name                 | Description                                                       |
+| -------------------- | ----------------------------------------------------------------- |
+| Room Temperature     | The temperature reported from a room sensor accessory             |
+| Room Humidity        | The humidity reported from a room accessory                       |

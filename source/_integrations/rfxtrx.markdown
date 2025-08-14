@@ -4,6 +4,7 @@ description: Instructions on how to integrate RFXtrx into Home Assistant.
 ha_category:
   - Binary sensor
   - Cover
+  - Event
   - Hub
   - Light
   - Sensor
@@ -21,6 +22,7 @@ ha_platforms:
   - binary_sensor
   - cover
   - diagnostics
+  - event
   - light
   - sensor
   - siren
@@ -33,6 +35,7 @@ The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com
 There is currently support for the following device types within Home Assistant:
 
 - [Cover](#covers)
+- [Event](#events)
 - [Light](#lights)
 - [Switch](#switches)
 - [Sensor](#sensors)
@@ -43,7 +46,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Debug logging
 
-To receive debug logging from the RFXCOM device, add the following lines to `configuration.yaml`:
+To receive debug logging from the RFXCOM device, add the following lines to {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:
@@ -88,7 +91,7 @@ connection: &rfxtrx
 
 ## Settings options
 
-To configure options for RFXtrx integration go to **Settings** -> **Devices & Services** and press **Options** on the RFXtrx card.
+To configure options for RFXtrx integration, go to **Settings** > **Devices & services** and select **Options** on the RFXtrx card.
 
 <img src='/images/integrations/rfxtrx/options.png' />
 
@@ -99,6 +102,10 @@ In the options menu, select *Enable automatic add* to enable automatic addition 
 #### Covers
 
 The RFXtrx integration supports Siemens/LightwaveRF and Somfy RTS roller shutters that communicate in the frequency range of 433.92 MHz.
+
+#### Events
+
+The RFXtrx integration will expose event entities for remotes controlling lights as well as security devices.
 
 #### Lights
 
@@ -170,9 +177,9 @@ Some protocols, like `undecoded`, cannot be enabled in non-volatile memory and m
 
 To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
 
-<div class='note warning'>
+{% important %}
 If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
-</div>
+{% endimportant %}
 
 #### Off delay
 
@@ -289,7 +296,7 @@ So, for example, to trigger an action when somebody presses the doorbell, you wo
 *Automation trigger:*
 
 ```yaml
-- platform: event
+- trigger: event
   event_type: rfxtrx_event
   event_data:
     packet_type: 22
@@ -313,8 +320,8 @@ scene:
 
 automation:
   - alias: "Use doorbell button to trigger scene"
-    trigger:
-    - platform: event
+    triggers:
+    - trigger: event
       event_type: rfxtrx_event
       event_data:
         packet_type: 22
@@ -322,35 +329,35 @@ automation:
         id_string: "00:90"
         values:
           Sound: 9
-    action:
-      service: scene.turn_on
-      target:
-        entity_id: scene.welcomescene
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.welcomescene
 ```
 
-## Services
+## Actions
 
 - `rfxtrx.send`: Send a custom event using the RFXtrx device.
 
-### Service: Send
+### Action: Send
 
 Simulate a button being pressed:
 
 ```yaml
 ...
-action:
-  service: rfxtrx.send
-  data:
-    event: 0b1111e003af16aa10000060
+actions:
+  - action: rfxtrx.send
+    data:
+      event: 0b1111e003af16aa10000060
 ```
 
 Alternatively:
 
-- Go to: {% my developer_call_service title="Developer tools -> Services" service="rfxtrx.send" %}
-- Select: `RFXCOM RFXtrx: Send` from the Service drop-down menu.
+- Go to: {% my developer_call_service title="**Developer tools** > **Actions**" service="rfxtrx.send" %}
+- Select: `RFXCOM RFXtrx: Send` from the **Action** drop-down menu.
 
 ```yaml
-service: rfxtrx.send
+action: rfxtrx.send
 data:
   event: "0b1111e003af16aa10000060"
 ```

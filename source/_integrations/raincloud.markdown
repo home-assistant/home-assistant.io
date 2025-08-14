@@ -16,9 +16,13 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `raincloud` integration allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.
+The `raincloud` {% term integration %} allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -28,7 +32,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To enable it, add the following to your `configuration.yaml` file:
+To enable it, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,7 +55,7 @@ password:
 
 ## Binary sensor
 
-Once you have enabled the [Raincloud integration](#configuration), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud integration](#configuration), add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -73,7 +78,7 @@ monitored_conditions:
 
 ## Sensor
 
-Once you have enabled the [Raincloud integration](#configuration), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud integration](#configuration), add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -100,7 +105,7 @@ monitored_conditions:
 
 ## Switch
 
-Once you have enabled the [Raincloud integration](#configuration), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud integration](#configuration), add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

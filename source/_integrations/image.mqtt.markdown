@@ -18,7 +18,8 @@ An alternative setup is to use the `url_topic` option to receive an image URL fo
 
 ## Configuration
 
-To enable this image in your installation, add the following to your `configuration.yaml` file:
+To use an MQTT image entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,6 +27,8 @@ mqtt:
   - image:
       url_topic: mynas/status/url
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -48,7 +51,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -57,7 +60,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -98,6 +101,10 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
       required: false
@@ -132,7 +139,10 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -141,13 +151,12 @@ image_encoding:
   description: The encoding of the image payloads received. Set to `"b64"` to enable base64 decoding of image payload. If not set, the image payload must be raw binary data.
   required: false
   type: string
-  default: None
 image_topic:
   description: The MQTT topic to subscribe to receive the image payload of the image to be downloaded. Ensure the `content_type` type option is set to the corresponding content type. This option cannot be used together with the `url_topic` option. But at least one of these option is required.
   required: exclusive
   type: string
 json_attributes_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`.
+  description: Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`.
   required: false
   type: template
 json_attributes_topic:
@@ -159,15 +168,15 @@ name:
   required: false
   type: string
 object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this image. If two images have the same unique ID Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this image. If two images have the same unique ID Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 url_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the image URL from a message received at `url_topic`.
+  description: Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the image URL from a message received at `url_topic`.
   required: false
   type: template
 url_topic:
@@ -178,7 +187,7 @@ url_topic:
 
 ### Example receiving images from a URL
 
-Add the configuration below to your `configuration.yaml`.
+Add the configuration below to your {% term "`configuration.yaml`" %}.
 
 To test it publish an image URL to the topic from the console:
 
@@ -199,7 +208,7 @@ mqtt:
 
 ### Example receiving images from a file
 
-Add the configuration below to your `configuration.yaml`.
+Add the configuration below to your {% term "`configuration.yaml`" %}.
 
 To test it, publish an image URL to the topic from the console:
 

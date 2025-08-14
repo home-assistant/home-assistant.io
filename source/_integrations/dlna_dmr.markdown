@@ -7,7 +7,6 @@ ha_release: 0.76
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@StevenLooman'
   - '@chishm'
 ha_domain: dlna_dmr
 ha_platforms:
@@ -18,13 +17,13 @@ ha_integration_type: integration
 
 The **DLNA Digital Media Renderer** {% term integration %} allows you to control a [DLNA Digital Media Renderer](https://www.dlna.org/), such as DLNA enabled TVs or radios.
 
-Please note that some devices, such as Samsung TVs, are rather picky about the source used to play from. The TTS service might not work in combination with these devices. If the play_media service does not work, please try playing from a DLNA/DMS (such as [MiniDLNA](https://sourceforge.net/projects/minidlna/)).
+Note that some devices, such as Samsung TVs, are rather picky about the source used to play from. The TTS action might not work in combination with these devices. If the play_media action does not work, please try playing from a DLNA/DMS (such as [MiniDLNA](https://sourceforge.net/projects/minidlna/)).
 
 {% include integrations/config_flow.md %}
 
 ## Options
 
-Options for DLNA DMR devices can be set going to **Settings** > **Devices & Services** > **DLNA Digital Media Renderer** > **Configuration**.
+Options for DLNA DMR devices can be set by going to **Settings** > **Devices & services** > **DLNA Digital Media Renderer** > **Configuration**.
 
 {% configuration_basic %}
 Event listener port:
@@ -37,9 +36,9 @@ Show incompatible media when browsing:
   description: "When browsing media, show all media files and links, even if the device reports that it is not compatible with the media type."
 {% endconfiguration_basic %}
 
-## Services
+## Actions
 
-DLNA devices can support a range of features. Depending on the device itself, the following [media_player](/integrations/media_player/#services) services may be supported:
+DLNA devices can support a range of features. Depending on the device itself, the following [media_player](/integrations/media_player/#actions) actions may be supported:
 
 - `media_player.volume_up`, `media_player.volume_down`, and `media_player.volume_set`
 - `media_player.volume_mute`

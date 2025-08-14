@@ -9,6 +9,7 @@ ha_domain: proliphix
 ha_platforms:
   - climate
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `proliphix` climate platform let you control Proliphix thermostats from Home Assistant.
@@ -17,7 +18,7 @@ Currently supported and tested thermostats:
 
 - NT10e
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 climate:

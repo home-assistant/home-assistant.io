@@ -1,5 +1,4 @@
 ```yaml
-  version: '3'
   services:
     homeassistant:
       container_name: homeassistant

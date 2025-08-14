@@ -9,9 +9,13 @@ ha_domain: message_bird
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `MessageBird` notification platform sends notifications as SMS messages using [MessageBird](https://www.messagebird.com/) to your mobile phone.
+The `MessageBird` notification {% term integration %} sends notifications as SMS messages using [MessageBird](https://www.messagebird.com/) to your mobile phone.
 
 ## Setup
 
@@ -19,7 +23,8 @@ Go to [MessageBird](https://www.messagebird.com/) to retrieve your API key.
 
 ## Configuration
 
-To enable MessageBird notifications in your installation, add the following to your `configuration.yaml` file:
+To enable MessageBird notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,7 +40,7 @@ api_key:
   required: true
   type: string
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
@@ -48,9 +53,9 @@ sender:
 
 ### Usage
 
-MessageBird is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to the specified mobile phone number(s).
+MessageBird is a notify platform and thus can be controlled by calling the notify action [as described here](/integrations/notify/). It will send a notification to the specified mobile phone number(s).
 
-#### Example service payload
+#### Example action payload
 
 ```json
 {

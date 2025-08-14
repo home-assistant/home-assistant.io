@@ -22,7 +22,9 @@ The **Deutscher Wetterdienst Weather Warnings** {% term integration %} uses the 
 
 {% configuration_basic %}
 Warncell ID or name:
-  description: Identifier of the region. It can be a warncell ID (integer) or a warncell name. It is heavily advised to use warncell ID because a warncell name is sometimes not unique. A list of valid warncell IDs and names can be found [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html). Some of the warncells are outdated but still listed. If the setup fails, search the list for a similar sounding warncell. If the warncell name is not unique, `" (not unique used ID)!"` will be added to the reported `region_name`. Setting this field is required.
+  description: Identifier of the region. It can be a warncell ID (integer) or a warncell name. It is heavily advised to use warncell ID because a warncell name is sometimes not unique. A list of valid warncell IDs and names can be found [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html). Some of the warncells are outdated but still listed. If the setup fails, search the list for a similar sounding warncell. If the warncell name is not unique, `" (not unique used ID)!"` will be added to the reported `region_name`.
+Device tracker entity:
+  description: A `device_tracker` entity that will be used to identify the warncell. The entity *has* to contain the attributes `latitude` and `longitude`. Setting either this field or `Warncell ID or name` is required, but not both.
 {% endconfiguration_basic %}
 
 ### Attributes
@@ -45,8 +47,6 @@ Warncell ID or name:
 | `warning_<x>_parameters` | *(list)* A list of additional warning parameters. More information can be found [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/warning_codes_pdf.pdf?__blob=publicationFile&v=5). |
 | `warning_<x>_color` | *(str)* The DWD color of the warning encoded as `#rrggbb`. |
 
-<div class="note">
-
+{% note %}
 In the attribute name `x` is the counter of the warning starting from `1`.
-
-</div>
+{% endnote %}

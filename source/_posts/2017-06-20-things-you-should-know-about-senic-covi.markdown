@@ -15,11 +15,11 @@ categories: Public-Service-Announcement
 *Original post:*
 
 <!--more-->
-<div class='note'>
+{% note %}
 
 TL;DR: We are not affiliated with Senic or their COVI product. We will not support their users and you will get a subpar Home Assistant experience by using their product. **Furthermore, we cannot guarantee stability or security if you use Senic products.**
 
-</div>
+{% endnote %}
 
 Recently Home Assistant has been made aware of a product by [Senic] that will be launching later today on [Kickstarter][kickstarter] ([screenshot][ks-backup]). Senic is not new in the IoT business, we have had support for their first product (Nuimo) since last September. Their new product, COVI, uses Home Assistant as its core home automation codebase. This is great, that is what open source is all about. However, they also use our name and logo in their Kickstarter, with the press and in their [developer documentation] ([screenshot][docs-backup]) to give the appearance of being affiliated with Home Assistant, against our wishes. Which is not great, at all.
 

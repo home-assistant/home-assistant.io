@@ -3,6 +3,7 @@ title: Airthings BLE
 description: Instructions on how to set up Airthings Devices over Bluetooth LE.
 ha_category:
   - Environment
+  - Health
   - Sensor
 ha_release: '2022.11'
 ha_iot_class: Local Polling
@@ -19,7 +20,7 @@ ha_integration_type: integration
 
 Integrates Airthings BLE {% term sensors %} into Home Assistant.
 
-[Airthings](https://www.airthings.com/) provide different {% term devices %} for measuring the air quality. Initially focusing on radon gas sensors, each device provides a number of different sensors to monitor typical contaminants that's presence contributes to bad air quality in the home.
+[Airthings](https://www.airthings.com/) provide different {% term devices %} for measuring the air quality. Initially focusing on radon gas sensors, each device provides a number of different sensors to monitor typical contaminants whose presence contributes to bad air quality in the home.
 
 Requires Airthings hardware and a compatible Bluetooth dongle.
 
@@ -39,6 +40,7 @@ This integration uses the last 6 digits of the serial number.
 - Wave Radon
 - Wave Mini
 - Wave Plus
+- Wave Enhance
 
 ## Sensors
 

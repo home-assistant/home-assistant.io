@@ -1,6 +1,13 @@
 ---
 title: "Features for dashboard cards"
 description: "Decorate your dashboard cards with quick controls."
+related:
+  - docs: /dashboards/humidifier/
+    title: Humidifier card
+  - docs: /dashboards/thermostat/
+    title: Thermostat card
+  - docs: /dashboards/tile/
+    title: Tile card
 ---
 
 Some dashboard cards have support for features. These widgets add quick controls to the card. Supported features depend on the card and entity capabilities. Multiple features can be added to a single card.
@@ -8,6 +15,32 @@ Some dashboard cards have support for features. These widgets add quick controls
 <p class='img'><img src='/images/dashboards/features/screenshot-tile-feature-grid.png' alt="Screenshot of tile cards with features.">
 Screenshot of tile cards with features.
 </p>
+
+Features can be enabled on the following cards:
+
+- [Humidifier](/dashboards/humidifier/)
+- [Thermostat](/dashboards/thermostat/)
+- [Tile](/dashboards/tile/)
+- [Area](/dashboards/area/)
+
+## Customizing features
+
+1. Edit the card and open the **Features** section.
+2. To add an additional feature to your card, select **Add feature**.
+   - **Info**: The available options for a feature depend on the entity and type of feature.
+     - For example, not all entities have a [toggle](#toggle) or a [counter-action](#counter-actions).
+3. On tile cards, you can adjust the feature position.
+   - Under **Features** > **Feature position**, select **Bottom** or **Inline**:
+
+   ![Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.](/images/dashboards/features/tile-card-feature-position.png)
+
+4. Reordering features:
+   - Some features of the tile card, such as the presets or the HVAC modes of a thermostat, can show buttons.
+   - To reorder the buttons, enable **Customize** and drag and drop the buttons into position.
+   - If you don't like the buttons, you can replace them by a **Dropdown** instead.
+     - Under **Style**, select the **Dropdown** option.
+  
+    ![Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.](/images/blog/2024-05/tile-card-reorder-features.gif)
 
 ## Alarm modes
 
@@ -39,6 +72,33 @@ modes:
   required: true
   description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass`, and `disarmed`.
   type: list
+{% endconfiguration %}
+
+## Button
+
+Widget that displays buttons to control [button](/integrations/button) or [script](/integrations/script).
+
+<p class='img'>
+  <img src='/images/dashboards/features/button.png' alt='Screenshot of the tile card with the button feature'>
+  Screenshot of the tile card with the button feature
+</p>
+
+```yaml
+features:
+  - type: "button"
+    action_name: "Click the button"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`button`"
+  type: string
+action_name:
+  required: false
+  type: string
+  description: Text inside the button.
+  type: string
 {% endconfiguration %}
 
 ## Climate fan modes
@@ -149,6 +209,35 @@ preset_modes:
   type: list
 {% endconfiguration %}
 
+## Counter actions
+
+Widget that displays buttons to increment, decrement, and reset a [counter](/integrations/counter).
+
+<p class='img'>
+  <img src='/images/dashboards/features/counter_actions.png' alt='Screenshot of the tile card with counter actions feature'>
+  Screenshot of the tile card with counter actions feature
+</p>
+
+```yaml
+features:
+  - type: "counter-actions"
+    actions:
+      - increment
+      - decrement
+      - reset
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`counter-actions`"
+  type: string
+actions:
+  required: true
+  description: List of actions to show on the card. The list can contain `increment`, `decrement`, and `reset`.
+  type: list
+{% endconfiguration %}
+
 ## Cover open/close
 
 Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
@@ -231,6 +320,63 @@ type:
   required: true
   description: "`cover-tilt-position`"
   type: string
+{% endconfiguration %}
+
+## Fan direction
+
+Widget that displays controls to change direction for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_direction.png' alt='Screenshot of the tile card with the fan direction feature'>
+  Screenshot of the tile card with the fan direction feature
+</p>
+
+```yaml
+features:
+  - type: "fan-direction"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-direction`"
+  type: string
+{% endconfiguration %}
+
+## Fan preset modes
+
+Widget that displays buttons or icons to control the preset mode for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_preset_modes.png' alt='Screenshot of the tile card with the fan preset modes feature'>
+  Screenshot of the tile card with the fan preset modes feature
+</p>
+
+```yaml
+features:
+  - type: "fan-preset-modes"
+    style: "icons"
+    preset_modes:
+      - auto
+      - smart
+      - sleep
+      - 'on'
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-preset-modes`"
+  type: string
+style:
+  required: false
+  description: "How the preset modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+preset_modes:
+  required: true
+  description: List of preset modes to show on the card. The list can contain any supported preset modes.
+  type: list
 {% endconfiguration %}
 
 ## Fan speed
@@ -379,6 +525,69 @@ type:
   type: string
 {% endconfiguration %}
 
+## Lock commands
+
+Widget that displays buttons to lock or unlock a [lock](/integrations/lock).
+
+<p class='img'>
+  <img src='/images/dashboards/features/lock_feature_commands.png' alt='Screenshot of the tile card with the lock commands feature'>
+  Screenshot of the tile card with the lock commands feature
+</p>
+
+```yaml
+features:
+  - type: "lock-commands"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`lock-commands`"
+  type: string
+{% endconfiguration %}
+
+## Lock open door
+
+Widget that displays a button to [open a door](/integrations/lock).
+
+<p class='img'>
+  <img src='/images/dashboards/features/lock_feature_open_door.png' alt='Screenshot of the tile card with the lock open door feature'>
+  Screenshot of the tile card with the lock open door feature
+</p>
+
+```yaml
+features:
+  - type: "lock-open-door"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`lock-open-door`"
+  type: string
+{% endconfiguration %}
+
+## Media player volume slider
+
+Widget that displays a slider to control the volume for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_volume_slider.png' alt='Screenshot of the tile card with media player volume slider feature'>
+  Screenshot of the tile card with media player volume slider feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-volume-slider"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-volume-slider`"
+  type: string
+{% endconfiguration %}
+
 ## Numeric input
 
 Widget that displays a slider or buttons to set the value for a [number](/integrations/number) or [input number](/integrations/input_number).
@@ -448,6 +657,54 @@ type:
   type: string
 {% endconfiguration %}
 
+## Toggle
+
+Widget that displays a button to toggle a [switch](/integrations/switch) or [input boolean](/integrations/input_boolean) entity on or off.
+
+<p class='img'>
+  <img src='/images/dashboards/features/toggle.png' alt='Screenshot of the tile card with the toggle feature'>
+  Screenshot of the tile card with the toggle feature
+</p>
+
+```yaml
+features:
+  - type: "toggle"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`toggle`"
+  type: string
+{% endconfiguration %}
+
+## Update actions
+
+Widget that displays actions to install or skip an [update](/integrations/update).
+
+<p class='img'>
+  <img src='/images/dashboards/features/update_actions.png' alt='Screenshot of the tile card with update actions feature'>
+  Screenshot of the tile card with update actions feature
+</p>
+
+```yaml
+features:
+  - type: "update-actions"
+    backup: "ask"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`update-actions`"
+  type: string
+backup:
+  required: false
+  description: Whether a backup should be done before updating. The value can be `ask`, `yes`, or `no`. `ask` will open a dialog to ask if a backup should be done.
+  type: list
+  default: ask
+{% endconfiguration %}
+
 ## Vacuum commands
 
 Widget that displays buttons to control a [vacuum](/integrations/vacuum).
@@ -477,6 +734,48 @@ commands:
   required: true
   description: List of commands to show on the card. The list can contain `start_pause`, `stop`, `clean_spot`, `locate`, and `return_home`.
   type: list
+{% endconfiguration %}
+
+## Valve open/close
+
+Widget that displays buttons to open, close, or stop a [valve](/integrations/valve).
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_open_close.png' alt='Screenshot of the tile card with open/close feature'>
+  Screenshot of the tile card with valve open/close feature
+</p>
+
+```yaml
+features:
+  - type: "valve-open-close"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-open-close`"
+  type: string
+{% endconfiguration %}
+
+## Valve position
+
+Widget that displays a slider to control the position for a [valve](/integrations/valve).
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_position.png' alt='Screenshot of the tile card with the valve position feature'>
+  Screenshot of the tile card with the valve position feature
+</p>
+
+```yaml
+features:
+  - type: "valve-position"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-position`"
+  type: string
 {% endconfiguration %}
 
 ## Water heater operation modes
@@ -509,5 +808,34 @@ type:
 operation_modes:
   required: true
   description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand`, and `off`.
+  type: list
+{% endconfiguration %}
+
+## Area control
+
+Widget that displays buttons to control different types of entity in your area.
+
+<p class='img'>
+  <img src='/images/dashboards/features/area_controls.png' alt='Screenshot of the area card with the area controls feature'>
+  Screenshot of the area card with the area controls feature
+</p>
+
+```yaml
+features:
+  - type: "area-controls"
+    controls:
+      - light
+      - fan
+      - switch
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`area-controls`"
+  type: string
+controls:
+  required: true
+  description: List of controls to show on the card. The list can contain `light`, `fan`, and `switch`.
   type: list
 {% endconfiguration %}

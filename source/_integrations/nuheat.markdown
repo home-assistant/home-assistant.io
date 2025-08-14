@@ -110,20 +110,20 @@ Returns the maximum supported temperature by the thermostat
 | ---------------| ----------- |
 | Integer | Maximum supported temperature
 
-## Services
+## Actions
 
-The following services are provided by the NuHeat Thermostat: `set_temperature`, `set_hvac_mode`, `set_preset_mode`.
+The following actions are provided by the NuHeat Thermostat: `set_temperature`, `set_hvac_mode`, `set_preset_mode`.
 
-### Service `climate.set_hvac_mode` ([Climate integration](/integrations/climate/))
+### Action `climate.set_hvac_mode` ([Climate integration](/integrations/climate/))
 
 NuHeat Thermostats do not have an off concept. Setting the temperature to `min_temp` and changing the mode to `heat` will cause the device to enter a `Permanent Hold` preset and will stop the thermostat from turning on unless you happen to live in a freezing climate.
 
-### Service `climate.set_temperature` ([Climate integration](/integrations/climate/))
+### Action `climate.set_temperature` ([Climate integration](/integrations/climate/))
 
 If the thermostat is in auto mode, it puts the thermostat into a temporary hold at the given temperature.
 
 If the thermostat is in heat mode, it puts the thermostat into a permanent hold at the given temperature.
 
-### Service `climate.set_preset_mode` ([Climate integration](/integrations/climate/))
+### Action `climate.set_preset_mode` ([Climate integration](/integrations/climate/))
 
 The following presets are available: `Run Schedule`, `Temporary Hold`, `Permanent Hold`.

@@ -96,7 +96,7 @@ If you have an ESP32 or ESP8266 device handy, you can try it out right here:
 <center style="margin-bottom: 25px">
 <script
   type="module"
-  src="https://unpkg.com/esp-web-tools@3.3.0/dist/web/install-button.js?module"
+  src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"
 ></script><esp-web-install-button
   manifest="https://esphome.github.io/esp-web-tools/static/firmware_build/manifest.json"
 ></esp-web-install-button>

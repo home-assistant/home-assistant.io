@@ -7,7 +7,6 @@ ha_category:
 ha_release: 0.82
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_quality_scale: gold
 ha_codeowners:
   - '@fabaff'
   - '@frenck'

@@ -13,6 +13,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@frenck'
+  - '@bdraco'
 ha_integration_type: device
 ---
 

@@ -2,10 +2,13 @@
 title: Smarther
 description: Connect and control your Smarther devices using the Netatmo integration
 ha_category:
+  - Binary sensor
+  - Button
   - Camera
   - Climate
   - Cover
   - Environment
+  - Fan
   - Hub
   - Light
   - Media source
@@ -21,10 +24,13 @@ ha_codeowners:
   - '@cgtobi'
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
+  - button
   - camera
   - climate
   - cover
   - diagnostics
+  - fan
   - light
   - select
   - sensor

@@ -91,7 +91,7 @@ Home Assistant is about choice. You’re not limited to running it on official h
 We created the [Home Assistant SkyConnect][skyconnect] to provide the missing smart home connectivity. It contains a chip from the same family as the Home Assistant Yellow. It is set out of the box to provide Zigbee. With the latest Home Assistant 2023.2 and when using Home Assistant OS, it is possible to turn your Home Assistant SkyConnect into a Thread border router. This can be done by enabling our experimental multiprotocol support in {% my hardware title="Settings -> Hardware" %} and by clicking Configure.
 
 <p class='img'>
-<img src='/images/skyconnect/skyconnect_isometric.png' alt='Picture of a Home Assistant SkyConnect.'>
+<img src='/images/connectzbt1/connectzbt1_isometric.png' alt='Picture of a Home Assistant SkyConnect.'>
 </p>
 
 Home Assistant SkyConnect was introduced at the end of 2022 via our distributor network (hit “buy” on [our website][skyconnect]). Many distributors sold out right away but most should be receiving new stock soon.

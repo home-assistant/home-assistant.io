@@ -29,5 +29,6 @@ The {% term integration %} will create sensors for you to display:
 
 - The current power usage
 - The gas meter
+- The water meter
 - The current meter value (including high and low)
 - The delivery meter value, for Solar power

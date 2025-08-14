@@ -16,35 +16,33 @@ Useful as part of an {% term automation %}.
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
-Because `color_extractor.turn_on` will then call `light.turn_on`, you can pass any valid [`light.turn_on`](/integrations/light#service-lightturn_on) parameters (`rgb_color` will be set for you though) as those will be passed along.
+Because `color_extractor.turn_on` will then call `light.turn_on`, you can pass any valid [`light.turn_on`](/integrations/light#action-lightturn_on) parameters (`rgb_color` will be set for you though) as those will be passed along.
 
-Passing the key `color_extract_url` to the {% term service %} call will download the linked image and extract the predominant color from it. Passing the key `color_extract_path` to the service call will process the image file from local storage instead. `color_extract_url` and `color_extract_path` are exclusive and cannot be used together.
+Passing the key `color_extract_url` to the {% term action %} call will download the linked image and extract the predominant color from it. Passing the key `color_extract_path` to the action will process the image file from local storage instead. `color_extract_url` and `color_extract_path` are exclusive and cannot be used together.
 
-|Key                  | Example                               | Description                                                                   |
-|---------------------|---------------------------------------|-------------------------------------------------------------------------------|
-|`color_extract_url`  | `https://example.com/images/logo.png` | The full URL (including schema, `http://`, `https://`) of the image to process|
-|`color_extract_path` | `/tmp/album.png`                      | The full path to the image file on local storage we'll process                |
-|`entity_id`          | `light.shelf_leds`                    | The RGB capable light we'll set the color of                                  |
+| Key                  | Example                               | Description                                                                    |
+| -------------------- | ------------------------------------- | ------------------------------------------------------------------------------ |
+| `color_extract_url`  | `https://example.com/images/logo.png` | The full URL (including schema, `http://`, `https://`) of the image to process |
+| `color_extract_path` | `/tmp/album.png`                      | The full path to the image file on local storage we'll process                 |
+| `entity_id`          | `light.shelf_leds`                    | The RGB capable light we'll set the color of                                   |
 
-<div class="note">
-  
-  Please ensure any [external URLs](/docs/configuration/basic/#allowlist_external_urls) or [external files](/docs/configuration/basic/#allowlist_external_dirs) are authorized for use. You will receive error messages if this {% term integration %} is not allowed access to these external resources.
-  
-</div>
+{% important %}
+Ensure any [external URLs](/integrations/homeassistant/#allowlist_external_urls) or [external files](/integrations/homeassistant/#allowlist_external_dirs) are authorized for use. You will receive error messages if this {% term integration %} is not allowed access to these external resources.
+{% endimportant %}
 
-### URL Service Call
+### URL Action
 
-Add the parameter key `color_extract_url` to the service call.
+Add the parameter key `color_extract_url` to the action.
 
-This {% term service %} allows you to pass in the URL of an image, have it downloaded, get the predominant color from it, and then set a light's RGB value to it.
+This {% term action %} allows you to pass in the URL of an image, have it downloaded, get the predominant color from it, and then set a light's RGB value to it.
 
-### File Service Call
+### File Action
 
-Add the parameter key `color_extract_path` to the service call.
+Add the parameter key `color_extract_path` to the action.
 
-This {% term service %} is very similar to the URL service above, except it processes a file from the local file storage.
+This {% term action %} is very similar to the URL action above, except it processes a file from the local file storage.
 
 ## Example Automations
 
@@ -56,29 +54,29 @@ Example usage in an {% term automation %}, taking the album art present on a Chr
 #automation.yaml
 - alias: "Chromecast to Shelf Lights"
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: media_player.chromecast
 
-  action:
-    - service: color_extractor.turn_on
+  actions:
+    - action: color_extractor.turn_on
       data_template:
         color_extract_url: "{{ states.media_player.chromecast.attributes.entity_picture }}"
         entity_id: light.shelf_leds
 ```
 
-With a nicer transition period of 5 seconds and setting brightness to 100% each time (part of the [`light.turn_on`](/integrations/light#service-lightturn_on) service parameters):
+With a nicer transition period of 5 seconds and setting brightness to 100% each time (part of the [`light.turn_on`](/integrations/light#action-lightturn_on) action parameters):
 
 ```yaml
 #automation.yaml
 - alias: "Nicer Chromecast to Shelf Lights"
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: media_player.chromecast
 
-  action:
-    - service: color_extractor.turn_on
+  actions:
+    - action: color_extractor.turn_on
       data_template:
         color_extract_url: "{{ states.media_player.chromecast.attributes.entity_picture }}"
         entity_id: light.shelf_leds

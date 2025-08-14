@@ -39,6 +39,7 @@ Using the **Change device type of a switch** helper integration, you can convert
 entity types that best matches your use case.
 
 {% include integrations/config_flow.md name="Switch as X" %}
+
 {% configuration_basic %}
 Switch entity:
   description: The switch entity you want to convert into something else.
@@ -48,6 +49,6 @@ Type:
 
 ## **Change device type of a switch** from the existing entity
 
-Where compatible, **Change device type of a switch** will appear on entity properties. A list of entities can be found in **{% my entities title="Settings > Devices & Services > Entities" %}**.
+Where compatible, **Change device type of a switch** will appear on entity properties. A list of entities can be found in **{% my entities title="Settings > Devices & services > Entities" %}**.
 
 ![Entity properties example](/images/integrations/switch_as_x/Entities_Properties.png)

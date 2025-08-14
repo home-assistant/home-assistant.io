@@ -12,6 +12,10 @@ ha_domain: atome
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `atome` sensor platform is retrieving the consumption of your home from the [Direct Energy Atome electric meter](https://total.direct-energie.com/particuliers/electricite/compteur-linky/atome).
@@ -24,7 +28,8 @@ As there is no official documentation for the API, the integration retrieves dat
 To use it, you need to order the device directly from "Total Direct Energie" Mobile App. Then you need to follow up the installation (covered in the Atome App).
 The configuration (see below) needs your Atome username & password you created during the initialization of the Atome device.
 
-Next, add the Atome sensor to your `configuration.yaml` file like below:
+Next, add the Atome sensor to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -9,11 +9,16 @@ ha_domain: lannouncer
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `lannouncer` notification platform allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](https://play.google.com/store/apps/details?id=com.keybounce.lannouncer&hl=en_US). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.
+The `lannouncer` notification {% term integration %} allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](https://play.google.com/store/apps/details?id=com.keybounce.lannouncer&hl=en_US). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.
 
-To enable Lannouncer notifications in your installation, add the following to your `configuration.yaml` file:
+To enable Lannouncer notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -25,7 +30,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
@@ -52,7 +57,7 @@ More information can be found [here](https://web.archive.org/web/20200928053944/
 
 Lannouncer supports two types of messages.
 
-Spoken messages is the default method (`speak`). You just invoke the `notify` service with the following JSON and the device will speak out the specified message.
+Spoken messages is the default method (`speak`). You just invoke the `notify` action with the following JSON and the device will speak out the specified message.
 
 ```json
 {
@@ -82,8 +87,8 @@ You can also request to play a configured additional soundfiles (`FILE1`, `FILE2
 }
 ```
 
-<div class='note info'>
+{% note %}
 The free version only supports one additional soundfile.
-</div>
+{% endnote %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

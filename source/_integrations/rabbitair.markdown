@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
   - fan
+ha_integration_type: integration
 ---
 
 The Rabbit Air integration lets you control your air purifier over the local network. The following device models are currently supported:
@@ -48,11 +49,7 @@ In some cases the access token may not be available right away, then you will se
 
 {% configuration_basic %}
 host:
-  description: "Hostname or IP address of the device."
-  required: true
-  type: string
+  description: Hostname or IP address of the device.
 access_token:
-  description: "Access Token that can be obtained in the Rabbit Air app."
-  required: true
-  type: string
+  description: Access Token that can be obtained in the Rabbit Air app.
 {% endconfiguration_basic %}

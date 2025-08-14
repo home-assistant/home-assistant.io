@@ -11,6 +11,9 @@ ha_codeowners:
   - '@home-assistant/core'
   - '@frenck'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `alert` integration is designed to notify you when problematic issues arise.
@@ -23,17 +26,18 @@ Alerts will add an entity to the front end.
 This entity allows you to silence an alert until it is resolved and has three
 possible states:
 
-State | Description
--|-
-`idle` | The condition for the alert is false.
-`on` | The condition for the alert is true.
-`off` | The condition for the alert is true but it was acknowledged.
+| State  | Description                                                  |
+| ------ | ------------------------------------------------------------ |
+| `idle` | The condition for the alert is false.                        |
+| `on`   | The condition for the alert is true.                         |
+| `off`  | The condition for the alert is true but it was acknowledged. |
 
 ### Basic example
 
 The `alert` integration makes use of any of the `notification` integrations. To
-setup the `alert` integration, first, you must set up a [notification integration](/integrations/#notifications).
-Then, add the following to your configuration file:
+setup the `alert` integration, first, you must set up a [notification integration](/integrations/notify).
+Then, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -78,7 +82,7 @@ repeat:
   required: true
   type: [integer, list]
 can_acknowledge:
-  description: Allows the alert to be unacknowledgeable.
+  description: Control whether the notification can be acknowledged; set to `false` if the alert should not be acknowledgeable.
   required: false
   type: boolean
   default: true
@@ -131,7 +135,7 @@ provided by the `alert` integration:
 - platform: group
   name: john_phone_sms
   services:
-    - service: twilio_sms
+    - action: twilio_sms
       data:
         target: !secret john_phone
 ```
@@ -281,13 +285,13 @@ but you will still receive the done message.
 
 ```yaml
 - alias: "Telegram callback to stop alerts for garage door"
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: telegram_callback
       event_data:
         data: "/garage_acknowledge"
-  action:
-    - service: alert.turn_off
+  actions:
+    - action: alert.turn_off
       target:
         entity_id: alert.garage_door
 ```

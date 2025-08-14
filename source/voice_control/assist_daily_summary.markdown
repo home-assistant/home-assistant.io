@@ -1,5 +1,16 @@
 ---
 title: "Daily summary by Assist"
+related:
+  - docs: /voice_control/voice_remote_local_assistant/
+    title: Local assistant pipeline
+  - docs: /integrations/local_calendar/
+    title: Local calendar
+  - docs: /integrations/telegram/#setup-example
+    title: Telegram notification
+  - docs: /voice_control/assist_create_open_ai_personality/
+    title: Telegram notification
+  - url: https://www.nabucasa.com
+    title: Home Assistant Cloud
 ---
 
 In this tutorial, we are creating an automation that has Assist send you a daily summary. Assist will tell you about the weather and your calendar events today. It will also send you the summary to your messenger.
@@ -71,7 +82,8 @@ We are using a blueprint (courtesy of [@allenporter]) that polls calendar events
 
 1. To import the blueprint, select the button below:
    
-   {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/blog/2023-07/notify_agent_agenda.yaml" %}
+   {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/conversation_notify_agent_agenda.yaml" %}
+
 2. Select **Preview**, then select **Import blueprint**.
 3. Select the blueprint **Conversation agent agenda notification** from the list.
 4. Enter the values for each category.
@@ -84,11 +96,3 @@ We are using a blueprint (courtesy of [@allenporter]) that polls calendar events
    - You should now receive a notification from Assist in your messenger app.
 
 [@allenporter]: https://github.com/allenporter
-
-## Related topics
-
-- [Home Assistant Cloud](https://www.nabucasa.com)
-- [Local assistant pipeline](/voice_control/voice_remote_local_assistant/)
-- [Local calendar](/integrations/local_calendar/)
-- [Telegram notification](/integrations/telegram/#setup-example)
-- [Create a Mario personality](/voice_control/assist_create_open_ai_personality/)

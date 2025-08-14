@@ -26,8 +26,8 @@ webcal://recollect.a.ssl.fastly.net/api/places/PLACE_ID/services/SERVICE_ID/even
 
 The default frequency for pulling data from ReCollect Waste is once a day (86400 seconds).
 
-<div class='note warning'>
+{% warning %}
 The ReCollect Waste sensor uses the ReCollect API <strong>URL</strong> to obtain data and not an official API from ReCollect. Use at your own risk.
-</div>
+{% endwarning %}
 
 {% include integrations/config_flow.md %}

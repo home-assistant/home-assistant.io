@@ -12,25 +12,34 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Siren integration is built for the controlling and monitoring of siren/chime devices.
+The **Siren** {% term integration %} is built for the controlling and monitoring of siren/chime devices.
 
 {% include integrations/building_block_integration.md %}
 
-## Services
+## The state of a siren entity
 
-### siren services
+The state of a siren entity can be either **On** or **Off**.
 
-Available services: `siren.turn_on`, `siren.turn_off`, `siren.toggle`
+In addition, the entity can have the following states:
 
-### Service `siren.turn_on`
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
+## Actions
+
+### Siren actions
+
+Available {% term actions %}: `siren.turn_on`, `siren.turn_off`, `siren.toggle`
+
+### Action `siren.turn_on`
 
 Turn the siren on.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
 
-There are three optional input parameters that can be passed into the service call depending on whether or not your device supports them. Check the device's integration documentation for more details.
+There are three optional input parameters that can be passed into the action depending on whether or not your device supports them. Check the device's integration documentation for more details.
 
 | Parameter Name  | Input Type              | Notes                                                                               |
 |---------------- |-------------------------|-------------------------------------------------------------------------------------|
@@ -38,18 +47,18 @@ There are three optional input parameters that can be passed into the service ca
 | `duration`      | `integer`               |                                                                                     |
 | `volume_level`  | `float` between 0 and 1 |                                                                                     |
 
-### Service `siren.turn_off`
+### Action `siren.turn_off`
 
 Turn the siren off.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
 
-### Service `siren.toggle`
+### Action `siren.toggle`
 
 Toggle the siren on/off.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.

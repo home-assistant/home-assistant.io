@@ -9,6 +9,7 @@ ha_domain: zestimate
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `zestimate` sensor allows one to track the Zestimate® value of properties using the [Zillow API](https://www.zillow.com/howto/api/APIOverview.htm). According to Zillow's website, a Zestimate® home valuation is Zillow's estimated market value. It is not an appraisal. Use it as a starting point to determine a home's value. The Zestimate® is provided by [Zillow](https://www.zillow.com), a website primarily for listing homes to buy/sell/rent in the United States.
@@ -21,7 +22,7 @@ You will need to sign up for the Zillow API at the following link [Zillow API](h
 
 For example, the White House zpid is 84074482 and can be found in its Zillow URL: [https://www.zillow.com/homedetails/1600-Pennsylvania-Ave-NW-Washington-DC-20006/84074482_zpid/](https://www.zillow.com/homedetails/1600-Pennsylvania-Ave-NW-Washington-DC-20006/84074482_zpid/)
 
-To enable this sensor, add the following lines to your `configuration.yaml`.
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %}.
 
 ```yaml
 sensor:

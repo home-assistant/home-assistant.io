@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Sensor
   - Switch
+  - Water management
 ha_config_flow: true
 ha_codeowners:
   - '@dmulcahey'
@@ -29,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
 ### `flo.run_health_test`
 

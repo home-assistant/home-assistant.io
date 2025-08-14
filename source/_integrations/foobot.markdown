@@ -9,6 +9,7 @@ ha_domain: foobot
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `foobot` sensor platform will fetch air quality data from your or yours [Foobot device(s)](https://foobot.io/features/).
@@ -17,7 +18,7 @@ This sensor requires an API token. Please obtain one at [Foobot API site](https:
 
 ## Configuring the Platform
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 sensor:

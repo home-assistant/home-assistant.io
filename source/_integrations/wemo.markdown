@@ -122,18 +122,18 @@ There are several attributes which can be used for automations and templates:
 | `target_humidity` | An integer that indicates the desired relative humidity percentage (this is constrained to the humidity settings of the device, which are 45, 50, 55, 60, and 100).
 | `water level` | String that indicates whether the water level is Good, Low, or Empty.
 
-### Services
+### Actions
 
-There are several services which can be used for automations and control of the humidifier:
+There are several actions which can be used for automations and control of the humidifier:
 
-| Service | Description |
+| Action | Description |
 | --------- | ----------- |
-| `set_speed` | Calling this service sets the fan speed (entity_id and speed are required parameters, and speed must be one of the following: off, low, medium, or high). When selecting low for the speed, this will map to the WeMo humidifier speed of minimum. When selecting high for the speed, this will map to the WeMo humidifier speed of maximum. The WeMo humidifier speeds of low and high are unused due to constraints on which fan speeds Home Assistant supports.
-| `toggle` | Calling this service will toggle the humidifier between on and off states.
-| `turn_off` | Calling this service will turn the humidifier off (entity_id is required).
-| `turn_on` | Calling this service will turn the humidifier on and set the speed to the last used speed (defaults to medium, entity_id is required).
-| `wemo.set_humidity` | Calling this service will set the desired relative humidity setting on the device (entity_id is a required list of 1 or more entities to set humidity on, and target_humidity is a required float value between 0 and 100 (this value will be rounded down and mapped to one of the valid desired humidity settings of 45, 50, 55, 60, or 100 that are supported by the WeMo humidifier)).
-| `wemo.reset_filter_life` | Calling this service will reset the humdifier's filter lifetime back to 100% (entity_id is a required list of 1 or more entities to reset the filter lifetime on). Call this service when you change the filter on your humidifier.
+| `set_speed` | Performing this action sets the fan speed (entity_id and speed are required parameters, and speed must be one of the following: off, low, medium, or high). When selecting low for the speed, this will map to the WeMo humidifier speed of minimum. When selecting high for the speed, this will map to the WeMo humidifier speed of maximum. The WeMo humidifier speeds of low and high are unused due to constraints on which fan speeds Home Assistant supports.
+| `toggle` | Performing this action will toggle the humidifier between on and off states.
+| `turn_off` | Performing this action will turn the humidifier off (entity_id is required).
+| `turn_on` | Performing this action will turn the humidifier on and set the speed to the last used speed (defaults to medium, entity_id is required).
+| `wemo.set_humidity` | Performing this action will set the desired relative humidity setting on the device (entity_id is a required list of 1 or more entities to set humidity on, and target_humidity is a required float value between 0 and 100 (this value will be rounded down and mapped to one of the valid desired humidity settings of 45, 50, 55, 60, or 100 that are supported by the WeMo humidifier)).
+| `wemo.reset_filter_life` | Performing this action will reset the humdifier's filter lifetime back to 100% (entity_id is a required list of 1 or more entities to reset the filter lifetime on). Call this action when you change the filter on your humidifier.
 
 ## Long press events and triggers
 
@@ -147,14 +147,14 @@ The following is an example implementation of an automation:
 # Example automation
 - id: long_press_living_room
   alias: "Toggle amplifier power"
-  trigger:
-  - platform: event
+  triggers:
+  - trigger: event
     event_type: wemo_subscription_event
     event_data:
       type: LongPress
       name: Living Room
-  action:
-    - service: media_player.toggle
+  actions:
+    - action: media_player.toggle
       target:
         entity_id: media_player.amplifier
 ```

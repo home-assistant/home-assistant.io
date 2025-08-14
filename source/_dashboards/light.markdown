@@ -2,10 +2,17 @@
 type: card
 title: "Light card"
 sidebar_label: Light
-description: "The light card allows you to change the brightness of the light."
+description: "The light card allows you to change the brightness of a light."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
-The light card allows you to change the brightness of the light.
+The light card allows you to change the brightness of a light.
 
 <p class='img'>
 <img src='/images/dashboards/light_card.png' alt='Screenshot of the Light card'>

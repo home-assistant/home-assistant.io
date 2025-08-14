@@ -6,7 +6,6 @@ ha_category:
 ha_release: 2022.6
 ha_config_flow: true
 ha_iot_class: Local Polling
-ha_quality_scale: silver
 ha_codeowners:
   - '@ssaenger'
 ha_domain: ws66i

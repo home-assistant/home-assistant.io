@@ -3,6 +3,15 @@ type: card
 title: "Button card"
 sidebar_label: Button
 description: "The Button card allows you to add buttons to perform tasks."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /docs/scripts/
+    title: Scripts
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The button card allows you to add buttons to perform tasks.
@@ -119,20 +128,78 @@ type: button
 entity: light.living_room
 ```
 
-Button card with a button name and a script that runs when card is tapped:
+Button card with a button name and a [script](/docs/scripts/) that runs when card is tapped:
+
+<p class='img'>
+<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script action'>
+Screenshot of the button card with script action.
+</p>
 
 ```yaml
 type: button
 name: Turn Off Lights
 show_state: false
 tap_action:
-  action: call-service
-  service: script.turn_on
+  action: perform-action
+  perform_action: script.turn_on
   data:
     entity_id: script.turn_off_lights
 ```
 
+Example of 4 buttons on a vertical stack card:
+
 <p class='img'>
-<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script service'>
-Screenshot of the button card with script service.
+<img src='/images/dashboards/buttons_on_vertical_stack_card.png' alt='Screenshot of a vertical stack card with 4 buttons and an entity selector'>
+Screenshot of a vertical stack card with 4 buttons and an entity selector.
 </p>
+
+The image shows a vertical stack card with 4 buttons arranged in a horizontal stack card and an entity selector. The buttons use the toggle action to run a script, for example, the Netflix script, which starts up the TV and opens Netflix. To learn how to create scripts, refer to [scripts](/docs/scripts/).
+
+```yaml
+type: vertical-stack
+cards:
+  - entities:
+      - entity: input_select.living_room_scene
+        name: Scene
+    show_header_toggle: false
+    type: entities
+  - type: horizontal-stack
+    cards:
+      - name: Watch Netflix
+        entity: script.netflix
+        type: button
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        show_name: true
+        show_icon: true
+      - name: Watch YouTube
+        entity: script.youtube
+        type: button
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        show_name: true
+        show_icon: true
+      - name: Wake PC
+        entity: script.wake_on_lan
+        type: button
+        tap_action:
+          action: toggle
+        icon: mdi:desktop-tower
+        show_name: true
+        show_icon: true
+        show_state: false
+      - name: Go to sleep
+        entity: script.sleep
+        type: button
+        tap_action:
+          action: toggle
+        icon: mdi:sleep
+        hold_action:
+          action: more-info
+        show_name: true
+        show_icon: true
+```

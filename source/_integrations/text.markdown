@@ -17,17 +17,17 @@ The Text integration is built for the controlling and monitoring of text values 
 
 If you are looking for a way to create a text entity, please take a look at the [Text helper](/integrations/input_text).
 
-## Services
+## Actions
 
-### text services
+### Text actions
 
-Available services: `text.set_value`
+Available actions: `text.set_value`
 
-### Service `text.set_value`
+### Action `text.set_value`
 
 Set the textual value of the text entity.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`'s of texts to control.
 | `value` | no | The new text value to set.

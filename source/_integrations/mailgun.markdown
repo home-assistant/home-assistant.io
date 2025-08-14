@@ -12,7 +12,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-To be able to receive webhooks from Mailgun, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic)).
+To be able to receive webhooks from Mailgun, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/integrations/homeassistant/#allowlist_external_urls).
 
 To set it up, go to the integrations page in the configuration screen and find Mailgun. Click on configure. Follow the instructions on the screen to configure Mailgun.
 
@@ -53,20 +53,20 @@ You can then consume that information with the following automation:
 
 ```yaml
 automation:
-  trigger:
-    platform: event
-    event_type: mailgun_message_received
-    event_data:
-      action: call_service
-  action:
-    service: light.turn_on
-    target:
-      entity_id: light.office
+  triggers:
+    - trigger: event
+      event_type: mailgun_message_received
+      event_data:
+        action: call_service
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.office
 ```
 
 ## Notifications
 
-The Mailgun notification service allows you to send emails via Mailgun's REST API. It requires the [Mailgun component](#configuration) to be set up.
+The Mailgun notification action allows you to send emails via Mailgun's REST API. It requires the [Mailgun component](#configuration) to be set up.
 
 ### Notifications configuration
 
@@ -80,7 +80,7 @@ notify:
 
 {% configuration %}
 name:
-  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME."
+  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action."
   required: false
   type: string
   default: notify
@@ -102,16 +102,16 @@ The following automation reacts to an event by sending out an email with two att
 ```yaml
 # Example automation using Mailgun notifications
 automation:
-  trigger:
-    platform: event
-    event_type: SPECIAL_EVENT
-  action:
-    service: notify.mailgun
-    data:
-      title: "Something special has happened"
-      message: "This a test message from Home Assistant"
+  triggers:
+    - trigger: event
+      event_type: SPECIAL_EVENT
+  actions:
+    - action: notify.mailgun
       data:
-        images:
-          - /home/pi/pic_test1.png
-          - /home/pi/pic_test2.png
+        title: "Something special has happened"
+        message: "This a test message from Home Assistant"
+        data:
+          images:
+            - /home/pi/pic_test1.png
+            - /home/pi/pic_test2.png
 ```

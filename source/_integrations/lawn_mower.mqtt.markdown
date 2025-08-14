@@ -12,7 +12,8 @@ The `mqtt` `lawn_mower` platform allows controlling a lawn mower over MQTT.
 
 ## Configuration
 
-To enable MQTT lawn mower in your installation, add the following to your `configuration.yaml` file:
+To use an MQTT lawn mower in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -22,13 +23,15 @@ mqtt:
       name: "Test Lawn Mower"
 ```
 
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+
 {% configuration %}
 activity_state_topic:
   description: The MQTT topic subscribed to receive an update of the activity. Valid activities are `mowing`, `paused`, `docked`, and `error`. Use `value_template` to extract the activity state from a custom payload. When payload `none` is received, the activity state will be reset to `unknown`.  
   required: false
   type: string
 activity_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the value."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the value."
   required: false
   type: template
 availability:
@@ -51,7 +54,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_topic:
@@ -64,7 +67,7 @@ availability_mode:
    type: string
    default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 device:
@@ -96,6 +99,10 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
       required: false
@@ -117,11 +124,11 @@ device:
       required: false
       type: string
 dock_command_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `dock_command_topic`. The `value` parameter in the template will be set to `dock`.
+  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `dock_command_topic`. The `value` parameter in the template will be set to `dock`.
   required: false
   type: template
 dock_command_topic:
-  description: The MQTT topic that publishes commands when the service `lawn_mower.dock` service call is executed. The value `dock` is published when the service is called. Use a `dock_command_template` to publish a custom format.
+  description: The MQTT topic that publishes commands when the `lawn_mower.dock` action is performed. The value `dock` is published when the action is used. Use a `dock_command_template` to publish a custom format.
   required: false
   type: string
 enabled_by_default:
@@ -138,13 +145,16 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
+  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
   required: false
   type: template
 json_attributes_topic:
@@ -156,7 +166,7 @@ name:
   required: false
   type: string
 object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   required: false
   type: string
 optimistic:
@@ -165,12 +175,16 @@ optimistic:
   type: boolean
   default: "`true` if no `activity_state_topic` defined, else `false`."
 pause_command_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `pause_command_topic`. The `value` parameter in the template will be set to `pause`.
+  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `pause_command_topic`. The `value` parameter in the template will be set to `pause`.
   required: false
   type: template
 pause_command_topic:
-  description: The MQTT topic that publishes commands when the service `lawn_mower.pause` service call is executed. The value `pause` is published when the service is called. Use a `pause_command_template` to publish a custom format.
+  description: The MQTT topic that publishes commands when the `lawn_mower.pause` action is performed. The value `pause` is published when the action is used. Use a `pause_command_template` to publish a custom format.
   required: false
+  type: string
+platform:
+  description: Must be `lawn_mower`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
   type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
@@ -178,11 +192,11 @@ qos:
   type: integer
   default: 0
 start_mowing_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `dock_command_topic`. The `value` parameter in the template will be set to `dock`.
+  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `start_mowing_command_topic`. The `value` parameter in the template will be set to `start_mowing`.
   required: false
   type: template
 start_mowing_command_topic:
-  description: The MQTT topic that publishes commands when the service `lawn_mower.start_mowing` service call is executed. The value `start_mowing` is published when the service is called. Use a `start_mowing_command_template` to publish a custom format.
+  description: The MQTT topic that publishes commands when the `lawn_mower.start_mowing` action is performed. The value `start_mowing` is published when the action used. Use a `start_mowing_command_template` to publish a custom format.
   required: false
   type: string
 retain:
@@ -191,16 +205,14 @@ retain:
   type: boolean
   default: false
 unique_id:
-  description: An ID that uniquely identifies this lawn mower. If two lawn mowers have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this lawn mower. If two lawn mowers have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ## Example
 
@@ -211,7 +223,7 @@ The example below shows how to use a single command topic with a command templat
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - alarm_control_panel:
+  - lawn_mower:
       name: "Lawn Mower Plus"
       activity_state_topic: "lawn_mower_plus/state"
       activity_value_template: "{{ value_json.activity }}" 

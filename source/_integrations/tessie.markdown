@@ -4,6 +4,7 @@ description: Instructions on how to integrate Tessie within Home Assistant.
 ha_category:
   - Binary Sensor
   - Button
+  - Car
   - Climate
   - Cover
   - Device Tracker
@@ -24,6 +25,7 @@ ha_platforms:
   - climate
   - cover
   - device_tracker
+  - diagnostics
   - lock
   - media_player
   - number
@@ -34,69 +36,74 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Tessie integration exposes various commands and sensors from the Tesla vehicles connected to your [Tessie](https://my.tessie.com/) account.
+The Tessie integration exposes various commands and sensors from the Tesla vehicles and energy products connected to your [Tessie](https://tessie.com/) subscription.
 
 ## Prerequisites
 
-You must have a [Tessie](https://my.tessie.com/) account and [access token](https://my.tessie.com/settings/api).
+You must have an active [Tessie](https://my.tessie.com/) subscription, generate a [Tessie Access Token](https://my.tessie.com/settings/api) and grant Tessie access to your Tesla vehicle by generating a [Tesla Virtual Key](https://www.tesla.com/_ak/tessie.com).
 
 {% include integrations/config_flow.md %}
 
-## Entities
+## Troubleshooting
 
+If a vehicle action returns an error in Home Assistant, you should first try to perform the same action in the Tessie app. The app will guide you through the steps to fix common issues like command signing or scopes.
 
-### Binary Sensor
+## Vehicle entities
 
-The integration will create binary sensor entities for a variety of metrics that relate to your vehicles: 
+### Binary sensor
 
-#### Charge State
+The integration will create binary sensor entities for a variety of metrics related to your vehicles:
 
-- Battery Heater
-- Battery Charing
-- Preconditioning Enabled
-- Scheduled Charging Enabled
-- Trip Charging Enabled
+#### Charge state
 
-#### Climate State
+- Battery charging
+- Battery heater
+- Preconditioning enabled
+- Scheduled charging enabled
+- Trip charging enabled
 
-- Auto Seat Climate Left
-- Auto Seat Climate Right
-- Auto Steering Wheel Climate
-- Overheat Protection Enabled
-- Overheat Protection Running
+#### Climate state
 
-#### Vehicle State
+- Auto seat climate left
+- Auto seat climate right
+- Auto steering Wheel climate
+- Overheat protection enabled
+- Overheat protection running
 
-- Dashcam Recording
-- User Present
-- Tire Pressure Warning Front Left
-- Tire Pressure Warning Front Right
-- Tire Pressure Warning Rear Left
-- Tire Pressure Warning Rear Right
+#### Vehicle state
+
+- Dashcam recording
 - Front driver window
+- Front passenger door
 - Front passenger window
+- Rear driver door
 - Rear driver window
+- Rear passenger door
 - Rear passenger window
-
+- Tire pressure warning front left
+- Tire pressure warning front right
+- Tire pressure warning rear left
+- Tire pressure warning rear right
+- User present
 
 ### Button
 
-The integration will create button entities to control various aspects of the vehicle.
+The integration will create button entities to control various aspects of the vehicle:
 
-- Wake
 - Flash lights
+- HomeLink
 - Honk horn
-- Homelink
 - Keyless driving
 - Play fart
+- Wake
 
 ### Climate
 
 The integration will create a climate entity to control the vehicle's climate control system. This entity can:
 
+- Change the driver's set temperature
+- Change to one of the three keep modes: Keep, Dog, and Camp
 - Turn on and off
-- Change the drivers set temperature
-- Change to one of the three keep modes: Keep, Dog, and Climate
 
 The passenger set temperature is shown as a sensor but cannot be changed by Tessie.
 
@@ -104,22 +111,26 @@ The passenger set temperature is shown as a sensor but cannot be changed by Tess
 
 The integration will create a cover entity to control various aspects of your vehicles:
 
-- Vent/Closing windows
-- Open/Closing charge port
-- Open frunk
 - Open/Close trunk
+- Open/Close charge port
+- Open frunk
+- Vent/Close windows
+- Vent/Close sunroof
 
-### Device Tracker
+### Device tracker
 
-The integration will create device tracker entities for the vehicles current location, and navigation destination.
+The integration will create device tracker entities for the vehicle's current location and navigation destination.
 
 ### Lock
 
-The integration will create a lock entity for each vehicle and for the charge cable lock.
+The integration will create lock entities to lock and unlock the vehicle, and to control:
+
+- Charge cable
+- Speed limit
 
 ### Media Player
 
-The integration will create media player entities to show what each vehicles is currently playing.
+The integration will create media player entities to show what each vehicle is currently playing.
 
 ### Number
 
@@ -133,54 +144,66 @@ The integration will create number entities to control:
 
 The integration will create a select entity to control each of the seat heaters. It allows you to set each seat heater to Off, Low, Medium, or High.
 
-- Front Left
-- Front Right
-- Rear Left (if installed)
-- Rear Center (if installed)
-- Rear Right (if installed)
-- Third Row Left (if installed)
-- Third Row Right (if installed)
+For vehicles equipped with cooled (ventilated) seats, a select entity will also be added to control each cooled seat.
+
+Heated seats:
+
+- Front left
+- Front right
+- Rear center (if installed)
+- Rear left (if installed)
+- Rear right (if installed)
+- Third row left (if installed)
+- Third row right (if installed)
+
+Cooled seats:
+
+- Front left
+- Front right
 
 ### Sensor
 
-The integration will create sensor entities for a variety of metrics that relate to your vehicles:
+The integration will create sensor entities for a variety of metrics related to your vehicles:
 
-#### Vehicle State
+#### Charge state
 
-- Online
-- Odometer
-- Tire Pressure Front Left
-- Tire Pressure Front Right
-- Tire Pressure Rear Left
-- Tire Pressure Rear Right
+- Battery charging
+- Battery level
+- Battery range
+- Battery range estimate (disabled)
+- Battery range ideal (disabled)
+- Charge energy added
+- Charge rate
+- Charger current
+- Charger power
+- Charger voltage
 
-#### Charge State
+#### Climate state
 
-- Battery Level
-- Change Energy Added
-- Change Power
-- Charge Voltage
-- Charger Current
-- Change Rate
-- Battery Range
+- Driver temperature setting
+- Inside temperature
+- Outside temperature
+- Passenger temperature setting
 
-#### Drive State
+#### Drive state
 
-- Speed
-- Power
-- Shift State
-- Traffic delay
-- State of charge at arrival
-- Distance to arrival
-- Time to arrival
 - Destination
+- Distance to arrival
+- Power
+- Shift state
+- Speed
+- State of charge at arrival
+- Time to arrival
+- Traffic delay
 
-#### Climate State
+#### Vehicle state
 
-- Inside Temperature
-- Outside Temperature
-- Driver Temperature Setting
-- Passenger Temperature Setting
+- Odometer
+- Online
+- Tire pressure front left
+- Tire pressure front right
+- Tire pressure rear left
+- Tire pressure rear right
 
 ### Switch
 
@@ -189,9 +212,59 @@ The integration will create switch entities to control various aspects of your v
 - Charge
 - Defrost mode
 - Sentry mode
-- Valet mode
 - Steering wheel heater
+- Valet mode
 
 ### Update
 
-The integration will show vehicle software updates and their installation progress.
+The integration will show vehicle software updates and their installation progress. Updates can only be installed from Home Assistant after they have finished downloading.
+
+## Energy entities
+
+### Binary sensor
+
+- Backup capable
+- Grid services enabled
+- Grid services active
+- Storm watch active
+
+### Number
+
+- Backup reserve
+- Off grid reserve
+
+### Select
+
+- Allow export
+- Operation mode
+
+### Sensor
+
+- Battery power
+- Energy left
+- Generator power
+- Grid power
+- Grid services power
+- Load power
+- Percentage charged
+- Solar power
+- Total pack energy
+- Version
+- Vehicle
+- <abbr title="Virtual power plant">VPP</abbr> backup reserve
+- Fault state code
+- Power
+- State code
+
+### Switch
+
+- Allow charging from grid
+- Storm watch
+
+## Energy dashboard
+
+The Tesla Fleet API only provides power data for Powerwall and Solar products. This means they cannot be used on the energy dashboard directly.
+
+Energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
+The `Load power`, `Solar power`, and the templated sensors can then use a [Riemann Sum](/integrations/integration/) to convert their instant power (kW) values into cumulative energy values (kWh),
+which then can be used within the energy dashboard.
