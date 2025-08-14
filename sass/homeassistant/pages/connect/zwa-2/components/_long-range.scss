@@ -3,6 +3,7 @@ section#long-range {
 
     @include bp(desktop) {
         height: 100vh;
+        min-height: 46rem;
     }
 
     .container-full {
