@@ -45,6 +45,7 @@ Firmware can be upgraded using the below directions:
 {% endwarning %}
 
 - 800 series USB adapters (with some caveats, see notes)
+  - [Home Assistant Connect ZWA-2](https://www.home-assistant.io/connect/zwa-2/)
   - HomeSeer SmartStick G8
   - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
