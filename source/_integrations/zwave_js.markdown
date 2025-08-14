@@ -142,13 +142,15 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
    - Find the QR code. It can be on the packaging or on the device itself.
 5. Depending on whether your device supports SmartStart, follow the steps in either option 1 or 2:
    - **Option 1: your device supports SmartStart**:
+     - Make sure the device is turned off.
      - Select **Scan QR code** and scan the QR code on your device.
        - **Troubleshooting**: If scanning does not work (for example due to missing HTTPS), paste the QR code content as text from a different QR reader and select **Submit**.
-     - Turn the device on. If it was already on, you might need to power-cycle it.
      - If the device supports Z-Wave Long Range, you're prompted to choose the network type.
        - **Long Range**: If it is far away from other devices, or that spot has had connection issues in the past. It might also help preserve battery life.
        - **Mesh**: If you already have a mesh network. Adding it can enhance coverage and reliability of this network.
        - You can always remove and pair the device again to switch to the other network type.
+     - Turn the device on and set it into inclusion mode.
+       - If it was already on, you might need to power-cycle it.
    - **Option 2: your device does not support SmartStart**:
      - Set the device in inclusion mode. Refer to the device manual to see how this is done.
      - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
