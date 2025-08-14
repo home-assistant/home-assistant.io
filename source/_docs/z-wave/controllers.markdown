@@ -4,6 +4,8 @@ description: "Extended instructions how to set up Z-Wave."
 related:
   - docs: /integrations/zwave_js/
     title: Z-Wave integration
+  - docs: /connect/zwa-2/
+    title: Home Assistant Connect ZWA-2
 ---
 
 ## Supported Z-Wave adapters
@@ -45,7 +47,7 @@ Firmware can be upgraded using the below directions:
 {% endwarning %}
 
 - 800 series USB adapters (with some caveats, see notes)
-  - [Home Assistant Connect ZWA-2](https://www.home-assistant.io/connect/zwa-2/)
+  - [Home Assistant Connect ZWA-2](/connect/zwa-2/)
   - HomeSeer SmartStick G8
   - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
