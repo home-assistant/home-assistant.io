@@ -75,22 +75,27 @@ The ZHA integration is a hardware-independent Zigbee gateway implementation that
 
 ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/zigpy), so any coordinator that is compatible with zigpy can be used with ZHA. Review [compatible hardware](#compatible-hardware) recommendations before purchasing Zigbee devices.
 
-### Zigbee terminology
+### Zigbee terminology and underlying concepts
 
-- **Zigbee network**: A mesh-network of devices with low-power digital radios using a low-bandwidth communication protocol.
-- **Zigbee coordinator**: A hardware radio adapter (typically a USB dongle) that plugs directly into the same computer running your Home Assistant installation.
-- **Zigbee router device**: A hardware device that is always mains-powered (AC) such as outlets or fans.
-- **Zigbee end device**: A hardware device that is typically battery-powered (DC) such as remotes or motion sensors.
-- **Zigbee group**: A collection of two or more Zigbee devices of the same type, different from Home Assistant's [Groups](/integrations/group/).
+Zigbee standards is a suite of low-bandwidth wireless IoT protocol that uses low-power digital radios and standardized set of communication. Throughout this documentation, Home Assistant terminology is primarly used. For some of the underlying concepts, the wording does not correspond to the terminology used in the Zigbee standards technical documentations. The bullet points below provides equivalents for some of those terms and keywords.
 
-### Zigbee concepts
+- **Zigbee coordinator**: A hardware radio adapter (typically a USB dongle) that plugs directly into the same computer running your Home Assistant installation to form a network (i.e. creates) and command devivces on it.
+- **Zigbee network**: A private Zigbee network that using mesh-networking to interconnect Zigbee devices that the user adds to its PAN (Personal Area Network, i.e.made for short range and close proximity devices).
+- **Zigbee router device**: A hardware device that always needs to be mains-powered (AC-power) because it acts as a Zigbee repeater in the network mesh.
+- **Zigbee end device**: A hardware device that is typically battery-powered (DC) such as door/window sensor or motion sensors, and never act as a Zigbee router/repeater.
+- **Zigbee joining**: First time you add a device it is called "joining the network", it is sometimes also refered to as "pairing", (and joined devices will automatically try rejoining the betwork if it is disconnected).
+- **Zigbee group**: A collection of two or more Zigbee devices of the same type you can add to a Zigbee native group in ZHA, which different from Home Assistant's [Groups](/integrations/group/).
+- **Zigbee binding**: bindings can be used to bind (i.e. attach) two Zigbee devices logically, such as a remote and a light, and bound devices can communicate independenly even when the coordinator/network is down.
+- **Zigbee OTA/OTAU**: Many Zigbee devices implement Over-the-Air update / Over-the-Air-Upgrade, (though most manufacturers only provide such updates via their own third-party gateways).
+- **Zigbee self-healing**: refers to a Zigbee devices and its Zigbee mesh network ability to automatically recover from network disruptions.
+- **Zigbee clusters**: Define specific functions and attributes of Zigbee device, what in Home Assistant terminology is called entities, (so ZHA converts/translates a "cluster" into an "entity").
 
-- A Zigbee network can have **only one** Zigbee coordinator,
-- The Zigbee coordinator can have multiple **Zigbee router** or **Zigbee end devices** connected,
-- Each Zigbee router device can have multiple **Zigbee end devices** connected to it,
-- A Zigbee device can only be connected to a single Zigbee network,
-- Zigbee networks depend heavily on having multiple [Zigbee Router devices](#using-router-devices-to-add-more-devices) to expand coverage and increase device capacity.
-- Router devices help pass messages to other nearby devices in the Zigbee network and therefore can improve range and increase the number of devices you can add.
+Zigbee fundamentals are not always obvious but some of its ideas includes essential principles that you as a user should try to understand to be aware why it functions as it does:
+
+- A Zigbee network can have **only one** Zigbee coordinator, and a Zigbee device can only be connected to a single Zigbee network.
+- The Zigbee coordinator can have multiple **Zigbee router** or **Zigbee end devices** connected, and each Zigbee router device can have multiple **Zigbee end devices** connected to it.
+- Zigbee networks depend heavily on having multiple [Zigbee Router devices](#using-router-devices-to-add-more-devices) to expand coverage and increase device capacity. Router devices help pass messages to other nearby devices in the Zigbee network and therefore can improve range and increase the number of devices you can add. 
+- Zigbee's "self-healing" capabilities is where devices can change route of their messages through alternate paths, rather than relying on a single path. If a device or connection fails, each device in the network will automatically reroute traffic, maintaining connectivity and functionality. While Zigbee's self-healing is generally efficient byt can  take quite somet time as devices needs to fully adapt its routing and find new optimal routes, especially in larger or more complex network enviroments.
 
 ## Compatible hardware
 
