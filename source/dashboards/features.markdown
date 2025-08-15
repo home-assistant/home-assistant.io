@@ -42,6 +42,28 @@ Features can be enabled on the following cards:
   
     ![Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.](/images/blog/2024-05/tile-card-reorder-features.gif)
 
+## History chart
+
+Widget that displays the history of a [sensor](/integrations/sensor) or [binary_sensor](/integrations/binary_sensor).
+
+<p class='img'>
+  <img src='/images/dashboards/features/history-chart-line.png' alt='Screenshot of the tile card with the history chart feature for a numeric entity'>
+  <img src='/images/dashboards/features/history-chart-timeline.png' alt='Screenshot of the tile card with the history chart feature for a non-numeric entity'>
+  Screenshots of the tile card with the history chart feature
+</p>
+
+```yaml
+features:
+  - type: "history-chart"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`history-chart`"
+  type: string
+{% endconfiguration %}
+
 ## Alarm modes
 
 Widget that displays buttons to arm and disarm an [alarm](/integrations/alarm_control_panel).
