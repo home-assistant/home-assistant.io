@@ -7,6 +7,7 @@ ha_category:
   - Button
   - Climate
   - Cover
+  - Device tracker
   - Fan
   - Hub
   - Light
@@ -57,6 +58,7 @@ This {% term integration %} currently supports the following device types within
 - [Button](/integrations/button/)
 - [Climate](/integrations/climate/) (beta)
 - [Cover](/integrations/cover/)
+- [Device tracker](/integrations/device_tracker/)
 - [Fan](/integrations/fan/)
 - [Light](/integrations/light/)
 - [Lock](/integrations/lock/)
