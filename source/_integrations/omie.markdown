@@ -42,3 +42,9 @@ The **OMIE** integration will retrieve the results of the [day-ahead market](htt
 
 - **Marginal Price - Portugal**: the wholesale price in the day-ahead market for the current hour Portugal (€/KWh)
 - **Marginal Price - Spain**: the wholesale price in the day-ahead market for the current hour Spain (€/KWh)
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
