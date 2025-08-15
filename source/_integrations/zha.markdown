@@ -60,7 +60,7 @@ This {% term integration %} currently supports the following device types within
 - [Fan](/integrations/fan/)
 - [Light](/integrations/light/)
 - [Lock](/integrations/lock/)
-- [Number](/integrations/number/) (i.e. analog output)
+- [Number](/integrations/number/) (i.e. analog input/output)
 - [Select](/integrations/select/)
 - [Sensor](/integrations/sensor/)
 - [Siren](/integrations/siren/)
