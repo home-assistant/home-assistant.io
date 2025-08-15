@@ -1140,6 +1140,99 @@ For a summary in a more readable format:
 [@thomasddn]: https://github.com/thomasddn
 [@tr4nt0r]: https://github.com/tr4nt0r
 
+## Release 2025.8.2 - August 15
+
+- Add pymodbus to package constraints ([@epenet] - [#150420])
+- Fix enphase_envoy non existing via device warning at first config. ([@catsmanac] - [#149010])
+- Handle non-streaming TTS case correctly ([@synesthesiam] - [#150218])
+- Pi_hole - Account for auth succeeding when it shouldn't ([@HarvsG] - [#150413])
+- Bump habiticalib to version 0.4.2 ([@tr4nt0r] - [#150417])
+- Fix optimistic set to false for template entities ([@Petro31] - [#150421])
+- Fix error of the Powerfox integration in combination with the new Powerfox FLOW adapter ([@DavidCraftDev] - [#150429])
+- Bump python-snoo to 0.7.0 ([@kevin-david] - [#150434])
+- Fix brightness command not sent when in white color mode ([@wedsa5] - [#150439])
+- Bump cookidoo-api to 0.14.0 ([@miaucl] - [#150450])
+- Fix YoLink valve state when device running in class A mode ([@matrixd2] - [#150456])
+- Additional Fix error on startup when no Apps or Radio plugins are installed for Squeezebox ([@peteS-UK] - [#150475])
+- Fix re-auth flow for Volvo integration ([@thomasddn] - [#150478])
+- Improve Z-Wave manual config flow step description ([@MartinHjelmare] - [#150479])
+- Add missing boost2 code for Miele hobs ([@astrandb] - [#150481])
+- Bump airOS to 0.2.8 ([@CoMPaTech] - [#150504])
+- Bump aiowebostv to 0.7.5 ([@thecode] - [#150514])
+- Bump bleak-retry-connector to 4.0.1 ([@bdraco] - [#150515])
+- Bump aiodhcpwatcher to 1.2.1 ([@bdraco] - [#150519])
+- Bump python-snoo to 0.8.1 ([@Lash-L] - [#150530])
+- Bump uv to 0.8.9 ([@edenhaus] - [#150542])
+- Bump python-snoo to 0.8.2 ([@Lash-L] - [#150569])
+- Change Snoo to use MQTT instead of PubNub ([@Lash-L] - [#150570])
+- Make sure we update the api version in philips_js discovery ([@elupus] - [#150604])
+- Bump pymiele to 0.5.3 ([@astrandb] - [#150216])
+- Bump pymiele to 0.5.4 ([@astrandb] - [#150605])
+- Bump airOS to 0.2.11 ([@CoMPaTech] - [#150627])
+- Bump uiprotect to 7.21.1 ([@bdraco] - [#150657])
+- Bump onvif-zeep-async to 4.0.3 ([@bdraco] - [#150663])
+- Bump python-snoo to 0.8.3 ([@Lash-L] - [#150670])
+- Fix missing labels for subdiv in workday ([@gjohansson-ST] - [#150684])
+- Improve handling decode errors in rest ([@gjohansson-ST] - [#150699])
+
+[#149010]: https://github.com/home-assistant/core/pull/149010
+[#150115]: https://github.com/home-assistant/core/pull/150115
+[#150216]: https://github.com/home-assistant/core/pull/150216
+[#150218]: https://github.com/home-assistant/core/pull/150218
+[#150412]: https://github.com/home-assistant/core/pull/150412
+[#150413]: https://github.com/home-assistant/core/pull/150413
+[#150417]: https://github.com/home-assistant/core/pull/150417
+[#150420]: https://github.com/home-assistant/core/pull/150420
+[#150421]: https://github.com/home-assistant/core/pull/150421
+[#150429]: https://github.com/home-assistant/core/pull/150429
+[#150434]: https://github.com/home-assistant/core/pull/150434
+[#150439]: https://github.com/home-assistant/core/pull/150439
+[#150450]: https://github.com/home-assistant/core/pull/150450
+[#150456]: https://github.com/home-assistant/core/pull/150456
+[#150475]: https://github.com/home-assistant/core/pull/150475
+[#150478]: https://github.com/home-assistant/core/pull/150478
+[#150479]: https://github.com/home-assistant/core/pull/150479
+[#150481]: https://github.com/home-assistant/core/pull/150481
+[#150504]: https://github.com/home-assistant/core/pull/150504
+[#150514]: https://github.com/home-assistant/core/pull/150514
+[#150515]: https://github.com/home-assistant/core/pull/150515
+[#150519]: https://github.com/home-assistant/core/pull/150519
+[#150530]: https://github.com/home-assistant/core/pull/150530
+[#150542]: https://github.com/home-assistant/core/pull/150542
+[#150569]: https://github.com/home-assistant/core/pull/150569
+[#150570]: https://github.com/home-assistant/core/pull/150570
+[#150604]: https://github.com/home-assistant/core/pull/150604
+[#150605]: https://github.com/home-assistant/core/pull/150605
+[#150627]: https://github.com/home-assistant/core/pull/150627
+[#150657]: https://github.com/home-assistant/core/pull/150657
+[#150663]: https://github.com/home-assistant/core/pull/150663
+[#150670]: https://github.com/home-assistant/core/pull/150670
+[#150684]: https://github.com/home-assistant/core/pull/150684
+[#150699]: https://github.com/home-assistant/core/pull/150699
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@DavidCraftDev]: https://github.com/DavidCraftDev
+[@HarvsG]: https://github.com/HarvsG
+[@Lash-L]: https://github.com/Lash-L
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@Petro31]: https://github.com/Petro31
+[@astrandb]: https://github.com/astrandb
+[@bdraco]: https://github.com/bdraco
+[@catsmanac]: https://github.com/catsmanac
+[@edenhaus]: https://github.com/edenhaus
+[@elupus]: https://github.com/elupus
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@kevin-david]: https://github.com/kevin-david
+[@matrixd2]: https://github.com/matrixd2
+[@miaucl]: https://github.com/miaucl
+[@peteS-UK]: https://github.com/peteS-UK
+[@synesthesiam]: https://github.com/synesthesiam
+[@thecode]: https://github.com/thecode
+[@thomasddn]: https://github.com/thomasddn
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@wedsa5]: https://github.com/wedsa5
+
 [#125611]: https://github.com/home-assistant/core/pull/125611
 [#126242]: https://github.com/home-assistant/core/pull/126242
 [#128122]: https://github.com/home-assistant/core/pull/128122
