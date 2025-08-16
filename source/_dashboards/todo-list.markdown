@@ -78,7 +78,7 @@ display_order:
   default: "none"
 item_tap_action:
   required: false
-  description: Defines the behavior when an item's body is clicked. Options are: `edit` (opens the edit dialog), `toggle` (marks or unmarks the item as completed, hiding the edit dialog)
+  description: "Defines the behavior when an item's body is clicked. Options are: `edit` (opens the edit dialog), `toggle` (marks or unmarks the item as completed, hiding the edit dialog)."
   type: string
   default: "edit"  
 {% endconfiguration %}
