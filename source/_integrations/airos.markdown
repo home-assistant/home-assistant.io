@@ -93,6 +93,18 @@ Active if the device is configured for PPPoE and the PPPoE link state is active.
 
 Indicates the role of the device in your network, either 'bridge' or 'router' (see [operating roles](#operating-roles) for more information.
 
+### Wireless Role
+
+Indicates the role of the device in relation to your wireless network, either 'Access point' or 'Station'.
+
+### Wireless Mode
+
+Indicates the mode your device is in 'point-to-point' just two devices connecting to eachother or 'point-to-multipoint' for multiple devices connecting to this device.
+
+### Wireless Distance
+
+The reported distance between your devices.
+
 ### Wireless Frequency
 
 The base frequency set for this device.
@@ -112,6 +124,10 @@ These sensors show the actual data transfer rate (receive and transmit) for this
 ### Antenna gain
 
 Performance in <abbr title="decibels">dB</abbr> for the device antenna. See [Gain](https://en.wikipedia.org/wiki/Gain_(antenna)) on Wikipedia.
+
+### Uptime
+
+Time since the device was last started.
 
 ## Data updates
 

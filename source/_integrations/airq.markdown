@@ -14,6 +14,7 @@ ha_domain: airq
 ha_config_flow: true
 ha_platforms:
   - sensor
+  - number
 ha_integration_type: hub
 ---
 
@@ -95,6 +96,10 @@ After the integration has been initialized, the user can configure any of the fo
 - **Show values averaged by the device**. Default: `on`. In its default configuration, air-Q averages the stream of sensor values. The strength of this averaging can be configured on the device side (not exposed through the HA). However, this integration allows to switch between polling the averaged and the raw data from the device. To poll noisy sensor readings from the device, set **Show values averaged by the device** to `off`.
 
 - **Clip negative values**. Default: `on`. For baseline calibration purposes, certain sensor values may briefly become negative. The default behavior is to clip such values to 0.
+
+## LED Control
+
+In addition to sensor readings, this integration exposes the brightness of the device’s LED strips as a `number` entity named `number.<device_name>_led_brightness`. You can set the brightness (0–100) manually from the Overview panel or in automations. Setting it to 0 will turn the LEDs off.
 
 ## Troubleshooting
 
