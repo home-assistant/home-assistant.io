@@ -169,10 +169,10 @@ Advanced options:
 ### 2) No models found during setup
 
   1. Open LM Studio on the host machine and go to the **Local Server** tab to check if a model is already loaded.
-  2. If you have not downloaded any models, open the model browser in LM Studio and download at least one model to serve  
+  2. If you have not downloaded any models, open the model browser in LM Studio and download at least one model to serve
   3. Select a model for serving in LM Studio integration — LM Studio will automatically load the selected model for the server, so you do not need to check the **Local Server** tab again to confirm the model is already loaded
   4. If LM Studio runs on a different machine than Home Assistant, make sure **Serve on Local Network** is enabled on the **Local Server** tab
-  5. If LM Studio runs on the same machine as Home Assistant, try `http://localhost:1234`  
+  5. If LM Studio runs on the same machine as Home Assistant, try `http://localhost:1234`
 
 ### 3) Model answers are short, off-topic, or inconsistent
 
@@ -210,7 +210,7 @@ connection and refresh the available model list.
 - When enabling control for an assistant, prefer larger models that support
   stable function calling behavior.
 - For headless deployments (LM Studio as a service), see the
-  [LM Studio headless docs](https://lmstudio.ai/docs/app/api/headless).
+  [LM Studio headless documentation](https://lmstudio.ai/docs/app/api/headless).
 
 ## Controlling Home Assistant
 
@@ -247,7 +247,6 @@ The LM Studio integration also supports Home Assistant's AI task platform, allow
    - Select "Serve on Local Network" if accessing from different machines
    - Optionally set up CORS settings if accessing from different machines
 5. Click **"Start Server"** to begin the local API server.
-   - Optionally set up CORS settings if accessing from different machines
 6. The server will be available at `http://localhost:1234` and `http://YOUR_LOCAL_IP:1234` (or your configured address).
 
 To run LM Studio as a service (headless), see: [https://lmstudio.ai/docs/app/api/headless](https://lmstudio.ai/docs/app/api/headless)
