@@ -115,31 +115,31 @@ Advanced options:
         Change these only if you understand the trade-offs in latency, memory,
         and reliability.
 
-  Max tokens:
-    description: |
-      Maximum number of tokens the model may generate in a single response. A
-      higher value allows longer responses at the cost of CPU, RAM, and latency.
-      Typical values:
-      - 256 — short replies, faster responses, low memory use.
-      - 512 — balanced length and cost.
-      - 1024+ — long replies, may be slow or fail on small models.
+Advanced options - Max tokens:
+  description: |
+    Maximum number of tokens the model may generate in a single response. A
+    higher value allows longer responses at the cost of CPU, RAM, and latency.
+    Typical values:
+    - 256 — short replies, faster responses, low memory use.
+    - 512 — balanced length and cost.
+    - 1024+ — long replies, may be slow or fail on small models.
 
-      Tip: start with 256 or 512 and increase only if the replies are too short.
+    Tip: start with 256 or 512 and increase only if the replies are too short.
 
-  Temperature:
-    description: |
-      Controls randomness in the model's responses. Use lower values for
-      predictable answers and higher values for creativity. Typical ranges:
-      - 0.0–0.3 — deterministic answers (recommended for automation and
-        controlling devices).
-      - 0.4–0.7 — balanced.
-      - 0.8–1.0 — creative, but may be less reliable.
+Advanced options - Temperature:
+  description: |
+    Controls randomness in the model's responses. Use lower values for
+    predictable answers and higher values for creativity. Typical ranges:
+    - 0.0–0.3 — deterministic answers (recommended for automation and
+      controlling devices).
+    - 0.4–0.7 — balanced.
+    - 0.8–1.0 — creative, but may be less reliable.
 
-  Top P:
-    description: |
-      Alternate way to control response diversity (nucleus sampling). If you set
-      both temperature and top_p, they work together. Use values between 0.1 and
-      1.0. Lower values make output more focused.
+Advanced options - Top P:
+  description: |
+    Alternate way to control response diversity (nucleus sampling). If you set
+    both temperature and top_p, they work together. Use values between 0.1 and
+    1.0. Lower values make output more focused.
 
 {% endconfiguration_basic %}
 
