@@ -1434,7 +1434,7 @@ sensors:
       required: false
       type: float
     nan_value:
-      description: If a Modbus sensor has a defined NaN value, this value can be set as a hex string starting with `0x` containing one or more bytes (for example, `0xFFFF` or `0x80000000`) or provided as an integer directly. If triggered, the sensor becomes `unavailable`. Please note that the hex to int conversion for `nan_value` does currently not obey home-assistants Modbus encoding using the `data_type`, `structure`, or `swap` arguments.
+      description: If a Modbus sensor has a defined NaN value, this value can be set as a hex string starting with `0x` containing one or more bytes (for example, `0xFFFF` or `0x80000000`) or provided as an integer directly. If triggered, the sensor becomes `unknown`. Please note that the hex to int conversion for `nan_value` does currently not obey home-assistants Modbus encoding using the `data_type`, `structure`, or `swap` arguments.
       required: false
       type: string
     zero_suppress:
@@ -1733,7 +1733,7 @@ Description:
 | Attribute | Description                                                                                                                                                                                                                                                                                 |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | hub       | Hub name (defaults to 'modbus_hub' when omitted)                                                                                                                                                                                                                                            |
-| slave     | Slave address (0-255)                                                                                                                                                                                                                                                                       |
+| slave     | Slave address (0-255, defaults to 1 when omitted)                                                                                                                                                                                                                                           |
 | address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |

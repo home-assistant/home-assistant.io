@@ -354,7 +354,7 @@ notify:
       - action: html5
         data:
           target: "macbook"
-      - action: html5_nexus
+      - action: mobile_app_pauluus
 ```
 
 {% configuration %}

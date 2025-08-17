@@ -11,6 +11,7 @@ ha_codeowners:
   - '@fabaff'
   - '@freekode'
   - '@nzapponi'
+  - '@wittypluck'
 ha_domain: openweathermap
 ha_platforms:
   - sensor
@@ -71,6 +72,8 @@ Sensors provide data in the language that was selected when configuring the inte
 {% note %}
 The Weather entity provides data only in English. Home Assistant automatically translates it to the language configured for the frontend.
 {% endnote %}
+
+If you want to change the weather location, you will need to delete and re-add the integration.
 
 ## Supported Weather Conditions
 

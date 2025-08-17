@@ -61,13 +61,13 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
+- [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Device tracker](/integrations/device_tracker.mqtt/)
 - [Device trigger](/integrations/device_trigger.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
-- [Climate/HVAC](/integrations/climate.mqtt/)
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -94,13 +94,13 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
+- [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
 - [Device tracker](/integrations/device_tracker.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
-- [Climate/HVACs](/integrations/climate.mqtt/)
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -124,6 +124,9 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
 - [Button](/integrations/button.mqtt/)
+- [Climate (HVAC)](/integrations/climate.mqtt/)
+- [Cover](/integrations/cover.mqtt/)
+- [Fan](/integrations/fan.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Notify](/integrations/notify.mqtt/)
 - [Sensor](/integrations/sensor.mqtt/)
@@ -171,7 +174,7 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 2. Select the MQTT integration.
 3. Reconfigure the MQTT broker settings via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
 
-MQTT subentries can also be reconfigured. Additional entities can be added, or an entity can bve removed from the sub entry. Each MQTT subentry holds one MQTT device. The MQTT device must have at least one entity.
+MQTT subentries can also be reconfigured. Additional entities can be added, or an entity can be removed from the sub entry. Each MQTT subentry holds one MQTT device. The MQTT device must have at least one entity.
 
 {% important %}
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
@@ -368,7 +371,7 @@ Supported shared options are:
 - `qos`
 - `encoding`
 
-The component specific options are placed as mappings under the `components` key (abbreviated as `cmp`) like:
+The component specific options are placed as mappings under the `components` key (abbreviated as `cmps`) like:
 
 ```json
 {
@@ -407,7 +410,7 @@ The component specific options are placed as mappings under the `components` key
 }
 ```
 
-The components id's under the `components` (`cmp`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
+The components id's under the `components` (`cmps`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
 
 To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
 
@@ -567,7 +570,7 @@ Check the logs to ensure this step is executed correctly.
 **Step 3: Publish the new device-based discovery configuration:**
 
 Discovery topic device: `homeassistant/device/0AFFD2/config`
-Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmp` in the discovery payload)*
+Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmps` in the discovery payload)*
 Discovery payload device:
 
 ```json
@@ -1080,7 +1083,7 @@ payload_not_available:
   required: false
   type: string
   default: offline
-{% endconfiguration %}  
+{% endconfiguration %}
 
 {% enddetails %}
 
@@ -1223,7 +1226,7 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
-- Payload:  
+- Payload:
 
 ```json
 {
@@ -1369,7 +1372,7 @@ The following software has built-in support for MQTT discovery:
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
 - [TeddyCloud](https://github.com/toniebox-reverse-engineering/teddycloud)
 - [Teleinfo MQTT](https://fmartinou.github.io/teleinfo2mqtt) (starting with 3.0.0)
-- [Tydom2MQTT](https://fmartinou.github.io/tydom2mqtt/)
+- [Tydom2MQTT](https://tydom2mqtt.github.io/tydom2mqtt/)
 - [What's up Docker?](https://fmartinou.github.io/whats-up-docker/) (starting with 3.5.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
@@ -1431,7 +1434,7 @@ Note that MQTT device payloads often contain information for updating multiple e
 
 ### The last reported state attribute
 
-Because MQTT state updates are often repeated frequently, even when no actual changes exist, it is up to the MQTT subscriber to determine whether a status update was received. If the latest update is missed, it might take some time before the next one arrives. If a retained payload exists at the broker, that value will be replayed first, but it will be an update of a previous last state. 
+Because MQTT state updates are often repeated frequently, even when no actual changes exist, it is up to the MQTT subscriber to determine whether a status update was received. If the latest update is missed, it might take some time before the next one arrives. If a retained payload exists at the broker, that value will be replayed first, but it will be an update of a previous last state.
 
 MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
 

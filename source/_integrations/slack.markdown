@@ -30,8 +30,18 @@ The `slack` platform allows you to deliver notifications from Home Assistant to 
 
 Find `Features/OAuth and Permissions/Scopes/Bot Token Scopes`
 
-3. Add the `chat:write` and `dnd:read` scopes
-  - To modify your Slack bot's username and icon, additionally add the `chat:write.customize` OAuth scope
+3. Add the following OAuth scopes:
+  - `chat:write`
+  - `dnd:read`
+  - `channels:manage`
+  - `channels:read`
+  - `groups:read`
+  - `groups:write`
+  - `im:read`
+  - `im:write`
+  - `mpim:read`
+  - `mpim:write`
+  - Optionally add `chat:write.customize` to modify your Slack bot's username and icon.
 
 ![](/images/integrations/slack/bot-token-scopes.png)
 

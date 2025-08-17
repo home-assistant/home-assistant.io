@@ -43,7 +43,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
 - Glendale Water and Power (GWP)
-- Mercury NZ Limited
+- ~Mercury NZ Limited~ (no longer working as it [recently transitioned from using Opower to an in-house solution](https://www.geekzone.co.nz/forums.asp?forumid=73&topicid=319506&page_no=1#3396187), will be removed in 2025.9.0)
 - National Grid US subsidiaries
   - National Grid Massachusetts
   - National Grid NY Long Island
@@ -54,6 +54,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
 - Puget Sound Energy (PSE)
 - Sacramento Municipal Utility District (SMUD)
 - Seattle City Light (SCL)
+- Southern Maryland Electric Cooperative (SMECO)
 
 When you add the Opower integration to Home Assistant, you will need to provide your utility account's authentication details to enable retrieving your energy data.
 This is typically the same information needed to access your utility's website.
@@ -86,6 +87,11 @@ Alternatively, you can create a new TOTP secret for your account and use the "no
 When using Opower with any of the Exelon subsidiaries, such as BGE, ComEd, PECO, Pepco, etc., you need to actively disable two-factor authentication.
 Before proceeding, make sure you understand the security implications of disabling 2FA.
 Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, you most likely cannot disable it, which unfortunately means you cannot use this integration.
+
+### Pacific Gas & Electric (PG&E)
+
+The integration properly supports Multi-Factor Authentication (MFA) for PG&E via either email or phone.
+You will be asked to re-authenticate via MFA every 180 days.
 
 {% include integrations/config_flow.md %}
 
@@ -169,3 +175,10 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 
 - Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
 - In your energy dashboard in Home Assistant, make sure you use the statistics and not the sensors.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+If you remove the integration, the statistics are not automatically deleted.
+You can find and delete the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "opower".
