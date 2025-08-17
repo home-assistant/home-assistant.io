@@ -5,7 +5,7 @@ ha_category:
   - Cover
   - Switch
   - Number
-ha_release: 2024.X
+ha_release: 2025.9
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -88,7 +88,7 @@ All Vitrea devices are automatically grouped under their respective hub device i
 ### Connection Issues
 
 - Ensure your Vitrea hub is powered on and connected to the network
-- Verify the IP address and port are correct. The Vitrea hub typically provides 3 consecutive ports, one is used by the Vitrea admin app, the second is used by the integration and the third is used by the Vitrea app.
+- Verify the IP address and port are correct.
 - Check that no firewall is blocking communication on the specified port
 
 ### Device Not Appearing
