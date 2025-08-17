@@ -54,6 +54,164 @@ Max history messages:
   description: Maximum number of messages to keep for each conversation (0 = no limit). Limiting this value will cause older messages in a conversation to be dropped.
 {% endconfiguration_basic %}
 
+## Configuration options — detailed guide
+
+This section explains every configuration option you see while adding the
+integration in Home Assistant. Read the short tip under each option if you are
+unsure what to pick.
+
+{% configuration_basic %}
+Base URL:
+  description: |
+    The address of the LM Studio local server. Use the address shown in the
+    LM Studio app under the *Local Server* settings. Examples:
+
+    - `http://localhost:1234` — when LM Studio runs on the same machine as
+      Home Assistant.
+    - `http://192.168.1.42:1234` — when LM Studio runs on another computer on
+      your local network.
+
+    Tip: include the `http://` prefix and the port (default 1234). If the
+    server is not reachable, Home Assistant will show a connection error.
+
+API Key:
+  description: |
+    Optional key if you enabled authentication on the LM Studio server. Leave
+    this blank if you did not enable authentication. If you later enable an
+    API key on LM Studio, reconfigure the integration and add the same key.
+
+Model:
+  description: |
+    Select which model to use from the models that LM Studio serves. The
+    integration queries your LM Studio server during setup and shows a list of
+    available models. If no models appear, confirm the server is running and
+    that you allowed access on the network.
+
+Instructions (Prompt):
+  description: |
+    A short system prompt or instructions that tell the model how to behave.
+    This can be any text and supports Home Assistant templates. A good default
+    is a short instruction such as: "You are a Home Assistant assistant. Be
+    concise and only use Home Assistant features when asked." You can leave
+    this empty to use the integration default.
+
+Max history messages:
+  description: |
+    The number of past messages the integration will keep in memory for each
+    conversation. More history helps the model remember context but increases
+    the prompt size and memory use. Set to `0` for no limit (not recommended
+    for small models). A sensible default is 20–50.
+
+Control Home Assistant:
+  description: |
+    When enabled, the model can call Home Assistant functions and control
+    entities that you explicitly *expose* to Assist. Only models that support
+    function calling/tools will be able to control Home Assistant. This option
+    is experimental.
+
+Advanced options:
+  description: |
+        Advanced settings that affect response length, randomness, and diversity.
+        Change these only if you understand the trade-offs in latency, memory,
+        and reliability.
+
+  Max tokens:
+    description: |
+      Maximum number of tokens the model may generate in a single response. A
+      higher value allows longer responses at the cost of CPU, RAM, and latency.
+      Typical values:
+      - 256 — short replies, faster responses, low memory use.
+      - 512 — balanced length and cost.
+      - 1024+ — long replies, may be slow or fail on small models.
+
+      Tip: start with 256 or 512 and increase only if the replies are too short.
+
+  Temperature:
+    description: |
+      Controls randomness in the model's responses. Use lower values for
+      predictable answers and higher values for creativity. Typical ranges:
+      - 0.0–0.3 — deterministic answers (recommended for automation and
+        controlling devices).
+      - 0.4–0.7 — balanced.
+      - 0.8–1.0 — creative, but may be less reliable.
+
+  Top P:
+    description: |
+      Alternate way to control response diversity (nucleus sampling). If you set
+      both temperature and top_p, they work together. Use values between 0.1 and
+      1.0. Lower values make output more focused.
+
+{% endconfiguration_basic %}
+
+## Tips and notes for beginners
+
+- Keep things small at first: choose one model, set **Max tokens** to 256, and
+  set **Max history messages** to 20.
+- Use lower **Temperature** (0.0–0.3) when you want predictable behavior.
+- Expose only the entities the assistant needs to know about. This improves
+  privacy and reduces mistakes.
+- If you want a conversational assistant only (no device control), disable
+  *Control Home Assistant* — the model will still answer questions.
+- If you have a weak CPU-only device, prefer smaller models or run LM Studio
+  on a more powerful machine.
+
+## Troubleshooting
+
+### 1) Home Assistant shows "Authentication failed" or "Failed to connect"
+
+1. Verify LM Studio is running and the Local Server is started.
+2. Confirm the `Base URL` in the integration includes the correct port and
+   protocol (for example `http://192.168.1.42:1234`).
+3. If you set an API key in LM Studio, add the same key in the integration.
+4. Check firewall settings on the LM Studio host — allow incoming connections
+   on the configured port.
+
+### 2) No models found during setup
+
+  1. Open LM Studio on the host machine and go to the **Local Server** tab to check if a model is already loaded.
+  2. If you have not downloaded any models, open the model browser in LM Studio and download at least one model to serve  
+  3. Select a model for serving in LM Studio integration — LM Studio will automatically load the selected model for the server, so you do not need to check the **Local Server** tab again to confirm the model is already loaded
+  4. If LM Studio runs on a different machine than Home Assistant, make sure **Serve on Local Network** is enabled on the **Local Server** tab
+  5. If LM Studio runs on the same machine as Home Assistant, try `http://localhost:1234`  
+
+### 3) Model answers are short, off-topic, or inconsistent
+
+- Increase **Max tokens** (try 512) for longer answers.
+- Increase **Max history messages** if the model forgets earlier context.
+- Lower **Temperature** and **Top P** for more deterministic replies.
+- Adjust the *Instructions* prompt to be clearer about the assistant's role.
+
+### 4) Model suggests an action but Home Assistant does not execute it
+
+1. Confirm *Control Home Assistant* is enabled for that integration entry.
+2. Make sure the entity the model tries to control is *exposed* to Assist.
+3. Check Home Assistant logs for the function call validation error; the
+   integration validates inputs before running actions.
+
+### 5) Slow responses or out-of-memory errors
+
+- Use a smaller model or move LM Studio to a machine with more RAM/CPU.
+- Lower **Max tokens** and **Max history messages**.
+- If running LM Studio on a GPU, ensure drivers and runtime are configured
+  correctly in LM Studio.
+
+## Reconfiguring the integration
+
+To change settings after setup, go to **Settings** > **Devices & Services**,
+find the LM Studio integration entry, and choose *Options* or *Reconfigure*.
+When you reconfigure the `Base URL` or `API Key`, Home Assistant will test the
+connection and refresh the available model list.
+
+## Advanced notes for power users
+
+- You can run multiple LM Studio config entries with different prompts or
+  permissions (for example, one for casual chat and another that can control
+  Home Assistant).
+- When enabling control for an assistant, prefer larger models that support
+  stable function calling behavior.
+- For headless deployments (LM Studio as a service), see the
+  [LM Studio headless docs](https://lmstudio.ai/docs/app/api/headless).
+
 ## Controlling Home Assistant
 
 If you want to experiment with local LLMs using Home Assistant, we recommend exposing fewer than 25 entities. Note that smaller models are more likely to make mistakes than larger models.
@@ -65,6 +223,8 @@ Smaller models may not reliably maintain a conversation when controlling Home As
 - Add the LM Studio integration without enabling control of Home Assistant. You can use this conversation agent to have a conversation.
 - Add an additional LM Studio integration, using the same model, enabling control of Home Assistant. You can use this conversation agent to control Home Assistant.
 
+<!-- 
+TBD Split PR
 ## AI Task Platform
 
 The LM Studio integration also supports Home Assistant's AI task platform, allowing you to use local LLMs for structured data generation in automations and scripts. This enables you to:
@@ -72,7 +232,9 @@ The LM Studio integration also supports Home Assistant's AI task platform, allow
 - Generate structured responses based on sensor data
 - Create dynamic content for notifications
 - Process and analyze data from your smart home devices
-- Generate summaries or insights from historical data
+- Generate summaries or insights from historical data 
+
+-->
 
 ## Setting up LM Studio
 
