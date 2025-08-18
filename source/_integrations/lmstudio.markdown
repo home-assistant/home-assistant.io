@@ -180,7 +180,7 @@ Advanced options - Top P:
   4. If LM Studio runs on a different machine than Home Assistant, make sure **Serve on Local Network** is enabled on the **Local Server** tab.
   5. If LM Studio runs on the same machine as Home Assistant, try `http://localhost:1234`.
 
-### 3) Model answers are short, off-topic, or inconsistent
+### Model answers are short, off-topic, or inconsistent
 
 - Increase **Max tokens** (try 512) for longer answers.
 - Increase **Max history messages** if the model forgets earlier context.
