@@ -12,7 +12,7 @@ To use Z-Wave with Home Assistant, you need a compatible Z-Wave adapter.
 
 ## Recommended Z-Wave adapter
 
-The [Home Assistant Connect ZWA-2](/connect/zwa-2/) is an 800 series Z-Wave adapter specifically developed to work with Home Assistant.
+The [Home Assistant Connect ZWA-2](/connect/zwa-2/) is an 800 series Z-Wave adapter specifically developed to work with Home Assistant and [Z-Wave JS](/integrations/zwave_js/).
 
 ## Other supported Z-Wave adapters
 
