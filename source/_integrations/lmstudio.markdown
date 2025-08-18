@@ -172,7 +172,7 @@ Advanced options - Top P:
 4. Check the firewall settings on the LM Studio host. Allow incoming connections
    on the configured port.
 
-### 2) No models found during setup
+### No models found during setup
 
   1. Open LM Studio on the host machine and go to the **Local Server** tab to check if a model is already loaded.
   2. If you have not downloaded any models, open the model browser in LM Studio and download at least one model to serve.
