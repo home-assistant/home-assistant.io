@@ -49,7 +49,7 @@ Model:
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
 Control Home Assistant:
-  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it. This feature is considered experimental and see [Controlling Home Assistant](#controlling-home-assistant) below for details on model limitations.
+  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it. This feature is considered experimental. For details on model limitations, refer to the section [Controlling Home Assistant](#controlling-home-assistant).
 Max tokens:
   description: Maximum number of tokens to generate in the response. Higher values allow for longer responses but may increase processing time.
 Temperature:
