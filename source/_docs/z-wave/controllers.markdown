@@ -16,75 +16,88 @@ To use Z-Wave with Home Assistant, you need a compatible Z-Wave adapter.
 
 ## Other supported Z-Wave adapters
 
-The following devices have been confirmed to work with Z-Wave JS:
+This section lists devices that have been confirmed to work with Z-Wave JS.
 
-{% warning %}
+A few recommendations if you are new to Z-Wave:
 
-The firmwares of 700 and 800 series Z-Wave adapters have several bugs which impact the stability of the mesh and can cause the adapter to become unresponsive. Because there is no known firmware version that is completely fixed, it is recommended to choose a firmware based on the following criteria:
+- Use an [800 series adapter](#800-series-usb-adapters) (with firmware updated to ≥ 7.23.2).
+  - The 800 series adapters are the most future-proof and offer the best RF performance.
+- Opt for a USB stick, not a module.
+  - Passing a module through Docker is more complicated than passing a USB stick through.
 
-- 700 series:
-  - prefer SDK versions 7.17.2 to 7.18.x or 7.21.6 and newer
-  - SDK versions 7.19.x are okay
-  - avoid SDK versions before 7.17.2
-  - avoid SDK versions 7.20 to 7.21.5
+### 800 series USB adapters
 
-- 800 series
+Before connecting the Z-Wave 800 series adapter to Home Assistant, make sure the adapter uses a compatible firmware and SDK version. Some 800 series Z-Wave adapters have bugs which impact the stability of the mesh and can cause the adapter to become unresponsive.
+
+Upgrade the firmware of the 800 series adapter to a recommended version.
+
+- Because there is no known firmware version that is completely fixed, it is recommended to choose a firmware based on the following criteria:
   - prefer SDK versions 7.23.x and newer
   - SDK versions 7.22.x are okay
   - SDK versions 7.17.2 to 7.19.x are okay
   - avoid SDK versions before 7.17.2
   - avoid SDK versions 7.20 to 7.21.3
 
-{% note %}
-The SDK version does not have to match the firmware version. If you are unsure which SDK versions a firmware is based on, contact the manufacturer of your device.
-{% endnote %}
+- **Note**: The SDK version does not have to match the firmware version.
+  - If you are unsure which SDK versions a firmware is based on, contact the manufacturer of your device.
 
-{% important %}
-You should upgrade the firmware on all 700 and 800 series adapters to a recommended version.
-{% endimportant %}
+#### List of supported 800 series adapters
 
-Firmware can be upgraded using the below directions:
+The following 800 series USB adapters have been reported to work with Home Assistant, if using the SDK and firmware versions mentioned above
 
-- [Upgrade instructions using Linux](https://github.com/kpine/zwave-js-server-docker/wiki/700-series-Controller-Firmware-Updates-(Linux))
-- [Upgrade instructions using Windows (Aeotec)](https://aeotec.freshdesk.com/support/solutions/articles/6000252296-update-z-stick-7-with-windows)
-- [Upgrade instructions using Windows (Zooz)](https://www.support.getzooz.com/kb/article/931-how-to-perform-an-ota-firmware-update-on-your-zst10-700-z-wave-stick/)
-- [Upgrade instructions using Windows/Linux (Z-Wave.Me)](https://z-wave.me/support/uzbrazberry-firmwares/)
+HomeSeer SmartStick G8
+Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
-{% endwarning %}
+### 700 series USB adapters
 
-- 800 series USB adapters (with some caveats, see notes)
-  - HomeSeer SmartStick G8
-  - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
+Before connecting the Z-Wave 700 series adapter to Home Assistant, make sure the adapter uses a compatible firmware and SDK version. Some 700 series Z-Wave adapters have bugs which impact the stability of the mesh and can cause the adapter to become unresponsive.
 
-- 700 series USB adapters
-  - Aeotec Z-Stick 7 USB stick (ZWA010) (the EU version is not recommended due to RF performance issues)
-  - HomeSeer SmartStick+ G3
-  - HomeSeer Z-NET G3
-  - Silicon Labs UZB-7 USB Stick (Silabs SLUSB7000A / SLUSB001A)
-  - Zooz S2 Stick 700 (ZST10 700)
-  - Z-Wave.Me Z-Station
+Upgrade the firmware of the 700 series adapter to a recommended version:
 
-- 500 series USB adapters
-  - Aeotec Z-Stick Gen5 (see note below)
-  - Everspring USB stick - Gen 5
-  - GoControl HUSBZB-1 stick
-  - Sigma Designs UZB stick
-  - Vision USB stick - Gen5
-  - Z-Wave.Me UZB1 stick (see Aeotec Z-Stick note below)
-  - HomeSeer SmartStick+ G2
-  - HomeSeer Z-NET G2
+- Because there is no known firmware version that is completely fixed, it is recommended to choose a firmware based on the following criteria:
+  - prefer SDK versions 7.17.2 to 7.18.x or 7.21.6 and newer
+  - SDK versions 7.19.x are okay
+  - avoid SDK versions before 7.17.2
+  - avoid SDK versions 7.20 to 7.21.5
+- **Note**: The SDK version does not have to match the firmware version.
+  - If you are unsure which SDK versions a firmware is based on, contact the manufacturer of your device.
+- To upgrade the firmware, follow the instructions that match your system:
+  - [Upgrade instructions using Linux](https://github.com/kpine/zwave-js-server-docker/wiki/700-series-Controller-Firmware-Updates-(Linux))
+  - [Upgrade instructions using Windows (Aeotec)](https://aeotec.freshdesk.com/support/solutions/articles/6000252296-update-z-stick-7-with-windows)
+  - [Upgrade instructions using Windows (Zooz)](https://www.support.getzooz.com/kb/article/931-how-to-perform-an-ota-firmware-update-on-your-zst10-700-z-wave-stick/)
+  - [Upgrade instructions using Windows/Linux (Z-Wave.Me)](https://z-wave.me/support/uzbrazberry-firmwares/)
 
-- Raspberry Pi HAT adapters
-  - Aeotec Z-Pi 7 Raspberry Pi HAT/Shield (ZWA025, 700 series)
-  - Z-Wave.Me RaZberry 7 (ZME_RAZBERRY7, 700 series)
-  - Z-Wave.Me RaZberry 7 Pro (ZMEERAZBERRY7_PRO or ZMEURAZBERRY7_PRO, 700 series)
-  - Z-Wave.Me Razberry 2 (500 series)
-  - Z-Wave.Me Razberry 1 (300 series)
+#### List of supported 700 series USB adapters
 
-If you are just starting out, we recommend that you purchase an 800 series adapter (with firmware updated to ≥ 7.23.2). The 800 series adapters are the most future-proof and offer the best RF performance.
-{% tip %}
-It's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
-{% endtip %}
+The following 700 series USB adapters have been reported to work with Home Assistant, if using the SDK and firmware versions mentioned above:
+
+- Aeotec Z-Stick 7 USB stick (ZWA010) (the EU version is not recommended due to RF performance issues)
+- HomeSeer SmartStick+ G3
+- HomeSeer Z-NET G3
+- Silicon Labs UZB-7 USB Stick (Silabs SLUSB7000A / SLUSB001A)
+- Zooz S2 Stick 700 (ZST10 700)
+- Z-Wave.Me Z-Station
+
+### 500 series USB adapters
+
+The following 500 series USB adapters have been reported to work with Home Assistant:
+
+- Aeotec Z-Stick Gen5 (see note below)
+- Everspring USB stick - Gen 5
+- GoControl HUSBZB-1 stick
+- Sigma Designs UZB stick
+- Vision USB stick - Gen5
+- Z-Wave.Me UZB1 stick (see Aeotec Z-Stick note below)
+- HomeSeer SmartStick+ G2
+- HomeSeer Z-NET G2
+
+### Raspberry Pi HAT adapters
+
+- Aeotec Z-Pi 7 Raspberry Pi HAT/Shield (ZWA025, 700 series)
+- Z-Wave.Me RaZberry 7 (ZME_RAZBERRY7, 700 series)
+- Z-Wave.Me RaZberry 7 Pro (ZMEERAZBERRY7_PRO or ZMEURAZBERRY7_PRO, 700 series)
+- Z-Wave.Me Razberry 2 (500 series)
+- Z-Wave.Me Razberry 1 (300 series)
 
 ## Third-party hubs
 
