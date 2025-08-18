@@ -42,7 +42,7 @@ To use this integration, you need to have an LM Studio server running on your lo
 {% configuration_basic %}
 Base URL:
   description: The URL of the LM Studio local server, such as `http://localhost:1234` or `http://192.168.1.100:1234`.
-API Key:
+API key:
   description: Optional API key for authentication if you've configured one in LM Studio. Leave empty if no authentication is required.
 Model:
   description: Name of the model to use. The integration will automatically fetch available models from your LM Studio server during setup.
