@@ -8,7 +8,7 @@ related:
     title: Home Assistant Connect ZWA-2
 ---
 
-To run Z-Wave on Home Assistant, you need to have a compatible Z-Wave adapter installed.
+To use Z-Wave with Home Assistant, you need a compatible Z-Wave adapter.
 
 ## Recommended Z-Wave adapter
 
