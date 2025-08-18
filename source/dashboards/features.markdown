@@ -615,24 +615,24 @@ style:
   default: slider
 {% endconfiguration %}
 
-## Bar graph
+## Progress bar
 
 Widget that displays the state of a numeric [sensor](/integrations/sensor), with unit of measurement %, as a horizontal bar.
 
 <p class='img'>
-  <img src='/images/dashboards/features/sensor-bar.png' alt='Screenshot of the tile card with the sensor-bar feature'>
-  Screenshots of the tile card with the bar graph feature
+  <img src='/images/dashboards/features/progress-bar.png' alt='Screenshot of the tile card with the progress bar feature'>
+  Screenshots of the tile card with the progress bar feature
 </p>
 
 ```yaml
 features:
-  - type: "sensor-bar"
+  - type: "progress-bar"
 ```
 
 {% configuration features %}
 type:
   required: true
-  description: "`sensor-bar`"
+  description: "`progress-bar`"
   type: string
 {% endconfiguration %}
 
