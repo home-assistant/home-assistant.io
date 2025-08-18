@@ -70,7 +70,7 @@ unsure what to pick.
 Base URL:
   description: |
     The address of the LM Studio local server. Use the address shown in the
-    LM Studio app under the *Local Server* settings. Examples:
+    LM Studio app under the **Local Server** settings. Examples:
 
     - `http://localhost:1234` — when LM Studio runs on the same machine as
       Home Assistant.
