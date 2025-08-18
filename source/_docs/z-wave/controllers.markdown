@@ -102,66 +102,7 @@ The Aeotec Z-Stick and some of its variants (e.g. Z-Wave.Me UZB1) are known to h
 
 It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system.
 
-### Razberry Board
-
-On Raspberry Pi 3 and 4, you need to disable the on-board Bluetooth since the board requires the use of the hardware UART (whose pins are shared with the Bluetooth). You do this by adjusting the `/boot/config.txt`.
-
-For both processes below you will need to insert your SD card into your PC and open the configuration file with your favorite text editor.
-
-- Once you mounted the disk, you will see the `config.txt` directly in the root directory.
-
-#### Raspberry Pi 5 procedure
-
-Add the following parameters to the bottom of the `config.txt` file.
-
-```text
-dtoverlay=uart0
-```
-
-#### Raspberry Pi 4 procedure
-
-Add the following parameters to the bottom of the `/boot/config.txt` file.
-
-```text
-dtoverlay=disable-bt
-enable_uart=1
-```
-
-Reboot your Pi 4 without the Razberry Z-Wave hat first. Then shutdown, add the hat back, and boot again.
-
-#### Raspberry Pi 3 procedure
-
-Add the following parameters to the bottom of the `/boot/config.txt` file.
-
-```text
-dtoverlay=disable-bt
-```
-
-Reboot your Pi 3.
-
-For Home Assistant OS this should be everything you need to do. You should now be able to use Razberry Z-Wave from `/dev/ttyAMA0`.
-
-For other operating systems such as Raspberry Pi OS you will also have to run the following command:
-
-```bash
-sudo systemctl disable hciuart
-```
-
-You should also check the README for details on the overlays. You might find it in `/boot/overlays/README` on your SD-card. If it is not there you can find [the official version here](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README).
-
-{% note %}
-It is possible to keep a limited Bluetooth functionality while using Razberry Z-Wave. Check `boot/overlays/README` on `miniuart-bt`.
-{% endnote %}
-
-{% note %}
-`disable-bt` was previously known as `pi3-disable-bt`. If your OS is old, you might need to use this instead.
-{% endnote %}
-
-{% note %}
-If you've installed the Z-Wave.Me Z-Way software. In order to use Z-Wave JS instead of Z-Way, you'll need to ensure you disable it before you install Home Assistant, or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`. Alternatively, you could use the [Z-Wave.Me](/integrations/zwave_me) integration.
-{% endnote %}
-
-#### Setting up a Raspberry Pi Z-Wave module on Home Assistant Yellow
+### Setting up a Raspberry Pi Z-Wave module on Home Assistant Yellow
 
 This procedure has been tested with the following modules:
 
@@ -174,4 +115,4 @@ This procedure has been tested with the following modules:
 2. Carefully [close the case](https://support.nabucasa.com/hc/en-us/articles/25606333033501) (see Reassembling your Home Assistant Yellow section) and power up Home Assistant Yellow.
 3. Follow the procedure on [setting up a Z-Wave JS server](/integrations/zwave_js/#setting-up-a-z-wave-js-server).
    1. In step 2, follow the manual setup steps to install the Z-Wave integration.
-   2. in Step 4, you will be prompted to choose a **Device path**. Choose **ttyAMA0**.
+   2. When prompted to choose a **Device path**, choose **ttyAMA0**.
