@@ -617,7 +617,7 @@ style:
 
 ## Bar graph
 
-Widget that displays the state of a numeric [sensor](/integrations/sensor) as a horizontal bar.
+Widget that displays the state of a numeric [sensor](/integrations/sensor), with unit of measurement %, as a horizontal bar.
 
 <p class='img'>
   <img src='/images/dashboards/features/sensor-bar.png' alt='Screenshot of the tile card with the sensor-bar feature'>
