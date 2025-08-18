@@ -8,9 +8,15 @@ related:
     title: Home Assistant Connect ZWA-2
 ---
 
+To run Z-Wave on Home Assistant, you need to have a compatible Z-Wave adapter installed.
+
+## Recommended Z-Wave adapter
+
+- [Home Assistant Connect ZWA-2](/connect/zwa-2/)
+
 ## Supported Z-Wave adapters
 
-You need to have a compatible Z-Wave adapter installed. The following devices have been confirmed to work with Z-Wave JS:
+The following devices have been confirmed to work with Z-Wave JS:
 
 {% warning %}
 
@@ -47,7 +53,6 @@ Firmware can be upgraded using the below directions:
 {% endwarning %}
 
 - 800 series USB adapters (with some caveats, see notes)
-  - [Home Assistant Connect ZWA-2](/connect/zwa-2/)
   - HomeSeer SmartStick G8
   - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
