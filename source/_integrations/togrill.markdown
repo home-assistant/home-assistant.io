@@ -44,7 +44,7 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 
 ## Events
 
-**Probe X**: The most recent triggered alarm or event on the probe. The following event types are expected `alarm`, `acknowledge`, `disconnected`
+**Probe X**: The most recently triggered alarm or event on the probe. The following event types are expected: `alarm`, `acknowledge`, `disconnected`.
 
 ## Sensors
 
