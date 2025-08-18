@@ -1,7 +1,7 @@
 ---
 title: IDrive e2
 description: Instructions on how to set up an IDrive e2 bucket to use as a backup location.
-ha_release: 2025.6
+ha_release: 2025.9
 ha_category:
   - Backup
 ha_iot_class: Cloud Push
@@ -66,11 +66,11 @@ To create an Access Key that has access to the bucket:
 
 {% configuration_basic %}
 Access Key ID:
-description: "The access key ID for your IDrive e2 account."
+  description: "The access key ID for your IDrive e2 account."
 Secret Access Key:
-description: "The secret access key for your IDrive e2 account."
+  description: "The secret access key for your IDrive e2 account."
 Bucket Name:
-description: "IDrive e2 bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
+  description: "IDrive e2 bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
 {% endconfiguration_basic %}
 
 ## Setting up the IDrive e2 integration in Home Assistant
