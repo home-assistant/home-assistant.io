@@ -204,7 +204,7 @@ Advanced options - Top P:
 ## Reconfiguring the integration
 
 To change settings after setup, go to **Settings** > **Devices & Services**,
-find the LM Studio integration entry, and choose *Options* or *Reconfigure*.
+find the LM Studio integration entry, and choose **Options** or **Reconfigure**.
 When you reconfigure the `Base URL` or `API Key`, Home Assistant will test the
 connection and refresh the available model list.
 
