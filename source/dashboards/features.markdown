@@ -322,6 +322,27 @@ type:
   type: string
 {% endconfiguration %}
 
+## Date
+
+Widget that displays a button to select a date using the date picker dialog for the [date](/integrations/date), [datetime](/integrations/datetime), and [input datetime](/integrations/input_datetime) entities.
+
+<p class='img'>
+  <img src='/images/dashboards/features/date.png' alt='Screenshot of the tile card with the date feature'>
+  Screenshot of the tile card with the date feature
+</p>
+
+```yaml
+features:
+  - type: "date"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`date`"
+  type: string
+{% endconfiguration %}
+
 ## Fan direction
 
 Widget that displays controls to change direction for a [fan](/integrations/fan).

@@ -6,10 +6,12 @@ ha_config_flow: true
 ha_release: '2025.9'
 ha_category:
   - Sensor
+  - Number
 ha_domain: togrill
 ha_bluetooth: true
 ha_platforms:
   - sensor
+  - number
 ha_integration_type: device
 ha_codeowners:
   - '@elupus'
@@ -44,6 +46,11 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 
 **Probe X**: The current temperature of the given temperature probe
 **Battery**: The current battery level of the device.
+
+## Numbers
+
+**Target X**: The target temperature of the given temperature probe. Set value to 0 to disable target alarm.
+**Alarm interval**: The interval in minutes between successive alarms.
 
 ## Removing the integration
 
