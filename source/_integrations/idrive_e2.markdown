@@ -67,7 +67,7 @@ To create an Access Key that has access to the bucket:
 {% configuration_basic %}
 Access Key ID:
   description: "The access key ID for your IDrive e2 account."
-Secret Access Key:
+Secret access key:
   description: "The secret access key for your IDrive e2 account."
 Bucket name:
   description: "IDrive e2 bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
