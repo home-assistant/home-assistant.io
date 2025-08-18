@@ -69,7 +69,7 @@ Access Key ID:
   description: "The access key ID for your IDrive e2 account."
 Secret Access Key:
   description: "The secret access key for your IDrive e2 account."
-Bucket Name:
+Bucket name:
   description: "IDrive e2 bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
 {% endconfiguration_basic %}
 
