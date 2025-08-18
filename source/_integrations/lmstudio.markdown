@@ -163,7 +163,7 @@ Advanced options - Top P:
 
 ## Troubleshooting
 
-### 1) Home Assistant shows "Authentication failed" or "Failed to connect"
+### Home Assistant shows "Authentication failed" or "Failed to connect"
 
 1. Verify LM Studio is running and the Local Server is started.
 2. Confirm the `Base URL` in the integration includes the correct port and
