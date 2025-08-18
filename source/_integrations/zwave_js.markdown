@@ -48,7 +48,7 @@ related:
   - docs: /connect/zwa-2
     title: Home Assistant Connect ZWA-2 Z-Wave adapter
   - docs: /docs/z-wave/controllers/
-    title: Z-Wave adapters
+    title: Other Z-Wave adapters
   - docs: /connect/zwa-2
     title: Home Assistant Connect ZWA-2 Z-Wave adapter
 ---
