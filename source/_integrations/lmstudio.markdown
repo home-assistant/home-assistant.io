@@ -187,7 +187,7 @@ Advanced options - Top P:
 - Lower **Temperature** and **Top P** for more deterministic replies.
 - Adjust the **Instructions** prompt to be clearer about the assistant's role.
 
-### 4) Model suggests an action but Home Assistant does not execute it
+### Model suggests an action, but Home Assistant does not execute it
 
 1. Confirm **Control Home Assistant** is enabled for that integration entry.
 2. Make sure the entity the model tries to control is *exposed* to Assist.
