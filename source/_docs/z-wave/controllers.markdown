@@ -50,6 +50,9 @@ The following 800 series USB adapters have been reported to work with Home Assis
 
 ### 700 series USB adapters
 
+
+In general, using a 700 series USB adapter is not recommended.
+
 Before connecting the Z-Wave 700 series adapter to Home Assistant, make sure the adapter uses a compatible firmware and SDK version. Some 700 series Z-Wave adapters have bugs which impact the stability of the mesh and can cause the adapter to become unresponsive.
 
 Upgrade the firmware of the 700 series adapter to a recommended version:
