@@ -27,7 +27,13 @@ The **LM Studio** {% term integration %} adds a conversation agent and AI task s
 Controlling Home Assistant is an experimental feature that provides the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
-To use this integration, you need to have an LM Studio server running on your local machine or on a computer on the local network. LM Studio is a desktop application that lets you run Large Language Models (LLMs) locally, using an API that is compatible with OpenAI. You can download LM Studio for macOS, Linux, or Windows from the [official website](https://lmstudio.ai/). After installing LM Studio, open the application and start the local server. Make sure the server is accessible on your network, usually at `http://YOUR_LOCAL_IP:1234`.
+
+## Prerequisites
+
+To use this integration, you need to have an LM Studio server running on your local machine or on a computer on the local network. 
+- LM Studio is a desktop application that lets you run Large Language Models (LLMs) locally, using an API that is compatible with OpenAI. 
+- You can download LM Studio for macOS, Linux, or Windows from the [official website](https://lmstudio.ai/). 
+- After installing LM Studio, open the application and start the local server. Make sure the server is accessible on your network, usually at `http://YOUR_LOCAL_IP:1234`.
 
 {% include integrations/config_flow.md %}
 
