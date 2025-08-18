@@ -185,7 +185,7 @@ Advanced options - Top P:
 - Increase **Max tokens** (try 512) for longer answers.
 - Increase **Max history messages** if the model forgets earlier context.
 - Lower **Temperature** and **Top P** for more deterministic replies.
-- Adjust the *Instructions* prompt to be clearer about the assistant's role.
+- Adjust the **Instructions** prompt to be clearer about the assistant's role.
 
 ### 4) Model suggests an action but Home Assistant does not execute it
 
