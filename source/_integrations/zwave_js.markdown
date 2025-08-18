@@ -49,8 +49,6 @@ related:
     title: Home Assistant Connect ZWA-2 Z-Wave adapter
   - docs: /docs/z-wave/controllers/
     title: Other Z-Wave adapters
-  - docs: /connect/zwa-2
-    title: Home Assistant Connect ZWA-2 Z-Wave adapter
 ---
 
 The **Z-Wave** {% term integration %} allows you to control a Z-Wave network from Home Assistant via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
