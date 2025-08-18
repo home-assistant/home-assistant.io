@@ -50,7 +50,7 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 ## Numbers
 
 **Target X**: The target temperature of the given temperature probe. Set value to 0 to disable target alarm.
-**Alarm Interval**: The interval in minutes between successive alarms.
+**Alarm interval**: The interval in minutes between successive alarms.
 
 ## Removing the integration
 
