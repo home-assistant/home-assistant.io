@@ -23,7 +23,7 @@ A few recommendations if you are new to Z-Wave:
 - Use an [800 series adapter](#800-series-usb-adapters) (with firmware updated to ≥ 7.23.2).
   - The 800 series adapters are the most future-proof and offer the best RF performance.
 - Opt for a USB connection, not a module.
-  - Passing a module through Docker is more complicated than passing a USB stick through.
+  - Passing a module through Docker is more complicated than passing a USB connector through.
 
 ### 800 series USB adapters
 
