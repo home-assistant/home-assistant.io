@@ -38,7 +38,7 @@ The **Sensibo** {% term integration %} integrates [Sensibo](https://sensibo.com)
 
 ## Prerequisites
 
-Please click [here](https://home.sensibo.com/me/api) and register to obtain the API key.
+Please click [here](https://new-home.sensibo.com/me/api) and register to obtain the API key.
 
 {% tip %}
 If you create the API key using a dedicated user (and not your main user),
@@ -424,7 +424,7 @@ The user can use the [`homeassistant.update_entity`](homeassistant#action-homeas
 This service is reliant on an internet connection and that the **Sensibo** API is available. Here are the things you can try before raising an issue:
 
 - Check that internet is available in your Home Assistant instance.
-- Check that the **Sensibo** API is available by accessing the [Sensibo API page](https://home.sensibo.com/api/v1/users/me). If you have previously logged in to Sensibo web, you will get a JSON back with the provided information about your account. If not logged in, the API will respond with `login_required`.
+- Check that the **Sensibo** API is available by accessing the [Sensibo API page](https://new-home.sensibo.com/api/v1/users/me). If you have previously logged in to Sensibo web, you will get a JSON back with the provided information about your account. If not logged in, the API will respond with `login_required`.
 - Use `curl` in a terminal on your Home Assistant instance using the same URL as previously opened in the browser. `curl https://home.sensibo.com/api/v1/users/me`
 
 ### Specific log entries
