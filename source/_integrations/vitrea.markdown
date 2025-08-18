@@ -102,3 +102,9 @@ All Vitrea devices are automatically grouped under their respective hub device i
 - Ensure the switch supports timer functionality
 - Verify the timer range is within 0-120 minutes
 - Check that the associated timer number entity is properly configured
+
+## Related PRs
+
+- Core PR: home-assistant/core#150799
+- Brands PR: home-assistant/brands#7718
+
