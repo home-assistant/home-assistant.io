@@ -194,7 +194,7 @@ Advanced options - Top P:
 3. Check Home Assistant logs for the function call validation error; the
    integration validates inputs before running actions.
 
-### 5) Slow responses or out-of-memory errors
+### Slow responses or out-of-memory errors
 
 - Use a smaller model or move LM Studio to a machine with more RAM/CPU.
 - Lower **Max tokens** and **Max history messages**.
