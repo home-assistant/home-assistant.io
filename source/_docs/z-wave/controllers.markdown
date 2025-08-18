@@ -43,10 +43,10 @@ Upgrade the firmware of the 800 series adapter to a recommended version.
 
 #### List of supported 800 series adapters
 
-The following 800 series USB adapters have been reported to work with Home Assistant, if using the SDK and firmware versions mentioned above
+The following 800 series USB adapters have been reported to work with Home Assistant, if using the SDK and firmware versions mentioned above.
 
-HomeSeer SmartStick G8
-Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
+- HomeSeer SmartStick G8
+- Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
 ### 700 series USB adapters
 
