@@ -615,6 +615,27 @@ style:
   default: slider
 {% endconfiguration %}
 
+## Bar graph
+
+Widget that displays the state of a numeric [sensor](/integrations/sensor) as a horizontal bar.
+
+<p class='img'>
+  <img src='/images/dashboards/features/sensor-bar.png' alt='Screenshot of the tile card with the sensor-bar feature'>
+  Screenshots of the tile card with the bar graph feature
+</p>
+
+```yaml
+features:
+  - type: "sensor-bar"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`sensor-bar`"
+  type: string
+{% endconfiguration %}
+
 ## Target humidity
 
 Widget that displays a slider to select the target humidity for a [humidifier](/integrations/humidifier).
