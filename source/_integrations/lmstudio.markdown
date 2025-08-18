@@ -189,7 +189,7 @@ Advanced options - Top P:
 
 ### 4) Model suggests an action but Home Assistant does not execute it
 
-1. Confirm *Control Home Assistant* is enabled for that integration entry.
+1. Confirm **Control Home Assistant** is enabled for that integration entry.
 2. Make sure the entity the model tries to control is *exposed* to Assist.
 3. Check Home Assistant logs for the function call validation error; the
    integration validates inputs before running actions.
