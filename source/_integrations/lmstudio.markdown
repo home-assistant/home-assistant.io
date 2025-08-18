@@ -169,7 +169,7 @@ Advanced options - Top P:
 2. Confirm the `Base URL` in the integration includes the correct port and
    protocol (for example `http://192.168.1.42:1234`).
 3. If you set an API key in LM Studio, add the same key in the integration.
-4. Check firewall settings on the LM Studio host — allow incoming connections
+4. Check the firewall settings on the LM Studio host. Allow incoming connections
    on the configured port.
 
 ### 2) No models found during setup
