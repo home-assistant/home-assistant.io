@@ -230,7 +230,7 @@ You cannot run two Z-Wave adapters simultaneously using the same add-on. If you 
    - In the list of devices, check the device name.
    - To change the device name, select the {% icon "mdi:pencil" %} button.
 
-The video below shows how a Z-Wave network is migrated to a Home Assistant Connect ZWA-2.
+The video below shows how a Z-Wave network is migrated to a Home Assistant Connect ZWA-2:
 
 <lite-youtube videoid="3-1YV9i5M30" videotitle="Example showing how to migrate to a Home Assistant Connect ZWA-2" posterquality="maxresdefault"></lite-youtube>
 
