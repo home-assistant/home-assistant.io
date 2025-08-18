@@ -96,7 +96,7 @@ Model:
 Instructions (Prompt):
   description: |
     A short system prompt or instructions that tell the model how to behave.
-    This can be any text and supports Home Assistant templates. A good default
+    This can be any text, including Home Assistant templates. A good default
     is a short instruction such as: "You are a Home Assistant assistant. Be
     concise and only use Home Assistant features when asked." You can leave
     this empty to use the integration default.
