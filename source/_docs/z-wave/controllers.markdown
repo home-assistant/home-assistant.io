@@ -61,11 +61,8 @@ Upgrade the firmware of the 700 series adapter to a recommended version:
   - avoid SDK versions 7.20 to 7.21.5
 - **Note**: The SDK version does not have to match the firmware version.
   - If you are unsure which SDK versions a firmware is based on, contact the manufacturer of your device.
-- To upgrade the firmware, follow the instructions that match your system:
-  - [Upgrade instructions using Linux](https://github.com/kpine/zwave-js-server-docker/wiki/700-series-Controller-Firmware-Updates-(Linux))
-  - [Upgrade instructions using Windows (Aeotec)](https://aeotec.freshdesk.com/support/solutions/articles/6000252296-update-z-stick-7-with-windows)
-  - [Upgrade instructions using Windows (Zooz)](https://www.support.getzooz.com/kb/article/931-how-to-perform-an-ota-firmware-update-on-your-zst10-700-z-wave-stick/)
-  - [Upgrade instructions using Windows/Linux (Z-Wave.Me)](https://z-wave.me/support/uzbrazberry-firmwares/)
+- To upgrade the firmware, search for the instructions that match your system.
+  - For Linux, the [Upgrade instructions from kpine](https://github.com/kpine/zwave-js-server-docker/wiki/700-series-Controller-Firmware-Updates-(Linux))can be helpful.
 
 #### List of supported 700 series USB adapters
 
