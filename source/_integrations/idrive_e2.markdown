@@ -65,7 +65,7 @@ To create an Access Key that has access to the bucket:
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Access Key ID:
+Access key id:
   description: "The access key ID for your IDrive e2 account."
 Secret access key:
   description: "The secret access key for your IDrive e2 account."
