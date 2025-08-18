@@ -175,7 +175,7 @@ Advanced options - Top P:
 ### 2) No models found during setup
 
   1. Open LM Studio on the host machine and go to the **Local Server** tab to check if a model is already loaded.
-  2. If you have not downloaded any models, open the model browser in LM Studio and download at least one model to serve
+  2. If you have not downloaded any models, open the model browser in LM Studio and download at least one model to serve.
   3. Select a model for serving in LM Studio integration — LM Studio will automatically load the selected model for the server, so you do not need to check the **Local Server** tab again to confirm the model is already loaded
   4. If LM Studio runs on a different machine than Home Assistant, make sure **Serve on Local Network** is enabled on the **Local Server** tab
   5. If LM Studio runs on the same machine as Home Assistant, try `http://localhost:1234`
