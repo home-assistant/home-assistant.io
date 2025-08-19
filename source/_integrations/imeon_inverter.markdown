@@ -145,10 +145,6 @@ The domain name is the internal name given to your inverter by Home Assistant. I
 - A name such as `Imeon Inverter number 57` would give you a domain name of `imeon_inverter_number_57`.
 - If you're still struggling to find the domain name, check the internal name of the entities under the device. The name of each variable is `DOMAIN_variable-name`, for example `neo_110_inverter_software_version` tells us the domain name is `neo_110`.
 
-### How to install APEXCharts-card?
-
-[APEXCharts-card's README](https://github.com/RomRider/apexcharts-card/blob/master/README.md#data_generator-option) explains everything needed to install this custom resource on your installation.
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
