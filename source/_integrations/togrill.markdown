@@ -5,11 +5,13 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_release: '2025.9'
 ha_category:
+  - Event
   - Sensor
   - Number
 ha_domain: togrill
 ha_bluetooth: true
 ha_platforms:
+  - event
   - sensor
   - number
 ha_integration_type: device
@@ -41,6 +43,10 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 | Device                           | Model  |
 |----------------------------------|--------|
 | Rubicson - BBQ probe thermometer | Pro-05 |
+
+## Events
+
+**Probe X**: The most recently triggered alarm or event on the probe. The following event types are expected: `alarm`, `acknowledge`, `disconnected`.
 
 ## Sensors
 
