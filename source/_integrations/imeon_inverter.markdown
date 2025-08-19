@@ -14,6 +14,11 @@ related:
   - url: https://imeon-energy.com/
   - title: Imeon Energy website
 ha_integration_type: device
+ha_quality_scale: bronze
+ha_platforms:
+  - sensor
+  - select
+ha_ssdp: true
 ---
 
 The Imeon Energy Inverter {% term integrations %} will poll an [Imeon](https://imeon-energy.com/) solar inverter in Home Assistant.
@@ -150,13 +155,7 @@ This document provides an overview of the sensors available in the Imeon Inverte
 | `energy_battery_stored`       | Energy stored in battery today.     | Wh   |
 | `energy_battery_consumed`     | Energy consumed from battery today. | Wh   |
 
-## Imeon integration extras
-
-Custom dashboard templates for the custom [Imeon Integration](https://github.com/Imeon-Inverters-for-Home-Assistant/imeon-integration). Uses [APEXCharts-card](https://github.com/RomRider/apexcharts-card/blob/master/README.md#data_generator-option) for graphs and custom gauges.
-
-### Troubleshooting
-
-## Removing the integration
+### Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 
