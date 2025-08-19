@@ -204,7 +204,7 @@ Before starting migration, you need to update the adapter to SDK 6.61+
 
 {% enddetails %}
 
-{% details "Migrating from a from a Nortek HUSBZB-1 adapter" %}
+{% details "Migrating from a Nortek HUSBZB-1 adapter" %}
 
 There is no easy way to update that device.
 
