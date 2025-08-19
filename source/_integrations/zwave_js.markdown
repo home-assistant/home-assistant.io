@@ -195,24 +195,30 @@ You cannot run two Z-Wave adapters simultaneously using the same add-on. If you 
 
 #### Device specific prerequisites
 
-- **Important**: If you want to migrate from a **500 series** adapter, before starting migration, you need to update the adapter to SDK 6.61+
-  - Check the documentation of your device to see if and how they can be updated.
-  - [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
+{% details "Migrating from a 500 series adapter" %}
 
-- If you want to migrate from a **Nortek HUSBZB-1**:
+Before starting migration, you need to update the adapter to SDK 6.61+
 
-  - There is no easy way to update that device.
-  - You need to set up a new network.
-  - If you are comfortable with soldering: some users have reported that they were able to upgrade the firmware of the **Nortek HUSBZB-1** with [this update procedure (requires soldering)](https://community.hubitat.com/t/guide-nortek-husbzb-1-nvm-backup-restore-and-updating-z-wave-firmware/48012).
-    - The procedure is very involved. Most likely, starting from scratch is quicker.
+- Check the documentation of your device to see if and how they can be updated.
+- [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
+
+{% enddetails %}
+
+{% details "Migrating from a from a Nortek HUSBZB-1 adapter" %}
+
+There is no easy way to update that device.
+
+- You need to set up a new network.
+- If you are comfortable with soldering: 
+  - Some users have reported that they were able to upgrade the firmware of the **Nortek HUSBZB-1** with [this update procedure (requires soldering)](https://community.hubitat.com/t/guide-nortek-husbzb-1-nvm-backup-restore-and-updating-z-wave-firmware/48012).
+  - The procedure is very involved. Most likely, starting from scratch is quicker.
+
+{% enddetails %}
 
 ### To migrate a Z-Wave network to a new adapter
 
-1. If you want to migrate from a **500 series** adapter, before starting migration, you need to update the adapter to SDK 6.61+
-   - Check the documentation of your device to see if and how they can be updated.
-   - [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
-2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-3. Connect your new adapter.
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Connect your new adapter.
    - Plug in your new adapter.
    - **Result**: The adapter should be discovered and show up in the **Discovered section**.
    - Select **Add** and follow the instructions on screen.
@@ -222,10 +228,10 @@ You cannot run two Z-Wave adapters simultaneously using the same add-on. If you 
      3. Under **Backup and restore**, select **Migrate adapter**.
      4. Select **Migrate to a new adapter**.
         - To confirm, select **Submit**.
-4. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
+3. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
    - It is important to remove the old device now, as it might interfere with the new one. Even though it might not throw an error immediately, it might cause issues.
-5. Follow the steps on screen.
-6. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
+4. Follow the steps on screen.
+5. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
    - In the top-left corner, select the back button to go back to the integration page.
    - In the list of devices, check the device name.
    - To change the device name, select the {% icon "mdi:pencil" %} button.
