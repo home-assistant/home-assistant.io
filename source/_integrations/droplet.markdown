@@ -31,7 +31,7 @@ In the Droplet app, navigate to **Settings** > **Smart Home Integrations** > **H
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Hostname:
+IP address:
   description: "If your Droplet has a fixed IP address, you can use it for manual configuration. This field is not required for auto discovery."
 Pairing code:
   description: "Pairing code to authenticate with Droplet device. You can find it on the Droplet app under **Settings** > **Smart Home Integrations** > **Home Assistant**."
@@ -44,7 +44,7 @@ Pairing code:
 The following sensors values are available:
 
 - Flow rate
-- Live volume
+- Volume
 - Server connectivity
 - Signal quality
 
