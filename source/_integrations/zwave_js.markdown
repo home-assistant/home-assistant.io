@@ -209,7 +209,7 @@ Before starting migration, you need to update the adapter to SDK 6.61+
 There is no easy way to update that device.
 
 - You need to set up a new network.
-- If you are comfortable with soldering: 
+- If you are comfortable with soldering:
   - Some users have reported that they were able to upgrade the firmware of the **Nortek HUSBZB-1** with [this update procedure (requires soldering)](https://community.hubitat.com/t/guide-nortek-husbzb-1-nvm-backup-restore-and-updating-z-wave-firmware/48012).
   - The procedure is very involved. Most likely, starting from scratch is quicker.
 
