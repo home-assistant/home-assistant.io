@@ -193,7 +193,7 @@ You cannot run two Z-Wave adapters simultaneously using the same add-on. If you 
 
 - Administrator rights in Home Assistant
 
-#### Device specific prerequisites
+#### Device-specific prerequisites
 
 {% details "Migrating from a 500 series adapter" %}
 
