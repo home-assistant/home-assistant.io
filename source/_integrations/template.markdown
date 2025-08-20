@@ -15,6 +15,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Update
   - Vacuum
   - Weather
 ha_release: 0.12
@@ -37,6 +38,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
   - vacuum
   - weather
 ha_integration_type: helper
@@ -64,6 +66,7 @@ There is currently support for the following device types within Home Assistant:
 - [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Update](#update)
 - [Vacuum](#vacuum)
 - [Weather](#weather)
 
@@ -2108,6 +2111,94 @@ template:
 ```
 
 {% endraw %}
+
+## Update
+
+The template update platform allows you to create update entities with templates to define the state and a script to define the install action.
+
+Update entities can be created from the frontend in the Helpers section or via YAML.
+
+{% raw %}
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - update:
+      - name: Frigate
+        installed_version: "{{ states('sensor.installed_version') }}"
+        latest_version: "{{ states('sensor.latest_version') }}"
+        install:
+          action: script.update_frigate
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: time
+        at: "00:00:00"
+    vacuum:
+      - name: Frigate
+        installed_version: "{{ states('sensor.installed_version') }}"
+        latest_version: "{{ states('sensor.latest_version') }}"
+        install:
+          action: script.update_frigate
+```
+
+{% endraw %}
+
+{% configuration vacuum %}
+update:
+  description: List of update entities
+  required: true
+  type: map
+  keys:
+    backup:
+      description: Enable or disable the `automatic backup before update` option in the update repair. When disabled, the `backup` variable will always provide `False` during the `install` action and it will not accept the `backup` option.
+      required: false
+      type: boolean
+    device_class:
+      description: Sets the class of the device, changing the device state and icon that is displayed on the UI.
+      required: false
+      type: device_class
+      default: None
+    in_progress:
+      description: Defines a template to get the in-progress state.
+      required: false
+      type: template
+    install:
+      description: Defines actions to run when the update is installed. Receives variables `specific_version` and `backup` when enabled.
+      required: false
+      type: action
+    installed_version:
+      description: Defines a template to get the installed version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state will be `on`.
+      required: true
+      type: template
+    latest_version:
+      description: Defines a template to get the latest version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state will be `on`.
+      required: true
+      type: template
+    release_summary:
+      description: Defines a template to get the release summary.
+      required: false
+      type: template
+    release_url:
+      description: Defines a template to get the release URL.
+      required: false
+      type: template
+    specific_version:
+      description: Enable or disable using the `version` variable with the `install` action. When disabled, the `specific_version` variable will always provide `None` in the `install` actions.
+      required: false
+      type: boolean
+    title:
+      description: Defines a template to get the update title.
+      required: false
+      type: template
+    update_percent:
+      description: Defines a template to get the update completion percentage.
+      required: false
+      type: template
+{% endconfiguration %}
 
 ## Vacuum
 
