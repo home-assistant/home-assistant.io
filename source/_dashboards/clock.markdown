@@ -52,9 +52,9 @@ time_zone:
   required: false
 analog_options:
   description: When using the analog clock style, this allows the user to configure the appearance of the clock.
-  type: object
+  type: map
   required: false
-  options:
+  keys:
     border:
       description: Shows a border around the clock face. Defaults to false.
       type: boolean
