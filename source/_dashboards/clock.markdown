@@ -158,3 +158,35 @@ title: New York 🦅
 <img src='/images/dashboards/clock_card_new_york.png' alt='Screenshot of a medium sized, 12 hour clock showing am/pm and seconds based in New York along with a title'>
 Screenshot of a medium sized, 12 hour clock showing am/pm and seconds based in New York along with a title
 </p>
+
+Analog clock with border and hour ticks:
+
+```yaml
+type: clock
+clock_style: analog
+clock_size: medium
+analog_options:
+  border: false
+  ticks: hour
+```
+
+<p class='img'>
+<img src='/images/dashboards/clock_card_analog_hour_ticks.png' alt='Screenshot of a medium sized, analog clock and hour ticks'>
+Screenshot of a medium sized, analog clock and hour ticks
+</p>
+
+Analog clock with border and minute ticks:
+
+```yaml
+type: clock
+clock_style: analog
+clock_size: medium
+analog_options:
+  border: true
+  ticks: minute
+```
+
+<p class='img'>
+<img src='/images/dashboards/clock_card_analog_minute_ticks_border.png' alt='Screenshot of a medium sized, analog clock and minute ticks'>
+Screenshot of a medium sized, analog clock and minute ticks
+</p>
