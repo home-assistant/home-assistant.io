@@ -188,7 +188,7 @@ analog_options:
 ```
 
 <p class='img'>
-<img src='/images/dashboards/clock_card_analog_minute_ticks_border_seconds.png' alt='Screenshot of a medium sized, analog clock and minute ticks showing seconds'>
+<img src='/images/dashboards/clock_card_analog_minute_ticks_border.png' alt='Screenshot of a medium sized, analog clock and minute ticks showing seconds'>
 Screenshot of a medium sized, analog clock and minute ticks showing seconds
 </p>
 
