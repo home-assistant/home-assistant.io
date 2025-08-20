@@ -159,7 +159,7 @@ title: New York 🦅
 Screenshot of a medium sized, 12 hour clock showing am/pm and seconds based in New York along with a title
 </p>
 
-Analog clock with border and hour ticks:
+Analog clock with no border and hour ticks:
 
 ```yaml
 type: clock
