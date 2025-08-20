@@ -80,6 +80,7 @@ The following controls are available:
 - Screen brightness
 - Play and stop media files
 - Set device volume
+- Clear Fully Browser Cache
 
 The following is available as camera entity:
 
