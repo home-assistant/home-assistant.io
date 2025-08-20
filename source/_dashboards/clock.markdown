@@ -19,7 +19,6 @@ Screenshot of the clock card
 
 All options for this card can be configured via the user interface.
 
-
 ## Card settings
 
 {% configuration %}
@@ -62,10 +61,10 @@ analog_options:
       default: false
     ticks:
       description: Shows ticks (indices) on the clock face. Defaults to hour.
-      type: select
+      type: list
       required: false
       default: hour
-      options:
+      keys:
         none:
           description: No ticks are shown.
         quarter:
@@ -88,7 +87,6 @@ type: clock
 <img src='/images/dashboards/clock_card_default.png' alt='Screenshot of the basic clock card'>
 Screenshot of the basic clock card
 </p>
-
 
 Example of a larger clock card for tablet dashboards:
 
