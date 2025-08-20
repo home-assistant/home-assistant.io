@@ -175,18 +175,37 @@ analog_options:
 Screenshot of a medium sized, analog clock and hour ticks
 </p>
 
-Analog clock with border and minute ticks:
+Analog clock with border and minute ticks showing seconds:
 
 ```yaml
 type: clock
 clock_style: analog
 clock_size: medium
+show_seconds: true
 analog_options:
   border: true
   ticks: minute
 ```
 
 <p class='img'>
-<img src='/images/dashboards/clock_card_analog_minute_ticks_border.png' alt='Screenshot of a medium sized, analog clock and minute ticks'>
-Screenshot of a medium sized, analog clock and minute ticks
+<img src='/images/dashboards/clock_card_analog_minute_ticks_border_seconds.png' alt='Screenshot of a medium sized, analog clock and minute ticks showing seconds'>
+Screenshot of a medium sized, analog clock and minute ticks showing seconds
+</p>
+
+Analog clock with a title, no ticks and border with seconds:
+
+```yaml
+type: clock
+clock_style: analog
+clock_size: medium
+show_seconds: true
+analog_options:
+  border: true
+  ticks: none
+title: Mountain Time
+```
+
+<p class='img'>
+<img src='/images/dashboards/clock_card_analog_no_ticks_border_title_mountain_time.png' alt='Screenshot of a medium sized, analog clock with a title, no ticks and border showing seconds'>
+Screenshot of a medium sized, analog clock with a title, no ticks and border showing seconds
 </p>
