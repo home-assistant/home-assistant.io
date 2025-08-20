@@ -61,7 +61,7 @@ To use this integration, you need to have a corresponding Hinen Solar account an
 
 {% include integrations/config_flow.md %}
 
-## 自定义卡片
+## Custom Cards
 
 Optional: Simply configure custom card examples based on Hinen's related entities to achieve better control of Hinen devices
 
@@ -91,6 +91,7 @@ state_color: true
 ```
 
 ### Display attributes associated with each mode according to working mode
+
 ```yaml
 {% raw %}
 {% set device_identifier = "your own device identifier" %}
