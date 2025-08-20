@@ -4,6 +4,7 @@ description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary Sensor
   - Button
+  - Cover
   - Fan
   - Hub
   - Light
@@ -23,6 +24,7 @@ ha_domain: switchbot_cloud
 ha_platforms:
   - binary_sensor
   - button
+  - cover
   - climate
   - light
   - fan
@@ -55,6 +57,14 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Plug Mini (WoPlug)](https://www.switch-bot.com/products/switchbot-plug-mini)
 - [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
 - Plug (Wi-Fi only, only available in Japan)
+
+### Cover
+
+- [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
+- [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
+- [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
+- [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+- [Garage Door Opener](https://www.switch-bot.com/products/switchbot-garage-door-opener)
 
 ### Lights
 
@@ -134,6 +144,51 @@ Features:
 Features:
 - turn on or off
 
+### Cover
+
+#### Curtain
+
+Features:
+- open/close/pause
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Curtain 3
+
+Features:
+- open/close/pause
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Blind Tilt
+
+Features:
+- close up/close down
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Roller Shade
+
+Features:
+- open/close
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Garage Door Opener
+
+Features:
+- open/close
+- set position
+- get position
+- get calibration state
 
 ### Sensors
 
