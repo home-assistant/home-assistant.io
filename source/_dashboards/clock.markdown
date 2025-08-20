@@ -25,6 +25,8 @@ All options for this card can be configured via the user interface.
 {% configuration_basic %}
 Title:
   description: Adds a title to the top of the card
+Clock Style:
+  description: Allows the clock to be displayed in a digital or analog style. Defaults to digital.
 Clock Size:
   description: Adjusts the size of the text allowing a wider range of use with different types of dashboards. Defaults to small.
 Display Seconds:
@@ -33,6 +35,30 @@ Time Format:
   description: Allows the time format to be changed on a per-card level. Defaults to the user profile setting.
 Time Zone:
   description: Change the timezone used for the time on a per-card level. Defaults to the user profile setting.
+Analog Options:
+  description: When using the analog clock style, this allows the user to configure the appearance of the clock.
+  type: object
+  required: false
+  options:
+    Border:
+      description: Shows a border around the clock face. Defaults to false.
+      type: boolean
+      required: false
+      default: false
+    Ticks:
+      description: Shows ticks (indices) on the clock face. Defaults to hour.
+      type: select
+      required: false
+      default: hour
+      options:
+        none:
+          description: No ticks are shown.
+        quarter:
+          description: Quarter hour ticks are shown.
+        hour:
+          description: Hour ticks are shown.
+        minute:
+          description: Minute ticks are shown.
 {% endconfiguration_basic %}
 
 ### Examples
