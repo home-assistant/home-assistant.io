@@ -74,6 +74,27 @@ modes:
   type: list
 {% endconfiguration %}
 
+## Bar gauge
+
+Widget that displays the state of a numeric [sensor](/integrations/sensor), with unit of measurement %, as a horizontal bar.
+
+<p class='img'>
+  <img src='/images/dashboards/features/bar-gauge.png' alt='Screenshot of the tile card with the bar gauge feature'>
+  Screenshots of the tile card with the bar gauge feature
+</p>
+
+```yaml
+features:
+  - type: "bar-gauge"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`bar-gauge`"
+  type: string
+{% endconfiguration %}
+
 ## Button
 
 Widget that displays buttons to control [button](/integrations/button) or [script](/integrations/script).
@@ -613,27 +634,6 @@ style:
   description: "Which style of control to display. It can be either `buttons` or `slider`."
   type: string
   default: slider
-{% endconfiguration %}
-
-## Progress bar
-
-Widget that displays the state of a numeric [sensor](/integrations/sensor), with unit of measurement %, as a horizontal bar.
-
-<p class='img'>
-  <img src='/images/dashboards/features/progress-bar.png' alt='Screenshot of the tile card with the progress bar feature'>
-  Screenshots of the tile card with the progress bar feature
-</p>
-
-```yaml
-features:
-  - type: "progress-bar"
-```
-
-{% configuration features %}
-type:
-  required: true
-  description: "`progress-bar`"
-  type: string
 {% endconfiguration %}
 
 ## Target humidity
