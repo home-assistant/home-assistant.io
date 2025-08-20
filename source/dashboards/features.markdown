@@ -631,6 +631,27 @@ type:
   type: string
 {% endconfiguration %}
 
+## Media player playback controls
+
+Widget that displays playback controls for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_playback.png' alt='Screenshot of the tile card with media player playback feature'>
+  Screenshot of the tile card with media player playback feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-playback"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-playback`"
+  type: string
+{% endconfiguration %}
+
 ## Media player volume slider
 
 Widget that displays a slider to control the volume for a [media player](/integrations/media_player).
