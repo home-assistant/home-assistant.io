@@ -69,5 +69,4 @@ Once the integration connects, Droplet will push data points as soon as they are
 This integration follows standard integration removal process.
 
 {% include integrations/remove_device_service.md %}
-
-To prevent Droplet from showing up as a discovered device after its removal, disable the local API in the Droplet app under **Settings** > **Smart Home Integrations** > **Home Assistant**.
+4. To prevent Droplet from showing up as a discovered device after its removal, disable the local API in the Droplet app under **Settings** > **Smart Home Integrations** > **Home Assistant**.
