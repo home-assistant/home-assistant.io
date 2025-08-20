@@ -28,14 +28,26 @@ title:
   required: false
 clock_style:
   description: Allows the clock to be displayed in a digital or analog style. Defaults to digital.
-  type: string
+  type: list
   required: false
   default: digital
+  keys:
+    digital:
+      description: Digital clock style.
+    analog:
+      description: Analog clock style.
 clock_size:
   description: Adjusts the size of the text allowing a wider range of use with different types of dashboards. Defaults to small.
-  type: string
+  type: list
   required: false
   default: small
+  keys:
+    small:
+      description: Small clock size.
+    medium:
+      description: Medium clock size.
+    large:
+      description: Large clock size.
 show_seconds:
   description: Shows seconds alongside the clock, providing the time format is in a 12-hour format.
   type: boolean
