@@ -96,6 +96,27 @@ modes:
   type: list
 {% endconfiguration %}
 
+## Bar gauge
+
+Widget that displays the state of a numeric [sensor](/integrations/sensor), with unit of measurement %, as a horizontal bar.
+
+<p class='img'>
+  <img src='/images/dashboards/features/bar-gauge.png' alt='Screenshot of the tile card with the bar gauge feature'>
+  Screenshots of the tile card with the bar gauge feature
+</p>
+
+```yaml
+features:
+  - type: "bar-gauge"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`bar-gauge`"
+  type: string
+{% endconfiguration %}
+
 ## Button
 
 Widget that displays buttons to control [button](/integrations/button) or [script](/integrations/script).
