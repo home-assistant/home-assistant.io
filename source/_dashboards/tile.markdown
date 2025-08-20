@@ -35,6 +35,11 @@ name:
   required: false
   description: Overwrites the entity name.
   type: string
+use_entity_area_name:
+  required: false
+  description: Overwrites the entity name with entity area name.
+  type: boolean
+  default: false
 icon:
   required: false
   description: Overwrites the entity icon.
