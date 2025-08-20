@@ -1,13 +1,6 @@
 <!--  Left column begins -->
 <div class="grid__item one-third lap-one-half palm-one-whole">
 
-    <!-- Community Day 2025 - To move on/after event -->
-    <a href="/blog/2025/04/24/community-day/" class="material-card picture-promo" style="
-          background-image: url(/images/frontpage/community-day-2025.webp);
-          aspect-ratio: 500/263;
-        " aria-label="State of the Open Home - Saturday April 12th 2025">
-    </a>
-
   {% assign releases_post_limit = 2 %}
   {% assign blog_post_limit = 4 %}
   <!-- Home Assistant updates posts -->
@@ -37,33 +30,40 @@
     </ol>
   </div>
 
-    <!-- Recent blog posts -->
-    <div class="recent-posts material-card text">
-      <h1>{% icon "mdi:newspaper-variant-multiple" %} Recent Blog Posts</h1>
-  
-      <ol>
-        {% assign current = 0 %}
-  
-        {% for post in site.posts %}
-          {% if post.categories contains "Release-Notes" %}    
-          {% else %}
-            {% assign current = current | plus: 1 %}
-            
-            {% if current > blog_post_limit %}
-              {% break %}
-            {% endif %}
-    
-            {% assign post_date = post.date | date: "%Y-%m-%d" %}
-            {% assign post_date_formatted = post_date | date: "%B %d, %Y" %}
-            {% assign post.date_formatted = post_date_formatted %}
-            <li class="post" style="display: grid; font-size: 16px">
-              <a href="{{ post.url }}">{{ post.title }}</a>
-              <small class="blog-date">{{ post.date_formatted }}</small>
-            </li>
+  <!-- Recent blog posts -->
+  <div class="recent-posts material-card text">
+    <h1>{% icon "mdi:newspaper-variant-multiple" %} Recent Blog Posts</h1>
+
+    <ol>
+      {% assign current = 0 %}
+
+      {% for post in site.posts %}
+        {% if post.categories contains "Release-Notes" %}    
+        {% else %}
+          {% assign current = current | plus: 1 %}
+          
+          {% if current > blog_post_limit %}
+            {% break %}
           {% endif %}
-        {% endfor %}
-      </ol>
-    </div>
+  
+          {% assign post_date = post.date | date: "%Y-%m-%d" %}
+          {% assign post_date_formatted = post_date | date: "%B %d, %Y" %}
+          {% assign post.date_formatted = post_date_formatted %}
+          <li class="post" style="display: grid; font-size: 16px">
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <small class="blog-date">{{ post.date_formatted }}</small>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  </div>
+
+    <!-- Community Day 2025 - To move on/after event -->
+  <a href="https://lu.ma/homeassistant" class="material-card picture-promo" target="_blank" style="
+        background-image: url(/images/frontpage/community-meetup.webp);
+        aspect-ratio: 500/263;
+      " aria-label="State of the Open Home - Saturday April 12th 2025">
+  </a>
 
   <!-- OHF notice -->
   <a href="https://www.openhomefoundation.org/blog/announcing-the-open-home-foundation/"

@@ -97,6 +97,8 @@ Verify SSL certificate:
 - **Saddles**: Indicates the number of saddles owned, used for instantly raising pets to mounts.
 - **Hatching potions**: Shows the total count of available hatching potions. The sensor's attributes detail each potion type and quantity. Pour them on an egg to hatch a pet.
 - **Quest scrolls**: Displays the total number of quest scrolls in your inventory. A list of each quest scroll and its quantity is provided in the sensor's attributes.
+- **Pending damage**: Total damage accumulated during the day by completing your tasks. The quest boss is then attacked for this amount at the end of the day.
+- **Pending quest items**: Quest items found during the day when completing tasks. The total is counted towards the quest objective at the end of the day.
 
 ## Binary sensors
 
@@ -158,6 +160,24 @@ If you've unlocked the class system, button controls for casting player and part
 ## Switch controls
 
 - **Rest in the Inn**: When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
+
+## Party
+
+If you’re part of a party, the integration creates a device with these entities.
+
+- **Boss health**: The total health of the quest boss.
+- **Boss health remaining**: The remaining health of the quest boss.
+- **Collected quest items**: Displays the total number of items collected. Attributes include a breakdown of each required item type, showing both collected and required amounts.
+- **Group leader**: The username of your party's leader.
+- **Member count**: The current number of members in your party.
+- **Quest**: Shows the name of the current quest your party is engaged in.
+- **Quest boss**: The name and image of the foe your party is currently battling.
+
+{% note %}
+
+Certain entities are only available depending on whether you are in a boss quest or a collect quest.
+
+{% endnote %}
 
 ## Actions
 

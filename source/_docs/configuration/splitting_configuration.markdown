@@ -229,8 +229,6 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 
 - [Operating System](/common-tasks/os/#configuration-check)
 - [Container](/common-tasks/container/#configuration-check)
-- [Core](/common-tasks/core/#configuration-check)
-- [Supervised](/common-tasks/supervised/#configuration-check)
 
 ## Advanced usage
 

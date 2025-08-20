@@ -21,6 +21,7 @@ Features can be enabled on the following cards:
 - [Humidifier](/dashboards/humidifier/)
 - [Thermostat](/dashboards/thermostat/)
 - [Tile](/dashboards/tile/)
+- [Area](/dashboards/area/)
 
 ## Customizing features
 
@@ -71,6 +72,33 @@ modes:
   required: true
   description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass`, and `disarmed`.
   type: list
+{% endconfiguration %}
+
+## Button
+
+Widget that displays buttons to control [button](/integrations/button) or [script](/integrations/script).
+
+<p class='img'>
+  <img src='/images/dashboards/features/button.png' alt='Screenshot of the tile card with the button feature'>
+  Screenshot of the tile card with the button feature
+</p>
+
+```yaml
+features:
+  - type: "button"
+    action_name: "Click the button"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`button`"
+  type: string
+action_name:
+  required: false
+  type: string
+  description: Text inside the button.
+  type: string
 {% endconfiguration %}
 
 ## Climate fan modes
@@ -291,6 +319,69 @@ features:
 type:
   required: true
   description: "`cover-tilt-position`"
+  type: string
+{% endconfiguration %}
+
+## Date
+
+Widget that displays a button to select a date using the date picker dialog for the [date](/integrations/date), [datetime](/integrations/datetime), and [input datetime](/integrations/input_datetime) entities.
+
+<p class='img'>
+  <img src='/images/dashboards/features/date.png' alt='Screenshot of the tile card with the date feature'>
+  Screenshot of the tile card with the date feature
+</p>
+
+```yaml
+features:
+  - type: "date"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`date`"
+  type: string
+{% endconfiguration %}
+
+## Fan direction
+
+Widget that displays controls to change direction for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_direction.png' alt='Screenshot of the tile card with the fan direction feature'>
+  Screenshot of the tile card with the fan direction feature
+</p>
+
+```yaml
+features:
+  - type: "fan-direction"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-direction`"
+  type: string
+{% endconfiguration %}
+
+## Fan oscillate
+
+Widget that displays controls to change oscillation state for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_oscillate.png' alt='Screenshot of the tile card with the fan oscillate feature'>
+  Screenshot of the tile card with the fan oscillate feature
+</p>
+
+```yaml
+features:
+  - type: "fan-oscillate"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-oscillate`"
   type: string
 {% endconfiguration %}
 
@@ -687,6 +778,48 @@ commands:
   type: list
 {% endconfiguration %}
 
+## Valve open/close
+
+Widget that displays buttons to open, close, or stop a [valve](/integrations/valve).
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_open_close.png' alt='Screenshot of the tile card with open/close feature'>
+  Screenshot of the tile card with valve open/close feature
+</p>
+
+```yaml
+features:
+  - type: "valve-open-close"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-open-close`"
+  type: string
+{% endconfiguration %}
+
+## Valve position
+
+Widget that displays a slider to control the position for a [valve](/integrations/valve).
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_position.png' alt='Screenshot of the tile card with the valve position feature'>
+  Screenshot of the tile card with the valve position feature
+</p>
+
+```yaml
+features:
+  - type: "valve-position"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-position`"
+  type: string
+{% endconfiguration %}
+
 ## Water heater operation modes
 
 Widget that displays buttons to control the operation mode of a [water heater](/integrations/water_heater).
@@ -720,3 +853,31 @@ operation_modes:
   type: list
 {% endconfiguration %}
 
+## Area control
+
+Widget that displays buttons to control different types of entity in your area.
+
+<p class='img'>
+  <img src='/images/dashboards/features/area_controls.png' alt='Screenshot of the area card with the area controls feature'>
+  Screenshot of the area card with the area controls feature
+</p>
+
+```yaml
+features:
+  - type: "area-controls"
+    controls:
+      - light
+      - fan
+      - switch
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`area-controls`"
+  type: string
+controls:
+  required: true
+  description: List of controls to show on the card. The list can contain `light`, `fan`, and `switch`.
+  type: list
+{% endconfiguration %}

@@ -9,7 +9,7 @@ related:
     title: Creating a local assistant
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing devices to Assist
-  - url: https://voice-pe.home-assistant.io/documentation/
+  - url: https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition
     title: Voice Preview Edition - Documentation
 ---
 
@@ -111,7 +111,7 @@ View some of the options in the video below. Explained by Mike Hansen, creator o
 
 The options are also documented in the add-on itself. Go to the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} or the {% my supervisor_addon addon="core_piper" title="**Piper**" %} add-on and open the **Documentation** page.
 
-Also be sure to check the specific tutorial for [using Piper in Automations](voice_control/using_tts_in_automation/)
+Also be sure to check the specific tutorial for [using Piper in Automations](/voice_control/using_tts_in_automation/)
 
 ## Learning more about Speech-to-Phrase
 
@@ -120,6 +120,6 @@ You can check out [Voice Chapter 9](/blog/2025/02/13/voice-chapter-9-speech-to-p
 <lite-youtube videoid="k6VvzDSI8RU" videotitle="Voice Chapter 9"></lite-youtube>
 
 ## Next steps
-Once Assist is configured, now can now start using it. You can now talk through your device ([Android](/voice_control/android/), [iOS](/voice_control/apple/) or [Voice Preview edition](https://voice-pe.home-assistant.io/getting-started/)).
+Once Assist is configured, now can now start using it. You can now talk through your device ([Android](/voice_control/android/), [iOS](/voice_control/apple/) or [Voice Preview edition](https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition)).
 
 To get the best out of the voice interaction, don't forget to check the [best practices](/voice_control/best_practices/).

@@ -11,6 +11,7 @@ ha_codeowners:
   - '@fabaff'
   - '@freekode'
   - '@nzapponi'
+  - '@wittypluck'
 ha_domain: openweathermap
 ha_platforms:
   - sensor

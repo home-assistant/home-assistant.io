@@ -2,6 +2,7 @@
 title: Backup
 description: Allow creating backups of container and core installations.
 ha_category:
+  - Event
   - Other
   - Sensor
 ha_release: 2022.4
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_iot_class: Calculated
 ha_platforms:
   - diagnostics
+  - event
   - sensor
 ha_integration_type: service
 related:
@@ -25,7 +27,7 @@ related:
     title: backup emergency kit
 ---
 
-The **Backup** {% term integration %} is used by all [installation types](/installation/#advanced-installation-methods) to create and restore backups.
+The **Backup** {% term integration %} is used by all [installation types](/installation/#about-installation-methods) to create and restore backups.
 
 To learn how to create and restore a backup, refer to the backup section under [common tasks](/common-tasks/general/#backups).
 
@@ -59,7 +61,7 @@ action: backup.create_automatic
 The {% my developer_call_service service="backup.create" %} action can be used
 to create a backup of your Home Assistant instance.
 
-- This action is only available in [core and container installations](/installation/#advanced-installation-methods).
+- This action is only available in [core and container installations](/installation/#about-installation-methods).
 - The action has no additional options or parameters.
 - The backup will only be saved on the local storage.
 - The backup created with `backup.create` always includes the database.
@@ -76,6 +78,8 @@ action: backup.create
 This is a YAML example for an automation that initiate a backup every night
 at 3 AM:
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: "Backup Home Assistant every night at 3 AM"
@@ -87,9 +91,48 @@ automation:
         action: backup.create
 ```
 
+{% endraw %}
+
 ## Restoring a backup
 
 To restore a backup, follow the steps described in [Restoring a backup](/common-tasks/general/#restoring-a-backup).
+
+## Event entity
+
+The **Backup** {% term integration %} provides an {% term "Event entity" %} which represents the state of the last automatic backup (_completed, in progress, failed_). It also provides several event attributes which can be used in automations.
+
+| Attribute | Description |
+| --- | --- |
+| `event_type` | The translated state of the last automatic backup task (_possible states: completed, in progress, failed_)
+| `backup_stage` | The current automatic backup stage (_is `None` when `event_type` is not in progress_) |
+| `failed_reason` | The reason for a failed automatic backup (_is `None` when `event_type` is completed or in progress_) |
+
+### Usage examples
+
+Send notification to mobile app, when an automatic backup failed.
+
+{% raw %}
+
+```yaml
+alias: Backup failed
+triggers:
+  - trigger: state
+    entity_id:
+      - event.backup_automatic_backup
+conditions:
+  - condition: state
+    entity_id: event.backup_automatic_backup
+    attribute: event_type
+    state: failed
+actions:
+  - data:
+      title: Automatic backup failed
+      message: The last automatic backup failed due to {{ state_attr('event.backup_automatic_backup', 'failed_reason') }}
+    action: notify.mobile-app
+mode: single
+```
+
+{% endraw %}
 
 ## Sensors
 

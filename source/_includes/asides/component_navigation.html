@@ -69,13 +69,11 @@
   {%- endif -%}
 
   {% if page.works_with %}
-    {%- for type in page.works_with -%}
-      <div class="section">
-        <a href="https://works-with.home-assistant.io/">
-          <img src="../../images/works_with/works-with.png" alt="Works with Home assistant">
-        </a>
-      </div>
-    {%- endfor -%}
+    <div class="section">
+      <a href="https://works-with.home-assistant.io/">
+        <img src="../../images/works_with/works-with.png" alt="Works with Home assistant">
+      </a>
+    </div>
   {%- endif -%}
 
   {% if page.ha_domain %}
