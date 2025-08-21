@@ -1308,10 +1308,27 @@ article.listing {
     text-decoration: underline;
     overflow-wrap: break-word;
 
-    &[rel*="external"] {
-      white-space: nowrap;
-    }
+    &[rel*="external"]{
+      //white-space: nowrap;
+      position: relative;
 
+      &:after{
+        content: "\00a0\00a0\00a0\00a0\00a0";
+        display: inline-block;
+      }
+
+      iconify-icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        
+      }
+    }
+    
+    .wrap{
+      white-space: wrap
+    }
+    
     &.btn {
       font-size: 1.1em;
       text-decoration: none;
