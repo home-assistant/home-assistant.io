@@ -16,7 +16,7 @@ The website [https://www.home-assistant.io](/) was launched on December 18, 2014
 
 ## Logo
 
-The logo was refreshed in 2023 for the 10th birthday of Home Assistant. More details can be found at the [blog post](/blog/2023/09/17/a-refreshed-logo-for-home-assistant/).
+The logo was refreshed in 2023 for Home Assistant's 10th birthday. You can find more details in the [blog post](/blog/2023/09/17/a-refreshed-logo-for-home-assistant/).
 
 ## License
 
