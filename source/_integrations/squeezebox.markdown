@@ -27,15 +27,15 @@ The Squeezebox integration allows you to control music players from the [Lyrion 
 
 This integration connects to an existing <abbr title="Lyrion Music Server">LMS</abbr> server and provides both media players and sensors for monitoring server status.
 
-The Squeezebox music player ecosystem, which can be controlled through this integration, includes hardware audio players from Logitech, including [Squeezebox 3rd Generation, Squeezebox Boom, Squeezebox Receiver, Transporter, Squeezebox2, Squeezebox and SLIMP3](https://lms-community.github.io/players-and-controllers/hardware-comparison/), and many software emulators like [Squeezelite, SqueezeSlave, SoftSqueeze and SqueezePlay](https://sourceforge.net/projects/lmsclients/files/).
+The Squeezebox music player ecosystem, which can be controlled through this integration, includes [hardware audio players](https://lms-community.github.io/players-and-controllers/hardware-comparison/) from Logitech, including Squeezebox 3rd Generation, Squeezebox Boom, Squeezebox Receiver, Transporter, Squeezebox2, Squeezebox and SLIMP3, and many [software emulators](https://sourceforge.net/projects/lmsclients/files/) like Squeezelite, SqueezeSlave, SoftSqueeze and SqueezePlay.
 
 ## Supported devices
 
-The integration supports any [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/) and both Lyrion Music Servers and Logitech Media Servers.
+The integration supports any Squeezebox compatible [hardware or software players](https://lyrion.org/players-and-controllers/) and both Lyrion Music Servers and Logitech Media Servers.
 
 ## Prerequisites
 
-1. One or more [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/).
+1. One or more Squeezebox compatible [hardware or software players](https://lyrion.org/players-and-controllers/).
 2. One or more [Lyrion Music Servers or Logitech Media Servers (LMS)](https://lyrion.org/getting-started) with the Squeezebox players connected to these servers.
 
 {% include integrations/config_flow.md %}
