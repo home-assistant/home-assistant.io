@@ -49,8 +49,6 @@ This integration requires multifactor authentication using an authentication app
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-  country:
-    description: The country of your Amazon account.
   username:
     description: The email address of your Amazon account.
   password:
@@ -58,12 +56,6 @@ This integration requires multifactor authentication using an authentication app
   otp:
     description: One-time password via Authenticator App.
 {% endconfiguration_basic %}
-
-{% note %}
-When trying to set up the integration, the form may show the message "Cannot connect".
-This means that the specified country may need a special setting.
-Open a issue with all details to investigate
-{% endnote %}
 
 ## Examples
 
