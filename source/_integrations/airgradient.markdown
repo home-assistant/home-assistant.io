@@ -22,6 +22,8 @@ ha_platforms:
   - update
 ha_integration_type: device
 ha_zeroconf: true
+works_with:
+  - local
 ha_quality_scale: platinum
 ---
 
@@ -36,9 +38,8 @@ AirGradient creates indoor and outdoor air quality monitors that enable you to k
 
 ## Supported devices
 
-- AirGradient DIY Air Quality Monitor
-- AirGradient Indoor Air Quality Monitor
-- AirGradient Outdoor Air Quality Monitor
+- [AirGradient Indoor Air Quality Monitor](https://www.airgradient.com/indoor/)
+- [AirGradient Outdoor Air Quality Monitor](https://www.airgradient.com/outdoor/)
 
 {% important %}
 In order for the device to be set up or discovered by Home Assistant, the [firmware](https://www.airgradient.com/documentation/firmwares) version should be at least 3.1.1.
