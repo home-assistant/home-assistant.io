@@ -65,7 +65,7 @@ like this.
 Please note, you'll need to enable advanced mode in your user profile in order
 to set this up.
 
-Go to {% my network title="**Settings** > **System** > **Network**" %}
+Go to {% my network title="**Settings** > **System** > **Network**" %}.
 
 On this page, two fields that can resolve this issue: **Local Network**
 and **Internet**.
