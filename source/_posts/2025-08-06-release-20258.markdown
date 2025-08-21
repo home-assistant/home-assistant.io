@@ -54,6 +54,7 @@ Enjoy the release!
 - [Patch releases](#patch-releases)
   - [2025.8.1 - August 11](#202581---august-11)
   - [2025.8.2 - August 15](#202582---august-15)
+  - [2025.8.3 - August 21](#202583---august-21)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -580,6 +581,140 @@ release once a week, aiming for Friday.
 [@thomasddn]: https://github.com/thomasddn
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@wedsa5]: https://github.com/wedsa5
+
+## Release 2025.8.3 - August 21
+
+- Bump to zcc-helper==3.6 ([@markhannon] - [#150608]) ([zimi docs])
+- fix(amberelectric): add request timeouts ([@JP-Ellis] - [#150613]) ([amberelectric docs])
+- Bump renault-api to 0.4.0 ([@epenet] - [#150624]) ([renault docs])
+- Update hassfest package exceptions ([@cdce8p] - [#150744])
+- Bump boschshcpy to 0.2.107 ([@tschamm] - [#150754]) ([bosch_shc docs])
+- Fix for bosch_shc: 'device_registry.async_get_or_create' referencing a non existing 'via_device' ([@tschamm] - [#150756]) ([bosch_shc docs])
+- Fix volume step error in Squeezebox media player ([@peteS-UK] - [#150760]) ([squeezebox docs])
+- Show charging power as 0 when not charging for the Volvo integration ([@thomasddn] - [#150797]) ([volvo docs])
+- Pin gql to 3.5.3 ([@joostlek] - [#150800])
+- Bump opower to 0.15.2 ([@tronikos] - [#150809]) ([opower docs])
+- Include device data in Withings diagnostics ([@joostlek] - [#150816]) ([withings docs])
+- Abort Nanoleaf discovery flows with user flow ([@joostlek] - [#150818]) ([nanoleaf docs])
+- Bump yt-dlp to 2025.08.11 ([@joostlek] - [#150821]) ([media_extractor docs])
+- Initialize the coordinator's data to include data.options. ([@LG-ThinQ-Integration] - [#150839]) ([lg_thinq docs])
+- Handle Z-Wave RssiErrorReceived ([@MartinHjelmare] - [#150846]) ([zwave_js docs])
+- Use correct unit and class for the Imeon inverter sensors ([@Imeon-Energy] - [#150847]) ([imeon_inverter docs])
+- Bump holidays to 0.79 ([@gjohansson-ST] - [#150857]) ([workday docs]) ([holiday docs])
+- Bump aiorussound to 4.8.1 ([@noahhusby] - [#150858]) ([russound_rio docs])
+- Add missing unsupported reasons to list ([@agners] - [#150866]) ([hassio docs])
+- Fix icloud service calls ([@epenet] - [#150881]) ([icloud docs])
+- Bump pysmartthings to 3.2.9 ([@joostlek] - [#150892]) ([smartthings docs])
+- Fix PWA theme color to match darker blue color scheme in 2025.8 ([@balloob] - [#150896]) ([frontend docs])
+- Bump bleak-retry-connector to 4.0.2 ([@bdraco] - [#150899]) ([bluetooth docs])
+- update pyatmo to v9.2.3 ([@cgtobi] - [#150900]) ([netatmo docs])
+- Fix structured output object selector conversion for OpenAI ([@balloob] - [#150916]) ([openai_conversation docs])
+- Matter valve Open command doesn't support TargetLevel=0 ([@kepstin] - [#150922]) ([matter docs])
+- Bump ESPHome minimum stable BLE version to 2025.8.0 ([@bdraco] - [#150924]) ([esphome docs])
+- Bump imgw-pib to version 1.5.4 ([@bieniu] - [#150930]) ([imgw_pib docs])
+- Fix update retry for Imeon inverter integration ([@Imeon-Energy] - [#150936]) ([imeon_inverter docs])
+- Bump python-mystrom to 2.5.0 ([@elsi06] - [#150947]) ([mystrom docs])
+- Ask user for Z-Wave RF region if country is missing ([@MartinHjelmare] - [#150959]) ([zwave_js docs])
+- Bump onvif-zeep-async to 4.0.4 ([@bdraco] - [#150969]) ([onvif docs])
+- Except ujson from license check ([@emontnemery] - [#150980])
+- Enable country site autodetection in Alexa Devices ([@chemelli74] - [#150989]) ([alexa_devices docs])
+- Update frontend to 20250811.1 ([@bramkragten] - [#151005]) ([frontend docs])
+
+[#150115]: https://github.com/home-assistant/core/pull/150115
+[#150412]: https://github.com/home-assistant/core/pull/150412
+[#150608]: https://github.com/home-assistant/core/pull/150608
+[#150613]: https://github.com/home-assistant/core/pull/150613
+[#150624]: https://github.com/home-assistant/core/pull/150624
+[#150718]: https://github.com/home-assistant/core/pull/150718
+[#150744]: https://github.com/home-assistant/core/pull/150744
+[#150754]: https://github.com/home-assistant/core/pull/150754
+[#150756]: https://github.com/home-assistant/core/pull/150756
+[#150760]: https://github.com/home-assistant/core/pull/150760
+[#150797]: https://github.com/home-assistant/core/pull/150797
+[#150800]: https://github.com/home-assistant/core/pull/150800
+[#150809]: https://github.com/home-assistant/core/pull/150809
+[#150816]: https://github.com/home-assistant/core/pull/150816
+[#150818]: https://github.com/home-assistant/core/pull/150818
+[#150821]: https://github.com/home-assistant/core/pull/150821
+[#150839]: https://github.com/home-assistant/core/pull/150839
+[#150846]: https://github.com/home-assistant/core/pull/150846
+[#150847]: https://github.com/home-assistant/core/pull/150847
+[#150857]: https://github.com/home-assistant/core/pull/150857
+[#150858]: https://github.com/home-assistant/core/pull/150858
+[#150866]: https://github.com/home-assistant/core/pull/150866
+[#150881]: https://github.com/home-assistant/core/pull/150881
+[#150892]: https://github.com/home-assistant/core/pull/150892
+[#150896]: https://github.com/home-assistant/core/pull/150896
+[#150899]: https://github.com/home-assistant/core/pull/150899
+[#150900]: https://github.com/home-assistant/core/pull/150900
+[#150916]: https://github.com/home-assistant/core/pull/150916
+[#150922]: https://github.com/home-assistant/core/pull/150922
+[#150924]: https://github.com/home-assistant/core/pull/150924
+[#150930]: https://github.com/home-assistant/core/pull/150930
+[#150936]: https://github.com/home-assistant/core/pull/150936
+[#150947]: https://github.com/home-assistant/core/pull/150947
+[#150959]: https://github.com/home-assistant/core/pull/150959
+[#150969]: https://github.com/home-assistant/core/pull/150969
+[#150980]: https://github.com/home-assistant/core/pull/150980
+[#150989]: https://github.com/home-assistant/core/pull/150989
+[#151005]: https://github.com/home-assistant/core/pull/151005
+[@Imeon-Energy]: https://github.com/Imeon-Energy
+[@JP-Ellis]: https://github.com/JP-Ellis
+[@LG-ThinQ-Integration]: https://github.com/LG-ThinQ-Integration
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@agners]: https://github.com/agners
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@cgtobi]: https://github.com/cgtobi
+[@chemelli74]: https://github.com/chemelli74
+[@elsi06]: https://github.com/elsi06
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@kepstin]: https://github.com/kepstin
+[@markhannon]: https://github.com/markhannon
+[@noahhusby]: https://github.com/noahhusby
+[@peteS-UK]: https://github.com/peteS-UK
+[@thomasddn]: https://github.com/thomasddn
+[@tronikos]: https://github.com/tronikos
+[@tschamm]: https://github.com/tschamm
+[ai_task docs]: /integrations/ai_task/
+[airgradient docs]: /integrations/airgradient/
+[airnow docs]: /integrations/airnow/
+[alexa_devices docs]: /integrations/alexa_devices/
+[amberelectric docs]: /integrations/amberelectric/
+[bluetooth docs]: /integrations/bluetooth/
+[bosch_shc docs]: /integrations/bosch_shc/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[hassio docs]: /integrations/hassio/
+[holiday docs]: /integrations/holiday/
+[icloud docs]: /integrations/icloud/
+[imeon_inverter docs]: /integrations/imeon_inverter/
+[imgw_pib docs]: /integrations/imgw_pib/
+[lg_thinq docs]: /integrations/lg_thinq/
+[matter docs]: /integrations/matter/
+[media_extractor docs]: /integrations/media_extractor/
+[mystrom docs]: /integrations/mystrom/
+[nanoleaf docs]: /integrations/nanoleaf/
+[netatmo docs]: /integrations/netatmo/
+[onvif docs]: /integrations/onvif/
+[openai_conversation docs]: /integrations/openai_conversation/
+[opower docs]: /integrations/opower/
+[renault docs]: /integrations/renault/
+[russound_rio docs]: /integrations/russound_rio/
+[smartthings docs]: /integrations/smartthings/
+[squeezebox docs]: /integrations/squeezebox/
+[volvo docs]: /integrations/volvo/
+[withings docs]: /integrations/withings/
+[workday docs]: /integrations/workday/
+[zimi docs]: /integrations/zimi/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community!
 
