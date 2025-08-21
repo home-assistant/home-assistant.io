@@ -119,18 +119,3 @@ The Aeotec Z-Stick and some of its variants (e.g. Z-Wave.Me UZB1) are known to h
 {% endnote %}
 
 It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system.
-
-### Setting up a Raspberry Pi Z-Wave module on Home Assistant Yellow
-
-This procedure has been tested with the following modules:
-
-- Aeotec Z-Pi 7 Raspberry Pi HAT/Shield
-- Z-Wave.Me RaZberry 7
-- Z-Wave.Me RaZberry 7 Pro
-
-1. Make sure the module is properly seated on the Home Assistant Yellow.
-   ![Aeotec Z-Pi 7 on Home Assistant Yellow](/images/docs/z-wave/zpi-7-yellow.jpg).
-2. Carefully [close the case](https://support.nabucasa.com/hc/en-us/articles/25606333033501) (see Reassembling your Home Assistant Yellow section) and power up Home Assistant Yellow.
-3. Follow the procedure on [setting up a Z-Wave JS server](/integrations/zwave_js/#setting-up-a-z-wave-js-server).
-   1. In step 2, follow the manual setup steps to install the Z-Wave integration.
-   2. When prompted to choose a **Device path**, choose **ttyAMA0**.
