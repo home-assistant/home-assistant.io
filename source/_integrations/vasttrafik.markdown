@@ -8,7 +8,8 @@ ha_release: '0.30'
 ha_domain: vasttrafik
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
+ha_config_flow: true
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -19,103 +20,60 @@ The `vasttrafik` {% term integration %} will provide you traveling details for t
 
 You must create an application [here](https://developer.vasttrafik.se/applications) to obtain a `key` and a `secret`. Make sure to also subscribe to the API by clicking on `Prenumerera på nytt API`, and selecting the API `Planera Resa v4`.
 
-Add the data to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+## Configuration
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: vasttrafik
-    key: YOUR_API_KEY
-    secret: YOUR_API_SECRET
-    departures:
-      - from: Musikvägen
-```
+Västtrafik is configured via the UI. Go to **Settings** → **Devices & Services** → **Add Integration** and search for "Västtrafik".
 
-{% configuration %}
-key:
-  description: The API key to access your Västtrafik account.
-  required: true
-  type: string
-secret:
-  description: The API secret to access your Västtrafik account.
-  required: true
-  type: string
-departures:
-  description: List of travel routes.
-  required: true
-  type: list
-  keys:
-    name:
-      description: Name of the route.
-      required: false
-      type: string
-    from:
-      description: The start station name or ID.
-      required: true
-      type: string
-    heading:
-      description: The destination station name or ID.
-      required: false
-      type: string
-    lines:
-      description: Only consider these lines.
-      required: false
-      type: [list, string]
-    delay:
-      description: Delay in minutes.
-      required: false
-      type: string
-      default: 0
-{% endconfiguration %}
+You will need your API credentials obtained in the prerequisites section above.
 
-The data is coming from [Västtrafik](https://vasttrafik.se/).
+### Initial Setup
 
-A full configuration example could look like this:
+1. Add the Västtrafik integration from **Settings** → **Devices & Services**
+2. Enter your API key and secret when prompted
+3. The integration will be added as a service
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: vasttrafik
-    key: YOUR_API_KEY
-    secret: YOUR_API_SECRET
-    departures:
-      - name: Mot järntorget
-        from: Musikvägen
-        heading: Järntorget
-        lines:
-          - 7
-          - GRÖN
-        delay: 10
-```
+### Adding Departure Boards
 
-## Solving incorrect selected station problems
+Once the main integration is configured, you can add departure boards:
 
-It is possible to use the full name of the station for the from/heading values, e.g., Musikvägen, Göteborg.
+1. Go to **Settings** → **Devices & Services** → **Västtrafik**
+2. Click **"Add departure board"**
+3. Search for your departure station (e.g., "Central", "Musikvägen")
+4. Select the station from the results
+5. Configure your departure board:
+   - **Name**: Optional custom name for the sensor
+   - **Destination**: Optional filter for specific destination (e.g., "Järntorget")
+   - **Lines**: Optional comma-separated list of line numbers (e.g., "1, 2, 7")
+   - **Tracks/Platforms**: Optional comma-separated list (e.g., "A, B, 1")
+   - **Delay**: Minutes to add to current time for departure lookup (default: 0)
 
-In cases where the wrong station is being selected, it is possible to provide the station ID instead. To do this you first need to retrieve the station ID either via Västtrafik's [API-konsole](https://developer.vasttrafik.se/apis/13/v4) (using GET /locations/by-text) or with `curl`.
+## Troubleshooting Station Selection
 
-To retrieve the ID using `curl`:
+The departure board configuration includes an interactive station search. If the wrong station is being selected during setup:
 
-1. Login into the Västtrafik API and go to ["Applikationer"](https://developer.vasttrafik.se/applications)
-2. Click "* Generera accesstoken", and then "Kopiera". 
-3. Execute the following `curl` command, replacing "<ACCESS_TOKEN>" and "<STATION_NAME>" as necessary:
+1. Try using the full station name (e.g., "Musikvägen, Göteborg")
+2. Use more specific search terms to narrow down results
+3. Try alternative names or spellings of the station
+
+If problems persist, you can find the exact station ID for troubleshooting:
+
+1. Login to the Västtrafik API and go to ["Applikationer"](https://developer.vasttrafik.se/applications)
+2. Click "* Generera accesstoken", then "Kopiera"
+3. Execute this `curl` command, replacing `<ACCESS_TOKEN>` and `<STATION_NAME>`:
 
    ```shell
-      curl -H "Authorization: Bearer <ACCESS_TOKEN>" "https://ext-api.vasttrafik.se/pr/v4/locations/by-text?q=<STATION_NAME>"
+   curl -H "Authorization: Bearer <ACCESS_TOKEN>" "https://ext-api.vasttrafik.se/pr/v4/locations/by-text?q=<STATION_NAME>"
    ```
 
-4. In the output locate the key called "results", and under this key, you will find a list of stops. Copy the ID (gid) for your desired stop and use it in your configuration.
+4. In the output, find the "gid" for your desired stop. If the UI search doesn't work with this station name, please report the issue to the integration maintainers.
 
-```yaml
-# Example configuration.yaml entry using station ID as departure and station name as destination
-sensor:
-  - platform: vasttrafik
-    key: YOUR_API_KEY
-    secret: YOUR_API_SECRET
-    departures:
-      - name: To the Iron Square \o/
-        from: 9021014004870000
-        heading: Järntorget
-        delay: 0
-```
+## Migration from YAML Configuration
+
+If you previously configured Västtrafik in your `configuration.yaml` file, you should:
+
+1. Remove the YAML configuration from your `configuration.yaml`
+2. Restart Home Assistant
+3. Add the integration via the UI as described above
+4. Reconfigure your departure boards using the new UI flow
+
+The old YAML configuration method is still supported but deprecated.
