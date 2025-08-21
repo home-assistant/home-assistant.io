@@ -90,3 +90,13 @@ After adding new devices to your Tuya account through the Smart Life or Tuya Sma
 ## Scenes
 
 Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
+
+## Troubleshooting
+
+### Unsupported device or missing device functionnality
+
+This integration relies on the offical [Python SDK provided by Tuya](https://github.com/tuya/tuya-device-sharing-sdk), which does not expose all functionnality available in SmartLife.
+
+The data points provided by the SDK are visible in the Home Assistant devide diagnostics json file (Settings -> Integrations -> Tuya -> Download diagnostics), under the `status`, `status_range` and `function` keys.
+
+If `status`, `status_range` and `function` are all empty, then only scenes declared inside Tuya (if any) will be available inside Home Assistant.
