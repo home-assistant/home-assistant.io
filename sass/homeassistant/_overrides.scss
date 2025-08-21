@@ -1309,7 +1309,6 @@ article.listing {
     overflow-wrap: break-word;
 
     &[rel*="external"]{
-      //white-space: nowrap;
       position: relative;
 
       &:after{
@@ -1320,8 +1319,7 @@ article.listing {
       iconify-icon {
         position: absolute;
         bottom: 0;
-        right: 0;
-        
+        right: 0; 
       }
     }
     
