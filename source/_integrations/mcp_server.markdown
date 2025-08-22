@@ -54,6 +54,7 @@ The Home Assistant Model Context Protocol Server integration implements the
 allowing streaming client-to-server communication. Most MCP clients today only support
 [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
 and directly run an MCP server as a local command line tool. You can
+and directly run an MCP server as a local command line tool. You can
 use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
 to act as a gateway to the Home Assistant MCP SSE server.
 
@@ -144,9 +145,9 @@ To add the Assist prompt to a Claude Desktop conversation:
 1. Start a new conversation in Claude Desktop
 2. Click the **+** button under the text input box to add content to your message
 3. Select **Add from home-assistant** from the menu
-4. Choose **Assist** to import your Home Assistant Assist prompt
+4. Choose **Assist** to import your Home Assistant "Assist" prompt
 
-This will automatically import your complete Assist configuration directly from your Home Assistant instance into the Claude conversation. You only need to do this once per conversation thread, and Claude will use this context throughout your session to provide more accurate and helpful smart home interactions.
+This will automatically import the complete "Assist" prompt directly from your Home Assistant instance into the Claude conversation. You only need to do this once per conversation thread, and Claude will use this context throughout your session to use the Home Assistant MCP Server more efficiently.
 
 Once configured, you're ready have Claude control your home.
 
@@ -177,7 +178,7 @@ Once configured, you're ready have Claude control your home.
     ```
 
 5. Save your `mcp.json` file. You can also find this file in the `$HOME/.cursor/mcp.json` directory.
-6. Restart Cursor and return to the MCP settings. You should see the Home Assistant server in the list. The indicator should be green.
+6. Restart Cursor and return to the MCP settings. You should see the **home-assistant** server in the list. The indicator should be green.
 7. In chat agent mode (Ctrl+I), ask it to control your home and the tool should be used.
 
 ![Screenshot of Cursor controlling the office lights](/images/integrations/mcp_server/cursor-lights-control.png)
