@@ -130,7 +130,7 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
 
 #### Usage in Claude Desktop: Adding the Assist Prompt
 
-For the best experience with Claude Desktop and Home Assistant, you should share the Home Assistant "Assist" prompt with Claude *at the start of each conversation*. Claude uses this prompt to more effectively use the tools provided by the Home Assistant MCP Server Claude to interact with your devices.
+For the best experience with Claude Desktop and Home Assistant, you should share the Home Assistant "Assist" prompt with Claude *at the start of each conversation*. Claude uses this prompt to more effectively use the tools provided by the Home Assistant MCP Server to interact with your devices.
 
 The Assist prompt contains important information such as:
 
