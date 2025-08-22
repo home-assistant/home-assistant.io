@@ -143,7 +143,7 @@ To add the Assist prompt to a Claude Desktop conversation:
 
 1. Start a new conversation in Claude Desktop
 2. Click the **+** button under the text input box to add content to your message
-3. Select <!-- textlint-disable terminology -->**Add from home-assistant**<!-- textlint-enable terminology-- from the menu
+3. Select <!-- textlint-disable terminology -->**Add from home-assistant**<!-- textlint-enable terminology--> from the menu
 4. Choose **Assist** to import your Home Assistant "Assist" prompt
 
 This will automatically import the complete "Assist" prompt directly from your Home Assistant instance into the Claude conversation. You only need to do this once per conversation thread, and Claude will use this context throughout your session to use the Home Assistant MCP Server more efficiently.
