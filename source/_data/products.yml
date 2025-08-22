@@ -527,6 +527,11 @@ zwa-2:
       ship_to: Australia
       url: https://apolloautomation.com/products/home-assistant-connect-zwa-2
       logo: /images/distributors/apollo.webp
+    - name: SmartHome
+      ship_from: Australia
+      ship_to: Australia
+      url: https://www.smarthome.com.au/product/home-assistant-zwa-2-connect-z-wave-usb-antenna/
+      logo: /images/distributors/smarthome.webp
     # - name: Smart Home
     #   ship_from: Australia
     #   ship_to: Australia
@@ -633,3 +638,8 @@ zwa-2:
       ship_to: Europe
       url: https://verkkokauppa.nurkantakaa.fi/tuote/zwa-2/
       logo: /images/distributors/nurkantakaa.webp
+    - name: ROBBshop
+      ship_from: Netherlands
+      ship_to: Europe
+      url: https://www.robbshop.nl/home-assistant-connect-zwa-2-z-wave-antenne
+      logo: /images/distributors/robb.webp
