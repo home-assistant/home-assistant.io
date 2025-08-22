@@ -54,7 +54,6 @@ The Home Assistant Model Context Protocol Server integration implements the
 allowing streaming client-to-server communication. Most MCP clients today only support
 [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
 and directly run an MCP server as a local command line tool. You can
-and directly run an MCP server as a local command line tool. You can
 use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
 to act as a gateway to the Home Assistant MCP SSE server.
 
