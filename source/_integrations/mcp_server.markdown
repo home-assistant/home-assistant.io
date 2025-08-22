@@ -53,7 +53,7 @@ The Home Assistant Model Context Protocol Server integration implements the
 [Server-Sent Events (SSE) transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse)
 allowing streaming client-to-server communication. Most MCP clients today only support
 [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
-and directly run an MCP server as a local command line tool. You can 
+and directly run an MCP server as a local command line tool. You can
 use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
 to act as a gateway to the Home Assistant MCP SSE server.
 
@@ -102,7 +102,7 @@ Claude for Desktop currently only supports local MCP servers using the [stdio](h
 transport, run as a local command line tool. You can use a local MCP proxy server
 to allow Claude for Desktop to access Home Assistant using the SSE transport.
 
-1. Download [Claude for Desktop](https://claude.ai/download). 
+1. Download [Claude for Desktop](https://claude.ai/download).
 2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
    For example, `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`.
 3. Open the configuration file. Visit **Settings…** and on the **Developer** tab, select **Edit Config**.
@@ -111,10 +111,11 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
 4. Add a new MCP server to the JSON file. You need to set the `SSE_URL` to the URL you use to
    connect to Home Assistant with the path `/mcp_server/sse`. You will also need to set `API_ACCESS_TOKEN`
    to the long live access token created above in the [access control instructions](#access-control)
+
     ```json
     {
       "mcpServers": {
-        "Home Assistant": {
+        "home-assistant": {
           "command": "mcp-proxy",
           "env": {
             "SSE_URL": "http://localhost:8123/mcp_server/sse",
@@ -124,12 +125,32 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
       }
     }
     ```
-5. Restart Claude.
-6. You will see a connection icon {% icon "mdi:connection" %} if things are set up correctly. Clicking the connection icon will show enabled MCP servers such as *Home Assistant*.
-7. Select the prompt provided by Home Assistant.
-8. You can then use Claude to control Home Assistant similar to how you control Home Assistant through the Voice Assistant. Claude wil ask you for permission before calling any tools.
 
-  ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
+5. Restart Claude.
+
+#### Usage in Claude Desktop: Adding the Assist Prompt
+
+For the best experience with Claude Desktop and Home Assistant, you should share the Home Assistant "Assist" prompt with Claude *at the start of each conversation*. Claude uses this prompt to more effectively use the tools provided by the Home Assistant MCP Server Claude to interact with your devices.
+
+The Assist prompt contains important information such as:
+
+- Device naming conventions and preferred control patterns
+- A current snapshot of the area and room definitions in your home
+- Specific instructions for how to handle device commands
+- Exposed devices and their capabilities
+
+To add the Assist prompt to a Claude Desktop conversation:
+
+1. Start a new conversation in Claude Desktop
+2. Click the **+** button under the text input box to add content to your message
+3. Select **Add from home-assistant** from the menu
+4. Choose **Assist** to import your Home Assistant Assist prompt
+
+This will automatically import your complete Assist configuration directly from your Home Assistant instance into the Claude conversation. You only need to do this once per conversation thread, and Claude will use this context throughout your session to provide more accurate and helpful smart home interactions.
+
+Once configured, you're ready have Claude control your home.
+
+![Screenshot of Claude Desktop controlling the kitchen table light](/images/integrations/mcp_server/claude-desktop-lights-control.png)
 
 ### Example: Cursor
 
@@ -137,11 +158,12 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
 2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
    For example, `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`.
 3. Open the main Cursor Settings and select **MCP**.
-4. Click **Add new global MCP server** and add the Home Assistant server configuration:
+4. Click **Add new global MCP server** and add the Home Assistant MCP server configuration:
+
    ```json
     {
       "mcpServers": {
-        "Home Assistant": {
+        "home-assistant": {
           "command": "mcp-proxy",
           "args": [
             "http://localhost:8123/mcp_server/sse"
@@ -153,6 +175,7 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
       }
     }
     ```
+
 5. Save your `mcp.json` file. You can also find this file in the `$HOME/.cursor/mcp.json` directory.
 6. Restart Cursor and return to the MCP settings. You should see the Home Assistant server in the list. The indicator should be green.
 7. In chat agent mode (Ctrl+I), ask it to control your home and the tool should be used.
@@ -186,7 +209,6 @@ subset of MCP features:
 | Sampling | ❌ |
 | Notifications | ❌ |
 
-
 ## Troubleshooting
 
 This section has troubleshooting information for Claude for Desktop since it is
@@ -208,7 +230,7 @@ This means that the local MCP server `mcp-proxy` could not start.
 Verify the command line arguments in the `claude_desktop_config.json` are correct. You may try to run
 the command manually to verify that the command can be found.
 
-#### Symptom: “MCP server Home Assistant disconnected” or "Could not attach to MCP server Home Assistant"
+#### Symptom: "MCP server Home Assistant disconnected" or "Could not attach to MCP server Home Assistant"
 
 When trying to configure a client like Claude Desktop to talk to Home Assistant, the app shows a
 message like "MCP server Home Assistant disconnected" or "Could not attach to MCP server Home Assistant".
