@@ -144,7 +144,7 @@ To add the Assist prompt to a Claude Desktop conversation:
 
 1. Start a new conversation in Claude Desktop
 2. Click the **+** button under the text input box to add content to your message
-3. Select **Add from home-assistant** from the menu
+3. Select <!-- textlint-disable terminology -->**Add from home-assistant**<!-- textlint-enable terminology-- from the menu
 4. Choose **Assist** to import your Home Assistant "Assist" prompt
 
 This will automatically import the complete "Assist" prompt directly from your Home Assistant instance into the Claude conversation. You only need to do this once per conversation thread, and Claude will use this context throughout your session to use the Home Assistant MCP Server more efficiently.
@@ -178,7 +178,7 @@ Once configured, you're ready have Claude control your home.
     ```
 
 5. Save your `mcp.json` file. You can also find this file in the `$HOME/.cursor/mcp.json` directory.
-6. Restart Cursor and return to the MCP settings. You should see the **home-assistant** server in the list. The indicator should be green.
+6. Restart Cursor and return to the MCP settings. You should see the <!-- textlint-disable terminology -->**home-assistant**<!-- textlint-enable terminology--> server in the list. The indicator should be green.
 7. In chat agent mode (Ctrl+I), ask it to control your home and the tool should be used.
 
 ![Screenshot of Cursor controlling the office lights](/images/integrations/mcp_server/cursor-lights-control.png)
