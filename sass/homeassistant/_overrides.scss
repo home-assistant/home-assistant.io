@@ -1308,8 +1308,18 @@ article.listing {
     text-decoration: underline;
     overflow-wrap: break-word;
 
-    &[rel*="external"] {
-      white-space: nowrap;
+    &[rel*="external"]{
+      position: relative;
+
+      &:after{
+        content: "\00a0\00a0\00a0\00a0\00a0";
+        display: inline-block;
+      }
+
+      iconify-icon {
+        align-self: center;
+        position: absolute;
+      }
     }
 
     &.btn {
