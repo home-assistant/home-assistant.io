@@ -148,7 +148,7 @@ To add the Assist prompt to a Claude Desktop conversation:
 
 This will automatically import the complete "Assist" prompt directly from your Home Assistant instance into the Claude conversation. You only need to do this once per conversation thread, and Claude will use this context throughout your session to use the Home Assistant MCP Server more efficiently.
 
-Once configured, you're ready have Claude control your home.
+Once configured, you're ready to have Claude control your home.
 
 ![Screenshot of Claude Desktop controlling the kitchen table light](/images/integrations/mcp_server/claude-desktop-lights-control.png)
 
