@@ -51,15 +51,36 @@ related:
     title: Other Z-Wave adapters
 ---
 
-The **Z-Wave** {% term integration %} allows you to control a Z-Wave network from Home Assistant via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
+Z-Wave JS is a hardware-independent [Z-Wave controller](https://z-wavealliance.org/) implementation that can replace most proprietary Z-Wave controllers (also sometimes refered to as a Z-Wave hub, Z-Wave gateway, or Z-Wave bridge).
 
-## Device compatibility
+This **Z-Wave** {% term integration %} uses the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver to allow you to control a Z-Wave network from Home Assistant via one of many compatible hardware radio adapters.
 
-You do not need a Z-Wave adapter that is specifically designed for the Z-Wave integration in Home Assistant. The Z-Wave integration in Home Assistant can be operated with any Z-Wave network with other Z-Wave certified devices from other manufacturers. All mains operated nodes within the network will act as repeaters regardless of vendor to increase reliability of the network.
+The {% term integration %} currently supports the following platforms (device types) within Home Assistant:
 
-## Getting started
+- [Binary sensor](/integrations/binary_sensor/)
+- [Button](/integrations/button/)
+- [Climate](/integrations/climate/)
+- [Cover](/integrations/cover/)
+- [Diagnostics](/integrations/event/)
+- [Event](/integrations/diagnostics/)
+- [Fan](/integrations/fan/)
+- [Humidifier](/integrations/humidifier/)
+- [Light](/integrations/light/)
+- [Lock](/integrations/lock/)
+- [Number](/integrations/number/) (i.e. analog input/output)
+- [Select](/integrations/select/)
+- [Sensor](/integrations/sensor/)
+- [Siren](/integrations/siren/)
+- [Switch](/integrations/switch/)
+- [Update](/integrations/update/)
 
-This sections shows you how to set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
+## Device compatibility and getting started
+
+To get started with Z-Wave devices in Home Assistant you only need a Z-Wave controller adapter that is compatible with the Z-Wave JS driver, (those usually come in a USB dongle form factor). The sections below explain how you set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
+
+The Z-Wave integration in Home Assistant will work with Z-Wave certified devices from other manufacturers. It creates a single Z-Wave network to which you can wirelessly add most off-the-shelf [Z-Wave-based devices](https://devices.zwave-js.io/) (which are referred to as nodes). All mains-powered Z-Wave devices that you add to the network will act as Z-Wave repeaters regardless of vendor to increase range and reliability of the network mesh.
+
+This implementation depends on an open-source project called [Z-Wave JS](https://github.com/zwave-js), so any product that is compatible with the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver can be used with Home Assistant.
 
 ### Z-Wave terminology and Home Assistant
 
