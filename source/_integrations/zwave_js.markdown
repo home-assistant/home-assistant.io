@@ -51,7 +51,7 @@ related:
     title: Other Z-Wave adapters
 ---
 
-Z-Wave JS is a hardware-independent [Z-Wave controller](https://z-wavealliance.org/) implementation that can replace most proprietary Z-Wave controllers (also sometimes refered to as a Z-Wave hub, Z-Wave gateway, or Z-Wave bridge).
+Z-Wave JS is a hardware-independent [Z-Wave controller](https://z-wavealliance.org/) implementation that can replace most proprietary Z-Wave controllers (also sometimes referred to as a Z-Wave hub, Z-Wave gateway, or Z-Wave bridge).
 
 This **Z-Wave** {% term integration %} uses the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver to allow you to control a Z-Wave network from Home Assistant via one of many compatible hardware radio adapters.
 
