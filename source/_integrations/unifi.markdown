@@ -143,7 +143,7 @@ Provides per-port PoE control. Entities are disabled by default. This feature re
 
 ### Port control
 
-Provides individual control to enable or disable switch ports. Entities are enabled by default. This feature requires admin privileges.
+Provides individual control to enable or disable switch ports. Entities are disabled by default. This feature requires admin privileges.
 
 ### Control DPI Traffic Restrictions
 
