@@ -96,6 +96,12 @@ Keep SNOO’s rhythms locked on your baby’s favorite level (Baseline, Level 1,
 
 Allows you to turn on SNOO’s soothing sounds before you put your baby in SNOO or after you took your baby out of SNOO for a diaper change or feeding.
 
+## Button
+
+### Start
+
+Starts sleepytime sounds and motion for the SNOO. This adheres to settings such as car ride or weaning mode.
+
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
