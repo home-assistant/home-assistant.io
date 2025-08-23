@@ -1,5 +1,6 @@
 ---
 title: "World's most private voice assistant"
+description: "Learn how to convert an old landline phone into the world's most private, local voice assistant using Home Assistant, an analog telephone adapter, and your own hardware. No cloud required—full privacy and local control."
 related:
   - docs: /voice_control/voice_remote_cloud_assistant/
     title: Creating a Cloud assistant
