@@ -32,39 +32,49 @@ All sensors are also marked as diagnostic and won't be automatically added to au
 
 ### Disks
 
-One sensor per found disk/mount point will be created
+One sensor per discovered disk/mount point will be created
 
-- Disk free
-- Disk use
-- Disk usage (percent)
+| Sensor type      | Type   | Description                                  |
+|------------------|--------|----------------------------------------------|
+| Disk free        | sensor | Amount of free space on the disk             |
+| Disk use         | sensor | Amount of used space on the disk             |
+| Disk usage (%)   | sensor | Percentage of disk space used                |
 
 ### Network
 
-One sensor per found network interface will be created
+One sensor per discovered network interface will be created
 
-- IPv4 address
-- IPv6 address
-- Network in
-- Network out
-- Packets in
-- Packets out
-- Network throughput in
-- Network throughput out
+| Sensor                | Type   | Description                                         |
+|-----------------------|--------|-----------------------------------------------------|
+| IPv4 address          | sensor | The IPv4 address assigned to the network interface  |
+| IPv6 address          | sensor | The IPv6 address assigned to the network interface  |
+| Network in            | sensor | Total bytes received on the network interface       |
+| Network out           | sensor | Total bytes sent from the network interface         |
+| Packets in            | sensor | Number of packets received on the network interface |
+| Packets out           | sensor | Number of packets sent from the network interface   |
+| Network throughput in | sensor | Current inbound network speed (bytes per second)    |
+| Network throughput out| sensor | Current outbound network speed (bytes per second)   |
 
 ### Other
 
-- Last boot
-- Load (15m)
-- Load (5m)
-- Load (1m)
-- Memory free
-- Memory use
-- Memory usage (percent)
-- Processor use
-- Processor temperature
-- Swap free
-- Swap use
-- Swap usage (percent)
+| Sensor                 |  Type         | Description                                               |
+|------------------------|---------------|-----------------------------------------------------------|
+| Battery                | sensor        | Percentage of battery remaining                           |
+| Battery remaining      | sensor        | Expected duration until battery is empty (if not plugged) |
+| Charging               | binary sensor | Battery is charging                                       |
+| Fan RPM                | sensor        | Built-in fan speeds                                       |
+| Last boot              | sensor        | The date and time when the system was last started        |
+| Load (1m)              | sensor        | System load average over the last 1 minute                |
+| Load (5m)              | sensor        | System load average over the last 5 minutes               |
+| Load (15m)             | sensor        | System load average over the last 15 minutes              |
+| Memory free            | sensor        | Amount of available system memory                         |
+| Memory use             | sensor        | Amount of used system memory                              |
+| Memory usage (percent) | sensor        | Percentage of system memory used                          |
+| Processor use          | sensor        | Percentage of CPU usage                                   |
+| Processor temperature  | sensor        | Current temperature of the processor                      |
+| Swap free              | sensor        | Amount of available swap memory                           |
+| Swap use               | sensor        | Amount of used swap memory                                |
+| Swap usage (percent)   | sensor        | Percentage of swap memory used                            |
 
 ## Add `process` binary sensor
 
