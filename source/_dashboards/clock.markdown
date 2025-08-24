@@ -35,6 +35,8 @@ Time Format:
   description: Allows the time format to be changed on a per-card level. Defaults to the user profile setting.
 Time Zone:
   description: Change the timezone used for the time on a per-card level. Defaults to the user profile setting.
+Hour Leading Zero:
+  description: Show leading zero on hour. Defaults to true.
 {% endconfiguration_basic %}
 
 ### Examples
@@ -94,7 +96,7 @@ title: London 💂
 Screenshot of a medium sized, 24 hour clock showing seconds based in London along with a title
 </p>
 
-A medium-sized, 12 hour clock using the New York timezone with a title
+A medium-sized, 12 hour clock using the New York timezone with a title and no leading zero on the hour
 
 ```yaml
 type: clock
@@ -102,6 +104,7 @@ clock_size: medium
 time_format: "12"
 time_zone: America/New_York
 title: New York 🦅
+hour_leading_zero: false
 
 ```
 
