@@ -91,7 +91,10 @@ This integration fetches the data every 30 seconds from the FRITZ!Box router.
 
 ## Actions
 
-Available {% term actions %}: `set_guest_wifi_password`
+Available {% term actions %}:
+
+- `set_guest_wifi_password`
+- `ring`
 
 ### Action `set_guest_wifi_password`
 
@@ -102,6 +105,15 @@ Set a new password for the guest wifi. The password Length must be between 8 and
 | `device_id` | yes | Only act on a specific router |
 | `password` | no | New password for the guest wifi (_will be auto-generated if not defined_) |
 | `length` | no | Length of the auto-generated password. (_default 12_) |
+
+### Action `ring`
+
+Makes the FRITZ!Box dial a phone number. The dial-help service of the FRITZ!Box must be activated to make this work.
+
+| Data attribute | Required | Description |
+|----------------|----------| --- |
+| `device_id` | yes | Only act on a specific router |
+| `number` | yes | The phone number to dial |
 
 ## Additional information
 
