@@ -35,7 +35,7 @@ Time Format:
   description: Allows the time format to be changed on a per-card level. Defaults to the user profile setting.
 Time Zone:
   description: Change the timezone used for the time on a per-card level. Defaults to the user profile setting.
-Hour Leading Zero:
+Show Leading Zero for Hour:
   description: Show leading zero on hour. Defaults to true.
 {% endconfiguration_basic %}
 
