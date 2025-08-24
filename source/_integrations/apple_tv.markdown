@@ -24,8 +24,64 @@ There is currently support for the following entities within the Apple TV device
 
 - [Media Player](#media-player)
 - [Remote](#remote)
+- [Keyboard focused](#keyboard-focused) `binary_sensor`
 
 {% include integrations/config_flow.md %}
+
+## Actions
+
+An Apple TV entity exposes actions to interact with the on screen keyboard. These actions can be created via the UI, but are
+also available in YAML (examples below).
+
+**NOTE:** The on screen keyboard commands may not be supported by all Apple TV versions.
+
+### Action `apple_tv.set_search_text`
+
+The {% my developer_call_service service="apple_tv.set_search_text" %} action allows you to replace any existing on screen keyboard text
+with your own.
+
+{% my developer_call_service badge service="apple_tv.set_search_text" %}
+
+Example in YAML:
+
+```yaml
+action: apple_tv.set_search_text
+target:
+  entity_id: remote.my_apple_tv_remote
+data:
+  text: The Wizard of Oz
+```
+
+### Action `apple_tv.append_search_text`
+
+The {% my developer_call_service service="apple_tv.append_search_text" %} action allows you to append your own text to any existing on
+screen keyboard text.
+
+{% my developer_call_service badge service="apple_tv.append_search_text" %}
+
+Example in YAML:
+
+```yaml
+action: apple_tv.append_search_text
+target:
+  entity_id: remote.my_apple_tv_remote
+data:
+  text: a Mockingbird
+```
+
+### Action `apple_tv.clear_search_text`
+
+The {% my developer_call_service service="apple_tv.clear_search_text" %} action allows you to clear the on screen keyboard text.
+
+{% my developer_call_service badge service="apple_tv.clear_search_text" %}
+
+Example in YAML:
+
+```yaml
+action: apple_tv.clear_search_text
+target:
+  entity_id: remote.my_apple_tv_remote
+```
 
 ## Media player
 
@@ -171,6 +227,30 @@ data:
     - left
 ```
 
+## Keyboard focused
+
+The Apple TV remote platform will automatically create a Binary sensor entity for each Apple TV
+configured on your Home Assistant instance to determine if the on screen keyboard is active.
+
+### Example
+
+Create an automation that clears the search text whenever the on screen keyboard is activated:
+
+```yaml
+description: "Always start with clear Apple TV search text"
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - binary_sensor.my_apple_tv_keyboard_focused
+    from: "off"
+    to: "on"
+actions:
+  - action: apple_tv.clear_search_text
+    target:
+      entity_id: remote.my_apple_tv_remote
+```
+
 ## FAQ
 
 ### My Apple TV does not turn on/off when I press on/off in the frontend
@@ -200,9 +280,9 @@ and include logs (see Debugging below).
 
 ### Setting volume doesn't work on my Apple TV
 
-Volume control functionality depends on how the Apple TV is set up. 
-All volume controls should work if the Apple TV is connected to a 
-HomePod or HomePod stereo pair. If the Apple TV is connected to 
+Volume control functionality depends on how the Apple TV is set up.
+All volume controls should work if the Apple TV is connected to a
+HomePod or HomePod stereo pair. If the Apple TV is connected to
 TV speakers and with volume control
 over HDMI CEC (Settings -> Remotes and Devices -> Volume Control) only volume
 up/down controls will work. If volume control is over IR then volume cannot be
