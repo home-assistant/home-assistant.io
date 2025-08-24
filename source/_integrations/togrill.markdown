@@ -46,7 +46,7 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 
 ## Events
 
-**Probe X**: The most recently triggered alarm or event on the probe. The following event types are expected:
+**Event**: The most recently triggered alarm or event on the probe. The following event types are expected:
 
 - `ambient_cool_down` - The ambient temperature returned to normal.
 - `ambient_low_temp` - The ambient temperature is too low.
@@ -63,12 +63,12 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 
 ## Sensors
 
-**Probe X**: The current temperature of the given temperature probe
+**Temperature**: The current temperature of the given temperature probe
 **Battery**: The current battery level of the device.
 
 ## Numbers
 
-**Target X**: The target temperature of the given temperature probe. Set value to 0 to disable target alarm.
+**Target temperature**: The target temperature of the given temperature probe. Set value to 0 to disable target alarm.
 **Alarm interval**: The interval in minutes between successive alarms.
 
 ## Removing the integration
