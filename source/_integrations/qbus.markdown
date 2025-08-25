@@ -2,17 +2,21 @@
 title: Qbus
 description: Instructions on how to integrate your Qbus installation with Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Cover
   - Hub
   - Light
   - Scene
+  - Sensor
   - Switch
 ha_platforms:
+  - binary_sensor
   - climate
   - cover
   - light
   - scene
+  - sensor
   - switch
 ha_iot_class: Local Push
 ha_codeowners:
@@ -48,10 +52,12 @@ There is currently support for the following **Qbus** products within Home Assis
 
 ## Available entities
 
+- **Binary sensor**: display values from weather stations and controller information.
 - **Climate**: manage thermostats by setting temperature and choosing presets.
 - **Cover**: operate covers with support for actions like open, close, stop, position adjustment, and tilt — depending on your setup.
 - **Light**: control dimmer lights, allowing both on/off functionality and brightness adjustment.
 - **Scene**: activate predefined scenes.
+- **Sensor**: display sensor values from devices like gauges, humidity sensors, thermostats, ventilation, and weather stations.
 - **Switch**: toggle on/off outputs.
 
 ## Removing the integration

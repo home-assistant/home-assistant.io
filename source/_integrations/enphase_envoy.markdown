@@ -91,7 +91,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Capabilities
 
-This integration offers various entities depending on the configuration of your Enphase system. The Envoy can communicate with Enphase IQ micro-inverters, Enphase ACB and IQ batteries, Enphase Ensemble Enpower switch and load shedding relays and Enphase compatible generators.
+This integration offers various entities depending on the configuration of your Enphase system. The Envoy can communicate with Enphase IQ micro-inverters, Enphase ACB and IQ batteries, Enphase Ensemble Enpower switch and load shedding relays, Enphase compatible generators and the IQ Meter Collar.
 
 {% note %}
 
@@ -143,6 +143,10 @@ Based on the Envoy firmware version, the Envoy may provide inverter device data 
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> Energy today**: Energy produced today by the inverter (Wh).
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> Lifetime energy**: Total energy produced during inverter lifetime (Wh).
 - **Inverter <abbr title="micro-inverter serial number">SN</abbr> Report duration**: Time in seconds covered by the last report data.
+
+{% note %}
+Due to a limitation in the Envoy firmware, the inverter device data is only available when 49 or fewer inverters are configured. When more than 49 inverters are configured, only the 3 power production entities are available for each inverter.
+{% endnote %}
 
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_inverter_device.png" alt="micro-inverter device">
@@ -237,6 +241,8 @@ When the Envoy Metered is equipped with a [net-consumption CT](#current-transfor
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Current net power consumption**: Current power exchange from (positive) / to (negative) the grid in W, default display in kW.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy consumption**: Lifetime energy consumed / imported from the grid in Wh, default display in MWh.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy production**: Lifetime energy produced / exported to the grid in Wh, default display in MWh.
+
+When using an IQ Metered Collar, the net-consumption CT's are integrated in the collar.
 
 When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
 
@@ -402,6 +408,32 @@ The names of entities and devices are derived from the load_name configured in t
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_dry_contact.png" alt="envoy dry-contact">
   <figcaption>Envoy Enpower dry-contact entities.</figcaption>
+</figure>
+
+### IQ Meter Collar data
+
+The IQ Meter Collar has the net-consumption CT integrated. The CT data is reported in the [net-consumption data](#net-consumption-ct-sensor-entities) and [grid sensors](#grid-sensor-entities). In addition the status of the collar is available in entities.
+
+#### Collar status entities
+
+- **Collar <abbr title="Collar serial number">SN</abbr> Grid state**: Grid connection status, on_grid / off_grid / synchronizing / manual override active.
+- **Collar <abbr title="Collar serial number">SN</abbr> MID State**: Status of enphase Microgrid Interconnection Device, open / close.
+- **Collar <abbr title="Collar serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
+- **Collar <abbr title="Collar serial number">SN</abbr> Last reported**: Time when Envoy received last update from the collar device.
+- **Collar <abbr title="Collar serial number">SN</abbr> Communicating**: Communication status of the collar, Connected / Disconnected. This is a diagnostics entity.
+
+### C6 Combiner Controller data
+
+The Enphase C6 combiner controller (C6CC) provides some status information to the Envoy which are available in entities.
+
+#### C6CC status entities
+
+- **C6CC <abbr title="C6CC serial number">SN</abbr> Last reported**: Time when Envoy received last update from the combiner device.
+- **C6CC <abbr title="C6CC serial number">SN</abbr> Communicating**: Communication status of C6 Combiner, Connected / Disconnected. This is a diagnostics entity.
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_collar_and_ccc_data.png" alt="envoy collar and c6cc">
+  <figcaption>Envoy IQ Metered Collar and C6 Combiner Controller entities.</figcaption>
 </figure>
 
 ## Data polling interval
@@ -700,7 +732,9 @@ When using Envoy Metered with <abbr title="current transformers">CT</abbr>
 
 - not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data and unexpected spikes have been reported. In this case, best use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
 - not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported.
-- `Energy production today` has been reported not to reset to zero at the start of the day. Instead, it resets to a non-zero value that gradually increases over time. This issue has also been reported as starting suddenly overnight. For daily reporting, it is recommended to use a utility meter with the `Lifetime energy production` entity.
+- `Energy production today` and `Energy consumption today` have been reported not to reset to zero at the start of the day. Instead, it resets to a non-zero value that seems to gradually increase over time, although other values have been reported as well. This issue has also been reported as starting suddenly overnight. For daily reporting, it is recommended to use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity.
+
+- `Energy production today`, `Energy consumption today`, `Energy production last seven days` and `Energy consumption last seven days` have been reported not to reset to zero at the start of the day. Instead, it resets to zero at a later time, often 1 am. This seems to be daylight savings time change related.
 
 {% details "History examples for Today's energy production value not resetting to zero" %}
 
@@ -730,7 +764,7 @@ Envoy Metered without installed CT, running older firmware versions, reportedly 
 
 ### Lifetime energy production decreases by 1.2 MWh
 
-Envoy Standard (not Metered), running firmware 8.2.4264, reportedly decreases the **Lifetime energy production** value by 1.2 MWh at irregular times. The current hypothesis is that the step change occurs when one of the inverters exceeds a lifetime value of 1.2 MWh and resets to zero. This leads to the decrease with 1.2 MWh in the aggregated value for all inverters. It's not clear if this also happens for the metered Envoy.
+Envoy Standard (not Metered), running firmware 8.2.4264, reportedly decreases the **Lifetime energy production** value by 1.2 MWh at irregular times. The current hypothesis is that the step change occurs when one of the inverters exceeds an internal lifetime joules counter of 32 bit, which is 1.19 MWh, and resets to zero. This leads to a decrease of 1.2 MWh in the aggregated value for all inverters. It's not clear if this also happens for the metered Envoy.
 
 {% details "History example for Envoy Lifetime energy production value decrease" %}
 
@@ -741,6 +775,14 @@ The example below shows decreases when multiple inverters reach a 1.2 MWh lifeti
 </figure>
 
 {% enddetails %}
+
+### Missing inverter data
+
+If you are not seeing all your installed [inverters](#sensor-entities), and you have more than 49 inverters installed, and you are running HA 2025.7, 2025.7.1, or 2025.7.2, then upgrade HA to 2025.7.3 or newer. Due to a limitation in the Envoy firmware. Only the inverter details for 49 inverters are available. In the mentioned releases, any more inverters got dropped. The 2025.7.3 version fixed this by only using the inverter base data, which does not have this limitation.
+
+### Missing inverter details
+
+If you are not seeing [inverters](#sensor-entities) detail data, verify if you have more than 49 inverters installed. Due to a limitation in the Envoy firmware, the inverter device detail data is only available when 49 or fewer inverters are configured. When more than 49 inverters are configured, only the 3 power production entities are available for each inverter.
 
 ### Summed Voltage
 

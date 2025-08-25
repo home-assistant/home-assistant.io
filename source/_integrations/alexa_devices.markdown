@@ -38,19 +38,17 @@ There is support for the following device families within Home Assistant:
 - **Amazon Fire TV Stick**
 - **Amazon Fire Tablet**
 
-and all 3rd party that has Alexa capabilities built-in
+- **Third-party devices** with built-in Alexa capabilities.
 
 {% warning %}
 
-Currently, only MFA-protected Amazon accounts via the authenticator app are supported.
+This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 
 {% endwarning %}
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-  country:
-    description: The country of your Amazon account.
   username:
     description: The email address of your Amazon account.
   password:
@@ -58,12 +56,6 @@ Currently, only MFA-protected Amazon accounts via the authenticator app are supp
   otp:
     description: One-time password via Authenticator App.
 {% endconfiguration_basic %}
-
-{% note %}
-When trying to set up the integration, the form may show the message "Cannot connect".
-This means that the specified country may need a special setting.
-Open a issue with all details to investigate
-{% endnote %}
 
 ## Examples
 
@@ -97,6 +89,24 @@ The **Alexa Devices** {% term integration %} provides the following entities:
 - Notify - Speak and Announce notifications
 - Sensor - temperature and illuminance sensors
 - Switch - Do not disturb
+
+## Known limitations
+
+This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
+
+## Troubleshooting
+
+### Can’t set up the integration
+
+#### Symptom: "Not found"
+
+When trying to set up the integration, the form shows the message "Not found".
+
+##### Description
+
+This appears to indicate that your Alexa devices aren't owned by you, but are connected through Amazon Family.
+This setup isn't supported by the Alexa Mobile app, so it's not supported by this integration.
+Move the devices to your primary account.
 
 ## Removing the integration
 

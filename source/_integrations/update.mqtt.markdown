@@ -12,7 +12,8 @@ The `mqtt` Update platform allows you to integrate devices that might expose fir
 
 ## Configuration
 
-To enable MQTT Update in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To use an MQTT update entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -21,6 +22,8 @@ mqtt:
       state_topic: topic-installed
       latest_version_topic: topic-latest
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
