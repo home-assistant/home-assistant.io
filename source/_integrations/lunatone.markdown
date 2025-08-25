@@ -54,7 +54,7 @@ During configuration you have to choose between three DALI device scan methods:
 
 {% warning %}
 
-Be cautious when using the `New installation` option, especially in an an existing DALI setup. Since DALI addresses are assigned randomly, resetting them may cause devices to receive new addresses that differ from their original ones. This can lead to system malfunctions, depending on the configuration.
+Be cautious when using the **New installation** option, especially in an existing DALI setup. Since DALI addresses are assigned randomly, resetting them may cause devices to receive new addresses that differ from their original ones. This can lead to system malfunctions, depending on the configuration.
 
 {% endwarning %}
 
