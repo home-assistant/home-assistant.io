@@ -48,9 +48,9 @@ URL:
 
 During configuration you have to choose between three DALI device scan methods:
 
-- `Refresh present devices` refreshes the already present devices with latest values from the DALI-bus.
-- `Find new devices` performs a device scan that can find new devices and addresses them but doesn't remove any existing DALI addresses.
-- `New installation` deletes the stored devices and all DALI addresses. Then it performs a device scan that addresses the devices on the DALI bus from scratch and stores the device information.
+- **Refresh present devices**: refreshes the already present devices with the latest values from the DALI bus.
+- **Find new devices**: performs a device scan that can find new devices and addresses them, but doesn't remove any existing DALI addresses.
+- **New installation**: deletes the stored devices and all DALI addresses. Then it performs a device scan that addresses the devices on the DALI bus from scratch and stores the device information.
 
 {% warning %}
 
