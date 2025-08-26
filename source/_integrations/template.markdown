@@ -6,6 +6,7 @@ ha_category:
   - Binary sensor
   - Button
   - Cover
+  - Event
   - Fan
   - Helper
   - Image
@@ -30,6 +31,7 @@ ha_platforms:
   - binary_sensor
   - button
   - cover
+  - event
   - fan
   - image
   - light
@@ -58,6 +60,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Button](#button)
 - [Cover](#cover)
+- [Event](#event)
 - [Fan](#fan)
 - [Image](#image)
 - [Light](#light)
@@ -737,6 +740,59 @@ template:
 ```
 
 {% endraw %}
+
+## Event
+
+The template event platform allows you to create events with templates to define the state.
+
+{% raw %}
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - event:
+      - name: Scene Controller
+        device_class: button
+        event_type: "{{ states('input_select.scene_controller_button_press') }}"
+        event_types: "{{ ['single', 'double', 'hold'] }}"
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: event
+        event_type: zwave_js_notification
+        event_data:
+          node_id: 14
+    event:
+      - name: Lock Operation
+        event_type: "{{ trigger.event.data.event_label }}"
+        event_types: "{{ ['Keypad lock operation', 'Keypad unlock operation'] }}"
+```
+
+{% endraw %}
+
+{% configuration event %}
+event:
+  description: List of events
+  required: true
+  type: map
+  keys:
+    device_class:
+      description: Sets the [class of the device](/integrations/event/), changing the device state and icon that is displayed on the frontend.
+      required: false
+      type: string
+    event_type:
+      description: Template for the event's last fired event type.
+      required: true
+      type: template
+    event_types:
+      description: Template for the event's available event types.
+      required: true
+      type: template
+
+{% endconfiguration %}
 
 ## Fan
 

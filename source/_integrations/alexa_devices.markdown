@@ -49,8 +49,6 @@ This integration requires multifactor authentication using an authentication app
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-  country:
-    description: The country of your Amazon account.
   username:
     description: The email address of your Amazon account.
   password:
@@ -58,12 +56,6 @@ This integration requires multifactor authentication using an authentication app
   otp:
     description: One-time password via Authenticator App.
 {% endconfiguration_basic %}
-
-{% note %}
-When trying to set up the integration, the form may show the message "Cannot connect".
-This means that the specified country may need a special setting.
-Open a issue with all details to investigate
-{% endnote %}
 
 ## Examples
 
@@ -105,18 +97,6 @@ This integration requires multifactor authentication using an authentication app
 ## Troubleshooting
 
 ### Can’t set up the integration
-
-#### Symptom: "Wrong Country"
-
-When trying to set up the integration, the form shows the message "Wrong Country".
-
-##### Description
-
-This means that the settings in your Amazon account are not aligned to the country you specified.
-To fix it, please go to <https://www.amazon.XX/hz/mycd/preferences/myx#/home/settings/payment> (replace XX with your country domain. For example **co.uk**):
-
-- "Kindle payment": check your default address is in your country
-- "Country/Region": check your country
 
 #### Symptom: "Not found"
 

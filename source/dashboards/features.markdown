@@ -96,6 +96,27 @@ modes:
   type: list
 {% endconfiguration %}
 
+## Bar gauge
+
+Widget that displays the state of a numeric [sensor](/integrations/sensor), with unit of measurement %, as a horizontal bar.
+
+<p class='img'>
+  <img src='/images/dashboards/features/bar-gauge.png' alt='Screenshot of the tile card with the bar gauge feature'>
+  Screenshots of the tile card with the bar gauge feature
+</p>
+
+```yaml
+features:
+  - type: "bar-gauge"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`bar-gauge`"
+  type: string
+{% endconfiguration %}
+
 ## Button
 
 Widget that displays buttons to control [button](/integrations/button) or [script](/integrations/script).
@@ -628,6 +649,27 @@ features:
 type:
   required: true
   description: "`lock-open-door`"
+  type: string
+{% endconfiguration %}
+
+## Media player playback controls
+
+Widget that displays playback controls for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_playback.png' alt='Screenshot of the tile card with media player playback feature'>
+  Screenshot of the tile card with media player playback feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-playback"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-playback`"
   type: string
 {% endconfiguration %}
 

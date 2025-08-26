@@ -128,6 +128,7 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Cover](/integrations/cover.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Light](/integrations/light.mqtt/)
+- [Lock](/integrations/lock.mqtt/)
 - [Notify](/integrations/notify.mqtt/)
 - [Sensor](/integrations/sensor.mqtt/)
 - [Switch](/integrations/switch.mqtt/)

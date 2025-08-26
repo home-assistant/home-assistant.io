@@ -46,7 +46,20 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 
 ## Events
 
-**Probe X**: The most recently triggered alarm or event on the probe. The following event types are expected: `alarm`, `acknowledge`, `disconnected`.
+**Probe X**: The most recently triggered alarm or event on the probe. The following event types are expected:
+
+- `ambient_cool_down` - The ambient temperature returned to normal.
+- `ambient_low_temp` - The ambient temperature is too low.
+- `ambient_over_heat` - The ambient temperature is too high.
+- `device_high_temp` - Internal temperature too high.
+- `device_low_power` - Power is low.
+- `ignition_failure` - Ignition failed.
+- `probe_above_maximum` - Temperature is above the allowed range.
+- `probe_acknowledge` - Temperature probe alarm was acknowledged by user.
+- `probe_alarm` - Temperature has reached it's set temperature target.
+- `probe_below_minimum` - Temperature is below the allowed range.
+- `probe_disconnected` - Probe disconnected from device.
+- `probe_timer_alarm` - Timer alarm triggered (Note. some device will instead trigger `probe_alarm`).
 
 ## Sensors
 

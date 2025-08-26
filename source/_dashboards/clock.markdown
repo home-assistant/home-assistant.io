@@ -29,6 +29,8 @@ Clock Size:
   description: Adjusts the size of the text allowing a wider range of use with different types of dashboards. Defaults to small.
 Display Seconds:
   description: Shows seconds alongside the clock, providing the time format is in a 12-hour format.
+No Background:
+  description: Removes the background of the clock card.
 Time Format:
   description: Allows the time format to be changed on a per-card level. Defaults to the user profile setting.
 Time Zone:
