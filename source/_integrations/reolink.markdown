@@ -246,8 +246,8 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Recording packing time
 - Pre-recording frame rate*
 - Post-recording time
-- Clear encoding*
-- Fluent encoding*
+- Clear encoding* (h264, h265)
+- Fluent encoding* (h264, h265)
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
