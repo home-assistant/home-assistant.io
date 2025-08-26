@@ -2193,7 +2193,7 @@ template:
   - triggers:
       - trigger: time
         at: "00:00:00"
-    vacuum:
+    update:
       - name: Frigate
         installed_version: "{{ states('sensor.installed_version') }}"
         latest_version: "{{ states('sensor.latest_version') }}"
@@ -2210,6 +2210,7 @@ update:
   type: map
   keys:
     backup:
+      default: false
       description: Enable or disable the `automatic backup before update` option in the update repair. When disabled, the `backup` variable will always provide `False` during the `install` action and it will not accept the `backup` option.
       required: false
       type: boolean
@@ -2243,6 +2244,7 @@ update:
       required: false
       type: template
     specific_version:
+      default: false
       description: Enable or disable using the `version` variable with the `install` action. When disabled, the `specific_version` variable will always provide `None` in the `install` actions.
       required: false
       type: boolean
