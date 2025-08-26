@@ -138,6 +138,8 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Floodlight turn on brightness+
 - Infrared light brightness
 - Volume (Camera)
+- Volume speek (Camera)
+- Volume doorbell (Camera)
 - Alarm volume (Home Hub)
 - Message volume (Home Hub)
 - Chime volume
