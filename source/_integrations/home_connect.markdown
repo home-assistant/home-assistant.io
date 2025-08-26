@@ -262,7 +262,7 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
   - **Description**: Defines the target cavity temperature, which will be held by the oven.
   - **Availability**: Oven
 - **Fan speed percentage**
-  - **Description**: Setting to adjust the fan speed mode to Manual or Automatic.
+  - **Description**: Setting to adjust the venting levels of the air conditioner as percentage.
   - **Availability**: Air conditioner
 
 {% enddetails %}
@@ -1052,8 +1052,8 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `device_id` | no | ID of the device. |
 | `affects_to` | no | Selects if the program affected by the action should be the active or the selected program. |
 | `program` | yes | Program to select. If set, it will start or select a program depending on `affects_to`. |
-| `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_percentage`| yes | Setting to adjust the fan speed mode to Manual or Automatic.
-| `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_mode` | yes | Setting to adjust the venting levels of the air conditioner as percentage.|
+| `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_percentage` | yes | Setting to adjust the venting levels of the air conditioner as percentage. |
+| `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_mode` | yes | Setting to adjust the fan speed mode to Manual or Automatic. |
 | `consumer_products_cleaning_robot_option_reference_map_id` | yes | Defines which reference map is to be used. |
 | `consumer_products_cleaning_robot_option_cleaning_mode` | yes | Defines the favoured cleaning mode. |
 | `consumer_products_coffee_maker_option_bean_amount` | yes | Describes the amount of coffee beans used in a coffee machine program. |
