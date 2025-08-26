@@ -264,7 +264,7 @@ To play a ringtone on a Reolink chime, the `reolink.play_chime` action can be us
 
 ### Siren entities
 
-If the camera supports a siren, a siren entity will be created.
+If the camera or hub supports a siren, a siren entity will be created.
 When using the siren turn-on action, the siren will continue to sound until the siren turn-off action is called.
 
 In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on action supports setting a volume and a duration (no turn-off action call is needed in that case).
