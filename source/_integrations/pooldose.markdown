@@ -15,9 +15,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `PoolDose` integration connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
+The PoolDose integration connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
 
-This integration uses an undocumented local HTTP API, implemented in the PyPi project `python-pooldose`. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as configuration  parameters.
+This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as configuration  parameters.
 
 ## Prerequisites
 
@@ -29,10 +29,6 @@ This integration uses an undocumented local HTTP API, implemented in the PyPi pr
    2. Check availability of data.
    3. Deactivate the device password, i.e., set it to 0000.
 3. Optional: Block the device’s internet access to guarantee fully local operation and prevent potentially breaking firmware updates.
-
-{% include integrations/config_flow.md %}
-
-## Configuration options
 
 {% include integrations/option_flow.md %}
 
