@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_category:
   - Sensor
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_quality_scale: silver
 related:

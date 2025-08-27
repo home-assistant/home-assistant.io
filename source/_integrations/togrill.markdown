@@ -6,15 +6,15 @@ ha_config_flow: true
 ha_release: '2025.9'
 ha_category:
   - Event
-  - Sensor
   - Number
+  - Sensor
 ha_domain: togrill
 ha_bluetooth: true
 ha_platforms:
   - event
-  - sensor
   - number
-ha_integration_type: device
+  - sensor
+ha_integration_type: integration
 ha_codeowners:
   - '@elupus'
 ha_quality_scale: bronze

@@ -24,10 +24,10 @@ ha_domain: switchbot_cloud
 ha_platforms:
   - binary_sensor
   - button
-  - cover
   - climate
-  - light
+  - cover
   - fan
+  - light
   - lock
   - sensor
   - switch
