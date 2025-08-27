@@ -1787,7 +1787,7 @@ entity_category:
 
 ## Scene
 
-The KNX scene platform allows you to activate KNX scenes from Home Assistant and updates scene entities when the corresponding scene number is received on the KNX bus.
+The KNX scene platform allows you to activate KNX scenes and updates scene entities when the corresponding scene number is received on the KNX bus.
 
 ```yaml
 # Example configuration.yaml entry
