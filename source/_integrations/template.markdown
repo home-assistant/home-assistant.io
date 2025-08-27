@@ -180,7 +180,8 @@ Each entity platform has its own set of configuration options, but there are som
 template:
   - binary_sensor:
       # Common configuration options
-    - unique_id: my_unique_sensor_id
+    - default_entity_id: binary_sensor.my_alert
+      unique_id: my_unique_sensor_id
       variables:
         my_entity: sensor.watts
       availability: "{{ my_entity | has_value }}"
@@ -199,6 +200,10 @@ template:
     required: false
     type: template
     default: true
+  default_entity_id:
+    description: Use `default_entity_id` instead of name for automatic generation of the entity id. E.g. `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id will update during restart or reload if the entity id is available.  If the entity id already exists, the entity id will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
+    required: false
+    type: string
   icon:
     description: Defines a template for the icon of the entity.
     required: false
@@ -211,10 +216,8 @@ template:
     description: Defines a template to get the name of the entity.
     required: false
     type: template
-  object_id:
-    description: Use `object_id` instead of name for automatic generation of the entity id.  When used without a `unique_id`, the entity id will update during restart or reload if the entity id is available.  If the entity id already exists, the entity id will be created with a number at the end. When used with a `unique_id`, the `object_id` is only used when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   unique_id:
-    description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+    description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.  Changing the `entity_id` from the web interface will overwrite the value in `default_entity_id`.
     required: false
     type: string
   variables:
