@@ -31,6 +31,8 @@ For a quick introduction on how to get started with Android TV Remote, check out
 {% configuration_basic %}
 Configure Applications List:
   description: Here you can define applications where the keys are app IDs and the values are app names and icons that will be displayed in the UI.
+Enable IME:
+  description: Enable this option to be able to get the current app name and send text as keyboard input. Disable it for devices that show 'Use keyboard on mobile device screen' instead of the on-screen keyboard.
 {% endconfiguration_basic %}
 
 ## Media player
@@ -581,3 +583,8 @@ cards:
 - If you are not able to connect to the Android TV device, or are asked to pair it again and again, try force-stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to **Settings** > **Apps** > **Show system apps**. Then, select **Android TV Remote Service** > **Storage** > **Clear storage**. You will have to pair again.
 - Some onscreen keyboards enabled by TV manufacturers do not support concurrent virtual and onscreen keyboard use. This presents whenever a text field is selected, such as "search" where a constant **use the keyboard on your mobile device** will show, preventing you from opening the onscreen keyboard to type. This can be overcome by either disabling your 3rd party keyboard and using the default Gboard keyboard or by deselecting **Enable IME** in the **Configure** page of the integration.
 - If you can't turn on your Nvidia Shield device, go to **Settings** > **Remotes & accessories** > **Simplified wake buttons** and disable the following options: **SHIELD 2019 Remote: Wake on power and Netflix buttons only** and **Controllers: Wake on NVIDIA or logo buttons only**.
+
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}

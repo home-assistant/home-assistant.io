@@ -16,32 +16,30 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The Jewish Calendar (`jewish_calendar`) {% term integration %} displays various information related to the Jewish Calendar as various sensors.
+The Jewish Calendar {% term integration %} exposes Jewish calendar information through multiple sensors.
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
 
-### Language
+Language:
+  description: The language to be used for textual sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishrei 5779). Valid options are `english` and `hebrew`. Default value is `english`.
 
-Default: English
-Whether to represent the sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishrei 5779). Valid options are 'english' and 'hebrew'.
+Diaspora:
+  description: Consider the location as diaspora (חוץ לארץ) for calculation of the weekly portion and holidays. By default it will consider the location as Israel (One day Yom Tov), setting it to true will show a second day Yom Tov.
 
-### Diaspora
+Latitude, Longitude, Time Zone and Elevation:
+  description: Allows you to override the default location information provided by Home Assistant for the calculations.
+{% endconfiguration_basic %}
 
-Default: False
-Consider the location as diaspora (חוץ לארץ) for calculation of the weekly portion and holidays. By default it will consider the location as Israel (One day Yom Tov), setting it to true will show a second day Yom Tov.
+## Advanced Options
 
-### Minutes before sunset for candle lighting
+{% configuration_basic %}
+Minutes before sunset for candle lighting:
+  description: How many minutes before sunset is considered candle-lighting time. In Israel, this is usually 20, 30, or 40 minutes depending on your location. Outside of Israel, it's customary to use either 18 or 24. *The default is set to 18 minutes.*
 
-Default: 18 minutes
-This defines how many minutes before sunset is considered candle-lighting time. In Israel, this is usually 20/30/40 depending on your location. Outside of Israel, you probably want to use 18/24.
-
-### Minutes after sunset for Havdalah
-
-By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static offset past the time of sunset.
-
-### Latitude, Longitude, Time Zone and Elevation
-
-Allows you to override the default location information provided by Home Assistant for the calculations.
+Minutes after sunset for Havdalah:
+  description: By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static time offset relative to sunset.
+{% endconfiguration_basic %}
 
 ## Sensor list
 

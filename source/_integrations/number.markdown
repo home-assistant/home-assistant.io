@@ -40,7 +40,7 @@ The following device classes are supported for numbers:
 
 - **None**: Generic number. This is the default and doesn't need to be set.
 - **absolute_humidity**: Absolute humidity in g/m³, mg/m³.
-- **apparent_power**: Apparent power in VA.
+- **apparent_power**: Apparent power in mVA or VA.
 - **aqi**: Air Quality Index (unitless).
 - **area**: Area in m², cm², km², mm², in², ft², yd², mi², ac, ha
 - **atmospheric_pressure**: Atmospheric pressure in cbar, bar, hPa, mmHg, inHg, kPa, mbar, Pa or psi
@@ -77,7 +77,7 @@ The following device classes are supported for numbers:
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d or mm/h
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg or psi
 - **reactive_energy**: Reactive energy in varh or kvarh
-- **reactive_power**: Reactive power in var or kvar
+- **reactive_power**: Reactive power in mvar, var, or kvar
 - **signal_strength**: Signal strength in dB or dBm
 - **sound_pressure**: Sound pressure in dB or dBA
 - **speed**: Generic speed in ft/s, in/d, in/h, in/s, km/h, kn, m/s, mph, mm/d, or mm/s
@@ -87,7 +87,7 @@ The following device classes are supported for numbers:
 - **volatile_organic_compounds_parts**: Ratio of volatile organic compounds in ppm or ppb
 - **voltage**: Voltage in V, mV, µV, kV, MV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
-- **volume_flow_rate**: Volume flow rate in m³/h, ft³/min, L/min, gal/min, or mL/s
+- **volume_flow_rate**: Volume flow rate in m³/h, m³/min, m³/s, ft³/min, L/h, L/min, L/s, gal/min, or mL/s
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
