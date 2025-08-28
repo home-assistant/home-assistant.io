@@ -36,6 +36,11 @@ This integration only supports devices running airOS 8 and already configured us
 
 {% include integrations/config_flow.md %}
 
+{% important %}
+SSL is enabled by default. Other options are not shown by default; to change them, enable **Advanced mode** in your [User profile](https://my.home-assistant.io/redirect/profile).
+{% endimportant %}
+
+
 ## Supported devices
 
 ### airOS firmware 8
