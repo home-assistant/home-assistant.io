@@ -39,7 +39,7 @@ While many devices can be updated without active scans, some entities, including
 
 The INKBIRD integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-Most devices require active scan to be discovered.
+Most devices require active scans to be discovered.
 
 {% include integrations/config_flow.md %}
 
