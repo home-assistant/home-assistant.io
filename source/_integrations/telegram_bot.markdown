@@ -398,11 +398,11 @@ Edit a previously sent message in a conversation.
 
 ### Action `telegram_bot.edit_message_media`
 
-Edit a previously sent message in a conversation.
+Edit a previously sent message media in a conversation.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the photo. Required if you have multiple Telegram bots.|
+| `config_entry_id`      | yes      | The config entry representing the Telegram bot to edit the message media. Required if you have multiple Telegram bots.|
 | `message_id`           | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `chat_id`              | no       | The chat_id where to edit the message media.                                                                                                                                                                                                                                                                    |
 | `timeout`              | yes      | Timeout for sending the media in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
