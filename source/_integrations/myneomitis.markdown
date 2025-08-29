@@ -15,23 +15,23 @@ ha_platforms:
   - climate
   - select
   - sensor
-ha_integration_type: cloud
+ha_integration_type: hub
 ---
 
-This Home Assistant integration has been developed specifically to enable management of connected devices from the MyNeomitis application.
+# MyNeomitis for Home Assistant
 
-It provides complete control over temperature and operating modes, as well as access to weekly device programming via the Home Assistant interface.
+### Manage your MyNeomitis-connected devices directly from Home Assistant:
 
-## Radiators (Climate)
+- Control temperature and change operating modes.
+- Let’s you view and edit weekly schedules from the Home Assistant Interface.
+- Allows you to monitor the energy consumption of compatible products.
 
-### Compatible models:
+### Supported heating & energy management devices:
 
-- Myneo Fluid
-- Efluid
-- Myneo stats
-- Ebath
-- Myneo Link
-
-## Energy consumption (Sensor)
-
-Allows you to monitor the energy consumption of compatible products.
+- Eftair towel rails with blower
+- Ebath towel rails
+- Estyle radiant panel heater
+- Efluid radiator
+- Myneo Fluid radiator
+- Myneo stat thermostat
+- Myneo Link smart Wi-Fi switch
