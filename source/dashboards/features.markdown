@@ -130,6 +130,8 @@ Widget that displays buttons to control [button](/integrations/button) or [scrip
 features:
   - type: "button"
     action_name: "Click the button"
+    data:
+      variable: some_value
 ```
 
 {% configuration features %}
@@ -142,6 +144,10 @@ action_name:
   type: string
   description: Text inside the button.
   type: string
+data:
+  required: false
+  type: map
+  description: Used to pass data to script
 {% endconfiguration %}
 
 ## Climate fan modes
