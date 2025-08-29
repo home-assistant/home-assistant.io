@@ -5,9 +5,11 @@
         {% include custom/welcome.html %}
       </div>
       <div class="hero-demo grid__item flex__item two-fifths lap-one-whole palm-one-whole" style="text-align: center;">
-        <iframe id="HAdemo" title="Home Assistant Demo"
-          data-src="https://demo.home-assistant.io/?frontpage">
-        </iframe>
+        <div class="demo-frame-wrapper">
+          <img src="/images/app-loading.webp">
+          <iframe id="HAdemo" title="Home Assistant Demo" data-src="https://demo.home-assistant.io/?frontpage">
+          </iframe>
+        </div>
 
         <a id="HAdemoScreenshot" href='https://demo.home-assistant.io/' target='_blank'>
           <img src="/images/frontpage/hero_screenshot.png" alt="Home Assistant screenshot" fetchpriority="high">
