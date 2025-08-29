@@ -27,15 +27,15 @@ The Squeezebox integration allows you to control music players from the [Lyrion 
 
 This integration connects to an existing <abbr title="Lyrion Music Server">LMS</abbr> server and provides both media players and sensors for monitoring server status.
 
-The Squeezebox music player ecosystem, which can be controlled through this integration, includes hardware audio players from Logitech, including [Squeezebox 3rd Generation](https://lyrion.org/players-and-controllers/squeezebox-classic/), [Squeezebox Boom](https://lyrion.org/players-and-controllers/squeezebox-boom/), [Squeezebox Receiver](https://lyrion.org/players-and-controllers/squeezebox-receiver/), [Transporter](https://lyrion.org/players-and-controllers/transporter/), [Squeezebox2](https://lyrion.org/players-and-controllers/squeezebox2/), [Squeezebox](https://lyrion.org/players-and-controllers/squeezebox1/) and [SLIMP3](https://lyrion.org/players-and-controllers/SLIMP3/), and many software emulators like [Squeezelite](https://sourceforge.net/projects/lmsclients/files/squeezelite/), [SqueezeSlave](https://sourceforge.net/projects/lmsclients/files/squeezeslave/), [SoftSqueeze](https://sourceforge.net/projects/lmsclients/files/softsqueeze/) and [SqueezePlay](https://sourceforge.net/projects/lmsclients/files/squeezeplay/).
+The Squeezebox music player ecosystem, which can be controlled through this integration, includes [hardware audio players](https://lms-community.github.io/players-and-controllers/hardware-comparison/) from Logitech, including [Squeezebox 3rd Generation](https://lyrion.org/players-and-controllers/squeezebox-classic/), [Squeezebox Boom](https://lyrion.org/players-and-controllers/squeezebox-boom/), [Squeezebox Receiver](https://lyrion.org/players-and-controllers/squeezebox-receiver/), [Transporter](https://lyrion.org/players-and-controllers/transporter/), [Squeezebox2](https://lyrion.org/players-and-controllers/squeezebox2/), [Squeezebox](https://lyrion.org/players-and-controllers/squeezebox1/) and [SLIMP3](https://lyrion.org/players-and-controllers/SLIMP3/), and many software emulators like [Squeezelite](https://sourceforge.net/projects/lmsclients/files/squeezelite/), [SqueezeSlave](https://sourceforge.net/projects/lmsclients/files/squeezeslave/), [SoftSqueeze](https://sourceforge.net/projects/lmsclients/files/softsqueeze/) and [SqueezePlay](https://sourceforge.net/projects/lmsclients/files/squeezeplay/).
 
 ## Supported devices
 
-The integration supports any [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/) and both Lyrion Music Servers and Logitech Media Servers.
+The integration supports any Squeezebox compatible [hardware or software players](https://lyrion.org/players-and-controllers/) and both Lyrion Music Servers and Logitech Media Servers.
 
 ## Prerequisites
 
-1. One or more [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/).
+1. One or more Squeezebox compatible [hardware or software players](https://lyrion.org/players-and-controllers/).
 2. One or more [Lyrion Music Servers or Logitech Media Servers (LMS)](https://lyrion.org/getting-started) with the Squeezebox players connected to these servers.
 
 {% include integrations/config_flow.md %}

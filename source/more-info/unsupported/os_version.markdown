@@ -9,6 +9,10 @@ Supervisor considers Home Assistant Operating System older than the last 4 major
 releases as unsupported. We generally recommend to always update to the latest
 Home Assistant Operating System.
 
+On an unsupported Home Assistant OS, Supervisor stops refreshing its update
+information. This means you will no longer receive updates for any component,
+including Home Assistant Core or Add-on updates.
+
 ## The solution
 
 To resolve this issue, update your Home Assistant Operating System version. Go

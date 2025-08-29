@@ -582,7 +582,7 @@ release once a week, aiming for Friday.
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@wedsa5]: https://github.com/wedsa5
 
-## Release 2025.8.3 - August 21
+### 2025.8.3 - August 21
 
 - Bump to zcc-helper==3.6 ([@markhannon] - [#150608]) ([zimi docs])
 - fix(amberelectric): add request timeouts ([@JP-Ellis] - [#150613]) ([amberelectric docs])
