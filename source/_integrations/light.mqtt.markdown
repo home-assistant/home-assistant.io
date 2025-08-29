@@ -1266,7 +1266,7 @@ mqtt:
 
 This example comes from a configuration of Shelly RGBW Bulb working in White mode.
 `max_mireds` and `min_mireds` set color temperature boundaries to 3000K - 6500K. Notice the same limits are applied in `command_on_template`, but in kelvin units this time. It's due to conversion from mired to kelvin which causes exceeding boundary values accepted by the device.
-The code also ensures bi-directional conversion of brightness scale between 1-100 (required by the device) and 1-255 (required by Home Assistant). Note that a Home Assistant ignores a zero brightness value. So when the light is off, it should publish an off state instead.
+The code also ensures bi-directional conversion of brightness scale between 1-100 (required by the device) and 1-255 (required by Home Assistant). Note that Home Assistant ignores a zero brightness value. So when the light is off, it should publish an off state instead.
 Add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
