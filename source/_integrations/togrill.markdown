@@ -79,7 +79,6 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 
 {% endtip %}
 
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
