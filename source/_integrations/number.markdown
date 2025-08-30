@@ -40,7 +40,7 @@ The following device classes are supported for numbers:
 
 - **None**: Generic number. This is the default and doesn't need to be set.
 - **absolute_humidity**: Absolute humidity in g/m³, mg/m³.
-- **apparent_power**: Apparent power in mVA or VA.
+- **apparent_power**: Apparent power in mVA, VA or kVA.
 - **aqi**: Air Quality Index (unitless).
 - **area**: Area in m², cm², km², mm², in², ft², yd², mi², ac, ha
 - **atmospheric_pressure**: Atmospheric pressure in cbar, bar, hPa, mmHg, inHg, kPa, mbar, Pa or psi
