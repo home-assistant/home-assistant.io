@@ -391,7 +391,7 @@ Send a chat action. Use it to notify the user with the relevant "typing" action 
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `config_entry_id`          | yes      | The config entry representing the Telegram bot to send the message. Required if you have multiple Telegram bots.|
 | `target`                   | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
-| `chat_action`               | yes      | Chat action to be sent: `typing`, `upload_photo`, `record_video`, `upload_video`, `record_voice`, `upload_voice`, `upload_document`, `choose_sticker`, `find_location`, `record_video_note`, `upload_video_note`.         |
+| `chat_action`               | no      | Chat action to be sent: `typing`, `upload_photo`, `record_video`, `upload_video`, `record_voice`, `upload_voice`, `upload_document`, `choose_sticker`, `find_location`, `record_video_note`, `upload_video_note`.         |
 
 ### Action `telegram_bot.edit_message`
 
