@@ -951,16 +951,26 @@ covers:
         input:
           description: "Input register."
     state_open:
-      description: "A value in `status_register` or `register` representing an open cover.
-        If your configuration uses the `register` attribute, this value will be written into the holding register to open the cover."
+      description: A value in `status_register` or `register` representing an open cover.
       required: false
       default: 1
       type: integer
+    command_open:
+      description: "A value in `status_register` or `register` that opens the cover.
+        If your configuration uses the `register` attribute, this value will be written into the holding register to open the cover."
+      required: false
+      default: same as `state_open`
+      type: integer
     state_closed:
-      description: "A value in `status_register` or `register` representing a closed cover.
-        If your configuration uses the `register` attribute, this value will be written into the holding register to close the cover."
+      description: A value in `status_register` or `register` representing a closed cover.
       required: false
       default: 0
+      type: integer
+    command_close:
+      description: "A value in `status_register` or `register` that closes the cover.
+        If your configuration uses the `register` attribute, this value will be written into the holding register to close the cover."
+      required: false
+      default: same as `state_closed`
       type: integer
     state_opening:
       description: "A value in `status_register` or `register` representing an opening cover.
