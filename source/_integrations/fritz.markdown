@@ -186,7 +186,7 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 Check if one of the following cases applies:
 
 - You see a device as still present, even if it is offline or disconnected for more than the configured [consider home](#consider-home) seconds.
-- You're using additional network equipment like a network switch or Wi-Fi access point other than a Fritz!Repeater or other FRITZ! components, but not configured as a [mesh](https://en.fritz.com//service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) in your home network.
+- You're using additional network equipment like a network switch or Wi-Fi access point other than a Fritz!Repeater or other FRITZ! components, but not configured as a [mesh](https://en.fritz.com/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) in your home network.
 
 If one of the above cases applies to your setup, try [enabling the old discovery method](#enable-old-discovery-method) in the [integration options](#integration-options). This might resolve the issue.
 
