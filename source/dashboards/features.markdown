@@ -119,7 +119,7 @@ type:
 
 ## Button
 
-Widget that displays buttons to control [button](/integrations/button), [input_button](/integrations/input_button), [scenen](/integrations/scene) or [script](/integrations/script).
+Widget that displays buttons to control [button](/integrations/button), [input_button](/integrations/input_button), [scene](/integrations/scene) or [script](/integrations/script).
 
 <p class='img'>
   <img src='/images/dashboards/features/button.png' alt='Screenshot of the tile card with the button feature'>
