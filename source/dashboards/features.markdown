@@ -119,7 +119,7 @@ type:
 
 ## Button
 
-Widget that displays buttons to control [button](/integrations/button) or [script](/integrations/script).
+Widget that displays buttons to control [button](/integrations/button), [input_button](/integrations/input_button), [scenen](/integrations/scene) or [script](/integrations/script).
 
 <p class='img'>
   <img src='/images/dashboards/features/button.png' alt='Screenshot of the tile card with the button feature'>
@@ -131,7 +131,8 @@ features:
   - type: "button"
     action_name: "Click the button"
     button_action:
-      action: script.some_script
+      action: perform-action
+      perform_action: script.some_script
       data:
         variable: some_value
 ```
@@ -148,7 +149,7 @@ action_name:
   type: string
 button_action:
   required: false
-  description: Action taken on button tap. See [action documentation](/dashboards/actions/). By default, it will follow the action related to specified "`entity_id`".
+  description: Action taken on button tap. See [action documentation](/dashboards/actions/). By default, it will follow the action related to specified "`entity_id`" of the tile card.
   type: map
 {% endconfiguration %}
 
