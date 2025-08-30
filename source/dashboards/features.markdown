@@ -130,7 +130,7 @@ Widget that displays buttons to control [button](/integrations/button) or [scrip
 features:
   - type: "button"
     action_name: "Click the button"
-    perform_action:
+    button_action:
       action: script.some_script
       data:
         variable: some_value
@@ -146,7 +146,7 @@ action_name:
   type: string
   description: Text inside the button.
   type: string
-perform_action:
+button_action:
   required: false
   description: Action taken on button tap. See [action documentation](/dashboards/actions/). By default, it will follow the action related to specified "`entity_id`".
   type: map
