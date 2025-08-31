@@ -23,7 +23,9 @@ The renderer uses [Marked.js](https://marked.js.org), which supports [several sp
 
 ## Actions
 
-**Be aware that when actions are configured, clicking links in the Markdown content will trigger the card action instead of following the link.**
+{% note %}
+Be aware that when actions are configured, clicking links in the Markdown content will trigger the card action instead of following the link.
+{% endnote %}
 
 `tap_action`, `hold_action` and `double_tap_action` are supported restricted to actions `navigate`, `url`, `perform-action`, `assist`, and `none` as there is no entity for the Markdown card.
 
