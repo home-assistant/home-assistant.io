@@ -23,7 +23,7 @@ The renderer uses [Marked.js](https://marked.js.org), which supports [several sp
 
 ## Actions
 
-`tap_action`, `hold_action` and `double_tap_action` are supported restricted to actions `navigate`, `url`, `perform-action`, `assist`, and `none` as there is no entity for the markdown card.
+`tap_action`, `hold_action` and `double_tap_action` are supported restricted to actions `navigate`, `url`, `perform-action`, `assist`, and `none` as there is no entity for the Markdown card.
 
 ## YAML configuration
 
@@ -64,7 +64,7 @@ show_empty:
   type: boolean
 text_only:
   required: false
-  description: Display the card without border, background, padding and title. 
+  description: Display the card without border, background, padding and title.
   default: false
   type: boolean
 tap_action:
