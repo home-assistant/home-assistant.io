@@ -119,7 +119,7 @@ type:
 
 ## Button
 
-Widget that displays buttons to control [button](/integrations/button) or [script](/integrations/script).
+Widget that displays buttons to control [button](/integrations/button), [input_button](/integrations/input_button), [scene](/integrations/scene) or [script](/integrations/script).
 
 <p class='img'>
   <img src='/images/dashboards/features/button.png' alt='Screenshot of the tile card with the button feature'>
@@ -130,6 +130,11 @@ Widget that displays buttons to control [button](/integrations/button) or [scrip
 features:
   - type: "button"
     action_name: "Click the button"
+    button_action:
+      action: perform-action
+      perform_action: script.some_script
+      data:
+        variable: some_value
 ```
 
 {% configuration features %}
@@ -142,6 +147,10 @@ action_name:
   type: string
   description: Text inside the button.
   type: string
+button_action:
+  required: false
+  description: Action taken on button tap. See [action documentation](/dashboards/actions/). By default, it will follow the action related to specified "`entity_id`" of the tile card.
+  type: map
 {% endconfiguration %}
 
 ## Climate fan modes
