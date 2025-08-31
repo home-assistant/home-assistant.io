@@ -21,6 +21,10 @@ The renderer uses [Marked.js](https://marked.js.org), which supports [several sp
 
 {% include dashboard/edit_dashboard.md %}
 
+## Actions
+
+`tap_action`, `hold_action` and `double_tap_action` are supported restricted to actions `navigate`, `url`, `perform-action`, `assist`, and `none` as there is no entity for the markdown card.
+
 ## YAML configuration
 
 The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
@@ -63,6 +67,18 @@ text_only:
   description: Display the card without border, background, padding and title. 
   default: false
   type: boolean
+tap_action:
+  required: false
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). Does nothing By default, restricted to `navigate`, `url`, `perform-action`, `assist`, and `none` actions
+  type: map
+hold_action:
+  required: false
+  description: Action taken on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action). Restricted to `navigate`, `url`, `perform-action`, `assist`, and `none` actions
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action). Restricted to `navigate`, `url`, `perform-action`, `assist`, and `none` actions
+  type: map
 {% endconfiguration %}
 
 ### Example
