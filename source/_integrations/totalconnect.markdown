@@ -62,6 +62,17 @@ Give the user access to your Location, along with a user code, usually a 4 digit
 
 The integration provides an alarm control panel for each Total Connect location. It uses the name of your location from Total Connect.  For example, if your location name in Total Connect is "Home", Home Assistant will use `alarm_control_panel.home`.
 
+Most TotalConnect alarm panels use different wording than Home Assistant alarm panels. The table below shows the differences.
+
+| Panel term         | Home Assistant term | Notes                                          |
+|------------------------|----------|------------------------------------------------------|
+| Stay            | Home       |     |
+| Stay Night            | Night       |     |
+| Stay Instant            | Night       | For Vista and most older panels where there is no Stay Night, but Stay Instant is functionally equivalent to Stay Night |
+| Stay Instant            | Home       | For ProSeries and most newer panels where Stay Instant is separated from Stay Night |
+
+If your alarm is not represented properly, see the [Unknown](#unknown-resultcode-armingstate-zonetype-or-zonestatus) section and submit an issue.
+
 ## Binary sensor
 
 The integration provides a binary sensor for each Total Connect zone. To see faulted zones in Home Assistant, your Total Connect account must have "Sensor Activities" enabled. Your alarm monitoring company may charge an extra fee to enable this. If available, these can be found in the Total Connect 2 web portal at **Notifications** -> **Sensor Activities**. Alternately, they can be found in the Total Connect mobile app at **More** -> **Settings** -> **Notifications** -> **Sensor Activities**. Enable each zone you want to monitor. Unmonitored zones will display as `Closed` in Home Assistant.
