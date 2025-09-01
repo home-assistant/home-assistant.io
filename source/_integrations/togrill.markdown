@@ -46,7 +46,25 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 |----------------------------------|--------|
 | Rubicson - BBQ probe thermometer | Pro-05 |
 
-## Events
+## Main entities
+
+### Sensors
+
+- **Battery**: The current battery level of the device.
+
+### Switches
+
+- **Control active**: The device only support a single connection at a time. If you intend to use the normal phone application as the normal means of control, this should be disabled. You can connect the device manually using the `Control active` switch entity.
+
+### Numbers
+
+- **Alarm interval**: The interval in minutes between successive alarms.
+
+## Probe entities
+
+Each probe connected to the main device will be represented as a sub-device connected to the main device.
+
+### Events
 
 **Event**: The most recently triggered alarm or event on the probe. The following event types are expected:
 
@@ -63,22 +81,21 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 - `probe_disconnected` - Probe disconnected from device.
 - `probe_timer_alarm` - Timer alarm triggered (Note. some device will instead trigger `probe_alarm`).
 
-## Sensors
+### Sensors
 
-**Temperature**: The current temperature of the given temperature probe
-**Battery**: The current battery level of the device.
+- **Temperature**: The current temperature of the given temperature probe
+- **Battery**: The current battery level of the device.
 
-## Select
+### Select
 
-**Grill type**: The meat that is currently being measured.
-**Taste**: The taste wanted when finished.
+- **Grill type**: The meat that is currently being measured.
+- **Taste**: The taste wanted when finished.
 
-## Numbers
+### Numbers
 
-**Target temperature**: The target temperature of the given temperature probe. Set value to 0 to disable target alarm.
-**Minimum temperature**: The minimum temperature the grill probe is allowed to reach. Set value to 0 to disable target alarm.
-**Maximum temperature**: The maximum temperature the grill probe is allowed to reach. Set value to 0 to disable target alarm.
-**Alarm interval**: The interval in minutes between successive alarms.
+- **Target temperature**: The target temperature of the given temperature probe. Set value to 0 to disable target alarm.
+- **Minimum temperature**: The minimum temperature the grill probe is allowed to reach. Set value to 0 to disable target alarm.
+- **Maximum temperature**: The maximum temperature the grill probe is allowed to reach. Set value to 0 to disable target alarm.
 
 {% tip %}
 
