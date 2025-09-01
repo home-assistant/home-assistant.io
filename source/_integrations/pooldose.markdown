@@ -26,7 +26,7 @@ This integration uses an undocumented local HTTP API. It provides live readings 
    2. Identify the IP address or hostname of the device.
 2. Browse to the IP address resp. hostname. Use HTTP and port 80.
    1. Log in to the web interface.
-   2. Check availability of data.
+   2. Verify that sensor data is displayed, such as water temperature or pH values shown as gauges.
    3. Deactivate the device password, i.e., set it to 0000.
 3. Optional: Block the device’s internet access to guarantee fully local operation and prevent potentially breaking firmware updates.
 
