@@ -31,19 +31,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
 2. To get a chat ID, send any message to the [GetIDs bot](https://t.me/getidsbot).
    - Then, enter `/start`. 
    - The bot will return your chat ID and the username.
-3. Create a [Telegram bot in Home Assistant](/integrations/telegram_bot):
-   - Paste this into your [configuration file](/docs/configuration/):
-   - Replace the `api_key` and the `allowed_chat_ids` with your data.
-  
-      ```yaml
-      # Telegram Bot
-      telegram_bot:
-        - platform: polling
-          api_key: "1117774004:EABQulCACdgkQOTN3hS_5HZwSwxDlekCixr"
-          allowed_chat_ids:
-            - 44441111
-      ```
-
+3. Create a [Telegram bot in Home Assistant](/integrations/telegram_bot).
 4. Create a notifier:
    - Paste this into your configuration file: 
    - Replace the `name` and the `chat_id` with your data.

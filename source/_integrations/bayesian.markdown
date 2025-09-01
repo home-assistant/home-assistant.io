@@ -19,43 +19,41 @@ related:
     title: Configuration file
 ---
 
-The `bayesian` binary sensor platform observes the state from multiple sensors. It uses [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem) to estimate the probability that an event is occurring given the state of the observed sensors. If the estimated posterior probability is above the `probability_threshold`, the sensor is `on`; otherwise, it is `off`.
+A `Bayesian` helper is a virtual binary sensor that determines its state based on the combination of multiple other sensors using probabilistic methods.
 
-This allows for the detection of complex events that may not be readily observable, e.g., cooking, showering, in bed, the start of a morning routine, etc. It can also be used to gain greater confidence about events that _are_ directly observable, but for which the sensors can be unreliable, e.g., presence.
+This approach enables the detection of complex events that are not directly or easily measurable, such as cooking, showering, being in bed, or starting a morning routine. Additionally, it can improve confidence and reliability in measurable events where sensors may be unreliable, such as some presence detectors.
+
+Bayesian works by applying [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem). It estimates the likelihood that a specific event is occurring based on the combination of the states of 'observed' sensors and a baseline, (`prior`) probability. When the calculated probability - known as a 'posterior' - exceeds the defined `probability_threshold`, the `bayesian` sensor will turn `on`; otherwise, it will be `off`.
+
+Both UI and YAML setups are supported, importantly YAML uses probabilities of `0` to `1` whereas the UI uses percentages, `0` to `100`.
 
 ## Theory
 
-A key concept in Bayes' Rule is the difference between the probability of the 'event given the observation' and the probability of the 'observation given the event'. In some cases, these probabilities will be similar. The probability that someone is in the room given that motion is detected is similar to the probability motion is detected given that someone is in the room when motion sensors are accurate. In other cases, the distinction is much more important. The probability one has just arrived home (the event) each time the front door contact sensor reports `open` (the observation) (p=0.2) is not the same as the probability the front door contact sensor reports `open` (the observation) when one comes home (the event) (p=0.999). This difference is because one opens the door several times a day for other purposes.
+A fundamental concept in Bayes' Rule is the distinction between the probability of an *event given an observation* and the probability of an *observation given an event*. These two probabilities are not interchangeable and must be considered separately. While they may be similar in some cases — for example, when motion sensors are accurate, the probability that someone is in the room *given* that motion is detected is often close to the probability that motion is detected *given* someone is in the room.
 
-In the configuration use the probability of the observation (the sensor state in question) given the event (the assumed state of the Bayesian binary_sensor).
+Now consider the above, but in a home that has cats. The probability that the room is human-occupied *given* that motion detected may be quite low (e.g. 20%, p=0.2) if the room is popular with the cats. However, the probability that motion is detected *given* that it is occupied by a human is high (e.g 95%, p = 0.95) if our motion sensor is accurate. Said succinctly, not all motion is human, but all humans move.
 
-## Estimating probabilities
+When configuring these conditional probabilities, define the probability of the sensor observation (e.g motion detected) *given* the thing you are trying to estimate (e.g human-occupancy of the room).
 
-1. Avoid `0` and `1`, these will mess with the odds and are rarely true - sensors fail.
-2. When using `0.99` and `0.001`. The number of `9`s and `0`s matters.
-3. Most probabilities will be time-based - the fraction of time something is true is also the probability it will be true.
-4. Use your Home Assistant history to help estimate the probabilities.
-   - `prob_given_true:` - Select the sensor in question over a time range when you think the `bayesian` sensor should have been `true`. `prob_given_true:` is the fraction of the time the sensor was in `to_state:`.
-   - `prob_given_false:` - Select the sensor in question over a time range when you think the `bayesian` sensor should have been `false`. `prob_given_false:` is the fraction of the time the sensor was in `to_state:`.
-5. Don't work backwards by tweaking `prob_given_true:` and `prob_given_false:` to give the results and behaviors you want, use #4 to try and get probabilities as close to the 'truth' as you can, if your behavior is not as expected consider adding more sensors or see #6.
-6. If your Bayesian sensor ends up triggering `on` too easily, re-check that the probabilities set and estimated make sense, then consider increasing `probability_threshold:` and vice-versa.
+{% include integrations/config_flow.md %}
 
-## Configuration
+Once you have created a Bayesian helper, you can add and edit 'observations' here:
+{% my integration badge domain="bayesian" %}
 
-To enable the Bayesian sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+To configure a YAML Bayesian sensor, add an entry using the following structure to your {% term "`configuration.yaml`" %} file.
+ {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
   - platform: bayesian
-    name: "Kitchen Occupied"
-    prior: 0.3
-    probability_threshold: 0.5
+    name: "Kitchen Occupied by Humans"
+    prior: 0.3 # The kitchen is occupied by humans about 30% of the time
+    probability_threshold: 0.5 # I care about false positives and false negatives equally
     observations:
-      - entity_id: "switch.kitchen_lights"
-        prob_given_true: 0.6
-        prob_given_false: 0.2
+      - entity_id: "binary_sensor.kitchen_motion"
+        prob_given_true: 0.95 # When humans are in the kitchen, the motion sensor detects them 95% of the time
+        prob_given_false: 0.33 # When no humans are in the kitchen, the cats trigger the motion sensor 33% of the time
         platform: "state"
         to_state: "on"
 ```
@@ -63,15 +61,15 @@ binary_sensor:
 {% configuration %}
 prior:
   description: >
-    The prior probability of the event (0 to 1). At any point in time
-    (ignoring all external influences) how likely is this event to be occurring?
+     The baseline probability of the event (0 to 1). At any given time
+     (if you knew nothing of the 'observations') how likely is this event to be occurring?
   required: true
   type: float
 probability_threshold:
   description: >
     The posterior probability at which the sensor should trigger to `on`.
     use higher values to reduce false positives (and increase false negatives)
-    Note: If the threshold is higher than the prior then the default state will be `off`
+    Note: If the threshold is higher than the `prior`, then the default state will be `off`
   required: false
   type: float
   default: 0.5
@@ -81,7 +79,7 @@ name:
   type: string
   default: Bayesian Binary Sensor
 unique_id:
-  description: An ID that uniquely identifies this bayesian entity. If two entities have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this Bayesian entity. If two entities have the same unique ID, Home Assistant will raise an exception.
   required: false
   type: string
 device_class:
@@ -109,19 +107,30 @@ observations:
       required: false
       type: string
     value_template:
-      description: Defines the template to be used, should evaluate to `true` or `false`. Required for `template`.
+      description: Defines the template to be used, should evaluate to `True` or `False`. Required for `template`.
       required: false
       type: template
     prob_given_true:
       description: >
-        Assuming the bayesian binary_sensor is `true`, the probability the entity state is occurring.
+        Assuming the Bayesian binary_sensor is `on`, the probability that the entity state is occurring.
       required: true
       type: float
     prob_given_false:
-      description: Assuming the bayesian binary_sensor is `false` the probability the entity state is occurring.
+      description: Assuming the Bayesian binary_sensor is `off`, the probability that the entity state is occurring.
       required: true
       type: float
 {% endconfiguration %}
+
+## Estimating probabilities
+
+1. Avoid `0` and `1`; these will mess with the odds and are rarely true—sensors fail.
+2. When using `0.99` and `0.001`, the number of `9`s and `0`s matters.
+3. Most probabilities will be time-based - the fraction of time something is true is also the probability it will be true.
+4. Use your Home Assistant history to help estimate the probabilities.
+   - **Probability when Bayesian sensor `on`** (`prob_given_true:`) - Select the sensor in question over a time range when you think the `bayesian` sensor should have been `on`. `prob_given_true:` is the fraction of the time the sensor was in `to_state:`.
+   - **Probability when Bayesian sensor `off`** (`prob_given_false:`) - Select the sensor in question over a time range when you think the `bayesian` sensor should have been `off`. `prob_given_false:` is the fraction of the time the sensor was in `to_state:`.
+5. Don't work backwards by tweaking `prob_given_true:` and `prob_given_false:` to force desired outcomes; use guideline #4 to estimate probabilities as accurately as possible. If the behavior still isn’t as expected, consider adding more sensors or see #6.
+6. If your Bayesian sensor ends up triggering `on` too easily, re-check that the probabilities make sense, then consider increasing `probability_threshold:` and vice versa.
 
 ## Full examples
 
@@ -215,7 +224,7 @@ binary_sensor:
 
 Lastly, an example illustrates how to configure Bayesian when there are more than two states of interest and several possible numeric ranges. When an entity can hold more than 2 values of interest (numeric ranges or states), then you may wish to specify probabilities for each possible value. Once you have specified more than one, Bayesian cannot infer anything about states or numeric values that are unspecified, like it usually does, so it is recommended that all possible values are included. As above, the `prob_given_true`s of all the possible states should sum to 1, as should the `prob_given_false`s. If a value that has not been specified is observed, then the observation will be ignored as it would be if the entity were `UNKNOWN` or `UNAVAILABLE`.
 
-When more than one range is specified, if a value falls on `below`, it will be included with the range that lists it in `below`. `below` then means "below or equal to". This is not true when only a single range is specified, where both `above` and `below` do not include "equal to".
+When multiple ranges are defined for the same entity, `below` is inclusive (≤) for any range that specifies it. For a single range, `above` and `below` remain exclusive.
 
 This is an example sensor that can detect if the bins have been left on the side of the road and need to be brought closer to the house. It combines a theoretical presence sensor that gives a numeric signal strength and an API sensor from local government that can have 3 possible states: `due` when collection is due in the next 24 hours, `collected` when collection has happened in the last 24 hours, and `not_due` at other times.
 
@@ -272,4 +281,3 @@ binary_sensor:
       prob_given_false: 0.84 # All the prob_given_false should add to 1
       to_state: "not due"
 ```
-To achieve a similar result for multiple `template` observations targeting a single entity, write your templates to return `True` or `None` rather than `True` or `False`.

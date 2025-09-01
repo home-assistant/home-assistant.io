@@ -103,7 +103,7 @@ actions:
 
 The integration will {% term polling poll %} the Flick Electric API every 5 minutes to check for the current power price. You can also use the `homeassistant.update_entity` action to trigger a refresh on-demand.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 

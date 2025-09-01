@@ -12,8 +12,8 @@ ha_codeowners:
   - '@adam-the-hero'
 ha_domain: watergate
 ha_platforms:
-  - sensor
   - event
+  - sensor
   - valve
 ha_quality_scale: bronze
 ha_integration_type: integration

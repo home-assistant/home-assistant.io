@@ -14,6 +14,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - sensor
 ---
 
@@ -58,7 +59,7 @@ The following sensors are supported:
 
 There are no commonly known issues with this integration.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 

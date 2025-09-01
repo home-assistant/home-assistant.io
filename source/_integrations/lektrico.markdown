@@ -109,11 +109,12 @@ Buttons available in the library:
 
 ### Chargers
 
-| Button              | Description                        |
-| :------------------ | :--------------------------------- |
-| charge_start        | Command charger to start charging. |
-| charge_stop         | Command charger to stop charging.  |
-| reboot              | Reboot charger.                    |
+| Button                     | Description                        |
+| :------------------------- | :--------------------------------- |
+| charge_start               | Command charger to start charging. |
+| charge_stop                | Command charger to stop charging.  |
+| charging_schedule_override | Command charger to override the charging schedule for the next charging session. |
+| reboot                     | Reboot charger.                    |
 
 ### Energy meters
 

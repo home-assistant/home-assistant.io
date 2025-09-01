@@ -105,8 +105,7 @@ general tips on debugging MCP. If you are developing your own MCP server and hav
 with Home Assistant, you can also use the [MCP Inspector](https://github.com/modelcontextprotocol/inspector)
 to verify that your MCP server is working correctly.
 
-
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

@@ -152,7 +152,7 @@ The configuration snippet below adds a template sensor containing the current fo
   action:
     - service: environment_canada.get_forecasts
       target:
-        entity_id: weather.ottawa_kanata_orleans_forecast
+        entity_id: weather.NAME
       response_variable: forecasts
   sensor:
     - name: Weather Forecast Daily

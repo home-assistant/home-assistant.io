@@ -31,7 +31,7 @@ This integration allows you to control [Tasmota](https://tasmota.github.io/docs/
 - MQTT broker and the [MQTT integration](/integrations/mqtt/) set up in Home Assistant.
 - Tasmota devices' MQTT setting configured to communicate with the MQTT broker.
 - Tasmota devices flashed with version 9.2, or later (`tasmota-lite.bin` does not support this integration).
-- Tasmota devices configured for native discovery (`SetOption19 0`).
+- Tasmota devices configured for native discovery (`SetOption19 0`). Go to the web interface of your Tasmota device, select **Tools** and then **Console**. Where you can see the placeholder **Enter command** type or paste `SetOption19 0` and hit **Return**.
 - Although the Tasmota integration supports custom fulltopic it is strongly suggested to leave fulltopic at its default, Tasmota does not prevent setting an invalid or non-unique fulltopic, for example a fulltopic without the `%prefix%` or `%topic%` tokens.
 
 ## Supported features

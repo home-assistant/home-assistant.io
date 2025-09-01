@@ -40,7 +40,14 @@ When you set up your [backups](/common-tasks/general/#backups), an encryption ke
 
 ## I lost my backup encryption key - how can I retrieve it?
 
-If you still have access to your Home Assistant instance you can download the encryption key again from the backup settings.
+If you still have access to your Home Assistant instance, you can download the encryption key again from the backup settings. There are 2 options:
 
-- **If you have not changed the encryption key**: Home Assistant still has it. If you download the backup from the Home Assistant Backup page, it decrypts the backup on the fly.
-- **If you have changed the encryption key**: Home Assistant can not decrypt it on the fly. You need the encryption key that is related to that backup. If you have lost the encryption key, and have no access to your Home Assistant instance, there is no way to restore the backup.
+- **Option 1: you haven't changed the encryption key**: Home Assistant still has it.
+  1. In Home Assistant, go to {% my backup title="**Settings** > **System** > **Backups**" %}
+  2. Under **Backup settings**, in the **Encryption key** section, either download your emergency kit or copy the key.
+  3. If you download the backup from the Home Assistant Backup page, it decrypts the backup on the fly.
+
+- **Option 2: you have changed the encryption key**: Home Assistant cannot decrypt it on the fly.
+  - You need the encryption key that is related to that backup.
+  - If you have lost the encryption key, and have no access to your Home Assistant instance, there is no way to restore the backup.
+  - Nabu Casa does not store your encryption key and cannot provide support in decrypting backups if the key goes missing.

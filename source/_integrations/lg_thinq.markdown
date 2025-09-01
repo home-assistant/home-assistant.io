@@ -19,7 +19,11 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
+  - water_heater
 ha_integration_type: integration
+ha_codeowners:
+  - '@LG-ThinQ-Integration'
+ha_dhcp: true
 ---
 
 The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
@@ -86,6 +90,7 @@ Support LG Appliances as follows:
 - Water Heater
 - Water Purifier
 - Wine Cellar
+- Ventilator
 
 ## Platforms
 
@@ -94,6 +99,7 @@ LG ThinQ represents devices as a set of properties. And these are mapped to enti
 A list of all Entity Platforms provided by LG ThinQ Integration:
 
 - [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Climate](#climate)
 - [Event](#event)
 - [Fan](#fan)
@@ -118,6 +124,15 @@ A read-only property which has only two states that can be toggled is represente
 | Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Remote start |
 | Water Heater | Power |
 | Wine Cellar | Sabbath |
+
+### Button
+
+A writable property which has only two states that can be toggled is represented as a binary sensor platform.
+
+| Device |Property |Action |
+| ------ |-------- | ------ |
+| Dish Washer | Operation | Start / Pause |
+| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Operation | Start / Pause |
 
 ### Climate
 
@@ -174,6 +189,7 @@ A read-write property which has a numeric value is represented as a number platf
 | Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Delayed start/end |
 | Water Heater | Temperature |
 | Wine Cellar | Light<br>Temperature |
+| Ventilator | Sleep timer |
 
 ### Select
 
@@ -184,14 +200,15 @@ A writable property which has a list of selectable values is represented as a se
 | Air Conditioner | Air purify<br>Air quality sensor |
 | Air Purifier| Operating mode<br>Speed |
 | Air Purifier Fan | Display brightness<br>Operating mode<br>Rotation<br>Speed |
-| Dehumidifier | Speed |
+| Dehumidifier | Speed<br>Operation |
 | Dish Washer | Operation |
 | Humidifier | Display brightness<br>Drying mode<br>Operating mode<br>Speed |
-| Oven | Cook mode<br>Operation<br> |
+| Oven | Cook mode<br>Operation |
 | Refrigerator | Fresh air filter |
 | Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Operation |
 | Water Heater | Operating mode |
 | Wine Cellar | Light<br>Operating mode |
+| Ventilator | Speed<br>Operating mode |
 
 ### Switch
 
@@ -199,14 +216,17 @@ A read-write property which has only two states that can be toggled is represent
 
 | Device | Property |
 | ------ | -------- |
-| Air Conditioner | Power<br>Lighting<br>Energy saving |
+| Air Conditioner | Power<br>Lighting<br>Energy saving<br>Air clean |
 | Air Purifier | Power |
 | Air Purifier Fan | Heating<br>Power<br>UVnano |
 | Dehumidifier | Power |
+| Dish Washer | Power |
+| Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Power |
 | Humidifier | Auto mode<br>Heating<br>Mood light<br>Power<br>Sleep mode |
 | Refrigerator | Express mode<br>Express cool<br>Quick freeze |
 | System Boiler | Power<br>Hot water |
 | Wine Cellar | Ventilation |
+| Ventilator | Power |
 
 ### Vacuum
 
@@ -231,13 +251,13 @@ A read-only property which has states is represented as a sensor platform.
 | Device | Property |
 | ------ | -------- |
 | Air Conditioner | Filter remaining<br>Humidity<br>Odor<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Schedule turn-off<br>Schedule turn-on<br>Sleep timer |
-| Air Purifier| Air quality sensor<br>Humidity<br>Odor<br>Operating mode<br>Overall air quality<br>Personal mode<br>PM1<br>PM10<br>PM2.5<br>Filter remaining<br>Schedule turn-off<br>Schedule turn-on |
-| Air Purifier Fan | Air quality sensor<br>Humidity<br>Odor<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Sleep timer<br>Temperature<br>Schedule turn-off<br>Schedule turn-on |
-| Cooktop | Current status<br>Power level |
+| Air Purifier| Humidity<br>Odor<br>Operating mode<br>Overall air quality<br>Personal mode<br>PM1<br>PM10<br>PM2.5<br>Filter remaining<br>Schedule turn-off<br>Schedule turn-on |
+| Air Purifier Fan | Humidity<br>Odor<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Sleep timer<br>Temperature<br>Schedule turn-off<br>Schedule turn-on |
+| Cooktop | Current status<br>Power level<br>Remaining time |
 | Dehumidifier | Humidity<br>Operating mode |
 | Dish Washer | Current cycle<br>Current status<br>Rinse aid dispenser level<br>Softening level<br>Delayed start<br>Remaining time<br>Total time |
 | Home Brew| Brewing duration<br>Brewing period<br>Current status<br>First flavor<br>Second flavor<br>Homebrew recipe<br>First hop<br>Second hop<br>Recipe progress<br>Wort<br>Yeast |
-| Humidifier | Air quality sensor<br>Humidity<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Schedule turn-off<br>Schedule turn-on<br>Sleep timer<br>Temperature |
+| Humidifier | Humidity<br>Overall air quality<br>PM1<br>PM10<br>PM2.5<br>Schedule turn-off<br>Schedule turn-on<br>Sleep timer<br>Temperature |
 | Kimchi Refrigerator | Fresh air filter<br>Temperature |
 | Microwave Oven | Current status |
 | Oven | Current status<br>Temperature |
@@ -248,6 +268,7 @@ A read-only property which has states is represented as a sensor platform.
 | System Boiler | Indoor temperature<br>Inlet temperature<br>Outlet temperature |
 | Water Purifier | High-temp sterilization<br>Type<br>UVnano|
 | Dryer<br>Styler<br>Washer<br>Washcombo Main<br>Washcombo Mini<br>Washtower<br>Washtower Dryer<br>Washtower Washer | Current status<br>Delayed start/end<br>Remaining time<br>Total time<br>Cycles |
+| Ventilator | Carbon dioxide<br>PM1<br>PM10<br>PM2.5<br>Sleep timer<br>Temperature<br>Schedule turn-off<br>Schedule turn-on |
 
 ## Automation example
 

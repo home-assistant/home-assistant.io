@@ -24,6 +24,10 @@ This integration may only work with an Internet connection that supports IPv4.
 
 {% include integrations/config_flow.md %}
 
+### Data updates
+
+The integration checks for warnings every 5 minutes.
+
 ### Filter
 
 The integration includes the possibility to filter warnings in two ways via a regex.
@@ -72,3 +76,9 @@ Areas: `gemeinde oberreichenbach, gemeinde neuweiler, stadt nagold`
 | `sent` | *(time)* Transmission time and date (UTC) of the issued warning. |
 | `start` | *(time)* Starting time and date (UTC) of the issued warning. Can be empty. |
 | `expires` | *(time)* Expiration time and date (UTC) of the issued warning. Can be empty. |
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

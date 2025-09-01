@@ -66,6 +66,7 @@ Known supported devices:
 - Denon AVR-3313CI
 - Denon AVR-4810
 - Denon AVR-E300
+- Denon AVR-E400
 - Denon AVR-S650H
 - Denon AVC-S660H
 - Denon AVR-S710W

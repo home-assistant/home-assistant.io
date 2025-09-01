@@ -19,7 +19,9 @@ ha_category:
   - Sensor
   - Switch
   - Update
+  - Vacuum
   - Valve
+  - Water heater
 ha_release: 0.87
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -29,6 +31,7 @@ ha_platforms:
   - button
   - climate
   - cover
+  - diagnostics
   - event
   - fan
   - light
@@ -40,9 +43,14 @@ ha_platforms:
   - sensor
   - switch
   - update
+  - vacuum
   - valve
+  - water_heater
 ha_dhcp: true
 ha_integration_type: integration
+ha_codeowners:
+  - '@joostlek'
+ha_quality_scale: bronze
 ---
 
 [SmartThings](https://www.samsung.com/smartthings/) is a home automation platform for connecting with Samsung or third-party devices.
@@ -71,7 +79,9 @@ SmartThings represents devices as a set of [capabilities](https://developer.smar
 - [Sensor](#sensor)
 - [Scene](#scene)
 - [Switch](#switch)
+- [Vacuum](#vacuum)
 - [Valve](#valve)
+- [Water heater](#water-heater)
 
 ### Binary sensor
 
@@ -266,9 +276,17 @@ It will also create switches for the following capabilities:
 
 The SmartThings update platform lets you update the firmware of devices that have the [`firmwareUpdate`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#firmwareUpdate) capability.
 
+### Vacuum
+
+The SmartThings Vacuum platform lets you control devices that have the `samsungce.robotCleanerOperatingState` capability, showing the vacuum status and controlling the device.
+
 ### Valve
 
 The SmartThings Valve platform lets you control devices that have the [`valve`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#valve) capability, showing the valve status and opening and closing.
+
+### Water heater
+
+The SmartThings Water heater platform lets you control heat pumps that provide hot water.
 
 ## Troubleshooting
 
