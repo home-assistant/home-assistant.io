@@ -30,7 +30,7 @@ This integration uses an undocumented local HTTP API. It provides live readings 
    3. Deactivate the device password, i.e., set it to 0000.
 3. Optional: Block the device’s internet access to guarantee fully local operation and prevent potentially breaking firmware updates.
 
-{% include integrations/option_flow.md %}
+{% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Host:
