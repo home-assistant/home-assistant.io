@@ -42,16 +42,8 @@ To use this integration, you need to have an LM Studio server running on your lo
 
 {% configuration_basic %}
 Base URL:
-  description: The URL of thhe LM Studio local server. Use the address shown in the
-    LM Studio app under the *Local Server* settings. Examples:
-
-    - `http://localhost:1234` — when LM Studio runs on the same machine as
-      Home Assistant.
-    - `http://192.168.1.42:1234` — when LM Studio runs on another computer on
-      your local network.
-
-    Tip: include the `http://` prefix and the port (default 1234). If the
-    server is not reachable, Home Assistant will show a connection error.
+  description: |
+    The address of the LM Studio local server. Examples: `http://localhost:1234` (same machine) or `http://192.168.1.42:1234` (different machine). Include the `http://` prefix and port number (default 1234).
 
 API Key:
   description: |
@@ -67,10 +59,7 @@ Instructions (Prompt):
 
 Max history messages:
   description: |
-    The number of past messages the integration will keep in memory for each
-    conversation. More history helps the model remember context but increases
-    the prompt size and memory use. Set to `0` for no limit (not recommended
-    for small models). A sensible default is 20–50.
+    Maximum number of messages to keep for each conversation (0 = no limit). More history helps context but uses more memory. Recommended: 20-50 messages. A sensible default is 20-50.
 
 Control Home Assistant:
   description: |
@@ -90,9 +79,7 @@ Advanced options - Temperature:
 
 Advanced options - Top P:
   description: |
-    Alternate way to control response diversity (nucleus sampling). If you set
-    both temperature and top_p, they work together. Use values between 0.1 and
-    1.0. Lower values make output more focused.
+    Controls diversity via nucleus sampling. Lower values focus on more probable tokens, while higher values allow more diverse responses. Use values between 0.1 and 1.0.
 
 {% endconfiguration_basic %}
 
