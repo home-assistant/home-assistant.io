@@ -29,9 +29,9 @@ Host:
 Port:
     description: "The SNMP port of the Brother printer."
 SNMP Community:
-    description: "The SNMP Community string."
+    description: "A simple password for devices to communicate to each other."
 Type of the printer:
-    description: "Brother printer type."
+    description: "Brother printer type: ink or laser."
 {% endconfiguration_basic %}
 
 {% note %}
