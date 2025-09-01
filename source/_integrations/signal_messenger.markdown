@@ -187,6 +187,7 @@ actions:
     data:
       message: "Message received!"
 ```
+
 **NOTE** If the parameter `mode` is set to `json-rpc`, then you can use [signal-api-receiver](https://github.com/kalbasit/signal-api-receiver) to receive from Signal as follows:
 
 ```yaml
