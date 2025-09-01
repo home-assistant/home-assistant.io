@@ -64,12 +64,12 @@ The integration provides an alarm control panel for each Total Connect location.
 
 Most TotalConnect alarm panels use different wording than Home Assistant alarm panels. The table below shows the differences.
 
-| Panel term         | Home Assistant term | Notes                                          |
-|------------------------|----------|------------------------------------------------------|
-| Stay            | Home       |     |
-| Stay Night            | Night       |     |
-| Stay Instant            | Night       | For Vista and most older panels where there is no Stay Night, but Stay Instant is functionally equivalent to Stay Night |
-| Stay Instant            | Home       | For ProSeries and most newer panels where Stay Instant is separated from Stay Night |
+| Panel term | Home Assistant term | Notes |
+|-|-|-|
+| Stay | Home | |
+| Stay Night | Night | |
+| Stay Instant | Night | For Vista and most older panels where there is no Stay Night, but Stay Instant is functionally equivalent to Stay Night |
+| Stay Instant | Home | For ProSeries and most newer panels where Stay Instant is distinct from Stay Night |
 
 If your alarm is not represented properly, see the [Unknown](#unknown-resultcode-armingstate-zonetype-or-zonestatus) section and submit an issue.
 
