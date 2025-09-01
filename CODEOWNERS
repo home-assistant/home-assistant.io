@@ -997,7 +997,6 @@ source/_integrations/voip.markdown @balloob @synesthesiam @jaminh
 source/_integrations/volumio.markdown @OnFreund
 source/_integrations/volvo.markdown @thomasddn
 source/_integrations/volvooncall.markdown @molobrakos
-source/_integrations/vulcan.markdown @Antoni-Czaplicki
 source/_integrations/wake_on_lan.markdown @ntilley905
 source/_integrations/wake_word.markdown @home-assistant/core @synesthesiam
 source/_integrations/wallbox.markdown @hesselonline
