@@ -1,5 +1,5 @@
 ---
-title: Haus-Bus.de
+title: Haus-Bus
 description: Instructions on setting up Haus-Bus.de components within Home Assistant.
 ha_category:
   - Hub
@@ -44,13 +44,14 @@ These include:
 
 {% include integrations/config_flow.md %}
 
-## Support for special events for push buttons and binary inputs
+## Support for special events of push buttons and binary inputs
 
-In addition to pressed and released, the Haus-Bus multi-buttons support various special events such as click, double-click, held, held and released.
+In addition to pressed and released, the Haus-Bus multi-buttons support various special events such as click, double-click, held-start and held-end.
 
 To achieve maximum compatibility and user convenience, these are implemented both as event entities and as device triggers.
 
-This also applies to digital inputs to which push buttons could also be connected. However, these are also implemented as binary sensors so that they can also be used with a switch or window contact.
+This also applies to digital inputs to which external push buttons could be connected. 
+However, these are also implemented as binary sensors so that they can also be used with a switch or window contact.
 
 
 ## Support for special commands
@@ -62,11 +63,12 @@ In addition, special functions are offered via services whose name begins with t
 
 ## Support for special configurations
 
-The hausbus integration provides all available configuration options for any module type via service whose name always follow the pattern "hausbus.<TYPE>_set_configuration"
+The hausbus integration provides all available configuration options for any haus-bus.de module type via service whose name always follow the pattern "hausbus.TYPE_set_configuration"
 
 All available configuration parameters and values are documented on the haus-bus.de webpage(https://www.haus-bus.de/homeassistant).
 
 
 ## Installation of haus-bus.de modules for Home Assistant
 
-For more information on connecting Haus-Bus.de components to operate them in a Home Assistant system, visit our dedicated documentation page at www.haus-bus.de/homeassistant(https://www.haus-bus.de/homeassistant)
+For more information on connecting Haus-Bus.de components to operate them in a Home Assistant system, 
+visit our dedicated documentation page at www.haus-bus.de/homeassistant(https://www.haus-bus.de/homeassistant)
