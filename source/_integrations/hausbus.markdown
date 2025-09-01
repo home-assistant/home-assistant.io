@@ -65,10 +65,10 @@ In addition, special functions are offered via services whose name begins with t
 
 The hausbus integration provides all available configuration options for any haus-bus.de module type via service whose name always follow the pattern "hausbus.TYPE_set_configuration"
 
-All available configuration parameters and values are documented on the [haus-bus.de webpage](https://www.haus-bus.de/homeassistant).
+All available configuration parameters and values are documented on the [haus-bus.de webpage](https://www.haus-bus.de/ha).
 
 
 ## Installation of haus-bus.de modules for Home Assistant
 
 For more information on connecting Haus-Bus.de components to operate them in a Home Assistant system, 
-visit our dedicated documentation page at [www.haus-bus.de/homeassistant](https://www.haus-bus.de/homeassistant)
+visit our dedicated documentation page at [www.haus-bus.de/ha](https://www.haus-bus.de/ha)
