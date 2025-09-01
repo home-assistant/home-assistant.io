@@ -304,6 +304,23 @@ Features:
 - get battery, only applicable for [Battery Circulator Fan]
 
 
+#### Air Purifier
+
+Features:
+- get states
+- turn on
+- turn off
+- set mode
+
+#### Air Purifier Table
+
+Features:
+- get states
+- turn on
+- turn off
+- set mode
+
+
 ### Vacuums
 
 Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20+ Pro, S10, S20.
