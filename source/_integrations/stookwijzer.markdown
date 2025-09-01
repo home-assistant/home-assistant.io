@@ -108,4 +108,3 @@ template:
 {% endraw %}
 
 {% enddetails %}
-
