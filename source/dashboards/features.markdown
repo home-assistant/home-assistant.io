@@ -42,6 +42,28 @@ Features can be enabled on the following cards:
   
     ![Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.](/images/blog/2024-05/tile-card-reorder-features.gif)
 
+## History chart
+
+Widget that displays the history of a [sensor](/integrations/sensor) or [binary_sensor](/integrations/binary_sensor).
+
+<p class='img'>
+  <img src='/images/dashboards/features/history-chart-line.png' alt='Screenshot of the tile card with the history chart feature for a numeric entity'>
+  <img src='/images/dashboards/features/history-chart-timeline.png' alt='Screenshot of the tile card with the history chart feature for a non-numeric entity'>
+  Screenshots of the tile card with the history chart feature
+</p>
+
+```yaml
+features:
+  - type: "history-chart"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`history-chart`"
+  type: string
+{% endconfiguration %}
+
 ## Alarm modes
 
 Widget that displays buttons to arm and disarm an [alarm](/integrations/alarm_control_panel).
@@ -72,6 +94,27 @@ modes:
   required: true
   description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass`, and `disarmed`.
   type: list
+{% endconfiguration %}
+
+## Bar gauge
+
+Widget that displays the state of a numeric [sensor](/integrations/sensor), with unit of measurement %, as a horizontal bar.
+
+<p class='img'>
+  <img src='/images/dashboards/features/bar-gauge.png' alt='Screenshot of the tile card with the bar gauge feature'>
+  Screenshots of the tile card with the bar gauge feature
+</p>
+
+```yaml
+features:
+  - type: "bar-gauge"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`bar-gauge`"
+  type: string
 {% endconfiguration %}
 
 ## Button
@@ -364,6 +407,27 @@ type:
   type: string
 {% endconfiguration %}
 
+## Fan oscillate
+
+Widget that displays controls to change oscillation state for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_oscillate.png' alt='Screenshot of the tile card with the fan oscillate feature'>
+  Screenshot of the tile card with the fan oscillate feature
+</p>
+
+```yaml
+features:
+  - type: "fan-oscillate"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-oscillate`"
+  type: string
+{% endconfiguration %}
+
 ## Fan preset modes
 
 Widget that displays buttons or icons to control the preset mode for a [fan](/integrations/fan).
@@ -585,6 +649,27 @@ features:
 type:
   required: true
   description: "`lock-open-door`"
+  type: string
+{% endconfiguration %}
+
+## Media player playback controls
+
+Widget that displays playback controls for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_playback.png' alt='Screenshot of the tile card with media player playback feature'>
+  Screenshot of the tile card with media player playback feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-playback"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-playback`"
   type: string
 {% endconfiguration %}
 

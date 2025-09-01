@@ -12,7 +12,7 @@ ha_bluetooth: true
 ha_platforms:
   - switch
 ha_config_flow: true
-ha_integration_type: hub
+ha_integration_type: device
 ---
 
 This integration allows you to locally control a [MicroBot Push](https://keymitt.com/products/microbot-push) (previously manufactured by Naran but now under the Keymitt brand).

@@ -138,9 +138,12 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Floodlight turn on brightness+
 - Infrared light brightness
 - Volume (Camera)
+- Volume speak (Camera)
+- Volume doorbell (Camera)
 - Alarm volume (Home Hub)
 - Message volume (Home Hub)
 - Chime volume
+- Chime silent time
 - Guard return time
 - Motion sensitivity
 - PIR sensitivity

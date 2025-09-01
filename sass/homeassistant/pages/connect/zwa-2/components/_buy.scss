@@ -1,0 +1,131 @@
+section#buy {
+    background: linear-gradient(180deg, #DADDE2 25%, #FFF 100%);
+    height: 560px;
+    isolation: isolate;
+    
+    @include bp(desktop) {
+        isolation: unset;
+        height: calc(100vh - var(--header-height));
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        background: linear-gradient(180deg, transparent 25%, rgba(218, 221, 226, 0.90) 50%, transparent 75%);
+        inset: 0;
+
+        @include bp(desktop) {
+            content: unset;
+        }
+    }
+
+    .cols {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 80px;
+        padding-top: 5rem;
+
+        @include bp(desktop) {
+            padding-top: 0;
+        }
+    }
+
+    .model-still {
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .section-inner {
+        position: relative;
+        z-index: 1;
+
+        @include bp(desktop) {
+            z-index: unset;
+        }
+
+    }
+
+    .section-inner-content {
+        //height: 64vh;
+        align-items: center;
+        justify-content: center;
+        //position: relative;
+        padding: 0;
+    }
+
+    .strap {
+        font-size: 18px;
+        text-wrap: balance;
+        position: relative;
+        z-index: 2;
+
+        @include bp(tablet) {
+            font-size: 24px;
+        }
+
+        @include bp(desktop) {
+            font-size: 32px;
+        }
+    }
+
+    .price {
+        font-size: 64px;
+        font-weight: 700;
+
+        @include bp(tablet) {
+            font-size: 96px;
+        }
+
+        @include bp(desktop) {
+            font-size: 160px;
+        }
+
+        span {
+            opacity: .4;
+            position: relative;
+        }
+
+        sup {
+            font-size: 44px;
+            vertical-align: unset;
+            position: absolute;
+            top: 0;
+            line-height: 1;
+        }
+    }
+
+
+    .terms {
+        padding: 0 16px;
+        max-width: 520px;
+        font-size: 14px;
+        position: absolute;
+        bottom: 20px;
+        max-width: 22rem;
+        margin-top: 5rem;
+
+        @include bp(desktop) {
+            bottom: 80px;
+            font-size: 16px;
+            margin-top: unset;
+            max-width: 26rem;
+        }
+        @include bp(1750px) {
+            max-width: 33rem;
+        }
+    }
+}
