@@ -42,36 +42,8 @@ To use this integration, you need to have an LM Studio server running on your lo
 
 {% configuration_basic %}
 Base URL:
-  description: The URL of the LM Studio local server, such as `http://localhost:1234` or `http://192.168.1.100:1234`.
-API key:
-  description: Optional API key for authentication if you've configured one in LM Studio. Leave empty if no authentication is required.
-Model:
-  description: Name of the model to use. The integration will automatically fetch available models from your LM Studio server during setup.
-Instructions:
-  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
-Control Home Assistant:
-  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it. This feature is considered experimental. For details on model limitations, refer to the section [Controlling Home Assistant](#controlling-home-assistant).
-Max tokens:
-  description: Maximum number of tokens to generate in the response. Higher values allow for longer responses but may increase processing time.
-Temperature:
-  description: Controls randomness in the AI's responses. Lower values (0.1-0.3) make responses more focused and deterministic, while higher values (0.7-1.0) make them more creative and varied.
-Top P:
-  description: Controls diversity via nucleus sampling. Lower values focus on more probable tokens, while higher values allow more diverse responses.
-Max history messages:
-  description: Maximum number of messages to keep for each conversation (0 = no limit). Limiting this value will cause older messages in a conversation to be dropped.
-{% endconfiguration_basic %}
-
-## Configuration options — detailed guide
-
-This section explains every configuration option you see while adding the
-integration in Home Assistant. Read the short tip under each option if you are
-unsure what to pick.
-
-{% configuration_basic %}
-Base URL:
-  description: |
-    The address of the LM Studio local server. Use the address shown in the
-    LM Studio app under the **Local Server** settings. Examples:
+  description: The URL of thhe LM Studio local server. Use the address shown in the
+    LM Studio app under the *Local Server* settings. Examples:
 
     - `http://localhost:1234` — when LM Studio runs on the same machine as
       Home Assistant.
@@ -83,24 +55,15 @@ Base URL:
 
 API Key:
   description: |
-    Optional key if you enabled authentication on the LM Studio server. Leave
-    this blank if you did not enable authentication. If you later enable an
-    API key on LM Studio, reconfigure the integration and add the same key.
+    Optional API key for authentication if you've configured one in LM Studio. Leave empty if no authentication is required.
 
 Model:
   description: |
-    Select which model to use from the models that LM Studio serves. The
-    integration queries your LM Studio server during setup and shows a list of
-    available models. If no models appear, confirm the server is running and
-    that you allowed access on the network.
+    Name of the model to use. The integration will automatically fetch available models from your LM Studio server during setup.
 
 Instructions (Prompt):
   description: |
-    A short system prompt or instructions that tell the model how to behave.
-    This can be any text, including Home Assistant templates. A good default
-    is a short instruction such as: "You are a Home Assistant assistant. Be
-    concise and only use Home Assistant features when asked." You can leave
-    this empty to use the integration default.
+    Instructions for the AI on how it should respond to your requests. Supports [Home Assistant Templating](/docs/configuration/templating/). Example: "You are a Home Assistant assistant. Be concise and only use Home Assistant features when asked." You can leave this empty to use the integration default.
 
 Max history messages:
   description: |
@@ -111,36 +74,19 @@ Max history messages:
 
 Control Home Assistant:
   description: |
-    When enabled, the model can call Home Assistant functions and control
-    entities that you explicitly *expose* to Assist. Only models that support
-    function calling/tools will be able to control Home Assistant. This option
-    is experimental.
+    If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it. This feature is experimental and requires models that support function calling/tools.
 
 Advanced options:
   description: |
-        Advanced settings that affect response length, randomness, and diversity.
-        Change these only if you understand the trade-offs in latency, memory,
-        and reliability.
+    Advanced settings that affect response length, randomness, and diversity. Change these only if you understand the trade-offs in latency, memory, and reliability.
 
 Advanced options - Max tokens:
   description: |
-    Maximum number of tokens the model may generate in a single response. A
-    higher value allows longer responses at the cost of CPU, RAM, and latency.
-    Typical values:
-    - 256 — short replies, faster responses, low memory use.
-    - 512 — balanced length and cost.
-    - 1024+ — long replies, may be slow or fail on small models.
-
-    Tip: start with 256 or 512 and increase only if the replies are too short.
+    Maximum number of tokens to generate in the response. Higher values allow for longer responses but may increase processing time. Typical values: 256 (fast), 512 (balanced), 1024+ (long but slower).
 
 Advanced options - Temperature:
   description: |
-    Controls randomness in the model's responses. Use lower values for
-    predictable answers and higher values for creativity. Typical ranges:
-    - 0.0–0.3 — deterministic answers (recommended for automation and
-      controlling devices).
-    - 0.4–0.7 — balanced.
-    - 0.8–1.0 — creative, but may be less reliable.
+    Controls randomness in the AI's responses. Lower values (0.1-0.3) make responses more focused and deterministic, while higher values (0.7-1.0) make them more creative and varied.
 
 Advanced options - Top P:
   description: |
@@ -176,10 +122,10 @@ Advanced options - Top P:
 ### No models found during setup
 
   1. Open LM Studio on the host machine and go to the **Local Server** tab to check if a model is already loaded.
-  2. If you have not downloaded any models, open the model browser in LM Studio and download at least one model to serve.
-  3. Select a model for serving in LM Studio integration. LM Studio will automatically load the selected model for the server. You do not need to check the **Local Server** tab again to confirm if the model has already been loaded.
-  4. If LM Studio runs on a different machine than Home Assistant, make sure **Serve on Local Network** is enabled on the **Local Server** tab.
-  5. If LM Studio runs on the same machine as Home Assistant, try `http://localhost:1234`.
+  2. If you have not downloaded any models, open the model browser in LM Studio and download at least one model to serve
+  3. Select a model for serving in LM Studio integration — LM Studio will automatically load the selected model for the server, so you do not need to check the **Local Server** tab again to confirm the model is already loaded
+  4. If LM Studio runs on a different machine than Home Assistant, make sure **Serve on Local Network** is enabled on the **Local Server** tab
+  5. If LM Studio runs on the same machine as Home Assistant, try `http://localhost:1234`
 
 ### Model answers are short, off-topic, or inconsistent
 
