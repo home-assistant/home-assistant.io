@@ -14,6 +14,8 @@ ha_category:
   - Switch
 ha_domain: frient
 ha_integration_type: brand
+works_with:
+  - zigbee
 ha_platforms:
   - button
   - sensor
@@ -22,6 +24,4 @@ ha_iot_standard: zigbee
 ha_brand: true
 ---
 
-Frient Zigbee devices work locally and integrate seamlessly with the Zigbee integration in Home Assistant (Zigbee stick required). As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.
-
-[Learn more about Zigbee in Home Assistant.](/integrations/zha/)
+{% include integrations/wwha.md url="https://www.frient.com/" %}
