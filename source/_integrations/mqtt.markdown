@@ -128,6 +128,7 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
+- [Image](/integrations/image.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
 - [Notify](/integrations/notify.mqtt/)
