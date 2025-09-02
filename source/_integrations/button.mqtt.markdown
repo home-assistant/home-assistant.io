@@ -10,6 +10,9 @@ ha_domain: mqtt
 
 The `mqtt` button platform lets you send an MQTT message when the button is pressed in the frontend or the button press action is called. This can be used to expose some service of a remote device, for example reboot.
 
+To use an MQTT button in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
 ## Configuration
 
 ```yaml
@@ -18,6 +21,8 @@ mqtt:
   - button:
       command_topic: "home/bedroom/switch1/reboot"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -157,7 +162,7 @@ name:
   type: string
   default: MQTT Button
 object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   required: false
   type: string
 payload_available:

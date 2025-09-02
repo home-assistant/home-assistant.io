@@ -101,6 +101,8 @@ For plant measurements, the following status scale is applied:
 - High
 - Too High
 
+For the measurement sensors (light, moisture, salinity, and temperature), the maximal/minimal values that define the ranges of what is considered acceptable and good for the plant are saved as an extra attribute of the sensor. For example: Below 10 it's too cold, that could be the minimum acceptable. 15 could be the minimum of the good range. Between 15 and 30 is perfect. 30 would be maximum good and 35 would be the maximum acceptable. Above 35 it's too hot. These values can be used for automations or visualizations on the dashboard.
+
 ## Data updates
 
 The integration fetches data from the device every 4 minutes.

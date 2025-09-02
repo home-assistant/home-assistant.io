@@ -491,3 +491,155 @@ voice-pe:
       ship_to: Europe
       url: https://www.robbshop.nl/home-assistant-voice-preview-edition
       logo: /images/distributors/robb.webp
+zwa-2:
+  name: "<strong>Home Assistant</strong> Connect ZWA-2"
+  distributors:
+    # America
+    - name: Apollo Automation
+      ship_from: US & Canada
+      ship_to: North America
+      url: https://apolloautomation.com/products/home-assistant-connect-zwa-2
+      logo: /images/distributors/apollo.webp
+    - name: CloudFree
+      ship_from: US
+      ship_to: North America
+      url: https://cloudfree.shop/product/home-assistant-connect-zwa-2/
+      logo: /images/distributors/cloudfree.webp
+    - name: ameriDroid
+      ship_from: US
+      ship_to: North America
+      url: https://ameridroid.com/products/home-assistant-connect-zwa-2
+      logo: /images/distributors/ameridroid.webp
+    - name: Seeed Studio
+      ship_from: US
+      ship_to: North America
+      url: https://www.seeedstudio.com/Home-Assistant-Connect-ZWA-2-p-6509.html
+      logo: /images/distributors/seeed-studio.webp
+    # Asia
+    - name: Seeed Studio
+      ship_from: China
+      ship_to: Asia
+      url: https://www.seeedstudio.com/Home-Assistant-Connect-ZWA-2-p-6509.html
+      logo: /images/distributors/seeed-studio.webp
+    # Australia
+    - name: Apollo Automation
+      ship_from: Australia
+      ship_to: Australia
+      url: https://apolloautomation.com/products/home-assistant-connect-zwa-2
+      logo: /images/distributors/apollo.webp
+    - name: SmartHome
+      ship_from: Australia
+      ship_to: Australia
+      url: https://www.smarthome.com.au/product/home-assistant-zwa-2-connect-z-wave-usb-antenna/
+      logo: /images/distributors/smarthome.webp
+    # - name: Smart Home
+    #   ship_from: Australia
+    #   ship_to: Australia
+    #   url: PENDING
+    #   logo: /images/distributors/smarthome.webp
+    # Europe
+    - name: Seeed Studio
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.seeedstudio.com/Home-Assistant-Connect-ZWA-2-p-6509.html
+      logo: /images/distributors/seeed-studio.webp
+    - name: Alza.cz
+      ship_from: Czech Republic
+      ship_to: Europe
+      url: https://www.alza.cz/home-assistant-connect-zwa-2-d13044889.htm
+      logo: /images/distributors/alza-cz.webp
+    - name: Mauser.pt
+      ship_from: Portugal
+      ship_to: Europe
+      url: https://mauser.pt/catalog/product_info.php?products_id=095-6904
+      logo: /images/distributors/mauser.png
+    - name: RaspberryPi.dk
+      ship_from: Denmark
+      ship_to: Europe
+      url: https://raspberrypi.dk/en/product/home-assistant-connect-zwa-2-stick/
+      logo: /images/distributors/RaspberryPi-dk.webp
+    - name: Pimoroni
+      ship_from: UK
+      ship_to: Europe
+      url: https://shop.pimoroni.com/products/home-assistant-connect-zwa-2
+      logo: /images/distributors/pimoroni.webp
+    - name: Botland
+      ship_from: Poland
+      ship_to: Europe
+      url: https://botland.com.pl/centralki-i-bramki-sieciowe/27120-home-assistant-connect-zwa-2-zgodny-z-z-wave-nabu-casa-860011789734.html
+      logo: /images/distributors/botland.webp
+    - name: DinamoTech
+      ship_from: Italy
+      ship_to: Europe
+      url: https://dinamotech.it/products/home-assistant-connect-zwa-2
+      logo: /images/distributors/dinamo-tech.webp
+    - name: Domadoo
+      ship_from: France
+      ship_to: Europe
+      url: https://www.domadoo.fr/fr/box-domotique/8261-nabu-casa-z-wave-antenne-usb-longue-portee-home-assistant-connect-zwa-2-860011789734.html
+      logo: /images/distributors/domadoo.jpg
+    - name: Swiss Domotique
+      ship_from: Switzerland
+      ship_to: Europe
+      url: https://www.swiss-domotique.ch/de/gateways-antennen/nabu-casa-home-assistant-zwa-2
+      logo: /images/distributors/swiss-domotique.webp
+    - name: Everything Smart Technology
+      ship_from: UK
+      ship_to: Europe
+      url: https://shop.everythingsmart.io/products/home-assistant-connect-zwa-2
+      logo: /images/distributors/est.webp
+    - name: HAshop
+      ship_from: Netherlands
+      ship_to: Europe
+      url: https://www.hashop.nl/Home-Assistant-Connect-ZWA-2
+      logo: /images/distributors/ha-shop.webp
+    - name: MarketCom
+      ship_from: Hungary
+      ship_to: Europe
+      url: https://okosotthon.bolt.hu/webaruhaz/termek/home-assistant-connect-zwa-2-z-wave-antenna-es-adapter/
+      logo: /images/distributors/okosotthon.png
+    - name: mediarath
+      ship_from: Germany
+      ship_to: Europe
+      url: https://mediarath.de/products/home-assistant-connect-zwa-2-antenne-z-wave-800-long-range-plus-plus-v2
+      logo: /images/distributors/mediarath.de.webp
+    - name: SmarterHOME
+      ship_from: Czech Republic
+      ship_to: Europe
+      url: https://smarterhome.sk/cs/adaptery-moduly-a-softver/home-assistant-connect-zwa-2-z-wave-usb-adapter-1890.html
+      logo: /images/distributors/smarter-home.png
+    - name: SmarterHOME
+      ship_from: Slovakia
+      ship_to: Europe
+      url: https://smarterhome.sk/sk/adaptery-moduly-a-softver/home-assistant-connect-zwa-2-z-wave-usb-adapter-1890.html
+      logo: /images/distributors/smarter-home.png
+    - name: The Pi Hut
+      ship_from: UK
+      ship_to: Europe
+      url: https://thepihut.com/products/home-assistant-connect-zwa-2
+      logo: /images/distributors/pi-hut.webp
+    - name: WIFIShop
+      ship_from: Romania
+      ship_to: Europe
+      url: https://www.wifishop.ro/zwa2.html
+      logo: /images/distributors/wifishop.webp
+    - name: Webhallen
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://www.webhallen.com/388639
+      logo: /images/distributors/webhallen.webp
+    - name: Inet.se
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://www.inet.se/produkt/8310187/home-assistant-connect-zwa-2
+      logo: /images/distributors/inet.webp
+    - name: Nurkan takaa
+      ship_from: Finland
+      ship_to: Europe
+      url: https://verkkokauppa.nurkantakaa.fi/tuote/zwa-2/
+      logo: /images/distributors/nurkantakaa.webp
+    - name: ROBBshop
+      ship_from: Netherlands
+      ship_to: Europe
+      url: https://www.robbshop.nl/home-assistant-connect-zwa-2-z-wave-antenne
+      logo: /images/distributors/robb.webp

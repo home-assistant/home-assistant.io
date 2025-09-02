@@ -42,11 +42,14 @@ notify:
     platform: signal_messenger
     url: "http://127.0.0.1:8080" # the URL where the Signal Messenger REST API is listening 
     number: "YOUR_PHONE_NUMBER" # the sender number
-    recipients: # one or more recipients
+    recipients: # one or more default recipients (can be overwritten per message)
       - "RECIPIENT1"
 ```
 
-Both phone numbers and Signal Messenger groups can be added to the `recipients`list. However, it's not possible to mix phone numbers and Signal Messenger groups in a single notifier. If you would like to send messages to individual phone numbers and Signal Messenger groups, separate notifiers need to be created.
+Both phone numbers and Signal Messenger groups can be added to the default `recipients` list.
+However, it's not possible to mix phone numbers and Signal Messenger groups in a single notifier.
+If you would like to have individual phone numbers and Signal Messenger groups in the default `recipients` list,
+separate notifiers need to be created.
 
 To obtain the Signal Messenger group ids, follow [this guide]( https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md).
 
@@ -65,9 +68,11 @@ number:
   required: true
   type: string
 recipients:
-  description: A list of recipients (either phone numbers or Signal Messenger group ids).
+  description: A list of default recipients (either phone numbers or Signal Messenger group ids). It can be overwritten for individual messages.
   required: true
-  type: string
+  type: list
+  items:
+    type: string
 {% endconfiguration %}
 
 
@@ -85,14 +90,21 @@ actions:
   - action: notify.NOTIFIER_NAME
     data:
       message: "That's an example that sends a simple text message to the recipients specified in the configuration.yaml. If text mode is 'styled', you can use *italic*, **bold** or ~strikethrough~ ."
-      ## Optional
+      # optional: custom recipients list
+      target:
+        - '+4917011111111'
+      # optional: formatted mode
       data:
         text_mode: styled
 ```
 
-| Attribute   | Optional | Default |Description                                                                                                                                                                                          |
-| ----------- | -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `text_mode` | *optional* | normal | Accepted values are `normal` or `styled`. If set to `styled`, additional text formatting is enabled (*`*italic*`*, **`**bold**`**, and ~~`~strikethrough~`~~). |
+| Attribute | Optional   | Default                                         | Description                                                                                                       |
+|-----------|------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| target    | *optional* | as configured via `recipients` for the `notify` | a list of strings, containing either fully qualified phone numbers (including country prefix) or Signal group IDs |
+
+| Data Attribute | Optional | Default |Description                                                                                                                                                                                          |
+|----------------| -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `text_mode`    | *optional* | normal | Accepted values are `normal` or `styled`. If set to `styled`, additional text formatting is enabled (*`*italic*`*, **`**bold**`**, and ~~`~strikethrough~`~~). |
 
 #### Text message with an attachment
 

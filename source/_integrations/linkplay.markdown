@@ -14,6 +14,7 @@ ha_platforms:
   - button
   - diagnostics
   - media_player
+  - select
 ha_iot_class: Local Polling
 ---
 

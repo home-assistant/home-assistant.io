@@ -75,9 +75,10 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 
 ### Pet
 
-| Entity | Domain   | Description   |
-| ------ | -------- | ------------- |
-| Weight | `sensor` | Pet's weight. |
+| Entity       | Domain   | Description                                       |
+| ------------ | -------- | ------------------------------------------------- |
+| Visits today | `sensor` | Pet's daily visits to the Litter-Robot. |
+| Weight       | `sensor` | Pet's weight.                                     |
 
 ## Actions
 
