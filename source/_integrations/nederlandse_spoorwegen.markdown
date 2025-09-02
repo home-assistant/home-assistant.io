@@ -87,14 +87,6 @@ If you encounter authentication errors:
 - Ensure your NS API subscription is active
 - Check that you're using the correct API (Reisinformatie API)
 
-### Station not found errors
-
-If stations are not found:
-
-- Verify station codes are correct (case-sensitive)
-- Use the official NS station codes from Wikipedia or the NS API
-- Ensure the station code exists and is currently in service
-
 ### Reconfiguration
 
 To update your API key or modify settings:
