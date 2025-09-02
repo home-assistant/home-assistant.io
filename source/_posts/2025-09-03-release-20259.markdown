@@ -97,7 +97,7 @@ Enjoy the (beta) release!
 
 ## Automation editor sidebar
 
-On the [this year's Home Assistant roadmap](/blog/2025/05/09/roadmap-2025h1/#and-thats-not-all-for-this-year), we have set the goal of making automations easier to create. We have big plans, all based on tons of research, and with this release... we are shipping the first part of all this work, with the intent to gradually add more improvements over multiple releases!
+On [this year's Home Assistant roadmap](/blog/2025/05/09/roadmap-2025h1/#and-thats-not-all-for-this-year), we have set the goal of making automations easier to create. We have big plans, all based on tons of research, and with this release... we are shipping the first part of all this work, with the intent to gradually add more improvements over multiple releases!
 
 This release tweaks the automation editor user interface experience by introducing a sidebar! If you select an item in your automation, instead of that item expanding, it will open a new sidebar to the right with the settings for that selected item.
 
@@ -111,13 +111,13 @@ Besides the sidebar, we have made tons of other little improvements as well. Tin
 
 Over the past year, we have focused on dashboards and their capabilities a lot. We’ve looked at a lot of your dashboards you’ve shared on socials, and talked to many of you about how you organize all your smart home devices and services. The goal? Making dashboards faster and easier to create, while still making them very customizable.
 
-With this release, we’re introducing a brand-new Home dashboard. The purpose is simple: to give you easy access to the right information at the right time.
+With this release, we’re introducing a brand-new *Home dashboard*. The purpose is simple: to give you easy access to the right information at the right time.
 
-The dashboard adapts to your Home Assistant experience level: powerful enough for advanced users, yet approachable for newcomers. We’re working to have it earn its name, and hope it will eventually become your new Home page. As always, it’s optional; you can always pick your own dashboard. This is the first iteration, and we’ll continue developing it in the open.
+The dashboard adapts to your Home Assistant experience level: powerful enough for advanced users, yet approachable for newcomers. We’re working to have it earn its name, and hope it will eventually become your new *Home* page. As always, it’s optional; you can always pick your own dashboard. This is the first iteration, and we’ll continue developing it in the open.
 
 When you first open the Home dashboard, it gives you a quick way to navigate to useful summaries for your light, climate, security, and media devices. You can also browse by areas, getting an overview of all the devices and services associated with that part of your home.
 
-We’re also introducing Favorites. You can pin any entity to the top, whether it’s a light, climate, or a person. We’d love to see what you choose (more on this later).
+We’re also introducing Favorites. You can pin any entity to the top, whether it’s a light, climate, or a person. We’d love to see what you choose (more on this in the future).
 
 The Home dashboard is not just about quick control. It also brings insights and information about your home. This first release includes weather and energy cards. It's a simple start, and we have a lot of ideas to explore with you. For example, helping you create your first automation, or show discovered devices.
 
@@ -136,7 +136,7 @@ Got feedback on it during our beta testing period? [Join the #beta channel in ou
 The [tile card](/dashboards/tile/) is the most versatile card we have in our arsenal
 of [cards for our dashboards](/dashboards/).
 
-One superpower of the tile card is its “features”, which are small additions where you can add quick interaction to these cards. For example, a slider to control the brightness of a light or the speed presets for a fan. Features have been extended quite a bit in this release by a dedicated group of community members.
+One superpower of the tile card is its “features”, which are small additions where you can add quick interactions to these cards. For example, a slider to control the brightness of a light or buttons for the speed presets of a fan. Features have been extended quite a bit in this release by a dedicated group of community members.
 
 ### History chart
 
