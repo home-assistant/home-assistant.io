@@ -7,7 +7,7 @@ date_formatted: "September 2, 2025"
 author: Miranda Bishop
 comments: true
 categories: Works-with-Home-Assistant
-og_image: /images/blog/2025-08-frient/art.webp
+og_image: /images/blog/2025-09-frient/art.webp
 ---
 
 <img src='/images/blog/2025-09-frient/art.webp' style='border: 0;box-shadow: none;' alt="Frient joins Works with Home Assistant">
