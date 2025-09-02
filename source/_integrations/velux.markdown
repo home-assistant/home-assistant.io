@@ -17,6 +17,7 @@ ha_platforms:
   - cover
   - light
   - scene
+  - select
 ha_integration_type: integration
 ha_dhcp: true
 ---
@@ -31,6 +32,7 @@ There is currently support for the following device types within Home Assistant:
 - Cover
 - Light
 - Scene
+- Select (set velocity for opening and closing covers)
 
 Rain sensors of supported windows do not report automatically and must be polled every 5 minutes. For this reason, they are disabled by default, because polling uses more radio bandwidth and battery power than simply reporting changed window positions.
 
