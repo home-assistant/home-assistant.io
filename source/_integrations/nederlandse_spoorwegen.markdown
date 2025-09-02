@@ -12,12 +12,12 @@ ha_domain: nederlandse_spoorwegen
 ha_platforms:
   - sensor
 ha_integration_type: integration
-ha_quality_scale: silver
+ha_quality_scale: bronze
 ---
 
-The **Nederlandse Spoorwegen (NS)** {% term integration %} provides real-time timetable information for [Nederlandse Spoorwegen](https://www.ns.nl/) (NS), the Dutch national railway, directly in Home Assistant.
+The **Nederlandse Spoorwegen (NS)** {% term integration %} provides real-time information about Dutch train schedules using the [NS API](https://apiportal.ns.nl/). This integration allows you to monitor departure times, delays, and travel information for your regular routes.
 
-## Prerequisites
+{% include integrations/config_flow.md %}
 
 To use this integration, you need an API key and station codes.
 
@@ -28,52 +28,81 @@ To use this integration, you need an API key from NS:
 1. Create an account on the [NS API Portal](https://apiportal.ns.nl/).
 2. Request an API key for the `Reisinformatie` API, which is part of the `Ns-App` product.
 
-### Finding station codes
+## Configuration
 
-Station codes are required. You can look them up in the [list of railway stations in the Netherlands](https://nl.wikipedia.org/wiki/Lijst_van_spoorwegstations_in_Nederland).
+### Adding the integration
 
-{% include integrations/config_flow.md %}
+1. In the Home Assistant UI, go to **Settings** → **Devices & Services**
+2. Click **Add Integration**
+3. Search for and select **Nederlandse Spoorwegen (NS)**
+4. Enter your NS API key
+5. Click **Submit**
 
-1. Enter your NS API key when prompted.
-2. Add one or more train routes by specifying the departure station, arrival station, and optionally a via station.
-3. Save your configuration. The integration will create sensors for each route.
+### Managing routes
 
-You can edit, add, or remove routes at any time using the integration's options flow in the UI. If your API key changes or expires, use the reauthentication flow to update it. For other configuration changes, use the reconfiguration flow, both without removing your integration.
+After adding the integration, you can manage your travel routes:
 
-{% configuration_basic %}
-api_key:
-    description: "API key obtained from the NS API Portal."
-from:
-    description: "Departure station code (for example `Rtd`)."
-to:
-    description: "Arrival station code (for example `Asd`)."
-via:
-    description: "Optional intermediate station code."
-name:
-    description: "A descriptive name for this route."
-{% endconfiguration_basic %}
+1. Go to **Settings** → **Devices & Services**
+2. Find the Nederlandse Spoorwegen integration
+3. Click **Configure**
+4. Add or remove routes as needed
 
+The integration provides a station selector in the UI, so you don't need to manually look up station codes. Simply search for and select your departure and arrival stations from the dropdown menus during route configuration.
 
+## Migration from YAML
 
-### Searching a specific train vs. the next train
+{% important %}
+YAML configuration for Nederlandse Spoorwegen is now deprecated and will be removed in a future release.
+{% endimportant %}
 
-The default behavior (without configuration variable `time`) gives you the information about the *next* train that fits the criteria (`from`, `to`, `via`).
-When using the configuration variable `time`, you can search for a specific train.
-This is convenient when searching for the next train doesn't give you enough time to base an automation on.
-E.g., when you normally take the 08h06m train and want to get information about this train, but there is another train
-that's departing just minutes before your train, your time window to warn you on a delay might be too small.
+The integration automatically migrates existing YAML configuration and creates repair notifications to guide users. If you have an existing YAML configuration, the integration will automatically import your routes when you add the integration through the UI.
 
-Using `time` only updates the route sensor during a time window around the chosen time.
-Outside this window, the route sensor's state is `unknown`.
-The window is from half an hour before the chosen time until half an hour after the chosen time.
-In this way, you can have multiple routes with specific trains before hitting the FUP threshold for using NS API.
+To complete the migration:
 
-### Data source
+1. Remove the `nederlandse_spoorwegen:` section from your `configuration.yaml`
+2. Remove any `sensor:` entries with `platform: nederlandse_spoorwegen`
+3. Restart Home Assistant to clear the repair notifications
 
-Data is provided by [Nederlandse Spoorwegen](https://www.ns.nl/).
+Your existing routes and settings are automatically preserved in the new UI-based configuration.
 
-## Removing the integration
+## Data source
 
-This integration follows standard integration removal.
+The data is provided by Nederlandse Spoorwegen through their official API, ensuring high-quality and up-to-date information about train schedules, delays, and service disruptions.
 
-{% include integrations/remove_device_service.md %}
+## Troubleshooting
+
+### Authentication errors
+
+If you encounter authentication errors:
+
+- Verify your API key is correct
+- Ensure your NS API subscription is active
+- Check that you're using the correct API (Reisinformatie API)
+
+### Station not found errors
+
+If stations are not found:
+
+- Verify station codes are correct (case-sensitive)
+- Use the official NS station codes from Wikipedia or the NS API
+- Ensure the station code exists and is currently in service
+
+### Reconfiguration
+
+To update your API key or modify settings:
+
+1. Go to **Settings** → **Devices & Services**
+2. Find the Nederlandse Spoorwegen integration
+3. Click the three-dot menu and select **Reconfigure**
+4. Enter your new API key or modify settings
+
+### Removing the integration
+
+To completely remove the integration:
+
+1. Go to **Settings** → **Devices & Services**
+2. Find the Nederlandse Spoorwegen integration
+3. Click the three-dot menu and select **Delete**
+4. Confirm the removal
+
+All entities and data associated with the integration will be removed.
