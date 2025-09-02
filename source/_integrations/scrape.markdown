@@ -18,11 +18,22 @@ related:
     title: Configuration file
 ---
 
-The `scrape` sensor {% term integration %} scrapes information from websites. The sensor loads an HTML page, and allows you to search and extract specific values. As this is not a fully featured web scraper like [scrapy](https://scrapy.org/), it will work with simple web pages and it can be time-consuming to get the right section.
+The **Scrape** sensor {% term integration %} scrapes information from websites. The sensor loads an HTML page, and allows you to search and extract specific values. As this is not a fully featured web scraper like [scrapy](https://scrapy.org/), it will work with simple web pages and it can be time-consuming to get the right section.
 
-Both UI and YAML setup is supported while YAML provides additional configuration possibilities.
+Both UI and [YAML setup](#yaml-configuration) is supported while YAML provides additional configuration possibilities.
 
 {% include integrations/config_flow.md %}
+
+{% note %}
+
+Scrape uses configuration subentries for configuring the sensors.
+
+1. Setup the resource configuration once per resource you want to scrape information from.
+2. Create one or multiple configuration subentries per sensor you want to create by scraping the website.
+
+{% endnote %}
+
+## YAML Configuration
 
 To enable this {% term integration %} using YAML, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

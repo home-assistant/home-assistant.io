@@ -258,7 +258,7 @@ Perform the action `recorder.enable` to start again saving events and states to 
 Perform the action `recorder.get_statistics` to retrieve statistics for one or more entities from the recorder database. This action is useful for automations or scripts that need to access historical statistics, such as mean, min, max, or sum values, for supported entities like sensors.
 
 {% note %}
-Statistics are only available for entities that store [Long-term Statistics](https://developers.home-assistant.io/docs/core/entity/sensor/#long-term-statistics). More details can be found in the [2021.8.0 release notes](/blog/2021/08/04/release-20218/#long-term-statistics).
+Statistics are only available for entities that store {% term "Long-term statistics" %}
 {% endnote %}
 
 | Data attribute | Optional | Description |
