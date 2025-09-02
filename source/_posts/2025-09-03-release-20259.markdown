@@ -97,31 +97,31 @@ Enjoy the (beta) release!
 
 ## Automation editor sidebar
 
-On the [Home Assistant roadmap of this year](/blog/2025/05/09/roadmap-2025h1/#and-thats-not-all-for-this-year), we have set the goal of making automations easier to create. We have lots of plans, have done tons of research at this point, and with this release... we are shipping the first bit of all the effort that is yet to come!
+On the [this year's Home Assistant roadmap](/blog/2025/05/09/roadmap-2025h1/#and-thats-not-all-for-this-year), we have set the goal of making automations easier to create. We have big plans, all based on tons of research, and with this release... we are shipping the first part of all this work, with the intent to gradually add more improvements over multiple releases!
 
-This release tweaks the automation editor user interface experience, by introducing a sidebar!
-
-If you select an item in your automation, the settings of that selected item will be shown in a new sidebar that will pop up on the right side of your screen.
+This release tweaks the automation editor user interface experience by introducing a sidebar! If you select an item in your automation, instead of that item expanding, it will open a new sidebar to the right with the settings for that selected item.
 
 <img class="no-shadow" alt="TODO: Replace screenshot" src="/images/blog/2025-09/temp-automation-sidebar.png" />
 
-This allows you to keep an overview of your automation on the left side of your screen, while you can tweak its behavior on the right. Of course, we have thought of smaller screens as well. On mobile, instead of the sidebar, a sheet at the bottom will pop up.
+This allows you to keep an overview of your automation on the left side of your screen, while you can tweak its behavior on the right. Of course, we have thought of smaller screens as well. On mobile, instead of the sidebar, a sheet will pop up at the bottom of the screen. This pop-up is also resizable, making it easier than ever to edit an action while reviewing your triggers.
 
-Besides the sidebar, we have made tons of other little improvements as well. Tiny layout and styling changes that you definitely will notice and are helping with the overall readability. For example, small lines and borders around grouped elements have been added, making it easier to distinguish between different parts of your automation.
+Besides the sidebar, we have made tons of other little improvements as well. Tiny layout and styling changes that you will definitely notice as they really help with the overall readability. For example, small lines and borders around grouped elements have been added, making it easier to distinguish between different parts of your automation.
 
 ## Introducing the Home dashboard
 
-Over the past year, we have focused on dashboards and their capabilities a lot. The goal? Making dashboards easier to create and customize.
+Over the past year, we have focused on dashboards and their capabilities a lot. We’ve looked at a lot of your dashboards you’ve shared on socials, and talked to many of you about how you organize all your smart home devices and services. The goal? Making dashboards faster and easier to create, while still making them very customizable.
 
-With this release, we're introducing a brand-new Home dashboard. Its purpose is simple: give you easy access to the right information at the right time. The dashboard adapts to your experience: powerful enough for advanced users, yet approachable for newcomers. It should truly earn the name Home and become the default dashboard of Home Assistant. As always, it's optional, you can always pick your own dashboard.
+With this release, we’re introducing a brand-new Home dashboard. The purpose is simple: to give you easy access to the right information at the right time.
 
-This is the first iteration, and we'll continue developing it in the open. It gives you a complete overview of your home in one place. You can browse by areas and quickly access key domains such as lights, climate, security, and media players.
+The dashboard adapts to your Home Assistant experience level: powerful enough for advanced users, yet approachable for newcomers. We’re working to have it earn its name, and hope it will eventually become your new Home page. As always, it’s optional; you can always pick your own dashboard. This is the first iteration, and we’ll continue developing it in the open.
 
-We're also introducing Favorites. You can pin any entity to the top, whether it's a light, climate, or a person. We'd love to see what you choose (more on this later).
+When you first open the Home dashboard, it gives you a quick way to navigate to useful summaries for your light, climate, security, and media devices. You can also browse by areas, getting an overview of all the devices and services associated with that part of your home.
+
+We’re also introducing Favorites. You can pin any entity to the top, whether it’s a light, climate, or a person. We’d love to see what you choose (more on this later).
 
 The Home dashboard is not just about quick control. It also brings insights and information about your home. This first release includes weather and energy cards. It's a simple start, and we have a lot of ideas to explore with you. For example, helping you create your first automation, or show discovered devices.
 
-For now, the Home dashboard is considered experimental. Configuration options are limited, and it's guaranteed to evolve. It won't appear automatically, you'll need to add it manually if you'd like to try it out.
+For now, the Home dashboard is considered experimental. Configuration options are limited, and it's guaranteed to evolve. It won’t appear automatically, and if you want to try it you’ll need to add it manually in the [dashboard settings](https://my.home-assistant.io/redirect/lovelace_dashboards/), by adding a new “Home” dashboard.
 
 One of Home Assistant's greatest strengths is our community. We're building this dashboard together, and your input will shape where it goes next. There are two ways to get involved:
 
@@ -133,14 +133,14 @@ Got feedback on it during our beta testing period? [Join the #beta channel in ou
 
 ## New tile card features
 
-The [tile card](/dashboards/tile/) might as well be the most versatile card we have in our arsenal
+The [tile card](/dashboards/tile/) is the most versatile card we have in our arsenal
 of [cards for our dashboards](/dashboards/).
 
-Tile cards have a thing called "features", which are small additions you can add to them, for example, a slider to control the brightness of a light the card controls. And those features have been extended quite a bit this release by several people.
+One superpower of the tile card is its “features”, which are small additions where you can add quick interaction to these cards. For example, a slider to control the brightness of a light or the speed presets for a fan. Features have been extended quite a bit in this release by a dedicated group of community members.
 
 ### History chart
 
-An absolute banger of an addition to the tile card features was created by [@MindFreeze] this release: The history chart feature.
+This release, an absolute banger is the addition of the history chart features for tile cards created by [@MindFreeze].
 
 This feature adds a handy quick graph to the tile card, showing the history of a specific entity over time. For this initial version, the time window shown is 24 hours.
 
@@ -315,7 +315,7 @@ For this release, [@timmo001] made this card more feature-rich by adding support
 
 Disk almost full? You might wonder where your storage space has gone...
 
-This release adds disk metrics to the storage configuration panel, giving you a glance at your disk usage and helping you identify what is taking up space.
+This release adds disk metrics to the [storage configuration panel](https://my.home-assistant.io/create-link/?redirect=storage), letting you see usage at a glance, helping you identify what is taking up space.
 
 <img class="no-shadow" alt="TODO: Replace screenshot" src="/images/blog/2025-09/temp-disk-metrics.png" />
 
@@ -352,8 +352,8 @@ The encoding for some units that contain the μ character has been changed. User
 - `μSv/h` for the `aranet` integration as a unit for radiation rate
 - `μS/cm` for `UnitOfConductivity.MICROSIEMENS_PER_CM`
 - `μV` for `UnitOfElectricPotential.MICROVOLT`
-- `μg/ft³`  for concentration in migrograms per cubic foot
-- `μg/m³` for concentration in migrograms per cubic meter
+- `μg/ft³`  for concentration in micrograms per cubic foot
+- `μg/m³` for concentration in micrograms per cubic meter
 - `μmol/s⋅m²` for the `fyta` integration as a unit for light
 - `μg` for `UnitOfMass.MICROGRAMS`
 - `μs` for `UnitOfTime.MICROSECONDS`
