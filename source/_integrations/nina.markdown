@@ -24,6 +24,10 @@ This integration may only work with an Internet connection that supports IPv4.
 
 {% include integrations/config_flow.md %}
 
+### Data updates
+
+The integration checks for warnings every 5 minutes.
+
 ### Filter
 
 The integration includes the possibility to filter warnings in two ways via a regex.

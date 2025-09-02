@@ -16,7 +16,7 @@ The website [https://www.home-assistant.io](/) was launched on December 18, 2014
 
 ## Logo
 
-The current logo was created by [Jeremy Geltman](https://jeremygeltman.com/). Further details can be found in the [announcement](/blog/2015/03/08/new-logo/).
+The logo was refreshed in 2023 for Home Assistant's 10th birthday. You can find more details in the [blog post](/blog/2023/09/17/a-refreshed-logo-for-home-assistant/).
 
 ## License
 

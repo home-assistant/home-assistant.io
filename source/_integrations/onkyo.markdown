@@ -14,6 +14,7 @@ ha_platforms:
   - media_player
 ha_release: 0.17
 ha_ssdp: true
+ha_quality_scale: bronze
 ---
 
 The `onkyo` {% term integration %} allows you to control [Onkyo](https://www.onkyo.com) and [Integra](http://www.integrahometheater.com) (from 2011 onward) and also [Pioneer](https://www.pioneerelectronics.com) (from 2016 onward) receivers using Home Assistant.
@@ -32,7 +33,7 @@ Listening modes:
   description: List of listening modes supported by the receiver.
 {% endconfiguration_basic %}
 
-The above settings can also be adjusted later. To change **Host** or **Volume Resolution**, select the three-dot menu on the integration entry and select **Reconfigure**.
+The above settings can also be adjusted later. To change **Host** or **Volume Resolution**, select the three dots {% icon "mdi:dots-vertical" %} menu on the integration entry and select **Reconfigure**.
 
 {% include integrations/option_flow.md %}
 
