@@ -12,7 +12,7 @@ og_image: /images/blog/2025-09-frient/art.webp
 
 <img src='/images/blog/2025-09-frient/art.webp' style='border: 0;box-shadow: none;' alt="Frient joins Works with Home Assistant">
 
-We’re making new frients this week, and they’re bringing an extensive line of Zigbee devices to our [Works With Home Assistant program](https://works-with.home-assistant.io/). Each device is tested by our team, ensuring they provide the best experience possible for Home Assistant. Frient is widely available across Europe, and are well-known for their sleek, unobtrusive designs that its customers love for their high Home Approval Factor.<!-- more -->
+We’re making new frients this week, and they’re bringing an extensive line of Zigbee devices to our [Works With Home Assistant program](https://works-with.home-assistant.io/). Each device is tested by our team, ensuring they provide the best experience possible for Home Assistant. [Frient](https://www.frient.com/) is widely available across Europe, and are well-known for their sleek, unobtrusive designs that its customers love for their high Home Approval Factor.<!-- more -->
 
 ## Our newest frient
 
@@ -25,7 +25,7 @@ Recent Works With partners have brought Z-Wave, Matter, and even Bluetooth devic
 <em style="text-align: right; display: block;">- Martin Langballe, International Business Development Manager at frient</em>
 </div>
 
-All you need to get started with Zigbee in Home Assistant is a Zigbee adapter or ‘stick’, such as the [Home Assistant Connect ZBT-1](https://www.home-assistant.io/connectzbt1/) (wow, we released this in 2022, I wonder when we’re finally going to build a successor?). By plugging the adapter into a USB port on your Home Assistant system, it should then discover the device and add the ZHA integration. After that is set up, you can start adding devices to your Zigbee network.  We’ve even added in a cool [new visualization](https://www.home-assistant.io/blog/2025/06/11/release-20256/#making-sense-of-bluetooth) so that you can see how your Zigbee devices interact with each other.
+All you need to get started with Zigbee in Home Assistant is a Zigbee adapter or ‘stick’, such as the [Home Assistant Connect ZBT-1](/connectzbt1/) (wow, we released this in 2022, I wonder when we’re finally going to build a successor? 😉). By plugging the adapter into a USB port on your Home Assistant system, it should then discover the device and add the [ZHA integration](https://www.home-assistant.io/integrations/frient/). After that is set up, you can start adding devices to your Zigbee network.  We’ve even added in a cool [new visualization](/blog/2025/06/11/release-20256/#making-sense-of-bluetooth) so that you can see how your Zigbee devices interact with each other.
 
 ZHA is built with the support of the Open Home Foundation, and it even has a full-time developer ([@puddly](https://github.com/puddly)) dedicated to improving it and helping certify new Works With partner devices. Your support makes this possible, whether through a Home Assistant Cloud subscription or by purchasing official hardware.
 
@@ -36,7 +36,7 @@ ZHA is built with the support of the Open Home Foundation, and it even has a ful
 When your energy company won’t provide your raw usage data, there’s always another way 😉
 </p>
 
-In case you didn’t know, Works With Home Assistant differs from other certification programs as products are rigorously tested in-house to ensure they work seamlessly out of the box with Home Assistant. Any company joining also commits to providing long-term support and firmware updates while being a positive force in the Home Assistant community. Works With Home Assistant is operated by the [Open Home Foundation](https://www.openhomefoundation.org/), and the support of [Home Assistant Cloud](https://www.home-assistant.io/cloud/) subscribers funds this work.
+In case you didn’t know, Works With Home Assistant differs from other certification programs as products are rigorously tested in-house to ensure they work seamlessly out of the box with Home Assistant. Any company joining also commits to providing long-term support and firmware updates while being a positive force in the Home Assistant community. Works With Home Assistant is operated by the [Open Home Foundation](https://www.openhomefoundation.org/), and the support of [Home Assistant Cloud](/cloud/) subscribers funds this work.
 
 Our team has worked extensively with frient to ensure that the following items work seamlessly with Home Assistant.
 
