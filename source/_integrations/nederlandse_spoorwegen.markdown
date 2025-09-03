@@ -19,7 +19,7 @@ The **Nederlandse Spoorwegen (NS)** {% term integration %} provides real-time in
 
 {% include integrations/config_flow.md %}
 
-To use this integration, you need an API key and station codes.
+To use this integration, you need an API key from the NS API Portal.
 
 ### Obtaining an API Key
 
@@ -32,7 +32,7 @@ To use this integration, you need an API key from NS:
 
 ### Adding the integration
 
-1. In the Home Assistant UI, go to **Settings** → **Devices & Services**
+1. In the Home Assistant UI, go to **Settings** > **Devices & Services**
 2. Click **Add Integration**
 3. Search for and select **Nederlandse Spoorwegen (NS)**
 4. Enter your NS API key
@@ -42,7 +42,7 @@ To use this integration, you need an API key from NS:
 
 After adding the integration, you can manage your travel routes:
 
-1. Go to **Settings** → **Devices & Services**
+1. Go to **Settings** > **Devices & Services**
 2. Find the Nederlandse Spoorwegen integration
 3. Click **Configure**
 4. Add or remove routes as needed
@@ -87,20 +87,11 @@ If you encounter authentication errors:
 - Ensure your NS API subscription is active
 - Check that you're using the correct API (Reisinformatie API)
 
-### Reconfiguration
-
-To update your API key or modify settings:
-
-1. Go to **Settings** → **Devices & Services**
-2. Find the Nederlandse Spoorwegen integration
-3. Click the three-dot menu and select **Reconfigure**
-4. Enter your new API key or modify settings
-
 ### Removing the integration
 
 To completely remove the integration:
 
-1. Go to **Settings** → **Devices & Services**
+1. Go to **Settings** > **Devices & Services**
 2. Find the Nederlandse Spoorwegen integration
 3. Click the three-dot menu and select **Delete**
 4. Confirm the removal
