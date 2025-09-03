@@ -18,15 +18,18 @@ A valve entity can be have the following states: `open`, `opening`, `closed` or 
 
 If a `state_topic` is configured, the entity's state will be updated only after an MQTT message is received on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. Commands configured through `payload_open`, `payload_closed`, and `payload_stop` will be published to `command_topic` to control the valve.
 
-To use your MQTT valve in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To use an MQTT valve in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry for a value that is set by open or close command
 mqtt:
   - valve:
-      command_topic: "home-assistant/valve/set"
-      state_topic: "home-assistant/valve/state"
+      command_topic: "heater/valve/set"
+      state_topic: "heater/valve/state"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 ### Valve controlled by position
 
@@ -46,8 +49,8 @@ To use your MQTT valve in your installation, add the following to your {% term "
 # Example configuration.yaml entry for a valve that reports position
 mqtt:
   - valve:
-      command_topic: "home-assistant/valve/set"
-      state_topic: "home-assistant/valve/state"
+      command_topic: "heater/valve/set"
+      state_topic: "heater/valve/state"
       reports_position: true
 ```
 
@@ -311,10 +314,10 @@ mqtt:
   - valve:
       name: "MQTT valve"
       command_template: '{"x": {{ value }} }'
-      command_topic: "home-assistant/valve/set"
-      state_topic: "home-assistant/valve/state"
+      command_topic: "heater/valve/set"
+      state_topic: "heater/valve/state"
       availability:
-        - topic: "home-assistant/valve/availability"
+        - topic: "heater/valve/availability"
       qos: 0
       reports_position: false
       retain: true
@@ -345,10 +348,10 @@ mqtt:
   - valve:
       name: "MQTT valve"
       command_template: '{"x": {{ value }} }'
-      command_topic: "home-assistant/valve/set"
-      state_topic: "home-assistant/valve/state"
+      command_topic: "heater/valve/set"
+      state_topic: "heater/valve/state"
       availability:
-        - topic: "home-assistant/valve/availability"
+        - topic: "heater/valve/availability"
       reports_position: true
       value_template: "{{ value_json.x }}"
 ```

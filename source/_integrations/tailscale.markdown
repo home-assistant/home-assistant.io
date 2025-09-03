@@ -37,7 +37,7 @@ To access Home Assistant remotely via Tailscale:
 
 1. **API Access Token**: Create one in the [Tailscale Admin Panel](https://login.tailscale.com/admin/settings/keys)
    - Navigate to **Settings** > **Keys**
-   - Click **Generate auth key** or **Generate API key**
+   - Click **Generate access token**
    - Select appropriate expiration and permissions
 
 2. **Tailnet Name**: Found in the top-left corner of the [Admin Panel](https://login.tailscale.com/admin/machines)

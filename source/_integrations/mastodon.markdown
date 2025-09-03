@@ -51,10 +51,6 @@ The Mastodon integration has the following actions:
 
 - `mastodon.post`
 
-{% note %}
-The previous `notify.mastodon` service has been deprecated in favor of the new `mastodon.post` action. If you're upgrading from a previous version, you'll need to update your automations to use the new action format shown below.
-{% endnote %}
-
 ### Action `mastodon.post`
 
 Post a status to your Mastodon account

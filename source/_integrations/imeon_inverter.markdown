@@ -136,22 +136,14 @@ This document provides an overview of the sensors available in the Imeon Inverte
 | `monitoring_minute_grid_power_flow`   | Power flow through the grid (minute).       | W      |
 | `monitoring_minute_solar_production`  | Solar energy produced (minute).             | W      |
 
-## Imeon integration extras
+## Troubleshooting
 
-Custom dashboard templates for the custom [Imeon Integration](https://github.com/Imeon-Inverters-for-Home-Assistant/imeon-integration). Uses [APEXCharts-card](https://github.com/RomRider/apexcharts-card/blob/master/README.md#data_generator-option) for graphs and custom gauges.
+### What is my domain name?
 
-### Troubleshooting
+The domain name is the internal name given to your inverter by Home Assistant. It's based on the initial name you gave to your device, albeit formatted to avoid internal issues.
 
-
-### What is my domain name? 
-
-The domain name is the internal name given to your inverter by Home Assistant. It's based on the initial name you gave to your device, albeit formatted to avoid internal issues. 
-   - A name such as `Imeon Inverter number 57` would give you a domain name of `imeon_inverter_number_57`.
-   - If you're still struggling to find the domain name, check the internal name of the entities under the device. The name of each variable is `DOMAIN_variable-name`, for example `neo_110_inverter_software_version` tells us the domain name is `neo_110`.
-
-### How to install APEXCharts-card?
-
-[APEXCharts-card's README](https://github.com/RomRider/apexcharts-card/blob/master/README.md#data_generator-option) explains everything needed to install this custom resource on your installation.
+- A name such as `Imeon Inverter number 57` would give you a domain name of `imeon_inverter_number_57`.
+- If you're still struggling to find the domain name, check the internal name of the entities under the device. The name of each variable is `DOMAIN_variable-name`, for example `neo_110_inverter_software_version` tells us the domain name is `neo_110`.
 
 ## Removing the integration
 

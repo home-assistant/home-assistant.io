@@ -11,6 +11,7 @@ related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 The **Datadog** {% term integration %} sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](https://docs.datadoghq.com/guides/basic_agent_usage/).
@@ -35,33 +36,21 @@ In the [Datadog Agent configuration](https://github.com/DataDog/datadog-agent/bl
 
 ## Configuration
 
-To use the `datadog` integration in your installation, add the following to your  {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-datadog:
-```
-
-{% configuration %}
+{% configuration_basic %}
 host:
   description: The IP address or hostname of your Datadog host, e.g., 192.168.1.23.
-  required: false
-  default: localhost
-  type: string
 port:
   description: Port to use.
-  required: false
-  default: 8125
-  type: integer
 prefix:
   description: Metric prefix to use.
-  required: false
-  default: "`hass`"
-  type: string
 rate:
   description: The sample rate of UDP packets sent to Datadog.
-  required: false
-  default: 1
-  type: integer
-{% endconfiguration %}
+{% endconfiguration_basic %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
