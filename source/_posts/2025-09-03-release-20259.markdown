@@ -146,9 +146,9 @@ One of Home Assistant's greatest strengths is our community. We're building this
 
 {% endtip %}
 
-<img class="no-shadow" alt="TODO: Replace screenshot" src="/images/blog/2025-09/temp-home-dashboard.png" />
-<img class="no-shadow" alt="TODO: Replace screenshot" src="/images/blog/2025-09/temp-home-dashboard-area.png" />
-<img class="no-shadow" alt="TODO: Replace screenshot" src="/images/blog/2025-09/temp-home-dashboard-lights.png" />
+<img class="no-shadow" alt="Home dashboard" src="/images/blog/2025-09/home-dashboard.png" />
+<img class="no-shadow" alt="Home dashboard: area view" src="/images/blog/2025-09/home-dashboard-area.png" />
+<img class="no-shadow" alt="Home dashboard: lights view" src="/images/blog/2025-09/home-dashboard-lights.png" />
 
 ## New tile card features
 
