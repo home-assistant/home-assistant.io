@@ -38,6 +38,7 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
 - [Binary sensors](#binary)
 - [Alarm_control_panel](#alarm-control-panel)
+- [Light](#light) to control the built-in LED strip on supported models (e.g. [Freebox Ultra Limited Edition](https://www.free.fr/freebox/freebox-ultra-edition-limitee/))
   
 {% include integrations/config_flow.md %}
 
@@ -61,7 +62,7 @@ You must have set a password for your Freebox router web administration page. En
 
 The first time Home Assistant will connect to your Freebox, you will need to authorize it by pressing the right arrow on the facade of the Freebox when prompted to do so.
 
-To make the Wi-Fi switch and the reboot action working, you will have to add "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+To make the Wi-Fi switch, reboot action and LED strip control (when supported) working, you will have to add "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
 To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme et maison connectée" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
@@ -69,6 +70,7 @@ To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme
 
 Only the routers with Freebox OS are supported:
 
+- Freebox V9 also known as Freebox Ultra
 - Freebox V8 also known as Freebox Pop
 - Freebox V7 also known as Freebox Delta
 - Freebox V6 also known as Freebox Revolution
@@ -116,6 +118,9 @@ This platform offers you sensors to monitor:
 
 This integration allows you to view and control the Freebox alarm control panel.
 
+## Light
+
+On Freebox models with a built-in LED strip, this integration will provide a dedicated entity to control it. Apart from on/off state control, the entity can also control the strip's brightness and switch between animations.
 
 
 ## Action
