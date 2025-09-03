@@ -65,6 +65,7 @@ To use the highest priority, which repeats the notification every x seconds (`re
     target:
       - iphone11pro
     data:
+      push:
       priority: 2
       sound: "siren"
       expire: 300
