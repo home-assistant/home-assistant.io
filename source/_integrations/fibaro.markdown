@@ -36,9 +36,7 @@ The Fibaro integration allows you to connect Home Assistant to Fibaro Home Cente
 
 ## Supported hub models
 
-Fibaro Home Center 2, Home Center Lite, Home Center 3, Home Center 3 Lite, Nice Yubii Home, and Yubii Home Pro.
-
-This integration also allows you to connect your Zooz Z-Box Hub to Home Assistant.
+Fibaro Home Center 2, Home Center Lite, Home Center 3, Home Center 3 Lite, Nice Yubii Home, Yubii Home Pro, and Zooz Z-Box Hub.
 
 ## Features
 
