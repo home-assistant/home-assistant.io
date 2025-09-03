@@ -495,6 +495,11 @@ zwa-2:
   name: "<strong>Home Assistant</strong> Connect ZWA-2"
   distributors:
     # America
+    - name: Amazon
+      ship_from: US
+      ship_to: North America
+      url: https://www.amazon.com/dp/B0FL858V4Q?maas=maas_adg_73AFDD563FE8A4927464DA26BC06556F_afap_abs&ref_=aa_maas&tag=maas
+      logo: /images/distributors/amazon.webp
     - name: Apollo Automation
       ship_from: US & Canada
       ship_to: North America
