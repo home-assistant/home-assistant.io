@@ -163,15 +163,15 @@ This release, an absolute banger is the addition of the trend chart features for
 
 This feature adds a handy quick graph to the tile card, showing the history of a specific entity over time. For this initial version, the time window shown is 24 hours.
 
-<img class="no-shadow" alt="TODO: Replace screenshot" src="/images/blog/2025-09/temp-tile-feature-history-chart.png" />
+<img class="no-shadow" alt="Trend graph feature" src="/images/blog/2025-09/tile-features-trend-graph.png" />
 
 [@MindFreeze]: https://github.com/MindFreeze
 
 ### Media player controls
 
-[@timmo001], added tile card features for media player controls! This makes the tile card now a viable alternative to the media player card. Awesome!
+[@timmo001], added tile card features for media player controls and volume! This makes the tile card now a viable alternative to the media player card. Awesome!
 
-**TODO: Insert screenshot**
+<img class="no-shadow" alt="Media player features" src="/images/blog/2025-09/tile-features-media-player.png" />
 
 [@timmo001]: https://github.com/timmo001
 
@@ -182,7 +182,7 @@ A new tile card feature, made by [@MindFreeze]: The bar gauge!
 For this initial version, it works with sensors that use a percentage (`%`) for their unit of measurement.
 This makes the card great, for example, for a battery overview dashboard. Nice work!
 
-**TODO: Insert screenshot**
+<img class="no-shadow" alt="Bar gauge feature" src="/images/blog/2025-09/tile-features-bar-gauge.png" />
 
 [@MindFreeze]: https://github.com/MindFreeze
 
@@ -190,9 +190,7 @@ This makes the card great, for example, for a battery overview dashboard. Nice w
 
 Thanks to [@pcan08] we now have a tile card feature to control fan direction and oscillation!
 
-<img class="no-shadow" alt="TODO: Replace screenshot" src="/images/blog/2025-09/temp-tile-feature-fan-direction.png" />
-
-<img class="no-shadow" alt="TODO: Replace screenshot" src="/images/blog/2025-09/temp-tile-feature-fan-oscillation.png" />
+<img class="no-shadow" alt="Fan direction and oscillation features" src="/images/blog/2025-09/tile-features-fan.png" />
 
 [@pcan08]: https://github.com/pcan08
 
@@ -200,7 +198,7 @@ Thanks to [@pcan08] we now have a tile card feature to control fan direction and
 
 Thanks to [@dhoeben] we now have a tile card feature for buttons! He added these buttons for automation, script, and button entities. The text can be changed to display standard button text or custom text.
 
-<img class="no-shadow" alt="TODO: Replace screenshot" src="/images/blog/2025-09/temp-tile-feature-button.png" />
+<img class="no-shadow" alt="Button feature" src="/images/blog/2025-09/tile-features-button.png" />
 
 [@dhoeben]: https://github.com/dhoeben
 
@@ -208,7 +206,7 @@ Thanks to [@dhoeben] we now have a tile card feature for buttons! He added these
 
 Thanks to [@timmo001] we now have a tile card feature to control the open/close and the position of valves.
 
-<img class="no-shadow" alt="TODO: Replace screenshot" src="/images/blog/2025-09/temp-tile-feature-valve-controls.png" />
+<img class="no-shadow" alt="Open/close and valve position features" src="/images/blog/2025-09/tile-features-valve.png" />
 
 [@timmo001]: https://github.com/timmo001
 
@@ -216,7 +214,7 @@ Thanks to [@timmo001] we now have a tile card feature to control the open/close 
 
 [@timmo001] continued and also added a new tile card feature to support date and datetime entities (including the input datetime helpers). It allows you to set a feature that allows for setting a date.
 
-<img class="no-shadow" alt="TODO: Replace screenshot" src="/images/blog/2025-09/temp-tile-feature-set-date.png" />
+<img class="no-shadow" alt="Date feature" src="/images/blog/2025-09/tile-features-date.png" />
 
 [@timmo001]: https://github.com/timmo001
 
