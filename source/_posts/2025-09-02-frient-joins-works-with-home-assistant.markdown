@@ -12,7 +12,7 @@ og_image: /images/blog/2025-09-frient/art.webp
 
 <img src='/images/blog/2025-09-frient/art.webp' style='border: 0;box-shadow: none;' alt="Frient joins Works with Home Assistant">
 
-We’re making new frients this week, and they’re bringing an extensive line of Zigbee devices to our [Works With Home Assistant program](https://works-with.home-assistant.io/). Each device is tested by our team, ensuring they provide the best experience possible for Home Assistant. [Frient](https://www.frient.com/) is widely available across Europe, and are well-known for their sleek, unobtrusive designs that its customers love for their high Home Approval Factor.<!-- more -->
+We’re making new frients this week, and they’re bringing an extensive line of Zigbee devices to our [Works With Home Assistant program](https://works-with.home-assistant.io/). Each device is tested by our team, ensuring they provide the best experience possible for Home Assistant. [Frient](https://www.frient.com/) is widely available across Europe, and are well-known for their sleek, unobtrusive designs that its customers love for their high Home Approval Factor.<!--more-->
 
 ## Our newest frient
 
