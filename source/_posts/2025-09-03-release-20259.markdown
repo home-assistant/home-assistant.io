@@ -297,7 +297,7 @@ There are many more improvements in this release; here are some of the other not
   - The intent handling for the default agent (non-LLM) now supports fuzzy matching. The technique ensures voice pipelines recognize many more sentences. This improvement is available for English only, while we are looking for ways to extend this to other languages.
   - We now have built-in intents to control the volume of (active) media players! Like the song? Just ask Home Assistant to turn it up a notch!
   - After all that dancing, you might have gotten a little warm. Hence in this release, we now also have intents to control fan speeds. Nice!
-- Integrations can now update scene entities when a scene is activated externally — for example via physical controls or other external events. This keeps scene states in sync, makes activations visible, and lets you use external scene activations as triggers in automations. Thanks to [@thomasddn]! [Qbus](/integrations/qbus/) and [KNX](/integrations/knx#scene) already support this feature.
+  - Integrations can now update scene entities when a scene is activated externally — for example via physical controls or other external events. This keeps scene states in sync, makes activations visible, and lets you use external scene activations as triggers in automations. Thanks to [@thomasddn]! [Qbus](/integrations/qbus/) and [KNX](/integrations/knx#scene) already support this feature.
 
 [template entity]: /integrations/template/
 [@Petro31]: https://github.com/Petro31
