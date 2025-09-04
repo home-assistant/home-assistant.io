@@ -10,7 +10,7 @@ jobs:
       - name: Check out files from GitHub
         uses: actions/checkout@v5.0.0
       - name: Setting up Node.js
-        uses: actions/setup-node@v4.4.0
+        uses: actions/setup-node@v5.0.0
         with:
           node-version: 20
           cache: "npm"
@@ -37,7 +37,7 @@ jobs:
       - name: Check out files from GitHub
         uses: actions/checkout@v5.0.0
       - name: Setting up Node.js
-        uses: actions/setup-node@v4.4.0
+        uses: actions/setup-node@v5.0.0
         with:
           node-version: 20
           cache: "npm"
