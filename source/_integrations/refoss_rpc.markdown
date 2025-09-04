@@ -8,7 +8,8 @@ ha_category:
   - Sensor
   - Event
   - Update
-ha_release: 2025.2
+  - Cover
+ha_release: 2025.10
 ha_codeowners:
   - '@ashionky'
 ha_iot_class: Local Push
@@ -22,6 +23,7 @@ ha_platforms:
   - event
   - update
   - button
+  - cover
 ha_integration_type: device
 ---
 
@@ -31,9 +33,14 @@ Integrate Refoss devices that support `RPC` protocol into Home Assistant.
 
 ## Supported device models
 
-| Model                            | Version            |             
-|----------------------------------|--------------------|
-| `Refoss Smart Wi-Fi Switch, R11` | `all`              |
+| Model                               | Version            |             
+|-------------------------------------|--------------------|
+| `Refoss Smart Wi-Fi Switch, R11`    | `all`              |
+| `Refoss Smart Wi-Fi Plug, P11S`     | `all`              |
+| `Refoss Smart Wi-Fi Switch, R21`    | `all`              |
+| `Refoss Smart Energy Monito, EM06P` | `all`              |
+| `Refoss Smart Energy Monito, EM16P` | `all`              |
+
 
 ## Entity naming
 
