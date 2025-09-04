@@ -1,0 +1,44 @@
+:root {
+    // Containers and widths
+    --container-max-width: 1100px;
+    --container-full-max-width: 1400px;
+    --container-gutters: 24px;
+
+    // Typography
+    --typography-base-font: "Figtree", serif;
+    --typography-heading-line-height: 1.25;
+
+    --typography-h1-font-size: 36px;
+    --typography-h1-font-weight: 600;
+    --typography-h1-line-height: 1;
+
+    --typography-h2-font-size: 30px;
+    --typography-h2-font-weight: 600;
+    --typography-h2-line-height: 1.2;
+
+    --typography-h3-font-size: 24px;
+    --typography-h3-font-weight: 600;
+    --typography-h3-line-height: var(--typography-heading-line-height);
+
+    --typography-h4-font-size: 14px;
+    --typography-h4-font-weight: 700;
+    --typography-h4-line-height: 1.25;
+
+    --typography-paragraph-color: #4F606E;
+    --typography-paragraph-font-size: 12px;
+    --typography-paragraph-font-weight: 400;
+    --typography-paragraph-line-height: 1.25;
+
+    --typography-body-big-font-size: 16px;
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --typography-h1-font-size: 66px;
+        --typography-h2-font-size: 48px;
+        --typography-h3-font-size: 32px;
+        --typography-h4-font-size: 20px;
+        --typography-paragraph-font-size: 16px;
+        --typography-body-big-font-size: 24px;
+    }
+}

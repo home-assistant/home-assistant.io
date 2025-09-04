@@ -1,0 +1,94 @@
+.container {
+    display: flex;
+    margin: 0 auto;
+    max-width: calc(var(--container-max-width) + (var(--container-gutters) * 2));
+    padding: 0 calc(var(--container-gutters) / 2);
+    width: 100%;
+    height: 100%;
+
+    @include bp(desktop) {
+        padding: 0 var(--container-gutters);
+    }
+
+    &-full {
+        margin: 0 auto;
+        padding: 0 calc(var(--container-gutters) / 2);
+        max-width: calc(var(--container-full-max-width) + (var(--container-gutters) * 2));
+        width: 100%;
+
+        @include bp(desktop) {
+            padding: 0 var(--container-gutters);
+        }
+    }
+}
+
+#landingpage {
+    .page-content {
+        overflow-x: unset;
+    }
+
+    .content {
+        max-width: unset;
+        margin: 0;
+    }
+}
+
+main#page-community {
+
+    p{
+        margin: 0;
+    }
+
+    h1,
+    .h1 {
+        font-size: var(--typography-h1-font-size);
+        font-weight: var(--typography-h1-font-weight);
+        line-height: var(--typography-h1-line-height);
+    }
+
+    h2,
+    .h2 {
+        font-size: var(--typography-h2-font-size);
+        font-weight: var(--typography-h2-font-weight);
+        line-height: var(--typography-h2-line-height);
+    }
+
+    h3,
+    .h3 {
+        font-size: var(--typography-h3-font-size);
+        font-weight: var(--typography-h3-font-weight);
+        line-height: var(--typography-h3-line-height);
+    }
+
+    h4,
+    .h4 {
+        font-size: var(--typography-h4-font-size);
+        font-weight: var(--typography-h4-font-weight);
+        line-height: var(--typography-h4-line-height);
+    }
+
+    h5,
+    .h5 {
+        font-size: var(--typography-h5-font-size);
+        font-weight: var(--typography-h5-font-weight);
+        line-height: var(--typography-h5-line-height);
+    }
+
+    h6,
+    .h6 {
+        font-size: var(--typography-h6-font-size);
+        font-weight: var(--typography-h6-font-weight);
+        line-height: var(--typography-h6-line-height);
+    }
+
+    p {
+        color: var(--typography-paragraph-color);
+        font-size: var(--typography-paragraph-font-size);
+        font-weight: var(--typography-paragraph-font-weight);
+        line-height: var(--typography-paragraph-line-height);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+    .button {
+        // Reset - remove after global button refactor
+        border: unset;
+        color: initial;
+        height: unset;
+        line-height: initial;
+        margin: unset;
+        overflow: hidden;
+
+        align-items: center;
+        background-color: #99DFFC;
+        border-radius: 40px;
+        display: inline-flex;
+        font-size: 10px;
+        font-weight: 600;
+        padding: 10px 24px;
+        transition: color 0.2s ease, background-color 0.2s ease;
+
+        @include bp(tablet) {
+            font-size: 14px;
+        }
+
+        &:hover {
+            box-shadow: unset;
+            background-color: #00AEF8;
+            color: #ffffff;
+        }
+
+        &:before {
+            content: unset;
+        }
+
+        &:has(.icon) {
+            gap: 4px;
+            padding: 4px 14px 4px 4px;
+
+            @include bp(tablet) {
+                gap: 10px;
+                padding: 8px 24px 8px 8px;
+            }
+        }
+
+        &.cta {
+            background-color: #16F3BE;
+        }
+    }
