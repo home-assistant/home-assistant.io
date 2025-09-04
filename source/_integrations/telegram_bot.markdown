@@ -11,6 +11,8 @@ ha_integration_type: integration
 ha_quality_scale: bronze
 ha_codeowners:
   - '@hanwg'
+ha_platforms:
+  - notify
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
