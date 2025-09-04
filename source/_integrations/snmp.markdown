@@ -49,7 +49,7 @@ The following OID examples pull the current MAC Address table from a router. Thi
 | MikroTik | unknown RouterOS version/model   | `1.3.6.1.4.1.14988.1.1.1.2.1.1`                 |
 | MikroTik | RouterOS 6.x on RB2011           | `1.3.6.1.2.1.4.22.1.2`                          |
 | OpenWrt  | Chaos Calmer 15.05               | `1.3.6.1.2.1.4.22.1.2`                          |
-| OPNSense | 19.1                             | `1.3.6.1.2.1.4.22.1.2`                          |
+| OPNsense | 19.1                             | `1.3.6.1.2.1.4.22.1.2`                          |
 | pfSense  | 2.2.4                            | `1.3.6.1.2.1.4.22.1.2`                          |
 | Ruckus   | ZoneDirector 9.13.3              | `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6`         |
 | TP-Link  | Archer VR1600v                   | `1.3.6.1.2.1.3.1.1.2.16.1`                      |
@@ -369,7 +369,7 @@ command_payload_off:
 vartype:
   description: The SNMP vartype for the `payload_on` and `payload_off` commands as defined in [RFC1902](https://tools.ietf.org/html/rfc1902.html).
   required: false
-  type: string  
+  type: string
   default: 'none'
 {% endconfiguration %}
 
