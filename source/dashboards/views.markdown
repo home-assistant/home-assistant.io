@@ -208,7 +208,7 @@ background:
       required: false
       description: Sets the background image to use behind the view.
       type: string
-    transparency:
+    opacity:
       required: false
       description: Adjust the background's opacity, from fully opaque to transparent.
       type: integer
@@ -241,7 +241,7 @@ background:
 # Example background section in view yaml
 background:
   image: /local/background.png
-  transparency: 50 # any percentage between 0 and 100
+  opacity: 50 # any percentage between 0 and 100
   size: auto # auto, cover, contain
   alignment: center # top left, top center, top right, center left, center, center right, bottom left, bottom center, bottom right
   repeat: no-repeat # repeat, no-repeat

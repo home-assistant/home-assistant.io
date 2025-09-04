@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_domain: onvif
 ha_codeowners:
   - '@hunterjm'
+  - '@jterrace'
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
@@ -28,10 +29,6 @@ The ONVIF camera integration allows you to use an [ONVIF](https://www.onvif.org/
 {% tip %}
 It is recommended that you create a user on your device specifically for Home Assistant. For all current functionality, it is enough to create a standard user.
 {% endtip %}
-
-{% note %}
-If running Home Assistant Core in a venv, ensure that libxml2 and libxslt Python interfaces are installed via your package manager.
-{% endnote %}
 
 ### Configuration notes
 

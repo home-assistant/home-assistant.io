@@ -1,0 +1,260 @@
+section#faq {
+    background: linear-gradient(180deg, #F2F4F9 0%, #FBFBFB 100%);
+    
+    //height: 100vh;
+
+    .cols {
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .section-inner-content {
+        //height: 64vh;
+    }
+
+    .container{
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .accordion {
+
+        .accordion-items {
+            display: flex;
+            flex-direction: column;
+            margin-top: 1px;
+        }
+
+        .accordion-item {
+            --open: 0;
+            border-bottom: 1px solid #72787E;
+            display: flex;
+            flex-direction: column;
+
+            // Checkbox-driven open state
+            input[type="checkbox"] {
+                display: none;
+            }
+
+            input[type="checkbox"]:checked ~ .accordion-item-heading {
+                // Optionally style the heading when open
+            }
+
+            input[type="checkbox"]:checked ~ .accordion-item-content-animation-wrapper {
+                grid-template-rows: 1fr;
+                transition: grid-template-rows 0.4s ease 0s;
+
+                @media (prefers-reduced-motion: reduce) {
+                    transition: none;
+                }
+
+                .accordion-item-content-transform-wrapper {
+                    opacity: 1;
+                    transform: translateY(0);
+                    transition: transform 0.4s ease, visibility 0s 0.4s ease, margin-top 0.4s ease, opacity 0.3s ease 0.425s;
+                    visibility: visible;
+
+                    @media (prefers-reduced-motion: reduce) {
+                        transition: none;
+                    }
+                }
+            }
+
+            input[type="checkbox"]:checked ~ .accordion-item-heading .button-more {
+                background-color: #ffffff;
+            }
+
+            input[type="checkbox"]:checked ~ .accordion-item-heading .button-more:before,
+            input[type="checkbox"]:checked ~ .accordion-item-heading .button-more:after {
+                transform: translate(-50%, -50%) scale(calc(64/28));
+            }
+
+            input[type="checkbox"]:checked ~ .accordion-item-heading .button-more:hover:before,
+            input[type="checkbox"]:checked ~ .accordion-item-heading .button-more:hover:after {
+                transform: translate(-50%, -50%) scale(calc(56/28));
+            }
+
+            input[type="checkbox"]:checked ~ .accordion-item-heading .button-more .plus {
+                transform: translate(-50%, -50%) rotate(90deg);
+            }
+
+            input[type="checkbox"]:checked ~ .accordion-item-heading .button-more .plus:before {
+                opacity: 0;
+            }
+            input[type="checkbox"]:checked ~ .accordion-item-heading .button-more .plus:after {
+                background-color: var(--connect-line-blue);
+            }
+
+            &-heading {
+                cursor: pointer;
+                margin-bottom: -1px;
+                transition: background-color 0.3s, color 0.3s;
+                user-select: none;
+                
+                label{
+                    
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 20px 0;
+                    z-index: 1;
+                    
+                    @include bp(desktop){
+                        padding: 40px 0;
+                    }
+                }
+
+                &-title {
+                    font-weight: 400;
+                    font-size: 20px;
+                    color: #002332;
+                    @include bp(desktop){
+                        font-size: 24px;
+                    }
+                }
+
+                &-icon {
+                    display: grid;
+                    flex-shrink: 0;
+                    height: 32px;
+                    place-items: center;
+                    position: relative;
+                    width: 32px;
+                }
+
+                .button-more {
+                    background-color: var(--connect-line-blue);
+                    border-radius: 50%;
+                    cursor: pointer;
+                    height: 24px;
+                    position: relative;
+                    transition: background-color 0.25s ease-out, box-shadow 0.25s ease-out;
+                    width: 24px;
+
+                    .plus {
+                        height: 8px;
+                        left: 50%;
+                        position: absolute;
+                        top: 50%;
+                        transform: translate(-50%, -50%) rotate(0deg);
+                        transition: transform .25s ease-out;
+                        width: 8px;
+
+                        @media (prefers-reduced-motion: reduce) {
+                            transition: none;
+                        }
+                    }
+
+                    .plus:before,
+                    .plus:after {
+                        background-color: #ffffff;
+                        content: '';
+                        left: 50%;
+                        position: absolute;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        transition: opacity .25s ease-out, background-color .25s ease-out;
+
+                        @media (prefers-reduced-motion: reduce) {
+                            transition: none;
+                        }
+                    }
+
+                    .plus:before {
+                        height: 2px;
+                        width: 8px;
+                    }
+
+                    .plus:after {
+                        height: 8px;
+                        width: 2px;
+                    }
+
+                    &:before {
+                        -webkit-backdrop-filter: blur(2px);
+                        backdrop-filter: blur(2px);
+                        background-color: rgba(255, 255, 255, .5);
+                        border-radius: 50%;
+                        content: '';
+                        height: 28px;
+                        left: 50%;
+                        position: absolute;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        transition: transform .25s ease-out;
+                        width: 28px;
+                        z-index: -1;
+
+                        @media (prefers-reduced-motion: reduce) {
+                            transition: none;
+                        }
+                    }
+
+                    &:after {
+                        border-radius: 50%;
+                        content: '';
+                        height: 28px;
+                        left: 50%;
+                        position: absolute;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 28px;
+                        z-index: 1;
+                    }
+
+                    &:hover:before,
+                    &:hover:after {
+                        transform: translate(-50%, -50%) scale(calc(34/28));
+                    }
+
+                    // .active state now handled by input:checked selectors above
+                }
+            }
+
+            &-content {
+                gap: 20px;
+                grid-template-rows: 0fr;
+                justify-content: center;
+                padding: 0 0 20px 0;
+                transition: grid-template-rows 0.3s, transform, visibility 0.3s;
+
+                @media (prefers-reduced-motion: reduce) {
+                    transition: none;
+                }
+
+                &,
+                p {
+                    color: #4F606E;
+                    font-size: 16px;
+                    line-height: 1.5;
+                    margin: 0;
+                }
+
+                &-animation {
+                    min-height: 0;
+                }
+
+                &-animation-wrapper {
+                    display: grid;
+                    grid-template-rows: 0fr;
+                    overflow: hidden;
+                    transition: grid-template-rows 0.4s ease;
+
+                    @media (prefers-reduced-motion: reduce) {
+                        transition: none;
+                    }
+                }
+
+                &-transform-wrapper {
+                    margin-top: 0;
+                    opacity: 0.875;
+                    transform: translateY(-100%);
+                    transition: transform 0.4s ease, margin-top 0.4s ease, opacity 0.3s ease;
+
+                    @media (prefers-reduced-motion: reduce) {
+                        transition: none;
+                    }
+                }
+            }
+        }
+    }
+}

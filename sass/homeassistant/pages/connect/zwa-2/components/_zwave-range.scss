@@ -1,0 +1,143 @@
+section#zwave-range {
+    //height: 100vh;
+
+    .cols {
+        gap: 40px;
+        flex-wrap: wrap;
+
+        &:first-child {
+            @include bp(desktop) {
+                flex-wrap: nowrap;
+
+                .col {
+                    flex-basis: 33%;
+
+                    &:last-child {
+                        flex-basis: 66%;
+                    }
+                }
+            }
+        }
+
+        .col {
+            width: 100%;
+
+            @include bp(desktop) {
+                flex-grow: 1;
+                flex-basis: 0;
+            }
+        }
+    }
+
+    .mobile{
+        @include bp(tablet) {
+            display: none;
+        }
+    }
+
+    .tablet{
+        display: none;
+        @include bp(tablet) {
+            display: block;
+        }
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .section-inner-content {
+        padding-bottom: 0;
+    }
+
+    .feature-card {
+        background-color: rgba(2, 35, 68, 0.2);
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        height: 100%;
+        justify-content: space-between;
+        flex-direction: column;
+        isolation: isolate;
+
+        &#silence-the-noise {
+            .feature-card-content {
+                padding-bottom: 20px;
+            }
+
+            .feature-card-title {
+                flex-shrink: 0;
+                line-height: 1;
+                white-space: nowrap;
+            }
+
+            .feature-card-image {
+                aspect-ratio: 760/315;
+                width: 100%;
+
+                svg {
+                    height: 100%;
+                }
+            }
+        }
+
+        &#best-listener {
+            height: 100%;
+
+            .feature-card-image {
+                height: 100%;
+                position: relative;
+
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 100%;
+                }
+            }
+        }
+
+        &--framed {
+            .feature-card-content {
+                padding: 30px 30px 20px 30px;
+
+                @include bp(tablet) {
+                    padding: 60px 60px 20px 60px;
+                }
+            }
+        }
+
+        &-content {
+            flex-wrap: wrap;
+            display: flex;
+            gap: 24px;
+            padding: 30px;
+            
+            @include bp(tablet) {
+                padding: 60px;
+            }
+            @include bp(desktop) {
+                flex-wrap: nowrap;
+            }
+        }
+
+        &-title {
+            min-width: 160px;
+        }
+
+        &-description {
+            font-size: 16px;
+        }
+
+        &-image {
+            aspect-ratio: 16/9;
+            z-index: -1;
+
+            img,
+            svg {
+                width: 100%;
+            }
+        }
+    }
+}
