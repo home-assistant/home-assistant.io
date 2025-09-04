@@ -222,7 +222,7 @@ changes to existing integrations:
 - Network admins will love [@Tomeroeni] bringing individual (enable/disable) switch port control to [UniFi] switches!
 - The [OpenWeatherMap] integration now includes a wind gust sensor, thanks to [@gjohansson-ST]!
 - [@kizovinh] added support for battery status and online status sensors to the [EZVIZ] integration, making it easier to monitor your EZVIZ cameras. Nice!
-- If you own a [Russound Rio] device, you can now browse your device's saved presets directly from the media browser! Thanks, [@hanwg]!
+- If you own a [Russound RIO] device, you can now browse your device's saved presets directly from the media browser! Thanks, [@noahhusby]!
 - [@mbo18] added an absolute humidity sensor to the [Awair] integration. Nice!
 - The [Teslemetry] integration added charging and preconditioning actions for your Tesla vehicle. Thanks, [@Bre77]!
 - [@catsmanac] added [IQ Meter Collar] and [C6 Combiner] support to the [Enphase Envoy] integration. Good work!
@@ -230,9 +230,9 @@ changes to existing integrations:
 [@Bre77]: https://github.com/Bre77
 [@catsmanac]: https://github.com/catsmanac
 [@gjohansson-ST]: https://github.com/gjohansson-ST
-[@hanwg]: https://github.com/hanwg
 [@kizovinh]: https://github.com/kizovinh
 [@mbo18]: https://github.com/mbo18
+[@noahhusby]: https://github.com/noahhusby
 [@starkillerOG]: https://github.com/starkillerOG
 [@Thomas55555]: https://github.com/Thomas55555
 [@Tomeroeni]: https://github.com/Tomeroeni
@@ -246,7 +246,7 @@ changes to existing integrations:
 [OpenWeatherMap]: /integrations/openweathermap
 [PlayStation Network]: /integrations/playstation_network
 [Reolink]: /integrations/reolink
-[Russound Rio]: /integrations/russound_rio
+[Russound RIO]: /integrations/russound_rio
 [Teslemetry]: /integrations/teslemetry
 [UniFi]: /integrations/unifi
 
