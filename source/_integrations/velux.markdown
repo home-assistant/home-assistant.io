@@ -10,12 +10,15 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@Julius2342'
   - '@DeerMaximum'
+  - '@pawlizio'
 ha_domain: velux
 ha_platforms:
+  - binary_sensor
   - cover
   - light
   - scene
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 [Velux](https://www.velux.com/) {% term integration %} for Home Assistant allows you to connect to a Velux KLF 200 interface, to control [io-homecontrol](http://www.io-homecontrol.com) devices like windows and blinds. The module allows you to start scenes configured within KLF 200.
@@ -24,9 +27,12 @@ At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmw
 
 There is currently support for the following device types within Home Assistant:
 
+- Binary sensor (reports rain detection for windows that support it)
 - Cover
 - Light
 - Scene
+
+Rain sensors of supported windows do not report automatically and must be polled every 5 minutes. For this reason, they are disabled by default, because polling uses more radio bandwidth and battery power than simply reporting changed window positions.
 
 {% include integrations/config_flow.md %}
 

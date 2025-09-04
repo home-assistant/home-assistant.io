@@ -20,7 +20,9 @@ The `here_travel_time` sensor provides travel time from the [HERE Routing API](h
 
 You need to register for an API key by following the instructions in the [API Developer Guide](https://www.here.com/docs/bundle/routing-api-developer-guide-v8/page/topics/send-request.html).
 
-HERE offers a Limited Plan which includes 1000 free transactions per day. If you are not [updating sensors on demand](#updating-sensors-on-demand-using-automation), you can track 3 routes without exceeding the limit. You can provide payment details to increase this to 5000 free transactions per day. More information can be found [on the pricing page](https://www.here.com/get-started/pricing)
+HERE offers a Base Plan which includes 5000 free transactions per month. If you are not [updating sensors on demand](#updating-sensors-on-demand-using-automation), you can track 1 route without exceeding the limit.
+
+More information can be found [on the pricing page](https://www.here.com/get-started/pricing)
 
 {% include integrations/config_flow.md %}
 

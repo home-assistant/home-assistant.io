@@ -14,6 +14,7 @@ ha_domain: honeywell
 ha_platforms:
   - climate
   - diagnostics
+  - humidifier
   - sensor
   - switch
 ha_integration_type: integration

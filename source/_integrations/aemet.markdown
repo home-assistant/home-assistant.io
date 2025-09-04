@@ -73,3 +73,9 @@ For each condition, the following sensors are created:
 The integration creates an image entity for the weather radar if the radar option is enabled.
 
 Details about the API are available in the [AEMET OpenData documentation](https://opendata.aemet.es/dist).
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

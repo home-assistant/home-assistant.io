@@ -1,0 +1,25 @@
+.connect-badge{
+    --background: #ffffff;
+    --color: var(--connect-line-blue);
+
+    align-items: center;
+    background-color: var(--background);
+    border-radius: 20px;
+    color: var(--color);
+    display: inline-flex;
+    font-size: 12px;
+    font-weight: 700;
+    gap: 8px;
+    line-height: .666;
+    padding: 10px 16px;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    &:before{
+        background-color: var(--color);
+        border-radius: 50%;
+        content: '';
+        height: 8px;
+        width: 8px;
+    }
+}

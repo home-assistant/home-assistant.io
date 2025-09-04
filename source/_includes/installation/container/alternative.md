@@ -73,7 +73,6 @@ The steps would be:
 - Install "Container Station" package on your Qnap NAS
 - Launch Container Station and move to "Create Container"-section
 - Search image "homeassistant/home-assistant" with Docker Hub and click on "Install"
-  Make attention to CPU architecture of your NAS. For ARM CPU types the correct image is "homeassistant/armhf-homeassistant"
 - Choose "stable" version and click next
 - Choose a container-name you want (e.g., "homeassistant")
 - Click on "Advanced Settings"
