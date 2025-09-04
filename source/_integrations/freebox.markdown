@@ -120,7 +120,7 @@ This integration allows you to view and control the Freebox alarm control panel.
 
 ## Light
 
-On Freebox models with a built-in LED strip, this integration will provide a dedicated entity to control it. Apart from on/off state control, the entity can also control the strip's brightness and switch between animations.
+On Freebox models with a built-in LED strip, this integration provides a dedicated entity to control it. In addition to on/off state control, the entity can also control the strip's brightness and switch between animations.
 
 
 ## Action
