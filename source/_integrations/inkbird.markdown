@@ -34,7 +34,13 @@ Integrates [INKBIRD](https://www.inkbird.com/) devices into Home Assistant.
 - [Nutrichef Smart Wireless Grill Thermometer](https://nutrichefkitchen.com/products/pwirbbq40)
 - [Nutrichef Smart Bluetooth BBQ Grill Thermometer](https://nutrichefkitchen.com/products/pwirbbq80-1)
 
+While many devices can be updated without active scans, some entities, including the battery sensor require active scans.
+
+## Discovery
+
 The INKBIRD integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
+
+Most devices require active scans to be discovered.
 
 {% include integrations/config_flow.md %}
 

@@ -57,7 +57,7 @@ The following device classes are supported for numbers:
 - **energy_distance**: Energy per distance in kWh/100km, Wh/km, mi/kWh, or km/kWh.
 - **energy_storage**: Stored energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
-- **gas**: Gas volume in L, m³, ft³ or CCF
+- **gas**: Gas volume in L, m³, ft³, CCF, or MCF
 - **humidity**: Percentage of humidity in the air in %
 - **illuminance**: The current light level in lx
 - **irradiance**: Irradiance in W/m² or BTU/(h⋅ft²)
@@ -86,10 +86,10 @@ The following device classes are supported for numbers:
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³ or mg/m³
 - **volatile_organic_compounds_parts**: Ratio of volatile organic compounds in ppm or ppb
 - **voltage**: Voltage in V, mV, µV, kV, MV
-- **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
+- **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, CCF, or MCF
 - **volume_flow_rate**: Volume flow rate in m³/h, m³/min, m³/s, ft³/min, L/h, L/min, L/s, gal/min, or mL/s
-- **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
-- **water**: Water consumption in L, gal, m³, ft³, or CCF
+- **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, CCF, or MCF
+- **water**: Water consumption in L, gal, m³, ft³, CCF, or MCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
 - **wind_direction**: Wind direction in °
 - **wind_speed**: Wind speed in Beaufort, ft/s, km/h, kn, m/s, or mph
