@@ -14,7 +14,7 @@ The Greencell integration allows to integrate Greencell electric vehicles chargi
 
 ## Supported devices
 
-Currently integration support only [HabuDen](https://greencell.global/en/555-ev-chargers#/power-22kw_8_stage_regulation).
+Currently integration support only [HabuDen](https://greencell.global/habuden).
 
 ## Base functionalities
 
@@ -192,11 +192,11 @@ This section describes how to configure your device for the Home Assistant integ
 
 1. Open the GC App and make sure the device is **added to your account**.
 2. Go to the device **Settings** (tap the cogwheel in the top-right corner of the device tile).
-   The app shows the **Advanced settings** screen:
+   The app shows the **Settings** screen:
 
    ![Advanced settings menu](/images/integrations/greencell/main_menu_screen_greencell_hass.jpeg)
 
-3. In **Advanced settings**, open **Home Assistant**.
+3. In **Settings**, open **Home Assistant**.
    If the device has never been added to Home Assistant or the integration was disabled earlier, you will see the default screen:
 
    ![Default Home Assistant integration screen](/images/integrations/greencell/default_screen_greencell_hass.jpeg)
@@ -207,7 +207,7 @@ This section describes how to configure your device for the Home Assistant integ
 
 5. Fill in the MQTT connection details:
 
-   - **MQTT broker address** – Hostname or IP of your MQTT broker (for example, `mqtt.local` or `192.168.1.10`).
+   - **MQTT server address** – Hostname or IP of your MQTT broker (for example, `mqtt.local` or `192.168.1.10`).
    - **MQTT broker port** – TCP port of the broker (for example `1883`).
    - **Username** *(optional)* – MQTT username if your broker requires authentication.
    - **Password** *(optional)* – MQTT password for the above user.
