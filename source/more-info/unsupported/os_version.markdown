@@ -16,8 +16,8 @@ including Home Assistant Core or Add-on updates.
 ## The solution
 
 Since you've not updated your system in a while, we recommend to [create a backup](/common-tasks/general/#backups)
-before updating your system. Make sure to download or store the backup on a
-remote location.
+before updating your system. Make sure to download the backup or store it at
+a remote location.
 
 To resolve this issue, update your Home Assistant Operating System version. Go
 to {% my updates title="**System** > **Updates**" %} to update the operating
