@@ -47,6 +47,8 @@ End:
   description: When to stop the measure (timestamp or datetime). Can be a template.
 Duration:
   description: Duration of the measure.
+Minimum State Duration:
+  description: Minimum duration of the measurement to be considered for calculations (defaults to 0).
 {% endconfiguration_basic %}
 
 ## YAML Configuration
@@ -104,6 +106,11 @@ end:
 duration:
   description: Duration of the measure.
   required: false
+  type: time
+min_state_duration:
+  description: Minimum duration of the measurement to be considered for calculations.
+  required: false
+  default: 0
   type: time
 {% endconfiguration %}
 
@@ -165,6 +172,17 @@ If the duration exceeds the number of days of history stored by the `recorder` i
 {% note %}
 The history stats sensor will be updated when the source entity changes or once per minute if there is no source change. Keep this in mind when using fixed durations that aren't evenly divisible by one minute.
 {% endnote %}
+
+
+### Minimum state duration
+
+The minimum state duration variable is used to exclude short state changes from the statistics.
+
+```yaml
+# 2 minutes
+min_state_duration: "00:02:00"
+```
+
 
 ### Video tutorial
 This video tutorial explains how you can use history stats. It also shows how you can create a daily bar chart graph to visualize things such as occupancy, or how long the lights are on in a particular room.
