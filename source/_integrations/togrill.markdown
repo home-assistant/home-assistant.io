@@ -54,7 +54,7 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 
 ### Switches
 
-- **Control active**: The device only support a single connection at a time. If you intend to use the normal phone application as the normal means of control, this should be disabled. You can connect the device manually using the `Control active` switch entity.
+- **Control active**: The device only supports a single connection at a time. If you intend to use the normal phone application as the normal means of control, this should be disabled. You can connect the device manually using the `Control active` switch entity.
 
 ### Numbers
 
@@ -84,7 +84,7 @@ Each probe connected to the main device will be represented as a sub-device conn
 ### Sensors
 
 - **Temperature**: The current temperature of the given temperature probe
-- **Battery**: The current battery level of the device.
+- **Battery**: The current battery level of the device
 
 ### Select
 
