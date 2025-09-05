@@ -19,7 +19,7 @@ The **Green Planet Energy** {% term integration %} provides real-time electricit
 
 ## Prerequisites
 
-You **don't** need to have an account with Green Planet Energy for this integration to work. However the integration will probably only make sense if you are their customer with a dynamic energy tariff. For the setup no additional information is required.
+You don't need to have an account with Green Planet Energy for this integration to work. However, the integration will probably only make sense if you are their customer with a dynamic energy tariff. For the setup, no additional information is required.
 
 {% include integrations/config_flow.md %}
 
