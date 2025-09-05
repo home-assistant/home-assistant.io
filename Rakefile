@@ -66,7 +66,8 @@ task :preview, :listen do |t, args|
   raise "### You haven't set anything up yet. First run `rake install`." unless File.directory?(source_dir)
   puts "Starting to watch source with Jekyll and Compass."
   puts "Now listening on http://localhost:#{server_port}"
-  system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
+  # Always compile all SCSS files before starting Jekyll
+  system "compass compile --css-dir #{source_dir}/stylesheets"
   system "rake analytics_data"
   system "rake version_data"
   system "rake language_scores_data"

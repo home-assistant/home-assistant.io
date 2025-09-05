@@ -1,6 +1,6 @@
 ---
-title: AVM FRITZ!SmartHome
-description: Instructions on how to integrate AVM Smart Home (former AVM FRITZ!DECT) components into Home Assistant.
+title: FRITZ!SmartHome
+description: Instructions on how to integrate FRITZ! Smart Home (former AVM FRITZ!DECT) components into Home Assistant.
 ha_category:
   - Binary sensor
   - Button
@@ -28,7 +28,7 @@ ha_codeowners:
 ha_integration_type: hub
 ---
 
-The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [AVM Smart Home](https://en.fritz.com/products/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).
+The FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ! Smart Home](https://en.fritz.com/products/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).
 
 #### Tested devices
 
@@ -56,7 +56,7 @@ The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [
 
 ## Prerequisites
 
-Please note that in a [mesh](https://en.fritz.com/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) setup, only the FRITZ!Box with the mesh master role should be added with the AVM FRITZ!SmartHome integration.
+Please note that in a [mesh](https://en.fritz.com/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) setup, only the FRITZ!Box with the mesh master role should be added with the FRITZ!SmartHome integration.
 
 ### Username
 

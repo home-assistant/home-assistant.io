@@ -3,7 +3,9 @@
 h1.title.indent {
   font-size: 3.5rem;
 }
-.title.delta, .title.epsilon {
+
+.title.delta,
+.title.epsilon {
   border-bottom: none;
   margin-bottom: .75rem;
   text-transform: uppercase;
@@ -17,10 +19,12 @@ h1.title.indent {
     color: $primary-color;
   }
 }
+
 @media only screen and (max-width: $menu-collapse) {
   html {
     font-size: .95rem;
   }
+
   h1.title.indent {
     font-size: 3rem;
     overflow-wrap: break-word;
@@ -39,7 +43,11 @@ h1.title.indent {
 }
 
 @media only screen and (min-width: $desk-wide-start) {
-  .integration-page, .documentation-page, .blog-index, .blog-category {
+
+  .integration-page,
+  .documentation-page,
+  .blog-index,
+  .blog-category {
     .grid-wrapper>.grid.grid-center {
       display: flex;
       flex-direction: row-reverse;
@@ -48,13 +56,18 @@ h1.title.indent {
   }
 
   #sidebar {
-    .vertical-nav, .recent-categories, .blog-index .recent-posts, .categories {
+
+    .vertical-nav,
+    .recent-categories,
+    .blog-index .recent-posts,
+    .categories {
       background: none;
       padding: 0 16px 0 0;
     }
   }
 
-  .documentation-page, .blog-index {
+  .documentation-page,
+  .blog-index {
     #sidebar #toc-module {
       display: none;
     }
@@ -134,6 +147,7 @@ h1.title.indent {
               &::before {
                 content: 'More...';
               }
+
               &>a {
                 display: none;
               }
@@ -191,12 +205,17 @@ h1.title.indent {
 }
 
 @media only screen and (min-width: $desk-wide-start) {
-  .documentation-page #toc-bar, .integration-page #toc-bar, .blog-index #toc-bar {
+
+  .documentation-page #toc-bar,
+  .integration-page #toc-bar,
+  .blog-index #toc-bar {
     display: inline-block;
   }
+
   #integration-sidebar #toc-module {
     display: none;
   }
+
   .documentation-page #sidebar #toc-module {
     background: none;
     padding: 0;
@@ -212,11 +231,13 @@ article> {
     list-style: none;
     margin-left: 3rem;
   }
+
   ol>li {
     margin-left: -0.25rem;
     counter-increment: my-awesome-counter;
     position: relative;
   }
+
   ol>li::before {
     content: counter(my-awesome-counter);
     color: white;
@@ -233,14 +254,19 @@ article> {
     text-align: center;
     transition: background 1s;
   }
+
   ol:hover>li::before {
     background: $link-color;
   }
+
   ol:hover>li:hover::before {
     background: $primary-color;
   }
 }
-ul, ol, dd {
+
+ul,
+ol,
+dd {
   margin-left: 2rem;
 }
 
@@ -272,13 +298,13 @@ ul, ol, dd {
   }
 }
 
-.menu > li > a {
+.menu>li>a {
   font-weight: 500;
   transition: box-shadow .33s;
 }
 
-.menu > li > a:hover,
-.menu > li > a:focus {
+.menu>li>a:hover,
+.menu>li>a:focus {
   background: none;
   box-shadow: inset 0px -5px $primary-color;
   color: $navigation-color;
@@ -286,12 +312,12 @@ ul, ol, dd {
   margin-bottom: 27px;
 }
 
-.menu > li > a.active {
+.menu>li>a.active {
   font-weight: bold;
 }
 
-.dark .menu > li > a:hover,
-.dark .menu > li > a:focus {
+.dark .menu>li>a:hover,
+.dark .menu>li>a:focus {
   box-shadow: inset 0px -5px rgba($white, .5);
 }
 
@@ -302,6 +328,9 @@ ul, ol, dd {
     display: flex;
     align-items: center;
     font-weight: normal;
+    @media only screen and (max-width: $menu-collapse) {
+      user-select: none;
+    }
   }
 
 }
@@ -346,7 +375,7 @@ header .breadcrumbs {
 .page-content>footer {
   margin-top: 194px !important;
 
-  .skyline.grid{
+  .skyline.grid {
     position: relative;
 
     .grid__item {
@@ -372,12 +401,14 @@ header .breadcrumbs {
       letter-spacing: 0.005em;
       margin-bottom: 8px;
     }
+
     ul {
       padding-bottom: 24px;
     }
 
     .company {
       padding-bottom: 24px;
+
       .title {
         font-size: 1.5em;
         padding-bottom: 24px;
@@ -392,6 +423,7 @@ header .breadcrumbs {
     .socials {
       .icons {
         margin: -16px 0 16px 0;
+
         iconify-icon {
           font-size: 2em;
           margin-top: 12px;
@@ -463,6 +495,7 @@ header .breadcrumbs {
     h1 {
       padding: 0px 0px 12px;
     }
+
     &>svg {
       margin-top: -8px;
       margin-right: -8px;
@@ -498,7 +531,7 @@ header .breadcrumbs {
 
 a.material-card:hover {
   z-index: 2;
-  box-shadow: 0 0 1px rgba(0,0,0,.5), 0 -4px 8px hsla(180, 100%, 50%, .10), 0 32px 64px hsla(207, 100%, 10%, 0.5);
+  box-shadow: 0 0 1px rgba(0, 0, 0, .5), 0 -4px 8px hsla(180, 100%, 50%, .10), 0 32px 64px hsla(207, 100%, 10%, 0.5);
 }
 
 
@@ -543,7 +576,7 @@ a.material-card:hover {
         margin-bottom: 4px;
       }
 
-      .subtitle{
+      .subtitle {
         font-size: .85em;
         color: $gray;
       }
@@ -561,6 +594,7 @@ a.material-card:hover {
 
 .feedback {
   margin-top: 64px;
+
   h4 {
     margin: 0 0 8px !important;
 
@@ -574,6 +608,15 @@ a.material-card:hover {
     font-weight: 400;
     text-transform: none;
   }
+
+  .links ul {
+    list-style: none;
+    margin: 0;
+}
+
+  .links li {
+    display: inline;
+}
 }
 
 .installation-survey {
@@ -619,21 +662,27 @@ a.material-card:hover {
     opacity: 0.2;
     border-radius: 4px;
   }
+
   &:hover {
-    box-shadow: 0 0 1px rgba(0,0,0,.5), 0 -1px 2px hsla(180, 100%, 50%, .05), 0 12px 24px hsla(207, 100%, 10%, 0.20);
+    box-shadow: 0 0 1px rgba(0, 0, 0, .5), 0 -1px 2px hsla(180, 100%, 50%, .05), 0 12px 24px hsla(207, 100%, 10%, 0.20);
   }
+
   &:hover::before {
-    background-color: rgba(255,255,255,.8);
+    background-color: rgba(255, 255, 255, .8);
   }
+
   &:focus {
     outline: none;
   }
+
   &:focus::before {
     background-color: white;
   }
+
   &:active::before {
     background-color: grey;
   }
+
   :host([active]) & {
     color: rgba(0, 0, 0, 0.38);
     background-color: rgba(0, 0, 0, 0.12);
@@ -641,6 +690,7 @@ a.material-card:hover {
     cursor: unset;
     pointer-events: none;
   }
+
   &.hidden {
     display: none;
   }
@@ -661,6 +711,7 @@ a.material-card:hover {
     .blog-date {
       white-space: nowrap;
     }
+
     ol {
       margin: 0;
     }
@@ -677,7 +728,7 @@ a.material-card:hover {
     align-items: center;
     gap: 10px;
     align-self: stretch;
-    
+
     p {
       font-size: 1rem;
       margin: 10px 0 0 0;
@@ -750,6 +801,7 @@ a.material-card:hover {
       }
 
     }
+
     animation-name: box-shadow-color;
     animation-duration: 5s;
     animation-iteration-count: infinite;
@@ -759,6 +811,7 @@ a.material-card:hover {
       from {
         box-shadow: inset 0 0 64px hsl(197, 97%, 40%);
       }
+
       to {
         box-shadow: inset 0 0 64px hsl(159, 100%, 35%);
       }
@@ -807,6 +860,59 @@ a.material-card:hover {
     }
   }
 
+  .livestream-card {
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: unset;
+    color: #ffffff;
+    text-decoration: none;
+
+    &-banner {
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 12px 16px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      div {
+        flex-grow: 1;
+      }
+
+      &:before {
+        content: '';
+        background-color: #FF0033;
+        display: block;
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        // make it blink every 1.5 seconds, no smoothing
+        animation: blink 1.5s infinite;
+        animation-timing-function: steps(1);
+        @keyframes blink {
+          0% { opacity: 1; }
+          50% { opacity: 0.2; }
+          100% { opacity: 1; }
+        }
+      }
+
+      &:after {
+        content: '';
+        background-image: url("data:image/svg+xml,%3Csvg width='44' height='32' viewBox='0 0 44 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M43.08 5.40938C42.573 3.51508 41.0842 2.02643 39.1899 1.51935C35.76 0.599366 21.9999 0.599365 21.9999 0.599365C21.9999 0.599365 8.24003 0.599366 4.81 1.51935C2.91571 2.02643 1.42707 3.51508 0.919986 5.40938C2.75386e-07 8.8394 0 16.0001 0 16.0001C0 16.0001 2.75386e-07 23.1608 0.919986 26.5908C1.42707 28.4851 2.91571 29.9738 4.81 30.4808C8.24003 31.4008 21.9999 31.4008 21.9999 31.4008C21.9999 31.4008 35.76 31.4008 39.1899 30.4808C41.0842 29.9738 42.573 28.4851 43.08 26.5908C44 23.1608 44 16.0001 44 16.0001C44 16.0001 43.9963 8.8394 43.08 5.40938Z' fill='%23FF0033'/%3E%3Cpath d='M17.5962 22.5992L29.0272 15.9999L17.5962 9.40063V22.5992Z' fill='white'/%3E%3C/svg%3E%0A");
+        display: block;
+        width: 44px;
+        height: 32px;
+        align-self: flex-end;
+      }
+
+    }
+  }
+
   .picture-promo {
     display: block;
     padding-top: 33%;
@@ -817,8 +923,8 @@ a.material-card:hover {
 
     .caption {
       padding: 48px 24px 24px 24px;
-      background: rgb(0,0,0);
-      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+      background: rgb(0, 0, 0);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
       color: white;
       border-bottom-left-radius: 16px;
       border-bottom-right-radius: 16px;
@@ -856,12 +962,12 @@ a.material-card:hover {
 
       .caption {
         padding: 24px 24px 48px 24px;
-        background: rgb(0,0,0);
-        background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+        background: rgb(0, 0, 0);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
         border-top-left-radius: 16px;
         border-top-right-radius: 16px;
         border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;    
+        border-bottom-right-radius: 0;
       }
     }
   }
@@ -944,20 +1050,23 @@ a.material-card:hover {
       }
     }
 
-    #HA_Yellow, #Raspberry_Pi {
+    #HA_Yellow,
+    #Raspberry_Pi {
       padding-top: 96px;
     }
 
     #HA_Yellow .badge {
       color: $orange;
     }
+
     #HA_Green .badge {
       color: $green;
     }
+
     #Raspberry_Pi .badge {
       color: $primary-color;
     }
-    
+
     @media only screen and (max-width: $palm-end) {
       .getting-started-grid {
         flex-direction: column;
@@ -967,7 +1076,8 @@ a.material-card:hover {
         padding-bottom: 64px;
       }
 
-      #HA_Yellow, #Raspberry_Pi {
+      #HA_Yellow,
+      #Raspberry_Pi {
         padding-top: 0;
         order: 2;
       }
@@ -1058,10 +1168,12 @@ h5:hover a.title-link,
 h6:hover a.title-link,
 dt:hover a.title-link {
   text-decoration: none;
+
   &::before {
     margin-left: 4px;
     color: #999;
-    content: "\00B6"; /* pilcrow */
+    content: "\00B6";
+    /* pilcrow */
   }
 }
 
@@ -1116,6 +1228,10 @@ article.listing {
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
     vertical-align: middle;
+
+    &+p {
+      margin-top: 1.5rem;
+    }
   }
 
   img.no-shadow {
@@ -1159,7 +1275,7 @@ article.listing {
     border-radius: 8px;
     border-width: 8px;
     text-align: center;
-    padding-bottom: 3px;
+    padding-bottom: 8px;
     font-size: 0.9rem;
     box-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
     border: 0;
@@ -1167,7 +1283,7 @@ article.listing {
     img {
       display: block;
       box-shadow: none;
-      margin: 0 auto;
+      margin: 0 auto 8px;
     }
   }
 
@@ -1183,6 +1299,7 @@ article.listing {
       margin-bottom: 0;
     }
   }
+
   &>ol>li {
     margin-bottom: 16px;
   }
@@ -1191,13 +1308,27 @@ article.listing {
     text-decoration: underline;
     overflow-wrap: break-word;
 
+    &[rel*="external"]{
+      position: relative;
+
+      &:after{
+        content: "\00a0\00a0\00a0\00a0\00a0";
+        display: inline-block;
+      }
+
+      iconify-icon {
+        align-self: center;
+        position: absolute;
+      }
+    }
+
     &.btn {
       font-size: 1.1em;
       text-decoration: none;
       transition: box-shadow .33;
 
       &:hover {
-        box-shadow: 0 0 1px rgba(0,0,0,.5), 0 -4px 8px hsla(180, 100%, 50%, .10), 0 32px 64px hsla(207, 100%, 10%, 0.5);
+        box-shadow: 0 0 1px rgba(0, 0, 0, .5), 0 -4px 8px hsla(180, 100%, 50%, .10), 0 32px 64px hsla(207, 100%, 10%, 0.5);
       }
     }
   }
@@ -1239,7 +1370,7 @@ article.listing {
     &>ul {
       margin-left: 0px;
 
-      &>li.toc-entry:first-child{
+      &>li.toc-entry:first-child {
         padding-top: 0;
       }
 
@@ -1247,7 +1378,8 @@ article.listing {
         list-style-type: none;
       }
 
-      li.toc-entry, li.faq-entry {
+      li.toc-entry,
+      li.faq-entry {
         padding: 3px 0;
         font-size: .85rem;
 
@@ -1288,7 +1420,7 @@ article.listing {
   border-radius: 24px;
   vertical-align: middle;
   margin: 4px 8px 4px 0;
-  border: 2px solid rgba(0,0,0,.1);
+  border: 2px solid rgba(0, 0, 0, .1);
 }
 
 
@@ -1299,7 +1431,7 @@ article.listing {
   border-radius: 24px !important;
   vertical-align: middle;
   margin: 0 8px 0 0;
-  border: 2px solid rgba(0,0,0,.1) !important;
+  border: 2px solid rgba(0, 0, 0, .1) !important;
   box-shadow: none !important;
 }
 
@@ -1386,7 +1518,8 @@ div.config-vars {
   padding: 24px;
   border-radius: 16px;
 
-  h3, h4 {
+  h3,
+  h4 {
     margin: 0;
   }
 
@@ -1427,10 +1560,12 @@ div.config-vars {
     a.title-link {
       text-decoration: none;
     }
+
     &:hover a.title-link::before {
       margin-left: 4px;
       color: #999;
-      content: "\00B6"; /* pilcrow */
+      content: "\00B6";
+      /* pilcrow */
     }
   }
 
@@ -1513,7 +1648,9 @@ code {
   border-radius: 16px;
   padding: 0.1em 0.4em;
 }
-pre[class*="language-"]:before, pre[class*="language-"]:after {
+
+pre[class*="language-"]:before,
+pre[class*="language-"]:after {
   box-shadow: none;
 }
 
@@ -1570,12 +1707,18 @@ a.my {
 }
 
 // Prevent headings from disappearing behind the site header when linked to
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   position: relative;
   word-wrap: break-word;
 }
 
-:target, .title-link {
+:target,
+.title-link {
   display: inline-block;
   position: relative;
   scroll-margin-top: 140px;

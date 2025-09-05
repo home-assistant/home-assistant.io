@@ -16,6 +16,7 @@ ha_platforms:
   - sensor
 ha_integration_type: service
 ha_config_flow: true
+ha_quality_scale: bronze
 ---
 
 The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to post status updates and get account statistics.
@@ -50,10 +51,6 @@ The integration will create sensors for the Mastodon account showing total follo
 The Mastodon integration has the following actions:
 
 - `mastodon.post`
-
-{% note %}
-The previous `notify.mastodon` service has been deprecated in favor of the new `mastodon.post` action. If you're upgrading from a previous version, you'll need to update your automations to use the new action format shown below.
-{% endnote %}
 
 ### Action `mastodon.post`
 

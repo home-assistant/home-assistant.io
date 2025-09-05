@@ -141,6 +141,10 @@ Allow control of network access to clients configured in the {% term integration
 
 Provides per-port PoE control. Entities are disabled by default. This feature requires admin privileges.
 
+### Port control
+
+Provides individual control to enable or disable switch ports. Entities are disabled by default. This feature requires admin privileges.
+
 ### Control DPI Traffic Restrictions
 
 Entities appear automatically for each restriction group. If there are no restrictions in a group, no {% term entity %} will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.

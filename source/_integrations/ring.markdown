@@ -30,6 +30,7 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@sdb9696'
+ha_quality_scale: bronze
 ---
 
 The Ring integration allows you to control your [Ring.com](https://ring.com/) doorbell, stick up cam, chime, and intercom devices in Home Assistant.
