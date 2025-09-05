@@ -1751,6 +1751,32 @@ data:
   value: [0x4120, 0x0000]
 ```
 
+## Action `modbus.read_registers`
+This actions reads one or more input or holding registers and populates its [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with their values.
+
+| Action                | Description                 |
+| --------------------- | --------------------------- |
+| modbus.read_registers | Read register or registers  |
+
+| Attribute | Description                                                                                                                                                                                                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| hub       | Hub name (defaults to 'modbus_hub' when omitted)                                                                                                                                                                                                                                            |
+| slave     | Slave address (0-255, defaults to 1 when omitted)                                                                                                                                                                                                                                           |
+| address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
+| type      | Type of registers to read (`input` / `holding`).                                                                                                                                                                                                                                            |
+| count     | Number of registers to read (defaults to 1 when omitted).                                                                                                                                                                                                                                   |
+
+```yaml
+action: modbus.read_registers
+data:
+  address: 3
+  count: 2
+  type: input
+  hub: modbus_hub
+  slave: 1
+response_variable: register_values
+```
+
 ## Action `modbus.set-temperature`
 
 | Action          | Description                                                                                                                                   |
