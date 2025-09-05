@@ -8,7 +8,7 @@ ha_release: 2025.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@petschni'
+  - "@petschni"
 ha_domain: green_planet_energy
 ha_platforms:
   - sensor
@@ -36,7 +36,6 @@ The **Green Planet Energy** integration provides the following sensors.
 - **Highest price today**: The highest electricity price for the current day
 - **Lowest price day**: The lowest electricity price during day hours (6:00-18:00)
 - **Lowest price night**: The lowest electricity price during night hours (18:00-6:00)
-
 
 ## Removing the integration
 
