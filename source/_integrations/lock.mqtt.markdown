@@ -22,7 +22,7 @@ It's mandatory for locks to support `lock` and `unlock`. A lock may optionally s
 
 An MQTT lock can also report the intermediate states `unlocking`, `locking` or `jammed` if the motor reports a jammed state.
 
-To use an MQTT lock in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT lock in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

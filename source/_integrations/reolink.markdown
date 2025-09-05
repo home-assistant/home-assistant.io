@@ -138,9 +138,12 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Floodlight turn on brightness+
 - Infrared light brightness
 - Volume (Camera)
+- Volume speak (Camera)
+- Volume doorbell (Camera)
 - Alarm volume (Home Hub)
 - Message volume (Home Hub)
 - Chime volume
+- Chime silent time
 - Guard return time
 - Motion sensitivity
 - PIR sensitivity
@@ -368,7 +371,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
 - [E1 Outdoor Pro](https://reolink.com/product/e1-outdoor-pro/)
-- [Elite Floodlight WiFi](https://reolink.com/product/elite-floodlight-wifi/)
+- [Elite Floodlight WiFi](https://reolink.com/product/elite-floodlight-wifi/) (needs mains power, cannot be integrated when powered through USB)
 - [FE-P](https://reolink.com/product/fe-p/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
 - [FE-W](https://reolink.com/product/fe-w/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
 - [Lumus Pro](https://reolink.com/product/lumus-pro/)
@@ -408,6 +411,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - **[Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)**
+- [Reolink Duo 3V PoE](https://reolink.com/product/reolink-duo-3v-poe/)
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
 - [Reolink Elite WiFi](https://reolink.com/product/elite-wifi/)
 - [Reolink Floodlight PoE and Wi-Fi*](https://reolink.com/product/reolink-floodlight/)

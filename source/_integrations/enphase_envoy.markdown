@@ -91,7 +91,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Capabilities
 
-This integration offers various entities depending on the configuration of your Enphase system. The Envoy can communicate with Enphase IQ micro-inverters, Enphase ACB and IQ batteries, Enphase Ensemble Enpower switch and load shedding relays and Enphase compatible generators.
+This integration offers various entities depending on the configuration of your Enphase system. The Envoy can communicate with Enphase IQ micro-inverters, Enphase ACB and IQ batteries, Enphase Ensemble Enpower switch and load shedding relays, Enphase compatible generators and the IQ Meter Collar.
 
 {% note %}
 
@@ -241,6 +241,8 @@ When the Envoy Metered is equipped with a [net-consumption CT](#current-transfor
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Current net power consumption**: Current power exchange from (positive) / to (negative) the grid in W, default display in kW.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy consumption**: Lifetime energy consumed / imported from the grid in Wh, default display in MWh.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy production**: Lifetime energy produced / exported to the grid in Wh, default display in MWh.
+
+When using an IQ Metered Collar, the net-consumption CT's are integrated in the collar.
 
 When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
 
@@ -406,6 +408,32 @@ The names of entities and devices are derived from the load_name configured in t
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_dry_contact.png" alt="envoy dry-contact">
   <figcaption>Envoy Enpower dry-contact entities.</figcaption>
+</figure>
+
+### IQ Meter Collar data
+
+The IQ Meter Collar has the net-consumption CT integrated. The CT data is reported in the [net-consumption data](#net-consumption-ct-sensor-entities) and [grid sensors](#grid-sensor-entities). In addition the status of the collar is available in entities.
+
+#### Collar status entities
+
+- **Collar <abbr title="Collar serial number">SN</abbr> Grid state**: Grid connection status, on_grid / off_grid / synchronizing / manual override active.
+- **Collar <abbr title="Collar serial number">SN</abbr> MID State**: Status of enphase Microgrid Interconnection Device, open / close.
+- **Collar <abbr title="Collar serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
+- **Collar <abbr title="Collar serial number">SN</abbr> Last reported**: Time when Envoy received last update from the collar device.
+- **Collar <abbr title="Collar serial number">SN</abbr> Communicating**: Communication status of the collar, Connected / Disconnected. This is a diagnostics entity.
+
+### C6 Combiner Controller data
+
+The Enphase C6 combiner controller (C6CC) provides some status information to the Envoy which are available in entities.
+
+#### C6CC status entities
+
+- **C6CC <abbr title="C6CC serial number">SN</abbr> Last reported**: Time when Envoy received last update from the combiner device.
+- **C6CC <abbr title="C6CC serial number">SN</abbr> Communicating**: Communication status of C6 Combiner, Connected / Disconnected. This is a diagnostics entity.
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_collar_and_ccc_data.png" alt="envoy collar and c6cc">
+  <figcaption>Envoy IQ Metered Collar and C6 Combiner Controller entities.</figcaption>
 </figure>
 
 ## Data polling interval
