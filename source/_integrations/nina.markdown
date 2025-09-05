@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: nina
 ha_platforms:
   - binary_sensor
+  - diagnostics
 ha_integration_type: integration
 ---
 
@@ -23,6 +24,10 @@ This integration may only work with an Internet connection that supports IPv4.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
+
+### Data updates
+
+The integration checks for warnings every 5 minutes.
 
 ### Filter
 

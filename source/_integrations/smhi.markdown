@@ -10,8 +10,8 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: smhi
 ha_platforms:
-  - weather
   - sensor
+  - weather
 ha_codeowners:
   - '@gjohansson-ST'
 ha_integration_type: integration

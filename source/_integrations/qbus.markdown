@@ -2,6 +2,7 @@
 title: Qbus
 description: Instructions on how to integrate your Qbus installation with Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Cover
   - Hub
@@ -10,6 +11,7 @@ ha_category:
   - Sensor
   - Switch
 ha_platforms:
+  - binary_sensor
   - climate
   - cover
   - light
@@ -50,6 +52,7 @@ There is currently support for the following **Qbus** products within Home Assis
 
 ## Available entities
 
+- **Binary sensor**: display values from weather stations and controller information.
 - **Climate**: manage thermostats by setting temperature and choosing presets.
 - **Cover**: operate covers with support for actions like open, close, stop, position adjustment, and tilt — depending on your setup.
 - **Light**: control dimmer lights, allowing both on/off functionality and brightness adjustment.
@@ -95,6 +98,45 @@ actions:
     alias: Activate TV scene
     action: scene.turn_on
     data: {}
+```
+
+{% endraw %}
+
+### Qbus scene triggers media player
+
+Automations can also be triggered by Qbus scenes. The following automation will play the **Home Assistant Homies** playlist on the media player in the living room.
+
+An extra condition has been added to make sure the automation is not triggered when Home Assistant reboots or when the integration reloads.
+
+Replace `scene.ctd_111111_play_music` with your Qbus scene entity id, `media_player.living_room` with your media player entity id, and fill in the `data` element as desired.
+
+{% raw %}
+
+```yaml
+alias: Play music in living room
+description: ""
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - scene.ctd_111111_play_music
+    from: null
+    to: null
+conditions:
+  - condition: template
+    value_template: >-
+      {{ trigger.from_state is not none and trigger.from_state.state not in
+      ['unavailable', 'unknown'] and trigger.to_state is not none and
+      trigger.to_state.state not in ['unavailable', 'unknown'] }}
+actions:
+  - action: media_player.play_media
+    alias: Play media
+    target:
+      entity_id: media_player.living_room
+    data:
+      enqueue: replace
+      media_content_id: Home Assistant Homies
+      media_content_type: playlist
 ```
 
 {% endraw %}
