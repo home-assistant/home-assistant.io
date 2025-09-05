@@ -226,6 +226,10 @@ The **ntfy** integration adds a device representing the service, along with vari
 
 - **Subscription tier**: The subscription plan currently assigned to the ntfy account.
 
+## Data updates
+
+The integration retrieves data from **ntfy.sh** (or your own ntfy instance) every 15 minutes to update the usage statistics sensors.
+
 ## Known limitations
 
 **ntfy** imposes various rate and usage limits. The official [ntfy.sh](https://ntfy.sh/) service allows up to **60 messages in a burst**, with a **replenishment rate of one message every 5 seconds** (i.e., the full 60-message capacity refills in 5 minutes).
