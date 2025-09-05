@@ -56,6 +56,8 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [Analog clock](#analog-clock)
   - [Storage insights](#storage-insights)
+- [Patch releases](#patch-releases)
+  - [2025.9.1 - September 5](#202591---september-5)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -340,6 +342,64 @@ This release adds disk metrics to the {% my storage title="storage configuration
 You can find these metrics by navigating to {% my storage title="**Settings** > **System** > **Storage**" %}, or by selecting the My Home Assistant button down below.
 
 {% my storage badge %}
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2025.9 in September.
+These patch releases only contain bug fixes. Our goal is to release a patch
+release once a week, aiming for Friday.
+
+### 2025.9.1 - September 5
+
+- Add support for migrated Hue bridge ([@marcelveldt] - [#151411])
+- Add missing device trigger duration localizations ([@karwosts] - [#151578])
+- Correct capitalization of "FRITZ!Box" in FRITZ!Box Tools integration ([@tr4nt0r] - [#151637])
+- Fix Sonos Dialog Select type conversion ([@PeteRager] - [#151649])
+- Fix WebSocket proxy for add-ons not forwarding ping/pong frame data ([@felipecrs] - [#151654])
+- Fix, entities stay unavailable after timeout error, Imeon inverter integration ([@Imeon-Energy] - [#151671])
+- Bump aiohue to 4.7.5 ([@marcelveldt] - [#151684])
+- Update frontend to 20250903.3 ([@bramkragten] - [#151694])
+- Require OhmeAdvancedSettingsCoordinator to run regardless of entities ([@dan-r] - [#151701])
+- Bump ohmepy version to 1.5.2 ([@dan-r] - [#151707])
+- Update Mill library 0.13.1 ([@Danielhiversen] - [#151712])
+- Handle match failures in intent HTTP API ([@synesthesiam] - [#151726])
+- Bump pyschlage to 2025.9.0 ([@dknowles2] - [#151731])
+- Bump bimmer_connected to 0.17.3 ([@rikroe] - [#151756])
+- Fix recognition of entity names in default agent with interpunction ([@arturpragacz] - [#151759])
+- Fix enable/disable entity in modbus ([@janiversen] - [#151626])
+
+[#151263]: https://github.com/home-assistant/core/pull/151263
+[#151411]: https://github.com/home-assistant/core/pull/151411
+[#151578]: https://github.com/home-assistant/core/pull/151578
+[#151626]: https://github.com/home-assistant/core/pull/151626
+[#151637]: https://github.com/home-assistant/core/pull/151637
+[#151649]: https://github.com/home-assistant/core/pull/151649
+[#151654]: https://github.com/home-assistant/core/pull/151654
+[#151671]: https://github.com/home-assistant/core/pull/151671
+[#151684]: https://github.com/home-assistant/core/pull/151684
+[#151694]: https://github.com/home-assistant/core/pull/151694
+[#151701]: https://github.com/home-assistant/core/pull/151701
+[#151707]: https://github.com/home-assistant/core/pull/151707
+[#151712]: https://github.com/home-assistant/core/pull/151712
+[#151726]: https://github.com/home-assistant/core/pull/151726
+[#151731]: https://github.com/home-assistant/core/pull/151731
+[#151756]: https://github.com/home-assistant/core/pull/151756
+[#151759]: https://github.com/home-assistant/core/pull/151759
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Imeon-Energy]: https://github.com/Imeon-Energy
+[@PeteRager]: https://github.com/PeteRager
+[@arturpragacz]: https://github.com/arturpragacz
+[@bramkragten]: https://github.com/bramkragten
+[@dan-r]: https://github.com/dan-r
+[@dknowles2]: https://github.com/dknowles2
+[@felipecrs]: https://github.com/felipecrs
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@karwosts]: https://github.com/karwosts
+[@marcelveldt]: https://github.com/marcelveldt
+[@rikroe]: https://github.com/rikroe
+[@synesthesiam]: https://github.com/synesthesiam
+[@tr4nt0r]: https://github.com/tr4nt0r
 
 ## Need help? Join the community!
 
