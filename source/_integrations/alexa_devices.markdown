@@ -84,7 +84,7 @@ When sending notifications to multiple devices, you may experience delays due to
 
 {% details "Advanced Message Markup" %}
 
-Amazon provide markup to control not only what is said but how it is said and to add aditional option such as pausing and playing certain audio clips.  Details of this are covered in [Amazon's documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html) where there are lots of examples (just pass everything between the `<speak>` and `</speak>` elements into the `message` parameter of the action).
+Amazon provide markup to control not only what is said but how it is said and to add additional option such as pausing and playing certain audio clips.  Details of this are covered in [Amazon's documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html) where there are lots of examples (just pass everything between the `<speak>` and `</speak>` elements into the `message` parameter of the action).
 
 Audio files must meet certain criteria on size, bit and sample rates and must be served over HTTPS (see [documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html#audio) for full details).  These restrictions make them fine for text and sound effects but you will not be able to play music this way.
 
@@ -189,7 +189,7 @@ data:
   message: >
     Stop! <break time='3s'/> Hammer Time. Watch out
     <audio src="soundbank://soundlibrary/scifi/amzn_sfx_scifi_laser_gun_battle_01"/>
-    Shields up! <audio src="soundbank://soundlibrary/scifi/amzn_sfx_scifi_sheilds_up_01" />
+    Shields up! <audio src="soundbank://soundlibrary/scifi/amzn_sfx_scifi_shields_up_01" />
     <amazon:effect name="whispered">
       <prosody rate="x-slow"><prosody volume="loud">Enough now</prosody></prosody>
     </amazon:effect>
