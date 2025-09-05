@@ -89,12 +89,11 @@ This action essentially allows you to control Alexa using text commands rather t
 
 #### Action `alexa_devices.send_sound`
 
-This action allows you to play one of the built-in Alexa sounds. The full list of sounds and their variants is available in [Amazon's documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html)
+This action allows you to play one of the built-in Alexa sounds. The full list of sounds is available in [Amazon's documentation (needs authentication)](https://alexa.amazom.com/api/behaviors/entities?skillId=amzn1.ask.1p.sound)
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
 | `device_id` | no | Device on which you want to play sound |
-| `sound_variant` | no | The variant you want to play (generally 1) |
 | `sound` | no | The name of the sound to play |
 
 ## Examples
@@ -140,18 +139,7 @@ data:
 ```yaml
 action: alexa_devices.send_sound
 data:
-  sound_variant: 1
-  sound: amzn_sfx_doorbell_chime
-  device_id: 037d79c1af96c67ba57ebcae560fb18e
-```
-
-### Play alternative doorbell sound
-
-```yaml
-action: alexa_devices.send_sound
-data:
-  sound_variant: 2
-  sound: amzn_sfx_doorbell_chime
+  sound: amzn_sfx_doorbell_chime_01
   device_id: 037d79c1af96c67ba57ebcae560fb18e
 ```
 
