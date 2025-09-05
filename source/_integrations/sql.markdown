@@ -296,4 +296,3 @@ The unit of measurement returned by the above query is `MiB`, please configure t
 
 Set the device class to `Data size` so you can use UI unit conversion.
 {% endtip %}
-

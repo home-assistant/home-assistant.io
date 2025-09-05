@@ -17,7 +17,7 @@ The Markdown card is used to render [Markdown](https://commonmark.org/help/).
 Screenshot of the Markdown card.
 </p>
 
-The renderer uses [Marked.js](https://marked.js.org), which supports [several specifications of Markdown](https://marked.js.org/#specifications), including CommonMark, GitHub Flavored Markdown (GFM) and `markdown.pl`.
+The renderer uses [Marked.js](https://marked.js.org), which supports [several specifications of Markdown](https://marked.js.org/#specifications), including CommonMark, GitHub Flavored Markdown (GFM) and `markdown.pl`. JavaScript in HTML blocks is not supported.
 
 {% include dashboard/edit_dashboard.md %}
 

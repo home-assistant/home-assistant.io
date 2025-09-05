@@ -22,6 +22,7 @@ ha_platforms:
   - binary_sensor
   - button
   - device_tracker
+  - diagnostics
   - notify
   - select
   - sensor

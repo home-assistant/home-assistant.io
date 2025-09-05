@@ -1,6 +1,6 @@
 ---
-title: AVM FRITZ!Box Call Monitor
-description: Instructions on how to integrate a phone call monitor for AVM FRITZ!Box routers into Home Assistant.
+title: FRITZ!Box Call Monitor
+description: Instructions on how to integrate a phone call monitor for FRITZ!Box routers into Home Assistant.
 ha_category:
   - System monitor
 ha_release: 0.27
@@ -14,7 +14,7 @@ ha_codeowners:
   - '@cdce8p'
 ---
 
-The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) routers on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
+The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [FRITZ!Box](https://en.fritz.com/products/fritzbox/) routers (by FRITZ!, formerly AVM) on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
 It can also access the internal phone book of the router to look up the names corresponding to the phone numbers and store them in the state attributes.
 
 ## Prerequisites

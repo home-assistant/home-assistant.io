@@ -507,13 +507,13 @@ The concept is to track value changes of the **Envoy <abbr title="Envoy serial n
     - name: "Grid import"
       unique_id: calculated_envoy_grid_import
       unit_of_measurement: "Wh" 
-      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max }}" 
+      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max) }}" 
       device_class: energy 
       state_class: total_increasing 
     - name: "Grid export"
       unique_id: calculated_envoy_grid_export
       unit_of_measurement: "Wh" 
-      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min }}" 
+      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min) }}" 
       device_class: energy 
       state_class: total_increasing
 ```
@@ -563,13 +563,13 @@ The concept is to first sum all battery Power values using a combine state helpe
     - name: "Battery charge power"
       unique_id: calculated_envoy_battery_charge_power
       unit_of_measurement: "W" 
-      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max }}" 
+      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max) }}" 
       device_class: power 
       state_class: measurement
     - name: "Battery discharge power"
       unique_id: calculated_envoy_battery_discharge_power
       unit_of_measurement: "W" 
-      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min }}" 
+      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min) }}" 
       device_class: power 
       state_class: measurement
 ```
