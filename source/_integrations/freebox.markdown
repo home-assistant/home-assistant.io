@@ -111,7 +111,7 @@ Cameras are only available in Freebox V7 (also known as Freebox Delta).
 
 ## Light
 
-The Freebox LED strip on the limited edition Freebox Ultra can be controlled as a light entity. This feature allows you to:
+The Freebox LED strip on the [Freebox Ultra Limited Edition](https://www.free.fr/freebox/freebox-ultra-edition-limitee/) can be controlled as a light entity. This feature allows you to:
 
 - Turn the LED strip on/off
 - Adjust brightness levels
