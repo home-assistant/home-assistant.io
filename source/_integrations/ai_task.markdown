@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: ai_task
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: system
+ha_integration_type: entity
 ---
 
 The **AI Task** {% term integration %} allows you to use AI to help you configure Home Assistant.

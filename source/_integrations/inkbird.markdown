@@ -30,6 +30,7 @@ Integrates [INKBIRD](https://www.inkbird.com/) devices into Home Assistant.
 - [INKBIRD Bluetooth Hygrometer Thermometer ITH-13-B](https://inkbird.com/products/bluetooth-hygrometer-thermometer-ith-13-b)
 - [INKBIRD Bluetooth Hygrometer Thermometer ITH-21-B](https://inkbird.com/products/bluetooth-hygrometer-thermometer-ith-21-b)
 - [INKBIRD Bluetooth Wireless 4-in-1 Air Quality Monitor IAM-T1](https://inkbird.com/collections/air-quality-monitors/products/smart-indoor-air-quality-monitor-iam-t1)
+- [INKBIRD Bluetooth 3-in-1 Indoor Air Quality Monitor IAM-T2](https://inkbird.com/products/bluetooth-3-in-1-indoor-air-quality-monitor-iam-t2)
 - [Nutrichef Smart Wireless Grill Thermometer](https://nutrichefkitchen.com/products/pwirbbq40)
 - [Nutrichef Smart Bluetooth BBQ Grill Thermometer](https://nutrichefkitchen.com/products/pwirbbq80-1)
 

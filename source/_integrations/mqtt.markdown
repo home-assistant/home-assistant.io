@@ -122,12 +122,14 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 <a name="configuration-via-subentries"></a>
 {% details "Configuration of MQTT components via Subentries" %}
 
+- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
 - [Button](/integrations/button.mqtt/)
 - [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Light](/integrations/light.mqtt/)
+- [Lock](/integrations/lock.mqtt/)
 - [Notify](/integrations/notify.mqtt/)
 - [Sensor](/integrations/sensor.mqtt/)
 - [Switch](/integrations/switch.mqtt/)

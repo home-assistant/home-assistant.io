@@ -161,6 +161,24 @@ If you've unlocked the class system, button controls for casting player and part
 
 - **Rest in the Inn**: When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
 
+## Party
+
+If you’re part of a party, the integration creates a device with these entities.
+
+- **Boss health**: The total health of the quest boss.
+- **Boss health remaining**: The remaining health of the quest boss.
+- **Collected quest items**: Displays the total number of items collected. Attributes include a breakdown of each required item type, showing both collected and required amounts.
+- **Group leader**: The username of your party's leader.
+- **Member count**: The current number of members in your party.
+- **Quest**: Shows the name of the current quest your party is engaged in.
+- **Quest boss**: The name and image of the foe your party is currently battling.
+
+{% note %}
+
+Certain entities are only available depending on whether you are in a boss quest or a collect quest.
+
+{% endnote %}
+
 ## Actions
 
 ### Action `habitica.cast_skill`

@@ -32,11 +32,11 @@ ha_config_flow: true
 ha_integration_type: hub
 ---
 
-The Fibaro integration allows you to connect Home Assistant to a Fibaro Home Center or a Yubii Home hub so that you can control and monitor the connected devices and run scenes. Home Assistant uses a local connection to connect to the Fibaro hub.
+The Fibaro integration allows you to connect Home Assistant to Fibaro Home Center, Nice Yubii Home, or a Zooz Z-Box Hub, enabling control and monitoring of connected devices and scene execution. Home Assistant uses a local connection to the hub.
 
 ## Supported hub models
 
-Fibaro Home Center 2, Home Center Lite, Home Center 3, Home Center 3 Lite, and Yubii Home.
+Fibaro Home Center 2, Home Center Lite, Home Center 3, Home Center 3 Lite, Nice Yubii Home, Yubii Home Pro, and Zooz Z-Box Hub.
 
 ## Features
 

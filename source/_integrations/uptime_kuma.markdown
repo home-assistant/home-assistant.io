@@ -15,7 +15,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - update
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **Uptime Kuma** {% term integration %} connects Home Assistant with your Uptime Kuma monitoring tool.
