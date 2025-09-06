@@ -214,7 +214,7 @@ For generation 2+ hardware, it's possible to select if a device's input is conne
 
 ### Event entities (generation 1)
 
-If the **Button Type** of the switch connected to the device is set to `momentary` or `detached switch`, the integration creates an event entity for this switch. You can use this entity in your automations.
+If the **BUTTON TYPE*** of the switch connected to the device is set to `Momentary` or `Detached Switch`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
 ### Event entities (generation 2+)
 
@@ -245,7 +245,7 @@ Shelly.addEventHandler(eventHandler);
 ## Events
 
 The integration fires events under the type `shelly.click` when the switch is used if:
-- The **Button Type** of the switch connected to the device is set to `momentary` or `detached switch` – for generation 1 devices.
+- The **BUTTON TYPE** of the switch connected to the device is set to `Momentary` or `Detached Switch` – for generation 1 devices.
 - The **Input Mode** of the switch connected to the device is set to `Button` – for generation 2+ devices.
 
 You can use these events in your automations.
