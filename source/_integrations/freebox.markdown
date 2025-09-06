@@ -114,7 +114,7 @@ Cameras are only available in Freebox V7 (also known as Freebox Delta).
 The Freebox LED strip on the [Freebox Ultra Limited Edition](https://www.free.fr/freebox/freebox-ultra-edition-limitee/) can be controlled as a light entity. This feature allows you to:
 
 - Turn the LED strip on/off
-- Adjust brightness levels
+- Adjust brightness level
 - Select different visual effects
 
 To control the LED strip, you need to grant Home Assistant the **Modification des réglages de la Freebox** permission under **Paramètres de la Freebox** > **Gestion des accès** > **Applications**.
