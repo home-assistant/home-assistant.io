@@ -214,7 +214,7 @@ For generation 2+ hardware, it's possible to select if a device's input is conne
 
 ### Event entities (generation 1)
 
-If the **BUTTON TYPE*** of the switch connected to the device is set to `Momentary` or `Detached Switch`, the integration creates an event entity for this switch. You can use this entity in your automations.
+If the **BUTTON TYPE** of the switch connected to the device is set to `Momentary` or `Detached Switch`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
 ### Event entities (generation 2+)
 
