@@ -61,7 +61,7 @@ For Bluetooth to function on Linux systems:
 {% details "Container configuration for Bluetooth" %}
 
 {% note %}
-These configuration steps are only required for Home Assistant Container installations. Home Assistant Operating System automatically handles all Bluetooth configuration.
+You only need these configuration steps for Home Assistant Container installations. Home Assistant Operating System automatically handles all Bluetooth configuration.
 {% endnote %}
 
 Home Assistant Container requires specific configuration to access Bluetooth adapters.
@@ -86,16 +86,16 @@ docker run --cap-add=NET_ADMIN --cap-add=NET_RAW -v /run/dbus:/run/dbus:ro ...
 
 **D-Bus socket:**
 
-For most systems, the D-Bus socket is in `/run/dbus`. The socket must be available in the container for Home Assistant to connect to D-Bus and access the Bluetooth adapter. If the D-Bus socket is in `/var/run/dbus` on the host system, use `-v /var/run/dbus:/run/dbus:ro` instead.
+For most systems, the D-Bus socket is in `/run/dbus`. You need to make the socket available in the container for Home Assistant to connect to D-Bus and access the Bluetooth adapter. If the D-Bus socket is in `/var/run/dbus` on your host system, use `-v /var/run/dbus:/run/dbus:ro` instead.
 
 **What happens without these capabilities:**
 
 If `NET_ADMIN` and `NET_RAW` capabilities are missing:
-- Bluetooth will operate in a degraded mode with limited functionality
-- Automatic adapter recovery is unavailable - adapters cannot be reset when they stop responding
+- Your Bluetooth will operate in a degraded mode with limited functionality
+- Automatic adapter recovery is unavailable - your adapters cannot be reset when they stop responding
 - Connection parameters and management API commands will fail
-- Raw advertising data will be missing, causing unreliable updates for some devices
-- An error will appear in the logs: "Missing required permissions for Bluetooth management"
+- Raw advertising data will be missing, causing unreliable updates for your devices
+- An error will appear in your logs: "Missing required permissions for Bluetooth management"
 
 {% enddetails %}
 
