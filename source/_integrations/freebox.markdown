@@ -115,7 +115,7 @@ The Freebox LED strip on the [Freebox Ultra Limited Edition](https://www.free.fr
 
 - Turn the LED strip on/off
 - Adjust brightness level
-- Select different visual effects
+- Switch between LED strip animations
 
 To control the LED strip, you need to grant Home Assistant the **Modification des réglages de la Freebox** permission under **Paramètres de la Freebox** > **Gestion des accès** > **Applications**.
 
