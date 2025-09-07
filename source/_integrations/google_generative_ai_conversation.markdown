@@ -240,7 +240,7 @@ You can configure the following options:
 | Option attribute | Optional | Description                                                                                                                                                                    | Example                      |
 | ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
 | `voice`          | yes      | The [voice name](https://ai.google.dev/gemini-api/docs/speech-generation#voices) to be used for the generated speech. The default is `zephyr`.                                 | `achernar`                   |
-| `voices`         | yes      | The speakers [voice names](https://ai.google.dev/gemini-api/docs/speech-generation#voices) to be used for the generated speech, in the following format: `Speaker 1: voice1; Speaker 2: voice2`. The default is empty and will use the default voice for all speakers.                                 | `Speaker 1: zephyr; Speaker 2: achernar`                   |
+| `voices`         | yes      | Maps speaker names to specific voice names. Use the format `Speaker 1: voice1; Speaker 2: voice2`. If not specified, all speakers use the default voice.                       | `Speaker 1: zephyr; Speaker 2: achernar`                   |
 
 The input language is detected automatically. Check the [Google AI documentation](https://ai.google.dev/gemini-api/docs/speech-generation#languages) for the supported languages.
 
