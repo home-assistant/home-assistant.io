@@ -218,11 +218,29 @@ data:
 
 {% endraw %}
 
+You can also use the multi-speaker functionality and use multiple voices at the same time. Example in YAML:
+
+{% raw %}
+
+```yaml
+action: tts.speak
+target:
+  entity_id: tts.google_generative_ai_tts
+data:
+  media_player_entity_id: media_player.tv
+  message: Read aloud: Speaker 1: There is a person at the front door. Speaker 2: Delivery!
+  options:
+    voices: Speaker 1: zephyr; Speaker 2: achernar
+```
+
+{% endraw %}
+
 You can configure the following options:
 
 | Option attribute | Optional | Description                                                                                                                                                                    | Example                      |
 | ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
 | `voice`          | yes      | The [voice name](https://ai.google.dev/gemini-api/docs/speech-generation#voices) to be used for the generated speech. The default is `zephyr`.                                 | `achernar`                   |
+| `voices`         | yes      | The speakers [voice names](https://ai.google.dev/gemini-api/docs/speech-generation#voices) to be used for the generated speech, in the following format: `Speaker 1: voice1; Speaker 2: voice2`. The default is empty and will use the default voice for all speakers.                                 | `Speaker 1: zephyr; Speaker 2: achernar`                   |
 
 The input language is detected automatically. Check the [Google AI documentation](https://ai.google.dev/gemini-api/docs/speech-generation#languages) for the supported languages.
 
