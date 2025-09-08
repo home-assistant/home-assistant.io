@@ -28,7 +28,7 @@ There is currently support for the following device types within Home Assistant:
 - Binary sensor: Reports on zone statuses with configurable device classes
 - Alarm control panel: Reports on alarm status, and can be used to arm/disarm the system
 
-The module communicates via the [Ness D8x/D16x ASCII protocol](https://ia802202.us.archive.org/16/items/ness-d-8x-d-16x-serial-interface.-ascii-protocol/Ness%20D8x%20D16x%20Serial%20Interface.%20ASCII%20Protocol.pdf).
+The module communicates via the [Ness D8x/D16x ASCII protocol](https://github.com/nickw444/nessclient/blob/master/D8-32X%20Serial%20Protocol%20Public.pdf).
 
 {% include integrations/config_flow.md %}
 
