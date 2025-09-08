@@ -119,8 +119,8 @@ After import, zones that weren't explicitly configured in YAML will be created w
 
 1. On startup, Home Assistant detects your YAML configuration
 2. The configuration is automatically imported to a config entry
-4. Once you verify the integration works correctly, remove the `ness_alarm` section from configuration.yaml
-5. Dismiss the repair notification
+3. Once you verify the integration works correctly, remove the `ness_alarm` section from configuration.yaml
+4. Dismiss the repair notification
 
 If import fails, you'll see a repair issue with instructions to manually add the integration through the UI.
 
