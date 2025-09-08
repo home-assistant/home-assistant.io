@@ -77,10 +77,6 @@ If you have existing YAML configuration, it will be automatically imported when 
 ness_alarm:
   host: alarm.local
   port: 2401
-  max_supported_zones: 16  # Optional, defaults to highest zone ID if zones are defined
-  scan_interval: 60  # In seconds
-  infer_arming_state: false
-  support_home_arm: true
   zones:
     - name: Garage
       id: 1
@@ -88,10 +84,8 @@ ness_alarm:
       id: 2
     - name: Kitchen
       id: 3
-      type: door
     - name: Front Entrance
       id: 4
-      type: motion
     - name: Front Door
       id: 5
       type: door
@@ -125,15 +119,12 @@ After import, zones that weren't explicitly configured in YAML will be created w
 
 1. On startup, Home Assistant detects your YAML configuration
 2. The configuration is automatically imported to a config entry
-3. A repair notification appears in **Settings** → **System** → **Repairs**
 4. Once you verify the integration works correctly, remove the `ness_alarm` section from configuration.yaml
 5. Dismiss the repair notification
 
 If import fails, you'll see a repair issue with instructions to manually add the integration through the UI.
 
 ## Alarm System Configuration
-
-As part of the installation process of the IP232 module, the device will need to be configured with the correct settings. From the [iComms Manual](https://ness.zendesk.com/hc/en-us/articles/360021989074-iComms-Manual), there are 3 essential steps:
 
 1. Setting up the IP232 module with the correct baud rate (9600).
 2. Ensuring connectivity of the device on either a DHCP assigned or Static IP address.
@@ -187,9 +178,3 @@ If you experience issues after automatic YAML import:
 1. Check the repair notification for any error messages
 2. Compare your old YAML configuration with the imported settings
 3. If needed, remove the integration and re-add it manually through the UI
-
-Trigger a panic
-
-| Data attribute | Optional | Description                                |
-| ---------------------- | -------- | ------------------------------------------ |
-| `code`                 | No       | The user code to use to trigger the panic. |
