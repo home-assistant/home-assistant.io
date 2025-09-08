@@ -148,13 +148,16 @@ The tutorial is using OpenAI, but this could also be done with the Google Genera
 This action isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` action.
 {% endtip %}
 
-Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally attachments (images, PDFs, etc.).
+Allows you to ask Gemini to generate content from a prompt consisting of text and optionally attachments (images, PDFs, etc.).  
+By default, the recommended chat model is used, but you can override it with the `model` field to select a specific Gemini model.  
+See the [Gemini API model variations](https://ai.google.dev/gemini-api/docs/models#model-variations) for the list of available options.
 This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the generated content.
 
 | Data attribute | Optional | Description                                          | Example             |
 | -------------- | -------- | ---------------------------------------------------- | ------------------- |
 | `prompt`       | no       | The prompt for generating the content.               | Describe this image |
 | `filenames`    | yes      | File names for attachments to include in the prompt. | /tmp/image.jpg      |
+| `model`        | yes      | The Gemini model to use for the response             | gemini-2.5-pro      |
 
 {% raw %}
 
@@ -166,6 +169,7 @@ data:
     Your message needs to be short to fit in a phone notification. Don't
     describe stationary objects or buildings.
   filenames: /tmp/doorbell_snapshot.jpg
+  model: gemini-2.5-pro
 response_variable: generated_content
 ```
 
