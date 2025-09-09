@@ -80,11 +80,8 @@ If you encounter authentication errors:
 
 ### Removing the integration
 
-To completely remove the integration:
+This integration follows standard integration removal.
 
-1. Go to **Settings** > **Devices & Services**
-2. Find the Nederlandse Spoorwegen integration
-3. Click the three-dot menu and select **Delete**
-4. Confirm the removal
+{% include integrations/remove_device_service.md %}
 
 All entities and data associated with the integration will be removed.
