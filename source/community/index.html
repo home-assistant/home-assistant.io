@@ -8,10 +8,20 @@ frontpage_image: /images/frontpage/zwa-2-frontpage.webp
 frontpage_content_top: true
 ---
 <link rel="stylesheet" href="/stylesheets/homeassistant/pages/community/index.css" />
+<script type="module">
+  import {DSAP} from "/javascripts/dsap.es.js";
+  window.dsap = new DSAP();
+</script>
+
 
 <main id="page-community">
   <div class="container-full">
     {% include_relative assets/_icons.html %}
     {% include_relative components/_hero.html %}
+    {% include_relative components/_global.html %}
+    {% include_relative components/_join.html %}
+    {% include_relative components/_newsletter.html %}
+    {% include_relative components/_meetups.html %}
+    {% include_relative components/_faq.html %}
   </div>
 </main>

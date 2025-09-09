@@ -23,13 +23,28 @@
 }
 
 #landingpage {
+    background-color: #F5F6FA;
+    color: #002332;
+
+    height: auto;
+
     .page-content {
-        overflow-x: unset;
+        overflow-x: clip;
     }
 
     .content {
         max-width: unset;
         margin: 0;
+    }
+
+    img{
+        box-shadow: unset;
+        vertical-align: unset;
+        border: unset;
+    }
+
+    .spacer{
+        display: none;
     }
 }
 
@@ -41,44 +56,32 @@ main#page-community {
 
     h1,
     .h1 {
-        font-size: var(--typography-h1-font-size);
-        font-weight: var(--typography-h1-font-weight);
-        line-height: var(--typography-h1-line-height);
+        @include h1;
     }
 
     h2,
     .h2 {
-        font-size: var(--typography-h2-font-size);
-        font-weight: var(--typography-h2-font-weight);
-        line-height: var(--typography-h2-line-height);
+        @include h2;
     }
 
     h3,
     .h3 {
-        font-size: var(--typography-h3-font-size);
-        font-weight: var(--typography-h3-font-weight);
-        line-height: var(--typography-h3-line-height);
+        @include h3;
     }
 
     h4,
     .h4 {
-        font-size: var(--typography-h4-font-size);
-        font-weight: var(--typography-h4-font-weight);
-        line-height: var(--typography-h4-line-height);
+        @include h4;
     }
 
     h5,
     .h5 {
-        font-size: var(--typography-h5-font-size);
-        font-weight: var(--typography-h5-font-weight);
-        line-height: var(--typography-h5-line-height);
+        @include h5;
     }
 
     h6,
     .h6 {
-        font-size: var(--typography-h6-font-size);
-        font-weight: var(--typography-h6-font-weight);
-        line-height: var(--typography-h6-line-height);
+        @include h6;
     }
 
     p {
@@ -90,5 +93,9 @@ main#page-community {
         &:last-child {
             margin-bottom: 0;
         }
+    }
+
+    section{
+        margin: var(--section-spacing-y) 0;
     }
 }

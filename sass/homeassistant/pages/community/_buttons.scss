@@ -22,7 +22,7 @@
 
         &:hover {
             box-shadow: unset;
-            background-color: #00AEF8;
+            background-color: var(--color-primary);
             color: #ffffff;
         }
 
@@ -41,6 +41,6 @@
         }
 
         &.cta {
-            background-color: #16F3BE;
+            background-color: var(--color-secondary);
         }
     }
