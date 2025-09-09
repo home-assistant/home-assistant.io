@@ -22,16 +22,12 @@ This integration requires an existing IDrive e2 bucket and an Access Key with pe
 {% details "Create a new IDrive e2 bucket" %}
 
 1. Log in to the [IDrive e2 Management Console](https://app.idrivee2.com/dashboard/).
-1. Navigate to **Buckets** from the Dashboard menu.
-1. Click **Create bucket**.
-1. Choose a unique bucket **Name** (e.g., `home-assistant-backups-123456`).
-1. Select your preferred IDrive e2 region from the **Enabled regions** (e.g., `Frankfurt-2`).
-1. Adjust the settings:
-   - ✅ **Files in bucket are private** (enabled by default, recommended)
-   - ⚠️ **Versioning** (optional). This lets you recover backups after Home Assistant deletes them, but it **can increase storage costs**. Disable this to allow permanent deletion based on retention settings.
-1. Click **Create Bucket**.
-
-Make a note of the bucket name and region — you’ll need it later.
+2. Follow the steps on [creating a bucket](https://www.idrive.com/s3-storage-e2/videos) in the iDrive documentation.
+3. When prompted to define a bucket name, make sure it is unique: **Name** (for example, `home-assistant-backups-123456`).
+4. When adjusting the settings:
+   - **Files in bucket are private**: Enabled by default. It is recommended to leave it enabled.
+   - **Versioning** (optional): Lets you recover backups after Home Assistant deletes them, but it *can increase storage costs*. Disable this to allow permanent deletion based on retention settings.
+5. Make a note of the bucket name and region. You’ll need it later.
 
 {% enddetails %}
 
