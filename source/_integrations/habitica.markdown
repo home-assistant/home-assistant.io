@@ -190,7 +190,7 @@ When you add someone, Home Assistant creates a new entry with the following enti
 - **Sensors**: Class, display name, health, mana, max. mana, experience, next level, strength, intelligence, constitution, and perception.
 - **Image**: Avatar
 
-For details about each of these entities, see the descriptions above under [**Sensors**](#sensors) and [**Image**](#image)
+For details about each of these entities, see the descriptions above under [**Sensors**](#sensors) and [**Image**](#image).
 
 ## Actions
 
