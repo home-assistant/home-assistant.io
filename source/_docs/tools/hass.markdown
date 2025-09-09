@@ -5,7 +5,7 @@ description: "Description of hass."
 
 The command-line part of Home Assistant is `hass`.
 
-This tool is only available to users of the Home Assistant Core installation method. It is started from the command line on the computer running Home Assistant Core (accessed perhaps via SSH).
+This tool is only available to users of the Home Assistant Core installation type. It is started from the command line on the computer running Home Assistant Core (accessed perhaps via SSH).
 
 ```text
 $ hass -h
