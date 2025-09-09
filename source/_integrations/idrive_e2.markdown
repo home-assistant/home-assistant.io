@@ -69,16 +69,6 @@ Bucket name:
   description: "IDrive e2 bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
 {% endconfiguration_basic %}
 
-## Setting up the IDrive e2 integration in Home Assistant
-
-1. In Home Assistant, go to **Settings > Devices & Services**.
-1. Click **Add Integration** and search for **IDrive e2**.
-1. Enter the following details:
-   - Access Key ID and Secret Access Key
-1. Click **Submit**
-   - The integration tests the connection, determines the endpoint, and retrieves available buckets.
-1. Select the name of the bucket from the dropdown list
-1. Click **Submit**
 
 ## Removing the integration
 
