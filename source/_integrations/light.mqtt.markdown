@@ -105,7 +105,7 @@ brightness_scale:
   type: integer
   default: 255
 brightness_state_topic:
-  description: The MQTT topic subscribed to receive brightness state updates. Zero brightness values are ignored.
+  description: The MQTT topic subscribed to receive brightness state updates.
   required: false
   type: string
 brightness_value_template:
@@ -146,7 +146,7 @@ command_topic:
   required: true
   type: string
 default_entity_id:
-  description: Use `default_entity_id` instead of name for automatic generation of the entity id. E.g. `light.foobar`. When used without a `unique_id`, the entity id will update during restart or reload if the entity id is available.  If the entity id already exists, the entity id will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -617,7 +617,7 @@ command_topic:
   required: true
   type: string
 default_entity_id:
-  description: Use `default_entity_id` instead of name for automatic generation of the entity id. E.g. `light.foobar`. When used without a `unique_id`, the entity id will update during restart or reload if the entity id is available.  If the entity id already exists, the entity id will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -765,7 +765,7 @@ schema:
   type: string
   default: basic
 state_topic:
-  description: 'The MQTT topic subscribed to receive state updates in a JSON-format. The JSON payload may contain the elements: `"state"`: `"ON"` the light is on, `"OFF"` the light is off, `null` the state is `unknown`; `"color_mode"`: one of the `supported_color_modes`; `"color"`: A dict with the color attributes*; `"brightness"`: The brightness; `"color_temp"`: The color temperature; `"effect"`: The effect of the light. Zero brightness values are ignored.'
+  description: 'The MQTT topic subscribed to receive state updates in a JSON-format. The JSON payload may contain the elements: `"state"`: `"ON"` the light is on, `"OFF"` the light is off, `null` the state is `unknown`; `"color_mode"`: one of the `supported_color_modes`; `"color"`: A dict with the color attributes*; `"brightness"`: The brightness; `"color_temp"`: The color temperature; `"effect"`: The effect of the light.'
   required: false
   type: string
 supported_color_modes:
@@ -939,7 +939,7 @@ mqtt:
 
 - [ESPHome](https://esphome.io) implements the JSON schema for MQTT based installs and supports [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
-- [AiLight](https://github.com/stelgenhof/AiLight) is a custom firmware for the Ai-Thinker (and equivalent) RGBW WiFi light bulbs that has an ESP8266 onboard and controlled by the MY9291 LED driver. It implements the [MQTT JSON light](/integrations/light.mqtt) platform and supports ON/OFF, RGBW colours, brightness, color temperature, flashing and transitions. Also it includes [MQTT Auto Discovery](/integrations/mqtt/#mqtt-discovery) and the MQTT Last Will and Testament is enabled as well.
+- [AiLight](https://github.com/stelgenhof/AiLight) is a custom firmware for the Ai-Thinker (and equivalent) RGBW WiFi light bulbs that has an ESP8266 onboard and controlled by the MY9291 LED driver. It implements the [MQTT JSON light](/integrations/light.mqtt) platform and supports ON/OFF, RGBW colours, brightness, color temperature, flashing and transitions. Also it includes [MQTT Auto Discovery](/integrations/mqtt/#mqtt-discovery)) and the MQTT Last Will and Testament is enabled as well.
 
 - [h801-mqtt-json](https://github.com/starkillerOG/h801-mqtt-json) is a custom firmware for the H801 LED dimmer, a 5 channel (RGBWWCW)  WiFi LED strip controller for 12V LED strips. The firmware is meant to control the 5 channels of the H801 to simultaneously control an RGB and a Warm-white/Cold-white LED strip such as a 5050 RGB LED strip and a 5025 Dual White strip. It implements the [MQTT JSON light](/integrations/light.mqtt) platform and supports ON/OFF, RGBW colours (RGB strip), brightness, color temperature (CW/WW strip) and transitions.
 
@@ -1015,7 +1015,7 @@ blue_template:
   required: false
   type: template
 brightness_template:
-  description: "[Template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract brightness from the state payload value. Expected result of the template is an integer from 1-255 range."
+  description: "[Template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract brightness from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: template
 color_temp_kelvin:
@@ -1040,7 +1040,7 @@ command_topic:
   required: true
   type: string
 default_entity_id:
-  description: Use `default_entity_id` instead of name for automatic generation of the entity id. E.g. `light.foobar`. When used without a `unique_id`, the entity id will update during restart or reload if the entity id is available.  If the entity id already exists, the entity id will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -1266,7 +1266,7 @@ mqtt:
 
 This example comes from a configuration of Shelly RGBW Bulb working in White mode.
 `max_mireds` and `min_mireds` set color temperature boundaries to 3000K - 6500K. Notice the same limits are applied in `command_on_template`, but in kelvin units this time. It's due to conversion from mired to kelvin which causes exceeding boundary values accepted by the device.
-The code also ensures bi-directional conversion of brightness scale between 1-100 (required by the device) and 1-255 (required by Home Assistant). Note that Home Assistant ignores a zero brightness value. So when the light is off, it should publish an off state instead.
+The code also ensures bi-directional conversion of brightness scale between 0-100 (required by the device) and 0-255 (required by Home Assistant).
 Add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
@@ -1299,7 +1299,7 @@ mqtt:
       min_mireds: 153
       qos: 1
       retain: false
-      optimistic: false
+      optimistic: false  
 ```
 
 {% endraw %}
