@@ -181,7 +181,7 @@ Certain entities are only available depending on whether you are in a boss quest
 
 {% endnote %}
 
-### Keep an eye on your teammates
+### Keep an eye on your team mates
 
 You can add members of your party to Home Assistant, so you can keep an eye on your mates health and other key stats. To add a party member, go to {% my integration domain="habitica" title="**Settings** > **Devices & services** > **Habitica**" %} and select **{% icon "mdi:plus" %} Add party member**.
 
