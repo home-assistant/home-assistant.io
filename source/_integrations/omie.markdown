@@ -25,7 +25,6 @@ The **OMIE** {% term integration %} retrieves day-ahead market results from [OMI
 - deciding whether to export locally-produced energy (for example from solar panels) to the grid
   depending on remuneration.
 
-
 {% include integrations/config_flow.md %}
 
 ## Sensors
