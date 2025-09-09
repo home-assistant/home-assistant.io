@@ -155,6 +155,7 @@ automation:
 ```
 
 ### Energy Monitoring
+{% raw %}
 ```yaml
 automation:
   - alias: "High Energy Alert"
@@ -167,8 +168,10 @@ automation:
         data:
           message: "AC energy consumption high: {{ states('sensor.ac_power_consumption') }}kWh"
 ```
+{% endraw %}
 
 ### Fault Notification
+{% raw %}
 ```yaml
 automation:
   - alias: "Device Fault Alert"
@@ -181,6 +184,7 @@ automation:
         data:
           message: "AC device fault: {{ state_attr('sensor.ac_fault_status', 'fault_details') }}"
 ```
+{% endraw %}
 
 ## Support
 
