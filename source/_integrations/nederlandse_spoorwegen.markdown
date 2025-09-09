@@ -33,10 +33,10 @@ To use this integration, you need an API key from the NS API Portal.
 
 After adding the integration, you can manage your travel routes:
 
-1. Go to **Settings** > **Devices & Services**
-2. Find the Nederlandse Spoorwegen integration
-3. Click **Configure**
-4. Add or remove routes as needed
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Nederlandse Spoorwegen** integration.
+3. Click **Configure**.
+4. Add or remove routes as needed.
 
 The integration provides a station selector in the UI, so you don't need to manually look up station codes. Simply search for and select your departure and arrival stations from the dropdown menus during route configuration.
 
