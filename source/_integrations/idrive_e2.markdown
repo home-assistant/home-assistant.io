@@ -17,7 +17,7 @@ The **IDrive e2** {% term integration %} allows you to use an [IDrive e2](https:
 
 ## Prerequisites
 
-This integration requires an existing IDrive e2 bucket and an Access Key with permissions to that bucket. For security reasons, it is strongly recommended to scope the Access Key policy as narrowly as possible to the required operations and resources only.
+Before configuring this integration, you need to prepare your IDrive e2 account. This includes creating a bucket to store your backups and an access key with permissions to that bucket.
 
 {% details "Create a new IDrive e2 bucket" %}
 
@@ -31,23 +31,20 @@ This integration requires an existing IDrive e2 bucket and an Access Key with pe
 
 {% enddetails %}
 
-{% details "Create an Access Key" %}
+{% details "Create an access key" %}
 
-To create an Access Key that has access to the bucket:
+To create an access key that has access to the bucket:
 
-1. Navigate to **Access Keys** from the Dashboard menu.
-1. Click **Create Access Key**.
-1. Enter a name such as `home-assistant-backup`.
-1. Select the same IDrive e2 region as the bucket under **Enabled regions** (e.g., `Frankfurt-2`).
-1. Adjust the settings:
-   - ✅ **Access Key Expiry: disabled** (disabled by default, recommended)
-   - ✅ **Assign access permission: read and write** (selected by default)
-     - ✅ **Allow deletion of objects** (checked by default)
-     - ⚠️ **Allow bucket deletion** (must be **unchecked**; checked by default)
-1. Click **Assign buckets - Select buckets**.
-1. Select the **Bucket name** of the bucket created earlier.
-1. Click **Create Access Key**.
-1. Save the **Access Key ID** and **Secret Access Key** and keep them safe — these will be required when configuring the integration in Home Assistant.
+1. Log in to the [IDrive e2 Management Console](https://app.idrivee2.com/dashboard/).
+2. Follow the steps on [creating an access key](https://www.idrive.com/s3-storage-e2/videos) in the iDrive documentation.
+3. When prompted to define a name, make it descriptive (for example, `home-assistant-backup`).
+4. When adjusting the settings:
+   - **Access key expiry**: Disabled by default. It is recommended to leave it disabled.
+   - **Access permission**: Read and write (default).
+     - **Allow deletion of objects**: Enabled by default. It is recommended to leave it enabled.
+     - **Allow bucket deletion**: *Disable this option* (unchecked).
+5. Assign the access key to the bucket you created earlier.
+6. Make a note of the **Access key id** and **Secret access key**. You’ll need them when configuring the integration in Home Assistant.
 
 {% enddetails %}
 
@@ -68,7 +65,6 @@ Secret access key:
 Bucket name:
   description: "IDrive e2 bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
 {% endconfiguration_basic %}
-
 
 ## Removing the integration
 
