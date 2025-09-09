@@ -17,26 +17,17 @@ ha_quality_scale: bronze
 
 The **Nederlandse Spoorwegen (NS)** {% term integration %} provides real-time information about Dutch train schedules using the [NS API](https://apiportal.ns.nl/). This integration allows you to monitor departure times, delays, and travel information for your regular routes.
 
-{% include integrations/config_flow.md %}
+## Prerequisites
 
 To use this integration, you need an API key from the NS API Portal.
 
 ### Obtaining an API Key
 
-To use this integration, you need an API key from NS:
 
 1. Create an account on the [NS API Portal](https://apiportal.ns.nl/).
 2. Request an API key for the `Reisinformatie` API, which is part of the `Ns-App` product.
 
-## Configuration
-
-### Adding the integration
-
-1. In the Home Assistant UI, go to **Settings** > **Devices & Services**
-2. Click **Add Integration**
-3. Search for and select **Nederlandse Spoorwegen (NS)**
-4. Enter your NS API key
-5. Click **Submit**
+{% include integrations/config_flow.md %}
 
 ### Managing routes
 
