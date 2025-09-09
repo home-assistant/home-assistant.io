@@ -74,9 +74,9 @@ The data is provided by Nederlandse Spoorwegen through their official API, ensur
 
 If you encounter authentication errors:
 
-- Verify your API key is correct
-- Ensure your NS API subscription is active
-- Check that you're using the correct API (Reisinformatie API)
+- Verify your API key is correct.
+- Ensure your NS API subscription is active.
+- Check that you're using the correct API (Reisinformatie API).
 
 ### Removing the integration
 
