@@ -186,7 +186,7 @@ The LM Studio integration also supports Home Assistant's AI task platform, allow
    - Choose your model
    - Select "Serve on Local Network" if accessing from different machines
    - Optionally set up CORS settings if accessing from different machines
-5. Click **"Start Server"** to begin the local API server.
+5. Select **Start Server** to begin the local API server.
 6. The server will be available at `http://localhost:1234` and `http://YOUR_LOCAL_IP:1234` (or your configured address).
 
 To run LM Studio as a service (headless), see: [https://lmstudio.ai/docs/app/api/headless](https://lmstudio.ai/docs/app/api/headless)
