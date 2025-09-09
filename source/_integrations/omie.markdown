@@ -16,12 +16,8 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[OMIE](https://www.omie.es/en) is the electricity market operator for Spain and Portugal's day-ahead and
-intraday energy markets.
-
 The **OMIE** {% term integration %} retrieves day-ahead market results from [OMIE](https://www.omie.es/en) APIs
- and makes them available within Home Assistant. Having the wholesale electricity prices within Home Assistant
- in turn enables a range of use cases, such as:
+ and makes them available within Home Assistant. [OMIE](https://www.omie.es/en) is the electricity market operator for Spain and Portugal's day-ahead and intraday energy markets. Having the wholesale electricity prices within Home Assistant enables a range of use cases, such as:
 
 - calculating electricity bills ahead of time (for those on variable-price tariffs that are linked
   to the wholesale price),
@@ -30,11 +26,7 @@ The **OMIE** {% term integration %} retrieves day-ahead market results from [OMI
   depending on remuneration.
 
 
-## Configuration
-
-To add the **OMIE** integration to your Home Assistant instance, use this My button:
-
-[![Open your Home Assistant instance and start setting up the OMIE integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=omie)
+{% include integrations/config_flow.md %}
 
 ## Sensors
 
