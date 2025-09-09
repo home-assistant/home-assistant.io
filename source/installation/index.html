@@ -13,80 +13,7 @@ toc: true
     kinds of skill levels.
   </p>
 </div>
- <h2>About installation methods</h2>
-  <p>
-    Home Assistant offers two different installation methods. Home Assistant Operating System is the recommended installation method.
-  </p>
-  <ul>
-    <li><b>Home Assistant Operating System</b>: An embedded,
-    minimalistic operating system designed to run the Home Assistant ecosystem
-    on single board computers (like the Home Assistant Green or a Raspberry Pi) or Virtual Machines. It
-    is the most convenient option in terms of installation and maintenance and it supports
-    {% term "add-ons" %}. Home Assistant Operating System is
-    the recommended installation method for most users.</li>
-    <li>
-      <b>Home Assistant Container:</b> Container-based installation of Home Assistant. You need to bring your own system (such as Linux) with container orchestration (like Docker), and manually handle updates. Home Assistant Container installations don’t have access to {% term "add-ons" %}.
-    </li>
-  </ul>
-  
-  <div class="compare-installations">
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>HA OS<sup>1</sup></th>
-          <th>Container<sup>1</sup></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="/docs/automation" target="_blank">Automations</a></td>
-          <td>{% icon "openmoji:check-mark" %}</td>
-          <td>{% icon "openmoji:check-mark" %}</td>
-        </tr>
-      <tr>
-        <td><a href="/dashboards" target="_blank">Dashboards</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-      </tr>
-      <tr>
-        <td><a href="/integrations" target="_blank">Integrations</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-      </tr>
-      <tr>
-        <td><a href="/addons" target="_blank">Add-ons</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:cross-mark" %}</td>
-      </tr>
-      <tr>
-        <td><a href="/docs/blueprint" target="_blank">Blueprints</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-      </tr>
-      <tr>
-        <td>
-          One-click updates
-        </td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:cross-mark" %}</td>
-      </tr>
-      <tr>
-        <td><a href="/common-tasks/general/#backups" target="_blank">Backups</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-      </tr>
-    </table>
-  </div>
 
-  <sub
-    >1: Names are abbreviated. The full names of the installation methods are:
-    <ul>
-      <li style="margin-top: 0.4em">Home Assistant Operating System</li>
-      <li style="margin-top: 15px">Home Assistant Container</li>
-    </ul></sub
-  >
-  <p>
 <div class="installations">
   <span class="label easiest">Easiest</span>
 
@@ -186,7 +113,84 @@ toc: true
       </div>
     </div>
   </div>
+</div>
 
+
+ <h2>About installation types</h2>
+  <p>
+    Home Assistant offers two different installation types. Home Assistant Operating System is the recommended installation type.
+  </p>
+  <ul>
+    <li><b>Home Assistant Operating System</b>: An embedded,
+    minimalistic operating system designed to run the Home Assistant ecosystem
+    on single board computers (like the Home Assistant Green or a Raspberry Pi) or Virtual Machines. It
+    is the most convenient option in terms of installation and maintenance and it supports
+    {% term "add-ons" %}. Home Assistant Operating System is
+    the recommended installation type for most users.</li>
+    <li>
+      <b>Home Assistant Container:</b> Container-based installation of Home Assistant. You need to bring your own system (such as Linux) with container orchestration (like Docker), and manually handle updates. Home Assistant Container installations don’t have access to {% term "add-ons" %}.
+    </li>
+  </ul>
+
+  <div class="compare-installations">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>HA OS<sup>1</sup></th>
+          <th>Container<sup>1</sup></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="/docs/automation" target="_blank">Automations</a></td>
+          <td>{% icon "openmoji:check-mark" %}</td>
+          <td>{% icon "openmoji:check-mark" %}</td>
+        </tr>
+      <tr>
+        <td><a href="/dashboards" target="_blank">Dashboards</a></td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+      </tr>
+      <tr>
+        <td><a href="/integrations" target="_blank">Integrations</a></td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+      </tr>
+      <tr>
+        <td><a href="/addons" target="_blank">Add-ons</a></td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:cross-mark" %}</td>
+      </tr>
+      <tr>
+        <td><a href="/docs/blueprint" target="_blank">Blueprints</a></td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+      </tr>
+      <tr>
+        <td>
+          One-click updates
+        </td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:cross-mark" %}</td>
+      </tr>
+      <tr>
+        <td><a href="/common-tasks/general/#backups" target="_blank">Backups</a></td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+      </tr>
+    </table>
+  </div>
+
+  <sub
+    >1: Names are abbreviated. The full names of the installation types are:
+    <ul>
+      <li style="margin-top: 0.4em">Home Assistant Operating System</li>
+      <li style="margin-top: 15px">Home Assistant Container</li>
+    </ul></sub
+  >
+
+<div class="installations second">
   <span class="label intermediate">Intermediate</span>
 
   <h2>Extend with Home Assistant Yellow</h2>
@@ -524,4 +528,3 @@ toc: true
       environment.
     </li>
   </ul>
-  <p></p>
