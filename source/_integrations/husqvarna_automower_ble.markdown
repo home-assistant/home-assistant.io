@@ -28,4 +28,21 @@ The integration is based on [AutoMower-BLE](https://github.com/alistair23/AutoMo
 
 Pairing can take a few goes. Even when using the official Android application, it can be tricky to get the first pair to succeed. If you are having issues, reboot the mower and try again. The Mower must be paired, not just connected, to work.
 
+### PIN code
+
+Some mowers (Such as the Flymo Easilife that are based on the Husqvarna boards/platform) require a PIN for authentication on the app and the mower. If yours requires this you need to map the PIN to numbers and add them when you add the integration into Home Assistant.
+The PIN sequence is translated to digits like this:
+
+On/OFF Power button = 1
+
+Go/Schedule button = 2
+
+Go button = 3
+
+Park button = 4
+
+See below image from operators manual. Which indicates the default pin would be 1234
+
+![image](https://github.com/user-attachments/assets/10c75863-a634-4686-bc4c-15bb128dcad9)
+
 {% include integrations/config_flow.md %}
