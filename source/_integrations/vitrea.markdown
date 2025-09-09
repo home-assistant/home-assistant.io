@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The Vitrea integration allows you to control Vitrea home automation devices through Home Assistant. This integration supports switches, covers (blinds), and timer (boiler) controls for your Vitrea system.
+The **Vitrea** {% term integration %} allows you to control Vitrea home automation devices through Home Assistant. This integration supports switches, covers (blinds), and timer (boiler) controls for your Vitrea system.
 
 ## Prerequisites
 
@@ -26,17 +26,7 @@ The Vitrea integration allows you to control Vitrea home automation devices thro
 - The Vitrea hub must be accessible via TCP/IP
 - Default connection uses port 11502
 
-## Configuration
-
-The Vitrea integration can be configured through the Home Assistant user interface.
-
-### Setup via the frontend
-
-1. Go to **Settings** → **Devices & Services**
-2. Click **Add Integration**
-3. Search for "Vitrea" and select it
-4. Enter your Vitrea hub's IP address and port (default: 11502)
-5. Click **Submit**
+{% include integrations/config_flow.md %}
 
 The integration will automatically discover and add all available devices connected to your Vitrea hub. The process can take a couple minutes depending on the number of devices.
 
@@ -55,7 +45,7 @@ The Vitrea integration supports the following device types:
 - Position control (0-100%)
 - Current position feedback
 
-### Number Entities (Timers)
+### Number entities (timers)
 
 - Timer controls for switches that support timed operation
 - Range: 0-120 minutes
@@ -87,7 +77,7 @@ All Vitrea devices are automatically grouped under their respective hub device i
 
 ### Connection Issues
 
-- Ensure your Vitrea hub is powered on and connected to the network
+- Ensure your Vitrea hub is powered on and connected to the network.
 - Verify the IP address and port are correct.
 - Check that no firewall is blocking communication on the specified port
 
@@ -103,8 +93,8 @@ All Vitrea devices are automatically grouped under their respective hub device i
 - Verify the timer range is within 0-120 minutes
 - Check that the associated timer number entity is properly configured
 
-## Related PRs
+## Removing the integration
 
-- Core PR: home-assistant/core#150799
-- Brands PR: home-assistant/brands#7718
+This integration follows standard integration removal.
 
+{% include integrations/remove_device_service.md %}
