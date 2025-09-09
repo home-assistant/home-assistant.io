@@ -3,7 +3,7 @@ title: "Windows"
 description: "Install Home Assistant on Windows"
 installation_type: windows
 ---
-{% comment %}
+ARM architecture processor not supported to run arm64 VM OS. 
 Included sections for this page is located under source/_includes/installation
 {% endcomment %}
 
