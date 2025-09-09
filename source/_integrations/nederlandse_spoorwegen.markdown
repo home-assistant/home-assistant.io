@@ -58,9 +58,9 @@ The integration automatically migrates existing YAML configuration and creates r
 
 To complete the migration:
 
-1. Remove the `nederlandse_spoorwegen:` section from your `configuration.yaml`
-2. Remove any `sensor:` entries with `platform: nederlandse_spoorwegen`
-3. Restart Home Assistant to clear the repair notifications
+1. Remove the `nederlandse_spoorwegen:` section from your `configuration.yaml`.
+2. Remove any `sensor:` entries with `platform: nederlandse_spoorwegen`.
+3. Restart Home Assistant to clear the repair notifications.
 
 Your existing routes and settings are automatically preserved in the new UI-based configuration.
 
