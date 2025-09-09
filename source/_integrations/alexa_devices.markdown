@@ -103,7 +103,7 @@ This action essentially allows you to control Alexa using text commands rather t
 
 #### Action `alexa_devices.send_sound`
 
-This action allows you to play one of the built-in Alexa sounds. The full list of sounds is available in [Amazon's documentation (needs authentication)](https://alexa.amazom.com/api/behaviors/entities?skillId=amzn1.ask.1p.sound)
+This action allows you to play one of the built-in Alexa sounds. The full list of sounds is available in [Amazon's documentation (needs authentication)](https://alexa.amazon.com/api/behaviors/entities?skillId=amzn1.ask.1p.sound)
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
