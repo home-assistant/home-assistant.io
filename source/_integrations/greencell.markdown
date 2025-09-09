@@ -10,7 +10,7 @@ ha_domain: greencell
 ha_integration_type: integration
 ---
 
-The Greencell integration allows to integrate Greencell electric vehicles charging devices into Home Assistant.
+The **Greencell** {% term integration %} allows to integrate Greencell electric vehicles charging devices into Home Assistant.
 
 ## Supported devices
 
