@@ -35,6 +35,6 @@ Each product will generate a sensor entity that shows its EOL status and related
 - **Latest version date**: Release date of the most recent version. For example, `2021-07-10`.
 - **End of life from**: Official end-of-life date. For example, `June 18, 2024`.
 - **Status**: Current support status. For example, `maintained`, `eol`, or `discontinued`.
-- **Endoflife.date link**: Reference link to the product's page on [endoflife.date](https://endoflife.date/)
+- **Endoflife.date link**: Reference link to the product's page on [endoflife.date](https://endoflife.date/).
 - **Release policy**: Description of the vendor’s release policy, if available.
 - **Supported OS versions**: Supported operating system versions, if available.
