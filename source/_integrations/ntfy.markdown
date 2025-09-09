@@ -122,7 +122,7 @@ triggers:
     attribute: priority
     above: 4
 actions:
-  - action: notify.notify.mobile_app_your_device
+  - action: notify.mobile_app_your_device
     data:
       message: "Received new ntfy notification"
 ```
