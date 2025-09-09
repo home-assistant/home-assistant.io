@@ -53,7 +53,7 @@ Currently supported languages include:
 - Korean
 - Spanish
 
-## Text-to-Speech (TTS)
+## Text-to-speech (TTS)
 
 The `tts.speak` service allows you to use Fish Audio voices in your automations and scripts. Select the `tts.fish_audio` entity, choose a media player, and enter your message.
 
@@ -107,7 +107,7 @@ The LLM might then generate a response like this:
 
 `(soft tone) Movie mode has been activated. The lights are dimmed, and the blinds are closed. (empathetic) Enjoy the show.`
 
-## Speech-to-Text (STT)
+## Speech-to-text (STT)
 
 The STT entity provided by the Fish Audio integration can be used with [Assist pipelines](/docs/assist/) to process voice commands.
 
