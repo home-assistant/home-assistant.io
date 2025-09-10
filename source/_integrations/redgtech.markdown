@@ -33,6 +33,17 @@ Before setting up the integration, ensure you have:
 - Your Redgtech devices connected to your network
 - Internet connectivity for cloud communication
 
+### Installation Parameters
+
+The Redgtech integration does not require any special installation parameters. The integration uses cloud-based communication and does not require:
+
+- Local network configuration
+- Port forwarding
+- Static IP addresses
+- Special firewall rules
+
+All communication is handled through the Redgtech cloud service using standard HTTPS connections.
+
 ## Configuration
 
 {% include integrations/config_flow.md %}
