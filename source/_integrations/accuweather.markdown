@@ -20,7 +20,7 @@ The **AccuWeather** {% term integration %} uses the [AccuWeather](https://accuwe
 
 ## Setup
 
-To generate an AccuWeather API key, go to [AccuWeather APIs](https://developer.accuweather.com/) page, register, subscribe to one of available plans and create application in **Subscriptions & Keys** section.
+To generate an AccuWeather API key, go to [AccuWeather APIs](https://developer.accuweather.com/) page, register, subscribe to one of the available plans and create application in **Subscriptions & Keys** section.
 
 You can test your newly created API key [here](https://developer.accuweather.com/core-weather/location-key-locations#location-search-by-location-key)
 
@@ -28,4 +28,4 @@ You can test your newly created API key [here](https://developer.accuweather.com
 
 ## Data updates
 
-By default, the integration {% term polling polls %} the current weather condition data from AccuWeather API every 10 minutes and daily forecast data every 6 hours. If you want to configure integration for more than two locations, you need a plan higher than **Starter**.
+By default, the integration {% term polling polls %} the current weather condition data from the AccuWeather API every 10 minutes and daily forecast data every 6 hours. If you want to configure the integration for more than two locations, you need a plan higher than **Starter**.
