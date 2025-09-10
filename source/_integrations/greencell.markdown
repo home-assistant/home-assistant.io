@@ -14,7 +14,7 @@ The **Greencell** {% term integration %} allows to integrate Greencell electric 
 
 ## Supported devices
 
-Currently integration support only [HabuDen](https://greencell.global/habuden).
+Currently, the integration supports only [HabuDen](https://greencell.global/habuden) devices.
 
 ## Base functionalities
 
