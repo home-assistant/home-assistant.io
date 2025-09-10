@@ -152,6 +152,25 @@ For more customizable notifications, use the `ntfy.publish` action instead of `n
 - `email`: Specify the address to forward the notification to, for example `mail@example.com`.
 - `call`: Phone number to call and read the message out loud using text-to-speech. Requires ntfy Pro and prior phone number verification.
 - `icon`: Include an icon that will appear next to the text of the notification. Only JPEG and PNG images are supported.
+- `view`: Add **'view'** button actions that open a website or app when the action button is tapped.
+  - `label`: Label of the view action button in the notification.
+  - `url`: URL to open when action is tapped.
+  - `clear`: Clear notification after action button is tapped.
+  - `position`: The order of the buttons. Used when defining different action types.
+- `broadcast`: Add **'broadcast'** button actions that sends an Android broadcast intent when the action button is tapped.
+  - `label`: Label of the broadcast action button in the notification.
+  - `intent`: Android intent name, default is `io.heckel.ntfy.USER_ACTION`
+  - `extras`: Android intent extras (key-value pairs).
+  - `clear`: Clear notification after action button is tapped
+  - `position`: The order of the buttons. Used when defining different action types.
+- `http`: Add <!-- textlint-disable -->**'http'**<!-- textlint-enable --> button actions that sends an Android broadcast intent when the action button is tapped.
+  - `label`: Label of the broadcast action button in the notification.
+  - `url`: URL to which the HTTP request will be sent.
+  - `method`: HTTP method to use for request, default is `POST`
+  - `headers`: HTTP headers to pass in request (key-value pairs).
+  - `body`: Payload to send in the HTTP body.
+  - `clear`: Clear notification after action button is tapped.
+  - `position`: The order of the buttons. Used when defining different action types.
 - `sequence_id`: Enter a message or sequence ID to update an existing notification, or specify a sequence ID to reference later when updating, clearing (mark as read and dismiss), or deleting a notification. See [**Updating + deleting notifications**](https://docs.ntfy.sh/publish/#updating-deleting-notifications)
 
 {% details "Example YAML configuration" %}
@@ -167,6 +186,27 @@ data:
   click: "https://homeassistant.local"
   tags:
     - rotating_light
+  http:
+    - label: Throttle server load
+      url: https://api.example.com/
+      method: POST
+      headers:
+        x-client: HomeAssistant
+        Authorization: "Bearer zAzsx1sk.."
+      body: "{\"action\": \"throttle\"}"
+      position: 1
+  broadcast:
+    - label: Set early alarm
+      intent: com.urbandroid.sleep.alarmclock.ALARM_STATE_CHANGE
+      extras:
+        alarm_label: Work emergency
+        alarm_enabled: true
+      position: 2
+  view:
+    - label: "Open Server Dashboard"
+      url: "https://grafana.example.com/d/server-overview"
+      clear: true
+      position: 3
 target:
   entity_id: notify.mytopic
 ```
