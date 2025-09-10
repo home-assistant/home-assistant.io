@@ -24,7 +24,7 @@ The Portainer API provides a way to manage Docker containers, images, networks, 
 Before you can configure Portainer within Home Assistant, you need a few things:
 
 - have Portainer installed and a user with administrator rights on Portainer.
-- an Access Token. 
+- An access token. 
 
 Create a Portainer Access Token by following these steps:
 
