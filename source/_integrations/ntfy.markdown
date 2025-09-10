@@ -152,18 +152,18 @@ For more customizable notifications, use the `ntfy.publish` action instead of `n
 - `email`: Specify the address to forward the notification to, for example `mail@example.com`.
 - `call`: Phone number to call and read the message out loud using text-to-speech. Requires ntfy Pro and prior phone number verification.
 - `icon`: Include an icon that will appear next to the text of the notification. Only JPEG and PNG images are supported.
-- `view`: Add **'view'** button actions that open a website or app when the action button is tapped.
+- `view`: Add **view** button actions that open a website or app when the action button is tapped.
   - `label`: Label of the view action button in the notification.
   - `url`: URL to open when action is tapped.
   - `clear`: Clear notification after action button is tapped.
   - `position`: The order of the buttons. Used when defining different action types.
-- `broadcast`: Add **'broadcast'** button actions that sends an Android broadcast intent when the action button is tapped.
+- `broadcast`: Add **broadcast** button actions that sends an Android broadcast intent when the action button is tapped.
   - `label`: Label of the broadcast action button in the notification.
   - `intent`: Android intent name, default is `io.heckel.ntfy.USER_ACTION`
   - `extras`: Android intent extras (key-value pairs).
   - `clear`: Clear notification after action button is tapped
   - `position`: The order of the buttons. Used when defining different action types.
-- `http`: Add <!-- textlint-disable -->**'http'**<!-- textlint-enable --> button actions that sends an Android broadcast intent when the action button is tapped.
+- `http`: Add <!-- textlint-disable -->**http**<!-- textlint-enable --> button actions that sends an Android broadcast intent when the action button is tapped.
   - `label`: Label of the broadcast action button in the notification.
   - `url`: URL to which the HTTP request will be sent.
   - `method`: HTTP method to use for request, default is `POST`
@@ -203,7 +203,7 @@ data:
         alarm_enabled: true
       position: 2
   view:
-    - label: "Open Server Dashboard"
+    - label: "Open server dashboard"
       url: "https://grafana.example.com/d/server-overview"
       clear: true
       position: 3
