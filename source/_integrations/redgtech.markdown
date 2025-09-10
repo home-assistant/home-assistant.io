@@ -78,6 +78,81 @@ After deleting the integration, go to the Redgtech app and remove the Home Assis
 | Smart Switch | X1, X2, X3 | On/Off control, Status monitoring |
 | Smart Light | B1, B2, B3 | On/Off control, Brightness control |
 
+## Automation Examples
+
+Here are some automation examples you can use with your Redgtech devices:
+
+### Turn on lights when motion is detected
+
+```yaml
+automation:
+  - alias: "Turn on Redgtech lights on motion"
+    trigger:
+      platform: motion
+      entity_id: binary_sensor.motion_sensor
+    action:
+      service: light.turn_on
+      target:
+        entity_id: light.redgtech_bedroom_light
+```
+
+### Turn off all Redgtech switches when leaving home
+
+```yaml
+automation:
+  - alias: "Turn off Redgtech switches when leaving"
+    trigger:
+      platform: state
+      entity_id: person.your_name
+      to: "not_home"
+    action:
+      service: switch.turn_off
+      target:
+        entity_id: switch.redgtech_*
+```
+
+### Schedule Redgtech devices
+
+```yaml
+automation:
+  - alias: "Morning routine - Turn on bedroom light"
+    trigger:
+      platform: time
+      at: "07:00:00"
+    condition:
+      condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    action:
+      service: light.turn_on
+      target:
+        entity_id: light.redgtech_bedroom_light
+      data:
+        brightness: 255
+```
+
+## Use Cases
+
+### Smart Home Automation
+- **Morning Routine**: Automatically turn on bedroom lights when your alarm goes off
+- **Evening Routine**: Gradually dim lights as bedtime approaches
+- **Away Mode**: Turn off all Redgtech devices when you leave home
+- **Security**: Turn on lights when motion is detected in specific areas
+
+### Energy Management
+- **Scheduled Control**: Set timers to automatically turn off devices after a certain period
+- **Occupancy-Based Control**: Turn devices on/off based on room occupancy
+- **Sunset/Sunrise**: Sync device behavior with natural light patterns
+
+### Convenience
+- **Voice Control**: Use voice assistants to control Redgtech devices
+- **Remote Access**: Control devices from anywhere using the Home Assistant mobile app
+- **Scene Control**: Create scenes that control multiple Redgtech devices simultaneously
+
 ## Troubleshooting
 
 ### Connection Issues
