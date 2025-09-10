@@ -1234,6 +1234,7 @@ fields:
     required:
       description: If set to true, the field must be present.
       required: false
+      default: false
       type: boolean
     selector:
       description: The selector to use for this field. It can be any available selector.
