@@ -70,6 +70,7 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 | Give snack       | `button` | Button to dispense a single snack portion.                                       |
 | Meal insert size | `select` | View and select the meal insert size.                                            |
 | Food level       | `sensor` | Displays the approximate food level remaining in the hopper.                     |
+| Last feeding     | `sensor` | Displays the timestamp of the last dispensed meal or snack.                      |
 | Night light mode | `switch` | When turned on, automatically turns on the night light in darker settings.       |
 | Panel lockout    | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
 
