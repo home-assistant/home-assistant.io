@@ -383,7 +383,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [RLC-510A](https://reolink.com/product/rlc-510a/)
 - RLC-511*
 - RLC-511W*
-- [RLC-511WA](https://reolink.com/product/rlc-511wa/)
+- [RLC-511WA](https://reolink.com/product/rlc-511wa/)*
 - RLC-520*
 - [RLC-520A](https://reolink.com/product/rlc-520a/)
 - RLC-522*
