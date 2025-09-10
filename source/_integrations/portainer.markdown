@@ -37,7 +37,7 @@ Create a Portainer Access Token by following these steps:
 ## Supported functionality
 
 {% note %}
-This integration is currently being actively developed and tested. More platforms and features will be added in.
+This integration is currently being actively developed and tested. More platforms and features will be added in the future.
 {% endnote %}
 
 There is currently support for the following device types within Home Assistant:
