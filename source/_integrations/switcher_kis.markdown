@@ -104,6 +104,10 @@ For Switcher Breeze the integration provides the following sensor:
 | --------------------- | ------------------------------------------------------ | ----------------- |
 | `Current temperature` | The current temperature in celsius                     | 25.0 °C           |
 
+## Switches
+
+For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switcher Runner S12), the integration allows you to control its child lock state; ON means locked, and OFF means unlocked.
+
 ## Actions
 
 For Switcher power control devices (Switcher Touch, Switcher V2/V4) the integration provides the following sensors:

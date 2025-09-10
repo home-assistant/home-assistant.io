@@ -22,7 +22,7 @@ The **Solarlog** {% term integration %} uses the open JSON interface on [Solar-L
 
 ## Supported devices
 
-The integration should work with all Solar-Log devices.
+The integration should work with all Solar-Log devices with [firmware 3.x](#known-limitations).
 
 ## Prerequisites
 
@@ -142,3 +142,4 @@ The integration provides no additional actions.
 ## Known limitations
 
 The integration only provides the (limited) data exposed by means of the JSON interface. This also entails that the values for the self-consumption are rounded to full kWh.
+Firmware versions below 3.x are not supported, as they do not expose the JSON interface. Please contact the Solar-Log support if you need assistance with updating the firmware of your Solar-Log device.

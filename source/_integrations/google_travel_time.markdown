@@ -24,6 +24,8 @@ You need to register for an API key by following the instructions [here](https:/
 
 A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 645 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/distance-matrix/usage-and-billing#set-caps)
 
+**Starting March 2025** Google will change the pricing scheme from the US$200 per month credit to 10,000 free requests. You should adjust your limit to 322 or less. You can find more information on the pricing changes in the [Google developer documentation](https://developers.google.com/maps/billing-and-pricing/faq#pricing-sheet).
+
 {% include integrations/config_flow.md %}
 
 Notes:

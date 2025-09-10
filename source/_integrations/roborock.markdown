@@ -16,6 +16,7 @@ ha_release: 2023.5
 ha_config_flow: true
 ha_codeowners:
   - '@Lash-L'
+  - '@allenporter'
 ha_domain: roborock
 ha_platforms:
   - binary_sensor
@@ -95,6 +96,8 @@ Total cleaning time - The lifetime cleaning duration of your vacuum.
 
 Total cleaning area - The lifetime cleaning area of your vacuum.
 
+Total cleaning count - The lifetime cleaning count of your vacuum.
+
 Vacuum error - The current error with your vacuum, if there is one.
 
 ### Time
@@ -126,6 +129,47 @@ Reset side brush consumable - The side brush is expected to be replaced every 20
 Reset main brush consumable - The main brush/ roller is expected to be replaced every 300 hours.
 
 Reset air filter - The air filter is expected to be replaced every 150 hours.
+
+### Actions
+
+#### Action `roborock.set_vacuum_goto_position`
+
+Go the specified coordinates.
+
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+- **Data attribute**: `x_coord`
+  - **Description**: X-coordinate, integer value. The dock is located at x-coordinate 25500.
+  - **Optional**: No.
+- **Data attribute**: `y_coord`
+  - **Description**: Y-coordinate, integer value. The dock is located at y-coordinate 25500.
+  - **Optional**: No.
+
+#### Action `roborock.get_vacuum_current_position`
+
+Get the current position of the vacuum. This is a cloud call and should only be used for diagnostics. This is not meant to be used for automations. Frequent requests can lead to rate limiting. 
+
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+
+Example:
+
+```yaml
+action: roborock.get_vacuum_current_position
+target:
+  entity_id: vacuum.roborock_s7
+data: {}
+```
+
+- **Result**: You will get a response like this:
+
+  ```yaml
+  vacuum.roborock_s7:
+    x: 28081
+    y: 25168
+  ```
 
 ### Image
 

@@ -1,0 +1,452 @@
+green:
+  name: "<strong>Home Assistant Green</strong>"
+  distributors:
+      # America
+    - name: Amazon US
+      ship_from: US
+      ship_to: America
+      url: https://www.amazon.com/dp/B0CXVKSG19?maas=maas_adg_BB51722E249D328CABB2F6DF1F8976CC_afap_abs&ref_=aa_maas&tag=maas
+      logo: /images/distributors/amazon.webp
+    - name: ameriDroid
+      ship_from: US
+      ship_to: America
+      url: https://ameridroid.com/products/home-assistant-green
+      logo: /images/distributors/ameridroid.webp
+    - name: CloudFree
+      ship_from: US
+      ship_to: America
+      url: https://cloudfree.shop/product/home-assistant-green/
+      logo: /images/distributors/cloudfree.webp
+      # Asia
+    - name: Seeed Studio
+      ship_from: China
+      ship_to: Asia
+      url: https://www.seeedstudio.com/Home-Assistant-Green-p-5792.html
+      logo: /images/distributors/seeed-studio.webp
+      # Australia
+    - name: Oz Smart Things
+      ship_from: Australia
+      ship_to: Australia
+      url: https://www.ozsmartthings.com.au/products/home-assistant-green-smart-hub
+      logo: /images/distributors/oz-smart-things.webp
+    - name: Smart Guys
+      ship_from: Australia
+      ship_to: Australia
+      url: https://smartguys.com.au/home-assistant-green.html
+      logo: /images/distributors/smart-guys.webp
+    - name: SmartHome
+      ship_from: Australia
+      ship_to: Australia
+      url: https://www.smarthome.com.au/product/home-assistant-green/
+      logo: /images/distributors/smarthome.webp
+      # Europe
+    - name: Alza.cz
+      ship_from: Czechia
+      ship_to: Europe
+      url: https://www.alza.cz/home-assistant-green-d7998187.htm
+      logo: /images/distributors/alza-cz.webp
+    - name: Botland
+      ship_from: Poland
+      ship_to: Europe
+      url: https://botland.com.pl/centralki-i-bramki-sieciowe/24319-home-assistant-green-inteligentna-centralka-nabu-casa-nc-green-1175-794677011758.html
+      logo: /images/distributors/botland.webp
+    - name: DinamoTech
+      ship_from: Italy
+      ship_to: Europe
+      url: https://dinamotech.it/products/home-assistant-green
+      logo: /images/distributors/dinamo-tech.webp
+    - name: Domadoo
+      ship_from: France
+      ship_to: Europe
+      url: https://www.domadoo.fr/fr/box-domotique/7046-nabu-casa-box-domotique-home-assistant-green-0794677011758.html
+      logo: /images/distributors/domadoo.jpg
+    - name: Everything Smart Technology
+      ship_from: UK
+      ship_to: Europe
+      url: https://shop.everythingsmart.io/products/home-assistant-green
+      logo: /images/distributors/est.webp
+    - name: eWeLink device store
+      ship_from: Hungary
+      ship_to: Europe
+      url: https://ewelinkstore.com/product/home-assistant-green-hub/
+      logo: /images/distributors/ewelink.png
+    - name: HAshop
+      ship_from: Netherlands
+      ship_to: Europe
+      url: https://www.hashop.nl/Home-Assistant-Green
+      logo: /images/distributors/ha-shop.webp
+    - name: ROBBshop
+      ship_from: Netherlands
+      ship_to: Europe
+      url: https://www.robbshop.nl/home-assistant-green-smart-hub
+      logo: /images/distributors/robb.webp
+    - name: Kjell
+      ship_from: Norway
+      ship_to: Europe
+      url: https://www.kjell.com/no/produkter/smarte-hjem/kontroller/nabu-casa-home-assistant-green-p88430
+      logo: /images/distributors/kjell-company.webp
+    - name: Mauser
+      ship_from: Portugal
+      ship_to: Europe
+      url: https://mauser.pt/catalog/product_info.php?products_id=095-3152
+      logo: /images/distributors/mauser.png
+    - name: mediarath
+      ship_from: Germany
+      ship_to: Europe
+      url: https://mediarath.de/products/home-assistant-green-smart-home-hub-2x-usb-gigabit-lan-hmdi-microsd-slot
+      logo: /images/distributors/mediarath.de.webp
+    - name: m.nu
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://en.m.nu/controllers-smart-hubs/home-assistant-green
+      logo: /images/distributors/m-nu.webp
+    - name: OkosOtthon Bolt
+      ship_from: Hungary
+      ship_to: Europe
+      url: https://okosotthon.bolt.hu/webaruhaz/termek/home-assistant-green-hub/
+      logo: /images/distributors/okosotthon.png
+    - name: Pi-Shop.ch
+      ship_from: Switzerland
+      ship_to: Europe
+      url: https://www.pi-shop.ch/home-assistant-green
+      logo: /images/distributors/pi-shop.webp
+    - name: Pimoroni
+      ship_from: UK
+      ship_to: Europe
+      url: https://shop.pimoroni.com/products/home-assistant-green
+      logo: /images/distributors/pimoroni.webp
+    - name: RaspberryPi.dk
+      ship_from: Denmark
+      ship_to: Europe
+      url: https://raspberrypi.dk/en/product/home-assistant-green/
+      logo: /images/distributors/RaspberryPi-dk.webp
+    - name: Seeed Studio
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.seeedstudio.com/Home-Assistant-Green-p-5792.html
+      logo: /images/distributors/seeed-studio.webp
+    - name: SmarterHOME
+      ship_from: Slovakia
+      ship_to: Europe
+      url: https://smarterhome.sk/sk/centralne-jednotky/home-assistant-green-smart-home-hub-1490.html
+      logo: /images/distributors/smarter-home.png
+    - name: Swiss-Domotique
+      ship_from: Switzerland
+      ship_to: Europe
+      url: https://shop.swiss-domotique.ch/smarthome-hub/2295-nabu-casa-home-assistant-green.html
+      logo: /images/distributors/swiss-domotique.webp
+    - name: The Pi Hut
+      ship_from: UK
+      ship_to: Europe
+      url: https://thepihut.com/products/home-assistant-green
+      logo: /images/distributors/pi-hut.webp
+    - name: Webhallen
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://www.webhallen.com/se/product/364271-Nabu-Casa-Home-Assistant-Green
+      logo: /images/distributors/webhallen.webp
+    - name: WIFIShop
+      ship_from: Romania
+      ship_to: Europe
+      url: https://www.wifishop.ro/en/homeassistant/home-assistant-green.html
+      logo: /images/distributors/wifishop.webp
+yellow:
+  name: "<strong>Home Assistant Yellow</strong>"
+  distributors:
+      # America
+    - name: ameriDroid
+      ship_from: US
+      ship_to: America
+      url: https://ameridroid.com/products/home-assistant-yellow
+      logo: /images/distributors/ameridroid.webp
+    - name: CloudFree
+      ship_from: US
+      ship_to: America
+      url: https://cloudfree.shop/product/home-assistant-yellow/
+      logo: /images/distributors/cloudfree.webp
+    - name: Seeed Studio
+      ship_from: US
+      ship_to: America
+      url: https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html
+      logo: /images/distributors/seeed-studio.webp
+      # Asia
+    - name: Seeed Studio
+      ship_from: China
+      ship_to: Asia
+      url: https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html
+      logo: /images/distributors/seeed-studio.webp
+      # Europe
+    - name: Botland
+      ship_from: Poland
+      ship_to: Europe
+      url: https://botland.com.pl/centralki-i-bramki-sieciowe/24698-home-assistant-yellow-standard-kit-inteligenta-centralka-zigbee-thread-nabu-casa-yellow-kit-std-794677011741.html
+      logo: /images/distributors/botland.webp
+    - name: Mauser
+      ship_from: Portugal
+      ship_to: Europe
+      url: https://mauser.pt/catalog/product_info.php?products_id=095-3150
+      logo: /images/distributors/mauser.png
+    - name: Pi-Shop.ch
+      ship_from: Switzerland
+      ship_to: Europe
+      url: https://www.pi-shop.ch/home-assistant-yellow-kit-with-power-supply-cm4-not-included
+      logo: /images/distributors/pi-shop.webp
+    - name: RaspberryPi.dk
+      ship_from: Denmark
+      ship_to: Europe
+      url: https://raspberrypi.dk/en/product/home-assistant-yellow/
+      logo: /images/distributors/RaspberryPi-dk.webp
+    - name: Seeed Studio
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html
+      logo: /images/distributors/seeed-studio.webp
+    - name: The Pi Hut
+      ship_from: UK
+      ship_to: Europe
+      url: https://thepihut.com/products/home-assistant-yellow
+      logo: /images/distributors/pi-hut.webp
+zbt-1:
+  name: "<strong>Home Assistant Connect ZBT-1</strong>"
+  distributors:
+      # America
+    - name: ameriDroid
+      ship_from: US
+      ship_to: America
+      url: https://ameridroid.com/products/skyconnect
+      logo: /images/distributors/ameridroid.webp
+    - name: CloudFree
+      ship_from: US
+      ship_to: America
+      url: https://cloudfree.shop/product/home-assistant-skyconnect/
+      logo: /images/distributors/cloudfree.webp
+    - name: Seeed Studio
+      ship_from: US
+      ship_to: America
+      url: https://www.seeedstudio.com/Home-Assistant-SkyConnect-p-5479.html
+      logo: /images/distributors/seeed-studio.webp
+      # Asia
+    - name: Seeed Studio
+      ship_from: China
+      ship_to: Asia
+      url: https://www.seeedstudio.com/Home-Assistant-SkyConnect-p-5479.html
+      logo: /images/distributors/seeed-studio.webp
+      # Australia
+    - name: Smart Guys
+      ship_from: Australia
+      ship_to: Australia
+      url: https://smartguys.com.au/home-assistant-skyconnect.html
+      logo: /images/distributors/smart-guys.webp
+      # Europe
+    - name: Alza.cz
+      ship_from: Czech Republic
+      ship_to: Europe
+      url: https://www.alza.cz/home-assistant-skyconnect-usb-hub-d7815713.htm
+      logo: /images/distributors/alza-cz.webp
+    - name: Botland
+      ship_from: Poland
+      ship_to: Europe
+      url: https://botland.com.pl/centralki-i-bramki-sieciowe/22759-home-assistant-skyconnect-usb-stick-zgodny-z-zigbeematterthread-794677011635.html
+      logo: /images/distributors/botland.webp
+    - name: DinamoTech
+      ship_from: Italy
+      ship_to: Europe
+      url: https://dinamotech.it/products/home-assistant-connect-zbt-1
+      logo: /images/distributors/dinamo-tech.webp
+    - name: Domadoo
+      ship_from: France
+      ship_to: Europe
+      url: https://www.domadoo.fr/fr/box-domotique/6938-dongle-usb-zigbee-30-sky-connect-pour-home-assistant-nabu-casa-0794677011635.html
+      logo: /images/distributors/domadoo.jpg
+    - name: Everything Smart Technology
+      ship_from: UK
+      ship_to: Europe
+      url: https://shop.everythingsmart.io/products/home-assistant-skyconnect
+      logo: /images/distributors/est.webp
+    - name: eWeLink device store
+      ship_from: Hungary
+      ship_to: Europe
+      url: https://ewelinkstore.com/product/home-assistant-connect-zbt-1-a-zigbee-thread-matter-usb-stick/
+      logo: /images/distributors/ewelink.png
+    - name: HAshop
+      ship_from: Netherlands
+      ship_to: Europe
+      url: https://www.hashop.nl/Home-Assistant-SkyConnect
+      logo: /images/distributors/ha-shop.webp
+    - name: Kjell
+      ship_from: Norway
+      ship_to: Europe
+      url: https://www.kjell.com/no/produkter/smarte-hjem/kontroller/nabu-casa-home-assistant-skyconnect-p88431
+      logo: /images/distributors/kjell-company.webp
+    - name: Mauser
+      ship_from: Portugal
+      ship_to: Europe
+      url: https://mauser.pt/catalog/product_info.php?products_id=095-1222
+      logo: /images/distributors/mauser.png
+    - name: mediarath
+      ship_from: Germany
+      ship_to: Europe
+      url: https://mediarath.de/products/home-assistant-connect-zbt-1-zigbee-thread-matter-usb-stick-fur-home-assistant-skyconnect
+      logo: /images/distributors/mediarath.de.webp
+    - name: m.nu
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://en.m.nu/zigbee/controllers-zigbee/home-assistant-skyconnect-zigbee-matter-thread
+      logo: /images/distributors/m-nu.webp
+    - name: OkosOtthon Bolt
+      ship_from: Hungary
+      ship_to: Europe
+      url: https://okosotthon.bolt.hu/webaruhaz/termek/home-assistant-connect-zbt-1-zigbee-thread-matter-usb-kulcs/
+      logo: /images/distributors/okosotthon.png
+    - name: Pimoroni
+      ship_from: UK
+      ship_to: Europe
+      url: https://shop.pimoroni.com/products/home-assistant-connect-zbt-1
+      logo: /images/distributors/pimoroni.webp
+    - name: RaspberryPi.dk
+      ship_from: Denmark
+      ship_to: Europe
+      url: https://raspberrypi.dk/en/product/home-assistant-skyconnect/
+      logo: /images/distributors/RaspberryPi-dk.webp
+    - name: Robbshop
+      ship_from: Netherlands
+      ship_to: Europe
+      url: https://www.robbshop.nl/home-assistant-skyconnect-zigbee-en-thread-usb
+      logo: /images/distributors/robb.webp
+    - name: Seeed Studio
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.seeedstudio.com/Home-Assistant-SkyConnect-p-5479.html
+      logo: /images/distributors/seeed-studio.webp
+    - name: SmarterHOME
+      ship_from: Slovakia
+      ship_to: Europe
+      url: https://smarterhome.sk/sk/zwave-pc-adaptery/home-assistant-connect-zbt-1-zigbee-a-thread-usb-adapter-1646.html
+      logo: /images/distributors/smarter-home.png
+    - name: Swiss-Domotique
+      ship_from: Switzerland
+      ship_to: Europe
+      url: https://shop.swiss-domotique.ch/de/smarthome-zentrale/2118-nabu-casa-home-assistant-skyconnect.html
+      logo: /images/distributors/swiss-domotique.webp
+    - name: The Pi Hut
+      ship_from: UK
+      ship_to: Europe
+      url: https://thepihut.com/collections/latest-raspberry-pi-products/products/home-assistant-skyconnect
+      logo: /images/distributors/pi-hut.webp
+    - name: Webhallen
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://www.webhallen.com/se/product/357205-Home-Assistant-SkyConnect-ZigbeeMatterThread
+      logo: /images/distributors/webhallen.webp
+    - name: WIFIShop
+      ship_from: Romania
+      ship_to: Europe
+      url: https://www.wifishop.ro/en/homeassistant/home-assistant-skyconnect.html
+      logo: /images/distributors/wifishop.webp
+voice-pe:
+  name: "<strong>Home Assistant Voice</strong> Preview Edition"
+  distributors:
+      # America
+    - name: ameriDroid
+      ship_from: US
+      ship_to: America
+      url: https://ameridroid.com/products/home-assistant-voice-preview-edition/
+      logo: /images/distributors/ameridroid.webp
+    - name: CloudFree
+      ship_from: US
+      ship_to: America
+      url: https://cloudfree.shop/product/home-assistant-voice-preview-edition/
+      logo: /images/distributors/cloudfree.webp
+    - name: Seeed Studio
+      ship_from: US
+      ship_to: America
+      url: https://www.seeedstudio.com/Home-Assistant-Voice-p-6998.html
+      logo: /images/distributors/seeed-studio.webp
+      # Asia
+    - name: Seeed Studio
+      ship_from: China
+      ship_to: Asia
+      url: https://www.seeedstudio.com/Home-Assistant-Voice-p-6998.html
+      logo: /images/distributors/seeed-studio.webp
+      # Australia
+    - name: OZ Smart Things
+      ship_from: Australia
+      ship_to: Australia
+      url: https://www.ozsmartthings.com.au/products/ha-voice-preview-edition
+      logo: /images/distributors/oz-smart-things.webp
+    - name: Smart Guys
+      ship_from: Australia
+      ship_to: Australia
+      url: https://smartguys.com.au/product/home-assistant-voice-preview-edition/
+      logo: /images/distributors/smart-guys.webp
+      # Europe
+    - name: Alza.cz
+      ship_from: Czechia
+      ship_to: Europe
+      url: https://www.alza.cz/home-assistant-voice-preview-edition-d12741248.htm
+      logo: /images/distributors/alza-cz.webp
+    - name: RaspberryPi.dk
+      ship_from: Denmark
+      ship_to: Europe
+      url: https://raspberrypi.dk/en/product/home-assistant-voice-preview-edition/
+      logo: /images/distributors/RaspberryPi-dk.webp
+    - name: Domadoo
+      ship_from: France
+      ship_to: Europe
+      url: https://www.domadoo.fr/fr/box-domotique/7558-nabu-casa-home-assistant-voice-preview-edition-0860011789727.html
+      logo: /images/distributors/domadoo.jpg
+    - name: Mediarath
+      ship_from: Germany
+      ship_to: Europe
+      url: https://mediarath.de/products/home-assistant-voice-preview-edition-open-source-privacy-focused-voice-assistant-with-esphome
+      logo: /images/distributors/mediarath.de.webp
+    - name: Seeed Studio
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.seeedstudio.com/Home-Assistant-Voice-p-6998.html
+      logo: /images/distributors/seeed-studio.webp
+    - name: Dinamotech
+      ship_from: Italy
+      ship_to: Europe
+      url: https://dinamotech.it/products/home-assistant-voice
+      logo: /images/distributors/dinamo-tech.webp
+    - name: Botland
+      ship_from: Poland
+      ship_to: Europe
+      url: https://botland.com.pl/asystenci-glosowi/25872-home-assistant-voice-preview-edition-asystent-glosowy-860011789727.html
+      logo: /images/distributors/botland.webp
+    - name: Mauser.pt
+      ship_from: Portugal
+      ship_to: Europe
+      url: https://mauser.pt/catalog/product_info.php?products_id=095-4747
+      logo: /images/distributors/mauser.png
+    - name: SmarterHOME
+      ship_from: Slovakia
+      ship_to: Europe
+      url: https://smarterhome.sk/sk/hlasovi-asistenti/home-assistant-voice-preview-edition-1714.html
+      logo: /images/distributors/smarter-home.png
+    - name: Webhallen
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://www.webhallen.com/377166
+      logo: /images/distributors/webhallen.webp
+    - name: Swiss-Domotique
+      ship_from: Switzerland
+      ship_to: Europe
+      url: https://shop.swiss-domotique.ch/de/sound/2667-nabu-casa-home-assistant-voice-preview-edition.html
+      logo: /images/distributors/swiss-domotique.webp
+    - name: The Pi Hut
+      ship_from: UK
+      ship_to: Europe
+      url: https://thepihut.com/products/home-assistant-voice-preview-edition
+      logo: /images/distributors/pi-hut.webp
+    - name: Everything Smart Technology
+      ship_from: UK
+      ship_to: Europe
+      url: https://shop.everythingsmart.io/products/home-assistant-voice-preview-edition
+      logo: /images/distributors/est.webp
+    - name: Pimoroni
+      ship_from: UK
+      ship_to: Europe
+      url: https://shop.pimoroni.com/products/home-assistant-voice
+      logo: /images/distributors/pimoroni.webp

@@ -14,6 +14,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+  - Vacuum
 ha_domain: tplink_tapo
 ha_release: 0.89
 ha_integration_type: virtual
@@ -37,6 +38,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - vacuum
 ha_iot_class: Local Polling
 ha_dhcp: true
 ---

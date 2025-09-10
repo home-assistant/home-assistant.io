@@ -13,6 +13,8 @@ ha_integration_type: system
 related:
   - docs: /common-tasks/general/#backups
     title: Backups
+  - docs: /common-tasks/general/#defining-backup-locations
+    title: Backup locations
   - docs: /getting-started/onboarding/
     title: Recover from backup during onboarding
   - docs: /more-info/backup-emergency-kit/
@@ -25,18 +27,34 @@ To learn how to create and restore a backup, refer to the backup section under [
 
 ## Actions
 
-The **Backup** integration exposes an action that can be used to automate the backup
+The **Backup** integration exposes actions that can be used to automate the backup
 process.
 
 However, it is no longer needed to create your own automation. Follow these steps to [set up an automatic backup from the UI](/common-tasks/general/#setting-up-an-automatic-backup-process).
 
-### Action {% my developer_call_service service="backup.create" %}
+### Action backup.create_automatic
 
-The {% my developer_call_service service="backup.create" %} action can be used
-to create a backup for your Home Assistant instance.
+The {% my developer_call_service service="backup.create_automatic" %} action can be used
+to create a backup of your Home Assistant instance, using the same settings as those used
+by [automatic backups](/common-tasks/general/#setting-up-an-automatic-backup-process).
+
+This action can be called to create backups with pre-defined settings at a more flexible
+schedule than the schedule which can be configured for automatic backups.
 
 The action has no additional options or parameters.
 
+Example action:
+
+```yaml
+action: backup.create_automatic
+```
+
+### Action backup.create
+
+The {% my developer_call_service service="backup.create" %} action can be used
+to create a backup of your Home Assistant instance.
+This action is only available in [core and container installations](/installation/#advanced-installation-methods).
+The action has no additional options or parameters.
 Example action:
 
 ```yaml

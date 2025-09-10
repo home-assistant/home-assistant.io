@@ -21,6 +21,7 @@ ha_codeowners:
   - '@natekspencer'
 ha_config_flow: true
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 The **Balboa Spa Client** {% term integration %} adds support for [Balboa](https://www.balboawatergroup.com/) Spa WiFi Modules to be used within Home Assistant.

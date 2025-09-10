@@ -8,6 +8,7 @@ ha_release: 0.94
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@squishykid'
+  - '@Darsstar'
 ha_domain: solax
 ha_platforms:
   - sensor

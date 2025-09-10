@@ -55,6 +55,12 @@ EU version:
 - [ODE PLUS Smart Outlet](https://iotty.de/collections/prodotti-singoli/products/ode-plus-smarte-steckdose)
 - [OFR PLUS Smart Outlet](https://iotty.fr/collections/prodotti-singoli/products/ofr-plus-prise-intelligente)
 
+### iotty Outlet
+
+- [iotty Smart Outlet - Italy](https://iotty.it/collections/prodotti-singoli/products/oit-plus-presa-intelligente)
+- [iotty Smart Outlet - Germany](https://iotty.de/collections/prodotti-singoli/products/ode-plus-smarte-steckdose)
+- [iotty Smart Outlet - France](https://iotty.fr/collections/prodotti-singoli/products/ofr-plus-prise-intelligente)
+
 ## Supported entities
 
 Each iotty device gets mapped into one Home Assistant device per gang, each with its own Switch entity.

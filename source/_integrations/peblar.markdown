@@ -262,16 +262,22 @@ documentation for information on how to do this.
 
 ### Switches
 
-This integration provides a single switch entity: **Force single phase**.
+This integration provides two switch entities:
 
-This switch can be used to force the charger to use a single phase for charging
-your electric vehicle. This can be useful if you want to limit your current
-draw from the charger to a single phase, for example, to prevent overloading
-your electrical installation.
+- **Charge**: This switch allows you to start or stop/pause the charging of
+  your electric vehicle. This can be helpful if you want to temporarily stop
+  charging your electric vehicle, for example, to avoid charging during
+  expensive peak hours.
+- **Force single phase**: This switch can be used to force the charger to use a
+  single phase for charging your electric vehicle. This can be useful if you
+  want to limit your current draw from the charger to a single phase, for
+  example, to prevent overloading your electrical installation.
 
-Note that this switch is only available if your charger is connected to multiple
-phases. If your charger is connected to a single-phase power source, this switch
-will not be created.
+{% note %}
+The **Force single phase** switch is only available if your charger is
+connected to multiple phases. If your charger is connected to a single-phase
+power source, this switch will not be created.
+{% endnote %}
 
 ### Updates
 

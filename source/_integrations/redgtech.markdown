@@ -19,6 +19,8 @@ ha_codeowners:
 
 The **Redgtech** integration allows you to control your Redgtech smart devices through Home Assistant. This integration provides seamless connectivity to your Redgtech ecosystem, enabling you to manage lights and switches from within your Home Assistant dashboard.
 
+For more information about Redgtech, visit the [Redgtech website](https://redgtech.com.br/).
+
 ## Installation
 
 The Redgtech integration is available in Home Assistant by default. No additional installation steps are required.
@@ -33,27 +35,22 @@ Before setting up the integration, ensure you have:
 
 ## Configuration
 
-The Redgtech integration is configured through the Home Assistant user interface.
+{% include integrations/config_flow.md %}
 
-1. In Home Assistant, go to **Settings** > **Devices & Services**.
-2. Click **Add Integration**.
-3. Search for **Redgtech** and select it.
-4. Enter your Redgtech account credentials (email and password).
-5. Click **Submit**.
+{% configuration_basic %}
+Email:
+  description: "The email address connected to your Redgtech account."
+Password:
+  description: "The account password."
+{% endconfiguration_basic %}
 
-The integration will automatically discover and add your Redgtech devices.
+## Removing the integration
 
-## Removal
+This integration follows standard integration removal. No extra steps are required.
 
-To remove the Redgtech integration:
+{% include integrations/remove_device_service.md %}
 
-1. Go to **Settings** > **Devices & Services**.
-2. Find the **Redgtech** integration in the list.
-3. Click on the integration.
-4. Click the **Delete** button.
-5. Confirm the removal when prompted.
-
-**Note**: Removing the integration will also remove all associated devices and entities from Home Assistant. You can always re-add the integration later if needed.
+After deleting the integration, go to the Redgtech app and remove the Home Assistant integration from there as well.
 
 ## Features
 
@@ -97,4 +94,4 @@ If you receive authentication errors:
 2. Check if your Redgtech account is active
 3. Try logging into the Redgtech app to confirm your credentials
 
-For additional support, please refer to the [Redgtech support documentation](https://redgtech-dev.com/support) or contact Redgtech support directly.
+For additional support, please contact [Redgtech support](mailto:contato.redgtech.dev@gmail.com) directly.

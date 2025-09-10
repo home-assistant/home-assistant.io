@@ -19,9 +19,10 @@ ha_integration_type: integration
 
 [Minecraft](https://www.minecraft.net/en-us) is a sandbox video game developed by Mojang Studios. Minecraft servers allow players to play the game online or via a local area network with other players. The **Minecraft Server** integration lets you retrieve information from a Minecraft server within Home Assistant. Both **Java Edition** and **Bedrock Edition** servers are supported.
 
-{% important %}
-Minecraft Java Edition servers must be version 1.7 or newer, since older versions don't expose any information.
-{% endimportant %}
+## Prerequisites
+
+- Minecraft Java Edition servers must be version 1.7 or newer, since older versions don't expose any information.
+- The `enable-status` and `enable-query` must be set to `true` in the Minecraft `server.properties`.
 
 {% include integrations/config_flow.md %}
 

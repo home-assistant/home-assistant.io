@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
     registerLanguageSelectChange();
     registerFeatureCycle();
     registerFaqItems();
-    registerBuyDialog();
     registerLazySections();
 });
 
@@ -695,23 +694,6 @@ function registerFaqItems() {
         });
     });
 
-}
-
-const buyDialog = document.getElementById("buy-dialog");
-function registerBuyDialog() {
-    const buyButtons = document.querySelectorAll('a[href="#buy"]');
-    if (!buyButtons) return;
-
-    buyButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            showBuyDialog();
-        });
-    });
-
-    // if the url contains #buy, show the dialog
-    if (window.location.hash === '#buy') {
-        showBuyDialog();
-    }
 }
 
 function showBuyDialog() {

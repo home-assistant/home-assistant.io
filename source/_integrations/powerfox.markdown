@@ -43,7 +43,7 @@ Not all Poweropti devices are supported currently. Check the list below to see i
 | PB 202001             | Power meter | Yes        |
 | WA 201902             | Water meter | Yes        |
 | Powerfox FLOW         | Gas meter   | No         |
-| HA 201902             | Heat meter  | No         |
+| HA 201902             | Heat meter  | Yes        |
 
 ## Data updates
 
@@ -78,6 +78,15 @@ It will create the following sensors:
 
 - **Cold water (m³)**: How much cold water is used.
 - **Warm water (m³)**: How much warm water is used.
+
+### Heat meter
+
+It will create the following sensors:
+
+- **Total eneregy (kWh)**: How much energy is used.
+- **Delta energy (kWh)**: How much energy is used since the last update.
+- **Total volume (m³)**: How much water is used.
+- **Delta volume (m³)**: How much water is used since the last update.
 
 ## Troubleshooting
 

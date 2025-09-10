@@ -3,6 +3,8 @@ title: Home Assistant Cloud
 description: Enable the Home Assistant Cloud integration.
 ha_release: '0.60'
 ha_category:
+  - Backup
+  - Speech-to-text
   - Text-to-speech
   - Voice
 ha_iot_class: Cloud Push
@@ -16,7 +18,7 @@ ha_platforms:
 ha_integration_type: system
 ---
 
-The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services like Amazon Alexa and Google Assistant. [Learn more.](/cloud)
+The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services like Amazon Alexa and Google Assistant. It also enables a secure remote connection, speech-to-text, text-to-speech, an offsite backup location, Webhooks support, and better WebRTC. [Learn more.](/cloud)
 
 ## Configuration
 
@@ -29,7 +31,7 @@ cloud:
 
 Documentation of further configuration possibilities are located at [NabuCasa](https://www.nabucasa.com/config/)
 
-Once activated, go to the configuration panel in Home Assistant and create an account and log in. If you are not seeing the **Settings** panel, make sure you have the following option enabled in your {% term "`configuration.yaml`" %} file.
+Once activated, go to the configuration panel in Home Assistant, create an account, and log in. If you are not seeing the **Settings** panel, make sure you have the following option enabled in your {% term "`configuration.yaml`" %} file.
 
 ```yaml
 config:

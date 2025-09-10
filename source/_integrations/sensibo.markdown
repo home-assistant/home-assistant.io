@@ -86,7 +86,6 @@ These entities are disabled by default.
 
 For supported devices, this integration provides support to set the following modes by the select entity:
 
-- Horizontal swing
 - Light
 
 ## Sensor entities
@@ -148,17 +147,30 @@ To customize the settings of Pure Boost, you can use the custom `sensibo.enable_
 
 ## Custom actions
 
+### Get device mode capabilities
+
+As the below custom actions [Full state](#full-state) and [Climate react](#climate-react) both require their inputs to be exactly what the API requires, this custom action will provide the capabilities for the device for a certain HVAC mode to help the users on using those actions properly.
+
+1. Go to [Developer Tools](https://my.home-assistant.io/redirect/server_controls/).
+2. Switch to the **Actions** page.
+3. Use the `sensibo.get_device_capabilities` action.
+4. Select the `climate` entity as the target.
+5. Select the `hvac_mode` from the available list.
+6. Select **Perform action** to retrieve the available options per capability for that particular `climate` entity.
+
+From the provided dictionary, copy the case-sensitive options as needed into other action calls used in automations or scripts.
+
 ### Full state
 
 You can send a full state command to Sensibo instead of single commands using the `sensibo.full_state` action.
 
 All fields are required to be according to Sensibo API specifications and are case-sensitive.
 
-To see the options for each field to use this action:
+{% tip %}
 
-1. Switch to the relevant HVAC mode (not all HVAC modes have the same options).
-2. Retrieve the options for `fan_modes` and `swing_modes` from the climate entity's attributes.
-3. Retrieve the option set from the respective select entity for `horizontal_swing` and `light` if those are present.
+Use the [Get device mode capabilities](#get-device-mode-capabilities) action to provide a list of capabilities.
+
+{% endtip %}
 
 ### Assume state
 
@@ -184,7 +196,13 @@ You can configure your Climate React settings using the `sensibo.enable_climate_
 
 - Configuring this action also turns Climate React on
 
-When using the action, the state needs to be set to precisely what Sensibo API expects. The first time it's recommended to use the app to configure it. From that point, you can see what the API requires and how to write from the Climate React switch attribute.
+When using the action, the state needs to be set to precisely what Sensibo API expects. The first time it's recommended to use the app to configure it.
+
+{% tip %}
+
+Use the [Get device mode capabilities](#get-device-mode-capabilities) action to provide a list of capabilities.
+
+{% endtip %}
 
 Example for low threshold state:
 

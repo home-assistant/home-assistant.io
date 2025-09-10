@@ -20,11 +20,11 @@ Before creating a backup, check if you can reduce the size of the backup. This i
 
 1. Check if your configuration directory contains a large database file:
    - Go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
-   - From the three dot menu, select **System information** and under the **Recorder** section, look for the **Estimated Database Size (MiB)**.
+   - From the three dots {% icon "mdi:dots-vertical" %} menu, select **System information** and under the **Recorder** section, look for the **Estimated Database Size (MiB)**.
    - By default, the data is kept for 10 days. If you have modified that to a longer period, check the [`recorder`](/integrations/recorder/) integration page for options to keep your database data down to a size that won't cause issues.
    - Note the keep days, purge interval, and include/exclude options.
 2. To check how much space you've used in total, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
-   - From the three dot menu, select **System information**, and check under **Home Assistant Supervisor** > **Disk used**.
+   - From the three dots {% icon "mdi:dots-vertical" %} menu, select **System information**, and check under **Home Assistant Supervisor** > **Disk used**.
    - If you have add-ons installed that you no longer use, uninstall those add-ons. Some add-ons require quite a bit of space.
 3. If you want to store the backup on your network storage instead of just locally on your system, follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
 
@@ -33,35 +33,53 @@ Before creating a backup, check if you can reduce the size of the backup. This i
 The automatic backup process creates a backup on a predefined schedule and also deletes old, redundant backups.
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}.
-2. Under **Automatic backups**, select **Configure automatic backups**.
-3. Enable automatic backup.
-4. Define the backup schedule. It is recommended to back up daily.
+2. Under **Set up backups**, select **Set up backups**.
+3. Download the emergency kit and store it somewhere safe.
+   - You need it to restore encrypted backups.
+   - To learn more about backup encryption, refer to the documentation on the [backup emergency kit](/more-info/backup-emergency-kit/).
+4. Define the backup schedule.
+   - It is recommended to back up **Daily**, but you can also choose to back up on specific days.
+   - Define the time:
+     - **System optimal** sets a time in a predefined time window as shown in the UI.
+     - **Custom** lets you pick the time when you want the backup to start.
+     - Make sure you pick a time when all your backup locations are up and running and available. Otherwise, the backup will fail for locations which are not available.
 5. Define how many backups you want to keep.
    - Older backups will be automatically deleted.
    - For example: if you back up daily, and select 7 backups, then the backup from 8 days ago and older will be deleted.
 6. Define the data you want to back up.
-   - It is recommended to disable media and the share folder to reduce the size of the backup.
+   - It is recommended to disable media and the shared folder to reduce the size of the backup.
    - A large backup also takes longer to restore.
    - Some add-ons may also be quite large.
 7. [Define the location for backups](#defining-backup-locations).
-8. Backups are encrypted. To be able to restore encrypted backups, download the emergency kit and store it somewhere safe.
-   - To learn more, refer to the documentation on the [backup emergency kit](/more-info/backup-emergency-kit/).
 
 ### Defining backup locations
 
-You might need a backup in case your system has crashed. If you only store backups on the device itself, you won't be able to access them easily. It is recommended to keep a copy on another system and ideally also one off-site.
+You might need a backup in case your system has crashed. If you only store backups on the device itself, you won't be able to access them easily. It is recommended to keep a copy on another system (outside of Home Assistant) and ideally also one off-site.
+
+{% note %}
+You will find an overview of integrations which provide a backup location [here](/integrations/#backup).
+{% endnote %}
 
 #### About the backup storage on Home Assistant Cloud
 
-If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on Home Assistant Cloud. This cloud storage space is available for all existing and new Home Assistant Cloud subscribers without additional cost. It stores one backup file: the backup that was last saved to Home Assistant Cloud. Backups are always encrypted. To restore encrypted backups, you need the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
+If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on Home Assistant Cloud. This cloud storage space is available for all existing and new Home Assistant Cloud subscribers without additional cost. It stores one backup file: the backup that was last saved to Home Assistant Cloud. These backups are always encrypted. To restore encrypted backups, you need the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
 
 #### To define the backup location for automatic backups
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and under **Automatic backups**, select **Configure automatic backups**.
-2. Under **Locations**, enable all the backup locations you want to use.
+2. Under **Locations**, use the toggle to enable all the backup locations you want to use.
    - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
+   - If you want to back up to your NAS (such as [Synology](/integrations/synology_dsm/#backup-location)) or a cloud provider (such as [Google Drive](/integrations/google_drive/) or [Microsoft OneDrive](/integrations/onedrive/)), check their integration documentation for specific instructions on setting up a Home Assistant backup.
    - If you don't see a network storage, you haven't added one. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
-   ![Define the backup locations](/images/screenshots/network-storage/backup_locations_all.png)
+   ![Define the backup locations](/images/screenshots/network-storage/backup_locations_encryption.png)
+3. For each enabled location, select the cog {% icon "mdi:cog-outline" %} to enable/disable encryption.
+   - **Info**: The backup stored on Home Assistant Cloud is always encrypted.
+
+### Creating a backup automation using the backup action
+
+If the backup automation settings provided in the UI do not match your use case, you can manually configure your own backup automation using the [backup.create_automatic](/integrations/backup/#action-backupcreate_automatic) action.
+
+Using the {% my developer_call_service service="backup.create_automatic" %} action in your own automation allows you to create automated backups on any schedule you like, or even add conditions and actions around it. For example, you could make an automation that triggers on a calendar, turns on your NAS, waits until it is online, and then triggers a backup.
 
 ### Creating a manual backup
 
@@ -86,10 +104,11 @@ There are multiple ways to download your local backup from your Home Assistant i
 **Option 1**: Download from the backup page:
 
 1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
-2. To select one backup, on the list, single-click or tap the backup of interest.
-   - To select multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
-3. In the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download backup**.
+2. To select multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download backup**.
    - **Result**: The selected backup is stored in the **Downloads** folder of your computer.
+4. If a backup is stored on multiple locations, you can select where you download it from:
+   - Select the backup, and under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 
 **Option 2**: Copy backups from the backups folder:
 
@@ -101,8 +120,16 @@ There are multiple ways to download your local backup from your Home Assistant i
 
 If you were logged in to Home Assistant Cloud and had Cloud backup enabled when creating a backup, your last backup is stored on Home Assistant Cloud.
 
-1. To download the backup, log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
-2. Under **Stored files**, you can see the latest available backup file. Select the download button.
+There are two ways to download the backup from Home Assistant Cloud:
+
+- **Option 1**: From the backups page
+  1. Got to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
+  2. Under **Stored files**, you can see the latest available backup file. Select the download button.
+
+- **Option 2**: From your Home Assistant Cloud account
+  1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
+  2. Select the backup from the list.
+  3. Under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 
 ### Deleting obsolete backups
 
@@ -112,7 +139,7 @@ To delete old backups, follow these steps:
 
 1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
 2. To delete one backup, on the list, select the backup of interest.
-   - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**
+   - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
 3. To delete multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
    - From the list of backups, select all the ones you want to delete and select **Delete selected**.
    - {% icon "mdi:information-outline" %} Consider keeping at least one recent backup for recovery purposes.

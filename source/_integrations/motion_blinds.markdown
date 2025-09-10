@@ -27,6 +27,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
 - [3 Day Blinds](https://www.3dayblinds.com/)
+- [Decorquip Dream](https://www.decorquip.com/post.php?dream)
 - [Diaz](https://www.diaz.be/en/)
 - [Dooya](http://www.dooya.com/)
 - [Gaviota](https://www.gaviotagroup.com/en/)
@@ -45,6 +46,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Smart Rollo (SIRO)](https://smart-rollos.de/)
 - [Smartblinds](https://www.smartblinds.nl/)
 - [Smart Home](https://www.smart-home.hu)
+- [Ublockout](https://www.ublockout.com/)
 - [Uprise Smart Shades](http://uprisesmartshades.com)
 
 This integration allows for both directly controlling blinds that support wifi-connection and controlling Uni- and Bi-direction blinds that connect to a 433MHz WiFi bridge.
@@ -65,6 +67,8 @@ The following bridges are reported to work with this integration:
 - SIRO Connect SI7005
 - Heicko Smart Stick 1ST
 - DD7006A Smart Home bridge
+- Dreamhub Pro 191726
+- Dreamhub mini 191717
 
 {% include integrations/config_flow.md %}
 

@@ -29,7 +29,7 @@ The `starline` integration lets you retrieve data of your [StarLine](https://www
 
 This integration provides the following platforms:
 
-- Binary sensors: Hand brake, hood, trunk, alarm status, doors lock state, handsfree, neutral, moving ban status, and running state.
+- Binary sensors: Hand brake, hood, trunk, alarm status, doors lock state, handsfree, neutral, moving ban status, ignition state, and autostart state.
 - Device tracker: The location of your car.
 - Lock: Control the lock of your car.
 - Sensors: Battery level, SIM card balance, GSM signal level, GPS satellites count, fuel volume, mileage, OBD errors, interior temperature and engine temperature.

@@ -40,6 +40,7 @@ This integration uses the last 6 digits of the serial number.
 - Wave Radon
 - Wave Mini
 - Wave Plus
+- Wave Enhance
 
 ## Sensors
 

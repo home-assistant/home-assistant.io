@@ -399,6 +399,28 @@ Envoy installations without installed <abbr title="current transformers">CT</abb
 
 With installed <abbr title="current transformers">CT</abbr>, data granularity increases and shortening the collection interval can provide more details. The Envoy, however, has no unlimited resources and shortening the collection interval may result in dropped connections, Envoy freeze or restarts. It will require some step-wise tuning for each individual situation.
 
+## Credentials or device IP address update
+
+This integration supports updating the Envoy configuration through a `reconfigure` menu option. The reconfiguration allows for changing the Envoy IP address, username, and/or password. Use this menu option if your Enlighten credentials or the device's IP address has changed and needs to be manually updated. The latter is typically automatically detected and updated.
+
+Use this menu option also when an Envoy firmware upgrade requires a switch from local Envoy username/password to token-based authentication with Enlighten username/password (refer to [authentication requirements](#envoy-authentication-requirements)).
+
+## Firmware updates
+
+The firmware version is read from the envoy when the configuration entry is loaded. The firmware version is then used in the process of determining capabilities and required authorization methods. The firmware version is available as the `sw_version` attribute of the configuration entry and shown on the device view of the envoy.
+
+Every 4 hours, the actual firmware version in the Envoy is compared to the known one. If the actual version differs, the configuration entry is reloaded to effect any needed configuration changes. If the moment of the firmware update is known, a manual reload on the envoy configuration entry can be done to achieve the same.
+
+The firmware version is not available as an entity, but rather as an attribute of the envoy. To use the firmware in automation, scripts or templates, use below example with any envoy entity.
+
+{% raw %}
+
+```yaml
+{{device_attr(device_id('sensor.envoy_SN_current_power_production'),'sw_version')}}
+```
+
+{% endraw %}
+
 ## Energy dashboard
 
 This integration provides several entities suitable for the energy dashboard.

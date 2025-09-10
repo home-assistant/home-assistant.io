@@ -9,8 +9,10 @@ ha_release: 0.36
 ha_codeowners:
   - '@kellerza'
   - '@rklomp'
+  - '@erwindouna'
 ha_domain: sma
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---

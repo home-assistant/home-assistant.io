@@ -2,6 +2,7 @@
 title: SwitchBot Cloud
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
+  - Button
   - Hub
   - Lock
   - Plug
@@ -17,6 +18,7 @@ ha_codeowners:
   - '@Gigatrappeur'
 ha_domain: switchbot_cloud
 ha_platforms:
+  - button
   - climate
   - lock
   - sensor
@@ -54,6 +56,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - Hub 2
 - Relay Switch 1
 - Relay Switch 1PM
+- Bot (as a Switch in `switchMode` and `customizeMode`, as a Button in `pressMode`)
 
 ## Important considerations
 

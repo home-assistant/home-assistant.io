@@ -43,3 +43,30 @@ target:
   entity_id: assist_satellite.my_entity
   media_id: ITEM_ID
 ```
+
+### Action `assist_satellite.start_conversation`
+
+The {% my developer_call_service service="assist_satellite.start_conversation" %} action first announces a message or media id on the satellite and then listens for one or more voice commands. The satellite's configured [pipeline](/voice_control/voice_remote_local_assistant/) must use a supported [conversation agent](/integrations/conversation), such as [OpenAI](/integrations/openai_conversation) or [Google Generative AI](/integrations/google_generative_ai_conversation). The builtin Assist conversation agent does not support conversations yet.
+
+If a message is to be announced, it will first be converted to a media id using the [text-to-speech](/integrations/tts) system of the satellite's configured [pipeline](/voice_control/voice_remote_local_assistant/).
+
+The `extra_system_prompt` is passed to the [conversation agent](/integrations/conversation) of the satellite's configured [pipeline](/voice_control/voice_remote_local_assistant/). For large language models (LLMs) this will be appended to the prompt given to the model, allowing the LLM to understand the context of a response like "yes" or "no".
+
+{% my developer_call_service badge service="assist_satellite.start_conversation" %}
+
+Examples in YAML:
+
+```yaml
+action: assist_satellite.start_conversation
+target:
+  entity_id: assist_satellite.my_entity
+  start_message: "You left the lights on in the living room. Turn them off?"
+  extra_system_prompt: "The user has left the lights on in the living room and is being asked if they'd like to turn them off."
+```
+
+```yaml
+action: assist_satellite.start_conversation
+target:
+  entity_id: assist_satellite.my_entity
+  start_media_id: ITEM_ID
+```

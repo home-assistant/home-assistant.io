@@ -163,6 +163,10 @@ automation:
             icon: "/home/homeassistant/images/doorbell.png"
 ```
 
+{% important %}
+The icon has to be a local file accessible by Home Assistant, not a web URL. The icon does not need to be accessible by the TV. The integration sends the icon to the TV encoded inside the notification message.
+{% endimportant %}
+
 ## Data updates
 
 LG webOS TV devices are automatically pushing data to Home Assistant.
