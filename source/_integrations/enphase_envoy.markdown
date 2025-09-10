@@ -704,8 +704,8 @@ Not all firmware versions reset `Energy production today` or `Energy consumption
 
 When using Envoy Metered with <abbr title="current transformers">CT</abbr>
 
-- not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data and unexpected spikes have been reported. Enphase reportedly indicated it is an issue in summing phase values to aggregated data. In this case, either use individual phase data or a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
-- not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported. Enphase reportedly indicated it is an issue in summing phase values to aggregated data. In this case, either use individual phase data.
+- not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data, changes to a lower value and unexpected spikes have been reported. Enphase reportedly indicated it is an issue in summing phase values to aggregated data. In this case, either use individual phase data or a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
+- not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported. Enphase reportedly indicated it is an issue in summing phase values to aggregated data. In this case, use the individual phase data.
 - `Energy production today` and `Energy consumption today` have been reported not to reset to zero. Instead, it resets to a non-zero value that seems to gradually increase over time, although other values have been reported as well. This issue has also been reported as starting suddenly overnight. For daily reporting, it is recommended to use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity.
 
 {% details "History examples for Today's energy production value not resetting to zero" %}
@@ -720,6 +720,14 @@ When using Envoy Metered with <abbr title="current transformers">CT</abbr>
   <figcaption>Envoy Today's energy production value exhibits a sudden onset of non-zero resets.</figcaption>
 </figure>
 {% enddetails %}
+
+These issues may result in log entries like:
+
+```txt
+Entity sensor.envoy_123456789012_energy_consumption_today from integration enphase_envoy has state class total_increasing, but its state is not strictly increasing. Triggered by state 12.345 (12.543) with last_updated set to 2025-09-05T18:00:23.432536+00:00. Please create a bug report at ...
+```
+
+If these entries occur frequently and are a nuisance then disable the entity. It's data is at best doubtful.
 
 ### Lifetime reset
 
@@ -777,6 +785,14 @@ If you experience periodic connection issues, ensure the Envoy is connected to o
 ### CT Active flag count is non-zero
 
 The **CT active flag count** value shows the number of CT status flags that are raised. In a normal state, the value of **CT active flag count** is zero. If the value is non-zero, consult the [diagnostic](#diagnostics) report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags, one or more from  (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`). Their somewhat descriptive names may be an indication of installation issues.
+
+### Log entry for state is not strictly increasing
+
+The log shows an entry like below for energy consumption today or energy production today. See the [energy incorrect](#energy-incorrect) topic for a description of this issue.
+
+```txt
+Entity sensor.envoy_123456789012_energy_consumption_today from integration enphase_envoy has state class total_increasing, but its state is not strictly increasing. Triggered by state 12.345 (12.543) with last_updated set to 2025-09-05T18:00:23.432536+00:00. Please create a bug report at ...
+```
 
 ### Debug logs and diagnostics
 
