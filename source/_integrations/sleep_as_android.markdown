@@ -187,6 +187,21 @@ mode: single
 
 {% endraw %}
 
+## Control Sleep as Android via Home Assistant
+
+The **Sleep as Android** app can be automated through its [Intent API](https://sleep.urbandroid.org/docs/devs/intent_api.html), allowing you to perform actions such as:
+
+- Enable or disable alarms
+- Snooze or dismiss alarms
+- Start, stop, or pause sleep tracking
+- Stop lullaby playback
+
+Thanks to the **Home Assistant Companion App for Android**, which supports [broadcasting intents](/docs/notifications/notification-commands#broadcast-intent), you can trigger these actions directly from Home Assistant.
+
+To make this even easier, you can import the following blueprint. It supports nearly all Sleep as Android actions, so you can automate your sleep routine without writing any custom scripts:
+
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/sleep-as-android-trigger-app-actions/920845" %}
+
 ## Data updates
 
 This integration receives push updates from the Sleep as Android app whenever an event is triggered. If no events occur, the displayed data may become outdated.
