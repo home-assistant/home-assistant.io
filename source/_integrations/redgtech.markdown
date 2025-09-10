@@ -78,6 +78,25 @@ After deleting the integration, go to the Redgtech app and remove the Home Assis
 | Smart Switch | X1, X2, X3 | On/Off control, Status monitoring |
 | Smart Light | B1, B2, B3 | On/Off control, Brightness control |
 
+## Data Updates
+
+The Redgtech integration uses a polling-based approach to keep device data synchronized:
+
+- **Update Interval**: Device states are updated every 60 seconds
+- **Authentication**: The integration automatically handles token renewal when needed
+- **Error Handling**: If authentication fails, the integration will trigger a reauthentication flow
+- **Retry Logic**: Temporary connection issues are handled with automatic retries
+- **Real-time Control**: Device commands (on/off, brightness) are sent immediately without waiting for the next update cycle
+
+### Data Flow
+
+1. **Initial Setup**: When you first configure the integration, it authenticates with the Redgtech API
+2. **Token Management**: The integration stores an access token and automatically renews it when needed
+3. **Device Discovery**: All available devices are fetched from your Redgtech account
+4. **Periodic Updates**: Every 60 seconds, the integration polls the API for the latest device states
+5. **Command Execution**: When you control a device, the command is sent immediately to the API
+6. **State Synchronization**: Device states are updated in Home Assistant to reflect the current status
+
 ## Automation Examples
 
 Here are some automation examples you can use with your Redgtech devices:
@@ -152,6 +171,14 @@ automation:
 - **Voice Control**: Use voice assistants to control Redgtech devices
 - **Remote Access**: Control devices from anywhere using the Home Assistant mobile app
 - **Scene Control**: Create scenes that control multiple Redgtech devices simultaneously
+
+## Known Limitations
+
+- **Cloud Dependency**: The integration requires internet connectivity to function
+- **Polling Interval**: Device states are updated every 60 seconds, not in real-time
+- **Single Account**: Each integration instance can only connect to one Redgtech account
+- **No Local Control**: Devices cannot be controlled locally without internet connection
+- **API Rate Limits**: The Redgtech API has rate limits that may affect frequent updates
 
 ## Troubleshooting
 
