@@ -185,13 +185,3 @@ automation:
           message: "AC device fault: {{ state_attr('sensor.ac_fault_status', 'fault_details') }}"
 ```
 {% endraw %}
-
-## Support
-
-For support and bug reports:
-- [GitHub Issues](https://github.com/Connectlife-LLC/HomeAssistantPlugin/issues)
-- [Home Assistant Community](https://community.home-assistant.io/)
-
-## License
-
-This integration is licensed under the MIT License.
