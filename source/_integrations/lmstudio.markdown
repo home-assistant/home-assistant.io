@@ -163,18 +163,6 @@ Smaller models may not reliably maintain a conversation when controlling Home As
 - Add the LM Studio integration without enabling control of Home Assistant. You can use this conversation agent to have a conversation.
 - Add an additional LM Studio integration, using the same model, enabling control of Home Assistant. You can use this conversation agent to control Home Assistant.
 
-<!-- 
-TBD Split PR
-## AI Task Platform
-
-The LM Studio integration also supports Home Assistant's AI task platform, allowing you to use local LLMs for structured data generation in automations and scripts. This enables you to:
-
-- Generate structured responses based on sensor data
-- Create dynamic content for notifications
-- Process and analyze data from your smart home devices
-- Generate summaries or insights from historical data 
-
--->
 
 ## Setting up LM Studio
 
