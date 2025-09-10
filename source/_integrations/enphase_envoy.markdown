@@ -28,7 +28,7 @@ The **Enphase Envoy** {% term integration %} is used to integrate with the [Enph
 
 ## Supported devices
 
-The actual model and installed components will determine the available [capabilities](#capabilities) and which data can be provided to the [Energy dashboard](#energy-dashboard). The Envoy firmware has [known issues](#know-issues-and-limitations) that may come and go as versions change.  
+The actual model and installed components will determine the available [capabilities](#capabilities) and which data can be provided to the [Energy dashboard](#energy-dashboard). The Envoy firmware has [known issues](#known-issues-and-limitations) that may come and go as versions change.
 
 This integration works with:
 
@@ -680,7 +680,7 @@ data:
 Technically `select.first`, `select.last`, `select.previous`, `select.next` are available as well, but as there's no logical sequence in the values to select, their use is not advocated.
 {% endnote %}
 
-## Know issues and limitations
+## Known issues and limitations
 
 ### Firmware changes
 
