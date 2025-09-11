@@ -90,7 +90,7 @@ section#newsletter {
             border-radius: 6px;
             overflow: hidden;
             transition: transform 0.8s cubic-bezier(0.3, 1, 0.5, 1);
-            transition-delay: .5s;
+            transition-delay: .25s;
 
             @include bp(tablet) {
                 border-radius: 12px;
@@ -112,7 +112,7 @@ section#newsletter {
             &:nth-child(1) {
                 max-width: 80%;
                 height: 35px;
-                transition-delay: .55s;
+                transition-delay: .3s;
                 z-index: 1;
 
                 @include bp(tablet) {
