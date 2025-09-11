@@ -4,7 +4,7 @@ description: Instructions on how to integrate OMIE day-ahead market prices withi
 ha_category:
   - Energy
   - Sensor
-ha_release: '2025.9'
+ha_release: '2025.10'
 ha_iot_class: Cloud Polling
 ha_quality_scale: Silver
 ha_config_flow: true
