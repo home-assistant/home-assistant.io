@@ -6,7 +6,7 @@ date: 2025-09-11 00:00:01
 date_formatted: "September 11, 2025"
 author: Paulus Schoutsen
 comments: true
-categories: Works-with-Home-Assistant
+categories: Assist AI
 og_image: /images/blog/2025-09-ai/art.webp
 ---
 
