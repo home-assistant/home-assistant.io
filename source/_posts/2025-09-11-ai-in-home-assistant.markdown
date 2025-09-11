@@ -128,7 +128,7 @@ Lastly, users can set a default AI Task entity. This allows users to skip pickin
 
 ## MCP opens a whole new world
 
-[Model Context Protocol](/integrations/mcp/) (MCP) is a thin layer allowing LLMs to integrate _anything_. When the specification was announced, we quickly jumped on it and integrated it into Home Assistant. Effectively, these servers give Home Assistant’s Assist conversation agent access to all sorts of new tools. You could connect MCP servers that give Assist access to the latest news stories, your to-do lists, or a server that catalogues your vinyl collection, allowing you to have richer conversations (“Okay Nabu, which Replacements albums do I have, and which aren’t on my _Vinyl-to-Purchase_ list_?_”)
+[Model Context Protocol](/integrations/mcp/) (MCP) is a thin layer allowing LLMs to integrate _anything_. When the specification was announced, we quickly jumped on it and integrated it into Home Assistant. Effectively, these servers give Home Assistant’s Assist conversation agent access to all sorts of new tools. You could connect MCP servers that give Assist access to the latest news stories, your to-do lists, or a server that catalogues your vinyl collection, allowing you to have richer conversations (_“Okay Nabu, which Replacements albums do I have, and which aren’t on my Vinyl-to-Purchase list?”_).
 
 On the flip side, you can also [turn Home Assistant into an MCP server](/integrations/mcp_server/), allowing an AI system to access information about your home. For instance, you could create a local AI that's great at making Home Assistant automations, and it could include all your entity names or available actions. MCP keeps gaining more support, and there are some great cloud and self-hosted solutions available.
 
