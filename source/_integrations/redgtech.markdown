@@ -29,11 +29,11 @@ The Redgtech integration is available in Home Assistant by default. No additiona
 
 Before setting up the integration, ensure you have:
 
-- A Redgtech account with active devices
-- Your Redgtech devices connected to your network
-- Internet connectivity for cloud communication
+- A Redgtech account with active devices.
+- Your Redgtech devices connected to your network.
+- Internet connectivity for cloud communication.
 
-### Installation Parameters
+### Installation parameters
 
 The Redgtech integration does not require any special installation parameters. The integration uses cloud-based communication and does not require:
 
@@ -55,49 +55,42 @@ Password:
   description: "The account password."
 {% endconfiguration_basic %}
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
-After deleting the integration, go to the Redgtech app and remove the Home Assistant integration from there as well.
 
 ## Features
 
-- **Smart Switch Control**: Turn your Redgtech switches on/off remotely
-- **Smart Light Control**: Control brightness and on/off state of Redgtech lights
-- **Real-time Status**: See the current state of your devices in real-time
-- **Automation Support**: Use Redgtech devices in Home Assistant automations
-- **Cloud Connectivity**: Access your devices from anywhere via Redgtech cloud
+- **Smart switch control**: Turn your Redgtech switches on/off remotely.
+- **Smart light control**: Control brightness and on/off state of Redgtech lights.
+- **Real-time status**: See the current state of your devices in real time.
+- **Automation support**: Use Redgtech devices in Home Assistant automations.
+- **Cloud connectivity**: Access your devices from anywhere via Redgtech cloud.
 
-## Supported Devices
+## Supported devices
 
 | Device Type | Models | Features |
 |-------------|--------|----------|
 | Smart Switch | X1, X2, X3 | On/Off control, Status monitoring |
 | Smart Light | B1, B2, B3 | On/Off control, Brightness control |
 
-## Data Updates
+## Data updates
 
 The Redgtech integration uses a polling-based approach to keep device data synchronized:
 
-- **Update Interval**: Device states are updated every 60 seconds
-- **Authentication**: The integration automatically handles token renewal when needed
-- **Error Handling**: If authentication fails, the integration will trigger a reauthentication flow
-- **Retry Logic**: Temporary connection issues are handled with automatic retries
-- **Real-time Control**: Device commands (on/off, brightness) are sent immediately without waiting for the next update cycle
+- **Update interval**: Device states are updated every 60 seconds.
+- **Authentication**: The integration automatically handles token renewal when needed.
+- **Error handling**: If authentication fails, the integration will trigger a reauthentication flow.
+- **Retry logic**: Temporary connection issues are handled with automatic retries.
+- **Real-time control**: Device commands (on/off, brightness) are sent immediately without waiting for the next update cycle.
 
-### Data Flow
+### Data flow
 
-1. **Initial Setup**: When you first configure the integration, it authenticates with the Redgtech API
-2. **Token Management**: The integration stores an access token and automatically renews it when needed
-3. **Device Discovery**: All available devices are fetched from your Redgtech account
-4. **Periodic Updates**: Every 60 seconds, the integration polls the API for the latest device states
-5. **Command Execution**: When you control a device, the command is sent immediately to the API
-6. **State Synchronization**: Device states are updated in Home Assistant to reflect the current status
+1. **Initial setup**: When you first configure the integration, it authenticates with the Redgtech API.
+2. **Token management**: The integration stores an access token and automatically renews it when needed.
+3. **Device discovery**: All available devices are fetched from your Redgtech account.
+4. **Periodic updates**: Every 60 seconds, the integration polls the API for the latest device states.
+5. **Command execution**: When you control a device, the command is sent immediately to the API.
+6. **State synchronization**: Device states are updated in Home Assistant to reflect the current status.
 
-## Automation Examples
+## Automation examples
 
 Here are some automation examples you can use with your Redgtech devices:
 
@@ -154,57 +147,65 @@ automation:
         brightness: 255
 ```
 
-## Use Cases
+## Use cases
 
-### Smart Home Automation
-- **Morning Routine**: Automatically turn on bedroom lights when your alarm goes off
-- **Evening Routine**: Gradually dim lights as bedtime approaches
-- **Away Mode**: Turn off all Redgtech devices when you leave home
-- **Security**: Turn on lights when motion is detected in specific areas
+### Smart home automation
+- **Morning routine**: Automatically turn on bedroom lights when your alarm goes off.
+- **Evening routine**: Gradually dim lights as bedtime approaches.
+- **Away mode**: Turn off all Redgtech devices when you leave home.
+- **Security**: Turn on lights when motion is detected in specific areas.
 
-### Energy Management
-- **Scheduled Control**: Set timers to automatically turn off devices after a certain period
-- **Occupancy-Based Control**: Turn devices on/off based on room occupancy
-- **Sunset/Sunrise**: Sync device behavior with natural light patterns
+### Energy management
+- **Scheduled control**: Set timers to automatically turn off devices after a certain period.
+- **Occupancy-based control**: Turn devices on/off based on room occupancy.
+- **Sunset/sunrise**: Sync device behavior with natural light patterns.
 
 ### Convenience
-- **Voice Control**: Use voice assistants to control Redgtech devices
-- **Remote Access**: Control devices from anywhere using the Home Assistant mobile app
-- **Scene Control**: Create scenes that control multiple Redgtech devices simultaneously
+- **Voice control**: Use voice assistants to control Redgtech devices.
+- **Remote access**: Control devices from anywhere using the Home Assistant mobile app.
+- **Scene control**: Create scenes that control multiple Redgtech devices simultaneously.
 
-## Known Limitations
+## Known limitations
 
-- **Cloud Dependency**: The integration requires internet connectivity to function
-- **Polling Interval**: Device states are updated every 60 seconds, not in real-time
-- **Single Account**: Each integration instance can only connect to one Redgtech account
-- **No Local Control**: Devices cannot be controlled locally without internet connection
-- **API Rate Limits**: The Redgtech API has rate limits that may affect frequent updates
+- **Cloud dependency**: The integration requires internet connectivity to function.
+- **Polling interval**: Device states are updated every 60 seconds, not in real time.
+- **Single account**: Each integration instance can only connect to one Redgtech account.
+- **No local control**: Devices cannot be controlled locally without internet connection.
+- **API rate limits**: The Redgtech API has rate limits that may affect frequent updates.
 
 ## Troubleshooting
 
-### Connection Issues
+### Connection issues
 
 If you're experiencing connection issues:
 
-1. Verify your internet connection
-2. Check your Redgtech account credentials
-3. Ensure your Redgtech devices are online in the Redgtech app
-4. Restart Home Assistant if the issue persists
+1. Verify your internet connection.
+2. Check your Redgtech account credentials.
+3. Ensure your Redgtech devices are online in the Redgtech app.
+4. Restart Home Assistant if the issue persists.
 
-### Device Not Appearing
+### Device not appearing
 
 If your devices don't appear after setup:
 
-1. Check that your devices are properly configured in the Redgtech app
-2. Ensure your Redgtech account has access to the devices
-3. Try removing and re-adding the integration
+1. Check that your devices are properly configured in the Redgtech app.
+2. Ensure your Redgtech account has access to the devices.
+3. Try removing and re-adding the integration.
 
-### Authentication Errors
+### Authentication errors
 
 If you receive authentication errors:
 
-1. Verify your email and password are correct
-2. Check if your Redgtech account is active
-3. Try logging into the Redgtech app to confirm your credentials
+1. Verify your email and password are correct.
+2. Check if your Redgtech account is active.
+3. Try logging into the Redgtech app to confirm your credentials.
 
 For additional support, please contact [Redgtech support](mailto:contato.redgtech.dev@gmail.com) directly.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, go to the Redgtech app and remove the Home Assistant integration from there as well.
