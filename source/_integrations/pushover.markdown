@@ -54,7 +54,7 @@ To use a specific Pushover device, set it using `target`. If one of the entered 
       sound: pianobar
       priority: 0
 ```
-Using the `ttl` parameter, messages may be set to delete automatically after a certain period of time, which can be useful for messages that at some point outlive their usefulness. The `ttl` parameter specifies a Time to Live in seconds. In the following example, the message will self-delete from the targeted device(s) after 6 hours.
+Using the `ttl` parameter, messages may be set to delete automatically after a certain period of time. This is useful for messages that, at some point, outlive their usefulness. The `ttl` parameter specifies a time-to-live in seconds. In the following example, the message will self-delete from the targeted device(s) after 6 hours.
 
 ```yaml
   - service: notify.pushover
