@@ -55,23 +55,27 @@ The **Z-Wave** {% term integration %} allows you to control a Z-Wave network fro
 
 ## Getting started
 
-This sections shows you how to set up Z-Wave and how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
+This sections shows you how to set up a Z-Wave network, how to add and remove device. For an introduction to some of the Z-Wave terms, check out the [terminology section](#z-wave-terminology).
 
-### Prerequisites
+A Z-Wave network in Home Assistant includes the following elements:
 
-To run a Z-Wave network, you need the following elements:
+- a Z-Wave adapter (for example, [Home Assistant Connect ZWA-2](/connect/zwa-2))
+- a Z-Wave server (for example, the **Z-Wave JS** add-on)
+- this Z-Wave integration
+- Z-Wave end devices
 
-- A [supported Z-Wave adapter](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). First-time user? For recommendations on what to buy, go [here](#which-z-wave-adapter-should-i-buy).
-- A running [Z-Wave JS server](#setting-up-z-wave).
-- An installed Z-Wave integration in Home Assistant.
+### Setting up Z-Wave in Home Assistant
 
-### Setting up Z-Wave
-
-The easiest way to get started with Z-Wave is by using the built-in Z-Wave JS add-on in Home Assistant.
+This section shows how to set up Z-Wave using the **Z-Wave JS** add-on in Home Assistant.
 
 For other ways to set up a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
 
-Follow these steps:
+#### Prerequisites
+
+- A [supported Z-Wave adapter](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). 
+  - First-time user? For recommendations, refer to the [what-to-buy-section](#which-z-wave-adapter-should-i-buy).
+
+#### To set up Z-Wave
 
 1. Open the Home Assistant user interface.
 2. Plug the Z-Wave adapter into the device running Home Assistant.
@@ -210,7 +214,7 @@ If you are using the Z-Wave JS add-on, Home Assistant automatically changes the 
 
 - Administrator rights in Home Assistant
 - All your Z-Wave devices must be specified for that region
-- Note: this procedure only applies if your adapter is [set up using the Z-Wave JS add-on](#setting-up-a-z-wave-js-server)
+- Note: this procedure only applies if your adapter is [set up using the Z-Wave JS add-on](#to-set-up-z-wave)
 
 ### To override the radio frequency region of your Z-Wave adapter
 
