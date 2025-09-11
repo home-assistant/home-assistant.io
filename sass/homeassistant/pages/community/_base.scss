@@ -48,6 +48,10 @@
     }
 }
 
+section {
+    padding: var(--section-spacing-y) 0;
+}
+
 main#page-community {
 
     h1,
@@ -80,6 +84,10 @@ main#page-community {
         @include h6;
     }
 
+    .small {
+        @include small;
+    }
+
     .big {
         @include big;
     }
@@ -94,10 +102,6 @@ main#page-community {
         &:last-child {
             margin-bottom: 0;
         }
-    }
-
-    section {
-        padding: var(--section-spacing-y) 0;
     }
 
     figure {

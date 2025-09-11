@@ -10,11 +10,13 @@
             left: 0;
             top: 0;
             right: 0;
-            transform: rotate(0) scale(0.75);
+            transform: rotate(0) scale(0.8);
+            transition-duration: 0s;
+            transition-delay: 0s;
 
             &.large {
                 opacity: 1;
-                transform: translateY(40%);
+            
             }
         }
     }
@@ -27,11 +29,12 @@
         gap: 8px;
         transition-property: transform, opacity, top, left, right;
         transition-duration: .8s;
+        transition-delay: .25s;
         transition-timing-function: cubic-bezier(0.2, 1, 0.5, 1);
 
-        @for $i from 0 through 3 {
-            &:nth-child(#{$i + 1}) {
-                transition-delay: #{$i * 0.05}s;
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                transition-delay: #{0.25 + ($i * 0.05)}s;
             }
         }
 

@@ -51,7 +51,7 @@
         }
 
         .stat-label {
-            @include small-p;
+            @include small;
 
             max-width: 140px;
             text-wrap: balance;

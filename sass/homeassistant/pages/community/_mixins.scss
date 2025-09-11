@@ -70,7 +70,7 @@
     line-height: var(--typography-paragraph-line-height);
 }
 
-@mixin small-p{
+@mixin small{
     font-size: var(--typography-small-paragraph-font-size, var(--typography-paragraph-font-size));
     font-weight: var(--typography-small-paragraph-font-weight, var(--typography-paragraph-font-weight));
     line-height: var(--typography-small-paragraph-line-height, var(--typography-paragraph-line-height));
