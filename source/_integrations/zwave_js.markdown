@@ -55,21 +55,21 @@ The **Z-Wave** {% term integration %} allows you to control a Z-Wave network fro
 
 ## Getting started
 
-This sections shows you how to set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
+This sections shows you how to set up Z-Wave and how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
 
 ### Prerequisites
 
 To run a Z-Wave network, you need the following elements:
 
 - A [supported Z-Wave adapter](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). First-time user? For recommendations on what to buy, go [here](#which-z-wave-adapter-should-i-buy).
-- A running [Z-Wave JS server](#setting-up-a-z-wave-js-server).
+- A running [Z-Wave JS server](#setting-up-z-wave).
 - An installed Z-Wave integration in Home Assistant.
 
-### Setting up a Z-Wave JS server
+### Setting up Z-Wave
 
-If you are running {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %}, the easiest way to get started is by using the built-in Z-Wave JS add-on in Home Assistant.
+The easiest way to get started with Z-Wave is by using the built-in Z-Wave JS add-on in Home Assistant.
 
-For other ways to setup a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
+For other ways to set up a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
 
 Follow these steps:
 
@@ -79,21 +79,7 @@ Follow these steps:
    - In the dialog, select **Recommended installation**.
      - This will install the Z-Wave JS add-on on the Home Assistant server.
    - Add the device to an {% term area %} and select **Finish**.
-   - **Troubleshooting**: If your adapter is not recognized, follow these steps:
-
-{% details "Manual setup steps" %}
-Use this My button:
-
-{% my config_flow_start badge domain="zwave_js" %}, or follow these steps:
-
-- Browse to your Home Assistant instance.
-- Go to **{% my integrations title="Settings > Devices & services" %}**.
-- In the bottom right, select the
-  **{% my config_flow_start icon domain="zwave_js" %}** button.
-- From the list, select **Z-Wave**.
-- Follow the instructions on screen to complete the setup.
-
-{% enddetails %}
+   - **Troubleshooting**: If your adapter is not recognized, follow [these steps](#my-z-wave-adapter-isnt-recognized-automatically-during-setup).
 
 3. Wait for the installation to complete.
 4. Depending on your Home Assistant version, you may be prompted for network security keys.
@@ -1118,6 +1104,19 @@ _Many_ reported issues result from RF interference caused by the system's USB po
 After ensuring you are using an extension cable, rebuild network routes.
 
 The combination of these two steps corrects a large number of reported difficulties.
+
+### My Z-Wave adapter isn't recognized automatically during setup
+
+If your Z-Wave adapter doesn't show up in the **Discovered** section automatically, try adding it manually:
+
+1. Check the hardware:
+   - Make sure the adapter is powered on.
+   - Make sure the cable you are using supports data, not power only.
+2. Go to **{% my integrations title="Settings > Devices & services" %}**.
+3. In the bottom right, select the
+  **{% my config_flow_start icon domain="zwave_js" %}** button and select **Z-Wave**.
+4. Follow the instructions on screen to complete the setup.
+5. If it is still not discovered, [check for interference](#im-having-a-problem-what-to-do-first).
 
 ### I have an Aeotec Gen5 adapter, and it isn't detected on my Raspberry Pi&nbsp;4?
 
